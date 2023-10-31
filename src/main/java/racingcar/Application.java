@@ -37,6 +37,10 @@ class Car {
         return position;
     }
 
+    public boolean isAtPosition(int position) {
+        return this.position == position;
+    }
+
     public String getName(){
         return name;
     }
@@ -88,7 +92,8 @@ class Race {
     private List<String> getWinners(){
         int maxPosition = carList.stream().mapToInt(Car::getPosition).max().orElse(0);
 
-        return carList.stream().filter(car->car.getPosition()==maxPosition)
+        return carList.stream()
+                .filter(car->car.isAtPosition(maxPosition))
                 .map(Car::getName)
                 .toList();
     }
