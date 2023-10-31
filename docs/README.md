@@ -54,11 +54,11 @@
             - [x] 우승자 쉼표로 구분
 
     - ErrorCheck
-        - [ ] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
-            - [ ] 예외 발생시 `IllegalArgumentException` 에러 적용후 종료
-            - [ ] 입력시 요구사항을 지키는 입력인지 체크하는 기능
+        - [x] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
+            - [x] 예외 발생시 `IllegalArgumentException` 에러 적용후 종료
+            - [x] 입력시 요구사항을 지키는 입력인지 체크하는 기능
               - [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. - carNameCheck()
-              - [ ] 몇번의 이동을 할것인가 입력
+              - [x] 몇번의 이동을 할것인가 입력(올바른 정수 입력 확인) - inputNumberCheck()
 
 ### **문서**
 
