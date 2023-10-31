@@ -96,6 +96,7 @@ public class InputView {
 
 
     private String getInput() {
+
         return Console.readLine();
     }
 }
