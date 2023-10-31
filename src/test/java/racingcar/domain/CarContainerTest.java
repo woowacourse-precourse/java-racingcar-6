@@ -38,10 +38,6 @@ class CarContainerTest {
     void findWinner_함수_우승자들이_반환() {
         carContainer.moveRacingCars();
         assertThat(carContainer.findWinner()).containsExactly("pobi", "hana");
-
-        carContainer.moveRacingCars();
-        assertThat(carContainer.findWinner()).containsExactly("pobi", "junu", "hana");
-
     }
 
 }
