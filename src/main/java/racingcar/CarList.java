@@ -60,4 +60,12 @@ public class CarList {
         return car.getMotionState();
     }
 
+    public String getName(int index) {
+        return carList.get(index).getName();
+    }
+
+    public int getPosition(int index) {
+        return carList.get(index).getPosition();
+    }
+
 }

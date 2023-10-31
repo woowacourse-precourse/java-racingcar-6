@@ -14,8 +14,10 @@ public class RacingGame {
         int maxRaceTime = GameInput.raceTime();
         CarList racingCarList = new CarList(carsName);
 
+        System.out.println("실행 결과");
         for (int raceTime = 0; raceTime < maxRaceTime; raceTime++) {
             oneTimeRace(racingCarList);
+            printRaceProgress(racingCarList);
         }
     }
 
@@ -44,6 +46,18 @@ public class RacingGame {
                 racingCarList.plusOnePosition(index); // motionState is Go
             }
         }
+        return;
+    }
+
+    private void printRaceProgress(CarList racingCarList) {
+        for (int carIndex = 0; carIndex < racingCarList.getSize(); carIndex++) {
+            System.out.print(racingCarList.getName(carIndex) + " : ");
+            for (int carPosition = 0; carPosition < racingCarList.getPosition(carIndex); carPosition++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
         return;
     }
 

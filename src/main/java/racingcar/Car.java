@@ -23,4 +23,12 @@ public class Car {
     public int getMotionState() {
         return motionState;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return posotion;
+    }
 }
