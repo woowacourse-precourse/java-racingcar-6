@@ -44,4 +44,9 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(distance);
+    }
 }
