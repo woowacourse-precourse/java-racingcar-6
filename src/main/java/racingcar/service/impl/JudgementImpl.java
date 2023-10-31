@@ -1,5 +1,7 @@
 package racingcar.service.impl;
 
+import static racingcar.AppConfig.MINIMUM_GO_NUMBER;
+
 import java.util.ArrayList;
 import racingcar.domain.Car;
 import racingcar.domain.RacingBoard;
@@ -26,10 +28,18 @@ public class JudgementImpl implements Judgement {
         }
         for (int i = 0; i < racingBoard.view().size(); i++) {
             Car car = racingBoard.view().get(i);
-            if(maxLocationNum == car.getLocation()) {
+            if (maxLocationNum == car.getLocation()) {
                 resultArrayList.add(resultArrayList.size(), car.getName());
             }
         }
         return resultArrayList;
+    }
+
+    @Override
+    public boolean checkGoCondition(int diceResult) {
+        if (diceResult >= MINIMUM_GO_NUMBER) {
+            return true;
+        }
+        return false;
     }
 }
