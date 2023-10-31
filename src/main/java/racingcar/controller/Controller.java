@@ -10,4 +10,13 @@ public class Controller {
         String input = Console.readLine();
         return checkValidateCarName(input);
     }
+
+    private String checkValidateCarName(String input){
+        try{
+
+        }
+        catch (IllegalArgumentException e){
+
+        }
+    }
 }
