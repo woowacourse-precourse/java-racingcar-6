@@ -14,12 +14,20 @@ import org.junit.jupiter.api.Test;
 class RacingGameViewTest {
     RacingGameView racingGameView = new RacingGameView();
     @Test
-    void showCarNameInputMessage() {
+    void showCarNameInputMessage_ShowMessage_SameMessage() {
+        // 콘솔 출력을 캡처하기 위한 임시 출력 스트림 설정
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        String expectedOutput = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
+        racingGameView.showCarNameInputMessage();
+
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+
     }
 
     @Test
     void printFinalWinners_ShowWinners_SameResult() {
-        RacingGameView racingGameView = new RacingGameView();
         List<String> winnerList = Arrays.asList("Car1", "Car2", "Car3");
 
         // 콘솔 출력을 캡처하기 위한 임시 출력 스트림 설정
