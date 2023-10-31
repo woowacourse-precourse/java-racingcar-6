@@ -6,12 +6,12 @@ import java.util.Objects;
 // TODO: public 메서드 단위 테스트
 // TODO: getter 없애도록 고민해볼 것
 public class Car {
-    public final String name;
+    public final CarName name;
     private final Engine engine;
     private int totalMoveCount;
 
     public Car(String name, Engine engine) {
-        this.name = name;
+        this.name = new CarName(name);
         this.engine = engine;
     }
 
@@ -35,7 +35,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     @Override
