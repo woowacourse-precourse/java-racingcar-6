@@ -21,7 +21,7 @@ public class Utils {
     }
 
     public void race(String input) {
-        int num = Integer.parseInt(input.substring(0,input.length()));
+        int num = Integer.parseInt(input.substring(0, input.length()));
         System.out.println("실행 결과");
         for (int i = 0; i < num; i++) {
             for (Car car : cars) {
@@ -40,11 +40,11 @@ public class Utils {
         System.out.println();
     }
 
-    public void finalWinner(){
+    public void finalWinner() {
         int winnerMove = 0;
         List<String> winners = new ArrayList<>();
-        for(Car car : cars){
-            if(car.getMove() > winnerMove){
+        for (Car car : cars) {
+            if (car.getMove() > winnerMove) {
                 winnerMove = car.getMove();
                 winners.clear();
                 winners.add(car.getName());
@@ -53,7 +53,7 @@ public class Utils {
             }
         }
 
-        System.out.println("최종 우승자 : " + String.join(", ",winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
 }
