@@ -23,6 +23,7 @@ public class CarGameController {
         OutputView.printRequestCarNameMessage();
         String input = InputView.readCarName();
         processInput(input);
+        OutputView.printRequestTryNumberMessage();
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         printResult(tryNumber);
     }
@@ -32,7 +33,6 @@ public class CarGameController {
         carNames = new CarNames(game.splitCarName(input));
         validateNameLength(carNames.getNames());
         createCars(carNames.getNames());
-        OutputView.printRequestTryNumberMessage();
     }
 
     public void printResult(int tryNumber) {
