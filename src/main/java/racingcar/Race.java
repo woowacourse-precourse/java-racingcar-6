@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.validation.ParticipatingCarsValidation;
@@ -23,5 +24,9 @@ public class Race {
 
     public void registerMoveCounts(int moveCounts) {
         this.moveCounts = moveCounts;
+    }
+
+    private int generateFuel() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
