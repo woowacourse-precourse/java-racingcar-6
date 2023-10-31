@@ -1,18 +1,26 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.model.Car;
+import racingcar.view.GameUI;
+
 public class GameManager {
     private int roundCount;
+    private List<Car> cars;
 
     public GameManager() {
-        // 생성자
     }
 
-    private void runGame() {
+    public void runGame() {
         // 게임 전체적인 진행관리
     }
 
     private void setupGame() {
-        // 시작시 자동차이름, 실행횟수를 설정
+        List<String> carsName = GameUI.promptForCarNamesAndReturnList();
+        for (String name : carsName) {
+            this.cars.add(new Car(name));
+        }
+        this.roundCount = GameUI.promptForNumberOfRoundsAndReturnInteger();
     }
 
     private void playGame() {
