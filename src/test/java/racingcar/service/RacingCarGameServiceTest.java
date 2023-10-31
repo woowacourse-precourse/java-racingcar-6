@@ -27,42 +27,42 @@ public class RacingCarGameServiceTest {
     void should_MoveForward_When_FourOrMore() {
         RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
         when(randomNumberGenerator.getRandomNumber()).thenReturn(3, 4, 5);
-        List<String> carNames = List.of("carName1", "carName2", "carName3");
-        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>(Map.of("carName1", 0, "carName2", 1, "carName3", 2));
+        List<String> carNames = List.of("car1", "car2", "car3");
+        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>(Map.of("car1", 0, "car2", 1, "car3", 2));
 
         racingCarGameService.playSingleGame(randomNumberGenerator, carNames, racingProgressStatus);
 
-        assertThat(racingProgressStatus.get("carName1")).isEqualTo(0);
-        assertThat(racingProgressStatus.get("carName2")).isEqualTo(2);
-        assertThat(racingProgressStatus.get("carName3")).isEqualTo(3);
+        assertThat(racingProgressStatus.get("car1")).isEqualTo(0);
+        assertThat(racingProgressStatus.get("car2")).isEqualTo(2);
+        assertThat(racingProgressStatus.get("car3")).isEqualTo(3);
     }
 
     @Test
     @DisplayName("가장 많이 이동한 자동차를 우승자로 뽑는다.")
     void getOnlyWinner() {
         LinkedHashMap<String, Integer> finalResult = new LinkedHashMap<>();
-        finalResult.put("park", 2);
-        finalResult.put("yong", 4);
-        finalResult.put("hyeon", 3);
+        finalResult.put("car1", 2);
+        finalResult.put("car2", 4);
+        finalResult.put("car3", 3);
 
         List<String> winners = racingCarGameService.getWinners(finalResult);
 
         assertThat(winners.size()).isEqualTo(1);
-        assertThat(winners.get(0)).isEqualTo("yong");
+        assertThat(winners.get(0)).isEqualTo("car2");
     }
 
     @Test
     @DisplayName("가장 많이 이동한 자동차를 우승자로 뽑되, 동점자가 있다면, 동점자들 모두를 우승자로 뽑는다.")
     void getWinners() {
         LinkedHashMap<String, Integer> finalResult = new LinkedHashMap<>();
-        finalResult.put("park", 2);
-        finalResult.put("yong", 4);
-        finalResult.put("hyeon", 4);
+        finalResult.put("car1", 2);
+        finalResult.put("car2", 4);
+        finalResult.put("car3", 4);
 
         List<String> winners = racingCarGameService.getWinners(finalResult);
 
         assertThat(winners.size()).isEqualTo(2);
-        assertThat(winners.get(0)).isEqualTo("yong");
-        assertThat(winners.get(1)).isEqualTo("hyeon");
+        assertThat(winners.get(0)).isEqualTo("car2");
+        assertThat(winners.get(1)).isEqualTo("car3");
     }
 }

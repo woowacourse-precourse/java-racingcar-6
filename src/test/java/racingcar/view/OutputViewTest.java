@@ -1,13 +1,14 @@
 package racingcar.view;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.LinkedHashMap;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.LinkedHashMap;
 
 public class OutputViewTest {
 
@@ -32,13 +33,13 @@ public class OutputViewTest {
     void printExecutionResult() {
         OutputView outputView = new OutputView();
         LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
-        racingProgressStatus.put("park", 3);
-        racingProgressStatus.put("yong", 1);
-        racingProgressStatus.put("hyeon", 2);
+        racingProgressStatus.put("car1", 3);
+        racingProgressStatus.put("car2", 1);
+        racingProgressStatus.put("car3", 2);
         outputView.printExecutionResult(racingProgressStatus);
 
         String[] output = outputStream.toString().split(System.lineSeparator());
 
-        Assertions.assertThat(output).containsExactly("park : ---\nyong : -\nhyeon : --\n");
+        Assertions.assertThat(output).containsExactly("car1 : ---\ncar2 : -\ncar3 : --\n");
     }
 }
