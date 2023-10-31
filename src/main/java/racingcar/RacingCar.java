@@ -28,8 +28,12 @@ public final class RacingCar {
                 .collect(Collectors.joining());
     }
 
+    public int pickRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) > 3) {
+        if (pickRandomNumber() > 3) {
             this.distance.add("-");
         }
         System.out.println(getNameAndDistance());
