@@ -5,7 +5,7 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.utils.FixedNumberGenerator;
+import racingcar.utils.RandomNumberGenerator;
 
 class CarsTest {
 
@@ -60,12 +60,15 @@ class CarsTest {
         }
         Cars cars = new Cars(carList);
 
-        // when
-        MovingResult movingResult = cars.handleCarMovement(new FixedNumberGenerator(6));
-
-        // then
-        Assertions.assertThat(movingResult.carNames()).isEqualTo(List.of("car1", "car2", "car3"));
-        Assertions.assertThat(movingResult.forwardCounts()).isEqualTo(List.of(1, 1, 1));
+        // when, then
+        camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                () -> {
+                    MovingResult movingResult = cars.handleCarMovement(new RandomNumberGenerator());
+                    Assertions.assertThat(movingResult.carNames()).isEqualTo(List.of("car1", "car2", "car3"));
+                    Assertions.assertThat(movingResult.forwardCounts()).isEqualTo(List.of(1, 0, 1));
+                },
+                5, 2, 5
+        );
     }
 
     @DisplayName("가장 많이 전진한 자동차가 1대라면, 가장 많이 전진한 자동차 목록을 조회했을 때 그 목록의 크기는 1이다.")
