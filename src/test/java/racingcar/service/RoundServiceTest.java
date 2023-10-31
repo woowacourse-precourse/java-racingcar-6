@@ -1,4 +1,4 @@
-package racingcar.implementtest;
+package racingcar.service;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.service.RoundService;
 import racingcar.util.RandomNumberImpl;
 
 public class RoundServiceTest {
@@ -18,7 +17,7 @@ public class RoundServiceTest {
     private static final int STOP = 3;
 
     @Test
-    void 자동차_이동_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void 랜덤값이_4이상일떄_이동조건_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         RoundService roundService = new RoundService((start, end) -> MOVING_FORWARD);
 
         Method method = RoundService.class.getDeclaredMethod("randomMoveSelect");
@@ -29,7 +28,7 @@ public class RoundServiceTest {
     }
 
     @Test
-    void 자동차_멈춤_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void 랜덤값이_3이하일떄_멈춤조건_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         RoundService roundService = new RoundService((start, end) -> STOP);
 
         Method method = RoundService.class.getDeclaredMethod("randomMoveSelect");
@@ -41,7 +40,7 @@ public class RoundServiceTest {
 
 
     @Test
-    void 자동차_이동_우테코테스트코드() throws NoSuchMethodException {
+    void 랜덤값이_4이상일떄_이동조건_테스트_우아한테스트_사용() throws NoSuchMethodException {
         RoundService roundService = new RoundService(new RandomNumberImpl());
 
         Method method = RoundService.class.getDeclaredMethod("randomMoveSelect");
@@ -57,7 +56,7 @@ public class RoundServiceTest {
     }
 
     @Test
-    void 자동차_멈춤_우테코테스트코드() throws NoSuchMethodException {
+    void 랜덤값이_3이하일떄_멈춤조건_테스트_우아한테스트_사용() throws NoSuchMethodException {
         RoundService roundService = new RoundService(new RandomNumberImpl());
 
         Method method = RoundService.class.getDeclaredMethod("randomMoveSelect");

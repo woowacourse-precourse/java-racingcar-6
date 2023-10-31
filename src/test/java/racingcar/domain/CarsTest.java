@@ -1,12 +1,10 @@
-package racingcar.implementtest;
+package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
 
 public class CarsTest {
     private Cars cars;

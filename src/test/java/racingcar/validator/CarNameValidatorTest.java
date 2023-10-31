@@ -1,8 +1,7 @@
-package racingcar.implementtest;
+package racingcar.validator;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.validator.CarNameValidator;
 
 public class CarNameValidatorTest {
 

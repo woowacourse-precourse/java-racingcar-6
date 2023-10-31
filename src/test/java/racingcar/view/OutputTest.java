@@ -1,4 +1,4 @@
-package racingcar.implementtest;
+package racingcar.view;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -9,7 +9,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.view.Output;
 
 public class OutputTest {
     private Output output;

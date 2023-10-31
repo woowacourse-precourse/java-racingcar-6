@@ -1,8 +1,7 @@
-package racingcar.implementtest;
+package racingcar.validator;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.validator.CarNameSplitValidator;
 
 public class CarNameSplitValidatorTest {
     @Test
@@ -21,7 +20,7 @@ public class CarNameSplitValidatorTest {
     }
 
     @Test
-    void 무입력() {
+    void 아무것도_입력되지_않았을때() {
         Assertions.assertThatThrownBy(() -> CarNameSplitValidator.validate(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("빈칸이 입력되었습니다.");
