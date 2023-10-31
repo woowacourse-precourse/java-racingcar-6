@@ -25,6 +25,10 @@ public class Exception {
 		if (LengthSize > 5) {
 			throw new IllegalArgumentException("5자 이하로 입력하십시오.");
 		}
+		
+		if (LengthSize == 0) {
+			throw new IllegalArgumentException("0자 이상 입력하십시오.");
+		}
 	}
 
 	private Integer CarName_Max_LengthSize(List<String> InputName) {
