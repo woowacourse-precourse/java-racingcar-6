@@ -19,16 +19,6 @@ public class RacingGame {
         play();
     }
 
-    public void play() {
-        OutputView.exeutionResult();
-        for (int i = 0; i < attemptCount; i++) {
-            Round.play(carList);
-        }
-
-        decideWinner();
-        OutputView.finalWinner(finalWinners);
-    }
-
     private void registerCars() {
         String carNames = InputView.carNames();
         String[] names = checkIncludeSpace(carNames);
@@ -44,7 +34,7 @@ public class RacingGame {
 
         return names;
     }
-
+    
     private void addCar(String name) {
         Car car = new Car(name);
         carList.add(car);
@@ -58,6 +48,16 @@ public class RacingGame {
 
     private void setAttemptCount(int attemptCount) {
         this.attemptCount = attemptCount;
+    }
+
+    public void play() {
+        OutputView.exeutionResult();
+        for (int i = 0; i < attemptCount; i++) {
+            Round.play(carList);
+        }
+
+        decideWinner();
+        OutputView.finalWinner(finalWinners);
     }
 
     private void decideWinner() {
