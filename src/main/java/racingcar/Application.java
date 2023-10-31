@@ -36,7 +36,11 @@ public class Application {
         return carNameList;
     }
 
-
+    public static void checkInputValue(List<String> splitList){
+        if (splitList.size() <= 1){
+            throw new IllegalArgumentException();
+        }
+    }
 
 
 }
