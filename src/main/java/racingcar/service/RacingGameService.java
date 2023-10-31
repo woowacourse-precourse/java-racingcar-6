@@ -12,7 +12,6 @@ public class RacingGameService {
         System.out.println();
         System.out.println("실행 결과");
 
-
         RacingCarGame racingCarGame = RacingCarGame.create(carNames, tryNum);
         racingCarGame.play();
 
