@@ -7,7 +7,7 @@ public class RacingRound {
 
     public RacingRound(String input) {
         RacingRoundValidator.validateInputNotEmpty(input);
-        RacingRoundValidator.validateInteger(input);
+        RacingRoundValidator.validateIsParsableToInt(input);
         int roundNumber = Integer.parseInt(input);
         RacingRoundValidator.validateInputRange(roundNumber);
         this.round = roundNumber;
