@@ -13,7 +13,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        this.cars =  cars;
+        this.cars = cars;
     }
 
     public void moveOrStop() {
