@@ -1,9 +1,6 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.entry;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -14,7 +11,6 @@ import org.mockito.Mockito;
 import racingcar.view.Input;
 
 public class GameManagerTest {
-
     GameManager gameManager = new GameManager();
 
     @Test
@@ -26,9 +22,10 @@ public class GameManagerTest {
         when(input.getCarNameList()).thenReturn(Arrays.asList("pobi", "jun", "woni"));
         List<Car> carListForTest = gameManager.carSetting();
 
-        assertTrue(carListForTest.contains(new Car("pobi", 0)));
-        assertTrue(carListForTest.contains(new Car("jun", 0)));
-        assertTrue(carListForTest.contains(new Car("woni", 0)));
+        assertThat(carListForTest)
+                .contains(new Car("pobi", 0)
+                        , new Car("jun", 0)
+                        , new Car("woni", 0));
     }
 
     @Test
@@ -41,9 +38,7 @@ public class GameManagerTest {
 
         List<String> winnerListForTest = gameManager.checkWinner(carListForTest);
 
-        assertEquals(2, winnerListForTest.size());
-        assertEquals("pobi", winnerListForTest.get(0));
-        assertEquals("woni", winnerListForTest.get(1));
+        assertThat(winnerListForTest).contains("pobi", "woni");
     }
 
 }
