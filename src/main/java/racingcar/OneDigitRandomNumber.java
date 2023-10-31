@@ -2,16 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Random;
-
-public class Number {
+public class OneDigitRandomNumber {
 
     private Integer num;
 
-    public Integer createOneDigitNumber(){
-
+    public OneDigitRandomNumber(){
         this.num = Randoms.pickNumberInRange(0,9);
-        return num;
-
     }
 }
