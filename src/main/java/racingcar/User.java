@@ -14,10 +14,10 @@ public class User {
         Verify.checkDuplicateCarName(splitCarNameList);
         Verify.checkEmptyCarName(splitCarNameList);
         Verify.checkCorrectLengthCarName(splitCarNameList);
-        generateCarsWithNameAndQuantity(splitCarNameList);
+        generateCars(splitCarNameList);
     }
 
-    public void generateCarsWithNameAndQuantity(String[] splitCarNameList){
+    public void generateCars(String[] splitCarNameList){
         int carCount = splitCarNameList.length;
         carList = new Car[carCount];
         for (int i = 0; i < carList.length; i++) {
@@ -31,7 +31,7 @@ public class User {
         playCount = Integer.parseInt(getPlayCount);
     }
 
-    public int getPlayNum() {
+    public int getPlayCount() {
         return playCount;
     }
 

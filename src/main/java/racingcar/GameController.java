@@ -4,7 +4,7 @@ public class GameController {
         private final GameService gameService = new GameService();
         public void run(){
             setGame();
-            play();
+            playGame();
             printWinner();
         }
 
@@ -12,7 +12,7 @@ public class GameController {
             gameService.initializeGameParameters();
         }
 
-        public void play() {
+        public void playGame() {
             gameService.startGame();
         }
         public void printWinner(){

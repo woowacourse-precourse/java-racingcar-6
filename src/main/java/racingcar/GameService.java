@@ -13,7 +13,7 @@ public class GameService {
 
     public void startGame() {
         PrintView.printExecuteResultString();
-        for (int i = 0; i < playUser.getPlayNum(); i++) {
+        for (int i = 0; i < playUser.getPlayCount(); i++) {
             game.setForwordOrStay(playUser);
             game.printProgress(playUser);
         }
