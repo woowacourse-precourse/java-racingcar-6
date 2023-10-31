@@ -40,6 +40,11 @@ class Car {
     public String getName(){
         return name;
     }
+
+
+    public String displayPosition() {
+        return name +" : "+"-".repeat(position);
+    }
 }
 
 class Race {
@@ -72,7 +77,7 @@ class Race {
     }
 
     private void printCarPosition(Car car){
-        System.out.println(car.getName()+" : "+"-".repeat(car.getPosition()));
+        System.out.println(car.displayPosition());
     }
 
     public void printWinners(){
