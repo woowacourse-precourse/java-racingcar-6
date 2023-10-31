@@ -19,7 +19,7 @@ public class Car {
 
     public void startEngine() {
         int generatedNumber = randomNumberGenerator.generate();
-        if (generatedNumber > MOVEMENT_CONDITION) {
+        if (generatedNumber >= MOVEMENT_CONDITION) {
             position++;
         }
     }
