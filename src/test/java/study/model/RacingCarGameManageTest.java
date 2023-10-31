@@ -2,6 +2,7 @@ package study.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 import racingcar.model.RacingCarGameManage;
 
 import java.util.ArrayList;
@@ -13,15 +14,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingCarGameManageTest {
 
-    ArrayList<String> playerCarNameList = new ArrayList<>();
+    ArrayList<Car> playerCarNameList = new ArrayList<>();
     RacingCarGameManage racingCarGameManage = new RacingCarGameManage();
 
     @DisplayName("사용자 랜덤 숫자 생성")
     @Test
     void getPlayerRandomNumber() {
-        playerCarNameList.add("pobi");
-        playerCarNameList.add("jk");
-        playerCarNameList.add("woni");
+        playerCarNameList.add(new Car("pobi"));
+        playerCarNameList.add(new Car("jk"));
+        playerCarNameList.add(new Car("woni"));
 
         HashMap<String, Integer> playerRandomNumber
                 = racingCarGameManage.getPlayerRandomNumber(playerCarNameList);
@@ -39,9 +40,9 @@ class RacingCarGameManageTest {
         playerRandomNumber.put("jk", 5);
         playerRandomNumber.put("woni", 6);
 
-        ArrayList<String> winnerList = racingCarGameManage.getWinner(playerRandomNumber);
+        ArrayList<Car> winnerList = racingCarGameManage.getWinner(playerRandomNumber);
 
-        assertThat(winnerList.get(0)).isEqualTo("woni");
+        assertThat(winnerList.get(0).getName()).isEqualTo("woni");
         assertThat(winnerList.size()).isEqualTo(1);
     }
 
@@ -53,10 +54,10 @@ class RacingCarGameManageTest {
         playerRandomNumber.put("jk", 4);
         playerRandomNumber.put("woni", 3);
 
-        ArrayList<String> winnerList = racingCarGameManage.getWinner(playerRandomNumber);
+        ArrayList<Car> winnerList = racingCarGameManage.getWinner(playerRandomNumber);
 
-        assertThat(winnerList.get(0)).isEqualTo("jk");
-        assertThat(winnerList.get(1)).isEqualTo("pobi");
+        assertThat(winnerList.get(0).getName()).isEqualTo("jk");
+        assertThat(winnerList.get(1).getName()).isEqualTo("pobi");
         assertThat(winnerList.size()).isEqualTo(2);
     }
 }

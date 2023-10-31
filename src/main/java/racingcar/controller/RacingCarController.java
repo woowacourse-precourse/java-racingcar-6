@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.Car;
 import racingcar.model.PlayerInputManage;
 import racingcar.model.RacingCarGameManage;
 import racingcar.model.RacingCarStatus;
@@ -21,8 +22,8 @@ public class RacingCarController {
     private String carNameList;
     private String tryCount;
 
-    private ArrayList<String> playerCarNameList;
-    private ArrayList<String> winnerList;
+    private ArrayList<Car> playerCarNameList;
+    private ArrayList<Car> winnerList;
     private HashMap<String, Integer> playerRacingCarMap;
 
 
@@ -54,8 +55,8 @@ public class RacingCarController {
     }
 
     private void printResult() {
-        for(String carName : playerCarNameList) {
-            outputView.outputRacingCarGameStatus(carName, playerRacingCarMap.get(carName));
+        for(Car carName : playerCarNameList) {
+            outputView.outputRacingCarGameStatus(carName.getName(), playerRacingCarMap.get(carName.getName()));
         }
         outputView.outputEmptyLine();
     }

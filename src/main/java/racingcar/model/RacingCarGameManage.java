@@ -12,7 +12,7 @@ public class RacingCarGameManage {
     private final int MAX_RANGE = 9;
     private final int MOVE_MIN_RANGE = 4;
     private final HashMap<String, Integer> playerRacingCarMap;
-    private ArrayList<String> winnerList;
+    private ArrayList<Car> winnerList;
 
     public RacingCarGameManage() {
         this.playerRacingCarMap = new HashMap<>();
@@ -24,25 +24,25 @@ public class RacingCarGameManage {
     }
 
 
-    public HashMap<String, Integer> getPlayerRandomNumber(ArrayList<String> playerCarNameList) {
-        for(String carName : playerCarNameList) {
+    public HashMap<String, Integer> getPlayerRandomNumber(ArrayList<Car> playerCarNameList) {
+        for(Car carName : playerCarNameList) {
             int randomNumber =  getRandomNumber();
             if(randomNumber >= MOVE_MIN_RANGE) {
-                playerRacingCarMap.put(carName, playerRacingCarMap.getOrDefault(carName, 0) + 1);
+                playerRacingCarMap.put(carName.getName(), playerRacingCarMap.getOrDefault(carName.getName(), 0) + 1);
             }
 
             if(randomNumber < MOVE_MIN_RANGE) {
-                playerRacingCarMap.put(carName, playerRacingCarMap.getOrDefault(carName, 0));
+                playerRacingCarMap.put(carName.getName(), playerRacingCarMap.getOrDefault(carName.getName(), 0));
             }
         }
         return this.playerRacingCarMap;
     }
 
-    public ArrayList<String> getWinner(HashMap<String, Integer> playerRacingCarMap) {
+    public ArrayList<Car> getWinner(HashMap<String, Integer> playerRacingCarMap) {
         winnerList = new ArrayList<>();
         playerRacingCarMap.forEach((key, value) -> {
                     if(Objects.equals(value, playerRacingCarMap.values().stream().max(Integer::compare).get())) {
-                        winnerList.add(key);
+                        winnerList.add(new Car(key));
                     }
                 }
         );

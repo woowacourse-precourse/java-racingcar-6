@@ -18,7 +18,7 @@ public class PlayerInputManage {
     private static final String REGEX_INTEGER_ONLY = "^[\\d]$";
 
 
-    private static ArrayList<String> playerCarNameList;
+    private static ArrayList<Car> playerCarNameList;
 
     public PlayerInputManage(String CarNameInput, String playerTryCountInput) {
         CheckCountInput(playerTryCountInput);
@@ -31,29 +31,30 @@ public class PlayerInputManage {
     private void SetCarNameList(String carNameInput) {
         this.playerCarNameList = new ArrayList<>();
         for(String carName : carNameInput.split(Commas)) {
-            this.playerCarNameList.add(carName);
+            this.playerCarNameList.add(new Car(carName));
         }
     }
 
-    public static void CheckCarNameLength(ArrayList<String> playerCarNameList) {
-        for (String carName : playerCarNameList) {
-            if (carName.length() > MAX_CAR_NAME_LENGTH) {
+    public static void CheckCarNameLength(ArrayList<Car> playerCarNameList) {
+        for (Car carName : playerCarNameList) {
+            if (carName.getName().length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME_LENGTH);
             }
         }
     }
 
-    public static void CheckCarNameDuplication(ArrayList<String> playerCarNameList) {
-        Set<String> set = new HashSet<>(playerCarNameList);
+    public static void CheckCarNameDuplication(ArrayList<Car> playerCarNameList) {
+        Set<Car> set = new HashSet<>(playerCarNameList);
+
         if(set.size() != playerCarNameList.size()) {
             throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME_DUPLICATE);
         }
     }
 
 
-    public static void CheckCarName(ArrayList<String> playerCarNameList) {
-        for (String carName : playerCarNameList) {
-            if (!carName.matches(REGEX)) {
+    public static void CheckCarName(ArrayList<Car> playerCarNameList) {
+        for (Car carName : playerCarNameList) {
+            if (!carName.getName().matches(REGEX)) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME);
             }
         }
@@ -69,7 +70,7 @@ public class PlayerInputManage {
         }
     }
 
-    public static ArrayList<String> getPlayerCarNameList() {
+    public static ArrayList<Car> getPlayerCarNameList() {
         return playerCarNameList;
     }
 

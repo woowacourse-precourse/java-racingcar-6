@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 import java.util.ArrayList;
 
 public class OutputView {
@@ -20,11 +22,11 @@ public class OutputView {
         System.out.println();
     }
 
-    public void outputWinnerMessage(ArrayList<String> winnerList) {
+    public void outputWinnerMessage(ArrayList<Car> winnerList) {
         System.out.print(MESSAGE_OUTPUT_WINNER);
 
-        for(String winner : winnerList) {
-            System.out.print(winner);
+        for(Car winner : winnerList) {
+            System.out.print(winner.getName());
             if(winnerList.indexOf(winner) != winnerList.size() - 1) {
                 System.out.print(", ");
             }
