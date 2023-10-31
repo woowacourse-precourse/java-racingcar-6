@@ -8,6 +8,15 @@ import java.util.List;
 public class Game {
     User user = new User();
     LinkedHashMap<String, Integer> racingCar = user.carReset();
+    public void racingGame(){
+        int iterationNumber = user.stringToInteger();
+
+        for (int i = 0; i < iterationNumber; i++) {
+            printRacing(updateCarStats(racingCar));
+        }
+        printWinner(findWinner(racingCar));
+
+    }
     private int randomNumber(){
         return Randoms.pickNumberInRange(0, 9);
     }
