@@ -19,8 +19,17 @@ public class RacingCarService {
     private void createRacingCar() {
         System.out.println(START_GAME_MESSAGE);
         Arrays.stream(Console.readLine().split(","))
-                .forEach(e -> cars.add(new RacingCar(e)));
+                .forEach(e -> {
+                    nameValidation(e);
+                    cars.add(new RacingCar(e));
+                });
         lengthCheck();
+    }
+
+    private void nameValidation(String name) {
+        if (name.length() == 0) {
+            throw new IllegalArgumentException("한 글자 이상 입력해주세요.");
+        }
     }
 
     private void lengthCheck() {
