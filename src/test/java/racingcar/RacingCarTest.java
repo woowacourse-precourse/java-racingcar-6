@@ -42,10 +42,12 @@ public class RacingCarTest {
     }
 
     @Test
-    void 자동차_정보_저장_실패() {
-        List<String> carNames = List.of("jamiese", "risa", "jun");
-        assertThatThrownBy(() -> Cars.fromCarNames(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+    void 자동차_이름_예외_공백() {
+        List<String> blankCarNames = List.of("", " ", " , ", ",", ", ", " ,");
+        for (String blankCarName : blankCarNames) {
+            assertThatThrownBy(() -> Cars.fromCarNames(blankCarName))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
     }
 
     @Test

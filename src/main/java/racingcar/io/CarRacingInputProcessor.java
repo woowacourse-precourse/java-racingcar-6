@@ -1,12 +1,9 @@
 package racingcar.io;
 
-import static racingcar.constant.CarRacingConstant.CAR_NAME_SEPARATOR;
 import static racingcar.constant.CarRacingMessage.INPUT_CAR_NAMES_MESSAGE;
 import static racingcar.constant.CarRacingMessage.INPUT_TRY_COUNT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class CarRacingInputProcessor {
@@ -17,11 +14,9 @@ public class CarRacingInputProcessor {
     }
 
 
-    public List<String> readCarNames() {
+    public String readCarNames() {
         outputProcessor.println(INPUT_CAR_NAMES_MESSAGE);
-        return Arrays
-                .stream(readLine().split(CAR_NAME_SEPARATOR))
-                .toList();
+        return readLine();
     }
 
     public String readTryToMoveTurnCount() {

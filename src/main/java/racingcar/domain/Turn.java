@@ -14,7 +14,7 @@ public class Turn {
     }
 
     public static Turn fromTryCount(String count) {
-        validateTryCount(count);
+        validate(count);
         return new Turn(Integer.parseInt(count));
     }
 
@@ -23,7 +23,7 @@ public class Turn {
         return count;
     }
 
-    private static void validateTryCount(String tryToMoveCount) {
+    private static void validate(String tryToMoveCount) {
         validateTryCountFormat(tryToMoveCount);
     }
 
