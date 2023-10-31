@@ -32,7 +32,7 @@ public class Race {
 
     private static Map<String, String> raceResultsHMap = new LinkedHashMap<>();
 
-    public static Map<String, String> registerCars(List<String> carNamesArrayList){
+    public static Map<String, String> registerCars(List<String> carNamesArrayList) {
         for (String carName : carNamesArrayList) {
             //empty value로 각 자동차의 value 초기화
             raceResultsHMap.put(carName, "");
@@ -58,12 +58,16 @@ public class Race {
             readyForRaceHMap.put(carNameKey, eachCarRaceResult);
         }
 
+        raceResultsHMap = readyForRaceHMap;
+
+
+
 
         //sol1) HMap.get(key).add()
         //sol2) entrySet => entry.getKey(), entry.getValue()
 
 
-        return readyForRaceHMap;
+        return raceResultsHMap;
     }
 
 
@@ -71,10 +75,10 @@ public class Race {
 //        Set<Map.Entry<String, List<String>>> raceResultsES = raceResultsHMap.entrySet();
 //        for (var entry : raceResultsES) {
 //            String key = entry.getKey();
-//            List<String> value = entry.getValue();
+//            List<String> value = enㅏtry.getValue();
 //
 //            System.out.printf("%s : " + "%s%n%n", key, value);
-//        }
+//        }다
 //    }
 
     public static void showRace(Map<String, String> raceResultsHMap) {

@@ -14,16 +14,16 @@ public class Application {
         System.out.println();
 
         System.out.println("실행 결과");
-        Map<String, String> raceResult = new LinkedHashMap<>();
+        Map<String, String> raceResultsHMap = new LinkedHashMap<>();
 
         Map<String, String> readyForRaceHMap = Race.registerCars(carNamesArrayList);
         for (int i = 0; i < trialNumber; i++) {
-            raceResult = Race.doRace(readyForRaceHMap);
-            Race.showRace(raceResult);
+            raceResultsHMap = Race.doRace(readyForRaceHMap);
+            Race.showRace(raceResultsHMap);
         }
 
         List<String> winnersArrayList;
-        winnersArrayList = Winner.pickWinners(raceResult);
+        winnersArrayList = Winner.pickWinners(raceResultsHMap);
         Winner.showWinners(winnersArrayList);
 
 
