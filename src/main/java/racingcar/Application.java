@@ -26,6 +26,8 @@ public class Application {
         // 이동할 횟수 입력받기
         System.out.println("시도할 횟수는 몇회인가요?");
         String strNum = Console.readLine();
+        System.out.println();
+        System.out.println("실행 결과");
 
         // 이동할 횟수가 숫자가 아닌 경우 예외 발생
         for (int i = 0; i < strNum.length(); i++) {
@@ -34,7 +36,8 @@ public class Application {
             }
         }
         int moveNum = Integer.parseInt(strNum);
-        System.out.println(moveNum);
+
+
 
     }
 }
