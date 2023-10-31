@@ -59,4 +59,19 @@ public class Game {
         }
         return result.toString();
     }
+
+    // 우승자가 한명인 경우 출력하는 메서드
+    public void printWinner(List<Car> cars) {
+        System.out.printf("최종 우승자 : %s", cars.get(0).carName);
+    }
+
+    // 우승자가 여러명인 경우 출력하는 메서드
+    public void printWinners(List<Car> cars) {
+        System.out.print("최종 우승자 : ");
+        int i = 0;
+        for (Car car : cars) {
+            System.out.print(car.carName);
+            checkPrintComma(cars, car);
+        }
+    }
 }
