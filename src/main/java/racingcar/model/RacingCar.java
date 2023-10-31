@@ -19,6 +19,11 @@ public class RacingCar {
         this.randomNumberGenerator = CarRandomNumberGenerator.getInstance();
     }
 
+    /**
+     * 필요한 경우 RandomNumberGenerator를 직접 주입한다.
+     * @param name 자동차의 이름
+     * @param randomNumberGenerator 주입할 난수 생성기
+     */
     public RacingCar(String name, RandomNumberGenerator randomNumberGenerator) {
         this.name = name;
         this.distance = START_DISTANCE;
