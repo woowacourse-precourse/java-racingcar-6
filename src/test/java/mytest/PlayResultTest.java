@@ -26,6 +26,17 @@ class PlayResultTest extends NsTest  {
         );
     }
 
+    @Test
+    void getWinner_승자_찾아_출력(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("minji,jiji,yuji", "2");
+                    assertThat(output()).contains("최종 우승자 : minji, jiji");
+                },
+                GO, GO, STOP, GO, GO, GO
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
