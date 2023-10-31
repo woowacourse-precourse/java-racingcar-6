@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.domain.NumberGenerator;
+import racingcar.domain.RacingMachine;
 import racingcar.view.InputView;
 
 public class RacingCarController {
@@ -11,6 +12,12 @@ public class RacingCarController {
 
     public RacingCarController(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
+    }
+
+    private RacingMachine setting() {
+        Cars cars = generateCar();
+        int tryCount = InputView.readTryCount();
+        return new RacingMachine(cars, tryCount);
     }
 
     private Cars generateCar() {
