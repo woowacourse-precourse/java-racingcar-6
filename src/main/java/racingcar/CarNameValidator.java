@@ -11,13 +11,13 @@ public class CarNameValidator {
     private static final int NAME_MAX_LENGTH = 5;
     private static final char BLANK = ' ';
 
-    public void checkEmptyInput(String readLine) {
+    public static void checkEmptyInput(String readLine) {
         if (readLine.isBlank()) {
             throw new IllegalArgumentException("빈칸이 입력되었습니다.");
         }
     }
 
-    public void checkInvalidSeparator(String readLine) {
+    public static void checkInvalidSeparator(String readLine) {
         if (readLine.charAt(0) == NAME_SEPARATOR) {
             throw new IllegalArgumentException(",으로 시작할 수 없습니다.");
         }
@@ -29,25 +29,25 @@ public class CarNameValidator {
         }
     }
 
-    public void checkNameLength(String carName) {
+    public static void checkNameLength(String carName) {
         if (carName.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
     }
 
-    public void checkNameBlankStart(String carName) {
+    public static void checkNameBlankStart(String carName) {
         if (carName.charAt(0) == BLANK) {
             throw new IllegalArgumentException("이름이 공백으로 시작하면 안됩니다.");
         }
     }
 
-    public void checkNameBlankEnd(String carName) {
+    public static void checkNameBlankEnd(String carName) {
         if (carName.charAt(carName.length() - 1) == BLANK) {
             throw new IllegalArgumentException("이름이 공백으로 끝나면 안됩니다.");
         }
     }
 
-    public void checkNameDuplicate(String carName) {
+    public static void checkNameDuplicate(String carName) {
         if (!checkNameDuplicateList.add(carName)) {
             throw new IllegalArgumentException("중복된 이름이 입력되었습니다.");
         }
