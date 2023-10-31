@@ -1,13 +1,21 @@
 package racingcar.Service;
 
+import java.util.Arrays;
+import java.util.List;
 import racingcar.Model.Game;
 import racingcar.View.TextInterface;
 
 public class GameService {
     TextInterface textInterface = new TextInterface();
+    Game game;
+    public void enterCar(){
+        String userInput = textInterface.enterPlayer();
+        List<String> carNames = Arrays.asList(userInput.split(","));
+        game = new Game(carNames);
+    }
 
-    public void set(){
+    public void enterRepetition(){
         int repetition = Integer.parseInt(textInterface.enterRepetition());
-        Game game = new Game(repetition);
+        game.setRepetition(repetition);
     }
 }

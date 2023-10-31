@@ -1,10 +1,8 @@
 package racingcar.Controller;
 
-import racingcar.Service.CarService;
 import racingcar.Service.GameService;
 
 public class GameController {
-    CarService carService = new CarService();
     GameService gameService = new GameService();
     public void run(){
         init();
@@ -12,8 +10,8 @@ public class GameController {
         end();
     }
     private void init(){
-        carService.set();
-        gameService.set();
+        gameService.enterCar();
+        gameService.enterRepetition();
     }
     private void start(){
     }
