@@ -13,9 +13,12 @@ public class GameController {
     private static final Game game = new Game();
     private static final GameController INSTANCE = new GameController();
 
-    private GameController(){};
+    private GameController() {
+    }
 
-    public static GameController getInstance(){
+    ;
+
+    public static GameController getInstance() {
         return INSTANCE;
     }
 

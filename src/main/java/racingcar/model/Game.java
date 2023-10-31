@@ -8,7 +8,7 @@ public class Game {
     private final ArrayList<String> winnerNameList = new ArrayList<>();
     private int maxScore;
 
-    public void updateWinners(String carName, int carScore){
+    public void updateWinners(String carName, int carScore) {
         if (carScore > maxScore) {
             maxScore = carScore;
             winnerNameList.clear();
@@ -18,7 +18,7 @@ public class Game {
         }
     }
 
-    public ArrayList<String> getWinners(){
+    public ArrayList<String> getWinners() {
         return winnerNameList;
     }
 }
