@@ -11,6 +11,9 @@
 
 > 우아한테크코스 6기 프리코스 2주차 미션 <자동차 경주>를 구현한 저장소입니다.
 
+<p align="center">
+  <img src="https://github.com/IM-GYURI/JAVA_STUDY/assets/80020777/23429a6d-320a-45c2-bebd-ba0a4527636b" alt="gif 파일" width = 100%>
+</p>
 
 # 목차
 - [Model](#Model)
