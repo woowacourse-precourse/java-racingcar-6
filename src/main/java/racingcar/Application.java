@@ -62,5 +62,26 @@ public class Application {
             }
             System.out.println();
         }
+
+        // 우승자 전진 거리 구하기
+        int winnerDistance = 0;
+        for (int i = 0; i < carNames.length; i++) {
+            if (carForward[i] > winnerDistance) {
+                winnerDistance = carForward[i];
+            }
+        }
+
+        // 우승자 출력
+        System.out.print("최종 우승자 : ");
+        String winner = "";
+        for (int i = 0; i < carNames.length; i++) {
+            if (carForward[i] == winnerDistance) {
+                if (!winner.isEmpty()) {
+                    winner += ", ";
+                }
+                winner += carNames[i];
+            }
+        }
+        System.out.println(winner);
     }
 }
