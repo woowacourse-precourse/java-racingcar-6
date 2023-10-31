@@ -19,7 +19,6 @@ public class OutputView {
             System.out.println(drawMoveCar(racingCar));
         }
         System.out.println();
-
     }
 
     public static void printWinner(Winner winner) {
