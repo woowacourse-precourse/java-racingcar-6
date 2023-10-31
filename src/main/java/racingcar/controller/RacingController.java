@@ -9,10 +9,10 @@ public class RacingController {
     private final OutputView outputView;
     private final RacingService racingService;
 
-    public RacingController() {
+    public RacingController(RacingService racingService) {
         inputView = new InputView();
         outputView = new OutputView();
-        racingService = new RacingService();
+        this.racingService =racingService;
     }
 
     public void startRacing() {
