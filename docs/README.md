@@ -2,19 +2,22 @@
 
 ## 기능 목록
 
-- [X] n대의 자동차이름을 입력받는다. - UserInputer#inputCarString()
-    - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - Splitter#carNameSpliter()
-    - [x] 각 자동차의 이름이 5자 이하인지 확인한다. - Validator#checkCarNameLength()
-    - [x] 각 자동차를 관리하기 위한 Map구조로 나누어 관리한다. - Splitter#listToMap()
-- [ ] 게임을 시작한다. Racing#gameStart();
-- [x] 사용자에게서 몇 번의 이동을 할 것인지 입력받는다. UserInputer#inputTryCount()
-- [x] 0부터 9사이에서 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
-- [x] 전진인지 판단한다.(무작위 값이 4이상이면 전진 4미만이면 정지) - Validator#isForward()
-    - [ ] 현재 자동차의 위치를 이름과 같이 출력한다. -Output#printCarLocation()
-- [ ] 잘못된 값을 입력할 경우 IllegalArugumentException을 발생후 종료한다.
-- [ ] 우승자를 선정한다
-    - [ ] 우승자가 여러 명일 경우 쉼표(,) 구분
--
+- [X] n대의 자동차이름을 입력받는다.
+    - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다.
+    - [x] 각 자동차의 이름이 5자 이하인지 확인한다.
+    - [x] 각 자동차를 관리하기 객체로 나누어 관리한다.
+
+- [x] 사용자에게서 몇 번의 이동을 할 것인지 입력받는다.
+- [x] 0부터 9사이에서 무작위 값을 생성한다.
+- [x] 전진인지 판단한다.(무작위 값이 4이상이면 전진 4미만이면 정지)
+    - [x] 현재 자동차의 위치를 이름과 같이 출력한다.
+
+- [x] 잘못된 값을 입력할 경우 IllegalArugumentException을 발생후 종료한다.
+    - [x] 횟수입력에 숫자가 아닌 문자가 입력된 경우
+    - [x] 5자 초과인 경우
+    - [x] 이름이 입력되지 않은 경우(0자)
+
+- [x] 최종 우승자 출력기능 구현
 
 ## 기능 요구 사항
 
