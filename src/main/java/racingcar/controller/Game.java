@@ -22,10 +22,6 @@ public class Game {
         round = Parser.parsingInteger(InputView.readLine());
     }
 
-    private void makeRandomNumber(){
-
-    }
-
     private void mainLogic(){
 
     }

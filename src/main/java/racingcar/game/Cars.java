@@ -16,4 +16,8 @@ public class Cars {
             System.out.printf("차 이름(%s) ", car.getCarName());
         }
     }
+
+    public Integer getNumberOfCars(){
+        return cars.size();
+    }
 }
