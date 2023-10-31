@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.dto.CarDto;
 import racingcar.view.formatter.OutputFormatter;
+
 import java.util.List;
 
 

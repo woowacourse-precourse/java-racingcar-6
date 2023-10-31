@@ -168,10 +168,10 @@ class CarTest {
     @Test
     void 예외발생하지않음_위치값이_0_이상인_경우() {
         assertAll(
-            () -> assertThatCode(() -> new Car(new Name("홍길동"), new Position(0)))
-                    .doesNotThrowAnyException(),
-            () -> assertThatCode(() -> new Car(new Name("홍길동"), new Position(1)))
-                    .doesNotThrowAnyException()
+                () -> assertThatCode(() -> new Car(new Name("홍길동"), new Position(0)))
+                        .doesNotThrowAnyException(),
+                () -> assertThatCode(() -> new Car(new Name("홍길동"), new Position(1)))
+                        .doesNotThrowAnyException()
         );
     }
 }

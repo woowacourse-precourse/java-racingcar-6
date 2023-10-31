@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.dto.NameDto;
+
 import java.util.Objects;
 
 public class Name {

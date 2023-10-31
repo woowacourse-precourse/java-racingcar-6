@@ -35,8 +35,8 @@ class RoundTest {
         boolean expectedFalse = round2.hasNotRemainingRound();
 
         assertAll(
-            () -> assertThat(expectedTrue).isTrue(),
-            () -> assertThat(expectedFalse).isFalse()
+                () -> assertThat(expectedTrue).isTrue(),
+                () -> assertThat(expectedFalse).isFalse()
         );
     }
 
@@ -51,6 +51,7 @@ class RoundTest {
                 .comparingOnlyFields("count")
                 .isEqualTo(new Round(new Count(4)));
     }
+
     @DisplayName("finishCurrentRound() 예외 테스트 : 더이상 감소시킬 라운드가 없는 경우에 IllegalArgumentException가 발생한다.")
     @Test
     void 예외발생_라운드횟수가_0일때_라운드를_감소시키려는_경우() {

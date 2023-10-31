@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.dto.PositionDto;
+
 import java.util.Objects;
 
 public class Position {

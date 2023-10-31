@@ -3,6 +3,7 @@ package racingcar.view.formatter;
 import racingcar.dto.CarDto;
 import racingcar.dto.NameDto;
 import racingcar.dto.PositionDto;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

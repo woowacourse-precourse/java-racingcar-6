@@ -1,3 +1,4 @@
 package racingcar.dto;
 
-public record PositionDto(int position) { }
+public record PositionDto(int position) {
+}

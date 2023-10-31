@@ -1,28 +1,27 @@
 package racingcar.controller;
 
 import racingcar.dto.CarDto;
-import racingcar.model.Name;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Count;
+import racingcar.model.Name;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.model.Round;
-import racingcar.model.Count;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 
-
 public class RacingGameController {
-
     private static final int MOVE_THRESHOLD = 4;
 
     private final NumberGenerator numberGenerator;
 
     public RacingGameController() {
-         numberGenerator = new RandomNumberGenerator();
+        numberGenerator = new RandomNumberGenerator();
     }
 
     public void gameStart() {
