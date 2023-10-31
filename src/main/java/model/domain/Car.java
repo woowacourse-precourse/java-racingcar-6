@@ -16,7 +16,7 @@ public class Car {
         return name;
     }
 
-    public void add() {
+    public void addGo() {
         go.add();
     }
 

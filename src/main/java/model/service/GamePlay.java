@@ -14,7 +14,7 @@ public class GamePlay {
 
         for (Car car : participant.getParticipant()) {
             if (makeRandomValue() >= BASE_NUMBER) {
-                car.add();
+                car.addGo();
             }
         }
     }
