@@ -17,6 +17,8 @@ public class GameController {
         saveCarNames();
         raceGame.setRaceNumber(Integer.parseInt(inputView.enterRaceNumber()));
         carRacingController.playGame(raceGame);
+        String winner = convertListToString(raceGame);
+        System.out.println(winner);
     }
 
     public void saveCarNames() {
@@ -34,6 +36,12 @@ public class GameController {
             carNames.add(car);
         }
         return carNames;
+    }
+
+    private String convertListToString(RaceGame raceGame) {
+        String winner = String.join(", ", raceGame.getWinnerCarNames());
+
+        return winner;
     }
 
 }

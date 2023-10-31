@@ -79,6 +79,5 @@ public class CarRacingController {
             }
         }
         raceGame.setWinnerCarNames(winnerCarName);
-        System.out.println(raceGame.getWinnerCarNames());
     }
 }
