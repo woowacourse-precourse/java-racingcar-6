@@ -11,7 +11,7 @@ public class Application {
         playGame();
     }
 
-    private static void printInputCarNames() {
+    private static void printAskForInputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
@@ -20,30 +20,30 @@ public class Application {
     }
 
     private static List<String> getCarNames(String inputLineOfCarNames) {
-        return validateCarNames(splitCarNames(inputLineOfCarNames));
+        return checkCarNames(splitCarNames(inputLineOfCarNames));
     }
 
-    private static List<String> validateCarNames(List<String> carNames){
+    private static List<String> checkCarNames(List<String> carNames){
         checkCarNameForm((carNames));
-        checkDuplicateOfCarName((carNames));
+        validateDuplicateOfCarName((carNames));
         return carNames;
     }
     private static List<String> splitCarNames(String inputLineOfCarNames) {
         return Arrays.asList(inputLineOfCarNames.split(","));
     }
     private static String checkInputLineOfCarNames(String inputLineOfCarNames) {
-        checkStartsWithCommaInInputLine(inputLineOfCarNames);
-        checkEndsWithCommaInInputLine(inputLineOfCarNames);
+        validateStartsWithCommaInInputLine(inputLineOfCarNames);
+        validateEndsWithCommaInInputLine(inputLineOfCarNames);
         return inputLineOfCarNames;
     }
 
-    private static void checkStartsWithCommaInInputLine(String inputLineOfCarNames) {
+    private static void validateStartsWithCommaInInputLine(String inputLineOfCarNames) {
         if (inputLineOfCarNames.startsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
     }
 
-    private static void checkEndsWithCommaInInputLine(String inputLineOfCarNames) {
+    private static void validateEndsWithCommaInInputLine(String inputLineOfCarNames) {
         if (inputLineOfCarNames.endsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
@@ -51,25 +51,25 @@ public class Application {
 
     private static void checkCarNameForm(List<String> carNames) {
         for (String carName : carNames) {
-            checkCarNameRegex(carName);
-            checkMaxLengthOfCarName(carName);
+            validateCarNameRegex(carName);
+            validateMaxLengthOfCarName(carName);
         }
     }
 
-    private static void checkCarNameRegex(String carName) {
+    private static void validateCarNameRegex(String carName) {
         String regex = "^[a-zA-Z]+[a-zA-Z0-9]*$";
         if (!carName.matches(regex)) {
             throw new IllegalArgumentException("이름 형식이 맞지 않습니다.");
         }
     }
 
-    private static void checkMaxLengthOfCarName(String carName) {
+    private static void validateMaxLengthOfCarName(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("이름 길이가 초과했습니다.");
         }
     }
 
-    private static void checkDuplicateOfCarName(List<String> carNames) {
+    private static void validateDuplicateOfCarName(List<String> carNames) {
         Set<String> uniqueNames = new HashSet<String>();
         for (String carName : carNames) {
             if (!uniqueNames.add(carName)) {
@@ -97,18 +97,18 @@ public class Application {
     }
 
     private static String checkNumberOfAttemptsForm(String numberOfAttempts) {
-        checkIsNumber(numberOfAttempts);
-        checkIsZero(numberOfAttempts);
+        validateIsNumber(numberOfAttempts);
+        validateIsZero(numberOfAttempts);
         return numberOfAttempts;
     }
 
-    private static void checkIsZero(String numberOfAttempts) {
+    private static void validateIsZero(String numberOfAttempts) {
         if (numberOfAttempts.matches("0")) {
             throw new IllegalArgumentException("0은 입력할 수 없습니다.");
         }
     }
 
-    private static void checkIsNumber(String numberOfAttempts) {
+    private static void validateIsNumber(String numberOfAttempts) {
         String numberRegex = "^[0-9]*$";
         if (!numberOfAttempts.matches(numberRegex)) {
             throw new IllegalArgumentException("숫자 형식이 아닙니다.");
@@ -170,7 +170,7 @@ public class Application {
     }
 
     private static void playGame() {
-        printInputCarNames();
+        printAskForInputCarNames();
         List<Car> cars = makeCars(getCarNames(getInputLineOfCarNames()));
         printInputNumberofAttempts();
         int numberOfAttempts = getNumberOfAttempts();
