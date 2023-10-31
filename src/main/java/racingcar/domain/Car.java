@@ -9,7 +9,7 @@ public class Car {
     }
 
     private String name;
-    private String status;
+    private String status = "";
 
     public String getName() {
         return name;
