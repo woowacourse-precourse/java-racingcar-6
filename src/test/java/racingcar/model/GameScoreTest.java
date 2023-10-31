@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -19,6 +20,18 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 class GameScoreTest {
     private Map<RacingCar, String> participants;
 
+    private GameScore createSingleWinner(RacingCar winner, String score) {
+        participants.put(winner, score);
+        return new GameScore(participants);
+    }
+
+    private GameScore createMultipleWinner(List<RacingCar> winners, String score) {
+        for (RacingCar winner : winners) {
+            participants.put(winner, score);
+        }
+        return new GameScore(participants);
+    }
+
     @BeforeEach
     void setUp() {
         participants = new LinkedHashMap<>() {{
@@ -28,8 +41,16 @@ class GameScoreTest {
         }};
     }
 
+    @DisplayName("자동차 별 점수를 초기화 할 수 있다")
+    @Test
+    void init(){
+        GameScore gameScore = new GameScore(participants);
+        String expected = "pobi : \n" + "woni : \n" + "jun : \n";
+        assertThat(gameScore.toString()).isEqualTo(expected);
+    }
 
-    @DisplayName("자동차 경주 게임의 자동차별 점수를 최신화 할 수 있다.")
+
+    @DisplayName("자동차 경주 게임의 자동차 별 점수를 최신화 할 수 있다.")
     @ParameterizedTest
     @MethodSource("updatedData")
     void update(RacingCar racingCar, String output) {
@@ -50,11 +71,6 @@ class GameScoreTest {
         );
     }
 
-    private GameScore createSingleWinner(RacingCar winner, String score) {
-        participants.put(winner, score);
-        return new GameScore(participants);
-    }
-
     @DisplayName("우승자가 여러명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @MethodSource("winnerData")
@@ -65,13 +81,6 @@ class GameScoreTest {
                 () -> assertThat(result.size()).isEqualTo(winners.size()),
                 () -> assertThat(result).containsAll(winners)
         );
-    }
-
-    private GameScore createMultipleWinner(List<RacingCar> winners, String score) {
-        for (RacingCar winner : winners) {
-            participants.put(winner, score);
-        }
-        return new GameScore(participants);
     }
 
     static Stream<Arguments> updatedData() {
