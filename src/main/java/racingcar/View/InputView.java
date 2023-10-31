@@ -21,7 +21,7 @@ public class InputView {
 
     public String getTryNumber() {
         String tryNumber = Console.readLine();
-        isNotNumber(tryNumber); //  사용자 입력 검증을 여기서 하는게 맞는지?
+        isNotNumber(tryNumber);
         return tryNumber;
     }
 }

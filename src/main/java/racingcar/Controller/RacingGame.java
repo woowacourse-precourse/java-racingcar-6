@@ -11,10 +11,10 @@ public class RacingGame {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RacingGame() {
-        this.gameModel = new GameModel();
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
+    public RacingGame(GameModel gameModel, InputView inputView, OutputView outputView) {
+        this.gameModel = gameModel;
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     private void initializeGame() {

@@ -22,7 +22,7 @@ public class OutputView {
 
     public void printFinalWinner(ArrayList<String> winnerNames) {
         String winners = winnerNames.stream()
-                .map(x -> String.valueOf(x))
+                .map(String::valueOf)
                 .collect(Collectors.joining(", "));
         System.out.print(Constants.FINAL_WINNER + " : " + winners);
     }
