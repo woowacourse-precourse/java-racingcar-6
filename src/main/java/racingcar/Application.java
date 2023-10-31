@@ -1,90 +1,26 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Arrays;
+import static racingcar.game.GameUtils.GAME_THRESHOLD;
+import static racingcar.game.GameUtils.PROGRESS_COMMAND;
+
 import java.util.List;
-import racingcar.car.Car;
+import racingcar.game.Game;
+import racingcar.game.Result;
+import racingcar.io.GameArgumentReader;
 
 public class Application {
 
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        String carInput = Console.readLine();
-        List<String> carNames = Arrays.stream(carInput.split(",")).toList();
-        validateCarName(carNames);
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        String attemptInput = Console.readLine();
-        validateAttemptInput(attemptInput);
-
-        List<Car> cars = carNames.stream().map(Car::new).toList();
-        int attempt = Integer.parseInt(attemptInput);
-
-        final int threshold = 4;
-
-        System.out.println("실행 결과");
-        while (attempt-- >= 0) {
-            for (Car car : cars) {
-                int randomNumber = generateRandomNumber();
-                car.forward(threshold, randomNumber, "-");
-            }
-
-            for (Car car : cars) {
-                car.showProgress();
-            }
-
-            System.out.println();
-        }
-
-        int maxForwardCount = -1;
-        for (Car car : cars) {
-            int forwardCount = car.getProgress().length();
-            if (forwardCount > maxForwardCount) {
-                maxForwardCount = forwardCount;
-            }
-        }
-
-        StringBuilder result = new StringBuilder();
-        for (Car car : cars) {
-            int forwardCount = car.getProgress().length();
-            if (forwardCount == maxForwardCount) {
-                if (!result.isEmpty()) {
-                    result.append(", ");
-                }
-                result.append(car.getName());
-            }
-        }
-
-        System.out.printf("최종 우승자 : %s", result);
+        start();
     }
 
-    private static void validateAttemptInput(String attempt) {
-        try {
-            int number = Integer.parseInt(attempt);
-            if (number <= 0) {
-                throw new NumberFormatException();
-            }
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException("올바른 시도 횟수를 입력해주세요.");
-        }
-    }
+    private static void start() {
+        List<String> carNames = GameArgumentReader.readCarNames();
+        String attemptNumber = GameArgumentReader.readAttemptNumber();
 
-    public static void validateCarName(List<String> cars) {
-        if (cars.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
-        }
-
-        for (String carName : cars) {
-            if (carName.isBlank() || carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
-            }
-        }
-    }
-
-    public static int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        Game game = new Game(carNames, attemptNumber, GAME_THRESHOLD, PROGRESS_COMMAND);
+        Result result = game.start();
+        result.print();
     }
 }
 

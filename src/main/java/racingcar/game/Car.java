@@ -1,6 +1,6 @@
-package racingcar.car;
+package racingcar.game;
 
-import racingcar.io.ConsoleOutput;
+import racingcar.io.GameConsoleOutput;
 
 public class Car {
 
@@ -9,7 +9,7 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        this.progress = "";
+        this.progress = GameUtils.INITIAL_PROGRESS;
     }
 
     public void forward(int threshold, int number, String command) {
@@ -23,7 +23,7 @@ public class Car {
     }
 
     public void showProgress() {
-        ConsoleOutput.print(String.format("%s : %s", this.name, this.progress));
+        GameConsoleOutput.print(String.format("%s : %s", this.name, this.progress));
     }
 
     public String getName() {
