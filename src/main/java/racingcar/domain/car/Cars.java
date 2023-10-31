@@ -9,19 +9,17 @@ import java.util.Objects;
 public class Cars {
 
     private final List<Car> cars;
-    private final RandomNumberGenerator randomNumberGenerator;
 
-    private Cars(List<Car> cars, RandomNumberGenerator randomNumberGenerator) {
+    private Cars(List<Car> cars) {
         this.validateRaceCars(cars);
-        this.randomNumberGenerator = randomNumberGenerator;
         this.cars = cars;
     }
 
-    public static Cars createBy(List<String> names, RandomNumberGenerator randomNumberGenerator) {
+    public static Cars createFromNames(List<String> names) {
         List<Car> cars = new ArrayList<>();
         names.forEach(name -> cars.add(new Car(name)));
 
-        return new Cars(cars, randomNumberGenerator);
+        return new Cars(cars);
     }
 
     private void validateRaceCars(List<Car> cars) {
@@ -43,7 +41,7 @@ public class Cars {
         }
     }
 
-    public void race() {
+    public void race(RandomNumberGenerator randomNumberGenerator) {
         cars.forEach(car -> {
             int number = randomNumberGenerator.getRandomNumber();
             car.tryToMove(number);
