@@ -35,17 +35,12 @@ public class GameProcess {
     public void inputNameOfRaceCar() {
         String inputStr = Utill.inputString();
 
-        ValidInputNameOfRaceCar(inputStr);
+        ValidNameOfRaceCar(inputStr);
 
         nameLineOfRaceCar = inputStr;
     }
 
-    /**
-     * 이름을 입력에 관한 모든 검증의 모임
-     *
-     * @param inputStr
-     */
-    private void ValidInputNameOfRaceCar(String inputStr) {
+    private void ValidNameOfRaceCar(String inputStr) {
         ValidException.isValidCarEachNameFIveLessStringCheck(inputStr); // 각각 자동차의 이름은 5자 이하 검사
         ValidException.isValidIncludeKoreanCheck(inputStr); // 한글 포함 검사
         ValidException.isValidCommaNextBlankCheck(inputStr); // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
