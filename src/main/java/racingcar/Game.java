@@ -10,6 +10,7 @@ public class Game extends GameManager {
             movingOrStop(player);
             printMiddleResult(player);
         }
+        printWinner(player);
     }
 
     private static void movingOrStop(List<RacingCar> player) {
@@ -38,5 +39,33 @@ public class Game extends GameManager {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    private static void printWinner(List<RacingCar> player) {
+        int maxDistance = getMaxDistance(player);
+        String winner = getWinner(player, maxDistance);
+
+        System.out.println("최종 우승자 : " + winner);
+    }
+
+    private static int getMaxDistance(List<RacingCar> player) {
+        int maxDistance = 0;
+        for (int i = 0; i < player.size(); i++) {
+            if (player.get(i).distance > maxDistance) {
+                maxDistance = player.get(i).distance;
+            }
+        }
+
+        return maxDistance;
+    }
+
+    private static String getWinner(List<RacingCar> player, int maxDistance) {
+        String winner = "";
+        for (int i = 0; i < player.size(); i++) {
+            if (player.get(i).distance == maxDistance) {
+                winner = winner.concat(player.get(i).name + ", ");
+            }
+        }
+        return winner.substring(0, winner.length() - 2);
     }
 }
