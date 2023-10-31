@@ -16,8 +16,7 @@ import racingcar.domain.factory.ParticipantsFactory;
 
 @SuppressWarnings("NonAsciiCharacters")
 class ParticipantsFactoryTest {
-    private static final CarFactory carFactory =
-            new CarFactory(new RandomMoveEngine(), new CarNameValidator());
+    private static final CarFactory carFactory = new CarFactory(new RandomMoveEngine(), new CarNameValidator());
 
     private static final ParticipantsFactory participantsFactory =
             new ParticipantsFactory(carFactory, new CarsValidator());
@@ -29,7 +28,7 @@ class ParticipantsFactoryTest {
         Field carsField = Participants.class.getDeclaredField("cars");
         carsField.setAccessible(true);
 
-        Participants participants = participantsFactory.createFromName(names);
+        Participants participants = participantsFactory.createFromNames(names);
 
         List<Car> cars = (List<Car>) carsField.get(participants);
         assertThat(cars).size().isEqualTo(names.size());
@@ -47,7 +46,7 @@ class ParticipantsFactoryTest {
         List<String> names = List.of("car1", "car1");
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> participantsFactory.createFromName(names));
+                .isThrownBy(() -> participantsFactory.createFromNames(names));
     }
 
     @ParameterizedTest
@@ -55,7 +54,7 @@ class ParticipantsFactoryTest {
     void 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다(List<String> names) {
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> participantsFactory.createFromName(names));
+                .isThrownBy(() -> participantsFactory.createFromNames(names));
     }
 
     private static Stream<Arguments> 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다() {

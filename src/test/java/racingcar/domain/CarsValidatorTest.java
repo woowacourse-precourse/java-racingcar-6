@@ -16,13 +16,10 @@ class CarsValidatorTest {
 
     public static Stream<Arguments> 검증이_실패하면_예외가_발생한다() {
         return Stream.of(
-                Arguments.of(
-                        List.of(new Car("1", 0, null), new Car("1", 0, null)),
-                        DUPLICATED_NAME),
+                Arguments.of(List.of(new Car("1", 0, null), new Car("1", 0, null)), DUPLICATED_NAME),
                 Arguments.of(List.of(new Car("1", 0, null)), MIN_PARTICIPANTS),
                 Arguments.of(List.of(), MIN_PARTICIPANTS)
         );
-
     }
 
     @ParameterizedTest

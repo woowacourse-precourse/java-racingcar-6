@@ -14,7 +14,7 @@ public class ParticipantsFactory {
         this.validator = validator;
     }
 
-    public Participants createFromName(List<String> names) {
+    public Participants createFromNames(List<String> names) {
         List<Car> cars = mapToCars(names);
 
         validator.accept(cars);

@@ -26,7 +26,7 @@ class InputViewTest extends MyTest {
     @ValueSource(strings = """
             a,' ',@
             """)
-    void 시도할_횟수가_숫자가_아니면_에러_발생(String arg) {
+    void 시도_횟수가_숫자가_아니면_에러_발생(String arg) {
         System.setIn(new ByteArrayInputStream(arg.getBytes()));
         InputView inputView = new InputView();
 

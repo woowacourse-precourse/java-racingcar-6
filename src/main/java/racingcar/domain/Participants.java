@@ -1,9 +1,8 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.domain.validator.CarsValidator;
 
-public class Participants extends CarsValidator {
+public class Participants {
     private final List<Car> cars;
 
     public Participants(List<Car> cars) {

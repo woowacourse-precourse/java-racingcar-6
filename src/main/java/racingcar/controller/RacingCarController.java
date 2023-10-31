@@ -26,7 +26,7 @@ public class RacingCarController {
 
     private Participants createParticipants() {
         List<String> names = inputView.getNames();
-        return participantsFactory.createFromName(names);
+        return participantsFactory.createFromNames(names);
     }
 
     private void playRace(Participants participants) {
