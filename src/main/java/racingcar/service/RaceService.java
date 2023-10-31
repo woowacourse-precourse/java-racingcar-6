@@ -15,15 +15,15 @@ public class RaceService {
         int totalRounds = race.getTotalRounds();
 
         for (int i = 0; i < totalRounds; i++) {
-            moveCars(race.getCars());
+            int randomNumber = RandomNumberService.generateRandomNumber();
+            moveCars(race.getCars(), randomNumber);
             ResultView.printRoundResult(race.getCars());
         }
-
     }
 
-    private void moveCars(List<Car> cars) {
+    private void moveCars(List<Car> cars, int randomNumber) {
         for (Car car : cars) {
-            boolean isMovable = RandomNumberService.generateRandomNumber() >= FORWARD_THRESHOLD.getValue();
+            boolean isMovable = randomNumber >= FORWARD_THRESHOLD.getValue();
             if (isMovable) {
                 car.move(true);
             }
