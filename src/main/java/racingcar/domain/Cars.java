@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import racingcar.utils.RandomNumberGenerator;
 
 public class Cars {
@@ -44,5 +45,17 @@ public class Cars {
                 car.moveForward();
             }
         }
+    }
+
+    public int getWinnerPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+    public List<Car> getCarsByPosition(int winnerPosition) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == winnerPosition)
+                .collect(Collectors.toList());
     }
 }
