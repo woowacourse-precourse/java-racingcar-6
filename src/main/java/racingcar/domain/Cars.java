@@ -56,7 +56,7 @@ public class Cars {
 
     public void run(NumberGenerator numberGenerator) {
         for (Car car : carList) {
-            int randomNumber = numberGenerator.generator();
+            int randomNumber = numberGenerator.generate();
             car.run(randomNumber);
         }
     }
