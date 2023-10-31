@@ -18,6 +18,4 @@ public class InputView {
         int input = Util.convertStringToInt(Console.readLine());
         return input;
     }
-
-
 }
