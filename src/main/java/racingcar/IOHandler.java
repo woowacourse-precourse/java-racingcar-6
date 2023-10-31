@@ -3,11 +3,12 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class IOHandler {
-    public void printComment(String comment) {
-        System.out.println(comment);
+    public void printComment(String message) {
+        System.out.println(message);
     }
 
-    public String readConsoleInput() {
+    public String readConsoleInputWithMessage(String message) {
+        System.out.println(message);
         return Console.readLine();
     }
 }

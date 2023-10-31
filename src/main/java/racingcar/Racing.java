@@ -21,8 +21,7 @@ public class Racing {
 
 
     private void generateRacingCar() {
-        ioHandler.printComment("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String cars = ioHandler.readConsoleInput();
+        String cars = ioHandler.readConsoleInputWithMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String[] carsList = cars.split(",");
         for (String car : carsList) {
@@ -31,8 +30,7 @@ public class Racing {
     }
 
     private void promptForExecutionCount() {
-        ioHandler.printComment("시도할 회수는 몇회인가요?");
-        String executionCount = ioHandler.readConsoleInput();
+        String executionCount = ioHandler.readConsoleInputWithMessage("시도할 회수는 몇회인가요?");
         execution = new Execution(executionCount);
     }
 
