@@ -11,27 +11,19 @@ public class RacingCar {
     ExceptionCase exception = new ExceptionCase();
 
     public String nameInput() {
-        return Console.readLine().trim();
+        String input = Console.readLine().trim();
+        input = exception.nullStringInput(input);
+        return input;
     }
     public List<String> setCarName() {
         String[] racers = stringToList();
+        racers = exception.nameInputValidation(racers);
         cars = Arrays.asList(racers);
-        return cars;
-    }
-    //for test
-    public List<String> setCarName(String input) {
-        exception.nullStringInput(input);
-        exception.carNameLength(input);
-        String[] racers = input.split(",");
-        cars = Arrays.asList(racers);
-        exception.hasAtLeastTwoInputs(racers);
         return cars;
     }
 
     public String[] stringToList() {
         String input = nameInput();
-        exception.carNameLength(input);
-        exception.nullStringInput(input);
         String[] racers = input.split(",");
         return racers;
     }

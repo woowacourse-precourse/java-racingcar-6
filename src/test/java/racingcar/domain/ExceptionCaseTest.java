@@ -11,12 +11,19 @@ import java.util.List;
 class ExceptionCaseTest {
     ExceptionCase exceptionCase = new ExceptionCase();
 
-    @DisplayName("자동차 이름은 6자 이상이면 exception 발생")
     @Test
-    void nameLengthCheck() {
+    void 예외_nameValidation_글자수_6자_이상() {
+        String[] racers = {"pobi","javaji"};
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> exceptionCase.carNameLength("pobi,javaji"));
+                .isThrownBy(() -> exceptionCase.nameInputValidation(racers));
     }
+    @Test
+    void 예외_nameValidation_자동차_1대_입력() {
+        String[] racers = {"pobi"};
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> exceptionCase.nameInputValidation(racers));
+    }
+
 
     @DisplayName("입력값 없으면 exception 발생")
     @Test
