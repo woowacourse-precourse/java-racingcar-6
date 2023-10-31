@@ -60,4 +60,11 @@ public class Application {
         }
         System.out.println();
     }
+
+    private static int calculateMaxDistance(List<String> results) {
+        return results.stream()
+                .map(result -> result.length() - result.replace("-", "").length())
+                .max(Integer::compare)
+                .orElse(0);
+    }
 }
