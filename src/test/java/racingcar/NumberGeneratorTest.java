@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.NumberGenerator;
 
 public class NumberGeneratorTest {
     @Test
