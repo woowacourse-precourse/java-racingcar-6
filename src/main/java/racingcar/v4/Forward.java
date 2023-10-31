@@ -13,10 +13,6 @@ public class Forward {
         return randomsNum >= 4;
     }
 
-    public boolean canNotForward(int randomsNum) {
-        return randomsNum < 4;
-    }
-
     public void updatePosition(Map<String, Integer> racingStateMap, String carName) {
         int randomNum = randomNums();
         if (canForward(randomNum)) {
