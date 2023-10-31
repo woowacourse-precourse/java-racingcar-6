@@ -1,22 +1,21 @@
 # 자동차 경주
 ## 기능 목록
-- [x] 자동차 이름 입력 메세지 출력 - printCarNameInputMessage()
-- [x] 자동차 이름 입력 - carNameInput() - Car
-	- [x] 유효성 검사 - Validator
-- [x] 자동차 이름 저장 - addCars(carNameInput()) - Cars
-
-- [x] 시도할 횟수 입력 메세지 출력 - printNumberOfattempsInputMessage()
-- [x] 시도할 횟수 입력 - numberOfattempsInput()
+- [x] 자동차 이름 입력 메세지 출력
+- [x] 자동차 이름 입력
 	- [x] 유효성 검사
-- [x] 시도한 횟수 저장 - saveCount(carNameInput()) - Attemps
+- [x] 자동차 이름 저장
+
+- [x] 시도할 횟수 입력 메세지 출력
+- [x] 시도할 횟수 입력
+	- [x] 유효성 검사
+- [x] 시도한 횟수 저장
 
 - [x] 시도할 횟수가 될 때까지 loop
 	- [x] 실행결과 : 자동차의 수만큼 loop
-		- [x] 각 자동차는 0~9 랜덤 숫자 생성 - NumberGenerator#generateRandomNumber() - Randoms 사용
-		- [x] 생성한 수가 4 이상 이라면 현재 상황에 '-' 추가 - boolean overStandard(generateRandomNumber()) - STANDARD_NUMBER = 4
-			- [x] 현재 상황에 '-' 추가 - moveForward()
+		- [x] 각 자동차는 0~9 랜덤 숫자 생성
+		- [x] 생성한 수가 4 이상 이라면 현재 상황에 '-' 추가
 		- [x] 현재 자동차의 정보 담기
-		- ~~[x] 각 자동차의 이름 및 현재 상황 출력 - car.getName() + : + car.getDistance()~~
+		- [x] 각 자동차의 이름 및 현재 상황 출력 
 		- [x] 결과 리스트에 현재 자동차의 정보 담기
 	- [x] 결과 리스트 받아서 출력
 	- [x] 골라인에 도착하였는가? : 자동차의 수만큼 loop
@@ -25,13 +24,12 @@
 - [x] 최종 우승자 결과 계산
 	- [x] 자동차의 수만큼 loop - 
 		- [x] 현재 거리가 시도할 횟수와 같다면 우승자 목록에 추가
-- ~~최종 우승자 결과 출력 printWinners(List<String> winners) - join 함수 사용해보기~~
-- [x] 최종 우승자 출력하기 - stream을 이용하여 쉽게 ,로 구분된 값을 가져올 수 있었다.
+- 최종 우승자 결과 출력 printWinnersNames(List<String> winners) - join 함수 사용해보기
 
 ## 2주차 목표
 - 함수를 하나의 기능만 책임지도록 분리하기.
 - 각 함수별로 테스트를 작성하는 것에 익숙해지는 것. (F.I.R.S.T)
-- [ ] 유닛 테스트 공부하기, TDD 알아보기
+- [x] 유닛 테스트 공부하기, TDD 알아보기
 
 ### 만들 객체들
 - [x] RacingGame (controller) - 출력과 입력 제어
