@@ -23,12 +23,6 @@ public class ValidateService {
             throw new IllegalArgumentException();
     }
 
-    public static void isDuplicateName(Set<String>carNames, final String carName){ //중복된 이름이 있는지 확인
-        if(carNames.contains(carName))
-            throw new IllegalArgumentException();
-        carNames.add(carName);
-    }
-
     public static void isNumber(final String count){ //숫자 아닌 경우 예외 발생
         if(count.matches("^[1-9]\\d*$") == false)
             throw new IllegalArgumentException();

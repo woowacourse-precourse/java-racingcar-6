@@ -34,15 +34,6 @@ class ValidateServiceTest {
     }
 
     @Test
-    void isDuplicateName() {
-        Set<String> carNames = new HashSet<>();
-        carNames.add("pobi");
-
-        assertThatThrownBy(() -> ValidateService.isDuplicateName(carNames, "pobi"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void isNumber() {
         assertThatThrownBy(() -> ValidateService.isNumber("abc"))
                 .isInstanceOf(IllegalArgumentException.class);
