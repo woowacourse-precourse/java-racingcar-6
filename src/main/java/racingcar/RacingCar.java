@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.validator.RacingCarValidator;
+
 public class RacingCar {
     private final int MINIMUM_NUMBER_TO_MOVING_FORWARD = 4;
 

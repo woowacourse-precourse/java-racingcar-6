@@ -1,5 +1,10 @@
 package racingcar;
 
+import racingcar.validator.RacingCarGameMachineValidator;
+import racingcar.validator.RacingCarValidator;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 public interface RacingCarGameFactory {
     default RacingCarGameController racingCarController() {
         return new RacingCarGameController(

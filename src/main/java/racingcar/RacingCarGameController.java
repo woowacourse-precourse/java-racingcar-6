@@ -1,5 +1,9 @@
 package racingcar;
 
+import racingcar.constant.OutputMessage;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 public class RacingCarGameController {
     private final RacingCarGameMachine racingCarGameMachine;
     private final InputView inputView;
