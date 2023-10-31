@@ -19,7 +19,6 @@ public class Car {
         }
     }
 
-
     public boolean canMove() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
 
@@ -36,6 +35,10 @@ public class Car {
 
     public void stop() {
         return;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getDistance() {
