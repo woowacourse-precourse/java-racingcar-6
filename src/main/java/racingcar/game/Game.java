@@ -35,6 +35,7 @@ public class Game {
             PrintHandler.resultRunning(cars);
         }
     }
+
     private List<String> findFinalWinner(List<Car> cars) {
         List<String> winnerNames = new ArrayList<>();
         int maxLocation = findMaxLocation(cars);
