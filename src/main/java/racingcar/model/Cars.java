@@ -29,8 +29,7 @@ public class Cars {
     public String statusCarsPosition() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        racingCars
-                .forEach(car -> stringBuilder.append(car.statusCarPosition()));
+        racingCars.forEach(car -> stringBuilder.append(car.statusCarPosition()));
 
         return stringBuilder.toString();
     }
