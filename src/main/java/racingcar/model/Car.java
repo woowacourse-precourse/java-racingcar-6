@@ -1,16 +1,20 @@
 package racingcar.model;
 
+import racingcar.controller.NumberGenerator;
+
 public class Car {
-    private String name;
+    private final String name;
     private int forwardDistance;
 
     public Car(String name) {
-        // 생성자
+        this.name = name;
+        this.forwardDistance = 0;
     }
 
     public void moveOnRandomCondition() {
-        // NumberGenerator의 random Method를 통해 난수 생성 후
-        // forwardDistance를 증가시킨다.
+        if (NumberGenerator.generateRandom() >= 4) {
+            forwardDistance++;
+        }
     }
 
     public String getName() {
