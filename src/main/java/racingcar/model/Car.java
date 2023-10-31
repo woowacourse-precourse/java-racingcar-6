@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
+    private final int RANDOM_START_NUMBER = 0;
+    private final int RANDOM_END_NUMBER = 0;
+
     private int position;
     private final String name;
 
@@ -25,7 +28,7 @@ public class Car {
 
 
     public int createRandomNumber() {
-        int carNumber = Randoms.pickNumberInRange(0, 9);
+        int carNumber = Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_START_NUMBER);
         return carNumber;
     }
 
