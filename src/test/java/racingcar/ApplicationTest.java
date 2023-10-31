@@ -27,6 +27,17 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 공동_우승() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("lee,kim", "1");
+                    assertThat(output()).contains("lee : -", "kim : -", "최종 우승자 : lee, kim");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 자동차의_존재_유뮤_예외_처리() {
         String[] inputName = {};
         GameModel model = new GameModel();
