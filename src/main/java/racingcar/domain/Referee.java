@@ -6,6 +6,7 @@ import racingcar.domain.dto.GameStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Referee {
 
@@ -36,5 +37,17 @@ public class Referee {
             gameStatus.addCarStatus(CarStatus.of(car));
         }
         return gameStatus;
+    }
+
+    public List<String> getWinners() {
+        int distanceOfWinner = getDistanceOfWinner();
+        return cars.stream()
+                .filter(car -> car.isWinner(distanceOfWinner))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int getDistanceOfWinner() {
+        return cars.stream().mapToInt(Car::getMoveDistance).max().orElseThrow();
     }
 }

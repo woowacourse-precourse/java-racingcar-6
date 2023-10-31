@@ -24,6 +24,12 @@ public class RacingGame {
             GameStatus gameStatus = referee.getGameStatus();
             printGameStatus(gameStatus);
         }
+
+        printGameWinners();
+    }
+
+    private void printGameWinners() {
+        System.out.println("최종 우승자 : " + String.join(", ", referee.getWinners()));
     }
 
     private void printGameStatus(GameStatus gameStatus) {

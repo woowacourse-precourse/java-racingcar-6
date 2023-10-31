@@ -19,4 +19,8 @@ public class Car {
     public int getMoveDistance() {
         return moveDistance;
     }
+
+    public boolean isWinner(int winnerDistance) {
+        return moveDistance == winnerDistance;
+    }
 }
