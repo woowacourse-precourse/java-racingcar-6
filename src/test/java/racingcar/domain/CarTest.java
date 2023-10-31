@@ -137,7 +137,7 @@ public class CarTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> {
             //when
-            T.checkContainsConsecutiveCommas();
+            T.checkInputStringContainsConsecutiveCommas();
         });
     }
 
@@ -150,7 +150,7 @@ public class CarTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> {
             //when
-            T.checkContainsConsecutiveCommas();
+            T.checkInputStringContainsConsecutiveCommas();
         });
     }
 
@@ -163,7 +163,7 @@ public class CarTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> {
             //when
-            T.checkContainsConsecutiveCommas();
+            T.checkInputStringContainsConsecutiveCommas();
         });
     }
 
@@ -176,7 +176,7 @@ public class CarTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> {
             //when
-            T.checkContainsConsecutiveCommas();
+            T.checkInputStringContainsConsecutiveCommas();
         });
     }
 
@@ -189,7 +189,7 @@ public class CarTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> {
             //when
-            T.checkContainsConsecutiveCommas();
+            T.checkInputStringContainsConsecutiveCommas();
         });
     }
 
