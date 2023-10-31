@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Application {
         int tryCount = getTryCount(); // 시도 횟수
 
         for (int i = 0; i < tryCount; i++) { // 입력한 시도 횟수만큼 반복하여 게임, 출력
-
+            race(cars); // 자동차 무작위 값에 따라 전진 여부를 결정(1회전)하고 업데이트
         }
     }
 
@@ -49,6 +50,13 @@ public class Application {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
     }
+
+    // 주어진 자동차 리스트에 대해 무작위 값에 따라 전진 여부를 결정하고 업데이트하는 메서드
+    private static void race(List<Car> cars) {
+        for (Car car : cars) { // 차 수만큼 반복 1회전
+            car.move(Randoms.pickNumberInRange(0, 9));
+        }
+    }
 }
 
 // 자동차를 나타내는 클래스
@@ -60,5 +68,11 @@ class Car {
     public Car(String name) {
         this.name = name;
         this.position = 0;
+    }
+    // 주사위를 굴려 나온 숫자에 따라 위치를 변경
+    public void move(int number) {
+        if (number >= 4) {
+            this.position++;
+        }
     }
 }
