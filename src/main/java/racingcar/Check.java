@@ -17,7 +17,7 @@ public class Check {
     public static boolean measureNameLength(String[] car_list) {
         boolean result = true;
         for (int i = 0; i < car_list.length; i++) {
-            if (car_list[i].length() > 5) {
+            if (car_list[i].length() > 5 || car_list[i].length() <= 0) {
                 result = false;
                 break;
             }
