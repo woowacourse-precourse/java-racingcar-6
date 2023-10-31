@@ -1,4 +1,4 @@
-package racingcar.domain.input.error;
+package racingcar.view.input.error;
 
 public enum InputError {
 
