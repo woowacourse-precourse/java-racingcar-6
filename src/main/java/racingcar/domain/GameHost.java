@@ -12,7 +12,7 @@ public class GameHost {
 
     public List<RaceCar> giveWinnerList(List<RaceCar> raceCarList) {
         List<RaceCar> winnerList = new ArrayList<>();
-        int cntOfMaxMove = getMaxCntMove(raceCarList);
+        int cntOfMaxMove = getMaxCntMoveOfRaceCar(raceCarList);
         boolean isVictory = true;
 
         for (RaceCar raceCar : raceCarList) {
@@ -26,8 +26,14 @@ public class GameHost {
         return winnerList;
     }
 
-    public Integer getMaxCntMove(List<RaceCar> progressCarList) {
-        int max = progressCarList.stream()
+    /**
+     * RaceCar 움직인 count중 최고로 많은 횟수를 반환
+     *
+     * @param raceCarList
+     * @return
+     */
+    public Integer getMaxCntMoveOfRaceCar(List<RaceCar> raceCarList) {
+        int max = raceCarList.stream()
                 .mapToInt(RaceCar::getCntMovementOfCar)
                 .max()
                 .orElse(0);
