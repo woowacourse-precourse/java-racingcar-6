@@ -17,4 +17,8 @@ public class Car {
         return engine.pressAccelerator();
     }
 
+    public String getName() {
+        return name;
+    }
+
 }
