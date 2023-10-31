@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class CarNameValidator {
     private static final int LENGTH_LIMIT = 5;
+    private static final String EMPTY_STRING = " ";
 
     public static void validate(String carName) {
         validateNullCheck(carName);
@@ -12,7 +13,7 @@ public class CarNameValidator {
     }
 
     private static void validateNameCheck(String carName) {
-        if (carName.contains(" ")) {
+        if (carName.contains(EMPTY_STRING)) {
             throw new IllegalArgumentException("이름에 공백이 존재할 수 없습니다.");
         }
     }
