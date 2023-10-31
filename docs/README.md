@@ -7,13 +7,15 @@
 랜덤한 수 만큼 전진
 자신의 이름을 출력하는 visualize를 가진다.
 
-## RaceCourse
+## Race
 각 자동차의 위치를 관리
-Map<String,Integer> cars를 가진다.
+Map<String,Integer> CarDistance를 가진다.
 순서보장을 위해 LinkedHashMap을 사용한다.
-RaceCourse의 생성자는 자동차들의 이름을 받아서 생성한다.
+레이스가 시작되면 레이스에 참가한 차량들이 움직인다.
+레이스 결과와 우승자에 대해 String으로 반환이 가능하다.
 
 ## GameController
+
 ### gameInit()
 1. GameView에서 경주할 자동차 이름들을 입력받는다.
 2. 입력받은 값으로 생성된 Dto를 RaceCourse Entity로 반환한다.
