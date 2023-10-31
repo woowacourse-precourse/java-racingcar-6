@@ -1,14 +1,25 @@
 package racingcar.assist;
 
+import racingcar.system.SystemConstant;
+
 import static racingcar.system.SystemMessage.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InputValidator {
 
     public void validateCarNamesInput(List<String> carNameList){
         for (String carName : carNameList) {
             validateCarNameOutOfRange(carName);
+        }
+        validateCarNameDuplicate(carNameList);
+    }
+
+    private void validateCarNameDuplicate(List<String> carNameList) {
+        long distinctCount = carNameList.stream().distinct().count();
+        if(distinctCount != carNameList.size()){
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATED.getMessage());
         }
     }
 
@@ -19,7 +30,7 @@ public class InputValidator {
 
 
     private void validateCarNameOutOfRange(String carName){
-        if(carName.length() > 5){
+        if(carName.length() > SystemConstant.CAR_NAME_MAX_RANGE){
             throw new IllegalArgumentException(INPUT_OUT_OF_RANGE.getMessage());
         }
     }

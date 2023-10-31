@@ -7,7 +7,8 @@ public enum SystemMessage {
     GAME_RESULT("실행 결과\n"),
     GAME_WINNER("최종 우승자 : "),
     INPUT_OUT_OF_RANGE("입력이 범위를 초과했습니다."),
-    INPUT_POSITIVE_INTEGER_ONLY("양의 정수만 입력할 수 있습니다.");
+    INPUT_POSITIVE_INTEGER_ONLY("양의 정수만 입력할 수 있습니다."),
+    CAR_NAME_DUPLICATED("자동차의 이름이 중복될 수 없습니다.");
 
     private final String message;
 
