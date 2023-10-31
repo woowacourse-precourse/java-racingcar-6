@@ -2,19 +2,21 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.dto.CarInfo;
 
 public class RacingRoundResult {
     private static final String NOT_AVAILABLE_CAR_LIST_EXCEPTION = "올바르지 않은 자동차 리스트입니다.";
-    private final List<CarInfo> carInfos;
+    private final List<Car> cars;
 
-    public RacingRoundResult(List<CarInfo> carInfoList) {
-        this.carInfos = carInfoList;
+    private RacingRoundResult(List<Car> cars) {
+        this.cars = cars;
     }
 
-    public List<CarInfo> getCarInfos() {
-        return this.carInfos.stream()
-                .map(carInfo -> new CarInfo(carInfo.name(), carInfo.position()))
+    public static RacingRoundResult getRacingRoundResult(List<Car> cars) {
+        return new RacingRoundResult(cars);
+    }
+
+    public List<Car> getCars() {
+        return this.cars.stream()
                 .collect(Collectors.toUnmodifiableList());
     }
 
@@ -24,15 +26,15 @@ public class RacingRoundResult {
     }
 
     private List<String> getSamePosition(int maxPosition) {
-        return this.carInfos.stream()
-                .filter(carInfo -> carInfo.position() == maxPosition)
-                .map(CarInfo::name)
+        return this.cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getCarName)
                 .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
-        return this.carInfos.stream()
-                .mapToInt(CarInfo::position)
+        return this.cars.stream()
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(() -> new IllegalArgumentException(NOT_AVAILABLE_CAR_LIST_EXCEPTION));
     }
