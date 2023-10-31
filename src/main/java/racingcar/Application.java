@@ -23,6 +23,7 @@ public class Application {
         for (int i = 0; i < tryCount; i++) {
             printCarStatus(cars);
         }
+        printWinners(cars);
     }
 
     private static List<Car> parsingCarNames(String inputCarNames) {
@@ -46,8 +47,33 @@ public class Application {
 
     private static void printCurrentStatus(List<Car> cars) {
         cars.forEach(car -> {
-            System.out.print(car.getName() + ": ");
+            System.out.print(car.getName() + " : ");
             System.out.println(car.getPositionString());
         });
+    }
+
+    private static void printWinners(List<Car> cars) {
+        List<String> winners = findWinners(cars);
+        String winnersString = joinWinners(winners);
+        System.out.print("최종 우승자 : " + winnersString);
+    }
+
+    private static List<String> findWinners(List<Car> cars) {
+        int maxPosition = findMaxPosition(cars);
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .toList();
+    }
+
+    private static int findMaxPosition(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
+    private static String joinWinners(List<String> winners) {
+        return String.join(", ", winners);
     }
 }

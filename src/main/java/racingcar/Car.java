@@ -26,4 +26,8 @@ public class Car {
         }
         return sb.toString();
     }
+
+    public int getPosition() {
+        return position;
+    }
 }
