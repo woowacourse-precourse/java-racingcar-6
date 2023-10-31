@@ -20,6 +20,16 @@ public class CarGroup {
         return carList;
     }
 
+    public List<String> getWinnerList() {
+        winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getDistance() == this.maxDistance) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
+
     public int getMaxDistance() {
         for (Car car : carList) {
             this.maxDistance = Math.max(this.maxDistance, car.getDistance());
