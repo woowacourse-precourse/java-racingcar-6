@@ -16,4 +16,11 @@ public class RacingGame {
 		return carNames;
 	}
 
+	private int getInputTryCount() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		int tryCount = Integer.parseInt(Console.readLine());
+
+		return tryCount;
+	}
+	
 }
