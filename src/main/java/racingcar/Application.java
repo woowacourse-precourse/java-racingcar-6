@@ -8,10 +8,12 @@ import java.util.List;
 
 public class Application {
 
-    public static void isMove(List<Integer> carsMovedDistance, int index) {
+    public static boolean isMove(List<Integer> carsMovedDistance, int index) {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             carsMovedDistance.set(index, carsMovedDistance.get(index) + 1);
+            return true;
         }
+        return false;
     }
 
     public static String printCarMovedDistance(List<Integer> carsMovedDistance, int index) {
