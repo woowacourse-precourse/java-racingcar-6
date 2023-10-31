@@ -6,17 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.utils.StringTrimmer;
 
 class CarDtoValidatorTest {
 
     @Test
-    @DisplayName("차 이름 입력값이 5자 글자가 초과되면 예외를 발생합니다.")
-    void exceptMoreThanFiveCharsCase() {
+    @DisplayName("차 이름 입력값이 아예 없는 경우, 예외를 발생합니다.")
+    void exceptNoneInputCase() {
         // GIVEN
-        CarDto carDto = new CarDto("pobipobi,qwe,ert");
-        String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
+        CarDto carDto = new CarDto(",,");
+        String[] splittedCarNames = CarDtoValidator.getStrings(carDto);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -28,31 +26,61 @@ class CarDtoValidatorTest {
     }
 
     @Test
+    @DisplayName("차 이름 입력값이 1글자 미만인 경우, 예외를 발생합니다.")
+    void exceptLeastOneCharCase() {
+        // GIVEN
+        CarDto carDto = new CarDto("as,,w");
+        String[] splittedCarNames = CarDtoValidator.getStrings(carDto);
+
+        // WHEN
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            CarDtoValidator.applyValidationsOverCarNames(splittedCarNames, CarDtoValidator.validateNameLength);
+        });
+
+        // THEN
+        assertEquals(CarDtoValidator.LENGTH_EXCEPTION_MESSAGE, thrown.getMessage());
+    }
+
+    @Test
+    @DisplayName("차 이름 입력값이 5자 글자 초과인 경우, 예외를 발생합니다.")
+    void exceptMoreThanFiveCharsCase() {
+        // GIVEN
+        CarDto carDto = new CarDto("pobipobi,qwe,ert");
+        String[] splitCarNames = CarDtoValidator.getStrings(carDto);
+
+        // WHEN
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            CarDtoValidator.applyValidationsOverCarNames(splitCarNames, CarDtoValidator.validateNameLength);
+        });
+
+        // THEN
+        assertEquals(CarDtoValidator.LENGTH_EXCEPTION_MESSAGE, thrown.getMessage());
+    }
+
+    @Test
     @DisplayName("차 이름 입력값 5자 글자 이하를 입력받습니다.")
     void acceptLessThanFiveCharsCase() {
         // GIVEN
         CarDto carDto = new CarDto("12345,1234,123,12,1");
-        String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
+        String[] splitCarNames = CarDtoValidator.getStrings(carDto);
 
         // WHEN
         // THEN
         assertDoesNotThrow(() -> {
-            CarDtoValidator.applyValidationsOverCarNames(splittedCarNames, CarDtoValidator.validateNameLength);
+            CarDtoValidator.applyValidationsOverCarNames(splitCarNames, CarDtoValidator.validateNameLength);
         });
     }
 
     @Test
-    @DisplayName("차 이름 입력값에 숫자가 있으면 발생합니다.")
+    @DisplayName("차 이름 입력값에 숫자가 있으면 예외를 발생합니다.")
     void exceptNumber() {
         // GIVEN
         CarDto carDto = new CarDto("12345,1234,123,12,1");
-        String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
+        String[] splitCarNames = CarDtoValidator.getStrings(carDto);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            CarDtoValidator.applyValidationsOverCarNames(splittedCarNames,
+            CarDtoValidator.applyValidationsOverCarNames(splitCarNames,
                     CarDtoValidator.validateNumber);
         });
 
@@ -61,16 +89,15 @@ class CarDtoValidatorTest {
     }
 
     @Test
-    @DisplayName("차 이름 입력값에 특수문자가 있으면 발생합니다.")
+    @DisplayName("차 이름 입력값에 특수문자가 있으면 예외를 발생합니다.")
     void exceptSpecialChar() {
         // GIVEN
         CarDto carDto = new CarDto("!@no,no)*,(n),+{,.");
-        String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
+        String[] splitCarNames = CarDtoValidator.getStrings(carDto);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            CarDtoValidator.applyValidationsOverCarNames(splittedCarNames,
+            CarDtoValidator.applyValidationsOverCarNames(splitCarNames,
                     CarDtoValidator.validateSpecialChar);
         });
 
@@ -79,16 +106,15 @@ class CarDtoValidatorTest {
     }
 
     @Test
-    @DisplayName("차 이름 입력값에 이모지가 있으면 발생합니다.")
+    @DisplayName("차 이름 입력값에 이모지가 있으면 예외를 발생합니다.")
     void exceptEmoji() {
         // GIVEN
         CarDto carDto = new CarDto("❤👫💸🗃,🤦‍♂,️👍🎉,👀");
-        String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
+        String[] splitCarNames = CarDtoValidator.getStrings(carDto);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            CarDtoValidator.applyValidationsOverCarNames(splittedCarNames,
+            CarDtoValidator.applyValidationsOverCarNames(splitCarNames,
                     CarDtoValidator.validateEmoji);
         });
 
@@ -97,21 +123,15 @@ class CarDtoValidatorTest {
     }
 
     @Test
-    @DisplayName("차 이름 입력값에 한글 혹은 영문이 있으면 정상적으로 통과합니다.")
+    @DisplayName("차 이름 입력값에 한글 혹은 영문만 있으면 정상적으로 통과합니다.")
     void acceptNumberAndSpecialChar() {
         // GIVEN
         CarDto carDto = new CarDto("이성문,성게,pobi,tony");
-        String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         // THEN
         assertDoesNotThrow(() -> {
-            CarDtoValidator.applyValidationsOverCarNames(splittedCarNames,
-                    CarDtoValidator.validateNameLength,
-                    CarDtoValidator.validateNumber,
-                    CarDtoValidator.validateSpecialChar,
-                    CarDtoValidator.validateEmoji);
+            CarDtoValidator.validateCarDto(carDto);
         });
     }
 }
