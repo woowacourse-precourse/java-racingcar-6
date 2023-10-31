@@ -1,12 +1,12 @@
 package racingcar.controller;
 
-import static racingcar.model.Car.createNewCar;
-import static racingcar.model.Cars.createNewCars;
-
 import java.util.Arrays;
 import java.util.List;
-import racingcar.model.Car;
-import racingcar.model.Cars;
+import java.util.stream.Collectors;
+import racingcar.domain.Cars;
+import racingcar.domain.Game;
+import racingcar.service.GameService;
+import racingcar.view.ConsoleView;
 import racingcar.view.GameView;
 
 public class GameController {
@@ -16,8 +16,7 @@ public class GameController {
     private static final String MOVE_COUNT_RANGE_ERROR_MESSAGE = "이동 횟수는 10 이하의 자연수여야 함";
 
     private final GameView gameView;
-    private Cars cars;
-    private int moveCount;
+    private final GameService gameService;
 
     public GameController(GameView gameView) {
         this.gameView = gameView;
@@ -25,29 +24,30 @@ public class GameController {
     }
 
     public void startGame() {
-        getInfoFromUser();
-        playRound(moveCount);
-        endGame();
-    }
-
-    private void getInfoFromUser() {
         gameView.printInputCars();
-        saveUserInputOnCars();
+        List<String> carNames = getCarNamesFromUser();
+        Cars cars = Cars.createNewCars(carNames);
+
         gameView.printInputMoveCount();
-        saveUserInputOnMoveCount();
+        int roundCount = getRoundCountFromUser();
+        Game game = Game.createNewGame(roundCount);
+
+        printRoundResult(cars, game);
+        printWinners(cars);
     }
 
-    private void saveUserInputOnCars() {
-        Arrays.stream(gameView.getUserInput().split(CAR_NAME_DELIMITER))
-                .forEach(carName -> cars.insert(createNewCar(carName.trim())));
+    private List<String> getCarNamesFromUser() {
+        return Arrays.stream(gameView.getUserInput().split(CAR_NAME_DELIMITER))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
-    private void saveUserInputOnMoveCount() {
+    private int getRoundCountFromUser() {
         int userInput = Integer.valueOf(gameView.getUserInput());
         if (!validateMoveCount(userInput)) {
             throw new IllegalArgumentException(MOVE_COUNT_RANGE_ERROR_MESSAGE);
         }
-        moveCount = userInput;
+        return userInput;
     }
 
     private boolean validateMoveCount(int count) {
