@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.Objects;
 import racingcar.constant.ErrorMessages;
 import racingcar.constant.NumberLimits;
+import racingcar.constant.Symbols;
 
 public class Car {
     private final String name;
@@ -16,6 +17,7 @@ public class Car {
     private void validateName(String name) {
         checkNonEmptyName(name);
         checkNameLength(name);
+        checkNameForWhitespace(name);
     }
 
     private void checkNameLength(String name) {
@@ -27,6 +29,11 @@ public class Car {
     private void checkNonEmptyName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException(ErrorMessages.MISSING_CAR_NAME_ERROR);
+        }
+    }
+    private void checkNameForWhitespace(String name) {
+        if (name.contains(Symbols.SPACE)) {
+            throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME_ERROR);
         }
     }
 

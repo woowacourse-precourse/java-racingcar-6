@@ -8,5 +8,6 @@ public class ErrorMessages {
     public static final String NO_CARS_ERROR = "[ERROR] 자동차가 없습니다.";
     public static final String INVALID_INPUT_ERROR = "[ERROR] : 숫자를 입력해주세요.";
     public static final String NEGATIVE_ATTEMPTCOUNT_ERROR = "[ERROR] : 1 이상의 숫자를 입력해주세요.";
+    public static final String INVALID_CAR_NAME_ERROR = "[ERROR] : 공백을 제외한 이름을 입력해주세요.";
 
 }
