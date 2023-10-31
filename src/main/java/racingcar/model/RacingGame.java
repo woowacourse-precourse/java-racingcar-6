@@ -26,10 +26,6 @@ public class RacingGame {
         return WinnerCalculator.getWinners(cars);
     }
 
-    private List<Car> getCars() {
-        return cars;
-    }
-
     private void initCars(List<String> carNames) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
