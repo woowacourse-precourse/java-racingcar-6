@@ -8,6 +8,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.sevice.Race;
 
 public class RaceTest {
 
