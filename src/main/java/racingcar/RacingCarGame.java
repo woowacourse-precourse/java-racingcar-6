@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.stream.IntStream;
+import racingcar.domain.Car;
 import racingcar.domain.CarList;
+import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,15 +16,27 @@ public class RacingCarGame {
 
     public void gameStart() {
         inputView.printCarNameInputMessage();
+
         String carNames = Console.readLine();
-        carList.splitCarNames(carNames);
+        String [] carNamesArray = carList.splitCarNames(carNames);
+        carList.addCars(carNamesArray);
 
         inputView.printAttemptNumberInputMessage();
         int attempt = Integer.parseInt(Console.readLine());
 
+        outputView.printResult();
         IntStream.range(0, attempt)
-                .forEach(i -> outputView.printResult(carList));
+                .forEach(i -> performCarMovements(carList));
 
-        outputView.printWinners(carList.getWinners());
+        Winners winners = carList.getWinners();
+        outputView.printWinners(winners.getWinningCarNames());
+    }
+
+    private void performCarMovements(CarList carList){
+        for (Car car : carList.getCarList()) {
+            car.stopOrMove();
+            outputView.printNameAndDistance(car.getName(), car.getDistance());
+        }
+        System.out.println();
     }
 }
