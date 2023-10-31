@@ -15,6 +15,9 @@ public class RacingCarController {
         Cars cars = new Cars();
         String carNames = racingCarView.promptForNames();
         cars.setNames(carNames);
+
+        Integer totalRounds = Integer.parseInt(racingCarView.promptForNumbers());
+
     }
 
 
