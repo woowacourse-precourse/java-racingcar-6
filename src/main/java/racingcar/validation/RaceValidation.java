@@ -8,7 +8,7 @@ public class RaceValidation {
     }
     public void validationNameLength(String input) {
         if (input.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 이하민 가능합니다.");
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다.");
         }
     }
 
