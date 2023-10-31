@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.utils.Constants;
 import racingcar.validation.ParticipatingCarsValidation;
 
 public class Race {
@@ -33,9 +34,13 @@ public class Race {
     private int injectFuel() {
         int fuel;
         do {
-            fuel = Randoms.pickNumberInRange(0, 9);
-        } while (fuel < 1 || fuel > 9);
+            fuel = Randoms.pickNumberInRange(Constants.MINIMUM_FUEL_LEVEL, Constants.MAXIMUM_FUEL_LEVEL);
+        } while (!isFuelInRange(fuel));
         return fuel;
+    }
+
+    private boolean isFuelInRange(int fuel) {
+        return fuel >= Constants.MINIMUM_FUEL_LEVEL && fuel <= Constants.MAXIMUM_FUEL_LEVEL;
     }
 
     public void startCarRacing() {
