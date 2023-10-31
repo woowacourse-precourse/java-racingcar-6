@@ -1,8 +1,9 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import racingcar.util.Validator;
 
 public class RacingCars {
@@ -14,12 +15,11 @@ public class RacingCars {
     }
 
     private List<Car> createCars(List<String> carNameList) {
-        List<Car> createdCars = new ArrayList<>();
-        for (String carName : carNameList) {
-            createdCars.add(new Car(carName));
-        }
-        return createdCars;
+        return carNameList.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
+
 
     private void validateNameList(List<String> nameList) {
         Validator.validateDuplicateNames(nameList);
