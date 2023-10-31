@@ -36,11 +36,11 @@
 **[ View ]**
 -
 
-- [ ]  **InputView**
+- [x]  **InputView**
 
 사용자로부터 경주에 참여할 자동차의 이름과 시도할 횟수를 입력 받음
 
-- [ ]  **OutputView**
+- [x]  **OutputView**
 
 각 차수별 실행 결과와 최종 우승자 출력
 
@@ -54,11 +54,11 @@
 **[ Constants ]**
 -
 
-- [ ]  **MessageConstants**
+- [x]  **MessageConstants**
 
 프로그램 전체에서 사용되는 메시지 상수 제공
 
-- [ ]  **NumberConstants**
+- [x]  **NumberConstants**
 
 프로그램 전체에서 사용되는 숫자 상수 제공
 
@@ -107,12 +107,12 @@
 ### ✅ 과제 진행 요구 사항
 
 - [x]  **[java-racingcar-6](https://github.com/hoonyworld/java-racingcar-6)** 저장소를 Fork & Clone
-- [ ]  docs/README.md에 구현할 기능 목록을 정리해 추가
+- [x]  docs/README.md에 구현할 기능 목록을 정리해 추가
 - [ ]  완료 후 Pull Request
 - [ ]  우아한테크코스 지원 플랫폼에 소감 작성 후 제출
 - [ ]  제출한 후 결과 확인, 통과하지 못했다면 수정해 다시 제출
 
 ### ✅ 추가 학습 목표
 
-- [ ]  Google Java Style Guide 정독 및 적용
+- [x]  Google Java Style Guide 정독 및 적용
 - [ ]  1주 차 공통 피드백 코드에 적용
