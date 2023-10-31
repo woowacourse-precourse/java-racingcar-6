@@ -12,8 +12,8 @@
   - [] 시도 횟수를 정한다. - User#inputTryCount()
     - [] 값을 검증할 수 있다. - validateTryCount()
 - [] 실행 결과를 출력 한다.
-  - [] 실행 결과 문구를 출력 한다.
-  - [] 자동차들의 위치를 출력한다.
+  - [] 실행 결과 문구를 출력 한다. OutputView#printGameResultMsg();
+  - [] 자동차들의 위치를 출력 한다. OutputView#printCarsPosition();
 
 - [] 자동차는 전진 혹은 멈출 수 있다. Car#canMove()
   - [] 0과 9사이에 무작위 값을 생성한다. - Car#generateRandomNumbers()
