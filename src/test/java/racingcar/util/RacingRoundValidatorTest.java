@@ -31,6 +31,19 @@ public class RacingRoundValidatorTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("validateInputRange 함수 기능 테스트")
+    void 라운드_횟수가_자연수가_아닐_경우_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("bora,dori", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("bora,dori", "-2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
