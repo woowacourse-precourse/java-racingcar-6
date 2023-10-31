@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.utils.InputValidator;
+import racingcar.utils.StringConvertor;
 
 public class InputTest {
 
@@ -26,6 +27,14 @@ public class InputTest {
     void 이름_중복_예외_처리() {
         List<String> input = List.of("pobi", "gorani", "goni", "goni");
         assertThatThrownBy(() -> InputValidator.checkNameIsDuplicated(input)).isInstanceOf(
+                IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이름_미입력_예외_처리() {
+        String input = "  ,goni,jun, ";
+        assertThatThrownBy(() -> InputValidator.checkNameIsExist(
+                StringConvertor.convertStringToList(input))).isInstanceOf(
                 IllegalArgumentException.class);
     }
 
