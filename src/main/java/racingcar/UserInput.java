@@ -10,13 +10,15 @@ public class UserInput {
         String input = Console.readLine();
         String inputArray[] = input.split(",");
         List<String> racingCarName = new ArrayList<>(Arrays.asList(inputArray));
+
         racingCarNameValidation(racingCarName);
-        System.out.println(racingCarName);
+
         return racingCarName;
     }
 
     public int inputAttemptNumber() {
         String input = Console.readLine();
+
         try {
             int attemptNumber = Integer.parseInt(input);
             if(attemptNumber<=0){
