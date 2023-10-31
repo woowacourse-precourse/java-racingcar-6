@@ -1,22 +1,23 @@
 package racingcar.controller;
 
+import racingcar.dto.namesRequestDto;
 import racingcar.dto.ProgressResponseDto;
 import racingcar.dto.WinnersResponseDto;
 import racingcar.service.CarService;
 
 public class CarController {
 
-    private final CarService carService = new CarService();
+    private CarService carService = new CarService();
 
-    public static void createCars(String cars) {
-
+    public void createCars(namesRequestDto cars) {
+        carService.addCars(cars);
     }
 
-    public static ProgressResponseDto raceCar() {
+    public ProgressResponseDto raceCar() {
         return null;
     }
 
-    public static WinnersResponseDto getWinners() {
+    public WinnersResponseDto getWinners() {
         return null;
     }
 }
