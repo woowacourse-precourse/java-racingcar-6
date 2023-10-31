@@ -1,15 +1,12 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import racingcar.controller.CarGameController;
-import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.Game;
+
 
 public class CarsTest {
     @Test
