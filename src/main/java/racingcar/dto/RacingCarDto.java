@@ -20,12 +20,4 @@ public class RacingCarDto {
     public RacingCar toRacingCar() {
         return new RacingCar(this.carName, this.position, new MoveCondition());
     }
-
-    public String getCarName() {
-        return carName;
-    }
-
-    public int getPosition() {
-        return position;
-    }
 }

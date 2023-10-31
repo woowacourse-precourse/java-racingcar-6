@@ -1,15 +1,13 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
+import static racingcar.constant.RacingGameConstant.ATTEMPT_NUMBER;
+
 import java.util.List;
-import racingcar.domain.condition.MoveCondition;
 import racingcar.domain.random.RandomNumberFactory;
 import racingcar.dto.RacingGameRq;
 import racingcar.dto.RacingGameRs;
 
 public class RacingGame {
-
-    public static final int ATTEMPT_NUMBER = 1;
     private final RandomNumberFactory randomNumberFactory;
 
     public RacingGame(RandomNumberFactory randomNumberFactory) {
@@ -17,14 +15,15 @@ public class RacingGame {
     }
 
     public RacingGameRs startGame(RacingGameRq racingGameRq) {
-        List<RacingCar> racingCars = new ArrayList<>();
-        racingGameRq.getRacingCarDtoList().stream()
-                .map(racingCarDto -> new RacingCar(racingCarDto.getCarName(), racingCarDto.getPosition(),
-                        new MoveCondition())).forEachOrdered(racingCar -> {
-                    racingCar.race(randomNumberFactory.create(0, 9));
-                    racingCars.add(racingCar);
-                });
-        return RacingGameRs.createRacingGameRs(racingCars, leftNumberOfAttempts(racingGameRq));
+        List<RacingCar> racingCars = racingGameRq.toRacingCars();
+        move(racingCars);
+        return RacingGameRs.toRacingGameRs(racingCars, leftNumberOfAttempts(racingGameRq));
+    }
+
+    private void move(List<RacingCar> cars) {
+        cars.forEach(racingCar -> {
+            racingCar.race(randomNumberFactory.create(0, 9));
+        });
     }
 
     private long leftNumberOfAttempts(RacingGameRq racingGameRq) {

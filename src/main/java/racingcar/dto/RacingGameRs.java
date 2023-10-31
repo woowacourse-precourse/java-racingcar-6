@@ -17,16 +17,12 @@ public class RacingGameRs {
         return new RacingGameRs(racingCarDtoList, leftNumberOfAttempts);
     }
 
-    public static RacingGameRs createRacingGameRs(List<RacingCar> racingCars, long leftNumberOfAttempts) {
+    public static RacingGameRs toRacingGameRs(List<RacingCar> racingCars, long leftNumberOfAttempts) {
         List<RacingCarDto> racingCarDtos = racingCars.stream().map(RacingCarDto::valueOf).toList();
         return RacingGameRs.valueOf(racingCarDtos, leftNumberOfAttempts);
     }
 
     public List<RacingCarDto> getRacingCarDtoList() {
         return racingCarDtoList;
-    }
-
-    public long getLeftNumberOfAttempts() {
-        return leftNumberOfAttempts;
     }
 }
