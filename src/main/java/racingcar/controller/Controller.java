@@ -27,7 +27,7 @@ public class Controller {
     }
 
     private List<String> getCarNameList() {
-        return parseCarNameInput(checkValidationCarNameInput(Console.readLine()));
+        return parseCarNameInput(checkValidationCarNameInput(InputView.takeUserInput()));
     }
 
     private List<String> parseCarNameInput(String userInput) {
@@ -40,7 +40,7 @@ public class Controller {
 
     private int getAttemptCount() {
         OutputView.printAttemptCountRequest();
-        return ParseAttemptCountInput(CheckValidationAttemptCountInput(Console.readLine()));
+        return ParseAttemptCountInput(CheckValidationAttemptCountInput(InputView.takeUserInput()));
     }
 
     private int ParseAttemptCountInput(String userInput) {
