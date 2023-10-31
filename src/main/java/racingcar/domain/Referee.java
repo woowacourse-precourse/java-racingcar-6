@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.position.Position;
 import racingcar.dto.GameResultDto;
+import racingcar.dto.RoundResultDto;
 
 public class Referee {
 
@@ -13,8 +14,9 @@ public class Referee {
         return new GameResultDto(selectWinners(cars));
     }
 
-    public void executeRound(List<Car> cars) {
+    public RoundResultDto executeRound(List<Car> cars) {
         cars.forEach(Car::tryDrive);
+        return RoundResultDto.createFrom(cars);
     }
 
     private List<Car> selectWinners(List<Car> cars) {

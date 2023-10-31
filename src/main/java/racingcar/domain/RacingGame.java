@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
 import racingcar.dto.GameResultDto;
+import racingcar.dto.RoundResultDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -32,7 +33,7 @@ public class RacingGame {
 
     private void executeWholeRounds(List<Car> participants, RoundCount roundCount) {
         while (roundCount.hasNextRound()) {
-            referee.executeRound(participants);
+            RoundResultDto roundResultDto = referee.executeRound(participants);
             outputView.showRoundResult(participants);
             roundCount.consumeRound();
         }
