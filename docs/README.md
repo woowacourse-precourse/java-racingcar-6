@@ -12,8 +12,8 @@
 * 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
 
 ## 폴더 별 기능
-* model
-  * 데이터 생성 및 처리 영역
+* model : 데이터 생성 및 처리 영역
+  * Car
 * service
   * 기능 생성 영역
 * view
