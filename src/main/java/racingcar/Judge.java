@@ -12,14 +12,19 @@ public class Judge {
     }
 
     public List<Car> decideWinner() {
-        Optional<Integer> maxPoistion = cars.stream()
-                .map(Car::getPosition)
-                .max(Integer::compareTo);
+        int maxPoistion = getMaxPosition();
 
         List<Car> winners = cars.stream()
-                .filter(car -> car.getPosition() == maxPoistion.get())
+                .filter(car -> car.getPosition() == maxPoistion)
                 .toList();
 
         return winners;
+    }
+
+    private int getMaxPosition() {
+        Optional<Integer> maxPoisition = cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo);
+        return maxPoisition.get();
     }
 }
