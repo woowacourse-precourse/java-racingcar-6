@@ -8,18 +8,18 @@ public class InputDataHandler {
     private String input;
     private String attemptNumber;
 
-    public String[] getStringFromPlayer(){
+    public String[] getStringFromPlayer() {
         input = Console.readLine();
         carNames = seperateString(input);
         return carNames;
     }
 
-    public String getNumberFromPlayer(){
+    public String getNumberFromPlayer() {
         attemptNumber = Console.readLine();
         return attemptNumber;
     }
 
-    public String[] seperateString(String inputCarNames){
+    public String[] seperateString(String inputCarNames) {
         return inputCarNames.split(",");
     }
 }

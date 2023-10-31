@@ -9,14 +9,14 @@ public class Judgement {
     private int carMovement;
     private ArrayList<String> winnerList = new ArrayList<>();
 
-    public boolean isOverFour(int number){
-        if(number >= 4){
+    public boolean isOverFour(int number) {
+        if (number >= 4) {
             return true;
         }
         return false;
     }
 
-    public ArrayList<String> checkWinner(ArrayList<Car> cars){
+    public ArrayList<String> checkWinner(ArrayList<Car> cars) {
         furthestMovement = findFurthestMovement(cars);
         for (int i = 0; i < cars.size(); i++) {
             carName = cars.get(i).getCarName();
@@ -28,7 +28,7 @@ public class Judgement {
         return winnerList;
     }
 
-    public int checkWinnersNumber(ArrayList<String> winnerList){
+    public int checkWinnersNumber(ArrayList<String> winnerList) {
         return winnerList.size();
     }
 

@@ -18,38 +18,38 @@ public class InputValidator {
 
     }
 
-    public void checkNumber(String number){
+    public void checkNumber(String number) {
         isNumberZero(number);
         isNumberDigit(number);
     }
 
-    public void checkStringLength(String[] input){
+    public void checkStringLength(String[] input) {
         for (String str : input) {
             if (str.length() > 5) {
                 throw new IllegalArgumentException(ILLEGAL_NAME_SIZE_EXCEPTION_MESSAGE);
             }
-            if (str.isEmpty()){
+            if (str.isEmpty()) {
                 throw new IllegalArgumentException(VOID_NAME_EXCEPTION_MESSAGE);
             }
         }
     }
 
-    public void checkDuplicateString(String[] input){
-        if(Arrays.stream(input).distinct().count() != input.length){
+    public void checkDuplicateString(String[] input) {
+        if (Arrays.stream(input).distinct().count() != input.length) {
             throw new IllegalArgumentException(DUPLICATE_NAME_EXCEPTION_MESSAGE);
         }
     }
 
-    public void isNumberZero(String number){
-        if(number.equals("0")){
+    public void isNumberZero(String number) {
+        if (number.equals("0")) {
             throw new IllegalArgumentException(ZERO_ATTEMPT_NUMBER_EXCEPTION_MESSAGE);
         }
     }
 
-    public void isNumberDigit(String number){
-        for(int i = 0; i<number.length(); i++){
+    public void isNumberDigit(String number) {
+        for (int i = 0; i < number.length(); i++) {
             temp = number.charAt(i);
-            if (!Character.isDigit(temp)){
+            if (!Character.isDigit(temp)) {
                 throw new IllegalArgumentException(ILLEGAL_ATTEMPT_NUMBER_EXCEPTION_MESSAGE);
             }
         }

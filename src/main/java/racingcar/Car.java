@@ -8,25 +8,26 @@ public class Car {
     int pickedNumber;
     int movement = 0;
 
-    public Car(String inputName){
+    public Car(String inputName) {
         carName = inputName;
     }
 
-    public String getCarName(){
+    public String getCarName() {
         return carName;
     }
 
-    public int getCarMovement(){
+    public int getCarMovement() {
         return movement;
     }
 
-    public void pickRandomNumber(){
+    public void pickRandomNumber() {
         pickedNumber = numberGenerator.createRandomNumber();
         judgeStopOrGo(pickedNumber);
     }
-    public void judgeStopOrGo(int pickedNumber){
-        if(judgement.isOverFour(pickedNumber)){
-            movement+=1;
+
+    public void judgeStopOrGo(int pickedNumber) {
+        if (judgement.isOverFour(pickedNumber)) {
+            movement += 1;
         }
     }
 }

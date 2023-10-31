@@ -11,23 +11,23 @@ public class ScriptHandler {
     private Judgement judgement = new Judgement();
     private int winnerNumber;
 
-    public void printGetCarNameScript(){
+    public void printGetCarNameScript() {
         System.out.println(REQUIRE_CAR_NAME_MESSAGE);
     }
 
-    public void printGetAttemptScript(){
+    public void printGetAttemptScript() {
         System.out.println(REQUIRE_ATTEMPT_NUMBER_MESSAGE);
     }
 
-    public void printSimpleResultScript(){
+    public void printSimpleResultScript() {
         System.out.println(PROGRESS_RESULT);
     }
 
-    public void printCarMovement(ArrayList<Car> car, int index){
+    public void printCarMovement(ArrayList<Car> car, int index) {
         String carName = car.get(index).getCarName();
         int movement = car.get(index).getCarMovement();
         System.out.printf("%s : ", carName);
-        for(int i = 0; i<movement; i++){
+        for (int i = 0; i < movement; i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -43,11 +43,11 @@ public class ScriptHandler {
         }
     }
 
-    public void printSoloWinner(ArrayList<String> winnerList){
+    public void printSoloWinner(ArrayList<String> winnerList) {
         System.out.printf("최종 우승자 : %s", winnerList.get(0));
     }
 
-    public void printJointWinner(ArrayList<String> winnerList){
+    public void printJointWinner(ArrayList<String> winnerList) {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winnerList.size() - 1; i++) {
             System.out.print(winnerList.get(i) + ", ");
