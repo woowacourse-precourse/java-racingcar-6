@@ -1,5 +1,9 @@
 package racingcar;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -30,7 +34,6 @@ public class Computer {
     }
 
     ConcurrentHashMap<String, Integer> executeRound(ConcurrentHashMap<String, Integer> carMap){
-
         for(Map.Entry<String, Integer> entry : carMap.entrySet()){
             String name = entry.getKey();
             int distance = entry.getValue()+decideToMoveForward(makeRandomNum());
@@ -40,5 +43,18 @@ public class Computer {
         return carMap;
     }
 
+    ArrayList<String> findWinner(ConcurrentHashMap<String, Integer> carMap){
+        ArrayList<String> winner = new ArrayList<>();
+
+        Integer maxValue = Collections.max(carMap.values());
+
+        for(Map.Entry<String, Integer> entry : carMap.entrySet()){
+            if(entry.getValue() == maxValue){
+                winner.add(entry.getKey());
+            }
+        }
+        
+        return winner;
+    }
 
 }
