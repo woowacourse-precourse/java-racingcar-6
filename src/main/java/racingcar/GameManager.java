@@ -1,20 +1,28 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
 public class GameManager {
-    GameElements gameElements = GameElements.INSTANCE;
     Input input = new Input();
 
-    public void gameSetting() {
+    public List<Car> carSetting() {
         Output.printInputCarMessage();
-        gameElements.carNamesSetting(input.getCarNameList());
-        gameElements.carMapSetting();
+        List<String> carNameList = input.getCarNameList();
+        List<Car> carList = new ArrayList<>();
 
+        IntStream.range(0, carNameList.size()).forEach(i -> carList.add(new Car(carNameList.get(i))));
+
+        return carList;
+    }
+
+    public int tryCountSetting(){
         Output.printInputTryCountMessage();
-        gameElements.tryCountSetting(input.getTryCount());
+        return input.getTryCount();
     }
 
     public int createRandomNumber() {
