@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class RacingCarInputTest {
+public class RacingCarTest {
     @Test
     void 콤마_단위로_리스트에_나누는_기능() {
         String input = "a,b,c";
