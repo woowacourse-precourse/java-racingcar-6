@@ -31,5 +31,7 @@ public class Application {
                     OutputView.printPerMoveResult(car.toString()));
             System.out.println();
         }
+
+        OutputView.noticeFinalWinner();
     }
 }
