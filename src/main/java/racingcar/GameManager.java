@@ -8,7 +8,7 @@ import java.util.List;
 public class GameManager {
     private Validator validator = new Validator();
 
-    public List<String> inputCarsName(){
+    public List<String> inputListCarsName(){
         String [] splitStr = inputStringCarsName().split(",");
 
         ArrayList<String> carsName = new ArrayList<String>();
@@ -16,29 +16,53 @@ public class GameManager {
             carsName.add(name);
         }
 
+        checkValidationListCarNames(carsName);
+
         return carsName;
+    }
+
+    private void checkValidationListCarNames(List<String> input){
+        try{
+            validator.checkListCarNames(input);
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            throw e;
+        }
     }
 
     public String inputStringCarsName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        return checkValidationCarNamesInput(input);
-    }
 
-    private String checkValidationCarNamesInput(String input){
+        checkValidationStringCarNames(input);
+
+        return input;
+    }
+    private void checkValidationStringCarNames(String input){
         try{
-            validator.checkCarNamesInput(input);
-            return input;
+            validator.checkStringCarNames(input);
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
-            return inputStringCarsName();
+            throw e;
         }
     }
 
     public int inputTrial(){
         System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
 
-        return Integer.parseInt(Console.readLine());
+        checkValidationTrial(input);
+
+        return Integer.parseInt(input);
+    }
+
+    private void checkValidationTrial(String input){
+        try{
+            validator.checkTrial(input);
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            throw e;
+        }
     }
 
     public void findWinner(List <Car> cars){
@@ -68,5 +92,4 @@ public class GameManager {
         }
         return judgment + ", " + carName;
     }
-
 }

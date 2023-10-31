@@ -1,11 +1,38 @@
 package racingcar;
 
-public class Validator {
+import java.util.List;
 
-    public void checkCarNamesInput(String input) throws IllegalArgumentException{
+public class Validator {
+    public void checkListCarNames(List<String> carsName) throws IllegalArgumentException{
+        checkListDuplication(carsName);
+        checkCarNameLength(carsName);
+    }
+
+    private void checkCarNameLength(List<String> carsName){
+        for(String carName : carsName){
+            if(5 < carName.length()){
+                throw new IllegalArgumentException("자동차 이름은 5 글자 이하여야 합니다");
+            }
+        }
+    }
+
+    private void checkListDuplication(List<String> carsName) throws IllegalArgumentException{
+        for(int i=0;i<carsName.size();i++){
+            for(int j=i+1;j<carsName.size();j++){
+                checkEqual(carsName.get(i),carsName.get(j));
+            }
+        }
+    }
+
+    private void checkEqual(String carName1, String carName2){
+        if(carName1.equals(carName2)){
+            throw new IllegalArgumentException("같은 이름을 가진 자동차가 있습니다.");
+        }
+    }
+
+    public void checkStringCarNames(String input) throws IllegalArgumentException{
         checkEmpty(input);
         checkLastIndex(input);
-
     }
 
     private void checkEmpty(String input){
@@ -20,4 +47,16 @@ public class Validator {
         }
     }
 
+    public void checkTrial(String input) throws IllegalArgumentException{
+        checkEmpty(input);
+        checkChar(input);
+    }
+
+    private void checkChar(String input){
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해 주세요.");
+        }
+    }
 }
