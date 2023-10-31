@@ -10,23 +10,36 @@ public class NameValidator {
             if (name.isEmpty()) {
                 throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
             }
-            if (nameList.contains(name)) {
-                throw new IllegalArgumentException("중복된 값을 입력하여 게임을 종료합니다.");
-            }
             nameList.add(name);
+        }
+        if (nameList.size() != names.chars().filter(comma -> comma == ',').count() + 1) {
+            throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
         }
         return nameList;
     }
 
-    public boolean correctNumberOfString(String name) {
-        return false;
+    public static boolean correctNumberOfChar(List<String> carNameList) {
+        for (String name : carNameList) {
+            if (name.length() > 5) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public boolean hasOnlyAlphabets(String name) {
-        return false;
+    public static boolean hasOnlyAlphabets(List<String> carNameList) {
+        for (String name : carNameList) {
+            if (!name.matches("^[a-zA-Z]*$")) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public boolean isNotRedundant() {
-        return false;
+    public static boolean isNotRedundant(List<String> carNameList) {
+        if (carNameList.size() != carNameList.stream().distinct().count()) {
+            return false;
+        }
+        return true;
     }
 }
