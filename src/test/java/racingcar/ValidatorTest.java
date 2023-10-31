@@ -2,6 +2,13 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Validator.CAR_NAME_COUNT_ERROR;
+import static racingcar.Validator.CAR_NAME_DUPLICATE_ERROR;
+import static racingcar.Validator.CAR_NAME_LENGTH_ERROR;
+import static racingcar.Validator.ENDWITHS_IS_NOT_COMMA_ERROR;
+import static racingcar.Validator.MAX_MOVING_NUMBER_ERROR;
+import static racingcar.Validator.MIN_MOVING_NUMBER_ERROR;
+import static racingcar.Validator.NOT_CONSIST_OF_ENGLISH_KOREAN_COMMA_ERROR;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,15 +17,13 @@ import org.junit.jupiter.api.Test;
 public class ValidatorTest {
     private Validator validator = new Validator();
 
-    //@Test
-    //void validateInput_자동차이름_입력값의길이가_1000만_이하인가() {}
-
     @Test
     void validateInput_입력값이_영문자_한글_쉼표로_이루어져있는지() {
-        String invalidInput = "한국,pobi,MYCAR,ahn!";
+        String invalidInput = "한국,pobi,MYCAR,ahn, ";
 
         assertThatThrownBy(() -> validator.validateInput(invalidInput))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(NOT_CONSIST_OF_ENGLISH_KOREAN_COMMA_ERROR);
     }
 
     @Test
@@ -26,15 +31,17 @@ public class ValidatorTest {
         String invalidInput = "한국,pobi,";
 
         assertThatThrownBy(() -> validator.validateInput(invalidInput))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ENDWITHS_IS_NOT_COMMA_ERROR);
     }
 
     @Test
     void validateCarNames_자동차이름이_1자부터_5자인지_확인1() {
-        List<String> invalidList = Arrays.asList("pobi", "안종혁", "");
+        List<String> invalidList = Arrays.asList("pobi", "", "안종혁");
 
         assertThatThrownBy(() -> validator.validateCarNames(invalidList))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_LENGTH_ERROR);
     }
 
     @Test
@@ -42,7 +49,8 @@ public class ValidatorTest {
         List<String> invalidList = Arrays.asList("pobi", "안종혁", "mycars");
 
         assertThatThrownBy(() -> validator.validateCarNames(invalidList))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_LENGTH_ERROR);
     }
 
     @Test
@@ -50,7 +58,9 @@ public class ValidatorTest {
         List<String> invalidList = Arrays.asList("pobi");
 
         assertThatThrownBy(() -> validator.validateCarNames(invalidList))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_COUNT_ERROR);
+
     }
 
     @Test
@@ -66,7 +76,8 @@ public class ValidatorTest {
         List<String> invalidList = Arrays.asList("pobi", "pobi", "종혁");
 
         assertThatThrownBy(() -> validator.validateCarNames(invalidList))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_DUPLICATE_ERROR);
     }
 
     @Test
@@ -81,7 +92,8 @@ public class ValidatorTest {
         String input = "-1";
 
         assertThatThrownBy(() -> validator.validateMovingNumber(input))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(MIN_MOVING_NUMBER_ERROR);
     }
 
     @Test
@@ -97,6 +109,7 @@ public class ValidatorTest {
         String input = "2000000001";
 
         assertThatThrownBy(() -> validator.validateMovingNumber(input))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(MAX_MOVING_NUMBER_ERROR);
     }
 }
