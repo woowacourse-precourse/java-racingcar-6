@@ -90,6 +90,28 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 다수_승리자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("abc,def", "3");
+                    assertThat(output()).contains("최종 우승자 : abc, def");
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 단일_승리자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("abc,def", "3");
+                    assertThat(output()).contains("최종 우승자 : abc");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
