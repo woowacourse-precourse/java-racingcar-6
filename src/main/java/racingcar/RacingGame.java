@@ -20,6 +20,7 @@ public class RacingGame {
         inputTryNum();
         startGame();
         getWinner();
+        showResults();
     }
 
     public void inputCarName() {
@@ -61,5 +62,11 @@ public class RacingGame {
             }
         }
         return winner;
+    }
+
+    public void showResults() {
+        System.out.print("\n최종 우승자 : ");
+        String result = String.join(",", winner);
+        System.out.println(result);
     }
 }
