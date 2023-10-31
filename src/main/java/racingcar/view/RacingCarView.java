@@ -8,12 +8,12 @@ import racingcar.model.Car;
 public class RacingCarView {
 
     public String inputCarName() {
-        System.out.println(Message.INPUT_CARNAME_MESSAGE);
+        System.out.println(Message.INPUT_CARNAME_MESSAGE.getValue());
         return Console.readLine();
     }
 
     public String inputCount() {
-        System.out.println(Message.INPUT_RACECOUNT_MESSAGE);
+        System.out.println(Message.INPUT_RACECOUNT_MESSAGE.getValue());
         return Console.readLine();
     }
 
@@ -26,7 +26,7 @@ public class RacingCarView {
     }
 
     public void printResultMessage() {
-        System.out.println(Message.OUTPUT_RESULT_MESSAGE);
+        System.out.println(Message.OUTPUT_RESULT_MESSAGE.getValue());
     }
 
     void printMove(int move) {

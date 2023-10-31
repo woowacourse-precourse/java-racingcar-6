@@ -6,11 +6,11 @@ public enum Message {
     OUTPUT_RESULT_MESSAGE("\n실행 결과");
     private final String msg;
 
-    Message(String msg) {
+    private Message(String msg) {
         this.msg = msg;
     }
 
-    String getValue() {
+    public String getValue() {
         return msg;
     }
 }
