@@ -8,6 +8,7 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public void outputStep(List<String> moveResultList) {
+        System.out.println();
         System.out.println(RESULT_MESSAGE);
 
         moveResultList.stream().forEach(result -> {
