@@ -34,16 +34,33 @@ public class Application {
     private static void validateCarNames(String carNamesInput) {
         String[] carNames = carNamesInput.split(",");
         for (String carName : carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
+            validateCarName(carName);
+        }
+    }
+
+    private static void validateCarName(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
     private static int generateRoundCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String roundCountInput = readLine();
+        validateRoundCount(roundCountInput);
         return Integer.parseInt(roundCountInput);
+    }
+
+    private static void validateRoundCount(String roundCountInput) {
+        for (int index = 0; index < roundCountInput.length(); index++) {
+            validateRoundCountCharacter(roundCountInput.charAt(index));
+        }
+    }
+
+    private static void validateRoundCountCharacter(char characterAtRoundCountInput) {
+        if (!Character.isDigit(characterAtRoundCountInput)) {
+            throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
     }
 
     private static void showProcessingBoard(List<Car> cars, int roundCount) {
