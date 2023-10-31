@@ -1,18 +1,22 @@
 package racingcar;
 
 public class Car {
-    final String carName;
-    int moveCount;
+    private final String carName;
+    private int moveCount;
 
     public Car(String carName) {
         this.carName = carName;
     }
 
-    String getCarName() {
+    public String getCarName() {
         return carName;
     }
 
-    int getMoveState() {
+    public int getMoveCount() {
         return moveCount;
+    }
+
+    public void upMoveCount() {
+        moveCount++;
     }
 }
