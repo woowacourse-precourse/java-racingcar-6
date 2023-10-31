@@ -8,8 +8,9 @@ import java.util.Map;
 public class PlayResult {
     private final Map<CarType, String> result = new EnumMap<>(CarType.class);
 
-    public void put(CarType carType, String string) {
-        result.put(carType, string);
+    public PlayResult (Car car) {
+        result.put(CarType.CAR_NAME,car.getName());
+        result.put(CarType.DISTANCE,car.getDistance());
     }
 
     public String get(CarType carType) {
