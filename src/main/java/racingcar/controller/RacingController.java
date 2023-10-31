@@ -24,4 +24,14 @@ public class RacingController {
         return racingService.createCarList(carNames);
     }
 
+    public void playRacing(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+        int tryCount = inputView.inputTryCount();
+        while (tryCount --> 0) {
+            Map<String, Integer> result = racingService.playRacingCar(cars);
+            outputView.appendRaceStatus(sb, result);
+        }
+        outputView.printRaceStatus(sb);
+    }
+
 }
