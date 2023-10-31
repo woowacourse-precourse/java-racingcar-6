@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.domain.strategy.MovingStrategy;
+import racingcar.view.GameOutputView;
 
 public class RacingCarGame {
     private final Cars cars;
@@ -13,5 +15,14 @@ public class RacingCarGame {
 
     public static RacingCarGame of(List<String> carNames, int playCount) {
         return new RacingCarGame(Cars.from(carNames), PlayCount.from(playCount));
+    }
+
+    public void play(MovingStrategy movingStrategy) {
+        GameOutputView.printPlayResultTitle();
+        do {
+            playCount = playCount.play();
+            cars.move(movingStrategy);
+            GameOutputView.printPlayResults(cars.dtos());
+        } while (!playCount.finished());
     }
 }
