@@ -11,9 +11,7 @@ public final class OutputView {
     private static final String WINNER_NAMES_MESSAGE_FORMAT = "최종 우승자 : %s";
     private static final String WINNER_NAMES_RESULT_SEPARATOR = ", ";
 
-    private OutputView() {
-
-    }
+    private OutputView() {}
 
     public static void printCarNameInputQuestion() {
         System.out.println(CAR_NAMES_INPUT_QUESTION);

@@ -1,9 +1,7 @@
 package racingcar.config;
 
 public final class GameConfig {
-    private GameConfig() {
-
-    }
+    private GameConfig() {}
 
     public static final int MIN_RANDOM_VALUE = 0;
     public static final int MAX_RANDOM_VALUE = 9;

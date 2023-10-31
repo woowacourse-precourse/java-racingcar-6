@@ -14,9 +14,7 @@ import static racingcar.exception.errorcode.UserInputErrorCode.INPUT_VALUE_NOT_N
 public final class InputView {
     private static final String CAR_NAMES_INPUT_SEPARATOR = ",";
 
-    private InputView() {
-
-    }
+    private InputView() {}
 
     public static List<CarNameRequest> requestCarNames() {
         final String carNames = readLineAndValidateBlank();
