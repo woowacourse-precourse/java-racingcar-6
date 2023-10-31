@@ -18,9 +18,9 @@ public class Application {
 
         Racing racing = new Racing(nameList);
 
-        Map<String, List<Integer>> result = racing.startRacing(round);
+        List<String> racingResult = racing.startRacing(nameList, round);
 
-        outputView.roundResult(result, round);
+        outputView.roundResult(racingResult);
 
         List<String> winner = racing.determineWinner();
         outputView.getWinnerMessage(winner);

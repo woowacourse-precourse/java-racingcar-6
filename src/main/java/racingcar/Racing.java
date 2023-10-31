@@ -2,9 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Racing {
     private List<Car> carList;
@@ -20,17 +18,33 @@ public class Racing {
         this.carList = carList;
     }
 
-    public Map<String, List<Integer>> startRacing(int round) {
-        Map<String, List<Integer>> result = new HashMap<>();
+    public List<String> startRacing(List<String> nameList, int round) {
+        List<Integer> roundresult = new ArrayList<>();
+        List<String> totalResultList = new ArrayList<>();
 
         for (int i = 0; i < round; i++) {
             for (Car car : carList) {
                 move(car);
-                result.computeIfAbsent(car.name, k -> new ArrayList<>()).add(car.move);
+                roundresult.add(car.move);
             }
+            totalResultList.add(result(nameList, roundresult));
+            roundresult.clear();
         }
 
-        return result;
+        return totalResultList;
+    }
+
+    private String result(List<String> nameList, List<Integer> roundresult) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < roundresult.size(); i++) {
+            String name = nameList.get(i);
+            String dash = "-".repeat(roundresult.get(i));
+
+            sb.append(String.format("%s : %s%n", name, dash));
+        }
+
+        return sb.toString();
     }
 
     private void move(Car car) {
