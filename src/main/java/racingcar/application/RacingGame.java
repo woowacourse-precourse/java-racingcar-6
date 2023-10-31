@@ -9,7 +9,7 @@ import racingcar.domain.ParticipantCars;
 import racingcar.util.GameResult;
 
 public class RacingGame {
-    public void start() {
+    public static void start() {
         String inputCarNames = getCarNamesFromUserInput();
         int count = getAttemptCountFromUserInput();
 
@@ -17,17 +17,17 @@ public class RacingGame {
         runRace(count, participantCars);
     }
 
-    private String getCarNamesFromUserInput() {
+    private static String getCarNamesFromUserInput() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         return Console.readLine();
     }
 
-    private int getAttemptCountFromUserInput() {
+    private static int getAttemptCountFromUserInput() {
         System.out.println(ATTEMPT_COUNT_MESSAGE);
         return Integer.parseInt(Console.readLine());
     }
 
-    private void runRace(int count, ParticipantCars participantCars) {
+    private static void runRace(int count, ParticipantCars participantCars) {
         System.out.println(EXECUTION_RESULT_MESSAGE);
         for (int i = 0; i < count; i++) {
             participantCars.moveCars();
