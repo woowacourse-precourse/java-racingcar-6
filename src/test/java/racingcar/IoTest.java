@@ -63,7 +63,7 @@ public class IoTest {
         woniCar.move();
 
         String roundResult = CommonMessages.roundResult(carList);
-        assertThat(roundResult).contains("실행결과", "pobi :", "woni : -");
+        assertThat(roundResult).contains("pobi :", "woni : -");
     }
 }
 

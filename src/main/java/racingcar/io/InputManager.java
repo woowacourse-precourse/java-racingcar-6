@@ -16,7 +16,6 @@ public class InputManager {
         validateNameListSize(nameList);
         validateName(nameList);
 
-        Console.close();
         return nameList;
     }
 
