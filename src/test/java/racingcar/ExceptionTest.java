@@ -34,4 +34,17 @@ public class ExceptionTest {
         });
     }
 
+
+    @Test
+    void 자동차이름_5자_이하() {
+        String[] carNames1 = {"ab", "cd"};
+        Assertions.assertDoesNotThrow(() -> {
+            exception.validateNumberOfCarName(carNames1);
+        });
+
+        String[] carNames2 = {"ab", "cd", "kimyeonsu"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            exception.validateNumberOfCarName(carNames2);
+        });
+    }
 }
