@@ -2,6 +2,7 @@ package myTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.HashMap;
 import java.util.List;
@@ -70,6 +71,14 @@ public class CarTest extends NsTest{
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
+    @DisplayName("자동차 이름 세미콜론(;) 문자열 분리가 잘 되는지")
+    @Test
+    void splitWithSemicolon() {
+        List<String> input = List.of("pobo;ba;yo"); // 세미콜론으로 구분
+        String names = String.join(",", input);
+
+        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+    }
 
     @Override
     public void runMain() {
