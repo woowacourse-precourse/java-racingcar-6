@@ -6,7 +6,9 @@ import racingcar.repository.CarRepository;
 
 import java.util.List;
 
+
 public class GameController {
+    private static int FOWARD = 4;
     private CarRepository carRepository;
     private int gameCount = 0;
 
@@ -26,7 +28,7 @@ public class GameController {
     public void executeGameStep() {
         List<Car> cars = carRepository.findAll();
         for (Car car : cars) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (Randoms.pickNumberInRange(0, 9) >= FOWARD) {
                 car.moveForward();
             }
         }
