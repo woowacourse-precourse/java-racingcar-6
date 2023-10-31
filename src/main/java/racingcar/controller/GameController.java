@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.view.ResultView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,10 @@ public class GameController {
     }
 
     private void printRoundResult() {
-     
+        for (Car car : cars) {
+            ResultView.printCarPosition(car);
+        }
+        ResultView.printNewLine();
     }
 }
 
