@@ -1,9 +1,9 @@
 package racingcar;
 
 public class Validation {
-
+    static final int CAR_NAME_LENGTH = 5;
     void carNameValidation(String name){
-        if(name.length() > 6){
+        if(name.length() > CAR_NAME_LENGTH){
             throw new IllegalArgumentException("[System] 자동차 이름은 5자 이하만 가능합니다.");
         }
     }
