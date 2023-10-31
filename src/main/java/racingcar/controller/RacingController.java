@@ -23,11 +23,11 @@ public class RacingController {
         racingReferee = new RacingReferee(players, new RandomDice());
 
         view.printResultMessage();
-        race(racingTime);
+        conductRace(racingTime);
         view.printWinnerNames(racingReferee.getWinner());
     }
 
-    private void race(int racingTime) {
+    private void conductRace(int racingTime) {
         for (int i = 0; i < racingTime; i++) {
             view.printMovedLog(racingReferee.carMove());
         }
