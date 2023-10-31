@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -53,6 +54,23 @@ public class Application {
         }
         System.out.print("최종 우승자 : ");
 
-        
+        //우승자 구하기
+        int maxNum = Collections.max(toGo);
+        List<String> winner = new ArrayList<>();
+
+        for (int i = 0; i < toGo.size(); i++) {
+            if (toGo.get(i) == maxNum) {
+                winner.add(cars.get(i));
+            }
+        }
+
+        if (winner.size() > 1) {
+            for (int i = 0; i < winner.size() - 1; i++) {
+                System.out.print(winner.get(i) + ", ");
+            }
+            System.out.println(winner.get(winner.size() - 1));
+        } else if (winner.size() == 1) {
+            System.out.println(winner.get(0));
+        }
     }
 }
