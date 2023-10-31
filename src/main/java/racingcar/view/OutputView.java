@@ -20,13 +20,9 @@ public final class OutputView {
     }
 
     public static void printCarsPosition(RacingCars racingCars) {
-        racingCars.getCars().forEach(car -> {
-            String moves = IntStream.range(0, car.getPosition())
-                    .mapToObj(i -> MOVE_CHAR)
-                    .collect(Collectors.joining());
-
-            System.out.println(car.getName() + " : " + moves);
-        });
+        racingCars.getCars().forEach(car ->
+                System.out.println(car.getName() + " : " + convertPositionToString(car.getPosition()))
+        );
         System.out.println();
     }
 
@@ -36,5 +32,11 @@ public final class OutputView {
                 .collect(Collectors.joining(SEPARATOR_CHAR));
 
         System.out.print(winnerNames);
+    }
+
+    private static String convertPositionToString(int position) {
+        return IntStream.range(0, position)
+                .mapToObj(i -> MOVE_CHAR)
+                .collect(Collectors.joining());
     }
 }
