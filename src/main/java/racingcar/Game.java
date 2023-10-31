@@ -31,6 +31,6 @@ public class Game {
             cars.attempt();
             Writer.cars(cars);
         }
+        Writer.winner(cars);
     }
-
 }
