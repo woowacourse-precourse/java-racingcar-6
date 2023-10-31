@@ -26,7 +26,7 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    protected void moveForward() {
+    protected void randomMoveForward() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= MOVE_FORWARD_MIN_NUMBER) {
             moveCount++;

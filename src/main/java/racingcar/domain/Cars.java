@@ -31,7 +31,7 @@ public class Cars {
     public RaceResult runSingleRace() {
         RaceResult raceResult = new RaceResult();
         for (Car car : cars) {
-            car.moveForward();
+            car.randomMoveForward();
             car.saveResult(raceResult);
         }
         return raceResult;
