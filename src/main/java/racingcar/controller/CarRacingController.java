@@ -57,7 +57,7 @@ public class CarRacingController {
 
     public void decicdeWinner(RaceGame raceGame) {
         winerMoveCount = getWinnerMoveCount(raceGame.getCarMoveCounts());
-        System.out.println(winerMoveCount);
+        getWinerCarNames(raceGame, winerMoveCount);
     }
 
     private int getWinnerMoveCount(List<String> carMoveCounts) {
@@ -69,5 +69,15 @@ public class CarRacingController {
         }
 
         return winerMoveCount;
+    }
+
+    private void getWinerCarNames(RaceGame raceGame, int winnerMoveCount) {
+        List<String> winnerCarName = new ArrayList<>();
+        for (int i = 0; i < raceGame.getCarMoveCounts().size(); i++) {
+            if (winnerMoveCount == raceGame.getCarMoveCounts().get(i).length()) {
+                winnerCarName.add(raceGame.getCarNames().get(i));
+            }
+        }
+        System.out.println(winnerCarName);
     }
 }
