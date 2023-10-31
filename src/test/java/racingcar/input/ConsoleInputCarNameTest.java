@@ -45,8 +45,10 @@ class ConsoleInputCarNameTest {
     private List<Car> run(String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
-        Console.close();
 
-        return consoleInput.receiveCarNamesAndMakeList();
+        List<Car> cars = consoleInput.receiveCarNamesAndMakeList();
+
+        Console.close();
+        return cars;
     }
 }
