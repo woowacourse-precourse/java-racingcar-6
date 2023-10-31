@@ -1,13 +1,13 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 public class OutputView {
     public static void displayPlayResult(){
         System.out.println("\n실행 결과");
     }
-    public static void displayRaceResult(HashMap<String, Integer> raceResult){
+    public static void displayRaceResult(Map<String, Integer> raceResult){
         for (String carName : raceResult.keySet()) {
             System.out.println(carName + " : " + "-".repeat(raceResult.get(carName)));
         }

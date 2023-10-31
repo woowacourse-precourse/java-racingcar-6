@@ -1,16 +1,13 @@
 package controller;
 
-import repository.CarListRepository;
-import repository.GameStatus;
 import service.CarListService;
-import service.RaceWinnerDecider;
 import service.Round;
 import view.InputView;
 import view.OutputView;
 
-import java.util.stream.IntStream;
+import java.util.Map;
 
-import static service.RandomMovementDecider.decideForwardMovement;
+import static service.RandomMovementDecider.moveDecide;
 
 public class RacingGame {
     private final CarListService carList;
@@ -18,31 +15,28 @@ public class RacingGame {
         this.carList = new CarListService();
     }
 
-    public void gameSetting() {
+    public void gameSetAndStart() {
         carList.init(InputView.setCarNames());
         Integer rounds = Round.setRound();
 
-        RacingGame.playRound(rounds);
+        for(int round = 0; round < rounds; round++){
+            playSingleRound();
+            singleRoundDisplay();
+        }
     }
 
-    public void static void playRound(int rounds){
-        IntStream.range(0, rounds)
-                .forEach(round ->{
-                    decideForwardMovement(carListRepository);
-                    OutputView.displayRaceResult(carListRepository.carList);
-                });
+    private void playSingleRound(){
+        Map<String, Integer> shouldMoveList   = carList.getCarList();
+        shouldMoveList.forEach((carName, distance) -> moveCar(carName));
+    }
+
+    private void moveCar(String carName){
+        if(moveDecide(carName)){
+            carList.forwardCar(carName);
+        }
+    }
+    private void singleRoundDisplay(){
+        OutputView.displayRaceResult(carList.getCarList());
     }
 
 }
-
-//  for (int Try = 0; Try < tryNumber; Try++) {
-//        decideForwardMovement(carListRepository);
-//        if(Try == 0){
-//        OutputView.displayPlayResult();
-//        OutputView.displayRaceResult(carListRepository.carList);
-//        } else {
-//        OutputView.displayRaceResult(carListRepository.carList);
-//        }
-//        }
-//        OutputView.displayWinners(RaceWinnerDecider.decideWinner(carListRepository.carList));
-//
