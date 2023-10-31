@@ -2,7 +2,6 @@ package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
