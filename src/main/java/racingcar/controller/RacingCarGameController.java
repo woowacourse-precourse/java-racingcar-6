@@ -20,7 +20,9 @@ public class RacingCarGameController {
 
     public void play() {
 
-        List<String> carNames = inputView.getCarNames();
+        String names = inputView.getCarNames();
+
+        List<String> carNames = inputView.getSplitCarNames(names);
 
         List<Car> cars = carController.initializeCars(carNames);
 
