@@ -7,9 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
-    NumberGenerator numberGenerator = new NumberGenerator();
+    NumberGenerator numberGenerator;
 
-    public void racing(List<Car> cars) {
+    public Race() {
+        this.numberGenerator = new NumberGenerator();
+    }
+
+    public void moveCars(List<Car> cars) {
         List<Integer> randomNumbers = createNumber(cars.size());
         int count = 0;
         for (Car car : cars) {

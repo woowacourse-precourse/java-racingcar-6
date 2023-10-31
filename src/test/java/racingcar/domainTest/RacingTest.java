@@ -31,10 +31,10 @@ class RacingTest {
         cars.add(new Car("gani"));
 
         for (int i = 0; i < moveCount; i++) {
-            race.racing(cars);
+            race.moveCars(cars);
         }
 
-        verify(race, times(5)).racing(cars);
+        verify(race, times(5)).moveCars(cars);
     }
 
     @Test
