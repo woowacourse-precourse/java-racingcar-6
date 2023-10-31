@@ -6,21 +6,24 @@ import java.util.List;
 
 public class RacingCarGame {
 
+    public static void increaseDistanceByRandom(List<Integer> distance, int index) {
+        int randoms = Randoms.pickNumberInRange(0, 9);
+        if (randoms >= 4) {
+            int currentDistance = distance.get(index);
+            int newDistance = currentDistance + 1;
+            distance.set(index, newDistance);
+        }
+    }
+
     public static void play(List<String> carNames, int tries) {
-        List<Integer> distance = new ArrayList<Integer>();
+        List<Integer> distance = new ArrayList<>();
         for (int i = 0; i < carNames.size(); i++) {
             distance.add(0);
         }
         for (int i = 0; i < tries; i++) {
 
             for (int j = 0; j < carNames.size(); j++) {
-                int randoms = Randoms.pickNumberInRange(0, 9);
-                if (randoms >= 4) {
-                    int currentDistance = distance.get(j);
-                    int newDistance = currentDistance + 1;
-                    distance.set(j, newDistance);
-
-                }
+                increaseDistanceByRandom(distance, j);
             }
             showRoundResults(carNames, distance);
         }
@@ -35,7 +38,7 @@ public class RacingCarGame {
 
     public static List<Integer> compareResults(List<Integer> distance) {
         int maxDistance = Integer.MIN_VALUE;
-        List<Integer> maxIndex = new ArrayList<Integer>();
+        List<Integer> maxIndex = new ArrayList<>();
 
         for (int i = 0; i < distance.size(); i++) {
             int currentDistance = distance.get(i);
@@ -56,7 +59,6 @@ public class RacingCarGame {
 
         for (int i = 0; i < carNames.size(); i++) {
             System.out.println(carNames.get(i) + " : " + generateHyphens(distance.get(i)));
-
         }
         System.out.println();
     }
