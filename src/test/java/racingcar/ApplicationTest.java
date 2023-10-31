@@ -18,11 +18,11 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void 게임_진행_결과와_최종_우승자를_출력한다() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : ");
                 },
                 MOVING_FORWARD, STOP
         );

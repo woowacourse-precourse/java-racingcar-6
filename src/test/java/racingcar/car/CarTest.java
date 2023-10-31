@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
-    OutputStream captor;
+    private OutputStream captor;
 
     @BeforeEach
     protected final void init() {
@@ -19,9 +19,11 @@ class CarTest {
     }
 
     @Test
-    void car_객체_생성하기() {
-        //when
+    void 자동차_이름으로_car_객체를_생성한다() {
+        //given
         String carName = "good";
+
+        //when
         Car car = new Car(carName);
 
         //then
@@ -33,23 +35,26 @@ class CarTest {
     void car_랜덤_슷자가_기준값_이상이면_전진한다() {
         //given
         String carName = "good";
+        String command = "-";
         Car car = new Car(carName);
 
         //when
-        car.execute(4, 4);
+        car.forward(4, 4, command);
 
         //then
-        assertThat(car.getProgress()).isEqualTo("-");
+        assertThat(car.getProgress()).containsOnlyOnce(command);
     }
 
     @Test
     void car_랜덤_슷자가_기준값_미만이면_전진하지_않는다() {
         //given
         String carName = "good";
+        String command = "-";
+
         Car car = new Car(carName);
 
         //when
-        car.execute(4, 3);
+        car.forward(4, 3, command);
 
         //then
         assertThat(car.getProgress()).isBlank();
@@ -59,14 +64,16 @@ class CarTest {
     void car_실행_결과_출력하기() {
         //given
         String carName = "good";
+        String command = "-";
+
         Car car = new Car(carName);
-        car.execute(4, 5);
+        car.forward(4, 5, command);
 
         //when
         car.showProgress();
 
         //then
-        assertThat(output()).contains(String.format("%s : -", carName));
+        assertThat(output()).contains(String.format("%s : %s", carName, command));
     }
 
     private String output() {

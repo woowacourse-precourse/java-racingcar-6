@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.car.Car;
 
 public class Application {
 
@@ -27,7 +28,7 @@ public class Application {
         while (attempt-- >= 0) {
             for (Car car : cars) {
                 int randomNumber = generateRandomNumber();
-                car.execute(threshold, randomNumber);
+                car.forward(threshold, randomNumber, "-");
             }
 
             for (Car car : cars) {
@@ -87,35 +88,3 @@ public class Application {
     }
 }
 
-class Car {
-
-    private String name;
-    private String progress;
-
-    public Car(String name) {
-        this.name = name;
-        this.progress = "";
-    }
-
-    public void execute(int threshold, int number) {
-        if (number >= threshold) {
-            moveForward();
-        }
-    }
-
-    private void moveForward() {
-        progress += "-";
-    }
-
-    public void showProgress() {
-        System.out.printf("%s : %s%n", this.name, this.progress);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getProgress() {
-        return progress;
-    }
-}
