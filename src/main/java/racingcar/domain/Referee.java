@@ -22,6 +22,13 @@ public class Referee {
         return maxDistance;
     }
 
+    public String announceWinner(List<Car> winners) {
+        if (isNumberOfWinnerTwoOrMore(winners)) {
+            return makeWinnerWithCommas(winners);
+        }
+        return winners.get(0).getName();
+    }
+
     public boolean isNumberOfWinnerTwoOrMore(List<Car> Winner) {
         return Winner.size() > SINGLE;
     }
@@ -30,12 +37,5 @@ public class Referee {
         String strWinners;
         strWinners = winners.stream().map(Car::getName).collect(Collectors.joining(","));
         return strWinners;
-    }
-
-    public String announceWinner(List<Car> winners) {
-        if (isNumberOfWinnerTwoOrMore(winners)) {
-            return makeWinnerWithCommas(winners);
-        }
-        return winners.get(0).getName();
     }
 }
