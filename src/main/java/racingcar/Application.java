@@ -21,7 +21,7 @@ public class Application {
         Integer playRound = askPlayRound();
 
         Racing racing = new Racing(racingCars);
-        System.out.println(PLAY_RESULT);
+        System.out.println("\n" + PLAY_RESULT);
         IntStream.range(0, playRound).forEach(i -> racing.run());
 
         Referee referee = new Referee();
