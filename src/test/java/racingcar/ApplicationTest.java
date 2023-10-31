@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.NamesManager;
+import racingcar.domain.RoundNumberManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +54,13 @@ class ApplicationTest extends NsTest {
     void 이름_중복_검사(){
         NamesManager manager = new NamesManager();
         boolean result = manager.duplicateName(Arrays.asList("pobi","pobi"));
+        assertThat(result).isEqualTo(true);
+    }
+
+    @Test
+    void 숫자_확인(){
+        RoundNumberManager manager = new RoundNumberManager();
+        boolean result = manager.notNumber("abc");
         assertThat(result).isEqualTo(true);
     }
 
