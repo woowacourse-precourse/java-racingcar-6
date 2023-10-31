@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 
-public class OutputInterface {
+public class OutputInterface implements Output {
     private Output out;
     private RacingCarGameRenderer renderer;
 
@@ -11,11 +11,12 @@ public class OutputInterface {
         this.renderer = renderer;
     }
 
+    @Override
     public void println(String str) {
         out.println(str);
     }
 
-    public void printStage(RacingCarGame game) {
+    public void printStage(Game game) {
         out.println(game.render(renderer) + "\n");
     }
 

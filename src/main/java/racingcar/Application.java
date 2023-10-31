@@ -21,7 +21,7 @@ public class Application {
         InputInterface in = new InputInterface(Console::readLine, System.out::println);
         OutputInterface out = new OutputInterface(System.out::println, renderer);
         RacingCarGame game = new RacingCarGame(in.getNames(), in.getTrial(), getRandom());
-        GameExecutor gameExecutor = new GameExecutor(game, in, out);
+        GameExecutor gameExecutor = new GameExecutor(game, out);
         gameExecutor.run();
     }
 }

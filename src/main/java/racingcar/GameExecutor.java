@@ -1,13 +1,11 @@
 package racingcar;
 
 public class GameExecutor {
-    private RacingCarGame game;
-    private InputInterface in;
+    private Game game;
     private OutputInterface out;
 
-    public GameExecutor(RacingCarGame game, InputInterface in, OutputInterface out) {
+    public GameExecutor(Game game,  OutputInterface out) {
         this.game= game;
-        this.in = in;
         this.out = out;
     }
 

@@ -1,6 +1,5 @@
 package racingcar;
 
-import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class RacingCarGame {
+public class RacingCarGame implements Game{
     private final int maxTrial;
     private final List<RacingCar> cars;
     private final GameRandom random;
@@ -21,8 +20,7 @@ public class RacingCarGame {
         this.random = random;
         cars = createCars(names);
     }
-
-
+    
     public List<String> getWinners() {
         RacingCar highest = getCarWithHighestPosition();
 

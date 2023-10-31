@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputInterface {
+public class InputInterface implements Input {
     Input in;
     Output out;
 
@@ -30,4 +30,8 @@ public class InputInterface {
         }
     }
 
+    @Override
+    public String readLine() {
+        return in.readLine();
+    }
 }
