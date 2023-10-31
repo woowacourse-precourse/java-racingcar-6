@@ -50,7 +50,8 @@ public class OutputTest {
 
         racingCarGameConsole.race();
 
-        assertThat(out.toString().split("실행 결과", -1)).hasSize(Integer.parseInt(timesToTry) + 1);
+        assertThat(out.toString().split("실행 결과", -1))
+                .hasSize(Integer.parseInt(timesToTry) + 1);
     }
 
     @Test
