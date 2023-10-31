@@ -11,6 +11,7 @@ import racingcar.view.OutputView;
 public class RacingController {
 
     private OutputView outputView = new OutputView();
+    public static final String COMMA = ", ";
 
     public String proceedRace(List<String> carNameList, Integer roundNumber) {
         printMessage();
@@ -56,7 +57,7 @@ public class RacingController {
         int maxScore = cars.get(0).getProgress();
         for(Car car : cars) {
             if(car.getProgress() == maxScore) {
-                if(sb.length()>0) sb.append(", ");
+                if(sb.length()>0) sb.append(COMMA);
                 sb.append(car.getName());
             } else {
                 break;

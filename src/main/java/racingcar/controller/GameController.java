@@ -9,14 +9,12 @@ import racingcar.view.OutputView;
 public class GameController {
     private OutputView outputView = new OutputView();
     private InputView inputView = new InputView();
-    private StringToListConverter converter = new StringToListConverter();
+    private StringToListConverter stringToListConverter = new StringToListConverter();
     private RacingController racingController = new RacingController();
-    private List<String> carNameList;
-    private String roundNumber;
 
     public void raceStart() {
-        setCarNames();
-        setRoundNumber();
+        List<String> carNameList = setCarNames();
+        String roundNumber = setRoundNumber();
         String winnerName = racingController.proceedRace(carNameList, Integer.parseInt(roundNumber));
         endRace(winnerName);
     }
@@ -25,18 +23,18 @@ public class GameController {
         outputView.printWinner(winnerName);
     }
 
-    private void setCarNames() {
+    private List<String> setCarNames() {
         outputView.printInputCarNames();
         String carNames = inputView.carNames();
-        List<String> carNameList = converter.convert(carNames);
+        List<String> carNameList = stringToListConverter.convert(carNames);
         Validator.validateCarNames(carNameList);
-        this.carNameList = carNameList;
+        return carNameList;
     }
 
-    private void setRoundNumber() {
+    private String setRoundNumber() {
         outputView.printInputRoundNumber();
         String roundNumber = inputView.roundNumber();
         Validator.validateRoundNumber(roundNumber);
-        this.roundNumber = roundNumber;
+        return roundNumber;
     }
 }
