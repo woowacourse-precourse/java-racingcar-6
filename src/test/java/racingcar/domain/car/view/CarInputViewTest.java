@@ -115,12 +115,12 @@ class CarInputViewTest {
             // jupiter
             assertThrows(IllegalArgumentException.class,
                     carInputView::getCarNames,
-                    CAR_NAME_LENGTH_OVER.getErrorMessage());
+                    CAR_NAME_IS_EMPTY.getErrorMessage());
 
             // assertJ.core
-            assertThatThrownBy(() -> carInputView.getTryCount())
+            assertThatThrownBy(() -> carInputView.getCarNames())
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(CAR_NAME_LENGTH_OVER.getErrorMessage());
+                    .hasMessageContaining(CAR_NAME_IS_EMPTY.getErrorMessage());
         }
     }
 
