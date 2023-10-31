@@ -5,25 +5,20 @@ import static racingcar.constant.RacingCarMessage.RACING_RESULT_MESSAGE;
 import java.util.List;
 
 public class CarRacing {
+    private final Cars cars;
+    private final Turn turn;
     private final Referee referee;
-    private final RacingCarInputManager inputManager;
     private final RacingCarOutputManager outputManager;
 
-    private CarRacing(Referee referee, RacingCarInputManager inputManager, RacingCarOutputManager outputManager) {
+    public CarRacing(Cars cars, Turn turn, Referee referee, RacingCarOutputManager outputManager) {
+        this.cars = cars;
+        this.turn = turn;
         this.referee = referee;
-        this.inputManager = inputManager;
         this.outputManager = outputManager;
-    }
-
-    public static CarRacing init(Referee referee, RacingCarInputManager inputManager,
-                                 RacingCarOutputManager outputManager) {
-        return new CarRacing(referee, inputManager, outputManager);
     }
 
 
     public void start() {
-        Cars cars = readCarsInfo();
-        Turn turn = readMovingTurn();
         move(turn, cars);
 
         Winners winners = judgeWinners(cars);
@@ -49,13 +44,5 @@ public class CarRacing {
             }
             outputManager.printEnter();
         }
-    }
-
-    private Turn readMovingTurn() {
-        return new Turn(inputManager.readTryToMoveTurnCount());
-    }
-
-    private Cars readCarsInfo() {
-        return new Cars(inputManager.readCarNames());
     }
 }
