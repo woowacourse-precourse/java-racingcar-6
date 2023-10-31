@@ -30,14 +30,14 @@ public class Race {
         }
     }
 
-    public List<Car> getWinners() {
-        List<Car> winners = new ArrayList<>();
+    public List<String> getWinners() {
+        List<String> winnerNames = new ArrayList<>();
         for (Car car : racingCars) {
             if (car.getStatus() == getMaxScore()) {
-                winners.add(car);
+                winnerNames.add(car.getName());
             }
         }
-        return winners;
+        return winnerNames;
     }
 
     private Integer getMaxScore() {

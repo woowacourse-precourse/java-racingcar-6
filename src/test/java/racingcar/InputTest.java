@@ -38,6 +38,8 @@ public class InputTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+
+    // 중복된 이름이면 예외
     @Test
     void validateTryNumber_경주시도횟수_숫자가아니면_예외() {
         assertThatThrownBy(() -> InputValidator.validateTryNumber("a"))

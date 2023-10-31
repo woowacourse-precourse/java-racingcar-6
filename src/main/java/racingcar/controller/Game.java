@@ -25,12 +25,11 @@ public class Game {
         System.out.println(getWinnerString(race.getWinners()));
     }
 
-    private static String getWinnerString(List<Car> winners) {
+    private static String getWinnerString(List<String> winnerNames) {
         StringBuilder sb = new StringBuilder();
         sb.append(FINAL_WINNER_STRING);
-        for (Car car : winners) {
-            sb.append(car.getName());
-        }
+        String result = String.join(", ", winnerNames);
+        sb.append(result);
         return sb.toString();
     }
 }
