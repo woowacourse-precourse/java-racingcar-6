@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constant.RacingMessage;
 import racingcar.dto.CarInfo;
+import racingcar.dto.CarNames;
 import racingcar.dto.RacingStatus;
 import racingcar.model.Racing;
 import racingcar.validator.InputValidator;
@@ -17,9 +18,9 @@ public class RacingView {
     private static final String NEW_LINE = "\n";
     private static final String WINNER_NAME_SEPARATOR = ", ";
 
-    public List<String> inputCarNames() {
+    public CarNames inputCarNames() {
         System.out.println(RacingMessage.INPUT_CAR_NAME);
-        return List.of(Console.readLine().split(CAR_NAME_SEPARATOR));
+        return CarNames.from(List.of(Console.readLine().split(CAR_NAME_SEPARATOR)));
     }
 
     public Integer inputTryCount() {

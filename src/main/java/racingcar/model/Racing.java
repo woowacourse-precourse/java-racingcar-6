@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 import racingcar.dto.CarInfo;
+import racingcar.dto.CarNames;
 import racingcar.dto.RacingStatus;
 
 public class Racing {
@@ -12,8 +13,8 @@ public class Racing {
         this.cars = cars;
     }
 
-    public static Racing makeRacingByCarNames(List<String> carNames) {
-        return new Racing(carNames.stream().map(Car::new).toList());
+    public static Racing makeRacingByCarNames(CarNames carNames) {
+        return new Racing(carNames.getNames().stream().map(Car::new).toList());
     }
 
     public void tryCarsMoveForward() {

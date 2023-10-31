@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.dto.CarNames;
 import racingcar.model.Racing;
 import racingcar.view.RacingView;
 
@@ -13,7 +14,7 @@ public class RacingController {
     }
 
     public void run() {
-        final List<String> carNames = view.inputCarNames();
+        final CarNames carNames = view.inputCarNames();
         final Racing racing = Racing.makeRacingByCarNames(carNames);
         Integer tryCount = view.inputTryCount();
         view.startPrintTryResult();
