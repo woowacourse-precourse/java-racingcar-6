@@ -28,6 +28,8 @@ public class Race {
         }
 
         printWinners();
+
+        inputView.close();
     }
 
     private void printWinners() {
