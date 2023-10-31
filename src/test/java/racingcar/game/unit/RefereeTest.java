@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RefereeTest extends NsTest {
@@ -13,11 +15,22 @@ class RefereeTest extends NsTest {
 	private static final int MOVING_FORWARD = 4;
 	private static final int STOP = 3;
 
+	private Referee referee;
+	private Car firstCar;
+	private Car secondCar;
+
+	@BeforeEach
+	void setUp() {
+		referee = Referee.newReferee();
+		firstCar = Car.of("name1");
+		secondCar = Car.of("name2");
+	}
+
 	@Test
+	@DisplayName("코스 선택 후 생성 확인")
 	void 코스_선택() {
 		assertSimpleTest(() -> {
 			//given
-			Referee referee = Referee.newReferee();
 			String courseAttempt = "3";
 			// when
 			run(courseAttempt);
@@ -30,12 +43,10 @@ class RefereeTest extends NsTest {
 	}
 
 	@Test
+	@DisplayName("경기 중계 시 차량의 위치 출력")
 	public void 차를_보고_경기_중계() {
 		assertRandomNumberInRangeTest(() -> {
 					//given
-					Referee referee = Referee.newReferee();
-					Car firstCar = Car.of("name1");
-					Car secondCar = Car.of("name2");
 					// when
 					firstCar.startEngine();
 					secondCar.startEngine();
@@ -54,13 +65,11 @@ class RefereeTest extends NsTest {
 	}
 
 	@Test
+	@DisplayName("우승자 발표 시 우승자 출력")
 	void 우승자_발표_한명() {
 		assertRandomNumberInRangeTest(
 				() -> {
 					//given
-					Referee referee = Referee.newReferee();
-					Car firstCar = Car.of("name1");
-					Car secondCar = Car.of("name2");
 					// when
 					firstCar.startEngine();
 					secondCar.startEngine();
@@ -78,13 +87,11 @@ class RefereeTest extends NsTest {
 	}
 
 	@Test
+	@DisplayName("우승자 두 명 이상 시 모두 출력")
 	void 우승자_발표_두명() {
 		assertRandomNumberInRangeTest(
 				() -> {
 					//given
-					Referee referee = Referee.newReferee();
-					Car firstCar = Car.of("name1");
-					Car secondCar = Car.of("name2");
 					// when
 					firstCar.startEngine();
 					secondCar.startEngine();

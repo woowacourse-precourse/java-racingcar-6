@@ -2,6 +2,8 @@ package racingcar.game.unit;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.game.message.ErrorMessage;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -9,9 +11,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.*;
 
 class CarTest {
-
-	private static final int MOVING_FORWARD = 4;
-	private static final int STOP = 3;
 
 	@Test
 	@DisplayName("자동차의 이름이 5글자가 넘을 때 IllegalArgumentException 예외 발생")
@@ -57,27 +56,29 @@ class CarTest {
 		});
 	}
 
-	@Test
+	@ParameterizedTest
 	@DisplayName("엔진 동력이 3이하일 때 정지")
-	void 자동차_정지() {
+	@CsvSource(value = {"0", "1", "2", "3"}, delimiter = ',')
+	void 자동차_정지(int enginePower) {
 		assertRandomNumberInRangeTest(() -> {
 					Car car = Car.of("name");
 					car.startEngine();
 					assertThat(car.getPosition()).isEqualTo(0);
 				},
-				STOP
+				enginePower
 		);
 	}
 
-	@Test
+	@ParameterizedTest
 	@DisplayName("엔진 동력이 4이상일 때 전진")
-	void 자동차_전진() {
+	@CsvSource(value = {"4", "5", "6", "7", "8", "9"}, delimiter = ',')
+	void 자동차_전진(int enginePower) {
 		assertRandomNumberInRangeTest(() -> {
 					Car car = Car.of("name");
 					car.startEngine();
 					assertThat(car.getPosition()).isEqualTo(1);
 				},
-				MOVING_FORWARD
+				enginePower
 		);
 	}
 }

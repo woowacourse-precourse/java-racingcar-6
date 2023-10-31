@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RacingGameTest extends NsTest {
@@ -12,9 +13,10 @@ class RacingGameTest extends NsTest {
 	private static final int STOP = 3;
 
 	@Test
+	@DisplayName("게임 플레이 과정 확인")
 	void 게임_플레이() {
 		assertRandomNumberInRangeTest(() -> {
-					//given
+					//givenㄹ
 					RacingGame racingGame = RacingGame.newRacingGame();
 					//when
 					run("name1,name2,name3", "2");
