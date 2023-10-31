@@ -89,6 +89,9 @@ public class Race {
             if (i < overLimitDisplayTime) {
                 printRacers();
             }
+            if (i == overLimitDisplayTime) {
+                System.out.println("...\n");
+            }
             if (i >= displayAgain) {
                 printRacers();
             }
