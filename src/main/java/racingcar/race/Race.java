@@ -53,6 +53,7 @@ public class Race {
         for (int i = 0; i < this.round; i++) {
             roundResultList.add(playRound());
         }
+        gameSet();
     }
 
     private List<Result> playRound() {
@@ -69,5 +70,36 @@ public class Race {
         if (randomValue >= 4) {
             car.moveForward();
         }
+    }
+
+    private void gameSet() {
+        OutputView.gameSetView();
+        List<String> winnerList = findWinner(roundResultList.get(round - 1));
+        for (int i = 0; i < round; i++) {
+            OutputView.roundConditionView(roundResultList.get(i));
+        }
+    }
+
+    public List<String> findWinner(List<Result> resultList) {
+        List<String> winnerList = new ArrayList<>();
+        int maxValue = -1;
+
+        for (Result result : resultList) {
+            maxValue = addWinner(winnerList, result, maxValue);
+        }
+
+        return winnerList;
+    }
+
+    private int addWinner(List<String> winnerList, Result result, int maxValue) {
+        int newMaxValue = maxValue;
+        if (result.getDistance() > newMaxValue) {
+            winnerList.clear();
+            newMaxValue = result.getDistance();
+            winnerList.add(result.getCarName());
+        } else if (result.getDistance() == maxValue) {
+            winnerList.add(result.getCarName());
+        }
+        return newMaxValue;
     }
 }

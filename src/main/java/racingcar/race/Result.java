@@ -16,4 +16,13 @@ public class Result {
     public int getDistance() {
         return distance;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        return result.append(carName)
+                .append(" : ")
+                .append("-".repeat(distance))
+                .toString();
+    }
 }
