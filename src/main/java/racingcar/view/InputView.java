@@ -16,7 +16,7 @@ public class InputView {
                 .toList();
     }
 
-    public static String inputRaceCount() {
+    public static String inputMoveCount() {
         System.out.println("시도할 횟수는 몇회인가요?");
         return Console.readLine()
                 .trim();

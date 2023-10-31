@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.validator.InputTryCountValidator;
+import racingcar.validator.InputMoveCountValidator;
 
 class RaceCountRuleTest {
 
@@ -15,7 +15,7 @@ class RaceCountRuleTest {
     void validateCount_exception_withInvalidRange(String invalidInputCount) {
         // given & when & then
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> InputTryCountValidator.validateCount(invalidInputCount))
+                .isThrownBy(() -> InputMoveCountValidator.validateCount(invalidInputCount))
                 .withMessageContaining("시도 횟수는 1 이상 10 이하의 숫자를 입력해야 합니다.");
     }
 
@@ -25,7 +25,7 @@ class RaceCountRuleTest {
     void validateCount_exception_withNumberFormat(String invalidInputCount) {
         // given & when & then
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> InputTryCountValidator.validateCount(invalidInputCount))
+                .isThrownBy(() -> InputMoveCountValidator.validateCount(invalidInputCount))
                 .withMessageContaining("시도 횟수는 숫자만 입력해야 합니다.");
     }
 }

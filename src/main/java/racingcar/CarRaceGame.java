@@ -5,7 +5,7 @@ import racingcar.domain.RaceJudge;
 import racingcar.dto.MoveResult;
 import racingcar.generator.MoveResultMessageGenerator;
 import racingcar.generator.RandomNumberGenerator;
-import racingcar.validator.InputTryCountValidator;
+import racingcar.validator.InputMoveCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,8 +15,8 @@ public class CarRaceGame {
 
     public void startRace() {
         addRaceCars();
-        int raceCount = inputRaceCount();
-        startMoveCars(raceCount);
+        int moveCount = inputMoveCount();
+        startMoveCars(moveCount);
         printWinner();
     }
 
@@ -25,14 +25,14 @@ public class CarRaceGame {
         judge.addCars(carNames);
     }
 
-    private int inputRaceCount() {
-        String inputRaceCount = InputView.inputRaceCount();
-        InputTryCountValidator.validateCount(inputRaceCount);
-        return Integer.parseInt(inputRaceCount);
+    private int inputMoveCount() {
+        String inputMoveCount = InputView.inputMoveCount();
+        InputMoveCountValidator.validateCount(inputMoveCount);
+        return Integer.parseInt(inputMoveCount);
     }
 
-    private void startMoveCars(final int raceCount) {
-        for (int count = 1; count <= raceCount; count++) {
+    private void startMoveCars(final int moveCount) {
+        for (int count = 1; count <= moveCount; count++) {
             judge.moveCars(RandomNumberGenerator.getGenerateSupplier());
             printSingleMoveResult();
         }
