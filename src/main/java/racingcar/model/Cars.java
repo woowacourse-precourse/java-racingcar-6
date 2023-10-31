@@ -31,7 +31,7 @@ public class Cars {
                 .collect(Collectors.joining("\n", "", "\n"));
     }
 
-    public String racingWinner() {
+    public String getRacingWinner() {
         if(winnerCount() == 1) {
          return getWinner();
         }
