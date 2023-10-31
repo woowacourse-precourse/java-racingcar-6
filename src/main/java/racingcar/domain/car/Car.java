@@ -42,4 +42,16 @@ public class Car implements Comparable<Car> {
     public int compareTo(Car o) {
         return Integer.compare(o.getCurrentLocation(), this.currentLocation); // 오름차순 정렬
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Car)) {
+            return false;
+        }
+        Car cObj = (Car) obj;
+        return cObj.name.equals(this.name) && cObj.currentLocation == this.currentLocation;
+    }
 }

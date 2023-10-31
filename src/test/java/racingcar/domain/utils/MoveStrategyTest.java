@@ -20,8 +20,9 @@ class MoveStrategyTest {
         // THEN
         assertTrue(movable);
     }
+
     @Test
-    @DisplayName("무작위값이 4미망닝 경우 전진할 수 없습니다")
+    @DisplayName("무작위값이 4미만인 경우 전진할 수 없습니다")
     void unMovable() {
         // GIVEN
         int pickedNumber = 3;
