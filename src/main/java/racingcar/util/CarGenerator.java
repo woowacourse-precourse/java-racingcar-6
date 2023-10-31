@@ -23,8 +23,8 @@ public class CarGenerator {
 
     public List<Car> generateCars(){
         List<Car> cars = new ArrayList<>();
-        for(String string : namesList) {
-            cars.add(new Car(namesList.toString()));
+        for(String carName : namesList) {
+            cars.add(new Car(carName));
         }
         return cars;
     }
