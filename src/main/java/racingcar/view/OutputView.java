@@ -12,9 +12,7 @@ public class OutputView {
         System.out.println(RESULT_START_MESSAGE);
     }
 
-    public void printResultsMoving(final RacingCars racingCars) {
-        List<String> results = racingCars.getResultsMoving();
-
+    public void printResultsMoving(final List<String> results) {
         for (String result : results) {
             System.out.println(result);
         }

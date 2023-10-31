@@ -31,7 +31,7 @@ public class GameController {
 
         for (int i = 0; i < movingNumber.getNumber(); i++) {
             racingCars.tryMoveCars();
-            outputView.printResultsMoving(racingCars);
+            outputView.printResultsMoving(racingCars.getResultsMoving());
         }
     }
 
