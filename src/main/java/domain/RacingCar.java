@@ -11,6 +11,7 @@ public class RacingCar {
 	public RacingCar(List<String> nameList) {
 		for (String name : nameList) {
 			Car car = new Car(name);
+
 			this.cars.add(car);
 		}
 	}
@@ -22,7 +23,9 @@ public class RacingCar {
 	public int findLocationWithMostMovement() {
 		List<Car> sortedCars = new ArrayList<>(this.cars);
 		sortCarsByLocation(sortedCars);
+
 		Car carWithMostMovement = sortedCars.get(0);
+
 		return carWithMostMovement.getLocation();
 	}
 
@@ -32,11 +35,13 @@ public class RacingCar {
 
 	public List<Car> findCarWithMaxLocation(int maxLocation) {
 		List<Car> winners = new ArrayList<>();
+
 		for (Car car : this.cars) {
 			if (car.getLocation() == maxLocation) {
 				winners.add(car);
 			}
 		}
+
 		return winners;
 	}
 }
