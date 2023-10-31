@@ -31,7 +31,7 @@ public class MessagePrinter {
 
     public void roundResult(final List<Car> cars) {
         cars.forEach(
-                car -> System.out.println(getCarName(car) + " : " + createHyphenResult(car)));
+                car -> System.out.println(car.getName() + " : " + createHyphenResult(car)));
     }
 
     public void winners(final List<Car> winners) {
@@ -40,10 +40,6 @@ public class MessagePrinter {
                 .toList();
         String result = String.join(", ", winnerNames);
         System.out.print("최종 우승자 : " + result);
-    }
-
-    private String getCarName(final Car car) {
-        return car.getName();
     }
 
     private String createHyphenResult(final Car car) {
