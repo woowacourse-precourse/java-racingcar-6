@@ -1,6 +1,6 @@
 package domain;
 
-public class Progress {
+public class Progress implements Comparable<Progress> {
     private int value;
 
     public Progress() {
@@ -19,4 +19,12 @@ public class Progress {
         return this.value;
     }
 
+    @Override
+    public int compareTo(Progress o) {
+        if (this.value > o.value) {
+            return 1;
+        }
+
+        return -1;
+    }
 }
