@@ -17,6 +17,7 @@ public class Game {
         askGameRounds();
         OutputView.startGameResult();
         mainLogic();
+        result();
     }
 
     private void askGameRounds(){
@@ -32,6 +33,6 @@ public class Game {
     }
 
     private void result(){
-
+        cars.getWinners();
     }
 }

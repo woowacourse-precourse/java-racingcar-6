@@ -9,6 +9,7 @@ public class OutputView {
     private final static String GAME_RESULT = "실행 결과";
     private final static String DISPLAY_USER_SCORE_SIGN = ":";
     private final static String SCORE_SIGN = "-";
+    private final static String FINAL_WINNER = "최종 우승자 :";
 
     public static void startGame(){
         System.out.println(START_MESSAGE);
@@ -33,5 +34,9 @@ public class OutputView {
 
     public static void theEndOfRound(){
         System.out.println();
+    }
+
+    public static void finalGameResult(String cars){
+        System.out.printf("%s %s",FINAL_WINNER, cars);
     }
 }
