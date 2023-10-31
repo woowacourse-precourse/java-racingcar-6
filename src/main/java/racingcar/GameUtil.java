@@ -15,8 +15,8 @@ public class GameUtil {
 
         for (Car car : game.getCars()) {
             String name = carProgressCheck(car, game.goal);
-            if(name.isEmpty()) {
-               continue;
+            if (name.isEmpty()) {
+                continue;
             }
 
             if (stringBuilder.isEmpty()) {

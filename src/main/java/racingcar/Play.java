@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class Play {
+
     private final GameUtil gameUtil = new GameUtil();
     private final GameMessage gameMessage = new GameMessage();
     public final CarUtil carUtil = new CarUtil();
@@ -17,7 +18,7 @@ public class Play {
 
         Game game = new Game(cars, goal);
         gameUtil.show(gameMessage.executeMessage);
-        for(int i = 0; i < goal; i++) {
+        for (int i = 0; i < goal; i++) {
             gameUtil.gameProceed(game);
             gameUtil.ProgressShow(game);
             gameUtil.show("");

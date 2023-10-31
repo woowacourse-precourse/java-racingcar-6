@@ -21,20 +21,20 @@ public class CarUtil {
     }
 
     public boolean move() {
-        if(Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
             return true;
         }
         return false;
     }
 
     public void process(Car car) {
-        if(move()) {
+        if (move()) {
             car.setProgress(car.getProgress() + "-");
         }
     }
 
     public String validate(String car) {
-        if(car.length() <= 5) {
+        if (car.length() <= 5) {
             return car;
         } else {
             throw new IllegalArgumentException(car + "(은)는 이름 형식에 맞지 않습니다.");
