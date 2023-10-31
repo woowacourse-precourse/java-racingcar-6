@@ -5,11 +5,11 @@ import racingcar.exception.round.InvalidRoundException;
 public abstract class Round {
     public static final int MIN_ROUND = 1;
 
-    protected final int round;
+    protected final int value;
 
-    protected Round(final int round) {
-        validateRound(round);
-        this.round = round;
+    protected Round(final int value) {
+        validateRound(value);
+        this.value = value;
     }
 
     private static void validateRound(final int round) {
@@ -19,7 +19,7 @@ public abstract class Round {
     }
 
     public boolean isAfter(final Round other) {
-        return round > other.round;
+        return value > other.value;
     }
 
 }

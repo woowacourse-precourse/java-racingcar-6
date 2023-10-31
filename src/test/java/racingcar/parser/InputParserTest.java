@@ -24,7 +24,7 @@ final class InputParserTest {
 
         // then
         assertThat(maxRound1)
-                .extracting("round")
+                .extracting("value")
                 .isEqualTo(1);
     }
 

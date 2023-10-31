@@ -1,13 +1,13 @@
 package racingcar.view.component.output;
 
-import static strings.Strings.DASH;
-import static strings.Strings.LINE_BREAK;
+import static strings.util.Strings.DASH;
+import static strings.util.Strings.LINE_BREAK;
 
 import java.util.stream.Collectors;
 import racingcar.domain.car.dto.output.CarRacingDto;
 import racingcar.domain.car.dto.output.CarsRacingDto;
 import racingcar.view.component.Component;
-import strings.Strings;
+import strings.util.Strings;
 
 public final class RoundResultComponent implements Component {
 

@@ -1,8 +1,8 @@
 package racingcar.domain.round.boxed;
 
 public final class CurrentRound extends Round {
-    public CurrentRound(final int round) {
-        super(round);
+    public CurrentRound(final int value) {
+        super(value);
     }
 
     public static CurrentRound min() {
@@ -10,6 +10,6 @@ public final class CurrentRound extends Round {
     }
 
     public CurrentRound nextRound() {
-        return new CurrentRound(super.round + 1);
+        return new CurrentRound(super.value + 1);
     }
 }
