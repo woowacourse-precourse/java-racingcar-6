@@ -11,21 +11,26 @@ import racingcar.view.OutputView;
 public class GameController {
 
     public void play() {
-        // 1. 게임 시작 시 안내 메시지를 출력한다.
         OutputView.printGameStartMessage();
+        userInput();
+    }
 
-        // 2. 게임 진행에 필요한 값들을 사용자로부터 입력 받는다.
+    public void userInput() {
         List<String> carNames = InputView.inputCarName();
         int numberOfAttempts = InputView.inputTryCount();
-        String carNamesInput = String.join(",", carNames);
+        carName(carNames, numberOfAttempts);
+    }
 
-        // 3. 입력받은 값을 기반으로 Car 객체 리스트를 생성하고, 게임을 진행한다.
+    public void carName(List<String> carNames, int numberOfAttempts) {
+        String carNamesInput = String.join(",", carNames);
         List<Car> cars = createCars(carNamesInput);
         for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
             moveCars(cars);
+            printWinner(cars, numberOfAttempts);
         }
+    }
 
-        // 4. 우승자를 결정하고 사용자에게 출력한다.
+    public void printWinner(List<Car> cars, int numberOfAttempts) {
         List<String> winners = determineWinners(cars);
         OutputView.printGameResult(cars, numberOfAttempts);
         OutputView.printWinners(winners);
