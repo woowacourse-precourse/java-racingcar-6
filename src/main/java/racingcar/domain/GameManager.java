@@ -23,7 +23,7 @@ public class GameManager {
         cars.forEach(car -> car.move(RandomNumber.createRandomNumber()));
     }
 
-    public Winner findWinner() {
+    public Winner findWinners() {
         findMaxPosition();
         return findWinnerCar();
     }
