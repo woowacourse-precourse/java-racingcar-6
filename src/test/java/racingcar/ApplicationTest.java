@@ -20,6 +20,9 @@ class ApplicationTest extends NsTest {
             () -> {
                 run("pobi,woni,jun", "5");
                 assertThat(output())
+                    .contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
+                    .contains("시도할 회수는 몇회인가요?")
+                    .contains("실행 결과")
                     .contains("pobi : -", "woni :", "jun : -")
                     .contains("pobi : --", "woni : -", "jun : --")
                     .contains("pobi : ---", "woni : --", "jun : ---")
