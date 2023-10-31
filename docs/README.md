@@ -15,6 +15,7 @@
 - [x] 기록 열람: view()
 - [x] 승자 기록: recordWinner()
 - [x] 승자 열람: viewWinner()
+- [x] 실행 결과 열람: viewExecution()
 ***
 ### 게임 진행 관련: GameProgress
 - [ ] 게임 시작: startGame()
