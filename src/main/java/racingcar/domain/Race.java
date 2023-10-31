@@ -7,6 +7,11 @@ import java.util.Map;
 public class Race {
 
     public boolean isForward() {
+        RandomNumber randomNumber = new RandomNumber();
+        int number = randomNumber.createRandom();
+        if (number >= 4) {
+            return true;
+        }
         return false;
     }
 
