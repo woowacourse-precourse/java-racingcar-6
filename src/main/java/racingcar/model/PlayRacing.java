@@ -13,6 +13,11 @@ public class PlayRacing {
         this.cars = cars;
     }
 
+    public Cars process() {
+        cars.updateDistance(createPickNumberOfCars());
+        return cars;
+    }
+
     private List<Integer> createdPickNumberOfCars() {
         return IntStream.range(0, cars.carsSize())
                 .mapToObj(number -> numberGenerator.pickNumber())
