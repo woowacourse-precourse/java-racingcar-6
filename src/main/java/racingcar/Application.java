@@ -25,22 +25,20 @@ public class Application {
                 String[] names = participantInputName.split(",");
                 for (int i = 0; i < names.length; i++) {
                         String name = names[i];
-                        validateName(names, name);               //유효성 검사
-                        participants.add(new Car(name, 0));
+                        if (!participants.contains(name)) {
+                                participants.add(new Car(name, 0));
+                        } else {
+                                System.out.println("중복된 이름이 있습니다.");
+                                throw new IllegalArgumentException();
+                        }
+                        validateName(name);
                 }
                 String participant = String.join(",", names);
                 System.out.println(participant);
                 return participants;
         }
 
-        public static Boolean validateName(String[] names, String name) {
-                //TODO : 중복체크 유효성 검사
-                for (String existName : names) {
-                        if (existName.equals(name)) {
-                                System.out.println("중복된 이름이 있습니다.");
-                                throw new IllegalArgumentException();
-                        }
-                }
+        public static Boolean validateName(String name) {
                 if (name.length() > 5 || name.length() == 0) {
                         System.out.println("5글자이상의 이름이 있습니다.");
                         throw new IllegalArgumentException();
@@ -60,7 +58,7 @@ public class Application {
                 }
         }
 
-        public static void victory(List<Car> participants) {
+        public static void victory(List<Car> participants){
                 int maxMove = 0;
                 List<String> winner = new ArrayList<>();
                 for (Car car : participants) {
