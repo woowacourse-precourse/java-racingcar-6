@@ -110,9 +110,9 @@ jun : -----
 
 ### RacingController
 
-- [ ] 자동차 경주의 흐름을 제어한다.
-    - [ ] view에서 온 입력을 service로 전달한다.
-    - [ ] service에서 온 결과를 view로 응답한다.
+- [x] 자동차 경주의 흐름을 제어한다.
+    - [x] view에서 온 입력을 service로 전달한다.
+    - [x] service에서 온 결과를 view로 응답한다.
 
 ### View(InputView, OutputView)
 
