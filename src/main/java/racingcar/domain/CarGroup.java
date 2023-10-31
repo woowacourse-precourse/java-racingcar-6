@@ -6,15 +6,15 @@ import java.util.stream.IntStream;
 
 public class CarGroup {
 
-    private List<Car> carGroup;
+    private final List<Car> carGroup;
 
-    public CarGroup(List<Car> cars) {
-        this.carGroup = cars;
+    public CarGroup(List<Car> carGroup) {
+        this.carGroup = carGroup;
     }
 
-    public void move(int roundNumber) {
-        IntStream.range(0, roundNumber)
-            .forEach(round -> carGroup.forEach(Car::move));
+    public void move() {
+        for (Car car : carGroup)
+            car.move();
     }
 
     public List<String> calculateWinners() {
@@ -34,4 +34,5 @@ public class CarGroup {
     public List<Car> getCars() {
         return carGroup;
     }
+
 }

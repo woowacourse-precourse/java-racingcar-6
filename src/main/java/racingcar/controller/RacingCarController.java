@@ -13,14 +13,16 @@ public class RacingCarController {
     public void run() {
 
         CarGroup carGroup = racingCarService.createCarGroup(InputView.printInputCarName());
-
         int roundNumber = racingCarService.getRoundNumber(InputView.printInputRound());
 
-        racingCarService.moveCarGroup(carGroup, roundNumber);
+        outputView.printResult();
 
-        outputView.printResult(racingCarService.getResult(carGroup, roundNumber));
+        while (roundNumber != 0) {
+            carGroup = racingCarService.moveCarGroup(carGroup);
+            outputView.printRoundResult(carGroup);
+            roundNumber--;
+        }
 
         outputView.printWinner(racingCarService.getWinners(carGroup));
     }
-
 }

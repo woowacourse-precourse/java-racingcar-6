@@ -5,10 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
-import racingcar.domain.Result;
 import racingcar.domain.Winners;
 import racingcar.dto.InputCarRequestDto;
-import racingcar.dto.ResultResponseDto;
 
 public class RacingCarService {
 
@@ -32,12 +30,9 @@ public class RacingCarService {
         }
     }
 
-    public void moveCarGroup(CarGroup carGroup, int roundNumber) {
-        carGroup.move(roundNumber);
-    }
-
-    public Result getResult(CarGroup carGroup, int roundNumber) {
-        return new Result(carGroup, roundNumber);
+    public CarGroup moveCarGroup(CarGroup carGroup) {
+        carGroup.move();
+        return carGroup;
     }
 
     public Winners getWinners(CarGroup carGroup) {
