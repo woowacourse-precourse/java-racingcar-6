@@ -2,7 +2,7 @@ package racingcar.model;
 
 import racingcar.controller.Controller;
 import racingcar.controller.Validator;
-import racingcar.view.OutputView;
+import racingcar.view.View;
 
 public class RacingGame {
     CarName carName;
@@ -11,17 +11,17 @@ public class RacingGame {
     Integer winnerDistance = 0;
 
     public void startGame() {
-        OutputView.askCarName();
-        carName = carName.makeCarName(OutputView.readCarName());
+        View.askCarName();
+        carName = carName.makeCarName(View.readCarName());
         carDistance.setStartPoint();
-        OutputView.askCount();
-        this.count = Controller.readCount(OutputView.readInput());
-        OutputView.startRace();
+        View.askCount();
+        this.count = Controller.readCount(View.readInput());
+        View.startRace();
         for (int i = 0; i < this.count; i++) {
             moveForward();
-            OutputView.printResult(carName.getCarName(), carDistance.getPlayerDistance());
+            View.printResult(carName.getCarName(), carDistance.getPlayerDistance());
         }
-        OutputView.printWinner(carName.getCarName(), carDistance.getPlayerDistance(), winnerDistance);
+        View.printWinner(carName.getCarName(), carDistance.getPlayerDistance(), winnerDistance);
     }
 
 

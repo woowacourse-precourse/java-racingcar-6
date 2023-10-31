@@ -6,7 +6,7 @@ import racingcar.constant.GameMessage;
 import racingcar.controller.Controller;
 import racingcar.controller.Validator;
 
-public class OutputView {
+public class View {
     public static void askCarName() {
         System.out.println(GameMessage.INPUT_CAR_MESSAGE);
     }

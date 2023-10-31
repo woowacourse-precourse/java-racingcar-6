@@ -28,7 +28,7 @@ public class ViewTest {
     @Test
     @DisplayName("자동차 이름 질문 테스트")
     void askCarNameTest() {
-        OutputView.askCarName();
+        View.askCarName();
         assertThat(outputMessage.toString().trim())
                 .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
@@ -36,7 +36,7 @@ public class ViewTest {
     @Test
     @DisplayName("카운트 입력 질문 테스트")
     void askCountTest() {
-        OutputView.askCount();
+        View.askCount();
         assertThat(outputMessage.toString().trim())
                 .isEqualTo("시도할 회수는 몇회인가요?");
     }
@@ -44,10 +44,10 @@ public class ViewTest {
     @Test
     @DisplayName("레이스 실행 문장 테스트")
     void startRaceTest() {
-        OutputView.nextLine();
+        View.nextLine();
         assertThat(outputMessage.toString())
                 .isEqualTo(System.lineSeparator());
-        OutputView.startRace();
+        View.startRace();
         assertThat(outputMessage.toString().trim())
                 .isEqualTo("실행 결과");
     }
@@ -63,7 +63,7 @@ public class ViewTest {
         userName.add("woni");
         distance.add(0, 3);
         distance.add(1, 4);
-        OutputView.printResult(userName, distance);
+        View.printResult(userName, distance);
         assertThat(outputMessage.toString())
                 .isEqualTo(result);
     }
@@ -71,9 +71,9 @@ public class ViewTest {
     @Test
     @DisplayName("우승자 출력 테스트")
     void plusWinnerTest() {
-        assertThat(OutputView.plusWinner("", "pobi"))
+        assertThat(View.plusWinner("", "pobi"))
                 .isEqualTo("pobi");
-        assertThat(OutputView.plusWinner("pobi", "woni"))
+        assertThat(View.plusWinner("pobi", "woni"))
                 .isEqualTo("pobi, woni");
     }
 
@@ -90,7 +90,7 @@ public class ViewTest {
         distance.add(0, 3);
         distance.add(1, 4);
         distance.add(2, 4);
-        OutputView.printWinner(userName, distance, winnerDistance);
+        View.printWinner(userName, distance, winnerDistance);
         assertThat(outputMessage.toString().trim())
                 .isEqualTo("최종 우승자 : woni, jun");
     }
