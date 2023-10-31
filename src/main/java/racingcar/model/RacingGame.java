@@ -52,6 +52,6 @@ public class RacingGame {
 
     private void printWinner() {
         List<Car> winners = cars.findWinners();
-        OutputView.announceWinners(winners);
+        OutputView.printWinners(winners);
     }
 }

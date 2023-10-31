@@ -14,24 +14,32 @@ import racingcar.model.Car;
 public class OutputView {
 
     public static void promptForCarNames() {
-        System.out.println(PROMPT_CAR_NAME.getValue());
+        System.out.println(PROMPT_CAR_NAME);
     }
 
     public static void promptForRaceCount() {
-        System.out.println(PROMPT_COUNT.getValue());
+        System.out.println(PROMPT_COUNT);
     }
 
-    public static void announceWinners(List<Car> winners) {
+    public static void printWinners(List<Car> winners) {
+        String delimiter = DELIMITER_PLUS_SPACE.getValue();
+        String printWinners = announceWinners(winners, delimiter);
+        System.out.println(PREFIX + printWinners);
+    }
 
-        String winnerNames = winners.stream()
+    public static String announceWinners(List<Car> winners, String delimiter) {
+        return winners.stream()
                 .map(Car::getName)
-                .collect(Collectors.joining(DELIMITER_PLUS_SPACE.getValue()));
-
-        System.out.println(PREFIX + winnerNames);
+                .collect(Collectors.joining(delimiter));
     }
 
     public static void currentLocation(String name, int currentNum) {
-        System.out.println(name + COLON + HYPHEN.getValue().repeat(currentNum));
+        String locationString = getLocationString(name, currentNum);
+        System.out.println(locationString);
+    }
+
+    private static String getLocationString(String name, int currentNum) {
+        return name + COLON + HYPHEN.repeat(currentNum);
     }
 
 }

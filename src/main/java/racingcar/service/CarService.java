@@ -19,7 +19,8 @@ public class CarService {
 
     private static List<Car> toCarList(String userInput) {
 
-        String[] splitList = userInput.split(DELIMITER.getValue());
+        String value = DELIMITER.getValue();
+        String[] splitList = userInput.split(value);
         return Arrays.stream(splitList)
                 .map(String::trim)
                 .map(Car::createCar)
