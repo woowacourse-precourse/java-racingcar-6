@@ -73,4 +73,13 @@ public class RacingCarValidationTest {
         assertFalse(Validation.isOverFiveWord(List1));
         assertTrue(Validation.isOverFiveWord(List2));
     }
+
+    @Test
+    void 리스트_자체가_빈_리스트인지_판별(){
+        List<String> List1 = List.of("pobi", "woni", "crong");
+        List<String> List2 = List.of();
+
+        assertFalse(Validation.isEmpty(List1));
+        assertTrue(Validation.isEmpty(List2));
+    }
 }
