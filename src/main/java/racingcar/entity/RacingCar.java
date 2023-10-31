@@ -7,4 +7,9 @@ public class RacingCar {
     public RacingCar(String carName) {
         this.carName = carName;
     }
+
+    // 한 칸 전진
+    public void plusProgress() {
+        progress += "-";
+    }
 }
