@@ -21,7 +21,10 @@ class Car{
         }
 
     }
-    
+    void printMoveResult(){
+        String dashToString=moveCountToDash.toString();
+        System.out.println(name+" : "+dashToString);
+    }
 
 
 }
@@ -50,5 +53,20 @@ public class Application {
             carList.add(new Car(getName));
         }
 
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for(int j=0;j<racingCount;j++){
+
+            for(int k=0;k<carList.size();k++){
+
+                Car car = carList.get(k);
+                car.carMove();
+                car.printMoveResult();;
+
+            }
+            System.out.println();
+
+        }
     }
 }
