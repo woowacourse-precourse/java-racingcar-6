@@ -49,6 +49,6 @@ public class Cars {
         return cars.stream()
                 .mapToInt(Car::getPoint)
                 .max()
-                .orElse(0);
+                .orElseThrow(IllegalStateException::new);
     }
 }
