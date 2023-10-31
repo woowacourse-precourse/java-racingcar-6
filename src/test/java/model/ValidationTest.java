@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
-class ValidateTest {
+class ValidationTest {
     @Test
     @DisplayName("숫자 랜덤 추출 기능이 작동하는가")
     void randomMoreFourTest() {

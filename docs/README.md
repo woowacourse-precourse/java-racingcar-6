@@ -22,7 +22,6 @@
 
 ### controller package
  - racingCarGameManager class
-   + [0] view,model 활용해 게임 진행 - racingStart
    + [0] view,model 활용해 게임 진행 기능 - racingStart
    + [0] 자동차 이름 입력을 유도하고 입력값을 변형하는 기능 - carNameInputProcess
    + [0] 경기 횟수 입력을 유도하고 입력값을 변형하는 기능 - numberOfRacingProcess
@@ -33,7 +32,6 @@
  - validateException class
    + [0] 6이상인 자동차 이름이 입력될 경우 - 예외 처리 CarNameInvalid
 
-   
 ## 기능 요구 사항 
 
 초간단 자동차 경주 게임을 구현한다.
