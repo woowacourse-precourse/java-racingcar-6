@@ -55,7 +55,7 @@ class ValidatorTest {
         //given
         List<Car> testCarList = new ArrayList<>();
         Car winnerCar = new Car("zizi");
-        winnerCar.stopOrMoveDecision(5);
+        winnerCar.decisionMoveOrStop(5);
         testCarList.add(winnerCar);
         testCarList.add(new Car("hoho"));
         testCarList.add(new Car("haha"));
@@ -63,7 +63,7 @@ class ValidatorTest {
 
         //when, then
         assertThrows(IllegalArgumentException.class, () -> duplicateCarNameValidation(testCarList));
-        
+
     }
 
 }

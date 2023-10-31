@@ -14,7 +14,7 @@ public class Car {
         position = CAR_INIT_POSITION;
     }
 
-    public int stopOrMoveDecision(int moveDecisionNumber) {
+    public int decisionMoveOrStop(int moveDecisionNumber) {
         if (moveDecisionNumber >= CAR_MOVE_CONDITION) {
             position++;
         }

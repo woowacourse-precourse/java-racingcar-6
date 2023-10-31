@@ -21,7 +21,7 @@ class CarListTest {
         CarList carList = new CarList(testCarList, numberGenerator);
 
         //when
-        String winner = carList.racingWinnerDecision();
+        String winner = carList.decisionRacingWinner();
 
         //then
         assertEquals(winner, "haha, hoho");

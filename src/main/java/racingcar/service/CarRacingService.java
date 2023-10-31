@@ -2,14 +2,18 @@ package racingcar.service;
 
 import static racingcar.utill.Validator.carNameValidation;
 import static racingcar.utill.Validator.duplicateCarNameValidation;
-import static racingcar.view.RacingView.attemptNumberInputView;
-import static racingcar.view.RacingView.carNameInputView;
+import static racingcar.view.RacingView.executionResultView;
+import static racingcar.view.RacingView.inputAttemptNumberView;
+import static racingcar.view.RacingView.inputCarNameView;
+import static racingcar.view.RacingView.newLine;
+import static racingcar.view.RacingView.raceResultView;
 import static racingcar.view.RacingView.winnerView;
 
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
+import racingcar.domain.CarRacingResponse;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.utill.CustomReadLine;
 import racingcar.utill.NumberGenerator;
@@ -23,15 +27,16 @@ public class CarRacingService {
         this.customReadLine = new CustomReadLine();
     }
 
-    public void racingStart() {
-        carNameInputView();
-        CarList carList = new CarList(stringToCarListConvert(customReadLine.carsNameInput()), numberGenerator);
-        attemptNumberInputView();
-        carList.racing(customReadLine.attemptNumberInput());
-        winnerView(carList.racingWinnerDecision());
+    public void startRacing() {
+        inputCarNameView();
+        CarList carList = new CarList(convertStringToCarList(customReadLine.carsNameInput()), numberGenerator);
+        inputAttemptNumberView();
+        int attemptNumber = customReadLine.attemptNumberInput();
+        race(carList, attemptNumber);
+        winnerView(carList.decisionRacingWinner());
     }
 
-    private List<Car> stringToCarListConvert(String carsNameString) {
+    private List<Car> convertStringToCarList(String carsNameString) {
         List<Car> carList = new ArrayList<>();
         String[] splitName = carsNameString.split(",", -1);
 
@@ -43,5 +48,15 @@ public class CarRacingService {
         duplicateCarNameValidation(carList);
 
         return carList;
+    }
+
+    private void race(CarList carList, int attemptNumber) {
+        executionResultView();
+        for (int i = 0; i < attemptNumber; i++) {
+            List<CarRacingResponse> carsResponses = carList.decisionCarsMoveOrStop1();
+            carsResponses.forEach(carResponse -> raceResultView(carResponse.getCarName(),
+                    carResponse.getCarPosition()));
+            newLine();
+        }
     }
 }

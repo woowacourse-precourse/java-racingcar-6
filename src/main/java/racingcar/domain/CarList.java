@@ -1,14 +1,11 @@
 package racingcar.domain;
 
 import static racingcar.domain.constant.CarConstant.CAR_INIT_POSITION;
-import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
-import static racingcar.view.RacingView.newLine;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.utill.NumberGenerator;
-import racingcar.view.RacingView;
 
 public class CarList {
     private final List<Car> carList;
@@ -19,25 +16,18 @@ public class CarList {
         this.numberGenerator = numberGenerator;
     }
 
-    public void racing(int attemptNumber) {
-        newLine();
-        RacingView.resultView();
-        for (int i = 0; i < attemptNumber; i++) {
-            carsStopOrMoveDecisionCall();
-        }
-    }
-
-    private void carsStopOrMoveDecisionCall() {
+    public List<CarRacingResponse> decisionCarsMoveOrStop1() {
+        List<CarRacingResponse> carsResponses = new ArrayList<>();
         for (Car car : carList) {
-            int carPosition = car.stopOrMoveDecision(numberGenerator.generateNumber());
+            int carPosition = car.decisionMoveOrStop(numberGenerator.generateNumber());
             String carName = car.getCarName();
-            carMoveOrStopDecisionResultView(carName, carPosition);
+            carsResponses.add(CarRacingResponse.create(carName, carPosition));
         }
 
-        newLine();
+        return carsResponses;
     }
 
-    public String racingWinnerDecision() {
+    public String decisionRacingWinner() {
         return String.join(", ", findWinner());
     }
 
