@@ -34,12 +34,10 @@
 ---
 - [Test](#Test)
   - [ModelTest](#ModelTest)
-    - [car](car)
-      - [CarTest](#CarTest)
-      - [CarListTest](#CarListTest)
-      - [CarRegisterTest](#CarRegisterTest)
-    - [manager](#manager)
-      - [CarMoveManagerTest](#CarMoveManagerTest)
+    - [CarTest.java](#CarTest.java)
+    - [CarListTest.java](#CarListTest.java)
+    - [CarRegisterTest.java](#CarRegisterTest.java)
+    - [CarMoveManagerTest.java](#CarMoveManagerTest.java)
     
 
 ---
@@ -159,7 +157,6 @@
 ---
 # Test
 ## ModelTest
-## car
 ### CarTest.java
 - 초기 위치 검사
 - move() 정상 작동 검사
