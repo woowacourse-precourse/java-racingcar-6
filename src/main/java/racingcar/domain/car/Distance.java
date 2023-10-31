@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 public class Distance {
-    private int distance = 0;
+    protected int distance = 0;
 
     protected Distance() {
 
@@ -11,11 +11,11 @@ public class Distance {
         this.distance += number;
     }
 
-    public boolean isEqualOrGreaterThan(Car otherCar) {
+    protected boolean isEqualOrGreaterThan(Car otherCar) {
         return distance >= otherCar.distance.distance;
     }
 
-    public boolean isCarWithMaxDistance(Car carWithMaxDistance) {
+    protected boolean isCarWithMaxDistance(Car carWithMaxDistance) {
         return distance == carWithMaxDistance.distance.distance;
     }
 
