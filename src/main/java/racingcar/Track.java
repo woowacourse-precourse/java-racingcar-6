@@ -24,7 +24,8 @@ public class Track {
     public String showProgress() {
         StringBuilder sb = new StringBuilder();
         for(Car car : track) {
-            sb.append(car.getName() + " : ");
+            sb.append(car.getName());
+            sb.append(" : ");
             for(int i = 0; i < car.getDistance(); i++) {
                 sb.append("-");
             }
