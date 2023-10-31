@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CarNameHandler implements UserInputHandler<Iterator<String>> {
+    static private final String DELIMITER =  ",";
+    static private final int MAX_CAR_NAME_LENGTH = 5;
+
     ArrayList<String> carNameList;
 
-    static private final int MAX_CAR_NAME_LENGTH = 5;
 
     public CarNameHandler(){}
 
     @Override
     public void handle(String rawCarNames){
-        String[] rawCarNameArray = rawCarNames.split(",");
+        String[] rawCarNameArray = rawCarNames.split(DELIMITER);
         carNameList = new ArrayList<>(rawCarNameArray.length);
 
         for (String rawCarName: rawCarNameArray){
@@ -20,6 +22,7 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
 
             isCarNameEmpty(trimmedCarName);
             isValidLength(trimmedCarName);
+            isDuplicated(trimmedCarName);
 
             carNameList.add(trimmedCarName);
         }
@@ -41,6 +44,11 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
         }
     }
 
+    private void isDuplicated(String carName){
+        if (carNameList.contains(carName)){
+            throw new IllegalArgumentException();
+        }
+    }
     @Override
     public Iterator<String> getHandledResult(){
         return carNameList.iterator();
