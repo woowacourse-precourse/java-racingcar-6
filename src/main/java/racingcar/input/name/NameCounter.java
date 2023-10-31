@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.input.name;
 
 public class NameCounter {
     public static int getCount(String names) {

@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.input.name;
 
 import java.util.Optional;
 
