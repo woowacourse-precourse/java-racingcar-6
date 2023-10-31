@@ -1,6 +1,6 @@
 package racingcar.view;
 
-public class Console {
+public class OutputView {
     public void printMessage(String message) {
         System.out.print(message);
     }
