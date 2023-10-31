@@ -5,10 +5,7 @@ import racingcar.number_generator.RandomNumberGenerator;
 import racingcar.records.RacingCarSnapshot;
 import racingcar.records.RacingHistory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class RacingManager {
     private final NumberGenerator ng;
@@ -65,7 +62,15 @@ public class RacingManager {
                 .toList();
     }
 
-    public List<RacingCar> createRacingCars(String carNamesInput) {
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    private List<RacingCar> createRacingCars(String carNamesInput) {
         validateCarNames(carNamesInput);
 
         String[] carNames = carNamesInput.split(",");
@@ -82,7 +87,7 @@ public class RacingManager {
         }
     }
 
-    public int parseMoveCountInput(String moveCountInput) {
+    private int parseMoveCountInput(String moveCountInput) {
         validateMoveCount(moveCountInput);
         return Integer.parseInt(moveCountInput);
     }
