@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
@@ -64,6 +66,17 @@ public class RacingControllerTest extends NsTest {
         assertThat(output()).contains("최종 우승자 : pobi, woni");
     }
 
+    @Test
+    void testInvalidCarNames() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> run("pobi,,woni", "5"));
+        assertTrue(exception.getMessage().contains("잘못된 자동차 이름 입력 형식입니다."));
+    }
+
+    @Test
+    void testInvalidAttemptCount() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> run("pobi,woni", "invalid"));
+        assertTrue(exception.getMessage().contains("자연수를 입력해주세요"));
+    }
 
 
 }
