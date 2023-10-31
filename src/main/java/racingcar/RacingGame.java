@@ -19,6 +19,7 @@ public class RacingGame {
     private static void inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNameLine = Console.readLine();
+        isWrongInput(isNull(carNameLine));
         divideCarNameLine(carNameLine);
         isWrongInput(isCarNameOverFive());
     }
@@ -33,7 +34,10 @@ public class RacingGame {
         }
         return false;
     }
-    private static void isWrongInput(boolean inputResult){
+    private static boolean isNull(String input) {
+        return input.isEmpty();
+    }
+    private static void isWrongInput(boolean inputResult) {
         if (inputResult) {
             throw new IllegalArgumentException();
         }
@@ -58,7 +62,7 @@ public class RacingGame {
             return true;
         }
     }
-    private static boolean isNotInRange(String stringNumber){
+    private static boolean isNotInRange(String stringNumber) {
         return (Integer.parseInt(stringNumber) <= 0);
     }
     private static void playGame() {
@@ -80,10 +84,10 @@ public class RacingGame {
     private static boolean isRandomValueOverFour() {
         return Randoms.pickNumberInRange(0,9) >= 4;
     }
-    private static void runCar(int number){
+    private static void runCar(int number) {
         distance[number] += Boolean.compare(isRandomValueOverFour(), false);
     }
-    private static void printRacingSequence(int number){
+    private static void printRacingSequence(int number) {
         String sequence = carName[number] + " : " + "-".repeat(distance[number]);
         System.out.println(sequence);
     }
