@@ -36,9 +36,10 @@ public class GameController {
             index++;
         }
 
-        for (Cars car : carsList) {
-            System.out.println(car.getName());
-        }
+//        for (Cars car : carsList) {
+//            System.out.println(car.getName());
+//        }
+        play();
     }
 
     public boolean isLargeThen(int num){
@@ -50,18 +51,22 @@ public class GameController {
         }
     }
     public void playLoad(){
+        System.out.println("here is play load");
         for (Cars car : carsList) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            System.out.println(randomNumber);
             if (isLargeThen(randomNumber)){
                 car.upLoadState();
             }
-            System.out.println(car.getName());
+            System.out.println(car.getLoadState());
         }
     }
 
     public void play(){
-        for(int i=0;i<tryNum;i++){
+        for(int i=0 ; i<tryNum ; i++){
             playLoad();
+
+            System.out.println("here is controller's play code");
             List<String>names = new ArrayList<>();
             List<String>locations = new ArrayList<>();
 
