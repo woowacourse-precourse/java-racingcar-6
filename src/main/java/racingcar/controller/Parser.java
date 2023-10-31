@@ -8,4 +8,8 @@ public class Parser {
     public static ArrayList<String> parsingByComma(String input){
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
+
+    public static Integer parsingInteger(String input){
+        return Integer.parseInt(input);
+    }
 }
