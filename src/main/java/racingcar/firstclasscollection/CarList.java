@@ -1,16 +1,16 @@
 package racingcar.firstclasscollection;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import racingcar.constant.ExceptionMessage;
 import racingcar.model.Car;
 
 public class CarList {
     List<Car> cars;
 
-    public CarList() {
-        this.cars = new ArrayList<>();
+    public CarList(Supplier<List> listSupplier) {
+        this.cars = listSupplier.get();
     }
 
     public void addCar(Car car) {
