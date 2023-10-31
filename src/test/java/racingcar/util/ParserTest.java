@@ -49,4 +49,17 @@ public class ParserTest {
         )));
     }
 
+    @Test
+    @DisplayName("input의 마지막이 쉼표로 끝날경우 없앤다음 파싱한다.")
+    void should_ParseToCars_When_EndsWithComma() {
+        String input = "홀란드, 벨링엄, 음바페,";
+        Cars cars = Parser.parseStringToCars(input);
+        assertThat(cars).usingRecursiveComparison().isEqualTo(new Cars(List.of(
+                new Car(new CarName("홀란드"), new CarPosition(0)),
+                new Car(new CarName("벨링엄"), new CarPosition(0)),
+                new Car(new CarName("음바페"), new CarPosition(0))
+        )));
+    }
+
+
 }
