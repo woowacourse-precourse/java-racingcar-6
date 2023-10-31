@@ -11,6 +11,16 @@ public class View {
         System.out.println(GameMessage.INPUT_CAR_MESSAGE);
     }
 
+    public static String readInput() {
+        return Console.readLine();
+    }
+
+    public static List<String> readCarName() {
+        List<String> carName = Controller.splitName(Console.readLine());
+        Validator.isRightName(carName);
+        return carName;
+    }
+
     public static void askCount() {
         System.out.println(GameMessage.INPUT_COUNT_MESSAGE);
     }
@@ -55,15 +65,4 @@ public class View {
         }
         System.out.println(result);
     }
-
-    public static String readInput() {
-        return Console.readLine();
-    }
-
-    public static List<String> readCarName() {
-        List<String> carName = Controller.splitName(Console.readLine());
-        Validator.isRightName(carName);
-        return carName;
-    }
-
 }
