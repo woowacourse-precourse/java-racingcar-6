@@ -11,18 +11,26 @@ public class RacingController {
     private final Input input = new Input();
 
     public void run() {
+        RacingCars racingCars = makeRacingCars();
+        int count = makeCount();
+        race(racingCars, count);
+        output.showWinners(racingCars.findWinners());
+    }
+
+    private RacingCars makeRacingCars() {
         output.showCarNamesInputMessage();
-        String carNames = input.readCarNames();
-        RacingCars racingCars = RacingCars.from(carNames);
+        return RacingCars.from(input.readCarNames());
+    }
 
+    private int makeCount() {
         output.showCountInputMessage();
-        int count = Converter.toInt(input.readCount());
+        return Converter.toInt(input.readCount());
+    }
 
+    private void race(RacingCars racingCars, int count) {
         output.showResultMessage();
         for (int i = 0; i < count; i++) {
             output.showResult(racingCars.race());
         }
-
-        output.showWinners(racingCars.findWinners());
     }
 }
