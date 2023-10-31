@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class IllegalCheck {
 
     private static final int INPUT_RANGE_MIN = 0;
@@ -20,6 +22,20 @@ public class IllegalCheck {
 
     public boolean availableConvertInteger(int thisChar) {
         if (!Character.isDigit(thisChar)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean duplicateNameCheck(List<String> splittedNames){
+        int splittedNamesSize = splittedNames.size();
+        int splittedNamesFilteredSize = splittedNames.stream()
+                .distinct()
+                .toList()
+                .size();
+
+        if(splittedNamesSize == splittedNamesFilteredSize){
             return false;
         }
 

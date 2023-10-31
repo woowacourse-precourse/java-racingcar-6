@@ -31,6 +31,10 @@ public class StringConverter {
             throw new IllegalArgumentException(ERROR_MESSAGE);
         }
 
+        if(illegalCheck.duplicateNameCheck(splittedNames)){
+            throw new IllegalArgumentException(ERROR_MESSAGE);
+        }
+
         return splittedNames;
     }
 
