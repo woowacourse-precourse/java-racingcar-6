@@ -1,9 +1,7 @@
 package racingcar.model;
 
-import java.util.LinkedHashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import racingcar.exception.car_racing_manager.NotExistCarException;
 import racingcar.exception.car_racing_manager.NotUniqueCarNameException;
 import racingcar.util.NumberGenerator;
@@ -54,12 +52,6 @@ public class Cars implements Vehicles {
     }
 
     @Override
-    public Map<String, Integer> getResult() {
-        return cars.stream()
-                .collect(Collectors.toMap(Car::getName, Car::getPosition, (e1, e2) -> e1, LinkedHashMap::new));
-    }
-
-    @Override
     public List<String> getWinner() {
         int maxPosition = findMaxPosition();
 
@@ -74,5 +66,10 @@ public class Cars implements Vehicles {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(NotExistCarException::new);
+    }
+
+    @Override
+    public List<Vehicle> getVehicles() {
+        return Collections.unmodifiableList(cars);
     }
 }
