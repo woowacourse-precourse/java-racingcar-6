@@ -17,9 +17,6 @@ public class Application {
 
     public static void main(String[] args) {
         GameExecutor gameExecutor = new GameExecutor();
-        if (random == null) {
-            random = new MissionUtilsGameRandom();
-        }
         gameExecutor.run(getRandom());
     }
 }

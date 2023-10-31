@@ -34,6 +34,8 @@ public class RacingCarGame {
         Optional<RacingCar> winner = cars.stream()
                 .max(RacingCar.positionComparator);
 
+        out.println(winner.get().getName());
+
         if (winner.isEmpty()) {
             throw new IllegalStateException("winner가 없습니다.");
         }
@@ -45,16 +47,9 @@ public class RacingCarGame {
     }
 
     private List<RacingCar> createCars(String[] names) {
-        Set<String> carSet = new HashSet<>();
+        checkNames(names);
 
-        for (String name : names) {
-            if (carSet.contains(name)) {
-                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: " + name);
-            }
-            carSet.add(name);
-        }
-
-        return carSet.stream()
+        return Arrays.stream(names)
                 .map(RacingCar::new)
                 .collect(toList());
     }
@@ -71,6 +66,17 @@ public class RacingCarGame {
     private static void checkTrial(int trial) {
         if (trial <= 0) {
             throw new IllegalArgumentException("시도횟수는 1 이상의 값이여야 합니다.");
+        }
+    }
+
+    private static void checkNames(String[] names) {
+        Set<String> carSet = new HashSet<>();
+
+        for (String name : names) {
+            if (carSet.contains(name)) {
+                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: " + name);
+            }
+            carSet.add(name);
         }
     }
 

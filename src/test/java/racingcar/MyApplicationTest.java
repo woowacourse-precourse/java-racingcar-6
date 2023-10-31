@@ -65,11 +65,16 @@ public class MyApplicationTest {
     }
 
     @AfterEach
-    void setOutputsEmpty(){
+    void setOutputsEmpty() {
         outputs = Collections.emptyList();
     }
-    List<String> outputs() {
+
+    protected List<String> outputs() {
         return List.copyOf(outputs);
+    }
+
+    protected void printOutputs() {
+        systemOut.println(Arrays.toString(outputs().toArray()));
     }
 
 }

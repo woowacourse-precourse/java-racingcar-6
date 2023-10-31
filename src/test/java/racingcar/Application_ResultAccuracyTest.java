@@ -13,9 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class Application_ResultAccuracyTest extends MyApplicationTest {
-
     private List<String> winners;
-
 
     @BeforeEach
     void setGameRandom() {
@@ -33,7 +31,7 @@ public class Application_ResultAccuracyTest extends MyApplicationTest {
         run("pobi,woni", "10");
 
         assertThatNoException()
-                .isThrownBy(()->getWinners());
+                .isThrownBy(() -> getWinners());
 
         assertThat(winners)
                 .hasSize(1)
@@ -47,11 +45,11 @@ public class Application_ResultAccuracyTest extends MyApplicationTest {
         run("pobi,woni,jun", "10");
 
         assertThatNoException()
-                .isThrownBy(()->getWinners());
+                .isThrownBy(() -> getWinners());
 
         assertThat(winners)
                 .hasSize(2)
-                .containsExactly("pobi","jun");
+                .containsExactly("pobi", "jun");
 
     }
 
@@ -68,11 +66,10 @@ public class Application_ResultAccuracyTest extends MyApplicationTest {
 
     }
 
-    List<String> getWinnersFromResultString(String resultString){
+    List<String> getWinnersFromResultString(String resultString) {
         String[] tokens = resultString.split(":");
         return Arrays.stream(tokens[1].split(","))
                 .map(str -> str.trim())
                 .collect(toList());
     }
-
 }
