@@ -13,17 +13,26 @@ public class Controller {
     GameService service = new GameService();
     Cars cars = new Cars();
 
+    public void makeGame(){
+        startGame();
+        progressGame(makeTrialNumber(),cars.getCars());
+        endGame();
+    }
     public void startGame(){
         makeCars();
-        progressGame(makeTrialNumber(), cars.getCars());
     }
 
     public void progressGame(int trialNum, List<Car> carList){
+        view.printResultMessage();
         for(int i=0; i < trialNum; i++){
             service.moveRandomNumber(carList);
             printRoundResult(carList);
             view.printLineBreak();
         }
+    }
+    public void endGame(){
+        view.printLastWinnerMessage();
+        view.printWinner(service.calcWinner(cars.getCars()));
     }
     public void printRoundResult(List<Car> carList){
         for(Car car : carList){
