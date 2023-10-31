@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Winners {
     private final List<Car> winners;
@@ -21,10 +22,10 @@ public class Winners {
                 .orElse(0);
     }
 
-    public List<String> getNames() {
+    public String getWinners() {
         return winners.stream()
                 .map(Car::getNickName)
-                .toList();
+                .collect(Collectors.joining(", "));
     }
 
     @Override
