@@ -9,6 +9,21 @@ import org.junit.jupiter.api.Test;
 class RoundDtoValidatorTest {
 
     @Test
+    @DisplayName("공백은 입력하실 수 없습니다.")
+    void exceptNull() {
+        // GIVEN
+        RoundDto nullInput = new RoundDto("");
+
+        // WHEN
+        IllegalArgumentException nullThrown = assertThrows(IllegalArgumentException.class, () -> {
+            RoundDtoValidator.validateNull.apply(nullInput.roundInput());
+        });
+
+        // THEN
+        assertEquals(nullThrown.getMessage(), RoundDtoValidator.NULL_EXCEPTION_MESSAGE);
+    }
+
+    @Test
     @DisplayName("숫자가 아닌 문자는 입력하실 수 없습니다.")
     void exceptNotNumber() {
         // GIVEN
