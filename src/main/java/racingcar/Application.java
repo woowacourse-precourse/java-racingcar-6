@@ -54,15 +54,15 @@ public class Application {
 
     public static int inputNumberOfTimes() {
         String s = readLine();
-        if (checkNumsError(s)) {
+       /* if (checkNumsError(s)) {
             throw new IllegalArgumentException();
-        }
+        }*/
         return Integer.parseInt(s);
     }
 
     private static boolean checkNumsError(String s) {
         int tmp = Integer.parseInt(s);
-        if (tmp < 0 || tmp > 9) return true;
+        if (tmp <= 0 || tmp > 9) return true;
         return false;
     }
 
