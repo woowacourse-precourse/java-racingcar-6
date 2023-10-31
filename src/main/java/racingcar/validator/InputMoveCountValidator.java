@@ -16,13 +16,13 @@ public class InputMoveCountValidator {
         try {
             Integer.parseInt(moveCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자만 입력해야 합니다.");
+            throw new IllegalArgumentException("이동 횟수는 숫자만 입력해야 합니다.");
         }
     }
 
     private static void validateRange(final int moveCount) {
         if (RaceCountRule.isNotInRange(moveCount)) {
-            throw new IllegalArgumentException("시도 횟수는 1 이상 10 이하의 숫자를 입력해야 합니다.");
+            throw new IllegalArgumentException("이동 횟수는 1 이상 10 이하의 숫자를 입력해야 합니다.");
         }
     }
 }
