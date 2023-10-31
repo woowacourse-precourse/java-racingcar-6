@@ -22,6 +22,7 @@ public class Game {
         String[] carNames = Reader.carNames();
         Writer.askAttempts();
         Integer attempts = Reader.attempts();
+        Writer.nextLine();
         return new Game(carNames, attempts);
     }
 
@@ -30,6 +31,7 @@ public class Game {
         for (int currentAttempt = 1; currentAttempt <= attempts; currentAttempt++) {
             cars.attempt();
             Writer.cars(cars);
+            Writer.nextLine();
         }
         Writer.winner(cars);
     }
