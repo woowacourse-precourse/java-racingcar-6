@@ -77,10 +77,9 @@ public class InputViewTest {
     void 시도_횟수_입력_ZERO_검증_테스트() {
         ByteArrayInputStream fakeInput = new ByteArrayInputStream("0".getBytes());
         System.setIn(fakeInput);
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputView.readTryNumber();
-        });
-        Assertions.assertEquals("[ERROR] 0이 입력되었습니다.", exception.getMessage());
+        assertThatThrownBy(() -> InputView.readTryNumber())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 0이 입력되었습니다.");
     }
 
     @Test
