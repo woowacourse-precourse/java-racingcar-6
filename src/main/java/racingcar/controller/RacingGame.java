@@ -27,6 +27,7 @@ public class RacingGame {
         }
 
         decideWinner();
+        OutputView.finalWinner(finalWinners);
     }
 
     public void registerCars() {
