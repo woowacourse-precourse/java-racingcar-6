@@ -1,13 +1,22 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class RandomNumbers {
 
-    public int createRandomNumbers() {
+    public List createRandomNumbers(int carsNameListSize) {
 
-        int randomNumber = new Random().nextInt(0, 10);
+        RacingGame racingGame = new RacingGame();
+        int inputTryCount = racingGame.inputTryCount();
 
-        return randomNumber;
+        List<Integer> randomNumberList = new ArrayList<>();
+
+        for (int i = 0; i < carsNameListSize; i++) {
+            randomNumberList.add(new Random().nextInt(0, 10));
+        }
+
+        return randomNumberList;
     }
 }

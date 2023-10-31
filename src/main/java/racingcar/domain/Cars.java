@@ -7,11 +7,11 @@ import java.util.List;
 
 public class Cars {
     final private String START_PRINT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    final private String GO = "-";
-    private  String inputCarName = null;
+    private String GO = "-";
+    private String inputCarName = null;
 
     public Cars() {
-     }
+    }
 
 
     public List createCars() {
@@ -27,14 +27,7 @@ public class Cars {
 
     }
 
-    public void sprint(String carsName, int inputTryCount) {
-        RandomNumbers randomNumbers = new RandomNumbers();
-
-        int randomNumber = randomNumbers.createRandomNumbers();
-
-        System.out.println(randomNumber + " " + inputTryCount);
-
-        System.out.println(carsName + " : " + GO);
+    public void sprint(List<String> carsNameList, int inputTryCount) {
 
     }
 
