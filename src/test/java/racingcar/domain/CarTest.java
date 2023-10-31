@@ -3,6 +3,8 @@ package racingcar.domain;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.IntStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -30,9 +32,8 @@ class CarTest {
         Car car = new Car("test");
 
         // when
-        for (int i = 0; i < moveCount; i++) {
-            car.move();
-        }
+        IntStream.range(0, moveCount)
+                .forEach(i -> car.move());
 
         // then
         assertThat(car.isSameMovedCount(moveCount)).isTrue();
