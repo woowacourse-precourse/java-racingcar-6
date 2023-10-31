@@ -10,4 +10,8 @@ public class Car {
     public void pickRandomNumber() {
         this.randomNumber = Randoms.pickNumberInRange(0, 9);
     }
+
+    public boolean checkRandomNumber() {
+        return this.randomNumber >= 4;
+    }
 }
