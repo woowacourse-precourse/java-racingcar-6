@@ -25,8 +25,8 @@ public class Car implements Comparable<Car>, Model {
         return name;
     }
 
-    public int getMoved() {
-        return moved;
+    public boolean isDraw(Car other) {
+        return this.moved == other.moved;
     }
 
     @Override
