@@ -2,15 +2,13 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CarGenerator {
 
     Car car = new Car();
 
-    public LinkedHashMap<String,String> createCarList() {
-        LinkedHashMap<String,String> carList = new LinkedHashMap<>();
+    public LinkedHashMap<String, String> createCarList() {
+        LinkedHashMap<String, String> carList = new LinkedHashMap<>();
         String[] cars = splitStringByCommas();
         for (String car : cars) {
             carList.put(car, "");
@@ -25,14 +23,5 @@ public class CarGenerator {
 
     public void inputCarList() {
         car.setStringCarList(Console.readLine());
-    }
-
-    public void checkContainsConsecutiveCommas() {
-        Pattern pattern = Pattern.compile(",,+");
-        Matcher matcher = pattern.matcher(car.getStringCarList());
-
-        if (matcher.find()) {
-            throw new IllegalArgumentException("연속적인 쉼표가 발견되었습니다.");
-        }
     }
 }
