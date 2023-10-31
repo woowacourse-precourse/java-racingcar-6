@@ -15,6 +15,7 @@ import racingcar.util.Util;
 class UtilTest {
     static Util util;
     List<CarModel> carModelList = new ArrayList<>();
+
     @BeforeAll
     static void beforeAll() {
         util = new Util();
@@ -55,7 +56,7 @@ class UtilTest {
     }
 
     @Test
-    void 우승자_리스트_생성_테스트() {
+    void 우승자_리스트_포맷_맞춰서_생성_테스트() {
         //given
         carModelList.add(new CarModel("car1", 3));
         carModelList.add(new CarModel("car2", 3));
@@ -70,12 +71,12 @@ class UtilTest {
     void calculateWinner_테스트() {
         //given
         carModelList.add(new CarModel("car1", 1));
-        carModelList.add(new CarModel("car2", 3));
-        carModelList.add(new CarModel("car3", 3));
+        carModelList.add(new CarModel("car2", 2));
+        carModelList.add(new CarModel("car3", 2));
         //when
         List<CarModel> winnerList = util.calculateWinner(carModelList);
         //then
-        assertThat(winnerList).extracting("name").contains("car3", "car2");
+        assertThat(winnerList).extracting("name").containsExactly("car2", "car3");
 
     }
 }

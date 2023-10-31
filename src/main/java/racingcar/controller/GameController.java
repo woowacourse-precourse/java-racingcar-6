@@ -31,6 +31,7 @@ public class GameController {
         for (CarModel car : carList) {
             System.out.println(car);
         }
+        System.out.println();
     }
 
     public void showWinnerCars() {

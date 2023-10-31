@@ -26,16 +26,16 @@ class InitViewTest {
 
     @Test
     void inputCarNames_split_기능_테스트() {
-        initInputStream("1,2,3");
-        String[] result = initView.inputCarNames();
+        setInputStream("1,2,3");
+        String[] input = initView.inputCarNames();
 
-        assertThat(result).contains("2", "1", "3");
-        assertThat(result).containsExactly("1", "2", "3");
+        assertThat(input).contains("2", "1", "3");
+        assertThat(input).containsExactly("1", "2", "3");
     }
 
     @Test
     void inputCarNames_split_기능_예외_테스트() {
-        initInputStream("1,2, 356");
+        setInputStream("1,2, 356");
 
         assertThatThrownBy(() -> {
             assertThat(initView.inputCarNames())
@@ -44,15 +44,33 @@ class InitViewTest {
     }
 
     @Test
+    void 입력한_자동차_이름_길이가_5를_넘지_않는_경우_테스트() {
+        setInputStream("car1,car2,car3");
+        String[] input = initView.inputCarNames();
+        assertThat(input).containsExactly("car1", "car2", "car3");
+    }
+
+    @Test
+    void 입력한_자동차_이름_길이가_5를_넘는_경우_예외_테스트() {
+        setInputStream("car123,      car2,car3      ");
+
+        assertThatThrownBy(
+                () -> {
+                    assertThat(initView.inputCarNames())
+                            .isInstanceOf(IllegalArgumentException.class);
+                });
+    }
+
+    @Test
     void inputTryNumber_기능_테스트() {
-        initInputStream("1");
+        setInputStream("1");
         int tryNumber = initView.inputTryNumber();
         assertThat(tryNumber).isEqualTo(1);
     }
 
     @Test
     void inputTryNumber_기능_예외_테스트() {
-        initInputStream("");
+        setInputStream("");
 
         assertThatThrownBy(() -> {
             assertThat(initView.inputTryNumber())
@@ -60,7 +78,7 @@ class InitViewTest {
         });
     }
 
-    private static void initInputStream(String input) {
+    private static void setInputStream(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
     }
