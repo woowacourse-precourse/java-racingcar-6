@@ -1,9 +1,13 @@
-package racingcar.model;
+package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
 import racingcar.constants.Constants;
-import racingcar.validator.CarsValidator;
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.model.Name;
+import racingcar.model.Position;
+import racingcar.util.validator.CarsValidator;
 
 public class CarsGenerator {
     private static final String EMPTY = "";

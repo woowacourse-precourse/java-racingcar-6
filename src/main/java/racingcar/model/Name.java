@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.validator.NameValidator;
+import racingcar.util.validator.NameValidator;
 
 public class Name {
     private final String name;

@@ -1,4 +1,4 @@
-package racingcar.validator;
+package racingcar.util.validator;
 
 import racingcar.constants.ExceptionMessage;
 import racingcar.constants.NameConstants;

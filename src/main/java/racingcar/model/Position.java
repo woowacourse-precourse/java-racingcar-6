@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.ForwardDecider;
+
 public class Position {
     private int position;
     private static final String SLASH = "-";
@@ -13,9 +15,9 @@ public class Position {
     }
 
     public void attemptForward() {
-        RandomNumber randomNumber = new RandomNumber();
+        ForwardDecider forwardDecider = new ForwardDecider();
 
-        if (randomNumber.checkValueIsOverFour()) {
+        if (forwardDecider.isForwardPossible()) {
             moveForward();
         }
     }

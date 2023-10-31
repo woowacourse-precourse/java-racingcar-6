@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 import racingcar.constants.ExceptionMessage;
 import racingcar.dto.RoundResult;
+import racingcar.util.CarsGenerator;
 
 public class RacingGame {
     private Cars cars;

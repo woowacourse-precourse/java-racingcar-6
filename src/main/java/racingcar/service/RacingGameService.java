@@ -8,7 +8,7 @@ import racingcar.dto.RoundResult;
 import racingcar.dto.TotalResult;
 import racingcar.model.RacingGame;
 import racingcar.model.Winners;
-import racingcar.validator.AttemptCountValidator;
+import racingcar.util.validator.AttemptCountValidator;
 
 public class RacingGameService {
     private final RacingGame racingGame;
