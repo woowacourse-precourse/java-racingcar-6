@@ -3,8 +3,8 @@
 ## 구현할 기능 리스트
 
 ### car 클래스 
-* Car 클래스는 name 과 distance 를 가진다.
-* name 과 distance 는 각각의 제약 조건을 확인한다.
+* Car 클래스는 name 과 position 를 가진다.
+* name 과 position 는 각각의 제약 조건을 확인한다.
 
 ### 게임
 * 전진 조건 0~9사이에 무작위 값을 구한 후 무작위 값이 4 이상일 경우 distance 값 1추가
