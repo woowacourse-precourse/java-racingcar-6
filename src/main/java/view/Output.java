@@ -19,11 +19,11 @@ public class Output {
 
         for (Car car : participant.getParticipant()) {
 
-            Name name = car.getName();
-            System.out.print(name.getName() + " : ");
+            String name = car.getNameValue();
+            System.out.print(name + " : ");
 
-            Go go = car.getGo();
-            for (int i = 0; i < go.getGo(); i++) {
+            int goValue = car.getGoValue();
+            for (int i = 0; i < goValue; i++) {
                 System.out.print("-");
             }
             System.out.println();

@@ -23,4 +23,12 @@ public class Car {
     public void add() {
         go.add();
     }
+
+    public int getGoValue() {
+        return go.getGo();
+    }
+
+    public String getNameValue() {
+        return name.getName();
+    }
 }

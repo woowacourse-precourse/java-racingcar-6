@@ -13,13 +13,10 @@ public class GamePlay {
     public static void round(Participant participant) {
 
         for (Car car : participant.getParticipant()) {
-
             if (makeRandomValue() >= BASE_NUMBER) {
                 car.add();
             }
-
         }
-
     }
 
     private static int makeRandomValue() {

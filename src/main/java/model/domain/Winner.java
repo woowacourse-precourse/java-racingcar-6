@@ -22,4 +22,5 @@ public class Winner {
     public void clear(){
         winner.clear();
     }
+
 }

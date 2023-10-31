@@ -14,12 +14,13 @@ public class GameResult {
 
         for (Car car : participant.getParticipant()) {
 
-            Go go = car.getGo();
-            if (go.getGo() > winnerGoValue) {
+            int currentGoValue = car.getGoValue();
+
+            if (currentGoValue > winnerGoValue) {
                 winner.clear();
-                winnerGoValue = go.getGo();
+                winnerGoValue = currentGoValue;
             }
-            if (go.getGo() == winnerGoValue) {
+            if (currentGoValue == winnerGoValue) {
                 winner.add(car.getName());
             }
         }
