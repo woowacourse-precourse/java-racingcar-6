@@ -37,4 +37,14 @@ public class Referee {
         return winnerCarNames;
     }
 
+    public void printWinner(List<String> winnerCarNames) {
+        if (existWinner) {
+            System.out.print("최종 우승자 : ");
+            System.out.println(String.join(", ", winnerCarNames));
+        }
+        if (!existWinner) {
+            System.out.println("아무도 출발하지 않았습니다.");
+        }
+    }
+
 }
