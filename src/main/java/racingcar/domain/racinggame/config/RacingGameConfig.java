@@ -1,6 +1,7 @@
 package racingcar.domain.racinggame.config;
 
 import racingcar.domain.car.config.CarConfig;
+import racingcar.domain.racinggame.trycountfactory.InputTryCountFactory;
 import racingcar.domain.racinggame.RacingGame;
 import racingcar.domain.racinggame.RacingGameManager;
 import racingcar.domain.racinggame.RacingGameSettingsManager;
@@ -12,7 +13,6 @@ public class RacingGameConfig {
     private RacingGameSettingsManager cashedRacingGameSettingsManager;
     private RacingGame cashedRacingGame;
     private TryCountManager cashedTryCountManager;
-
     private final CarConfig carConfig;
 
     public RacingGameConfig(CarConfig carConfig) {
@@ -21,7 +21,7 @@ public class RacingGameConfig {
 
     public TryCountManager tryCountManager() {
         if (cashedTryCountManager == null) {
-            cashedTryCountManager = new TryCountManager(new TryCountValidator());
+            cashedTryCountManager = new TryCountManager(new InputTryCountFactory(new TryCountValidator()));
         }
         return cashedTryCountManager;
     }

@@ -1,6 +1,6 @@
 package racingcar.domain.racinggame.validator;
 
-import racingcar.domain.racinggame.TryCountManager;
+import racingcar.domain.racinggame.trycountfactory.TryCountFactory;
 import racingcar.utils.NumberUtils;
 
 public class TryCountValidator {
@@ -17,8 +17,8 @@ public class TryCountValidator {
     }
 
     private void validateMaxTryCount(String input) {
-        if(Integer.parseInt(input) > TryCountManager.MAX_TRY_COUNT) {
-            throw new IllegalArgumentException("시도 횟수는 최대 " + TryCountManager.MAX_TRY_COUNT + "번 가능합니다.");
+        if(Integer.parseInt(input) > TryCountFactory.MAX_TRY_COUNT) {
+            throw new IllegalArgumentException("시도 횟수는 최대 " + TryCountFactory.MAX_TRY_COUNT + "번 가능합니다.");
         }
     }
 }

@@ -1,8 +1,8 @@
 package racingcar.domain.car.config;
 
-import racingcar.domain.car.CarFactory;
+import racingcar.domain.car.carfactory.CarFactory;
 import racingcar.domain.car.CarManager;
-import racingcar.domain.car.InputCarFactory;
+import racingcar.domain.car.carfactory.InputCarFactory;
 import racingcar.domain.car.validator.InputCarFactoryValidator;
 import racingcar.domain.victory.config.VictoryConfig;
 

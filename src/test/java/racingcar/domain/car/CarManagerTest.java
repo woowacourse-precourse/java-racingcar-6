@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.carfactory.InputCarFactory;
 import racingcar.domain.car.validator.InputCarFactoryValidator;
 import racingcar.domain.victory.VictoryManager;
 import racingcar.domain.victory.VictoryView;

@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import java.util.List;
+import racingcar.domain.car.carfactory.CarFactory;
 import racingcar.domain.victory.VictoryManager;
 
 public class CarManager {

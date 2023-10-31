@@ -1,7 +1,7 @@
 package racingcar.domain.car.validator;
 
 import java.util.Arrays;
-import racingcar.domain.car.CarFactory;
+import racingcar.domain.car.carfactory.CarFactory;
 
 public class InputCarFactoryValidator {
 

@@ -4,13 +4,15 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import racingcar.IOTest;
+import racingcar.domain.racinggame.trycountfactory.InputTryCountFactory;
+import racingcar.domain.racinggame.trycountfactory.TryCountFactory;
 import racingcar.domain.racinggame.validator.TryCountValidator;
 
 class TryCountManagerTest extends IOTest {
     @Test
     void 시도_횟수_입력받은후_해당_횟수만큼_람다_호출() {
         //given
-        TryCountManager tryCountManager = new TryCountManager(new TryCountValidator());
+        TryCountManager tryCountManager = new TryCountManager(new InputTryCountFactory(new TryCountValidator()));
 
         //when
         int tryCount = 3;
@@ -26,7 +28,7 @@ class TryCountManagerTest extends IOTest {
     @Test
     void 숫자가_아닌_입력을_받으면_예외_발생() {
         //given
-        TryCountManager tryCountManager = new TryCountManager(new TryCountValidator());
+        TryCountManager tryCountManager = new TryCountManager(new InputTryCountFactory(new TryCountValidator()));
 
         //when
         command("3번");
@@ -40,8 +42,8 @@ class TryCountManagerTest extends IOTest {
     @Test
     void 최대_시도횟수를_넘으면_예외_발생() {
         //given
-        TryCountManager tryCountManager = new TryCountManager(new TryCountValidator());
-        int tryCount = TryCountManager.MAX_TRY_COUNT + 1;
+        TryCountManager tryCountManager = new TryCountManager(new InputTryCountFactory(new TryCountValidator()));
+        int tryCount = TryCountFactory.MAX_TRY_COUNT + 1;
 
         //when
         command(tryCount + "");
@@ -49,6 +51,6 @@ class TryCountManagerTest extends IOTest {
         //then
         assertThatThrownBy(() -> tryCountManager.makeTryCount())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("시도 횟수는 최대 " + TryCountManager.MAX_TRY_COUNT + "번 가능합니다.");
+                .hasMessageContaining("시도 횟수는 최대 " + TryCountFactory.MAX_TRY_COUNT + "번 가능합니다.");
     }
 }

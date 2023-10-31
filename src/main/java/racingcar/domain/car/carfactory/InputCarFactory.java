@@ -1,9 +1,10 @@
-package racingcar.domain.car;
+package racingcar.domain.car.carfactory;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.car.Car;
 import racingcar.domain.car.move.RandomMovement;
 import racingcar.domain.car.validator.InputCarFactoryValidator;
 

@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.IOTest;
+import racingcar.domain.car.carfactory.CarFactory;
+import racingcar.domain.car.carfactory.InputCarFactory;
 import racingcar.domain.car.validator.InputCarFactoryValidator;
 
 class InputCarFactoryTest extends IOTest {
