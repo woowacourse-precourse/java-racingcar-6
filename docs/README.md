@@ -12,7 +12,7 @@
   - [x] <정지> 출력X Car#stop  
 - [x] 전진한 것(작대기)을 비교 Referee#compare
   - [x] 작대기 개수를 세기 Judgment#countBar
-- [ ] 단독, 공동 우승자 판단 Referee#whoIsWinner
+- [x] 단독, 공동 우승자 판단 Judgment#checkJointWinner
 - [ ] 잘못된 값을 입력할 경우 예외 발생
 
 
