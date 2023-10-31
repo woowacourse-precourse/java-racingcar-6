@@ -27,6 +27,7 @@ public class ValidException {
         if (matcher.find()) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_KOREA_STRING());
         }
+
         return false;
     }
 
