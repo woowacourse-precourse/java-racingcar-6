@@ -19,6 +19,11 @@ public class Game {
        player.setAttemptNumber(inputView.askAttemptNumber());
     }
 
+    public void setCars(){
+        player.getCarName()
+                .forEach(name -> cars.add(new Car(name)));
+    }
+
     public boolean canMove(){
         return Randoms.pickNumberInRange(FIRST_BOUND, LAST_BOUND) >= MOVE_LEAST_BOUND;
     }
