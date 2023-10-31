@@ -1,14 +1,11 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarNames;
+import racingcar.domain.Cars;
 import racingcar.domain.NumberGenerator;
-import racingcar.domain.Referee;
-import racingcar.util.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -23,15 +20,14 @@ public class RaceController {
 
     public void run() {
         CarNames carNames = inputView.askCarNames();
-        List<Car> cars = createCars(carNames);
+        Cars cars = createCars(carNames);
 
         int moveCount = inputView.askMoveCount();
 
         System.out.println("\n실행 결과");
-        repeatMoveCars(moveCount, cars);
+        repeatMoveCars(moveCount, cars.getCars());
 
-        Referee referee = new Referee(cars);
-        List<Car> winners = referee.findWinners();
+        List<Car> winners = cars.findWinners();
 
         outputView.showWinners(winners);
     }
@@ -47,16 +43,18 @@ public class RaceController {
         }
     }
 
-    public void repeatMoveCars(int moveCount, List<Car> cars) {
+    public void repeatMoveCars(int moveCount, final List<Car> cars) {
         while (moveCount-- > 0) {
             tryMoveCars(cars);
             System.out.println();
         }
     }
 
-    public List<Car> createCars(CarNames carNames) {
-        return carNames.getCarNames().stream()
+    public Cars createCars(CarNames carNames) {
+        final List<Car> cars = carNames.getCarNames().stream()
                 .map(carName -> new Car(carName.trim()))
                 .collect(Collectors.toList());
+
+        return new Cars(cars);
     }
 }

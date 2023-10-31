@@ -23,7 +23,7 @@ public class CarNames {
         if (index < 0 || index >= carNames.size()) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
-        
+
         return carNames.get(index);
     }
 }
