@@ -25,4 +25,8 @@ public class GameRepository {
     public List<Game> findAll() {
         return new ArrayList<>(games.values());
     }
+
+    public Boolean isEnd(Game game) {
+        return game.checkEndPlayCount();
+    }
 }
