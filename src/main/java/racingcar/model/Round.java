@@ -14,4 +14,8 @@ public class Round {
     public void subtractOne() {
         round -= 1;
     }
+
+    public int getRound() {
+        return round;
+    }
 }
