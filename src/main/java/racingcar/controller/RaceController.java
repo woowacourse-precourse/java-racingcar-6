@@ -1,8 +1,13 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
+import racingcar.domain.DataTypeChanger;
+import racingcar.view.SystemOutput;
+import racingcar.view.UserInput;
 
 public class RaceController {
     private static final int FIRST_RANK = 0;

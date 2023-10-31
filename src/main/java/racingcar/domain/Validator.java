@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.List;
 
@@ -35,5 +35,4 @@ public class Validator {
         }
         throw new IllegalArgumentException(NOT_NUMBER_EXCEPTION);
     }
-
 }
