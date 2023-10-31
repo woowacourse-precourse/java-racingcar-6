@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedList;
 
-
 public class Game {
     private RacingCars racingCars;
     private int turns;
@@ -24,12 +23,12 @@ public class Game {
         LinkedList<Car> cars = new LinkedList<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = Console.readLine();
-        if (!names.matches("^[a-zA-Z,]*$")){
-            throw new IllegalArgumentException("쉼표와 문자만 입력해주세요.");
+        if (!names.matches("^[a-zA-Z, ]*$")){
+            throw new IllegalArgumentException("쉼표와 문자만 입력해주세요."); // 숫자 허용하지 않음
         }
         String[] namesSplit = names.split(",");
         for (String eachName : namesSplit) {
-            cars.add(new Car(eachName));
+            cars.add(new Car(eachName.trim()));
         }
         return cars;
     }
@@ -48,7 +47,12 @@ public class Game {
 
     private void printWinners(){
         LinkedList<String> winners = racingCars.getWinners();
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        if (winners.isEmpty()) {
+            System.out.println("이런, 아무도 움직이지 못했군요! 우승자가 없습니다.");
+        }
+        else {
+            System.out.println("최종 우승자 : " + String.join(", ", winners));
+        }
     }
 
 }

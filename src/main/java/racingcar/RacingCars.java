@@ -34,7 +34,7 @@ public class RacingCars {
             }
         }
         for (Car car: cars){
-            if (car.getPosition() == max){
+            if (max != 0 && car.getPosition() == max){
                 winners.add(car.getName());
             }
         }
