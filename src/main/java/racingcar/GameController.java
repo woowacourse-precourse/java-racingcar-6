@@ -18,5 +18,6 @@ public class GameController {
             game.play();
             PromptHandler.promptOutput(game.getTotalExecuteResult());
         }
+        PromptHandler.promptOutputWinner(game.getWinner());
     }
 }

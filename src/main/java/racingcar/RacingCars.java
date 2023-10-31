@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +22,7 @@ public class RacingCars {
 
     public String getTotalExecuteResult() {
         StringBuilder totalExecuteResult = new StringBuilder();
-        for (Car car: racingCars) {
+        for (Car car : racingCars) {
             totalExecuteResult.append(car.getExecuteResult()).append("\n");
         }
 
@@ -33,4 +35,23 @@ public class RacingCars {
         }
     }
 
+    public List<String> getWinner() {
+        Collections.sort(racingCars);
+
+        return calculateWinner();
+    }
+
+    private List<String> calculateWinner() {
+        List<String> winners = new ArrayList<>();
+        winners.add(racingCars.get(0).getName());
+
+        for (int i = 1; i < racingCars.size(); i++) {
+            if (!racingCars.get(i).isSamePosition(racingCars.get(0))) {
+                return winners;
+            }
+            winners.add(racingCars.get(i).getName());
+        }
+
+        return winners;
+    }
 }

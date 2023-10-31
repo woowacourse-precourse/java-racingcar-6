@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class Game {
     private RacingCars cars;
     private int maxRoundCount;
@@ -18,8 +20,11 @@ public class Game {
     }
 
     public String getTotalExecuteResult() {
-
         return cars.getTotalExecuteResult();
+    }
+
+    public List<String> getWinner() {
+        return cars.getWinner();
     }
 
     private void settingRound() {

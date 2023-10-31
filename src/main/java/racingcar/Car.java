@@ -1,10 +1,11 @@
 package racingcar;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int position;
 
     public Car(String name) {
+        name = name.trim();
         validateName(name);
         this.name = name;
         position = 0;
@@ -24,6 +25,19 @@ public class Car {
         }
 
         return executeResult.toString();
+    }
+
+    public boolean isSamePosition(Car car) {
+        return car.position == this.position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.position - this.position;
     }
 
     private void validateName(String name) {
