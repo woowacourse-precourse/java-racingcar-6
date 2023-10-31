@@ -7,6 +7,7 @@ import racingcar.repository.CarRepository;
 import racingcar.service.GameService;
 import racingcar.utils.Parser;
 import racingcar.view.RequestMessage;
+import racingcar.view.ResultMessage;
 
 import java.util.List;
 
@@ -27,11 +28,13 @@ public class Controller {
     }
 
     private void playGame(GameSystem gameSystem){
+        ResultMessage.printTitle();
         while(!gameService.checkEnd(gameSystem)){
             gameService.playGame(gameSystem);
+            ResultMessage.printRacingScore(gameSystem.getCarList());
         }
+        ResultMessage.printWinnerList(gameService.decideWinner(gameSystem));
     }
-    //TODO : output 확인
 
     private List<Car> getCarList(){
         return carRepository.findAll();
@@ -52,4 +55,5 @@ public class Controller {
         return parser.stringAttemptNumToInt(Console.readLine());
     }
     //TODO : validator 확인
+    //TODO : 기능 테스트 작성
 }
