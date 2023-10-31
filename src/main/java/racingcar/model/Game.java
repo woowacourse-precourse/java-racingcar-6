@@ -34,6 +34,12 @@ public class Game {
         this.carList.add(car);
     }
 
+    public void moveCars() {
+        for (Car car : this.carList) {
+            car.move(randomNumber(), STANDARD);
+        }
+    }
+
     public int randomNumber() {
         return Randoms.pickNumberInRange(RANGE_START, RANGE_END);
     }
