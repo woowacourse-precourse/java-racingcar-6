@@ -33,4 +33,15 @@ public class MyTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 잘못된_횟수_입력() {
+        ManageRace manageRace = new ManageRace();
+        String input = "123a";
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> manageRace.checkValidCount(input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
