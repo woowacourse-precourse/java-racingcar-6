@@ -14,22 +14,31 @@ public class RacingCar {
 		List<String> players = InputView.insertName();
 		String inputNumber = InputView.insertTryNumber();
 
-		InputValidator.validatePlayers(players);
-		InputValidator.validateTryNumber(inputNumber);
+		validateInputs(players, inputNumber);
+
 		int tryNumber = Integer.parseInt(inputNumber);
 
 		List<Integer> results = setResults(players);
-		OutputView.printFirstResultsMessage();
+		OutputView.printFirstMessage();
 
-		for (int i = 0; i < tryNumber; i++) {
-			isDrive(players, results);
-			OutputView.printCurrentRacingResults(players, results);
-		}
+		moveForwardOrStop(tryNumber, players, results);
 
 		int winnerDistance = getWinnerDistance(results);
 		List<String> winners = getWinners(players, results, winnerDistance);
 
 		OutputView.printFinalRacingResults(winners);
+	}
+
+	private void validateInputs(List<String> players, String inputNumber) {
+		InputValidator.validatePlayers(players);
+		InputValidator.validateTryNumber(inputNumber);
+	}
+
+	private void moveForwardOrStop(int tryNumber, List<String> players, List<Integer> results) {
+		for (int i = 0; i < tryNumber; i++) {
+			isDrive(players, results);
+			OutputView.printCurrentRacingResults(players, results);
+		}
 	}
 
 	private List<Integer> setResults(List<String> players) {
