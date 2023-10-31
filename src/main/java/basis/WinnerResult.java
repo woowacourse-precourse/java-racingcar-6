@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 
 public class WinnerResult {
     public void printWinner(LinkedHashMap<String, String> carNameHashMap) {
-        int largestMove = getLargestMove(carNameHashMap);
+        int largestMove = getWinnerMovementCriteria(carNameHashMap);
         List<String> winnerList = getWinnerList(carNameHashMap, largestMove);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.print(winnerList.get(i));
@@ -31,19 +31,20 @@ public class WinnerResult {
         }
         return winnerList;
     }
-    private int getLargestMove(LinkedHashMap<String, String> carNameHashMap) {
+
+    private int getWinnerMovementCriteria(LinkedHashMap<String, String> carNameHashMap) {
         int largestMove = 0;
         for (Entry<String, String> element : carNameHashMap.entrySet()) {
             int moveLength = element.getValue().length();
-            largestMove = checkWinnerMove(moveLength, largestMove);
+            largestMove = findMovementCriteria(moveLength, largestMove);
         }
         return largestMove;
     }
 
-    private static int checkWinnerMove(int moveLength, int largestMove) {
-        if (moveLength > largestMove) {
-            largestMove = moveLength;
+    private static int findMovementCriteria(int moveLength, int currentCriteria) {
+        if (moveLength > currentCriteria) {
+            currentCriteria = moveLength;
         }
-        return largestMove;
+        return currentCriteria;
     }
 }
