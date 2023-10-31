@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 import racingcar.model.Car;
 
 public class Printer {
-    public static void printRace(ArrayList<Car> cars) {
+    public static void printRace(List<Car> cars) {
         cars.forEach(System.out::println);
         System.out.println();
     }

@@ -12,12 +12,12 @@ public class Validator {
         });
     }
 
-    public void validateCount(String count) {
-        isPositive(isInteger(count));
+    public int validateCount(String count) {
+        return isPositive(isInteger(count));
     }
 
     private void isUnderFive(String name) {
-        if (name.length() < 5) {
+        if (name.length() > 5) {
             throw new IllegalArgumentException("이름이 5자 초과입니다.");
         }
     }
@@ -40,10 +40,11 @@ public class Validator {
         }
     }
 
-    private void isPositive(int count) {
+    private int isPositive(int count) {
         if (count < 1) {
             throw new IllegalArgumentException("회차는 1 이상이어야 합니다.");
         }
+        return count;
     }
 
     private int isInteger(String count) {

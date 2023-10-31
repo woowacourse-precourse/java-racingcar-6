@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.stream.IntStream;
 
 public class Car {
@@ -15,8 +16,11 @@ public class Car {
         return new Car(name);
     }
 
-    public void addDistance() {
-        this.distance++;
+    public void drive() {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        if (randomNum >= 4) {
+            this.distance++;
+        }
     }
 
     public String getName() {
