@@ -14,6 +14,7 @@ public class Computer {
         String[] temp = carNameString.split(",");
 
         for (int i = 0; i < temp.length; i++) {
+            temp[i] = temp[i].replaceAll(" ", "");
             validation.carNameValidation(temp[i]);
             carMap.put(temp[i],0);
         }

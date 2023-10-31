@@ -4,7 +4,7 @@ public class Validation {
 
     void carNameValidation(String name){
         if(name.length() > 6){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[System] 자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
