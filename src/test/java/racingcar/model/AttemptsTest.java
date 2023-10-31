@@ -9,20 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class AttemptsTest {
 
     @Test
-    void getNumber_fail() {
-        Attempts attempts = new Attempts(1);
-        assertThat(attempts.getNumber()).isEqualTo("1");
-    }
-    @Test
     void getNumber() {
         Attempts attempts = new Attempts(1);
         assertThat(attempts.getNumber()).isEqualTo(1);
-    }
-
-    @Test
-    void getNumber_String_fail() {
-        Attempts attempts = new Attempts("1");
-        assertThat(attempts.getNumber()).isEqualTo("1");
     }
 
     @Test

@@ -3,9 +3,10 @@ package racingcar.model;
 import org.junit.jupiter.api.Test;
 import racingcar.enums.Common;
 
+import java.util.stream.Collectors;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class WinnersTest {
     @Test
@@ -15,12 +16,12 @@ class WinnersTest {
         assertRandomNumberInRangeTest(() -> {
                     cars.everyCarMoveForward();
                     Winners winners = new Winners(cars, attempts);
-                    assertThat(winners.getWinnersNames()).isEqualTo("isaac");
+                    assertThat(winners.getWinnersNames().stream().collect(Collectors.joining(", "))).isEqualTo("isaac");
                 }, Common.STANDARD_NUMBER.getIntValue(),
-                Common.STANDARD_NUMBER.getIntValue()-1,
-                Common.STANDARD_NUMBER.getIntValue()-1,
-                Common.STANDARD_NUMBER.getIntValue()-1,
-                Common.STANDARD_NUMBER.getIntValue()-1);
+                Common.STANDARD_NUMBER.getIntValue() - 1,
+                Common.STANDARD_NUMBER.getIntValue() - 1,
+                Common.STANDARD_NUMBER.getIntValue() - 1,
+                Common.STANDARD_NUMBER.getIntValue() - 1);
     }
 
 }
