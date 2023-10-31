@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import racingcar.domain.Player;
 
@@ -28,10 +29,12 @@ public class RacingGameView {
         }
         System.out.println();
     }
+    public void printResultMsg(ArrayList<Player> winners){
+        System.out.print("최종 우승자 : ");
+        System.out.print(winners.remove(0).getName());
+        while(!winners.isEmpty()){
+            System.out.print(", " + winners.remove(0).getName());
+        }
 
-    // 각 회수 실행 결과 출력
-
-    // 단독 우승자 안내문구
-
-    // 공동 우승자 안내문구
+    }
 }

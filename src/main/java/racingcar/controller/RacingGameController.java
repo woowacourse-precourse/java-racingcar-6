@@ -37,6 +37,6 @@ public class RacingGameController {
     }
     // game end
     public void gameEnd(){
-        racingGameService.findWinners();
+        racingGameView.printResultMsg(racingGameService.findWinners());
     }
 }

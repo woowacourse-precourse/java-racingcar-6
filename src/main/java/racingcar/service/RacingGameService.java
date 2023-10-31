@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Vector;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerRepository;
@@ -71,8 +72,8 @@ public class RacingGameService {
         player.incScore();
     }
     // 우승자 선출
-    public Vector<Player> findWinners(){
-        Vector<Player> winners = new Vector<>();
+    public ArrayList<Player> findWinners(){
+        ArrayList<Player> winners = new ArrayList<>();
         int maxScore = findMaxScore();
         for(Player player: playerRepository.getPlayers()){
             if(maxScore == player.getScore()){
