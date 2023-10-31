@@ -1,6 +1,7 @@
 package racingcar.utils;
 
 public class Constants {
+
     private Constants() {
     }
 
@@ -21,5 +22,5 @@ public class Constants {
     public static final String SPLITTER_OF_WINNERS = ", ";
     public static final String NOTATION_OF_DISTANCE = "-";
     public static final String SPLITTER_BETWEEN_NAME_AND_DISTANCE = " : ";
-
+    
 }

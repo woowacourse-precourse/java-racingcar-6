@@ -4,6 +4,11 @@ import static racingcar.utils.Constants.MAX_NAME_LENGTH;
 import static racingcar.utils.Constants.MIN_NAME_LENGTH;
 import static racingcar.utils.Constants.MIN_NUMBER_OF_CARS;
 import static racingcar.utils.Constants.MIN_NUMBER_OF_ROUNDS;
+import static racingcar.utils.ErrorMessages.NOT_DISTINCT_NAMES_MESSAGE;
+import static racingcar.utils.ErrorMessages.NOT_NATURAL_NUMBER_MESSAGE;
+import static racingcar.utils.ErrorMessages.NOT_POSITIVE_INTEGER_MESSAGE;
+import static racingcar.utils.ErrorMessages.WRONG_NAME_LENGTH_MESSAGE;
+import static racingcar.utils.ErrorMessages.WRONG_NUMBER_OF_CARS_MESSAGE;
 
 import java.util.List;
 
@@ -13,7 +18,7 @@ public class InputValidator {
 
     public static void validateNumberOfCars(int sizeOfCarList) {
         if (sizeOfCarList < MIN_NUMBER_OF_CARS) {
-            throw new IllegalArgumentException("1대 이상의 차량을 입력하세요.");
+            raiseIllegalArgumentException(WRONG_NUMBER_OF_CARS_MESSAGE);
         }
     }
 
@@ -21,13 +26,13 @@ public class InputValidator {
         boolean isNotDistinctNames = (carNames.stream().distinct().count() != carNames.size());
 
         if (isNotDistinctNames) {
-            throw new IllegalArgumentException("중복되지 않는 이름들을 입력하세요.");
+            raiseIllegalArgumentException(NOT_DISTINCT_NAMES_MESSAGE);
         }
     }
 
     public static void validateNameLength(int nameLength) {
         if (nameLength < MIN_NAME_LENGTH || nameLength > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("1자 이상, 5자이하의 이름을 입력하세요.");
+            raiseIllegalArgumentException(WRONG_NAME_LENGTH_MESSAGE);
         }
     }
 
@@ -35,14 +40,18 @@ public class InputValidator {
         boolean isNotNumber = !userInput.chars().allMatch(Character::isDigit);
 
         if (isNotNumber) {
-            throw new IllegalArgumentException("음수가 아닌 숫자를 입력하세요.(숫자 사이 공백 불가)");
+            raiseIllegalArgumentException(NOT_POSITIVE_INTEGER_MESSAGE);
         }
     }
 
     public static void validateIsNaturalNumber(int integer) {
         if (integer < MIN_NUMBER_OF_ROUNDS) {
-            throw new IllegalArgumentException("시도 횟수는 1이상인 자연수를 입력해야합니다.");
+            raiseIllegalArgumentException(NOT_NATURAL_NUMBER_MESSAGE);
         }
+    }
+
+    private static void raiseIllegalArgumentException(String errorMessage) {
+        throw new IllegalArgumentException(errorMessage);
     }
 
 }
