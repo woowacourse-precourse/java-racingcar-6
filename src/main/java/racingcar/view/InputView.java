@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import static racingcar.view.Constants.*;
+import static racingcar.utils.Constants.*;
 
 public class InputView {
 

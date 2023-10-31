@@ -1,12 +1,12 @@
 package racingcar.domain;
 
-import racingcar.Util;
+import racingcar.utils.Util;
 
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import static racingcar.view.Constants.*;
+import static racingcar.utils.Constants.*;
 
 public class NameValidation {
 

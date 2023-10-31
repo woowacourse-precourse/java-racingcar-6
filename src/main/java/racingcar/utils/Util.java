@@ -1,7 +1,6 @@
-package racingcar;
+package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.Constants;
 
 import java.util.Arrays;
 import java.util.Collections;
