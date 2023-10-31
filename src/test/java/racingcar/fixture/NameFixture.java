@@ -5,9 +5,7 @@ import racingcar.domain.Car;
 public enum NameFixture {
 
     // Valid
-    VALID_ENGLISH("happy"),
-    VALID_KOREAN("변해빈"),
-
+    VALID_NAME_0("변해빈"),
     VALID_NAME_1("해빈"),
     VALID_NAME_2("햅"),
     VALID_NAME_3("해비니"),

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 import static racingcar.domain.MovementCondition.*;
-import static racingcar.fixture.NameFixture.VALID_KOREAN;
+import static racingcar.fixture.NameFixture.VALID_NAME_0;
 
 @DisplayName("[Name Test] - Domain Layer")
 class CarTest {
@@ -38,7 +38,7 @@ class CarTest {
         @DisplayName("[Success] 차량 생성에 성공합니다.")
         void Given_ValidName_When_Create_Then_Success() {
             //given
-            String validName = VALID_KOREAN.getName();
+            String validName = VALID_NAME_0.getName();
 
             //when
             Car car = Car.create(validName);
@@ -59,7 +59,7 @@ class CarTest {
             when(Randoms.pickNumberInRange(NUMBER_LOWER_BOUND_CONSTRAINT, NUMBER_UPPER_BOUND_CONSTRAINT))
                     .thenReturn(FORWARD_MOVEMENT_LOWER_BOUND_CONDITION);
 
-            Car car = Car.create(VALID_KOREAN.getName());
+            Car car = Car.create(VALID_NAME_0.getName());
 
             //when
             car.move();
@@ -75,7 +75,7 @@ class CarTest {
             when(Randoms.pickNumberInRange(NUMBER_LOWER_BOUND_CONSTRAINT, NUMBER_UPPER_BOUND_CONSTRAINT))
                     .thenReturn(FORWARD_MOVEMENT_LOWER_BOUND_CONDITION - 1);
 
-            Car car = Car.create(VALID_KOREAN.getName());
+            Car car = Car.create(VALID_NAME_0.getName());
 
             //when
             car.move();
@@ -94,7 +94,7 @@ class CarTest {
         @DisplayName("[Success] Score가 같다면 true를 리턴합니다.")
         void Given_SameScore_When_isSameScore_Then_ReturnTrue() {
             //given
-            Car car = Car.create(VALID_KOREAN.getName());
+            Car car = Car.create(VALID_NAME_0.getName());
 
             //when
             Integer score = car.getScore();
@@ -108,7 +108,7 @@ class CarTest {
         @DisplayName("[Success] Score가 다르다면 false를 리턴합니다.")
         void Given_DifferentScore_When_isSameScore_Then_ReturnFalse() {
             //given
-            Car car = Car.create(VALID_KOREAN.getName());
+            Car car = Car.create(VALID_NAME_0.getName());
 
             //when
             Integer score = car.getScore();
@@ -127,7 +127,7 @@ class CarTest {
         @DisplayName("[Success] RoundResponse를 정상적으로 리턴합니다.")
         void Given_SameScore_When_isSameScore_Then_ReturnTrue() {
             //given
-            Car car = Car.create(VALID_KOREAN.getName());
+            Car car = Car.create(VALID_NAME_0.getName());
 
             //when
             RoundResponse roundResponse = car.generateRoundResponse();
