@@ -25,11 +25,11 @@ public class TextView implements View{
     }
 
     public void printCarProcess(String name, int process){
-        System.out.println(name + ":" + "-".repeat(process));
+        System.out.println(name + " : " + "-".repeat(process));
     }
 
     @Override
     public void printWinner(List<String> winner) {
-        System.out.println("최종 우승자: " + String.join(", ", winner));
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 }
