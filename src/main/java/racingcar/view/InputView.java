@@ -11,9 +11,4 @@ public class InputView {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.valueOf(Console.readLine());
     }
-    public void validTryCount(Integer inputTryCount){
-        if (inputTryCount < 1){
-            throw new IllegalArgumentException("시도할 회수는 1이상이어야 합니다.");
-        }
-    }
 }
