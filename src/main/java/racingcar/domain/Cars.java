@@ -31,7 +31,7 @@ public class Cars implements Iterable<Car> {
 
     // 사용자가 입력한 자동차 이름을 쉼표(,)로 구분하여 리스트에 저장
     private void splitUserInputCarName(String userInput) {
-        userInput.replaceAll(" ", "");
+        userInput = userInput.trim();
         String[] names = userInput.split(",");
         validateDuplicate(names);
 
