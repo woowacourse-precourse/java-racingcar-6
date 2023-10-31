@@ -22,7 +22,7 @@ class InputValidatorTest {
         });
     }
 
-    @DisplayName("자동차 이름 입력값이 비어있는 경우 예외가 발생해야 한다.")
+    @DisplayName("자동차 이름에 대한 입력값이 비어있는 경우 예외가 발생해야 한다.")
     @ParameterizedTest
     @ValueSource(strings = "")
     void invalidCarNames_empty_exception_test(String carNames) {
@@ -34,14 +34,14 @@ class InputValidatorTest {
 
     @DisplayName("시도 횟수에 대한 입력값이 비어있지 않고 숫자인 경우 예외가 발생하지 않는다.")
     @ParameterizedTest
-    @ValueSource(strings = {"1", "2", "3", "4", "100"})
+    @ValueSource(strings = {"0", "1", "2", "3", "4"})
     void valid_tryNumber_test(String tryNumber) {
         assertDoesNotThrow(() -> {
             InputValidator.validateInputTryNumber(tryNumber);
         });
     }
 
-    @DisplayName("시도 횟수 입력값이 비어있는 경우 예외가 발생해야 합니다.")
+    @DisplayName("시도 횟수에 대한 입력값이 비어있는 경우 예외가 발생해야 한다.")
     @ParameterizedTest
     @ValueSource(strings = "")
     void invalid_tryNumber_empty_exception_test(String tryNumber) {
@@ -51,7 +51,7 @@ class InputValidatorTest {
         assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
     }
 
-    @DisplayName("시도 횟수 입력값이 숫자가 아닌 경우 예외가 발생해야 한다.")
+    @DisplayName("시도 횟수에 대한 입력값이 문자인 경우 예외가 발생해야 한다.")
     @ParameterizedTest
     @ValueSource(strings = {"a", "bc", "d", "-"})
     void invalid_tryNumber_character_exception_test(String tryNumber) {

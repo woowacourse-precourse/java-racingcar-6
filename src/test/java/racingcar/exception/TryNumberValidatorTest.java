@@ -23,7 +23,7 @@ class TryNumberValidatorTest {
         });
     }
 
-    @DisplayName("입력값이 최소 횟수 미만인 경우 예외가 발생해야 합니다.")
+    @DisplayName("입력값이 최소 횟수 미만인 경우 예외가 발생해야 한다.")
     @Test
     void invalid_tryNumber_test() {
         Integer invalidCount = MIN_TRY_NUMBER - 1;
