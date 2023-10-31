@@ -6,6 +6,11 @@ public class Exception {
             throw new IllegalArgumentException("입력값은 쉼표로 시작할 수 없습니다.");
     }
 
+    public void validateInputNotEndWithComma(String input) {
+        if (input.endsWith(","))
+            throw new IllegalArgumentException("입력값은 쉼표로 끝날 수 없습니다.");
+    }
+
     public void validateInputContainsConsecutiveCommas(String input) {
         if (input.contains(",,"))
             throw new IllegalArgumentException("쉼표는 연속으로 들어갈 수 없습니다.");

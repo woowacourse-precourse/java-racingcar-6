@@ -13,6 +13,7 @@ public class Input {
 
     private void validateInput(String input) {
         exception.validateInputNotStartWithComma(input);
+        exception.validateInputNotEndWithComma(input);
         exception.validateInputContainsConsecutiveCommas(input);
     }
 }
