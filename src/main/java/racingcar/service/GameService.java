@@ -3,13 +3,11 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Cars;
 
 public class GameService {
     private static final int POSSIBLE = 4;
     private static final int ZERO = 0;
-    private static final int NINE = 0;
-    Cars cars = new Cars();
+    private static final int NINE = 9;
 
     public ArrayList<List<String>> moveCar(ArrayList<String> carNames, ArrayList<List<String>> currentCarProgress) {
 
