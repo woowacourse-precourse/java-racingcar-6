@@ -75,6 +75,14 @@ public class MoveNumInputTest {
                 .hasMessageContaining("Error : 시도할 회수에 0 또는 양수가 아닌 값이 포함되었습니다");
     }
 
+    @Test
+    @DisplayName ("자동차 이동횟수 입력 예외동작 테스트 (0만있거나 0 또는 양수가 아닌 값이 들어온 경우)")
+    void canHandleNotInputMoveNumExceptionTest() {
+        assertThatThrownBy(() -> new MoveNum("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Error : 최소 1이상의 값을 입력해주세요");
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"2147483649", "10001"})
     @DisplayName ("자동차 이동횟수 입력 예외동작 테스트 (이동횟수가 너무 많은 경우)")
