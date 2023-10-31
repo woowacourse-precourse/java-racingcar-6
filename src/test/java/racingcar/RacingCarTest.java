@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
@@ -17,6 +18,21 @@ public class RacingCarTest {
 
         // Act and Assert
         assertThrows(IllegalStateException.class, race::startCarRacing);
+    }
+
+    @DisplayName("Fuel이 4 이상인 경우 이동")
+    @Test
+    public void testMoveOrStop() {
+        // Arrange
+        Car car = new Car("TestCar");
+        int initialLocation = car.getLocation();
+
+        // Act
+        car.moveOrStop(4);
+
+        // Assert
+        int expectedLocation = initialLocation + 1;
+        assertEquals(expectedLocation, car.getLocation());
     }
 }
 
