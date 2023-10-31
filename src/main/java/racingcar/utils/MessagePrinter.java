@@ -35,10 +35,10 @@ public class MessagePrinter {
     }
 
     public void winners(final List<Car> winners) {
-        List<String> winnerNames = winners.stream()
+        final List<String> winnerNames = winners.stream()
                 .map(Car::getName)
                 .toList();
-        String result = String.join(", ", winnerNames);
+        final String result = String.join(", ", winnerNames);
         System.out.print("최종 우승자 : " + result);
     }
 

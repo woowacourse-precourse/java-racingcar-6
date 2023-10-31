@@ -35,7 +35,7 @@ public class Validator {
     }
 
     public void singleComma(final List<String> members) {
-        boolean isMemberEmpty = members.stream()
+        final boolean isMemberEmpty = members.stream()
                 .anyMatch(String::isBlank);
         if (isMemberEmpty) {
             throw new IllegalArgumentException("쉼표를 연속으로 입력할 수 없습니다.");
@@ -43,7 +43,7 @@ public class Validator {
     }
 
     public void duplicateCarName(final List<String> members, final String carNames) {
-        Set<String> uniqueCarNames = new HashSet<>(List.of(carNames.split(",")));
+        final Set<String> uniqueCarNames = new HashSet<>(List.of(carNames.split(",")));
         if (members.size() != uniqueCarNames.size()) {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
