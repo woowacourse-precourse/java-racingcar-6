@@ -18,6 +18,10 @@ public class GameService {
         game.incresePlayCount();
     }
 
+    public Boolean isEnd(Game game) {
+        return gameRepository.isEnd(game);
+    }
+
     public Long save(Game game) {
         return gameRepository.save(game);
     }
