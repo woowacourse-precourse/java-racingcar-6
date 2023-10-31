@@ -6,6 +6,11 @@ import java.util.*;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
+    private static final String MOVE_SYMBOL = "-";
+    private static final int RANDOM_THRESHOLD = 3;
+    private static final int RANDOM_MINRANGE =  0;
+    private static final int RANDOM_MAXRANGE  = 9;
+
       /**
      * 프로그램이 시작하는 Main 함수 입니다.
      * @param args
@@ -102,12 +107,12 @@ public class Application {
      * @return 랜덤 확률로 "-" 를 추가하거나 하지 않은 String을 return 합니다.
      */
     public static String shouldStart(String status) {
-        int random = Randoms.pickNumberInRange(0, 9);
+        int random = Randoms.pickNumberInRange(RANDOM_MINRANGE, RANDOM_MAXRANGE);
 
-        if (random > 9 || random < 0) 
+        if (random > RANDOM_MAXRANGE || random < RANDOM_MINRANGE) 
             throw new IllegalArgumentException("랜덤 값의 인수가 잘못되었습니다.");
         
-        if (random > 3) 
+        if (random > RANDOM_THRESHOLD) 
             return status + "-";
              
         return status;
