@@ -4,20 +4,32 @@
 
 ### 입력
 
-- [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - String#trim()
+- [ ] 자동차 이름을 입력받는다. - Game#inputCarNames()
+  - [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - String#trim()
 - [ ] 문자열 리스트 만큼 자동차를 만들 수 있다. - Game#createCars()
 - [ ] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
-  - [ ] 이름이 5자가 넘으면 프로그램 종료 - ExceptionInput#checkName()
+  - [ ] 이름이 5자가 넘으면 프로그램 종료 - ExceptionInput#checkName()   
+<br>
+
+- [ ] 레이싱 시도 횟수를 입력받는다. - Game#InputRacingNumber()
+  - [ ] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다. - Game#setPlay()
 <br>
 
 ### 게임 진행
 
-- [ ] 주어진 횟수만큼 경주(게임)를 진행한다. - Game#setPlay()
+- [ ] 전체적인 게임 실행한다. - Game#start()
+- [ ] 각 레이싱 게임을 실행한다. - Game#racingStart()
+<br>
+
 - [ ] 0에서 9 사이에 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
 - [ ] 값이 일정 수(4) 이상인지 확인한다. - Car#checkValueGreaterNumber()
   - [ ] 4이상 : 전진 - Car#forward()
   - [ ] 4이하 : 멈춤 - Car#stop()
+
+<br>
+
 - [ ] 숫자 리스트에서 가장 높은 수의 인덱스 번호 리스트(중복 고려)를 알 수 있다. - Game#getMaxForwaldCarsIndex()
+
 <br>
 
 ### 출력
