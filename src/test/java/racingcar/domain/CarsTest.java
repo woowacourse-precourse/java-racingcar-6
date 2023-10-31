@@ -3,26 +3,19 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static racingcar.enums.Constant.MAX_NAME_LENGTH;
 import static racingcar.enums.ExceptionMessage.DUPLICATE_NAME_MESSAGE;
-import static racingcar.enums.ExceptionMessage.EXCEED_MAX_LENGTH_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.TestUtils;
 
 class CarsTest {
 
     @Test
     void 객체_생성_성공() {
         //given
-        int length = MAX_NAME_LENGTH.getConstant();
-        String name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        name = TestUtils.generateName(length, 'b');
-        Car car2 = new Car(name);
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
 
         List<Car> carList = List.of(car1, car2);
 
@@ -34,34 +27,10 @@ class CarsTest {
     }
 
     @Test
-    void 길이_초과_객체_생성_실패() {
-        //given
-        int length = MAX_NAME_LENGTH.getConstant() + 1;
-        String name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        length = MAX_NAME_LENGTH.getConstant();
-        name = TestUtils.generateName(length, 'a');
-        Car car2 = new Car(name);
-
-        List<Car> carList = List.of(car1, car2);
-
-        //when and then
-        assertThatThrownBy(() -> new Cars(carList))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(EXCEED_MAX_LENGTH_MESSAGE.getMessage());
-    }
-
-    @Test
     void 중복_이름_객체_생성_실패() {
         //given
-        int length = MAX_NAME_LENGTH.getConstant();
-
-        String name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        name = TestUtils.generateName(length, 'a');
-        Car car2 = new Car(name);
+        Car car1 = new Car("a");
+        Car car2 = new Car("a");
 
         List<Car> carList = List.of(car1, car2);
 
@@ -75,12 +44,8 @@ class CarsTest {
     @Test
     void 컬렉션_사이즈_확인() {
         //given
-        int length = MAX_NAME_LENGTH.getConstant();
-        String name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        name = TestUtils.generateName(length, 'b');
-        Car car2 = new Car(name);
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
 
         List<Car> carList = List.of(car1, car2);
         int expectedSize = carList.size();
@@ -96,12 +61,8 @@ class CarsTest {
     @Test
     void 컬렉션_불변_확인() {
         //given
-        int length = MAX_NAME_LENGTH.getConstant();
-        String name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        name = TestUtils.generateName(length, 'b');
-        Car car2 = new Car(name);
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
 
         // List.of()는 불변 리스트를 반환 하므로 원하는 테스트를 할 수 없음
         List<Car> carList = new ArrayList<>();
@@ -120,12 +81,8 @@ class CarsTest {
     @Test
     void 자동차_포지션_기준_정렬_테스트() {
         //given
-        int length = MAX_NAME_LENGTH.getConstant();
-        String name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        name = TestUtils.generateName(length, 'b');
-        Car car2 = new Car(name);
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
         car2.moveForward();
 
         List<Car> carList = List.of(car1, car2);

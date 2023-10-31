@@ -1,27 +1,18 @@
 package racingcar.domain;
 
-import static racingcar.enums.Constant.MAX_NAME_LENGTH;
-
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
 
     private int position;
-    private final String name;
+    private final Name name;
 
-    public Car(String name) {
-        this.name = name;
+    public Car(final String name) {
+        this.name = new Name(name);
     }
 
     public void moveForward() {
         position += 1;
-    }
-
-    public boolean isExceedMaxLength() {
-        if (name.length() > MAX_NAME_LENGTH.getConstant()) {
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -33,12 +24,12 @@ public class Car implements Comparable<Car> {
             return false;
         }
         Car car = (Car) o;
-        return name.equals(car.name);
+        return name.getName().equals(car.name.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name.getName());
     }
 
     @Override
@@ -51,7 +42,7 @@ public class Car implements Comparable<Car> {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public int getPosition() {

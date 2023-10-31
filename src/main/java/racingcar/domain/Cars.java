@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import static racingcar.enums.ExceptionMessage.DUPLICATE_NAME_MESSAGE;
-import static racingcar.enums.ExceptionMessage.EXCEED_MAX_LENGTH_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +12,6 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateNameLength(cars);
         validateDuplicateName(cars);
         this.cars = new ArrayList<>(cars);
     }
@@ -32,14 +30,6 @@ public class Cars {
 
     public void sortingCarsOrderByPosition() {
         Collections.sort(cars);
-    }
-
-    private void validateNameLength(final List<Car> cars) {
-        for (Car car : cars) {
-            if (car.isExceedMaxLength()) {
-                throw new IllegalArgumentException(EXCEED_MAX_LENGTH_MESSAGE.getMessage());
-            }
-        }
     }
 
     private void validateDuplicateName(final List<Car> cars) {

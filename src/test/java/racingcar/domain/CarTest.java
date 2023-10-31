@@ -1,47 +1,40 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static racingcar.TestUtils.generateName;
-import static racingcar.enums.Constant.MAX_NAME_LENGTH;
+import static racingcar.enums.ExceptionMessage.EXCEED_MAX_LENGTH_MESSAGE;
+import static racingcar.enums.ExceptionMessage.NAME_HAS_WHITE_SPACE_MESSAGE;
 
 import org.junit.jupiter.api.Test;
+import racingcar.TestUtils;
 
 class CarTest {
 
     @Test
-    void 전진_불가_테스트() {
+    void 길이_초과_객체_생성_실패_테스트() {
         //given
-        // 예외 발생을 위해 허용 되는 수치에 1을 더함
-        int length = MAX_NAME_LENGTH.getConstant() + 1;
-
-        String name = generateName(length, 'a');
-        Car car = new Car(name);
-
-        boolean expectedResult = true;
+        String name = TestUtils.generateNameExceedingMaxLength();
 
         //when and then
-        assertThat(car.isExceedMaxLength()).isEqualTo(expectedResult);
+        assertThatThrownBy(() -> new Car(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEED_MAX_LENGTH_MESSAGE.getMessage());
     }
 
     @Test
-    void 전진_가능_테스트() {
-        //given
-        int length = MAX_NAME_LENGTH.getConstant();
-        String name = generateName(length, 'a');
-        Car car = new Car(name);
-
-        boolean expectedResult = false;
-
+    void 공백_포함_객체_생성_실패_테스트() {
         //when and then
-        assertThat(car.isExceedMaxLength()).isEqualTo(expectedResult);
+        assertThatThrownBy(() -> new Car(" a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(NAME_HAS_WHITE_SPACE_MESSAGE.getMessage());
     }
 
     @Test
     void 전진_기능_작동_테스트() {
         //given
-        Car car = new Car("Test");
+        Car car = new Car("a");
         int expectedMoveCount = 1;
 
         //when
@@ -54,9 +47,9 @@ class CarTest {
     @Test
     void Equals_테스트() {
         //given
-        Car car1 = new Car("Car1");
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car1");
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
+        Car car3 = new Car("a");
 
         //when and then
         assertTrue(car1.equals(car1));
@@ -69,9 +62,9 @@ class CarTest {
     @Test
     void hash_code_테스트() {
         //given
-        Car car1 = new Car("Car1");
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car1");
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
+        Car car3 = new Car("a");
 
         //when and then
         assertThat(car1.hashCode()).isEqualTo(car3.hashCode());

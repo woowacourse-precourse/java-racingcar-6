@@ -3,19 +3,15 @@ package racingcar.domain;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.enums.Constant.FORWARD_THRESHOLD;
-import static racingcar.enums.Constant.MAX_NAME_LENGTH;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.TestUtils;
 
 class RacingGameServiceImplTest {
 
     private RacingGameServiceImpl racingGameService;
     private Cars cars;
-    private String name;
-    private String name2;
     private List<Car> carList;
     private Trial trial;
 
@@ -23,12 +19,8 @@ class RacingGameServiceImplTest {
     void setUp() {
         racingGameService = new RacingGameServiceImpl();
 
-        int length = MAX_NAME_LENGTH.getConstant();
-        name = TestUtils.generateName(length, 'a');
-        Car car1 = new Car(name);
-
-        name2 = TestUtils.generateName(length, 'b');
-        Car car2 = new Car(name2);
+        Car car1 = new Car("a");
+        Car car2 = new Car("b");
 
         carList = List.of(car1, car2);
         cars = new Cars(carList);
@@ -67,7 +59,7 @@ class RacingGameServiceImplTest {
                 () -> {
                     GameResult gameResult = racingGameService.startGame(cars, trial);
                     assertThat(gameResult.getResult())
-                            .contains(name + " : -", name2 + " : ", name + " : --", name2 + " : -");
+                            .contains("a : -", "b : ", "a : --", "b : -");
                 },
                 FORWARD_THRESHOLD.getConstant(),
                 FORWARD_THRESHOLD.getConstant() - 1,
@@ -85,7 +77,7 @@ class RacingGameServiceImplTest {
         Winner winner = racingGameService.findWinner(cars);
 
         //then
-        assertThat(winner.getWinners().get(0)).isEqualTo(name2);
+        assertThat(winner.getWinners().get(0)).isEqualTo("b");
     }
 
 }
