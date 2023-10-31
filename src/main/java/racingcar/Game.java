@@ -1,13 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import java.util.Map;
 
 public class Game {
     private User user;
     private Car car;
-
 
     public Game() {
         user = new User();
