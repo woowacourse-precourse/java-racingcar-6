@@ -11,6 +11,10 @@ public class Game {
         this.trialNumber = initTrialNumber(trialNumber);
     }
 
+    public void play() {
+        cars.race();
+    }
+
     private Cars initCars(List<String> carNames) {
         List<Car> carsWithName = createCarsWithName(carNames);
         return new Cars(carsWithName);

@@ -12,6 +12,13 @@ public class Cars {
         this.cars = cars;
     }
 
+    public void race() {
+        for (Car car : cars) {
+            Movement movement = getRandomMovement();
+            car.move(movement);
+        }
+    }
+
     private Movement getRandomMovement() {
         int randomNumber = Util.getRandomNumber();
         return Movement.from(randomNumber);

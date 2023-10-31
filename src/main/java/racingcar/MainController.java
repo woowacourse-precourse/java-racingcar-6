@@ -13,4 +13,8 @@ public class MainController {
 
         game = new Game(carNames, trialNumber);
     }
+
+    private void playGame() {
+        game.play();
+    }
 }
