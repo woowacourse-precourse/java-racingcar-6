@@ -3,11 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import validator.TryCountValidator;
-import view.InputView;
 
-import java.io.ByteArrayInputStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class TryCountTest {
