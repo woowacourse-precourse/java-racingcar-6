@@ -47,11 +47,14 @@ public class Cars {
     }
 
     private boolean hasDuplicatedName(final String names) {
-        return getSplitNamesByDelimiter(names).size() !=
-                getSplitNamesByDelimiter(names).stream()
-                        .map(Name::new)
-                        .collect(Collectors.toSet())
-                        .size();
+        return getSplitNamesByDelimiter(names).size() != getSizeWithoutDuplication(names);
+    }
+
+    private int getSizeWithoutDuplication(final String names) {
+        return getSplitNamesByDelimiter(names).stream()
+                .map(Name::new)
+                .collect(Collectors.toSet())
+                .size();
     }
 
     private List<Car> convertToCars(final String names) {
