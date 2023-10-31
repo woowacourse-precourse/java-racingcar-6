@@ -16,6 +16,4 @@ public class GameManager {
     public static void addCarImpl(Car carImpl) {
         carImplList.add(carImpl);
     }
-
-
 }

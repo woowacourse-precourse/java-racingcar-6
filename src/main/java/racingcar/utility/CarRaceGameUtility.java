@@ -12,10 +12,7 @@ import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGameUtility {
-
     private CarRaceGameUtility(){}
-
-
 
     public static void executeCarRaceGameOneRound() {
         for (Car car : GameManager.getCarImplList()) {
@@ -33,7 +30,6 @@ public class CarRaceGameUtility {
         return randomNumber;
     }
 
-
     public static List<String> findWinner(List<Car> carImplList) {
         int max = 0;
         List<String> winnerList = new ArrayList<String>();
@@ -47,7 +43,6 @@ public class CarRaceGameUtility {
                 winnerList.clear();
                 winnerList.add(car.getCarName());
             }
-
         }
         return winnerList;
     }
