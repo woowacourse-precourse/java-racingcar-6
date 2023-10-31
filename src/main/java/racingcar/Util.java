@@ -1,11 +1,19 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Util {
+
+    public void moveWithRandom(Car[] cars) {
+        for (Car car : cars) {
+            move(car, Randoms.pickNumberInRange(0, 9));
+        }
+    }
 
     public Car[] createCar(String[] split) {
         Car[] carList = new Car[split.length];
