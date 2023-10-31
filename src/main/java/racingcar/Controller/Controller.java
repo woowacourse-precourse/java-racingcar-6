@@ -1,18 +1,26 @@
 package racingcar.Controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.Domain.ProgressBoard;
+import racingcar.Domain.ProgressDto;
 import racingcar.Service.Service;
 import racingcar.Utils.InputValidator;
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 
 public class Controller {
     private final int ZERO = 0;
     private final InputValidator inputValidator;
+    private final InputView inputView;
+    private final OutputView outputView;
     private final Service service;
     private int tryCount;
 
     public Controller(Service service) {
         inputValidator = new InputValidator();
+        inputView = new InputView();
+        outputView = new OutputView();
         this.service = service;
     }
 
@@ -20,6 +28,7 @@ public class Controller {
         initGame();
         startGame();
         endGame();
+        cleanGame();
     }
 
     private void initGame() {
@@ -28,27 +37,34 @@ public class Controller {
     }
 
     private void receiveTryCount() {
-        String inputTryCount = service.receiveTryCount();
+        inputView.printTryCountMessage();
+        String inputTryCount = Console.readLine();
         tryCount = inputValidator.validateTryCount(inputTryCount);
     }
 
     private void receiveCarNames() {
-        String inputCars = service.receiveCars();
+        inputView.printCarNameMessage();
+        String inputCars = Console.readLine();
         List<String> cars = inputValidator.validateCarName(inputCars);
         service.registerCars(cars);
     }
 
     private void startGame() {
-        service.printResultMessage();
+        outputView.printResultMessage();
         while (tryCount > ZERO) {
             service.executeOneGame();
-            service.showProgress();
+            List<ProgressDto> allProgressOfCar = service.getAllProgressOfCar();
+            outputView.printProgressMessage(allProgressOfCar);
             tryCount--;
         }
     }
 
     private void endGame() {
-        service.showFinalWinner();
+        List<String> winners = service.getWinners();
+        outputView.printFinalWinner(winners);
+    }
+
+    private void cleanGame() {
         service.cleanProgressBoard();
     }
 

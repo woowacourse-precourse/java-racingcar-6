@@ -3,6 +3,7 @@ package racingcar.View;
 import java.util.List;
 import java.util.StringJoiner;
 import racingcar.Domain.ProgressBoard;
+import racingcar.Domain.ProgressDto;
 
 public class OutputView {
     private final String RESULT_MESSAGE = "실행 결과";
@@ -22,9 +23,9 @@ public class OutputView {
         System.out.println(FINAL_WINNER + stringJoiner);
     }
 
-    public void printProgressMessage(List<String> cars, List<String> progress) {
-        for (int i = 0; i < cars.size(); i++) {
-            System.out.println(cars.get(i) + COLON + progress.get(i));
+    public void printProgressMessage(List<ProgressDto> progresses) {
+        for (ProgressDto dto : progresses) {
+            System.out.println(dto.getCarName() + COLON + dto.getProgress());
         }
         System.out.println();
     }
