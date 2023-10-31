@@ -3,12 +3,11 @@ package racingcar.model;
 import static racingcar.common.Config.RACING_COUNT_CHARACTER;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class CountCarMovement {
-    private List<Integer> countCarMovement = null;
+    private final List<Integer> countCarMovement;
 
     private CountCarMovement(Integer size) {
         this.countCarMovement = new ArrayList<>(Collections.nCopies(size, 0));
