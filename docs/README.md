@@ -60,7 +60,7 @@
 			- getWinnerCarNames()
 				- [ ] 우승자 전진 횟수와 동일한 전진 횟수를 가진 차 이름 모델(winnerCarNames)에 저장
 
-3. NumberValidator
+3. CarNameValidator
 	- toValidateCarName()
 		- 각 경우에 따라 데이터 유효성 검사 수행 및 예외처리
 		- isBigRaceCarLength()
