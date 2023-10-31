@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.domain.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
+import static racingcar.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
 
 import java.util.Objects;
 import racingcar.domain.condition.MoveCondition;
