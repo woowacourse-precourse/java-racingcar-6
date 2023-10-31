@@ -1,29 +1,23 @@
 package racingcar.data;
 
-import racingcar.execution.GameInput;
-
 public class GameData {
-    private final RacingCars racingCars;
-    private AttemptData attemptData;
-    private static final String DATA_SPLITERATOR = ",";
+    private final AttemptData attemptData;
+    private AttemptNumber attemptNumber;
 
     public GameData() {
-        this.racingCars = new RacingCars();
-    }
-
-    public void initRacingCars(String racingCarNameData) {
-        String[] racingCarsName = racingCarNameData.split(DATA_SPLITERATOR);
-        for (String racingCarName : racingCarsName) {
-            racingCars.createCar(racingCarName);
-        }
+        this.attemptData = new AttemptData();
     }
 
     public void initAttemptData(String attemptNumberData) {
-        int attemptNumber = Integer.parseInt(attemptNumberData);
-        this.attemptData = new AttemptData(attemptNumber);
+        int number = Integer.parseInt(attemptNumberData);
+        attemptNumber = new AttemptNumber(number);
+    }
+
+    public void initRacingCarName(String racingCarNameData) {
+        attemptData.initMoveAttempts(racingCarNameData);
     }
 
     public void proceedOneRace() {
-        attemptData.pickNewNumber(racingCars.isTotal());
+        attemptData.pickNewNumber();
     }
 }

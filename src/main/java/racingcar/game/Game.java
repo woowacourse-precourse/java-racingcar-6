@@ -14,7 +14,7 @@ public class Game {
 
     public void initGameData() {
         String racingCarNameData = gameExecution.fetchRacingCarName();
-        gameData.initRacingCars(racingCarNameData);
+        gameData.initRacingCarName(racingCarNameData);
 
         String attemptNumberData = gameExecution.fetchAttemptNumber();
         gameData.initAttemptData(attemptNumberData);

@@ -6,7 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class AttemptDataTest {
+public class AttemptNumberTest {
     @DisplayName("시도 횟수 0인 경우 테스트")
     @Test
     void validateAttemptNumber_zero_IAE() {
@@ -14,7 +14,7 @@ public class AttemptDataTest {
         int number = 0;
 
         // when, then
-        assertThatThrownBy(() -> AttemptData.validateAttemptNumber(number))
+        assertThatThrownBy(() -> AttemptNumber.validateAttemptNumber(number))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("attemptNumber should be a positive integer.");
     }
@@ -26,7 +26,7 @@ public class AttemptDataTest {
         int number = -10;
 
         // when, then
-        assertThatThrownBy(() -> AttemptData.validateAttemptNumber(number))
+        assertThatThrownBy(() -> AttemptNumber.validateAttemptNumber(number))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("attemptNumber should be a positive integer.");
     }
@@ -38,7 +38,7 @@ public class AttemptDataTest {
         int number = 10;
 
         // when, then
-        assertThatCode(() -> AttemptData.validateAttemptNumber(number))
+        assertThatCode(() -> AttemptNumber.validateAttemptNumber(number))
                 .doesNotThrowAnyException();
     }
 }
