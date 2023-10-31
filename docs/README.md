@@ -18,3 +18,42 @@
 - [x] 모든 경주가 끝난 후 우승자를 선정
   - [x] 우승자 기준은 전진을 가장 많이 한 자동차
   - [x] 우승자는 하나가 아닐 수 있음
+
+<br/><br/><br/>
+
+## 📈 구성 요소별 역할
+MVC 패턴에 따라 구성 요소를 분리하고 각 구성 요소별 역할을 정리
+
+### Application
+- 프로그램의 시작점
+- Controller 객체 생성 및 작동
+
+### GameController (Controller)
+- 프로그램의 주요 구성 요소들을 제어
+- Service의 인스턴스를 생성 (Exception, RacingGame)
+- 게임 작동에 필요한 데이터를 InputView를 통해서 메세지 출력과 함께 입력 받음
+- 입력 받은 데이터를 Exception(Service)에 전달하여 예외 처리 로직을 거침
+- 예외 처리 로직을 거친 데이터를 RacingGame(Service)에 전달 하여 Car(Model)에 저장하도록 명령
+- RacingGame(Service)를 통해 게임 로직을 실행하고 결과값을 전달받음
+- 전달받은 결과 값을 OutputView를 통해서 출력
+
+### Exception (Service)
+- 입력받은 데이터를 저장하기 전에 잘못된 값을 판별하기 위한 로직을 실행
+- 정의된 예외 항목이 발생할 경우 예외 처리 후 애플리케이션 종료
+- 정의된 예외 항목이 없을 경우 다시 Controller에 데이터 전달
+
+### RacingGame (Service)
+- Model로 데이터를 저장하기 전에 저장에 관련된 로직을 거친 후 저장
+- Car(Model)의 인스턴스를 생성
+- 게임 실행 로직을 수행
+- 게임 결과에 대한 값을 Controller에 전달
+
+### Car (Model)
+- 게임에 사용되는 자동차의 데이터를 가지고 있음 (이름, 위치값)
+- 데이터 조회 요청 시, 값을 전달
+- 데이터 변경은 GameService만 가능
+
+### Input, Output (View)
+- Controller에서 요청되는 내용을 출력
+- 애플리케이션 실행 마다 다르게 설정되어 보여지는 부분은 Car(Model)에 직접 데이터를 참조하여 출력
+- 동일하게 출력되어야 하는 부분에 대해서는 값을 지니고 있음
