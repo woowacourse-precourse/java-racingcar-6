@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.strategy.AlwaysMoveStrategy;
 
 class CarsTest {
     private Cars fullCars;
@@ -18,14 +19,14 @@ class CarsTest {
     void setup() {
         // Given: 공통 초기 상태 설정
 
-        car1 = Car.from(Name.from("차1"));
-        car2 = Car.from(Name.from("차2"));
-        Car car3 = Car.from(Name.from("차3"));
+        car1 = Car.of(Name.from("차1"), AlwaysMoveStrategy.getInstance());
+        car2 = Car.of(Name.from("차2"), AlwaysMoveStrategy.getInstance());
+        Car car3 = Car.of(Name.from("차3"), AlwaysMoveStrategy.getInstance());
 
-        car1.moveForward();  // car1: 1 step
-        car2.moveForward();  // car2: 1 step
-        car3.moveForward();  // car3: 1 step
-        car3.moveForward();  // car3: 2 steps
+        car1.attemptMove();  // car1: 1 step
+        car2.attemptMove();  // car2: 1 step
+        car3.attemptMove();  // car3: 1 step
+        car3.attemptMove();  // car3: 2 steps
 
         fullCars = Cars.from(List.of(car1, car2, car3));
     }

@@ -1,23 +1,33 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import racingcar.strategy.MoveStrategy;
 
 public class Car implements Comparable<Car> {
     private static final int INITIAL_STEP = 0;
 
     private final Name name;
     private int step;
+    private final MoveStrategy moveStrategy;
 
-    private Car(Name name) {
+    private Car(Name name, MoveStrategy moveStrategy) {
         this.name = name;
         this.step = INITIAL_STEP;
+        this.moveStrategy = moveStrategy;
     }
 
-    public static Car from(Name name) {
-        return new Car(name);
+    public static Car of(Name name, MoveStrategy moveStrategy) {
+        return new Car(name, moveStrategy);
     }
 
-    public void moveForward() {
+    public void attemptMove() {
+        boolean canMove = moveStrategy.shouldMove();
+        if (canMove) {
+            moveForward();
+        }
+    }
+
+    private void moveForward() {
         step++;
     }
 

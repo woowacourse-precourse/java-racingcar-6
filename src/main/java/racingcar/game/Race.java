@@ -3,7 +3,6 @@ package racingcar.game;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.strategy.MoveStrategy;
 
 public class Race {
     private static final int MINIMUM_NUMBER_OF_RACES = 1;
@@ -11,18 +10,16 @@ public class Race {
 
     private final Cars cars;
     private Integer remainingRaces;
-    private final MoveStrategy moveStrategy;
 
-    private Race(Cars cars, Integer numberOfRaces, MoveStrategy moveStrategy) {
+    private Race(Cars cars, Integer numberOfRaces) {
         validateNumberOfRaces(numberOfRaces);
 
         this.cars = cars;
         this.remainingRaces = numberOfRaces;
-        this.moveStrategy = moveStrategy;
     }
 
-    public static Race of(Cars cars, Integer numberOfRaces, MoveStrategy moveStrategy) {
-        return new Race(cars, numberOfRaces, moveStrategy);
+    public static Race of(Cars cars, Integer numberOfRaces) {
+        return new Race(cars, numberOfRaces);
     }
 
     public void performRaceStep() {
@@ -31,9 +28,7 @@ public class Race {
         }
 
         for (Car car : cars) {
-            if (moveStrategy.shouldMove()) {
-                car.moveForward();
-            }
+            car.attemptMove();
         }
 
         remainingRaces--;

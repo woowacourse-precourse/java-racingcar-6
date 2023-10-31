@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
 import racingcar.domain.Name;
+import racingcar.strategy.AlwaysMoveStrategy;
 
 class OutputTest {
     @Test
@@ -20,8 +20,8 @@ class OutputTest {
         System.setOut(new PrintStream(outContent));
 
         List<Car> cars = new ArrayList<>();
-        cars.add(Car.from(Name.from("Car1")));
-        cars.add(Car.from(Name.from("Car2")));
+        cars.add(Car.of(Name.from("Car1"), AlwaysMoveStrategy.getInstance()));
+        cars.add(Car.of(Name.from("Car2"), AlwaysMoveStrategy.getInstance()));
 
         // When
         Output.printWinnersName(cars);
@@ -36,8 +36,14 @@ class OutputTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        Cars cars = CarFactory.createCarsFromNames(List.of("Car1", "Car2"));
-        cars.iterator().next().moveForward();
+        List<String> carNames = List.of("Car1", "Car2");
+        List<Car> carList = carNames.stream()
+                .map(Name::from)
+                .map(name -> Car.of(name, AlwaysMoveStrategy.getInstance()))
+                .toList();
+
+        Cars cars = Cars.from(carList);
+        cars.iterator().next().attemptMove();
 
         // When
         Output.printCarStatus(cars);

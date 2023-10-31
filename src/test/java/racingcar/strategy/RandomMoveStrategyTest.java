@@ -14,7 +14,7 @@ class RandomMoveStrategyTest {
     void 움직임_판단_확인() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    RandomMoveStrategy randomMoveStrategy = new RandomMoveStrategy();
+                    RandomMoveStrategy randomMoveStrategy = RandomMoveStrategy.getInstance();
                     assertTrue(randomMoveStrategy.shouldMove());
                 },
                 MOVING_FORWARD
@@ -25,7 +25,7 @@ class RandomMoveStrategyTest {
     void 움직이지_않음_판단_확인() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    RandomMoveStrategy randomMoveStrategy = new RandomMoveStrategy();
+                    RandomMoveStrategy randomMoveStrategy = RandomMoveStrategy.getInstance();
                     assertFalse(randomMoveStrategy.shouldMove());
                 },
                 STOP

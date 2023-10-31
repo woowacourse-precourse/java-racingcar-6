@@ -12,25 +12,22 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Name;
 import racingcar.strategy.AlwaysMoveStrategy;
-import racingcar.strategy.MoveStrategy;
 
 class RaceTest {
     private Race race;
     private Cars cars;
-    private MoveStrategy moveStrategy;
 
     @BeforeEach
     void setup() {
         // 테스트 전에 초기화 코드를 실행
         List<Car> carList = Arrays.asList(
-                Car.from(Name.from("Car1")),
-                Car.from(Name.from("Car2")),
-                Car.from(Name.from("Car3"))
+                Car.of(Name.from("Car1"), AlwaysMoveStrategy.getInstance()),
+                Car.of(Name.from("Car2"), AlwaysMoveStrategy.getInstance()),
+                Car.of(Name.from("Car3"), AlwaysMoveStrategy.getInstance())
         );
 
         cars = Cars.from(carList);
-        moveStrategy = new AlwaysMoveStrategy(); // 항상 이동하는 전략
-        race = Race.of(cars, 1, moveStrategy);
+        race = Race.of(cars, 1);
     }
 
     @Test
@@ -63,12 +60,12 @@ class RaceTest {
     @Test
     void 레이스_0_초기화_예외_처리() {
         // Then
-        assertThrows(IllegalArgumentException.class, () -> Race.of(cars, 0, moveStrategy));
+        assertThrows(IllegalArgumentException.class, () -> Race.of(cars, 0));
     }
 
     @Test
     void 레이스_1_초기화_예외_처리() {
         // Then
-        assertThrows(IllegalArgumentException.class, () -> Race.of(cars, -1, moveStrategy));
+        assertThrows(IllegalArgumentException.class, () -> Race.of(cars, -1));
     }
 }
