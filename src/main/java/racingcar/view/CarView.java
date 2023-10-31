@@ -14,33 +14,38 @@ public class CarView {
     }
 
     public void printWinner(List<Car> cars) {
-        List<String> winner = new ArrayList<>();
-        int maxScore = getMaxScore(cars);
-
-        for (Car car : cars) {
-            if (car.getLocation() == maxScore) {
-                winner.add(car.getName());
-            }
-        }
-
+        List<String> winners = getWinners(cars);
         System.out.print("최종 우승자 : ");
-        if (winner.size() == 1) {
-            System.out.println(winner.get(0));
-        } else if (winner.size() >= 2) {
-            printWinners(winner);
+        if (winners.size() == 1) {
+            System.out.println(winners.get(0));
+        } else if (winners.size() >= 2) {
+            printWinners(winners);
         }
     }
 
-    private int getMaxScore(List<Car> cars) {
-        int max_score = 0;
+    private List<String> getWinners(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int maxLocation = getMaxLocation(cars);
 
         for (Car car : cars) {
-            if (car.getLocation() > max_score) {
-                max_score = car.getLocation();
+            if (car.getLocation() == maxLocation) {
+                winners.add(car.getName());
             }
         }
 
-        return max_score;
+        return winners;
+    }
+
+    private int getMaxLocation(List<Car> cars) {
+        int maxLocation = 0;
+
+        for (Car car : cars) {
+            if (car.getLocation() > maxLocation) {
+                maxLocation = car.getLocation();
+            }
+        }
+
+        return maxLocation;
     }
 
     private void printWinners(List<String> winners) {
