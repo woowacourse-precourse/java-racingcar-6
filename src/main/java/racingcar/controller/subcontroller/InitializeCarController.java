@@ -17,6 +17,10 @@ public class InitializeCarController {
 
     public void initializeCar() {
         List<String> names = inputToNameCar(); // 자동차 이름 입력
+        initialize(names);
+    }
+
+    private void initialize(List<String> names) {
         for (String name : names) {
             Car car = new Car(name);
             CarRepository.add(car);
