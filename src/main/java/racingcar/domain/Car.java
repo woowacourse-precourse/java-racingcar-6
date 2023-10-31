@@ -20,6 +20,14 @@ public class Car {
         return new Car(name);
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public Integer getPosition() {
+        return this.position;
+    }
+
     public void tryMove() {
         Integer randomNumber = RandomUtils.generateRandomNumber();
         if (isQualified(randomNumber)) {
@@ -30,6 +38,10 @@ public class Car {
     @Override
     public String toString() {
         return name + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
+    }
+
+    public boolean isSamePosition(Integer position) {
+        return this.position == position;
     }
 
     private void move() {
