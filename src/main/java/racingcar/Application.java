@@ -40,10 +40,10 @@ public class Application {
 
 
         input = Console.readLine();
-        int count = 0;
+        long count = 0;
 
         try {
-            count = Integer.parseInt(input);
+            count = Long.parseLong(input);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException();
         }
