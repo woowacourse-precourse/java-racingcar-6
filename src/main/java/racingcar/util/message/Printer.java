@@ -17,7 +17,7 @@ public class Printer {
         System.out.print(Message.POSITION_DASH);
     }
 
-    public static void carName(String name) {
+    public static void carName(final String name) {
         System.out.printf("%s : ", name);
     }
     public static void comma(){
@@ -26,7 +26,7 @@ public class Printer {
     public static void switchLine() {
         System.out.println();
     }
-    public static void nowWinner(String winner) {
+    public static void nowWinner(final String winner) {
         System.out.print(winner);
     }
 }
