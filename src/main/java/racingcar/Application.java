@@ -137,7 +137,7 @@ class InputManufacture {
 class CarGameResult {
     public void saveResult(int attempt, TotalCar totalCar) {
         for (int move = 0; move < attempt; move++) {
-
+            totalCar.moveDistance();
         }
     }
 }
