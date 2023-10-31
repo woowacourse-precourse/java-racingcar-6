@@ -70,7 +70,7 @@
       <br/><br/>
 
 - <code>**validateTurnInput()**</code>
-    - **시도할 횟수**로 **숫자**가 입력되었는지 검증
+    - **시도할 횟수**로 **0 이상의 정수**가 입력되었는지 검증
     - 입력이 잘못되었을 시 `IllegalArgumentException` 발생 후 어플리케이션 종료
       <br/><br/>
 

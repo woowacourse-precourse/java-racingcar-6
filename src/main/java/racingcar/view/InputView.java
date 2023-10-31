@@ -16,7 +16,11 @@ public class InputView {
 
     public static int inputTurn() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int turn = Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+
+        Validator.validateTurnInput(input);
+
+        int turn = Integer.parseInt(input);
         return turn;
     }
 }
