@@ -2,8 +2,6 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.List;
-
 public class Car {
     public static final int LIMIT_NUMBER = 4;
 
@@ -46,6 +44,9 @@ public class Car {
     public void validateName(String name){
         if (name.length() > 5) {
             throw new IllegalArgumentException("[ERROR] The name must not be more than 5 characters.");
+        }
+        if (name.isEmpty()){
+            throw new IllegalArgumentException("[ERROR] There is no name.");
         }
     }
 

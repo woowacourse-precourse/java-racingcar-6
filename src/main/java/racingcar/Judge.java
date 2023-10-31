@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Judge {
-    List<String> winner = new ArrayList<>();
+    List<Car> winner = new ArrayList<>();
 
-    public List<String> findWinner(List<Car> cars) {
+    public List<Car> findWinner(List<Car> cars) {
         Car car = cars.get(0);
         int maxMove = car.getMove();
 
-        addWinner(car.getName());
+        addWinner(car);
 
         for (int i = 1; i < cars.size(); i++) {
             car = cars.get(i);
@@ -21,10 +21,10 @@ public class Judge {
             if (isLongest(move,maxMove)) {
                 maxMove = move;
                 winner.clear();
-                addWinner(car.getName());
+                addWinner(car);
             }
-            else if (isWinner(move,maxMove)) {
-                addWinner(car.getName());
+            else if (isAlsoWinner(move,maxMove)) {
+                addWinner(car);
             }
         }
 
@@ -35,12 +35,12 @@ public class Judge {
         return move > maxMove;
     }
 
-    private boolean isWinner(int move, int maxMove){
+    private boolean isAlsoWinner(int move, int maxMove){
         return move == maxMove;
     }
 
-    private void addWinner(String name){
-        winner.add(name);
+    private void addWinner(Car car){
+        winner.add(car);
     }
 
 }

@@ -12,17 +12,14 @@ public class Game {
     Output output = new Output();
 
     public void start(){
-        List<Car> cars = input.askCarList();
-        int times = input.askTimes();
+        Player player = new Player(input.askCars(), input.askTimes());
 
         output.printStart();
-        Player player = new Player(cars, times);
         play(player);
 
         Judge judge = new Judge();
-        List<String> winner = judge.findWinner(cars);
-        output.printWinner(winner);
-
+        List<Car> winners = judge.findWinner(player.getCars());
+        output.printWinner(winners);
     }
 
     private void play(Player player){
