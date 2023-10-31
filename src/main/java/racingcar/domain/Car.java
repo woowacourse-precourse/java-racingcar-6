@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.utils.InputValidator;
 
 public class Car {
 
