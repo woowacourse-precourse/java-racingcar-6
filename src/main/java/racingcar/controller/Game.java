@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.Race;
+import racingcar.util.InputValidation;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
@@ -21,7 +22,9 @@ public class Game {
 
     private void setRace() { //레이스 세팅
         List<String> carNameList = makeCarNameList();
-        int raceRounds = Integer.parseInt(Input.inputRounds());
+        String roundsInput = Input.inputRounds();
+        InputValidation.checkRaceRoundInput(roundsInput);
+        int raceRounds = Integer.parseInt(roundsInput);
         race.setCarList(carNameList);
         race.setRaceRounds(raceRounds);
     }
@@ -30,6 +33,9 @@ public class Game {
         String carNames = Input.inputCarNames();
         String[] carNameArray = carNames.split(",");
         List<String> carNameList = List.of(carNameArray);
+        for (String carName : carNameList) {
+            InputValidation.checkNameLength(carName);
+        }
         return carNameList;
     }
 
