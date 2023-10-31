@@ -7,6 +7,7 @@ import racingcar.utils.Parser;
 import racingcar.utils.RandomGenerator;
 import racingcar.utils.Validator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +20,7 @@ public class Controller {
 
 
     private List<Car> getCars() {
-        InputView.printCarNameRequest();
+        OutputView.printCarNameRequest();
         return getCarNameList().stream()
                 .map(carName -> new Car(carName, new RandomGenerator()))
                 .collect(Collectors.toList());
@@ -38,7 +39,7 @@ public class Controller {
     }
 
     private int getAttemptCount() {
-        InputView.printAttemptCountRequest();
+        OutputView.printAttemptCountRequest();
         return ParseAttemptCountInput(CheckValidationAttemptCountInput(Console.readLine()));
     }
 
