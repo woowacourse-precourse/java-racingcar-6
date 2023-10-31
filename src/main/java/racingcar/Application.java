@@ -1,8 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -38,7 +41,7 @@ public class Application {
         if (carName.length() == carName.lastIndexOf(",")+1) {
             throw new IllegalArgumentException("자동차 이름을 올바르게 입력해주세요.");
         }
-        // 값을 10개 이상 넣었을 경우
+        // 값을 10개 이상 넣었을 경우(최대 9개까지만 가능 -> 콘솔창이 밑으로 너무 늘어나기 때문에 다음과 같이 설정)
         if (racingCarCount > 9 ) {
             throw new IllegalArgumentException("자동차 이름은 최대 9개까지 설정 가능합니다.");
         }
@@ -46,6 +49,30 @@ public class Application {
         String[] overLap = Arrays.stream(racingCar).distinct().toArray(String[]::new);
         if (overLap.length != racingCarCount) {
             throw new IllegalArgumentException("자동차 이름이 중복되어 있습니다.");
+        }
+
+        // 자동차가 전진을 시도하는 횟수 입력 받기
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputNumber = Console.readLine();
+        System.out.println("");
+        // 시도 횟수를 입력하지 않았을 경우(바로 Enter 눌렀을 때), 빈칸, 문자, 소수값이 있을 때 혹은 포함했을 때
+        int attempt;
+        try {
+            attempt = Integer.parseInt(inputNumber);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("올바른 숫자 입력 후 Enter를 눌러주세요.");
+        }
+        // 0일 때
+        if (attempt == 0) {
+            throw new IllegalArgumentException("시도 횟수는 양의 정수로 입력해주세요.");
+        }
+        // 음의 정수일 때
+        if (inputNumber.contains("-")) {
+            throw new NumberFormatException("시도 횟수는 양의 정수를 입력해주세요.");
+        }
+        // 입력값이 너무 클 경우(최대 200까지만 가능 -> 콘솔창이 좌우로 너무 늘어나기 때문에 다음과 같이 설정)
+        if (attempt > 200) {
+            throw new IllegalArgumentException("시도 횟수는 최대 200까지 입력할 수 있습니다.");
         }
     }
 }
