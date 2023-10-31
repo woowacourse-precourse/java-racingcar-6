@@ -16,22 +16,33 @@ public class CarsTest {
     private static List<Car> carList;
     private static Cars racingCars;
     private static List<List<Object>> carsStatus;
+    private static List<List<Object>> oneFastestCarStatus;
+    private static List<List<Object>> coFastestCarsStatus;
 
     @BeforeAll
     static void setCarsInfo() {
         carList = new ArrayList<>();
         racingCars = new Cars();
-        carsStatus = Arrays.asList(
+        carsStatus = new ArrayList<>();
+        oneFastestCarStatus = Arrays.asList(
                 Arrays.asList("pobi", 5),
                 Arrays.asList("inss", 2),
                 Arrays.asList("R8", 4)
         );
+        coFastestCarsStatus = Arrays.asList(
+                Arrays.asList("pobi", 5),
+                Arrays.asList("inss", 2),
+                Arrays.asList("R8", 4),
+                Arrays.asList("turtle", 5)
+        );
+        carsStatus = oneFastestCarStatus;
     }
 
     @BeforeEach
     void resetCars() {
         carList.clear();
         racingCars.provideRacingCars().clear();
+        switchCarStatus(carsStatus);
         for (List<Object> carStatus : carsStatus) {
             Car car = new Car((String) carStatus.get(0));
             for (int moveTimes = 0; moveTimes < (Integer) carStatus.get(1); moveTimes++) {
@@ -40,6 +51,10 @@ public class CarsTest {
             carList.add(car);
             racingCars.addCar(car);
         }
+    }
+
+    void switchCarStatus(List<List<Object>> carsStatus) {
+        CarsTest.carsStatus = carsStatus;
     }
 
     @DisplayName("각 자동차 저장/반환 테스트 - 정상 데이터 - 성공")
