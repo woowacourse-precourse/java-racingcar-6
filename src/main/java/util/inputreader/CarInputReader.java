@@ -39,7 +39,7 @@ public class CarInputReader {
         String tryCount = Console.readLine();
         try{
             int tryCountInt = Integer.parseInt(tryCount);
-            if(!isValidTryCount(tryCountInt)){
+            if(!isTryCountValid(tryCountInt)){
                 throw new IllegalArgumentException("Invalid try count");
             }
             return tryCountInt;
@@ -48,7 +48,7 @@ public class CarInputReader {
         }
     }
 
-    public boolean isValidTryCount(int tryCount){
+    private boolean isTryCountValid(int tryCount){
         return tryCount >= MIN_TRY_COUNT;
     }
 }
