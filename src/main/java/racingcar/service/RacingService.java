@@ -55,4 +55,22 @@ public class RacingService {
         }
     }
 
+    public String selectWinner() {
+        List<Car> allCars = getAllCars();
+        Car car = allCars.get(0);
+        int winnerDistance = car.getCarDistance();
+        String winnerName = car.getCarName();
+
+        for(int i=1; i<allCars.size(); i++){
+            car = allCars.get(i);
+            if(winnerDistance == car.getCarDistance()){
+                winnerName += ", " + car.getCarName();
+            }
+            if(winnerDistance < car.getCarDistance()){
+                winnerDistance = car.getCarDistance();
+                winnerName = car.getCarName();
+            }
+        }
+        return winnerName;
+    }
 }
