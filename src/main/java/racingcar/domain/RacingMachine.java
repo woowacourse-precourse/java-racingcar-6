@@ -31,4 +31,12 @@ public class RacingMachine {
             throw new IllegalArgumentException("시도 횟수는 1보다 작으면 안됩니다.");
         }
     }
+
+    public Cars getCars() {
+        return cars;
+    }
+
+    public int getTryCount() {
+        return tryCount;
+    }
 }
