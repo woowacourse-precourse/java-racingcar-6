@@ -20,11 +20,12 @@ public class InputView {
     public int getTrialNum() {
         System.out.println(GET_TRIAL_NUM);
         String trialNum = Console.readLine();
+        validateNum(trialNum);
         return Integer.parseInt(trialNum);
     }
 
     public void validateNum(String trialNum) {
-        if (!trialNum.matches("-?\\d+")) {
+        if (!trialNum.matches("\\d+")) {
             throw new IllegalArgumentException(InputException.NOT_INTEGER.getExceptionMessage());
         }
     }
