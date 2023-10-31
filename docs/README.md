@@ -1,9 +1,9 @@
 # 자동차 경주 게임
 
 ## 기능 목록
-- [] 입력받은 사용자의 이름으로 자동차를 생성한다 - racer#create()
-- [] 자동차를 전진시킨다 - racer#moveForward()
-- [] 현재까지 자신의 이동거리를 출력한다 - racer#printDistance()
+- [O] 입력받은 사용자의 이름으로 자동차를 생성한다 - racer#create()
+- [O] 자동차를 전진시킨다 - racer#moveForward()
+- [O] 현재까지 자신의 이동거리를 출력한다 - racer#printDistance()
 
 
 - [] 자동차를 전진시키기 위한 무작위 숫자를 생성한다 - pickNumberInRange()
@@ -12,10 +12,11 @@
 
 
 - [] 자동차 경주를 시작한다 - Referee#run()
-- [] 레이스를 진행할 그룹에 사용자를 추가한다 - Referee#addGroup()
-- [] 현재까지의 경주 결과를 출력한다 - Referee#printProgress()
-- 
-- [] 우승자를 출력한다 - Referee#printWinner()
+- [O] 레이스를 진행할 그룹에 사용자를 추가한다 - Referee#addGroup()
+- [O] 현재까지의 경주 결과를 출력한다 - Referee#printProgress()
+- [O] 현재 가장 큰 전진값을 구한다 - Referee#findMaxDistance(), Referee#compareMax()
+- [O] 우승자를 출력한다 - Referee#printWinner()
+- [O] 해당 플레이어의 젅진 횟수가 최대일경우 우승자 명단에 추가한다 - Referee#addMaxPlayer()
 
 Judgment 판단
 Referee 심판
