@@ -21,9 +21,14 @@ public class Game {
 
     public void run() {
         outputView.printStartMessage();
+        registerCars();
+    }
+
+    private void registerCars() {
         List<String> namesOfCars = inputView.readNamesOfCars();
         for (String name : namesOfCars) {
             cars.add(Car.getInstance(name));
         }
     }
+
 }
