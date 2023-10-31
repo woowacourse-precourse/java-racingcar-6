@@ -1,10 +1,17 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Application {
+
+    public static void isMove(List<Integer> carsMovingDistance, int index) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            carsMovingDistance.set(index, carsMovingDistance.get(index) + 1);
+        }
+    }
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -17,7 +24,9 @@ public class Application {
 
         while (testNumber > 0) {
             for (int i = 0; i < cars.size(); i++) {
-
+                isMove(carsMovingDistance, i);
+                System.out.print(cars.get(i) + " : ");
+                System.out.println();
             }
             testNumber--;
         }
