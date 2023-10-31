@@ -1,9 +1,12 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 class GameTest {
-    @Test
-    void start() {
+    private Game game;
+
+    @BeforeEach
+    void setUp() {
+        game = new Game();
     }
 }
