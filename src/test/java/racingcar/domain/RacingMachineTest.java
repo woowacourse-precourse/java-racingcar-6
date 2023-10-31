@@ -3,6 +3,8 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,6 +48,23 @@ class RacingMachineTest {
 
         assertEquals(firstCar.getPosition(), 1);
         assertEquals(racingMachine.getTryCount(), 4);
+    }
+
+    @Test
+    void canPlay_메서드는_시도_횟수가_남아있으면_true를_반환한다() {
+        RacingMachine racingMachine = new RacingMachine(cars, 5);
+
+        assertTrue(racingMachine.canPlay());
+    }
+
+    @Test
+    void canPlay_메서드는_시도_횟수가_남아있지_않으면_false를_반환한다() {
+        RacingMachine racingMachine = new RacingMachine(cars, 1);
+        NumberGenerator numberGenerator = new IncreasePositionNumber();
+
+        racingMachine.gamePlay(numberGenerator);
+
+        assertFalse(racingMachine.canPlay());
     }
 }
 
