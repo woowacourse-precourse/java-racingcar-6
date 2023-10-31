@@ -1,12 +1,13 @@
 package racingcar.view;
 
 import racingcar.enums.Common;
-import racingcar.enums.CarType;
-import racingcar.model.PlayResult;
-import racingcar.model.PlayResults;
-import racingcar.model.Winners;
+import racingcar.model.Car;
+
+import java.util.List;
 
 public class OutputView {
+    private static final String DISTANCE_MARK = "-";
+
     public static void printCarNameInputMessage() {
         System.out.printf("경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)%n", Common.SEPARATOR.getStringValue());
     }
@@ -16,18 +17,18 @@ public class OutputView {
     }
 
     public static void printPlayResultMessage() {
-        System.out.println();
         System.out.println("실행 결과");
+        System.out.println();
     }
 
-    public static void printPlayResult(PlayResults results) {
-        for (PlayResult result : results.getResults()) {
-            System.out.printf("%s : %s%n", result.get(CarType.CAR_NAME), result.get(CarType.DISTANCE));
+    public static void printPlayResult(List<Car> playResults) {
+        for (Car car : playResults) {
+            System.out.printf("%s : %s%n", car.getName(), DISTANCE_MARK.repeat(Math.max(0, car.getDistance())));
         }
         System.out.println();
     }
 
-    public static void printWinners(Winners winnerNames) {
-        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames.getWinnersNames()));
+    public static void printWinners(List<String> winnerNames) {
+        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames));
     }
 }
