@@ -100,6 +100,18 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("우승자 출력 - 1명")
+    void 우승자_출력1(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "3");
+                    assertThat(output()).contains("최종 우승자 : woni");
+                },
+                3, 8,7,4,3,5
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
