@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.domain.Judgement;
 import racingcar.domain.NumberGenerator;
 
 import java.util.ArrayList;
@@ -9,15 +10,22 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-        NumberGenerator generator = new NumberGenerator();
-        List<Integer> computer = generator.createRandomNumber();
-        System.out.println(computer);
-
         List<String> car = askName();
         int num = tryNum();
 
         System.out.println(car);
         System.out.println(num);
+
+        NumberGenerator generator = new NumberGenerator();
+        Judgement judgement = new Judgement();
+
+        for(int i = 0; i < num; i++){
+            List<Integer> computer = generator.createRandomNumber();
+            System.out.println(computer);
+
+            List<Boolean> morethan4 = judgement.correctCount(computer);
+            System.out.println(morethan4);
+        }
     }
 
     public static List<String> askName(){
