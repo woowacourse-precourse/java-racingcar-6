@@ -7,7 +7,7 @@ import static racingcar.CliPrompt.WINNERS_ARE;
 
 public class Application {
 
-    private static final GameRule rule = new GameRule(5, 0, 9);
+    private static final GameRule rule = new GameRule(0, 9);
     private static final ConsoleReader consoleReader = new ConsoleReader(rule);
     private static final Race race = new Race(rule);
     private static final CliOutput cliOutput = new CliOutput();

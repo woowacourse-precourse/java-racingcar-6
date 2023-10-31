@@ -24,7 +24,7 @@ public class IOTest {
 
     @BeforeEach
     void init() {
-        rule = new GameRule(5, 0, 9);
+        rule = new GameRule(0, 9);
         InputStream stdIn = System.in;
         userInputReader = new ConsoleReader(rule);
     }
@@ -38,7 +38,7 @@ public class IOTest {
     void 정상적인_자동차_이름_입력() {
         // given
         String[] names = new String[] {"BMW", "pobi", "woni", "abcde"};
-        CarRecord expectedNames = CarRecordFactory.createEmptyCarRecord();
+        CarRecord expectedNames = CarRecordFactory.createEmptyCarRecord(rule);
         for (int i = 0; i < names.length; i++) {
             expectedNames.register(CarFactory.car(rule, names[i]));
         }
@@ -80,7 +80,7 @@ public class IOTest {
            stdInWillRead(inputs[i]);
            NumberOfRepetitions n = (NumberOfRepetitions) userInputReader.readPureNumber();
            // then
-           assertThat(n).isEqualTo(new NumberOfRepetitions(numbers[i]));
+           assertThat(n).isEqualTo(new NumberOfRepetitions(rule, numbers[i]));
            userInputReader.close();
        }
        restoreStdIn();
@@ -109,8 +109,8 @@ public class IOTest {
         MockedStatic<RandomNumberGenerator> mocked = Mockito.mockStatic(RandomNumberGenerator.class);
         mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
                         .thenReturn(5);
-        rule.setNumberOfRepetitions(new NumberOfRepetitions("1"));
-        CarRecord racers = CarRecordFactory.createEmptyCarRecord();
+        rule.setNumberOfRepetitions(new NumberOfRepetitions(rule, "1"));
+        CarRecord racers = CarRecordFactory.createEmptyCarRecord(rule);
         racers.register(CarFactory.car(rule, "pobi"));
         racers.register(CarFactory.car(rule, "woni"));
         racers.register(CarFactory.car(rule, "jun"));

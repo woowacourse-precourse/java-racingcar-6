@@ -7,6 +7,7 @@ public class Car extends RacingGameComponent {
     private GameRule rule;
 
     public Car(GameRule rule, CarName name) {
+        super(rule);
         this.name = name;
         this.distance = 0;
         this.rule = rule;

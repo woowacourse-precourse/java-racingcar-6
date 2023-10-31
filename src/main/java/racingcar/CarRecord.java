@@ -8,13 +8,14 @@ public class CarRecord extends RacingGameComponent {
 
     private List<Car> cars;
 
-    public CarRecord() {
+    public CarRecord(GameRule rule) {
+        super(rule);
         this.cars = new ArrayList<>();
     }
 
     public CarRecord getLeadingCarRecord() {
         int maxDistance = 0;
-        CarRecord result = CarRecordFactory.createEmptyCarRecord();
+        CarRecord result = CarRecordFactory.createEmptyCarRecord(rule);
         for (Car car : cars) {
             if (maxDistance < car.getDistance())
                 maxDistance = car.getDistance();

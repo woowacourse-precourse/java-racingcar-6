@@ -22,7 +22,7 @@ public class RefereeTest {
 
     @BeforeEach
     private void setCarsAndReferee() {
-        carRecord = CarRecordFactory.createEmptyCarRecord();
+        carRecord = CarRecordFactory.createEmptyCarRecord(rule);
         names = new String[] {"Max", "Lando", "Lewis", "Oscar", "Alex", "Sainz", "Kevin"};
         for (int i = 0; i < names.length; i++) {
             carRecord.register(CarFactory.car(rule, names[i]));
@@ -32,7 +32,7 @@ public class RefereeTest {
 
     @BeforeAll
     private static void init() {
-        rule = new GameRule(5, 0, 9);
+        rule = new GameRule(0, 9);
         laps = 10;
         mocked = Mockito.mockStatic(RandomNumberGenerator.class);
     }
@@ -72,7 +72,7 @@ public class RefereeTest {
         for (int i = 0; i < laps; i++) {
             carRecord.moveForwardAllCars();
         }
-        CarRecord winners = CarRecordFactory.createEmptyCarRecord();
+        CarRecord winners = CarRecordFactory.createEmptyCarRecord(rule);
         Car w1 = CarFactory.car(rule, "w1");
         Car w2 = CarFactory.car(rule, "w2");
         Car w3 = CarFactory.car(rule, "w3");

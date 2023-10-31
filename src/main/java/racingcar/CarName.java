@@ -3,22 +3,20 @@ package racingcar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CarName implements UserInputWrapper {
+public class CarName
+        extends RacingGameComponent implements UserInputWrapper {
 
     private String name;
 
-    public CarName(String input) throws IllegalArgumentException {
+    public CarName(GameRule rule, String input) throws IllegalArgumentException {
+        super(rule);
         validate(input);
         this.name = input;
     }
 
     @Override
     public void validate(String input) throws IllegalArgumentException {
-        Pattern pattern = Pattern.compile("^[a-z, A-Z, 0-9]{1,5}$");
-        Matcher matcher = pattern.matcher(input);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException();
-        }
+        this.rule.validateCarName(input);
     }
 
 

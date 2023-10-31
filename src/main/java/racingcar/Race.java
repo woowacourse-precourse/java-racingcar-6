@@ -1,16 +1,14 @@
 package racingcar;
 
-import racingcar.factories.CarRecordFactory;
 import racingcar.factories.RefereeFactory;
 
-public class Race {
+public class Race extends RacingGameComponent{
 
-    private GameRule rule;
     private Referee referee;
     private CarRecord racers;
 
     public Race(GameRule rule) throws IllegalArgumentException {
-        this.rule = rule;
+        super(rule);
     }
 
     public void registerRacers(CarRecord carRecord) {
@@ -19,7 +17,7 @@ public class Race {
     }
 
     public void start() {
-        for (int i = 0; i < rule.getN(); i++) {
+        for (int i = 0; i < rule.getNumberOfRepetitions(); i++) {
             racers.moveForwardAllCars();
             racers.printCurrentPositions();
         }

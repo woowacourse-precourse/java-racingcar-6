@@ -8,12 +8,14 @@ public class NumberOfRepetitions
 
     private int n;
 
-    public NumberOfRepetitions(int n) {
+    public NumberOfRepetitions(GameRule rule, int n) {
+        super(rule);
         this.n = n;
     }
 
-    public NumberOfRepetitions(String input) throws IllegalArgumentException {
-        validate(input);
+    public NumberOfRepetitions(GameRule rule, String input) throws IllegalArgumentException {
+        super(rule);
+        this.rule.validateNumberOfRepetitions(input);
         this.n = Integer.parseInt(input);
     }
 
@@ -23,11 +25,7 @@ public class NumberOfRepetitions
 
     @Override
     public void validate(String input) throws IllegalArgumentException {
-        Pattern patter = Pattern.compile("^0*[1-9]+\\d*$");
-        Matcher matcher = patter.matcher(input);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException();
-        }
+        this.validate(input);
     }
 
     @Override

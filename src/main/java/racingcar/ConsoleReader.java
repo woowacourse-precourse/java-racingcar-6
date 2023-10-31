@@ -16,7 +16,7 @@ public class ConsoleReader
 
     @Override
     public T readPureNumber() throws IllegalArgumentException {
-        return (T) new NumberOfRepetitions(Console.readLine().trim());
+        return (T) new NumberOfRepetitions(rule, Console.readLine().trim());
     }
 
     @Override

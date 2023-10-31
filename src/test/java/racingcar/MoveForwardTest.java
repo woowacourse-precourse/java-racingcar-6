@@ -21,7 +21,7 @@ public class MoveForwardTest {
     @BeforeAll
     static void setNames() {
         names = new String[] {"Max", "Lando", "Lewis", "Oscar", "Alex", "Sainz", "Kevin"};
-        rule = new GameRule(5, 0, 9);
+        rule = new GameRule(0, 9);
         mocked = Mockito.mockStatic(RandomNumberGenerator.class);
     }
 
@@ -32,7 +32,7 @@ public class MoveForwardTest {
 
     @BeforeEach
     void setCarRecordWithDefaultNames() {
-        carRecord = CarRecordFactory.createEmptyCarRecord();
+        carRecord = CarRecordFactory.createEmptyCarRecord(rule);
         for (int i = 0; i < names.length; i++) {
             carRecord.register(CarFactory.car(rule, names[i]));
         }

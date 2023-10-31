@@ -11,7 +11,7 @@ public class RandomNumberGeneratorTest {
         // given
         int minInclude = 0;
         int maxInclude = 9;
-        GameRule rule = new GameRule(5, minInclude, maxInclude);
+        GameRule rule = new GameRule(minInclude, maxInclude);
         // when
         int randomNumber = RandomNumberGenerator.pickRandomNumber(rule);
         // then
