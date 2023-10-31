@@ -94,6 +94,21 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public static String findWinner(List<Car> carNameList) {
+        int winnerCount = 0;
+        String winner = "";
 
+        for (int i = 0; i < carNameList.size(); i++) {
+            Car car = carNameList.get(i);
+            String forwardDash = car.forwardDash;
+            if (forwardDash.length() > winnerCount) {
+                winner = car.name;
+                winnerCount = forwardDash.length();
+            } else if (forwardDash.length() == winnerCount) {
+                winner += "," + car.name;
+            }
+        }
+        return winner;
+    }
 
 }
