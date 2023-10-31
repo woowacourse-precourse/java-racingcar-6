@@ -10,23 +10,29 @@ public class RacingCar {
     public static final String win = "최종 우승자 : ";
 
     public Player players;
+    public Validation test;
     public int games;
     public Score scoreBoard;
 
     public List<String> winner;
 
     public RacingCar(){
+        test = new Validation();
+        players = new Player();
+
         getUser();
+
+        test.inputCheck(players);
+
         games = getGameNum();
         scoreBoard = new Score(players.getSize());
+
         Games();
         chooseWinner();
         printResult();
     }
 
     public void getUser(){
-        players = new Player();
-
         System.out.println(carName);
 
         players.getMember(Console.readLine());
@@ -34,7 +40,10 @@ public class RacingCar {
 
     public int getGameNum(){
         System.out.println(gameNum);
+
         String num = Console.readLine();
+        test.typeCheck(num);
+
         return Integer.parseInt(num);
     }
 

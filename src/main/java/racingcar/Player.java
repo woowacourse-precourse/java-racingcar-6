@@ -1,16 +1,13 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class Player {
     public List<String> member = new ArrayList<>();
-    public String members;
 
     public Player(){
-
     }
 
     public List<String> getMember(String members){
