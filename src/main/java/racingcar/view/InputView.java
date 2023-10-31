@@ -16,10 +16,18 @@ public class InputView {
         String[] carNames = Console.readLine().split(COMMA);
         boolean isValidateName = Arrays.stream(carNames)
                 .anyMatch(name -> name.length() > 5);
+        long uniqueCount = Arrays.stream(carNames)
+                .distinct()
+                .count();
 
         if (isValidateName) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME.getMessage());
         }
+
+        if (uniqueCount != carNames.length){
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_CAR_NAME.getMessage());
+        }
+
         ArrayList<Car> cars = new ArrayList<>();
 
         for (String name : carNames) {
