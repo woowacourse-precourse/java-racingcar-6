@@ -2,6 +2,7 @@ package racingcar;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -56,6 +57,27 @@ public class RacingGame {
             printStream.println();
         }
     }
+
+    public List<String> getWinnerNames() {
+        List<String> winnerNames = new ArrayList<String>();
+        int maxDistance = 0;
+
+        Collections.sort(this.cars, new CarMovingDistanceComparator());
+
+        for (int i = 0; i < this.cars.size(); i++) {
+            Car car = this.cars.get(i);
+            int movingDistance = car.getMovingDistance();
+
+            if (maxDistance > movingDistance) {
+                break;
+            }
+            winnerNames.add(car.getName());
+            maxDistance = movingDistance;
+        }
+
+        return winnerNames;
+    }
+
     private int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }

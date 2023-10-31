@@ -55,6 +55,18 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void getWinnerNames_우승자의_이름을_반환하는_경우() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun,qui", "1");
+                assertThat(output()).contains("최종 우승자 : pobi, jun, qui");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
