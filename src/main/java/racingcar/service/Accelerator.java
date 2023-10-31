@@ -1,15 +1,20 @@
 package racingcar.service;
 
 import racingcar.constant.Rule;
-import racingcar.util.RandomNumberGenerator;
 
 public class Accelerator {
+
+    private final NumberGenerator numberGenerator;
+
+    public Accelerator(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+    }
 
     public boolean canMoveForward() {
         return Rule.MOVEMENT_POSSIBILITY <= getMovementPotential();
     }
 
     private Integer getMovementPotential() {
-        return RandomNumberGenerator.generate();
+        return numberGenerator.generate();
     }
 }
