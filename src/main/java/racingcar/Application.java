@@ -20,7 +20,7 @@ public class Application {
 }
 
 class Car {
-    private String name;
+    private final String name;
     private int position=0;
 
     private static final int FORWARD_CONDITION=4;
@@ -57,8 +57,8 @@ class CarView{
 }
 
 class Race {
-    private List<Car> carList;
-    private  int attempts;
+    private final List<Car> carList;
+    private final int attempts;
 
     public Race(List<String> carNames, int attempts){
         this.carList= createCarsFromNames(carNames);
