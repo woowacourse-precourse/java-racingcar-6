@@ -1,6 +1,6 @@
 ## 기능 목록
 
-- [ ] 자동차는 전진할 수 있는지 알 수 있다. - RaceCar#isForward()
+- [ ] 자동차는 전진할지 말지 결정할 수 있다. - RaceCar#forward()
 - [ ] 자동차는 주어진 횟수만큼 경주한다. - RaceCar#race()
 - [ ] 가장 많이 전진한 자동차는 우승한다. - RaceCar#winner()
 - [x] 0부터 9 사이의 무작위 값을 자동차의 수만큼 생성한다. - Generator#createRandomNumbers()
