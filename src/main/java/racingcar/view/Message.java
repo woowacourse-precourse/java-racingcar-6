@@ -8,4 +8,8 @@ public class Message {
     /* Strings for user Output */
     public static final String EXECUTION_RESULT = "실행 결과";
     public static final String WINNER_NAMES = "최종 우승자 : ";
+
+    /* Strings for exceptions */
+    public static final String EXECUTION_INPUT_TYPE_ERROR = "Execution cnt must be Integer type";
+    public static final String NAME_INPUT_LENGTH_ERROR = "The length of name of car is too long";
 }

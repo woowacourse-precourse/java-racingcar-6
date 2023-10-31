@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.Constant;
 import racingcar.model.RaceGame;
+import racingcar.view.Message;
 import racingcar.view.UserInput;
 import racingcar.view.UserOutput;
 
@@ -50,22 +51,15 @@ public class Controller {
 
     public static Integer convertStringToInteger(String cnt) {
         try {
-            Integer number = Integer.parseInt(cnt);
-            return number;
+            return Integer.parseInt(cnt);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Execution cnt must be Integer type");
+            throw new IllegalArgumentException(Message.EXECUTION_INPUT_TYPE_ERROR);
         }
     }
 
     public static void checkNameValidation(String name) {
         if (name.length() > Constant.MAX_LEN_OF_CAR_NAME) {
-            throw new IllegalArgumentException("The length of name of car is too long");
-        }
-    }
-
-    public static void checkExecutionCntValidation(Integer execution_cnt) {
-        if (execution_cnt < 0) {
-            throw new IllegalArgumentException("The execution count must be positive integer");
+            throw new IllegalArgumentException(Message.NAME_INPUT_LENGTH_ERROR);
         }
     }
 }
