@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.domain.RacingCar;
-import racingcar.util.InputValidator;
 import racingcar.view.InputDevice;
 import racingcar.view.OutputDevice;
 
@@ -14,11 +13,9 @@ public class RacingCarGame implements Game {
     public void play() {
         OutputDevice.printInputNamesMessage();
         List<String> names = InputDevice.inputNamesWithCommaDelimiter();
-        InputValidator.checkEmptyAndBlankNames(names);
 
         OutputDevice.printInputAttemptCountMessage();
         int attemptCount = InputDevice.inputAttemptCount();
-        InputValidator.checkPositiveValue(attemptCount);
 
         RacingCar racingCar = new RacingCar(names);
         playRacingGame(racingCar, attemptCount);

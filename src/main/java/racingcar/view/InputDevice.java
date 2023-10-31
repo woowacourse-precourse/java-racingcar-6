@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.util.InputValidator;
 
 public final class InputDevice {
     private final static String DELIMITER = ",";
@@ -12,14 +13,19 @@ public final class InputDevice {
     }
 
     public static List<String> inputNamesWithCommaDelimiter() {
-        String[] names = Console.readLine().split(DELIMITER, -1);
-        return Arrays.asList(names);
+        List<String> names = Arrays.asList(Console.readLine().split(DELIMITER, -1));
+        InputValidator.checkEmptyAndBlankNames(names);
+
+        return names;
     }
 
     public static int inputAttemptCount() {
-        String attemptCount = Console.readLine();
+        String attemptCountStr = Console.readLine();
         try {
-            return Integer.parseInt(attemptCount);
+            int attemptCount = Integer.parseInt(attemptCountStr);
+            InputValidator.checkPositiveValue(attemptCount);
+
+            return attemptCount;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_NUMBER_MESSAGE);
         }
