@@ -1,22 +1,18 @@
 package racingcar.game;
 
+import static racingcar.controller.constants.GlobalConstants.*;
+
 public class Car {
     private String name;
     private Integer score;
 
     public Car(String name){
         this.name = name;
-        this.score = 0;
+        this.score = STARTING_POINT.getValue();
     }
 
     public void moveForward(){
-        // TODO: 상수 선언
-        this.score += 1;
-    }
-
-    public void stop(){
-        // TODO: 상수 선언
-        this.score += 0;
+        this.score += ONE_STEP.getValue();
     }
 
     public String getCarName(){

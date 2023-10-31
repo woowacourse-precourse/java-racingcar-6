@@ -21,7 +21,6 @@ public class Cars {
             if (dice.rollTheDice()) {
                 car.moveForward();
             }
-            car.stop();
             broadcastGameRound(car);
         }
     }
