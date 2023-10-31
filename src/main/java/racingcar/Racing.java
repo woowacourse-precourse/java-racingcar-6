@@ -1,21 +1,16 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Racing {
     private List<Car> carList;
 
     public Racing(List<String> nameList) {
-        List<Car> carList = new ArrayList<>();
-
-        for (int i = 0; i < nameList.size(); i++) {
-            Car car = new Car(nameList.get(i), 0);
-            carList.add(car);
-        }
-
-        this.carList = carList;
+        this.carList = nameList.stream()
+                .map(name -> new Car(name, 0))
+                .collect(Collectors.toList());
     }
 
     public String startRacing(int round) {
@@ -47,25 +42,19 @@ public class Racing {
 
     public List<String> determineWinner() {
         int maxMove = getMax();
-        List<String> winner = new ArrayList<>();
 
-        for (Car car : carList) {
-            if (car.move == maxMove) {
-                winner.add(car.name);
-            }
-        }
-
-        return winner;
+        return carList.stream()
+                .filter(car -> car.move == maxMove)
+                .map(car -> car.name)
+                .collect(Collectors.toList());
     }
 
     private int getMax() {
-        int max = Integer.MIN_VALUE;
-        for (Car car : carList) {
-            if (car.move > max) {
-                max = car.move;
-            }
-        }
-        return max;
+        return carList.stream()
+                .mapToInt(car -> car.move)
+                .max()
+                .orElse(Integer.MIN_VALUE);
+
     }
 }
 
