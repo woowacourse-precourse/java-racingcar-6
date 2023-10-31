@@ -4,9 +4,9 @@ package racingcar.domain.game;
 import racingcar.domain.car.Cars;
 
 public interface GameOperator {
-    Cars carGenerate();
+    Cars generateCars();
 
-    int setTrialCount();
+    int setTrial();
 
     void print(String msg);
 }
