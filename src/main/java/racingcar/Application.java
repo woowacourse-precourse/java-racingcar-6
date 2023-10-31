@@ -3,9 +3,7 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Set;
 
 public class Application {
     static String InputCarName = "";
@@ -26,31 +24,23 @@ public class Application {
     }
 
     public static void StartMessage() {
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     public static void InputCarName() {
         InputCarName = readLine();
         Exception_Handling();
-        Over_Lap_Exception();
     }
 
     public static void Exception_Handling() {
         String[] carArray = InputCarName.split(",");
         for (int i = 0; i < carArray.length; i++) {
-            if (carArray[i].length() >= 5) {
+            if (carArray[i].length() > 5) {
                 Error();
             }
-
             RacingCar.add(carArray[i]);
             RacingScore.add(0);
-        }
-    }
-
-    public static void Over_Lap_Exception() {
-        Set<String> OverLap = new HashSet<>(RacingCar);
-        if (OverLap.size() != RacingCar.size()) {
-            Error();
         }
     }
 
