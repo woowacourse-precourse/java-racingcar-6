@@ -12,12 +12,12 @@ public class race_controller {
     private Cars cars;
     private int[] storage;
     private Cars_preparation carGoCountMap;
-    private int total_round;
+    private RoundNumber roundNumber;
     public race_controller() {
         InputRacingInformation inputRacingInformation = new InputRacingInformation();
         List<String> carNames = inputRacingInformation.InputCarNames();
         cars = createCars(carNames);
-        total_round = inputRacingInformation.round_number();
+        roundNumber = createroundNumber(inputRacingInformation.round_number());
         storage = new int[cars.size()];
         carGoCountMap = Car_Go_Count_Map(cars, storage);
     }
@@ -39,6 +39,10 @@ public class race_controller {
             cars.add(car);
         }
         return new Cars(cars);
+    }
+
+    public RoundNumber createroundNumber(int round_Num){
+        return new RoundNumber(round_Num);
     }
 
     public void runGame() {
@@ -75,7 +79,7 @@ public class race_controller {
     }
 
     public boolean isEnd(int round){
-        if(total_round == round){
+        if(roundNumber.getRound_Num() == round){
             return false;
         }
         return true;
