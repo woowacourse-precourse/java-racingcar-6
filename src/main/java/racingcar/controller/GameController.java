@@ -20,21 +20,21 @@ public class GameController {
 
     public void proceed() {
         List<Car> racingCars = carController.getRacingCars();
-        StringBuilder result = new StringBuilder();
+        StringBuilder raceResult = new StringBuilder();
 
         int count = inputView.getCountInput();
         for (int i = 0; i < count; i++) {
             race(racingCars);
-            result.append(raceController.getNameAndRecord(racingCars));
+            raceResult.append(raceController.getNameAndRecord(racingCars));
 
             if (i == count - 1) {
                 continue;
             }
 
-            result.append("\n");
+            raceResult.append("\n");
         }
 
-        outputView.printNameAndRecord(result.toString());
+        outputView.printNameAndRecord(raceResult.toString());
         outputView.printWinnerName(raceController.getWinnerName(racingCars));
     }
 

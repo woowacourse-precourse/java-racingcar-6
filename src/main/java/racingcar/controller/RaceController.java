@@ -27,11 +27,11 @@ public class RaceController {
     }
 
     public String getNameAndRecord(List<Car> racingCars) {
-        StringBuilder result = new StringBuilder();
+        StringBuilder nameAndRecord = new StringBuilder();
         for (Car car : racingCars) {
-            result.append(car.getNameAndRecord());
+            nameAndRecord.append(car.getNameAndRecord());
         }
-        return result.toString();
+        return nameAndRecord.toString();
     }
 
     private int getWinnerRecord(List<Car> racingCars) {
