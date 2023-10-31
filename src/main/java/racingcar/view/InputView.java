@@ -23,6 +23,8 @@ public class InputView {
     }
 
     public int askMoveCount() {
-        return -1;
+        String input = Console.readLine();
+        moveCountInputValidation.isNumber(input);
+        return Integer.parseInt(input);
     }
 }
