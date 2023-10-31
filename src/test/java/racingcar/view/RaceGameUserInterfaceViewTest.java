@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -19,46 +20,37 @@ class RaceGameUserInterfaceViewTest {
 
     @BeforeEach
     void setUpStreams() {
-        outputMessage = new ByteArrayOutputStream(); // OutputStream 생성
-        System.setOut(new PrintStream(outputMessage)); // 생성한 OutputStream 으로 설정
+        outputMessage = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputMessage));
     }
 
     @AfterEach
     void restoresStreams() {
-        System.setOut(System.out); // 원상복귀
-    }
-
-    RaceGameUserInterfaceView ui = new RaceGameUserInterfaceView();
-
-    @Test
-    void userCarInputTest() {
-
-        String simulatedInput = "poby, woni, jun";
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        String userCarInput = ui.getUserCarInput();
-        assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outputMessage.toString());
-        Assertions.assertThat("poby, woni, jun").isEqualTo(userCarInput);
-    }
-
-    @Test
-    void totalRoundTest() {
-
-        String simulatedInput = "5";
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        String userCarInput = ui.getTotalRoundInput();
-        assertEquals("시도할 회수는 몇회인가요?\n", outputMessage.toString());
-        Assertions.assertThat("5").isEqualTo(userCarInput);
-
+        System.setOut(System.out);
         System.setIn(System.in);
+    }
+
+    @Test
+    void displayUserCarInputTest() {
+
+        RaceGameUserInterfaceView.displayUserCarInput();
+        assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", outputMessage.toString());
+
+    }
+
+    @Test
+    void displayTotalRoundTest() {
+
+        RaceGameUserInterfaceView.displayTotalRoundInput();
+        assertEquals("시도할 회수는 몇회인가요?\n", outputMessage.toString());
+
     }
 
     @Test
     void gameStartMessageTest() {
 
-        String totalRoundInput = ui.getTotalRoundInput();
-        assertEquals("실행 결과\n", outputMessage.toString());
+        RaceGameUserInterfaceView.raceGameStartMessage();
+        assertEquals("\n실행 결과\n", outputMessage.toString());
 
     }
 
@@ -70,10 +62,10 @@ class RaceGameUserInterfaceViewTest {
         userCarDistance.put("woni", 2);
         userCarDistance.put("jun", 4);
 
-        ui.displayUserCarDistance(userCarDistance);
-        assertEquals("pobi  : ---\n"
-            + "woni  : --\n"
-            + "jun   : ----\n\n", outputMessage.toString());
+        RaceGameUserInterfaceView.displayUserCarDistance(userCarDistance);
+        assertEquals("pobi : ---\n"
+            + "woni : --\n"
+            + "jun : ----\n\n", outputMessage.toString());
     }
 
     @Test
@@ -82,7 +74,16 @@ class RaceGameUserInterfaceViewTest {
         winners.add("pobi");
         winners.add("jun");
 
-        ui.displayWinner(winners);
+        RaceGameUserInterfaceView.displayWinner(winners);
         assertEquals("최종 우승자 : pobi, jun", outputMessage.toString());
+    }
+
+    @Test
+    void getInputTest() {
+        String simulatedInput = "poby, wony, jun";
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+
+        String input = RaceGameUserInterfaceView.getInput();
+        assertEquals("poby, wony, jun", input);
     }
 }
