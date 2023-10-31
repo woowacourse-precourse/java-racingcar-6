@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import static racingcar.utils.ErrorMessage.*;
 
-import static racingcar.utils.Message.ProgressBar;
-
 public class Car {
     private final String name;
     private int progress;

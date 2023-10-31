@@ -7,16 +7,16 @@ import racingcar.domain.Car;
 
 public class OutputView {
     public void printStartGameMessage() {
-        System.out.println(StartGameMessage.getMessage());
+        System.out.println(START_GAME_MESSAGE.getMessage());
     }
 
     public void printAttempNumMessage() {
-        System.out.println(AttempNumMessage.getMessage());
+        System.out.println(ATTEMPT_NUM_MESSAGE.getMessage());
     }
 
     public void printResultMessage() {
         System.out.println();
-        System.out.println(ResultMessage.getMessage());
+        System.out.println(RESULT_MESSAGE.getMessage());
     }
 
     public void printAttempResult(List<Car> cars) {
@@ -28,14 +28,14 @@ public class OutputView {
     }
 
     public void printWinners(List<Car> winners) {
-        System.out.print(WINNERPRINTMESSAGE.getMessage());
+        System.out.print(WINNER_PRINT_MESSAGE.getMessage());
 
         List<String> winnerNames = winners.stream().map(Car::getName).toList();
         System.out.println(String.join(", ", winnerNames));
     }
 
     public String printProgressBar(int progress) {
-        String progressBar = ProgressBar.getMessage();
+        String progressBar = PROGRESSBAR_CHAR.getMessage();
         return progressBar.repeat(progress);
     }
 }
