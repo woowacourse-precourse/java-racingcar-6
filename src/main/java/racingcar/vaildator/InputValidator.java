@@ -17,8 +17,8 @@ public class InputValidator {
     public static void isValidLengthCarNames(String... carNames){
 
         for(String carName : carNames){
-            if(!isValidLengthCarName(carName.trim())) {
-                throw new IllegalArgumentException(OVER_LENGTH_CAR_NAME);
+            if(!isValidLengthCarName(carName)) {
+                throw new IllegalArgumentException(NAME_LENGTH_ERROR);
             }
         }
 
