@@ -98,6 +98,9 @@ class ApplicationTest extends NsTest {
         assertThat(distanceCount.length).isEqualTo(3);
     }
 
+    @Test
+    @DisplayName("")
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
