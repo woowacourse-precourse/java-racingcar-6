@@ -19,9 +19,16 @@ public class CarRace {
         int randomNumber = Randoms.pickNumberInRange(min, max);
         return randomNumber;
     }
+
+    private boolean moveCondition(int min, int max) {
+        if (randomGenerator(min, max) >= Numbers.MOVE_POSITION_NUMBER.getNumber()){
+            return true;
+        }
+        return false;
+    }
     public void moveForward(int min, int max) {
         cars.stream()
-                .filter(car -> randomGenerator(min, max) >= Numbers.MOVE_POSITION_NUMBER.getNumber())
+                .filter(car -> moveCondition(min, max))
                 .forEach(car -> car.updatePosition());
     }
 
