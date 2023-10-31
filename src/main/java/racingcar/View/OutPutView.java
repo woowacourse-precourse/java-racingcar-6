@@ -14,14 +14,13 @@ public class OutPutView {
     public void midGameResultMessage(ArrayList<MidGameResultDto> midGameResultDtoList) {
         StringBuilder midGameResultVisualizationBuilder = new StringBuilder();
         for (MidGameResultDto gameResultDto : midGameResultDtoList) {
-            printMidGameResult(gameResultDto, midGameResultVisualizationBuilder);
+            midGameResultVisualizationBuilder
+                    .append(gameResultDto.getRacingCarName())
+                    .append(" : ")
+                    .append(distanceVisualization(gameResultDto.getDistance()));
+            printMidGameResult(midGameResultVisualizationBuilder);
+            midGameResultVisualizationBuilder.setLength(0);
         }
-    }
-
-    private void printMidGameResult(MidGameResultDto gameResultDto, StringBuilder midGameResultVisualizationBuilder) {
-        midGameResultVisualizationBuilder.append(gameResultDto.getRacingCarName()).append(" : ").append(distanceVisualization(gameResultDto.getDistance()));
-        System.out.println(midGameResultVisualizationBuilder);
-        midGameResultVisualizationBuilder.setLength(0);
     }
 
     private String distanceVisualization(int distance) {
@@ -32,20 +31,19 @@ public class OutPutView {
         return distanceVisualizationBuilder.toString();
     }
 
-    public void winnerAnnouncementMessage(ArrayList<RacingCar> winnerList) {
-        String finalWinnerList = null;
-        System.out.print("최종 우승자 : ");
-        if (winnerList.size() > 0) {
-            String lastWinner = winnerList.get(winnerList.size() - 1).getName();
-            finalWinnerList = writeFinalWinnerList(winnerList, lastWinner);
-            System.out.println(finalWinnerList);
-        }
-        if (winnerList.size() == 0) {
-            System.out.println(winnerList.get(0));
-        }
+    private void printMidGameResult(StringBuilder midGameResultVisualizationBuilder) {
+        System.out.println(midGameResultVisualizationBuilder);
     }
 
-    private String writeFinalWinnerList(ArrayList<RacingCar> winnerList, String lastWinner) {
+    public void winnerAnnouncementMessage(ArrayList<RacingCar> winnerList) {
+        StringBuilder finalWinnerAnnouncementBuilder = new StringBuilder();
+        String WinnerNameLastOfTheList = winnerList.get(winnerList.size() - 1).getName();
+        String finalWinnerList = writeFinalWinnerAnnouncementList(winnerList, WinnerNameLastOfTheList);
+        finalWinnerAnnouncementBuilder.append("최종 우승자 : ").append(finalWinnerList);
+        printFinalWinnerAnnouncementList(finalWinnerAnnouncementBuilder);
+    }
+
+    private String writeFinalWinnerAnnouncementList(ArrayList<RacingCar> winnerList, String lastWinner) {
         StringBuilder finalWinner = new StringBuilder();
         for (RacingCar racingCar : winnerList) {
             if (racingCar.getName().equals(lastWinner)) {
@@ -56,5 +54,9 @@ public class OutPutView {
             }
         }
         return finalWinner.toString();
+    }
+
+    private void printFinalWinnerAnnouncementList(StringBuilder finalWinnerAnnouncementBuilder) {
+        System.out.println(finalWinnerAnnouncementBuilder);
     }
 }
