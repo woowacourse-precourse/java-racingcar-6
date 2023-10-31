@@ -1,110 +1,89 @@
 package racingcar;
+import java.util.*;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
+import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
-    // 자동차 이름 입력 받기
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] playerNames = (Console.readLine()).split(",");
-        List<String> playerNameList = new ArrayList<>(Arrays.asList(playerNames));
-
-
-
-        // 예외처리 1 ( 5글자 이하 )
-        for (int i = 0; i < playerNames.length; i++) {
-            if (playerNameList.get(i).length() > 5) {
-                throw new IllegalArgumentException("5자 이하로 입력해주세요.");
+        // 자동차 이름 입력 받기
+        System.out.printf("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)%n");
+        String inputCarName = Console.readLine();
+        String[] inputCarNameArray = inputCarName.split(",");
+        List<String> inputCarNameList = new ArrayList<>();
+        inputCarNameList = Arrays.asList(inputCarNameArray);
+        for (String checkCarNameLength : inputCarNameList) {
+            //예외처리 1 : 5글자 이하만 자동차 이름으로 입력 가능
+            if (checkCarNameLength.length() > 5) {
+                throw new IllegalArgumentException("5글자 이하의 이름만 입력 가능합니다.");
             }
         }
-        // 예외처리 2 ( 중복값 입력 불가 )
-        for (int i = 0; i < playerNames.length; i++) {
-            String duplicationTestElement = playerNameList.get(i);
-            playerNameList.remove(playerNameList.get(i));
-            if (playerNameList.contains(duplicationTestElement)) {
-                throw new IllegalArgumentException("중복된 이름이 존재합니다.");
-            }
-            playerNameList.add(i, duplicationTestElement);
-
+        // 예외처리 2 : 자동차 이름이 중복되지 않아야 함
+        Set<String> checkDuplication = new HashSet<String>(inputCarNameList);
+        if (checkDuplication.size() != inputCarNameList.size()) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
 
-    // 시도 회수 입력 받기
-        System.out.println("시도할 회수는 몇회인가요?");
-        String playerInputTryNum = Console.readLine();
-        //int tryNumberErrorTest = playerInputTryNum.length(); //10
-        for (int i = 0; i < playerInputTryNum.length(); i++) {
-            // 시도 회수에 대한 예외처리
-            if (playerInputTryNum.charAt(0) == '0')  // 맨 앞자리 수가 0일 수 없음
-                throw new IllegalArgumentException("숫자만 입력 가능합니다.(0입력 또는 가장 앞 자리수에 0 입력이 불가합니다.)" + "");
-            if (playerInputTryNum.charAt(i) < '0' || playerInputTryNum.charAt(i) > '9') {
-                throw new IllegalArgumentException("숫자만 입력 가능합니다. (0 제외)");
+        //시도 회수 입력 받기a
+        System.out.printf("시도할 회수는 몇회인가요?%n");
+        String inputTryNum = Console.readLine();
+        for (int i=0; i < inputTryNum.length(); i++) {
+            char checkInputTryNum = inputTryNum.charAt(i);
+            if (inputTryNum.charAt(0) == '0') {
+                throw new IllegalArgumentException("값이 0으로 시작할 수 없습니다.");
+            }
+            if (checkInputTryNum < '0' || checkInputTryNum > '9') {
+                throw new IllegalArgumentException("숫자형식만 입력 가능합니다.");
             }
         }
 
-    //전진 회수 결정하기 + 각 자동차의 결과 출력
-        int toIntPlayerInputTryNum = Integer.parseInt(playerInputTryNum);
-        int RandomNumber;
-        char forwardMark = '-';
 
-        List<Integer> playerForwardList = new ArrayList<>();
-        System.out.printf("%n실행 결과%n");
+        // 전진 회수 결정하기 ( 차마다 다름 )
+        int forwardCounts = 0;
+        String forwardMark = "-";
+        List<Integer> forwardCountsList = new ArrayList<>();
 
-        List<Integer> isForwardList = new ArrayList<>();
-        //isForwardList에 플레이어 수만큼 추가 -  초기값 0으로 설정 해놓기
-        for (int i = 0; i < playerNames.length; i++) {
-            isForwardList.add(0);
+        while (forwardCountsList.size() < inputCarNameList.size()) {
+            forwardCountsList.add(0);
         }
-
-        for (int j = 0; j < toIntPlayerInputTryNum; j++) {
-            for (int i = 0; i < playerNames.length; i++) {
-                System.out.printf("%s : ", playerNameList.get(i));
-                RandomNumber = Randoms.pickNumberInRange(0, 9);
-                if (RandomNumber >= 4) {
-                    isForwardList.set(i, isForwardList.get(i)+1);
+        System.out.printf("%n실행 결과");
+        for (int i=0; i < Integer.parseInt(inputTryNum); i++) {
+            for (int j=0; j < inputCarNameList.size(); j++) {
+                int RandomNum = Randoms.pickNumberInRange(0, 9);
+                if (RandomNum >= 4) {
+                    forwardCounts = forwardCountsList.get(j) + 1;
                 }
-                for (int k = 0; k < isForwardList.get(i); k++) {
+                if (RandomNum < 4) {
+                    forwardCounts = forwardCountsList.get(j);
+                }
+                System.out.printf("%n%s : ", inputCarNameList.get(j));
+                for (int k = 0; k < forwardCounts; k++) {
                     System.out.printf("%s", forwardMark);
                 }
-                System.out.printf("%n");
+                forwardCountsList.set(j, forwardCounts);
+                forwardCounts = 0;
+                for (int k = 0; k < inputCarNameList.size(); k++) {
+                }
             }
-                System.out.printf("%n");
-            }
+            System.out.printf("%n");
+        }
 
-    // 우승자 출력하기
-        int WinnerForwardNum = 0;
-        int isForwardListmaxNum = 0;
-        for (int i = 0; i < isForwardList.size(); i++) {
-            if (isForwardList.get(i) >= isForwardListmaxNum) {
-                isForwardListmaxNum = isForwardList.get(i);
+        // 우승자 출력하기
+        int winnerForwardNum = 0;
+        for (int elementForwardCountsList : forwardCountsList) {
+            if (winnerForwardNum < elementForwardCountsList) {
+                winnerForwardNum = elementForwardCountsList;
             }
         }
-        WinnerForwardNum = isForwardListmaxNum;
-        List<Integer> winnerIndexList = new ArrayList<>();
-        for (int i=0; i < isForwardList.size(); i++) {
-            if (isForwardList.get(i).equals(isForwardListmaxNum)) {
-                winnerIndexList.add(i);
+        int winningCarCount = 0;
+        List<String> winnerList = new ArrayList<>();
+        for (int i=0; i < forwardCountsList.size(); i++) {
+            if (forwardCountsList.get(i).equals(winnerForwardNum)) {
+                winnerList.add(inputCarNameList.get(i));
             }
         }
-        String winnerMessage ="최종 우승자 :";
-        String winnerPlayer = "";
-        for (int i=0; i < winnerIndexList.size(); i++) {
-            if (i == winnerIndexList.size() - 1) {
-                winnerPlayer = winnerPlayer + playerNameList.get(winnerIndexList.get(i));
-            }
-            else {
-                winnerPlayer = winnerPlayer + playerNameList.get(winnerIndexList.get(i)) + ", ";
-            }
-        }
-        System.out.printf("%s %s",winnerMessage, winnerPlayer);
+        String winnerListToMessage = String.join(", ", winnerList);
+        String winnerMessage = "%n최종 우승자 : " + winnerListToMessage + "%n";
+        System.out.printf(winnerMessage);
     }
 }
-
-
-
-
-
