@@ -3,9 +3,10 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.view.GameUI;
+import racingcar.view.RaceView;
 
 public class GameManager {
-    private int roundCount;
+    private int remainingRounds;
     private List<Car> cars;
 
     public GameManager() {
@@ -20,11 +21,14 @@ public class GameManager {
         for (String name : carsName) {
             this.cars.add(new Car(name));
         }
-        this.roundCount = GameUI.promptForNumberOfRoundsAndReturnInteger();
+        this.remainingRounds = GameUI.promptForNumberOfRoundsAndReturnInteger();
     }
 
     private void playGame() {
-        // 경기 진행 및
+        for (; remainingRounds > 0; remainingRounds--) {
+            cars.forEach(Car::moveOnRandomCondition);
+            RaceView.displayRoundResults(cars);
+        }
     }
 
     private void endGame() {
