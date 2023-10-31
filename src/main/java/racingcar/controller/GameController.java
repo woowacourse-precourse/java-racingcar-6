@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.util.vaildator.carNameValidator.validateInputNameDupication;
 import static racingcar.util.vaildator.carNameValidator.validateMinimumCarNameCount;
 
 import java.util.List;
@@ -37,6 +38,7 @@ public class GameController {
                 .map(Car::new)
                 .forEach(carList::addCar);
         validateMinimumCarNameCount(carNames);
+        validateInputNameDupication(carNames);
     }
 
     private void moveCars() {
