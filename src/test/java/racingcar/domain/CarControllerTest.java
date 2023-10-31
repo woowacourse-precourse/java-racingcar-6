@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class CarControllerTest {
 
     @Test
-    void 이동횟수_감소() {
+    void 이동횟수_0일시_false로_변하는지_확인() {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
         CarFactory carFactory = new CarFactory();
