@@ -9,7 +9,7 @@ import racingcar.view.RacingCarGameView;
 import static racingcar.utils.Constants.COMMA;
 
 public class RacingCarGame {
-    RacingCarRace race;
+    RacingCarRace carRace;
     RacingCarGameView view;
 
     public RacingCarGame() {
@@ -27,18 +27,18 @@ public class RacingCarGame {
 
         List<RacingCar> racingCars = Arrays.stream(carNames).map(RacingCar::new).toList();
 
-        this.race = new RacingCarRace(racingCars, totalMoveCount);
+        this.carRace = new RacingCarRace(racingCars, totalMoveCount);
     }
 
     private void start() {
         view.printResultText();
 
-        for(int n=0; n<this.race.getTotalMoveCount(); n++) {
-            this.race.move();
-            view.printResult(this.race.getCarsStatus());
+        for(int n=0; n<this.carRace.getTotalMoveCount(); n++) {
+            this.carRace.move();
+            view.printResult(this.carRace.getCarsStatus());
         }
 
-        view.printWinner(this.race.getWinnerCarNames());
+        view.printWinner(this.carRace.getWinnerCarNames());
     }
 
 
