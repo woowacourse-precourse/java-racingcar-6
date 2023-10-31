@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import java.util.Map;
 
 public class View {
@@ -24,7 +25,7 @@ public class View {
         return Integer.parseInt(raceCount);
     }
 
-    public int showRaceResultHeader() {
+    public void showRaceResultHeader() {
         System.out.println(RACE_RESULT_HEADER);
     }
 
@@ -34,8 +35,20 @@ public class View {
             result.append(carName + " : " + "-".repeat(position) + "\n");
         });
         System.out.println(result.toString());
+        System.out.println();
     }
 
+    public void showWinnerView(List<String> winners) {
+        StringBuffer result = new StringBuffer();
+
+        winners.forEach(winner -> {
+            result.append(winner);
+            result.append(", ");
+        });
+        result.substring(0, result.length() - 2);
+
+        System.out.println("최종 우승자 : " + result.toString());
+    }
 }
 /*
 실행 결과
