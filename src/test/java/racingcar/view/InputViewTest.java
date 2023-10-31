@@ -100,6 +100,46 @@ class InputViewTest extends InputSetting{
                 .hasMessageContaining("Input Error: Invalid the minimum number of cars");
     }
     @Test
+    @DisplayName("이동_횟수_입력_테스트")
     void inputMoveCount() {
+        // given
+        systemIn("5");
+        // when
+        Integer moveCount = inputView.inputMoveCount();
+        // then
+        assertThat(moveCount).isEqualTo(5);
+    }
+
+    @Test
+    @DisplayName("이동_횟수_입력_Null_테스트")
+    void null_inputMoveCount() {
+        // given
+        systemIn("\n");
+        // when,then
+        assertThatThrownBy(() -> inputView.inputMoveCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input Error: moveCount is Null");
+    }
+
+    @Test
+    @DisplayName("이동_횟수_입력_숫자형_테스트")
+    void numeric_inputMoveCount() {
+        // given
+        systemIn("\n");
+        // when,then
+        assertThatThrownBy(() -> inputView.inputMoveCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input Error: moveCount is Null");
+    }
+
+    @Test
+    @DisplayName("이동_횟수_입력_최솟값_테스트")
+    void minCount_inputMoveCount() {
+        // given
+        systemIn("0");
+        // when,then
+        assertThatThrownBy(() -> inputView.inputMoveCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input Error: Invalid the minimum number of moveCount");
     }
 }
