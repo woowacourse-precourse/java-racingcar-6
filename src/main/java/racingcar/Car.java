@@ -4,8 +4,8 @@ public class Car {
     private String name;
     private Long move;
 
-    public String getName() {
-        return name;
+    public Car(String name) {
+        this.name = name;
     }
 
     public void setName(String name) {

@@ -5,7 +5,7 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.*;
 
 public class RacingGameManager {
-    private List<String> carList;
+    private List<Car> carList;
     private Long racingTry;
 
     /**
@@ -18,7 +18,9 @@ public class RacingGameManager {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         if (validator.validate(input)) {
-            carList = Arrays.asList(input.split(","));
+            Arrays.asList(input.split((","))).forEach(
+                    carName -> carList.add(new Car(carName))
+            );
             System.out.println("시도할 회수는 몇회인가요?");
         }
 
@@ -40,7 +42,11 @@ public class RacingGameManager {
      * 입력: 없음
      * 출력: 없음
      */
-    private void moveCar() {}
+    private void moveCar() {
+        for (int i = 0; i < carList.size(); i++)
+            if (Randoms.pickNumberInRange(0,9) >= 4)
+                carList.get(i).increaseMove();
+    }
 
     /**
      * 자동차 이동 결과 표시 함수
