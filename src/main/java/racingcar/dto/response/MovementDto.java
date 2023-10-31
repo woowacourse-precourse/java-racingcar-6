@@ -1,10 +1,11 @@
 package racingcar.dto.response;
 
+import static racingcar.constants.Format.MOVEMENT_DELIMITER;
+import static racingcar.constants.Format.RAIL;
+
 import racingcar.domain.Car;
 
 public class MovementDto {
-    private static final String RAIL = "-";
-    private static final String DELIMITER = " : ";
 
     private final String carName;
     private final Integer forwardCount;
@@ -17,7 +18,7 @@ public class MovementDto {
     public String createMessage() {
         StringBuilder builder = new StringBuilder();
         builder.append(carName)
-                .append(DELIMITER)
+                .append(MOVEMENT_DELIMITER)
                 .append(RAIL.repeat(forwardCount));
         return builder.toString();
     }

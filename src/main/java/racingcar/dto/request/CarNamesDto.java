@@ -1,18 +1,18 @@
 package racingcar.dto.request;
 
+import static racingcar.constants.Condition.NAME_SIZE;
 import static racingcar.constants.ErrorMessage.LENGTH_LIMIT;
+import static racingcar.constants.Format.CAR_NAME_DELIMITER;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class CarNamesDto {
-    private static final String DELIMITER = ",";
-    private static final int NAME_SIZE = 5;
 
     private final List<String> names;
 
     public CarNamesDto(String carNames) {
-        this.names = Arrays.asList(carNames.split(DELIMITER));
+        this.names = Arrays.asList(carNames.split(CAR_NAME_DELIMITER));
         validateNameLength(names);
     }
 

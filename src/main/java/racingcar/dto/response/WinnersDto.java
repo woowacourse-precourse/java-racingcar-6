@@ -1,11 +1,12 @@
 package racingcar.dto.response;
 
+import static racingcar.constants.Format.WINNER_DELIMITER;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class WinnersDto {
-    private static final String DELIMITER = ", ";
 
     private final List<String> names;
 
@@ -17,7 +18,7 @@ public class WinnersDto {
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for(; i < names.size()-1; i++) {
-            builder.append(names.get(i)).append(DELIMITER);
+            builder.append(names.get(i)).append(WINNER_DELIMITER);
         }
         builder.append(names.get(i));
         return builder.toString();

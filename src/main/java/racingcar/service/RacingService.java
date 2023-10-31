@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.constants.Condition.MOVEMENT_CONDITION;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +11,6 @@ import racingcar.dto.request.CarNamesDto;
 import racingcar.dto.response.WinnersDto;
 
 public class RacingService {
-
-    private static final int MOVEMENT_CONDITION = 4;
 
     private final CarRepository carRepository;
 
