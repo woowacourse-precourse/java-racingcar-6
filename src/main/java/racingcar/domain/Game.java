@@ -4,15 +4,15 @@ import java.util.List;
 
 public class Game {
     private int trial;
-    private List<racingcar.domain.Car> cars;
+    private List<CarDto> cars;
     private int trialNum = 0;
 
-    public Game(int trial, List<racingcar.domain.Car> cars) {
-        this.trial = trial;
+    public Game(List<Car> cars, int trial) {
         this.cars = cars;
+        this.trial = trial;
     }
 
-    public List<Car> getCars() {
+    public List<CarDto> getCars() {
         return cars;
 
     }
