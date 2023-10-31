@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.common.Announcement;
+import racingcar.common.Rule;
 
 public class Game {
-
-    public final int MOVING_FORWARD = 4;
 
     public String[] carNameArray;
     public int[] carLocationArray;
@@ -53,7 +52,7 @@ public class Game {
     private void carRuns() {
         for (int i = 0; i < this.numberOfCar; i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= this.MOVING_FORWARD) {
+            if (randomNumber >= Rule.MOVING_FORWARD.getValue()) {
                 this.carLocationArray[i]++;
             }
             int currentLocation = this.carLocationArray[i];

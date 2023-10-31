@@ -1,14 +1,13 @@
 package racingcar;
 
 import racingcar.common.ErrorCode;
+import racingcar.common.Rule;
 
 public class Validator {
 
-    private static final int MAX_CAR_NAME_LENGTH = 5;
-
     public static void validateCarNameArray(String[] carNameArray) throws IllegalArgumentException {
         for (String s : carNameArray) {
-            if (s.length() > MAX_CAR_NAME_LENGTH) {
+            if (s.length() > Rule.MAX_CAR_NAME_LENGTH.getValue()) {
                 throw new IllegalArgumentException(ErrorCode.INPUT_WRONG_CAR_NAME_LENGTH.getMessage());
             }
             if (s.isEmpty()) {
