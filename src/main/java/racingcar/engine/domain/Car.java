@@ -1,12 +1,9 @@
 package racingcar.engine.domain;
 
 import java.util.StringJoiner;
-import racingcar.utils.RandomUtils;
 
 public class Car {
     private static final String PROGRESS_BAR = "-";
-    private static final int MINIMUM_VALUE = 1;
-    private static final int MAXIMUM_VALUE = 9;
 
     private String name;
     private int progress = 0;
@@ -15,10 +12,8 @@ public class Car {
         this.name = name;
     }
 
-    public void moveForward() {
-        int randomNumber = RandomUtils.getRandomNumber(MINIMUM_VALUE, MAXIMUM_VALUE);
-
-        if (randomNumber >= 4) {
+    public void drive(int threshold, int randomNumber) {
+        if (randomNumber >= threshold) {
             this.progress++;
         }
     }

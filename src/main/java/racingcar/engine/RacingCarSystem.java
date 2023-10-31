@@ -29,16 +29,14 @@ public sealed interface RacingCarSystem {
     Input<Integer> ATTEMPTS_MAXIMUM_VALUE = new Input<>(100_000_000);
     Input<String> CAR_NAME_SEPARATOR = new Input<>(",");
 
-    final class Input<T> implements RacingCarSystem {
-        private T value;
+    record Input<T>(T value) implements RacingCarSystem {
+    }
 
-        public Input(T value) {
-            this.value = value;
-        }
+    Policy<Integer> DRIVE_THRESHOLD = new Policy<>(4);
+    Policy<Integer> RANDOM_NUMBER_MINIMUM_VALUE = new Policy<>(1);
+    Policy<Integer> RANDOM_NUMBER_MAXIMUM_VALUE = new Policy<>(1);
 
-        public T getValue() {
-            return this.value;
-        }
+    record Policy<T>(T value) implements RacingCarSystem {
     }
 }
 
