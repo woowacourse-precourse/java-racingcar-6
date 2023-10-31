@@ -24,6 +24,10 @@ public class Game {
 
         int count = Integer.parseInt(countString);
 
+        if(!checkRangeOfNumber(count)){
+            throw new IllegalArgumentException();
+        }
+
         for (int i = 0; i < count; i++) {
             for (int j = 0; j < players.size(); j++) {
                 Player player = players.get(j);
@@ -52,7 +56,7 @@ public class Game {
         for (String user : users) {
             String removeSpace = user.trim();
 
-            if (user.isEmpty()){
+            if (user.isEmpty()) {
                 continue;
             }
 
@@ -111,5 +115,12 @@ public class Game {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    private boolean checkRangeOfNumber(int count) {
+        if (count > 0 && count<=100) {
+            return true;
+        }
+        return false;
     }
 }

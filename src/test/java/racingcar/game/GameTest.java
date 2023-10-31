@@ -89,6 +89,20 @@ public class GameTest {
         ).isExactlyInstanceOf(NumberFormatException.class);
     }
 
+    @Test
+    void negativeNumberTest() {
+        MiniGame miniGame = new MiniGame();
+
+        Assertions.assertThat(miniGame.checkRangeOfNumber(-20)).isEqualTo(false);
+    }
+
+    @Test
+    void outOfRangeTest() {
+        MiniGame miniGame = new MiniGame();
+
+        Assertions.assertThat(miniGame.checkRangeOfNumber(1000)).isEqualTo(false);
+    }
+
     // private 메서드 테스트 용도 내부 클래스
     static class MiniGame {
         boolean checkNameLength(String name) {
@@ -145,6 +159,13 @@ public class GameTest {
             }
 
             return champions;
+        }
+
+        private boolean checkRangeOfNumber(int count) {
+            if (count > 0 && count<=100) {
+                return true;
+            }
+            return false;
         }
     }
 }
