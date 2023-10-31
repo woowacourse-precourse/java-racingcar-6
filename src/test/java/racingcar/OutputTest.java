@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
 import racingcar.controller.CarRacingController;
-import racingcar.controller.RacingCarGenerateController;
 import racingcar.model.Car;
 import racingcar.model.CarRepository;
 import racingcar.view.RacingCarView;
@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-public class OutputControllerTest {
+public class OutputTest {
     CarRacingController racingController = new CarRacingController();
     private CarRepository carRepository = CarRepository.getInstance();
 
@@ -47,6 +47,8 @@ public class OutputControllerTest {
 
         assertThat(output.toString().trim()).isEqualTo(result);
     }
+
+    @ParameterizedTest
 
     @Test
     void 최종우승자_출력() {

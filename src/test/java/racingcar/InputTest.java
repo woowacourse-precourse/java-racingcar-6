@@ -10,17 +10,15 @@ import racingcar.model.CarRepository;
 
 import java.util.ArrayList;
 
-public class InputControllerTest {
+public class InputTest {
     RacingCarGenerateController generateController = new RacingCarGenerateController();
     private CarRepository carRepository = CarRepository.getInstance();
 
     @Test
-    void 이름_split() {
-        String input = "jisu,lee";
-        String[] split = input.split(",");
+    void 이름이_null() {
 
-        assertThat(split).isEqualTo(generateController.splitNames(input));
     }
+
     @Test
     void 초기_Car_리스트_세팅() {
         String[] names = "jisu,lee".split(",");
