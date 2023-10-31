@@ -45,4 +45,10 @@ public class RaceService {
     private boolean isLessThanMinCount(Integer count) {
         return count < MIN_RACE_COUNT.getValue();
     }
+
+    public void startRace(Cars cars, Integer totalCount) {
+        for (int count = 0; count < totalCount; count++) {
+            cars.tryMoveCars();
+        }
+    }
 }
