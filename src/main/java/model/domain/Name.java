@@ -4,7 +4,7 @@ public class Name {
 
     private String name;
 
-    public Name(String name){
+    public Name(String name) {
         checkNameLength(name);
         this.name = name;
     }
@@ -13,7 +13,7 @@ public class Name {
         return name;
     }
 
-    private void checkNameLength(String name){
+    private void checkNameLength(String name) {
 
         if (name.length() > 5) {
             throw new IllegalArgumentException();

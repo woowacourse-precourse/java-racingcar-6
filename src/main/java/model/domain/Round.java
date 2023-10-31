@@ -4,7 +4,7 @@ public class Round {
 
     private int round;
 
-    public Round(String roundStr){
+    public Round(String roundStr) {
         this.round = checkIsNumber(roundStr);
     }
 
@@ -12,7 +12,7 @@ public class Round {
         return round;
     }
 
-    private int checkIsNumber(String roundStr){
+    private int checkIsNumber(String roundStr) {
 
         try {
             return Integer.parseInt(roundStr.trim());

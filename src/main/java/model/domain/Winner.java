@@ -7,7 +7,7 @@ public class Winner {
 
     private List<Name> winner;
 
-    public Winner(){
+    public Winner() {
         winner = new ArrayList<>();
     }
 
@@ -20,12 +20,12 @@ public class Winner {
 
         StringBuilder message = new StringBuilder();
 
-        for(int i = 0; i < winner.size(); i++){
+        for (int i = 0; i < winner.size(); i++) {
 
             String name = winner.get(i).getName();
             message.append(name);
 
-            if(i != (winner.size() - 1)){
+            if (i != (winner.size() - 1)) {
                 message.append(", ");
             }
         }
@@ -33,11 +33,11 @@ public class Winner {
         return message.toString();
     }
 
-    public void add(Name name){
+    public void add(Name name) {
         winner.add(name);
     }
 
-    public void clear(){
+    public void clear() {
         winner.clear();
     }
 

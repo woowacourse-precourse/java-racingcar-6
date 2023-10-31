@@ -7,7 +7,7 @@ public class Split {
 
     private static final String SEPERATOR = ",";
 
-    public static List<String> byComma(String input){
+    public static List<String> byComma(String input) {
         return Arrays.asList(input.split(SEPERATOR));
     }
 }

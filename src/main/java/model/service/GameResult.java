@@ -1,7 +1,6 @@
 package model.service;
 
 import model.domain.Car;
-import model.domain.Go;
 import model.domain.Participant;
 import model.domain.Winner;
 

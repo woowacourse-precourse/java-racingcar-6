@@ -12,7 +12,7 @@ public class Car {
 
     }
 
-    public Name getName(){
+    public Name getName() {
         return name;
     }
 

@@ -9,7 +9,7 @@ public class Participant {
 
     List<Car> participant;
 
-    public Participant(List<String> nameList){
+    public Participant(List<String> nameList) {
 
         checkDuplication(nameList);
 
@@ -24,7 +24,7 @@ public class Participant {
         return participant;
     }
 
-    private void checkDuplication(List<String> nameList){
+    private void checkDuplication(List<String> nameList) {
 
         Set<String> nameSet = new HashSet<>(nameList);
         if (nameSet.size() != nameList.size()) {
