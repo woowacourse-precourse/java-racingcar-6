@@ -1,6 +1,11 @@
 package racingcar.model;
 
 public final class Car{
+    private static final int INITIAL_PROGRESS = 0;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MOVE_THRESHOLD = 4;
+
     private final String name;
     private final int progress;
 
@@ -10,11 +15,11 @@ public final class Car{
     }
 
     public static Car from(String name) {
-        return new Car(name, 0);
+        return new Car(name, INITIAL_PROGRESS);
     }
 
     public Car move(int randomNumber) {
-        if(randomNumber < 0 || randomNumber > 9) {
+        if(randomNumber < MIN_RANDOM_NUMBER || randomNumber > MAX_RANDOM_NUMBER) {
             throw new IllegalArgumentException("0~9사이의 수만 입력 받을 수 있습니다.");
         }
         if(isMoved(randomNumber)) {
@@ -24,7 +29,7 @@ public final class Car{
     }
 
     private boolean isMoved(int number) {
-        return number >= 4;
+        return number >= MOVE_THRESHOLD;
     }
 
     public int getProgress() {

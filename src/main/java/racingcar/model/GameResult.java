@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import static racingcar.constant.ErrorMessage.EMPTY_PROGRESS_RESPONSES_MSG;
+import static racingcar.constant.ErrorMessage.EMPTY_WINNERS_MSG;
+
 import java.util.List;
 import java.util.Objects;
 import racingcar.model.dto.CarProgressResponse;
@@ -8,11 +11,11 @@ public record GameResult(List<CarProgressResponse> progressResponses, List<Strin
 
     public GameResult {
         if(progressResponses == null || progressResponses.isEmpty()) {
-            throw new IllegalArgumentException("게임 결과는 하나 이상 이어야 합니다.");
+            throw new IllegalArgumentException(EMPTY_PROGRESS_RESPONSES_MSG.getMessage());
         }
 
         if(winners == null || winners.isEmpty()) {
-            throw new IllegalArgumentException("우승자는 한명 이상 이어야 합니다.");
+            throw new IllegalArgumentException(EMPTY_WINNERS_MSG.getMessage());
         }
     }
 }

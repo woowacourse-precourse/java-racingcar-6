@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import javax.management.ImmutableDescriptor;
 
 public final class Cars {
+    private static final int DEFAULT_MAX_PROGRESS = 0;
+
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
@@ -21,7 +23,7 @@ public final class Cars {
         int maxProgress = cars.stream()
             .mapToInt(Car::getProgress)
             .max()
-            .orElse(0);
+            .orElse(DEFAULT_MAX_PROGRESS);
 
         return cars.stream()
             .filter(car -> car.getProgress() == maxProgress)
