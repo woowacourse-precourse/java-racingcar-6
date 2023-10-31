@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.util.InputValidatior;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputValidatorTest {
     InputValidatior validatior = new InputValidatior();
