@@ -4,8 +4,6 @@ import racingcar.game.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-
 public class Game {
     private Integer round;
     private Cars cars;
