@@ -21,8 +21,8 @@ public class Exception {
         throw new IllegalArgumentException("자동차 이름안에 공백을 제거하세요.");
     }
 
-    private void checkEmptyAndThrowException(String input) {
-        if (input.isEmpty()) {
+    private void checkEmptyAndThrowException(String carName) {
+        if (carName.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 입력하세요.");
         }
     }
