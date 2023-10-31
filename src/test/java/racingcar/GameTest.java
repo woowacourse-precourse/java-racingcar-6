@@ -20,5 +20,5 @@ class GameTest {
 
         assertArrayEquals(racerNameArrayExpected, racerNameArraySplit);
     }
-    
+
 }
