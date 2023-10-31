@@ -1,23 +1,23 @@
 package racingcar.Controller;
 
-import racingcar.model.Car;
-import racingcar.view.OutputView;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.IntStream;
 
-public class Controller {
+import racingcar.model.RacingCars;
+import racingcar.view.OutputView;
+
+public class GameController {
     private RacingCars racingCars;
     private int roundNum;
 
-    public Controller() {
-              play();
+    public GameController() {
+        set();
+        play();
         showWinners();
     }
 
-    public static RacingCars () {
-        return
+    public void set() {
+        racingCars = racingcar.Controller.InputController.setRacingCars();
+        roundNum = racingcar.Controller.InputController.setRoundNum();
     }
 
     public void play() {
