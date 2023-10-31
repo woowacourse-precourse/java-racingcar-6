@@ -18,5 +18,7 @@
 ### ✅ 자동차 목록(Map) 생성
 - RacingcarController를 만들어 자동차 목록을 생성해줌
 - 데이터 검증을 RacingcarController에서 실행하고, 검증 실패시 RacingcarController 발생
-### ⬜️ 입력받은 횟수만큼 전진 거리 출력
-### ⬜️ 우승자 출력
+### ✅ 입력받은 횟수만큼 전진 거리 출력
+- Car 객체에 distance 속성을 증가시키는 메서드를 추가 생성하고, View에서 실행 결과를 출력할 메서드 구현
+- Controller에서 메서드들을 호출하여 횟수마다 거리를 증가시키고 결과를 출력
+### ⬜️ 우승자 출력 

@@ -13,4 +13,19 @@ public class RacingcarView {
         System.out.println("시도할 회수는 몇회인가요?");
         return Console.readLine();
     }
+
+    public void startRacing() {
+        System.out.println("실행 결과");
+    }
+
+    public void racingResult(String name, int distance) {
+        System.out.print(name + " : ");
+
+        for (int i = 0; i < distance; i++) {
+            System.out.print("-");
+        }
+
+        System.out.println();
+    }
+
 }

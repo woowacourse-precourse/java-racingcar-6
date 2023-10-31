@@ -22,16 +22,31 @@ public class RacingcarController {
         String inputNumber = "";
 
         inputCarName = racingcarView.inputName();
-        inputNumber = racingcarView.inputNumber();
-
         if (!validation.validationNames(inputCarName)) {
             throw new IllegalArgumentException();
         }
+
+        inputNumber = racingcarView.inputNumber();
         if (!validation.validationNumber(inputNumber)) {
             throw new IllegalArgumentException();
         }
 
-        Map<String, Car> carList = cars.makeCarList(inputCarName);
+        Map<String, Car> carMap = cars.makeCarList(inputCarName);
+        racingcarView.startRacing();
+
+        int inputNumberToInt = Integer.valueOf(inputNumber);
+        while (inputNumberToInt > 0) {
+            racingResult(carMap);
+            inputNumberToInt--;
+        }
+    }
+
+    private void racingResult(Map<String, Car> carList) {
+        for (Car car : carList.values()) {
+            int distance = car.moveForward();
+            racingcarView.racingResult(car.getName(), distance);
+        }
+        System.out.println();
     }
 
 }
