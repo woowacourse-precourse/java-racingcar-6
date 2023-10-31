@@ -51,6 +51,9 @@
 
 ## Test - 4가지 작업 중 할 수 있는 TDD 수행
 
+-> 잘못된 설계로 tdd 불가
+mvc 패턴 학습 후 새로 구현
+
 ## 구현 2 - 예외 처리 및 코드 리팩토링 (java code 컨벤션, java api, 변수명)
 
 - Input
@@ -60,3 +63,18 @@
 - 예외 클래스 : 사용자가 잘못된 값 - `IllegalArgumentException`
     1. 이름이 5자 이상인 경우
     2. 사용자가 이동 값을 안 넣은 경우
+
+## 구현 3 - mvc 패턴에 맞게 재구현
+
+1. model - biz 로직 작성 -> 너무 복작하면 service class 생성하여 분리 할 것 (v)
+    1. 참가 자동차 정보 : 참가 자동차 Collection 생성 (v)
+    2. 시도 횟수 정보 : 시도 횟수 정보, 최고 점수
+    3. service : biz 로직 수행 (v)
+2. view
+    1. InputView  : 게임 참가 차량명 입력, 게임 시도 횟수 입력 (v)
+    2. OutputView : 공통 화면 출력 부분, 게임 중간 결과 출력, 게임 최종 결과 출력
+3. controller
+    1. RacingController : 검증 및 view model 연결 역할
+4. util
+    1. validator -> Controller : 입력 값 검증
+    2. 랜덤 값 출력 -> model에서 사용
