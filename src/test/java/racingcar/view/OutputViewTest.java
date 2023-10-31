@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import static org.assertj.core.api.Assertions.*;
+import static racingcar.common.Config.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -28,21 +31,21 @@ class OutputViewTest {
     @DisplayName("시작 메시지 출력")
     void testStartMessage() {
         OutputView.gameStartMessage();
-        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(Config.START_MESSAGE);
+        assertThat(outputStream.toString().trim()).isEqualTo(START_MESSAGE);
     }
 
     @Test
     @DisplayName("횟수 입력 메시지 출력")
     void testInputCountMessage() {
         OutputView.inputCountMessage();
-        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(Config.INPUT_COUNT_MESSAGE);
+        assertThat(outputStream.toString().trim()).isEqualTo(INPUT_COUNT_MESSAGE);
     }
 
     @Test
     @DisplayName("레이스 시작 메시지 출력")
     void testStartRacingMessage() {
         OutputView.startRacingMessage();
-        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(Config.START_RACING_MESSAGE);
+        assertThat(outputStream.toString().trim()).isEqualTo(START_RACING_MESSAGE);
     }
 
     @Test
@@ -51,7 +54,7 @@ class OutputViewTest {
         String result = "pobi : ----";
 
         OutputView.eachResultMessage(result);
-        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(result);
+        assertThat(outputStream.toString().trim()).isEqualTo(result);
     }
 
     @Test
@@ -60,6 +63,6 @@ class OutputViewTest {
         String stringList = "pobi, blur";
 
         OutputView.printWinner(stringList);
-        Assertions.assertThat(outputStream.toString().trim()).isEqualTo(Config.WINNER_MESSAGE + stringList);
+        assertThat(outputStream.toString().trim()).isEqualTo(stringList);
     }
 }
