@@ -11,13 +11,21 @@ public class InputView {
     public List<String> askCarNames() {
         System.out.println(QUESTION_CAR_NAMES);
         String inputCarNames = Console.readLine();
-        return Arrays.stream(inputCarNames.split(",")).toList();
+        return convertInputCarNamesToList(inputCarNames);
     }
 
     public int askTryCount() {
         System.out.println(QUESTION_TRY_COUNT);
         String inputTryCount = Console.readLine();
         return convertInputTryCountToInt(inputTryCount);
+    }
+
+    private List<String> convertInputCarNamesToList(String inputCarNames) {
+        List<String> carNames = Arrays.stream(inputCarNames.split(",")).toList();
+        if(carNames.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해야 합니다.");
+        }
+        return carNames;
     }
 
     private int convertInputTryCountToInt(String inputTryCount) {
