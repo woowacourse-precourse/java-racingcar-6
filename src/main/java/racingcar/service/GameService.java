@@ -6,9 +6,7 @@ import java.util.Arrays;
 import java.util.OptionalInt;
 
 public class GameService {
-    public boolean checkMovePossible() {
-        int number = createRandomNumber();
-
+    public boolean checkMovePossible(Integer number) {
         return number >= 4;
     }
 
@@ -22,9 +20,5 @@ public class GameService {
         }
 
         return 0;
-    }
-
-    private int createRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 }

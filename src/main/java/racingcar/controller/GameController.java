@@ -5,6 +5,7 @@ import racingcar.domain.Winner;
 import racingcar.exception.CountException;
 import racingcar.exception.NameException;
 import racingcar.service.GameService;
+import racingcar.util.RandomNumber;
 import racingcar.view.PlayerInput;
 import racingcar.view.ResultOutput;
 
@@ -80,8 +81,10 @@ public class GameController {
     }
 
     private void carMove() {
+        Integer number = RandomNumber.createRandomNumber();
+
         for (Car car : carList) {
-            if (service.checkMovePossible()) {
+            if (service.checkMovePossible(number)) {
                 car.moveForward();
             }
         }
