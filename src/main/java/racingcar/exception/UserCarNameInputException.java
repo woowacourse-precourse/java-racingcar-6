@@ -1,12 +1,10 @@
 package racingcar.exception;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Character.isLetterOrDigit;
 
-public class UserInputException {
+public class UserCarNameInputException {
     private static final int MAX_LENGTH = 5;
     private static final int MIN_LENGTH = 1;
     private static final String LENGTH_ERROR_MESSAGE = "자동차 이름은 1 이상, 5 이하로 입력해 주세요";
@@ -29,7 +27,7 @@ public class UserInputException {
     }
 
     public static void isDuplicate(List<String> carNameList) {
-        if(!(carNameList.size() == carNameList.stream().count())) {
+        if(!(carNameList.size() == carNameList.stream().distinct().count())) {
             throw new IllegalArgumentException(DUPLICATE_MESSAGE);
         }
     }

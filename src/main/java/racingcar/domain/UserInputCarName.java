@@ -1,26 +1,26 @@
 package racingcar.domain;
 
-import racingcar.exception.UserInputException;
+import racingcar.exception.UserCarNameInputException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserInputCarName {
     private List<String> carName = new ArrayList<>();
-    private UserInputException userInputException;
+    private UserCarNameInputException userCarNameInputException;
 
     public List<String> createCarName(String userInput) {
         List<String> carNameList = stringToList(userInput);
-        UserInputException.isDuplicate(carNameList);
-        UserInputException.isMoreThan(carNameList);
+        UserCarNameInputException.isDuplicate(carNameList);
+        UserCarNameInputException.isMoreThan(carNameList);
         return carName;
     }
 
     public List<String> stringToList(String userInput) {
         for (String name : userInput.split(",")) {
-            UserInputException.isLength(name);
-            UserInputException.isComma(name);
-            UserInputException.isBlank(name);
+            UserCarNameInputException.isLength(name);
+            UserCarNameInputException.isComma(name);
+            UserCarNameInputException.isBlank(name);
             carName.add(name);
         }
         return carName;
