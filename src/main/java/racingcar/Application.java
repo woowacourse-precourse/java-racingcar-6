@@ -22,6 +22,11 @@ public class Application {
         for(int i = 0; i < trialCount; i++) {
             // 경기 한 턴 진행
             judgment.decideMovement(carList);
+            // 출력
+            for(Car car : carList) {
+                car.printDistance();
+            }
+            System.out.println();
         }
     }
 }

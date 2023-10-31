@@ -9,6 +9,18 @@ public class Car {
     }
 
     public void goForward() {
+        distanceMoved++;
+    }
 
+    public String visualizeDistanceAsString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < distanceMoved; i++) {
+            stringBuilder.append('-');
+        }
+        return stringBuilder.toString();
+    }
+
+    public void printDistance() {
+        System.out.println(name + " : " + visualizeDistanceAsString());
     }
 }
