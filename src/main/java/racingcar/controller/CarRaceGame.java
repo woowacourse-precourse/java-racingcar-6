@@ -9,15 +9,13 @@ import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class Race {
+public class CarRaceGame {
     private InputView inputView;
     private OutputView outputView;
     private CarMove carMove;
-    private MoveCnt moveCnt;
-    private Cars cars;
     private Winner winner;
 
-    public Race() {
+    public CarRaceGame() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.carMove = new CarMove();
@@ -25,25 +23,34 @@ public class Race {
     }
 
     public void run() {
-        gameStart();
-        race();
+        Cars cars = getCarName();
+        MoveCnt moveCnt = getMoveCnt();
+
+        AllRaceRecords allRecords = race(cars, moveCnt);
+        printWinner(allRecords, moveCnt);
     }
 
-    private void gameStart() {
+    private Cars getCarName() {
         inputView.requestCarName(); // 자동차 이름 요청 구문 출력
-        cars = new Cars(Console.readLine()); // 유저 입력문 쉼표로 구분해서 Car 리스트에 저장
+        Cars cars = new Cars(Console.readLine()); // 유저 입력문 쉼표로 구분해서 Car 리스트에 저장
 
-        inputView.requestMoveCnt(); // 시도할 횟수 요청 구문 출력
-        moveCnt = new MoveCnt(Console.readLine());
+        return cars;
     }
 
-    private void race() {
+    private MoveCnt getMoveCnt() {
+        inputView.requestMoveCnt(); // 시도할 횟수 요청 구문 출력
+        MoveCnt moveCnt = new MoveCnt(Console.readLine());
+
+        return  moveCnt;
+    }
+
+    private AllRaceRecords race(Cars cars, MoveCnt moveCnt) {
         outputView.printResultMsg(); // '실행 결과' 메세지 출력
 
         AllRaceRecords allRecords = carMove.race(cars, moveCnt);
         outputView.printRaceResult(allRecords, moveCnt); // 레이스 결과 출력
 
-        printWinner(allRecords, moveCnt);
+        return allRecords;
     }
 
     private void printWinner(AllRaceRecords allRecords, MoveCnt moveCnt) {
