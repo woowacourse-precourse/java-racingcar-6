@@ -36,7 +36,7 @@ class TotalTurnInputTest {
         @Test
         void fail_InvalidLength() {
             //given
-            String input = String.valueOf(RacingCarRule.MAX_TOTAL_TURN + 1);
+            String input = RacingCarRule.MAX_TOTAL_TURN + "0";
 
             //when then
             assertThatThrownBy(() -> new TotalTurnInput(input))

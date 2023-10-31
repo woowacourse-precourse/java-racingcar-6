@@ -6,6 +6,7 @@ import racingcar.game.vo.TotalTurnInput;
 import racingcar.game.vo.TurnResult;
 import racingcar.racer.Racer;
 import racingcar.racer.RacerRegistry;
+import racingcar.racer.RacingTurn;
 
 public class RacingGameManager {
 
@@ -16,30 +17,30 @@ public class RacingGameManager {
     }
 
     public void run() {
-        RacerRegistry<Racer> racerRegistry = registerRacingCar();
-        int turnCount = inputTotalTurn();
-        RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(racerRegistry);
-        startRace(racingTurnProcessor, turnCount);
-        announceWinner(racingTurnProcessor.getWinners());
-    }
-
-    private RacerRegistry<Racer> registerRacingCar() {
-        RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCar();
-
         RacerRegistry<Racer> racerRegistry = new RacerRegistry<>();
+        registerRacingCar(racerRegistry);
+
+        RacingTurn totalTurn = inputTotalTurn();
+        RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(racerRegistry);
+        startRace(racingTurnProcessor, totalTurn);
+
+        showFinalWinners(racingTurnProcessor.getWinners());
+    }
+
+    private void registerRacingCar(RacerRegistry<Racer> racerRegistry) {
+        RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCar();
         racerRegistry.addAll(racingCarNamesInput.toRacingCarList());
-        return racerRegistry;
     }
 
-    private int inputTotalTurn() {
+    private RacingTurn inputTotalTurn() {
         TotalTurnInput totalTurnInput = racingGameScreen.inputTotalTurn();
-        return totalTurnInput.toInt();
+        return totalTurnInput.toRacingTurn();
     }
 
-    private void startRace(RacingTurnProcessor<Racer> racingTurnProcessor, int turnCount) {
+    private void startRace(RacingTurnProcessor<Racer> racingTurnProcessor, RacingTurn totalTurn) {
         racingGameScreen.startShowGameResult();
 
-        for (int i = 0; i < turnCount; i++) {
+        for (int i = 0; i < totalTurn.getCount(); i++) {
             racingTurnProcessor.progressTurn();
 
             TurnResult turnResult = new TurnResult(racingTurnProcessor.getTurnResult());
@@ -47,7 +48,7 @@ public class RacingGameManager {
         }
     }
 
-    private void announceWinner(List<String> winnerNames) {
+    private void showFinalWinners(List<String> winnerNames) {
         racingGameScreen.showFinalWinner(winnerNames);
     }
 }

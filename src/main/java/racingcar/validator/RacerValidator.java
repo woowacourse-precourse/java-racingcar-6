@@ -33,10 +33,16 @@ public final class RacerValidator {
         }
     }
 
-    public static <T extends Racer> void validateDuplicatedName(List<T> racers) {
+    public static <T extends Racer> void validateDuplicatedRacerName(List<T> racers) {
         Set<T> set = new HashSet<>(racers);
         if (set.size() != racers.size()) {
             throw ErrorMessage.DUPLICATED_RACER_NAME.getException();
+        }
+    }
+
+    public static void validateTotalTurnRange(int totalTurn) {
+        if (totalTurn > RacingCarRule.MAX_TOTAL_TURN) {
+            throw ErrorMessage.INVALID_TOTAL_TURN_SIZE.getException();
         }
     }
 }

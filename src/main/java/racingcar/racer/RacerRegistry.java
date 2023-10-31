@@ -10,7 +10,7 @@ public class RacerRegistry<T extends Racer> {
 
     public void addAll(List<? extends T> racers) {
         RacerValidator.validateRacerSize(racers);
-        RacerValidator.validateDuplicatedName(racers);
+        RacerValidator.validateDuplicatedRacerName(racers);
 
         this.racers.addAll(racers);
     }
