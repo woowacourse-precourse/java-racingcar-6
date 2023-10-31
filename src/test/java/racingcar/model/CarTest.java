@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.CarStatus;
 
 public class CarTest {
 
@@ -30,6 +31,12 @@ public class CarTest {
     @Test
     void 현재_자동차_위치_정보_테스트() {
         car.run(4);
-        assertThat(car.toString()).isEqualTo("name : -");
+        CarStatus carStatus = new CarStatus(car);
+
+        String carStatusString = carStatus.getName()
+                + " : "
+                + "-".repeat(carStatus.getPosition());
+
+        assertThat(carStatusString).isEqualTo("name : -");
     }
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.CarStatus;
 
 public class CarsTest {
 
@@ -36,6 +37,16 @@ public class CarsTest {
                 .map(Car::toString)
                 .collect(Collectors.joining("\n"));
 
-        assertThat(cars.toString()).isEqualTo(carsInfo);
+        List<CarStatus> carStatusList = carList.stream()
+                .map(CarStatus::new)
+                .toList();
+
+        String actualResult = carStatusList.stream()
+                .map(carStatus -> carStatus.getName()
+                        + " : "
+                        + "-".repeat(carStatus.getPosition()))
+                .collect(Collectors.joining("\n"));
+
+        assertThat(actualResult).isEqualTo(carsInfo);
     }
 }
