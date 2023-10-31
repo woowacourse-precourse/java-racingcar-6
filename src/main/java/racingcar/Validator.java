@@ -10,6 +10,7 @@ public class Validator {
     private static final int MIN_CAR_NAME_LENGTH = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_CAR_COUNTING = 2;
+
     public static final String NOT_CONSIST_OF_ENGLISH_KOREAN_COMMA_ERROR =
             "자동차 이름을 영문자,한글로만 구성하고 쉼표로만 구분해주세요.";
     public static final String ENDWITHS_IS_NOT_COMMA_ERROR = "입력값의 마지막으로는 쉼표가 올 수 없습니다.";
