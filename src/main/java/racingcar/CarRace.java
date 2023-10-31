@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Message.RESULT;
+
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -25,7 +27,7 @@ public class CarRace {
     }
 
     public static StringJoiner findWinner(Car car, int maxDistance) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(RESULT.getMessage());
         StringJoiner winner = new StringJoiner(", ");
 
         for (int i = 0; i < car.names.size(); i++) {

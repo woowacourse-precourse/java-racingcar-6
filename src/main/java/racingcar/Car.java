@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Message.START_RACE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,9 +23,8 @@ public class Car {
         movedDistances = new ArrayList<>(Collections.nCopies(this.names.size(), ""));
     }
 
-
     public void move(int roundCount) {
-        System.out.println("실행 결과");
+        System.out.println(START_RACE.getMessage());
 
         for (int i = 0; i < roundCount; i++) {
             moveRandomly();

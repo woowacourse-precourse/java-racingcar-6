@@ -1,14 +1,16 @@
 package racingcar;
 
 import static racingcar.Computer.getInput;
+import static racingcar.Message.INPUT_CAR_NAMES;
+import static racingcar.Message.INPUT_RACING_ROUND;
 
 public class Application {
 
     public static void main(String[] args) {
 
-        Car car = new Car(CarManager.createNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
+        Car car = new Car(CarManager.createNames(getInput(INPUT_CAR_NAMES.getMessage())));
 
-        car.move(CarRace.createRound(getInput("시도할 회수는 몇회인가요?")));
+        car.move(CarRace.createRound(getInput(INPUT_RACING_ROUND.getMessage())));
 
         CarRace.printWinner(CarRace.findWinner(car, CarRace.findBest(car.movedDistances)));
 
