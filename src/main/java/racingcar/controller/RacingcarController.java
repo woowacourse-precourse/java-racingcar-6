@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Driver;
@@ -20,6 +21,7 @@ public class RacingcarController {
         int totalRound = inputView.inputTotalRound();
         race(cars, totalRound);
         selectWinner(cars);
+        releaseResource();
     }
 
     private Cars createCars() {
@@ -44,5 +46,9 @@ public class RacingcarController {
 
     private void selectWinner(Cars cars) {
         outputView.printWinners(cars.getWinnersName());
+    }
+
+    private void releaseResource() {
+        Console.close();
     }
 }
