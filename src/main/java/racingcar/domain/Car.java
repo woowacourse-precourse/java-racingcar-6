@@ -7,6 +7,7 @@ public class Car {
 	private Position position;
 
 	public Car(String name) {
+		CarValidator.validateEachLength(name);
 		this.name = name;
 		this.position = new Position();
 	}

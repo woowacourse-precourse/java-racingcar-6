@@ -1,7 +1,6 @@
 package racingcar.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.tuple;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 
@@ -23,6 +22,13 @@ public class CarTest {
 				tuple("woni",0),
 				tuple("jun",0)
 			);
+	}
+
+	@Test
+	void 자동차이름이_주어진조건보다_길때_예외를_던진다() {
+		assertThatThrownBy(() -> new Car("woninini"))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessage("자동차 이름은 5글자 이하만 가능합니다.");
 	}
 
 	@Test

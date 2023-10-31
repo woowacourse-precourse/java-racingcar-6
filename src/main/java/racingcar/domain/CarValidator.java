@@ -8,11 +8,15 @@ import racingcar.constant.Rule;
 
 public class CarValidator {
 
+	public static void validateEachLength(String carName) {
+		if (isLong(carName)) {
+			throw new IllegalArgumentException(INVALID_CARNAME_LENGTH.getMessage());
+		}
+	}
+
 	public static void validateLength(List<String> carNameList) {
 		for (String carName : carNameList) {
-			if (isLong(carName)) {
-				throw new IllegalArgumentException(INVALID_CARNAME_LENGTH.getMessage());
-			}
+			validateEachLength(carName);
 		}
 	}
 	private static boolean isLong(String carName) {
