@@ -15,9 +15,10 @@ public class GameController {
 
     public GameController() {
         this.gameManager = new GameManager();
+        run();
     }
 
-    public void run() {
+    private void run() {
         getRequest();
         forwardAndResponse();
     }
