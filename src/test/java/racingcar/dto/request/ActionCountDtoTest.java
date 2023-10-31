@@ -1,8 +1,10 @@
 package racingcar.dto.request;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static racingcar.constants.ErrorMessage.NEGATIVE_INTEGER;
+import static racingcar.constants.ErrorMessage.NOT_INTEGER;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ActionCountDtoTest {
@@ -12,9 +14,10 @@ class ActionCountDtoTest {
         String request = "안녕";
 
         // when & then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
             new ActionCountDto(request);
         });
+        assertEquals(NOT_INTEGER, exception.getMessage());
     }
 
     @Test
@@ -23,8 +26,9 @@ class ActionCountDtoTest {
         String request = "-3";
 
         // when & then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new ActionCountDto(request);
+        Throwable exception = assertThrows(IllegalArgumentException.class,
+            () -> {new ActionCountDto(request);
         });
+        assertEquals(NEGATIVE_INTEGER, exception.getMessage());
     }
 }
