@@ -14,7 +14,7 @@
 
   - [x] name, moveCount, state 조작 (plusMoveCount, goState, stopState)
 
-  - [x] name, moveCount, state 확인 (getName, getMoveCount, getState)
+  - [x] name, moveCount, state, moveState 확인 (getName, getMoveCount, getState, getMoveSate)
 
 
 - [x] 전체 게임 진행 (play) [RaceController]
@@ -40,7 +40,7 @@
 
   - [ ] 실행 결과 출력 (printMoveResult) [OutputView]
 
-  - [ ] 전진하는 경우 state에 - 표시 추가 (printGoMark) [RaceReferee]
+  - [x] moveState에 moveCount 만큼 "-" 추가 기능 (increaseGoMark) [RaceReferee]
 
 
 - [ ] 최종 우승자 쉼표로 구분하여 출력(printWinner) [OutputView]
