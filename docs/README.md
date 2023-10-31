@@ -30,6 +30,7 @@
 ### 입력 관련: Input
 - [x] 자동차 이름 입력: enterCarName()
 - [x] 시도 횟수 입력: enterAttemptNum()
+- [x] 입력 종료: inputClose()
 ***
 ### 문자열 나누기: Divider
 - [x] 쉼표로 나누기: doByComma()
