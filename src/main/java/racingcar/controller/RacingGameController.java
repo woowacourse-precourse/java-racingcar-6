@@ -5,8 +5,8 @@ import racingcar.model.RacingGame;
 import racingcar.view.RacingGameView;
 
 public class RacingGameController {
-    private RacingGame racingGame = new RacingGame();
-    private RacingGameView racingGameView = new RacingGameView();
+    private final RacingGame racingGame = new RacingGame();
+    private final RacingGameView racingGameView = new RacingGameView();
 
     public void readyToPlay() {
         racingGameView.raceStartMessage();
