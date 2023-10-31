@@ -16,17 +16,28 @@ public class RacingCarController {
     );
 
     public void run() {
-        outputView.printAskingForCarNames();
-        List<String> carNames = inputView.askForCarNames();
+        List<String> carNames = getCarNames();
+        int rounds = getNumberOfRounds();
+
         RacingCars racingCars = RacingCars.init(carNames);
-        outputView.printAskingForNumberOfRounds();
-        int rounds = inputView.askForNumberOfRounds();
         outputView.printResult();
+
         for (int i = 0; i < rounds; i++) {
             racingCars = racingCars.move();
             outputView.printCarsLocation(racingCars);
         }
+
         RacingCars winners = racingCars.findWinners();
         outputView.printWinners(winners);
+    }
+
+    private int getNumberOfRounds() {
+        outputView.printAskingForNumberOfRounds();
+        return inputView.askForNumberOfRounds();
+    }
+
+    private List<String> getCarNames() {
+        outputView.printAskingForCarNames();
+        return inputView.askForCarNames();
     }
 }
