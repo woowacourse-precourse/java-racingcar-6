@@ -52,6 +52,22 @@ public class RacingGame {
 
     }
 
+    public void start() {
+        try {
+            Inputs.inputCars();
+            Inputs.inputCounts();
+            initResultList(resultList);
+            for (int i =0; i<Inputs.getCount();i++) {
+                move(Inputs.getCars());
+                Outputs.resultMessage();
+                Outputs.result(resultList);
+            }
+            chooseWinners(resultList);
+            Outputs.winner(winner);
+        } catch (IllegalArgumentException e) {
+            throw e;
+        }
 
+    }
 
 }
