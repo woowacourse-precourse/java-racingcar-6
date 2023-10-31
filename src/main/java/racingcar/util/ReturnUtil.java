@@ -4,11 +4,8 @@ import java.util.ArrayList;
 
 public class ReturnUtil {
     public static String statusFormat(int number) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < number; i++) {
-            sb.append("-");
-        }
-        return sb.toString();
+        String oneMove = "-";
+        return oneMove.repeat(number);
     }
 
     public static String stageResultFormat(String car, String status) {
