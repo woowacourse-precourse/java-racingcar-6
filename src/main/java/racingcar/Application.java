@@ -12,13 +12,13 @@ public class Application {
         RacingCarOutputManager outputManager = new RacingCarOutputManager();
         RacingCarInputManager inputManager = new RacingCarInputManager(outputManager);
 
-        CarRacing carRacing = initializeCarRacing(inputManager, outputManager);
+        CarRacing carRacing = createCarRacing(inputManager, outputManager);
         carRacing.start();
     }
 
 
-    private static CarRacing initializeCarRacing(RacingCarInputManager inputManager,
-                                                 RacingCarOutputManager outputManager) {
+    private static CarRacing createCarRacing(RacingCarInputManager inputManager,
+                                             RacingCarOutputManager outputManager) {
         Cars cars = readCarsInfo(inputManager);
         Turn turn = readTurn(inputManager);
         Referee referee = new Referee();
