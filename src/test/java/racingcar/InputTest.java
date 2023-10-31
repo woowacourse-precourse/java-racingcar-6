@@ -9,9 +9,16 @@ import racingcar.utils.InputValidator;
 public class InputTest {
 
     @Test
-    void 이름_길이_예외_처리_1() {
-        List<String> list = List.of("pobiiiii", "pobi", "goni");
-        assertThatThrownBy(() -> InputValidator.checkNameLength(list)).isInstanceOf(
+    void 이름_길이_예외_처리() {
+        List<String> input = List.of("pobiiiii", "pobi", "goni");
+        assertThatThrownBy(() -> InputValidator.checkNameLength(input)).isInstanceOf(
+                IllegalArgumentException.class);
+    }
+
+    @Test
+    void 쉼표_이외_구분자_예외_처리() {
+        String input = "pobi.goni!godoli,jun";
+        assertThatThrownBy(() -> InputValidator.checkSeparator(input)).isInstanceOf(
                 IllegalArgumentException.class);
     }
 
