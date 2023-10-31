@@ -69,6 +69,18 @@ public class RacingTest {
     }
 
     @Test
+    @DisplayName("성공 : 진행회수에 음수 기입")
+    public void 진행회수에_음수_기입() {
+        String input = "-2";
+
+        final Racing racing = new Racing();
+
+        assertThatThrownBy(() -> racing.getTurn(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("1 이상의 숫자를 입력해주세요.");
+    }
+
+    @Test
     @DisplayName("성공 : 진행회수에 빈 문자열 기입")
     public void 진행회수에_빈_문자열_기입() {
         String input = "";
