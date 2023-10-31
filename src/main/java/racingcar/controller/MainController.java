@@ -62,8 +62,6 @@ public class MainController {
     }
 
     private int inputTryToMoveCar() {
-        String inputTryToMoveCar = inputView.inputTryToMoveCar();
-        int tryCount = Util.convertStringToInt(inputTryToMoveCar);
-        return tryCount;
+        return inputView.inputTryToMoveCar();
     }
 }

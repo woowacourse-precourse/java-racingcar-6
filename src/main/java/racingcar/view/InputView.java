@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.Util;
 
 public class InputView {
     public String inputToNameCar() {
@@ -8,8 +9,9 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String inputTryToMoveCar() {
+    public int inputTryToMoveCar() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Console.readLine();
+        int input = Util.convertStringToInt(Console.readLine());
+        return input;
     }
 }
