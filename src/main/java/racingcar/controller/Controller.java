@@ -11,7 +11,7 @@ import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutPutView;
-import utils.Parser;
+import utils.parser.Parser;
 
 public class Controller {
     private final RacingGameService racingGameService;

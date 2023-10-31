@@ -3,9 +3,9 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RacingGame;
-import racingcar.domain.RandomNumberGenerator;
 import racingcar.repository.CarRepository;
 import racingcar.repository.RacingGameRepository;
+import utils.generator.RandomNumberGenerator;
 
 public class RacingGameServiceImpl implements RacingGameService {
     private static final int MOVE_FORWARD_CONDITION = 4;
