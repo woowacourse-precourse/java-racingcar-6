@@ -12,6 +12,15 @@ public class Car {
         return new Car(name);
     }
 
+    private Car(String name, int forward) {
+        this.name = name;
+        this.forward = forward;
+    }
+
+    public static Car make(String name, int forward) {
+        return new Car(name, forward);
+    }
+
     public String getName() {
         return name;
     }

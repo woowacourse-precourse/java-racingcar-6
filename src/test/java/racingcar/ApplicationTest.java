@@ -62,6 +62,26 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void countForward_테스트() {
+        // given
+        Core core = new Core();
+        final Car case1 = Car.make("pobi", 4);
+        final Car case2 = Car.make("woni", 3);
+        final Car case3 = Car.make("jun", 2);
+
+        // when
+        final String result1 = core.countForward(case1);
+        final String result2 = core.countForward(case2);
+        final String result3 = core.countForward(case3);
+
+        // then
+        assertThat(result1).isEqualTo("----");
+        assertThat(result2).isEqualTo("---");
+        assertThat(result3).isEqualTo("--");
+    }
+
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
