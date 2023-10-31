@@ -41,4 +41,19 @@ public class CarsTest {
         );
     }
 
+    @Test
+    void getWinnerNames() {
+        Cars cars = Cars.of(names);
+        List<Car> carList = cars.get();
+
+        carList.get(0).move(4);
+        carList.get(1).move(4);
+        carList.get(2).move(3);
+
+        List<String> winnerNames = cars.getWinnerNames();
+        List<String> expect = List.of("pobi", "crong");
+
+        assertThat(winnerNames).isEqualTo(expect);
+    }
+
 }

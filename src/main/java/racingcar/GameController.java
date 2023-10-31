@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.OutputView;
@@ -21,13 +19,13 @@ public class GameController {
         int trialCount = gameService.getTrialCount();
 
         raceCars(cars, trialCount);
+        OutputView.printWinners(cars.getWinnerNames());
     }
 
     private void raceCars(Cars cars, int trialCount) {
         OutputView.printRaceStartMessage();
         for (int i = 0; i < trialCount; i++) {
-            List<Car> racedCars = cars.race(numberGenerator);
-            OutputView.printRoundResult(racedCars);
+            OutputView.printRoundResult(cars.race(numberGenerator));
         }
     }
 

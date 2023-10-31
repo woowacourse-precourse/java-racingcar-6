@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.util.NumberGenerator;
@@ -32,4 +33,26 @@ public class Cars {
     public List<Car> get() {
         return Collections.unmodifiableList(cars);
     }
+
+    public List<String> getWinnerNames(){
+        int maxPosition = getMaxPosition();
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if(car.getPosition() == maxPosition){
+                winnerNames.add(car.getName());
+            }
+        }
+        return winnerNames;
+    }
+
+    private int getMaxPosition() {
+        int max = 0;
+        for (Car car : cars) {
+            if(car.getPosition() > max ){
+                max = car.getPosition();
+            }
+        }
+        return max;
+    }
+
 }
