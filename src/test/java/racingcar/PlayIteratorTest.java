@@ -10,11 +10,19 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class PlayIteratorTest {
     @Test
-    @DisplayName("시도할 횟수가 숫자가 아닐 경우 에외 발생")
+    @DisplayName("시도할 횟수가 숫자가 아닐 경우 예외 발생")
     void fromNotNumericPlayCountString() {
         assertThatThrownBy(() -> PlayIterator.from("다섯"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.NOT_NUMERIC_PLAY_COUNT_STRING.getMessage());
+    }
+
+    @Test
+    @DisplayName("시도할 횟수가 숫자가 음수일 경우 예외 발생")
+    void fromNegativePlayCount() {
+        assertThatThrownBy(() -> PlayIterator.from("-5"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.NEGATIVE_PLAY_COUNT.getMessage());
     }
 
     @Test
