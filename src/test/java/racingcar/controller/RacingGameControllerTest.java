@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
@@ -9,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.CarModel;
 
 class RacingGameControllerTest {
-    RacingGameController controller;
+    static RacingGameController controller;
 
     @BeforeAll
-    void beforeAll() {
-        this.controller = new RacingGameController(new ArrayList<CarModel>());
+    static void beforeAll() {
+        controller = new RacingGameController(new ArrayList<CarModel>());
     }
     @Test
     void 랜덤_숫자_생성기능_테스트() {
@@ -29,7 +28,7 @@ class RacingGameControllerTest {
         //given
         int canForwardNumber = 5;
         //when
-        boolean result = controller.isUpperThanCanForwardNumber();
+        boolean result = controller.isUpperThanCanForwardNumber(canForwardNumber);
         //then
         assertThat(result).isTrue();
     }
@@ -39,7 +38,7 @@ class RacingGameControllerTest {
         //given
         int canForwardNumber = 2;
         //when
-        boolean result = controller.isUpperThanCanForwardNumber();
+        boolean result = controller.isUpperThanCanForwardNumber(canForwardNumber);
         //then
         assertThat(result).isFalse();
     }

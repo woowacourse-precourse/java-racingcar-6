@@ -6,7 +6,7 @@ import racingcar.model.CarModel;
 
 public class RacingGameController {
     private final List<CarModel> carList;
-
+    private static final int CAN_FORWARD = 4;
     public RacingGameController(List<CarModel> carList) {
         this.carList = carList;
     }
@@ -15,5 +15,7 @@ public class RacingGameController {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-
+    public boolean isUpperThanCanForwardNumber(int targetNumber) {
+        return targetNumber >= CAN_FORWARD;
+    }
 }
