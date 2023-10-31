@@ -2,14 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import org.junit.platform.commons.util.StringUtils;
 import racingcar.model.Car;
 import racingcar.type.MessageType;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.type.ExceptionConstants.*;
+import static racingcar.type.InputValidator.*;
 import static racingcar.type.MessageType.*;
 import static racingcar.util.TextUtil.*;
 
@@ -18,27 +17,21 @@ import static racingcar.util.TextUtil.*;
  */
 public class RacingService {
 
-    private static final int maxCarNameSize = 5;
-    private static final int minMoveConditions = 4;
-    private static final int minRandomValue = 0;
-    private static final int maxRandomValue = 9;
+    private static final int MAX_CAR_NAME_SIZE = 5;
+    private static final int MIN_MOVE_CONDITIONS = 4;
+    private static final int MIN_RANDOM_VALUE = 0;
+    private static final int MAX_RANDOM_VALUE = 9;
+    private static final int MIN_ATTEMPTS_COUNT = 1;
 
     public void racing() {
         List<Car> cars = getAttendCars();
-
         int attempts = getAttemptsCount();
 
-        Console.close();
-
         printMessageFromType(RESULT);
-
-        int currentAttempts = 0;
-        while (currentAttempts < attempts) {
-            printRacingResult(cars);
-            currentAttempts++;
-        }
-
+        raceCars(attempts, cars);
         printWinner(cars);
+
+        Console.close();
     }
 
     private List<Car> getAttendCars() {
@@ -47,7 +40,8 @@ public class RacingService {
         String carNames = Console.readLine();
         List<String> carNameList = splitAndTrim(carNames, ",");
 
-        validationCarNames(carNameList);
+        validateNameLength(carNameList, MAX_CAR_NAME_SIZE);
+        validateNoDuplicates(carNameList);
 
         return carNameList.stream()
                 .map(c -> new Car(c))
@@ -56,10 +50,20 @@ public class RacingService {
 
     private int getAttemptsCount() {
         printMessageFromType(ASK_ATTEMPTS);
+
         String inputCount = Console.readLine();
-        int attemptsCount = convertToAttemptsCount(inputCount);
+        int attemptsCount = parseInputToInt(inputCount);
+        validateMinCount(attemptsCount, MIN_ATTEMPTS_COUNT);
+
         printMessageFromType(LINE_BREAK);
+
         return attemptsCount;
+    }
+
+    private void raceCars(int attempts, List<Car> cars) {
+        for (int i = 0; i < attempts; i++) {
+            printRacingResult(cars);
+        }
     }
 
     private void printRacingResult(List<Car> cars) {
@@ -81,36 +85,8 @@ public class RacingService {
         printMessage(FINAL_WINNER.getMessage() + joinListWithComma(winnerList));
     }
 
-    public void validationCarNames(List<String> carNameList) {
-        if (hasOverLengthCarNames(carNameList)) {
-            throw new IllegalArgumentException(ERROR_TOO_LONG_CAR_NAME);
-        }
-        if (hasDuplicates(carNameList)) {
-            throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME);
-        }
-    }
-
-    public int convertToAttemptsCount(String inputCount) {
-        if (StringUtils.isBlank(inputCount)) {
-            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
-        }
-
-        int attemptsCount;
-        try {
-            attemptsCount = Integer.parseInt(inputCount);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_INPUT_NOT_NUMBER);
-        }
-
-        if (attemptsCount < 1) {
-            throw new IllegalArgumentException(ERROR_INVALID_ATTEMPTS);
-        }
-
-        return attemptsCount;
-    }
-
     private boolean canMoveCar() {
-        return Randoms.pickNumberInRange(minRandomValue, maxRandomValue) >= minMoveConditions;
+        return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) >= MIN_MOVE_CONDITIONS;
     }
 
     private int getMaxPosition(List<Car> cars) {
@@ -126,10 +102,6 @@ public class RacingService {
 
     private static void printMessageFromType(MessageType messageType) {
         System.out.println(messageType.getMessage());
-    }
-
-    private static boolean hasOverLengthCarNames(List<String> carNameList) {
-        return carNameList.stream().anyMatch(c -> isOverLength(c, maxCarNameSize));
     }
 
 }
