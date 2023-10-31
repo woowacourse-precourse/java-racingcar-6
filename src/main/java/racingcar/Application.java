@@ -15,6 +15,17 @@ public class Application {
 
         cars = List.of(input.split(","));
 
+        validateCarName(cars, presentDistance);
+    }
 
+    private static void validateCarName(List<String> cars, List<StringBuilder> presentDistance) {
+        for (int i = 0; i < cars.size(); i++) {
+            cars.set(i, cars.get(i).trim());
+
+            if (cars.get(i).length() > 5 || cars.get(i).isEmpty())
+                throw new IllegalArgumentException();
+
+            presentDistance.add(new StringBuilder());
+        }
     }
 }
