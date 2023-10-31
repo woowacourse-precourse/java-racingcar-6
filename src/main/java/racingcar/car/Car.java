@@ -13,6 +13,10 @@ public abstract class Car {
 
     public abstract void moveCar(int number);
 
+    public String getName(){
+        return name;
+    }
+
     @Override
     public String toString() {
         return name + COLON +distanceDriver;
