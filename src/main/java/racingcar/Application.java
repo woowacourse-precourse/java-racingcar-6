@@ -36,6 +36,9 @@ public class Application {
             String[] carNames = Console.readLine().split(",");
             cars = new ArrayList<>();
             for (String carName : carNames) { // TODO: "" 처리 필요
+                if(carName.equals("")){
+                    throw new IllegalArgumentException();
+                }
                 cars.add(new Car(carName));
             }
         } catch (Exception e){

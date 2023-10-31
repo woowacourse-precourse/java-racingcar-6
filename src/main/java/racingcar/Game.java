@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 
 public class Game {
     private List<Car> cars;
@@ -40,7 +39,6 @@ public class Game {
 
     public void setCars(List<Car> cars) {
         this.cars = cars;
-//        mileages = new int[cars.size()];
     }
 
     public void printFinalGameResult() {
@@ -68,6 +66,7 @@ public class Game {
                 winners.add(car);
             }
         }
+        return winners;
     }
 }
 
