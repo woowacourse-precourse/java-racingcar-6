@@ -58,6 +58,8 @@
 ## 6. List와 Integer를 동시에 하나의 객체에 담기 위하여 class을 담당하는 파일
     - List와 Integer를 동시에 하나의 객체에 담는 class java file이다.
     - 생성자로 데이터를 받은 후, getter를 통하여 int와 List를 전달한다.
+## 7. GameResultView 함수 파일
+    - 결과 출력에서 마지막 결론을 출력할 때, depth가 3이 넘어가므로, 새로은 파일을 만들어서 코드를 작성했다.
 
 ## 고민 거리
   - CheckFunction에서 String과 Integer의 입력 검사를 담당하고 있는데, 과연 이 2개의 검증 과정을 하나의 파일에 넣는 것이 단일 책임이라고 볼 수 있는가?
