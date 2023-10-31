@@ -8,7 +8,7 @@ import static racingcar.validator.InputValidator.validateStringToInteger;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +47,7 @@ public class Race {
     }
 
     public Map<String, Integer> getPerMatchResult() {
-        Map<String, Integer> perMatchResult = new HashMap<>();
+        Map<String, Integer> perMatchResult = new LinkedHashMap<>();
         for (Car car : this.carList) {
             perMatchResult.put(car.getName(), car.getDistance());
         }
