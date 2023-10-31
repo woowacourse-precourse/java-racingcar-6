@@ -1,9 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.text.MessageFormat;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 
 public class RacingGame {
@@ -40,23 +38,7 @@ public class RacingGame {
             System.out.println();
         }
 
-        int maxPosition = 0;
-        List<String> winners = new LinkedList<>();
-
-        for (Racer racer : racers) {
-            if (racer.getCurrentPosition() > maxPosition) {
-                maxPosition = racer.getCurrentPosition();
-            }
-        }
-
-        for (Racer racer : racers) {
-            if (racer.getCurrentPosition() >= maxPosition) {
-                winners.add(racer.getName());
-            }
-        }
-        
-        String result = MessageFormat.format("최종 우승자 : {0}", String.join(",", winners));
-        System.out.println(result);
+        Referee.sayWinners(racers);
     }
 
     private static List<String> sanitizeRacerNames(String racerNames) {
