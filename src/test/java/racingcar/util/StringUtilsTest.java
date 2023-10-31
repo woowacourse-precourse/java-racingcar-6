@@ -15,4 +15,8 @@ public class StringUtilsTest {
         assertEquals(splitList, StringUtils.toCarNameList("pobi,woni,jun"));
     }
 
+    @Test
+    void String_to_Integer_변환_테스트() {
+        assertEquals(3, StringUtils.toInteger("3"));
+    }
 }
