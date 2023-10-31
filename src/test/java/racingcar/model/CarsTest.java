@@ -3,20 +3,17 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.mock;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.NoCarException;
-import racingcar.util.MoveResolver;
 
 class CarsTest {
     private final int MOVING_DISTANCE = 1;
 
-    MoveResolver moveResolver = mock(MoveResolver.class);
-    MoveResolver nonMoveResolver = mock(MoveResolver.class);
+    private MovePolicy forwardPolicy;
+    private MovePolicy stopPolicy;
 
     Car car1;
     Car car2;
@@ -29,7 +26,7 @@ class CarsTest {
         car2 = new Car("테스트2");
         car3 = new Car("테스트3");
         cars = new Cars(List.of(car1,car2,car3));
-        setGivenBehaviorMoveResolver(moveResolver,nonMoveResolver);
+        setMovePolicy();
     }
 
     @Test
@@ -62,16 +59,16 @@ class CarsTest {
                 .hasMessage("등록된 자동차가 없습니다.");
     }
 
-    private void setGivenBehaviorMoveResolver(MoveResolver moveResolver,MoveResolver nonMoveResolver) {
-        given(moveResolver.isMoveAble()).willReturn(true);
-        given(nonMoveResolver.isMoveAble()).willReturn(false);
+    private void setMovePolicy() {
+        forwardPolicy = () -> true;
+        stopPolicy = () -> false;
     }
 
     private void goForward(Car car) {
-        car.move(MOVING_DISTANCE,moveResolver);
+        car.move(MOVING_DISTANCE,forwardPolicy);
     }
 
     private void stop(Car car) {
-        car.move(MOVING_DISTANCE,nonMoveResolver);
+        car.move(MOVING_DISTANCE,stopPolicy);
     }
 }
