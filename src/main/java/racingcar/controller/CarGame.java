@@ -26,7 +26,7 @@ public class CarGame {
         String inputTryNumber = getTryNumberInput();
         OutputView.printNewLine();
         OutputView.printResultMessage();
-        getCarsScoreResult(inputTryNumber, carList);
+        showCarScoreResult(inputTryNumber, carList);
         showWinnerResult(carList);
     }
 
@@ -83,18 +83,18 @@ public class CarGame {
         }
     }
 
-    private void getCarMove(int moveCount) {
+    private void showCarMove(int moveCount) {
         for (int i = 0; i < moveCount; i++) {
             OutputView.printMove();
         }
     }
 
-    private void getCarsScoreResult(String inputTryNumber, List<Car> carList) {
+    private void showCarScoreResult(String inputTryNumber, List<Car> carList) {
         for (int i = 0; i < Integer.parseInt(inputTryNumber); i++) {
             for (Car car: carList) {
                 pickNumberAndMove(car);
                 OutputView.printCarName(car.getName());
-                getCarMove(car.getMoveCount());
+                showCarMove(car.getMoveCount());
                 OutputView.printNewLine();
             }
             OutputView.printNewLine();
