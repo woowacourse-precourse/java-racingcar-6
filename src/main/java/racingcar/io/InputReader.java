@@ -11,18 +11,13 @@ public class InputReader {
     private int userInputCount;
     private List<String> carNames;
 
-    public InputReader() {
-        readCarNames();
-        readUserInputCount();
-    }
-
-    private void readUserInputCount() {
+    public void readUserInputCount() {
         String input = readLine();
         Triesvalidator.validate(input);
         this.userInputCount = Integer.parseInt(input);
     }
 
-    private void readCarNames() {
+    public void readCarNames() {
         String input = readLine();
         this.carNames = Arrays.asList(input.split(","));
         for (String name : carNames) {
