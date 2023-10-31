@@ -17,6 +17,7 @@
 ## 추가 구현 사항
 - 자동차의 이름은 중복되지 않는다.
 - 우승자가 존재하지 않을 수도 있다.
+- 자동차의 이름이 공백으로 시작하는 경우 공백은 이름에서 제외하고 동작한다. ex) input="pobi,&nbsp;&nbsp;&nbsp;java" 인 경우 이름은 각각 "pobi", "java"로 처리
 
 ***
 
@@ -31,7 +32,8 @@
 
 ## 예외 처리
 1. 자동차의 이름이 중복 입력된 경우 예외를 발생시킨다. - DuplicateNameException
-2. 경주를 시도할 횟수는 Integer.MAX_VALUE 까지만 허용한다. - MaxAttemptExceededException
+2. 자동차의 이름은 5자를 초과할 수 없다. - InvalidNameLengthException 
+3. 경주를 시도할 횟수는 1 ~ Integer.MAX_VALUE 범위만 허용한다. - InvalidAttemptCountException
 
 ***
 
