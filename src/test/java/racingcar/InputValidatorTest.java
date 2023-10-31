@@ -3,7 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -12,10 +12,10 @@ import racingcar.validator.InputValidator;
 
 public class InputValidatorTest {
 
-    private InputValidator inputValidator;
+    private static InputValidator inputValidator;
 
-    @BeforeEach
-    void initInputValidator() {
+    @BeforeAll
+    static void initInputValidator() {
         Util util = new Util();
         inputValidator = new InputValidator(util);
     }
