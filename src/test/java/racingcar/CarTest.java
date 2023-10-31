@@ -13,7 +13,7 @@ class CarTest {
     void testCarMoving() {
         Car car = new CarImpl();
 
-        //내부 무작위 값이 1~3 사이의 값일 때 이동하는가?
+        //내부 무작위 값이 0~3 사이의 값일 때 이동하는가?
         car.goOrStop(0,3);
         assertThat(car.getLocation()).isEqualTo(0);
 
