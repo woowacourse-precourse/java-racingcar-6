@@ -22,7 +22,7 @@ class CarsTest {
         "'seori ,snow ,joy '",
         "'seori, sn ow, jo y'"
     })
-    void 이름을_올바르게_입력한다(String input) {
+    void 이름들을_올바르게_입력하는_경우(String input) {
         cars.settingNames(input);
         assertEquals(cars.getCars().size(), 3);
         assertEquals(cars.getCars().get(0).name, "seori");
