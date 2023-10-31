@@ -1,11 +1,11 @@
 package racingcar.game;
 
-import java.util.Arrays;
 import java.util.List;
-import racingcar.common.config.RacingCarRule;
+import racingcar.game.vo.RacingCarNamesInput;
+import racingcar.game.vo.TotalTurnInput;
 import racingcar.game.vo.TurnResult;
-import racingcar.racer.RacingCar;
-import racingcar.validator.Validator;
+import racingcar.racer.Racer;
+import racingcar.racer.RacerRegistry;
 
 public class RacingGameManager {
 
@@ -16,37 +16,27 @@ public class RacingGameManager {
     }
 
     public void run() {
-        RacerRegistry<RacingCar> racerRegistry = registerRacingCar();
+        RacerRegistry<Racer> racerRegistry = registerRacingCar();
         int turnCount = inputTotalTurn();
-        RacingGame<RacingCar> racingGame = new RacingGame<>(racerRegistry);
+        RacingGame<Racer> racingGame = new RacingGame<>(racerRegistry);
         startRace(racingGame, turnCount);
-        announceWinner(racingGame);
+        announceWinner(racingGame.getWinners());
     }
 
-    private RacerRegistry<RacingCar> registerRacingCar() {
-        String racerInput = racingGameScreen.inputRacer();
-        Validator.validateLength(racerInput, RacingCarRule.MAX_RACING_CAR_NAME_INPUT_LENGTH);
-        Validator.validateHasText(racerInput);
+    private RacerRegistry<Racer> registerRacingCar() {
+        RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCar();
 
-        String[] split = racerInput.split(RacingCarRule.INPUT_DELIMITER);
-        List<RacingCar> list1 = Arrays.stream(split)
-                .map(RacingCar::from)
-                .toList();
-
-        RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
-        racerRegistry.addAll(list1);
+        RacerRegistry<Racer> racerRegistry = new RacerRegistry<>();
+        racerRegistry.addAll(racingCarNamesInput.toRacingCarList());
         return racerRegistry;
     }
 
     private int inputTotalTurn() {
-        String totalTurn = racingGameScreen.inputTotalTurn();
-        Validator.validateLength(totalTurn, RacingCarRule.TOTAL_TURN_INPUT_LENGTH);
-        Validator.validateHasText(totalTurn);
-        Validator.validateNumeric(totalTurn);
-        return Integer.parseInt(totalTurn);
+        TotalTurnInput totalTurnInput = racingGameScreen.inputTotalTurn();
+        return totalTurnInput.toInt();
     }
 
-    private void startRace(RacingGame<RacingCar> racingGame, int turnCount) {
+    private void startRace(RacingGame<Racer> racingGame, int turnCount) {
         racingGameScreen.startShowGameResult();
 
         for (int i = 0; i < turnCount; i++) {
@@ -57,7 +47,7 @@ public class RacingGameManager {
         }
     }
 
-    private void announceWinner(RacingGame<RacingCar> racingGame) {
-        racingGameScreen.showFinalWinner(racingGame.getWinners());
+    private void announceWinner(List<String> winnerNames) {
+        racingGameScreen.showFinalWinner(winnerNames);
     }
 }

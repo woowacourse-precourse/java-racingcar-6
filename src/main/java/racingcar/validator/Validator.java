@@ -17,9 +17,7 @@ public final class Validator {
     }
 
     public static void validateLength(String input, int maxLength) {
-        int length = input.length();
-
-        if (length > maxLength) {
+        if (input == null || input.length() > maxLength) {
             throw ErrorMessage.INVALID_LENGTH_INPUT.getException();
         }
     }

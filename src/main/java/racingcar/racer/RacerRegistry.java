@@ -1,15 +1,14 @@
-package racingcar.game;
+package racingcar.racer;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.racer.Racer;
 import racingcar.validator.RacingCarValidator;
 
 public class RacerRegistry<T extends Racer> {
 
     private final List<T> racers = new ArrayList<>();
 
-    public void addAll(List<T> racers) {
+    public void addAll(List<? extends T> racers) {
         RacingCarValidator.validateUnderThanMaxRacingCarNumber(racers);
         RacingCarValidator.validateDuplicatedName(racers);
 

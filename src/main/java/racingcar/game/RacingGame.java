@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import racingcar.game.vo.RacerPosition;
 import racingcar.racer.Racer;
+import racingcar.racer.RacerRegistry;
 
 public class RacingGame<T extends Racer> {
     private final List<T> racers = new ArrayList<>();

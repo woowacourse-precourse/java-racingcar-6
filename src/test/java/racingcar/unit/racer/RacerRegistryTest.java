@@ -1,4 +1,4 @@
-package racingcar.unit.game;
+package racingcar.unit.racer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.common.config.RacingCarRule;
-import racingcar.game.RacerRegistry;
+import racingcar.racer.RacerRegistry;
 import racingcar.racer.RacingCar;
 
 class RacerRegistryTest {
@@ -61,9 +61,8 @@ class RacerRegistryTest {
         @ParameterizedTest
         void success(List<RacingCar> racingCarList) {
             //given
-
             //when
-            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry();
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
             racerRegistry.addAll(racingCarList);
 
             //then
@@ -76,7 +75,7 @@ class RacerRegistryTest {
         void fail_DulicatedName(List<RacingCar> racingCarList) {
             //given
             //when then
-            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry();
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
             assertThatThrownBy(() -> racerRegistry.addAll(racingCarList))
                     .isInstanceOf(IllegalArgumentException.class);
         }
@@ -87,7 +86,7 @@ class RacerRegistryTest {
         void fail_OverRacingCarMaxNumber(List<RacingCar> racingCarList) {
             //given
             //when then
-            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry();
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
             assertThatThrownBy(() -> racerRegistry.addAll(racingCarList))
                     .isInstanceOf(IllegalArgumentException.class);
         }

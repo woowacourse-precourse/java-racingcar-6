@@ -13,6 +13,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.game.RacingGameScreen;
 import racingcar.game.vo.RacerPosition;
+import racingcar.game.vo.RacingCarNamesInput;
+import racingcar.game.vo.TotalTurnInput;
 import racingcar.game.vo.TurnResult;
 import racingcar.io.reader.Reader;
 import racingcar.io.writer.Writer;
@@ -61,12 +63,12 @@ class RacingGameScreenTest {
         mockReader.setInput(input);
 
         //when
-        String racerInput = racingGameScreen.inputRacer();
+        RacingCarNamesInput racingCarNamesInput = racingGameScreen.inputRacingCar();
 
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-        assertThat(racerInput).isEqualTo(input);
+        assertThat(racingCarNamesInput.input()).isEqualTo(input);
     }
 
     @DisplayName("시도 횟수 입력 화면을 올바르게 구성하였는지 확인한다.")
@@ -77,12 +79,12 @@ class RacingGameScreenTest {
         mockReader.setInput(input);
 
         //when
-        String racerInput = racingGameScreen.inputTotalTurn();
+        TotalTurnInput totalTurnInput = racingGameScreen.inputTotalTurn();
 
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("시도할 횟수는 몇 회인가요?\n");
-        assertThat(racerInput).isEqualTo(input);
+        assertThat(totalTurnInput.input()).isEqualTo(input);
     }
 
     @DisplayName("실행 결과 출력을 시작하는 화면을 올바르게 구성하였는지 확인한다.")

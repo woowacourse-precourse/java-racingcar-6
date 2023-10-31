@@ -13,9 +13,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import racingcar.game.RacerRegistry;
 import racingcar.game.RacingGame;
 import racingcar.game.vo.RacerPosition;
+import racingcar.racer.RacerRegistry;
 import racingcar.racer.RacingCar;
 import racingcar.util.Random;
 
