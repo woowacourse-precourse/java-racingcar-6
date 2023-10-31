@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
@@ -17,20 +16,28 @@ public class RacingGameController {
         this.racingGameService = new RacingCarService();
     }
 
-    public void playRacingGame() {
+    public void racingGameStart() {
         String input = InputView.inputCarsName();
         List<String> cars = Arrays.asList(input.split(","));
-        List<Car> carList = racingGameService.participateCar(cars);
+        List<Car> carList = racingGameService.registerCars(cars);
 
         String moveCountStr = InputView.inputMovesCount();
         InputValidator.validateEmptyInput(moveCountStr);
         int moveCount = InputValidator.validateNonNumeric(moveCountStr);
-        
+
+        playGame(moveCount);
+        displayWinners();
+    }
+
+    private void playGame(int moveCount) {
         System.out.println(Message.EXECUTION_RESULT_MESSAGE.getMessage());
         while (moveCount-- > 0) {
-            RacingCarService.moveCar();
+            racingGameService.moveCar();
             System.out.println();
         }
+    }
+
+    private void displayWinners() {
         OutputView.printFinalWinner(racingGameService.findWinners());
     }
 }

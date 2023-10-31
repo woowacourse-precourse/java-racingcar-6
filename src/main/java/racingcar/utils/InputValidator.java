@@ -1,7 +1,6 @@
 package racingcar.utils;
 
 import java.util.List;
-import racingcar.domain.Car;
 
 public class InputValidator {
 
@@ -17,11 +16,9 @@ public class InputValidator {
         }
     }
 
-    public static void validateDuplicateInput(List<Car> carList, String carName) {
-        for (Car car : carList) {
-            if (car.getName().equals(carName)) {
-                throw new IllegalArgumentException(Message.ERROR_DUPLICATE_CAR_NAME_MESSAGE.getMessage());
-            }
+    public static void validateDuplicateInput(List<String> carList) {
+        if (carList.size() != carList.stream().distinct().count()) {
+            throw new IllegalArgumentException(Message.ERROR_DUPLICATE_CAR_NAME_MESSAGE.getMessage());
         }
     }
 

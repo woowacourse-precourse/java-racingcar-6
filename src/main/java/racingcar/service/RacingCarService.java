@@ -1,46 +1,46 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.utils.InputValidator;
 import racingcar.utils.Message;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.OutputView;
 
 public class RacingCarService {
-    private static final int RANDOM_MIN_NUMBER = 0;
-    private static final int RANDOM_MAX_NUMBER = 9;
     private static final int MOVE_CONDITION = 4;
-    private static final List<Car> carList = new ArrayList<>();
+    private static List<Car> carList;
 
-    public List<Car> participateCar(List<String> carsName) {
-        for (String name : carsName) {
-            InputValidator.validateEmptyInput(name);
-            InputValidator.validateInputLength(name);
-            InputValidator.validateDuplicateInput(carList, name);
+    public RacingCarService() {
+        carList = new ArrayList<>();
+    }
+
+    public List<Car> registerCars(List<String> carName) {
+        validateCarNames(carName);
+        for (String name : carName) {
             carList.add(new Car(name));
         }
         return carList;
     }
 
-    public static void moveCar() {
-        List<Integer> randomNumbers = generateRandomNumbers();
-        for (int i = 0; i < carList.size(); i++) {
-            if (randomNumbers.get(i) >= MOVE_CONDITION) {
-                carList.get(i).move();
-            }
-            OutputView.printRaceRoundResults(carList.get(i).getName(), carList.get(i).getMoveCount());
+    private void validateCarNames(List<String> carName) {
+        for (String name : carName) {
+            InputValidator.validateEmptyInput(name);
+            InputValidator.validateInputLength(name);
         }
+        InputValidator.validateDuplicateInput(carName);
     }
 
-    private static List<Integer> generateRandomNumbers() {
-        List<Integer> randomNumbers = new ArrayList<>();
-        for (int i = 0; i < carList.size(); i++) {
-            randomNumbers.add(Randoms.pickNumberInRange(RANDOM_MIN_NUMBER, RANDOM_MAX_NUMBER));
+    public void moveCar() {
+        for (Car car : carList) {
+            int randomNumber = RandomNumberGenerator.generateRandomNumber();
+            if (randomNumber >= MOVE_CONDITION) {
+                car.move();
+            }
+            OutputView.printRaceRoundResults(car.getName(), car.getMoveCount());
         }
-        return randomNumbers;
     }
 
     public String findWinners() {
