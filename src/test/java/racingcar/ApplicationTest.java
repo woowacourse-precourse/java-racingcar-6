@@ -2,6 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCarProvider;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +34,57 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    // RacingCarProvider Test
+    @Test
+    void 자동차_이름_유효성_검사_메서드() {
+        RacingCarProvider racingCarProvider = new RacingCarProvider();
+        String[] carNames =  {"pobi","woni","racingcar"};
+
+        assertThatThrownBy(() -> racingCarProvider.validate(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
+    }
+
+    @Test
+    void 자동차가_생성이_되었는지_확인() {
+        RacingCarProvider racingCarProvider = new RacingCarProvider();
+        String[] carNames =  {"pobi","woni","sym"};
+
+        List<RacingCar> racingCars = racingCarProvider.createRacingCars(carNames);
+
+        assertThat(racingCars.get(0).getName())
+                .isEqualTo("pobi");
+    }
+
+    // RacingCar Test
+    @Test
+    void 자동차_생성_확인() {
+        RacingCar racingCar = RacingCar.create("pobi");
+
+        assertThat(racingCar.getName())
+                .isEqualTo("pobi");
+    }
+
+    @Test
+    void 자동차_전진_확인() {
+        RacingCar racingCar = RacingCar.create("pobi");
+
+        racingCar.move();
+        racingCar.move();
+
+        assertThat(racingCar.getDistance())
+                .isEqualTo(2);
+    }
+
+    // NumberGenerator Test
+    @Test
+    void 난수_생성_확인() {
+        int randomNumber = NumberGenerator.createRandomNumber();
+
+        assertThat(randomNumber)
+                .isBetween(0,9);
     }
 
     @Override
