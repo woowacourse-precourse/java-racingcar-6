@@ -7,6 +7,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.NoCarException;
+import racingcar.model.car.Car;
+import racingcar.model.car.Cars;
 
 class CarsTest {
     @Test

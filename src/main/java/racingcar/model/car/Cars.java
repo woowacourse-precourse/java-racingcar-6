@@ -1,8 +1,10 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import java.util.List;
 import racingcar.exception.NoCarException;
-import racingcar.model.dto.GameResult;
+import racingcar.model.movepolicy.MovePolicy;
+import racingcar.model.movepolicy.RandomMovePolicy;
+import racingcar.model.car.dto.GameResult;
 
 public class Cars {
     private final static int MOVING_DISTANCE = 1;

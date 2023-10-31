@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.model.car.Car;
+import racingcar.model.movepolicy.MovePolicy;
 
 class CarTest {
     private final int MOVING_DISTANCE = 1;

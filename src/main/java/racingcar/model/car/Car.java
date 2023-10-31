@@ -1,6 +1,7 @@
-package racingcar.model;
+package racingcar.model.car;
 
-import racingcar.model.dto.GameResult;
+import racingcar.model.movepolicy.MovePolicy;
+import racingcar.model.car.dto.GameResult;
 
 public class Car {
     private final CarName carName;
