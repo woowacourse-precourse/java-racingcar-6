@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.InputValidator;
 
 public class Car {
@@ -21,6 +22,10 @@ public class Car {
     }
 
     public void move() {
-        moveDistance+=1;
+        moveDistance += 1;
+    }
+
+    public int generateMoveValue() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
