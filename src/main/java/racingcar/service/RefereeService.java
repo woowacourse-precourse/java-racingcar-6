@@ -11,8 +11,10 @@ import racingcar.dto.RoundResultDto;
 
 public class RefereeService {
 
-    public GameResultDto publishGameResult(List<RoundResultDto> roundHistories, List<CarStatusDto> cars) {
-        return GameResultDto.of(selectWinners(cars), roundHistories);
+    public GameResultDto publishGameResult(List<RoundResultDto> roundHistories,
+                                           List<CarStatusDto> carsStatusAtRaceEnd) {
+        List<CarStatusDto> winners = selectWinners(carsStatusAtRaceEnd);
+        return GameResultDto.of(winners, roundHistories);
     }
 
     public RoundResultDto executeRound(List<Car> cars) {
@@ -20,15 +22,15 @@ public class RefereeService {
         return RoundResultDto.createFrom(cars);
     }
 
-    private List<CarStatusDto> selectWinners(List<CarStatusDto> cars) {
-        Position furthestPosition = getFurthestPosition(cars);
-        return cars.stream()
+    private List<CarStatusDto> selectWinners(List<CarStatusDto> carsStatusAtRaceEnd) {
+        Position furthestPosition = getFurthestPosition(carsStatusAtRaceEnd);
+        return carsStatusAtRaceEnd.stream()
                 .filter(carStatusDto -> carStatusDto.getCarPosition().equals(furthestPosition))
                 .collect(Collectors.toList());
     }
 
-    private Position getFurthestPosition(List<CarStatusDto> cars) {
-        return cars.stream()
+    private Position getFurthestPosition(List<CarStatusDto> carsStatusAtRaceEnd) {
+        return carsStatusAtRaceEnd.stream()
                 .map(CarStatusDto::getCarPosition)
                 .max(Position::compareTo)
                 .orElseThrow(NoSuchElementException::new);

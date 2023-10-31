@@ -22,19 +22,15 @@ public class RacingGameService {
 
     public GameResultDto run(List<String> carNames, RoundCount roundCount) {
         List<Car> participants = prepareRacingCars(carNames);
-
         List<RoundResultDto> roundHistories = executeAllRounds(participants, roundCount);
-        List<CarStatusDto> carDtos = getRaceEndStatus(participants);
-
-        return refereeService.publishGameResult(roundHistories, carDtos);
-
+        List<CarStatusDto> carsStatusAtRaceEnd = getRaceEndStatus(participants);
+        return refereeService.publishGameResult(roundHistories, carsStatusAtRaceEnd);
     }
 
     private static List<CarStatusDto> getRaceEndStatus(List<Car> participants) {
-        List<CarStatusDto> carDtos = participants.stream()
+        return participants.stream()
                 .map(CarStatusDto::createFrom)
                 .toList();
-        return carDtos;
     }
 
     private List<RoundResultDto> executeAllRounds(List<Car> participants, RoundCount roundCount) {

@@ -20,13 +20,9 @@ public class RacingGameController {
     }
 
     public void runRacingGame() {
-
         List<String> carNames = inputView.readCarNames();
         RoundCount roundCount = inputView.readNumberOfRounds();
-
         GameResultDto result = racingGameService.run(carNames, roundCount);
-
-        outputView.showExecutedMessage();
         outputView.showGameResult(result);
     }
 
