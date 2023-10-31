@@ -11,6 +11,7 @@ public class Cars {
     public static Map<String, Integer> findMax = new HashMap<>();
 
     public Cars(String input) {
+        userInputCarName = new UserInputCarName();
         List<String> carName = userInputCarName.createCarName(input);
         for(String name : carName) {
             Car car = new Car(name);
@@ -48,6 +49,14 @@ public class Cars {
                 .forEach(entry -> mvpList.add(entry.getKey()));
 
         return mvpList;
+    }
+
+    public Map<String, Integer> getForwardState(){
+        Map<String, Integer> forwardState = new HashMap<>();
+        for(Car car : cars){
+            forwardState.put(car.getName(), car.getForward());
+        }
+        return forwardState;
     }
 
 
