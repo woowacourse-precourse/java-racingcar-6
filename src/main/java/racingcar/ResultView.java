@@ -1,8 +1,8 @@
 package racingcar;
 
 public class ResultView {
-    
-    public ResultView() {
+
+    public void printHead() {
         System.out.println("실행결과");
     }
 
