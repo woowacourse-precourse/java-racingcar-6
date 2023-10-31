@@ -9,6 +9,7 @@ import java.util.List;
 public class Cars {
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     List<Car> carList = new ArrayList<>();
+    List<String> winners = new ArrayList<>();
 
     private void save(String carName) {
         carList.add(new Car(carName));
@@ -38,18 +39,24 @@ public class Cars {
     }
 
     public List<String> getGameWinner() {
-        List<String> winners = new ArrayList<>();
         int max = 0;
+        int maxDistance = getMaxDistance(max);
+        addCarNameAtWinnersList(maxDistance);
+        return winners;
+    }
+
+    private void addCarNameAtWinnersList(int maxDistance) {
         for (Car car : carList) {
-            if (car.getDistance() == max) {
+            if (car.isSameDistance(car, maxDistance)) {
                 winners.add(car.getName());
-            }
-            if (car.getDistance() > max) {
-                winners.clear();
-                winners.add(car.getName());
-                max = car.getDistance();
             }
         }
-        return winners;
+    }
+
+    private int getMaxDistance(int max) {
+        for (Car car : carList) {
+            max = car.getMaxDistance(car, max);
+        }
+        return max;
     }
 }

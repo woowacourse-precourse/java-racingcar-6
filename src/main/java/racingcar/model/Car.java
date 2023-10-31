@@ -20,4 +20,18 @@ public class Car {
         distance += 1;
         return distance;
     }
+
+    public int getMaxDistance(Car car, int max) {
+        if (car.distance > max) {
+            max = car.distance;
+        }
+        return max;
+    }
+
+    public boolean isSameDistance(Car car, int maxDistance) {
+        if (car.distance == maxDistance) {
+            return true;
+        }
+        return false;
+    }
 }
