@@ -28,10 +28,6 @@ public class Car {
         return randomNumber >= MOVEMENT_CONDITION_NUMBER.getNumber();
     }
 
-    public int getRandomNumber() {
-        return Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START.getNumber(), RANDOM_NUMBER_RANGE_END.getNumber());
-    }
-
     public boolean isSameDistanceOrFurtherThan(Car otherCar) {
         return distance >= otherCar.getDistance();
     }

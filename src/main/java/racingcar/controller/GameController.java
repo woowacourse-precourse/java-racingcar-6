@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Race;
 import racingcar.domain.car.Car;
 import racingcar.util.InputUtil;
+import racingcar.util.RandomUtil;
 import racingcar.validator.CarNameValidator;
 import racingcar.validator.TryCountValidator;
 import racingcar.view.InputView;
@@ -31,7 +32,7 @@ public class GameController {
     private void printRaceStatus(Race race, int tryCount) {
         OutputView.printMessage(RACE_STATUS.getMessage());
         for (int i = 0; i < tryCount; i++) {
-            race.moveEachCar();
+            race.moveEachCar(RandomUtil.getRandomNumber());
             OutputView.printMessage(race.getStatusString());
         }
     }

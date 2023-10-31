@@ -21,8 +21,8 @@ public class Race {
         this.cars = cars;
     }
 
-    public void moveEachCar() {
-        cars.forEach(car -> car.move(car.getRandomNumber()));
+    public void moveEachCar(int randomNumber) {
+        cars.forEach(car -> car.move(randomNumber));
     }
 
     private List<Car> findWinnerCars() {
