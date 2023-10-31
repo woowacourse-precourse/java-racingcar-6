@@ -1,12 +1,13 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InputView {
 
-    public static String[] inputCarName() {
-        OutputView.printInputCarName();
+    public static ArrayList inputCarName() {
         String input = Console.readLine();
-        return input.split(",");
+        return new ArrayList<>(List.of(input.split(",")));
     }
 }
