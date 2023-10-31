@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.Model.Car;
 
 public class Output {
-
     public static String printWinners(List<Car> cars, int longestDistance) {
 
         StringBuilder winners = new StringBuilder();
@@ -17,6 +16,8 @@ public class Output {
         }
 
         winners.delete(winners.length() - 2, winners.length());
+
+        System.out.println("최종 우승자 : " + winners);
 
         return winners.toString();
     }
