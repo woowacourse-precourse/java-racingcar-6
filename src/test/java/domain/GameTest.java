@@ -11,14 +11,14 @@ import racingcar.domain.Game;
 public class GameTest {
 
     @Test
-    void 자동차들은_한_번_움직인다() {
+    void 자동차들은_움직일_수_있다() {
         List<Car> cars = List.of(
                 new Car("kim",0),
                 new Car("ray",0)
         );
         Car compareCar = new Car("park",1);
         Game game = new Game(cars);
-        game.playOnce(() -> 5);
+        game.playOnce(() -> 4);
 
         Assertions.assertThat(compareCar.isSamePosition(cars.get(0))).isTrue();
         Assertions.assertThat(compareCar.isSamePosition(cars.get(1))).isTrue();
