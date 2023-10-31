@@ -17,8 +17,8 @@ public class Cars {
         return loadState;
     }
 
-    public void setLoadState(String loadState) {
-        this.loadState = loadState;
+    public String upLoadState() {
+        return this.loadState.concat("-");
     }
 
     public void setName(String name) {
