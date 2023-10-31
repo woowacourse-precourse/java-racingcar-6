@@ -12,7 +12,7 @@ public class CarList {
             throw new IllegalArgumentException();
         }
         this.carList = new ArrayList<>();
-
+        setCarIntoCarList(names);
     }
 
     private String[] splitNamesByComma(String name) {
@@ -33,6 +33,12 @@ public class CarList {
             return false;
         }
         return true;
+    }
+
+    private void setCarIntoCarList(String[] names) {
+        for (String name : names) {
+            this.carList.add(new Car(name));
+        }
     }
 
 }
