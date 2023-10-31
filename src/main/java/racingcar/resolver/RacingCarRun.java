@@ -47,5 +47,4 @@ public class RacingCarRun {
 
         return textProcessor.joinText(winnerCars);
     }
-
 }
