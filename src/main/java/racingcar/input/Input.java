@@ -22,4 +22,8 @@ public class Input {
 
         return splitInput;
     }
+
+    public static int inputTotalTurn() {
+        return 0;
+    }
 }
