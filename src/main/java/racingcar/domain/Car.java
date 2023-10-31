@@ -15,7 +15,6 @@ public class Car {
     private int moveCount;
 
     public Car(String name) {
-        validateCarName(name);
         this.name = name;
     }
 
@@ -44,9 +43,5 @@ public class Car {
 
     private void forward() {
         this.moveCount += ONE;
-    }
-
-    private void validateCarName(String name) {
-        InputValidator.validateCarName(name);
     }
 }

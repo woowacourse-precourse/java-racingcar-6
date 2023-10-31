@@ -1,8 +1,15 @@
 package racingcar.utils;
 
+import java.util.List;
+
 public class InputValidator {
 
-    public static void validateCarName(String name) {
+    public static void readCarNames(String names) {
+        List<String> carNames = List.of(names.trim().split(","));
+        carNames.forEach(InputValidator::validateCarName);
+    }
+
+    private static void validateCarName(String name) {
         if (validateNameLength(name)) {
             throw new IllegalArgumentException();
         }
