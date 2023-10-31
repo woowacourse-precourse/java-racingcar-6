@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private final String name;
@@ -21,5 +21,12 @@ public class Car {
     }
     public int getPosition(){
         return position;
+    }
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
     }
 }
