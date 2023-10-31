@@ -19,12 +19,16 @@ public class Car {
     }
 
     public void move() {
-        if (getRandomNumber() >= MOVEMENT_CONDITION_NUMBER.getNumber()) {
+        if (isMovable()) {
             distance += MOVEMENT_DISTANCE.getNumber();
         }
     }
 
-    public int getRandomNumber() {
+    private boolean isMovable() {
+        return getRandomNumber() >= MOVEMENT_CONDITION_NUMBER.getNumber();
+    }
+
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START.getNumber(), RANDOM_NUMBER_RANGE_END.getNumber());
     }
 
