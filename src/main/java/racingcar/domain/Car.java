@@ -87,7 +87,13 @@ public class Car {
 
     public void checkInputStringFirstLetterContainsCommas() {
         if (getStringCarList().charAt(0) == ',') {
-            throw new IllegalArgumentException("문자열의 첫글자가 쉼표입니다 확인해주세요");
+            throw new IllegalArgumentException("문자열의 첫 글자가 쉼표입니다 확인해주세요");
+        }
+    }
+
+    public void checkInputStringLastLetterContainsCommas() {
+        if (getStringCarList().charAt(getStringCarList().length() - 1) == ',') {
+            throw new IllegalArgumentException("문자열의 마지막 글자가 쉼표입니다 확인해주세요");
         }
     }
 }
