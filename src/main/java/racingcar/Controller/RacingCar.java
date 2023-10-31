@@ -1,39 +1,54 @@
 package racingcar.Controller;
 
-import racingcar.Model.Cars;
-import racingcar.Util.Compare;
-//import racingcar.Util.Validate;
-import racingcar.Util.WinnerCarList;
+import racingcar.domain.CarList;
+import racingcar.Service.CarName;
+import racingcar.Service.MoveORStop;
+import racingcar.Util.Winner;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import static racingcar.Model.RacingCarRandomNumber.RacingCarRandomNumbers;
-
 public class RacingCar {
-    private List<String> carList = new ArrayList<>();
-    private List<Integer> carListRandomCount = new ArrayList<>();
-    private List<Integer> goAndStop;
-    private List<String> winnerList= new ArrayList<>();
-    private int raceTries;
+
+    private List<CarList> racingCarList = new ArrayList<>();
+    private List<String> carNameList = new ArrayList<>();
+    private List<String> winnerList = new ArrayList<>();
+    private int raceTry;
+
     public void racingStart() {
-        RacingCar(carList, carListRandomCount);
+        playerJoin();
     }
-    private void RacingCar(List<String> carList, List<Integer> carListRandomCount) {
-        carList = Cars.carSplit(InputView.getCarName());
-        raceTries = InputView.setRaceAttempts();
-        goAndStop = new ArrayList<>(Collections.nCopies(carList.size(), 0));
-        OutputView.setTryResult();
-        for (int i = 0; i < raceTries; i++) {
-            carListRandomCount = RacingCarRandomNumbers(carList.size());
-            OutputView.carGo(carList,carListRandomCount);
-            System.out.println();
-            goAndStop = Compare.numberCompare(carListRandomCount,goAndStop);
+
+    private void playerJoin() {
+        carNameList = CarName.split(InputView.getCarName());
+        for (String carName : carNameList) {
+            racingCarList.add(new CarList(carName));
         }
-        winnerList = WinnerCarList.winnerCarList(carList,goAndStop);
+        playRacing();
+    }
+
+    private void playRacing() {
+        raceTry = InputView.RaceCount();
+        OutputView.setTryMessage();
+        for (int i = 0; i < raceTry; i++) {
+            RacingRandomNumberIsMoveORStop();
+            System.out.println();
+        }
+        RacingWinner();
+    }
+
+    private void RacingWinner() {
+        winnerList = Winner.carList(racingCarList);
         OutputView.result(winnerList);
     }
+
+    private void RacingRandomNumberIsMoveORStop() {
+        for (CarList car : racingCarList) {
+            MoveORStop.RacingCar(car);
+        }
+    }
+
+
 }
