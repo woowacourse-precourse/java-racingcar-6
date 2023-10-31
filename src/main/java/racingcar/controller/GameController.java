@@ -1,5 +1,8 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import racingcar.model.RaceGame;
 import racingcar.view.InputView;
 
@@ -9,6 +12,22 @@ public class GameController {
 
     public void startGame() {
         raceGame.setInputCarName(inputView.enterCarName());
-        System.out.println(raceGame.getInputCarName());
+        saveCarNames();
     }
+
+    public void saveCarNames() {
+        List<String> carNames = convertStringToIntList(raceGame.getInputCarName());
+        System.out.println(carNames);
+    }
+
+    private List<String> convertStringToIntList(String carName) {
+        List<String> carNames = new ArrayList<>();
+        String[] convertStringArray = carName.split(",");
+
+        for (String car : convertStringArray) {
+            carNames.add(car);
+        }
+        return carNames;
+    }
+
 }

@@ -31,7 +31,7 @@
 	- startGame()
 		- [O] 입력한 자동차 이름 모델(inputCarName)에 저장
 		- saveCarNames()
-		    - [ ] 입력한 자동차 이름을 List형으로 변환하는 함수 호출
+		    - [O] 입력한 자동차 이름을 List형으로 변환하는 함수 호출
 			- [ ] 데이터 유효성 검사 호출
 			- [ ] 전체 입력한 자동차 이름 모델(CarNames)에 저장
 		    - [ ] 경주 시도 횟수 모델(raceNumber)에 저장
