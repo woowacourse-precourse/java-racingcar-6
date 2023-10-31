@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameUtil {
 
@@ -25,16 +26,14 @@ public class GameUtil {
     }
 
     public List<String> inputToNameList(String input) {
-        List<String> nameArr = Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(","))
                 .map(String::trim)
-                .toList();
-
-        for (String name : nameArr) {
-            if (!isNameOK(name)) {
-                throw new IllegalArgumentException("이름은 한 글자 이상 다섯 글자 이하여야 합니다.");
-            }
-        }
-        return nameArr;
+                .peek(name -> {
+                    if (!isNameOK(name)) {
+                        throw new IllegalArgumentException("이름은 한 글자 이상 다섯 글자 이하여야 합니다.");
+                    }
+                })
+                .collect(Collectors.toList());
     }
 
     /**
