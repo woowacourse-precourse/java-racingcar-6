@@ -29,7 +29,7 @@
 
 
 ## 게임 종료 후 자동차들의 위치를 비교한다.
-  - [ ] 자동차들의 위치값 중 최대값을 찾는다. - Judgment#findMaxValue()
+  - [X] 자동차들의 현재 위치값 중 최대값을 찾는다. - Judgment#findMaxPosition()
   - [ ] 최대위치값을 가진 자동차들의 이름을 리턴한다. - Judgment#getWinnerNames()
 
 
