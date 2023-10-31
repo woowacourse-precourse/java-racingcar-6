@@ -1,6 +1,5 @@
 package racingcar.engine.mapper;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.engine.domain.Car;
@@ -13,10 +12,8 @@ public class RacingCarMapper {
         return Integer.parseInt(s);
     }
 
-    public List<Car> toCar(String separator, String carNames) {
-        return Arrays.stream(carNames.split(separator))
-                .map(Car::new)
-                .toList();
+    public List<Car> toCars(List<String> carNames) {
+        return carNames.stream().map(Car::new).toList();
     }
 
     public String toProgressBar(List<Car> cars) {

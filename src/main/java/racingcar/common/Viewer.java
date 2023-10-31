@@ -1,18 +1,10 @@
 package racingcar.common;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.common.Message;
-import racingcar.engine.RacingCarSystem;
 
-public class Prompt {
+public abstract class Viewer<T> {
 
-    public Prompt() {
-    }
-
-
-    public String input() {
-        return Console.readLine();
-    }
+    public abstract T interact();
 
     public void print(Message message) {
         System.out.print(message.getMessage());
@@ -24,5 +16,14 @@ public class Prompt {
 
     public void printNewLine() {
         System.out.println();
+    }
+
+    protected String input(Message message) {
+        println(message);
+        return Console.readLine();
+    }
+
+    protected String input() {
+        return Console.readLine();
     }
 }
