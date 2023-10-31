@@ -37,15 +37,13 @@ public class RacingGame {
         String playerNameString = camp.nextstep.edu.missionutils.Console.readLine();
 
         if(true==ValidInput.isValidString(playerNameString));
-        else throw new  IllegalArgumentException();
+        else throw new IllegalArgumentException();
 
         String[] playerNamesArray = playerNameString.split(",");
         playerNamesList.addAll(Arrays.asList(playerNamesArray));
-        if(true==ValidInput.isNameLengthLessThanOrEqual5(playerNamesList));
-        else throw new  IllegalArgumentException();
 
-        if(true==!ValidInput.hasDuplicateNames(playerNamesList));
-        else throw new  IllegalArgumentException();
+        if(true==ValidInput.isValidNames(playerNamesList));
+        else throw new IllegalArgumentException();
     }
     public int promptNumberOfMoves() {
         String movesString;

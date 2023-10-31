@@ -17,11 +17,12 @@ Constants - 스트링 상수들 저장된 클래스
 초간단 자동차 경주 게임 구현                            RacingGame#startGame()
 
 자동차 이름 입력 받기                                  RacingGame#promptForPlayerNames()
-    입력받은 문자열에 대해 유효한 지 판단                 ValidInput#isValidInput()
+    입력받은 문자열에 대해 유효한 지 판단                 ValidInput#isValidString()
         쉼표가 있는 지                                ValidInput#hasComma()
-        쉼표가 두번 연속 나오는 지                      ValidInput#hasDoubleComma()
         입력 문자열이 쉼표로 시작하거나 끝나는 지         ValidInput#startsOrEndsWithComma()   
-    자동차 이름들을 쉼표(,)를 기준으로 나누기         
+        쉼표가 두번 연속 나오는 지                      ValidInput#hasDoubleComma()
+    자동차 이름들을 쉼표(,)를 기준으로 나누어 리스트 생성  
+    리스트에 저장된 이름들이 유효한 지 판단              ValidInput#isValidNames()
         각 이름들이 5자 이하인지                       ValidInput#isNameLengthLessThanOrEqual5()  
         이름들에 중복이 있는 지                        ValidInput#hasDuplicateNames()
         

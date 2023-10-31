@@ -33,6 +33,14 @@ public class ValidInput {
             return false;
         }
     }
+
+    public static boolean isValidNames(List<String> NamesList) {
+        if(true==ValidInput.isNameLengthLessThanOrEqual5(NamesList));
+        else return false;
+        if(true==!ValidInput.hasDuplicateNames(NamesList));
+        else return false;
+        return true;
+    }
     public static boolean isNameLengthLessThanOrEqual5(List<String> NamesList) {
         for(String name : NamesList) {
             if(name.length() > 5) {
