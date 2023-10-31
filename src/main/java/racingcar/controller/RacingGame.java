@@ -21,18 +21,16 @@ public class RacingGame {
 
     public void play() {
         OutputView.exeutionResult();
-
         for (int i = 0; i < attemptCount; i++) {
             Round.play(carList);
         }
-
+        
         decideWinner();
         OutputView.finalWinner(finalWinners);
     }
 
     public void registerCars() {
         String carNames = InputView.carNames();
-
         String[] names = checkIncludeSpace(carNames);
         for (String name : names) {
             addCar(name);
@@ -42,7 +40,6 @@ public class RacingGame {
     private String[] checkIncludeSpace(String carNames) {
         Exception.isFrontSpace(carNames);
         String[] names = carNames.split(",");
-
         Exception.isSpace(names);
 
         return names;
@@ -56,7 +53,6 @@ public class RacingGame {
     public void inputAttemptCount() {
         String count = InputView.attemptCount();
         Exception.checkNumber(count);
-
         setAttemptCount(Integer.parseInt(count));
     }
 

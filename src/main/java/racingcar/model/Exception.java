@@ -33,5 +33,4 @@ public class Exception {
             throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다");
         }
     }
-    
 }

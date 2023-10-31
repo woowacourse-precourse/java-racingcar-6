@@ -6,7 +6,6 @@ import racingcar.model.RandomNumber;
 import racingcar.view.OutputView;
 
 public class Round {
-
     public static void play(List<Car> carList) {
         createRandom(carList);
         OutputView.resultGame(carList);
@@ -20,5 +19,4 @@ public class Round {
             }
         }
     }
-
 }
