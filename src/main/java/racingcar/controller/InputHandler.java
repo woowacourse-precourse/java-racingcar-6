@@ -13,6 +13,10 @@ public class InputHandler {
     public static List<String> parseInputToList(String input) throws IllegalArgumentException {
         List<String> parsedList;
 
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("잘못된 입력 값입니다. 최소 하나의 이상의 이름을 입력해주세요.");
+        }
+
         parsedList = splitInputByComma(input);
         if (!validateCarNameLength(parsedList)) {
             throw new IllegalArgumentException("잘못된 입력 값입니다 자동차 이름을 5자리 이하로 입력해주세요.");
@@ -26,8 +30,8 @@ public class InputHandler {
         if (!isNumber(input)) {
             throw new IllegalArgumentException("잘못된 입력 값입니다. 숫자를 입력해주세요.");
         }
-        parsedInt = Integer.parseInt(input);
 
+        parsedInt = Integer.parseInt(input);
         if (!isPositiveInteger(parsedInt)) {
             throw new IllegalArgumentException("잘못된 입력 값입니다. 자연수를 입력해주세요.");
         }

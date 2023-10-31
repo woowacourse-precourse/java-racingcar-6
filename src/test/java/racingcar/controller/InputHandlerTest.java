@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class InputHandlerTest {
+
     @Test
     void 입력값이_하나일_때() {
         String input = "haein";
@@ -49,9 +50,10 @@ class InputHandlerTest {
     @Test
     void 빈값이_들어갔을_때() {
         String input = "";
-
+//        List<String> result = InputHandler.parseInputToList(input);
+//        assertThat(result).isEqualTo(Arrays.asList(""));
         assertThatThrownBy(() -> InputHandler.parseInputToList(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 입력 값입니다 자동차 이름을 5자리 이하로 입력해주세요.");
+                .hasMessageContaining("잘못된 입력 값입니다. 최소 하나의 이상의 이름을 입력해주세요.");
     }
 }
