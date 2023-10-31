@@ -19,7 +19,7 @@ public class Count {
         return new Count(count - 1);
     }
 
-    private boolean isCountZero() {
+    public boolean isCountZero() {
         return count == COUNT_ZERO;
     }
 

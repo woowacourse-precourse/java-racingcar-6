@@ -7,6 +7,7 @@ import racingcar.model.Cars;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.model.Round;
+import racingcar.model.Count;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import java.util.List;
@@ -44,7 +45,8 @@ public class RacingGameController {
     }
 
     private Round askRoundCount() {
-        return new Round(InputView.inputRound());
+        Count count = new Count(InputView.inputRound());
+        return new Round(count);
     }
 
     private void race(Cars players, Round round) {
