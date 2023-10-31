@@ -9,10 +9,11 @@
 ## 📮 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-  - GitHub을 활용한 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해 제출한다.
+    - GitHub을 활용한 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해
+      제출한다.
 - GitHub에 미션을 제출한 후 [우아한테크코스 지원](https://apply.techcourse.co.kr) 사이트에 접속하여 프리코스 과제를 제출한다.
-  - 자세한 방법은 [제출 가이드](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 참고
-  - **Pull Request만 보내고 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
+    - 자세한 방법은 [제출 가이드](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 참고
+    - **Pull Request만 보내고 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
 
 ## 🚨 과제 제출 전 체크 리스트 - 0점 방지
 
@@ -131,12 +132,12 @@ jun : -----
 ### 추가된 요구 사항
 
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
+    - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
+    - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
 - 3항 연산자를 쓰지 않는다.
 - 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 - JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
-  - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
+    - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
 
 ### 라이브러리
 
@@ -159,5 +160,42 @@ Randoms.pickNumberInRange(0,9);
 - 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
 - **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
-  - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
+    - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+## 🔥 구현할 기능 목록! [ by. pjm ]
+
+### [1] 자동차 입력 (n개의 자동차)
+
+- ReadLine으로 입력받은 String을  ' , '을 구분자로 하여 List에 저장한다
+- StringTokenizer을 사용하여 ' , '단위로 끊는다
+    - 예외처리 : 이름은 5글자 이하이다. 만약, 5글자 이하라면 throw exception 오류를 내자
+- List의 크기가 곧 n이 된다.
+-
+
+### [2] 시도할 횟수 입력
+
+- ReadLine을 통해 시도할 회수를 입력받자
+- 숫자만 입력받을 수 있도록 is_num을 통해 예외상황 처리
+
+### [3] 자동차의 전진, 멈춤 구현
+
+1) 전민, 멈춤의 횟수를 어떻게 저장할 것인가?
+    1) int 배열로 선언하자 → int players_move[]
+    2) 생성 시, 배열의 크기는 player_list.size()로 하자
+2) 전진하는 조건을 구하는 함수를 구현하자 calculate_move() 에 매개변수로 player_move 배열을 주자
+    1) player_move 배열을 받아 전민,멈춤을 파악할 수 있는 go_or_stop() 함수 생성
+    2) random_number가 0~4 사이인지, 4~9 사이인지 파악하기 위해 is_move boolean 함수 생성
+    3) player_move 배열에 movement (전진을 몇 회 했는지)를 기록한다
+3) 각 차수 마다의 진행상황 표시
+    1) show_race 함수를 통해 매개변수로 playerlist, players_move 배열을 준다
+    2) System.out.println의 입출력 횟수를 줄이기 위해 StringBuilder를 사용한다.
+
+### [4] 우승자 확정
+
+1) show_winner 함수로 우승자를 판별
+2) player_list에서 값이 가장 많은 index를 판별
+    - 우승자가 1명일 때, 다수일 때를 판별해야 한다
+
+    1) 최대 index를 찾는다 - get_max_movement()
+    2) 최대 index를 가진 사람을 모두 출력한다
