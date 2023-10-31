@@ -21,4 +21,17 @@ public class InputHandler {
         return numberOfAttempts;
     }
 
+    public static String[] makeCarNamesArray() {
+        String[] carNamesArray = InputHandler.inputCarNames();
+        Validator.checkValidCarNames(carNamesArray);
+        return carNamesArray;
+    }
+
+    public static int makeNumberOfAttempts() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int numberOfAttempts = InputHandler.inputNumberOfAttempts();
+        Validator.isValidNumberOfAttempts(numberOfAttempts);
+        return numberOfAttempts;
+    }
+
 }
