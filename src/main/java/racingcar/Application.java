@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.controller.Controller;
+import racingcar.view.GameView;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Controller.init(new GameView()).RunGame();
     }
 }
