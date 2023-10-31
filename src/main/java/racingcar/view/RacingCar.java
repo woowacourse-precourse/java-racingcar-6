@@ -32,6 +32,11 @@ public class RacingCar {
         } catch (Exception e) {
             throw new IllegalArgumentException("View>> 유효하지 않은 데이터입니다.");
         }
-
     };
+
+    public void showLoad(List<String> name, List<String> location, int carNum){
+        for(int i=0;i<carNum;i++){
+            System.out.println(name.get(i)+ " : "+location.get(i));
+        }
+    }
 }

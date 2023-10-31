@@ -49,13 +49,27 @@ public class GameController {
             return false;
         }
     }
-    public void getDice(){
+    public void playLoad(){
         for (Cars car : carsList) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
             if (isLargeThen(randomNumber)){
                 car.upLoadState();
             }
             System.out.println(car.getName());
+        }
+    }
+
+    public void play(){
+        for(int i=0;i<tryNum;i++){
+            playLoad();
+            List<String>names = new ArrayList<>();
+            List<String>locations = new ArrayList<>();
+
+            for(Cars car:carsList){
+                names.add(car.getName());
+                locations.add(car.getLoadState());
+            }
+            racingCar.showLoad(names,locations,3);
         }
     }
 

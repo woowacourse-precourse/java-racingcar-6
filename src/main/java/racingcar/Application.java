@@ -15,6 +15,7 @@ public class Application {
             GameController gameController = new GameController(racingCar); // controller
 
             gameController.GameStart();
+            gameController.play();
         } catch (Exception e) {
             throw new IllegalArgumentException("유효하지 않은 데이터입니다.");
         }
