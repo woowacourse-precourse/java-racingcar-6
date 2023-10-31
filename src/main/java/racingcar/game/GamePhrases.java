@@ -8,4 +8,6 @@ public class GamePhrases {
 
     public static final String PHRASES_OUTPUT_GAME_START = "\n실행결과";
 
+    public static final String PHRASES_GAME_WINNER = "최종 우승자 : ";
+
 }

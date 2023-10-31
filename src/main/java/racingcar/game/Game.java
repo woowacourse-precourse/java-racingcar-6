@@ -76,8 +76,33 @@ public class Game {
         printPhrasesGameStart();
 
         while (tryNumber --> 0) {
-            
+            Round round = new Round(cars);
+            round.startRound();
         }
+
+        printPhrasesWinner(getWinner(cars));
+    }
+
+    private List<String> getWinner(List<Car> cars) {
+        List<String> winner = new ArrayList<>();
+
+        int maxDistance = 0;
+        for (Car car : cars) {
+            if (car.getCarDistance() > maxDistance) {
+                maxDistance = car.getCarDistance();
+                winner.clear();
+                winner.add(car.getCarName());
+            }
+            else if (car.getCarDistance() == maxDistance) {
+                winner.add(car.getCarName());
+            }
+        }
+
+        return winner;
+    }
+
+    private void printPhrasesWinner(List<String> names) {
+        System.out.println(GamePhrases.PHRASES_GAME_WINNER+String.join(",", names));
     }
 
     private void printPhrasesGameStart() {
