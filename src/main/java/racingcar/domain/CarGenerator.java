@@ -9,7 +9,7 @@ public class CarGenerator {
 
     public LinkedHashMap<String,String> createCarList() {
         LinkedHashMap<String,String> carList = new LinkedHashMap<>();
-        String[] cars = splitStringByCommas(inputCarList());
+        String[] cars = splitStringByCommas();
         for (String car : cars) {
             carList.put(car, "");
         }
