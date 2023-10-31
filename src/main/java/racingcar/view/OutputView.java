@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public void showGameResult(GameResultDto gameResult) {
-        System.out.println(messageResolver.resolveWinnerMessage(gameResult));
+        System.out.println(messageResolver.resolveWinnerMessage(gameResult.getWinners()));
     }
 
     public void showExecutedMessage() {

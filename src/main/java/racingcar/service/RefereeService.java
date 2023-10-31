@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.position.Position;
+import racingcar.dto.CarStatusDto;
 import racingcar.dto.GameResultDto;
 import racingcar.dto.RoundResultDto;
 
@@ -19,10 +20,11 @@ public class RefereeService {
         return RoundResultDto.createFrom(cars);
     }
 
-    private List<Car> selectWinners(List<Car> cars) {
+    private List<CarStatusDto> selectWinners(List<Car> cars) {
         Position furthestPosition = getFurthestPosition(cars);
         return cars.stream()
                 .filter(car -> car.getPosition().equals(furthestPosition))
+                .map(CarStatusDto::createFrom)
                 .collect(Collectors.toList());
     }
 
