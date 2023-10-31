@@ -3,11 +3,9 @@ package racingcar;
 import racingcar.constant.OutputMessage;
 import racingcar.validator.RacingCarGameMachineValidator;
 import racingcar.validator.RacingCarValidator;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class RacingCarGameMachine {
@@ -61,11 +59,12 @@ public class RacingCarGameMachine {
     public String getRoundResult() {
         playRound();
 
-        StringJoiner stringJoiner = new StringJoiner("\n");
+        StringBuilder resultBuilder = new StringBuilder();
         for (RacingCar racingCar : racingCarList) {
-            stringJoiner.add(racingCar.getCurrentStatus());
+            resultBuilder.append(racingCar.getCurrentStatus());
+            resultBuilder.append("\n");
         }
-        return stringJoiner.toString();
+        return resultBuilder.toString();
     }
 
     private void playRound() {
