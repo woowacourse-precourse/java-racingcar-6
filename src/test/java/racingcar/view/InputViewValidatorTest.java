@@ -93,5 +93,15 @@ class InputViewValidatorTest {
                         .hasMessageContaining("[ERROR] : 시도 횟수는 1 이상이어야 합니다.")
         );
     }
+
+    @Test
+    void 입력_받은_시도_횟수가_정수_범위_초과할_때_오류_발생() {
+        String tryNumber = "100000000000";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("[ERROR] : 시도 횟수가 정수 범위를 넘을 수 없습니다.")
+        );
+    }
     
 }
