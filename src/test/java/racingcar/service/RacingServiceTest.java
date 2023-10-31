@@ -11,6 +11,7 @@ import racingcar.repository.ResultRepository;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacingServiceTest extends NsTest{
@@ -70,6 +71,32 @@ class RacingServiceTest extends NsTest{
                 },
                 STOP, STOP, STOP_ZERO
         );
+    }
+
+    @Test
+    void 우승자_저장_테스트() {
+        //given
+        carRepository.add(new Car("ex1", 0));
+        carRepository.add(new Car("ex2", 1));
+
+        // when
+        List<Car> resultList = racingService.chooseWinner();
+
+        // then
+        assertThat(resultList.size()).isEqualTo(1);
+    }
+
+    @Test
+    void 우승자_여러명_저장_테스트() {
+        //given
+        carRepository.add(new Car("ex1", 1));
+        carRepository.add(new Car("ex2", 1));
+
+        // when
+        List<Car> resultList = racingService.chooseWinner();
+
+        // then
+        assertThat(resultList.size()).isEqualTo(2);
     }
 
     @Override
