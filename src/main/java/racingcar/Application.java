@@ -9,6 +9,15 @@ import java.util.List;
 
 public class Application {
 
+    public void checkCarNameValidation(String[] cars) throws IllegalArgumentException{
+
+        for (String car : cars) {
+            if (car.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     public String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         String answer = Console.readLine();
@@ -64,28 +73,17 @@ public class Application {
             }
         }
 
-        System.out.println("최종 우승자 : " );
+        System.out.print("최종 우승자 : " );
 
         if(winnerName.size() == 1) {
             System.out.print(winnerName.get(0));
         } else {
-            System.out.print("최종 우승자 : ");
 
             for(int i = 0; i < winnerName.size()-1; i++) {
-
                 System.out.print(winnerName.get(i));
                 System.out.print(", ");
             }
-            System.out.println(winnerName.get(winnerName.size()));
-        }
-    }
-
-    public void checkCarNameValidation(String[] cars) throws IllegalArgumentException{
-
-        for (String car : cars) {
-            if (car.length() > 5) {
-                throw new IllegalArgumentException();
-            }
+            System.out.println(winnerName.get(winnerName.size()-1));
         }
     }
 
