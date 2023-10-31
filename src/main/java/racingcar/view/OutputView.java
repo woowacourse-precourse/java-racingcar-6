@@ -4,36 +4,46 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
+import static racingcar.util.ProgramMessage.*;
+
 public class OutputView {
+    private static final String BAR = "-";
+    private static final String COMMA = ", ";
+    private static final int STRING_FIRST_INDEX = 0;
+    private static final int NUMBER_FOR_LAST_COMMA_REMOVE = 2;
 
     public void printCarNameInputGuide() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAME_INPUT_GUIDE_MESSAGE.getMessage());
     }
 
     public void printTryNumInputGuide() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(TRY_NUM_INPUT_GUIDE_MESSAGE.getMessage());
     }
 
     public void printRacingResult(List<Car> carList) {
         for (Car car : carList) {
-            String bar = "-".repeat(car.getForwardNum());
+            String bar = BAR.repeat(car.getForwardNum());
             System.out.println(String.format("%s : %s", car.getName(), bar));
         }
-        System.out.println("\n");
+        System.out.print(NEXT_LINE.getMessage());
     }
 
-    public void printResultMessage(){
-        System.out.println("\n실행 결과");
+    public void printResultMessage() {
+        System.out.println(EXECUTION_RESULT_NOTIFICATION_MESSAGE.getMessage());
     }
 
     public void printWinner(List<String> winnerList) {
-        String winnerMsg = "최종 우승자 : ";
-        for(int i = 0; i < winnerList.size(); i++) {
-            winnerMsg += winnerList.get(i) + ", ";
+        String winnerMsg = FINAL_WINNER_NOTIFICATION_MESSAGE.getMessage();
+
+        for (int i = 0; i < winnerList.size(); i++) {
+            winnerMsg += winnerList.get(i) + COMMA;
         }
-        if (winnerMsg.endsWith(", ")) {
-            winnerMsg = winnerMsg.substring(0, winnerMsg.length() - 2);
+
+        if (winnerMsg.endsWith(COMMA)) {
+            winnerMsg = winnerMsg
+                    .substring(STRING_FIRST_INDEX, winnerMsg.length() - NUMBER_FOR_LAST_COMMA_REMOVE);
         }
-        System.out.println(winnerMsg);
+
+        System.out.print(winnerMsg);
     }
 }

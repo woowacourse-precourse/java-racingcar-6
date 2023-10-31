@@ -10,7 +10,9 @@ public class Game {
     private final OutputView outputView = new OutputView();
     private final Racing racing = new Racing();
 
-    public void run(){
+    private final static int MIN_TRY_NUM = 1;
+
+    public void run() {
         outputView.printCarNameInputGuide();
         List<String> carNameList = inputView.InputCarName();
 
@@ -20,7 +22,7 @@ public class Game {
         List<Car> cars = racing.toCarList(carNameList);
 
         outputView.printResultMessage();
-        while (tryNum > 0) {
+        while (tryNum >= MIN_TRY_NUM) {
             racing.initCarsRandomNum(cars);
             racing.modifyForwardNum(cars);
             outputView.printRacingResult(cars);
