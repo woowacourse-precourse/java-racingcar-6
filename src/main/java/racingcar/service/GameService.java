@@ -29,7 +29,16 @@ public class GameService {
     public int getRandomNumber(){
         return Randoms.pickNumberInRange(START_RANGE,END_RANGE);
     }
-
+    public List<String> calcWinner(List<Car> carList){
+        List<String> winnerNames = new ArrayList<>();
+        int maxLocation = getMaxLocation(carList);
+        for(Car car : carList){
+            if(car.getCarLocation() == maxLocation){
+                winnerNames.add(car.getCarName());
+            }
+        }
+        return winnerNames;
+    }
     public int getMaxLocation(List<Car> carList){
         int max = 0;
         for(Car car : carList){
