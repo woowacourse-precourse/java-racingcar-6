@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -10,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarsTest {
 
     @Test
-    @DisplayName("Cars 객체 생성")
     void getCars() {
         //given
         Car car1 = new Car("pobi");
@@ -26,7 +24,6 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("getCarsLength() 메서드 테스트")
     void getCarsLength() {
         //given
         Car car1 = new Car("pobi");
@@ -43,7 +40,6 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("정상적으로 출력이 되는지 테스트")
     void testToString() {
         //given
         Car car1 = new Car("pobi");

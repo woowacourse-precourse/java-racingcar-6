@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Cars;
 
@@ -19,7 +18,6 @@ class RacingGameServiceTest {
     }
 
     @Test
-    @DisplayName("createRacingCars 테스트")
     void createRacingCars() {
         //given
         String[] carNamesList = {"pobi", "crong", "honux"};
@@ -30,7 +28,6 @@ class RacingGameServiceTest {
     }
 
     @Test
-    @DisplayName("getWinner 테스트")
     void getWinner() {
         //given
         String[] carNamesList = {"pobi", "crong", "honux"};
@@ -43,7 +40,6 @@ class RacingGameServiceTest {
     }
 
     @Test
-    @DisplayName("randomNumber 테스트")
     void randomNumber() {
         //given
         String[] carNamesList = {"pobi", "crong", "honux"};
@@ -55,7 +51,6 @@ class RacingGameServiceTest {
     }
 
     @Test
-    @DisplayName("getMaxPosition 테스트")
     void getMaxPosition() {
         //given
         String[] carNamesList = {"pobi", "crong", "honux"};

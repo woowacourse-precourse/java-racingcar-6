@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarTest {
 
     @Test
-    @DisplayName("Car 객체 생성")
     void getName() {
         //given
         String name = "pobi";
@@ -21,7 +19,6 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("getPosition() 메서드 테스트")
     void getPosition() {
         //given
         String name = "pobi";
@@ -33,7 +30,6 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("setPosition() 메서드 테스트")
     void setPosition() {
         //given
         String name = "pobi";
