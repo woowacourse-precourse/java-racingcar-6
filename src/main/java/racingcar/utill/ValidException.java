@@ -9,11 +9,13 @@ import java.util.regex.Pattern;
 
 public class ValidException {
     private static final String KOREAN_REGEX = "[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+";
+    private static final Integer START_NUM_ZERO = 0;
+    private static final Integer END_NUM_FIVE = 5;
 
     public static Boolean isValidLessFIveLen(String str) {
         int len = str.length();
 
-        if (len > 0 && len <= 5) {
+        if (len > START_NUM_ZERO && len <= END_NUM_FIVE) {
             return true;
         }
 
