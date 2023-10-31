@@ -23,7 +23,6 @@ public class OutputTest {
         System.setOut(standardOut);
     }
 
-
     @Test
     void 한_차의_전진한_횟수를_형식에_맞게_출력() {
         String expected = "a : ---";

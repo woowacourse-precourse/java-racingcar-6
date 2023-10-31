@@ -7,7 +7,7 @@ import java.util.List;
 public class RacingCarGameConsole {
     private static final int MOVE_JUDGE_INTEGER = 4;
     private final Car car;
-    private final List<String> winnerCarNames = new ArrayList<>();
+    private final List<String> winnerNames = new ArrayList<>();
     private final int numberOfCars;
     private final int timesToTry;
     private int carIndex = 0;
@@ -26,9 +26,9 @@ public class RacingCarGameConsole {
         }
     }
 
-    public void run() {
+    public void play() {
         race();
-        printWinner();
+        printWinnerNames();
     }
 
     public void race() {
@@ -61,21 +61,21 @@ public class RacingCarGameConsole {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private void printWinner() {
-        setWinnerCarNames();
-        OutputView.printResult(winnerCarNames);
+    private void printWinnerNames() {
+        setWinnerNamesList();
+        OutputView.printResult(winnerNames);
     }
 
-    public void setWinnerCarNames() {
+    public void setWinnerNamesList() {
         mostMovedAmount = car.mostMovedAmount();
         for (carIndex = 0; carIndex < numberOfCars; carIndex++) {
-            addToListIfWinner();
+            addNamesToListIfWinner();
         }
     }
 
-    private void addToListIfWinner() {
+    private void addNamesToListIfWinner() {
         if (car.movedLately(carIndex) == mostMovedAmount) {
-            winnerCarNames.add(car.name(carIndex));
+            winnerNames.add(car.name(carIndex));
         }
     }
 }

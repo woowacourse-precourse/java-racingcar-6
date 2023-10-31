@@ -5,6 +5,6 @@ public class Application {
         Car car = new Car(InputView.carNames());
         RacingCarGameConsole racingCarGameConsole
                 = new RacingCarGameConsole(car, InputView.timesToTry());
-        racingCarGameConsole.run();
+        racingCarGameConsole.play();
     }
 }
