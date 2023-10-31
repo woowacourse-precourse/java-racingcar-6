@@ -1,11 +1,10 @@
-package valid;
+package racingcar.valid;
 
 public class ValidCheck {
     public void checkNameNoInput(String name) {
         if (name.equals("")) {
             throw new IllegalArgumentException();
         }
-
     }
 
     public void checkNameLength(String name) {
@@ -13,5 +12,12 @@ public class ValidCheck {
             throw new IllegalArgumentException();
         }
     }
+
+    public void checkRacingCars(String[] cars) {
+        if (cars.length == 1) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 
 }

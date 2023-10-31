@@ -1,4 +1,4 @@
-package model;
+package racingcar.model;
 
 public class Car {
     private String name;
@@ -16,7 +16,7 @@ public class Car {
         runCount++;
     }
 
-    public int getRunCount(){
+    public int getRunCount() {
         return runCount;
     }
 }

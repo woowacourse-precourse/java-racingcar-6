@@ -1,10 +1,10 @@
-package control;
+package racingcar.control;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import message.RunningMessage;
-import model.Car;
+import racingcar.message.RunningMessage;
+import racingcar.model.Car;
 
 public class Race {
     int trial;
@@ -39,7 +39,6 @@ public class Race {
             message.printRunCount(car.getRunCount());
             getWinnerRun(car.getRunCount());
         }
-
         for (Car car : cars) {
             setWinner(car.getRunCount(), car.getCarName());
         }

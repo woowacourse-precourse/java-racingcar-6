@@ -1,9 +1,9 @@
-package control;
+package racingcar.control;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import model.Car;
-import valid.ValidCheck;
+import racingcar.model.Car;
+import racingcar.valid.ValidCheck;
 
 public class CarSetting {
     private String[] carName;
@@ -36,6 +36,7 @@ public class CarSetting {
 
     public void setCarName() {
         carName = Console.readLine().split(",");
+        validCheck.checkRacingCars(carName);
         for (String name : carName) {
             validCheck.checkNameLength(name);
             validCheck.checkNameNoInput(name);
@@ -43,7 +44,6 @@ public class CarSetting {
 
         setCar();
     }
-
 
 
     public void setCar() {
