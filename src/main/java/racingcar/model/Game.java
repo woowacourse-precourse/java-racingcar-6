@@ -1,18 +1,13 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
     public List<String> splitCarName(String carName) {
-        List<String> carNameList = new ArrayList<>();
-        String[] carNames = carName.split(",");
-
-        for (int i = 0; i < carNames.length; i++) {
-            carNameList.add(carNames[i]);
-        }
-        return carNameList;
+        return Arrays.stream(carName.split(",")).toList();
     }
 
     public List<String> judgeWinner(List<Car> cars) {
