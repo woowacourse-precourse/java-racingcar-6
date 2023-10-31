@@ -110,6 +110,10 @@ class OutputView {
         System.out.print(name);
     }
 
+    public void showColon() {
+        System.out.print(COLON);
+    }
+
 
 }
 
