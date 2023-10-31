@@ -2,9 +2,9 @@ package racingcar.view;
 
 
 import java.util.List;
-import racingcar.domain.RacingResult;
-import racingcar.domain.RacingRoundResult;
-import racingcar.dto.CarInfo;
+import racingcar.dto.CarDto;
+import racingcar.dto.RacingResultDto;
+import racingcar.dto.RacingRoundResultDto;
 
 public class RacingCarOutputView {
     private static final String RACING_EXECUTE_MESSAGE = "실행 결과";
@@ -16,26 +16,19 @@ public class RacingCarOutputView {
         System.out.println(RACING_EXECUTE_MESSAGE);
     }
 
-    public void printEachRacingResult(RacingResult racingResult) {
-        List<RacingRoundResult> racingRoundResults = racingResult.getRacingRoundResults();
-        for (RacingRoundResult racingRoundResult : racingRoundResults) {
-            printCarsNameAndPosition(racingRoundResult);
-        }
-    }
-
-    private void printCarsNameAndPosition(RacingRoundResult racingRoundResult) {
-        List<CarInfo> carInfoList = racingRoundResult.getCarInfos();
-        for (CarInfo carInfo : carInfoList) {
-            String carName = carInfo.name();
-            String positionProgress = carInfo.convertPositionValue();
+    public void printEachRacingResult(RacingRoundResultDto racingRoundResultDto) {
+        List<CarDto> carDtos = racingRoundResultDto.carDtos();
+        for (CarDto carDto : carDtos) {
+            String carName = carDto.name();
+            String positionProgress = carDto.convertPositionValue();
             String result = String.format(EACH_RACING_RESULT_FORMAT, carName, positionProgress);
             System.out.println(result);
         }
         System.out.println();
     }
 
-    public void printWinner(RacingResult racingResult) {
-        List<String> finalWinners = racingResult.getFinalWinners();
+    public void printWinner(RacingResultDto racingResultDto) {
+        List<String> finalWinners = racingResultDto.carNames();
         String result = String.join(DELIMITER, finalWinners);
         System.out.println(FINAL_WINNERS_MESSAGE + result);
     }
