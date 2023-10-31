@@ -19,4 +19,11 @@ public class NameInput {
         }
     }
 
+    static Car[] setNameInput(String[] nameArr, int n) {     // 이름으로 Car 인스턴스를 생성하는 함수
+        Car[] carArr = new Car[n];
+        for (int idx = 0; idx < n; idx++) {
+            carArr[idx] = new Car(nameArr[idx], 0);
+        }
+        return carArr;
+    }
 }
