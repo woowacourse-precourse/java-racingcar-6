@@ -38,7 +38,7 @@
 
 - [ ] 실행 횟수 moveNumber 만큼 반복 (repeatMove) [RaceProgression]
 
-  - [ ] 실행 결과 출력 (printMoveResult) [OutputView]
+  - [x] 실행 결과 출력 (printMoveResult) [OutputView]
 
   - [x] moveState에 moveCount 만큼 "-" 추가 기능 (increaseGoMark) [RaceReferee]
 
