@@ -19,6 +19,22 @@ public class Application {
         return MovedDistance;
     }
 
+    public static void printWinners(List<String> cars, List<Integer> carsMovedDistance) {
+        List<Integer> winners = new ArrayList<>();
+    }
+
+    public static List<Integer> findIndicesOfMaxDistance(List<Integer> carsMovedDistance) {
+        int maxDistance = Collections.max(carsMovedDistance);
+
+        List<Integer> maxDistanceIndics = new ArrayList<>();
+        for (int i = 0; i < carsMovedDistance.size(); i++) {
+            if (carsMovedDistance.get(i).equals(maxDistance)) {
+                maxDistanceIndics.add(i);
+            }
+        }
+        return maxDistanceIndics;
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -32,11 +48,10 @@ public class Application {
             for (int i = 0; i < cars.size(); i++) {
                 isMove(carsMovedDistance, i);
                 System.out.println(cars.get(i) + " : " + printCarMovedDistance(carsMovedDistance, i));
-
             }
             System.out.println();
             testNumber--;
         }
+        printWinners(cars, carsMovedDistance);
     }
-
 }
