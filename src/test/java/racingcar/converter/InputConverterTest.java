@@ -1,13 +1,13 @@
 package racingcar.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.game.car.Cars;
+import racingcar.domain.game.car.TrialCount;
 import racingcar.validator.InputValidator;
 
 class InputConverterTest {
@@ -35,9 +35,9 @@ class InputConverterTest {
     @ValueSource(strings = {"1", "10", "100", "1000"})
     void should_Convert_String_To_Numeric(String input) {
         // when
-        int trial = inputConverter.toTrial(input);
+        TrialCount trialCount = inputConverter.toTrialCount(input);
 
         // then
-        assertEquals(Integer.parseInt(input), trial);
+        assertThat(trialCount.getTrialCount()).isEqualTo(Integer.parseInt(input));
     }
 }
