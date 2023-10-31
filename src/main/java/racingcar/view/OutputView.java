@@ -4,7 +4,7 @@ import racingcar.Constants;
 
 public class OutputView {
     public static void printGameResult() {
-        System.out.println(Constants.OUTPUT_GAME_RESULT);
+        System.out.print(Constants.OUTPUT_GAME_RESULT);
     }
 
     public static void printGameWinner(String winner) {
@@ -21,5 +21,13 @@ public class OutputView {
 
     public static void printBlankLine() {
         System.out.print(Constants.OUTPUT_BLANK_LINE);
+    }
+
+    public static void printInputCarNames() {
+        System.out.print(Constants.INPUT_CAR_NAMES);
+    }
+
+    public static void printInputNumber() {
+        System.out.print(Constants.INPUT_NUMBER);
     }
 }
