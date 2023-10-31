@@ -18,9 +18,9 @@ public class GameController {
     private final GameView gameView;
     private final GameService gameService;
 
-    public GameController(GameView gameView) {
-        this.gameView = gameView;
-        this.cars = createNewCars();
+    public GameController() {
+        this.gameView = new ConsoleView();
+        this.gameService = new GameService();
     }
 
     public void startGame() {
