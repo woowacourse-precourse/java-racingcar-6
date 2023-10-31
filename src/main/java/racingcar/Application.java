@@ -34,9 +34,10 @@ public class Application {
 
     public static void startRacing() {
 
+        System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
 
-            checkRandomNumberAndUpdateCarScore();
+            GoOrStop();
             printCurrentState();
         }
 
@@ -44,16 +45,20 @@ public class Application {
         printWinner();
     }
 
-    public static void checkRandomNumberAndUpdateCarScore() {
+    public static void GoOrStop() {
 
         for (String carName : carNameList) {
 
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
+            checkRandomNumberAndUpdateCarScore(carName, randomNumber);
+        }
+    }
 
-                Car car = carInfo.get(carName);
-                car.plusScore();
-            }
+    private static void checkRandomNumberAndUpdateCarScore(String carName, int randomNumber) {
+        if (randomNumber >= 4) {
+
+            Car car = carInfo.get(carName);
+            car.plusScore();
         }
     }
 
