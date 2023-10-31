@@ -48,7 +48,6 @@ public class RacingController {
         racingViewer.showTryCountMessage();
         String tryCount = tryCountInput.returnTryCount();
         tryCountValidator.isNumber(tryCount);
-        tryCountValidator.isNumberInRange(tryCount);
 
         return Integer.parseInt(tryCount);
     }
@@ -64,6 +63,8 @@ public class RacingController {
         for (String name : carList.keySet()) {
             doesCarMove(carList, name);
         }
+        String currentPosition = emcee.returnCurrentPosition(carList);
+        racingViewer.showCurrentPosition(currentPosition);
     }
 
     private void doesCarMove(Map<String, Integer> carList, String name) {
@@ -71,6 +72,6 @@ public class RacingController {
 
         if (computer.judgeCarMovement(random)) {
             car.move(carList.get(name));
-        };
+        }
     }
 }

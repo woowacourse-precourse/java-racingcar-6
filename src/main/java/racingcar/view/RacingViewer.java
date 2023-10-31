@@ -22,6 +22,10 @@ public class RacingViewer {
         System.out.println();
     }
 
+    public void showCurrentPosition(String currentResult) {
+        System.out.println(currentResult);
+    }
+
     public void showWinnerMessage() {
         System.out.println(WINNER_MESSAGE);
     }
