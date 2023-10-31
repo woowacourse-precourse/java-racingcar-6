@@ -2,8 +2,6 @@ package racingcar;
 
 import static racingcar.Utils.checkSize;
 
-import java.util.ArrayList;
-
 public class Validation {
     public static void validateLengthOfName(String input) {
         if (checkSize(input) == Constants.MIN_NAME_LENGTH || checkSize(input) > Constants.MAX_NAME_LENGTH) {
@@ -23,7 +21,7 @@ public class Validation {
         }
     }
 
-    public static void isEmpty(ArrayList<String> input) {
+    public static void isEmpty(String input) {
         if (input.isEmpty()) { // 입력된 문자열이 비어있을 경우
             throw new IllegalArgumentException("올바르지 않은 입력이에요.");
         }

@@ -14,8 +14,8 @@ public class InputView {
     public ArrayList<String> getCarsName() {
         String carsName = Console.readLine();
         endsWithComma(carsName);
+        isEmpty(carsName);
         ArrayList<String> carNameList = splitCarName(carsName);
-        isEmpty(carNameList);
         return carNameList;
     }
 

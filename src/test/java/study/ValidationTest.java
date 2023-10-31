@@ -1,6 +1,5 @@
 package study;
 
-import java.util.ArrayList;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.Validation;
@@ -42,7 +41,7 @@ public class ValidationTest {
 
     @Test
     void null_name_test() {
-        ArrayList<String> name = new ArrayList<>();
+        String name = "";
         Assertions.assertThatThrownBy(() -> Validation.isEmpty(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("올바르지 않은 입력이에요.");
