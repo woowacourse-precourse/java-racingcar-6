@@ -34,7 +34,7 @@ public class InputValidation {
 
     public static void validateMoveCountRange(int carMovingCount) {
         if (carMovingCount < MOVING_MIN_COUNT || carMovingCount > MOVING_MAX_COUNT) {
-            throw new IllegalArgumentException("이동 횟수는" +  MOVING_MAX_COUNT + "회 이하로 입력하세요.");
+            throw new IllegalArgumentException("이동 횟수는" + MOVING_MAX_COUNT + "회 이하로 입력하세요.");
         }
     }
 }
