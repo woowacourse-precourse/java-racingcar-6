@@ -19,4 +19,12 @@ public class ValidTest {
         assertThatThrownBy(() -> checkLength(inputList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 이름_중복된_경우에_대한_예외_처리(){
+        List<String> inputList = new ArrayList<>(Arrays.asList("pobi", "woni", "jun", "pobi"));
+
+        assertThatThrownBy(() -> checkDuplicated(inputList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
