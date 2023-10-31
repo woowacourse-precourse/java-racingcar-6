@@ -29,7 +29,7 @@ public class RacingGame {
                 .map(Car::new)
                 .collect(Collectors.toList());
 
-        cnt = GameInput.inputRoundCnt();
+        cnt = GameInput.inputRoundToEndCnt();
 
         play();
     }

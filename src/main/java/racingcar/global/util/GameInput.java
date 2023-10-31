@@ -13,10 +13,10 @@ public final class GameInput {
      * 종료할 차수의 입력을 담당하는 메서드
      * @return
      */
-    public static int inputRoundCnt() {
+    public static int inputRoundToEndCnt() {
         System.out.println(INPUT_ROUND_CNT_COMMAND);
         String input = readLine();
-        return validateCnt(input);
+        return validateEndCnt(input);
     }
 
     /**
@@ -25,7 +25,7 @@ public final class GameInput {
      * @param input
      * @return
      */
-    public static int validateCnt(String input) {
+    public static int validateEndCnt(String input) {
         if (input.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_INPUT_VALUE.getType());
         }

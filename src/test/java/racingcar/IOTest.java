@@ -3,7 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.global.util.GameInput.validateCarList;
-import static racingcar.global.util.GameInput.validateCnt;
+import static racingcar.global.util.GameInput.validateEndCnt;
 
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +33,7 @@ public class IOTest {
     public void 입력값이_비어_있는_경우_예외처리() {
         String input1 = "";
         String[] input2 = new String[]{""};
-        assertThatThrownBy(() -> validateCnt(input1))
+        assertThatThrownBy(() -> validateEndCnt(input1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("입력 값이 비어 있습니다.");
         assertThatThrownBy(() -> validateCarList(input2))
@@ -45,7 +45,7 @@ public class IOTest {
     public void 입력된_회차_형식이_숫자가_아닌_경우_예외처리() {
         String input = "!";
 
-        assertThatThrownBy(() -> validateCnt(input))
+        assertThatThrownBy(() -> validateEndCnt(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자 형식이 올바르지 않습니다.");
     }
