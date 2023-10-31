@@ -2,16 +2,11 @@ package racingcar;
 
 public class ResultView {
 
-    void showCurrentPosition(int currentCount, int successCount) {
-        if(currentCount < successCount) {
-            for(int i = 0; i < currentCount; i++) {
-                System.out.println("-");
-            }
-            System.out.println("");
-            return;
-        }
-
-        for(int i = 0; i < successCount; i++) {
+    public ResultView() {
+        System.out.println("실행결과");
+    }
+    void printPositionHistory(int moveCount) {
+        for(int i=0; i <= moveCount; i++) {
             System.out.print("-");
         }
         System.out.println("");
