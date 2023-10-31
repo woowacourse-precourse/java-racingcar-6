@@ -9,7 +9,9 @@ public class MoveCnt {
     }
 
     public MoveCnt(String moveCnt) {
+        moveCnt = moveCnt.trim();
         validateMoveCnt(moveCnt);
+
         this.moveCnt = Integer.parseInt(moveCnt);
     }
 
