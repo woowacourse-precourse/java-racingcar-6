@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class Judge {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Judge(List<Car> cars) {
         this.cars = cars;
@@ -18,9 +18,9 @@ public class Judge {
     }
 
     private int getMaxPosition() {
-        Optional<Integer> maxPoisition = cars.stream()
+        Optional<Integer> maxPosition = cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compareTo);
-        return maxPoisition.get();
+        return maxPosition.get();
     }
 }
