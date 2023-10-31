@@ -28,11 +28,6 @@ public class OutputView {
     }
 
     public static String drawDistance(int distance) {
-//        String result = "";
-//        for (int i = 0; i < distance; i++) {
-//            result += "-";
-//        }
-//        return result;
         return "-".repeat(Math.max(0, distance));
     }
 
