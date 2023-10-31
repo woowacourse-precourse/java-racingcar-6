@@ -12,9 +12,10 @@ public class GenerateRanNum {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public HashMap<String, Integer> carHashMap(String[] carList) {
+    public HashMap<String, Integer> carHashMap(String[] carNames) {
         HashMap<String, Integer> carMap = new HashMap<>();
-        for (String car : carList) {
+
+        for (String car : carNames) {
             int ranNum = ranNum();
             carMap.put(car, ranNum);
         }
