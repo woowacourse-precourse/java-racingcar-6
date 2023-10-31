@@ -23,7 +23,7 @@ public class TryCount {
         }
     }
 
-    public void validateTryCountRange(String inputTryCount) {
+    public void validateTryCountInRange(String inputTryCount) {
         int tryCount = Integer.parseInt(inputTryCount);
         if (tryCount < 1 || tryCount > 10) {
             throw new IllegalArgumentException("시도 횟수는 1이상 10이하로 입력해 주세요.");

@@ -22,7 +22,7 @@
   - [ ] 예외 처리를 모두 거친 시도 횟수를 반환한다. TryCount#validateTryCount()
     - [x] 입력 받은 값은 빈 문자열이 아니다. TryCount#validateTryCountNotEmpty()
     - [x] 입력 받은 값은 숫자이다. TryCount#validateTryCountIsNumber()
-    - [x] 입력 받은 값은 1이상 10이하 이다. TryCount#validateTryCountRange()
+    - [x] 입력 받은 값은 1이상 10이하 이다. TryCount#validateTryCountInRange()
 
 - 
 
