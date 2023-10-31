@@ -4,13 +4,12 @@ import java.util.Map;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Input {
-    public Map<String, Integer> carName() {
-        Map<String, Integer> parkingLot = null;
+    public String[] carName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carlist = readLine();
         if (!Check.checkCarName(carlist)) throw new IllegalStateException();
-        parkingLot = carDistance(parkingLot, carlist);
-        return parkingLot;
+        String[] parkingList = carlist.split(",");
+        return parkingList;
     }
 
     public Map<String,Integer> carDistance(Map<String,Integer> parkingLot,String carlist) {
