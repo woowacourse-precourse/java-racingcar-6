@@ -15,6 +15,7 @@ public class InitDTO {
     }
 
     private int toInt(String text) {
+        isNotNull(text);
         int rounds = validateRounds(text);
         return rounds;
     }
@@ -32,6 +33,7 @@ public class InitDTO {
     }
 
     public List<String> toStringList(String text) {
+        isNotNull(text);
         List<String> carNames = Arrays.asList(text.split(NAME_SEPARATOR));
         validateNames(carNames);
         return carNames;
@@ -43,6 +45,12 @@ public class InitDTO {
                 throw new IllegalArgumentException("자동차의 이름은 5글자 이하 여야 합니다.");
             }
         });
+    }
+
+    public void isNotNull(String text){
+        if(text == null || text.isEmpty()){
+            throw new IllegalArgumentException("입력값이 없습니다.");
+        }
     }
 
     public List<String> getCarNames() {
