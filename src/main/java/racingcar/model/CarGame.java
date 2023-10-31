@@ -1,12 +1,15 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class CarGame {
-    private final List<Cars> cars = new ArrayList<>();
+    private final List<Cars> cars;
     private int playCount;
+
+    public CarGame(List<Cars> cars) {
+        this.cars = cars;
+    }
 
     public void setCars(String name) {
         saveDivideName(name);
