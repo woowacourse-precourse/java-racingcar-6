@@ -98,4 +98,13 @@ class CreateCarTest {
         createCar.validateCarCount(carNames);
     }
 
+    @Test
+    void 자동차_수가_1대인_경우_예외가_발생한다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("페라리");
+        assertThatThrownBy(() -> createCar.validateCarCount(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차의 수는 2대 이상 10대 이하만 가능합니다.");
+    }
+
 }
