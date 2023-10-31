@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class Cars {
     ArrayList<Car> cars = new ArrayList<>();
 
-    public Cars(ArrayList<String> inputList){
-        for (String s : inputList) {
-            cars.add(new Car(s));
+    public Cars(ArrayList<String> inputCarNames){
+        for (String inputCarName : inputCarNames) {
+            cars.add(new Car(inputCarName));
         }
     }
 
