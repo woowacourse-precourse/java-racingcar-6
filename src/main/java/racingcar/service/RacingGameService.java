@@ -1,7 +1,8 @@
-package racingcar.domain;
+package racingcar.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.RoundCount;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarName;
 import racingcar.domain.position.Position;
@@ -11,16 +12,16 @@ import racingcar.dto.RoundResultDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGame {
+public class RacingGameService {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final Referee referee;
+    private final RefereeService refereeService;
 
-    public RacingGame(InputView inputView, OutputView outputView, Referee referee) {
+    public RacingGameService(InputView inputView, OutputView outputView, RefereeService refereeService) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.referee = referee;
+        this.refereeService = refereeService;
     }
 
     public void run() {
@@ -29,13 +30,13 @@ public class RacingGame {
         RoundCount roundCount = readRaceRoundCount();
         outputView.showExecutedMessage();
         executeWholeRounds(participants, roundCount);
-        GameResultDto gameResult = referee.publishGameResult(participants);
+        GameResultDto gameResult = refereeService.publishGameResult(participants);
         outputView.showGameResult(gameResult);
     }
 
     private void executeWholeRounds(List<Car> participants, RoundCount roundCount) {
         while (roundCount.hasNextRound()) {
-            RoundResultDto roundResultDto = referee.executeRound(participants);
+            RoundResultDto roundResultDto = refereeService.executeRound(participants);
             outputView.showRoundResult(roundResultDto);
             roundCount.consumeRound();
         }

@@ -2,7 +2,7 @@ package racingcar.domain.power;
 
 public class Power {
 
-    private int value;
+    private final int value;
 
     public Power(int value) {
         this.value = value;

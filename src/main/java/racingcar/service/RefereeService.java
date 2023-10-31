@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -8,7 +8,7 @@ import racingcar.domain.position.Position;
 import racingcar.dto.GameResultDto;
 import racingcar.dto.RoundResultDto;
 
-public class Referee {
+public class RefereeService {
 
     public GameResultDto publishGameResult(List<Car> cars) {
         return GameResultDto.createFrom(selectWinners(cars));

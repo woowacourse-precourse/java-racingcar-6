@@ -9,12 +9,12 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Referee;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarName;
 import racingcar.domain.position.Position;
 import racingcar.domain.power.DefaultPowerGenerator;
 import racingcar.dto.RoundResultDto;
+import racingcar.service.RefereeService;
 
 @DisplayName("뷰 로직 테스트")
 class OutputViewTest {
@@ -54,8 +54,8 @@ class OutputViewTest {
         );
 
         String expectedOutput = "최종 우승자 : car2,car3";
-        Referee referee = new Referee();
-        outputView.showGameResult(referee.publishGameResult(cars));
+        RefereeService refereeService = new RefereeService();
+        outputView.showGameResult(refereeService.publishGameResult(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
@@ -69,8 +69,8 @@ class OutputViewTest {
         );
 
         String expectedOutput = "최종 우승자 : car2";
-        Referee referee = new Referee();
-        outputView.showGameResult(referee.publishGameResult(cars));
+        RefereeService refereeService = new RefereeService();
+        outputView.showGameResult(refereeService.publishGameResult(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 }

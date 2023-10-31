@@ -1,15 +1,16 @@
 package racingcar.controller;
 
-import racingcar.domain.RacingGame;
-import racingcar.domain.Referee;
+import racingcar.service.RacingGameService;
+import racingcar.service.RefereeService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
 
     public void runRacingGame() {
-        RacingGame racingGame = new RacingGame(new InputView(), new OutputView(), new Referee());
-        racingGame.run();
+        RacingGameService racingGameService = new RacingGameService(new InputView(), new OutputView(),
+                new RefereeService());
+        racingGameService.run();
     }
 
 
