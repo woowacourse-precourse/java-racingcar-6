@@ -7,6 +7,10 @@ import racingcar.Car;
 public class OutputView {
     public static final String CAR_FORMAT = "%s : %s%n";
 
+    public void printStartMessage() {
+        System.out.println("\n실행 결과");
+    }
+
     public void printCars(List<Car> participatingCars) {
         String carsOutput = participatingCars.stream()
                 .map(car -> String.format(CAR_FORMAT, car.getName(), getCarMovement(car.getLocation())))

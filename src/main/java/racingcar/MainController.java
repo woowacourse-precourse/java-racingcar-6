@@ -33,7 +33,7 @@ public class MainController {
     }
 
     private void initCarRacing() {
-        System.out.println("\n실행 결과");
+        outputView.printStartMessage();
         while (!race.isRaceOver()) {
             race.startCarRacing();
             outputView.printCars(race.getParticipatingCars());
