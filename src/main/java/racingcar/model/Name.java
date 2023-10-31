@@ -1,7 +1,8 @@
 package racingcar.model;
 
+import static racingcar.model.SystemValueConstants.nameMax;
+
 public class Name {
-    private static final int LENGTH_MAX = 5;
     private final String name;
 
     private Name(String name) {
@@ -20,7 +21,7 @@ public class Name {
 
     private static void validLength(String userInputList) {
 
-        if (userInputList.length() > LENGTH_MAX) {
+        if (userInputList.length() > nameMax()) {
             throw new IllegalArgumentException();
         }
     }

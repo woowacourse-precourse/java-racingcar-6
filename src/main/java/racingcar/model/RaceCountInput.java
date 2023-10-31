@@ -1,10 +1,9 @@
 package racingcar.model;
 
 import static racingcar.model.OutputConstants.INTEGER;
+import static racingcar.model.SystemValueConstants.countMin;
 
 public class RaceCountInput {
-
-    private static final int COUNT_MIN = 1;
 
     private final int raceCount;
 
@@ -32,7 +31,7 @@ public class RaceCountInput {
 
     private static void validNotZero(int userCount) {
 
-        if (userCount < COUNT_MIN) {
+        if (userCount < countMin()) {
             throw new IllegalArgumentException();
         }
     }

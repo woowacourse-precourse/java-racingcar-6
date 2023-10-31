@@ -1,19 +1,20 @@
 package racingcar.model;
 
+import static racingcar.model.SystemValueConstants.loopMax;
+import static racingcar.model.SystemValueConstants.loopMin;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator {
 
     private final int randomNumber;
-    private static final int MIN_NUM = 0;
-    private static final int MAX_NUM = 9;
 
     private RandomNumberGenerator(int randomNumber) {
         this.randomNumber = randomNumber;
     }
 
     public static RandomNumberGenerator createNumberGenerator() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
+        int randomNumber = Randoms.pickNumberInRange(loopMin(), loopMax());
         return new RandomNumberGenerator(randomNumber);
     }
 

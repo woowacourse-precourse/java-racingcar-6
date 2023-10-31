@@ -1,16 +1,16 @@
 package racingcar.model;
 
+import static racingcar.model.SystemValueConstants.defaultLocation;
+
 public class CurrentLocation {
     private int current;
-
-    private static final int DEFAULT_LOCATION = 0;
 
     private CurrentLocation(int current) {
         this.current = current;
     }
 
     public static CurrentLocation createCurrentLocation() {
-        return new CurrentLocation(DEFAULT_LOCATION);
+        return new CurrentLocation(defaultLocation());
     }
 
     public int getCurrent() {

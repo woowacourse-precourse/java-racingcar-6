@@ -1,11 +1,13 @@
 package racingcar.model;
 
+import static racingcar.model.SystemValueConstants.forwardStandard;
+import static racingcar.model.SystemValueConstants.loopMin;
+
 import java.util.List;
 import racingcar.view.OutputView;
 
 public class RacingGame {
 
-    private static final int FORWARD = 4;
     private final Cars cars;
     private final RaceCountInput raceCountInput;
 
@@ -16,7 +18,7 @@ public class RacingGame {
 
     public void startGame() {
         System.out.println();
-        for (int i = 0; i < raceCountInput.getRaceCount(); i++) {
+        for (int i = loopMin(); i < raceCountInput.getRaceCount(); i++) {
             playRound();
             displayRoundResults();
         }
@@ -25,8 +27,7 @@ public class RacingGame {
 
     private void playRound() {
         for (Car car : cars.getCars()) {
-
-            if (getRandomNumber() >= FORWARD) {
+            if (getRandomNumber() >= forwardStandard()) {
                 car.move();
             }
         }
