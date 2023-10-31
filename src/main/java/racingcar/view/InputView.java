@@ -8,10 +8,10 @@ import racingcar.utils.GameCountValidator;
 
 public class InputView {
 
-    public String inputGameCount() {
+    public int inputGameCount() {
         String gameCount = Console.readLine();
         GameCountValidator.validatePositiveDigitAnInRangeGameCount(gameCount);
-        return gameCount;
+        return Integer.parseInt(gameCount);
     }
 
     public List<String> inputCarNames() {
