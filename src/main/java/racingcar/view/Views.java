@@ -35,6 +35,13 @@ public class Views {
         System.out.print(LAST_WINNER_MESSAGE);
     }
 
-
+    public void printWinner(List<String> winnerName){
+        for(int i = 0 ; i < winnerName.size(); i++){
+            System.out.print(winnerName.get(i));
+            if(i < winnerName.size() - 1){
+                System.out.print(",");
+            }
+        }
+    }
 
 }
