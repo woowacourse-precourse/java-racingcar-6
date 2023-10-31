@@ -10,7 +10,7 @@ public class ExtractElementUtil {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
-    public int extractTrialNumber(String input) {
+    public int convertTrialNumber(String input) {
         return Integer.parseInt(input);
     }
 }
