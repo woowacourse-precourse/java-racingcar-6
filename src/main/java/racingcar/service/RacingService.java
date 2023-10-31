@@ -6,8 +6,11 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.NoticeType;
 
 public class RacingService {
+
+    private final int DIGIT = 4;
     public List<String> stringToList(String str) {
         String[] strArr = str.split(",");
         return new ArrayList<>(Arrays.asList(strArr));
@@ -29,15 +32,15 @@ public class RacingService {
     public List<Car> attempt(List<Car> cars) {
         for (Car car : cars) {
             int rNum = generateRandomNum();
-            if (isMorethanDigit(rNum, 4)) { // 4 digit처리
+            if (isMorethanDigit(rNum, DIGIT)) {
                 car.forward(rNum);
             }
         }
-        printCurrentState(cars);
+        printAttemptResult(cars);
         return cars;
     }
 
-    public void printCurrentState(List<Car> cars) {
+    public void printAttemptResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
             for (int i = 0; i < car.getCurrent(); i++) { //함수(printBar)로 빼야되나
@@ -63,7 +66,7 @@ public class RacingService {
     }
 
     public void printWinners(List<String> winners) {
-        System.out.print("최종 우숭자: ");
+        System.out.print(NoticeType.PRINT_WINNER.getMessage());
         System.out.println(String.join(", ", winners));
     }
 
