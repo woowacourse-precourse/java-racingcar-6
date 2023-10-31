@@ -1,14 +1,8 @@
 package racingcar.service;
 
-import racingcar.enums.CarType;
 import racingcar.enums.GameSettingType;
-import racingcar.model.Attempts;
-import racingcar.model.Car;
-import racingcar.model.Cars;
+import racingcar.model.*;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 
 public class Referee {
@@ -22,37 +16,22 @@ public class Referee {
 
     public boolean anyCarReaches() {
         for (Car car : cars.getCarList()) {
-            if (isReached(car)) {
+            if (car.getDistance().length() == attempts.getNumber()) {
                 return true;
             }
         }
         return false;
     }
 
-    public List<Map<CarType, String>> getPlayResults() {
-        cars.everyCarMoveForward();
-
-        List<Map<CarType, String>> results = new ArrayList<>();
-        for (Car car : cars.getCarList()) {
-            Map<CarType, String> result = new EnumMap<>(CarType.class);
-            result.put(CarType.CAR_NAME, car.getName());
-            result.put(CarType.DISTANCE, car.getDistance());
-            results.add(result);
-        }
-        return results;
+    public Cars getCars() {
+        return cars;
     }
 
-    public List<String> getWinnersNames() {
-        List<String> winnerNames = new ArrayList<>();
-        for (Car car : cars.getCarList()) {
-            if (isReached(car)) {
-                winnerNames.add(car.getName());
-            }
-        }
-        return winnerNames;
+    public PlayResults getPlayResults() {
+        return new PlayResults(this.cars);
     }
 
-    private boolean isReached(Car car) {
-        return car.getDistance().length() == attempts.getNumber();
+    public Winners getWinnersNames() {
+        return new Winners(this.cars, this.attempts);
     }
 }
