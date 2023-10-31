@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.GameConstant;
+import racingcar.constant.message.CarGenerationErrorMessage;
 import racingcar.constant.message.CarNamesInputErrorMessage;
 
 public class Car {
@@ -41,7 +42,9 @@ public class Car {
         if (randomValue < GameConstant.MOVE_OR_STOP_BOUNDARY_VALUE
                 && randomValue >= GameConstant.RANDOM_VALUE_LOWER_LIMIT) {
             stop();
+            return;
         }
+        throw new IllegalArgumentException(CarGenerationErrorMessage.RANDOM_VALUE_NOT_IN_APPROPRIATE_RANGE);
     }
 
     private int makeRandomValue() {
