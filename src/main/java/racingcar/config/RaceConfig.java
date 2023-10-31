@@ -12,12 +12,17 @@ public class RaceConfig {
 
     public RaceManager getRaceManager() {
 
-        CarFactory carFactory = new CarFactory();
+        List<Car> cars = getCars();
         CarService carService = new CarService();
-        List<Car> cars = carFactory.generateCars();
         InputManager inputManager = new InputManager();
         OutputManager outputManager = new OutputManager(cars);
 
         return new RaceManager(cars, carService, inputManager, outputManager);
+    }
+
+    private List<Car> getCars(){
+
+        CarFactory carFactory = new CarFactory();
+        return carFactory.generateCars();
     }
 }
