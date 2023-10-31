@@ -27,6 +27,16 @@ public class Application {
 		return result;
 	}
 	
+	public static void print_result(String name, int num) { // 결과 출력하기
+		System.out.print(name + " : ");
+		for (int i = 0; i < num; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
+	}
+	
+	
+	
     public static void main(String[] args) {
     	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -41,5 +51,16 @@ public class Application {
 		// 시도할 횟수 입력받기
 		String s = Console.readLine();
 		int num = Integer.parseInt(s);
+		
+		// 실행결과 출력하기
+		System.out.println("\n실행 결과");
+		while (num != 0) {
+			for (int i = 0; i < usernum; i++) {
+				result[i] += get_move();
+				print_result(user[i], result[i]);
+			}
+			System.out.println();
+			num--;
+		}
     }
 }
