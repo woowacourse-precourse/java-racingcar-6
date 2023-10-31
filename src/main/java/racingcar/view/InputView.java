@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Attempt;
 import racingcar.domain.Car;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
@@ -22,7 +23,7 @@ public class InputView {
     }
 
     private static List<String> splitNames(String line) {
-        return List.of(line.split(","));
+        return Arrays.stream(line.split(",")).map(String::trim).toList();
     }
 
     public Attempt getAttempt() {
