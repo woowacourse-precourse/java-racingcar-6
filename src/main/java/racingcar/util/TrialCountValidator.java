@@ -21,15 +21,19 @@ public final class TrialCountValidator {
         Pattern pattern = Pattern.compile(POSITIVE_NUMBER_REGEX);
         Matcher matcher = pattern.matcher(trialCount);
         if (!matcher.find()) {
-            throw new IllegalArgumentException(POSITIVE_NUMBER_ERROR_MESSAGE);
+            throwException(POSITIVE_NUMBER_ERROR_MESSAGE);
         }
     }
 
     private static void validateIntegerRange(final String trialCount) {
         long parseLong = Long.parseLong(trialCount);
         if (parseLong > Integer.MAX_VALUE) {
-            throw new IllegalArgumentException(INTEGER_RANGE_ERROR_MESSAGE);
+            throwException(INTEGER_RANGE_ERROR_MESSAGE);
         }
+    }
+
+    private static void throwException(final String errorMessage) {
+        throw new IllegalArgumentException(errorMessage);
     }
 
 }
