@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-    private InputManager inputManager;
+    private InputView inputView;
     List<RandomCar> randomCars = new ArrayList<>();
 
-    public GameManager(InputManager inputManager) {
-        this.inputManager = inputManager;
+    public GameManager(InputView inputView) {
+        this.inputView = inputView;
     }
 
     public void launch() {
-        List<String> names = inputManager.inputCarNames();
+        List<String> names = inputView.inputCarNames();
         createRandomCars(names);
 
-        int attemptCount = inputManager.inputMoveNumber();
+        int attemptCount = inputView.inputMoveNumber();
         moveRandomCars(attemptCount);
 
         printWinnerCars();

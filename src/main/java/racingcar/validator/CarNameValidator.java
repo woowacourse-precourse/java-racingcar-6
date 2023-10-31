@@ -54,14 +54,11 @@ public class CarNameValidator {
 
     private static boolean hasLongerNames(String[] carNames) {
         for (String carName : carNames) {
-            String name = carName.trim();
-            if (name.length() > MAX_CAR_NAME_LENGTH) {
+            if (carName.length() > MAX_CAR_NAME_LENGTH) {
                 return true;
             }
         }
 
         return false;
     }
-
-
 }
