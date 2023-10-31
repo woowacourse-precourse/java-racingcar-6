@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 
 public class GameViewTest {
     private InputStream inputStream = System.in;
+    private static final String ZERO_GAME_ERROR = "경주는 최소 1번 이상 진행되어야합니다.";
+    private static final String NO_NUMBER_ERROR = "이름의 크기가 5를 초과했습니다";
 
     @BeforeEach
     void init() {
@@ -33,7 +35,8 @@ public class GameViewTest {
     void 시도횟수_입력_검증1() {
         System.setIn(new ByteArrayInputStream("0".getBytes()));
         assertThatThrownBy(() -> gameView.getTotalRounds())
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ZERO_GAME_ERROR);
     }
 
     @DisplayName("시도할 횟수 검증 테스트2")
@@ -41,6 +44,7 @@ public class GameViewTest {
     void 시도횟수_입력_검증2() {
         System.setIn(new ByteArrayInputStream("ab".getBytes()));
         assertThatThrownBy(() -> gameView.getTotalRounds())
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NO_NUMBER_ERROR);
     }
 }
