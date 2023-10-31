@@ -4,6 +4,7 @@ import java.util.*;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCarRace;
+import racingcar.utils.Validity;
 import racingcar.view.RacingCarGameView;
 
 import static racingcar.utils.Constants.COMMA;
@@ -49,14 +50,37 @@ public class RacingCarGame {
     private String[] getCarName() {
         view.enterCarNames();
         String carNamesStr = Console.readLine();
-        // TODO 유효성 체크
-        return carNamesStr.split(COMMA);
+
+        if(carNamesStr == null) {
+            throw new IllegalArgumentException();
+        }
+
+        String[] carNames = carNamesStr.split(COMMA);
+        for(String carName: carNames) {
+            carNameValidCheck(carName);
+        }
+
+        return carNames;
+    }
+
+    private void carNameValidCheck(String carName) {
+        if(!Validity.isLessThanFiveCharacters(carName)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private int getTotalMoveCount() {
         view.enterTotalMoveCount();
         String totalMoveCountStr = Console.readLine();
-        // TODO 유효성 체크
+
+        if(totalMoveCountStr == null) {
+            throw new IllegalArgumentException();
+        }
+
+        if(!Validity.isPlusIntNumber(totalMoveCountStr)) {
+            throw new IllegalArgumentException();
+        }
+
         return Integer.parseInt(totalMoveCountStr);
     }
 }
