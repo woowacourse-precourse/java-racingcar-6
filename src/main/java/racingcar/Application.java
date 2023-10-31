@@ -16,6 +16,7 @@ public class Application {
         createCars(Console.readLine().trim());
         System.out.println("시도할 회수는 몇회인가요?");
         Integer trialNumber = saveTrialNumber(Console.readLine().trim());
+        System.out.println("\n실행결과");
         drive(trialNumber);
     }
 
@@ -49,17 +50,29 @@ public class Application {
     private static void drive(Integer saveTrialNumber) {
         for (int i = 0; i<saveTrialNumber; i++) {
             updateDriveNum(createDriveCarNum());
+            driveResult();
+            System.out.println("");
         }
-
     }
     private static void updateDriveNum(Integer createDriveCarNum) {
         for (Car car : cars) {
             car.setDriveNum(createDriveCarNum());
         }
-        for (Car car : cars) {
-            System.out.println(car.getDriveNum());
+    }
+    private static String makeResultSign(int number) {
+        String resultSign="";
+        for (int i = 0; i<number; i++) {
+            resultSign+="-";
+        }
+        return resultSign;
+    }
+
+    private static void driveResult() {
+        for (Car car : cars ) {
+            System.out.println(car.getName()+" : "+makeResultSign(car.getDriveNum()));
         }
     }
+
 
     private static Integer saveTrialNumber(String trialNumberInput) {
         try {
