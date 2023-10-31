@@ -24,7 +24,6 @@ class RacingTest {
         int moveCount = 5;
 
         cars.add(new Car("tayo"));
-        cars.add(new Car("gani"));
 
         int actualCount = 0;
         for (int i = 0; i < moveCount; i++) {
