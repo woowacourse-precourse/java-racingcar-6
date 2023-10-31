@@ -26,7 +26,7 @@ public class RaceController {
     private void play(Cars cars, Integer totalCount) {
         View.printlnMessage(RESULT_MESSAGE);
         for (int count = 0; count < totalCount; count++) {
-            raceService.playRace(cars);
+            cars.tryMoveCars();
             View.printlnString(cars.toString());
         }
     }
