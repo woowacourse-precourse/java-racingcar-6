@@ -11,7 +11,7 @@ public class Client {
         this.tryNumber = ClientValidator.getValidatedBigIntegerValue(inputtedTryNumber);
     }
 
-    BigInteger getTotalRounds() {
+    public BigInteger getTotalRounds() {
         return tryNumber;
     }
 }
