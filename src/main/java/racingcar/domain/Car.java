@@ -4,7 +4,7 @@ package racingcar.domain;
  * 자동차 경주 게임에서 사용되는 Car 클래스.
  */
 public class Car {
-    private String name;
+    private final String name;
     private int position = 0;
 
     /**
@@ -62,6 +62,11 @@ public class Car {
      */
     public static String generatePositionString(int position) {
         return "-".repeat(position);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", name, getPositionRepresentation());
     }
 }
 
