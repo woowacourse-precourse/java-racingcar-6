@@ -3,6 +3,7 @@ package study;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.assertj.core.api.StringAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -15,6 +16,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+// https://assertj.github.io/doc/#overview-what-is-assertj
 public class StringTest {
 
     @Test
@@ -289,5 +291,174 @@ public class StringTest {
         assertThat(list)
                 .filteredOn(value -> value.contains("apple")) // 'apple'를 포함하는 객체들을 필터링하고
                 .containsOnly("apple"); // 'banana'과 'orange'만을 포함하는지 검증한다.
+    }
+
+    @DisplayName("기본적인_assertions_사용법")
+    @Test
+    public void 기본적인_assertions_사용법() throws Exception {
+        Human frodo = new Human("Frodo");
+        Human sauron = new Human("Sauron");
+
+        // basic assertions
+        assertThat(frodo.getName()).isEqualTo("Frodo");
+        assertThat(frodo).isNotEqualTo(sauron);
+
+        // chaining string specific assertions
+        assertThat(frodo.getName()).startsWith("Fro")
+                .endsWith("do")
+                .isEqualToIgnoringCase("frodo");
+    }
+
+    @DisplayName("collection_에_Assertions_적용하기")
+    @Test
+    public void collection_에_Assertions_적용하기() throws Exception {
+        // given
+        Human frodo = new Human("Frodo");
+        Human sam = new Human("Sam");
+        Human seung = new Human("Seung");
+        Human chan = new Human("Chan");
+        Human sauron = new Human("Sauron");
+
+        List<Human> fellowshipOfTheRing = List.of(frodo, sam, seung, chan);
+
+        // than
+        assertThat(fellowshipOfTheRing).hasSize(4)
+                .contains(frodo, sam)
+                .doesNotContain(sauron);
+    }
+
+    @DisplayName("as_을_활용한_메세지보내기")
+    @Test
+    public void as_을_활용한_메세지보내기() throws Exception {
+        // given
+        Human frodo = new Human("Frodo");
+
+        // then
+        // as()는 테스트를 설명하는 데 사용되며 오류 메시지 앞에 표시됩니다.
+        // 오류일때 as() 발동
+        // ex) org.opentest4j.AssertionFailedError: [check Frodo's age]
+        assertThat(frodo.getAge()).as("check %s's age", frodo.getName()).isEqualTo(33);
+        assertThat(frodo.getAge()).as("check %s's age", frodo.getAge()).isEqualTo(33);
+        assertThat(frodo.getAge()).as("check %s's age", frodo.isTrue()).isEqualTo(33);
+    }
+
+    @DisplayName("Satisfy_을_활용한_assertions_List_확인하기")
+    @Test
+    public void Satisfy_을_활용한_assertions_List_확인하기() throws Exception {
+        // given
+        Human frodo = new Human("Frodo");
+        Human sam = new Human("Sam");
+        Human pippin = new Human("Pippin");
+
+        List<Human> humansList = List.of(frodo, sam, pippin);
+
+        // than
+        // 모든 요소는 주어진 주장을 만족해야 합니다.
+        assertThat(humansList).allSatisfy(human -> {
+            assertThat(human.getName()).isNotEqualTo("Sauron");
+        });
+
+        // 최소한 하나의 요소가 주어진 주장을 만족해야 합니다.
+        assertThat(humansList).anySatisfy(human -> {
+            assertThat(human.getName()).isEqualTo("Sam");
+        });
+
+        // 어떤 요소도 주어진 주장을 만족해서는 안 됩니다.
+        assertThat(humansList).noneSatisfy(human ->
+                assertThat(human.getName()).isEqualTo("NOTTING")
+        );
+    }
+
+    @DisplayName("allMatch_anyMatch_noneMatch_을_활용한_테스트")
+    @Test
+    public void allMatch_anyMatch_noneMatch_을_활용한_테스트() throws Exception {
+        // given
+        Human frodo = new Human("Frodo");
+        Human sam = new Human("Sam");
+        Human pippin = new Human("Pippin");
+
+        List<Human> humansList = List.of(frodo, sam, pippin);
+
+        // than
+        assertThat(humansList).
+                // 모든 요소는 주어진 주장을 만족해야 합니다.
+                        allMatch(human -> human.getAge() == 33, "age")
+
+                // 모든 요소는 주어진 주장을 만족해야 합니다.
+                .allMatch(human -> human.getAge() == 33)
+
+                // 최소한 하나의 요소가 주어진 주장을 만족해야 합니다.
+                .anyMatch(character -> character.getName().contains("pp"))
+
+                // 어떤 요소도 주어진 주장을 만족해서는 안 됩니다.
+                .noneMatch(character -> character.getName() == "NOTTING");
+    }
+
+    @DisplayName("element_index_을_활용한_테스트")
+    @Test
+    public void element_index_을_활용한_테스트() throws Exception {
+        // given
+        Human frodo = new Human("Frodo");
+        Human sam = new Human("Sam");
+        Human pippin = new Human("Pippin");
+
+        List<Human> humansList = List.of(frodo, sam, pippin);
+
+        // then
+        // index을 활용한 List 탐색
+        assertThat(humansList).first().isEqualTo(frodo);
+        assertThat(humansList).element(1).isEqualTo(sam);
+        assertThat(humansList).last().isEqualTo(pippin);
+
+        // 강력한 문자열 TYPE Assertions 테스트
+        Iterable<String> humanName = List.of("frodo", "sam", "pippin");
+
+        // STRING is 문자표식
+        // as()은 가독성을 위한 표식
+        assertThat(humanName).first(as(STRING))
+                .startsWith("fro")
+                .endsWith("do");
+
+        assertThat(humanName).element(1, as(STRING))
+                .startsWith("sa")
+                .endsWith("am");
+
+        assertThat(humanName).last(as(STRING))
+                .startsWith("pip")
+                .endsWith("pin");
+
+        // 강력한 TYPE Assertions 테스트
+        assertThat(humanName, StringAssert.class).first()
+                .startsWith("fro")
+                .endsWith("do");
+    }
+}
+
+class Human {
+    private String name;
+    private int age;
+    private boolean isTrue;
+
+    public Human(String name) {
+        this.name = name;
+        age = 33;
+        isTrue = true;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public boolean isTrue() {
+        return isTrue;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
