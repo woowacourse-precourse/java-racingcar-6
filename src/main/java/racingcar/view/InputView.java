@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.Validator;
+import racingcar.error.ErrorCode;
 
 public class InputView {
     public List<String> askCarNames() {
@@ -14,7 +15,7 @@ public class InputView {
         if (validator.isValidCarNames(carNames)) {
             return carNames;
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.EXCEED_LENGTH.getMessage());
         }
     }
 
@@ -24,7 +25,7 @@ public class InputView {
         if (validator.isValidTryCount(tryCount)) {
             return Integer.parseInt(tryCount);
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorCode.INVALID_TRY_COUNT.getMessage());
         }
     }
 }
