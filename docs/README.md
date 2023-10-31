@@ -2,7 +2,8 @@
 
 - 작성자 : [GaGa-Kim](https://github.com/GaGa-Kim/java-racingcar-6/tree/GaGa-Kim)
 - 미션 진행 및 회고글 : [기술 블로그](https://gaga-kim.tistory.com/1662) (미션 종료 후 공개될 예정입니다.)
-  <br>
+
+<br>
 
 <h2> 📍 게임 설명 </h2>
 
