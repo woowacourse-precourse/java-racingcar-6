@@ -1,6 +1,7 @@
 package controller;
 
 import domain.CarNamesInput;
+import domain.RacingCar;
 import domain.TryCountInput;
 import view.InputView;
 import view.MessageView;
@@ -16,7 +17,7 @@ public class RacingGameController {
 	}
 
 	public void startRace(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
-
+		RacingCar racingCar = new RacingCar(carNamesInput.getNames());
 	}
 
 	public CarNamesInput initCarNameData() {
