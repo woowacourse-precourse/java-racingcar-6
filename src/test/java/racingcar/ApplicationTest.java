@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.model.repository.CarRepository;
 import racingcar.model.service.GameService;
+import racingcar.view.OutputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -90,7 +91,7 @@ class ApplicationTest extends NsTest {
         void carForward() {
             CarRepository carRepository = new CarRepository();
             carRepository.save("pobi");
-            carRepository.carForward(0, 5);
+            carRepository.carForward(0, 5); // randomNumber가 4 이상일 때 전진해야한다.
             assertThat(carRepository.findByName("pobi").getForward()).isEqualTo(1);
         }
 
@@ -98,7 +99,7 @@ class ApplicationTest extends NsTest {
         void carStop() {
             CarRepository carRepository = new CarRepository();
             carRepository.save("pobi");
-            carRepository.carForward(0, 3);
+            carRepository.carForward(0, 3); // randomNumber가 4 미만일 때 정지해야한다.
             assertThat(carRepository.findByName("pobi").getForward()).isEqualTo(0);
         }
 
@@ -124,6 +125,20 @@ class ApplicationTest extends NsTest {
             carRepository.save("bdd");
             carRepository.save("chovy");
             assertThat(carRepository.findByName("pobi").getName()).isEqualTo("pobi");
+        }
+    }
+
+    @Nested
+    @DisplayName("OutputView tests")
+    class OutputViewTest {
+
+        @Test
+        void outputForward() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.save("pobi");
+            carRepository.findByName("pobi").setForward(5);
+            OutputView.outputForward(carRepository.findByName("pobi"));
+            assertThat(output()).isEqualTo("pobi : -----");
         }
     }
 
