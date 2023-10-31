@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingmanager.GameManger;
+import racingcar.racingmanager.GameManger;
 
 public class Application {
 

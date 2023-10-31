@@ -1,6 +1,6 @@
-package racingmanager;
+package racingcar.racingmanager;
 
-import domain.Race;
+import racingcar.domain.Race;
 
 public class GameManger {
 

@@ -1,10 +1,10 @@
-package racingmanager;
+package racingcar.racingmanager;
 
 
-import domain.Car;
-import domain.Race;
-import global.message.GameProgressMessage;
-import view.PrintRaceResult;
+import racingcar.domain.Car;
+import racingcar.domain.Race;
+import racingcar.global.message.GameProgressMessage;
+import racingcar.view.PrintRaceResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +36,7 @@ public class StartGame {
 
     private void progressGame(){
         List<Integer> randomNumbers = handleNumber.generateRandomNumberList(race.sizeOfCars());
+
         for(int i = 0; i < race.sizeOfCars(); i++){
             int randNum = randomNumbers.get(i);
             if(randNum >= MOVING_FORWARD) race.moveCar(i);
@@ -44,8 +45,8 @@ public class StartGame {
 
     private List<String> determineWinner(){
         List<String> winners = new ArrayList<>();
-
         int maxLocation = race.getMaxLocationOfCar();
+
         for(Car car : race.getCars()){
             if(maxLocation == car.getLocation()) winners.add(car.getCarName());
         }

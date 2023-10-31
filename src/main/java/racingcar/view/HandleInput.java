@@ -1,7 +1,7 @@
-package view;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import global.message.GameProgressMessage;
+import racingcar.global.message.GameProgressMessage;
 
 import java.util.Arrays;
 import java.util.List;

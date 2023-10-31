@@ -1,8 +1,8 @@
-package racingmanager;
+package racingcar.racingmanager;
 
-import domain.Car;
-import domain.Race;
-import view.HandleInput;
+import racingcar.domain.Car;
+import racingcar.domain.Race;
+import racingcar.view.HandleInput;
 
 import java.util.List;
 

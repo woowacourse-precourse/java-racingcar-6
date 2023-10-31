@@ -1,8 +1,8 @@
-package view;
+package racingcar.view;
 
-import domain.Car;
-import domain.Race;
-import global.message.GameProgressMessage;
+import racingcar.domain.Car;
+import racingcar.domain.Race;
+import racingcar.global.message.GameProgressMessage;
 
 import java.util.List;
 

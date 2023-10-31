@@ -1,6 +1,6 @@
-package view;
+package racingcar.view;
 
-import global.message.ErrorMessage;
+import racingcar.global.message.ErrorMessage;
 
 import java.util.List;
 import java.util.regex.Pattern;
