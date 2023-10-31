@@ -13,7 +13,29 @@ public class RacingCar {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     private boolean isValid(String name) {
         return name.length() <= NAME_MAX_LENGTH;
+    }
+
+    public void moveForward(int pickedNumber) {
+        if (canMove(pickedNumber)) {
+            position++;
+        }
+    }
+
+    private boolean canMove(int pickedNumber) {
+        return pickedNumber >= 4;
+    }
+
+    public String getDescription() {
+        return name + " : " + "-".repeat(position);
     }
 }

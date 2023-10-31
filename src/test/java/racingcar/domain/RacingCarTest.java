@@ -2,7 +2,8 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RacingCarTest {
 
@@ -11,7 +12,7 @@ class RacingCarTest {
         String carName = "poby";
         RacingCar car = new RacingCar(carName);
 
-        assertThat(car).isNotNull();
+        assertThat(car.getName()).isEqualTo(carName);
     }
 
     @Test
@@ -20,5 +21,23 @@ class RacingCarTest {
 
         assertThatThrownBy(() -> new RacingCar(carName))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 뽑은_숫자가_4이상이면_움직임() {
+        int number = 4;
+        RacingCar car = new RacingCar("car");
+
+        car.moveForward(number);
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+    @Test
+    void 뽑은_숫자가_4미만이면_멈춤() {
+        int number = 3;
+        RacingCar car = new RacingCar("car");
+
+        car.moveForward(number);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 }
