@@ -1,37 +1,42 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
+
+import racingcar.domain.CarNames;
 import racingcar.domain.Cars;
-import racingcar.domain.Winner;
-import racingcar.dto.WinnerDto;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.domain.Round;
+import racingcar.controller.dto.Result;
+import racingcar.policy.MovingPolicy;
+import racingcar.policy.NumberGeneratePolicy;
+import racingcar.view.Console;
+
+import java.util.List;
+
 
 public class Stadium {
 
-    private final Cars cars = new Cars();
+    private final Console console;
+    private final MovingPolicy movingPolicy;
+    private final NumberGeneratePolicy numberGeneratePolicy;
 
-    private int attempt;
-    public void start(){
-        cars.join(InputView.getInputCar());
-        attempt = InputView.getInputAttempt();
-        game();
-        WinnerDto winners = Winner.decision(cars);
-
-        OutputView.result(winners);
+    public Stadium(Console console, MovingPolicy movingPolicy, NumberGeneratePolicy numberGeneratePolicy) {
+        this.console = console;
+        this.movingPolicy = movingPolicy;
+        this.numberGeneratePolicy = numberGeneratePolicy;
     }
 
-    private void game(){
-        OutputView.printGameStartMessage();
-        for(int round = 0; round < attempt; round++){
-            moving();
-            OutputView.currentRacingPosition(cars);
-        }
-    }
+    public void start() {
+        CarNames carNames = new CarNames(console.readCarNames());
+        Round round = new Round(console.readNumberOfTrials());
 
-    private void moving(){
-        for(Car driver : cars.getCars()){
-            driver.choice();
+        Cars cars = carNames.generateCars();
+        console.printResultMessage();
+        for (int i = 0; i < round.getRound(); i++) {
+            cars = cars.playGame(movingPolicy, numberGeneratePolicy);
+            List<Result> results = cars.getResults();
+            console.print(results);
         }
+
+        List<Result> winners = cars.calculateWinners();
+        console.printWinners(winners);
     }
 }
