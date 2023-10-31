@@ -2,8 +2,6 @@ package racingcar.service;
 
 import racingcar.model.RacingCar;
 import racingcar.utils.RandomUtil;
-import racingcar.utils.ValidationUtil;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,12 +18,6 @@ public class RacingService {
 
     public String[] splitRacingCarsByComma(String racingCars) {
         String[] carList = racingCars.split(DELIMITER);
-
-        Arrays.stream(carList)
-                .forEach(ValidationUtil::racingCarValidator);
-        ValidationUtil.duplicationValidator(carList);
-        ValidationUtil.racingCarCountValidator(carList);
-
         return carList;
     }
 

@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.service.RacingService;
+import racingcar.utils.ValidationUtil;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -41,6 +42,10 @@ public class RacingController {
 
     private void saveRacingCars(String carNames) {
         String[] racingCarsStr = racingService.splitRacingCarsByComma(carNames);
+
+        ValidationUtil.duplicationValidator(racingCarsStr);
+        ValidationUtil.racingCarCountValidator(racingCarsStr);
+
         racingService.saveRacingCars(racingCarsStr);
     }
 
