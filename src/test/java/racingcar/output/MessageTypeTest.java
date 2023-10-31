@@ -1,7 +1,7 @@
 package racingcar.output;
 
 public class MessageTypeTest {
-    enum MessageType{
+    public enum MessageType{
         INPUT_CAR_NAME_PRINT("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) \n"),
         INPUT_CAR_RACING_COUNT_PRINT("시도할 회수는 몇회인가요? \n"),
         INPUT_DATA_PRINT("%s \n"),
