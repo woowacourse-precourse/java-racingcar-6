@@ -11,8 +11,12 @@ public class Distance {
         this.distance += number;
     }
 
-    protected int getDistance() {
-        return distance;
+    public boolean isEqualOrGreaterThan(Car otherCar) {
+        return distance >= otherCar.distance.distance;
+    }
+
+    public boolean isCarWithMaxDistance(Car carWithMaxDistance) {
+        return distance == carWithMaxDistance.distance.distance;
     }
 
     public String toString() {

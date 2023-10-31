@@ -28,11 +28,11 @@ public class Car {
     }
 
     public boolean isEqualOrGreaterThan(Car otherCar) {
-        return distance.getDistance() >= otherCar.distance.getDistance();
+        return distance.isEqualOrGreaterThan(otherCar);
     }
 
     public boolean isCarWithMaxDistance(Car carWithMaxDistance) {
-        return distance.getDistance() == carWithMaxDistance.distance.getDistance();
+        return distance.isCarWithMaxDistance(carWithMaxDistance);
     }
 
     public String getMovementString() {
