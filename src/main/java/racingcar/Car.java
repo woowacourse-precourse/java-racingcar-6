@@ -16,4 +16,8 @@ public class Car {
   public String getName() {
     return name;
   }
+
+  public void goForward() {
+    this.position += 1;
+  }
 }
