@@ -53,5 +53,10 @@ public class RacingGame {
 
     private void inputRound() {
         System.out.println("시도할 회수는 몇회인가요?");
+        getRound();
+    }
+
+    private void getRound() {
+        String input = Console.readLine();
     }
 }
