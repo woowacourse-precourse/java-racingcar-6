@@ -4,8 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
-import racingcar.input.NameCounter;
-import racingcar.input.NameValidator;
+import racingcar.input.count.CountValidator;
+import racingcar.input.name.NameCounter;
+import racingcar.input.name.NameValidator;
 
 public class RacingGame {
     private String getErrorMessage(String errorType) {
@@ -37,5 +38,16 @@ public class RacingGame {
                 throw new IllegalArgumentException(getErrorMessage("name"));
             }
         }
+
+        // 횟수 입력 문구 출력
+        System.out.print(ServiceMessage.INPUT.serviceMessage);
+
+        // 횟수 입력 받기
+        String inputCount = Console.readLine();
+        if(!CountValidator.isValid(inputCount)) {
+            throw new IllegalArgumentException(getErrorMessage("count"));
+        }
+
+        int n = Integer.parseInt(inputCount);
     }
 }
