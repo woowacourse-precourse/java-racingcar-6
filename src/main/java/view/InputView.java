@@ -7,8 +7,8 @@ public class InputView {
     private final NameListValidator nameListValidator;
     private final AttemptTimesValidator attemptTimesValidator;
 
-    InputView(AttemptTimesValidator attemptTimesValidator) {
-        this.attemptTimesValidator = attemptTimesValidator;
+    InputView() {
+        this.attemptTimesValidator = new AttemptTimesValidator();
         this.nameListValidator = new NameListValidator();
     }
 
