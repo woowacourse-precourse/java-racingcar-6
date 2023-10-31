@@ -4,7 +4,7 @@ public class Car {
 
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int MIN_VALUE_FOR_MOVE = 4; // 자동차가 전진하기 위한 최솟값
+    private static final int MIN_VALUE_FOR_MOVING_FORWARD = 4; // 자동차가 전진하기 위한 최솟값
 
     private final String name;
     private int forwardCount; // 전진 횟수
@@ -26,8 +26,8 @@ public class Car {
         return !(MIN_NAME_LENGTH <= name.length() && name.length() <= MAX_NAME_LENGTH);
     }
 
-    public int move(int value) {
-        if (value >= MIN_VALUE_FOR_MOVE) {
+    public int move(int valueForMovingForward) {
+        if (valueForMovingForward >= MIN_VALUE_FOR_MOVING_FORWARD) {
             forwardCount++;
         }
         return forwardCount;

@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.MoveResult;
+import racingcar.domain.MovingResult;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.NumberOfAttempts;
@@ -39,8 +39,8 @@ public class GameController {
     private void playRacing(Cars cars, NumberOfAttempts numberOfAttempts) {
         OutputView.printRacingResultMessage();
         while (numberOfAttempts.hasRemainingAttempts()) {
-            MoveResult moveResult = cars.handleCarMovement(numberGenerator);
-            OutputView.printMoveResult(moveResult.carNames(), moveResult.forwardCounts());
+            MovingResult movingResult = cars.handleCarMovement(numberGenerator);
+            OutputView.printMoveResult(movingResult.carNames(), movingResult.forwardCounts());
             numberOfAttempts.decreaseNumberOfAttempts();
         }
     }
