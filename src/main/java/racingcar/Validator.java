@@ -22,7 +22,7 @@ public class Validator {
 
     public static void validateInputInRange(String input) {
         int tryCount = Integer.parseInt(input);
-        if (tryCount < 1) {
+        if (tryCount < Constant.MINIMUM_TRY_COUNT || tryCount > Constant.MAXIMUM_TRY_COUNT) {
             throw new IllegalArgumentException("시도할 횟수는 1회 이상이어야 합니다.");
         }
     }
