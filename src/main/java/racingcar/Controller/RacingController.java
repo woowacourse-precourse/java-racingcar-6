@@ -11,17 +11,32 @@ public class RacingController {
     CarsFactory carsFactory = new CarsFactory();
 
     public void run() {
+        Cars cars = createCars();
+        int rounds = getRounds();
+        startRacing(cars, rounds);
+    }
+
+    private Cars createCars() {
         String input = InputView.requestCarNames();
         Validator.validateCarNames(input);
         String[] carNames = Parser.parseString(input);
         Cars cars = carsFactory.generateCars(carNames);
+        return cars;
+    }
+
+    private static int getRounds() {
         String rounds = InputView.requestRounds();
         Validator.validateRounds(rounds);
         int convertedRounds = Integer.parseInt(rounds);
-        for (int i=0; i < convertedRounds; i++) {
+        return convertedRounds;
+    }
+
+    private static void startRacing(Cars cars, int rounds) {
+        for (int i=0; i < rounds; i++) {
             cars.move();
             OutputView.printRoundResult(cars.getCars());
         }
         OutputView.printWinners(cars.getWinners());
     }
+
 }
