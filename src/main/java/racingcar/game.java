@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class game {
     car[] participate;
@@ -31,5 +32,27 @@ public class game {
         try_number = Integer.parseInt(readLine());
     }
 
+    boolean check_num(int random){ //난수 비교
+        if(random < 4){
+            return false;
+        }
 
+        return true;
+    }
+
+    void car_move(car par, boolean check_result){ //자동차 움직임 결정
+        if(check_result){
+            par.position++;
+        }
+    }
+
+    void car_position(){ //자동차 마다 위치 이동
+        int random;
+
+        for(int i = 0; i < participate.length; i++){
+            random = pickNumberInRange(0, 9); //무작위 값 생성
+            car_move(participate[i], check_num(random));
+        }
+        try_number--;
+    }
 }
