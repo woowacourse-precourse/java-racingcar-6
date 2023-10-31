@@ -10,7 +10,7 @@ public class Output {
     public void printWinner(Cars cars) {
         Winners winners = cars.findWinner();
         String winnerList = winners.makeWinnerList();
-        System.out.println("최종 우승자 : " + winnerList);
+        System.out.print("최종 우승자 : " + winnerList);
     }
 
     public void printInputCarNameMessage() {
