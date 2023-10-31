@@ -2,7 +2,11 @@ package racingcar.util;
 
 public class Log {
 
-    public static void info(String message) {
-        System.out.println(message);
+    public static void println(String message) {
+        System.out.print(message);
+    }
+
+    public static void print(String message) {
+        System.out.print(message);
     }
 }
