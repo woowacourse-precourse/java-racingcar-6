@@ -1,11 +1,11 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarsTest {
@@ -76,8 +76,8 @@ class CarsTest {
         moveCar(c2, 2);
         moveCar(c3, 1);
         //then
-        Assertions.assertThat(cars.getWinningCars().getCars()).hasSize(1);
-        Assertions.assertThat(cars.getWinningCars().getCars().get(0)).isEqualTo(c1);
+        assertThat(cars.getWinningCars().cars()).hasSize(1);
+        assertThat(cars.getWinningCars().cars().get(0)).isEqualTo(c1);
     }
 
     @Test
@@ -94,8 +94,8 @@ class CarsTest {
         moveCar(c2, 3);
         moveCar(c3, 2);
         //then
-        Assertions.assertThat(cars.getWinningCars().getCars()).hasSize(2);
-        Assertions.assertThat(cars.getWinningCars().getCars()).isEqualTo(List.of(c1, c2));
+        assertThat(cars.getWinningCars().cars()).hasSize(2);
+        assertThat(cars.getWinningCars().cars()).isEqualTo(List.of(c1, c2));
     }
 
     @Test
@@ -108,8 +108,8 @@ class CarsTest {
         Car c3 = new Car("다");
         Cars cars = new Cars(List.of(c1, c2, c3));
         //then
-        Assertions.assertThat(cars.getWinningCars().getCars()).hasSize(3);
-        Assertions.assertThat(cars.getWinningCars().getCars()).isEqualTo(List.of(c1, c2, c3));
+        assertThat(cars.getWinningCars().cars()).hasSize(3);
+        assertThat(cars.getWinningCars().cars()).isEqualTo(List.of(c1, c2, c3));
     }
 
     private void moveCar(Car c1, int distance) {
