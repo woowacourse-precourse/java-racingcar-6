@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Racing;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,13 +17,15 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printCarDistanceNow(List<Car> cars){
+    public void printCarDistanceNow(Racing racing){
+        List<Car> cars = racing.getCars();
         for(Car car : cars){
             String name = car.getName();
             Integer distance = car.getDistance();
             String distatnceString = SINGLE_DASH.repeat(distance);
             System.out.println(name + COLON + distatnceString);
         }
+        System.out.println();
     }
     public void printRacingWinner(List<String> winners){
         String result = winners.stream().collect(Collectors.joining(", "));

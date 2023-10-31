@@ -12,7 +12,7 @@ public class InputView {
     public List<String> InputCarNames(){
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         String carNames = Console.readLine();
-        List<String> carNameList = Arrays.asList(carNames.split(", "));
+        List<String> carNameList = Arrays.asList(carNames.split(","));
         return carNameList;
     }
 

@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Racing {
 
@@ -26,5 +27,31 @@ public class Racing {
 
     public Integer getRound(){
         return round;
+    }
+
+    public void allCarsDecideMoving(){
+        cars.stream().forEach(Car::decideMoving);
+    }
+
+    public void proceedRound(){
+        round++;
+    }
+
+    public Boolean isRacingOver(){
+        if (round == totalRound) return true;
+        return false;
+    }
+
+    public List<String> getWinnerNames(){
+        Integer maxDistance = cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        List<String> winnerNames = cars.stream()
+                .filter(car -> car.isDistanceSame(maxDistance))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        return winnerNames;
     }
 }
