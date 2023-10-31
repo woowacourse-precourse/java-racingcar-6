@@ -22,7 +22,6 @@ public class Application {
 
         //레이싱 시작
         StartRacing(CarArray, racingNum);
-
     }
     public static void CheckCarArray(String[] CarArray) {
         for(String s: CarArray) {
@@ -40,13 +39,29 @@ public class Application {
             forwardDistance.add(0);
         }
 
+        System.out.println("실행 결과");
         for(int i=0; i< racingNum; i++) {
             //각 사람마다 랜덤함수 돌리고 조건에 따라 전진
             GoOrStop(forwardDistance);
 
             //차수별 실행 결과 출력
+            PrintIntermediateResult(CarArray, forwardDistance);
+            System.out.println();
         }
+
+
         //다 돌았으니까 우승자 파악
+    }
+
+    public static void PrintIntermediateResult(String[] CarName,ArrayList<Integer> distanceArray) {
+        for(int c = 0; c < CarName.length; c++) {
+            System.out.print(CarName[c] + " : ");
+
+            for(int d=0; d< distanceArray.get(c); d++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 
     public static void GoOrStop(ArrayList<Integer> distanceArray) {
