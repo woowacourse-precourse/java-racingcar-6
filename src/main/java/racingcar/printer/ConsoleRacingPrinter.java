@@ -27,7 +27,7 @@ public class ConsoleRacingPrinter implements RacingPrinter {
     public void printResultDetail(RacingCar racingCar) {
         System.out.print(racingCar.getName() + PrintMessage.COLON.getValue());
         for (int i = LOOP_START_NUMBER; i < racingCar.getMoveCount(); i++) {
-            System.out.println(PrintMessage.DASH.getValue());
+            System.out.print(PrintMessage.DASH.getValue());
         }
         System.out.println();
     }
