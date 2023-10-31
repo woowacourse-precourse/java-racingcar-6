@@ -20,4 +20,16 @@ public class ForwardDistance {
     public String toString() {
         return "-".repeat(distance);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        ForwardDistance otherDistance = (ForwardDistance) obj;
+        return distance == otherDistance.distance;
+    }
 }

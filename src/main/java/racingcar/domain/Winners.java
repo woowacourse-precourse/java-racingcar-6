@@ -4,18 +4,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class Winners {
-    private final List<String> winnersName;
+    private final CarNames winnersName;
 
-    public Winners(final List<String> winnerName) {
+    public Winners(final CarNames winnerName) {
         this.winnersName = winnerName;
     }
 
-    public List<String> getWinnersName() {
-        return Collections.unmodifiableList(winnersName);
+    public CarNames getWinnersName() {
+        return winnersName;
     }
 
     @Override
     public String toString() {
-        return "최종 우승자 : " + String.join(", ", winnersName);
+        return "최종 우승자 : " + String.join(", ", winnersName.toString());
     }
 }
