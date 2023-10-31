@@ -29,4 +29,8 @@ public final class Writer {
     public static void winner(Cars cars) {
         System.out.println(String.format(WINNER, cars.winners()));
     }
+
+    public static void nextLine() {
+        System.out.println();
+    }
 }
