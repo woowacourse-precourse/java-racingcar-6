@@ -34,9 +34,13 @@ public class InputValidator {
         }
     }
 
-    public void validateNameLengthRange(String name) {
-        if (name.length() < NAME_MIN_LENGTH || name.length() > NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(CAR_NAME_LENGTH_OUT_OF_RANGE);
+    public void validateNameLengthRange(String names) {
+        String[] nameArray = names.split(INPUT_SEPARATOR);
+
+        for (String name : nameArray) {
+            if (name.length() < NAME_MIN_LENGTH || name.length() > NAME_MAX_LENGTH) {
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_OUT_OF_RANGE);
+            }
         }
     }
 }
