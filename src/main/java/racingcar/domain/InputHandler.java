@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {

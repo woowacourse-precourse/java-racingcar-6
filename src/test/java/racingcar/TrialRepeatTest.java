@@ -2,7 +2,9 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.domain.TrialRepeat;
+
 import java.util.LinkedHashMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrialRepeatTest {

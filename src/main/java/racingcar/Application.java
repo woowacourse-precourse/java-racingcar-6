@@ -4,6 +4,7 @@ import racingcar.domain.Exceptions;
 import racingcar.domain.InputHandler;
 import racingcar.domain.TrialRepeat;
 import racingcar.domain.Winner;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Application {
     public static LinkedHashMap<String, Integer> scoreboard;
     public static int trialToDo;
     public static int trialCurrent;
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         InputHandler input = new InputHandler();

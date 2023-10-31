@@ -1,15 +1,24 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.InputHandler;
 import racingcar.domain.Winner;
 
 import java.util.LinkedHashMap;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WinnerTest {
+    private LinkedHashMap<String, Integer> sb;
+
+    @BeforeEach
+    void setUp() {
+        sb = new LinkedHashMap<>();
+    }
+
     @Test
     void qqqWins() {
-        LinkedHashMap<String, Integer> sb = new LinkedHashMap<>();
         sb.put("qqq", 5);
         sb.put("www", 3);
         sb.put("eee", 4);
@@ -19,7 +28,6 @@ public class WinnerTest {
 
     @Test
     void multiWinner() {
-        LinkedHashMap<String, Integer> sb = new LinkedHashMap<>();
         sb.put("qqq", 5);
         sb.put("www", 3);
         sb.put("eee", 5);
@@ -29,7 +37,6 @@ public class WinnerTest {
 
     @Test
     void allZeroScore() {
-        LinkedHashMap<String, Integer> sb = new LinkedHashMap<>();
         sb.put("qqq", 0);
         sb.put("www", 0);
         sb.put("eee", 0);
