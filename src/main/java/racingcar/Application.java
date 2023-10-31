@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -38,7 +39,7 @@ public class Application {
                 System.out.println(carname[i] + " : " + MoveCount[i]);
             }
         }
-        WhoIsWinner(MoveCount);
+        WhoIsWinner(MoveCount, carname);
     }
 
     public static String GoOrStop(String movecount){ //전진인지 아닌지 구별
@@ -49,7 +50,22 @@ public class Application {
         return movecount;
     }
 
-    public static void WhoIsWinner(String[] mc){}
+    public static void WhoIsWinner(String[] mc, String[] cn){
+        int CntMax = 0;
+        ArrayList<String> name = new ArrayList<>();
+        for (int i = 0; i < mc.length; i++){
+            if (CntMax < mc[i].length()){
+                CntMax = mc[i].length();
+                name.clear();
+                name.add(cn[i]);
+            }
+            else if (CntMax == mc[i].length()){
+                name.add(cn[i]);
+            }
+        }
+        PrintWinner(name);
+    }
+    public static void PrintWinner(ArrayList<String> name){}
 }
 
 class Computer {
