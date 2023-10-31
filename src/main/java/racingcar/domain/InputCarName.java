@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,5 +22,16 @@ public class InputCarName {
         }
 
         return Arrays.asList(carNameArray);
+    }
+
+    public List<Car> createCarsFromCarNames(List<String> carNames) {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            Car car = new Car(carName, randomNumberGenerator);
+            cars.add(car);
+        }
+
+        return cars;
     }
 }
