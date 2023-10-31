@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 
@@ -16,17 +18,19 @@ public class LogicTest {
             .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void 차가_잘_안움직이나() {
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    void 차가_잘_안움직이나(int movePoint) {
         Car car = new Car("Tony");
-        car.go(0);
+        car.go(movePoint);
         assertThat(car.getDistance()).isEqualTo(0);
     }
 
-    @Test
-    void 차가_잘_움직이나() {
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8})
+    void 차가_잘_움직이나(int movePoint) {
         Car car = new Car("Tony");
-        car.go(4);
+        car.go(movePoint);
         assertThat(car.getDistance()).isEqualTo(1);
     }
 
