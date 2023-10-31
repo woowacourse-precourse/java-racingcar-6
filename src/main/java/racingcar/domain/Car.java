@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constant.CarNamesInputErrorMessage;
-import racingcar.constant.Constant;
+import racingcar.constant.GameConstant;
+import racingcar.constant.message.CarNamesInputErrorMessage;
 
 public class Car {
     private final String name;
@@ -11,7 +11,7 @@ public class Car {
     public Car(String name) {
         validateNameRange(name);
         this.name = name;
-        this.distance = Constant.CAR_INIT_DISTANCE_VALUE;
+        this.distance = GameConstant.CAR_INIT_DISTANCE_VALUE;
     }
 
     private void validateNameRange(String name) {
@@ -20,7 +20,7 @@ public class Car {
     }
 
     private void isLengthUnderMaxLength(String name) {
-        if (name.length() > Constant.CAR_NAME_MAX_LENGTH) {
+        if (name.length() > GameConstant.CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_LENGTH_EXCEEDS_LIMIT);
         }
     }
@@ -33,20 +33,22 @@ public class Car {
 
     public void moveOrStop() {
         int randomValue = makeRandomValue();
-        if (randomValue >= Constant.MOVE_OR_STOP_BOUNDARY_VALUE && randomValue < Constant.RANDOM_VALUE_UPPER_LIMIT) {
+        if (randomValue >= GameConstant.MOVE_OR_STOP_BOUNDARY_VALUE
+                && randomValue < GameConstant.RANDOM_VALUE_UPPER_LIMIT) {
             move();
             return;
         }
-        if (randomValue < Constant.MOVE_OR_STOP_BOUNDARY_VALUE && randomValue >= Constant.RANDOM_VALUE_LOWER_LIMIT) {
+        if (randomValue < GameConstant.MOVE_OR_STOP_BOUNDARY_VALUE
+                && randomValue >= GameConstant.RANDOM_VALUE_LOWER_LIMIT) {
             stop();
         }
     }
 
     private int makeRandomValue() {
-        return Randoms.pickNumberInRange(Constant.RANDOM_VALUE_LOWER_LIMIT,
-                Constant.RANDOM_VALUE_UPPER_LIMIT);
+        return Randoms.pickNumberInRange(GameConstant.RANDOM_VALUE_LOWER_LIMIT,
+                GameConstant.RANDOM_VALUE_UPPER_LIMIT);
     }
-    
+
     private void move() {
         distance++;
     }

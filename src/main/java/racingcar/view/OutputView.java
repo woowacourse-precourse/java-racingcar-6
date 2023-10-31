@@ -1,22 +1,23 @@
 package racingcar.view;
 
 import java.util.stream.Collectors;
-import racingcar.constant.Constant;
+import racingcar.constant.OutputConstant;
+import racingcar.constant.message.GuideMessage;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
 
 public class OutputView {
     public void askToInsertCarNameList() {
-        System.out.println(Constant.INSERT_CAR_NAME_LIST_DIRECTION);
+        System.out.println(GuideMessage.INSERT_CAR_NAME_LIST_DIRECTION);
     }
 
     public void askToInsertNumberOfGames() {
-        System.out.println(Constant.INSERT_NUMBER_OF_GAMES_DIRECTION);
+        System.out.println(GuideMessage.INSERT_NUMBER_OF_GAMES_DIRECTION);
     }
 
     public void printExecutionStartSign() {
         System.out.println();
-        System.out.println(Constant.EXECUTION_START_SIGN);
+        System.out.println(GuideMessage.EXECUTION_START_SIGN);
     }
 
     public void printCarStatus(CarList carList) {
@@ -34,16 +35,16 @@ public class OutputView {
     private String convertCarDistanceValueToDistanceSymbol(Long distance) {
         StringBuilder sb = new StringBuilder();
         for (long i = 0; i < distance; i++) {
-            sb.append(Constant.CAR_DISTANCE_VALUE_SYMBOL);
+            sb.append(OutputConstant.CAR_DISTANCE_VALUE_SYMBOL);
         }
         return sb.toString();
     }
 
     public void printFinalWinner(CarList mostDistanceCarList) {
-        System.out.print(Constant.FINAL_WINNER_ANNOUNCEMENT_SIGN);
+        System.out.print(GuideMessage.FINAL_WINNER_ANNOUNCEMENT_SIGN);
         String finalWinnerResult = mostDistanceCarList.getCarList()
                 .stream().map(Car::getName)
-                .collect(Collectors.joining(Constant.FINAL_WINNER_DUPLICATE_DELIMITER));
+                .collect(Collectors.joining(OutputConstant.FINAL_WINNER_DUPLICATE_DELIMITER));
         System.out.println(finalWinnerResult);
     }
 }

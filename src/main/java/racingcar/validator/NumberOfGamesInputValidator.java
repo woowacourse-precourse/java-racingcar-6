@@ -1,7 +1,7 @@
 package racingcar.validator;
 
-import racingcar.constant.Constant;
-import racingcar.constant.NumberOfGamesInputErrorMessage;
+import racingcar.constant.GameConstant;
+import racingcar.constant.message.NumberOfGamesInputErrorMessage;
 
 public class NumberOfGamesInputValidator {
     public void validate(String userInput) {
@@ -26,7 +26,7 @@ public class NumberOfGamesInputValidator {
 
     private void isMoreThanLowerLimit(String userInput) {
         long inputNumberOfGames = Long.parseLong(userInput);
-        if (inputNumberOfGames < Constant.NUMBER_OF_GAMES_LOWER_LIMIT) {
+        if (inputNumberOfGames < GameConstant.NUMBER_OF_GAMES_LOWER_LIMIT) {
             throw new IllegalArgumentException(NumberOfGamesInputErrorMessage.INPUT_IS_LOWER_THAN_LIMIT);
         }
     }

@@ -1,7 +1,8 @@
 package racingcar.validator;
 
-import racingcar.constant.CarNamesInputErrorMessage;
-import racingcar.constant.Constant;
+import racingcar.constant.GameConstant;
+import racingcar.constant.InputConstant;
+import racingcar.constant.message.CarNamesInputErrorMessage;
 
 public class CarNamesInputValidator {
     public void validate(String userInput) {
@@ -17,17 +18,17 @@ public class CarNamesInputValidator {
     }
 
     private void containsDelimiter(String userInput) {
-        if (!userInput.contains(Constant.INPUT_CAR_NAMES_DELIMITER)) {
+        if (!userInput.contains(InputConstant.INPUT_CAR_NAMES_DELIMITER)) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_DOES_NOT_CONTAIN_DELIMITER);
         }
     }
 
     private void isEachCarNameLengthInAppropriateRange(String userInput) {
-        String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
+        String[] carNames = userInput.split(InputConstant.INPUT_CAR_NAMES_DELIMITER);
         String trimmedCarName;
         for (String carName : carNames) {
             trimmedCarName = carName.trim();
-            if (trimmedCarName.length() > Constant.CAR_NAME_MAX_LENGTH) {
+            if (trimmedCarName.length() > GameConstant.CAR_NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_LENGTH_EXCEEDS_LIMIT);
             }
             if (trimmedCarName.isEmpty()) {

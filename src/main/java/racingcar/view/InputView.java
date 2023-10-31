@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.constant.Constant;
+import racingcar.constant.InputConstant;
 import racingcar.domain.CarNameList;
 import racingcar.domain.NumberOfGames;
 import racingcar.validator.CarNamesInputValidator;
@@ -20,7 +20,7 @@ public class InputView {
     public CarNameList getCarNameListFromUser() {
         String userInput = readUserInput();
         carNamesInputValidator.validate(userInput);
-        String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
+        String[] carNames = userInput.split(InputConstant.INPUT_CAR_NAMES_DELIMITER);
         return new CarNameList(carNames);
     }
 
