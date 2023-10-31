@@ -1,12 +1,12 @@
 ## 기능 목록
 
 - [x] 자동차 이름들을 입력 받는 기능
-  - [ ] 쉼표 입력 기준이 틀렸을 경우 IllegalArgumentException을 발생
-  - [ ] 이름이 5자 초과일 경우 IllegalArgumentException을 발생
+  - [ ] 쉼표 입력 기준이 틀렸을 경우 IllegalArgumentException을 발생시키는 기능
+  - [ ] 이름이 5자 초과일 경우 IllegalArgumentException을 발생시키는 기능
 
 
 - [ ] 사용자에게 이동 횟수 입력을 받는 기능
-  - [ ] 하나의 자연수가 아닐 경우 IllegalArgumentException을 발생
+  - [ ] 하나의 자연수가 아닐 경우 IllegalArgumentException을 발생시키는 기능
 
 
 - [ ] 전진할 수 있는지 알아보는 기능
