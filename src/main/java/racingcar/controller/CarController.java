@@ -14,9 +14,6 @@ public class CarController {
 
         while (stringTokenizer.hasMoreTokens()) {
             String name = stringTokenizer.nextToken();
-            if (name.length() > 5) {
-                throw new IllegalArgumentException();
-            }
             carList.add(new Car(name));
         }
         return carList;

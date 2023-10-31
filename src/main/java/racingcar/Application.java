@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import racingcar.controller.CarController;
 import racingcar.model.Car;
+import racingcar.view.Printer;
 
 public class Application {
     public static void main(String[] args) {
