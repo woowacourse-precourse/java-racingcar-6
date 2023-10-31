@@ -1,11 +1,11 @@
 package racingcar.converter;
 
-import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarName;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.TrialCount;
+import racingcar.util.StringUtils;
 import racingcar.validator.InputValidator;
 
 public class InputConverter {
@@ -19,7 +19,7 @@ public class InputConverter {
         inputValidator.validateInputFormat(input);
         inputValidator.validateNonEmpty(input);
 
-        List<Car> cars = Arrays.stream(input.split(","))
+        List<Car> cars = StringUtils.splitStringToList(input).stream()
                 .map(CarName::from)
                 .map(Car::from)
                 .toList();
