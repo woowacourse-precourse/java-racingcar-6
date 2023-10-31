@@ -4,7 +4,7 @@ import java.util.List;
 import model.service.GameResult;
 import model.service.InputCheck;
 import model.domain.Participant;
-import model.service.Round;
+import model.service.Game;
 import view.Input;
 import view.Output;
 
@@ -21,7 +21,7 @@ public class GameStart {
 
         Output.startResult();
         for (int i = 0; i < round; i++) {
-            Round.play(participant);
+            Game.play(participant);
             Output.roundResult(participant);
         }
 

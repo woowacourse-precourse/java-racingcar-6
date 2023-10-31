@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import model.domain.Car;
 import model.domain.Participant;
 
-public class Round {
+public class Game {
 
     private static final int MINIMUM_VALUE = 0;
     private static final int MAXIMUM_VALUE = 9;
