@@ -12,6 +12,7 @@ public class ValidException {
     private static final Integer END_NUM_FIVE = 5;
     private static final String NUM_REGEX = ".*[0-9].*";
     private static final Integer ONLY_ONE_NAME = 0;
+    private static final String KOREAN_ENGLISH_REGEX = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*";
 
     public static Boolean lessFIveLen(String str) {
         int len = str.length();
@@ -58,7 +59,7 @@ public class ValidException {
     }
 
     public static void includeString(String inputStr) {
-        String regex = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*"; // 영어와 한글이 포함되어 있는지 확인하는 정규 표현식
+        String regex = KOREAN_ENGLISH_REGEX;
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(inputStr);
@@ -120,12 +121,6 @@ public class ValidException {
         return true;
     }
 
-    /**
-     * 자동차의 이름을 입력할때 자동차 하나만 입력하면 안된다.
-     *
-     * @param nameLine
-     * @return
-     */
     public static boolean onlyOneNameOfRaceCar(String nameLine) {
         String[] nameArr = Utill.makeArrFromString(nameLine, ",");
         List<String> nameList = Utill.makeListFromArr(nameArr);

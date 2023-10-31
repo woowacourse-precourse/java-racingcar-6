@@ -38,10 +38,10 @@ public class GameProcess {
     }
 
     private void ValidNameOfRaceCar(String inputStr) {
-        ValidException.NameOfEachFIveLessString(inputStr); // 각각 자동차의 이름은 5자 이하 검사
-        ValidException.includeKorean(inputStr); // 한글 포함 검사
-        ValidException.commaNextBlank(inputStr); // 문자열 이름 "woo," 이렇게 ,다음은 문자열이 꼭나와야된다.
-        ValidException.onlyOneNameOfRaceCar(inputStr); // 자동차 하나만 입력 금지.
+        ValidException.NameOfEachFIveLessString(inputStr);
+        ValidException.includeKorean(inputStr);
+        ValidException.commaNextBlank(inputStr);
+        ValidException.onlyOneNameOfRaceCar(inputStr);
     }
 
     public void createRaceCars() {
