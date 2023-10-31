@@ -10,6 +10,7 @@ public class Racing {
     public void start() {
         generateCarName();
         moveTry();
+        utils.finalWinner();
     }
 
     public void generateCarName() {

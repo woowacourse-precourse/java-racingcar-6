@@ -38,4 +38,20 @@ public class Utils {
         System.out.println();
     }
 
+    public void finalWinner(){
+        int winnerMove = 0;
+        List<String> winners = new ArrayList<>();
+        for(Car car : cars){
+            if(car.getMove() > winnerMove){
+                winnerMove = car.getMove();
+                winners.clear();
+                winners.add(car.getName());
+            } else if (car.getMove() == winnerMove) {
+                winners.add(car.getName());
+            }
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ",winners));
+    }
+
 }
