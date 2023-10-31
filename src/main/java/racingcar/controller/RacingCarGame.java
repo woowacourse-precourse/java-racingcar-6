@@ -20,6 +20,7 @@ public class RacingCarGame {
     public void run() {
         this.prepare();
         this.start();
+        this.end();
     }
 
     private void prepare() {
@@ -38,7 +39,9 @@ public class RacingCarGame {
             this.carRace.move();
             view.printResult(this.carRace.getCarsStatus());
         }
+    }
 
+    private void end() {
         view.printWinner(this.carRace.getWinnerCarNames());
     }
 
