@@ -1,15 +1,13 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.view.ResultView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 class GameAdminTest {
     @Test
@@ -27,7 +25,7 @@ class GameAdminTest {
         gameAdmin.startGame(cars, movableStrategy);
 
         // 예상되는 콘솔 출력과 실제 콘솔 출력이 일치하는지 확인
-        assertEquals("\n실행 결과\n" +
+        Assertions.assertEquals("\n실행 결과\n" +
                 "pobi : -\n" +
                 "yd : -\n\n".replaceAll("\\r\\n", "\n"), outputStreamCaptor.toString().replaceAll("\\r\\n", "\n"));
     }
@@ -42,6 +40,6 @@ class GameAdminTest {
 
         gameAdmin.presentWinner(cars);
 
-        assertEquals("pobi, yd", winners.getWinnerName());
+        Assertions.assertEquals("pobi, yd", winners.getWinnerName());
     }
 }
