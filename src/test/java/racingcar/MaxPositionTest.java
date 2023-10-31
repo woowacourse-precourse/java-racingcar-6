@@ -2,14 +2,13 @@ package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Position;
 
 
-public class MaxPositionTest extends NsTest {
+public class MaxPositionTest {
     @Test
     void 최대_거리_테스트() {
         Position maxPosition = new Position();
@@ -25,10 +24,5 @@ public class MaxPositionTest extends NsTest {
         }
         assertEquals(new Position(9), maxPosition);
     }
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
-    }
-
+    
 }
