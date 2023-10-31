@@ -11,6 +11,7 @@ public class InputView {
     private static final Pattern NUMERIC_PATTERN = Pattern.compile("^[0-9]*$");
     private static final String SEPARATOR = ",";
     public List<String> inputCarNames(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
         validateNullAndBlank(carNames);
         return Arrays.stream(carNames.split(SEPARATOR))
@@ -24,6 +25,7 @@ public class InputView {
     }
 
     public Integer inputGameCount(){
+        System.out.println("시도할 회수는 몇회인가요?");
         String gameCount = Console.readLine();
         validateNullAndBlank(gameCount);
         validateNumeric(gameCount);
