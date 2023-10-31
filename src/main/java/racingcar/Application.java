@@ -39,6 +39,23 @@ public class Application {
 
     }
 
+    public static List<String> getMaxMoveCar(List<Car> cars) {
+        int max = 0;
+        List<String> maxMoveCarName = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getMove() < max) {
+                continue;
+            }
+            if (car.getMove() > max) {
+                maxMoveCarName.clear();
+                max = car.getMove();
+            }
+            maxMoveCarName.add(car.getName());
+        }
+        return maxMoveCarName;
+    }
+
     public static void race(List<Car> cars, int times) {
         for (int i = 0; i < times; i++) {
             for (Car car : cars) {
