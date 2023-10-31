@@ -32,7 +32,7 @@ public class Application {
 
         if (tryCount == 0) throw new IllegalArgumentException();
 
-        int randomNum = Randoms.pickNumberInRange(0,9);
+
 
 
 
