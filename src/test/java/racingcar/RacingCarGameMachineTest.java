@@ -28,7 +28,7 @@ public class RacingCarGameMachineTest {
 
     @Test
     void 레이싱카_생성() {
-        String roundResult = racingCarGameMachine.playRound();
+        String roundResult = racingCarGameMachine.getRoundResult();
 
         Assertions.assertThat(roundResult).contains("semin", "woowa", "pre");
     }
@@ -43,7 +43,7 @@ public class RacingCarGameMachineTest {
     @Test
     void 게임_종료() {
         for (int i = 0; i < ROUND_COUNT; i++) {
-            racingCarGameMachine.playRound();
+            racingCarGameMachine.getRoundResult();
         }
         boolean gameInProgress = racingCarGameMachine.isGameInProgress();
 
@@ -54,13 +54,13 @@ public class RacingCarGameMachineTest {
     void 라운드_지정_횟수_초과_예외처리() {
         playRoundUntilGameOver();
 
-        Assertions.assertThatThrownBy(() -> racingCarGameMachine.playRound())
+        Assertions.assertThatThrownBy(() -> racingCarGameMachine.getRoundResult())
                 .isInstanceOf(IllegalStateException.class);
     }
 
     @Test
     void 라운드_결과() {
-        String roundResult = racingCarGameMachine.playRound();
+        String roundResult = racingCarGameMachine.getRoundResult();
 
         Assertions.assertThat(roundResult).contains("semin : -");
         Assertions.assertThat(roundResult).doesNotContain("woowa : -", "pre : -");
@@ -100,7 +100,7 @@ public class RacingCarGameMachineTest {
 
     void playRoundUntilGameOver() {
         while (racingCarGameMachine.isGameInProgress()) {
-            racingCarGameMachine.playRound();
+            racingCarGameMachine.getRoundResult();
         }
     }
 }

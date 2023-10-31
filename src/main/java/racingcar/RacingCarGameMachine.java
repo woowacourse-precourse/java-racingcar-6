@@ -54,17 +54,22 @@ public class RacingCarGameMachine {
         this.maxRoundCount = roundCount;
     }
 
-    public String playRound() {
+    public String getRoundResult() {
+        playRound();
+
+        StringJoiner stringJoiner = new StringJoiner("\n");
+        for (RacingCar racingCar : racingCarList) {
+            stringJoiner.add(racingCar.getCurrentStatus());
+        }
+        return stringJoiner.toString();
+    }
+
+    private void playRound() {
         if (!isGameInProgress()) {
             throw new IllegalStateException();
         }
         currentRound++;
         moveAllRacingCar();
-        return getRoundResult();
-    }
-
-    public boolean isGameInProgress() {
-        return currentRound <= maxRoundCount;
     }
 
     private void moveAllRacingCar() {
@@ -73,19 +78,15 @@ public class RacingCarGameMachine {
         }
     }
 
-    private String getRoundResult() {
-        StringJoiner stringJoiner = new StringJoiner("\n");
-        for (RacingCar racingCar : racingCarList) {
-            stringJoiner.add(racingCar.getCurrentStatus());
-        }
-        return stringJoiner.toString();
-    }
-
     public String getGameResult() {
         if (isGameInProgress()) {
             throw new IllegalStateException();
         }
         return getGameResultMessage();
+    }
+
+    public boolean isGameInProgress() {
+        return currentRound <= maxRoundCount;
     }
 
     private String getGameResultMessage() {

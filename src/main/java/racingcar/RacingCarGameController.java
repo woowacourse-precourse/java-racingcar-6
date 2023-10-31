@@ -27,7 +27,7 @@ public class RacingCarGameController {
 
     private void executeGame() {
         while (racingCarGameMachine.isGameInProgress()) {
-            String roundResult = racingCarGameMachine.playRound();
+            String roundResult = racingCarGameMachine.getRoundResult();
             outputView.print(roundResult);
         }
     }
