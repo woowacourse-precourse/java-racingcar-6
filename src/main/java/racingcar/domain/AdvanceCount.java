@@ -7,14 +7,14 @@ public class AdvanceCount {
 
     public void accumulate() {
         this.count += ADVANCE_COUNT;
-        calculateMaxCount();
+        compareMaxCount();
     }
 
     public int getCount() {
         return this.count;
     }
 
-    private void calculateMaxCount() {
+    private void compareMaxCount() {
         if (this.count > maxCount) {
             maxCount = this.count;
         }
