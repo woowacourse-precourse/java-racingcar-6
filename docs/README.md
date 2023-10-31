@@ -43,6 +43,7 @@
 - [x] 자동차 목록이 비어있을 경우 - findMaxPosition()
 - [x] 자동차가 1대인 경우 - validateInputCount()
 - [x] 이름을 구분하는 기준이 쉼표가 아닌 경우 - validateInputWithSeparator()
+- [x] 공백을 입력한 경우 - validateNotEmpty()
 #### 라운드(RacingRound)
 - [x] 라운드 생성
 #### 라운드 입력에 대한 예외처리(RacingRoundValidator)

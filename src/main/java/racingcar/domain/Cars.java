@@ -16,7 +16,7 @@ public class Cars {
     }
 
     public static Cars from(String names) {
-        CarsValidator.validateInputWithSeparator(names);
+        CarsValidator.validateInput(names);
 
         List<String> carNames = splitToStringList(names);
         List<String> filteredCarNames = filterEmptyNames(carNames);

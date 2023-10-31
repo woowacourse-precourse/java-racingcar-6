@@ -1,7 +1,6 @@
 package racingcar.util;
 
 public class CarValidator {
-    private static final String INVALID_INPUT_IS_EMPTY = "입력값이 공백입니다.";
     private static final String INVALID_INPUT_SIZE = "입력은 5자 이하입니다.";
 
     private CarValidator() {
