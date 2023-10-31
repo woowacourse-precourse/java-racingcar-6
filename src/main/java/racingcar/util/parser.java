@@ -12,6 +12,7 @@ public class parser {
   }
 
   public int parseNumberOfTrial(String input) {
+    // 원하는 숫자 형식으로 변환
     return Integer.parseInt(input);
   }
 }
