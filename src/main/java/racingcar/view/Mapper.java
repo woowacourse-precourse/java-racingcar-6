@@ -10,6 +10,10 @@ public class Mapper {
     }
 
     public static int changeToInteger(String number) {
+        if (number.length() >= 10) {
+            throw new IllegalArgumentException("너무 큰 숫자를 입력했습니다.");
+        }
+
         int moveNumber;
         try {
             moveNumber = Integer.parseInt(number);
