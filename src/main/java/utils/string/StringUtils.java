@@ -1,12 +1,12 @@
-package utils.parser;
+package utils.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Parser {
+public class StringUtils {
 
-    private Parser() {
+    private StringUtils() {
     }
 
     public static List<String> parseCarNames(String input) {

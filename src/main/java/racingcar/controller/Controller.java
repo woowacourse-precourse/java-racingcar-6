@@ -11,7 +11,7 @@ import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutPutView;
-import utils.parser.Parser;
+import utils.string.StringUtils;
 
 public class Controller {
     private final RacingGameService racingGameService;
@@ -79,12 +79,12 @@ public class Controller {
 
     private int getGameCount() {
         String gameCountString = getGameCountStringByUserInput();
-        return Parser.parseNumberOfCount(gameCountString);
+        return StringUtils.parseNumberOfCount(gameCountString);
     }
 
     private List<Long> getCarsIdList() {
         String nameString = getNameStringByUserInput();
-        List<String> carNameList = Parser.parseCarNames(nameString);
+        List<String> carNameList = StringUtils.parseCarNames(nameString);
         return saveCarsInRepository(carNameList);
     }
 
