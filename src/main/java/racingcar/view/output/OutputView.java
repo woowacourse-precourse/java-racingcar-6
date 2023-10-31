@@ -27,4 +27,8 @@ public class OutputView {
         printGameNotice(NOTICE_WINNER_RESULT);
         Console.print(String.join(", ", winnerList));
     }
+
+    public void printNewLine() {
+        Console.println("");
+    }
 }
