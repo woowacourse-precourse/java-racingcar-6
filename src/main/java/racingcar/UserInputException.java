@@ -9,7 +9,9 @@ import static racingcar.Constant.INVALID_NUMERIC_INPUT_MESSAGE;
 import static racingcar.Constant.MAX_CAR_NAME_LENGTH;
 import static racingcar.Constant.MINIMUM_ATTEMPT_COUNT_REQUIRED_MESSAGE;
 import static racingcar.Constant.MIN_ATTEMPT_COUNT;
+import static racingcar.Constant.MIN_CAR_NUMBER;
 import static racingcar.Constant.OVER_MAX_LENGTH_MESSAGE;
+import static racingcar.Constant.SINGLE_CAR_NAME_MESSAGE;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -63,6 +65,12 @@ public class UserInputException {
 
     private boolean containsEmptyName(String[] carNames) {
         return Arrays.asList(carNames).contains(EMPTY_SPACE);
+    }
+
+    public void validateSingleCarName(String[] carNames) {
+        if (carNames.length < MIN_CAR_NUMBER) {
+            throw new IllegalArgumentException(SINGLE_CAR_NAME_MESSAGE);
+        }
     }
 
     public int isIntegerAttemptCount(String userInput) {
