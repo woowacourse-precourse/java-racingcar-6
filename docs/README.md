@@ -1,3 +1,4 @@
+# 구현 기능 목록
 - Car 자동차
   - getCarName 자동차 이름
   - getPosition 자동차 위치
@@ -29,3 +30,6 @@
 - PlayGame 게임 시작
   - playGame 게임 시작 후 입력값 받기
   - playRace 입력값을 토대로 경주 시작
+
+# 다이어그램
+![diagram](./racingcar-diagram.png)
