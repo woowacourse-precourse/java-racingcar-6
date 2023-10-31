@@ -11,10 +11,10 @@ public class CarUtil {
 
         if (input.contains(",")) {
             for (String car : input.split(",")) {
-                cars.add(new Car(car));
+                cars.add(new Car(validate(car)));
             }
         } else {
-            cars.add(new Car(input));
+            cars.add(new Car(validate(input)));
         }
 
         return cars;
@@ -30,6 +30,14 @@ public class CarUtil {
     public void process(Car car) {
         if(move()) {
             car.setProgress(car.getProgress() + "-");
+        }
+    }
+
+    public String validate(String car) {
+        if(car.length() <= 5) {
+            return car;
+        } else {
+            throw new IllegalArgumentException(car + "(은)는 이름 형식에 맞지 않습니다.");
         }
     }
 
