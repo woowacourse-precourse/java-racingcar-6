@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.carRepository.CarRepositoryInterface;
 import racingcar.model.Car;
 
@@ -18,5 +19,14 @@ public class CarService {
             car = Car.createCar(carName);
             carRepository.saveCar(car);
         }
+    }
+
+    public void movieCar(){
+        int randomNumber = getRandomNumber();
+
+    }
+
+    private int getRandomNumber(){
+        return Randoms.pickNumberInRange(0,9);
     }
 }
