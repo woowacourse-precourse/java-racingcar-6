@@ -11,9 +11,7 @@ public class Cars {
     List<Car> carList = new ArrayList<>();
     List<String> winners = new ArrayList<>();
 
-    private void save(String carName) {
-        carList.add(new Car(carName));
-    }
+    final int MOVING_FORWARD_NUMBER = 4;
 
     private void moveForward(Car car) {
         car.move();
@@ -29,9 +27,13 @@ public class Cars {
         }
     }
 
+    private void save(String carName) {
+        carList.add(new Car(carName));
+    }
+
     public List<Car> game() {
         for (int i = 0; i < carList.size(); i++) {
-            if (randomNumberGenerator.pickRandomNumber() >= 4) {
+            if (randomNumberGenerator.pickRandomNumber() >= MOVING_FORWARD_NUMBER) {
                 moveForward(carList.get(i));
             }
         }
