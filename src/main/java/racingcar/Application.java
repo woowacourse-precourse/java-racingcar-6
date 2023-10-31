@@ -77,6 +77,10 @@ public class Application {
         return false;
     }
 
+    public static int makeRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
 
 
 }
