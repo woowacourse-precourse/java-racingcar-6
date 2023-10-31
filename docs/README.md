@@ -54,7 +54,9 @@
 * checkCarName() 
   * 자동차이름 입력이 이상이 없는지 확인한다.
     * 5글자를 넘지 않는다.
-    * 중복된 이름이 없어야 한다.
+    * 중복된 이름이 없어야 한다.(checkDuplicateName)
+    * 이름에 공백이 들어오면 안된다.
+    * 이름이 null이 들어오면 안된다.
 
 * checkTryNumber()
   * inputTryNumber()에서 입력된 시도횟수 번호를 검사한다.
