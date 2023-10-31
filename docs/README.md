@@ -13,7 +13,7 @@
 
 ## 폴더 별 기능
 * model : 데이터 생성 및 처리 영역
-  * Car
+  * Car, ChallengeNumber
 * service : 기능 생성 영역
   * Input, Output, Random, Move 
 * exception : 예외 처리 영역 
