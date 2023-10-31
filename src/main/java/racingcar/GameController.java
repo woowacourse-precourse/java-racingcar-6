@@ -56,10 +56,14 @@ public class GameController {
 
     private void carStatusLoop() {
         for (int i = 0; i < player.getTryNumber(); i++) {
-            for (Car car : getPlayerCarInfo()) {
-                gameService.move(car);
-            }
+            getCarMove();
             outputView.printEmptyLine();
+        }
+    }
+
+    private void getCarMove() {
+        for (Car car : getPlayerCarInfo()) {
+            gameService.move(car);
         }
     }
 
