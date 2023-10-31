@@ -32,7 +32,7 @@ public class InputDesk {
             Integer.parseInt(inputStr);
             return true;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("사용자 입력값 null");
+            throw new IllegalArgumentException("사용자 입력값 Int형 아님");
         }
 
     }
@@ -63,8 +63,9 @@ public class InputDesk {
                 inputCount = Integer.parseInt(inputStr);
                 checkIllegalArgumentException(inputCount);
             }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+        } catch (IllegalArgumentException e) {
+            inputCount = ERR_NUM;
+            throw e;
         } finally {
             return inputCount;
         }
