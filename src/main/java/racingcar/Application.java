@@ -76,6 +76,10 @@ class Car {
         return name;
     }
 
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
 
 }
 
