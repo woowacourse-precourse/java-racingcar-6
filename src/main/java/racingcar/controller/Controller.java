@@ -39,9 +39,9 @@ public class Controller {
         return nameList;
     }
 
-    public List<Integer> makeRandomList() {
+    public List<Integer> makeRandomList(int size) {
         List<Integer> randomNums = new ArrayList<>();
-        for (int i = 0; i < carList.getSize(); i++) {
+        for (int i = 0; i < size; i++) {
             randomNums.add(new Generator().generateRandomNumber());
         }
         return randomNums;
@@ -53,7 +53,7 @@ public class Controller {
     public void play(int howMany) {
         OutputView outputView = new OutputView();
         while (howMany > 0) {
-            List<Integer> randomNums = makeRandomList();
+            List<Integer> randomNums = makeRandomList(carList.getSize());
             carList.upgradeDistance(replaceZeroAndOne(randomNums));
             outputView.printInterm(carList.toString());
             howMany--;
