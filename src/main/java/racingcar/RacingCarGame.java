@@ -18,10 +18,6 @@ public class RacingCarGame {
 
     public void playRacingCar() {
         System.out.printf("%n실행결과%n");
-        System.out.println(racingCar.numberOfTries);
-
-        System.out.println(racingCar.carName.size());
-
         for (int i = 0; i < racingCar.numberOfTries; i++) {
             for (int j = 0; j < racingCar.carName.size(); j++) {
                 racingCar.updateMovement(j);
@@ -30,7 +26,8 @@ public class RacingCarGame {
             }
             racingCar.changeLine();
         }
-        // 이 부분에 최종 우승자 출력
-        System.out.println(racingCar.movementSoFar);
+        int longestMovement = racingCar.longestMovement(movementSoFar);
+        List<Integer> winnerIndexList = racingCar.howManyWinners(longestMovement);
+        racingCar.printFinalWinner(winnerIndexList);
     }
 }

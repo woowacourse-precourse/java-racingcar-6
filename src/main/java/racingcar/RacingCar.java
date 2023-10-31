@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCar {
@@ -40,14 +42,12 @@ public class RacingCar {
         String strCarName = inputString("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         exceptionChecker.wrongInputCarName(strCarName);
         stringToList(strCarName);
-//        System.out.println(carName);
     }
 
     public void setMovement() {
         for (int i = 0; i < carName.size(); i++) {
             movementSoFar.add(0);
         }
-//        System.out.println(movementSoFar);
     }
 
     public void numberOfTries() {
@@ -56,7 +56,7 @@ public class RacingCar {
         numberOfTries = Integer.parseInt(strTries);
     }
 
-    public Integer generateRandomNumber() {
+    public int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
@@ -84,5 +84,28 @@ public class RacingCar {
 
     public void printMovement(Integer indexOfCarName) {
         System.out.printf("%s : %s%n", carName.get(indexOfCarName), getDash(indexOfCarName));
+    }
+
+    public int longestMovement(List<Integer> movementSoFar) {
+        int longestMovement = Collections.max(movementSoFar);
+        return longestMovement;
+    }
+
+    public List<Integer> howManyWinners(int longestMovement) {
+        List<Integer> winnerIndexList = new ArrayList<Integer>();
+        for (int i = 0; i < movementSoFar.size(); i++) {
+            if (movementSoFar.get(i) == longestMovement) {
+                winnerIndexList.add(i);
+            }
+        }
+        return winnerIndexList;
+    }
+
+    public void printFinalWinner(List<Integer> winnerIndexList) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerIndexList.size() - 1; i++) {
+            System.out.printf("%s, ", carName.get(winnerIndexList.get(i)));
+        }
+        System.out.println(carName.get(winnerIndexList.get(winnerIndexList.size() - 1)));
     }
 }
