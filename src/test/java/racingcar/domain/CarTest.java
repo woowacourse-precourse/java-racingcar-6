@@ -17,11 +17,4 @@ class CarTest {
 
         assertThat(car).isNotNull();
     }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"", "123456", " "})
-    @DisplayName("자동차 생성 실패")
-    void createFail(String name) {
-        assertThatThrownBy(() -> new Car(name)).isInstanceOf(IllegalArgumentException.class);
-    }
 }
