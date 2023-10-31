@@ -6,16 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RacingCarGame {
-    private static RacingCarGame racingCarGame;
-
-    private RacingCarGame() {
-    }
-
-    public static RacingCarGame getInstance() {
-        if (racingCarGame == null) {
-            racingCarGame = new RacingCarGame();
-        }
-        return racingCarGame;
+    public RacingCarGame() {
     }
 
     public String getCarsName() {
