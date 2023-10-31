@@ -75,7 +75,8 @@ public class InputValidation {
     }
 
     private boolean hasNotCommaSeparatedCarNames(String input) {
-        return !input.matches(".*[a-zA-Z]+(,[a-zA-Z]+)+.*");
+        String[] carNames = input.split(",");
+        return carNames.length < 2;
     }
 
     public void validateCarNames(String input) {
