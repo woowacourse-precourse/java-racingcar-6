@@ -72,4 +72,11 @@ public class Validation {
         }
         return false;
     }
+
+    public static boolean isCorrectComma(List<String> members, int inputSize) {
+        if (members.size() - (inputSize - members.size()) == 1) {
+            return true;
+        }
+        return false;
+    }
 }
