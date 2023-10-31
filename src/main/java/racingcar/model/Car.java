@@ -15,4 +15,10 @@ public class Car {
     public int getDistance() {
         return this.distance;
     }
+
+    public void move(int randomNum, int standard) {
+        if (randomNum >= standard) {
+            this.distance++;
+        }
+    }
 }
