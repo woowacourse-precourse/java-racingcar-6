@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
+import racingcar.dto.GameResultDto;
 
 @DisplayName("심판 테스트")
 class RefereeTest {
@@ -19,8 +20,8 @@ class RefereeTest {
         Car car3 = new Car("car3", 2, new DefaultPowerGenerator());
         List<Car> cars = Arrays.asList(car1, car2, car3);
         Referee referee = new Referee();
-        List<Car> winners = referee.selectWinners(cars);
-        Assertions.assertThat(winners).containsExactly(car2);
+        GameResultDto result = referee.publishGameResult(cars);
+        Assertions.assertThat(result.getWinners()).containsExactly(car2);
     }
 
     @DisplayName("복수 우승자를 올바르게 가려낸다")
@@ -31,7 +32,7 @@ class RefereeTest {
         Car car3 = new Car("car3", 5, new DefaultPowerGenerator());
         List<Car> cars = Arrays.asList(car1, car2, car3);
         Referee referee = new Referee();
-        List<Car> winners = referee.selectWinners(cars);
-        Assertions.assertThat(winners).containsExactly(car2, car3);
+        GameResultDto result = referee.publishGameResult(cars);
+        Assertions.assertThat(result.getWinners()).containsExactly(car2, car3);
     }
 }

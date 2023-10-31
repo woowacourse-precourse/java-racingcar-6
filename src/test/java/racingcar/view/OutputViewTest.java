@@ -52,7 +52,7 @@ class OutputViewTest {
 
         String expectedOutput = "최종 우승자 : car2,car3";
         Referee referee = new Referee();
-        outputView.showGameResult(referee.selectWinners(cars));
+        outputView.showGameResult(referee.publishGameResult(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
@@ -67,7 +67,7 @@ class OutputViewTest {
 
         String expectedOutput = "최종 우승자 : car2";
         Referee referee = new Referee();
-        outputView.showGameResult(referee.selectWinners(cars));
+        outputView.showGameResult(referee.publishGameResult(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 }

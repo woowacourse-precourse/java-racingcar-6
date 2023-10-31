@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
+import racingcar.dto.GameResultDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -29,8 +30,8 @@ public class RacingGame {
             executeRound(cars);
             roundCount.consumeRound();
         }
-        List<Car> winners = referee.selectWinners(cars);
-        outputView.showGameResult(winners);
+        GameResultDto gameResult = referee.publishGameResult(cars);
+        outputView.showGameResult(gameResult);
     }
 
 

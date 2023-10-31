@@ -3,6 +3,7 @@ package racingcar.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.dto.GameResultDto;
 
 public class OutputView {
 
@@ -10,15 +11,15 @@ public class OutputView {
         System.out.println(resolveRoundResultMessage(cars));
     }
 
-    public void showGameResult(List<Car> winners) {
-        System.out.println(resolveWinnerMessage(winners));
+    public void showGameResult(GameResultDto gameResult) {
+        System.out.println(resolveWinnerMessage(gameResult));
     }
 
-    private String resolveWinnerMessage(List<Car> winners) {
-        if (isSingleWinner(winners)) {
-            return "최종 우승자 : " + winners.get(0).getCarName();
+    private String resolveWinnerMessage(GameResultDto gameResult) {
+        if (gameResult.isSingleWinner()) {
+            return "최종 우승자 : " + gameResult.getSingleWinner().getCarName();
         }
-        String winnerNames = getWinnerNames(winners);
+        String winnerNames = getWinnerNames(gameResult.getWinners());
         return "최종 우승자 : " + winnerNames;
     }
 

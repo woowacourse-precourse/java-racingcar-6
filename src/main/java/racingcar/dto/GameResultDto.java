@@ -20,4 +20,9 @@ public class GameResultDto {
     public List<Car> getWinners() {
         return winners;
     }
+
+    public Car getSingleWinner() {
+        return winners.get(0);
+    }
+
 }
