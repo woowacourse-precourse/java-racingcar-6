@@ -1,13 +1,24 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
+    CarList cars;
+    int round;
+    List<String> carName;
 
     public void run() {
-        CarList carList;
-        carList = new CarList(readRound(), readCarName());
+        inputView();
+        inGame();
+        outputView();
+    }
 
+    public void inputView(){
+        int round = readRound();
+        List<String> carName = readCarName();
+        cars = new CarList(round, readCarName());
     }
 
     public List<String> readCarName(){
@@ -17,5 +28,45 @@ public class Controller {
         return InputView.inputRound();
     }
 
+    public void inGame(){
+        int randomNum;
+        Car car;
+        for(int i = 0; i < round ; i++){
+            for(int j = 0; j < carName.size(); j++) {
+                randomNum = Randoms.pickNumberInRange(0,9);
+                car = cars.getCar(j);
+                car.addRandomNum(randomNum);
+                if(randomNum >= 4){
+                    car.increaseForward();
+                }
+            }
+        }
+    }
+
+    private void outputView() {
+        writeRoundResult();
+        writeWinner();
+    }
+
+    private List<String> calculateOutput() {
+        int max = 0;
+        List<String> winnerList = new ArrayList<>();
+        for(Car car : cars.carList){
+            int forward = car.forward;
+            if(max <= forward){
+                max = forward;
+                winnerList.add(car.name);
+            }
+        }
+        return winnerList;
+    }
+    private void writeRoundResult(){
+        OutputView.printRoundResult(cars);
+    }
+
+    private void writeWinner(){
+        List<String> winnerList = calculateOutput();
+        OutputView.printWinner(winnerList);
+    }
 
 }

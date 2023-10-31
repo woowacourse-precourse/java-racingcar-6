@@ -13,4 +13,7 @@ public class CarList {
             this.carList.add(new Car(carName));
         }
     }
+    public Car getCar(int o){
+        return carList.get(o);
+    }
 }

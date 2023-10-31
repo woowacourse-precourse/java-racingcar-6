@@ -10,4 +10,10 @@ public class Car {
     Car(String name) {
         randomNumList = new ArrayList<>();
     }
+    public void addRandomNum(int randomNum){
+        randomNumList.add(randomNum);
+    }
+    public void increaseForward(){
+        forward++;
+    }
 }

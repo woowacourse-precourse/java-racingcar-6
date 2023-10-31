@@ -4,9 +4,9 @@ import java.util.List;
 
 public class OutputView {
 
-    public static void printRoundResult(List<Car> carList){
+    public static void printRoundResult(CarList carList){
 
-        for (Car car : carList) {
+        for (Car car : carList.carList) {
             System.out.println(car.name + " : ");
         }
     }
