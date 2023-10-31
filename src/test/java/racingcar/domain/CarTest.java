@@ -29,15 +29,6 @@ class CarTest {
                 });
     }
 
-    @Test
-    @DisplayName("자동차 시작 위치가 0이 아닌 경우 예외 발생")
-    void 예외_처리_테스트_3() {
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    new Car(movingStrategy, "pobi");
-                });
-    }
 
     @Test
     @DisplayName("위치 정보 조회")

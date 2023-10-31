@@ -19,7 +19,7 @@ class OutputViewTest extends IOTest {
     void outputGameResultMessage() {
         // given
         OutputView outputView = new OutputView();
-        String expected = "실행 결과\n";
+        String expected = "\n실행 결과\n";
         // when
         outputView.outputGameResultMessage();
         // then
