@@ -15,19 +15,16 @@ public class MessageUtil {
         System.out.println("실행 결과");
     }
 
-    public void resultGame(Map<String, Integer> carResult) {
-        for (String carName : carResult.keySet()) {
-            System.out.println(carName + " : " + transformDashes(carResult.get(carName)));
-        }
+    public void endGame() {
+        System.out.print("최종 우승자 : ");
     }
 
-    public String transformDashes(Integer carRunCnt) {
-        StringBuilder dashes = new StringBuilder();
-
-        if (carRunCnt != null && carRunCnt > 0) {
-            dashes.append("-".repeat(carRunCnt));
-        }
-
-        return dashes.toString();
+    public void outPut(String message) {
+        System.out.println(message);
     }
+
+    public void outPutResultCarName(String carName) {
+        System.out.print(carName + " : ");
+    }
+
 }
