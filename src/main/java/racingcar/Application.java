@@ -6,8 +6,30 @@ import java.util.*;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
+      /**
+     * 프로그램이 시작하는 Main 함수 입니다.
+     * @param args
+     */
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        ArrayList<String> userlist = isNamesInput();
+        System.out.println("시도할 회수는 몇회인가요?");
+        int count = isNumberInput();
+
+        System.out.println("실행 결과");
+        List<String> winner = startRacing(userlist, count);
+        
+        if (winner.size() <= 0) {
+            throw new IllegalArgumentException("우승자가 없습니다.");
+        }
+
+        System.out.print("최종 우승자 : ");
+        System.out.print(winner.get(0));
+        int index = 1;
+        if (winner.size() > 1) {
+            System.out.print(", " + winner.get(index++));
+        }
+        
     }
 
     /** 레이싱을 시뮬레이션 하는 메서드입니다.
