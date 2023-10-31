@@ -5,7 +5,6 @@ import racingcar.view.OutputView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Cars {
     ArrayList<Car> cars = new ArrayList<>();
@@ -55,19 +54,21 @@ public class Cars {
         return winners;
     }
 
-    public String winnersToString(ArrayList<Car> winners) {
-        StringBuilder output = new StringBuilder();
-        for (int i=0; i<winners.size(); i++) {
-            output.append(winners.get(i).getCarName());
-            if (winners.size() > 1 && i < winners.size()-1) {
-                output.append(", ");
-            }
-        }
-        return output.toString();
-    }
-
     public void getWinners(){
         // TODO: 위치를 고민해 봐야 할 메서드
         OutputView.finalGameResult(winnersToString(getMaxOfScores()));
+    }
+
+    public String winnersToString(ArrayList<Car> winners){
+        ArrayList<String> carNames = getCarNames(winners);
+        return String.join(", ", carNames);
+    }
+
+    public ArrayList<String> getCarNames(ArrayList<Car> cars) {
+        ArrayList<String> carNames = new ArrayList<>();
+        for (Car car : cars) {
+            carNames.add(car.getCarName());
+        }
+        return carNames;
     }
 }
