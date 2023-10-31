@@ -9,6 +9,8 @@ import racingcar.utils.FixedNumberGenerator;
 
 class CarsTest {
 
+    private static final int MAX_CARS_SIZE = 10;
+
     @DisplayName("cars 생성 시 최소 자동차 개수보다 적으면 예외가 발생한다.")
     @Test
     void constructCars_Fail_BySizeIsLessThanMinimum() {
@@ -25,7 +27,7 @@ class CarsTest {
     void constructCars_Fail_BySizeIsGreaterThanMaximum() {
         // given
         List<Car> carList = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < MAX_CARS_SIZE + 1; i++) {
             carList.add(new Car("car" + i));
         }
 
