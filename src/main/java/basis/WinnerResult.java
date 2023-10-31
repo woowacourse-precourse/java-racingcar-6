@@ -35,9 +35,14 @@ public class WinnerResult {
         int largestMove = 0;
         for (Entry<String, String> element : carNameHashMap.entrySet()) {
             int moveLength = element.getValue().length();
-            if (moveLength > largestMove) {
-                largestMove = moveLength;
-            }
+            largestMove = checkWinnerMove(moveLength, largestMove);
+        }
+        return largestMove;
+    }
+
+    private static int checkWinnerMove(int moveLength, int largestMove) {
+        if (moveLength > largestMove) {
+            largestMove = moveLength;
         }
         return largestMove;
     }
