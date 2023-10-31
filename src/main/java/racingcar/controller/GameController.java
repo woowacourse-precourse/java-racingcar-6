@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.enums.ValidationMsg;
+import racingcar.dto.RacingCarInitDto;
+import racingcar.service.RacingCarService.RacingCarService;
 import racingcar.service.StringUtilService;
 import racingcar.service.ValidatorService;
 import racingcar.view.InputView;
@@ -14,6 +16,8 @@ public class GameController {
 	private final InputView inputView = InputView.getInstance();
 	private StringUtilService stringUtilService = StringUtilService.getInstance();
 
+	private RacingCarService racingCarService = RacingCarService.getInstance();
+
 	public void setCarNameList(List<String> carNameList) {
 		this.carNameList = carNameList;
 	}
@@ -22,16 +26,25 @@ public class GameController {
 		this.inputCarRaceTimes = inputCarRaceTimes;
 	}
 
+	public List<String> getCarNameList() {
+		return carNameList;
+	}
+
+	public Integer getInputCarRaceTimes() {
+		return inputCarRaceTimes;
+	}
+
 	private List<String> carNameList = new ArrayList<>();
 	private Integer inputCarRaceTimes = 0;
 
 	public void gameStart() {
-		printMenu();
+		printGameRuleInfo();
+		requestUserInput();
+		this.saveRacingCar();
 	}
 
-	private void printMenu() {
+	private void printGameRuleInfo() {
 		inputView.printGameRuleInfo();
-		requestUserInput();
 	}
 
 	private void requestUserInput() {
@@ -54,5 +67,13 @@ public class GameController {
 			throw new IllegalArgumentException(validationMsg.getValue());
 		}
 		return Integer.valueOf(inputCarRaceTimes);
+	}
+
+	private void saveRacingCar() {
+		RacingCarInitDto racingCarInitDto = RacingCarInitDto.builder()
+				.carNameList(this.getCarNameList())
+				.inputCarRaceTimes(this.getInputCarRaceTimes())
+				.build();
+		racingCarService.saveRacingCar(racingCarInitDto);
 	}
 }

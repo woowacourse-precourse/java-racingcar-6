@@ -44,9 +44,9 @@ class GameControllerTest extends NsTest {
 		);
 	}
 
-	@DisplayName("자동차_이름_string_empty_입력_체크")
+	@DisplayName("자동차_이름_길이_유효성_검증")
 	@ParameterizedTest(name = "{index}. {displayName} - userInput parameter: {0}")
-	@ValueSource(strings = {"pobi,javaji", "abcde,aaa", "12345,bbbaa"})
+	@ValueSource(strings = {"pobi,javaji", "6글자가넘음,aaa", "123456,bbbaa"})
 	void 자동차_이름_길이_유효성_검증(final String userInput) {
 		assertThrows(IllegalArgumentException.class,() -> {
 			System.out.print(InterfaceMsg.REQUEST_INPUT_CAR_NAME.getValue()); run(userInput);
