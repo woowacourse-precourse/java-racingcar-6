@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.dto.CarInfo;
 
 public class RacingResultTest {
 
@@ -19,15 +18,15 @@ public class RacingResultTest {
     @Test
     void getRacingRoundResultsManipulateFailTest() {
         RacingResult racingResult = new RacingResult();
-        RacingRoundResult racingRoundResult = new RacingRoundResult(List.of(
-                setCarInfo("pobi", 3),
-                setCarInfo("woni", 3)
+        RacingRoundResult racingRoundResult = RacingRoundResult.getRacingRoundResult(List.of(
+                setCar("pobi", 3),
+                setCar("woni", 3)
         ));
         racingResult.addResult(racingRoundResult);
         List<RacingRoundResult> racingRoundResults = racingResult.getRacingRoundResults();
         assertThatCode(
                 () -> racingRoundResults.add(
-                        new RacingRoundResult(List.of(setCarInfo("pobi", 4), setCarInfo("woni", 4)))))
+                        RacingRoundResult.getRacingRoundResult(List.of(setCar("pobi", 4), setCar("woni", 4)))))
                 .isInstanceOf(UnsupportedOperationException.class);
         assertThatCode(() -> racingRoundResults.remove(0))
                 .isInstanceOf(UnsupportedOperationException.class);
@@ -39,9 +38,9 @@ public class RacingResultTest {
     @Test
     void getRacingRoundResultsReadSuccessTest() {
         RacingResult racingResult = new RacingResult();
-        RacingRoundResult racingRoundResult = new RacingRoundResult(List.of(
-                setCarInfo("pobi", 3),
-                setCarInfo("woni", 3)
+        RacingRoundResult racingRoundResult = RacingRoundResult.getRacingRoundResult(List.of(
+                setCar("pobi", 3),
+                setCar("woni", 3)
         ));
         racingResult.addResult(racingRoundResult);
         List<RacingRoundResult> racingRoundResults = racingResult.getRacingRoundResults();
@@ -64,54 +63,54 @@ public class RacingResultTest {
     static Stream<Arguments> provideGetFinalWinnerTestArguments() {
         return Stream.of(
                 arguments(List.of(
-                        new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 1),
-                                setCarInfo("woni", 1),
-                                setCarInfo("jun", 0)
-                        )), new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 2),
-                                setCarInfo("woni", 2),
-                                setCarInfo("jun", 0)
-                        )), new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 2),
-                                setCarInfo("woni", 2),
-                                setCarInfo("jun", 0)
+                        RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 1),
+                                setCar("woni", 1),
+                                setCar("jun", 0)
+                        )), RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 2),
+                                setCar("woni", 2),
+                                setCar("jun", 0)
+                        )), RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 2),
+                                setCar("woni", 2),
+                                setCar("jun", 0)
                         ))
                 ), List.of("pobi", "woni")),
                 arguments(List.of(
-                        new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 1),
-                                setCarInfo("woni", 1),
-                                setCarInfo("jun", 0)
-                        )), new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 2),
-                                setCarInfo("woni", 2),
-                                setCarInfo("jun", 0)
-                        )), new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 3),
-                                setCarInfo("woni", 2),
-                                setCarInfo("jun", 0)
+                        RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 1),
+                                setCar("woni", 1),
+                                setCar("jun", 0)
+                        )), RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 2),
+                                setCar("woni", 2),
+                                setCar("jun", 0)
+                        )), RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 3),
+                                setCar("woni", 2),
+                                setCar("jun", 0)
                         ))
                 ), List.of("pobi")),
                 arguments(List.of(
-                        new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 1),
-                                setCarInfo("woni", 1),
-                                setCarInfo("jun", 0)
-                        )), new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 2),
-                                setCarInfo("woni", 2),
-                                setCarInfo("jun", 1)
-                        )), new RacingRoundResult(List.of(
-                                setCarInfo("pobi", 2),
-                                setCarInfo("woni", 2),
-                                setCarInfo("jun", 2)
+                        RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 1),
+                                setCar("woni", 1),
+                                setCar("jun", 0)
+                        )), RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 2),
+                                setCar("woni", 2),
+                                setCar("jun", 1)
+                        )), RacingRoundResult.getRacingRoundResult(List.of(
+                                setCar("pobi", 2),
+                                setCar("woni", 2),
+                                setCar("jun", 2)
                         ))
                 ), List.of("pobi", "woni", "jun"))
         );
     }
 
-    private static CarInfo setCarInfo(String carName, int position) {
-        return new CarInfo(carName, position);
+    private static Car setCar(String carName, int position) {
+        return new Car(new CarName(carName), new FixedCarEngine(true), new Position(position));
     }
 }
