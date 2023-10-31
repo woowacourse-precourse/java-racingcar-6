@@ -31,5 +31,15 @@ public class Game {
         return Integer.parseInt(Console.readLine());
     }
 
+    public void playGame(List<Car> cars, int attempts) {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < attempts; i++) {
+            for (Car car : cars) {
+                car.move();
+                System.out.println(car);
+            }
+            System.out.println();
+        }
+    }
 
 }
