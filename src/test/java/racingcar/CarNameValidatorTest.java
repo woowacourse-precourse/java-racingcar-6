@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.vaildator.carNameValidator;
@@ -16,4 +17,13 @@ public class CarNameValidatorTest {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> carNameValidator.validateInputNameSize(carName));
     }
+
+    @Test
+    @DisplayName("이름을 아무것도 입력하지 않았을 때를 검증한다.")
+    void validateInputName() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> carNameValidator.validateInputName(""));
+    }
+
+
 }
