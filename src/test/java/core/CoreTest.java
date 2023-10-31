@@ -1,4 +1,4 @@
-package study;
+package core;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;

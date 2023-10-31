@@ -1,4 +1,4 @@
-package study;
+package entity;
 
 import org.junit.jupiter.api.Test;
 import racingcar.entity.*;
