@@ -30,4 +30,9 @@
 3. RacingGameController 클래스
     4. 컨트롤러 역할 수행
     5. 사용자 입력 및 게임 로직 실행
-    6. createCar 메서드 -> 자동차 이름 입력받고 Car 객체 생성
+    6. createCar() -> 자동차 이름 입력받고 Car 객체 생성
+    7. validateCarName() -> 자동차 이름의 유효성 검사
+    8. getTryCount() -> 시도할 횟수 입력 받기
+    9. moveCars() -> 자동차 전진
+    10. getWinners() -> 최종 우승자를 결정
+    11. getMaxPosition() -> 자동차들 중 가장 많이 이동한 위치 반환

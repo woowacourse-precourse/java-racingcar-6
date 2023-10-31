@@ -21,6 +21,8 @@ public class RacingGameController {
       carView.printStatus(cars);
       System.out.println();
     }
+    List<String> winners = getWinners(cars);
+    carView.printWinners(winners);
   }
 
   private List<Car> createCars() {
@@ -54,6 +56,25 @@ public class RacingGameController {
         car.moveForward();
       }
     }
+  }
+
+  private List<String> getWinners(List<Car> cars) {
+    int maxPosition = getMaxPosition(cars);
+    List<String> winners = new ArrayList<>();
+    for (Car car : cars) {
+      if (car.getPosition() == maxPosition) {
+        winners.add(car.getName());
+      }
+    }
+    return winners;
+  }
+
+  private int getMaxPosition(List<Car> cars) {
+    int maxPosition = 0;
+    for (Car car : cars) {
+      maxPosition = Math.max(maxPosition, car.getPosition());
+    }
+    return maxPosition;
   }
 
 }
