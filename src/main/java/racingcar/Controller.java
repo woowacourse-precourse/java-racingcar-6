@@ -21,7 +21,10 @@ public class Controller {
     public void inputView(){
         List<String> carName = readCarName();
         this.round = readRound();
-        this.cars = new CarList(this.round, carName);
+        try{
+            this.cars = new CarList(this.round, carName);
+        }
+
     }
 
     public List<String> readCarName(){
