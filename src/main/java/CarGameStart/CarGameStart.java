@@ -4,37 +4,30 @@ import java.util.List;
 
 import Carset.CarFuctSet;
 import Carset.CarNamedSet;
+import Carset.PrintResult;
 
 public class CarGameStart {
 	CarNamedSet nameset;
-	CarFuctSet fuctset;
+	PrintResult result;
+	List<String> CarNameds;
+	
 	
 	
 	public CarGameStart() {
 		nameset = new CarNamedSet();
-		fuctset = new CarFuctSet();
+		CarNameds = nameset.NameSetting();
+		result = new PrintResult(CarNameds);
 		
 	}
+	
+	
+	
 	
 	public void run() {
-		List<String> CarNameds=	nameset.NameSetting();
-		fuctset.MoveAdvance(CarNameds);
-	}
-	
-	
-	
-	public void StartResult() {
-		List<String> CarNamed;
-		int number = fuctset.InputNumber();
 		
-		CarNamed = nameset.GetCarMembers();
 		
-		for(int i =0; i < number; i++) {
-			for(int j =0; j < CarNamed.size(); i++) {
-				System.out.println(CarNamed.get(j) + ":" );
-				
-			}
-		}
+		
+		
 	}
 	
 	

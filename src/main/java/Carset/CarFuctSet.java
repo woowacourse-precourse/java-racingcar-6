@@ -7,7 +7,14 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarFuctSet {
-
+	 private int distance;
+	 private static final String CAR_MARKER = "-";
+	 
+	 public CarFuctSet() {
+		 this.distance = 0;
+	 }
+	
+	 
 	
 	public int InputNumber() {
 		System.out.println("시도할 회수는 몇회인가요?");
@@ -19,38 +26,28 @@ public class CarFuctSet {
 	}
 	
 	
-	
-	public static boolean MoveCondition() {
+	public void MoveCondition() {
 		int randomNumber = Randoms.pickNumberInRange(0,9);
 		
-		if(randomNumber >=4) {
-			return true;
+		if(randomNumber >= 4) {
+			distance ++;
 		}
-		return false;
 		
 	}
 	
-	public String ReturnAdvance() {
-		MoveCondition();
-		if(MoveCondition() ==true) return "-";
-		return " ";
+	public int getDistance() {
+		return distance;
 	}
-	
-	public void MoveAdvance(List<String> Carmove) {
-		 StringBuilder output = new StringBuilder();
-
-	        for (int i = 0; i < Carmove.size(); i++) {
-	            output.append(Carmove.get(i)).append(" : ").append(ReturnAdvance()).append("\n");
-	        }
-
-	        System.out.println(output.toString());
-		
-	}
-	
-	
-	
-	
 }
+	
+
+	    
+	
+	
+	
+	
+	
+
 
 
 
