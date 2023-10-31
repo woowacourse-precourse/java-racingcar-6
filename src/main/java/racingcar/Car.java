@@ -24,4 +24,20 @@ public class Car {
     public void increaseCurrentStep() {
         this.currentStep++;
     }
+
+    public void showCurrentStep() {
+        System.out.print(this.name + " : ");
+        for (int i = 0; i < currentStep; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    public int getCurrentStep() {
+        return currentStep;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
