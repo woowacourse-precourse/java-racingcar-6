@@ -13,6 +13,7 @@ public class Winner {
         }
     }
 
+    //validateWinner 속도 개선 필요
     public void validateWinner(int[] ranking, ArrayList<String> cars, int idx) {
         if (ranking[idx] == Arrays.stream(ranking).max().getAsInt()) {
             addToWinnerList(cars, idx);

@@ -28,7 +28,7 @@ public class CarName {
         return clearCarList;
     }
 
-    public void isWrongNameFormat(ArrayList<String> carList) throws IllegalArgumentException { //depth 줄이기
+    public void isWrongNameFormat(ArrayList<String> carList) throws IllegalArgumentException {
         for (String car : carList) {
             if (!car.matches("^[a-zA-Z]+$")) {
                 throw new IllegalArgumentException("자동차 이름은 알파벳이여야 합니다.");
