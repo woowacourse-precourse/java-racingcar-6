@@ -64,14 +64,16 @@ public class RacingController {
         for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
             carService.updateCarPosition();
             String[] carPositions = carService.getGameStatus();
-            OutputMessage.printGameStatusMessage(carPositions, carsCount);
+            String GAME_STATUS_MESSAGE = OutputMessage.printGameStatusMessage(carPositions, carsCount);
+            System.out.print(GAME_STATUS_MESSAGE);
         }
     }
 
     public void getWinner() {
         List<String> winner = carService.getWinner();
         System.out.print(OutputMessage.OUTPUT_WINNER_MESSAGE);
-        OutputMessage.printWinnerMessage(winner);
+        String WINNER_MESSAGE = OutputMessage.printWinnerMessage(winner);
+        System.out.println(WINNER_MESSAGE);
     }
 
 

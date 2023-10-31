@@ -9,17 +9,21 @@ public class OutputMessage {
 
     public static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
 
-    public static void printGameStatusMessage(String[] carPositions, int carsCount) {
+    public static String printGameStatusMessage(String[] carPositions, int carsCount) {
+        StringBuilder gameStatusMessage = new StringBuilder();
         for (int i = 0; i < carsCount; i++) {
-            System.out.println(carPositions[i]);
+            gameStatusMessage.append(carPositions[i]).append("\n");
         }
-        System.out.println();
+        gameStatusMessage.append("\n");
+        return gameStatusMessage.toString();
     }
 
-    public static void printWinnerMessage(List<String> winner) {
-        String result = winner.stream()
+    public static String printWinnerMessage(List<String> winner) {
+
+        String winnerMessage = winner.stream()
                 .collect(Collectors.joining(","));
 
-        System.out.print(result);
+        return winnerMessage;
+
     }
 }
