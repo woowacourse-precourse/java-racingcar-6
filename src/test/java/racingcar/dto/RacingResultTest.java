@@ -16,12 +16,12 @@ class RacingResultTest {
         Car car = new Car("test");
         IntStream.range(0, movedCount)
                 .forEach(i -> car.move());
-        RacingResult racingResult = RacingResult.from(car);
 
         // when
-        int actual = racingResult.position().length();
+        RacingResult racingResult = RacingResult.from(car);
 
         // then
+        int actual = racingResult.position().length();
         assertThat(actual).isEqualTo(movedCount);
     }
 }
