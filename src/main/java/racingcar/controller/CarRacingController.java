@@ -6,9 +6,15 @@ import java.util.List;
 import racingcar.model.RaceGame;
 
 public class CarRacingController {
+    private int randomNumber;
+    RandomUtility randomUtillity = new RandomUtility();
 
     public void playGame(RaceGame raceGame) {
         saveResetCarMoveCounts(raceGame);
+
+        for (int round = 1; round <= raceGame.getRaceNumber(); round++) {
+            repeatCarRace(raceGame);
+        }
     }
 
     private void saveResetCarMoveCounts(RaceGame raceGame) {
@@ -17,6 +23,13 @@ public class CarRacingController {
             resetCarMoveCounts.add("");
         }
         raceGame.setCarMoveCounts(resetCarMoveCounts);
-        System.out.println(raceGame.getCarMoveCounts());
+    }
+
+    public void repeatCarRace(RaceGame raceGame) {
+        for (int raceCarIndex = 0; raceCarIndex < raceGame.getCarNames().size(); raceCarIndex++) {
+            randomNumber = randomUtillity.generateRandomNumber();
+            System.out.println(randomNumber);
+        }
+        System.out.println();
     }
 }

@@ -45,9 +45,9 @@
 		- saveResetCarMoveCounts()
 			- [O] 각 차수 별 전진 횟수 초기화
 		- [O] 각 차수 별 전진 횟수 모델(carMoveCounts)에 저장
-		- [ ] 경주 시도 횟수 만큼 게임 진행
+		- [O] 경주 시도 횟수 만큼 게임 진행
 		- repeatCarRace()
-			- [ ] 각 차수 별 난수 생성 함수 호출
+			- [O] 각 차수 별 난수 생성 함수 호출
 			- checkAdvenceAndStop() 
 			    - [ ] 전진/멈춤인지 확인
 			- increaseAdvenceCount()
@@ -76,4 +76,4 @@
 
 4. RandomUtility
 	- generateRandomNumber()
-		- [ ] 0부터 9사이의 한 가지 난수 생성
+		- [O] 0부터 9사이의 한 가지 난수 생성
