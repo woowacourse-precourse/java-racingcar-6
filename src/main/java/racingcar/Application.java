@@ -3,7 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.List;
+import java.util.ArrayList;
+
+
+
 public class Application {
+
+    static List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         createCars(Console.readLine().trim());
@@ -11,10 +18,10 @@ public class Application {
         saveTrialNumber(Console.readLine().trim());
     }
 
+
     private static void createDriveCarNum () {
         Integer driveNumber = isMoreThanFour(createRandomNum());
     }
-
     private static Integer createRandomNum() {
         Integer randomNum = Randoms.pickNumberInRange(0,9);;
         return randomNum;
@@ -26,12 +33,15 @@ public class Application {
             return 0;
         }
     }
-
-
     private static void createCars(String carNames) {
-        String[] carList = carNames.split(",");
-        Integer carListLength = carList.length;
-        isCorrectCarsInput(carList, carListLength);
+        createCar(carNames);
+        Integer carsLength = cars.size();
+    }
+    private static void createCar(String carNames) {
+        for (String carName : carNames.split(",")) {
+            Car car = new Car(carName, 0);
+            cars.add(car);
+        }
     }
     private static void saveTrialNumber(String trialNumberInput) {
         try {
@@ -41,12 +51,9 @@ public class Application {
         }
     }
 
-    private static void isCorrectCarsInput(String[] carList, Integer carListLength) {
-        for (int i = 0; i < carListLength; i++) {
-            Integer carNameLength = carList[i].length();
-            if ( carNameLength > 5) {
-                throw new IllegalArgumentException("이름의 길이가 5자가 넘어갑니다. ");
-            }
+    private static void isCorrectCarsInput(String carName) {
+        if (carName.length() > 5 ) {
+            throw new IllegalArgumentException("이름의 길이가 5자가 넘어갑니다. ");
         }
         //구분문자가 쉼표가 아닌 경우 한 명만 들어오면 쉼표는 없는데..
 
