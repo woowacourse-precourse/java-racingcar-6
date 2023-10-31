@@ -7,6 +7,7 @@ import racingcar.View.OutputView;
 
 public class RacingCarController {
     RacingCarService game = new RacingCarService();
+
     public void run() {
         initGame();
         playGame();
@@ -21,6 +22,7 @@ public class RacingCarController {
     }
 
     private void playGame() {
+        OutputView.printGameStart();
         game.play();
     }
 

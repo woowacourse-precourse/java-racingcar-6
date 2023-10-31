@@ -11,7 +11,7 @@ public class OutputViewTest {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     PrintStream newOut = new PrintStream(baos);
     @Test
-    public void 자동차_이름_입력() {
+    void 자동차_이름_입력() {
         System.setOut(newOut);
         outputView.printInputRacingCar();
         assertThat(baos.toString()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -19,10 +19,18 @@ public class OutputViewTest {
     }
 
     @Test
-    public void 시도_횟수_입력() {
+    void 시도_횟수_입력() {
         System.setOut(newOut);
         outputView.printInputRacingCount();
         assertThat(baos.toString()).contains("시도할 회수는 몇회인가요?");
+        System.setOut(System.out);
+    }
+
+    @Test
+    void 게임_시작() {
+        System.setOut(newOut);
+        outputView.printGameStart();
+        assertThat(baos.toString()).contains("\n게임을 시작합니다.");
         System.setOut(System.out);
     }
 }
