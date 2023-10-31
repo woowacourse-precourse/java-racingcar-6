@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.game.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import static racingcar.controller.constants.GlobalConstants.*;
 
 public class Game {
     private Integer round;
@@ -23,7 +24,7 @@ public class Game {
     }
 
     private void mainLogic(){
-        for(int i=0; i<round; i++){
+        for(int count = STARTING_POINT.getValue(); count < round; count++){
             cars.roundRace();
             OutputView.theEndOfRound();
         }
