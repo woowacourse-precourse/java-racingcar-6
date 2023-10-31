@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Racing {
 
     private static final int RACE_CONDITION = 3;
-    private static String[] raceCarNameArray;
+    public static final String FINAL_WINNER_IS = "최종 우승자 : ";
     private int round;
     private ArrayList<Car> carArray = new ArrayList<>();
 
@@ -47,4 +47,7 @@ public class Racing {
         System.out.println(carArray.get(i).getName() + " : " + carArray.get(i).getDistance());
     }
 
+    private void getWinnerResultPrint(String winner) {
+        System.out.println(FINAL_WINNER_IS + winner);
+    }
 }
