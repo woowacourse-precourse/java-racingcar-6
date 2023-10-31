@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+
 import domain.Car;
 
 public class OutputView {
@@ -7,7 +9,7 @@ public class OutputView {
 		System.out.println(car.getName() + " : " + car.createHyphenByLocation());
 	}
 
-	public void printAwardWinner(String awardWinnerMessage) {
-		System.out.println(awardWinnerMessage);
+	public void printAwardWinner(List<String> winnersName) {
+		System.out.println(String.join(", ", winnersName));
 	}
 }
