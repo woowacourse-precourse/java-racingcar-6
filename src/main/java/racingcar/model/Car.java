@@ -32,7 +32,7 @@ public class Car {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(name).append(GameResultElement.COLON);
-        IntStream.range(0, position)
+        IntStream.range(RacingCarMove.END_ATTEMPT_NUMBER.getValue(), position)
                 .forEach(i -> stringBuilder.append(GameResultElement.DASH));
         stringBuilder.append(GameResultElement.ENTER);
 
