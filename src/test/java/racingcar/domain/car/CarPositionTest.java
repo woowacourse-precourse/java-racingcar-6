@@ -9,12 +9,15 @@ public class CarPositionTest {
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
     void 자동차의_위치를_움직인다(int distance) {
+        // given
         CarPosition carPosition = CarPosition.createStartPosition();
         int oldPosition = carPosition.getPosition();
 
+        // when
         carPosition.move(distance);
-        int newPosition = carPosition.getPosition();
 
+        // then
+        int newPosition = carPosition.getPosition();
         assertThat(newPosition).isEqualTo(oldPosition + distance);
     }
 }

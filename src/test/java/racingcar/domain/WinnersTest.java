@@ -12,8 +12,10 @@ public class WinnersTest {
     @ParameterizedTest
     @MethodSource("provideRacingCars")
     void 우승자를_구한다(RacingCars racingCars) {
+        // when
         racingCars.driveCars();
 
+        // then
         Winners winners = Winners.create(racingCars.getCars());
         List<String> winnerNames = winners.getWinners().stream()
                 .map(Car::getName)
