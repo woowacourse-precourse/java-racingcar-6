@@ -2,12 +2,8 @@ package racingcar.model;
 
 import static racingcar.constant.RaceConfig.CONVERTING_SIGNS;
 import static racingcar.constant.RaceConfig.DELIMITER_WHEN_WINNER_IS_PLURAL;
-import static racingcar.constant.RaceConfig.LEAST_VALUE_TO_STEP_FORWARD;
-import static racingcar.constant.RaceConfig.MAXIMUM_RANDOM_NUMBER;
-import static racingcar.constant.RaceConfig.MINIMUM_RANDOM_NUMBER;
 import static racingcar.constant.RaceConfig.STEP_FORWARD_SPACE_COUNT;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,8 +33,7 @@ public final class CarsPosition {
     }
 
     private void checkStepForward(String key) {
-        int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
-        if (randomNumber >= LEAST_VALUE_TO_STEP_FORWARD) {
+        if (StepForwardValidator.isCarStepForward()) {
             int changedPosition = carsPosition.get(key) + STEP_FORWARD_SPACE_COUNT;
             carsPosition.put(key, changedPosition);
         }
