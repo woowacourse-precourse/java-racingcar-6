@@ -10,15 +10,15 @@ public class Car {
     }
 
     public int carPosition() {
-        return this.position;
+        return position;
     }
 
     public String carName() {
-        return this.name;
+        return name;
     }
 
     public void moveCar() {
-        this.position++;
+        position++;
     }
 
 }
