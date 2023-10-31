@@ -11,6 +11,12 @@ public class InputValidate {
         }
     }
 
+    public static void participantCount(List<String> names) {
+        if (names.size() > 10) {
+            throw new IllegalArgumentException(ErrorMessage.PARTICIPANT_COUNT_ERROR.getMessage());
+        }
+    }
+
     public static void carNames(List<String> names) {
         names.forEach(name -> {
             validateNoWhiteSpaceInCarName(name);

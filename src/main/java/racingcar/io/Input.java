@@ -14,6 +14,7 @@ public class Input {
         InputValidate.nameFormat(input);
 
         List<String> names = List.of(input.split(","));
+        InputValidate.participantCount(names);
         InputValidate.carNames(names);
         return names;
     }
