@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.*;
+import camp.nextstep.edu.missionutils.Randoms;import java.util.*;
 
 // 효율적인 구현을 위한 Class 정의
 class Car {
@@ -21,8 +21,7 @@ class Car {
 
     // move 조건 설정
     public void move() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(10);
+        int randomNumber = Randoms.pickNumberInRange(0,9);;
         if (randomNumber >= 4) {
             position++;
         }
