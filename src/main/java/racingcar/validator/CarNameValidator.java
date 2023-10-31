@@ -2,6 +2,7 @@ package racingcar.validator;
 
 import java.util.HashSet;
 import java.util.Set;
+import racingcar.enums.ErrorMessage;
 import racingcar.enums.RegexPattern;
 import racingcar.enums.Separator;
 

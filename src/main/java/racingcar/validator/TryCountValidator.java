@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import racingcar.enums.ErrorMessage;
 import racingcar.enums.RegexPattern;
 import racingcar.util.Convertor;
 

@@ -1,4 +1,4 @@
-package racingcar.validator;
+package racingcar.enums;
 
 public enum ErrorMessage {
     NULL_ERROR("아무런 값을 입력하지 않았습니다."),
