@@ -18,7 +18,7 @@ public class Message {
         System.out.println(car);
     }
 
-    public static void printAskCountMessage(int num) {
+    public static void printAskCountMessage(String num) {
         System.out.println(ASK_COUNT_MESSAGE + num);
     }
 
@@ -27,7 +27,7 @@ public class Message {
     }
 
     public static void printRacingWinnerMessage(String winner) {
-        System.out.println(WINNER_MESSAGE + winner);
+        System.out.println(WINNER_MESSAGE + winner + "\n\n");
     }
 
     public static void printMoveResultMessage(List<Car> carList) {
