@@ -5,8 +5,6 @@ import static racingcar.view.ResultView.printRaceResult;
 import static racingcar.view.ResultView.printWinners;
 
 import java.util.List;
-import racingcar.utils.RandomGenerator;
-import racingcar.view.ResultView;
 
 /**
  * <p>자동차 경주 게임을 위한 {@code Race} 클래스입니다.</p>
