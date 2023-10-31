@@ -4,6 +4,7 @@ import racingcar.controller.dto.Result;
 
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Console {
 
@@ -69,6 +70,17 @@ public class Console {
 
     private void print(String carName, int position) {
         output.println(String.format("%s : %s", carName, draw(position)));
+    }
+
+    public void printWinners(List<Result> winners) {
+        output.print("최종 우승자 : ");
+        output.print(makeWinnerMessage(winners));
+    }
+
+    private String makeWinnerMessage(List<Result> winners) {
+        return winners.stream()
+                .map(Result::carName)
+                .collect(Collectors.joining(", "));
     }
 
 }
