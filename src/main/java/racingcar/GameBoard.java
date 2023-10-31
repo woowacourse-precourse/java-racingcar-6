@@ -16,7 +16,9 @@ public class GameBoard {
     }
 
     private static void validateDuplication(List<Player> players) {
-        long numberOfDistinctPlayer = players.stream().distinct().count();
+        long numberOfDistinctPlayer = players.stream()
+                .distinct()
+                .count();
         if (players.size() != numberOfDistinctPlayer) {
             throw new IllegalArgumentException();
         }
