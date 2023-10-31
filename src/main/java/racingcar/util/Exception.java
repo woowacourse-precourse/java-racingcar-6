@@ -5,6 +5,11 @@ public class Exception {
     private static final int CAR_NAME_LIMIT_MAX = 5;
     private static final String SPACE = " ";
 
+    public void checkCarNamesInput(String input) throws IllegalArgumentException {
+        checkLengthAndThrowException(input);
+        checkSpaceAndThrowException(input);
+    }
+
     private void checkSpaceAndThrowException(String carName) {
         if (carName.contains(SPACE)) {
             throwSpaceException();
@@ -14,6 +19,8 @@ public class Exception {
     private void throwSpaceException() {
         throw new IllegalArgumentException("자동차 이름안에 공백을 제거하세요.");
     }
+
+
 
     private void checkLengthAndThrowException(String carName) {
         if (CAR_NAME_LIMIT_MAX < carName.length()) {
