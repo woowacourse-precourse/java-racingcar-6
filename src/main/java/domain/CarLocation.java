@@ -4,15 +4,15 @@ import java.util.Objects;
 
 public class CarLocation {
 
-    private static final int MOVE_DISTANCE = 1;
     private int carLocation;
 
     public CarLocation(int carLocation) {
         this.carLocation = carLocation;
     }
 
-    public void move() {
-        this.carLocation += MOVE_DISTANCE;
+
+    public void increaseValue(int moveRatio) {
+        this.carLocation += moveRatio;
     }
 
     public int getValue() {
