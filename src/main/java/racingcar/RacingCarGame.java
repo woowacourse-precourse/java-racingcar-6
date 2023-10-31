@@ -23,11 +23,7 @@ public class RacingCarGame {
 
         int tryCount = user.getTryCount();
         while (tryCount > 0) {
-            for (Car car : cars) {
-                if (car.canMove()) {
-                    car.move();
-                }
-            }
+            playRound(cars);
             outputView.printCarsPosition(cars);
             tryCount--;
         }
@@ -35,5 +31,13 @@ public class RacingCarGame {
         Judge judge = new Judge(cars);
         List<Car> winners = judge.decideWinner();
         outputView.printWinnersName(winners);
+    }
+
+    private void playRound(List<Car> cars) {
+        for (Car car : cars) {
+            if (car.canMove()) {
+                car.move();
+            }
+        }
     }
 }
