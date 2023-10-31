@@ -3,8 +3,11 @@ package racingcar.Controller;
 import java.util.ArrayList;
 import racingcar.Model.Car;
 import racingcar.Model.UserInput;
+import racingcar.Model.WinnerSelector;
 import racingcar.Utils.Random;
-import racingcar.View.GameView;
+import racingcar.View.GameProcessView;
+import racingcar.View.GameResultView;
+
 
 public class GameController {
 
@@ -14,17 +17,25 @@ public class GameController {
 
     private ArrayList<Car> carList = new ArrayList<Car>();
     private UserInput userInput;
+
+    GameProcessView gameProcessView = new GameProcessView();
+    GameResultView gameResultView = new GameResultView();
+    WinnerSelector winnerSelector = new WinnerSelector();
+
     Random random = new Random();
-    GameView gameView = new GameView();
 
     public void gameProcess() {
         initGame();
         registerPlayers();
 
-        gameView.printResultNoticeMsg();
+        gameProcessView.printResultNoticeMsg();
         for (int i = 0; i < userInput.turnNumInteger; i++) {
             playOneTurn();
+            System.out.print(gameProcessView.EMPTY_SPACE);
         }
+
+        ArrayList<String> winnerList = winnerSelector.select(carList);
+        gameResultView.printWinner(winnerList);
     }
 
     public void initGame() {
@@ -48,9 +59,8 @@ public class GameController {
     public void playOneTurn() {
         for (Car carGamePlayer : carList) {
             moveByDiceRoll(carGamePlayer);
-            gameView.printCarLocation(carGamePlayer.getCarName(), carGamePlayer.getLocation());
+            gameProcessView.printCarLocation(carGamePlayer.getCarName(), carGamePlayer.getLocation());
         }
-        System.out.println("\n");
     }
 
 
