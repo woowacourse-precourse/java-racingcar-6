@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
-public class StringTest {
+class StringTest {
 
     @Test
     void split_메서드로_주어진_값을_구분() {
@@ -47,5 +47,4 @@ public class StringTest {
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
     }
-
 }

@@ -6,7 +6,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class ApplicationTest extends NsTest {
 
@@ -24,18 +28,24 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 자동차_이름이_올바르지_않으면_예외가_발생한다() {
+    @MethodSource("carNamesProvider")
+    @ParameterizedTest
+    void 자동차_이름이_올바르지_않으면_예외가_발생한다(String carNames) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException(carNames, "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    @Test
-    void 시도_횟수가_올바르지_않으면_예외가_발생한다() {
+    static Stream<String> carNamesProvider() {
+        return Stream.of("pobi,javaji", "", " , ");
+    }
+
+    @CsvSource({"a", "0", "' '", "abcd"})
+    @ParameterizedTest
+    void 시도_횟수가_올바르지_않으면_예외가_발생한다(String attemptNumber) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", "null"))
+                assertThatThrownBy(() -> runException("pobi,java", attemptNumber))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
