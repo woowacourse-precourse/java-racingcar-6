@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserInput {
     int tries = 0;
-    List<String> carNames = new ArrayList<>();
+    public List<String> carNames = new ArrayList<>();
     public void receiveUserInput() {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
@@ -26,7 +26,7 @@ public class UserInput {
         for(int i = 0; i < carNames.size(); i++ ){
             String name = carNames.get(i).replace(" ","");
             if(name.length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("String index out of range: 5");
             }
             carNames.set(i, name);
 
