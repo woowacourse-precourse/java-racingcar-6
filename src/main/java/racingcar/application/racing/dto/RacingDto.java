@@ -3,15 +3,15 @@ package racingcar.application.racing.dto;
 import java.util.Map;
 
 public class RacingDto {
-    private Map<String, Integer> racingCarMap;
+    private Map<String, Integer> carMap;
     private int gameCnt;
 
-    public void setRacingCar(Map<String, Integer> racingCarMap) {
-        this.racingCarMap = racingCarMap;
+    public void setRacingCar(Map<String, Integer> carMap) {
+        this.carMap = carMap;
     }
 
-    public Map<String, Integer> getRacingCarMap() {
-        return this.racingCarMap;
+    public Map<String, Integer> getCarMap() {
+        return this.carMap;
     }
 
     public void setGameCnt(int gameCnt) {
