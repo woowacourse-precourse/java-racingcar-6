@@ -17,7 +17,7 @@ public class RacingGameController {
 	private final OutputView outputView = new OutputView();
 	private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-	public void startGame() {
+	public void runGame() {
 		CarNamesInput carNamesInput = initCarNameData();
 		TryCountInput tryCountInput = setTryCount();
 
@@ -41,7 +41,7 @@ public class RacingGameController {
 		}
 	}
 
-	private static boolean isTiedWinners(List<Car> winners) {
+	private boolean isTiedWinners(List<Car> winners) {
 		return winners.size() > 1;
 	}
 
@@ -60,20 +60,20 @@ public class RacingGameController {
 		return raceOutcome.findCarWithMaxLocation(locationWithMostMovement);
 	}
 
-	public RacingCar getRaceOutcome(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
+	private RacingCar getRaceOutcome(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
 		RacingCar racingCar = new RacingCar(carNamesInput.getNames());
 		movePerRounds(tryCountInput, racingCar);
 
 		return racingCar;
 	}
 
-	public void movePerRounds(TryCountInput tryCountInput, RacingCar racingCar) {
+	private void movePerRounds(TryCountInput tryCountInput, RacingCar racingCar) {
 		for (int count = 0; count < tryCountInput.getTryCount(); count++) {
 			moveForRound(racingCar);
 		}
 	}
 
-	public void moveForRound(RacingCar racingCar) {
+	private void moveForRound(RacingCar racingCar) {
 		for (Car car : racingCar.getCars()) {
 			car.moveByNumber(randomNumberGenerator.generateNumber());
 			outputView.printRacingCarStatus(car);
@@ -81,13 +81,13 @@ public class RacingGameController {
 		messageView.printEmptyLine();
 	}
 
-	public CarNamesInput initCarNameData() {
+	private CarNamesInput initCarNameData() {
 		messageView.printCarNameMessage();
 		String inputCarNames = inputView.inputCarNames();
 		return new CarNamesInput(inputCarNames);
 	}
 
-	public TryCountInput setTryCount() {
+	private TryCountInput setTryCount() {
 		messageView.printTryCountMessage();
 
 		String inputTryCount = inputView.inputTryCount();
