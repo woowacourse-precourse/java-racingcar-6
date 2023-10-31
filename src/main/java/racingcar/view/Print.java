@@ -7,7 +7,7 @@ import java.util.List;
 public class Print {
 
     static StringBuilder sb;
-    public static String printEachRotate(List<Car> cars) {
+    public static void printEachRotate(List<Car> cars) {
         sb = new StringBuilder();
         for (Car car : cars) {
             sb.append(car.name).append(" : ");
@@ -16,11 +16,10 @@ public class Print {
             }
             sb.append("\n");
         }
-
-        return sb.toString();
+        System.out.println(sb.toString());
     }
 
-    public static String printResult(List<String> winCars) {
+    public static void printResult(List<String> winCars) {
         sb = new StringBuilder();
         int winCarLength = winCars.size();
 
@@ -31,8 +30,7 @@ public class Print {
         }
         String lastWinCarName = winCars.get(winCarLength-1);
         sb.append(lastWinCarName);
-
-        return sb.toString();
+        System.out.print(sb.toString());
     }
 
 
