@@ -2,6 +2,7 @@ package racingcar.model;
 
 import static racingcar.model.ActionType.GO;
 
+import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.vo.CarName;
 import racingcar.vo.CarPosition;
@@ -12,7 +13,7 @@ public class Car {
     private static final Integer THRESHOLD = 4;
 
     private final CarName carName;
-    private final RandomNumberGenerator numberGenerator;
+    private final NumberGenerator numberGenerator;
     private CarPosition carPosition;
 
     protected Car(final CarName carName) {
