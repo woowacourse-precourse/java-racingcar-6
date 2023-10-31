@@ -7,7 +7,7 @@ public enum Messages {
     INPUT_ROUND_NUM("시도할 회수는 몇 회 인가요?"),
 
     // OUTPUT
-    OUTPUT_RESULT_HEADER("실행 결과"),
+    OUTPUT_RESULT_HEADER("\n실행 결과"),
     OUTPUT_WINNER_PREFIX("최종 우승자 : "),
 
     // ERROR
