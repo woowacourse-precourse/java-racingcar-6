@@ -23,7 +23,7 @@ public class RacingGameController {
     }
 
     private void init() {
-        cars = new Cars(InputView.inputNames());
+        cars = Cars.from(InputView.inputNames());
         racingRound = new RacingRound(InputView.inputRound());
     }
 

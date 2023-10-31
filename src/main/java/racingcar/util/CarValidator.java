@@ -8,14 +8,7 @@ public class CarValidator {
     }
 
     public static void validateCarName(String name) {
-        validateInputNotEmpty(name);
         validateInputSize(name);
-    }
-
-    private static void validateInputNotEmpty(String name) {
-        if (name.trim().isEmpty()) {
-            throw new IllegalArgumentException(INVALID_INPUT_IS_EMPTY);
-        }
     }
 
     private static void validateInputSize(String name) {

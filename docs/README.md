@@ -40,6 +40,8 @@
 #### 자동차 목록 변환에 대한 예외처리(CarsValidator)
 - [x] 같은 이름이 있는 경우 - validateDuplicateName()
 - [x] 자동차 목록이 비어있을 경우 - findMaxPosition()
+- [x] 자동차가 1대인 경우 - validateInputCount()
+- [x] 이름을 구분하는 기준이 쉼표가 아닌 경우 - validateInputWithSeparator()
 #### 라운드(RacingRound)
 - [x] 라운드 생성
 #### 라운드 입력에 대한 예외처리(RacingRoundValidator)
@@ -49,9 +51,6 @@
 #### 입력(InputView)
 - [x] 경주할 자동차 이름 입력 - inputNames()
 - [x] 게임 횟수 입력 - inputRound()
-#### 입력에 대한 예외처리(InputViewValidator)
-- [x] 자동차가 1대인 경우 - validateInputCount()
-- [x] 이름을 구분하는 기준이 쉼표가 아닌 경우 - validateInputWithSeparator()
 #### 출력(OutputView)
 - [x] 게임 시작 시, "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)" 출력 - printNameInputMessage()
 - [x] 이름을 입력받은 후 "시도할 횟수는 몇회인가요?" 출력 - printRoundInputMessage()
