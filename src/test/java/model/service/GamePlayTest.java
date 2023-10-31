@@ -3,7 +3,6 @@ package model.service;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.junit.jupiter.api.Assertions.*;
 
-import model.domain.Name;
 import model.domain.Participant;
 import org.junit.jupiter.api.Test;
 
