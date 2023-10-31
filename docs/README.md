@@ -1,24 +1,30 @@
 # 자동차경주
 
-## 기능목록 
+> 전체 기능 순서
 
-- [ ] ','로 구분하며 입력한 이름으로 자동차 인스턴스를 생성하기 - Create#createCars()
-- [ ] 자동차 이름 입력은 5자 이하 인지 확인한다. - Judgment#checkCarNameUnderFive()
-- [ ] 몇 번의 이동할것인지 입력하기 - Judgment#inputHowManyMoves()
-- [ ] 0~9 임의의 숫자를 생성하여 4이상일때 전진하게 한다. - Judgment#generateRandomNumbers()
-- [ ] 전진했을때, 각 인스턴스의 움직인 거리에 +1 처리한다. - Judgment#plusCarsCanGo()
-- [ ] 모든 시도횟수가 끝나고 우승자를 구한다. 이때 여러명이면 ','로 구분지어서 출력한다. Judgment#finalCarCheck()
+- 스트링 입력 받기
+- 몇회 입력받기
+- 몇회 동안 time 실행
+- 최종 판단 후 결과값 출력
+
+## 기능목록
+
+- [ ] ','로 구분하며 입력한 이름으로 자동차 인스턴스를 생성하기
+    - domain#InputView#scan()
+    - domain#Create#checkCarsName()
+- [ ] 자동차 이름 입력은 5자 이하 인지 확인한다 + ",," 이 연속되지 않나 확인한다 + 같은 이름이 입력되지 않나 확인한다.
+    - domain#Judgment#checkCarName()
+- [ ] 몇 번의 이동할것인지 입력하기 + 1이상의 자연수만 입력하나 확인한다.
+    - domain#InputView#scan()
+    - Create#howManyTimesGameStart()
+- [ ] 입력된 자동차 인스턴스마다 move를 실행한다. 이때 0~9 임의의 숫자를 생성한다. 임의의 숫자가 4이상일때 전진하게 한다.
+    - game#Car#move()
+    - domain#Create#generateRandomNumbers()
+- [ ] 전진했을때, 각 자동차의 인스턴스의 움직인 거리에 +1 처리한다.
+    - game#Game#carsMove()
+    - game#Car#move()
+- [ ] 모든 시도횟수가 끝나고 우승자를 구한다. 이때 여러명이면 ','로 구분지어서 출력한다.
+    - domain#Judgment#finalCarCheck()
 
 
-- [ ] 에러는 IllegalArgumentException으로 발생시킨다. 
-## 기능 요구 사항, 
-초간단 자동차 경주 게임을 구현한다.
-
-주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
-각 자동차에 이름을 부여할 수 있다. 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
-자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
-사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
-우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
-사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
+- [ ] 에러는 IllegalArgumentException으로 발생시킨다.
