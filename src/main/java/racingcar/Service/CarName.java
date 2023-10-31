@@ -14,7 +14,7 @@ public class CarName {
 
     public static List<String> split(String carNames) {
         for (String carName : carNames.split(DELIMITER)) {
-            duplicateNameCheck(carName,carList);
+            duplicateNameCheck(carName, carList);
             carList.add(carName);
             nameValidation(carName);
         }
