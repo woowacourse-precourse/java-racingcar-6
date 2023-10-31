@@ -14,7 +14,9 @@ public class RacingCar {
     public int getScore() {
         return score;
     }
-    int move(int randomNumber) {
-        return 0;
+    void move(int randomNumber) {
+        if (randomNumber >=4) {
+            score++;
+        }
     }
 }
