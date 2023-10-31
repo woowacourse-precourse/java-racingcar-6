@@ -17,7 +17,7 @@ public class RacingController {
     public List<String> getInputNames() {
         System.out.println(NoticeType.GET_CARS.getMessage());
         String input = Console.readLine();
-        Validator.validateNameEndsWithComma(input);
+        Validator.validateComma(input);
         return racingService.stringToList(input);
     }
 

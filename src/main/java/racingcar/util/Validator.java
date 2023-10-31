@@ -11,8 +11,19 @@ public class Validator {
         }
     }
 
-    public static void validateNameEndsWithComma(String str) {
-        if(str.endsWith(",")) {
+    public static void validateComma(String name) {
+        validateNameEndsWithComma(name);
+        validateNameStartsWithComma(name);
+    }
+
+    public static void validateNameStartsWithComma(String name) {
+        if(name.startsWith(",")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void validateNameEndsWithComma(String name) {
+        if(name.endsWith(",")) {
             throw new IllegalArgumentException();
         }
     }
