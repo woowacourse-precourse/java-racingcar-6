@@ -24,15 +24,20 @@ public class UsernameInputManager implements InputManager<List<String>> {
     }
 
     public List<String> validateNames(String input) {
-        if (input == null || input.isEmpty()) throw new IllegalArgumentException();
+        List<String> validatedNames;
+        try {
+            if (input == null || input.isEmpty()) throw new IllegalArgumentException();
 
-        List<String> validatedNames = Arrays.stream(input.split(","))
-                .map(String::trim)
-                .peek(name -> {
-                    if (name.isEmpty() || name.length() > 5) throw new IllegalArgumentException();
-                }).toList();
+            validatedNames = Arrays.stream(input.split(","))
+                    .map(String::trim)
+                    .peek(name -> {
+                        if (name.isEmpty() || name.length() > 5) throw new IllegalArgumentException();
+                    }).toList();
 
-        if (validatedNames.isEmpty()) throw new IllegalArgumentException();
+            if (validatedNames.isEmpty()) throw new IllegalArgumentException();
+        } finally {
+            Console.close();
+        }
 
         return validatedNames;
     }
