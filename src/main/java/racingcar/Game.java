@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
-public class Game extends GameManager {
+public class Game extends Player {
     public static void playGame(List<RacingCar> player, int numberTrials) {
         for (int i = 0; i < numberTrials; i++) {
             movingOrStop(player);
