@@ -19,7 +19,7 @@ public class RacingRoundCountValidator {
     }
 
     private static void validateBlankException(final String input) {
-        if (input == null || input.trim().isEmpty()) {
+        if (input == null || input.isBlank()) {
             throw new IllegalArgumentException(ERROR_BLANK);
         }
     }
