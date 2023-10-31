@@ -2,7 +2,6 @@ package racingcar.domain.racing;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.domain.raingcar.RacingCar;
 import racingcar.domain.raingcar.RacingCars;
 
@@ -22,6 +21,20 @@ public class Racing {
         while (round-- > 0) {
             race();
         }
+    }
+
+    private void race() {
+        List<RacingMovement> randomMoves = new ArrayList<>();
+        for (RacingCar car : racingCars.getCars()) {
+            RacingMovement move = new RacingMovement(car.getName());
+
+            if (move.isMovingForward()) {
+                car.updatePosition();
+            }
+
+            randomMoves.add(move);
+        }
+        racingPrinter.updateRacingResult(randomMoves);
     }
 
 }
