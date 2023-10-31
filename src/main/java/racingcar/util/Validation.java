@@ -13,7 +13,17 @@ public class Validation {
         List<String> carList = parsing.parseCarNames(input);
         checkCarNameLength(carList);
         checkCarNameDuplicate(carList);
+    }
+
+    public void checkTrialInput(String input) throws IllegalArgumentException {
+        checkInputIsEmpty(input);
         checkInputIsInteger(input);
+    }
+
+    private void checkCarNameContainSpace(String carName) {
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름에 공백이 포함되어선 안됩니다.");
+        }
     }
 
     private void checkInputIsInteger(String input) {
@@ -40,9 +50,14 @@ public class Validation {
 
     private void checkCarNameLength(List<String> carList) {
         for (String carName : carList) {
-            if (carName.length() > CAR_NAME_LENGTH_MAX) {
-                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 합니다.");
-            }
+            checkCarNameLengthMax(carName);
+            checkCarNameContainSpace(carName);
+        }
+    }
+
+    private static void checkCarNameLengthMax(String carName) {
+        if (carName.length() > CAR_NAME_LENGTH_MAX) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름은 5글자 이하여야 합니다.");
         }
     }
 
@@ -53,7 +68,7 @@ public class Validation {
     }
 
 
-    public void checkInputIsEmpty(String input) {
+    private void checkInputIsEmpty(String input) {
         if (input.isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 값을 입력해주세요.");
         }
