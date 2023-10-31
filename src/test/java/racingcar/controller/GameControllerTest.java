@@ -1,9 +1,12 @@
 package racingcar.controller;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.DTO.CarDTO;
 import racingcar.model.Car;
+import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,6 +20,11 @@ class GameControllerTest {
     private final static int TOTAL_ROUND_COUNT = 5;
     private final static InputView INPUT_VIEW = new InputView();
     private final static OutputView OUTPUT_VIEW = new OutputView();
+
+    @BeforeEach
+    public void cleanupRound() {
+        Round.resetCurrentRoundCount();
+    }
 
     @Test
     @DisplayName("입력받은 이름 개수 만큼 자동차 객체 생성 확인")
