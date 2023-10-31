@@ -8,13 +8,13 @@ public class ForwardCarCondition {
     public Map<String, Integer> racingCarCount() {
         RacingValue racingValue = new RacingValue();
         racingValue.racingStatus.forEach((key, value) -> {
-            int count = forwardControl(getRandomNumber());
+            int count = forwardControl(RandomNumber());
             racingValue.racingStatus.put(key, value + count);
         });
         return racingValue.racingStatus;
     }
 
-    public final int getRandomNumber() {
+    public final int RandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
