@@ -32,6 +32,10 @@ public class Application {
     private static String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carName = Console.readLine();
+        // 자동차 이름 입력이 (,)로 끝나면 안된다.
+        if (carName.endsWith(",")) {
+            throw new IllegalArgumentException();
+        }
         String[] carNames = carName.split(",");
         validCarNames(carNames);
         return carNames;
