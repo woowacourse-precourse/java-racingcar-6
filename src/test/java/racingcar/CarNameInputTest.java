@@ -3,10 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import static racingcar.TestUtil.setInput;
 import static racingcar.model.car.CarName.NAME_DUPLICATED;
 import static racingcar.model.car.CarName.NAME_LENGTH_LIMIT_EXCEEDED;
 import static racingcar.util.Validator.EMPTY;
+import static util.TestUtil.setInput;
 
 import java.util.Arrays;
 import java.util.List;

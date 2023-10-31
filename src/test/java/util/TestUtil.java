@@ -1,9 +1,9 @@
-package racingcar;
+package util;
 
 import java.io.ByteArrayInputStream;
 
-class TestUtil {
-    static void setInput(String input) {
+public class TestUtil {
+    public static void setInput(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 }

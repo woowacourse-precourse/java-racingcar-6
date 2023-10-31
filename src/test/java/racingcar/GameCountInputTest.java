@@ -3,9 +3,9 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import static racingcar.TestUtil.setInput;
 import static racingcar.model.race.GameCount.GAME_COUNT_OUT_OF_RANGE;
 import static racingcar.util.Validator.NO_DIGIT;
+import static util.TestUtil.setInput;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
