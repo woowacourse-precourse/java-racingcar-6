@@ -20,4 +20,9 @@ public class SimpleRacingCarGameRenderer implements RacingCarGameRenderer {
         }
         return builder.toString();
     }
+
+    @Override
+    public String renderWinners(List<String> winners) {
+        return "최종 우승자 : " + String.join(", ", winners);
+    }
 }

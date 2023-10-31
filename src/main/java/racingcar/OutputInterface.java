@@ -20,7 +20,7 @@ public class OutputInterface {
     }
 
     public void printWinners(List<String> winners) {
-        out.println("최종 우승자 : " + String.join(", ", winners));
+        out.println(renderer.renderWinners(winners));
     }
 
 }
