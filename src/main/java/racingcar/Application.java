@@ -28,6 +28,7 @@ class GameSystem {
         output.askName();
         makeCars(input, manufacture);
         output.askTry();
+        runGame(input, manufacture);
     }
 
 
@@ -50,12 +51,10 @@ class GameSystem {
     }
 
     public void runGame(InputView input, InputManufacture manufacture) {
+        //int tryNum = makeTryNumber(input, manufacture);
 
     }
 
-    public int makeTryNumber(InputView input) {
-
-    }
 
 }
 
@@ -123,6 +122,10 @@ class InputManufacture {
     public ArrayList<String> makeNameList(String data) {
         String[] splitData = data.split(",");
         return new ArrayList<>(Arrays.asList(splitData));
+    }
+
+    public int changeIntegerNumber(String attempt) {
+        return Integer.parseInt(attempt);
     }
 }
 
