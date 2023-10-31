@@ -25,7 +25,8 @@ public class Game {
 
     public void correctLength(String[] carName) {
         for (String rider : carName) {
-            if (rider.length() > Max_Length) {
+
+            if ( rider.trim().isEmpty() || rider.length() > Max_Length) {
                 throw new IllegalArgumentException();
             }
         }
