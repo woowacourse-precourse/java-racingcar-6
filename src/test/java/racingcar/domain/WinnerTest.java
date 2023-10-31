@@ -14,7 +14,7 @@ public class WinnerTest {
 		);
 		carList = RacingCarUtilsForTest.getRacingCar(carList, List.of(3, 3, 5));
 		Winner winner = new Winner();
-		List<String> winnerList = winner.get(carList);
+		List<String> winnerList = winner.findWinner(carList);
 
 		assertThat(winnerList).hasSize(1)
 			.containsOnly("jun");
@@ -27,7 +27,7 @@ public class WinnerTest {
 		);
 		carList = RacingCarUtilsForTest.getRacingCar(carList, List.of(3, 5, 5));
 		Winner winner = new Winner();
-		List<String> winnerList = winner.get(carList);
+		List<String> winnerList = winner.findWinner(carList);
 
 		assertThat(winnerList).hasSize(2)
 			.contains("jun", "woni");

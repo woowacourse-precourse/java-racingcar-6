@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.InputCarName;
 import racingcar.domain.RacingCar;
 import racingcar.domain.TryNumber;
+import racingcar.domain.Winner;
 import racingcar.service.Service;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -11,10 +12,12 @@ import racingcar.view.OutputView;
 public class Controller {
 	private RacingCar racingCar;
 	private TryNumber tryNumber;
+	private Winner winner;
 	private Service service;
 
 	public Controller() {
 		this.service = new Service();
+		this.winner = new Winner();
 	}
 
 	public void run() {
@@ -24,6 +27,12 @@ public class Controller {
 			service.tryRace(racingCar, tryNumber);
 			OutputView.printResult(racingCar);
 		} while(isTryable());
+		printWinner();
+	}
+
+	private void printWinner() {
+		winner.findWinner(racingCar.getRacingCar());
+		OutputView.printWinner(winner);
 	}
 
 	private boolean isTryable() {
