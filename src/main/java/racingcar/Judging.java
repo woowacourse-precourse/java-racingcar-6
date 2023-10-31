@@ -11,33 +11,34 @@ public class Judging {
 
     public void judgingMovingOrNot(){
         ArrayList<String> carList = new ArrayList<>();
+        ArrayList<String>[] result = new ArrayList[1000];
         carList = getUserInput.getName();
         int attempt = getUserInput.getTryNumber();
         int i = 0;
 
+
         System.out.println("실행 결과");
 
         while(i < attempt){
-            addDistance(carList);
+            result = addDistance(carList, result);
             i++;
         }
     }
 
-    public void addDistance(ArrayList<String> carList){
+    public ArrayList<String>[] addDistance(ArrayList<String> carList, ArrayList<String>[] result){
         int randomNumber;
-        ArrayList<String>[] moving = new ArrayList[1000];
         randomNumber = Randoms.pickNumberInRange(0, 9);
 
         for(int i = 0; i < carList.size(); i++){
             if(randomNumber >= 4){
-                moving[i].add("-");
+                result[i].add("-");
             }
             else{
                 continue;
             }
         }
-
-        printCurrentStatus(carList, moving);
+        printCurrentStatus(carList, result);
+        return result;
     }
 
     public void printCurrentStatus(ArrayList<String> carList, ArrayList<String>[] moving){
