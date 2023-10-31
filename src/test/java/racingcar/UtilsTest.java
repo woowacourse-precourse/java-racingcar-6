@@ -61,4 +61,20 @@ public class UtilsTest {
         assertThat(Arrays.equals(result1,rightResult)).isTrue();
         assertThat(!Arrays.equals(result2,rightResult)).isTrue();
     }
+
+    @Test
+    void 콤마와_공백을_기준으로_문자열을_나누어_배열에_저장하면_통과() {
+        final String[] rightResult = {"one","two","three"};
+        //given
+        String case1 = "one,two, three";
+        String case2 = "one,  two   ,   three";
+
+        //when
+        String[] result1 = Utils.splitByCommaAndBlank(case1);
+        String[] result2 = Utils.splitByCommaAndBlank(case2);
+
+        //then
+        assertThat(Arrays.equals(result1,rightResult)).isTrue();
+        assertThat(Arrays.equals(result2,rightResult)).isTrue();
+    }
 }
