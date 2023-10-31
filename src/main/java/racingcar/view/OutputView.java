@@ -26,7 +26,27 @@ public class OutputView {
         System.out.println("");
     }
 
-    public void printWinner(String winner) {
-        System.out.println("최종 우승자 :" + winner);
+    public void printRoundResults(List<String> carNames, List<Integer> currentCarPositions) {
+        for (int j = 0; j < carNames.size(); j++) {
+            System.out.print(carNames.get(j) + " : ");
+
+            for (int i = 0; i < currentCarPositions.get(j); i++) {
+                System.out.print("-");
+            }
+
+            System.out.println("");
+        }
+        System.out.println("");
+
+    }
+
+    public void printWinner(List<String> winners) {
+        int winnerNumber = winners.size();
+
+        System.out.print("최종 우승자: ");
+        for (int i = 0; i < winnerNumber - 1; i++) {
+            System.out.print(winners.get(i) + ", ");
+        }
+        System.out.println(winners.get(winnerNumber - 1));
     }
 }

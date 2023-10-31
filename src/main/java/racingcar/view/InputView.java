@@ -11,12 +11,16 @@ public class InputView {
         String car = Console.readLine();
         List<String> carList = Arrays.asList(car.split(","));
 
+        inputVaildator.isEmpty(carList);
+        inputVaildator.isString(carList);
         inputVaildator.isNameLessThan5Char(carList);
         return carList;
     }
 
     public int getNumberOfRound(){
         String numStr = Console.readLine();
-        return Integer.parseInt(numStr);
+        inputVaildator.isEmpty(numStr);
+        inputVaildator.isZero(numStr);
+        return inputVaildator.isInt(numStr);
     }
 }
