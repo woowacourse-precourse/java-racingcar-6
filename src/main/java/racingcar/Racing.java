@@ -5,16 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
+	public static boolean bar;
 
 	public static List<Integer> move(List<Integer> count, int size) {
+		initCount(count, size);
 		for (int i = 0; i < size; i++) {
 			int random = 0;
 			int tmp = 0;
-			initCount(count, size);
 
 			random = Randoms.pickNumberInRange(0, 9);
-			tmp = count.get(i) + moveOrNot(random);
-			count.set(i, tmp);
+			moveOrNot(random);
+
+			if (bar == true) {
+				tmp = count.get(i) + 1;
+				count.set(i, tmp);
+			}
 		}
 		return count;
 	}
@@ -26,12 +31,12 @@ public class Racing {
 		return cnt;
 	}
 
-	private static int moveOrNot(int num) {
-		int go = 0;
-
-		if (num >= 4)
-			go = num;
-		return go;
+	private static void moveOrNot(int num) {
+		if (num >= 4) {
+			bar = true;
+		} else {
+			bar = false;
+		}
 	}
 
 	public static int findMax(List<Integer> position) {

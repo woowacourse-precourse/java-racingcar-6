@@ -22,7 +22,7 @@ public class Car {
 		times = Console.readLine();
 		System.out.println("\n" + "실행 결과");
 		ready.isDigit(times);
-		
+
 		play(Integer.parseInt(times));
 	}
 
@@ -43,16 +43,21 @@ public class Car {
 
 	private static void currentPrint(String[] c, List<Integer> p) {
 		for (int i = 0; i < c.length; i++) {
-			System.out.println(c[i] + " : " + p.get(i));
+			System.out.print(c[i] + " : ");
+			
+			for(int j = 0; j < p.get(i); j++) {
+				System.out.print("-");
+			}
+			
+			System.out.println();
 		}
-		System.out.println();
 	}
 
 	private static void checkReult(List<Integer> p) {
 		int max = Racing.findMax(p);
 		indexList = Racing.findIndexes(p, max);
 
-		System.out.print("최종 우승자 : ");
+		System.out.print("\n" + "최종 우승자 : ");
 		if (indexList.size() > 1)
 			printindexes(indexList);
 		else
