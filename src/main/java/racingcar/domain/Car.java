@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 public class Car {
+    private static final int LEAST_NUMBER = 4;
+
     private final CarName carName;
     private final CarPosition carPosition;
 
@@ -18,10 +20,14 @@ public class Car {
     }
 
     public Car move(int number) {
-        if (number > 4) {
+        if (isGreaterThanLeastNumber(number)) {
             return new Car(this.carName, this.carPosition.next());
         }
         return this;
+    }
+
+    private boolean isGreaterThanLeastNumber(int number) {
+        return number > LEAST_NUMBER;
     }
 
     public boolean isSamePosition(Car highestCar) {

@@ -1,10 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class InputView {
@@ -40,6 +38,5 @@ public class InputView {
     public static String getUserInput() {
         return Console.readLine();
     }
-
 
 }
