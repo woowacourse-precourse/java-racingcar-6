@@ -37,10 +37,7 @@ public class CarGame {
 
     public void moveOrStop() {
         for (Cars car : cars) {
-            int moving = RandomNum.generate();
-            if (moving >= 4) {
-                car.move();
-            }
+            car.move();
         }
     }
 

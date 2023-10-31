@@ -19,7 +19,12 @@ public class Cars {
     }
 
     public void move() {
-        distance++;
+        if (movable()) {
+            distance++;
+        }
     }
 
+    private boolean movable() {
+        return RandomNum.generate() >= 4;
+    }
 }
