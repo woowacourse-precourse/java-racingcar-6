@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.LinkedList;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+    public ByteArrayOutputStream output = new ByteArrayOutputStream();
 
     @Test
     void 전진_정지() {
@@ -115,19 +116,37 @@ class ApplicationTest extends NsTest {
         assertThat(Application.Winner).contains("Car1", "Car2");
     }
 
-    /*
-        @Test
-        void 우승자_출력() {
-            String name1 = "pobi";
-            String name2 = "kevin";
+    @Test
+    void 우승자_출력_한명일때() {
+        Application.InputCarName = "Car1, Car2, Car3";
+        Application.Winner = new LinkedList<>();
+        Application.Winner.add("Car2");
 
-            Application.Winner = new LinkedList<>();
-            Application.Winner.add(name1,name2);
-            Application.Winner_Print();
+        System.setOut(new PrintStream(output));
 
-            assertThat(Application.Winner);
-        }
-    */
+        Application.Winner_Print();
+
+        assertThat(output.toString().trim()).isEqualTo("최종 우승자 : Car2");
+
+        System.setOut(System.out);
+    }
+
+    @Test
+    void 우승자_출력_여러명일때() {
+        Application.InputCarName = "Car1, Car2, Car3";
+        Application.Winner = new LinkedList<>();
+        Application.Winner.add("Car2");
+        Application.Winner.add("Car3");
+
+        System.setOut(new PrintStream(output));
+
+        Application.Winner_Print();
+
+        assertThat(output.toString().trim()).isEqualTo("최종 우승자 : Car2, Car3");
+
+        System.setOut(System.out);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
