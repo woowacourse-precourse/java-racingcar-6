@@ -1,4 +1,4 @@
-package calculater;
+package calculator;
 
 import java.util.Arrays;
 import java.util.Objects;
