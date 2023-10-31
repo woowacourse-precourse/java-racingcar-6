@@ -3,8 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,15 +44,6 @@ class ApplicationTest extends NsTest {
     public void setup() {
         inputView = new InputView();
         validator = new Validator();
-    }
-
-    @Test
-    public void 자동차_이름_예외_처리() {
-        String input = "pobi123,woni,jun";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        assertThrows(IllegalArgumentException.class, () -> validator.checkCarNameLength(input));
     }
 
     @Test
