@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.constant.ErrorMessage.CAR_NAME_IS_DUPLICATED;
 import static racingcar.constant.ErrorMessage.CAR_NAME_IS_EMPTY;
 import static racingcar.constant.ErrorMessage.CAR_NAME_IS_LONGER;
 
@@ -22,6 +23,11 @@ class CarNameValidatorTest {
         assertThatThrownBy(() -> CarNameValidator.validate(emptyNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CAR_NAME_IS_EMPTY);
+
+        String duplicatedNames = " fobi  ,   fobi    , park";
+        assertThatThrownBy(() -> CarNameValidator.validate(duplicatedNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_IS_DUPLICATED);
 
         String properNames = "fobi,me, you  ";
         CarNameValidator.validate(properNames);
