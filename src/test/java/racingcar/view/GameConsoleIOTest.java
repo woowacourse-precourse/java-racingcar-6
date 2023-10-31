@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,7 +68,11 @@ class GameConsoleIOTest extends IOTest {
     @Test
     void 자동차_입력() {
         String inputStr = "car1,car2,car3";
-        List<String> inputList = Arrays.stream(inputStr.split(",")).toList();
+        List<String> inputList = new ArrayList<>() {{
+            add("car1");
+            add("car2");
+            add("car3");
+        }};
 
         input(inputStr);
         List<String> carNames = gameConsoleIO.getCarNames();
@@ -102,7 +105,7 @@ class GameConsoleIOTest extends IOTest {
     }
 
     @Test
-    void 자동차_입력_예외_이름수_제한() {
+    void 자동차_입력_예외_이름_글자수_제한() {
         assertThatThrownBy(
                 () -> {
                     input("123456");
