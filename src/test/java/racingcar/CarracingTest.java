@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarracingTest {
     private final boolean CAR_LOCATE_START_POINT = false;
     private Carracing carracing;
-    private Map<String, String> raceScore;
 
     void setInstance() {
         carracing = new Carracing();
