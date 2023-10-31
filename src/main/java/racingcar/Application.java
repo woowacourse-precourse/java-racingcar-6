@@ -28,5 +28,32 @@ public class Application {
             }
             System.out.println();
         }
+        // 우승자
+        announceWinner(carList);
+    }
+
+    public static void announceWinner(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+        int max = carList.get(0).distanceMoved;
+        for (Car car : carList) {
+            if (car.distanceMoved > max) {
+                max = car.distanceMoved;
+                winnerList.clear();
+                winnerList.add(car.getName());
+            }
+            else if (car.distanceMoved == max) {
+                winnerList.add(car.getName());
+            }
+        }
+
+        StringBuilder nameOfWinners = new StringBuilder();
+        for (String name : winnerList) {
+            nameOfWinners.append(name).append(", ");
+        }
+        // 마지막 ", " 제거
+        if (nameOfWinners.length() > 0) {
+            nameOfWinners.setLength(nameOfWinners.length() - 2);
+        }
+        System.out.println("최종 우승자 : " + nameOfWinners);
     }
 }
