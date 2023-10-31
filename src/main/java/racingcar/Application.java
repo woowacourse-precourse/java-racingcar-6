@@ -13,6 +13,7 @@ public class Application {
         int rounds = readRounds();
         List<Car> cars = validateCarNames(carNames);
         race(cars, rounds);
+        findWinners(cars);
     }
 
     // 자동차 이름 입력을 받음
@@ -57,13 +58,36 @@ public class Application {
     // 자동차를 무작위로 이동
     private static void moveCars(List<Car> cars) {
         for (Car car : cars) {
-            moveCar(car);
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            car.move(randomNumber);
+            printCarPosition(car);
         }
     }
+    private static void printCarPosition(Car car) {
+        String positionString = new String(new char[car.getPosition()]).replace('\0', '-');
+        System.out.println(car.getName() + " : " + positionString);
+    }
 
-    // 자동차를 무작위로 이동
-    private static void moveCar(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        car.move(randomNumber);
+    private static void findWinners(List<Car> cars) {
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            int carPosition = car.getPosition();
+            if (carPosition > maxPosition) {
+                maxPosition = carPosition;
+            }
+        }
+
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        printWinners(winners);
+    }
+    private static void printWinners(List<String> winners) {
+        System.out.println("최종 우승자 : " + String.join(", ", winners) + " 입니다.");
     }
 }

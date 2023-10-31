@@ -11,9 +11,6 @@ public class Car {
     public void move(int step) {
         if (step >= 4) {
             position++;
-            System.out.println(step+" "+name + " 직진");
-        }else{
-            System.out.println(step+" "+name + " 정지");
         }
     }
 
