@@ -6,8 +6,8 @@ public class MovingCount {
 
     private int movingCount;
 
-    public MovingCount() {
-        this.movingCount = 0;
+    public MovingCount(int movingCount) {
+        this.movingCount = movingCount;
     }
 
     public void increase() {

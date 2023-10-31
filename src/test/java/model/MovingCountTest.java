@@ -10,7 +10,7 @@ public class MovingCountTest {
     @DisplayName("MovingCount getter 테스트")
     void MovingCount_getter_테스트() {
         //given
-        MovingCount movingCount = new MovingCount();
+        MovingCount movingCount = new MovingCount(0);
         int expectResult = 0;
 
         //when
@@ -24,7 +24,7 @@ public class MovingCountTest {
     @DisplayName("MovingCount객체 increase() 정상 동작 테스트")
     void MovingCount_증가_테스트() {
         //given
-        MovingCount movingCount = new MovingCount();
+        MovingCount movingCount = new MovingCount(0);
         int expectResult = 3;
 
         //when
@@ -42,8 +42,8 @@ public class MovingCountTest {
     @DisplayName("서로 다른 MovingCount객체 비교 테스트")
     void 서로_다른_MovingCount_비교_테스트() {
         //given
-        MovingCount movingCount1 = new MovingCount();
-        MovingCount movingCount2 = new MovingCount();
+        MovingCount movingCount1 = new MovingCount(0);
+        MovingCount movingCount2 = new MovingCount(0);
 
         //when
         boolean isEqual = movingCount1.equals(movingCount2);

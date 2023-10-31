@@ -9,7 +9,7 @@ public class Car implements Comparable<Car> {
 
     public Car(String name) {
         this.name = new Name(name);
-        this.movingCount = new MovingCount();
+        this.movingCount = new MovingCount(0);
     }
 
     public void increaseMovingCountIfGreater(int minimumNumber, int randomNumber) {
