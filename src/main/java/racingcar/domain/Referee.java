@@ -42,4 +42,37 @@ public class Referee {
         }
         return carList;
     }
+
+    int setCarRacingCnt() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println();
+        return Integer.parseInt(Console.readLine());
+    }
+
+    public void loopCarRacing() {
+        int cnt = 0;
+
+        System.out.println("실행 결과");
+        while (cnt < carRacingCount) {
+            startCarRacing();
+            System.out.println();
+            cnt++;
+        }
+    }
+
+    void startCarRacing() {
+        for (Car car : carList) {
+            int num = Randoms.pickNumberInRange(0, 9);
+            if (num >= 4) {
+                car.addCarCount();
+            }
+        }
+        for (Car car : carList) {
+            System.out.print(car.getName() + " : ");
+            for (int j = 0; j < car.getMoveCount(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
 }

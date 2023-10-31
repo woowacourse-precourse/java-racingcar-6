@@ -7,4 +7,16 @@ public class Car {
     public Car(String carName) {
         name = carName;
     }
+
+    public void addCarCount() {
+        moveCount++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
 }
