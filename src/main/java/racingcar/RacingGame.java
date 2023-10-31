@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
     List<Car> cars;
@@ -41,5 +42,9 @@ public class RacingGame {
         }
 
         this.moveCount = Integer.parseInt(moveCount);
+    }
+
+    private int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
