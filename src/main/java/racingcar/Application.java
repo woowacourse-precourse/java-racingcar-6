@@ -19,7 +19,13 @@ public class Application {
 		playerNameCheck(playerName);
 
 		System.out.println("시도할 회수는 몇회인가요?");
-		int tryNum = Integer.parseInt(Console.readLine());
+		String tryStr = Console.readLine();
+		int tryNum = 0;
+		if(Pattern.matches("^[0-9]*$", tryStr)){
+			tryNum = Integer.parseInt(tryStr);
+		}else {
+			throw new IllegalArgumentException();
+		}
 
 		System.out.println("\n실행결과");
 		Map<String, String> resultMap = new LinkedHashMap<>();
