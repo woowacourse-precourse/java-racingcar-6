@@ -14,7 +14,7 @@ public class InputView {
     private static final String REQUIRE_INTEGER_TYPE = "자동차 이름을 정수 값을 입력해주세요.";
     private static final String REQUIRE_NOT_BLANK = "자동차 이름을 공백 없이 입력해주세요.";
     private static final String REQUIRE_NOT_DUPLICATE = "자동차 이름을 중복 없이 입력해주세요.";
-    private static final String GAME_ROUND_OVER_ONE = "1회 이상 게임이 진행 되어야 합니다.";
+    private static final String REQUIRE_OVER_ONE = "1회 이상 게임이 진행 되어야 합니다.";
 
     public static String inputCarName() {
         System.out.println(INPUT_CAR_NAME);
@@ -54,23 +54,24 @@ public class InputView {
         }
     }
 
+    public static void validCarsDuplicate(ArrayList<String> cars){
+        HashSet<String> set = new HashSet<>(cars);
+        if(set.size() != cars.size()) throw new IllegalArgumentException(REQUIRE_NOT_DUPLICATE);
+    }
+
+    public static void validInputGameRound(String input) {
+        validInputBlank(input);
+        validInputInteger(input);
+        validNotUnderZero(Integer.parseInt(input));
+    }
+
     public static void validInputInteger(String input){
         for(int i=0; i<input.length(); i++) {
             if(!Character.isDigit(input.charAt(i))) throw new IllegalArgumentException(REQUIRE_INTEGER_TYPE);
         }
     }
-    public static void validCarsDuplicate(ArrayList<String> cars){
-        HashSet<String> set = new HashSet<>(cars);
-        if(set.size() != cars.size()) throw new IllegalArgumentException(REQUIRE_NOT_DUPLICATE);
+
+    public static void validNotUnderZero(int num){
+        if(num<=0) throw new IllegalArgumentException(REQUIRE_OVER_ONE);
     }
-    public static void validInputGameRound(String input) {
-        validInputBlank(input);
-
-        validInputInteger(input);
-
-        int num = Integer.parseInt(input);
-
-        if(num<=0) throw new IllegalArgumentException(GAME_ROUND_OVER_ONE);
-    }
-
 }
