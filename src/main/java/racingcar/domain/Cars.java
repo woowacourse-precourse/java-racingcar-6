@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static racingcar.exception.errorcode.UserInputErrorCode.DUPLICATED_NAME;
+import static racingcar.exception.errorcode.UserInputErrorCode.DUPLICATED_CAR_NAME;
 
 public class Cars {
     private final List<Car> carList;
@@ -43,7 +43,7 @@ public class Cars {
     private void validateDuplicate(final List<Car> carList) {
         final Set<Car> carSet = new HashSet<>(carList);
         if (carSet.size() != carList.size()) {
-            throw new UserInputException(DUPLICATED_NAME);
+            throw new UserInputException(DUPLICATED_CAR_NAME);
         }
     }
 }
