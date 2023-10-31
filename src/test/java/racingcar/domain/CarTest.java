@@ -29,4 +29,32 @@ class CarTest {
         assertThatThrownBy(() -> new Car(name))
             .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    @DisplayName("랜덤 숫자가 4 이상일 경우, 전진")
+    public void move(int num) {
+        // given
+        Car car = new Car("test");
+
+        // when
+        car.move(num);
+
+        // then
+        assertThat(car.getMoveCount()).isEqualTo(1);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    @DisplayName("랜덤 숫자가 4 미만일 경우, 정지")
+    public void stop(int num) {
+        // given
+        Car car = new Car("test");
+
+        // when
+        car.move(num);
+
+        // then
+        assertThat(car.getMoveCount()).isEqualTo(0);
+    }
 }
