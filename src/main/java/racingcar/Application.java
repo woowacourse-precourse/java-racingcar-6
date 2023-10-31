@@ -28,7 +28,7 @@ public class Application {
                     map.put(input, map.getOrDefault(input,0)+1);
                 }
             }
-            output(map);
+            print(map);
             i++;
         }
     }
@@ -141,7 +141,7 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static void output(Map<String, Integer> map) {
+    public static void print(Map<String, Integer> map) {
         for(Map.Entry<String, Integer> entry : map.entrySet()){
             String key = entry.getKey();
             int value = entry.getValue();
