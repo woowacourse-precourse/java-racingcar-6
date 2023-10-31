@@ -11,25 +11,6 @@ import static racingcar.service.InputService.*;
 import static racingcar.service.OutputService.*;
 
 public class GameService {
-    public static void runOneGame() {
-        // 자동차 이름 입력
-        printRacingCarNameInputForm();
-        List<RacingCar> racingCars = createRacingCars();
-
-        // 횟수 입력
-        printTimesInputForm();
-        long times = readTimes();
-
-        // 게임 진행 및 회차 별 결과 출력
-        printGameOutcomeMessage();
-        playGameForTimes(times, racingCars);
-
-        // 최종 우승자 출력
-        List<RacingCar> winners = findWinners(racingCars);
-        printWinners(winners);
-    }
-
-
     public static List<RacingCar> createRacingCars() {
         List<RacingCar> racingCars = new ArrayList<>();
         String[] carNames = convertToStringArray(readInput());
