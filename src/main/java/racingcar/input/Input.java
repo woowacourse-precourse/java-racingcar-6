@@ -1,6 +1,7 @@
 package racingcar.input;
 
 import static racingcar.constant.MessageConstant.CAR_NAME_INPUT_MESSAGE;
+import static racingcar.constant.MessageConstant.TOTAL_ROUND_INPUT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.Validator;
@@ -24,6 +25,10 @@ public class Input {
     }
 
     public static int inputTotalTurn() {
-        return 0;
+        String input = Input.inputString(TOTAL_ROUND_INPUT_MESSAGE.getMessage());
+
+        Validator.validateTotalTurnInput(input);
+
+        return Integer.parseInt(input);
     }
 }
