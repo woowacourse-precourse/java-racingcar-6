@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.presentation.CarDTO;
+import racingcar.util.NumberGenerator;
 
 import java.util.ArrayList;
 
@@ -18,11 +19,11 @@ public class CarGame {
         return new CarGame(cars, gameRound);
     }
 
-    public CarDTO.ProgressResult race() {
+    public CarDTO.ProgressResult race(NumberGenerator generator) {
         CarDTO.ProgressResult progressResult = new CarDTO.ProgressResult(new ArrayList<>());
 
         for (int i = 0; gameRound.isRunning(i); i++) {
-            cars.moveAll();
+            cars.moveAll(generator);
             progressResult.addResult(cars.getStatus());
         }
 

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.NumberGenerator;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -43,12 +43,8 @@ public class Cars {
         }
     }
 
-    public void moveAll() {
-        cars.forEach(car -> car.move(generateMoveSymbol()));
-    }
-
-    private int generateMoveSymbol() {
-        return Randoms.pickNumberInRange(0, 9);
+    public void moveAll(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.move(numberGenerator.generate()));
     }
 
     public List<String> findWinningCarNames() {

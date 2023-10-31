@@ -4,6 +4,8 @@ import racingcar.domain.CarGame;
 import racingcar.domain.CarGameRound;
 import racingcar.domain.CarName;
 import racingcar.domain.Cars;
+import racingcar.util.MovableSymbolNumberGenerator;
+import racingcar.util.NumberGenerator;
 
 import java.util.List;
 
@@ -21,8 +23,9 @@ public class RacingCarApplication {
 
         CarGameRound gameRound = carViewer.inputGameRound();
 
+        NumberGenerator numberGenerator = new MovableSymbolNumberGenerator();
         CarGame carGame = CarGame.create(cars, gameRound);
-        CarDTO.ProgressResult progressResult = carGame.race();
+        CarDTO.ProgressResult progressResult = carGame.race(numberGenerator);
 
         carViewer.outputExecute();
         carViewer.outputResult(progressResult);

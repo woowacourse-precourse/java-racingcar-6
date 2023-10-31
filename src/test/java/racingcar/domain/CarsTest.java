@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -60,7 +61,7 @@ class CarsTest {
         List<CarName> carNames = names.stream().map(CarName::new).toList();
 
         Cars cars = Cars.createByNames(carNames);
-        cars.moveAll();
+        cars.moveAll(() -> Randoms.pickNumberInRange(0, 9));
 
         // when
         Map<String, Integer> status = cars.getStatus();
@@ -84,7 +85,7 @@ class CarsTest {
 
         Cars cars = Cars.createByNames(carNames);
 
-        cars.moveAll();
+        cars.moveAll(() -> Randoms.pickNumberInRange(0, 9));
 
         // when
         List<String> winningCarNames = cars.findWinningCarNames();
