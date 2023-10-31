@@ -7,9 +7,13 @@ public class Console {
     private final ConsoleReader consoleReader;
     private final ConsoleWriter consoleWriter;
 
-    public Console(ConsoleReader consoleReader, ConsoleWriter consoleWriter) {
+    private Console(final ConsoleReader consoleReader, final ConsoleWriter consoleWriter) {
         this.consoleReader = consoleReader;
         this.consoleWriter = consoleWriter;
+    }
+
+    public static Console of(final ConsoleReader consoleReader, final ConsoleWriter consoleWriter) {
+        return new Console(consoleReader, consoleWriter);
     }
 
     public String[] inputNames() {
@@ -20,6 +24,10 @@ public class Console {
     public int inputAttemptCount() {
         consoleWriter.inputCountMessagePrint();
         return consoleReader.readAttemptCount();
+    }
+
+    public void oneLapResultPrint(final String lapResult) {
+        consoleWriter.println(lapResult);
     }
 
 }
