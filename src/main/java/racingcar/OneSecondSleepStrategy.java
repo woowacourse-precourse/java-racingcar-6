@@ -1,9 +1,9 @@
 package racingcar;
 
+import racingcar.constant.FixedNumber;
+
 public class OneSecondSleepStrategy implements TimeSleepStrategy {
     private final static OneSecondSleepStrategy INSTANCE = new OneSecondSleepStrategy();
-
-    private final static int SLEEP_MILLISECONDS = 1000;
 
     private OneSecondSleepStrategy(){
     }
@@ -15,7 +15,7 @@ public class OneSecondSleepStrategy implements TimeSleepStrategy {
     @Override
     public void timeSleep() {
         try {
-            Thread.sleep(SLEEP_MILLISECONDS);
+            Thread.sleep(FixedNumber.ROUND_SLEEP_MILLISECONDS.getValue());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

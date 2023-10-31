@@ -1,17 +1,13 @@
 package racingcar.validator;
 
 import racingcar.constant.ErrorMessage;
+import racingcar.constant.FixedNumber;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class RacingCarGameMachineValidator {
-    private final int MIN_RACING_CAR_COUNT = 2;
-    private final int MAX_RACING_CAR_COUNT = 5;
-    private final int MIN_ROUND_COUNT = 1;
-    private final int MAX_ROUND_COUNT = 30;
-
     public void validateNameList(List<String> racingCarNameList) {
         validateNameCount(racingCarNameList);
         validateDuplicateName(racingCarNameList);
@@ -25,7 +21,8 @@ public class RacingCarGameMachineValidator {
     }
 
     private boolean isInvalidNameCount(int size) {
-        return size < MIN_RACING_CAR_COUNT || size > MAX_RACING_CAR_COUNT;
+        return size < FixedNumber.MIN_RACING_CAR_COUNT.getValue()
+                || size > FixedNumber.MAX_RACING_CAR_COUNT.getValue();
     }
 
     private void validateDuplicateName(List<String> racingCarNameList) {
@@ -46,6 +43,7 @@ public class RacingCarGameMachineValidator {
     }
 
     private boolean isInvalidRoundCount(int roundCount) {
-        return roundCount < MIN_ROUND_COUNT || roundCount > MAX_ROUND_COUNT;
+        return roundCount < FixedNumber.MIN_ROUND_COUNT.getValue()
+                || roundCount > FixedNumber.MAX_ROUND_COUNT.getValue();
     }
 }
