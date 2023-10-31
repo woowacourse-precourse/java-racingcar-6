@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.HashMap;
 
-public class Racing {
+public class RaceSimulator {
 
     public static HashMap<String, String> raceSimulation(HashMap<String, String> carNames) {
         HashMap<String, String> racingResult = new HashMap<>();

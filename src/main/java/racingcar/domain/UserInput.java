@@ -1,14 +1,19 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class InputValidator {
-    public static HashMap<String, String> validateNames(String input) {
+public class UserInput {
+    public static HashMap<String, String> getCarNames() {
         // 1. 자동차 이름 입력 받기
         HashMap<String, String> namesMap = new HashMap<>();
         Set<String> nameSet = new HashSet<>();
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
 
         String[] names = input.split(",");
         if (names.length < 2) {
@@ -35,8 +40,11 @@ public class InputValidator {
         return namesMap;
     }
 
-    public static int validateMoves(String moves) {
+    public static int getNumberOfMoves() {
         // 2. 시도 횟수 입력 받기
+        System.out.println("시도할 회수는 몇회인가요?");
+        String moves = Console.readLine();
+
         int parsedMoves;
         try {
             parsedMoves = Integer.parseInt(moves);
