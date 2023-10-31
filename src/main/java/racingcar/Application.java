@@ -27,8 +27,7 @@ class GameSystem {
     public void makeCars(InputView input) {
         InputManufacture manufacture = new InputManufacture();
         List<String> nameList = makeCarNames(input, manufacture);
-
-
+        saveCarList(nameList);
     }
 
     public ArrayList<String> makeCarNames(InputView input, InputManufacture manufacture) {
