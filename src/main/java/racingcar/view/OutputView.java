@@ -32,7 +32,18 @@ public class OutputView {
         System.out.printf("%n");
     }
 
+    public void printWinner(List<CarDTO> finalResult) {
+        System.out.print(OutputMessage.WINNING_STATUS.message);
+        System.out.print(extractWinnerNames(finalResult));
+    }
+
     public String calculateMovementCount(int position) {
         return DISPLAY_FORMAT.repeat(position);
+    }
+
+    public String extractWinnerNames(List<CarDTO> finalResult) {
+        return finalResult.stream()
+                .map(CarDTO::getName)
+                .collect(Collectors.joining(SEPARATOR));
     }
 }
