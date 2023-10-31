@@ -16,7 +16,6 @@ import racingcar.view.OutputView;
 
 class OutputViewTest {
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
     private List<Car> cars;
     private List<Car> winners;
 
