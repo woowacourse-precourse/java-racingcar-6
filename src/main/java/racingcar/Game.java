@@ -15,10 +15,14 @@ public class Game {
     }
 
     public void playRound() {
-        cars.toList().forEach(Car::moveForward);
+        moveCar();
     }
 
     public List<String> findWinners() {
         return cars.findWinners();
+    }
+
+    private void moveCar() {
+        cars.toList().forEach(Car::moveForward);
     }
 }
