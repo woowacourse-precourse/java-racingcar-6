@@ -3,8 +3,6 @@ package racingcar.vo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 public class RacingRoundCountTest {
 
     @Test
@@ -14,15 +12,7 @@ public class RacingRoundCountTest {
     }
 
     @Test
-    void 문자열을_정수_int_로_바꾸지_못하는_경우_예외() {
-        // RacingRoundCountValidatorTest 참고
-        String input = "12 3";
-        assertThatThrownBy(() -> new RacingRoundCount(input))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void vo_value_검사() {
+    void value_검사() {
         RacingRoundCount racingRoundCount = new RacingRoundCount("12");
         Assertions.assertThat(racingRoundCount.value()).isEqualTo(12);
     }

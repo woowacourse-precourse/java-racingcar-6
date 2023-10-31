@@ -39,5 +39,4 @@ public class CarNameTest {
         CarName carName2 = new CarName("woni");
         Assertions.assertThat(carName1).doesNotHaveSameHashCodeAs(carName2);
     }
-
 }
