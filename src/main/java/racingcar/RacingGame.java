@@ -35,5 +35,24 @@ public class RacingGame {
 		return tryCount;
 	}
 
+	private void printRacing(List<Car> cars) {
+		StringBuffer stringBuffer = new StringBuffer();
 
+		for (Car car : cars) {
+			System.out.println(car.getName() + " : " + carProgress(stringBuffer, car.getPosition()));
+		}
+	}
+
+	private String carProgress(StringBuffer stringBuffer, int position) {
+		for (int i = 0; i < position; i++) {
+			stringBuffer.append("-");
+		}
+
+		String carProgress = stringBuffer.toString();
+		stringBuffer.delete(0,stringBuffer.length());
+
+		return carProgress;
+	}
+
+	
 }
