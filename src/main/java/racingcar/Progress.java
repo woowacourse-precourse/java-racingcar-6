@@ -3,6 +3,8 @@ package racingcar;
 import java.util.Objects;
 
 public class Progress {
+    private static final int CUT = 4;
+    private static final int POINT = 1;
     private int progress;
 
     public Progress() {
@@ -10,8 +12,8 @@ public class Progress {
     }
 
     public void movable(int number) {
-        if (number >= 4) {
-            move(1);
+        if (number >= CUT) {
+            move(POINT);
         }
     }
 
