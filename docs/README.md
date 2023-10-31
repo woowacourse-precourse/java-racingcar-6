@@ -2,7 +2,7 @@
 
 - 작성자 : [GaGa-Kim](https://github.com/GaGa-Kim/java-racingcar-6/tree/GaGa-Kim)
 - 미션 진행 및 회고글 : [기술 블로그](https://gaga-kim.tistory.com/1662) (미션 종료 후 공개될 예정입니다.)
-<br>
+  <br>
 
 <h2> 📍 게임 설명 </h2>
 
@@ -12,6 +12,7 @@
 2. 각 자동차에 이름을 부여하여 전진하는 자동차를 출력
 3. 자동차 경주 게임을 완료한 후 우승자 출력
 ```
+
 <br>
 
 <h2> 🖨 출력 예시 </h2>
@@ -45,6 +46,7 @@ jun : -----
 
 최종 우승자 : pobi, jun
 ```
+
 <br>
 
 <h2> 📄 구현할 기능 목록 </h2>
@@ -80,10 +82,40 @@ jun : -----
 가장 많이 전진한 자동차 이름 출력
 우승자가 여러 명일 경우 쉼표(,)를 이용하여 이름 출력
 ```
+
 <br>
 
-<h2> 🗂 MVC 패턴을 적용한 폴더 구조 </h2>
+<h2> 🗂 MVC 패턴을 적용한 디렉토리 구조 </h2>
 
 ```bash
-추후 추가 예정
+model
+|- domain   
+    |- Car.java : 자동차 객체 정보 Domain
+    |- Game.java : 게임 객체 정보 Domain
+|- dto   
+    |- CarRequestDto.java : 자동차 이름 요청 DTO
+    |- CarResponseDto.java : 우승 자동차 이름 응답 DTO
+    |- GameRequestDto.java : 게임 시도 횟수 요청 DTO
+    |- GameResponseDto.java : 게임 진행 결과 응답 DTO
+|- service
+    |- RacingCarService.java : 게임 관련 자동차 움직이기, 우승자 찾기 등의 Service
+
+view
+|- InputView.java : 사용자 입력 View
+|- OutputView.java : 사용자 출력 View
+
+controller
+|- RacingCarController.java : 게임 시작 Controller
+
+utils
+|- Validator.java : 입력 변수 처리하고 예외처리 Util
+|- Generator.java : 전진/멈춤값 랜덤 생성 Util
+|- Parser.java : 형변환 Util
+
+constants   
+|- Error.java : 예외 메시지 상수 Constant
+|- Phrase.java : 출력 메시지 상수 Constant
+|- Rule.java : 룰 상수 Constant
+
+Application.java
 ```
