@@ -2,12 +2,13 @@ package racingcar.domain;
 
 import racingcar.domain.dto.CarDTO;
 
+import static racingcar.constant.NumberConstant.*;
+
 public class Car {
 
     private final String name;
     private int position;
-    private static final int DEFAULT_POSITION = 0;
-    private static final int MOVE_CONDITION = 4;
+
 
     public Car(String name) {
         this.name = name;

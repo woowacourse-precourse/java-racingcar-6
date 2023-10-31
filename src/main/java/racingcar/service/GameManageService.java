@@ -7,6 +7,7 @@ import racingcar.domain.dto.CarDTO;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import static racingcar.constant.NumberConstant.*;
 
 public class GameManageService {
     private final CarService carService;
@@ -22,7 +23,7 @@ public class GameManageService {
 
     public void race() {
         List<Car> cars = carService.findCars();
-        cars.forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
+        cars.forEach(car -> car.move(Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE)));
     }
 
     public List<String> getWinner() {
