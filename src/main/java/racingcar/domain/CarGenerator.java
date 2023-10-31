@@ -10,12 +10,16 @@ public class CarGenerator {
         LinkedHashMap<String, String> carList = new LinkedHashMap<>();
         String[] cars = splitStringByCommas(stringCarList);
         for (String car : cars) {
-            if (carList.containsKey(car)) {
-                throw new IllegalArgumentException("자동차 이름 중복입니다");
-            }
+            isCarNameDuplicate(carList,car);
             carList.put(car, "");
         }
         return carList;
+    }
+
+    public void isCarNameDuplicate(LinkedHashMap<String, String> carList, String car) {
+        if (carList.containsKey(car)) {
+            throw new IllegalArgumentException("자동차 이름 중복입니다");
+        }
     }
 
     public String[] splitStringByCommas(String stringCarList) {
