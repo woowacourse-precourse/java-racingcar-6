@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Car implements Comparable<Car> {
     private String name;
@@ -68,5 +69,16 @@ public class Car implements Comparable<Car> {
             }
             System.out.println();
         }
+    }
+
+    public void printWinner() {
+        StringBuilder winnerList = new StringBuilder();
+        for (Car car : cars) {
+            if (car.distance == Collections.max(cars).distance) {
+                winnerList.append(car.name).append(", ");
+            }
+        }
+        winnerList = new StringBuilder(winnerList.substring(0, winnerList.length() - 2));
+        System.out.println("최종 우승자 : " + winnerList);
     }
 }
