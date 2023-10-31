@@ -1,6 +1,7 @@
 package view;
 
 import camp.nextstep.edu.missionutils.Console;
+import model.TryCount;
 import utils.Utils;
 
 public class InputView {
@@ -14,12 +15,10 @@ public class InputView {
         return carNames;
     }
 
-    public int requestTryCount() {
+    public TryCount requestTryCount() {
         System.out.println(INPUT_TRY_COUNT);
-        String inputTryCount = Console.readLine();
+        TryCount tryCount = new TryCount(Console.readLine());
         System.out.println();
-        int tryCount = utils.convertStringToInt(inputTryCount);
-        utils.isPositiveNumber(tryCount);
         return tryCount;
     }
 
