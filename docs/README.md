@@ -37,6 +37,11 @@
 - [x] 해당 라운드의 우승 자동차의 이름을 반환한다. (getWinner)
 - [x] 해당 라운드의 가장 멀리 나아간 자동차를 찾는다 (getHighestPosition)
 - [x] of 메서드를 만들어 RoundResult를 생성한다. (of)
+## 전체 라운드의 결과와 라운드 별 결과를 담는 DTO 클래스 (RoundResult)
+- [x] 전체 라운드의 결과 리스트를 가진다.
+- [x] 전체 라운드의 결과들을 문자열로 반환한다 (toString)
+- [x] 전체 라운드의 우승 자동차의 이름을 반환한다. (getRaceWinner)
+- [x] 우승 자동차의 이름을 문자열로 반환한다. (getWinnerToString)
 ## 사용자 출력 (OutputView)
 - [ ] 자동차 이름 안내문을 출력한다
 - [ ] 자동차 레이싱 시도 횟수 안내문을 출력한다
