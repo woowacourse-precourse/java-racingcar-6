@@ -18,12 +18,12 @@ public class GameLauncher {
 
         Racing racing = initializeRacingGame(userInput);
 
-        racing.start(userInput.trialCount());
+        racing.start(userInput.getTrialCount());
     }
 
     private static Racing initializeRacingGame(InputDTO userInput) {
         //자동자 리스트 생성 및 움직임 전략 생성
-        List<Car> carList = createCarList(userInput.names());
+        List<Car> carList = createCarList(userInput.getNames());
         MoveStrategy moveStrategy = initializeMoveStrategy();
 
         //도메인 객체(일급 컬렉션) 생성
