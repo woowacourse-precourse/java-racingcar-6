@@ -19,5 +19,12 @@ public class ResultView {
         System.out.println();
     }
 
+    public static void printWinners(List<Car> winners) {
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(RACE_WINNER_DELIMITER.getMessage()));
+        System.out.println((RACE_WINNERS.getMessage() + EQUAL.getMessage() + winnerNames));
+    }
+
 }
 
