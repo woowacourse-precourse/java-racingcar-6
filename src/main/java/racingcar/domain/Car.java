@@ -11,8 +11,7 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
-        int randomNumber = RandomNumberGenerator.generate();
+    public void move(int randomNumber) {
         if (randomNumber >= MOVING_CONDITION) {
             movingCount++;
         }
