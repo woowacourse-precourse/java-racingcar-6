@@ -12,4 +12,11 @@ public class Valid {
         }
     }
 
+    public static void isNumeric(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ERROR_MSG + "시도 횟수는 숫자여야 합니다.");
+        }
+    }
 }
