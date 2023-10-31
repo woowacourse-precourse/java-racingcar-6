@@ -2,12 +2,19 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.constant.Rule;
 import racingcar.constant.message.Message;
+import racingcar.dto.Result;
+import racingcar.service.Accelerator;
+import racingcar.service.NumberGenerator;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -40,5 +47,34 @@ class RacerTest {
                 .map(String::trim)
                 .toList();
         assertThat(racer.toString()).contains(excepted);
+    }
+
+    @DisplayName("전진 테스트")
+    @ParameterizedTest(name = "{displayName}: racer: {0}, round: {1}")
+    @MethodSource("MoveForwardParametersProvider")
+    void checkMoveForward(String value, Integer round, String expected) {
+        Accelerator accelerator = new Accelerator(new MaxNumberGenerator());
+        Racer racer = Racer.of(value);
+        for (int i = 0; i < round; i++) {
+            racer.play(accelerator);
+        }
+        Result result = racer.getResult();
+        assertThat(result.toIntermediateResult()).contains(expected);
+    }
+
+    static class MaxNumberGenerator implements NumberGenerator {
+        @Override
+        public int generate() {
+            return Rule.MAX_POSSIBILITY;
+        }
+    }
+
+    static Stream<Arguments> MoveForwardParametersProvider() {
+        String line = System.lineSeparator();
+        return Stream.of(
+                Arguments.arguments("one,two", 2, "one : --" + line + "two : --" + line),
+                Arguments.arguments("devil", 4, "devil : ----" + line),
+                Arguments.arguments("rest", 0, "rest : " + line)
+        );
     }
 }
