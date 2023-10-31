@@ -17,8 +17,7 @@ public class Controller {
             System.out.println();
         }
 
-        racing.forwardCount(racing.raceSituation);
-        racing.findMaxIndex(racing.forwardCountNumbers);
+        racing.findWinner();
         OutputMessage outputMessage = new OutputMessage(racing.maxindexs, user.carNames);
         outputMessage.winnerPrint();
     }
