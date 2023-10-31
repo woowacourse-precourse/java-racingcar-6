@@ -4,8 +4,8 @@
   - [x] 자동차 이름을 쉼표로 구분한다.
   - [x] 잘못된 값에 대해 예외를 던져야한다. 
 - [ ] 시도할 회수를 입력 받아야 한다. InputView.getNumberOfAttempts()
-- [ ] 각 기회마다 주사위를 던질 수 있다. Car.rollDice()
-  - [ ] 4 이상이면 전진할 수 있다. Car.ableMoveForward()
+- [x] 각 기회마다 주사위를 던질 수 있다. Car.rollDice()
+  - [x] 4 이상이면 전진할 수 있다. Car.ableMoveForward()
 - [ ] 각 기회마다 진행상황을 '이름 : 전진횟수(-)' 로 출력한다. OutputView.printProgress()
 - [ ] 가장 많이 전진한 사람이 우승한다. 공동 우승자가 있을 수 있다. referee.isWinner()
   - [x] 우승자를 출력한다. OutputView.printWinners()
