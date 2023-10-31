@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -28,6 +29,41 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void enterCarName_구분자가_없는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void enterMoveCount_숫자가_아닌_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "a.; ,"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void enterMoveCount_여러_자리의_숫자인_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "12345"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void getWinnerNames_우승자의_이름을_반환하는_경우() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun,qui", "1");
+                assertThat(output()).contains("최종 우승자 : pobi, jun, qui");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
