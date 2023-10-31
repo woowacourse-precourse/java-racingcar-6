@@ -12,15 +12,15 @@ public class OutputFormatter {
     private static final String WINNERS_SEPARATOR = ", ";
 
     public static String getMessageWhenInputCarNames() {
-        return QUERY_FOR_CAR_NAMES_INPUT;
+        return QUERY_FOR_CAR_NAMES_INPUT + "\n";
     }
 
     public static String getMessageWhenInputNumOfTries() {
-        return QUERY_FOR_NUM_OF_TRIES_INPUT;
+        return QUERY_FOR_NUM_OF_TRIES_INPUT + "\n";
     }
 
     public static String getMessageToIndicateToStartToShowResult() {
-        return INDICATION_TO_START_TO_SHOW_RESULTS;
+        return "\n" + INDICATION_TO_START_TO_SHOW_RESULTS + "\n";
     }
 
     public static String getMessageForEachStep(String[] cars, Map<String, Integer> states) {
