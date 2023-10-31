@@ -17,7 +17,9 @@ class ValidatorTest {
         @ParameterizedTest(name = "carName=\"{0}\"" )
         @ValueSource(strings = {" ", " ,", "pobi, ,jun"})
         public void emptyCarName(String carNames) {
-            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNames))
+            StringToListConverter converter = new StringToListConverter();
+            List<String> carNameList = converter.convert(carNames);
+            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
                     .getMessage().equals("빈 문자열은 입력이 불가능합니다.");
         }
 
@@ -25,7 +27,9 @@ class ValidatorTest {
         @ParameterizedTest(name = "carName=\"{0}\"" )
         @ValueSource(strings = {"", ","})
         public void nullCarName(String carNames) {
-            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNames))
+            StringToListConverter converter = new StringToListConverter();
+            List<String> carNameList = converter.convert(carNames);
+            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
                     .getMessage().equals("이름을 입력해주세요.");
         }
     }

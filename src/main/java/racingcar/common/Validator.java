@@ -11,29 +11,27 @@ public class Validator {
     public static final String CAR_NAME_WRONG_LENGTH_MESSAGE = "5자 이하만 가능합니다.";
     public static final int CAR_NAME_LENGTH = 5;
 
-    public static void validateCarNames(String carNames) {
-        List<String> carNamesList = convertToList(carNames);
-
-        if(isContainsEmptyName(carNamesList)) {
+    public static void validateCarNames(List<String> carNameList) {
+        if(isContainsEmptyName(carNameList)) {
             throw new IllegalArgumentException(CAR_NAME_BLANK_MESSAGE);
         }
-        if(isNull(carNamesList)){
+        if(isNull(carNameList)){
             throw new IllegalArgumentException(CAR_NAMES_NULL_MESSAGE);
         }
-        if(isOverLength(carNamesList)) {
+        if(isOverLength(carNameList)) {
             throw new IllegalArgumentException(CAR_NAME_WRONG_LENGTH_MESSAGE);
         }
     }
 
-    private static boolean isContainsEmptyName(List<String> carNamesList) {
-        if(carNamesList == null) {
+    private static boolean isContainsEmptyName(List<String> carNameList) {
+        if(carNameList == null) {
             return true;
         }
         return false;
     }
 
-    private static boolean isOverLength(List<String> carNamesList) {
-        for(String name : carNamesList) {
+    private static boolean isOverLength(List<String> carNameList) {
+        for(String name : carNameList) {
             if(name.length() > CAR_NAME_LENGTH) {
                 return true;
             }
@@ -41,19 +39,7 @@ public class Validator {
         return false;
     }
 
-    private static List<String> convertToList(String carNames) {
-        String[] names = carNames.split(",");
-        List<String> namesList = new ArrayList<>();
-        for (String name : names) {
-            if(name.trim().equals("")) {
-                return null;
-            }
-            namesList.add(name.trim());
-        }
-        return namesList;
-    }
-
-    private static boolean isNull(List<String> carNames) {
-        return carNames.isEmpty();
+    private static boolean isNull(List<String> carNameList) {
+        return carNameList.isEmpty();
     }
 }
