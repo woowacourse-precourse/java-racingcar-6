@@ -1,8 +1,8 @@
-package racingcar.ModelTest;
+package racingcar.ServiceTest;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Model.Cars;
+import racingcar.Service.CarName;
+import racingcar.domain.CarList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,9 +14,18 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarsModelTest {
     @Test
+    void 레이싱카_생성() {
+        String name = "레이싱카";
+
+        CarList car = new CarList(name);
+
+        assertThat(car).isNotNull();
+    }
+
+    @Test
     void 이름_범위_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> Cars.nameValidation("abcdef,javaji"))
+                assertThatThrownBy(() -> CarName.nameValidation("abcdef,javaji"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -24,14 +33,14 @@ public class CarsModelTest {
     @Test
     void 이름_리스트변환() {
         List<String> expect = Arrays.asList("kim", "in", "young");
-        List<String> result = Cars.split("kim,in,young");
+        List<String> result = CarName.split("kim,in,young");
         assertThat(result).isEqualTo(expect);
     }
 
     @Test
     void 이름_빈칸_예외처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> Cars.nameValidation(""))
+                assertThatThrownBy(() -> CarName.nameValidation(""))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -39,7 +48,22 @@ public class CarsModelTest {
     @Test
     void 이름_쉼표_예외처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> Cars.nameValidation(","))
+                assertThatThrownBy(() -> CarName.nameValidation(","))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_중복_예외처리() {
+        String name1 = "racing";
+        String name2 = "base";
+
+        List<String> names = new ArrayList<>();
+        names.add(name1);
+        names.add(name2);
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> CarName.duplicateNameCheck("racing",names))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

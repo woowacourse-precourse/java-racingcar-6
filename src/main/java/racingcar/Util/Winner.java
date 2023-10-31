@@ -1,25 +1,39 @@
 package racingcar.Util;
 
+import racingcar.domain.CarList;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Winner {
-
     private static List<String> winnerList;
+    private static int racingMaxLocation;
 
-    public static List<String> carList(List<String> carList, List<Integer> location) {
-        find(carList, location);
+    public static List<String> carList(List<CarList> car) {
+        find(maxLocation(car),car);
         return winnerList;
     }
 
-    private static void find(List<String> carList, List<Integer> location) {
+    private static void find(int maxLocation, List<CarList> carList) {
         winnerList = new ArrayList<>();
-        int maxLocation = Collections.max(location);
-        for (int i = 0; i < location.size(); i++) {
-            if (maxLocation == location.get(i)) {
-                winnerList.add(carList.get(i));
+        for (CarList car : carList) {
+            if(maxLocation == car.getPosition()){
+                winnerList.add(car.getName());
             }
         }
+    }
+
+    public static int getRacingMaxLocation() {
+        return racingMaxLocation;
+    }
+
+    private static int maxLocation(List<CarList> carList){
+        List<Integer> carPosition = new ArrayList<>();
+        for (CarList car : carList) {
+            carPosition.add(car.getPosition());
+        }
+        racingMaxLocation = Collections.max(carPosition);
+        return racingMaxLocation;
     }
 }

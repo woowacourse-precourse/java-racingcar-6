@@ -1,18 +1,19 @@
-package racingcar.ModelTest;
+package racingcar.inputTest;
 
 import org.junit.jupiter.api.Test;
-import racingcar.Model.RacingCarRandomNumber;
+import racingcar.Service.MoveORStop;
+import racingcar.View.InputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class RandomNumberTest {
-
+public class RaceTryCountTest {
     @Test
-    void 랜덤_숫자_범위_예외_처리() {
+    void 음수_예외처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> RacingCarRandomNumber.validateRandomNumberRange(10))
+                assertThatThrownBy(() -> InputView.NegativeNumber(-1))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
 }
