@@ -46,4 +46,16 @@ class RacingCarGameTest {
             racingCarGame.setRacingCarsByConsole();
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 사용자에게_이동_횟수_입력을_받는_기능() {
+        String input = "6";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        RacingCarGame racingCarGame = new RacingCarGame();
+        racingCarGame.setMoveCntByConsole();
+        int moveCnt = racingCarGame.getMoveCnt();
+        Assertions.assertThat(moveCnt).isEqualTo(6);
+    }
 }

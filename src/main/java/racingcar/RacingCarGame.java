@@ -7,6 +7,7 @@ import java.util.List;
 
 public class RacingCarGame {
     private List<RacingCar> cars = new ArrayList<RacingCar>();
+    private int moveCnt;
     private InputValidator inputValidator = new InputValidator();
 
     public void setRacingCarsByConsole() {
@@ -18,7 +19,16 @@ public class RacingCarGame {
         }
     }
 
+    public void setMoveCntByConsole() {
+        String line = readLine();
+        moveCnt = Integer.parseInt(line);
+    }
+
     public List<RacingCar> getCars() {
         return cars;
+    }
+
+    public int getMoveCnt() {
+        return moveCnt;
     }
 }
