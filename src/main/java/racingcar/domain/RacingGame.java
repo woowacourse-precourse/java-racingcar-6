@@ -11,17 +11,31 @@ public class RacingGame {
     public static String NUMBER_OF_ATTEMPTS_PROMPT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     private InputHandler inputHandler;
+    private RacingCars racingCars;
 
     public RacingGame() {
         this.inputHandler = new InputHandler();
     }
 
     public void run(){
-        System.out.println(CAR_NAMES_PROMPT_MESSAGE);
-        List<String> carNames = getCarNamesFromUser();
+        setRacingCarsFromUser();
 
         System.out.println(NUMBER_OF_ATTEMPTS_PROMPT_MESSAGE);
         int numberOfAttempts = getNumberOfAttemptsFromUser();
+
+        this.racingCars.attemptMove(numberOfAttempts);
+
+    }
+
+    private void setRacingCarsFromUser() {
+        System.out.println(CAR_NAMES_PROMPT_MESSAGE);
+        List<String> carNames = getCarNamesFromUser();
+        this.racingCars = new RacingCars(carNames);
+    }
+
+    private List<String> getCarNamesFromUser() {
+        String userInput = inputHandler.getUserInput();
+        return Validator.validateCarNames(userInput);
     }
 
     private int getNumberOfAttemptsFromUser() {
@@ -29,8 +43,5 @@ public class RacingGame {
         return Validator.validateNumberOfAttempts(userInput);
     }
 
-    private List<String> getCarNamesFromUser() {
-        String userInput = inputHandler.getUserInput();
-        return Validator.validateCarNames(userInput);
-    }
+
 }
