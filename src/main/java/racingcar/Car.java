@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.BoundaryValue.MAX_RANDOM;
+import static racingcar.BoundaryValue.MIN_RANDOM;
+import static racingcar.BoundaryValue.MOVE_LIMIT;
 import static racingcar.Message.START_RACE;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -37,7 +40,7 @@ public class Car {
 
         for (int j = 0; j < movedDistances.size(); j++) {
 
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            if (Randoms.pickNumberInRange(MIN_RANDOM.get(), MAX_RANDOM.get()) >= MOVE_LIMIT.get()) {
                 movedDistances.set(j, movedDistances.get(j) + "-");
             }
 

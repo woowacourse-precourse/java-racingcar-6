@@ -4,15 +4,11 @@ public enum BoundaryValue {
     MIN_RANDOM(0),
     MAX_RANDOM(9),
     MOVE_LIMIT(4),
-
     MIN_CAR_COUNT(2),
-
     MAX_NAME_LENGTH(5),
-
     MIN_ROUND(1);
 
-
-    public int getValue() {
+    public int get() {
         return value;
     }
 

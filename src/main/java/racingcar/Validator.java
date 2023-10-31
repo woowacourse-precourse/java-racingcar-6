@@ -1,5 +1,9 @@
 package racingcar;
 
+import static racingcar.BoundaryValue.MAX_NAME_LENGTH;
+import static racingcar.BoundaryValue.MIN_CAR_COUNT;
+import static racingcar.BoundaryValue.MIN_ROUND;
+
 import java.util.HashSet;
 import java.util.List;
 
@@ -7,7 +11,7 @@ public class Validator {
 
     public static void checkCount(List<String> carNames) {
 
-        if (carNames.size() < 2) {
+        if (carNames.size() < MIN_CAR_COUNT.get()) {
             throw new IllegalArgumentException("2대 이상의 자동차 이름을 입력해 주세요.");
         }
 
@@ -29,7 +33,7 @@ public class Validator {
 
         for (String carName : carNames) {
 
-            if (carName.length() > 5) {
+            if (carName.length() > MAX_NAME_LENGTH.get()) {
                 throw new IllegalArgumentException("자동차 이름을 5자 이하로 입력해 주세요.");
             }
 
@@ -51,7 +55,7 @@ public class Validator {
 
         try {
 
-            if (Integer.parseInt(userInput) < 1) {
+            if (Integer.parseInt(userInput) < MIN_ROUND.get()) {
                 throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
             }
 
