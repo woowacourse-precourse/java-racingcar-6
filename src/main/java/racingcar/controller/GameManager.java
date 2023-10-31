@@ -21,11 +21,11 @@ public class GameManager {
     }
 
     private void setupGame() {
-        List<String> carsName = GameUI.promptForCarNamesAndReturnList();
+        List<String> carsName = GameUI.getCarNamesWithPrompt();
         for (String name : carsName) {
             this.cars.add(new Car(name));
         }
-        this.remainingRounds = GameUI.promptForNumberOfRoundsAndReturnInteger();
+        this.remainingRounds = GameUI.getRoundsWithPrompt();
     }
 
     private void playGame() {
@@ -36,13 +36,16 @@ public class GameManager {
     }
 
     private void displayGameResult() {
-        List<Car> winner = determinWinner();
+        List<Car> winner = determineWinner();
         RaceView.displayWinner(winner);
     }
 
-    private List<Car> determinWinner() {
-        int maxDistance;
-        maxDistance = this.cars.stream().mapToInt(Car::getForwardDistance).max().getAsInt();
-        return this.cars.stream().filter(car -> car.getForwardDistance() == maxDistance).toList();
+    private List<Car> determineWinner() {
+        int maxDistance = this.cars.stream()
+                .mapToInt(Car::getForwardDistance)
+                .max().orElse(0);
+        return this.cars.stream()
+                .filter(car -> car.getForwardDistance() == maxDistance)
+                .toList();
     }
 }
