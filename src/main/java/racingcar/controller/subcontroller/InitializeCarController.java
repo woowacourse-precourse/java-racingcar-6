@@ -17,13 +17,13 @@ public class InitializeCarController {
 
     public void initializeCar() {
         List<String> names = inputToNameCar(); // 자동차 이름 입력
-        initialize(names);
+        initialize(names); // 자동차 생성
     }
 
     private void initialize(List<String> names) {
         for (String name : names) {
-            Car car = new Car(name);
-            CarRepository.add(car);
+            Car car = new Car(name); // Car 객체 생성
+            CarRepository.add(car); // 객체를 repository에 저장
         }
     }
 

@@ -22,8 +22,8 @@ public class MoveCarController {
 
     private void repeatAttemptAsCount(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
-            attemptToMoveCar();
-            outputMovingRecord();
+            attemptToMoveCar(); // 이동 시도
+            outputMovingRecord(); // 시도 후 이동 기록 출력
         }
     }
 
@@ -34,7 +34,7 @@ public class MoveCarController {
 
     private void attemptToMoveCar() {
         for (Car car : CarRepository.cars()) {
-            int rand = Randoms.pickNumberInRange(0, 9);
+            int rand = Randoms.pickNumberInRange(0, 9); // random
             if (rand >= 4) {
                 car.addMoveCount();
             }

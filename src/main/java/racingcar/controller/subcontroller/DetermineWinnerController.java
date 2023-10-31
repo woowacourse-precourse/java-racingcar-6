@@ -17,9 +17,9 @@ public class DetermineWinnerController {
     }
 
     public void determineWinner() {
-        int maxCount = getMaxCount();
-        List<String> winners = getWinners(maxCount);
-        outputWinner(winners);
+        int maxCount = getMaxCount(); // get 최대 이동 수
+        List<String> winners = getWinners(maxCount); // 우승자 판정
+        outputWinner(winners); // 우승자 출력
     }
 
     private void outputWinner(List<String> winners) {
