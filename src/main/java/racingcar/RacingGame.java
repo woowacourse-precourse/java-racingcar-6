@@ -15,7 +15,7 @@ public class RacingGame {
     private final int MAX_CAR_NAME_LENGTH = 4;
     private final int MIN_CAR_NAME_LENGTH = 1;
 
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
     private List<Car> winners = new ArrayList<>();
 
     public RacingGame() {
