@@ -14,7 +14,7 @@ public class StringHandler {
     public static <T> String listToString(List<T> input) {
         return input.stream()
                 .map(Object::toString)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(", "));
     }
 
     public static int stringToInt(String input) {
