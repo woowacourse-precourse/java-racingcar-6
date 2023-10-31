@@ -3,12 +3,12 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
 public class GameService {
 
     private List<Car> cars = new ArrayList<>();
-    private ResultView view = new ResultView();
+    private OutputView view = new OutputView();
 
     public List<Car> getCars() {
         return this.cars;
