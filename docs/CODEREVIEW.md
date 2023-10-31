@@ -7,16 +7,22 @@
 - 각 도메인에 대해서 생성자가 아닌 정적 팩토리 메서드를 사용하여 생성하게끔 하였습니다.
     - 이를 통해 가독성을 높이고 확장성을 높였습니다.
 - 입력에 대한 DTO, Validator와 Mapper 구조로 나누어보았습니다.
-- 입력에 대한 Validate 진행 시, 함수형 인터페이스를 활용해보았습니다.
+- 입력에 대한 Validate 시, 함수형 인터페이스를 활용해보았습니다.
 - 인스턴스를 생성하지 않고 기능을 제공하는 클래스는 utils와 같이, finalize하고, 메서드들을 static으로 두었습니다.
-    - RaceView, DtoMapper, DtoParser, MoveStrategy
+    - RaceView, DtoMapper, StringTrimmer, MoveStrategy
 - 정렬을 위한 CompareTo 재정의 구현 시, Integer.compare()를 사용하여, overflow 를 방지했습니다.
 - 만약 동순위의 자동차라면, 이름 순으로 정렬되게끔 Comparator 를 사용하였습니다.
 - 전진조건에 대해 MoveStrategy로 따로 분리하였습니다. 전진조건이 바뀐다면, MoveStrategy 만 수정하면 되도록하였습니다.
+- 최대한 testable하게 구현하였습니다 :: 외부에서 값을 주입하여 출력값을 반환하도록 구현하였습니다.
+- test에도 필요없고 확장되면 안 되는 메서드/필드는 private으로, test에 필요하며, 동일한 패키지 내에서 활용되는 메서드/필드는 package-private으로 하였습니다.
 
 # 이런 부분을 리뷰해주시면 좋을 거 같아요
 
 - 메서드 네이밍이 어색하진 않을까요?
+- ResponseDto는 없어도 괜찮겠다 싶어 만들지 않았습니다. 혹시 만드는 게 좋을까요??
+- 각각의 도메인의 역할 분리가 어색하진 않을까요?
+- 확장성을 낮추는 구현부분은 없을까요?
+- 예외케이스나, 각 메서드 별 단위테스트를 놓친 부분은 없을까요?
 -
 
 # 도메인 구조
