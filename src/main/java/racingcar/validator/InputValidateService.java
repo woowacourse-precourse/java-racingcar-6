@@ -6,8 +6,8 @@ public class InputValidateService {
 
     public void validateInputCarName(String carName) {
         inputCarNameValidator.validateNonInputCarName(carName);
-        inputCarNameValidator.validateOverFiveCarName(carName);
         inputCarNameValidator.validateNonCommaCarName(carName);
+        inputCarNameValidator.validateOverFiveCarName(carName);
         inputCarNameValidator.validateWrongType(carName);
     }
 
