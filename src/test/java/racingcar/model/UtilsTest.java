@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import java.util.ArrayList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.constant.NumberConstant;
 import racingcar.util.Utils;
 
 class UtilsTest {
@@ -25,6 +26,6 @@ class UtilsTest {
             int randomNumber = Utils.getRandomNumber();
             randomNumbers.add(randomNumber);
         }
-        assertThat(randomNumbers).contains(0, 9);
+        assertThat(randomNumbers).contains(NumberConstant.MIN_RANDOM_RANGE, NumberConstant.MAX_RANDOM_RANGE);
     }
 }

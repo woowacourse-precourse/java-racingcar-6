@@ -4,8 +4,10 @@ import racingcar.constant.Error;
 import racingcar.constant.NumberConstant;
 
 public class Car {
+    private final int START_POSITION = 0;
+    private final int STEP_SIZE = 1;
     private final String name;
-    private int position = 0;
+    private int position = START_POSITION;
 
     public Car(String carName) {
         validateCarNameLength(carName);
@@ -13,7 +15,7 @@ public class Car {
     }
 
     public void addPosition() {
-        position += 1;
+        position += STEP_SIZE;
     }
 
     public String getName() {

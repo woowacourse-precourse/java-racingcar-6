@@ -3,11 +3,12 @@ package racingcar.util;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.HashSet;
+import racingcar.constant.NumberConstant;
 
 public class Utils {
     public static boolean isNaturalNumber(String number) {
         if (isInteger(number)) {
-            return isIntegerOverThanZero(Integer.parseInt(number));
+            return isPositive(Integer.parseInt(number));
         }
         return false;
     }
@@ -27,11 +28,11 @@ public class Utils {
         return array.length > set.size();
     }
 
-    public static boolean isIntegerOverThanZero(int integer) {
+    public static boolean isPositive(int integer) {
         return integer > 0;
     }
 
     public static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(NumberConstant.MIN_RANDOM_RANGE, NumberConstant.MAX_RANDOM_RANGE);
     }
 }
