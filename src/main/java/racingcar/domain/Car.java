@@ -16,4 +16,8 @@ public class Car {
         checkCarWithBlank(name);
         return new Car(name);
     }
+
+    public String carInfo() {
+        return this.name;
+    }
 }
