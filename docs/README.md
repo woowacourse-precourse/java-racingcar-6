@@ -15,7 +15,7 @@
 - **InputHandler**
     - [ ] 입력 받은 값이 유효한지 확인후 반환한다.
         - [x] 입력받은 String을 쉼표(,)를 기준으로 분리한다.
-        - [ ] 각 문자열의 길이가 5자 이하인지 확인한다. (아닐 경우 IllegalArgumentException)
+        - [x] 각 문자열의 길이가 5자 이하인지 확인한다. (아닐 경우 IllegalArgumentException)
         - [ ] 주어진 횟수가 0보다 큰 양의 정수인지 확인한다.
 - **NumberGenerator**
     - [x] 0~9사이의 랜덤한 상수를 생성한다.
