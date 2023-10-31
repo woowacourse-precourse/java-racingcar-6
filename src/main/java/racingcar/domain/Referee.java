@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
@@ -13,31 +12,11 @@ public class Referee {
 
     public List<String> selectWinner() {
 
-        List<String> winners = new ArrayList<>();
-        Car currentWinner = cars.get(0);
-
-        winners.add(currentWinner.getName());
-
+        Winner winner = new Winner(cars.get(0));
         for (Car car : cars.subList(1, cars.size())) {
-            int compareState = currentWinner.compareTo(car);
-
-            if (isChangeWinner(compareState)) {
-                winners.clear();
-                currentWinner = car;
-            }
-            if (isAddWinner(compareState)) {
-                winners.add(car.getName());
-            }
+            winner.compare(car);
         }
 
-        return winners;
-    }
-
-    private boolean isAddWinner(int compareState) {
-        return compareState <= 0;
-    }
-
-    private boolean isChangeWinner(int compareState) {
-        return compareState < 0;
+        return winner.getCandidates();
     }
 }
