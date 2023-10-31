@@ -1,6 +1,11 @@
 package racingcar.domain.car;
 
+import java.util.Comparator;
+
 public class Car {
+    public static final Comparator<Car> COMPARATOR_BY_POSITION =
+            Comparator.comparing((Car car) -> car.carPosition);
+
     private final DriveBehavior driveBehavior;
     private final CarName carName;
     private final CarPosition carPosition;
@@ -21,6 +26,10 @@ public class Car {
 
     public void drive() {
         driveBehavior.drive(carPosition);
+    }
+
+    public boolean isSamePosition(Car car) {
+        return carPosition.equals(car.carPosition);
     }
 
     public String getName() {
