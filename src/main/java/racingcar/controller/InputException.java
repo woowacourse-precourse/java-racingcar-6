@@ -1,6 +1,8 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static racingcar.utility.Constants.IMPROPER_COMMA_POSITION;
 import static racingcar.utility.Constants.NAME_LENGTH_LIMIT;
@@ -19,6 +21,10 @@ public class InputException {
         }
 
         if(isCarNameBiggerThanFive(carsName)){
+            throw new IllegalArgumentException();
+        }
+
+        if(isCarNameDuplicate(carsName)){
             throw new IllegalArgumentException();
         }
     }
@@ -49,5 +55,14 @@ public class InputException {
         }
 
         return false;
+    }
+
+    private boolean isCarNameDuplicate(String carsName){
+        String[] carsNameArray = splitCarsName(carsName);
+
+        return Arrays.stream(carsNameArray)
+                .distinct() //중복제거
+                .toArray()
+                .length != carsNameArray.length; //기존 배열과 길이 다르면 true 반환
     }
 }
