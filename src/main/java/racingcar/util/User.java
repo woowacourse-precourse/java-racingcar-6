@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class User {
-    public List<String> inputCar() {
+    public List<String> inputCarName() {
         String input = Console.readLine();
         List<String> carNames = Arrays.asList(input.split(","));
         checkLastComma(input);
