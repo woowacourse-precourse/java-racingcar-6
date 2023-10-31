@@ -1,6 +1,7 @@
 package racingcar.Dto;
 
 public class CarDto {
+    private static final int MIN_POSITION = 0;
     private String carName;
     private int index;
 
@@ -42,10 +43,14 @@ public class CarDto {
     }
 
     public void setPosition(int position) {
-        if (position < 0) {
+        isNegative(position);
+        this.position = position;
+    }
+
+    private void isNegative(int position) {
+        if (position < MIN_POSITION) {
             throw new IllegalArgumentException();
         }
-        this.position = position;
     }
 
     public void plusPosition() {
