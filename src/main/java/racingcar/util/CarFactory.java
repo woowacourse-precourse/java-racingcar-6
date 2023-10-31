@@ -47,11 +47,11 @@ public class CarFactory {
     private static void validateNullAndEmpty(String carNamesInput) {
 
         if (Objects.isNull(carNamesInput)) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_EMPTY_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_EMPTY);
         }
 
         if (carNamesInput.isEmpty()) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_EMPTY_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_EMPTY);
         }
     }
 
@@ -61,13 +61,13 @@ public class CarFactory {
 
         boolean isValid = matcher.find();
         if (!isValid) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_FORMAT_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_FORMAT);
         }
     }
 
     private static void validateCarSize(int size) {
         if (size > MAX_CAR_COUNT) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_SIZE_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.CARS_SIZE);
         }
     }
 }

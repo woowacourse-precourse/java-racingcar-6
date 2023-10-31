@@ -10,7 +10,7 @@ public class Car {
     private static final int MAX_MOVE_SIZE = 9;
     private static final int POSSIBLE_MOVE_STANDARD_SIZE = 4;
 
-    private String name;
+    private final String name;
     private int moveCounts;
 
     public Car(String name) {
