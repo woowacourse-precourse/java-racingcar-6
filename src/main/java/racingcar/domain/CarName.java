@@ -17,10 +17,6 @@ public class CarName {
         winnerNameList.add(carName);
     }
 
-    public void printOnTurnResult() {
-        OutputView.printCarNameOnTurnResult(carName);
-    }
-
     private void validateCarNameLengthExceed(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자를 넘어갈 수 없습니다.");
@@ -40,5 +36,10 @@ public class CarName {
             return opponentCarNameStr.equals(this.carName);
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return carName;
     }
 }

@@ -18,8 +18,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void printPresentMovingDistance() {
-        carName.printOnTurnResult();
-        OutputView.printMovingDistanceOnTurnResult(movingDistance);
+        OutputView.printMovingDistance(carName, movingDistance);
     }
 
     public int moveRandomly() {
