@@ -10,9 +10,9 @@ import racingcar.domain.NumberGenerator;
 import racingcar.domain.PlayerMove;
 import racingcar.domain.PlayerMoveList;
 import racingcar.domain.RandomNumberGenerator;
-import racingcar.dto.MoveResultDto;
+import racingcar.dto.PlayerMoveResultDto;
 
-public class MoveResultDtoTest {
+public class PlayerMoveResultDtoTest {
     NumberGenerator numberGenerator = new RandomNumberGenerator();
     MoveFactory moveFactory = new MoveFactory(numberGenerator);
 
@@ -22,14 +22,14 @@ public class MoveResultDtoTest {
         // given
         List<PlayerMove> playerMoves = List.of(PlayerMove.fromTest(), PlayerMove.fromTest());
         PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
-        List<MoveResultDto> moveResultDtoList = new ArrayList<>();
+        List<PlayerMoveResultDto> playerMoveResultDtoList = new ArrayList<>();
         for (PlayerMove playerMove : playerMoveList.getPlayerMoveList()) {
             // when
-            MoveResultDto moveResultDto = MoveResultDto.from(playerMove);
-            moveResultDtoList.add(moveResultDto);
+            PlayerMoveResultDto playerMoveResultDto = PlayerMoveResultDto.from(playerMove);
+            playerMoveResultDtoList.add(playerMoveResultDto);
             // then
-            assertEquals("test", moveResultDto.getPlayerName());
-            assertEquals(0, moveResultDto.getDistance());
+            assertEquals("test", playerMoveResultDto.getPlayerName());
+            assertEquals(0, playerMoveResultDto.getDistance());
         }
     }
 }

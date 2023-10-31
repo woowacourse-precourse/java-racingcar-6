@@ -73,6 +73,7 @@
 - [x] 피라미터에 final 적용해보기
 - [x] unmodifaibleList 적용해보기
 - [ ] 빠져있는 테스트나 기능 적합하게 테스트 되어있는지
+- [ ] getWinnerList가 PlayersDto에 있어도 될까
 
 ## 프로그래밍 요구 사항
 

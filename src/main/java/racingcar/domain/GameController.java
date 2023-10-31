@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.dto.MoveResultDto;
+import racingcar.dto.PlayerMoveResultDto;
 import racingcar.dto.PlayerNamesDto;
 import racingcar.dto.PlayersDto;
 import racingcar.view.InputView;
@@ -16,16 +16,16 @@ public class GameController {
 
     public void start() {
         PlayersDto playersDto = generatePlayers();
-        PlayerMoveList playerMoveList = generatePlayerMoveList(playersDto);
+        PlayerMoveList playerMoveList = initializePlayerMoveList(playersDto);
         RaceCount raceCount = InputView.InputRaceCount();
 
         playRace(playerMoveList, raceCount);
-        printWinner(playerMoveList, playersDto);
+        printWinners(playerMoveList, playersDto);
     }
 
-    private void printWinner(final PlayerMoveList playerMoveList, final PlayersDto playersDto) {
+    private void printWinners(final PlayerMoveList playerMoveList, final PlayersDto playersDto) {
         playerMoveList.checkWinner();
-        OutputView.printWinner(playersDto.getWinnerList());
+        OutputView.printWinners(playersDto.getWinnerList());
     }
 
     private void playRace(final PlayerMoveList playerMoveList, final RaceCount raceCount) {
@@ -33,18 +33,18 @@ public class GameController {
         OutputView.printMoveResultMessage();
         do {
             racingGame.move();
-            printMove(playerMoveList);
+            printMoveResult(playerMoveList);
         } while (!racingGame.isSameCount(raceCount));
     }
 
-    private void printMove(final PlayerMoveList playerMoveList) {
-        List<MoveResultDto> moveResultDtoList = playerMoveList.getPlayerMoveList().stream()
-                .map(MoveResultDto::from)
+    private void printMoveResult(final PlayerMoveList playerMoveList) {
+        List<PlayerMoveResultDto> playerMoveResultDtoList = playerMoveList.getPlayerMoveList().stream()
+                .map(PlayerMoveResultDto::from)
                 .toList();
-        OutputView.printMoveResult(moveResultDtoList);
+        OutputView.printPlayerMoveResult(playerMoveResultDtoList);
     }
 
-    private PlayerMoveList generatePlayerMoveList(final PlayersDto playersDto) {
+    private PlayerMoveList initializePlayerMoveList(final PlayersDto playersDto) {
         List<PlayerMove> playerMoveList = playersDto.getPlayers().stream()
                 .map(PlayerMove::init)
                 .toList();
