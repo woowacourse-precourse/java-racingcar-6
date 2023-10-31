@@ -5,6 +5,7 @@ public class Car {
     private int position;
 
     public Car(String name) {
+        validateName(name);
         this.name = name;
         position = 0;
     }
@@ -23,5 +24,11 @@ public class Car {
         }
 
         return executeResult.toString();
+    }
+
+    private void validateName(String name) {
+        if (name.length() > GameConfig.MAX_CAR_NAME.getValue()) {
+            throw new IllegalArgumentException("잘못된 이름입니다.");
+        }
     }
 }
