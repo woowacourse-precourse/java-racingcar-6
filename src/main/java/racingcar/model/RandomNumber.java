@@ -13,6 +13,10 @@ public class RandomNumber {
         this.number = number;
     }
 
+    public RandomNumber(int number) {
+        this.number = number;
+    }
+
     public boolean isMovable() {
         return number >= MOVABLE_NUMBER;
     }
