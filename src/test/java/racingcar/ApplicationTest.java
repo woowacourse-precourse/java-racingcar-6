@@ -115,8 +115,7 @@ class ApplicationTest extends NsTest {
 
         Car car1 = getCar(cars, "car1");
 
-        car1.forward();
-        car1.forward();
+        moveForward(car1, 2);
 
         //when
         Application.showResult(cars);
