@@ -6,6 +6,7 @@ import racingcar.target.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingcarGame {
     private final User user = new User();
@@ -68,7 +69,20 @@ public class RacingcarGame {
     }
 
     public void printResult() {
+        int maxPosition = carName.stream().map(i -> i.position).max(Integer::compare).get();
+        List<String> winnerName = carName.stream()
+                .filter(i -> i.position == maxPosition)
+                .map(i -> i.name).collect(Collectors.toList());
 
+        System.out.print("최종 우승자 : ");
+        if (winnerName.size() == 1) {
+            System.out.println(winnerName.get(0));
+        }
+        if (winnerName.size() != 1) {
+            String str = String.join(",", winnerName);
+            System.out.println(str);
+        }
     }
-
 }
+
+
