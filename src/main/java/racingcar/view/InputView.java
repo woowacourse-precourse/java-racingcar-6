@@ -9,7 +9,15 @@ public class InputView {
 
     public String inputCarNames() {
         System.out.println(INPUT_MESSAGE_CAR_NAME);
-        return Console.readLine();
+        String carNames = Console.readLine();
+        hasComma(carNames);
+        return carNames;
+    }
+
+    public void hasComma(String carNames) {
+        if (!carNames.contains(",")) {
+            throw new IllegalArgumentException("사용자는 최대 2명 이상입니다.");
+        }
     }
 
     public String inputAttempts() {
