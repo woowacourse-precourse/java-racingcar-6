@@ -13,59 +13,63 @@
 
 # 📋 구현 Class/Method 목록
 
-## RacingCarGame
-
-| 메소드    | 설명              |
-|--------|-----------------|
-| play() | 자동차 경주 게임을 실행한다 |
-
 ## GameController
 
 | 메소드                   | 설명                 |
 |-----------------------|--------------------|
-| initializeCars()      | 경주할 자동차 이름을 초기화 한다 |
-| initializeRaceCount() | 경주를 시도할 횟수를 초기화 한다 |
+| play()                | 자동차 경주 게임을 실행한다    |
+| initializeFromInput() | 입력값을 통해 변수를 초기화한다  |
 | race()                | 입력받은 횟수만큼 경주를 진행한다 |
 | showWinners()         | 우승자를 출력한다          |
 
 ## GameView
 
-| 메소드              | 설명                |
-|------------------|-------------------|
-| requestInput()   | 메시지를 출력하고 입력을 받는다 |
-| printlnMessage() | 메시지를 출력한다         |
-| printMessage()   | 메시지를 개행없이 출력한다    |
+| 메소드              | 설명                      |
+|------------------|-------------------------|
+| requestInput()   | 입력 요청 메시지를 출력하고 입력을 받는다 |
+| printlnMessage() | 메시지를 출력한다               |
+| printMessage()   | 메시지를 개행없이 출력한다          |
 
-## Model
+## GameService
+
+| 메소드                      | 설명                        |
+|--------------------------|---------------------------|
+| initCarsFromInput()      | 입력값을 통해 경주할 자동차 이름을 초기화한다 |
+| initRaceCountFromInput() | 입력값을 통해 경주를 시도할 횟수를 초기화한다 |
+| isAllRaceDone()          | 경주가 시도 횟수만큼 진행되었는지 확인한다   |
+| runSingleRace()          | 경주를 한 번 진행한다              |
+| getWinnerNames()         | 우승자 이름을 반환한다              |
+
+## Domain
 
 ### RaceCount
 
-| 메소드                  | 설명                           |
-|----------------------|------------------------------|
-| initializeByInput()  | 입력값을 통해 경주를 시도할 횟수를 초기화 한다   |
-| validateTotalCount() | 입력값이 양수인지 검사한다               |
-| equalsTotal()        | 현재 진행한 경주 횟수와 총 시도할 횟수를 비교한다 |
-| up()                 | 현재 진행한 경주 횟수를 하나 증가시킨다       |
+| 메소드                       | 설명                           |
+|---------------------------|------------------------------|
+| initTotalCountFromInput() | 입력값을 통해 경주를 시도할 횟수를 초기화한다    |
+| validateTotalCount()      | 입력값이 양수인지 검사한다               |
+| equalsTotal()             | 현재 진행한 경주 횟수와 총 시도할 횟수를 비교한다 |
+| up()                      | 현재 진행한 경주 횟수를 하나 증가시킨다       |
 
 ### Cars
 
-| 메소드                 | 설명                                    |
-|---------------------|---------------------------------------|
-| initializeByInput() | 입력값을 통해 경주할 자동차 이름을 초기화 한다            |
-| runSingleRace()     | 경주를 한번 진행한다                           |
-| pickWinners()       | 우승자를 뽑는다                              |
-| createWinnerData()  | `Car` 클래스에 생성한 `WinnerData` 클래스를 반환한다 |
+| 메소드                | 설명                                    |
+|--------------------|---------------------------------------|
+| addCarsFromInput() | 입력받은 경주할 자동차 이름을 추가한다                 |
+| runSingleRace()    | 경주를 한번 진행한다                           |
+| pickWinners()      | 우승자를 뽑는다                              |
+| createWinnerData() | `Car` 클래스에 생성한 `WinnerData` 클래스를 반환한다 |
 
 ### Car
 
-| 메소드                | 설명                                          |
-|--------------------|---------------------------------------------|
-| validateName()     | 입력받은 이름의 글자 수를 검사한다                         |
-| moveForward()      | 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 전진한다 |
-| saveResult()       | `RaceResult` 클래스에 경주 결과를 저장한다               |
-| createWinnerData() | `WinnerData` 클래스를 생성한다                      |
-| isWinner()         | 우승자인지 판단한다                                  |
-| addWinner()        | `WinnerData` 클래스에 이름을 추가한다                  |
+| 메소드                 | 설명                                          |
+|---------------------|---------------------------------------------|
+| validateName()      | 입력받은 이름의 글자 수를 검사한다                         |
+| randomMoveForward() | 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 전진한다 |
+| saveResult()        | `RaceResult` 클래스에 경주 결과를 저장한다               |
+| createWinnerData()  | `WinnerData` 클래스를 생성한다                      |
+| isWinner()          | 우승자인지 판단한다                                  |
+| addWinner()         | `WinnerData` 클래스에 이름을 추가한다                  |
 
 ### RaceResult
 
