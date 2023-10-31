@@ -6,15 +6,9 @@ import racingcar.Constant;
 
 public class CarValidator {
 
-    public static boolean carValidation(String[] carNames) {
-        try {
-            validateName(carNames);
-            duplicateName(carNames);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-        return true;
+    public static void carValidation(String[] carNames) {
+        validateName(carNames);
+        duplicateName(carNames);
     }
 
     private static void validateName(String[] carNames) {

@@ -19,14 +19,10 @@ public class GameView {
 
     //사용자에게 자동차 이름 입력 받기
     public String[] carsInput() {
-        String userInput;
-        String[] carNames;
-        do {
-            System.out.println(Constant.START_NAME_MESSAGE);
-            userInput = Console.readLine();
-            carNames = userInput.split(",");
-        } while (!CarValidator.carValidation(carNames));
-
+        System.out.println(Constant.START_NAME_MESSAGE);
+        String userInput = Console.readLine();
+        String[] carNames = userInput.split(",");
+        CarValidator.carValidation(carNames);
         return carNames;
     }
 
