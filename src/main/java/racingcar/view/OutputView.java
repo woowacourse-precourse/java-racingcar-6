@@ -2,34 +2,28 @@ package racingcar.view;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import racingcar.constants.Constants;
 import racingcar.model.Car;
 
 public class OutputView {
-
-
-    public void showRacing(List<Car> carList) {
+    public void showCarPosition(List<Car> carList) {
         for (Car car : carList) {
-            System.out.println(car.carName + " : " + "-".repeat(car.carPosition));
+            String carName = car.getCarName();
+            int carPosition = car.getCarPosition();
+            System.out.println(carName + " : " + Constants.DASH_POSITION.repeat(carPosition));
         }
-
+        System.out.println("");
     }
 
-    public String selectWinner(List<Car> carList) {
-        List<Integer> carPosition = new ArrayList<>();
+    public void showWinner(List<Car> carList, int maxNumber) {
+        List<String> winnerList = new ArrayList<>();
         for (Car car : carList) {
-            carPosition.add(car.carPosition);
-        }
-        int max = Collections.max(carPosition);
-        List<String> winners = new ArrayList<>();
-        for (Car car : carList) {
-            if (car.carPosition == max) {
-                winners.add(car.carName);
+            if (car.checkWinner(maxNumber)) {
+                winnerList.add(car.getCarName());
             }
         }
-        String result = String.join(",", winners);
-
-        return result;
+        String winners = String.join(", ", winnerList);
+        System.out.println("최종 우승자 : " + winners);
     }
 }

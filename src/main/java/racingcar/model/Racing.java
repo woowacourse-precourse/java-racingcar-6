@@ -1,25 +1,23 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
+import racingcar.util.Utils;
 
 public class Racing {
-    final static int GO_FORWARD = 1;
-    final static int STOP = 0;
 
 
-    public int generateNumber() {
-        return Randoms.pickNumberInRange(1, 10) - 1;
-
-    }
-
-    public void startRacing(List<Car> carList) {
+    public void racingRound(List<Car> carList) {
         for (Car car : carList) {
-            int possibilityGo = generateNumber();
-            if (possibilityGo >= 4) {
-                car.carPosition += GO_FORWARD;
-            }
+            car.goForward();
         }
     }
 
+    public int winnerPosition(List<Car> carList) {
+        List<Integer> carpositions = new ArrayList<>();
+        for (Car car : carList) {
+            carpositions.add(car.getCarPosition());
+        }
+        return Utils.getMaxValue(carpositions);
+    }
 }
