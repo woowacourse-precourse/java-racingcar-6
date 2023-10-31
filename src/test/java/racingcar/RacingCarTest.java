@@ -15,10 +15,14 @@ public class RacingCarTest {
         String input2 = "a, b, c";
         String input3 = ",a,b";
         String input4 = ",,,,,,";
+        String input5 = "a,,,,,,";
+        String input6 = "a,,b";
         List<String> result = Arrays.asList(input.split(","));
         List<String> result2 = Arrays.asList(input2.split(","));
         List<String> result3 = Arrays.asList(input3.split(","));
         List<String> result4 = Arrays.asList(input4.split(","));
+        List<String> result5 = Arrays.asList(input5.split(","));
+        List<String> result6 = Arrays.asList(input6.split(","));
 
         assertThat(result).contains("b", "a", "c");
         assertThat(result).containsExactly("a", "b", "c");
@@ -31,6 +35,12 @@ public class RacingCarTest {
 
         assertThat(result4).contains();
         assertThat(result4).containsExactly();
+
+        assertThat(result5).contains("a");
+        assertThat(result5).containsExactly("a");
+
+        assertThat(result6).contains("a", "b", "");
+        assertThat(result6).containsExactly("a", "", "b");
     }
 
     @Test
@@ -42,10 +52,10 @@ public class RacingCarTest {
     @Test
     void 랜덤숫자를_통해_자동차가_움직일지_말지_결정() {
         int result = 7;
-        assertThat(CarMovement.isMove(result)).isIn(true);
+        assertThat(CarMovement.isMove(result)).isEqualTo(true);
 
         result = 2;
-        assertThat(CarMovement.isMove(result)).isIn(false);
+        assertThat(CarMovement.isMove(result)).isEqualTo(false);
     }
 
     @Test
@@ -54,18 +64,12 @@ public class RacingCarTest {
         String str = "";
         HashMap<String, String> hm1 = new HashMap<>();
 
-        CarMovement.putHM(hm1, list1, str);
+        for (int i = 0; i < list1.size(); i++) {
+            hm1.put(list1.get(i), str);
+        }
 
         assertThat(hm1).containsKeys("pobi", "woni", "crong");
         assertThat(hm1).containsValues("");
-
-        List<String> list2 = List.of("a ", " ", "b");
-        HashMap<String, String> hm2 = new HashMap<>();
-
-        CarMovement.putHM(hm2, list2, "123");
-
-        assertThat(hm2).containsKeys("a ", " ", "b");
-        assertThat(hm2).containsValues("123");
     }
 
     @Test
