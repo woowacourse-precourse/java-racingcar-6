@@ -19,7 +19,7 @@ public class Race {
         return cars.toResponse();
     }
 
-    public boolean isRaceOver() {
+    public boolean isOver() {
         return tryCount.isRaceOver();
     }
 

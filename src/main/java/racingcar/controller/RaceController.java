@@ -21,7 +21,7 @@ public class RaceController {
         do {
             RaceResultResponse response = race.doRace();
             OutputView.printRace(response);
-        } while (race.isRaceOver());
+        } while (race.isOver());
         List<String> winners = race.findWinners();
         OutputView.printWinners(winners);
     }
