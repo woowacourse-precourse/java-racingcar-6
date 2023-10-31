@@ -15,6 +15,6 @@
 - 우승한 자동차의 목록을 표시한다. Referee#showWinner
 
 - 자동차의 이름이 입력대로 이뤄졌는지 확인한다. ApplicationTest#자동차_이름_일치
-  - 자동차의 이름을 불러온다. Car#carGetName
+  - 자동차 list를 불러온다. Referee#getCarList
 - 주행횟수가 제대로 입력됐는지 확인한다. ApplicationTest#주행_횟수_일치
   - 주행횟수를 불러온다. Referee#getRacingCount

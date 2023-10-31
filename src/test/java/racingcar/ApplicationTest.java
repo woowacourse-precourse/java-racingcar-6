@@ -38,6 +38,25 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_이름_일치() {
+        Referee referee = null;
+        List<String> result = new ArrayList<>();
+
+        try {
+            final byte[] buf = String.join("\n", "Unity,Chan,Kawai", "7").getBytes();
+            System.setIn(new ByteArrayInputStream(buf));
+            referee = new Referee();
+        } finally {
+            Console.close();
+        }
+
+        for (Car car : referee.getCarList()) {
+            result.add(car.getName());
+        }
+        assertThat(result).containsExactly("Unity", "Chan", "Kawai");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

@@ -75,4 +75,27 @@ public class Referee {
             System.out.println();
         }
     }
+
+    public void showWinner() {
+        List<String> winnerList = new ArrayList<>();
+        Car winner = carList.get(0);
+        String result = null;
+
+        for (Car car : carList) {
+            if (car.getMoveCount() >= winner.moveCount) {
+                if (car.getMoveCount() > winner.moveCount) {
+                    winnerList.clear();
+                }
+                winnerList.add(car.getName());
+            }
+        }
+
+        result = String.join(", ", winnerList);
+        System.out.print("최종 우승자 : " + result);
+    }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
+
 }
