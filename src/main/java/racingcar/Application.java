@@ -85,7 +85,7 @@ public class Application {
         }
     }
 
-/*    private static void displayWinners() {
+    private static void displayWinners() {
         System.out.print(winners.get(0));
         if (winners.size() > 1) {
             System.out.print(", ");
@@ -93,7 +93,7 @@ public class Application {
                 System.out.print(winners.get(i));
             }
         }
-    }*/
+    }
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -117,6 +117,6 @@ public class Application {
             System.out.println();
         }
         decideWinners();
-        //displayWinners();
+        displayWinners();
     }
 }
