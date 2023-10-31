@@ -26,7 +26,9 @@ public class OutputView {
     }
 
     private void printCarCurrentLocation(RacingCar racingCar) {
-        System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getLocation()));
+        String carName = racingCar.getName();
+        int currentLocationValue = racingCar.getLocation();
+        System.out.println(carName + " : " + "-".repeat(currentLocationValue));
     }
 
     public void printWinners(RacingCars winners) {
@@ -39,9 +41,13 @@ public class OutputView {
         }
     }
 
-    private void printCommaBetweenWinners(int i, List<RacingCar> winnersCarList) {
-        if (i < winnersCarList.size() - 1) {
+    private void printCommaBetweenWinners(int winnerIndex, List<RacingCar> winnersCarList) {
+        if (isCommaNeededBetweenWinners(winnerIndex, winnersCarList)) {
             System.out.print(", ");
         }
+    }
+
+    private boolean isCommaNeededBetweenWinners(int i, List<RacingCar> winnersCarList) {
+        return i < winnersCarList.size() - 1;
     }
 }
