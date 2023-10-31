@@ -9,6 +9,7 @@ public class InputView {
     public static int inputAttemptCount() {
         String attemptValue = Console.readLine();
         Validator.validateIsNumeric(attemptValue);
+        Validator.validateNonEmpty(attemptValue);
 
         int attemptCount = Integer.parseInt(attemptValue);
         Validator.validateAtLeastOne(attemptCount);

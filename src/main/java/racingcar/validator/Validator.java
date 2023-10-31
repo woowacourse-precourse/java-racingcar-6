@@ -34,6 +34,12 @@ public class Validator {
         }
     }
 
+    public static void validateNonEmpty(String attempt) {
+        if (attempt.isBlank()) {
+            throw new IllegalArgumentException("이동 횟수를 입력해주세요.");
+        }
+    }
+
     public static void validateAtLeastOne(int attemptCount) {
         if (attemptCount < 1) {
             throw new IllegalArgumentException("이동 횟수를 1 이상 입력해주세요.");
