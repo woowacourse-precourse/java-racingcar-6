@@ -14,16 +14,28 @@ public class Racing {
         }
     }
 
-    private static int isAllowIntString() {
-        System.out.println("시도할 회수는 몇회인가요?");
+    private static boolean isPositive(int number) {
+        return number > 0;
+    }
+
+    private static int transformStringToInt(String number) {
         try {
-            return Integer.parseInt(Console.readLine());
+            return Integer.parseInt(number);
         } catch (Exception e) {
-            throw new IllegalArgumentException("숫자만 입력해 주세요.");
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
         }
     }
 
-    public List<Car> getCarList(){
+    public int getTurn() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        final int turn = transformStringToInt(Console.readLine());
+        if(isPositive(turn)){
+            return turn;
+        }
+        throw new IllegalArgumentException("1 이상의 숫자를 입력해주세요.");
+    }
+
+    public List<Car> getCarList() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         final String carNameString = Console.readLine();
         List<Car> carList = new ArrayList<>();
@@ -58,7 +70,7 @@ public class Racing {
 
     public void ready() {
         final List<Car> cars = getCarList();
-        int turn = isAllowIntString();
+        int turn = getTurn();
         start(cars, turn);
     }
 }
