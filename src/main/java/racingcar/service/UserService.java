@@ -3,7 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
@@ -22,9 +22,14 @@ public class UserService {
     }
 
     public List<Car> getCars() {
-        String[] names = Console.readLine().split(",");
+        String[] names;
+        try {
+            names = Console.readLine().split(",");
+        } catch (OutOfMemoryError outOfMemoryError) {
+            throw new IllegalArgumentException("Input car names is too large in this system!");
+        }
 
-        List<Car> cars = new LinkedList<Car>();
+        List<Car> cars = new ArrayList<Car>();
         for (String name : names) {
             nameSizeValidation(name);
 
@@ -36,14 +41,9 @@ public class UserService {
 
     public int getTries() {
         String triesInput = Console.readLine();
+        triesValidation(triesInput);
 
-        int tries;
-        try {
-            tries = Integer.parseInt(triesInput);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Tries input is not number!");
-        }
-
+        int tries = Integer.parseInt(triesInput);
         return tries;
     }
 
@@ -57,5 +57,22 @@ public class UserService {
         }
     }
 
+    private void triesValidation(final String triesInput) {
+        int MAX_TRIES = Integer.MAX_VALUE;
 
+        if (triesInput.length() > Integer.toString(MAX_TRIES).length()) {
+            throw new IllegalArgumentException("Tries Input is too long!");
+        }
+
+        try {
+            int triesInputNumber = Integer.parseInt(triesInput);
+
+            if (triesInputNumber < 0) {
+                throw new IllegalArgumentException("Tries Input must not be less than 0!");
+            }
+
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException("Tries Input is not a Integer number!");
+        }
+    }
 }
