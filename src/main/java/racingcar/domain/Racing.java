@@ -3,12 +3,20 @@ package racingcar.domain;
 import java.util.HashMap;
 
 public class Racing {
-    private static HashMap<String, String> carDistances = new HashMap<>();
 
-    public static void racingResult(HashMap<String, String> distances, int number) {
-        if (number > 3) {
-            for (String car : distances.keySet()) {
+    public static HashMap<String, String> raceSimulation(HashMap<String, String> carNames) {
+        HashMap<String, String> racingResult = new HashMap<>();
+
+        for (String car : carNames.keySet()) {
+            int randomNumber = NumberGenerator.generateRandomNumber();
+            String value = carNames.get(car);
+
+            if (randomNumber >= 4) {
+                value = value + "-";
             }
+            racingResult.put(car, value);
         }
+
+        return racingResult;
     }
 }
