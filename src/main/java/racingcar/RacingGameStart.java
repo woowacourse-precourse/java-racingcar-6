@@ -38,7 +38,7 @@ public class RacingGameStart {
         return racingCars;
     }
 
-    private static RacingCar createRacingCar(String carName) {
+    public static RacingCar createRacingCar(String carName) {
 
         checkNameLength(carName);
         return new RacingCar(carName.trim(), 0);
