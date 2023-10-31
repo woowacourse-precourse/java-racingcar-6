@@ -5,8 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import racingcar.common.type.TrialCount;
-import racingcar.controller.util.TestContext;
-import racingcar.controller.util.TestInitializer;
+import racingcar.util.TestContext;
+import racingcar.util.TestInitializer;
 import racingcar.domain.RacingCars;
 import racingcar.domain.RacingWinners;
 

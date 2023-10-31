@@ -1,4 +1,4 @@
-package racingcar.controller.util;
+package racingcar.util;
 
 import java.util.List;
 import racingcar.common.type.Names;
