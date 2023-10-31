@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static racingcar.MessageConst.*;
 
@@ -21,6 +22,7 @@ public class PrintUtil {
     }
 
     public static void printGameResultMsg(Map<String, String> raceScore) {
+
         raceScore.forEach((Key, Value) -> sb.append(Key).append(" : ").append(Value).append(LINE_BREAK));
         sb.append("\n");
     }
@@ -30,13 +32,16 @@ public class PrintUtil {
 
         String winnerScore = raceScore.get(winner.get(0));
         sb.append(winner.get(0));
-        for (int i = 1; i < winner.size(); i++) {
-            if (winnerScore.equals(raceScore.get(winner.get(i)))) {
-                sb.append(", ");
-                sb.append(winner.get(i));
-            }
+
+        String winnerList = winner.stream()
+                .skip(1)
+                .filter(name -> winnerScore.equals(raceScore.get(name)))
+                .collect(Collectors.joining(", "));
+
+        if(!winnerList.isEmpty()) {
+            sb.append(", ").append(winnerList);
         }
+
         System.out.print(sb);
     }
-
 }
