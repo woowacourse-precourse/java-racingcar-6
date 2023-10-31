@@ -53,8 +53,8 @@ public class RacingCarGameController {
 
     public List<Player> judgeGame(List<Player> playerList) {
 
-        int winScore = playerList.stream().max(Comparator.comparingInt(Player::getLocation))
-                .orElseThrow().getLocation();
+        int winScore = playerList.stream().max(Comparator.comparingInt(Player::getLocation)).orElseThrow()
+                .getLocation();
 
         return playerList.stream().filter(player -> player.getLocation() == winScore).toList();
     }
