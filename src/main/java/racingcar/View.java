@@ -10,7 +10,7 @@ public class View {
         switch (cmd) {
             case "Start" -> System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             case "Try" -> System.out.println("시도할 회수는 몇회인가요?");
-            case "Result" -> System.out.println("실행 결과");
+            case "Result" -> System.out.println("\n실행 결과");
             case "Progress" -> {
                 for (int i = 0; i < Control.Cars.size(); i++) {
                     System.out.print(Control.Cars.get(i).name + " : ");
