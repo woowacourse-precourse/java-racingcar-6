@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
 
@@ -63,18 +65,43 @@ public class RacingGame {
     }
 
     private void printWinners(CarList carList) {
+        int[] maxCarPositionIndex = findMaxCarPositionIndex(carList);
+        String maxCarPositionName;
+
         System.out.printf("최종 우승자 : ");
-        int maxCarPosition = -1;
-        int carPosition = -1;
-        int maxCarPositionIndex = -1;
-        for (int index = 0; index < carList.getSize(); index++) {
-            carPosition = carList.getPosition(index);
-            if (maxCarPosition < carPosition) {
-                maxCarPosition = carPosition;
-                maxCarPositionIndex = index;
+        for (int index = 0; index < maxCarPositionIndex.length; index++) {
+            if (index >= 1) {
+                System.out.printf(", ");
             }
+            maxCarPositionName = carList.getName(maxCarPositionIndex[index]);
+            System.out.printf(maxCarPositionName);
         }
-        System.out.println(carList.getName(maxCarPositionIndex));
+
     }
 
+    private int[] findMaxCarPositionIndex(CarList carList) {
+        int carPosition;
+        int maxCarPosition = -1;
+        List<Integer> maxCarPositionIndex = new ArrayList<>();
+
+        for (int index = 0; index < carList.getSize(); index++) {
+            carPosition = carList.getPosition(index);
+            if (maxCarPosition == carPosition) {
+                maxCarPositionIndex.add(index);
+            } else if (maxCarPosition < carPosition) {
+                maxCarPosition = carPosition;
+                maxCarPositionIndex.clear();
+                maxCarPositionIndex.add(index);
+            }
+        }
+        return ListToIntArray(maxCarPositionIndex);
+    }
+
+    public int[] ListToIntArray(List<Integer> intList) {
+        int[] intArray = new int[intList.size()];
+        for (int index = 0; index < intArray.length; index++) {
+            intArray[index] = intList.get(index);
+        }
+        return intArray;
+    }
 }

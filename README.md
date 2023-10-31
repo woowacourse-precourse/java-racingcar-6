@@ -174,7 +174,7 @@ Randoms.pickNumberInRange(0,9);
     - [x] 전진하는 조건은 값이 4 이상일 경우이다. - goOrStop()
 - [x] 진행 상태를 출력할 때 자동차 이름을 같이 출력한다. - printRaceProgress()
 - [x] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. - printWinners()
-    - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. -splitCarsName()
+    - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. -splitCarsName()
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
     - [x] 자동차의 이름이 6글자 이상인 경우
     - [x] 자동차의 이름에 공백이 있는 경우
