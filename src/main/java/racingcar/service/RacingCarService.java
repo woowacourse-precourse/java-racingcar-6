@@ -44,7 +44,10 @@ public class RacingCarService {
     }
 
     public String findWinners() {
-        int maxMoveCount = carList.get(0).getMoveCount();
+        int maxMoveCount = carList.stream()
+                .mapToInt(Car::getMoveCount)
+                .max()
+                .orElse(0);
 
         List<String> winners = carList.stream()
                 .filter(car -> car.getMoveCount() == maxMoveCount)
