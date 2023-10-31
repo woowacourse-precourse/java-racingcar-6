@@ -7,6 +7,7 @@ import java.util.List;
 public class RacingCars {
     private static final String EMPTY_NAME_ERROR_MESSAGE = "이름으로 빈 문자열을 입력하여 오류가 발생하였습니다.";
     private static final String LONG_NAME_ERROR_MESSAGE = "5자 이하가 아닌 이름을 입력하여 오류가 발생하였습니다.";
+    private static int MAX_LENGTH_OF_NAME = 5;
 
     private List<RacingCar> racingCars;
 
@@ -51,7 +52,7 @@ public class RacingCars {
 
     private static void hasLongName(final List<String> names) {
         for (String name : names) {
-            if (name.length() > 5) {
+            if (name.length() > MAX_LENGTH_OF_NAME) {
                 throw new IllegalArgumentException(LONG_NAME_ERROR_MESSAGE);
             }
         }
