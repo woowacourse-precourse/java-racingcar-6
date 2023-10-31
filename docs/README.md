@@ -4,7 +4,8 @@
 - [x] 자동차의 이름과 시도 횟수를 받는 인풋을 만든다. - Input#carsName(), Input#numberOfAttempts()
 - [x] 랜덤으로 값을 구한 뒤 무작위 값이 4이상일 경우 전진하는 기능 - Checker#Advance()
   - [x] 위의 기능을 자동차 이름만큼 반복한다.
-- [ ] 누가 우승했는지 알려주기. - Announcer#whoWin()
+- [x] 누가 우승했는지 알려주기. - Announcer#whoWin()
+- [ ] 입력 예외 처리
 
 ## 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
