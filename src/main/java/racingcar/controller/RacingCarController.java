@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

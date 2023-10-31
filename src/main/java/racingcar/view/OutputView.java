@@ -15,12 +15,16 @@ public class OutputView {
         System.out.println("실행 결과");
         for (int i = 0; i < result.getCount(); i++) {
             for (String n : name) {
-                int randomNum = Randoms.pickNumberInRange(0, 9);
-                if (randomNum >= 4) result.putScore(n, result.getScore(n) + 1);
+                checkRaceScore(result, n);
                 System.out.println(n + " : " + "-".repeat(result.getScore(n)));
             }
             System.out.println();
         }
+    }
+
+    private static void checkRaceScore(Result result, String name) {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        if (randomNum >= 4) result.putScore(name, result.getScore(name) + 1);
     }
 
     public void getWinner(HashMap<String, Integer> participant) {
