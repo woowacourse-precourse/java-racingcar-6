@@ -41,7 +41,7 @@ public class InputValidator {
     }
 
     private boolean isNumeric(String playerInput) {
-        String regex = "^[1-9][0-9]+$";
+        String regex = "^[1-9]\\d*$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(playerInput);
         return matcher.matches();
