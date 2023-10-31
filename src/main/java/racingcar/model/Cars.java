@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.validator.InputValidator;
+import racingcar.validator.CarNamesValidator;
 
 public class Cars {
     private static final int MIN_RANDOM_NUMBER = 1;
@@ -12,7 +12,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(String names) {
-        InputValidator.validateCarNames(names);
+        CarNamesValidator.validate(names);
         cars = generateCars(names);
     }
 

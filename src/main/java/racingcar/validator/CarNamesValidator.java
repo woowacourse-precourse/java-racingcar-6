@@ -2,13 +2,13 @@ package racingcar.validator;
 
 import java.util.Arrays;
 
-public class InputValidator {
+public class CarNamesValidator {
     private static final String COMMA_EXCEPTION_MESSAGE = "이름은 쉼표(,)로 구분되어야 합니다";
     private static final String CARS_LENGTH_EXCEPTION_MESSAGE = "자동차는 1개 이상이어야 합니다";
     private static final String DUPLICATED_NAME_EXCEPTION_MESSAGE = "중복되는 이름이 있습니다";
     private static final int MIN_CARS_LENGTH = 1;
 
-    public static void validateCarNames(String names) {
+    public static void validate(String names) {
         validateDividedByComma(names);
         String[] nameArray = names.split(",");
         validateNamesLength(nameArray);
