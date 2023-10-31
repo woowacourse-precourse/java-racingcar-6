@@ -42,9 +42,19 @@ public class Car {
     }
 
     private static void validateName(String name) {
-        if (isInvalidName(name)) {
-            throw new IllegalArgumentException("자동차 이름은 1~5자이고 공백이 없어야 합니다.");
+        if (isInvalidName(name) || containsSpecialCharacters(name)) {
+            throw new IllegalArgumentException("자동차 이름은 1~5자이고 공백이 없으며 특수 기호를 포함할 수 없습니다.");
         }
+    }
+
+    private static boolean containsSpecialCharacters(String name) {
+        String specialCharacters = "!@#$%^&*()-_+=<>?{}[]|";
+        for (char c : specialCharacters.toCharArray()) {
+            if (name.contains(String.valueOf(c))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static boolean isInvalidName(String name) {
