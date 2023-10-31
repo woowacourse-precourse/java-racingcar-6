@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class TrialRepeat {
     public static final String RESULT_PRINT_TEXT = "실행 결과";
-    public static Hashtable<String, Integer> sb;
+    public Hashtable<String, Integer> sb;
 
     public void trialExecution(Hashtable<String, Integer> scoreboard) {
         sb = scoreboard;
@@ -15,7 +15,7 @@ public class TrialRepeat {
         System.out.println();
     }
 
-    private String personalScore(String name, boolean go) {
+    public String personalScore(String name, boolean go) {
         if (go) {
             sb.put(name, sb.get(name) + 1);
         }
