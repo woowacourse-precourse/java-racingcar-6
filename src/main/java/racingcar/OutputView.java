@@ -11,8 +11,8 @@ public class OutputView {
         System.out.println(RUNNING_RESULT);
     }
 
-    public static void printPerMoveResult(String winner) {
-        System.out.println(winner);
+    public static void printCarStatus(String carInfo) {
+        System.out.println(carInfo);
     }
 
     public static void noticeFinalWinner() {

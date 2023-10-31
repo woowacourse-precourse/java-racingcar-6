@@ -53,7 +53,7 @@ public class Cars {
         for (int i = 0; i < runningCount; i++) {
             cars.forEach(Car::moveByGeneratedNumber);
             cars.forEach(car ->
-                    OutputView.printPerMoveResult(car.toString()));
+                    OutputView.printCarStatus(car.toString()));
             System.out.println();
         }
     }
