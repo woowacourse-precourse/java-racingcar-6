@@ -1,17 +1,15 @@
-package racingcar;
-
-import camp.nextstep.edu.missionutils.Console;
+package racingcar.race;
 import camp.nextstep.edu.missionutils.Randoms;
 
 
 
-class Car {
+public class Car {
     private final String name;
     private int position = 0;
 
     public Car(String name){
         if (name==null || name.length() > 5){
-            throw new IllegalArgumentException("이름은 5글자를 초좌할 수 없습니다.");
+            throw new IllegalArgumentException("이름은 5글자를 초과할 수 없습니다.");
         }
         this.name = name;
     }
