@@ -20,12 +20,12 @@ public class OutputView {
         StringBuilder sb = new StringBuilder("최종 우승자 : ");
         for (int i = 0; i < victoryPlayers.size(); i++) {
             sb.append(victoryPlayers.get(i));
-            appendSpace(victoryPlayers, sb, i);
+            appendComma(victoryPlayers, sb, i);
         }
         System.out.println(sb);
     }
 
-    private static void appendSpace(List<String> victoryPlayers, StringBuilder sb, int i) {
+    private static void appendComma(List<String> victoryPlayers, StringBuilder sb, int i) {
         if (i != victoryPlayers.size() - 1) {
             sb.append(", ");
         }
