@@ -15,6 +15,7 @@ public class OutputManager {
     }
 
     public void printGameResult(GameResult gameResult) {
+        System.out.println();
         System.out.println(GAME_RESULT_INFO_MESSAGE);
         gameResult.history().forEach(this::printGameSnapshot);
     }
@@ -27,6 +28,7 @@ public class OutputManager {
     private void printCarPosition(Car car) {
         System.out.print(car.getName() + " : ");
         printPositionBar(car.getPosition());
+        System.out.println();
     }
 
     private void printPositionBar(int position) {
