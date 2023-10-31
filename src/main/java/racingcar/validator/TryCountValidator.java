@@ -18,7 +18,7 @@ public class TryCountValidator {
     }
 
     private static void validateIsDigit(String tryCount) {
-        if (!isDigit(parseInt(tryCount))) {
+        if (tryCount.chars().anyMatch(ch -> !Character.isDigit(ch))) {
             throw new IllegalArgumentException("입력값은 정수이어야 합니다.");
         }
     }
