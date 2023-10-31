@@ -8,15 +8,16 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        inputCarName();
-        inputCount();
+        String[] inputs = inputCarName();
+        int count = inputCount();
     }
 
-    public static void inputCarName() {
+    public static String[] inputCarName() {
+        String[] name = new String[0];
         try {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String input = Console.readLine();
-            String[] name = input.split(",");
+            name = input.split(",");
 
             if (!checkLength(name)) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
@@ -29,6 +30,8 @@ public class Application {
             System.out.println(e.getMessage());
             System.exit(0);
         }
+
+        return name;
     }
 
     private static boolean checkLength(String[] arr) {
@@ -72,7 +75,8 @@ public class Application {
         return flag;
     }
 
-    public static void inputCount() {
+    public static int inputCount() {
+        int num = 0;
         try {
             System.out.println("시도할 회수는 몇회인가요?");
             String input = Console.readLine();
@@ -82,10 +86,13 @@ public class Application {
             } else if (!checkNegative(input)) {
                 throw new IllegalArgumentException("양수만 입력하세요");
             }
+            num = Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             System.exit(0);
         }
+
+        return num;
     }
 
     private static boolean checkisDigit(String s) {
