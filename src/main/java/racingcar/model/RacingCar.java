@@ -13,7 +13,9 @@ public class RacingCar {
     public RacingCar(String userInput) {
         List<String> carNames = splitInputByComma(userInput);
         CarValidator.validateCarNameList(carNames);
-        this.cars = carNames.stream().map(Car::new).toList();
+        List<Car> cars = carNames.stream().map(Car::new).toList();
+        CarValidator.validateCarListSize(cars);
+        this.cars = cars;
     }
 
     RacingCar(List<Car> cars) {
