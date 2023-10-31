@@ -13,6 +13,9 @@ public class Round {
     public void createRandom(List<Car> carList) {
         for (Car car : carList) {
             RandomNumber.make();
+            if (RandomNumber.isForward()) {
+                car.forward(); // 랜덤 수에 따라 차의 위치를 증가
+            }
         }
     }
 
