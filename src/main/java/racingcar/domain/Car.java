@@ -14,6 +14,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
+        InputValidation.validateRandomNumberRange(randomNumber);
         if (randomNumber >= Constant.MOVE_NUMBER) {
             this.moveCount++;
         }

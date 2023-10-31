@@ -22,4 +22,10 @@ public class InputValidation {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateRandomNumberRange(int num) {
+        if (num < Constant.MIN_RANDOM_NUMBER || num > Constant.MAX_RANDOM_NUMBER) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
