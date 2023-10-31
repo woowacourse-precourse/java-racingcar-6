@@ -85,5 +85,14 @@ class ValidatorTest {
                                     .hasMessage(MessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
         }
 
+        @DisplayName("양의 정수가 아닌 숫자 입력 시 예외 발생")
+        @ParameterizedTest(name ="횟수={0}")
+        @ValueSource(strings = {"-1", "0"})
+        public void notPositiveInteger(String roundNumber) {
+            Assertions.assertThatThrownBy(() -> Validator.validateRoundNumber(roundNumber))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(MessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
+        }
+
     }
 }
