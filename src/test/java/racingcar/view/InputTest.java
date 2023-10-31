@@ -19,7 +19,7 @@ public class InputTest {
         assertThat(MockInput.inputMoveChance("1")).isEqualTo(1);
     }
 
-    public class MockInput {
+    public static class MockInput {
         public static List<String> inputCarName(String name) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             return Mapper.changeToListString(name);
