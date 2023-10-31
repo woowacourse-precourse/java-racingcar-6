@@ -41,8 +41,12 @@ public class PrintTest extends NsTest {
         moveForward(car2, 3);
         moveForward(car3, 3);
 
+        List<String> winnersName = new ArrayList<>();
+        winnersName.add("car2");
+        winnersName.add("car3");
+
         //when
-        print.showWinner(cars);
+        print.showWinner(cars, winnersName);
 
         //then
         assertThat(output()).isEqualTo("최종 우승자 : car2, car3");
