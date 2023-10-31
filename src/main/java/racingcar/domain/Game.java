@@ -19,12 +19,15 @@ public class Game {
     }
 
     public void play() {
+        OutputView.printEmptyLine();
+        OutputView.printGameResult();
         for (int i = 0; i < tryCount.getTryCount(); ++i) {
             List<Integer> randomNumbers = IntStream.range(0, cars.getSize())
                 .mapToObj(idx -> Randoms.pickNumberInRange(0, 9))
                 .collect(Collectors.toList());
             cars.moveAllCars(randomNumbers);
             cars.printCarNamesAndPositions();
+            OutputView.printEmptyLine();
         }
     }
 
