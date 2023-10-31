@@ -39,7 +39,7 @@ public class InputView {
 
     private void validateNotNull(String input) {
         message = ErrorMessage.INPUT_IS_NULL.getMessage();
-        if (input == null || input.isEmpty()) {
+        if (input == null) {
             throw new IllegalArgumentException(message);
         }
     }

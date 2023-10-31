@@ -24,10 +24,6 @@ public class OutputView {
     }
 
     private String winnerMessage(List<String> winners) {
-        if (winners.size() == 1) {
-            return FINAL_WINNER + winners.get(0);
-        }
         return FINAL_WINNER + String.join(Symbols.COMMA.getSymbol(), winners);
     }
-
 }

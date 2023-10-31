@@ -44,7 +44,7 @@ public class RacingCars {
 
     private static void validateCarName(String carName) {
         message = ErrorMessage.INVALID_CAR_NAME.getMessage();
-        if (!CAR_NAME_REGEX.matcher(carName).matches() || carName.contains(" ") || carName.isEmpty()) {
+        if (!CAR_NAME_REGEX.matcher(carName).matches() || carName.contains(" ")) {
             throw new IllegalArgumentException(message);
         }
     }
