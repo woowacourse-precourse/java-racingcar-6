@@ -15,12 +15,19 @@ public class Name {
 
     public Name(String name) {
         validateSize(name);
+        validateIsEmpty(name);
         this.name = name;
     }
 
     private void validateSize(String name) {
         if (name.length() > MIN_NAME_SIZE) {
             throw new IllegalArgumentException(OUT_OF_LENGTH_CAR_NAME);
+        }
+    }
+
+    private void validateIsEmpty(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(CAR_NAME_EMPTY);
         }
     }
 
