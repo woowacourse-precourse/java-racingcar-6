@@ -4,7 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.Dto.CarDto;
 
 public class OutputViewTest {
     OutputView outputView = new OutputView();
@@ -31,6 +33,24 @@ public class OutputViewTest {
         System.setOut(newOut);
         outputView.printGameStart();
         assertThat(baos.toString()).contains("\n게임을 시작합니다.");
+        System.setOut(System.out);
+    }
+
+    @Test
+    void 게임_진행() {
+        CarDto carDto = new CarDto("pobi", 1);
+        List<CarDto> carDtoList = List.of(carDto);
+        System.setOut(newOut);
+        outputView.printResult(carDtoList);
+        assertThat(baos.toString()).contains("pobi : ");
+        System.setOut(System.out);
+    }
+
+    @Test
+    void 게임_우승자() {
+        System.setOut(newOut);
+        outputView.printGameWinner(List.of("pobi"));
+        assertThat(baos.toString()).contains("최종 우승자 : pobi");
         System.setOut(System.out);
     }
 }
