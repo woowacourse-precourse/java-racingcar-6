@@ -10,18 +10,17 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Car[] cars = generateCars();
-        System.out.println("시도할 회수는 몇회인가요?");
-        int turnCount = inputTurnCount();
+        int roundCount = generateRoundCount();
 
-        showProcessingBoard(cars, turnCount);
+        showProcessingBoard(cars, roundCount);
         showResultBoard(cars);
     }
 
-    private static void showProcessingBoard(Car[] cars, int turnCount) {
+    private static void showProcessingBoard(Car[] cars, int roundCount) {
         System.out.println();
         System.out.println("실행 결과");
 
-        for (int turn = 0; turn < turnCount; turn++) {
+        for (int turn = 0; turn < roundCount; turn++) {
             moveCars(cars);
             printCars(cars);
         }
@@ -56,9 +55,10 @@ public class Application {
         System.out.println();
     }
 
-    private static int inputTurnCount() {
-        String turnCountInput = readLine();
-        return Integer.parseInt(turnCountInput);
+    private static int generateRoundCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String roundCountInput = readLine();
+        return Integer.parseInt(roundCountInput);
     }
 
     private static Car[] generateCars() {
