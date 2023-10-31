@@ -21,4 +21,18 @@ public class CheckInput extends GameManager {
             }
         }
     }
+
+    public static int checkIsNumber(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void checkIsNaturalNumber(int input) {
+        if (input < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

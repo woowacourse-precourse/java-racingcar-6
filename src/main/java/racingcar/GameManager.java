@@ -20,6 +20,11 @@ public class GameManager {
         splitPlayer(input, player);
         CheckInput.checkLength(player);
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        input = Console.readLine();
+        int numberTrials = CheckInput.checkIsNumber(input);
+        CheckInput.checkIsNaturalNumber(numberTrials);
+
         for (RacingCar racingCar : player) {
             System.out.println(racingCar.name + " : ");
         }
