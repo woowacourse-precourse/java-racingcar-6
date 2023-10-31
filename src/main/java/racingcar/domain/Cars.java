@@ -1,7 +1,9 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.RandomNumberGenerator;
 
 public class Cars {
 
@@ -25,5 +27,15 @@ public class Cars {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
+    }
+
+    public void roundLevelMove(){
+        for(Car car : carList){
+           car.move(RandomNumberGenerator.createRandomNumber());
+        }
+    }
+
+    public List<Car> getCarList(){
+        return Collections.unmodifiableList(this.carList);
     }
 }
