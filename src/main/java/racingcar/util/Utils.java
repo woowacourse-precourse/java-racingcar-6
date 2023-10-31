@@ -3,6 +3,7 @@ package racingcar.util;
 import java.util.List;
 
 import static racingcar.util.Checker.validateCarName;
+import static racingcar.util.Checker.validateInput;
 
 public class Utils {
 
@@ -26,5 +27,15 @@ public class Utils {
             validateCarName(name);
         }
         return names;
+    }
+
+    public static String setFormat(String input){
+        String output = "";
+        output = removeGap(input);
+        validateInput(input);
+        return output;
+    }
+    public static String removeGap(String input){
+        return input.trim();
     }
 }

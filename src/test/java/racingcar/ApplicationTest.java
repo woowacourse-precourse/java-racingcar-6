@@ -22,6 +22,27 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    @Test
+    void 입력의_컴마가_여러개_일때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,,,,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 입력이_컴마로_시작할때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 입력이_컴마로_끝날때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
@@ -38,7 +59,6 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});

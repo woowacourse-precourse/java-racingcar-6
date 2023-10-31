@@ -1,25 +1,22 @@
 package racingcar.console;
 import camp.nextstep.edu.missionutils.Console;
 
-
 import static racingcar.Execute.carNames;
 import static racingcar.Execute.carRace;
 import static racingcar.Execute.raceTime;
+import static racingcar.util.Utils.*;
 
-import static racingcar.util.Utils.parseCarName;
 public class Input {
-
     public static void inputCarName() {
         String input = Console.readLine();
-        carNames = parseCarName(input);
 
+        input = setFormat(input);
+
+        carNames = parseCarName(input);
         for (String carName : carNames) {
             carRace.put(carName, 0L);
         }
-
     }
-
-
     public static void inputRaceTime() {
         String input = Console.readLine();
 

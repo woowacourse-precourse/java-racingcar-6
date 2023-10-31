@@ -20,13 +20,6 @@ public class Racing {
             printCarMap();
         }
     }
-    public static String getPosition(Long position){
-        StringBuilder carPosition = new StringBuilder();
-        for(int i = 0; i < position; i++){
-            carPosition.append("-");
-        }
-        return carPosition.toString();
-    }
 
     public static void moveCar(){
         for (String carName : carRace.keySet()) {
@@ -52,5 +45,13 @@ public class Racing {
 
         return getStringFormat(winners);
     }
+    public static String getPosition(Long position){
+        StringBuilder carPosition = new StringBuilder();
+        for(int i = 0; i < position; i++){
+            carPosition.append("-");
+        }
+        return carPosition.toString();
+    }
+
 
 }
