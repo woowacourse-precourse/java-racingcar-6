@@ -5,6 +5,10 @@ import static java.lang.Integer.*;
 
 public class TryCountValidator {
 
+    private TryCountValidator() {
+
+    }
+
     public static void validate(String tryCount) {
         validateIsEmpty(tryCount);
         validateIsDigit(tryCount);
