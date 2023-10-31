@@ -88,4 +88,24 @@ class ControllerTest {
         }
         Console.close();
     }
+
+    private static Stream<Arguments> provideWrongAttemptCountInput() {
+        return Stream.of(
+                Arguments.of("Tom,Jin,Ive\n", "a\n"),
+                Arguments.of("Tom,Jin,Ive\n", "b\n")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideWrongAttemptCountInput")
+    void 숫자_아님_예외_발생_및_몌시지_확인(String carNameInput, String AttemptCountInput) {
+
+        System.setIn(getSequenceInputStream(carNameInput, AttemptCountInput));
+        try {
+            controller.run();
+        } catch (IllegalArgumentException e) {
+            assertEquals(NOT_NUMBER_STRING_ERROE_MESSAGE, e.getMessage());
+        }
+        Console.close();
+    }
 }
