@@ -12,4 +12,14 @@ public class RacingCarData {
         }
         return racingCarMap;
     }
+
+    // 랜덤 생성 숫자가 4를 넘는지 확인하는 updateRacingCarDistance 메서드
+    public int updateRacingCarDistance(int randomUpdateNumber){
+        if(randomUpdateNumber >= 4){ // 4 이상이면 return 1
+            return 1;
+        }
+        else{ // 그렇지 않으면 return 0
+            return 0;
+        }
+    }
 }
