@@ -14,6 +14,7 @@ public class Racing {
     public void race() {
         prepareRacing();
         startRace();
+        judge();
     }
 
     private void prepareRacing() {
@@ -26,6 +27,10 @@ public class Racing {
             participants.race();
             racingTrial--;
         }
+    }
+
+    public List<Car> judge() {
+        return participants.judgeWinner();
     }
 
     private List<Car> setParticipant() {

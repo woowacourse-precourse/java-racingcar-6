@@ -14,4 +14,11 @@ public class Participants {
         cars.forEach(Car::race);
         cars.forEach(System.out::println);
     }
+
+    public List<Car> judgeWinner() {
+        int maxMovedDistance = cars.stream().mapToInt(Car::getMovedDistance).max().orElse(0);
+        return cars.stream()
+                .filter(car -> car.getMovedDistance() == maxMovedDistance)
+                .toList();
+    }
 }

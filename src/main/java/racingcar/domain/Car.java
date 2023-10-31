@@ -27,6 +27,14 @@ public class Car {
         return randomNumber >= PROCEED_THRESHOLD.getConstant();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getMovedDistance() {
+        return movedDistance;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
