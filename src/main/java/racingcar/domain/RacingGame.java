@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.domain.car.CarName;
+import racingcar.domain.position.Position;
 import racingcar.domain.power.DefaultPowerGenerator;
 import racingcar.dto.GameResultDto;
 import racingcar.dto.RoundResultDto;
@@ -45,7 +47,7 @@ public class RacingGame {
 
     private List<Car> prepareRacingCars(List<String> carNames) {
         return carNames.stream()
-                .map(carName -> new Car(carName, 0, new DefaultPowerGenerator()))
+                .map(carName -> new Car(new CarName(carName), new Position(0), new DefaultPowerGenerator()))
                 .collect(Collectors.toList());
     }
 

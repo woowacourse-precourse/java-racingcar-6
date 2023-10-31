@@ -13,9 +13,9 @@ public class Car {
     private final Position position;
     private final PowerGenerator powerGenerator;
 
-    public Car(String name, int position, PowerGenerator powerGenerator) {
-        this.carName = new CarName(name);
-        this.position = new Position(position);
+    public Car(CarName carName, Position position, PowerGenerator powerGenerator) {
+        this.carName = carName;
+        this.position = position;
         this.powerGenerator = powerGenerator;
     }
 

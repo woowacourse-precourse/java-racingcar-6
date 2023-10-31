@@ -11,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Referee;
 import racingcar.domain.car.Car;
+import racingcar.domain.car.CarName;
+import racingcar.domain.position.Position;
 import racingcar.domain.power.DefaultPowerGenerator;
 import racingcar.dto.RoundResultDto;
 
@@ -31,9 +33,9 @@ class OutputViewTest {
     @Test
     void testShowRoundResult() {
         List<Car> cars = Arrays.asList(
-                new Car("car1", 3, new DefaultPowerGenerator()),
-                new Car("car2", 5, new DefaultPowerGenerator()),
-                new Car("car3", 2, new DefaultPowerGenerator())
+                new Car(new CarName("car1"), new Position(3), new DefaultPowerGenerator()),
+                new Car(new CarName("car2"), new Position(5), new DefaultPowerGenerator()),
+                new Car(new CarName("car3"), new Position(2), new DefaultPowerGenerator())
         );
 
         String expectedOutput = "car1 : ---\ncar2 : -----\ncar3 : --";
@@ -46,9 +48,9 @@ class OutputViewTest {
     @Test
     void testShowGameResult() {
         List<Car> cars = Arrays.asList(
-                new Car("car1", 3, new DefaultPowerGenerator()),
-                new Car("car2", 5, new DefaultPowerGenerator()),
-                new Car("car3", 5, new DefaultPowerGenerator())
+                new Car(new CarName("car1"), new Position(3), new DefaultPowerGenerator()),
+                new Car(new CarName("car2"), new Position(5), new DefaultPowerGenerator()),
+                new Car(new CarName("car3"), new Position(5), new DefaultPowerGenerator())
         );
 
         String expectedOutput = "최종 우승자 : car2,car3";
@@ -61,9 +63,9 @@ class OutputViewTest {
     @Test
     void testShowGameResultWithSingleWinner() {
         List<Car> cars = Arrays.asList(
-                new Car("car1", 3, new DefaultPowerGenerator()),
-                new Car("car2", 5, new DefaultPowerGenerator()),
-                new Car("car3", 2, new DefaultPowerGenerator())
+                new Car(new CarName("car1"), new Position(3), new DefaultPowerGenerator()),
+                new Car(new CarName("car2"), new Position(5), new DefaultPowerGenerator()),
+                new Car(new CarName("car3"), new Position(2), new DefaultPowerGenerator())
         );
 
         String expectedOutput = "최종 우승자 : car2";
