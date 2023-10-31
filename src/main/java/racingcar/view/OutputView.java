@@ -34,10 +34,7 @@ public class OutputView {
     }
 
     private static String generateProgress(int currentPosition) {
-        StringBuilder result = new StringBuilder();
-        for (int move = 0; move < currentPosition; move++) {
-            result.append(MOVE_DISPLAY_STRING.getContent());
-        }
-        return result.toString();
+        return String.valueOf(MOVE_DISPLAY_STRING.getContent())
+                .repeat(currentPosition);
     }
 }
