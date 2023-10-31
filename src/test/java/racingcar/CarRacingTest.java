@@ -4,8 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.util.NumberGenerator;
-import racingcar.util.Policy;
+import racingcar.policy.Policy;
 
 public class CarRacingTest {
     private static final int MOVING_FORWARD = 4;

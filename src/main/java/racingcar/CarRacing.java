@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 import racingcar.console.RacingCarConsole;
-import racingcar.util.Policy;
+import racingcar.policy.Policy;
 
 public class CarRacing {
     private final List<Car> carList;

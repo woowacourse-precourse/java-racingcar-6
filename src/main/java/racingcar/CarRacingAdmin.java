@@ -3,16 +3,14 @@ package racingcar;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.console.RacingCarConsole;
-import racingcar.util.Policy;
-import racingcar.util.Util;
+import racingcar.policy.Policy;
 import racingcar.validator.InputValidator;
 
 public class CarRacingAdmin {
     private final InputValidator inputValidator;
 
     public CarRacingAdmin() {
-        Util util = new Util();
-        inputValidator = new InputValidator(util);
+        inputValidator = new InputValidator();
     }
 
     public void startRace() {

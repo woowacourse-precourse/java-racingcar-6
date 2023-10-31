@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.util.Util;
 import racingcar.validator.InputValidator;
 
 public class InputValidatorTest {
@@ -16,8 +15,7 @@ public class InputValidatorTest {
 
     @BeforeAll
     static void initInputValidator() {
-        Util util = new Util();
-        inputValidator = new InputValidator(util);
+        inputValidator = new InputValidator();
     }
 
     @Test

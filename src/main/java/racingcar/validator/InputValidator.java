@@ -1,6 +1,5 @@
 package racingcar.validator;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import racingcar.util.Util;
@@ -8,8 +7,8 @@ import racingcar.util.Util;
 public class InputValidator {
     private final Util util;
 
-    public InputValidator(Util util) {
-        this.util = util;
+    public InputValidator() {
+        this.util = new Util();
     }
 
     public void validateCarNames(String carNames) {
@@ -17,15 +16,11 @@ public class InputValidator {
             throw new IllegalArgumentException("검증할 자동차 이름 목록이 없습니다.");
         }
 
-        String[] carNameArray = carNames.split(",", -1);
-        List<String> carNameList = Arrays.asList(carNameArray);
-
-        if (carNameList.contains("")) {
+        if (isProperUsingComma(carNames)) {
             throw new IllegalArgumentException("부적절한 ','사용입니다.");
         }
-        HashSet<String> duplicationCheckHashSet = new HashSet<>(Arrays.asList(carNameArray));
 
-        if (carNameArray.length != duplicationCheckHashSet.size()) {
+        if (isDuplicateName(carNames)) {
             throw new IllegalArgumentException("이름이 같은 자동차들이 있습니다.");
         }
     }
@@ -46,5 +41,16 @@ public class InputValidator {
         if (iterationNumBer <= 0) {
             throw new IllegalArgumentException("시도 회수는 양수입니다.");
         }
+    }
+
+    private boolean isProperUsingComma(String carNames) {
+        List<String> carNameList = util.splitByComma(carNames);
+        return carNameList.contains("");
+    }
+
+    private boolean isDuplicateName(String carNames) {
+        List<String> carNameList = util.splitByComma(carNames);
+        HashSet<String> duplicationCheckHashSet = new HashSet<>(carNameList);
+        return carNameList.size() != duplicationCheckHashSet.size();
     }
 }
