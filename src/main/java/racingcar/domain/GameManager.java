@@ -23,9 +23,9 @@ public class GameManager {
         cars.forEach(car -> car.move(RandomNumber.createRandomNumber()));
     }
 
-    public Winner findWinnerCar() {
+    public Winner findWinner() {
         findMaxPosition();
-        return findWinner();
+        return findWinnerCar();
     }
 
     private void findMaxPosition() {
@@ -35,7 +35,7 @@ public class GameManager {
                 .orElse(Integer.MIN_VALUE); // 예외처리하기
     }
 
-    private Winner findWinner() {
+    private Winner findWinnerCar() {
         List<String> winnerCarNames = cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
