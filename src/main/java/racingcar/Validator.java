@@ -51,7 +51,7 @@ public class Validator {
 
         try {
 
-            if (Integer.parseInt(userInput) <= 0) {
+            if (Integer.parseInt(userInput) < 1) {
                 throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
             }
 
