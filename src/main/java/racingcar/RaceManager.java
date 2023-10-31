@@ -21,13 +21,13 @@ public class RaceManager {
     }
 
     public void init() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        Util.print(MessageType.INPUT_TRY_NUMBER);
         String[] carNameSplit = inputCarNames().split(",");
         for (String name : carNameSplit) {
             cars.add(new Car(name));
         }
 
-        System.out.println("시도할 횟수는 몇회인가요?");
+        Util.print(MessageType.INPUT_TRY_NUMBER);
         tryNumber = inputTryNumber();
     }
 
@@ -40,7 +40,7 @@ public class RaceManager {
     }
 
     public void start() {
-        System.out.println("\n실행 결과");
+        Util.print(MessageType.SHOW_RUN_RESULT);
         for (int i = 0; i < tryNumber; i++) {
             cars.stream().forEach(car -> {
                 car.tryToMove();
@@ -52,8 +52,8 @@ public class RaceManager {
 
     public void showWinners(List<Car> winners) {
         List<String> names = winners.stream().map(Car::getName).collect(Collectors.toList());
-
         String allWinners = String.join(", ", names);
-        System.out.println("최종 우승자 : " + allWinners);
+
+        Util.print(MessageType.SHOW_WINNERS, allWinners);
     }
 }
