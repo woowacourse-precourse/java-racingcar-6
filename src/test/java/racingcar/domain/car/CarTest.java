@@ -14,10 +14,10 @@ class CarTest {
 		Car car = new Car(new Position(), new CarName("12345"));
 
 		// when
-		car.move(() -> 1);
+		Car movedCar = car.move(() -> 1);
 
 		// then
-		assertEquals(new Position(1), car.getPosition());
+		assertEquals(new Position(1), movedCar.getPosition());
 	}
 
 	@Test
@@ -27,9 +27,9 @@ class CarTest {
 		Car car = new Car(new Position(), new CarName("12345"));
 
 		// when
-		car.move(() -> 0);
+		Car movedCar = car.move(() -> 0);
 
 		// then
-		assertEquals(new Position(0), car.getPosition());
+		assertEquals(new Position(0), movedCar.getPosition());
 	}
 }

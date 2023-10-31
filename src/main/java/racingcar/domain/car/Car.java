@@ -1,9 +1,8 @@
 package racingcar.domain.car;
 
-
 public class Car {
 
-	private Position position;
+	private final Position position;
 	private final CarName carName;
 
 	public Car(Position position, CarName carName) {
@@ -11,8 +10,8 @@ public class Car {
 		this.carName = carName;
 	}
 
-	public void move(MoveStrategy moveStrategy) {
-		this.position = new Position(position.getPosition() + moveStrategy.move());
+	public Car move(MoveStrategy moveStrategy) {
+		return new Car(this.position.add(moveStrategy.move()), this.carName);
 	}
 
 	public Position getPosition() {

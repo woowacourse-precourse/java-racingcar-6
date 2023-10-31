@@ -3,22 +3,27 @@ package racingcar.domain.car;
 import java.util.Objects;
 
 public class Position implements Comparable<Position> {
+
 	private static final int MIN_CAR_POSITION = 0;
 	private final int position;
 
-    public Position() {
-        this(MIN_CAR_POSITION);
-    }
+	public Position() {
+		this(MIN_CAR_POSITION);
+	}
 
 	public Position(int position) {
 		validate(position);
-        this.position = position;
-    }
+		this.position = position;
+	}
 
 	private void validate(int position) {
-		if(position < MIN_CAR_POSITION) {
+		if (position < MIN_CAR_POSITION) {
 			throw new IllegalArgumentException("자동차 위치는 음수 값을 가질 수 없습니다.");
 		}
+	}
+
+	public Position add(int position) {
+		return new Position(this.position + position);
 	}
 
 	public int getPosition() {
@@ -36,7 +41,7 @@ public class Position implements Comparable<Position> {
 		if (this == o) {
 			return true;
 		}
-		if (o == null || getClass()!= o.getClass()) {
+		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
 		Position position = (Position) o;
