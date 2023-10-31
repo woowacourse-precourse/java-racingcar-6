@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class RacingCarGameManage {
 
@@ -11,6 +12,7 @@ public class RacingCarGameManage {
     private final int MAX_RANGE = 9;
     private final int MOVE_MIN_RANGE = 4;
     private final HashMap<String, Integer> playerRacingCarMap;
+    private ArrayList<String> winnerList;
 
     public RacingCarGameManage() {
         this.playerRacingCarMap = new HashMap<>();
@@ -34,6 +36,18 @@ public class RacingCarGameManage {
             }
         }
         return this.playerRacingCarMap;
+    }
+
+    public ArrayList<String> getWinner(HashMap<String, Integer> playerRacingCarMap) {
+        winnerList = new ArrayList<>();
+        playerRacingCarMap.forEach((key, value) -> {
+                    if(Objects.equals(value, playerRacingCarMap.values().stream().max(Integer::compare).get())) {
+                        winnerList.add(key);
+                    }
+                }
+        );
+        return winnerList;
+
     }
 
 }

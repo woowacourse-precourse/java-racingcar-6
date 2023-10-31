@@ -49,7 +49,7 @@ public class RacingCarController {
             playerRacingCarMap = racingCarGame.getPlayerRandomNumber(playerCarNameList);
             printResult();
         }
-        winnerList = getWinner(playerRacingCarMap);
+        winnerList = racingCarGame.getWinner(playerRacingCarMap);
         outputView.outputWinnerMessage(winnerList);
     }
 
@@ -60,15 +60,4 @@ public class RacingCarController {
         outputView.outputEmptyLine();
     }
 
-    private ArrayList<String> getWinner(HashMap<String, Integer> playerRacingCarMap) {
-        winnerList = new ArrayList<>();
-         playerRacingCarMap.forEach((key, value) -> {
-            if(Objects.equals(value, playerRacingCarMap.values().stream().max(Integer::compare).get())) {
-                winnerList.add(key);
-            }
-         }
-        );
-        return winnerList;
-
-    }
 }
