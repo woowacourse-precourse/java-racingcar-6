@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class OutputView {
 
-    public void outputCarMoveResult(Map<String, Integer> carData) {
+    public void outputCarMoveResults(Map<String, Integer> carData) {
         System.out.print("실행 결과\n");
 
         carData.forEach((key, value) -> {

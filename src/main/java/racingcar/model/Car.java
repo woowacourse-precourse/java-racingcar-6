@@ -7,6 +7,7 @@ import java.util.*;
 public class Car {
 
     private static final int CAR_MOVE_STEP = 1;
+    private static final int CAR_INIT_POSITION = 0;
 
     private Map<String, Integer> carData = new LinkedHashMap<>();
 
@@ -16,7 +17,7 @@ public class Car {
 
     public void initCar(List<String> carlist) {
         for (String element : carlist) {
-            this.carData.put(element, 0);
+            this.carData.put(element, CAR_INIT_POSITION);
         }
     }
 
@@ -34,7 +35,7 @@ public class Car {
                 .orElseThrow(NoSuchElementException::new);
     }
 
-    public List<String> findWinner() {
+    public List<String> findWinners() {
         List<String> result = new ArrayList<>();
 
         carData.entrySet().stream()
