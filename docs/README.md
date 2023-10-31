@@ -22,17 +22,14 @@
      - [x] maxDistanceCar()
      - [x] isSameDistance()
 - controller
-  - [ ] gameController
-    - [ ] playGame 
-      - [ ] gameService method
-      - [ ] ConsolePrintService method
+  - [x] gameController
+    - [x] startGame 
+    - [x] userInput (car, cnt)
 - service
   - [x] ConsolePrintService - 화면 출력
-  - [ ] gameService
-    - [ ] userInput (car, cnt)
-    - [ ] randomNumber pick
-    - [ ] change car cnt 
+  - [x] gameService
+    - [x] playGame
+    - [x] randomNumber pick
 - exception
-  - [ ] IllegalArgumentException
-    - 사용자가 잘못된 값 입력할 경우
-    - ..가 있나..?
+  - [x] IllegalArgumentException
+    - 사용자가 잘못된 값 입력할 경우 
