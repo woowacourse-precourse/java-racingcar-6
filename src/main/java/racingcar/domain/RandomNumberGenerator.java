@@ -1,9 +1,11 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+
 public class RandomNumberGenerator {
 
     RandomNumber randomNumber = new RandomNumber();
