@@ -20,4 +20,8 @@ public class RaceService {
     public boolean isEnd() {
         return raceGame.isEnd(currentTryNumber);
     }
+
+    public String calculateWinners() {
+        return raceGame.calculateWinner();
+    }
 }

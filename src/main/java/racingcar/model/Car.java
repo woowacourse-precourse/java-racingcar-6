@@ -26,6 +26,9 @@ public class Car {
         return randomNumber >= MOVING_CONDITION;
     }
 
+    public int getPosition() {
+        return position;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -45,4 +48,9 @@ public class Car {
                 + "-".repeat(position)
                 +"\n";
     }
+
+    public String carNameToString() {
+        return this.name.toString();
+    }
+
 }

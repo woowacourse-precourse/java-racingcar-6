@@ -21,6 +21,10 @@ public class RaceController {
         playGame();
     }
 
+    private String calculateWinners() {
+        return raceService.calculateWinners();
+    }
+
     private void playGame() {
         print(PrintMessage.RESULT);
         while (!raceService.isEnd()) {

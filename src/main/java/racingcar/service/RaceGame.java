@@ -1,7 +1,6 @@
 package racingcar.service;
 
 
-import racingcar.model.Car;
 import racingcar.model.CarList;
 import racingcar.model.TryNumber;
 
@@ -23,5 +22,9 @@ public class RaceGame {
 
     public boolean isEnd(int currentTryNumber) {
         return tryNumber.getTryNumber() == currentTryNumber;
+    }
+
+    public String calculateWinner() {
+        return carList.calculateWinners();
     }
 }

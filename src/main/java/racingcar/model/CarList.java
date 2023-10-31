@@ -31,6 +31,28 @@ public class CarList {
         return this.toString();
     }
 
+    public String calculateWinners() {
+        List<String> winners = new ArrayList<>();
+
+        carList.sort((o1, o2) -> o2.getPosition() - o1.getPosition());
+        int maxPosition = carList.get(0).getPosition();
+
+        carList.forEach(car -> {
+            if(car.getPosition() == maxPosition) {
+                winners.add(car.carNameToString());
+            }
+        });
+        return makeWinnersString(winners);
+    }
+
+    private String makeWinnersString(List<String> winners) {
+        StringBuilder sb = new StringBuilder();
+        for (String winner : winners) {
+            sb.append(winner).append(", ");
+        }
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
