@@ -133,6 +133,34 @@ class ApplicationTest extends NsTest {
         return car;
     }
 
+    private void moveForward(Car car, int times) {
+        for (int i = 0; i < times; i++) {
+            car.forward();
+        }
+    }
+
+    @Test
+    void 최대_전진_자동차() {
+
+        //given
+        List<Car> cars = new ArrayList<>();
+
+        Car car1 = getCar(cars, "car1");
+        Car car2 = getCar(cars, "car2");
+        Car car3 = getCar(cars, "car3");
+
+        moveForward(car1, 1);
+        moveForward(car2, 3);
+        moveForward(car3, 3);
+
+        //when
+        List<String> maxMoveCar = Application.getMaxMoveCar(cars);
+
+        //then
+        assertThat(maxMoveCar.size()).isEqualTo(2);
+        assertThat(maxMoveCar.toString()).contains("car2", "car3");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
