@@ -38,7 +38,8 @@ public class GameService {
         for (Car winner : winners) {
             sb.append(winner.getName()).append(", ");
         }
-        sb.substring(0, sb.length() - 3);
+        sb.deleteCharAt(sb.length()-1);
+        sb.deleteCharAt(sb.length()-1);
 
         return sb.toString();
     }
