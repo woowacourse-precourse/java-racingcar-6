@@ -10,6 +10,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CarTest {
 
     @Test
+    void 생성자는_전달받은_이름과_position_은_0으로_Car_객체를_생성한다(){
+        Car car = new Car("자동차");
+        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getName()).isEqualTo("자동차");
+    }
+
+    @Test
     void toDto_메서드는_CarDto_객체를_생성한다() {
         Car car = new Car("자동차");
         CarDto carDto = car.toDto();
