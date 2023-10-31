@@ -7,13 +7,15 @@ public class AttemptValidator {
     private AttemptValidator() {
     }
 
-    public static void isPositiveDigit(String attempt) {
+    public static void isPositiveDigit(String attempt) throws IllegalArgumentException {
+        int number;
         try {
-            int number = Integer.parseInt(attempt);
-            if (number < MIN_ATTEMPTS.getValue()) {
-                throw new IllegalArgumentException(INVALID_ATTEMPT_MEESAGE);
-            }
+            number = Integer.parseInt(attempt);
         } catch (Exception e) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_MEESAGE);
+        }
+
+        if (number < MIN_ATTEMPTS.getValue()) {
             throw new IllegalArgumentException(INVALID_ATTEMPT_MEESAGE);
         }
     }
