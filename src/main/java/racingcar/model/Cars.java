@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.CarNameUtil;
 import racingcar.util.ResultUtil;
-import racingcar.util.Util;
 import racingcar.validator.CarNamesValidator;
 
 public class Cars {
@@ -19,7 +19,7 @@ public class Cars {
     }
 
     private void generateCars(String names) {
-        List<String> nameList = Util.parseNamesToList(names);
+        List<String> nameList = CarNameUtil.parseNamesToList(names);
         for (String name : nameList) {
             cars.add(new Car(name));
         }
