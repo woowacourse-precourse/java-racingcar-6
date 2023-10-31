@@ -2,14 +2,14 @@ package racingcar.domain;
 
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.InputView.inputRaceCount;
+import static racingcar.view.OutputView.printCarStatus;
 import static racingcar.view.OutputView.printNewLine;
-import static racingcar.view.OutputView.printSituation;
+import static racingcar.view.OutputView.printResult;
 
 import java.util.List;
 import racingcar.common.exception.CustomErrorException;
 import racingcar.common.response.ErrorCode;
-import racingcar.dto.CarDto;
-import racingcar.view.OutputView;
+import racingcar.dto.CarInfo;
 
 public class RacingGame {
 
@@ -19,38 +19,34 @@ public class RacingGame {
     private final RaceCount raceCount;
 
     public RacingGame() {
-        this.cars = getCars();
-        this.raceCount = getRaceCount();
+        this.cars = createCars();
+        this.raceCount = createRaceCount();
     }
 
     public void run() {
-        play();
-        printWinning();
+        playGame();
+        printWinningCars();
     }
 
-    private void play() {
+    private void playGame() {
         while (!raceCount.isEnd()) {
             raceCount.reduceCount();
-            racing();
+            cars.racing();
+            printCarsStatus();
         }
     }
 
-    private void racing() {
-        cars.racing();
-        printRaceResult();
-    }
-
-    private void printRaceResult() {
+    private void printCarsStatus() {
         printNewLine();
         cars.getCars().forEach(car -> {
-            CarDto dto = CarDto.of(car);
-            printSituation(dto);
+            CarInfo carInfo = CarInfo.of(car);
+            printCarStatus(carInfo);
         });
     }
 
-    private void printWinning() {
-        List<String> carNames = getWinningCarNames();
-        OutputView.printResult(carNames);
+    private void printWinningCars() {
+        List<String> winningCarNames = getWinningCarNames();
+        printResult(winningCarNames);
     }
 
     private List<String> getWinningCarNames() {
@@ -59,13 +55,14 @@ public class RacingGame {
                 .toList();
     }
 
-    private Cars getCars() {
+    private Cars createCars() {
         String input = inputCarNames();
         String[] carNames = input.split(SEPARATOR);
-        return new Cars(List.of(carNames));
+        List<String> carNameList = List.of(carNames);
+        return new Cars(carNameList);
     }
 
-    private RaceCount getRaceCount() {
+    private RaceCount createRaceCount() {
         String input = inputRaceCount();
         try {
             int raceCount = Integer.parseInt(input);

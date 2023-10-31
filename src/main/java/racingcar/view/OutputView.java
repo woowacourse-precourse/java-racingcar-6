@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.CarDto;
+import racingcar.dto.CarInfo;
 
 public class OutputView {
 
@@ -16,9 +16,9 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printSituation(CarDto dto) {
-        String name = dto.name();
-        int position = dto.position();
+    public static void printCarStatus(CarInfo carInfo) {
+        String name = carInfo.name();
+        int position = carInfo.position();
         System.out.println(name + SEPARATOR + POSITION_BAR.repeat(position));
     }
 
