@@ -37,6 +37,7 @@ public class GameController {
         // 게임 라운드 받기
         createRaceRound();
         // 게임 라운드 만큼 실행
+        playEachRaceRound();
         // 결과 찾기 및 출력
     }
 
@@ -59,4 +60,13 @@ public class GameController {
         Integer countOfRaceRound = inputView.inputCountOfGameRound();
         raceRound = new RaceRound(countOfRaceRound, 0);
     }
+
+    private void playEachRaceRound() {
+        while (raceRound.isLeftRound()) {
+            cars.raceAllCars();
+            raceRound.increaseCurrentRound();
+        }
+    }
+
+
 }
