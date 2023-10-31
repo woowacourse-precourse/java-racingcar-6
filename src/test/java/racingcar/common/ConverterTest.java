@@ -8,7 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class ConverterTest {
-
     @DisplayName("String 타입의 자동차 이름을 List<String> 타입으로 변경")
     @ParameterizedTest(name = "carNames=\"{0}\"")
     @ValueSource(strings = {"pobi,jun", " pobi , jun"})

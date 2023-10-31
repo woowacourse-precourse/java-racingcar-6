@@ -26,15 +26,15 @@ public class RacingController {
 
     private static List<Car> carSetting(List<String> carNameList) {
         List<Car> cars = new ArrayList<>();
-        for(String car : carNameList) {
+        for (String car : carNameList) {
             cars.add(new Car(car, 0));
         }
         return cars;
     }
 
     private void proceed(List<Car> cars, Integer roundNumber) {
-        for(int i = 0; i< roundNumber; i++) {
-            for(Car car : cars) {
+        for (int i = 0; i < roundNumber; i++) {
+            for (Car car : cars) {
                 move(car);
                 outputView.printProgress(car);
             }
@@ -44,7 +44,7 @@ public class RacingController {
 
     private void move(Car car) {
         int condition = Randoms.pickNumberInRange(0, 9);
-        if(condition >= 4) {    //전진
+        if (condition >= 4) {    //전진
             car.go();
         }
     }
@@ -54,9 +54,11 @@ public class RacingController {
 
         StringBuilder sb = new StringBuilder();
         int maxScore = cars.get(0).getProgress();
-        for(Car car : cars) {
-            if(car.getProgress() == maxScore) {
-                if(sb.length()>0) sb.append(COMMA);
+        for (Car car : cars) {
+            if (car.getProgress() == maxScore) {
+                if (sb.length() > 0) {
+                    sb.append(COMMA);
+                }
                 sb.append(car.getName());
             } else {
                 break;

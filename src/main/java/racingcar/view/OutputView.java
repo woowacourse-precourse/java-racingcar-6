@@ -14,6 +14,7 @@ public class OutputView {
     public void printInputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
     }
+
     public void printInputRoundNumber() {
         System.out.println(INPUT_ROUND_NUMBER_MESSAGE);
     }
@@ -45,7 +46,7 @@ public class OutputView {
 
     public String getDash(int number) {
         StringBuilder sb = new StringBuilder();
-        for(int i=0; i<number; i++) {
+        for (int i = 0; i < number; i++) {
             sb.append(DASH);
         }
         return sb.toString();

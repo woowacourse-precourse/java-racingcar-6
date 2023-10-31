@@ -20,5 +20,4 @@ public class Car {
     public int getProgress() {
         return progress;
     }
-
 }

@@ -8,5 +8,4 @@ public class ErrorMessageConstants {
 
     public static final String ROUND_NUMBER_WRONG_TYPE_MESSAGE = "숫자만 입력 가능합니다.";
     public static final String ROUND_NUMBER_WRONG_RANGE_MESSAGE = "양의 정수만 입력 가능합니다.";
-
 }
