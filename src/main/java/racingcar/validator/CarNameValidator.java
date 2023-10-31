@@ -31,7 +31,7 @@ public class CarNameValidator {
     }
 
     public void isNull(){
-        if (NAMES.isEmpty()){
+        if (NAME.equals("")){
             throw new IllegalArgumentException(ERROR+NAME_NULL_ERROR_MESSAGE);
         }
     }
