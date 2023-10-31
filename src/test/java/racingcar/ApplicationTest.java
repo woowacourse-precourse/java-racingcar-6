@@ -94,6 +94,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 입력값이_정수인지_확인(){
+        GameException gameException=new GameException();
+        int input=gameException.checkInput("2");
+        assertThat(input).isEqualTo(2);
+    }
+
+    @Test
     void 입력값이_정수인지_예외_처리(){
         GameException gameException=new GameException();
         assertThatThrownBy(() -> gameException.checkInput("a"));
