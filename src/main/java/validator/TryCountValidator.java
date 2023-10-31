@@ -11,7 +11,7 @@ public class TryCountValidator extends CommonValidator {
     }
 
     public static void validateEmpty(String tryCount) {
-        if(tryCount.isEmpty()) {
+        if (tryCount.isEmpty()) {
             throw new IllegalArgumentException("시도 횟수가 빈 값입니다. 애플리케이션을 종료합니다.");
         }
     }
