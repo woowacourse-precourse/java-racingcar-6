@@ -10,6 +10,11 @@ public class Verification {
         verifyCarNameSpace(carName);
     }
 
+    public static void verifyTryNum(String tryNum){
+        verifyIsDigitCheck(tryNum);
+        verifyPositiveNum(tryNum);
+    }
+
     private static void verifyCarNameLen(String carName) throws IllegalArgumentException{
         if (carName.length() < 1) {
             throw new IllegalArgumentException("자동차 이름을 1글자 이상 입력해주세요.");
@@ -31,4 +36,24 @@ public class Verification {
             throw new IllegalArgumentException("자동차 이름이 중복됩니다.");
         }
     }
+
+    private static void verifyIsDigitCheck(String tryNum){
+        for(int i = 0; i < tryNum.length(); i++){
+            isDigitCheck(tryNum, i);
+        }
+    }
+
+    private static void isDigitCheck(String string, int index) throws IllegalArgumentException{
+        if(!Character.isDigit(string.charAt(index))){
+            throw new IllegalArgumentException("숫자를 입력해야합니다.");
+        }
+    }
+
+    private static void verifyPositiveNum(String tryNum) throws IllegalArgumentException{
+        int tryNumInt = Integer.parseInt(tryNum);
+        if(tryNumInt <= 0){
+            throw new IllegalArgumentException("양수를 입력해야합니다.");
+        }
+    }
+
 }
