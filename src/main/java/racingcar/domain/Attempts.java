@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class Attempts {
     private static final int MAXIMUM_ATTEMPTS = 5000;
     private Integer attempts;
@@ -32,5 +34,22 @@ public class Attempts {
 
     private boolean isZeroOrNegative(int number) {
         return number <= 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Attempts attempts1 = (Attempts) o;
+        return Objects.equals(attempts, attempts1.attempts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(attempts);
     }
 }
