@@ -105,13 +105,27 @@ class ApplicationTest extends NsTest {
         assertThat(Application.Winner).contains("Car2");
     }
 
+    @Test
+    void 이긴_자동차_고르기_중복() {
+        Application.RacingCar = new LinkedList<>(Arrays.asList("Car1", "Car2"));
+        Application.RacingScore = new LinkedList<>(Arrays.asList(3, 3));
+
+        Application.Racing_winner();
+
+        assertThat(Application.Winner).contains("Car1", "Car2");
+    }
+
     /*
         @Test
         void 우승자_출력() {
-            Application.Winner = new LinkedList<>(Arrays.asList("Car1", "Car2", "Car3"));
+            String name1 = "pobi";
+            String name2 = "kevin";
+
+            Application.Winner = new LinkedList<>();
+            Application.Winner.add(name1,name2);
             Application.Winner_Print();
 
-            assertThat(output.toString()).contains("Car1, Car2, Car3");
+            assertThat(Application.Winner);
         }
     */
     @Override
