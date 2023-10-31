@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.dto.CarDto;
 
 public class Cars {
     private final List<Car> cars;
@@ -9,7 +10,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars from(List<String> carNames) {
+    public static Cars from(List<String> carNames) {
         List<Car> cars = mapToCars(carNames);
         return new Cars(cars);
     }
@@ -17,6 +18,12 @@ public class Cars {
     private static List<Car> mapToCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::from)
+                .toList();
+    }
+
+    public List<CarDto> dtos() {
+        return cars.stream()
+                .map(CarDto::from)
                 .toList();
     }
 }
