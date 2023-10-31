@@ -47,10 +47,10 @@ class OutputViewTest {
 
     @Test
     @DisplayName("각 차수별 결과 출력")
-    private void testEachResultMessgaee() {
+    void testEachResultMessgaee() {
         String result = "pobi : ----";
 
-        OutputView.eachResultMessgae(result);
+        OutputView.eachResultMessage(result);
         Assertions.assertThat(outputStream.toString().trim()).isEqualTo(result);
     }
 
