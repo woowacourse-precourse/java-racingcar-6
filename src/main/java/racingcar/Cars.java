@@ -17,5 +17,8 @@ public class Cars {
     private int rolling() {
         return NumberGenerator.generateNumber();
     }
-달
+
+    public void indicate() {
+        cars.forEach(car -> System.out.println(car.indicate()));
+    }
 }
