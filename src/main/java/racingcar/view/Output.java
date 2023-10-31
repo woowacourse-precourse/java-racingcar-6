@@ -1,14 +1,22 @@
 package racingcar.view;
 
+import static racingcar.constant.OutputStringConstant.INIT_SHOW_RESULT;
+import static racingcar.constant.OutputStringConstant.SHOW_WINNER;
+
+import racingcar.manager.Names;
+
 public class Output {
 
-    // todo
-    // 게임 결과를 받아서 출력하는 클래스
-    // 넘겨 받을 데이터 형을 결정하고 출력할 예정
-
-    public void printRoundResult() {
+    public void printGameResultInit() {
+        System.out.println(INIT_SHOW_RESULT.getValue());
     }
 
-    public void printWinner() {
+    public void printRoundResult(String roundResult) {
+        System.out.println(roundResult);
+    }
+
+    public void printWinner(Names names) {
+        String winnerNames = String.join(", ", names.names());
+        System.out.println(SHOW_WINNER.getValue() + winnerNames);
     }
 }

@@ -4,8 +4,9 @@ import static racingcar.model.RandomNumberGenerator.isRacingCarProceed;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import racingcar.constant.GameStringConstant;
 import racingcar.model.RacingCar;
-import racingcar.model.RacingCarsDto;
 
 public class RacingCarManager {
 
@@ -19,7 +20,7 @@ public class RacingCarManager {
         return new RacingCarManager(createCarsWithName(names));
     }
 
-    public void playOneRound() {
+    public void playOneRound(/*boolean isRacingCarProceed*/) {
         for (RacingCar racingCar : racingCars) {
             if (isRacingCarProceed()) {
                 racingCar.addScore();
@@ -38,6 +39,18 @@ public class RacingCarManager {
         return sb.toString();
     }
 
+    public Names getWinnerNames() {
+        List<String> names = new ArrayList<>();
+        int winnerScore = getHighestScore();
+        for (RacingCar racingCar : racingCars) {
+            String name = racingCar.getNameIfCarIsWinner(winnerScore);
+            if (!Objects.equals(name, GameStringConstant.BLANK.getValue())) {
+                names.add(name);
+            }
+        }
+        return new Names(names);
+    }
+
     private static List<RacingCar> createCarsWithName(Names names) {
         List<RacingCar> cars = new ArrayList<>();
         for (String name : names.names()) {
@@ -45,5 +58,14 @@ public class RacingCarManager {
         }
 
         return cars;
+    }
+
+    private int getHighestScore() {
+        int highestScore = -1;
+        for (RacingCar racingCar : racingCars) {
+            highestScore = Integer.max(highestScore, racingCar.getScore());
+        }
+
+        return highestScore;
     }
 }

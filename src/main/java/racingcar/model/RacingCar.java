@@ -1,9 +1,11 @@
 package racingcar.model;
 
+import racingcar.constant.GameStringConstant;
+
 public class RacingCar {
 
-    String name;
-    int score;
+    private final String name;
+    private int score;
 
     private RacingCar(String name, int score) {
         this.name = name;
@@ -16,6 +18,18 @@ public class RacingCar {
 
     public void addScore() {
         this.score++;
+    }
+
+    public int getScore() {
+        return this.score;
+    }
+
+    public String getNameIfCarIsWinner(int winnerScore) {
+        if (this.score == winnerScore) {
+            return this.name;
+        }
+
+        return GameStringConstant.BLANK.getValue();
     }
 
     public String getCarInfo() {
