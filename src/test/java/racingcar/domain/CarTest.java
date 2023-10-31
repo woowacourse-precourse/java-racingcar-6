@@ -43,16 +43,16 @@ class CarTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4, 5})
-    void 자동차의_move메서드를_호출한_만큼_전진횟수가_증가한다(int moveCount) {
+    void 자동차의_move메서드를_호출한_만큼_전진횟수가_증가한다(int movedCount) {
         // given
         Car car = new Car("test");
 
         // when
-        IntStream.range(0, moveCount)
+        IntStream.range(0, movedCount)
                 .forEach(i -> car.move());
 
         // then
-        assertThat(car.isSameMovedCount(moveCount)).isTrue();
+        assertThat(car.isSameMovedCount(movedCount)).isTrue();
     }
 
     @Test
