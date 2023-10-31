@@ -37,4 +37,14 @@ public class Check {
         if (randomNumber < 4) result = false;
         return result;
     }
+
+    public static boolean checkRunTime(String time_string) {
+        boolean result = true;
+        try {
+            Integer.parseInt(time_string);
+        } catch (Exception e) {
+            result = false;
+        }
+        return result;
+    }
 }
