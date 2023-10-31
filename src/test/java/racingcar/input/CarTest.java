@@ -44,7 +44,7 @@ public class CarTest {
             return randomNumber >= MOVE_CONDITION;
         }
 
-        public void move() {
+        private void move() {
             this.driving.append(MOVE_FORMAT);
         }
 
