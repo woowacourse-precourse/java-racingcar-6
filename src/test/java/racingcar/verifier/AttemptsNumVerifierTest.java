@@ -35,7 +35,7 @@ class AttemptsNumVerifierTest extends NsTest {
         }
 
         @Test
-        void 유효한범위의_숫자가_아닌_입력이_아닌경우() {
+        void 유효한범위의_숫자가_아닌_입력이_주어진경우() {
             Assertions.assertSimpleTest(() -> {
                 assertThatThrownBy(() -> run("pobi,woni,jun", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
