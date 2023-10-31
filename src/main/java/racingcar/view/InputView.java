@@ -6,12 +6,19 @@ public class InputView {
 
     public static String getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine();
+        return validateCarNamesInput(Console.readLine());
     }
 
     public static int getRounds() {
         System.out.println("시도할 회수는 몇회인가요?");
         return validateRoundsInput(Console.readLine());
+    }
+
+    private static String validateCarNamesInput(String carNamesInput) {
+        if (carNamesInput == null || carNamesInput.trim().isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해야 합니다.");
+        }
+        return carNamesInput;
     }
 
     private static int validateRoundsInput(String roundsInput) {
