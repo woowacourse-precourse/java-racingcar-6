@@ -26,7 +26,7 @@ public class RacingViewer {
         System.out.println(currentResult);
     }
 
-    public void showWinnerMessage() {
-        System.out.println(WINNER_MESSAGE);
+    public void showWinnerMessage(String winnerList) {
+        System.out.println(WINNER_MESSAGE + winnerList);
     }
 }

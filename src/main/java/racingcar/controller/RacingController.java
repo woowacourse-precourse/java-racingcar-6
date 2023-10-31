@@ -11,6 +11,7 @@ import racingcar.view.RacingViewer;
 import racingcar.view.TryCountInput;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RacingController {
@@ -34,6 +35,8 @@ public class RacingController {
 
         racingViewer.showResultMessage();
         startRace(carList, tryCount);
+
+        showWinner(carList);
     }
 
     private void setCarList(Map<String, Integer> list) {
@@ -73,5 +76,10 @@ public class RacingController {
         if (computer.judgeCarMovement(random)) {
             car.move(carList.get(name));
         }
+    }
+
+    private void showWinner(Map<String, Integer> carList) {
+        List<String> winnerList = computer.judgeWinner(carList);
+        racingViewer.showWinnerMessage(emcee.returnWinner(winnerList));
     }
 }

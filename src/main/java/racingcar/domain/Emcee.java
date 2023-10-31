@@ -1,9 +1,11 @@
 package racingcar.domain;
 
+import java.util.List;
 import java.util.Map;
 
 public class Emcee {
     private final static Character POSITION_SYMBOL = '-';
+    private final static String JOIN_SYMBOL = ", ";
 
     public String returnCurrentPosition(Map<String, Integer> carList) {
         StringBuilder sb = new StringBuilder();
@@ -24,7 +26,7 @@ public class Emcee {
         return position.toString();
     }
 
-    public String returnWinner() {
-        return "";
+    public String returnWinner(List<String> winnerList) {
+        return String.join(JOIN_SYMBOL, winnerList);
     }
 }
