@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.service.Accelerator;
+
 public class Car {
     String name;
     Integer location;
