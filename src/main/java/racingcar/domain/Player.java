@@ -24,9 +24,16 @@ public class Player {
 
     private void validateCarNames(List<String> inputs) {
         for (String input : inputs) {
+            validateCarNameBlank(input);
             validateCarNameLength(input);
 
             carNames.add(input);
+        }
+    }
+
+    private void validateCarNameBlank(String input) {
+        if (input.contains(" ")) {
+            throw new IllegalArgumentException();
         }
     }
 
