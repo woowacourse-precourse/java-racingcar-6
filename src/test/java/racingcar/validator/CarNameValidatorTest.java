@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.enums.ErrorMessage;
@@ -84,6 +85,19 @@ class CarNameValidatorTest {
 
         // then
         assertEquals(ErrorMessage.NOT_ALLOW_BLANK_IN_END.getMessage(), exception.getMessage());
+    }
+
+    @DisplayName("자동차 이름을 공백으로 사용할 수 없다.")
+    @Test
+    void validateCarNameIsBlank() {
+        // given
+        String input = "mac, ,apple";
+
+        // when
+        Throwable exception = getException(input);
+
+        // then
+        assertEquals(ErrorMessage.NOT_ALLOW_NAME_REPLACED_BLANK.getMessage(), exception.getMessage());
     }
 
     @DisplayName("중복된 이름을 입력할 수 없다.")
