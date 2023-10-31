@@ -20,6 +20,8 @@ public class GameConstants {
     //예외처리
     public static final String NAME_IS_MORE_THAN_FIVE_LETTER = "[ERROR] 이름의 길이는 5글자 이하이어야 합니다. %s는 5글자를 넘습니다.";
     public static final String INPUT_SHOULD_NOT_BE_NULL = "[ERROR] 입력은 공백이면 안됩니다.";
+    public static final String CAR_NAME_IS_DUPLICATED = "[ERROR] 자동차 이름은 중복되면 안됩니다.";
+
     public static final String CAR_NAMES_FORM_IS_WRONG = "[ERROR] 자동자이름들 형식이 잘못 됐습니다.";
     public static final String INPUT_IS_NOT_NUMBER = "[ERROR] 입력이 숫자가 아닙니다.";
     public static final String ATTEMPT_NUMBER_SHOULD_BE_MORE_THAN_ONE = "[ERROR] 입력시도는 한번 이상이어야 합니다. 지금 값은 %d입니다";

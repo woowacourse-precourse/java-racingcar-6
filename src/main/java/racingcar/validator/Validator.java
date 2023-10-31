@@ -2,6 +2,10 @@ package racingcar.validator;
 
 import static racingcar.constant.GameConstants.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Validator {
     public static void isLessThanFiveLetter(String carName) {
         if (carName.length() <= 5) {
@@ -22,6 +26,12 @@ public class Validator {
         String regularExpForInput = "[^,]+,(?:[^,]+,)*[^,]+";
         if (!carNames.matches(regularExpForInput)) {
             throw new IllegalArgumentException(CAR_NAMES_FORM_IS_WRONG);
+        }
+    }
+    public static void checkCarNameDuplication(List<String> carNameList) {
+        Set<String> carNameSet = new HashSet<>(carNameList);
+        if (carNameList.size() != carNameSet.size()) {
+            throw new IllegalArgumentException(CAR_NAME_IS_DUPLICATED);
         }
     }
 

@@ -49,6 +49,7 @@ public class CarRaceGame {
     }
 
     public static void validateCarName(List<String> carNameList) {
+        Validator.checkCarNameDuplication(carNameList);
         for (String carName : carNameList) {
             Validator.isLessThanFiveLetter(carName);
             Validator.isEmptyString(carName);
