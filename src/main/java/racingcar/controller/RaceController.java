@@ -12,6 +12,17 @@ public class RaceController {
     static final int MIN_NUMBER = 0;
     static final int MAX_NUMBER = 9;
     static final int LIMIT = 4;
+    static final int START_ROUND = 1;
+
+    public static void race() {
+        List<Car> cars = setCars();
+        int totalRound = setTotalRound();
+        int round = START_ROUND;
+        while (round <= totalRound) {
+            doRound(cars);
+            round++;
+        }
+    }
 
     public static List<Car> setCars() {
         String[] carNames = UserInput.getCarNames();
