@@ -53,7 +53,7 @@
           - int compareFunction(car) //return this.process - car.process
       - map
           - List<car>
-          - map(string) // constructor
+          - map(List<car>) // constructor
           - trial() // execute one attempt
     - view
       - View Interface
