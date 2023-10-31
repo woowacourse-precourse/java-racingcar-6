@@ -1,7 +1,9 @@
 package racingcar.view;
 
 
+import java.util.List;
 import java.util.Map;
+import racingcar.Car;
 
 public class Output {
     public static void printInputCarMessage() {
@@ -21,12 +23,12 @@ public class Output {
         System.out.println("최종 우승자 : " + winners);
     }
 
-    public static void printGameProgress(Map<String, Integer> carMap) {
+    public static void printGameProgress(List<Car> carList) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (String car : carMap.keySet()) {
-            stringBuilder.append(car + " : ");
-            for (int forwardCount = 0; forwardCount < carMap.get(car); forwardCount++) {
+        for (Car car : carList) {
+            stringBuilder.append(car.getCarName() + " : ");
+            for (int forwardCount = 0; forwardCount < car.getPosition(); forwardCount++) {
                 stringBuilder.append("-");
             }
             stringBuilder.append("\n");
