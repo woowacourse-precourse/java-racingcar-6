@@ -2,35 +2,33 @@ package racingcar.domain;
 
 public class Car implements Comparable<Car> {
 
-    private final String name;
-    private Integer forwardDistance = 0;
+    private final CarName name;
+    private final ForwardDistance forwardDistance;
 
-    public Car(String name) {
+    public Car(final CarName name) {
         this.name = name;
+        this.forwardDistance = new ForwardDistance();
     }
 
     public void forward() {
-        this.forwardDistance++;
+        forwardDistance.increase();
     }
 
-    public String getName() {
+    public CarName getName() {
         return name;
     }
 
-    public Integer getForwardDistance() {
+    public ForwardDistance getForwardDistance() {
         return forwardDistance;
     }
 
     @Override
     public int compareTo(Car other) {
-        return Integer.compare(this.forwardDistance, other.forwardDistance);
+        return Integer.compare(this.forwardDistance.getValue(), other.forwardDistance.getValue());
     }
 
     @Override
     public String toString() {
-        StringBuilder car = new StringBuilder();
-        car.append(String.format("%s : ", name));
-        car.append("-".repeat(forwardDistance));
-        return car.toString();
+        return name + " : " + forwardDistance.toString();
     }
 }
