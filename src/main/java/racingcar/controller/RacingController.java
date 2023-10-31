@@ -6,7 +6,7 @@ public class RacingController {
 
     public void startRacing() {
         Racing racing = new Racing();
-        racing.prepareRacing();
+        racing.race();
     }
 
 }
