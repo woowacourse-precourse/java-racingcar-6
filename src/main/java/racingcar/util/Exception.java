@@ -12,6 +12,19 @@ public class Exception {
         checkEmptyAndThrowException(input);
         checkCarNameListDuplicationAndThrowException(carNameList);
     }
+
+    public void checkNumberOfPlayCountInput(String input) throws IllegalArgumentException {
+        checkEmptyAndThrowException(input);
+        checkNumberAndThrowException(input);
+    }
+
+    private void checkNumberAndThrowException(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자로 입력하세요.");
+        }
+    }
     private void checkCarNameLengthAndSpaceThrowException(List<String> carNameList) {
         for (String carName : carNameList) {
             checkLengthAndThrowException(carName);
