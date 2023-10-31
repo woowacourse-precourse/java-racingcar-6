@@ -41,4 +41,10 @@ public class ExceptionTest {
         assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkNumberOfPlayCountInput("a"))
                 .isInstanceOf(IllegalArgumentException.class));
     }
+
+    @Test
+    void 자동차_끝에쉼표() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkNumberOfPlayCountInput("a,"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
 }
