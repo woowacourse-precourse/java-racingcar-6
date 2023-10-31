@@ -20,11 +20,9 @@ public class ValidatorFactory {
     }
 
     public Validator getValidator(Class<?> clazz) {
-        for (Validator validator : validators) {
-            if (validator.support(clazz)) {
-                return validator;
-            }
-        }
-        throw new IllegalArgumentException();
+        return validators.stream()
+                .filter(validator -> validator.support(clazz))
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }
