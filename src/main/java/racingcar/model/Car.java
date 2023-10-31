@@ -1,10 +1,9 @@
 package racingcar.model;
 
-import java.util.List;
+import racingcar.util.GameSettingCharacter;
+import racingcar.util.GameSettingNumber;
 
 public class Car {
-    private static final String MOVED_LETTER = "-";
-    private static final String COLON = " : ";
     private final Name name;
     private String record;
 
@@ -14,7 +13,7 @@ public class Car {
     }
 
     public void addRecord() {
-        record += MOVED_LETTER;
+        record += GameSettingCharacter.MOVED_LETTER.get();
     }
 
     public String getName() {
@@ -22,7 +21,7 @@ public class Car {
     }
 
     public String getNameAndRecord() {
-        return getName() + COLON + record + "\n";
+        return getName() + GameSettingCharacter.COLON.get() + record + "\n";
     }
 
     public int getDistance() { return record.length(); }

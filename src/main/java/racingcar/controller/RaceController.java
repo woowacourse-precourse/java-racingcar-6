@@ -2,23 +2,21 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
+import racingcar.util.GameSettingCharacter;
+import racingcar.util.GameSettingNumber;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceController {
-    private static final int RANGE_START_NUMBER = 0;
-    private static final int RANGE_END_NUMBER = 9;
-    private static final int MOVE_CRITERIA = 4;
-    private static final String COMMA = ", ";
 
     private int getRandomNumber() {
-        return Randoms.pickNumberInRange(RANGE_START_NUMBER, RANGE_END_NUMBER);
+        return Randoms.pickNumberInRange(GameSettingNumber.RANGE_START_NUMBER.get(),
+                GameSettingNumber.RANGE_END_NUMBER.get());
     }
 
     private boolean isMoved() {
-        return getRandomNumber() >= MOVE_CRITERIA;
+        return getRandomNumber() >= GameSettingNumber.MOVE_CRITERIA.get();
     }
 
     public void addRecord(Car car) {
@@ -62,7 +60,7 @@ public class RaceController {
             if (i == winner.size() - 1) {
                 continue;
             }
-            winnerNames.append(COMMA);
+            winnerNames.append(GameSettingCharacter.SEPARATOR_CHARACTER.get()).append(" ");
         }
 
         return winnerNames.toString();

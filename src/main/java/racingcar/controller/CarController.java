@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.util.GameSettingCharacter;
 import racingcar.validator.NameDuplicateValidator;
 import racingcar.validator.NamesCountValidator;
 import racingcar.view.InputView;
@@ -15,7 +16,7 @@ public class CarController {
 
     private List<String> inputToCarNameList() {
         String playerInput = inputView.getCarNameInput();
-        List<String> carNames = Arrays.asList(playerInput.split(","));
+        List<String> carNames = Arrays.asList(playerInput.split(GameSettingCharacter.SEPARATOR_CHARACTER.get()));
 
         NamesCountValidator namesCountValidator = new NamesCountValidator();
         namesCountValidator.validate(carNames);
