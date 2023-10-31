@@ -1,43 +1,52 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 
-class Car{
+class Car {
     private String name;
     private String distance;
 
-    Car(String name, String distance){
+    Car(String name, String distance) {
         this.name = name;
         this.distance = distance;
     }
 
-    String getName(){
+    String getName() {
         return this.name;
     }
 
-    String getDistance(){
+    String getDistance() {
         return this.distance;
+    }
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    void setDistance(String distance) {
+        this.distance = distance;
     }
 
 }
 
-class InsertionNameAndResetDistance{
-    public static void resetNameAndDistance(ArrayList<Car> carList, String [] carNameList){
+class InsertionNameAndResetDistance {
+    public static void resetNameAndDistance(ArrayList<Car> carList, String[] carNameList) {
         int i;
-        for(i = 0; i < carNameList.length; i++){
+        for (i = 0; i < carNameList.length; i++) {
             carList.add(new Car(carNameList[i], ""));
         }
     }
 }
 
-class CheckNames{
-    public static boolean CheckNamesInCarList(ArrayList<Car> carList){
+class CheckNames {
+    public static boolean CheckNamesInCarList(ArrayList<Car> carList) {
         int result = 0;
 
-        for(int i = 0; i < carList.size(); i++)
-            if (carList.get(i).getName().length() > 5){
+        for (int i = 0; i < carList.size(); i++)
+            if (carList.get(i).getName().length() > 5) {
                 result = 1;
                 break;
             }
@@ -49,7 +58,30 @@ class CheckNames{
     }
 }
 
-class RacingCar{
+class UpdateDistance {
+    private int makeRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
+    }
+
+    private void updateCheck(Car car) {
+        if (makeRandomNumber() >= 4) {
+            String distance = car.getDistance();
+            distance = distance.concat("-");
+            car.setDistance(distance);
+        }
+    }
+
+    void updateCarDistance(ArrayList<Car> carList) {
+        for (int i = 0; i < carList.size(); i++)
+            updateCheck(carList.get(i));
+    }
+
+}
+
+
+
+class RacingCar {
     public static void start() {
         ArrayList<Car> carList = new ArrayList<Car>();
 
@@ -63,6 +95,12 @@ class RacingCar{
         if (CheckNames.CheckNamesInCarList(carList))
             throw new IllegalArgumentException();
 
+        int roundCount = 0;
+        while (roundCount < trying) {
+            UpdateDistance updateDistance = new UpdateDistance();
+            updateDistance.updateCarDistance(carList);
+            roundCount++;
+        }
 
     }
 }

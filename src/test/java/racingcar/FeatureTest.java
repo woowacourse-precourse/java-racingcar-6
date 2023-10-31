@@ -55,4 +55,17 @@ public class FeatureTest {
 
         assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    void updateDistance(){
+        String previous = "";
+        previous = previous.concat("-");
+
+        assertThat(previous).isEqualTo("-");
+
+        String previous1 = "-";
+        previous1 = previous1.concat("-");
+
+        assertThat(previous1).isEqualTo("--");
+    }
 }
