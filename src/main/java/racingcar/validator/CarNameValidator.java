@@ -14,10 +14,10 @@ public class CarNameValidator {
         String[] carNames = input.split(",");
         trim(carNames);
 
-        if (hasLongerNames(carNames)) {
+        if (hasLongerName(carNames)) {
             throw new IllegalArgumentException(CAR_NAME_IS_LONGER);
         }
-        if (hasEmptyNames(carNames)) {
+        if (hasEmptyName(carNames)) {
             throw new IllegalArgumentException(CAR_NAME_IS_EMPTY);
         }
         if (hasDuplicatedName(carNames)) {
@@ -37,7 +37,7 @@ public class CarNameValidator {
                 .count();
     }
 
-    private static boolean hasEmptyNames(String[] carNames) {
+    private static boolean hasEmptyName(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() == 0) {
                 return true;
@@ -47,7 +47,7 @@ public class CarNameValidator {
         return false;
     }
 
-    private static boolean hasLongerNames(String[] carNames) {
+    private static boolean hasLongerName(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME_LENGTH) {
                 return true;

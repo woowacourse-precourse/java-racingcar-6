@@ -40,7 +40,7 @@ public class GameManager {
             for (RandomCar randomCar : randomCars) {
                 randomCar.move();
             }
-            outputView.printCarStatus(randomCars);
+            outputView.printCarsPosition(randomCars);
         }
     }
 
