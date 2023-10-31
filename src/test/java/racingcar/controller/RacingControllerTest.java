@@ -13,8 +13,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacingControllerTest {
-    private static RacingController racingController = new RacingController();
-
+    private RacingCars init(List<String> names) {
+        List<RacingCar> racingCars = new ArrayList<>();
+        for(String name : names){
+            racingCars.add(RacingCar.from(name));
+        }
+        return RacingCars.from(racingCars);
+    }
     @Test
     void init_정상_이름들을_받으면_같은크기의_RacingCars_생성해서_넘겨준다() {
         List<String> names = new ArrayList<>();
@@ -22,7 +27,7 @@ class RacingControllerTest {
         names.add("woni");
         names.add("jun");
 
-        RacingCars result = racingController.init(names);
+        RacingCars result = init(names);
 
         assertThat(result.getRacingCars().size()).isEqualTo(names.size());
     }

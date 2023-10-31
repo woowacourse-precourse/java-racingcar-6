@@ -5,7 +5,7 @@ import racingcar.util.InputParser;
 
 import java.util.List;
 
-public class Infomation {
+public class Information {
     private final List<String> names;
     private final int times;
 
@@ -17,15 +17,16 @@ public class Infomation {
         return times;
     }
 
-    private Infomation(List<String> names, int times) {
+    private Information(List<String> names, int times) {
         this.names = names;
         this.times = times;
     }
 
-    public static Infomation of(String names, String times) {
-        return new Infomation(
+    public static Information of(String names, String times) {
+        return new Information(
                 InputParser.parseNames(names),
                 InputConverter.covertTimes(times)
         );
     }
+
 }
