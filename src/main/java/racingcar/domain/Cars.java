@@ -36,15 +36,15 @@ public class Cars {
         return String.join(NEW_LINE.getSymbol(), carStates) + NEW_LINE.getSymbol();
     }
 
+    public List<Car> findMaxPositionCars() {
+        Integer maxPosition = findMaxPosition();
+        return findSamePositionCars(maxPosition);
+    }
+
     private List<String> generateCarStates() {
         return cars.stream()
                 .map(Car::toString)
                 .toList();
-    }
-
-    public List<Car> findMaxPositionCars() {
-        Integer maxPosition = findMaxPosition();
-        return findSamePositionCars(maxPosition);
     }
 
     private List<Car> findSamePositionCars(final Integer maxPosition) {
