@@ -5,6 +5,7 @@ import static racingcar.exception.ExceptionMessage.INPUT_IS_NOT_DIGIT;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.controller.dto.request.CarNameDto;
 import racingcar.controller.dto.request.RaceCountDto;
 import racingcar.util.DigitValidator;
@@ -40,6 +41,6 @@ public class InputView {
     }
 
     private List<String> splitStringByComma(String carNames) {
-        return Arrays.asList(carNames.split(SPLIT_CAR_NAMES_DELIMITER));
+        return Arrays.stream(carNames.split(SPLIT_CAR_NAMES_DELIMITER)).map(String::trim).collect(Collectors.toList());
     }
 }
