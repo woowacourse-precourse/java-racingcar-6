@@ -14,7 +14,7 @@ public class RacingCar {
         this.position = 0;
     }
 
-    public void updatePosition() {
+    public void moveForward() {
         this.position++;
     }
     public String getName() {

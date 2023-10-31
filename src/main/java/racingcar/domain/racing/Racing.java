@@ -29,7 +29,7 @@ public class Racing {
             RacingMovement move = new RacingMovement(car.getName());
 
             if (move.isMovingForward()) {
-                car.updatePosition();
+                car.moveForward();
             }
 
             randomMoves.add(move);
