@@ -11,7 +11,7 @@ import java.util.List;
 public class WinnersTest {
 
     @Test
-    void 전진도가_가장_큰_자동차를_우승자로_판단하는_기능_테스트() {
+    void 전진도가_가장_큰_자동차를_단독_우승자로_판단하는_기능_테스트() {
         //given
         String userInput = "yoon,su";
         String[] carNames = userInput.split(",");
