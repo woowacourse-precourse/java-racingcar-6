@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -10,6 +11,16 @@ import java.util.List;
 
 @DisplayName("우승자 일급 컬렉션의 객체에")
 class WinnersTest {
+
+    @Test
+    @DisplayName("생성 요청시 우승자가 없는 경우 예외를 던지는가")
+    void createValidation() {
+        // given
+        // when
+        // then
+        assertThatThrownBy(() -> new Winners(List.of()))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Nested
     @DisplayName("결과 메시지 요청시")

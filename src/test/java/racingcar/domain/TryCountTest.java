@@ -10,6 +10,15 @@ import org.junit.jupiter.api.Test;
 @DisplayName("시도 횟수 도메인 객체에")
 class TryCountTest {
 
+    @Test
+    @DisplayName("생성 요청시 1보다 작은 숫자면 예외를 던지는가")
+    void createValidation() {
+        // given
+        // when
+        // then
+        assertThatThrownBy(() -> new TryCount(0)).isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Nested
     @DisplayName("남은 시도 횟수가 있는지 확인 요청시")
     class HasLeftCount {
