@@ -52,7 +52,7 @@ public class RacingGameController {
         Set<String> cars = logs.keySet();
         for (String car : cars) {
             String log = logs.get(car);
-            outputView.printGameLog(car, log);
+            outputView.printCarAndLog(car, log);
         }
         System.out.println("");
     }
