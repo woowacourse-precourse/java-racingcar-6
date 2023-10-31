@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.model.domain.Car;
 import racingcar.model.repository.CarRepository;
 import racingcar.model.service.GameService;
 import racingcar.view.OutputView;
@@ -154,6 +155,17 @@ class ApplicationTest extends NsTest {
             carRepository.findByName("woni").setForward(5);
             OutputView.outputWinner(gameService.resultGame());
             assertThat(output()).isEqualTo("최종 우승자 : pobi, woni");
+        }
+    }
+
+    @Nested
+    class CarTest {
+
+        @Test
+        void setAndGetForward() {
+            Car car = new Car("temp");
+            car.setForward(5);
+            assertThat(car.getForward()).isEqualTo(5);
         }
     }
 
