@@ -8,6 +8,7 @@ import racingcar.utils.Parser;
 import racingcar.view.GameInputView;
 import racingcar.view.GameOutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameService {
@@ -70,5 +71,30 @@ public class GameService {
             gameOutputView.printScore(car.getName(), car.getPosition());
         }
         gameOutputView.printOneLine();
+    }
+
+    public void getWinners() {
+        List<String> winner = new ArrayList<>();
+
+        for(Car car : game.getCars()) {
+            if(car.getPosition() == getMaxPosition()) {
+                winner.add(car.getName());
+                winner.add(", ");
+            }
+        }
+
+        winner.remove(winner.size()-1);
+
+        gameOutputView.printWinner(winner);
+    }
+
+    private int getMaxPosition() {
+        int max = 0;
+        for(Car car : game.getCars()) {
+            if(max < car.getPosition()) {
+                max = car.getPosition();
+            }
+        }
+        return max;
     }
 }
