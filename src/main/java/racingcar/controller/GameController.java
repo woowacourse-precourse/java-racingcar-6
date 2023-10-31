@@ -79,4 +79,3 @@ public class GameController {
         outputView.winner(winnerNames);
     }
 }
-
