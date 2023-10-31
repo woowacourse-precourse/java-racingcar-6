@@ -16,4 +16,11 @@ class RoundTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 숫자_앞뒤_공백_제거() {
+        String number = " 4 ";
+        Round test = new Round(number);
+
+        assertEquals(4, test.getRound());
+    }
 }
