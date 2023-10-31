@@ -4,25 +4,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.constant.CarRaceConstant;
 import racingcar.model.domain.Car;
-import racingcar.model.domain.Cars;
+import racingcar.model.domain.CarManager;
 import racingcar.model.domain.RandomGenerator;
 
 public class CarRaceService {
 
-    private final Cars cars;
+    private final CarManager carManager;
 
     public CarRaceService() {
-        this.cars = new Cars();
+        this.carManager = new CarManager();
     }
 
     public void addCars(String input) {
-        cars.saveCars(input);
+        carManager.saveCars(input);
     }
 
     public void moveCars() {
-        for (int i = 0; i < cars.size(); i++) {
+        for (int i = 0; i < carManager.size(); i++) {
             if (shouldMoveForward()) {
-                cars.moveCar(i);
+                carManager.moveCar(i);
             }
         }
     }
@@ -33,15 +33,15 @@ public class CarRaceService {
     }
 
     public List<String> getCarsName() {
-        return cars.getNames();
+        return carManager.getNames();
     }
 
     public List<Integer> getCarsLocation() {
-        return cars.getLocations();
+        return carManager.getLocations();
     }
 
     public List<String> getWinnersName() {
-        List<Car> winnersCar = cars.getCarsByLocation(cars.getMaxLocation());
+        List<Car> winnersCar = carManager.getCarsByLocation(carManager.getMaxLocation());
         return winnersCar.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
