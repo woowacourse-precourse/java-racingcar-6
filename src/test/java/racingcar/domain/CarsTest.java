@@ -26,17 +26,24 @@ public class CarsTest extends NsTest {
     @Test
     @DisplayName("findWinners 함수 테스트")
     void 우승자_반환_기능_테스트() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    Cars cars = Cars.from(carNames1);
-                    cars.moveCars();
-                    List<String> winners = cars.findWinners();
-                    assertEquals(winners.size(), 2);
-                    assertEquals(winners.get(0), "bora");
-                    assertEquals(winners.get(1), "nana");
-                },
-                MOVING_FORWARD, STOP, MOVING_FORWARD
-        );
+        assertRandomNumberInRangeTest(() -> {
+            Cars cars = Cars.from(carNames1);
+            cars.moveCars();
+            List<String> winners = cars.findWinners();
+            assertEquals(winners.size(), 2);
+            assertEquals(winners.get(0), "bora");
+            assertEquals(winners.get(1), "nana");
+        }, MOVING_FORWARD, STOP, MOVING_FORWARD);
+    }
+
+
+    @Test
+    @DisplayName("getCarList 함수 테스트")
+    void 자동차_목록_반환_기능_테스트() {
+        //given
+        Cars cars = Cars.from(carNames1);
+        //then
+        assertEquals(cars.getCarList().size(), 3);
     }
 
     @Override
@@ -44,3 +51,4 @@ public class CarsTest extends NsTest {
 
     }
 }
+트
