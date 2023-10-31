@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,23 +7,23 @@ import java.util.Map;
 import model.Car;
 
 public class Race {
-    private final List<String> currentPositions = new ArrayList<>();
     private final Map<String, String> raceResult = new HashMap<>();
     int max = 0;
 
-    public String raceCar(List<Car> cars, int times){
-
+    public void raceCar(List<Car> cars, int times){
         while(times > 0){
             System.out.print("\n");
             for (Car car : cars) {
                 int move = car.moveForward();
                 String position = car.getPosition();
-                System.out.println(car.getName() + " : " + move + position);
-                currentPositions.add(position);
+                System.out.println(car.getName() + " : " + position);
             }
             times--;
         }
+        raceResult(cars);
+    }
 
+    public void updateResult(List<Car> cars){
         cars.forEach(car -> {
             String name = car.getName();
             String position = car.getPosition();
@@ -33,21 +32,16 @@ public class Race {
                 max  = position.length();
             }
         });
+    }
 
-        System.out.println(raceResult);
-
+    public void raceResult(List<Car> cars){
+        updateResult(cars);
         cars.forEach(car -> {
             String name = car.getName();
             String position = car.getPosition();
             if (position.length() == max) {
-                System.out.println(name+" ");
+                System.out.print("최종 우승자 : " + name + " ");
             }
         });
-        return "게임종료";
-    }
-
-
-    public void raceResult(){
-
     }
 }
