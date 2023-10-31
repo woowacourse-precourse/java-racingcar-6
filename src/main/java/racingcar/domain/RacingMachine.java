@@ -5,12 +5,16 @@ public class RacingMachine {
     private static final int MIN_TRY_COUNT = 1;
 
     private final Cars cars;
-    private final int tryCount;
+    private int tryCount;
 
     public RacingMachine(Cars cars, int tryCount) {
         validateTryCount(tryCount);
         this.cars = cars;
         this.tryCount = tryCount;
+    }
+    
+    private void decreasedTryCount() {
+        tryCount--;
     }
 
     private static void validateTryCount(int tryCount) {
