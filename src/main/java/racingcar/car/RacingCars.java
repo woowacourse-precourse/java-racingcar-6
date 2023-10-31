@@ -15,4 +15,15 @@ public class RacingCars {
             racingCars.add(new RacingCar(name));
         }
     }
+
+    private int findLongestDistanceDriver(){
+        int maxSize = Integer.MIN_VALUE;
+
+        for(int i = 0; i<racingCars.size(); i++){
+            if(maxSize <racingCars.get(i).distanceDriver.length())
+                maxSize = racingCars.get(i).distanceDriver.length();
+        }
+
+        return maxSize;
+    }
 }
