@@ -24,6 +24,6 @@ public class RacingController {
         }
 
         ArrayList<String> winner = carList.getWinner();
-
+        OutputView.printWinner(winner);
     }
 }
