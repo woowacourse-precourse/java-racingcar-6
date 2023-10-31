@@ -17,8 +17,8 @@ public class PrintResult {
 
     public void PrintWinnerCarName(List<Integer> winnerIndex, List<String> carName) {
         List<String> winnerCarName = new ArrayList<>();
-        for (int index = 0; index < winnerIndex.size(); index++) {
-            winnerCarName.add(carName.get(winnerIndex.get(index)));
+        for (Integer integer : winnerIndex) {
+            winnerCarName.add(carName.get(integer));
         }
         System.out.println("최종 우승자 : " + String.join(",", winnerCarName));
     }

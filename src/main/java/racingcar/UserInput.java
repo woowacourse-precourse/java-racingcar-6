@@ -35,8 +35,7 @@ public class UserInput {
             throw new IllegalArgumentException("이름을 중복으로 입력했습니다.");
         }
 
-        for (int i = 0; i < racingCarName.size(); i++) {
-            String validationName = racingCarName.get(i);
+        for (String validationName : racingCarName) {
             if (validationName.length() > 5 || validationName.length() == 0 || !Pattern.matches("^[a-zA-Z]*$", validationName)) {
                 throw new IllegalArgumentException("잘못된 입력입니다.");
             }
