@@ -51,7 +51,7 @@
 
     - validateCarName()
 
-  - [ ] 자동차 이름에 중복이 존재하는지 검증할 수 있어야 한다.
+  - [X] 자동차 이름에 중복이 존재하는지 검증할 수 있어야 한다.
 
     - validateDuplicateCar()
 

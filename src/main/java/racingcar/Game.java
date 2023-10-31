@@ -2,6 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.Validation.validateCarName;
+import static racingcar.Validation.validateDuplicateCar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,8 @@ public class Game {
 
         for (String carName : readLine().split(",")) {
             validateCarName(carName);
+            validateDuplicateCar(cars, carName);
+
             cars.add(new Car(carName));
         }
 
