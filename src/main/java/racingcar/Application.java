@@ -67,8 +67,12 @@ class Race {
     }
 
     private void moveCarAndDisplayPosition(Car car){
-            car.move();
-            System.out.println(car.getName()+" : "+"-".repeat(car.getPosition()));
+        car.move();
+        printCarPosition(car);
+    }
+
+    private void printCarPosition(Car car){
+        System.out.println(car.getName()+" : "+"-".repeat(car.getPosition()));
     }
 
     public void printWinners(){
