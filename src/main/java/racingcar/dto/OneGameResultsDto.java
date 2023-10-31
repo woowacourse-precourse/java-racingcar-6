@@ -3,6 +3,7 @@ package racingcar.dto;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.service.domain.Car;
 
 public class OneGameResultsDto {
@@ -13,11 +14,9 @@ public class OneGameResultsDto {
     }
 
     private List<ResultDto> convertToOneGameResults(final List<Car> cars) {
-        List<ResultDto> oneGameResults = new ArrayList<>();
-        for (Car car : cars) {
-            oneGameResults.add(new ResultDto(car.getName(), car.getPosition()));
-        }
-        return oneGameResults;
+        return cars.stream()
+                .map(car -> new ResultDto(car.getName(), car.getPosition()))
+                .collect(Collectors.toList());
     }
 
     public int size() {
