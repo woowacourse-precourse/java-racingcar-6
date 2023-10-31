@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 
 public class CarGenerator {
 
+    Car car = new Car();
+
     public LinkedHashMap<String,String> createCarList() {
         LinkedHashMap<String,String> carList = new LinkedHashMap<>();
         String[] cars = splitStringByCommas();
@@ -16,8 +18,8 @@ public class CarGenerator {
         return carList;
     }
 
-    public String[] splitStringByCommas(String inputCarList) {
-        String[] carList = inputCarList.split(",");
+    public String[] splitStringByCommas() {
+        String[] carList = car.getStringCarList().split(",");
         return carList;
     }
 
