@@ -1,24 +1,18 @@
-package controller;
+package view;
 
 import model.Car;
 import camp.nextstep.edu.missionutils.Console;
 import model.CarList;
 
-public class UserInputControllerImpl implements UserController{
+public class UserView{
     private final CarList carList;
     private int coin = 0;
 
-    public UserInputControllerImpl(CarList carList) {
+    public UserView(CarList carList) {
         this.carList = carList;
     }
 
-    @Override
-    public int getCoin() {
-        return coin;
-    }
-
-    @Override
-    public void getUserValue() {
+    public void inputUserValue() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userInput = Console.readLine();
         registerCar(userInput);
@@ -28,7 +22,6 @@ public class UserInputControllerImpl implements UserController{
         registerCoin(coinStr);
     }
 
-    @Override
     public void registerCar(String userInput) {
         int startNameIndex = 0;
         int size = userInput.length();
@@ -46,7 +39,6 @@ public class UserInputControllerImpl implements UserController{
         }
     }
 
-    @Override
     public void inputCarToList(String carName) {
         validateNameLength(carName);
         carList.addCar(new Car(carName));
@@ -56,7 +48,10 @@ public class UserInputControllerImpl implements UserController{
         if (carName.length() > 5) throw new IllegalArgumentException("이름은 5글자 이하로 입력해 주십시오.");
     }
 
-    @Override
+    public int getCoin() {
+        return coin;
+    }
+
     public void registerCoin(String coinStr) {
         this.coin = Integer.parseInt(coinStr);
     }
