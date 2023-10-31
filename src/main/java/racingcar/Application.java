@@ -14,7 +14,7 @@ public class Application {
     RacingGame racingGame = new RacingGame(carNames, rounds);
     racingGame.race();
     
-    System.out.print("죄종 우승자 : " + String.join(", ", racingGame.getWinners()));
+    System.out.print("최종 우승자 : " + String.join(", ", racingGame.getWinners()));
   }
   
   private static List<String> getCarNamesFromUser() {
