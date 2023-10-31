@@ -5,7 +5,7 @@ import racingcar.model.Car;
 import java.util.*;
 
 public class MemoryCarRepository implements CarRepository {
-    private static Map<Long, Car> store = new HashMap<>();
+    final private static Map<Long, Car> store = new HashMap<>();
     private static long sequence = 0L;
 
     @Override
@@ -23,7 +23,7 @@ public class MemoryCarRepository implements CarRepository {
     @Override
     public Optional<Car> findByName(String name) {
         return store.values().stream() // 루프를 돌면서
-                .filter(member -> member.getName().equals(name))
+                .filter(car -> car.getName().equals(name))
                 .findAny(); // 하나라도 찾으면
     }
 
