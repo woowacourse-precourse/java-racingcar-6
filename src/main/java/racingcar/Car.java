@@ -15,6 +15,11 @@ public class Car {
         forwardCount = 0;
     }
 
+    public Car(String name, int forwardCount) {
+        this.name = name;
+        this.forwardCount = forwardCount;
+    }
+
     public static List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
@@ -36,6 +41,11 @@ public class Car {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             forwardCount++;
         }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", name, "-".repeat(forwardCount));
     }
 
 }
