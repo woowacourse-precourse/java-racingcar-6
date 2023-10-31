@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class ExceptionInput {
     public static boolean checkNameLength(String[] names) {
-
-        Arrays.sort(names);
-
-        int minNameLen = names[0].length();
-        int maxNameLen = names[names.length-1].length();
-
-        return minNameLen >= Constants.MIN_NAME_LEN && maxNameLen <= Constants.MAX_NAME_LEN;
+        for(int i=0;i< names.length;i++) {
+            int len = names[i].length();
+            if( len < Constants.MIN_NAME_LEN || len > Constants.MAX_NAME_LEN) {
+                return false;
+            }
+        }
+        return true;
     }
 }
