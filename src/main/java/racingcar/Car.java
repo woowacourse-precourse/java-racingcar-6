@@ -7,10 +7,10 @@ public class Car {
 
     public void makeCarListToMap(String nameList, Map<String, Integer> carMap ) {
 
-        List<String> carNameList = List.of( nameList.split(",") );
+        List<String> carNameList = List.of( nameList.split(",",-1) );
 
         for ( String carName : carNameList ) {
-            carMap.put( carName, 0 );
+            carMap.put( carName.trim(), 0 );
         }
     }
 
