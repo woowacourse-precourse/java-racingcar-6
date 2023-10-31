@@ -29,7 +29,7 @@ public class Game {
 
     private void initPosition() {
         positions = new PositionMap(HashMap::new);
-        carList.forEachCar((car) -> positions.putCar(car));
+        carList.forEachCar(car -> positions.putCar(car));
     }
 
     public void play() {
@@ -41,7 +41,7 @@ public class Game {
     }
 
     private void playRound() {
-        carList.forEachCar((car) -> {
+        carList.forEachCar(car -> {
             moveCar(car);
             System.out.println(car.getRoundResult());
         });
