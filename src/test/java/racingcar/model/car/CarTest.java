@@ -10,7 +10,7 @@ public class CarTest {
     private Car car2;
 
     @BeforeEach
-    void setUp() {
+    void 세팅() {
         car1 = new Car("car1");
         car2 = new Car("car2");
     }
