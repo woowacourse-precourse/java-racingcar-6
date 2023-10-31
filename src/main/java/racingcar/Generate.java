@@ -4,13 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Generate {
-    public static HashMap<String, Integer> playerGenerate(HashMap<String, Integer> map, String playerString) {
-        String[] player = playerString.split(",");
-        for(int i = 0; i < player.length; i++) {
-            if(player[i].length() > 5){
+    //
+    public static HashMap<String, Integer> carGenerate(HashMap<String, Integer> map, String carString) {
+        String[] car = carString.split(",");
+        for(int i = 0; i < car.length; i++) {
+            if(car[i].length() > 5){
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
             }
-            map.put(player[i], 0);
+            map.put(car[i], 0);
         }
 
         return map;
