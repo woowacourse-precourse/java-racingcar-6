@@ -15,11 +15,13 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         createCars(Console.readLine().trim());
         System.out.println("시도할 회수는 몇회인가요?");
-        saveTrialNumber(Console.readLine().trim());
+        Integer trialNumber = saveTrialNumber(Console.readLine().trim());
+        drive(trialNumber);
     }
 
-    private static void createDriveCarNum () {
+    private static Integer createDriveCarNum () {
         Integer driveNumber = isMoreThanFour(createRandomNum());
+        return driveNumber;
     }
     private static Integer createRandomNum() {
         Integer randomNum = Randoms.pickNumberInRange(0,9);;
@@ -43,9 +45,26 @@ public class Application {
             cars.add(car);
         }
     }
-    private static void saveTrialNumber(String trialNumberInput) {
+
+    private static void drive(Integer saveTrialNumber) {
+        for (int i = 0; i<saveTrialNumber; i++) {
+            updateDriveNum(createDriveCarNum());
+        }
+
+    }
+    private static void updateDriveNum(Integer createDriveCarNum) {
+        for (Car car : cars) {
+            car.setDriveNum(createDriveCarNum());
+        }
+        for (Car car : cars) {
+            System.out.println(car.getDriveNum());
+        }
+    }
+
+    private static Integer saveTrialNumber(String trialNumberInput) {
         try {
             Integer trialNumber = Integer.valueOf(trialNumberInput);
+            return trialNumber;
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("숫자를 입력해주세요");
         }
