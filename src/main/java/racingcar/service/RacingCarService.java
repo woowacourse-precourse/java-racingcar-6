@@ -32,8 +32,7 @@ public class RacingCarService {
 
     public void createCarAddList(List<String> nameList) {
         for (String name : nameList) {
-            racingCarValidation.checkNameLength(name);
-            racingCarValidation.checkDuplicateName(carList, name);
+            checkNameValidation(name);
             carList.addCarList(new Car(name));
         }
     }
@@ -61,4 +60,11 @@ public class RacingCarService {
 
         return carList.getRacingCarWinnerName(winnerLocation);
     }
+
+    private void checkNameValidation(String name) {
+        racingCarValidation.checkNameBlank(name);
+        racingCarValidation.checkNameLength(name);
+        racingCarValidation.checkDuplicateName(carList, name);
+    }
+
 }
