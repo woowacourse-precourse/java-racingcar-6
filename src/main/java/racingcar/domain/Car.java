@@ -11,10 +11,18 @@ public class Car {
 		this.position = new Position();
 	}
 
-	public void race(Car car) {
+	public void race() {
 		if (isMovable(getRandomNumber())) {
-			car.position.move();
+			this.position.move();
 		}
+	}
+
+	public void move() {
+		this.position.move();
+	}
+
+	public int getPosition() {
+		return position.getPosition();
 	}
 
 	private int getRandomNumber() {
