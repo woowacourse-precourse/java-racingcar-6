@@ -49,12 +49,18 @@ public class GameController {
     }
 
     public void setNumOfAttemp(){
+        view.printSetNumOfAttempt();
         int n = convertStringInteger(Console.readLine());
         checkIntOverZero(n);
         attemptNum = n;
     }
 
     public void executeGame(){
-
+        for(int i=0;i<attemptNum;i++){
+            map.trial();
+            view.printMapProcess(map);
+        }
+        map.calWinner();
+        view.printWinner(map.getWinner());
     }
 }

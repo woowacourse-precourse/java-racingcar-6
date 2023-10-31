@@ -9,6 +9,7 @@ public class RacingMap {
 
     public RacingMap(){
         carList = new ArrayList<>();
+        winner = new ArrayList<>();
     }
 
     public void setCarList(List<Car> carList){
