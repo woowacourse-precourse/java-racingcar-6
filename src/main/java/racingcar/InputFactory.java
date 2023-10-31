@@ -4,19 +4,18 @@ import java.util.List;
 
 public class InputFactory {
 
-    public static List<Car> getCars(String names) {
-        ResultView.printEnterNameGuide();
-        return CarFactory.createCarsFromInput(names);
+    public List<Car> getCars(String names) {
+        CarFactory carFactory = new CarFactory();
+        return carFactory.createCarsFromInput(names);
     }
 
-    public static int getRacingRound(String round) {
-        ResultView.printRoundQuestion();
+    public int getRacingRound(String round) {
         int roundNumber = parseRoundNumber(round);
         validatePositiveNumber(roundNumber);
         return roundNumber;
     }
 
-    public static int parseRoundNumber(String round) {
+    public int parseRoundNumber(String round) {
         try {
             return Integer.parseInt(round);
         } catch (NumberFormatException e) {
@@ -24,7 +23,7 @@ public class InputFactory {
         }
     }
 
-    public static void validatePositiveNumber(int number) {
+    public void validatePositiveNumber(int number) {
         if (number <= 0) {
             throw new IllegalArgumentException("양수를 입력해주세요.");
         }

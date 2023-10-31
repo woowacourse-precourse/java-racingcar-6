@@ -11,8 +11,9 @@ public class ResultView {
         System.out.println();
     }
 
-    public static void printWinners(List<Car> cars) {
-        String winners = Race.findWinners(cars);
+    public void printWinners(List<Car> cars) {
+        Race race = new Race();
+        String winners = race.findWinners(cars);
         System.out.print("최종 우승자 : " + winners);
     }
 
