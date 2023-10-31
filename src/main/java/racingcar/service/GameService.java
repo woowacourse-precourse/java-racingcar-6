@@ -12,6 +12,9 @@ import java.util.stream.Collectors;
 
 public class GameService {
 
+    private static final int MAX_PICK_NUMBER = 9;
+    private static final int MIN_PICK_NUMBER = 0;
+    private static final int REFERENCE_PICK_NUMBER = 4;
     private Input input = new Input();
     private Output output = new Output();
     private Validator validator = new Validator();
@@ -65,6 +68,6 @@ public class GameService {
     }
 
     private boolean isCarMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(MIN_PICK_NUMBER, MAX_PICK_NUMBER) >= REFERENCE_PICK_NUMBER;
     }
 }
