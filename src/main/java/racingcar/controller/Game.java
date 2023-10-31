@@ -3,6 +3,9 @@ package racingcar.controller;
 import racingcar.game.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.stream.IntStream;
+
 import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Game {
@@ -13,7 +16,7 @@ public class Game {
         OutputView.startGame();
         cars = new Cars(InputView.readCarNames());
         askGameRounds();
-        startRace();
+        racing();
         getWinners();
     }
 
@@ -22,12 +25,12 @@ public class Game {
         round = Parser.parsingInteger(InputView.readLine());
     }
 
-    private void startRace(){
+    private void racing(){
         OutputView.startGameResult();
-        for (int count = STARTING_POINT.getValue(); count < round; count++) {
+        IntStream.range(STARTING_POINT.getValue(), round).forEach(roundNumber -> {
             cars.roundRace();
             OutputView.theEndOfRound();
-        }
+        });
     }
 
     private void getWinners(){
