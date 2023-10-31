@@ -24,7 +24,7 @@ public class CarValidator implements Validator {
 
     private void validateType(String value) {
         if (value == null || !ALPHANUMERIC_HANGUL_PATTERN.matcher(value).matches()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_TYPE);
         }
     }
 
