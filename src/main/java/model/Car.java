@@ -18,10 +18,6 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public int getMovingCount() {
-        return this.movingCount.getMovingCount();
-    }
-
     public boolean isSameMovingCount(Car otherCar) {
         return this.movingCount.equals(otherCar.movingCount);
     }
