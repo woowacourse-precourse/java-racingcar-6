@@ -1,9 +1,10 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import static racingcar.utils.Constant.SD_NAME_LENGTH;
 
 public class RacingCarController {
 
@@ -36,6 +37,6 @@ public class RacingCarController {
     }
 
     private static void validateNameLength(String name) {
-        if (name.length() > 5) throw new IllegalArgumentException();
+        if (name.length() > SD_NAME_LENGTH) throw new IllegalArgumentException();
     }
 }
