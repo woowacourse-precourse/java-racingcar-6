@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,9 @@ public class Game {
     public void addCarList(String name) {
         Car car = new Car(name);
         this.carList.add(car);
+    }
+
+    public int randomNumber() {
+        return Randoms.pickNumberInRange(RANGE_START, RANGE_END);
     }
 }
