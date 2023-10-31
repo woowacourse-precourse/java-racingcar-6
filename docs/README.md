@@ -16,7 +16,7 @@
 ## 기능 구현 목록
 
 ### GameSetting
-- [ ] 경주 할 자동차 이름을 부여한다. - `GameSetting`#`createCarNames()`
+- [ ] 경주 할 자동차 이름을 부여한다. - `GameSetting`#`createCarName()`
   - [ ] 사용자로부터 자동차 이름을 입력 받는다. - `InputDataHandler`#`getStringFromPlayer()`
   - [ ] 자동차 이름을 쉼표를 기준으로 분리한다. - `InputDataHandler`#`separateString()`
   - [ ] 자동차 이름이 5자리 이하인지 검사한다. 잘못된 입력이면 `IllegalArgumentException`을 발생시키고 종료한다. - `InputValidator`#`checkStringLength()`
