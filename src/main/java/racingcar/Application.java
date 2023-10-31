@@ -1,7 +1,18 @@
 package racingcar;
 
+import Controller.GameController;
+
 public class Application {
+
+    private static GameController gameController;
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        gameController = new GameController();
+        int n = gameController.getUserInput();
+
+        for(int i=0; i<n; i++) {
+            gameController.decideToMove();
+        }
+
+        gameController.findWinner();
     }
 }
