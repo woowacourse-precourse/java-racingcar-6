@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 
@@ -17,9 +18,12 @@ public class GameView {
     }
 
     public static void printCarNames(List<Car> cars) {
+        List<String> carNames = new ArrayList<>();
         for (Car car : cars) {
-            System.out.print(car.carName() + " ");
-        } // join 사용해서
+            carNames.add(car.carName());
+        }
+        String joinedName = String.join(" ", carNames);
+        System.out.print(joinedName);
     }
 
     public static void printResultMessage() {
