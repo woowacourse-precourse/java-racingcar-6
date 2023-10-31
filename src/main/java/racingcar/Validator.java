@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Validator {
+    // 이름의 길이 유효성 검사
     public void validateNameArray(String[] names) {
         for (String name : names) {
             if (name.length() > 5) {

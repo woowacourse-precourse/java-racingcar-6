@@ -9,8 +9,17 @@ public class Car {
         this.currentLocation = 0;
     }
 
+    // 앞으로 한칸 전진
     public void movingForward() {
         this.currentLocation++;
+    }
+
+    // 현재 위치를 '-'를 사용하여 출력
+    public void printCurrentLocation() {
+        for (int i = 0; i < currentLocation; i++) {
+            System.out.print('-');
+        }
+        System.out.println();
     }
 
     public String getName() {
@@ -19,13 +28,6 @@ public class Car {
 
     public Integer getCurrentLocation() {
         return this.currentLocation;
-    }
-
-    public void printCurrentLocation() {
-        for (int i = 0; i < currentLocation; i++) {
-            System.out.print('-');
-        }
-        System.out.println();
     }
 
     public void setName(String name) {
