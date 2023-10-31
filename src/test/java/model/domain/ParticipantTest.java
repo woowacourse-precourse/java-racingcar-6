@@ -35,4 +35,13 @@ class ParticipantTest {
         })
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_이름은_공백_불가() {
+        String carNames = "lee,,na";
+        assertThatThrownBy(() -> {
+            new Participant(carNames);
+        })
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
