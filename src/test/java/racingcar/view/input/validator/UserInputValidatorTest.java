@@ -44,13 +44,33 @@ class UserInputValidatorTest {
     }
 
     @Test
-    @DisplayName("자동차이름: 다섯 글자가 넘는 이름")
+    @DisplayName("자동차이름: 마지막이 ,로 끝나는 문자열")
     public void wrongInput3() {
+        String rawInput = "A,B,";
+
+        Assertions.assertThatThrownBy(() -> userInputValidator.validateCarNames(rawInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("자동차이름: 처음이 ,로 시작하는 문자열")
+    public void wrongInput4() {
+        String rawInput = ",A,B";
+
+        Assertions.assertThatThrownBy(() -> userInputValidator.validateCarNames(rawInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @Test
+    @DisplayName("자동차이름: 다섯 글자가 넘는 이름")
+    public void wrongInput5() {
         String rawInput = "가나다라마바사";
 
         Assertions.assertThatThrownBy(() -> userInputValidator.validateCarNames(rawInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
 
     @Test
     @DisplayName("이동 횟수: 정상 입력")
