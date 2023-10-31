@@ -1,6 +1,8 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import domain.Cars;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import validator.NameValidator;
@@ -14,6 +16,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class NameTest {
+
+    @AfterEach
+    void set() {
+        Console.close();
+    }
 
     @DisplayName("문자열을 구분하고 자동차 객체를 저장하는 기능")
     @Test
