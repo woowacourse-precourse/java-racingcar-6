@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Cars {
     private final List<Car> carList;
@@ -10,7 +11,8 @@ public class Cars {
     }
 
     public void move() {
-        carList.forEach(Car::move);
+        IntStream.range(0, carList.size())
+                .forEach(i -> carList.get(i).move(RandomNumber.create()));
     }
 
     public List<Car> getCarList() {

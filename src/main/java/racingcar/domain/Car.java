@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.option.GameOption;
 
 public class Car {
@@ -11,9 +10,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
-        if (Randoms.pickNumberInRange(GameOption.MINIMUM_NUMBER, GameOption.MAXIMUM_NUMBER)
-                >= GameOption.STANDARD_NUMBER) {
+    public void move(int randomNumber) {
+        if (randomNumber >= GameOption.STANDARD_NUMBER) {
             moveStatus++;
         }
     }
