@@ -41,6 +41,14 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"a", "a1", "123a"})
+    void 문자열을_숫자로_변환할_수_없는_경우_예외가_발생한다(String input) {
+        // when & then
+        assertThatThrownBy(() -> StringUtil.convertToPositiveInt(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"0", "-1"})
     void 문자열을_양의_정수로_변환할_수_없는_경우_예외가_발생한다(String input) {
         // when & then
