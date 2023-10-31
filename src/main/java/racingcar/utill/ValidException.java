@@ -8,11 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidException {
-    /**
-     * 문자열 5자 이하 검사.
-     *
-     * @param str
-     */
+    private static final String KOREAN_REGEX = "[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+";
+
     public static Boolean isValidLessFIveLen(String str) {
         int len = str.length();
 
@@ -23,15 +20,8 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
 
-
-    /**
-     * 한글 포함 검사
-     *
-     * @param str "one, two, three"
-     * @return
-     */
     public static Boolean isValidIncludeKoreanCheck(String str) {
-        Pattern pattern = Pattern.compile("[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+");
+        Pattern pattern = Pattern.compile(KOREAN_REGEX);
         Matcher matcher = pattern.matcher(str);
 
         if (matcher.find()) {
