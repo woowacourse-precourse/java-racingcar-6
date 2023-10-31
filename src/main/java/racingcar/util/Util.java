@@ -1,8 +1,10 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Comparator;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 import racingcar.model.CarModel;
 
 public class Util {
@@ -24,5 +26,13 @@ public class Util {
             result.add(winner.getName());
         }
         return result.toString();
+    }
+
+    public List<CarModel> calculateWinner(List<CarModel> carList) {
+        int maxInt = carList.stream()
+                .max(Comparator.comparingInt(CarModel::getForward))
+                .get().getForward();
+
+        return carList.stream().filter(x -> x.getForward() == maxInt).toList();
     }
 }
