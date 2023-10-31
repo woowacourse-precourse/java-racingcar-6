@@ -24,4 +24,18 @@ class CarsTest {
                 .hasMessage("자동차 이름은 중복으로 사용될 수 없습니다.");
     }
 
+    @DisplayName("자동차경주를 하기위해 자동차는 최소 2대이상 생성해야합니다.")
+    @Test
+    void minimumCountOfCars() throws Exception{
+        //given
+        String racingCarName = "pobi";
+        Car car = new Car(racingCarName);
+
+        List<Car> cars = List.of(car);
+
+        //when //then
+        Assertions.assertThatThrownBy(() -> new Cars(cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차는 최소 2대 이상 생성해야 합니다.");
+    }
 }

@@ -6,10 +6,12 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
+    private static final int CAR_COUNT_MINIMUM = 2;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         isDifferentCarName(cars);
+        minimumCountOfCars(cars.size());
         this.cars = cars;
     }
 
@@ -25,3 +27,9 @@ public class Cars {
         }
     }
 
+    private void minimumCountOfCars(int size) {
+        if (size < CAR_COUNT_MINIMUM){
+            throw new IllegalArgumentException("자동차는 최소 2대 이상 생성해야 합니다.");
+        }
+    }
+}
