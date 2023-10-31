@@ -2,10 +2,10 @@ package racingcar.domain;
 
 import static racingcar.utils.ErrorMessages.REPEAT_COUNT_NOT_ZERO;
 
-public class RepeatCount {
+public class RaceCount {
     private int count;
 
-    public RepeatCount(int count) {
+    public RaceCount(int count) {
         validateZero(count);
         this.count = count;
     }
