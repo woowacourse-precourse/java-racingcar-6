@@ -21,4 +21,19 @@ public class CarsTest {
 
         assertThat(names).containsAll(expected);
     }
+
+    @Test
+    @DisplayName("Car를 각각 Drive시키고 매 실행 결과를 알아내는 기능 테스트 ")
+    void testDriveAllAndGetDistacnes() {
+        String playerInput = "pobi,woni,kibum";
+        Cars cars = new Cars(playerInput);
+
+        cars.driveAll();
+        List<Integer> result = cars.getTotalDistances();
+
+        for (int number : result) {
+            assertThat(number == 0 || number == 1).isTrue();
+        }
+    }
+    
 }
