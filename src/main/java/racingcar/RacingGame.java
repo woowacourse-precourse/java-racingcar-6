@@ -54,5 +54,19 @@ public class RacingGame {
 		return carProgress;
 	}
 
-	
+	private List<Car> getWinners(List<Car> cars) {
+		List<Car> winners = new ArrayList<>();
+		int maxPosition = 0;
+		for (Car car : cars) {
+			if (car.getPosition() > maxPosition) {
+				maxPosition = car.getPosition();
+				winners.clear();
+				winners.add(car);
+			} else if (car.getPosition() == maxPosition) {
+				winners.add(car);
+			}
+		}
+
+		return winners;
+	}
 }
