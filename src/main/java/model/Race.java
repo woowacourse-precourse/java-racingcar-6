@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 public class Race {
     int laps;
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Car> carArrayList = new ArrayList<>();
 
-    public Race(int laps){
+    public Race(int laps, ArrayList<Car> carArrayList){
         this.laps = laps;
+        this.carArrayList = carArrayList;
     }
 
-    public ArrayList<Car> getCars() {
-        return cars;
+    public ArrayList<Car> getCarArrayList() {
+        return carArrayList;
     }
 
     public int getLaps() {
