@@ -1,33 +1,36 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
 import racingcar.utils.Utils;
 
 public class RacingCars {
-    private final static List<RacingCar> racingCars = new ArrayList<>();
+    private final static LinkedHashMap<RacingCar, RacingResult> racingCars = new LinkedHashMap<>();
 
-    public void add(RacingCar racingCar) {
-        this.racingCars.add(racingCar);
+    public void add(RacingCar racingCar, RacingResult racingResult) {
+        this.racingCars.put(racingCar, racingResult);
     }
 
     public boolean lengthCheck() {
-        if (!racingCars.stream().allMatch(e -> Utils.wordLengthCheck(e.toString()))) {
+        if (!racingCars.keySet().stream().allMatch(e -> Utils.wordLengthCheck(e.toString()))) {
             return false;
         }
         return true;
     }
 
     public void tryRace() {
-        racingCars.stream().forEach(e -> {
-            e.setDistance(Utils.getRandomNum());
-        });
+        racingCars.values().stream()
+                .forEach(e -> {
+                    if (Utils.getRandomNum() > 4) {
+                        e.forward();
+                    }
+                });
         printResult();
     }
 
     private void printResult() {
-        racingCars.stream().forEach(e -> {
-            System.out.println(String.format("%s : %d", e.toString(), e.getDistance()));
+        racingCars.entrySet().forEach(e -> {
+            System.out.println(String.format("%s : %s", e.getKey(), e.getValue()));
         });
+        System.out.println();
     }
 }
