@@ -28,7 +28,7 @@
 역할: 게임에 참여하는 참여자.
 
 - [x] 경주 게임에 참가하는 자동차들의 이름을 입력한다.
-- [ ] 경주 게임을 진행할 시도 횟수를 입력한다.
+- [x] 경주 게임을 진행할 시도 횟수를 입력한다.
 
 ## Car
 
@@ -58,19 +58,21 @@
 역할: 필요한 입력을 받는 클래스
 
 - `inputCarNames()` : player에게 게임에 참여할 자동차 이름들을 입력 받아 List<String> 형태로 반환한다.
+- `inputGameCount()` : 게임을 시도할 회수를 입력받는다.
 - `inputString()` : Console.readLine() 을 통해 입력받은 값을 String으로 반환한다.
 
 ## Output
 
-역할: 출력 메서드가 존재하는 클래스
-
 - `askCarNames()` : 경주에 참여할 자동차들을 입력하라는 메시지 출력
+- `askGameCount()` : 게임 시도 회수를 입력하라는 메시지 출력
 
 ## Converter
 
 역할: 객체의 타입을 변환하는 클래스
 
 - `convertStringToList()` : 입력된 String 값을 쉼표(,)를 기준으로 List<String> 형태로 변환.
+- `convertStringListToCarList()` : String형태의 리스트의 값을 Car 객체의 이름으로 하는 List<Car>로 변환
+- `convertStringToLong()` : String으로 입력된 값을 Long 타입으로 변환
 
 # Validate
 
@@ -82,3 +84,5 @@
     1. 공백 문자열인지 확인
     2. 길이가 5 이하인지 확인
     3. 중복된 이름이 있는지 확인
+- `vadliateGameCount()` : GameCount가 적절한지 검증
+    1. 정수로 변환이 가능한 형태인지 확인

@@ -13,6 +13,13 @@ public class Input {
         return Converter.convertStringToList(carNames);
     }
 
+    public static Long inputGameCount() {
+        Output.askGameCount();
+        String gameCount = inputString();
+        ValidateInput.validateGameCount(gameCount);
+        return Converter.convertStringToLong(gameCount);
+    }
+
     private static String inputString() {
         return Console.readLine();
     }
