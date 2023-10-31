@@ -20,8 +20,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("compareToSame 비교 결과 동일")
-    void compareToSameTest() {
+    @DisplayName("compareToSame 비교 결과 0(위치 값이 같음)")
+    void compareToTestSame() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -34,8 +34,8 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("compareToSame 비교 결과 다름")
-    void compareToDifferentTest() {
+    @DisplayName("compareToSame 비교 결과 양수(위치 값이 더 큼)")
+    void compareToTestDifferentMore() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -49,8 +49,23 @@ class PositionTest {
     }
 
     @Test
+    @DisplayName("compareToSame 비교 결과 음수(위치 값이 더 작음)")
+    void compareToTestDifferentLess() {
+        // given
+        Position position1 = new Position();
+        Position position2 = new Position();
+
+        // when
+        position2.move();
+        int result = position1.compareTo(position2);
+
+        // then
+        Assertions.assertThat(result).isEqualTo(-1);
+    }
+
+    @Test
     @DisplayName("isSamePosition 비교 결과 같음")
-    void isSamePositionSameTest() {
+    void isSamePositionTestSame() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
@@ -64,7 +79,7 @@ class PositionTest {
 
     @Test
     @DisplayName("isSamePosition 비교 결과 다름")
-    void isSamePositionDifferentTest() {
+    void isSamePositionTestDifferent() {
         // given
         Position position1 = new Position();
         Position position2 = new Position();
