@@ -11,8 +11,18 @@ public class UserInput {
     }
 
     private static void validateCarNames(String[] carNames) {
-        if (carNames.length == 0) {
-            throw new RacingGameException("자동차 이름을 입력해야 합니다.");
+        for (String carName : carNames) {
+            if (carName.trim().isEmpty()) {
+                throw new RacingGameException("자동차 이름을 입력해야 합니다.");
+            }
+        }
+
+        for (int i = 0; i < carNames.length - 1; i++) {
+            for (int j = i + 1; j < carNames.length; j++) {
+                if (carNames[i].trim().equals(carNames[j].trim())) {
+                    throw new RacingGameException("중복된 자동차 이름이 있습니다.");
+                }
+            }
         }
     }
 
