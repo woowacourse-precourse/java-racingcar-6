@@ -13,7 +13,7 @@ import racingcar.view.validator.InputValidator;
 final class InputParserTest {
     @DisplayName("양수를 입력하면 maxRound 변환 성공")
     @Test
-    void parseMaxRoundSuccess() {
+    void parseToMaxRound_withPositive_shouldBeOk() {
         // given
         final String input1 = "1";
         final InputValidator inputValidator = new InputValidator();
@@ -30,7 +30,7 @@ final class InputParserTest {
 
     @DisplayName("음수를 입력하면 maxRound 변환 시 예외 발생")
     @Test
-    void parseMaxRoundFailureWithNegative() {
+    void parseToMaxRound_withNegative_shouldThrowException() {
         // given
         final String input1 = "-1";
         final InputValidator inputValidator = new InputValidator();
@@ -47,7 +47,7 @@ final class InputParserTest {
 
     @DisplayName("수 외의 문자를 입력하면 maxRound 변환 시 예외 발생")
     @Test
-    void parseMaxRoundFailureWithoutNumberString() {
+    void parseToMaxRound_withNaN_shouldThrowException() {
         // given
         final String input1 = "x";
         final InputValidator inputValidator = new InputValidator();

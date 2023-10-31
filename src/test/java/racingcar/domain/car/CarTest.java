@@ -10,7 +10,7 @@ import racingcar.domain.move.MoveCommand;
 final class CarTest {
     @DisplayName("Car가 움직이지 않으면 coordinate는 0이다")
     @Test
-    void carNotMovedTest() {
+    void moveBy_withSTAYCommand_shouldNotMoveCar() {
         // given
         final String carName1 = "a";
         final CarRacing car = new CarRacing(carName1);
@@ -27,7 +27,7 @@ final class CarTest {
 
     @DisplayName("MoveCommand.STAY 명령으로 N번 moved 해도 coordinate는 0이다")
     @Test
-    void carStayTest() {
+    void moveBy_withSTAYCommandManyTimes_shouldNotMoveCar() {
         // given
         final String carName1 = "a";
         final CarRacing car = new CarRacing(carName1);
@@ -46,7 +46,7 @@ final class CarTest {
 
     @DisplayName("MoveCommand.GO 명령과 함께 N번 moved하면 coordinate는 N이다")
     @Test
-    void carMovedTest() {
+    void moveBy_withGOCommandManyNTimes_shouldIncreaseCoordinateN() {
         // given
         final String carName1 = "a";
         final CarRacing car = new CarRacing(carName1);

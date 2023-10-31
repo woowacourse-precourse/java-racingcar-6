@@ -11,7 +11,7 @@ import racingcar.exception.coordinate.InvalidCoordinateException;
 final class CoordinateTest {
     @DisplayName("Coordinate는 0 이상의 값을 가져야 한다")
     @Test
-    void createCoordinateSuccess() {
+    void Coordinate_withPositive_shouldCreateCoordinate() {
         // given
         int input1 = 0;
         int input2 = 10;
@@ -27,7 +27,7 @@ final class CoordinateTest {
 
     @DisplayName("Coordinate를 음수로 생성 시, 예외를 던진다")
     @Test
-    void createCoordinateFailure() {
+    void Coordinate_withNegative_shouldThrowException() {
         // given
         int input1 = -1;
 
@@ -41,7 +41,7 @@ final class CoordinateTest {
 
     @DisplayName("coordinate 간의 뺄셈 연산")
     @Test
-    void doSubtractBetweenCoordinates() {
+    void subtract_betweenTwoCoordinate_shouldReturnIntValue() {
         // given
         final Coordinate coordinate1 = new Coordinate(1);
         final Coordinate coordinate2 = new Coordinate(2);
@@ -57,7 +57,7 @@ final class CoordinateTest {
 
     @DisplayName("서로 같거나 다른 coordinate 간의 비교가 가능하다")
     @Test
-    void compareCoordinates() {
+    void equals_betweenTwoCoordinate_shouldReturnBooleanValue() {
         // given
         final Coordinate coordinate1 = new Coordinate(1);
         final Coordinate coordinate2 = new Coordinate(1);
@@ -74,7 +74,7 @@ final class CoordinateTest {
 
     @DisplayName("increase를 호출할 때마다 Coordinate를 1씩 증가시킬 수 있다")
     @Test
-    void increaseCoordinate() {
+    void increase_withCoordinate_shouldIncreaseCoordinateOne() {
         // given
         final int input1 = 1;
         final Coordinate coordinate1 = new Coordinate(input1);
@@ -87,9 +87,9 @@ final class CoordinateTest {
     }
 
 
-    @DisplayName("Coordinate.zero는 coordinate가 0인 객체 생성한다.")
+    @DisplayName("Coordinate.zero는 value가 0인 객체 생성한다.")
     @Test
-    void createCoordinateZero() {
+    void zero__shouldCreateCoordinateHasZeroValue() {
         // given
         final Coordinate coordinate1 = Coordinate.zero();
 

@@ -11,7 +11,7 @@ final class StringValidatorTest {
 
     @DisplayName("null이나 공백 이외의 문자가 포함된 문자열 입력 시 검증 성공")
     @Test
-    void validateString() {
+    void validateString_withNonNullOrIncludesNonWhitespaces_shouldBeOk() {
         // given
         final List<String> inputs = List.of(
                 " x",
@@ -26,7 +26,7 @@ final class StringValidatorTest {
 
     @DisplayName("null 입력 시 예외 발생")
     @Test
-    void throwIfValidateNull() {
+    void validateString_withNull_shouldThrowException() {
         // given
         final String input = null;
         // when
@@ -40,7 +40,7 @@ final class StringValidatorTest {
 
     @DisplayName("공백인 문자열 입력 시 예외 발생")
     @Test
-    void throwIfValidateStringOnlyContainsWhiteSpaces() {
+    void validateString_includesWhitespaces_shouldThrowException() {
         // given
         final List<String> inputs = List.of(
                 " ",

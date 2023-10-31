@@ -10,7 +10,7 @@ import strings.util.Strings;
 final class StringsTest {
     @DisplayName("Strings.repeat으로 입력한 횟수 만큼 문자열 반복 가능")
     @Test
-    void repeatString() {
+    void repeat_withPositive_shouldReturnRepeatedString() {
         // given
         final String input = "-";
         final int count = 10;
@@ -25,7 +25,7 @@ final class StringsTest {
 
     @DisplayName("count가 음수일 경우 예외 발생")
     @Test
-    void throwIfRepeatInNegativeTimes() {
+    void repeat_withNegative_shouldThrowException() {
         // given
         final String input = "-";
         final int count = -10;
