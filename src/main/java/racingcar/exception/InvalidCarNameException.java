@@ -1,7 +1,6 @@
 package racingcar.exception;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class InvalidCarNameException extends IllegalArgumentException {

@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.utils.RandomGenerator;
 import racingcar.view.ResultView;
 
@@ -17,7 +16,7 @@ public class Race {
 
     public void startRace() {
         for (int i = 0; i < attemptCount; i++) {
-            for (Car car: cars) {
+            for (Car car : cars) {
                 car.tryMove(RandomGenerator.generateRandomNumber());
             }
             ResultView.printRaceResult(cars);
