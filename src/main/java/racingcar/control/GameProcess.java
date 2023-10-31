@@ -59,11 +59,6 @@ public class GameProcess {
         return new RaceCar(name);
     }
 
-    /**
-     * 현제 레이싱 자동차 리스트에 새로운 자동차를 추가한다.
-     *
-     * @param raceCar
-     */
     private void addRaceCarList(RaceCar raceCar) {
         raceCarList.add(raceCar);
     }
