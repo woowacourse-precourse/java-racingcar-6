@@ -12,7 +12,7 @@ import racingcar.observer.Subject;
 
 public class Car implements Subject {
     // 이후 확장성을 위해 옵저버를 리스트로 관리
-    private final List<Observer> subscribers = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
     private final String name;
     private int moved = 0;
 
@@ -38,17 +38,17 @@ public class Car implements Subject {
 
     @Override
     public void addObserver(Observer o) {
-        subscribers.add(o);
+        observers.add(o);
     }
 
     @Override
     public void removeObserver(Observer o) {
-        subscribers.remove(o);
+        observers.remove(o);
     }
 
     @Override
     public void notifyObservers() {
-        for (Observer o : subscribers) {
+        for (Observer o : observers) {
             o.display(this);
         }
     }
