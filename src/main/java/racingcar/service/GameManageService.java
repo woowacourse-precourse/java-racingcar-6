@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.dto.CarDTO;
 
 import java.util.Arrays;
 import java.util.List;
