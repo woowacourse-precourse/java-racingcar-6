@@ -14,6 +14,15 @@ import static java.lang.Integer.*;
 
 public class GameController {
 
+    public void run() {
+        String carNames = readCarNames();
+        int tryCount = readTryCount();
+        Race race = new Race(generateCars(carNames));
+
+        printRaceStatus(tryCount, race);
+        printRaceWinner(race);
+    }
+
     private static void printRaceWinner(Race race) {
         OutputView.printMessage("최종 우승자 : " + race.getWinnerString());
     }
