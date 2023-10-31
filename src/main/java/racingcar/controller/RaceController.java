@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.util.GameResult.getInstance;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCarGame;
@@ -8,7 +10,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceController {
-    public static StringBuilder gameResult = new StringBuilder();
 
     public void run() {
         InputView view = new InputView();
@@ -23,6 +24,7 @@ public class RaceController {
     }
 
     public StringBuilder getWinner(List<Car> carNameList, Referee referee) {
+        StringBuilder gameResult = getInstance().getGameResult();
 
         for (int k = 0; k < carNameList.size(); k++) {
             Car car = carNameList.get(k);
