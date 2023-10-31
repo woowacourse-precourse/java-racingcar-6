@@ -17,7 +17,7 @@ public class OutputInterface implements Output {
     }
 
     public void printStage(Game game) {
-        out.println(game.render(renderer) + "\n");
+        out.println(game.render() + "\n");
     }
 
     public void printWinners(List<String> winners) {

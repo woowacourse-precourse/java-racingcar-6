@@ -12,12 +12,14 @@ public class RacingCarGame implements Game{
     private final int maxTrial;
     private final List<RacingCar> cars;
     private final GameRandom random;
+    private final RacingCarGameRenderer renderer;
     private int currentTrial = 0;
 
-    public RacingCarGame(String[] names, int maxTrial, GameRandom random) {
+    public RacingCarGame(String[] names, int maxTrial, GameRandom random, RacingCarGameRenderer renderer) {
         checkTrial(maxTrial);
         this.maxTrial = maxTrial;
         this.random = random;
+        this.renderer = renderer;
         cars = createCars(names);
     }
     
@@ -81,7 +83,7 @@ public class RacingCarGame implements Game{
         return maxTrial <= currentTrial;
     }
 
-    public String render(RacingCarGameRenderer renderer) {
+    public String render() {
         if (currentTrial == 1) {
             return renderer.renderFirstStage(
                     renderer.renderCars(List.copyOf(cars))
