@@ -26,5 +26,14 @@ public class Application {
             throw new IllegalArgumentException("시도할 회수는 0 이하일 수 없습니다.");
         }
 
+        /**
+         * 게임 회수만큼 레이스 진행
+         */
+        for (int i = 0; i < gameCount; i++) {
+            for (int j = 0; j < carList.size(); j++) {
+                carList.get(j).race();
+            }
+        }
+
     }
 }
