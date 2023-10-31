@@ -19,7 +19,7 @@ public class Car implements Comparable<Car> {
     }
 
     public CarMovementDto toCarMovementDto() {
-        return new CarMovementDto(carName, position);
+        return new CarMovementDto(getCarName(), position);
     }
 
     public String getCarName() {
