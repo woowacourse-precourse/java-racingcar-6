@@ -16,8 +16,13 @@ class ValidatorTest {
             Validator.checkCarNameSize(carNamesLessThan1);
         });
 
-        List<String> carNamesEqual1 = List.of("Toyota");
+        List<String> carNamesEqual1 = List.of(" Toyota");
         Validator.checkCarNameSize(carNamesEqual1);
+
+        List<String> carNameIsEmpty = List.of("Audi","    ");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkCarNameSize(carNameIsEmpty);
+        });
 
         List<String> carNamesGreaterThan8 = List.of("Audi", "BMW", "Mercedes", "Toyota", "Ford", "Hyundai", "Kia", "Nissan", "Chevrolet");
         assertThrows(IllegalArgumentException.class, () -> {
