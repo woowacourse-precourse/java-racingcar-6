@@ -17,12 +17,12 @@ public class RacingController {
 
     public void inputCarNames(){
         MessagePrinter.start();
-        cars = UserInput.CarNames();
+        cars = UserInput.CarNames(UserInput.Input());
     }
 
     public void inputRacingTimes(){
         MessagePrinter.inputTimes();
-        times = UserInput.Times();
+        times = UserInput.Times(UserInput.Input());
     }
 
     public void racing(){

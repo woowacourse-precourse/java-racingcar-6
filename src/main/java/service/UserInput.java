@@ -11,8 +11,8 @@ public class UserInput {
         return Console.readLine();
     }
 
-    public static Cars CarNames(){
-        List<String> carNames = Arrays.stream(Input().split(","))
+    public static Cars CarNames(String names){
+        List<String> carNames = Arrays.stream(names.split(","))
                                     .toList();
 
         Validation.CheckCarNames(carNames);
@@ -26,10 +26,8 @@ public class UserInput {
 
     }
 
-    public static int Times(){
-        String times = Input();
+    public static int Times(String times){
         Validation.CheckTimes(times);
-
         return Integer.parseInt(times);
     }
 
