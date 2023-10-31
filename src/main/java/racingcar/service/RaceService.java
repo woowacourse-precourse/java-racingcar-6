@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class RaceService {
     private static final int MIN_RANDOM_VALUE = 4;
+    private static final int MIN_ROUND = 0;
     public void startRace(HashMap<String, String> participants, int round) {
         while (isRoundLeft(round)) {
             for (String car : participants.keySet()) {
@@ -22,7 +23,7 @@ public class RaceService {
     }
 
     public static boolean isRoundLeft(int round) {
-        return round > 0;
+        return round > MIN_ROUND;
     }
 
     private static void plusOneStep(HashMap<String, String> participants, String car) {
