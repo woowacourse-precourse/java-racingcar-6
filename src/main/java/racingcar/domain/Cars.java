@@ -3,11 +3,11 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Referee {
+public class Cars {
     private List<Car> cars;
 
     public Referee(List<Car> cars) {
-        this.cars = cars;
+        this.cars = ;
     }
 
     public List<Car> findWinners() {
