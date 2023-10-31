@@ -14,8 +14,11 @@ public class Game {
         this.trial = trial;
     }
 
-    public List<Car> getCars(){
-        return cars;
+    public void setCars(List<String> carsName){
+        this.cars = new ArrayList<Car>();
+        for(String name : carsName){
+            cars.add(new Car(name));
+        }
     }
 
     public void playGame(){
@@ -27,10 +30,9 @@ public class Game {
         }
     }
 
-    public void setCars(List<String> carsName){
-        this.cars = new ArrayList<Car>();
-        for(String name : carsName){
-            cars.add(new Car(name));
+    public void playRound(){
+        for(Car car : cars){
+            car.move(getRandomNumber());
         }
     }
 
@@ -38,9 +40,7 @@ public class Game {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public void playRound(){
-        for(Car car : cars){
-            car.move(getRandomNumber());
-        }
+    public List<Car> getCars(){
+        return cars;
     }
 }
