@@ -18,9 +18,15 @@ public class Application {
 
 class GameSystem {
     public void start(InputView input, OutputView output) {
+        InputManufacture manufacture = new InputManufacture();
+
 
     }
 
+    public ArrayList<String> makeCarNames(InputView input, InputManufacture manufacture) {
+        String names = input.readCarNames();
+        return manufacture.makeNameList(names);
+    }
 
 }
 
