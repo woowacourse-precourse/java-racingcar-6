@@ -24,16 +24,57 @@
   - 자동차의 이동횟수만큼 '-'를 출력한다.
   - 자동차 이동횟수의 최대값을 가지는 이름들을 출력한다.
 
+## 💡  기능 구현 목록
+### GameController
+| Method  | Description                                      |
+|:-------:|--------------------------------------------------|
+|   run   | 프로그램 flow를 관리한다. <br> model과 view 간의 상호작용을 담당한다. |
+|play| 모든 자동차 객체에 대해 playGame을 호출한다.|
 
-## 1차 구현의 개선할 내용
+### GameService
+|   Method   | Description                                             |
+|:----------:|---------------------------------------------------------|
+| createCars | 넘겨받은 carNames의 각 원소를 save에 인자로 넘겨 호출한다.                 | 
+| nameCheck  | 넘겨받은 carNames의 각 원소가 5자 이하인 지 검사한다.                     |
+|  playGame  | 넘겨받은 idx에 해당하는 car 객체에 대해 carForward를 호출하고 반환값을 다시 반환한다 |
+| resultGame | findAllMaxForward를 호출하고 그 반환값을 다시 반환한다.                 |
+
+### Car
+|   Method   | Description                      |
+|:----------:|----------------------------------|
+| setForward | 넘겨받은 integer를 객체의 forward로 설정한다. |
+|  getName   | 객체의 name을 return 한다.             |
+| getForward | 객체의 forward를 return한다.           |
+
+### CarRepository
+|      Method       | Description                                          |
+|:-----------------:|------------------------------------------------------|
+|       save        | 넘겨받은 string을 이름으로 가지는 car 객체를 생성한다                   |
+|    carForward     | 넘겨받은 randomNumber에 따라 forward 값을 변경하고 car를 return한다. |
+| findAllMaxForward | 모든 car 객체들중 forward가 최대값인 객체들의 이름을 List 형태로 return한다 |
+|    findByName     | 넘겨받은 string을 name의 값으로 가지는 car 객체를 return한다.         |
+
+## InputView
+|    Method    | Description                                                             |
+|:------------:|-------------------------------------------------------------------------|
+|  inputName   | 이름에 해당하는 문자열을 입력받고 ,를 기준으로 parsing해 list 형태로 return한다                   |
+| inputAttempt | 시도 횟수에 해당하는 숫자를 입력받는다.<br> 숫자가 아닐 경우 IllegalArgumentException을 throw한다. |
+
+## OutputView
+|    Method     | Description                                             |
+|:-------------:|---------------------------------------------------------|
+| outputResult  | "실행 결과"라는 문자열을 출력한다.                                    |
+| outputForward | 넘겨받은 car 객체의 forward값을 양식에 맞춰 출력한다                      |
+| outputWinner  | 넘겨받은 우승 자동차들의 이름(List<String>)을 양식에 맞춰 출력한다.            |
+|  printComma   | 마지막 순서의 원소인지 검사하는 valueForCheck에 따라 자동차 이름 뒤에 , 붙여 출력한다 |
+
+## ⚒️ 1차 구현의 개선할 내용
 
 - MVC 패턴의 개선
   - 현재 Repository에 view가 존재함
   - view와 repository는 서로 의존할 수 없다!
   - 이러한 의존을 controller로 옮기는 작업이 필요
-
-
-    💡  Controller를 통해 view와 model 간의 통신을 하자.
+ 💡  Controller를 통해 view와 model 간의 통신을 하자.
 - 테스트 코드 작성
   - 메소드 단의 테스트 코드를 작성해야함
   - 현재 의존관계가 이상해서 제대로 구현하기 어려움
