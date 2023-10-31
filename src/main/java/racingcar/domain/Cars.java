@@ -41,6 +41,14 @@ public class Cars {
         cars.forEach(car -> car.move(numberGenerator.generate()));
     }
 
+    public List<Name> findWinnerNames() {
+        Car winner = findWinner();
+        return cars.stream()
+                .filter(car -> car.isWinner(winner))
+                .map(Car::getName)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
     private Car findWinner() {
         return cars.stream()
                 .max(Car::compareTo)
