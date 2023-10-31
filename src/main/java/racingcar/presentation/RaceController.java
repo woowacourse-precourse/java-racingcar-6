@@ -2,11 +2,11 @@ package racingcar.presentation;
 
 import static racingcar.global.constants.MessageType.FINAL_RESULT_MESSAGE;
 import static racingcar.global.constants.MessageType.RESULT_MESSAGE;
-import static racingcar.global.constants.MessageType.TOTAL_COUNT_REQUEST_MESSAGE;
 
 import java.util.List;
 import racingcar.application.RaceService;
 import racingcar.domain.Cars;
+import racingcar.utils.Parser;
 import racingcar.view.View;
 
 public class RaceController {
@@ -18,7 +18,7 @@ public class RaceController {
 
     public void startRace() {
         Cars cars = Cars.of(View.requestCarNames());
-        Integer count = raceService.generateCount(View.requestCount());
+        Integer count = Parser.parseStringToInteger(View.requestCount());
         play(cars, count);
         finish(cars);
     }

@@ -16,4 +16,8 @@ public class Parser {
     private static String[] split(String userInput) {
         return userInput.split(DELIMITER.getSymbol());
     }
+
+    public static Integer parseStringToInteger(String userInput) {
+        return Integer.parseInt(userInput);
+    }
 }
