@@ -62,14 +62,12 @@ public class Car {
     }
 
     private static void validateCarNames(List<String> carNames) {
-        Set<String> uniqueNames = new HashSet<>(carNames);
-        if (uniqueNames.size() != carNames.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
-        }
+        Set<String> uniqueNames = new HashSet<>();
         for (String name : carNames) {
-            if (isInvalidName(name)) {
-                throw new IllegalArgumentException("자동차 이름은 1~5자이고 공백이 없어야 합니다.");
+            if (isInvalidName(name) || uniqueNames.contains(name)) {
+                throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
             }
+            uniqueNames.add(name);
         }
     }
 }
