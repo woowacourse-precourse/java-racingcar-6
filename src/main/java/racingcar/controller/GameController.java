@@ -22,7 +22,9 @@ public class GameController {
     public void startGame() {
         initGame();
         run();
+        result();
     }
+
 
     /**
      * 게임 시작전 이름과 수행횟수 입력받아 세팅하는 메서드
@@ -44,5 +46,13 @@ public class GameController {
             outputView.printCurrentGame(cars);
             current++;
         }
+    }
+
+    /**
+     * 게임 결과를 진행하는 메서드
+     */
+    private void result() {
+        List<String> winners = cars.getWinner();
+        outputView.printResult(winners);
     }
 }
