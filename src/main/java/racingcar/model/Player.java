@@ -16,4 +16,8 @@ public class Player {
     public int getLocation() {
         return this.location;
     }
+
+    public void move() {
+        this.location++;
+    }
 }
