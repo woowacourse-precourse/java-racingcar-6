@@ -1,8 +1,6 @@
 package racingcar.exception;
 
-import static racingcar.constants.Integers.*;
-
-import racingcar.constants.Integers;
+import static racingcar.constants.Integers.MAX_CAR_NAME_LENGTH;
 
 public class CarNameLengthExceedException extends IllegalArgumentException {
 

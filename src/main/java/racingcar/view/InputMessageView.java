@@ -1,6 +1,7 @@
 package racingcar.view;
 
-import static racingcar.constants.Messages.*;
+import static racingcar.constants.Messages.CARS_INPUT_MESSAGE;
+import static racingcar.constants.Messages.FORWARD_TRY_COUNT_INPUT_MESSAGE;
 
 public class InputMessageView {
 

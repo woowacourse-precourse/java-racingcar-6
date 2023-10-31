@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class RacingCars implements Iterable<Car> {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public RacingCars(List<Car> cars) {
         this.cars = new ArrayList<>(cars);
     }
+
     @Override
     public Iterator<Car> iterator() {
         return cars.iterator();
@@ -38,8 +38,8 @@ public class RacingCars implements Iterable<Car> {
     public RacingWinners calculateRacingWinners() {
         int maxForwardCounts = getMaxForwardCountFromCars();
         List<Car> racingWinners = this.cars.stream()
-                .filter(car -> car.showForwardCount() == maxForwardCounts)
-                .toList();
+                                           .filter(car -> car.showForwardCount() == maxForwardCounts)
+                                           .toList();
         return new RacingWinners(racingWinners);
     }
 

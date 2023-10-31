@@ -12,25 +12,28 @@ public class ForwardTryCount {
         count = Integer.parseInt(countString);
 
     }
+
     private void validate(String countString) {
         checkNumeric(countString);
         checkNaturalNumber(countString);
     }
+
     private void checkNaturalNumber(String countString) {
         int count = Integer.parseInt(countString);
         if (count < 0) {
             throw new ForwardTryCountFormatException();
         }
     }
+
     private void checkNumeric(String countString) {
         boolean isNumeric = countString.chars()
-                               .allMatch(Character::isDigit);
+                                       .allMatch(Character::isDigit);
         if (!isNumeric) {
             throw new ForwardTryCountFormatException();
         }
     }
 
-    public void subCount () {
+    public void subCount() {
         count--;
     }
 

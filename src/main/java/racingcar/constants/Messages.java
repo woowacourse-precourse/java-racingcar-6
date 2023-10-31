@@ -6,7 +6,7 @@ public enum Messages {
     RACING_WINNERS_OUTPUT("최종 우승자 : %s"),
     EXECUTION_RESULT("\n실행결과");
 
-    private String value;
+    private final String value;
 
     Messages(String value) {
 

@@ -8,8 +8,8 @@ public class CarFactory {
 
     public RacingCars createCarsWithNames(List<CarName> names) {
         List<Car> cars = names.stream()
-                               .map(this::createCarWithName)
-                               .toList();
+                              .map(this::createCarWithName)
+                              .toList();
         return new RacingCars(cars);
     }
 

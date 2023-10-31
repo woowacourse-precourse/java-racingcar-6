@@ -1,9 +1,7 @@
 package racingcar.vo;
 
-import static racingcar.constants.Integers.*;
+import static racingcar.constants.Integers.MAX_CAR_NAME_LENGTH;
 
-import java.util.Objects;
-import racingcar.constants.Integers;
 import racingcar.exception.CarNameLengthExceedException;
 
 public class CarName {
@@ -22,8 +20,7 @@ public class CarName {
     }
 
 
-
-    public String show () {
+    public String show() {
         return carName;
     }
 }

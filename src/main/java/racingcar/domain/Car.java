@@ -22,7 +22,7 @@ public class Car {
     }
 
     public String showName() {
-        return new String(name.show());
+        return name.show();
     }
 
     public void checkMoveForward(boolean isCarMove) {

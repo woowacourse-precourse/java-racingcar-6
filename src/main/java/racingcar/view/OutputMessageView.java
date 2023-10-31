@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.constants.Messages.*;
+import static racingcar.constants.Messages.EXECUTION_RESULT;
 
 public class OutputMessageView {
 

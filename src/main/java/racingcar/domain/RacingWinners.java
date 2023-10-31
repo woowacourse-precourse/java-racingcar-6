@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.vo.CarName;
 
 public class RacingWinners {
 
@@ -14,8 +13,8 @@ public class RacingWinners {
 
     public String showRacingWinnersNamesSplitByComma() {
         List<String> carNames = racingWinners.stream()
-                .map(Car::showName)
-                .toList();
+                                             .map(Car::showName)
+                                             .toList();
         return String.join(", ", carNames);
     }
 }
