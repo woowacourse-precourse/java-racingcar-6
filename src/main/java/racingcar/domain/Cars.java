@@ -1,11 +1,9 @@
 package racingcar.domain;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.response.GameResultDto;
-import racingcar.dto.response.RoundResultDto;
 import racingcar.util.ExceptionHandler;
 import racingcar.view.ConsoleOutput;
 import racingcar.view.OutputView;

@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import javax.lang.model.element.Name;
 import racingcar.dto.response.RoundResultDto;
 
 public class Car {
