@@ -13,11 +13,13 @@ public class RaceView {
             for (int i = 0; i < car.getForwardDistance(); i++) {
                 System.out.print("-");
             }
-            System.out.println();
+            System.out.print("\n\n");
         }
     }
 
-    public static void displayWinner(List<Car> winner) {
-
+    public static void displayWinner(List<Car> cars) {
+        List<String> carsName = cars.stream().map(Car::getName).toList();
+        String winner = String.join(",", carsName);
+        System.out.print("최종 우승자 : " + winner + "\n");
     }
 }
