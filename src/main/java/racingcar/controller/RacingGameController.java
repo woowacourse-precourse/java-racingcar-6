@@ -1,18 +1,29 @@
 package racingcar.controller;
 
-import racingcar.model.CarNameRepository;
+import java.util.List;
+import racingcar.controller.mapper.CarNameMapper;
+import racingcar.model.CarName;
+import racingcar.validation.NameValidator;
 
 public class RacingGameController {
 
-    private CarNameRepository carNameRepository;
+    private CarNameMapper carNameMapper;
+    private NameValidator nameValidator;
 
     public RacingGameController() {
-        this.carNameRepository = new CarNameRepository();
+        this.carNameMapper = new CarNameMapper();
+        this.nameValidator = new NameValidator();
     }
 
-    public void setCarName(String carName) {
-        // validation & save car name
-        carNameRepository.saveCarNames(carName);
+    public void setCarName(String carNames) {
+        // convert String to CarName
+        List<CarName> carNameGroup = carNameMapper.toCarName(carNames);
+        // validate
+        for (CarName name : carNameGroup) {
+            nameValidator.validate(name);
+        }
+        // make Car
+
     }
 
     public void setAttempts(String attempts) {
