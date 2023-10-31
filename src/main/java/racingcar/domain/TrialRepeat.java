@@ -7,8 +7,11 @@ public class TrialRepeat {
     public static final String RESULT_PRINT_TEXT = "실행 결과";
     public Hashtable<String, Integer> sb;
 
-    public void trialExecution(Hashtable<String, Integer> scoreboard) {
+    public TrialRepeat(Hashtable<String, Integer> scoreboard) {
         sb = scoreboard;
+    }
+
+    public void trialExecution() {
         for (String name : sb.keySet()) {
             System.out.println(personalScore(name, goOrNot()));
         }

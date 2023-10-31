@@ -9,9 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TrialRepeatTest {
     @Test
     void scoreOf5() {
-        TrialRepeat trial = new TrialRepeat();
-        trial.sb = new Hashtable<>();
-        trial.sb.put("qqq", 0);
+        Hashtable<String, Integer> sb = new Hashtable<>();
+        sb.put("qqq", 0);
+        TrialRepeat trial = new TrialRepeat(sb);
 
         assertThat(trial.personalScore("qqq", true)).isEqualTo("qqq : -");
         assertThat(trial.personalScore("qqq", true)).isEqualTo("qqq : --");

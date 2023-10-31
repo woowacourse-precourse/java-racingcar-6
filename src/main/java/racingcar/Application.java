@@ -19,9 +19,12 @@ public class Application {
         trialToDo = input.trialToInt(input.inputTrial());
 
         System.out.println(TrialRepeat.RESULT_PRINT_TEXT);
+        TrialRepeat trial = new TrialRepeat(scoreboard);
         while (trialCurrent < trialToDo) {
-            TrialRepeat trial = new TrialRepeat();
-            trial.trialExecution(scoreboard);
+            trial.trialExecution();
         }
+        scoreboard = trial.sb;
+
+
     }
 }
