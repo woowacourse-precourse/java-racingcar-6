@@ -11,6 +11,7 @@ public class ValidException {
     private static final String KOREAN_REGEX = "[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+";
     private static final Integer START_NUM_ZERO = 0;
     private static final Integer END_NUM_FIVE = 5;
+    private static final String NUM_REGEX = ".*[0-9].*";
 
     public static Boolean isValidLessFIveLen(String str) {
         int len = str.length();
@@ -22,7 +23,7 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
 
-    public static Boolean isValidIncludeKoreanCheck(String str) {
+    public static Boolean isValidIncludeKorean(String str) {
         Pattern pattern = Pattern.compile(KOREAN_REGEX);
         Matcher matcher = pattern.matcher(str);
 
@@ -33,16 +34,9 @@ public class ValidException {
         return false;
     }
 
-    /**
-     * 숫자를 포함하는 여부 검사.
-     *
-     * @param inputStr
-     */
-    public static void isValidIncludeNum(String inputStr) {
-        String regex = ".*[0-9].*"; // 숫자가 포함되어 있는지 확인하는 정규 표현식
-
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(inputStr);
+    public static void isValidIncludeNum(String str) {
+        Pattern pattern = Pattern.compile(NUM_REGEX);
+        Matcher matcher = pattern.matcher(str);
 
         if (matcher.matches()) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_NUM());

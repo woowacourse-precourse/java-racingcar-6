@@ -32,7 +32,7 @@ class ValidExceptionTest {
     void isValidIncludeKoreanCheck(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidIncludeKoreanCheck(input))
+                        () -> ValidException.isValidIncludeKorean(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
