@@ -18,32 +18,17 @@ public class Racing {
         this.carList = carList;
     }
 
-    public String startRacing(List<String> nameList, int round) {
+    public String startRacing(int round) {
         StringBuilder racingResult = new StringBuilder();
 
         for (int i = 0; i < round; i++) {
-            List<Integer> roundResult = new ArrayList<>();
+            racingResult.append("\n");
             for (Car car : carList) {
                 move(car);
-                roundResult.add(car.move);
+                racingResult.append(car.result());
             }
-            racingResult.append(result(nameList, roundResult));
         }
         return racingResult.toString();
-    }
-
-    private String result(List<String> nameList, List<Integer> roundResult) {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("\n");
-        for (int i = 0; i < roundResult.size(); i++) {
-            String name = nameList.get(i);
-            String dash = "-".repeat(roundResult.get(i));
-
-            sb.append(String.format("%s : %s%n", name, dash));
-        }
-
-        return sb.toString();
     }
 
     private void move(Car car) {

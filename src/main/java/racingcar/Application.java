@@ -16,7 +16,7 @@ public class Application {
 
         int round = inputView.inputTryNumber();
 
-        String racingResult = racing.startRacing(nameList, round);
+        String racingResult = racing.startRacing(round);
 
         outputView.roundResult(racingResult);
 
