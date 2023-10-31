@@ -69,7 +69,7 @@ public class Application {
                 winners.append(carNames[i]);
             }
         }
-        System.out.println("\n최종 우승자: " + winners);
+        System.out.println("\n최종 우승자 : " + winners);
     }
 }
 
