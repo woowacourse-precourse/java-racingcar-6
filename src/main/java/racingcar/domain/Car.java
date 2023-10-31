@@ -2,7 +2,10 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+import java.util.Collections;
+import java.util.List;
+
+public class Car implements Comparable<Car> {
     private String name;
     private int position;
 
@@ -24,5 +27,13 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public void setPosition(int moveCount) {
+        this.position = moveCount;
+    }
+    @Override
+    public int compareTo(Car c) {
+        return c.position - this.position;
     }
 }
