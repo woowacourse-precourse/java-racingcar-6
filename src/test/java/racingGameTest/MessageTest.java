@@ -35,18 +35,21 @@ public class MessageTest {
     }
 
     @Test
+    @DisplayName("자동차 이름 입력 안내 메세지")
     void inputCarNameMessage() {
         RacingGameView.inputCarNameMessage();
         assertEquals(Constant.INPUT_CAR_NAME, outPut.toString().trim());
     }
 
     @Test
+    @DisplayName("시도 횟수 입력 안내 메세지")
     void inputTryCountMessage() {
         RacingGameView.inputTryCountMessage();
         assertEquals(Constant.INPUT_TRY_COUNT, outPut.toString().trim());
     }
 
     @Test
+    @DisplayName("실행 결과 안내 메세지")
     void gameResultMessage() {
         RacingGameView.gameResultMessage();
         assertEquals(Constant.GAME_RESULT, outPut.toString().trim());

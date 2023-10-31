@@ -42,12 +42,15 @@ public class RacingGameController {
         return winners;
     }
 
-    public static void moveForward(Map<String, Integer> userCarName) {
-        for (String key : userCarName.keySet()) {
-            int value = userCarName.get(key);
-            if (randomNumber() >= Constant.FORWARD_STANDARD) {
-                userCarName.put(key, value + 1);
-            }
+    public static void moveForward(Map<String, Integer> userCars) {
+        for (String key : userCars.keySet()) {
+            moveCondition(userCars, key, randomNumber());
+        }
+    }
+
+    public static void moveCondition(Map<String, Integer> userCars, String key, int value) {
+        if (value >= Constant.FORWARD_STANDARD) {
+            userCars.put(key, userCars.get(key) + 1);
         }
     }
 

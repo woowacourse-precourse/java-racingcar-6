@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.view.RacingGameView.winner;
+
 import java.util.List;
 import java.util.Map;
 import racingcar.controller.RacingGameController;
@@ -20,6 +22,6 @@ public class Application {
         }
 
         List<String> mostForwardCarList = RacingGameController.mostMoveForwardCar(car);
-        RacingGameView.winner(mostForwardCarList);
+        RacingGameView.winnerMessage(winner(mostForwardCarList));
     }
 }

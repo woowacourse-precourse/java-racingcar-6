@@ -3,9 +3,6 @@ package racingGameTest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import static racingcar.controller.ExceptionController.carNameDuplicateException;
 import static racingcar.controller.ExceptionController.carNameMaxLengthException;
@@ -16,15 +13,21 @@ import static racingcar.controller.ExceptionController.tryCountNotIntException;
 import static racingcar.controller.ExceptionController.multiCommaException;
 
 import static racingcar.controller.RacingGameController.makePersonalCarAndForwardStatus;
+import static racingcar.view.RacingGameView.commaBasedSplitCarName;
 
-import racingcar.view.RacingGameView;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class FailCaseTest {
 
     @Test
+    @DisplayName("중복된 자동차의 이름이 있는 경우")
     void duplicateCarName() {
         // given
-        List<String> cars = RacingGameView.commaBasedSplitCarName( "user1,user2,user3,user1");
+        List<String> cars = commaBasedSplitCarName( "user1,user2,user3,user1");
 
         // when
         Map<String, Integer> carNameSave = makePersonalCarAndForwardStatus(cars);
@@ -35,6 +38,7 @@ public class FailCaseTest {
     }
 
     @Test
+    @DisplayName("시도 횟수에 숫자 대신 문자를 넣었을 경우")
     void inputTryCountInteger() {
         // given
         final String tryCount = "a";
@@ -45,6 +49,7 @@ public class FailCaseTest {
     }
 
     @Test
+    @DisplayName("문자열에 빈 칸이 있는 경우")
     void inputStringBlank() {
         // given
         final String blankString = "user, ";
@@ -55,6 +60,7 @@ public class FailCaseTest {
     }
 
     @Test
+    @DisplayName("','를 제외한 특수 문자를 포함해 문자열을 입력한 경우")
     void carNameExcludeSpecialChar() {
         // given
         final String specialChar = "user,user1,u@er";
@@ -65,6 +71,7 @@ public class FailCaseTest {
     }
 
     @Test
+    @DisplayName("9 이상의 숫자를 입력한 경우")
     void inputTryCountLength() {
         // given
         final String tryCount = "12";
@@ -75,6 +82,7 @@ public class FailCaseTest {
     }
 
     @Test
+    @DisplayName("자동차의 이름이 5글자를 초과한 경우")
     void carNameMaxLength() {
         // given
         final String carName = "user,user1,user12";
@@ -88,6 +96,7 @@ public class FailCaseTest {
     }
 
     @Test
+    @DisplayName("연속적으로 ','가 들어간 경우")
     void multiComma() {
         // given
         String carName = "user,user1,,user2";
