@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.RandomNumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.domain.dto.CarStatus;
 import racingcar.domain.dto.GameStatus;
 
