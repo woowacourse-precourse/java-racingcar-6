@@ -6,12 +6,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarController {
 
-// 진행과정
-// 자동차 리스트를 가지고 와서
-// 레이싱 1세트 진행 시키고
-// 차1대의 전진이 끝날때마다 해시맵에 기록
-// 1세트가 끝나면 해시맵 반환
-
     List<String> cars;
 
     public CarController(List<String> cars) {
