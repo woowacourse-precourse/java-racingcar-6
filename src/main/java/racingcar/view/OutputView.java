@@ -12,6 +12,9 @@ import racingcar.model.RacingCars;
 
 public final class OutputView {
 
+    private OutputView() {
+    }
+
     public static void printStartMessage() {
         System.out.println(START_GAME_MESSAGE);
     }

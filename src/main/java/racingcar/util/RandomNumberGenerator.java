@@ -7,6 +7,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public final class RandomNumberGenerator {
 
+    private RandomNumberGenerator() {
+    }
+
     public static Integer generate() {
         return Randoms.pickNumberInRange(RANDOM_MIN_RANGE, RANDOM_MAX_RANGE);
     }

@@ -10,6 +10,9 @@ import java.util.Set;
 
 public final class CarNameValidation extends InputValidation {
 
+    private CarNameValidation() {
+    }
+
     public static void validate(List<String> carNameList) {
         isWrongNameSize(carNameList);
         hasDuplicateName(carNameList);

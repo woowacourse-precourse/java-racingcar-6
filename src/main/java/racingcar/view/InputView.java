@@ -7,6 +7,9 @@ import camp.nextstep.edu.missionutils.Console;
 
 public final class InputView {
 
+    private InputView() {
+    }
+
     public static String readCarName() {
         System.out.println(READ_CAR_NAME_MESSAGE);
         return Console.readLine();

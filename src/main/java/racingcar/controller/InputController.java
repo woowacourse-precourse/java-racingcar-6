@@ -10,6 +10,9 @@ import racingcar.validation.CountValidation;
 
 public final class InputController {
 
+    private InputController() {
+    }
+
     public static RacingCars toRacingCars(String input) {
         CarNameValidation.isEmptyInput(input);
         List<String> carNameList = splitStringToListWithTrim(input);

@@ -4,6 +4,9 @@ import static racingcar.constant.Constant.ERROR_COUNT_NOT_POSITIVE_MESSAGE;
 
 public final class CountValidation extends InputValidation {
 
+    private CountValidation() {
+    }
+
     public static void validate(String input) {
         isEmptyInput(input);
         isNumeric(input);
