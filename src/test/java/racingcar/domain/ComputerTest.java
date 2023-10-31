@@ -12,5 +12,4 @@ class ComputerTest {
         assertTrue(randomNumber >= 0);
         assertTrue(randomNumber <= 9);
     }
-
 }
