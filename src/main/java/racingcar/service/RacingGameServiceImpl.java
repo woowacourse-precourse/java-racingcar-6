@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import static racingcar.domain.Constants.MAX_RANDOM_NUMBER;
-import static racingcar.domain.Constants.MIN_MOVE_NUMBER;
 import static racingcar.domain.Constants.MIN_RANDOM_NUMBER;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -20,11 +19,9 @@ import racingcar.validation.IntegerValidator;
 public class RacingGameServiceImpl implements RacingGameService {
 
     private final String EMPTY_INPUT_MESSAGE = "자동차 이름을 하나 이상 입력하세요.";
-    private final CarService carService;
     private final RacingGameRepository racingGameRepository;
 
-    public RacingGameServiceImpl(CarService carService, RacingGameRepository racingGameRepository) {
-        this.carService = carService;
+    public RacingGameServiceImpl(RacingGameRepository racingGameRepository) {
         this.racingGameRepository = racingGameRepository;
     }
 

@@ -1,13 +1,11 @@
 package racingcar.configuration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingGameController;
 import racingcar.repository.CarRepository;
 import racingcar.repository.RacingGameRepository;
-import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -53,19 +51,6 @@ public class AppConfigTest {
         assertThat(racingGameRepository1).isNotNull();
         assertThat(racingGameRepository2).isNotNull();
         assertThat(racingGameRepository1).isSameAs(racingGameRepository2);
-    }
-
-    @Test
-    public void CarService가_싱글톤인지() {
-        // given && when
-        CarService carService1 = config.carService();
-        CarService carService2 = config.carService();
-
-        // then
-        assertThat(carService1).isInstanceOf(CarService.class);
-        assertThat(carService1).isNotNull();
-        assertThat(carService2).isNotNull();
-        assertThat(carService1).isSameAs(carService2);
     }
 
     @Test

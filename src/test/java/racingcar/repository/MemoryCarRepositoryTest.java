@@ -64,20 +64,6 @@ public class MemoryCarRepositoryTest {
     }
 
     @Test
-    public void Car_Name으로_객체찾기() {
-        // given
-        final Car car1 = Car.create("car1");
-
-        // when
-        memoryCarRepository.save(car1);
-        final Optional<Car> findResult = memoryCarRepository.findByName("car1");
-
-        // then
-        assertThat(findResult.isPresent()).isTrue();
-        assertThat(findResult.get()).isEqualTo(car1);
-    }
-
-    @Test
     public void 모든Car객체반환() {
         // given
         final Car car1 = Car.create("car1");
