@@ -45,10 +45,11 @@
 ## 기능 요구 사항 구현
 
 ### Location 구현
-- [ ] Location 구현
-    - [ ] 0과 자연수
-    - [ ] step 기능 구현
-        - [ ] step 시 Location이 1 증가
+- [x] Location 구현
+    - [x] 0과 자연수
+    - [x] step 기능 구현
+        - [x] step 시 Location이 1 증가
+    - [x] 위치를 문자열로 변환하는 기능 구현 (추가)
 
 ### TryCount 구현
 - [x] TryCount 구현
