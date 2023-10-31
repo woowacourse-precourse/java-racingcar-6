@@ -49,7 +49,7 @@ public class InputView {
         return attemptNumber;
     }
 
-    private void validateAttemptNormalInput(int AttemptNumber) {
+    public void validateAttemptNormalInput(int AttemptNumber) {
         if (AttemptNumber <= ATTEMPT_LIMIT) {
             throw new IllegalArgumentException();
         }
