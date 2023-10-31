@@ -33,9 +33,9 @@ public class Converter {
     private LinkedHashMap<String, String> getCarNameHashMap(String[] parts) {
         LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
         for (String part : parts) {
-            UserInputValidator.checkEmptyInput(part);
+            UserInputValidator.validateEmptyInput(part);
             carNameHashMap.put(part, "");
-            UserInputValidator.checkNameLength(part);
+            UserInputValidator.validateNameLength(part);
         }
         return carNameHashMap;
     }
