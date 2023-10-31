@@ -49,6 +49,13 @@ class ApplicationTest extends NsTest {
         assertThat(result).isEqualTo(true);
     }
 
+    @Test
+    void 이름_중복_검사(){
+        NamesManager manager = new NamesManager();
+        boolean result = manager.duplicateName(Arrays.asList("pobi","pobi"));
+        assertThat(result).isEqualTo(true);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

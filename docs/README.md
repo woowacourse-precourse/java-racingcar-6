@@ -2,9 +2,9 @@
 
 - [x] 한 줄로 입력된 자동차 이름들을 분리한다. : NamesManager # separateNamesString()
 
-- [] 자동차 이름이 조건에 맞는지 확인한다. : NamesManager # checkNamesException()
+- [x] 자동차 이름이 조건에 맞는지 확인한다. : NamesManager # checkNamesException()
   - [x] 자동차 이름이 5자 이하인지 확인한다. : NamesManager # wrongNameLength()
-  - [] 자동차 이름이 모두 unique한지 확인한다 : NamesManager # duplicateName()
+  - [x] 자동차 이름이 모두 unique한지 확인한다 : NamesManager # duplicateName()
 
 - [] 시도할 횟수가 숫자가 맞는지 확인한다. : notNumber()
 
