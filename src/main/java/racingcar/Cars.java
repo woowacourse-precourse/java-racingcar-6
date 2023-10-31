@@ -11,4 +11,11 @@ public class Cars {
             cars.add(new Car(carName));
         }
     }
+
+    public void attempt() {
+        for (Car car : cars) {
+            car.attempt();
+        }
+    }
+
 }
