@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import racingcar.handler.UserInputHandler;
+import racingcar.view.ResultView;
 
 import java.util.List;
 
@@ -15,5 +16,8 @@ public class Application {
         GameController gameController = new GameController();
         gameController.setUp(names);
         gameController.run(rounds);
+
+        List<String> winners = gameController.getWinners();
+        ResultView.printWinners(winners);
     }
 }
