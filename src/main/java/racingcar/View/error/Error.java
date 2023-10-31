@@ -2,12 +2,12 @@ package racingcar.View.error;
 
 public enum Error {
 
-    EXCEEDED_MAXIMUM_ERROR("입력할 수 있는 최대를 넘었습니다."),
-    MUST_BE_NUMBER("입력값은 숫자여야 합니다."),
+    ROUND_COUNT_MAXIMUM_ERROR("라운드 수는 최대 5회 입니다."),
+    ROUND_COUNT_UNDEFIND_ERROR("라운드 값이 입력 되지 않았습닏다."),
 
-    NOT_EXCEED_MINIMUM_AMOUNT("이름을 2개 이상은 입력해야 합니다."),
+    USERNAME_MAXIMUM_ERROR("유저 이름은 최대 5글자 입니다."),
 
-    DOES_NOT_MATCH_WITH_TRIAL_AMOUNT("입력한 이름의 개수가 게임 ");
+    USERNAME_UNDEFINED_ERROR("유저 이름이 입력 되지 않았습니다.");
 
     final String message;
 

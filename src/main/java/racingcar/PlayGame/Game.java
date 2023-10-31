@@ -49,6 +49,7 @@ public class Game {
         Input input = new Input();
         System.out.println("시도할 회수는 몇회인가요?");
         int count =  input.inputInteger();
+        input.verifyRoundCount(count);
         return count;
     }
 
