@@ -11,7 +11,7 @@ public class MockRandomNumberGenerator implements RandomNumberGenerator {
     private final int MIN_RANDOM_NUMBER = 0;
     private final int MAX_RANDOM_NUMBER = 9;
 
-    private List<Integer> numberList;
+    private List<Integer> numberList = new ArrayList<>();
     private int index = 0;
 
     private MockRandomNumberGenerator() {
