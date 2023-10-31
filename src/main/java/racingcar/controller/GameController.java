@@ -4,37 +4,35 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import racingcar.domain.car.Car;
-import racingcar.domain.car.Name;
+import racingcar.domain.car.Cars;
 import racingcar.domain.game.RacingGame;
+import racingcar.domain.generator.RacingRandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
 
-    private RacingGame racingGame;
-
-    public GameController(RacingGame racingGame) {
-        this.racingGame = racingGame;
-    }
-
     public void run() {
-        List<Car> cars = createCars();
-        int tryCount = InputView.askTryCount();
-        while (racingGame.isRun(tryCount)) {
-            racingGame.progress(cars, tryCount);
-            OutputView.printCurrentSituation(cars);
+        RacingGame racingGame = createRacingGame();
+        while (racingGame.isRun()) {
+            racingGame.progress();
+            OutputView.printCurrentSituation(racingGame.getCars());
         }
-        OutputView.printWinner(racingGame.getWinner(cars));
+        OutputView.printWinner(racingGame.getWinner());
     }
 
-    private List<Car> createCars() {
+    private RacingGame createRacingGame() {
+        Cars cars = createCars();
+        int maxProgressCount = InputView.askMaxProgressCount();
+        return RacingGame.createRacingGame(cars,
+                maxProgressCount);
+    }
+
+    private Cars createCars() {
         String str = InputView.askCarNames();
         validatePattern(str);
-        List<String> carNames = stringToList(str); //currentProgressCount maxProgressCount
-        return carNames.stream()
-                .map(name -> new Car(new Name(name)))
-                .collect(Collectors.toList());
+        List<String> carNames = stringToList(str);
+        return Cars.createCars(carNames,new RacingRandomNumberGenerator());
     }
 
     private void validatePattern(String str) {

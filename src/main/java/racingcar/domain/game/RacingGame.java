@@ -1,53 +1,45 @@
 package racingcar.domain.game;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
-import racingcar.domain.generator.RandomNumberGenerator;
+import racingcar.domain.car.Cars;
 
 public class RacingGame {
 
-    private final RandomNumberGenerator randomNumberGenerator;
+    private final Cars cars;
+    private final int maxProgressCount;
+    private int currentProgressCount;
 
-    private int progressCount = 0;
-
-    public RacingGame(RandomNumberGenerator randomNumberGenerator) {
-        this.randomNumberGenerator = randomNumberGenerator;
+    public static RacingGame createRacingGame(
+            Cars cars, int maxProgressCount) {
+        return new RacingGame(cars, maxProgressCount);
     }
 
-    public void progress(List<Car> cars, int tryMaxCount) {
-        progressCount++;
-        move(cars);
+    private RacingGame(Cars cars,
+            int maxProgressCount) {
+        this.cars = cars;
+        this.currentProgressCount = 0;
+        this.maxProgressCount = maxProgressCount;
     }
 
-    private void move(List<Car> cars) {
-        for (Car car : cars) {
-            int randomNumber = randomNumberGenerator.createInRange(0, 9);
-            if (isPossibleMove(randomNumber)) {
-                car.move();
-            }
-        }
+    public void progress() {
+        cars.move();
+        increaseProgressCount();
     }
 
-    private boolean isPossibleMove(int randomNumber) {
-        return randomNumber >= 4;
+    private void increaseProgressCount() {
+        currentProgressCount++;
     }
 
-    public List<Car> getWinner(List<Car> cars) {
-        Car maxPosition = findMaxPositionCar(cars);
-        return  cars.stream()
-                .filter(car -> car.isSamePosition(maxPosition))
-                .collect(Collectors.toList());
+    public List<Car> getWinner() {
+        return cars.getWinner();
     }
 
-    private Car findMaxPositionCar(List<Car> cars) {
-        return cars.stream()
-                .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException("차가 없습니다."));
-
+    public boolean isRun() {
+        return this.currentProgressCount < maxProgressCount;
     }
 
-    public boolean isRun(int tryCount) {
-        return this.progressCount < tryCount;
+    public List<Car> getCars() {
+        return cars.getCars();
     }
 }
