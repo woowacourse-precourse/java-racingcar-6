@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
+    public static final int CAR_NAME_RANGE_LIMIT = 5;
+
     public static void validateCarNames(String[] delimitedCarNames) {
         if (isCarNamesOutOfSize(delimitedCarNames)) {
             throw new IllegalArgumentException();
@@ -13,7 +15,7 @@ public class Validator {
     private static boolean isCarNamesOutOfSize(String[] delimitedCarNames) {
         List<Boolean> sizeChecker = new ArrayList<>();
         for (int i = 0; i < delimitedCarNames.length; i++) {
-            if (delimitedCarNames[i].length() > 5) {
+            if (delimitedCarNames[i].length() > CAR_NAME_RANGE_LIMIT) {
                 sizeChecker.add(true);
             }
         }
