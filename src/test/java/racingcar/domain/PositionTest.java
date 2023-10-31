@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.ErrorMessage.NEGATIVE_POSITION;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -24,7 +25,7 @@ class PositionTest {
 
         assertThatThrownBy(() -> new Position(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 위치가 음수일 수 없습니다.");
+                .hasMessage(NEGATIVE_POSITION.getMessage());
     }
 
     @ParameterizedTest

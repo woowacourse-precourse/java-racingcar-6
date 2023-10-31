@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.ErrorMessage.CANT_FIND_MAX_VALUE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,7 @@ class CarsTest {
         // then
         assertThatThrownBy(cars::findWinnerCarList)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 최대 위치를 찾을 수 없습니다.");
+                .hasMessage(CANT_FIND_MAX_VALUE.getMessage());
     }
 
     @Test

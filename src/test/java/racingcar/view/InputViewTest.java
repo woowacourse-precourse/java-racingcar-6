@@ -2,6 +2,7 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.ErrorMessage.NOT_POSITIVE_INTEGER;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -74,7 +75,7 @@ public class InputViewTest {
         // then
         assertThatThrownBy(() -> inputView.enterRotateNumber())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 숫자만 입력가능합니다.");
+                .hasMessage(NOT_POSITIVE_INTEGER.getMessage());
     }
 
     public static void systemIn(String input) {

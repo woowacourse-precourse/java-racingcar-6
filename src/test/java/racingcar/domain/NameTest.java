@@ -2,6 +2,9 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.ErrorMessage.BLANK_NAME;
+import static racingcar.exception.ErrorMessage.INVALID_NAME_LENGTH;
+import static racingcar.exception.ErrorMessage.UNEXPECTED_STRING;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -25,7 +28,7 @@ class NameTest {
     void 이름길이_5초과_예외(String name) {
         assertThatThrownBy(() -> new Name(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이름 길이는 5 이하만 가능합니다.");
+                .hasMessage(INVALID_NAME_LENGTH.getMessage());
     }
 
     @ParameterizedTest
@@ -35,7 +38,7 @@ class NameTest {
 
         assertThatThrownBy(() -> new Name(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이름은 빈칸일 수 없습니다.");
+                .hasMessage(BLANK_NAME.getMessage());
     }
 
     @ParameterizedTest
@@ -45,6 +48,6 @@ class NameTest {
 
         assertThatThrownBy(() -> new Name(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] ',' 문자가 들어올 수 없습니다.");
+                .hasMessage(UNEXPECTED_STRING.getMessage());
     }
 }
