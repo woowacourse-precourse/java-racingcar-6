@@ -3,17 +3,17 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.constant.Symbols;
 import racingcar.model.Car;
-import racingcar.model.ScoreDto;
 import racingcar.model.RacingCars;
+import racingcar.model.ScoreDto;
 import racingcar.util.RandomNuberGenerator;
 
 public class RacingCarService {
-    public static final String COMMA_SEPARATOR = ",";
     private final RacingCars racingCars;
 
     public RacingCarService(String carNames) {
-        this.racingCars = new RacingCars(Arrays.asList(carNames.split(COMMA_SEPARATOR)));
+        this.racingCars = new RacingCars(Arrays.asList(carNames.split(Symbols.COMMA)));
     }
 
     public void moveRacingCars() {

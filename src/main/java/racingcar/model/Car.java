@@ -1,12 +1,10 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.constant.ErrorMessages;
+import racingcar.constant.NumberLimits;
 
 public class Car {
-    private static final String MISSING_CAR_NAME_ERROR = "[ERROR] : 자동차 이름을 입력해주세요.";
-    private static final String CAR_NAME_LENGTH_LIMIT_ERROR = "[ERROR] : 5글자 이하의 자동차 이름을 입력해주세요";
-    private static final int MAX_NAME_LENGTH = 5;
-    private static final int MINIMUM_MOVE_DISTANCE = 4;
     private final String name;
     private int distance;
 
@@ -21,19 +19,19 @@ public class Car {
     }
 
     private void checkNameLength(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(CAR_NAME_LENGTH_LIMIT_ERROR);
+        if (name.length() > NumberLimits.MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(ErrorMessages.CAR_NAME_LENGTH_LIMIT_ERROR);
         }
     }
 
     private void checkNonEmptyName(String name) {
         if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException(MISSING_CAR_NAME_ERROR);
+            throw new IllegalArgumentException(ErrorMessages.MISSING_CAR_NAME_ERROR);
         }
     }
 
     public void moveForward(int number) {
-        if (number >= MINIMUM_MOVE_DISTANCE) {
+        if (number >= NumberLimits.MINIMUM_MOVE_DISTANCE) {
             distance++;
         }
     }
@@ -62,5 +60,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name);
     }
-    
+
 }
