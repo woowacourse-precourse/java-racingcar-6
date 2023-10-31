@@ -16,19 +16,19 @@
     - [X] 자동차 이름과 위치값을 출력한다.
 - [X] 주어진 횟수만큼 게임을 실행 후 종료한다. -> Controller
 - [X] 우승자를 구한다. -> Winner
-- [ ] 우승자를 출력한다. -> OutputView
+- [X] 우승자를 출력한다. -> OutputView
     - [X] 우승자는 1명이상일 수 있다.
     - [X] 우승자가 여러 명일 경우 쉼표로 구분한다.
 
 ### 프로그래밍 요구사항
-- [ ] build.gradle 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
-- [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다.
-    - [ ] while문 안에 if문이 있으면 들여쓰기는 2이다.
-- [ ] 3항 연산자를 쓰지 않는다.
-- [ ] ```JUnit 5와 AssertJ```를 이용하여 테스트 코드를 작성한다.
-- [ ] 랜덤값 : camp.nextstep.edu.missionutils.Randoms의 ```pickNumberInRange()```를 활용
-- [ ] 입력값 : camp.nextstep.edu.missionutils.Console의 ```readLine()```을 활용
+- [X] build.gradle 파일을 변경할 수 없고, 외부 라이브러리를 사용하지 않는다.
+- [X] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다.
+    - [X] while문 안에 if문이 있으면 들여쓰기는 2이다.
+- [X] 3항 연산자를 쓰지 않는다.
+- [X] ```JUnit 5와 AssertJ```를 이용하여 테스트 코드를 작성한다.
+- [X] 랜덤값 : camp.nextstep.edu.missionutils.Randoms의 ```pickNumberInRange()```를 활용
+- [X] 입력값 : camp.nextstep.edu.missionutils.Console의 ```readLine()```을 활용
 
 ### ⚠ 과제 제출 전 체크 리스트
-- [ ] 자바 17버전인지 확인(```java -version```)
-- [ ] 테스트코드 통과 확인(```./gradlew clean test```)
+- [X] 자바 17버전인지 확인(```java -version```)
+- [X] 테스트코드 통과 확인(```./gradlew clean test```)
