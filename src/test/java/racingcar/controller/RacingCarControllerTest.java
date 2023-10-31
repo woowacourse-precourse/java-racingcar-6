@@ -167,4 +167,22 @@ public class RacingCarControllerTest {
             assertThat(car.getDistance()).isGreaterThanOrEqualTo(0);
         }
     }
+
+    @Test
+    void findWinner_단독_우승자일_때_안내_문구() {
+        List<Car> carList = List.of(new Car("pobi", 4), new Car("woni", 3), new Car("jun", 2));
+
+        String result = racingCarController.findWinner(carList);
+
+        assertThat(result).isEqualTo("pobi");
+    }
+
+    @Test
+    void findWinner_공동_우승자일_때_안내_문구() {
+        List<Car> carList = List.of(new Car("pobi", 4), new Car("woni", 4), new Car("jun", 2));
+
+        String result = racingCarController.findWinner(carList);
+
+        assertThat(result).isEqualTo("pobi, woni");
+    }
 }
