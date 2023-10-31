@@ -35,4 +35,14 @@ public class GameTest {
         game.play();
     }
 
+    @Test
+    void getWinnersTest() {
+        List<Car> cars = Arrays.asList(new Car("car1"), new Car("car2"));
+        Game game = new Game(cars, 5, new MessageProcessor());
+
+        List<String> winners = game.getWinners();
+
+        // You can check the expected winners based on a specific scenario.
+    }
+
 }
