@@ -26,6 +26,7 @@ public class RacingCar {
                 this.maxCount = player.getRunCount();
             }
 
+            // player 전진 수 출력
             player.print();
         }
     }

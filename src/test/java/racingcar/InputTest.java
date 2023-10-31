@@ -5,16 +5,28 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Input;
+import racingcar.domain.Validate;
 
 public class InputTest {
+    private Input input;
+    private Validate validate;
+
+    @BeforeEach
+    public void setUp() {
+        input = new Input();
+        validate = new Validate();
+    }
+
     @Test
     public void 이름입력의_길이가_5보다_클_때_예외() {
         // given
         String input = "veryverylong";
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> Application.validateName(input));
+        assertThrows(IllegalArgumentException.class, () -> validate.validateName(input));
     }
 
     @Test
@@ -24,10 +36,10 @@ public class InputTest {
         List<String> testList = Arrays.asList(" ", "s ", "   ", " a b");
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> Application.validateName(input));
+        assertThrows(IllegalArgumentException.class, () -> validate.validateName(input));
 
         for (String test : testList) {
-            assertThrows(IllegalArgumentException.class, () -> Application.validateName(test));
+            assertThrows(IllegalArgumentException.class, () -> validate.validateName(test));
         }
     }
 
@@ -37,7 +49,7 @@ public class InputTest {
         String input = "";
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> Application.validateName(input));
+        assertThrows(IllegalArgumentException.class, () -> validate.validateName(input));
     }
 
     @Test
@@ -47,7 +59,7 @@ public class InputTest {
 
         // when & then
         for (String test : testList) {
-            assertThrows(IllegalArgumentException.class, () -> Application.getInteger(test));
+            assertThrows(IllegalArgumentException.class, () -> Input.getInteger(test));
         }
     }
 
@@ -58,7 +70,7 @@ public class InputTest {
 
         // when & then
         for (String test : testList) {
-            assertThrows(IllegalArgumentException.class, () -> Application.getInteger(test));
+            assertThrows(IllegalArgumentException.class, () -> Input.getInteger(test));
         }
     }
 
@@ -69,7 +81,7 @@ public class InputTest {
         int expected = 3;
 
         // when
-        int result = Application.getInteger(input);
+        int result = Input.getInteger(input);
 
         // then
         assertEquals(expected, result);
