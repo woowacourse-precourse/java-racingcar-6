@@ -2,14 +2,13 @@ package racingcar.service;
 
 import racingcar.model.Car;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class GameService {
-    public List<Car> makeCars(String[] carNames){
-        return Arrays.stream(carNames)
+    public List<Car> makeCars(List<String> carNames){
+        return carNames.stream()
                 .map(Car::new)
                 .toList();
     }

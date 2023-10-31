@@ -14,7 +14,7 @@ public class GameController {
     public GameController(){
         InputView inputView = new InputView();
 
-        String[] carNames = inputView.startGame();
+        List<String> carNames = inputView.startGame();
 
         tryCount = inputView.inputTryCount();
         cars = service.makeCars(carNames);

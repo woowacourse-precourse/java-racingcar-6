@@ -12,10 +12,10 @@ class GameServiceTest {
     @Test
     void 자동차들모델로만들기(){
         GameService gameService = new GameService();
-        String[] carNames = new String[3];
-        carNames[0] = "car1";
-        carNames[1] = "car2";
-        carNames[2] = "car3";
+        List<String> carNames = new ArrayList<>();
+        carNames.add("car1");
+        carNames.add("car2");
+        carNames.add("car3");
 
         List<Car> cars = gameService.makeCars(carNames);
 
