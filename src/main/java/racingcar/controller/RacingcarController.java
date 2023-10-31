@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Race;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,8 +18,8 @@ public class RacingcarController {
         numberOfTries = Race.inputNumberOfTries();
         System.out.println("\n실행 결과");
         for (int i = 0; i < numberOfTries; i++) {
-            System.out.println(i + "--------");
             playGame(carsMap);
+            System.out.print("\n");
         }
     }
 
@@ -26,8 +27,9 @@ public class RacingcarController {
         for (String carName : carsMap.keySet()) {
             int randomNumber = Race.generateRandomNumber();
             int beforeMove = carsMap.get(carName);
-            int afterMove = beforeMove + Race.moveCar(randomNumber);
+            int afterMove = beforeMove + Race.moveForward(randomNumber);
             carsMap.put(carName, afterMove);
+            OutputView.printResultOfRace(carName, carsMap.get(carName));
         }
     }
 

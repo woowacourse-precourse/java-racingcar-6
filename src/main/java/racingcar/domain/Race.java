@@ -5,9 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.InputView;
 
 public class Race {
-    public Race() {
-    }
-
     public static int inputNumberOfTries() {
         final int numberOfTries = Integer.parseInt(InputView.printInputNumberOfGamesMessage());
         return numberOfTries;
@@ -18,7 +15,7 @@ public class Race {
         return randomNumber;
     }
 
-    public static int moveCar(int randomNumber) {
+    public static int moveForward(int randomNumber) {
         if (randomNumber >= 4) {
             return 1;
         }
