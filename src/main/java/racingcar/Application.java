@@ -15,5 +15,7 @@ public class Application {
 
         String roundInput = Console.readLine();
         race.setRound(Integer.parseInt(roundInput));
+
+        race.start(racingCarList);
     }
 }

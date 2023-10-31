@@ -45,4 +45,14 @@ public class RaceController {
 
         return racingCarList;
     }
+
+    public void start(List<RacingCar> racingCarList) {
+        for(int i = 1; i <= round; i++)
+          playRace(racingCarList);
+    }
+
+    public void playRace(List<RacingCar> racingCarList) {
+        for(RacingCar car : racingCarList)
+          car.move();
+    }
 }

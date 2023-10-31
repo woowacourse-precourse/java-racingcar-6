@@ -18,9 +18,9 @@
 
     - [x] 자동차 객체를 생성하고 리스트에 담는다.
 
-- [ ] 경주를 시작한다. - RaceController#start()
+- [x] 경주를 시작한다. - RaceController#start()
 
-    - [ ] 시도할 회수만큼 경주를 진행한다.
+    - [x] 시도할 회수만큼 경주를 진행한다.
 
 - [ ] 우승자를 결정한다. - RaceController#finish()
 
