@@ -2,10 +2,9 @@ package racingcar.domain;
 
 import racingcar.util.RandomNumberUtil;
 
-import static racingcar.setting.MovingStrategySetting.*;
+import static racingcar.config.MovingStrategyConfig.*;
 
 public class MovingStrategy {
-
 
     private final RandomNumberUtil randomNumberGenerator;
 

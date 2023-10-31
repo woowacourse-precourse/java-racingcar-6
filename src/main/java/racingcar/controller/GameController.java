@@ -4,8 +4,6 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RaceRound;
 import racingcar.domain.MovingStrategy;
-import racingcar.util.RandomNumberUtil;
-import racingcar.util.RandomNumberUtilImp;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

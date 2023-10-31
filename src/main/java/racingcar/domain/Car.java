@@ -2,7 +2,7 @@ package racingcar.domain;
 
 
 import java.util.Objects;
-import static racingcar.setting.CarSetting.*;
+import static racingcar.config.CarConfig.*;
 import static racingcar.exception.CarExceptionMessage.*;
 
 

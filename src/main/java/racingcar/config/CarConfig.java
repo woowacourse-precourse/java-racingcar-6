@@ -1,12 +1,12 @@
-package racingcar.setting;
+package racingcar.config;
 
-public enum CarSetting {
+public enum CarConfig {
 
     MAX_NAME_LENGTH(5),
     INIT_POSITION(0);
     private final int setting;
 
-    CarSetting(final int setting) {
+    CarConfig(final int setting) {
         this.setting = setting;
     }
 

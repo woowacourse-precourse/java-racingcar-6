@@ -38,16 +38,24 @@ public class OutputView {
 
     private String createWinnerMessage(final List<Car> winners) {
         initOutputBuilder();
+
         outputBuilder.append(OUTPUT_WINNER_MESSAGE.getMessage());
         for (Car winner : winners) {
-            outputBuilder.append(winner.getName()).append(COMMA.getUnit()).append(SPACE.getUnit());
+            outputBuilder.append(winner.getName())
+                    .append(COMMA.getUnit())
+                    .append(SPACE.getUnit());
         }
-        outputBuilder.replace(outputBuilder.length()-2, outputBuilder.length(), BLANK.getUnit());
+        outputBuilder.replace(outputBuilder.length()-2,
+                outputBuilder.length(),
+                BLANK.getUnit());
+
         return outputBuilder.toString();
     }
 
     private void drawCarPosition(final Car car) {
-        System.out.printf(OUTPUT_CAR_POSITION_MESSAGE_FORMAT.getMessage(), car.getName(), createCarGraph(car));
+        System.out.printf(OUTPUT_CAR_POSITION_MESSAGE_FORMAT.getMessage(),
+                car.getName(),
+                createCarGraph(car));
     }
 
     private String createCarGraph(final Car car) {

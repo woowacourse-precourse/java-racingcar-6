@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.setting.RaceRoundSetting.*;
+import static racingcar.config.RaceRoundConfig.*;
 import static racingcar.exception.RaceRoundExceptionMessage.*;
 
 public class RaceRound {
