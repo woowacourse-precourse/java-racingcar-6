@@ -18,5 +18,4 @@ public class InputView {
         System.out.println(message);
     }
 
-
 }

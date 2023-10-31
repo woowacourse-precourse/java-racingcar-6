@@ -16,6 +16,10 @@ public class TryCount {
         return Integer.parseInt(string);
     }
 
+    public boolean isNotSame(int tryCount) {
+        return this.tryCount != tryCount;
+    }
+
     private void validatePositive(int tryCount) {
         CustomException.positiveValidator(tryCount);
     }

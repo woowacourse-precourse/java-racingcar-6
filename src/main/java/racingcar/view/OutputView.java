@@ -5,9 +5,11 @@ import racingcar.controller.CarController;
 import racingcar.model.Car;
 
 public class OutputView {
-    public static String displayCarPosition(CarController controller) {
-        return controller.getCarDtos().stream()
-                .map(carDto -> carDto.getName() + " : " + "-".repeat(carDto.getPosition()) + System.lineSeparator())
-                .collect(Collectors.joining());
+    public void printStartMessage() {
+        System.out.println("실행 결과");
+    }
+
+    public void printString(String string) {
+        System.out.println(string);
     }
 }

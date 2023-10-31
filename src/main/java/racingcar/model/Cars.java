@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import static racingcar.util.Constants.MAX_NUMBER;
+import static racingcar.util.Constants.MIN_NUMBER;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +25,12 @@ public class Cars {
     }
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void moveAll() {
+        for (Car car : cars) {
+            car.go(RandomGenerator.generateNumber(MIN_NUMBER, MAX_NUMBER + 1));
+        }
     }
 }
 
