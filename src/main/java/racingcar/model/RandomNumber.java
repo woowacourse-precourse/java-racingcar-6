@@ -16,8 +16,4 @@ public class RandomNumber {
     public boolean isMovable() {
         return number >= MOVABLE_NUMBER;
     }
-
-    public int getNumber() {
-        return number;
-    }
 }

@@ -8,8 +8,8 @@ public class Position {
         this.position = START_POSITION;
     }
 
-    public void move(int number) {
-        this.position += number;
+    public void move() {
+        this.position++;
     }
 
     public int getPosition() {
