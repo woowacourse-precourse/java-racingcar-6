@@ -18,8 +18,7 @@ public class Application {
         try {
             racingGame.playGame();
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 }
