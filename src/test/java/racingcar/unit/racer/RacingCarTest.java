@@ -34,7 +34,7 @@ class RacingCarTest {
 
     @Nested
     @DisplayName("이름을 기반으로 경주 자동차 생성 시")
-    class nameOf {
+    class create {
 
         @DisplayName("성공적으로 생성한다.")
         @Test
@@ -43,7 +43,7 @@ class RacingCarTest {
             String name = "pobi";
 
             //when
-            RacingCar racingCar = RacingCar.nameOf(name);
+            RacingCar racingCar = RacingCar.from(name);
 
             //then
             assertThat(racingCar.getName()).isEqualTo(name);
@@ -55,7 +55,7 @@ class RacingCarTest {
             //given
             String name = "";
             //when then
-            assertThatThrownBy(() -> RacingCar.nameOf(name))
+            assertThatThrownBy(() -> RacingCar.from(name))
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -65,7 +65,7 @@ class RacingCarTest {
             //given
             String name = "1".repeat(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + 1);
             //when then
-            assertThatThrownBy(() -> RacingCar.nameOf(name))
+            assertThatThrownBy(() -> RacingCar.from(name))
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -75,7 +75,7 @@ class RacingCarTest {
         void fail_InvalidNameFormat(String name) {
             //given
             //when then
-            assertThatThrownBy(() -> RacingCar.nameOf(name))
+            assertThatThrownBy(() -> RacingCar.from(name))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }
@@ -90,7 +90,7 @@ class RacingCarTest {
         void stop(int number) {
             //given
             given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(number);
-            RacingCar racingCar = RacingCar.nameOf("stop");
+            RacingCar racingCar = RacingCar.from("stop");
 
             //when
             racingCar.move();
@@ -105,7 +105,7 @@ class RacingCarTest {
         void forward(int number) {
             //given
             given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(number);
-            RacingCar racingCar = RacingCar.nameOf("go");
+            RacingCar racingCar = RacingCar.from("go");
 
             //when
             racingCar.move();

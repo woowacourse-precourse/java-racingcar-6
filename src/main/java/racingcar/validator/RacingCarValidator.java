@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import racingcar.common.config.RacingCarRule;
 import racingcar.common.exception.ErrorMessage;
-import racingcar.racer.Raceable;
+import racingcar.racer.Racer;
 
 public final class RacingCarValidator {
 
@@ -27,13 +27,13 @@ public final class RacingCarValidator {
         }
     }
 
-    public static <T extends Raceable> void validateUnderThanMaxRacingCarNumber(List<T> racers) {
+    public static <T extends Racer> void validateUnderThanMaxRacingCarNumber(List<T> racers) {
         if (racers.size() > RacingCarRule.MAX_RACING_CAR_SIZE) {
             throw ErrorMessage.INVALID_NUMBER_OF_RACING_CAR.getException();
         }
     }
 
-    public static <T extends Raceable> void validateDuplicatedName(List<T> racers) {
+    public static <T extends Racer> void validateDuplicatedName(List<T> racers) {
         Set<T> set = new HashSet<>(racers);
         if (set.size() != racers.size()) {
             throw ErrorMessage.DUPLICATED_RACING_CAR_NAME.getException();

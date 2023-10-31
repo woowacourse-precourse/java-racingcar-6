@@ -15,7 +15,10 @@ public class RacingGameScreen {
     private static final String START_SHOW_GAME_RESULT = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : %s";
 
+    private static final String TURN_RESULT_FORMAT = "%s : %s";
     private static final char DISTANCE_CHARACTER = '-';
+
+    private static final String LINE_SEPARATOR = System.lineSeparator();
 
     private final Reader reader;
     private final Writer writer;
@@ -36,16 +39,16 @@ public class RacingGameScreen {
     }
 
     public void startShowGameResult() {
-        writer.writeLine("\n" + START_SHOW_GAME_RESULT);
+        writer.writeLine(LINE_SEPARATOR + START_SHOW_GAME_RESULT);
     }
 
     public void showTurnResult(TurnResult turnResult) {
         String resultMessage = turnResult.result().stream()
-                .map(racerPosition -> String.format("%s : %s", racerPosition.name(),
+                .map(racerPosition -> String.format(TURN_RESULT_FORMAT, racerPosition.name(),
                         repeatChar(racerPosition.position())))
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(LINE_SEPARATOR));
 
-        writer.writeLine(resultMessage + "\n");
+        writer.writeLine(resultMessage + LINE_SEPARATOR);
     }
 
     private String repeatChar(int count) {

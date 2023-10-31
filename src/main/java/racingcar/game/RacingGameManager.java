@@ -1,11 +1,8 @@
 package racingcar.game;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import racingcar.common.config.RacingCarRule;
-import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.TurnResult;
 import racingcar.racer.RacingCar;
 import racingcar.validator.Validator;
@@ -19,25 +16,26 @@ public class RacingGameManager {
     }
 
     public void run() {
-        RacingCarRegistry racingCarRegistry = registerRacingCar();
+        RacerRegistry<RacingCar> racerRegistry = registerRacingCar();
         int turnCount = inputTotalTurn();
-        startRace(racingCarRegistry, turnCount);
-        announceWinner(racingCarRegistry);
+        RacingGame<RacingCar> racingGame = new RacingGame<>(racerRegistry);
+        startRace(racingGame, turnCount);
+        announceWinner(racingGame);
     }
 
-    private RacingCarRegistry registerRacingCar() {
+    private RacerRegistry<RacingCar> registerRacingCar() {
         String racerInput = racingGameScreen.inputRacer();
         Validator.validateLength(racerInput, RacingCarRule.MAX_RACING_CAR_NAME_INPUT_LENGTH);
         Validator.validateHasText(racerInput);
 
         String[] split = racerInput.split(RacingCarRule.INPUT_DELIMITER);
         List<RacingCar> list1 = Arrays.stream(split)
-                .map(RacingCar::nameOf)
+                .map(RacingCar::from)
                 .toList();
 
-        RacingCarRegistry racingCarRegistry = new RacingCarRegistry();
-        racingCarRegistry.addAll(list1);
-        return racingCarRegistry;
+        RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
+        racerRegistry.addAll(list1);
+        return racerRegistry;
     }
 
     private int inputTotalTurn() {
@@ -48,33 +46,18 @@ public class RacingGameManager {
         return Integer.parseInt(totalTurn);
     }
 
-    private void startRace(RacingCarRegistry racingCarRegistry, int turnCount) {
+    private void startRace(RacingGame<RacingCar> racingGame, int turnCount) {
         racingGameScreen.startShowGameResult();
 
-        List<RacingCar> racingCars = racingCarRegistry.getRacingCars();
         for (int i = 0; i < turnCount; i++) {
-            racingCars.forEach(RacingCar::move);
+            racingGame.progressTurn();
 
-            List<RacerPosition> list = racingCars.stream()
-                    .map(racingCar -> new RacerPosition(racingCar.getName(), racingCar.getPosition()))
-                    .toList();
-
-            racingGameScreen.showTurnResult(new TurnResult(list));
+            TurnResult turnResult = new TurnResult(racingGame.getTurnResult());
+            racingGameScreen.showTurnResult(turnResult);
         }
     }
 
-    private void announceWinner(RacingCarRegistry racingCarRegistry) {
-        List<RacingCar> racingCars = racingCarRegistry.getRacingCars();
-        Optional<Integer> maxPosition = racingCars.stream()
-                .map(RacingCar::getPosition)
-                .max(Integer::compareTo);
-
-        List<String> winners = maxPosition.map(max -> racingCars.stream()
-                        .filter(racingCar -> racingCar.getPosition() == max)
-                        .map(RacingCar::getName)
-                        .toList())
-                .orElse(Collections.emptyList());
-
-        racingGameScreen.showFinalWinner(winners);
+    private void announceWinner(RacingGame<RacingCar> racingGame) {
+        racingGameScreen.showFinalWinner(racingGame.getWinners());
     }
 }

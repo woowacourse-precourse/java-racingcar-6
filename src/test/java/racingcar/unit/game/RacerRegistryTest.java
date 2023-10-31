@@ -11,15 +11,15 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.common.config.RacingCarRule;
-import racingcar.game.RacingCarRegistry;
+import racingcar.game.RacerRegistry;
 import racingcar.racer.RacingCar;
 
-class RacingCarRegistryTest {
+class RacerRegistryTest {
 
     private static List<RacingCar> getRacingCarList(String... name) {
         List<RacingCar> racingCarList = new ArrayList<>();
         for (String carName : name) {
-            racingCarList.add(RacingCar.nameOf(carName));
+            racingCarList.add(RacingCar.from(carName));
         }
         return racingCarList;
     }
@@ -27,7 +27,7 @@ class RacingCarRegistryTest {
     private static List<RacingCar> getRacingCarList(int size) {
         List<RacingCar> racingCarList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            racingCarList.add(RacingCar.nameOf(String.valueOf(i)));
+            racingCarList.add(RacingCar.from(String.valueOf(i)));
         }
         return racingCarList;
     }
@@ -63,11 +63,11 @@ class RacingCarRegistryTest {
             //given
 
             //when
-            RacingCarRegistry racingCarRegistry = new RacingCarRegistry();
-            racingCarRegistry.addAll(racingCarList);
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry();
+            racerRegistry.addAll(racingCarList);
 
             //then
-            assertThat(racingCarRegistry.getRacingCars()).hasSize(racingCarList.size());
+            assertThat(racerRegistry.getRacers()).hasSize(racingCarList.size());
         }
 
         @DisplayName("중복 이름이 존재하면 예외를 발생시킨다.")
@@ -76,8 +76,8 @@ class RacingCarRegistryTest {
         void fail_DulicatedName(List<RacingCar> racingCarList) {
             //given
             //when then
-            RacingCarRegistry racingCarRegistry = new RacingCarRegistry();
-            assertThatThrownBy(() -> racingCarRegistry.addAll(racingCarList))
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry();
+            assertThatThrownBy(() -> racerRegistry.addAll(racingCarList))
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -87,8 +87,8 @@ class RacingCarRegistryTest {
         void fail_OverRacingCarMaxNumber(List<RacingCar> racingCarList) {
             //given
             //when then
-            RacingCarRegistry racingCarRegistry = new RacingCarRegistry();
-            assertThatThrownBy(() -> racingCarRegistry.addAll(racingCarList))
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry();
+            assertThatThrownBy(() -> racerRegistry.addAll(racingCarList))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }

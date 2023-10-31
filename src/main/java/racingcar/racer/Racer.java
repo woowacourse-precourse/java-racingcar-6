@@ -2,15 +2,20 @@ package racingcar.racer;
 
 import java.util.Objects;
 
-public class Car {
+public abstract class Racer implements Raceable {
     protected final String name;
+    protected int position;
 
-    public Car(String name) {
+    protected Racer(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
@@ -22,9 +27,9 @@ public class Car {
             return false;
         }
 
-        Car car = (Car) o;
+        Racer racer = (Racer) o;
 
-        return Objects.equals(name, car.name);
+        return Objects.equals(name, racer.name);
     }
 
     @Override
@@ -34,8 +39,9 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Racer{" +
                 "name='" + name + '\'' +
+                ", position=" + position +
                 '}';
     }
 }
