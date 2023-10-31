@@ -18,7 +18,8 @@ public class Application {
             printLapDetails(entry);
         }
 
-        announceWinner(entry);
+        List<String> winnerList = announceWinner(entry);
+        System.out.println("최종 우승자 : " + String.join(", ", winnerList));
     }
 
     public static List<Car> registerEntry() {
@@ -55,7 +56,7 @@ public class Application {
         System.out.println(); // 공백
     }
 
-    public static void announceWinner(List<Car> entry) {
+    public static List<String> announceWinner(List<Car> entry) {
         List<String> winnerList = new ArrayList<>();
         int max = entry.get(0).distanceMoved;
         for (Car car : entry) {
@@ -67,6 +68,6 @@ public class Application {
                 winnerList.add(car.getName());
             }
         }
-        System.out.println("최종 우승자 : " + String.join(", ", winnerList));
+        return winnerList;
     }
 }
