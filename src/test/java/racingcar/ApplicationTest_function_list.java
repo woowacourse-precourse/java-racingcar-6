@@ -238,11 +238,11 @@ class ApplicationTest_function_list extends NsTest {
                 assertRandomNumberInRangeTest(
                         () -> {
                             car.run();
+                            Field privateField = car.getClass().getDeclaredField("position");
+                            privateField.setAccessible(true);
+                            assertThat(privateField.get(car)).isEqualTo(input.get(input.size() - 1));
                         },
                         (Integer) input.get(0));
-                Field privateField = car.getClass().getDeclaredField("position");
-                privateField.setAccessible(true);
-                assertThat(privateField.get(car)).isEqualTo(input.get(input.size() - 1));
             }
         } catch (Exception e) {
             e.printStackTrace();
