@@ -1,11 +1,9 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingRound;
-import racingcar.util.Constants;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
