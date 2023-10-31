@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.dto.CarNames;
+import racingcar.dto.TryCount;
 
 public class InputView {
 
@@ -10,6 +11,10 @@ public class InputView {
 
     public CarNames readCarNames() {
         return CarNames.from(List.of(getInput().split(CAR_NAME_SEPARATOR)));
+    }
+
+    public TryCount readTryCount() {
+        return TryCount.fromInput(getInput());
     }
 
     private String getInput() {

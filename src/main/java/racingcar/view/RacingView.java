@@ -1,18 +1,16 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constant.RacingMessage;
 import racingcar.dto.CarInfo;
 import racingcar.dto.CarNames;
 import racingcar.dto.RacingStatus;
+import racingcar.dto.TryCount;
 import racingcar.model.Racing;
-import racingcar.validator.InputValidator;
 
 public class RacingView {
 
-    private static final String CAR_NAME_SEPARATOR = ",";
     private static final String RACING_PROGRESS_FORMAT = "%s : %s";
     private static final String RACING_PROGRESS_BAR = "-";
     private static final String NEW_LINE = "\n";
@@ -28,11 +26,9 @@ public class RacingView {
         return inputView.readCarNames();
     }
 
-    public Integer inputTryCount() {
+    public TryCount inputTryCount() {
         System.out.println(RacingMessage.INPUT_TRY_COUNT);
-        String input = Console.readLine();
-        InputValidator.validateTryCountInput(input);
-        return Integer.parseInt(input);
+        return inputView.readTryCount();
     }
 
     public void startPrintTryResult() {

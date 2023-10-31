@@ -87,3 +87,4 @@
 - Racing 상태 출력 시 `List<Car>`를 직접 보내는 대신 DTO를 활용하도록 리팩토링
 - 자동차 이름 입력 시 DTO를 활용하도록 리팩토링
 - InputView 와 OutputView 분리
+- 시도 횟수 입력 시 DTO를 활용하도록 리팩토링
