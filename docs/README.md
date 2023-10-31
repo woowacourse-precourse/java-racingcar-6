@@ -125,7 +125,7 @@ jun : -----
     - 메소드
       - tryMoving
         - 정해진 조건을 만족하는 값이 입력되면 차량을 이동한다.
-        - parameter : `Integer Number`
+        - parameter : `Integer number`
         - return type : `void`
       - getName
         - 차량의 이름을 가져온다.
@@ -136,7 +136,7 @@ jun : -----
   - RandomNumberGenerator
     - 난수를 생성한다.
     - 메소드
-      - GeneratingForCarTryMoving
+      - generatingForCarTryMoving
         - 0에서 9사이의 난수를 생성한다.
         - return type : `Integer`
   - GameInitializer
