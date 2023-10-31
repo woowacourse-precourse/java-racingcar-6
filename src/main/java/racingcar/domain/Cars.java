@@ -1,16 +1,21 @@
-package racingcar.model;
+package racingcar.domain;
 
-import java.util.*;
-import java.util.stream.Stream;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static racingcar.util.Parser.parseCarNames;
 
 public class Cars {
-    private List<String> carNames;
-    private Map<String, Integer> carScores;
+    private final List<String> carNames;
+    private final Map<String, Integer> carScores;
 
 
-    public Cars(List<String> carNames) {
-        carScores = new HashMap<String, Integer>();
-        this.carNames = carNames;
+    public Cars(String carNames) {
+        carScores = new HashMap<>();
+        this.carNames = parseCarNames(carNames);
         this.carNames.forEach(carName -> carScores.put(carName, 0));
     }
 
@@ -26,7 +31,7 @@ public class Cars {
         return Collections.max(carScores.values());
     }
 
-    public void increaseCarScore(String carName) {
+    public void moveForward(String carName) {
         int score = carScores.get(carName) + 1;
         carScores.put(carName, score);
     }
