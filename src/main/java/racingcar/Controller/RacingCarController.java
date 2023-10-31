@@ -30,7 +30,6 @@ public class RacingCarController {
 
         race.run();
 
-        view.printRaceResult(race.getCars());
         view.printWinners(race.getWinners());
     }
 }

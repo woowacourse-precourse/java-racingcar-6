@@ -15,11 +15,11 @@ public class RacingCarView {
     public int getRoundsInput() {
         System.out.println("시도할 회수는 몇회인가요?");
         int rounds = Integer.parseInt(Console.readLine());
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         return rounds;
     }
 
-    public void printRaceResult(List<RacingCar> racingCars) {
+    public void printRaceResult(List<RacingCar> racingCars, int round, int rounds) {
         for (RacingCar racingCar : racingCars) {
             String dashes = "";
             for (int i = 0; i < racingCar.getPosition(); i++) {

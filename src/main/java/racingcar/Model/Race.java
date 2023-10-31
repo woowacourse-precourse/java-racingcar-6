@@ -21,7 +21,7 @@ public class Race {
             for (RacingCar racingCar : racingCars) {
                 racingCar.move();
             }
-            view.printRaceResult(racingCars);
+            view.printRaceResult(racingCars, i, rounds);
             System.out.println();
         }
     }
