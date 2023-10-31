@@ -12,7 +12,6 @@ import java.util.stream.IntStream;
 public class Application {
     public static void main(String[] args) {
         racingGame();
-
     }
 
     private static void racingGame () {
@@ -36,6 +35,40 @@ public class Application {
         return Console.readLine();
     }
 
+    private static List<String> parseCarNamesToList(String carNames) {
+        List<String> carNameList = Arrays.stream(carNames.split(","))
+                .filter(name -> name.length() <= 5)
+                .collect(Collectors.toList());
+
+        carNamesValidation(carNames, carNameList);
+
+        return carNameList;
+    }
+
+    private static void carNamesValidation(String carNames, List<String> carNameList) {
+        checkHasOverFiveChar(carNames, carNameList);
+        checkHasEmptyName(carNames, carNameList);
+    }
+
+    private static void checkHasOverFiveChar(String carNames, List<String> carNameList) {
+        if (carNameList.size() != carNames.split(",").length) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    private static void checkHasEmptyName(String carNames, List<String> carNameList) {
+        if (carNameList.size() != countChar(carNames, ',') + 1) {
+            throw new IllegalArgumentException("자동차 이름을 빈 문자열로 정할 수 없습니다.");
+        }
+    }
+
+    private static long countChar(String str, char ch) {
+        return str.chars()
+                .filter(c -> c == ch)
+                .count();
+    }
+
+
     private static int inputTrialTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTrialTimes = Console.readLine();
@@ -53,24 +86,6 @@ public class Application {
             throw new IllegalArgumentException("시도 회수는 양의 정수여야 합니다.");
         }
     }
-
-
-    private static List<String> parseCarNamesToList(String carNames) {
-        List<String> carNameList = Arrays.stream(carNames.split(","))
-                .filter(name -> name.length() <= 5)
-                .collect(Collectors.toList());
-
-        checkHasOverFiveChar(carNames, carNameList);
-
-        return carNameList;
-    }
-
-    private static void checkHasOverFiveChar(String carNames, List<String> carNameList) {
-        if (carNameList.size() != carNames.split(",").length) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-        }
-    }
-
 
     private static void moveForward(List<Integer> moveCountList) {
         for (int i = 0; i < moveCountList.size(); i++) {
