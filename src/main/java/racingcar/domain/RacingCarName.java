@@ -13,7 +13,7 @@ public class RacingCarName {
         List<String> duplicateNames = new ArrayList<>();
 
         for (int i = 0; i < carNames.size(); i++) {
-            String carName = carNames.get(i);
+            String carName = carNames.get(i).trim();
 
             //중복된 이름 포함되어 있다면
             if(carNameSet.contains(carName)) {
