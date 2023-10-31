@@ -34,4 +34,4 @@
 
 2. RacingCar
     - [x] 전진
-    - [ ] 이름, 점수 getter
+    - [x] 이름, 점수 getter/setter

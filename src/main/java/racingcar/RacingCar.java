@@ -7,6 +7,7 @@ public class RacingCar {
         this.setName(name);
     }
     private void setName(String name) {
+        this.name = name;
     }
     String getName() {
         return name;
