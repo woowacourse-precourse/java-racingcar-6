@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
 import racingcar.validation.Validation;
 
 public class RacingCar {
@@ -10,7 +9,6 @@ public class RacingCar {
 
     public RacingCar(String name) {
         this.name = name;
-        this.raceLog = new ArrayList<>();
         this.position = 0;
     }
 
