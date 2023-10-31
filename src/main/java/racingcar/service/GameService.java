@@ -3,8 +3,6 @@ package racingcar.service;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.utils.RandomUtils;
-import racingcar.view.ForInputMessage;
-import racingcar.view.OutputMessage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,69 +10,84 @@ import java.util.List;
 
 public class GameService {
 
-    private Game game = new Game();
+    private Game game;
+    private List<Car> carList = new ArrayList<>();
+
     RandomUtils randomUtils = new RandomUtils();
 
-    public void initCarList() {
-        String carNameListString = ForInputMessage.forInputCarNamesMessage();
-        game.setCar(carNameListString);
+    public List<Car> setCarList(String carNames) {
+        List<String> carNameList = List.of(carNames.split(","));
+        List<Car> carList = new ArrayList<>();
 
-        String finalRaceCount = ForInputMessage.forInputRaceCountMessage();
-        game.setFinalRaceCount(finalRaceCount);
+        for (String name : carNameList) {
+            carList.add(new Car(name));
+        }
+
+        this.carList = carList;
+        return carList;
     }
 
-
-    public void runGame() {
-        OutputMessage.printGameResultMessage();
-        runGameRaceCountTimes();
+    public void setGame(String raceCountInString) {
+        int finalRaceCount = Integer.parseInt(raceCountInString);
+        this.game = new Game(finalRaceCount);
     }
 
-    private void runGameRaceCountTimes() {
+    public void playGame() {
+        System.out.println("\n실행 결과");
         while (game.isNotGameOver()) {
-            moveCarPosition();
+            moveCar();
             game.setCurrentRaceCount();
-            moveCarPrintResult();
         }
     }
 
-    private void moveCarPosition() {
-        List<Car> carList = game.getCarList();
-        List<Integer> randomNumberList = randomUtils.getRandomNumberList(carList.size());
+    private void moveCar() {
+        List<Integer> randomPositionList = randomUtils.getRandomNumberList(carList.size());
 
         for (int i = 0; i < carList.size(); i++) {
-            if (randomNumberList.get(i) >= 4) {
-                carList.get(i).movePosition();
-            }
+            carList.get(i).moveOrGo(randomPositionList.get(i));
         }
+        System.out.println();
     }
 
-    private void moveCarPrintResult() {
-        for (Car car : game.getCarList()) {
-            OutputMessage.printRandomPlayResultPositionMessage(car);
-        }
-        OutputMessage.printLn();
-    }
+    public void winnerChoice() {
+        List<String> winnerNameList = new ArrayList<>();
+        int winnerPosition = getWinnerPosition();
 
-    public void choiceWinner() {
-        List<Car> winnerList = new ArrayList<>();
-        int maxPosition = choiceMaxPosition();
-
-        for (Car c : game.getCarList()) {
-            if (c.getPosition() == maxPosition) {
-                winnerList.add(c);
+        for (Car c : carList) {
+            if (c.getPosition() == winnerPosition) {
+                winnerNameList.add(c.getName());
             }
         }
 
-        OutputMessage.printWinnerMessage(winnerList);
+        printWinner(winnerNameList);
     }
 
-    private int choiceMaxPosition() {
-
+    private int getWinnerPosition() {
         List<Integer> positionList = new ArrayList<>();
-        for (Car c : game.getCarList()) {
-            positionList.add(c.getPosition());
+
+        for (Car car : carList) {
+            positionList.add(car.getPosition());
         }
 
         return Collections.max(positionList);
     }
+
+    private void printWinner(List<String> winnerNameList) {
+        System.out.print("최종 우승자 : ");
+
+        if (winnerNameList.size() == 1) {
+            System.out.println(winnerNameList.get(0));
+            return;
+        }
+
+        for (int i = 0; i < winnerNameList.size(); i++) {
+            System.out.print(winnerNameList.get(i));
+
+            if (i != winnerNameList.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
+
+
 }

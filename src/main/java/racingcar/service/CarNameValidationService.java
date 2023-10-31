@@ -6,7 +6,10 @@ import java.util.Set;
 
 public class CarNameValidationService {
 
-    public void carNameValidation(List<String> carNameList) {
+    public void carNameValidation(String carNames) {
+        lastCharacterCheck(carNames);
+
+        List<String> carNameList = List.of(carNames.split(","));
         listSizeCheck(carNameList);
 
         for (String name : carNameList) {
@@ -15,6 +18,12 @@ public class CarNameValidationService {
         }
 
         duplicateCheck(carNameList);
+    }
+
+    private void lastCharacterCheck(String carNames) {
+        if (carNames.endsWith(",")) {
+            throw new IllegalArgumentException("사용할 수 없는 자동차 이름이 존재합니다.");
+        }
     }
 
     private void listSizeCheck(List<String> carNameList) {
