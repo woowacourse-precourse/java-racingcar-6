@@ -14,7 +14,7 @@ class InputTest {
     Input input = new Input();
 
     @Test
-    void Input_자동차의_이름들을_입력(){
+    void input_자동차의_이름들을_입력(){
         String text = "pobi,hash,neo";
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
@@ -62,7 +62,7 @@ class InputTest {
     }
 
     @Test
-    void Input_자동차의_시도할_횟수를_입력(){
+    void input_자동차의_시도할_횟수를_입력(){
         String text = "5";
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
@@ -74,7 +74,7 @@ class InputTest {
     }
 
     @Test
-    void Input_자동차의_시도할_횟수에서_예외(){
+    void input_자동차의_시도할_횟수에서_예외(){
         String text = "5sfsfsf7";
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
