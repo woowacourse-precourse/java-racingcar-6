@@ -2,12 +2,11 @@ package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+
 import racingcar.domain.Car;
 import racingcar.service.RacingCarService;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,9 +49,22 @@ public class RacingCarTest {
     void findWinner() {
         Car winner = new Car("winner");
         winner.setPosition(5);
-        Car loser = new Car("loser");
-        loser.setPosition(2);
-        List<Car> cars = Arrays.asList(winner,loser);
+        Car notWinner = new Car("not winner");
+        notWinner.setPosition(2);
+        List<Car> cars = Arrays.asList(winner,notWinner);
         assertThat(racingCarService.findWinner(cars,racingCarService.findMaxPosition(cars))).isEqualTo(Arrays.asList("winner"));
+    }
+
+    @DisplayName("최종 우승자들(복수)을 찾는다.")
+    @Test
+    void findWinners() {
+        Car firstWinner = new Car("first");
+        firstWinner.setPosition(6);
+        Car secondWinner = new Car("second");
+        secondWinner.setPosition(6);
+        Car notWinner = new Car("not winner");
+        notWinner.setPosition(2);
+        List<Car> cars = Arrays.asList(firstWinner,secondWinner,notWinner);
+        assertThat(racingCarService.findWinner(cars,racingCarService.findMaxPosition(cars))).isEqualTo(Arrays.asList("first","second"));
     }
 }
