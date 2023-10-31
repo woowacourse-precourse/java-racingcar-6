@@ -10,9 +10,8 @@ public class CarNameList {
     }
 
     public static CarNameList getInstance(String[] carNameList){
-        if(instance == null){
-            instance = new CarNameList(carNameList);
-        }
+        instance = new CarNameList(carNameList);
+
         return instance;
     }
 
@@ -32,6 +31,7 @@ public class CarNameList {
 
     public void NameExceptionCheck(){
         for(int i=0; i<carNameList.length; i++){
+            System.out.println("carNameList[i] = " + carNameList[i]);
             if(carNameList[i].length() > 5){
                 throw new IllegalArgumentException();
             }

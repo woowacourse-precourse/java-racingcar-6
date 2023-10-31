@@ -20,6 +20,7 @@ public class RacingGameController {
         view = View.getInstance();
 
         carNameList = CarNameList.getInstance(getCarString());
+
         carNameList.NameExceptionCheck();
 
         tryNumber = getTryNumber();
