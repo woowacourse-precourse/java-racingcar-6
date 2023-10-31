@@ -28,4 +28,7 @@ public class RaceView {
     public void displayRaceStatus(List<Map<String, Integer>> result) {
         outputView.displayRaceStatus(result);
     }
+
+    public void displayWinners(List<String> winners) {
+        outputView.displayWinners(winners);}
 }
