@@ -28,11 +28,11 @@ public class RacingCar {
     }
 
     /**
-     * 전진 또는 정지를 한다.
+     * 랜덤값을 구해서 임계치 이상이면 전진, 아니면 이동하지 않는다.
      */
     public void move() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
+        if (randomNum >= GameDetail.MOVE_THRESHOLD) {
             moveResult++;
         }
     }
@@ -45,7 +45,7 @@ public class RacingCar {
         sb.append(name);
         sb.append(" : ");
         sb.append(convertToStringMoveResult());
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 
     /**

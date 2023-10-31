@@ -16,4 +16,6 @@ public class GameDetail {
 
     public static final String MOVE_MARK = "-";
 
+    public static final int MOVE_THRESHOLD = 4;
+
 }
