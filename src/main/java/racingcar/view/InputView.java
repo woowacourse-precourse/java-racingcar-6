@@ -17,7 +17,7 @@ public class InputView {
 
     public CarList inputPlayer() {
         OutputView.printStart();
-        String[] cars = Console.readLine().split(",");
+        String[] cars = Console.readLine().split(",",-1);
 
         validator.emptyName(cars);
         validator.lengthValidate(cars);
