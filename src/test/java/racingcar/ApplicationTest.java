@@ -169,7 +169,25 @@ class ApplicationTest extends NsTest {
                     .isEqualTo(2);
         }
 
+        @Test
+        @DisplayName("레이싱 우승자 명단 만들기")
+        void getWinner_Test() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+            List<Car> carList = List.of(new Car("pobi")
+                    ,new Car("taxi")
+                    ,new Car("bus"));
 
+            //            리플렉션으로 private 메소드 가져오기
+            Method targetMethod = Racing.class
+                    .getDeclaredMethod("getWinner",
+                            List.class);
+//            private 메소드 접근 허용
+            targetMethod.setAccessible(true);
+
+            String result = "pobi, taxi, bus";
+
+            assertThat(targetMethod.invoke(racingObj,carList))
+                    .isEqualTo(result);
+        }
 
 
 
