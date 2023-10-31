@@ -1,7 +1,6 @@
 package convert;
 
 import domain.Car;
-import domain.RandomForwardStrategy;
 import factory.CarFactory;
 import java.util.Arrays;
 import java.util.List;

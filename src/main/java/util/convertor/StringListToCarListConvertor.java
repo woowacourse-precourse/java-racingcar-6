@@ -1,7 +1,6 @@
 package util.convertor;
 
 import domain.Car;
-import domain.ForwardStrategy;
 import factory.CarFactory;
 import java.util.List;
 import java.util.stream.Collectors;

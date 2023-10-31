@@ -1,6 +1,6 @@
 package domain;
 
-public interface ForwardStrategy {
+public interface MoveJudgement {
 
     boolean canMove();
 

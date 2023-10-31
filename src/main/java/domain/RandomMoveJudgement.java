@@ -2,7 +2,7 @@ package domain;
 
 import util.generator.RandomNumberGenerator;
 
-public class RandomForwardStrategy implements ForwardStrategy{
+public class RandomMoveJudgement implements MoveJudgement {
 
     private static final int MOVABLE_NUMBER = 4;
 

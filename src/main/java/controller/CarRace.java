@@ -5,8 +5,7 @@ import static enums.PrintMessages.*;
 import domain.Car;
 import domain.CarRaceResultEvaluator;
 import domain.Cars;
-import domain.ForwardStrategy;
-import domain.RandomForwardStrategy;
+import domain.MoveJudgement;
 import dto.RoundResultDto;
 import dto.WinnerDto;
 import java.util.List;
@@ -15,8 +14,6 @@ import util.convertor.StringToIntConvertor;
 import util.convertor.StringToStringListConvertor;
 import util.formatter.RoundResultFormatter;
 import util.formatter.WinnerFormatter;
-import view.ConsoleInput;
-import view.ConsoleOutput;
 import view.Input;
 import view.Output;
 
@@ -26,15 +23,15 @@ public class CarRace implements Race {
     private final Input input;
     private final Output output;
 
-    private final ForwardStrategy forwardStrategy;
+    private final MoveJudgement moveJudgement;
 
     private final CarRaceResultEvaluator carRaceResultEvaluator;
 
-    public CarRace(Input input, Output output, ForwardStrategy forwardStrategy,
+    public CarRace(Input input, Output output, MoveJudgement moveJudgement,
             CarRaceResultEvaluator carRaceResultEvaluator) {
         this.input = input;
         this.output = output;
-        this.forwardStrategy = forwardStrategy;
+        this.moveJudgement = moveJudgement;
         this.carRaceResultEvaluator = carRaceResultEvaluator;
     }
 
@@ -67,7 +64,7 @@ public class CarRace implements Race {
     }
 
     private void tryMoveCar(Car car) {
-        if (forwardStrategy.canMove()) {
+        if (moveJudgement.canMove()) {
             car.move();
         }
     }

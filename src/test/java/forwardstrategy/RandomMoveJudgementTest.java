@@ -5,7 +5,7 @@ import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 
 
-import domain.RandomForwardStrategy;
+import domain.RandomMoveJudgement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 import util.generator.RandomNumberGenerator;
 
-public class RandomForwardStrategyTest {
+public class RandomMoveJudgementTest {
 
     @BeforeEach
     public void setUp() {
@@ -32,7 +32,7 @@ public class RandomForwardStrategyTest {
     void canMoveTest(int value) {
         //given
         when(RandomNumberGenerator.generateRandomNumber()).thenReturn(value);
-        RandomForwardStrategy forwardStrategy = new RandomForwardStrategy();
+        RandomMoveJudgement forwardStrategy = new RandomMoveJudgement();
 
         //then
         assertThat(forwardStrategy.canMove()).isTrue();
@@ -45,7 +45,7 @@ public class RandomForwardStrategyTest {
     void canNotMoveTest(int value) {
         //given
         when(RandomNumberGenerator.generateRandomNumber()).thenReturn(value);
-        RandomForwardStrategy forwardStrategy = new RandomForwardStrategy();
+        RandomMoveJudgement forwardStrategy = new RandomMoveJudgement();
 
         //then
         assertThat(forwardStrategy.canMove()).isFalse();
