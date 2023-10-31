@@ -12,4 +12,12 @@ public class Car {
     public static Car makeCarByName(String carName) {
         return new Car(carName);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void go() {
+        this.distance++;
+    }
 }
