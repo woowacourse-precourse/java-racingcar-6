@@ -11,7 +11,6 @@ public class CarException {
         nameSet = new HashSet<>();
         String[] cars = checkNameCount(names);
         for (String car : cars) {
-            car = car.trim();
             if (validateName(car)) {
                 checkFiveWords(car);
                 checkSpaceWords(car);
