@@ -12,13 +12,16 @@ public class GameController {
     CarRaceModel carRaceModel = new CarRaceModel();
     CarTextModel carTextModel = new CarTextModel();
     GamePlayView gamePlayView = new GamePlayView();
+    Validator validator = new Validator();
 
     public void gameStart() {
 
         String carNames = gamePlayView.inputCarName();
         HashMap<String, String> carList = carTextModel.parseCarNames(carNames);
+        validator.validateCarName(carList);
 
         int attempts = gamePlayView.inputAttemptsCount();
+        validator.validateAttemptInput(attempts);
 
         System.out.println();
         System.out.println("실행 결과");
