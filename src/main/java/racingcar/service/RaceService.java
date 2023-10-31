@@ -16,7 +16,7 @@ public class RaceService {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
-    public TotalGameResult doGame(CarNameList carNames, String attemptNumberString) {
+    public TotalGameResult doRace(CarNameList carNames, String attemptNumberString) {
         RacingManager racingManager = new RacingManager(carNames);
         int attemptNumber = convertToInt(attemptNumberString);
 
