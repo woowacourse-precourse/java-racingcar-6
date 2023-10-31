@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 public class OutputView {
 
     private OutputView() {
@@ -17,20 +21,20 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printCarsMove(String name, int position) {
-        StringBuilder carString = new StringBuilder();
-        carString.append(name);
-        carString.append(" : ");
-        for (int i = 0; i < position; i++) {
-            carString.append("-");
+    public static void printCarsMove(Map<String, Integer> currentPosition) {
+        for (Entry<String, Integer> carsInformation : currentPosition.entrySet()) {
+            StringBuilder carString = new StringBuilder();
+            carString.append(carsInformation.getKey());
+            carString.append(" : ");
+            for (int i = 0; i < carsInformation.getValue(); i++) {
+                carString.append("-");
+            }
+            System.out.println(carString);
         }
-        System.out.println(carString);
+        System.out.println();
     }
 
-
-    public static void printFindWinner(String winners) {
-        System.out.println("최종 우승자 :" + " " + winners);
+    public static void printFindWinner(List<String> winners) {
+        System.out.println("최종 우승자 :" + " " + String.join(", ", winners));
     }
-
-
 }
