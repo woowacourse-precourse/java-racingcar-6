@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.Common.MessageType;
+import racingcar.common.MessageType;
 
 public enum OutputMessageType implements MessageType {
     RESULT_MESSAGE("실행 결과"),
