@@ -1,7 +1,9 @@
 package racingcar.view;
 
-public interface OutputView {
-    void outputExcutionResult();
+import racingcar.domain.RacingGame;
 
-    void outputWinner();
+public interface OutputView {
+    void outputExcutionResult(RacingGame racingGame);
+
+    void outputWinner(RacingGame racingGame);
 }

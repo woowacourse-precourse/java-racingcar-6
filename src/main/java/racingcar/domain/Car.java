@@ -39,9 +39,14 @@ public class Car extends IndexModel {
         return pickedNumbers.size();
     }
 
+    public int findPositionAt(int turn) {
+        return positions.get(turn);
+    }
+
     public void insertPickedNumber(int num) { //TODO: 이부분 Service로 분리할지?
         pickedNumbers.add(num);
         moveForwardIfNumberisSameOrOverCriteria(num);
+        positions.add(lastPosition);
     }
 
     public boolean isPositionSameOrOver(int maxPosition) {
@@ -57,6 +62,8 @@ public class Car extends IndexModel {
     private void moveForward() {
         lastPosition++;
     }
+
+    //여기까지 Service로 분리하는게 좋을듯?
 
     private void validateNameLength() {
         if (name.length() > MAX_CAR_LENGTH) {
