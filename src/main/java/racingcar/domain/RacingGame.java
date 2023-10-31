@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import racingcar.message.GameMessage;
 import racingcar.util.CarGenerator;
+import racingcar.util.Simulator;
 import racingcar.view.OutputView;
 import racingcar.view.Inputview;
 public class RacingGame {
@@ -10,6 +11,10 @@ public class RacingGame {
         printRequestNames();
         generateCars();
         printRequestNumber();
+        Simulator simulator = new Simulator(Inputview.consoleLine());
+        System.out.println();
+        OutputView.consoleLine(GameMessage.INSERT_TURN_MESSAGE);
+
 
 
 
@@ -22,6 +27,8 @@ public class RacingGame {
     private void printRequestNumber(){
         OutputView.consoleLine(GameMessage.INSERT_TURN_MESSAGE);
     }
+
+    private void printStartResult() {OutputView.consoleLine(GameMessage.INSERT_RESULT_MESSAGE);}
 
     private void generateCars(){
         CarGenerator carGenerator = new CarGenerator(Inputview.consoleLine());

@@ -6,5 +6,10 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        this.result = name + " : ";
+    }
+
+    public void addResult(){
+        result += "-";
     }
 }
