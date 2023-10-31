@@ -4,12 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.dto.CarsNameDto;
-import racingcar.domain.car.random_generator.TrueRandomMove;
+import racingcar.domain.car.random_generator.FakeRandomMove;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarsTest {
 
@@ -20,7 +19,7 @@ public class CarsTest {
         String carNames = "다오,디지니,배찌";
         CarsNameDto carsNameDto = new CarsNameDto(carNames);
 
-        cars = new Cars(new TrueRandomMove(), carsNameDto.names());
+        cars = new Cars(new FakeRandomMove(0,9), carsNameDto.names());
         cars.generateCars(carsNameDto.names());
     }
 

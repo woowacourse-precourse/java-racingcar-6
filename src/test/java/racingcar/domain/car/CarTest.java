@@ -2,8 +2,7 @@ package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.random_generator.FalseRandomMove;
-import racingcar.domain.car.random_generator.TrueRandomMove;
+import racingcar.domain.car.random_generator.FakeRandomMove;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,7 +15,7 @@ public class CarTest {
     void carMoveTestIfMoveForwardIsTrue() {
         int expected = 1;
 
-        car = new Car("test",new TrueRandomMove());
+        car = new Car("test",new FakeRandomMove(4, 9));
         car.moveCar();
         int carMove = car.getMoveCount();
 
@@ -29,7 +28,7 @@ public class CarTest {
     void carMoveTestIfMoveForwardIsFalse() {
         int expected = 0;
 
-        car = new Car("test",new FalseRandomMove());
+        car = new Car("test",new FakeRandomMove(0, 3));
         car.moveCar();
         int carMove = car.getMoveCount();
 
