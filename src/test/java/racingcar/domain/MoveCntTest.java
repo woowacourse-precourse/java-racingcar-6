@@ -31,14 +31,14 @@ class MoveCntTest {
         assertThat(e.getMessage()).isEqualTo(ErrorMessage.MOVE_CNT_NOT_NUMBER);
     }
 
-    @ParameterizedTest(name="음수 입력 예외 발생 : {0}")
-    @ValueSource(strings = {"-1", "-3456"})
-    void 음수_입력_에외_발생(String value) {
+    @ParameterizedTest(name="양수 아닌 수 입력 예외 발생 : {0}")
+    @ValueSource(strings = {"0", "-1", "-3456"})
+    void 양수_아닌_수_입력_예외_발생(String value) {
         // when
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new MoveCnt(value));
 
         // then
-        assertThat(e.getMessage()).isEqualTo(ErrorMessage.MOVE_CNT_NEGATIVE);
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.MOVE_CNT_NOT_POSITIVE_NUM);
     }
 
 }

@@ -26,8 +26,8 @@ public class MoveCnt {
         if (isNotNumber(str)) { // 숫자 아니면 예외 발생
             throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NOT_NUMBER);
         }
-        if (Integer.parseInt(str) < 0) { // 음수이면 예외 발생
-            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NEGATIVE);
+        if (Integer.parseInt(str) <= 0) { // 0 이하이면 예외 발생
+            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NOT_POSITIVE_NUM);
         }
     }
 
