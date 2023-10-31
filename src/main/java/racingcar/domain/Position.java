@@ -11,6 +11,8 @@ public class Position {
 
     private Map<String, Integer> position;
     private NumberGenerator numberGenerator;
+    private final int FORWARD_CONDITION = 4;
+    private final int BACK = -1;
 
     public Position(Map<String, Integer> carsMaps, int carsGameCount) {
         this.numberGenerator = new RandomNumberGenerator();
@@ -36,8 +38,8 @@ public class Position {
     }
 
     private void putPosition(Map<String, Integer> carsGameResult, String car) {
-        if (numberGenerator.generate() < 4) {
-            int forward = carsGameResult.get(car) - 1;
+        if (numberGenerator.generate() < FORWARD_CONDITION) {
+            int forward = carsGameResult.get(car) + BACK;
             carsGameResult.put(car, forward);
         }
     }

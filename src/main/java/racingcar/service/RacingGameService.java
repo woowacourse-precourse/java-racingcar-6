@@ -13,6 +13,8 @@ import racingcar.domain.Position;
 
 public class RacingGameService {
 
+    private final int FORWARD = 1;
+
     public Map<String, String> getUpdatedLogs(Position position, Logs logs) {
         updatePositionAndLogs(position, logs);
         return logs.getLogs();
@@ -21,7 +23,7 @@ public class RacingGameService {
     private void updatePositionAndLogs(Position carsPosition, Logs logs) {
         Set<String> cars = carsPosition.getPosition().keySet();
         for (String car : cars) {
-            carsPosition.update(car, 1);
+            carsPosition.update(car, FORWARD);
             int position = carsPosition.getPosition().get(car);
             logs.update(car, position);
         }
