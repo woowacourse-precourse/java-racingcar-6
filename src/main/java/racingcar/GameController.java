@@ -9,13 +9,13 @@ public class GameController {
         }
 
         public void setGame() {
-            gameService.input();
+            gameService.initializeGameParameters();
         }
 
         public void play() {
             gameService.startGame();
         }
         public void printWinner(){
-            gameService.printPutWinner();
+            gameService.compareAndPrintWinner();
         }
     }
