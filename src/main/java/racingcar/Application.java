@@ -1,13 +1,14 @@
 package racingcar;
 
 import java.util.List;
+import java.io.IOException;
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
 
-    public class Car {
+    static class Car {
         String name = "";
         int location = 0;
 
@@ -40,7 +41,7 @@ public class Application {
                 throw new IllegalArgumentException();
             }
 
-            // 입력이 유효하면 cars 클래스에 자동차 이름 입력
+            cars[i] = new Car();
             cars[i].name = CarName;
         }
 
