@@ -9,19 +9,25 @@ public class GameController {
     private GameManager gameManager;
     private int tryCount;
 
-    public void gameSetInput() {
+    public void gameStart() {
+        gameSetInput();
+        playRacing();
+        showWinnerCars();
+    }
+
+    private void gameSetInput() {
         this.gameManager = new GameManager(ViewController.setCars());
         this.tryCount = ViewController.setTryCount();
     }
 
-    public void playRacing() {
+    private void playRacing() {
         for (int i=0; i<tryCount; i++) {
             gameManager.moveCar();
             OutputView.showCarNameAndPosition(gameManager.getCars());
         }
     }
 
-    public void showWinnerCars() {
+    private void showWinnerCars() {
         Winner winner = gameManager.findWinnerCar();
         OutputView.finalWinnerMessage(winner);
     }
