@@ -36,7 +36,7 @@ public class Application {
         String[] carArray = InputCarName.split(",");
         for (int i = 0; i < carArray.length; i++) {
             if (carArray[i].length() >= 5) {
-                throw new IllegalArgumentException();
+                Error();
             }
             RacingCar.add(carArray[i]);
             RacingScore.add(0);
@@ -54,7 +54,7 @@ public class Application {
             Error();
         }
         TryNumber = Integer.parseInt(Input_TryNumber);
-        if (TryNumber < 0) {
+        if (TryNumber <= 0) {
             Error();
         }
     }
