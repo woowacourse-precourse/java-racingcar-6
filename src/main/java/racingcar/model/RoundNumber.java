@@ -1,9 +1,11 @@
 package racingcar.model;
 
+import racingcar.validator.RoundNumberValidation;
+
 public class RoundNumber {
     int roundNumber;
 
     public RoundNumber(String roundNumber) {
-        this.roundNumber = Integer.parseInt(roundNumber);
+        RoundNumberValidation validator = new RoundNumberValidation(roundNumber);
     }
 }
