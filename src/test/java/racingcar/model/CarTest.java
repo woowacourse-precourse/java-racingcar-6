@@ -3,6 +3,7 @@ package racingcar.model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
@@ -20,13 +21,15 @@ class CarTest {
     }
 
     @Test
-    void Car_객체_생성_성공() {
+    @DisplayName("Car 객체 생성에 성공한다.")
+    void CarTest() {
         assertEquals(car1.getName(), "poby");
         assertEquals(car1.getDistance(), 0);
     }
 
     @Test
-    void move_자동차를_한칸_움직인다() {
+    @DisplayName("움직임에 성공한다.")
+    void moveTest() {
         car1.move();
         assertEquals(car1.getDistance(), 1);
 
@@ -35,13 +38,15 @@ class CarTest {
     }
 
     @Test
-    void equals_동등성_비교() {
+    @DisplayName("동등성 비교에 성공한다.")
+    void equalsTest() {
         assertFalse(car1 == car2);
         assertTrue(car1.equals(car2));
     }
 
     @Test
-    void hashcode_해시코드_비교() {
+    @DisplayName("해시코드 비교에 성공한다.")
+    void hashcodeTest() {
         assertTrue(car1.hashCode() == car2.hashCode());
     }
 }

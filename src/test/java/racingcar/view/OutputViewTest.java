@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.game.RacingGame;
 import racingcar.model.Car;
@@ -20,7 +21,8 @@ public class OutputViewTest {
     }
 
     @Test
-    public void printResultCommand_실행결과_출력() {
+    @DisplayName("'실행 결과'문구 출력에 성공한다.")
+    public void printResultCommandTest() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
@@ -32,7 +34,8 @@ public class OutputViewTest {
     }
 
     @Test
-    public void printRoundResult_게임_라운드마다_출력_검증() {
+    @DisplayName("게임 라운드마다 출력 검증에 성공한다.")
+    public void printRoundResultTest() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
@@ -50,7 +53,8 @@ public class OutputViewTest {
     }
 
     @Test
-    public void printWinner_최종우승자_출력_검증() {
+    @DisplayName("최종 우승자 출력에 성공한다.")
+    public void printWinnerTest() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 

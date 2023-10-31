@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.lang.reflect.Method;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
@@ -18,7 +19,8 @@ public class RacingGameTest {
     }
 
     @Test
-    void name_객체_생성시_차_이름_생성() {
+    @DisplayName("RacingGame 객체 생성 시, 차 이름이 알맞게 생성된다.")
+    void racingGameNameTest() {
         List<Car> carList = racingGame.getCarList();
 
         assertAll(
@@ -29,7 +31,8 @@ public class RacingGameTest {
     }
 
     @Test
-    void distance_객체_생성시_거리_모두_0으로_초기화() {
+    @DisplayName("RacingGame 객체 생성 시, 거리가 모두 0으로 초기화된다.")
+    void racingGameDistanceTest() {
         List<Car> carList = racingGame.getCarList();
 
         assertAll(
@@ -39,7 +42,8 @@ public class RacingGameTest {
     }
 
     @Test
-    void canMove_4보다_큰수에_대하여_움직임_가능() {
+    @DisplayName("4보다 큰 수에 대하여 움직이는 것을 검증한다.")
+    void racingGameMoveTest() {
         try {
             int number = 6;
             Method canMoveMethod = RacingGame.class.getDeclaredMethod("canMove", int.class);
@@ -52,7 +56,8 @@ public class RacingGameTest {
     }
 
     @Test
-    void canMove_4보다_작은수에_대하여_움직임_불가능() {
+    @DisplayName("4보다 작은 수에 대하여 움직이지 않는 것을 검증한다.")
+    void racingGameCantMoveTest() {
         try {
             int number = 2;
             Method canMoveMethod = RacingGame.class.getDeclaredMethod("canMove", int.class);
@@ -65,7 +70,8 @@ public class RacingGameTest {
     }
 
     @Test
-    public void move_한칸_움직임_검증() {
+    @DisplayName("움직이는 것을 검증한다.")
+    public void moveTest() {
         List<Car> carList = racingGame.getCarList();
         for (Car car : carList) {
             car.move();
@@ -79,7 +85,8 @@ public class RacingGameTest {
     }
 
     @Test
-    void getWinners_거리가_가장_긴_최종우승자_반환() {
+    @DisplayName("거리가 가장 긴 우승자를 최종 우승자로 반환한다.")
+    void getWinnersMostDistanceTest() {
         List<Car> carList = racingGame.getCarList();
         for (int i = 0; i < 3; ++i) {
             carList.get(0).move();
@@ -93,7 +100,8 @@ public class RacingGameTest {
     }
 
     @Test
-    void getWinners_최종우승자_모두_반환() {
+    @DisplayName("최종우승자가 여러 명일 경우, 모두 반환한다.")
+    void getWinnersTest() {
         List<Car> carList = racingGame.getCarList();
         for (Car car : carList) {
             car.move();

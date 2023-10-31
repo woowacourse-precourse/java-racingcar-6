@@ -3,13 +3,15 @@ package racingcar.utils;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InputConvertorTest {
     String inputNames = "pobi,woni,jun";
 
     @Test
-    void separateInputToNames_컴마로_구분된값_분리() {
+    @DisplayName("컴마로 구분된 값을 분리한다.")
+    void separateInputToNamesTest() {
         String[] result = InputConvertor.separateInputToNames(inputNames);
 
         assertThat(result).containsExactly("pobi", "woni", "jun");
@@ -17,7 +19,8 @@ class InputConvertorTest {
     }
 
     @Test
-    void separateInputToNames_컴마와_빈칸으로_구분된값_분리() {
+    @DisplayName("빈칸이 포함된 컴마로 구분된 값을 분리한다.")
+    void separateInputToNamesWithSpaceTest() {
         String[] result = InputConvertor.separateInputToNames(inputNames);
 
         assertThat(result).containsExactly("pobi", "woni", "jun");
@@ -25,7 +28,8 @@ class InputConvertorTest {
     }
 
     @Test
-    void separateInputToNames_메서드_사용시_최대길이보다_큰_이름을_찾을_때_예외_발생() {
+    @DisplayName("최대 길이보다 큰 이름을 입력 시 예외를 발생한다.")
+    void separateInputToNamesMoreThanLimitTest() {
         String inputNameLengthMoreThanFive = "pobipobipobi, woni, jun";
 
         assertThatThrownBy(() -> InputConvertor.separateInputToNames(inputNameLengthMoreThanFive))
@@ -34,7 +38,8 @@ class InputConvertorTest {
     }
 
     @Test
-    void parseTryCount_입력횟수를_int로_변환() {
+    @DisplayName("시도 횟수 입력 시, int로 변환한다.")
+    void parseTryCountTest() {
         String inputTry = "12";
         int result = InputConvertor.parseTryCount(inputTry);
 
@@ -42,7 +47,8 @@ class InputConvertorTest {
     }
 
     @Test
-    void parseTryCount_메서드_사용시_소수_변환_예외_발생() {
+    @DisplayName("정수가 아닌 시도 횟수 입력 시, 예외를 발생한다.")
+    void parseTryCountNotIntegerTest() {
         String inputTry = "12.5";
 
         assertThatThrownBy(() -> InputConvertor.parseTryCount(inputTry))
@@ -51,7 +57,8 @@ class InputConvertorTest {
     }
 
     @Test
-    void validateTryCount_메서드_사용시_음수_또는_0_변환_예외_발생() {
+    @DisplayName("0보다 작은 시도 횟수 입력 시, 예외를 발생한다.")
+    void validateTryCountTest() {
         int inputTry = 0;
 
         assertThatThrownBy(() -> InputConvertor.validateTryCount(inputTry))
