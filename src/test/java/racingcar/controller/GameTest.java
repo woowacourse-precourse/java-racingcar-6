@@ -1,8 +1,6 @@
 package racingcar.controller;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.common.type.Names;
@@ -30,14 +28,9 @@ public class GameTest {
         AllRoundDTO lastRound = allRoundResults.get(allRoundResults.size() - 1);
         List<RoundDTO> roundDTOs = lastRound.roundDTOs();
 
-        List<String> roundStrings = roundDTOs
-                .stream()
-                .map(RoundDTO::toString)
-                .collect(Collectors.toList());
-
-        // 모든 차가 이동할 수 있으므로 각 차의 거리가 증가해야 함
-        List<String> expectedRoundStrings = Arrays.asList("hyunjin : ---", "pobi : ---", "lefthand : ---");
-        Assertions.assertEquals(expectedRoundStrings, roundStrings);
+        // 모든 차가 이동할 수 있으므로 각 차의 거리가 3이어야 함
+        for (RoundDTO roundDTO : roundDTOs) {
+            Assertions.assertEquals(3, roundDTO.getDistance());
+        }
     }
-
 }

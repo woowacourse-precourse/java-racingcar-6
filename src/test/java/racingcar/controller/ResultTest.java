@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +31,8 @@ public class ResultTest {
         WinnerDTO winnerDTO = result.announce();
 
         // then: 결과 검증
-        String announcedWinners = winnerDTO.toString();
-        Assertions.assertEquals("최종 우승자 : hyunjin,pobi,lefthand", announcedWinners);
+        List<String> announcedWinners = winnerDTO.getNames();  // WinnerDTO에서 이름 목록을 가져옴
+        List<String> expectedWinners = Arrays.asList("hyunjin", "pobi", "lefthand");  // 예상되는 우승자 목록
+        Assertions.assertEquals(expectedWinners, announcedWinners);
     }
 }
