@@ -6,7 +6,7 @@ public class Car implements Comparable<Car>{
 
     public Car(String name) throws IllegalArgumentException{
         if(name.length() > 5)
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Name can be longer than 5");
         this.name = name;
         this.track = new StringBuilder();
     }
