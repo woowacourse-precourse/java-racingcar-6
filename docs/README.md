@@ -6,7 +6,7 @@
   - [x] 잘못된 입력에 경우 IllegalArgumentException을 발생시킨다.
 - [x] 사용자가 몇 번의 이동을 할지 입력받는다. - Game#inputMoveNum()
 - [x] Game#operate()
-  - [x] 전진 조건에 의해 4이상인지 확인한다. - Game#verfityMoveCondition()
+  - [x] 전진 조건에 의해 4이상인지 확인한다. - Game#verifyMoveCondition()
   - [x] 전진 조건에 적합하면 이동한다. - Game#moveCar()
   - [x] 이동 현황을 출력한다 - Game#printCurrentState()
   - [x] 우승자의 기록을 찾는다. - Game#searchMaxDist()
