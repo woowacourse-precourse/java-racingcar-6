@@ -12,7 +12,6 @@ public class Input {
         String inputData = Console.readLine();
         Validator.checkCarInput(inputData);
         String[] splitInputData = inputData.split(",");
-        List<String> carNames = new ArrayList<>(Arrays.asList(splitInputData));
-
+        return Arrays.asList(splitInputData);
     }
 }

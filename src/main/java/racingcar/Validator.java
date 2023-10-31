@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class Validator {
-    public static String[] checkCarInput(String inputString) {
+    public static void checkCarInput(String inputString) {
 
         if (inputString.isEmpty()) {
             throw new IllegalArgumentException();
