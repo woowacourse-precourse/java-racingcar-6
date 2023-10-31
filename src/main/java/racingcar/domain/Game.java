@@ -4,6 +4,7 @@ import racingcar.views.OutputView;
 
 import java.util.ArrayList;
 
+import static racingcar.util.ErrorInstruction.CAR_NAME_LENGTH_ERROR_MESSAGE;
 import static racingcar.views.InputView.readUserInput;
 
 public class Game {
@@ -14,6 +15,7 @@ public class Game {
             String[] carNames = userInput.split(",");
             ArrayList<Car> cars = makeCarList(carNames);
         } catch (IllegalArgumentException exception) {
+            OutputView.printErrorMessage(exception);
             inputCarName();
         }
     }
@@ -21,6 +23,9 @@ public class Game {
     private ArrayList<Car> makeCarList(String[] carNames) {
         ArrayList<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
+            if (carName.length() > 5 || carName.length() < 1) {
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
+            }
             Car car = new Car(carName);
             cars.add(car);
         }
