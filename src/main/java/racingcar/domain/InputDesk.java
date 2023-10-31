@@ -16,21 +16,37 @@ public class InputDesk {
         return count;
     }
 
-    public void raiseIllegalArgumentException(String messege) {
-        IllegalArgumentException e = new IllegalArgumentException(messege);
-        throw e;
+    public void checkIllegalArgumentException(String carName) {
+        if ( carName == null ) {
+            throw new IllegalArgumentException("자동차 이름 입력값 null");
+        }
+
+        if ( carName.length() <= 0 ) {
+            throw new IllegalArgumentException("자동차 이름 길이 0");
+        }
+
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름 길이 5 초과");
+        }
+
     }
+
+    public void checkIllegalArgumentException(int inputCount) {
+        if ( inputCount < 1 ) {
+            throw new IllegalArgumentException("시도할 회수 입력값 0 이하");
+        }
+    }
+
 
     public void inputCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         try {
             String inputStr = Console.readLine();
+            checkIllegalArgumentException(inputStr);
             String[] strArr = inputStr.split(",");
 
             for ( int i = 0; i < strArr.length; i++ ) {
-                if ( strArr[i].length() <= 0 || strArr[i].length() > 5 ) {
-                    raiseIllegalArgumentException("경주할 자동차 이름 길이 Exception");
-                }
+                checkIllegalArgumentException(strArr[i]);
                 cars.add(strArr[i]);
             }
 
@@ -46,7 +62,7 @@ public class InputDesk {
             String inputStr = Console.readLine();
             int inputCount = Integer.parseInt(inputStr);
             if ( inputCount < 1 ) {
-                raiseIllegalArgumentException("시도할 회수 입력값 0 이하로 받음");
+                checkIllegalArgumentException(inputCount);
             }
             count = inputCount;
         } catch (IllegalArgumentException e) {
