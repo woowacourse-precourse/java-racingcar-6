@@ -6,6 +6,6 @@ public class Application {
     public static GameManager gameManager;
     public static void main(String[] args) {
         gameManager = new GameManager();
-        gameManager.startRacingGame();
+        gameManager.startGame();
     }
 }

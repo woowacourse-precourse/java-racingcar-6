@@ -11,7 +11,8 @@ public class GameManager {
         userInput = new UserInput();
     }
 
-    public void startRacingGame(){
+    public void startGame(){
         gameSettingsDto = userInput.readUserGameSettingInput();
+
     }
 }
