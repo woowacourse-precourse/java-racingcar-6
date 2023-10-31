@@ -3,7 +3,7 @@ package racingcar.view;
 import racingcar.domain.RaceResultDTO;
 
 import java.util.List;
-import java.util.Map;
+import java.util.stream.IntStream;
 
 public class OutputView {
     private static final String RACE_RESULT_MESSAGE = "실행 결과";
@@ -18,15 +18,17 @@ public class OutputView {
     }
 
     public void printRaceResult(RaceResultDTO raceResultDTO) {
-        raceResultDTO.names()
-                .forEach(name -> printNameAndPosition(name, raceResultDTO.positions()));
+        var names = raceResultDTO.names();
+        var positions = raceResultDTO.positions();
+        IntStream.range(0, names.size())
+                .forEach(index -> printNameAndPosition(names.get(index), positions.get(index)));
         System.out.println();
     }
 
-    private void printNameAndPosition(String name, Map<String, Integer> positions) {
+    private void printNameAndPosition(String name, int position) {
         printName(name);
         System.out.print(NAME_POSITION_SEPARATOR_MESSAGE);
-        printPosition(positions.get(name));
+        printPosition(position);
     }
 
     private void printName(String name) {
