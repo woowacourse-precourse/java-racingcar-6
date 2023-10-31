@@ -18,6 +18,7 @@
   - [ ] 자동차 이름 입력 검증 기능
     - [ ] 자동차 이름의 길이가 5초과일 경우 IllegalArgumentException 발생 후 종료
     - [ ] 자동차 이름의 구분자가 쉼표가 아닌 경우 IllegalArgumentException 발생 후 종료
+    - [ ] 쉼표 뒤에 공백이 있는 경우 IllegalArgumentException 발생 후 종료
   - [ ] 시도 할 회수 입력 검증 기능
     - [ ] 양수가 아닌 경우 IllegalArgumentException 발생 후 종료
 - [ ] 자동차 클래스
@@ -36,3 +37,10 @@
 - [ ] 일반 메세지 관리 클래스
   - [ ] 경주할 자동차 이름 입력 요청 메세지
   - [ ] 시도 할 회수 입력 요청 메세지
+  - [ ] 실행 결과 메세지
+- [ ] 경주 클래스
+
+## 추가 기능 목록💦
+- [ ] 자동차 이름 입력 검증 기능
+  - [ ] 쉼표 뒤에 공백이 있는 경우 IllegalArgumentException 발생 후 종료
+- [ ] 예외 메세지 관리 기능
