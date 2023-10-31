@@ -17,12 +17,12 @@ public class OutputView {
     }
 
     public static void printProceedResult(List<String> carNames, HashMap<String, Integer> racingStatus) {
+        System.out.println();
         System.out.println(PROCEED_MESSAGE);
         for (String carName : carNames) {
             System.out.print(carName+" : ");
             printDash(racingStatus.get(carName));
         }
-        System.out.println();
     }
 
     private static void printDash(Integer count) {
@@ -33,6 +33,7 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winnerList) {
+        System.out.println();
         String winnersMessageBuilder = "최종 우승자 : "
                 + String.join(", ", winnerList);
         System.out.print(winnersMessageBuilder);
