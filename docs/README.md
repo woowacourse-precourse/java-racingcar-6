@@ -45,8 +45,6 @@
 
     - [x] UpdateDistancee(List<Integer> distances)
 
-        - 리스트별로 생성자에 업그레이드, 근데 이게 맞나? 이름에 맞춰서 해야 되지 않나? - update Distance 사용하기
-
     - [x]  List<String> getWinner()
 
         - distacance가 max인 List<String> names 반환하기
@@ -73,20 +71,20 @@
 ### Controller
 
 - controller
-    - [x]  makeCarList(view에서 받은 List<String>)
-    - [x] getAttemptNumber(String view에서 온 친구들)
-
-        - 여기서 validateName 실행시키고 int 리턴하기
-
+    - [x]  makeCarList
+        - 입력받은 이름들로 CarList 객체 만들기
+    - [x] getAttemptNumber
     - [x] getEnteredNames
+        - 5글자 이하 이름 입력 받고 쉼표를 기준으로 구분하기
         - seperateNames
         - validateOverorZero
         - validateDuplicate
     - [x] seperateNames
     - [x] makeRandomNumberList
     - [x]  play(int howMany)
-        - 입력된 수 만큼 반복문 진행
+        - 입력된 수 만큼 반복하며 게임 진행
     - [x]  whoisWinner
+        - 우승한 사람들 리턴
     - [x]  replaceZeroAndOne
         - 4 이상이면 1, 아니면 0으로 바꾼 리스트를 리턴
 - validate
@@ -96,7 +94,7 @@
     - [x]  number가 제대로 들어왔는지 확인
         - [x] validateInteger
 - Generator
-    - [x]  랜덤 숫자 리턴
+    - [x]  랜덤한 숫자 리턴
 
 ### View
 
@@ -111,13 +109,13 @@
 
         - `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
 
-    - [x]  void printAskNumber(){
+    - [x]  void printAskNumber()
 
         - `시도할 회수는 몇회인가요?`
 
     - [x]  void printResult()
 
-        - 실행 결과 출력
+        - `실행 결과`
 
     - [x]  void printInterm
 
@@ -140,3 +138,14 @@
     - 이름에 따른 CarList 생성
     - 게임 진행
     - 우승자 출력
+
+### 목표
+
+- 기능 목록을 상세히 작성한다.
+- 기능 요구사항, 프로그래밍 요구 사항, 과제 진행 요구사항을 정확히 준수한다.
+- 이름을 통해 의도를 드러내고 축약하지 않는다.
+- 의미 없는 주석을 달지 않는다.
+- 배열 대신 Java Collection을 사용한다.
+- 읽기 쉬운 코드를 작성하려 노력한다.
+- 객체에 메시지를 보내 객체 내에서 일을 하도록 한다.
+- 함수가 한 가지 일만 하도록 최대한 작게 만든다.
