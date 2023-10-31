@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class InputToCarList {
@@ -23,6 +24,15 @@ public class InputToCarList {
         List<Car> cars = Arrays.stream(input.split(USER_DEFAULT_DELIMITER))
                 .map(Car::new)
                 .collect(Collectors.toList());
+
+        Set<String> carNamesSet = cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toSet());
+
+        if (cars.size() > carNamesSet.size()) {
+            throw new IllegalArgumentException("중복되는 이름이 있습니다.");
+        }
+
         if (cars.isEmpty()) {
             throw new IllegalArgumentException(NO_PLAYERS_PARTICIPATE);
         }
