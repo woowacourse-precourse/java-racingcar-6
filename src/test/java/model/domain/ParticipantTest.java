@@ -28,7 +28,7 @@ class ParticipantTest {
     }
 
     @Test
-    void 자동차_이름은_중복_불가() {
+    void 자동차_이름은_중복_불가에_대한_예외_처리() {
         String carNames = "lee,na,na";
         assertThatThrownBy(() -> {
             new Participant(carNames);
@@ -37,7 +37,7 @@ class ParticipantTest {
     }
 
     @Test
-    void 자동차_이름은_공백_불가() {
+    void 자동차_이름은_공백_불가에_대한_예외_처리() {
         String carNames = "lee,,na";
         assertThatThrownBy(() -> {
             new Participant(carNames);
