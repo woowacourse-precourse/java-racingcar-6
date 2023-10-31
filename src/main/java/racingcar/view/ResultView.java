@@ -16,4 +16,8 @@ public class ResultView {
             result.append(CAR_POSITION_MARKER);
         }
     }
+
+    public static void printNewLine() {
+        System.out.println();
+    }
 }
