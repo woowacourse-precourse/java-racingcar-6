@@ -1,11 +1,13 @@
 package racingcar.utils;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class CarNameValidator {
 
+    public static final String MULTIPLE_CAR_NAME_DELIMITER = ",";
     private static final int MAX_CAR_NAME_LENGTH = 5;
-    private static final String MULTIPLE_CAR_NAME_DELIMITER = ",";
     private static final String ALPHABET_CAR_NAME_REGEX = "^[A-Za-z]+$";
     private static final String MULTIPLE_CAR_NAME_ERROR_MESSAGE = "자동차는 두 대 이상 입력해야 합니다.";
     private static final String BLANK_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 공백일 수 없습니다.";
