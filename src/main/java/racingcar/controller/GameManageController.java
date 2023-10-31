@@ -30,4 +30,12 @@ public class GameManageController {
 
         return carList;
     }
+
+    private static int inputCount() {
+        OutputView.inputCountMessage();
+        String count = InputView.input();
+        InputVerification.checkInputType(count);
+
+        return Integer.parseInt(count);
+    }
 }
