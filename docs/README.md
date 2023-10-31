@@ -35,7 +35,7 @@
 
 ## 기본 설계
 
-![Alt RacingGameUML](./images/racingcarUML-2.png)
+![Alt RacingGameUML](./images/racingcarUML-3.png)
 
 ## 기능 요구 사항
 ### 사용자들의 이름을 입력 받는다.
