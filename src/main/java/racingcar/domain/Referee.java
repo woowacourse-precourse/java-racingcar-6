@@ -20,10 +20,14 @@ public class Referee {
     public void startTurn() {
         for (Car car : cars) {
             int randomNumber = randomNumberGenerator.getRandomNumber();
-            if (randomNumber >= PROCEED_CONDITION) {
+            if (isProceedNumber(randomNumber)) {
                 car.proceed();
             }
         }
+    }
+
+    private static boolean isProceedNumber(int randomNumber) {
+        return randomNumber >= PROCEED_CONDITION;
     }
 
     public GameStatus getGameStatus() {
