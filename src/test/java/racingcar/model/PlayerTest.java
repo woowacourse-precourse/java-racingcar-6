@@ -3,6 +3,7 @@ package racingcar.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.HashMap;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -44,5 +45,46 @@ class PlayerTest {
 
         //then
         assertEquals(player.getGameTime(), registerGameTime);
+    }
+
+    @DisplayName("자동차 경주의 우승자(1명)를 List 타입으로 반환하는 메서드 기능 테스트")
+    @Test
+    void getWinnerMethodTest() {
+        //given
+        player.registerNickname("pobi");
+        player.registerNickname("woni");
+        player.registerNickname("jun");
+
+        player.getPlayer().put("pobi", 3);
+        player.getPlayer().put("woni", 2);
+        player.getPlayer().put("jun", 1);
+
+        //when
+        List<String> winners = player.getWinner();
+
+        //then
+        assertEquals(1, winners.size());
+        assertTrue(winners.contains("pobi"));
+    }
+
+    @DisplayName("자동차 경주의 우승자(여러 명)를 List 타입으로 반환하는 메서드 기능 테스트")
+    @Test
+    void getWinnersMethodTest() {
+        //given
+        player.registerNickname("pobi");
+        player.registerNickname("woni");
+        player.registerNickname("jun");
+
+        player.getPlayer().put("pobi", 3);
+        player.getPlayer().put("woni", 3);
+        player.getPlayer().put("jun", 1);
+
+        //when
+        List<String> winners = player.getWinner();
+
+        //then
+        assertEquals(2, winners.size());
+        assertTrue(winners.contains("pobi"));
+        assertTrue(winners.contains("woni"));
     }
 }
