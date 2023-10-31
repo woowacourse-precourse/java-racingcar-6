@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-
 import camp.nextstep.edu.missionutils.Console;
 
 import racingcar.model.Car;
@@ -15,8 +13,6 @@ public class GameController {
 
     private GameController() {
     }
-
-    ;
 
     public static GameController getInstance() {
         return INSTANCE;
@@ -55,21 +51,21 @@ public class GameController {
     public void printResultOfRound() {
         for (Car car : game.carList) {
             car.moveOrStay();
-            ResultView.printCarState(car.name, car.position);
+            ResultView.printCarState(car.name, car.score);
         }
         System.out.println();
     }
 
     public void setWinners() {
         for (Car car : game.carList) {
-            game.updateWinners(car.name, car.position);
+            game.updateWinners(car);
         }
     }
 
     public static void setCarList(String carNames) {
-        for (String carName : carNames.split(",")) {
+        for (String carName : carNames.split(",",-1)) {
             checkCarNameValidation(carName);
-            game.carList.add(new Car(carName));
+            game.updateCar(new Car(carName));
         }
     }
 
