@@ -1,12 +1,17 @@
 package racingcar.controller;
 
-import static racingcar.util.RandomNumber.randomNumber;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.util.RandomNumberGenerator;
 
 public class CarController {
+    private final RandomNumberGenerator randomNumberGenerator;
+
+    public CarController(RandomNumberGenerator randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
+    }
 
     public List<Car> initializeCars(List<String> carNames) {
         return carNames.stream()
@@ -16,7 +21,7 @@ public class CarController {
 
     public void moveCarForward(List<Car> cars) {
         for (Car car : cars) {
-            int randomNumber = randomNumber();
+            int randomNumber = randomNumberGenerator.generate();
             if (randomNumber >= 4) {
                 car.move();
             }
