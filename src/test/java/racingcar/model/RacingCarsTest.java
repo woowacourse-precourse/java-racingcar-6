@@ -60,6 +60,18 @@ class RacingCarsTest {
                         , value -> assertThat(value).isEqualTo(INITIAL_CAR_POSITION));
     }
 
+    @DisplayName("경주 자동차 생성시 구분자로만 이루어져있으면 예외가 발생한다.")
+    @Test
+    void exception_Invalid_Input_Only_Delimiters() {
+        // given
+        String input = ",,,";
+
+        // when // then
+        assertThatThrownBy(() -> RacingCars.createRacingCars(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(BLANK_CAR_NAME.toString());
+    }
+
     @DisplayName("경주 자동차 생성시 구분자로 분리한 입력값 중 공백이 있다면 예외가 발생한다.")
     @Test
     void exception_Invalid_Input_Empty() {

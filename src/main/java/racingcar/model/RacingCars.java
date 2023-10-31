@@ -17,6 +17,7 @@ public final class RacingCars {
 
     private RacingCars(String input) {
         List<String> names = createNamesWithInput(input);
+        validateNamesEmpty(names);
         validateCarNames(names);
         this.names = names;
     }
@@ -34,6 +35,12 @@ public final class RacingCars {
         for (String name : names) {
             validateNameNotBlank(name);
             validateNameLength(name);
+        }
+    }
+
+    private void validateNamesEmpty(List<String> names) {
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException(BLANK_CAR_NAME.toString());
         }
     }
 
