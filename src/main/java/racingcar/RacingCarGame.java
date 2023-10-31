@@ -14,13 +14,13 @@ public class RacingCarGame {
 
     public void play(){
         initConfig();
+        System.out.println("\n"+ UserResponeMessage.EXECUTION_RESULT_MESSAGE);
 
-        System.out.println("\n"+ UserResponeMessage.EXECUTION_RESULT);
         for(int rount = 0; rount < moveCount; rount++){
-
             carController.grantForwardChanceForCars();
             carController.printRoundResult();
         }
+        announceWinners();
     }
 
     private void initConfig(){
@@ -34,6 +34,10 @@ public class RacingCarGame {
     private void initializeCars(){
         String [] carNames = userInputHandler.getInputForNames();
         carController.initializeOperatedCars(carNames);
+    }
+
+    private void announceWinners(){
+        carController.determineWinner();
     }
 
 }

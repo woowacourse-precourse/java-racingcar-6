@@ -2,11 +2,18 @@ package racingcar;
 
 public class Car {
     String name;
-    int advancedDistance;
+    int position;
 
     public Car(String name){
         this.name = name;
-        this.advancedDistance = 0;
+        this.position = 0;
+    }
+
+    public String getName(){
+        return name;
+    }
+    public int getPosition() {
+        return position;
     }
 
     public void tryForwardChance(){
@@ -17,12 +24,12 @@ public class Car {
     }
 
     private void forward(){
-        this.advancedDistance++;
+        this.position++;
     }
 
     public void printForawrdSituation(){
         System.out.print(name + " : ");
-        for(int i=0; i<advancedDistance; i++){
+        for(int i = 0; i< position; i++){
             System.out.print("-");
         }
         System.out.println();

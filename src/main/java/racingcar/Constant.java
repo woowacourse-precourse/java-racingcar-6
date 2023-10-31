@@ -17,7 +17,8 @@ public class Constant {
     }
 
     public enum UserResponeMessage{
-        EXECUTION_RESULT("실행 결과");
+        EXECUTION_RESULT_MESSAGE("실행 결과"),
+        FINAL_WINNER_MESSAGE("최종 우승자 : ");
         private final String message;
 
         UserResponeMessage(String message){

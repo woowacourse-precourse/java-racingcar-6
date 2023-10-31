@@ -2,9 +2,12 @@ package study;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -49,6 +52,28 @@ public class StringTest {
 
         assertThat(actual).isBetween(0,9);
     }
+
+
+    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"1,2,3,4,5", "10,20,30,40,50", "5,5,5,5,5", "100,200,300,400,500"})
+    void 최대값_찾기(String input){
+        String[] inputArray = input.split(",");
+        ArrayList<Integer> inputList = new ArrayList<>();
+        for (String num : inputArray) {
+            inputList.add(Integer.parseInt(num));
+        }
+
+        Judge judge = new Judge();
+        int actual = judge.getMaximumNum(inputList);
+        int expected = Arrays.stream(inputArray)
+                .mapToInt(Integer::parseInt)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("입력 리스트가 비어있습니다."));
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
     @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";

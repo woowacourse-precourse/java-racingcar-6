@@ -27,7 +27,7 @@
 
 ### **Racing Car 게임을 진행하는 기능**
 
-- [ ] 이동횟수만큼 게임을 진행한다. - **RacingCarGame**#game
+- [x] 이동횟수만큼 게임을 진행한다. - **RacingCarGame**#game
   
   - [x] 게임 안내 메시지를 출력한다. **GameConfig**
     
@@ -36,15 +36,15 @@
     시도할 회수는 몇회인가요?
     ```
   
-  - [ ] 자동차가 전진할 기회를 준다 **CarController**#grantChaceForForward
+  - [x] 자동차가 전진할 기회를 준다 **CarController**#grantChaceForForward
     
     - [x] 무작위 수(0~9)를 구한다. -**NumberGenerator**#createRandomNumber
     
     - [x] 4이상이면 전진 한다. - **Car**#forward 
   
-  - [ ] 차수마다 자동차들의 전진 결과를 출력한다. **CarController**#printRoundRestult
+  - [x] 차수마다 자동차들의 전진 결과를 출력한다. **CarController**#printRoundRestult
     
-    - [ ] 자동차의 이름과 전진 상황을 출력한다(전진 여부 상관X) - **Car**#printForward
+    - [x] 자동차의 이름과 전진 상황을 출력한다(전진 여부 상관X) - **Car**#printForward
       
       ```
       pobi : --
@@ -54,15 +54,15 @@
 
 ### **우승자를 알려주는 기능**
 
-- [ ] 우승자를 가린다.- **RacingCarGame**#announceWinners
+- [x] 우승자를 가린다.- **RacingCarGame**#announceWinners
   
-  - [ ] 자동차 중 가장 많이 전진한 차(단수, 복수)를 알아낸다.**CarController**#determineWinner
+  - [x] 자동차 중 가장 많이 전진한 차(단수, 복수)를 알아낸다.**CarController**#determineWinner
     
-    - [ ] 우승자가 몇 명인지 알아낸다.[단수, 복수] **Judge**#getNumberOfWinners
+    - [x] 우승자가 몇 명인지 알아낸다.[단수, 복수] **Judge**#getNumberOfWinners
     
-    - [ ] 우승자의 이름(자동차)을 알아낸다. **Judge**#getNameOfWinners
+    - [x] 우승자의 이름(자동차)을 알아낸다. **Judge**#getNameOfWinners
     
-    - [ ] 우승자를 출력한다. 여러 명이면 쉼표로 구분한다.**CarController**#printWinners
+    - [x] 우승자를 출력한다. 여러 명이면 쉼표로 구분한다.**CarController**#printWinners
     
     ```
     최종 우승자 : pobi
