@@ -23,7 +23,7 @@ import java.util.List;
 
 public class Car {
     private String carName;
-    private String result;
+    private String result = "";
     public void carMoveOrStop() {
         if (isMoveAble()) {
             result += "-";
@@ -35,7 +35,7 @@ public class Car {
         }
     }
     public String printMovingCarWithCarName() {
-        return "";
+        return carName + " : " + result;
     }
     public boolean isLengthFive(String carName) {
         return carName.length() <= 5;

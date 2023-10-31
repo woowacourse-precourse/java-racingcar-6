@@ -16,13 +16,16 @@ class CarTest {
 
     @Test
     void giveNameOfCar() {
-        /*Car car = new Car();
+        Car car = new Car();
         car.giveNameOfCar("tear");
-        assertThat(1).isEqualTo(car.getCarName().size());*/
     }
 
     @Test
     void printMovingCarWithCarName() {
+        Car car = new Car();
+        car.giveNameOfCar("test");
+        car.carMoveOrStop();
+        assertThat("test : -").isEqualTo(car.printMovingCarWithCarName());
     }
 
     // randomNumber > 3이면 true, 아니면 false
@@ -41,7 +44,5 @@ class CarTest {
         assertThat(false).isEqualTo(expected);
     }
 
-    @Test
-    void inputMoveCountsIntoCar() {
-    }
+
 }
