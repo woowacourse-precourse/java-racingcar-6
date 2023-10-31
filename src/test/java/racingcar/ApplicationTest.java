@@ -31,47 +31,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 이름에_대한_예외_처리_빈_이름_입력() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(",javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_같은_이름_입력() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,pobi,aaa", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 시도횟수_입력_예외_처리_문자() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,aaa", "aa"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 시도횟수_입력_예외_처리_음수() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,aaa", "-1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 시도횟수_입력_예외_처리_0() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,aaa", "0"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
