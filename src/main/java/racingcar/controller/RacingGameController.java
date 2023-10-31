@@ -52,7 +52,7 @@ public class RacingGameController {
 
     private void startRacing(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
         outputView.printResultMessage();
-        IntStream.range(0, tryNumber.number()).forEach(i -> {
+        IntStream.range(0, tryNumber.number()).forEach(round -> {
             racingGame.proceedOneRound();
             outputView.printResult(CarDto.toDtoList(cars));
         });
