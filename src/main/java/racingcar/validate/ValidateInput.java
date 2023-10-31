@@ -32,7 +32,7 @@ public class ValidateInput {
     }
 
     private static void validateNotEmpty(String carName) {
-        if (EMPTY_STRING.equals(carName)) {
+        if (hasEmptyName(carName)) {
             throw new IllegalArgumentException(NON_EMPTY_STRING_MESSAGE);
         }
     }
