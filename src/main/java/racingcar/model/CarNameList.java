@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.List;
 
 public class CarNameList {
-    private List<String> carNameList = null;
+    private final List<String> carNameList;
 
     private CarNameList(List<String> carNameList) {
         this.carNameList = carNameList;
