@@ -73,6 +73,13 @@ public class GameController {
         return winnerName;
     }
 
+    public boolean isAbleName(String name){
+        if(name.length()>MAX_NAME_SIZE){
+            return false;
+        }
+        return true;
+    }
+
     public void play(){
         int carNum = this.carsList.size();
         for(int i=0 ; i<tryNum ; i++){
@@ -82,8 +89,13 @@ public class GameController {
             List<String>locations = new ArrayList<>();
 
             for(Cars car:carsList){
-                names.add(car.getName());
-                locations.add(car.getLoadState());
+                if(isAbleName(car.getName())){
+                    names.add(car.getName());
+                    locations.add(car.getLoadState());
+                }
+                else{
+                    throw new IllegalArgumentException("사용 가능한 최대 글자수는 5 입니다.");
+                }
             }
             racingCar.showLoad(names,locations,carNum);
         }
