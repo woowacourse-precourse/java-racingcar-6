@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class Application {
         return Integer.parseInt(Console.readLine());
     }
 
-    public Map<String, Integer> checkCarEligibility(String[] cars, int number) {
+    public Map<String, Integer> startCarRace(String[] cars, int number) {
 
         Integer[] raceList = new Integer[cars.length];
         Arrays.fill(raceList, 0);
@@ -51,7 +53,7 @@ public class Application {
 
     public void showRaceResult(String[] cars, int number) {
 
-        Map<String, Integer> carRaces = checkCarEligibility(cars, number);
+        Map<String, Integer> carRaces = startCarRace(cars, number);
 
         int maxValue = Collections.max(carRaces.values());
         List<String> winnerName = new ArrayList<>();
@@ -62,8 +64,10 @@ public class Application {
             }
         }
 
+        System.out.println("최종 우승자 : " );
+
         if(winnerName.size() == 1) {
-            System.out.print("최종 우승자 : " + winnerName.get(0));
+            System.out.print(winnerName.get(0));
         } else {
             System.out.print("최종 우승자 : ");
 
