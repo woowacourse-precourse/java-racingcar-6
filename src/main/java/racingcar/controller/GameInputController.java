@@ -16,8 +16,8 @@ public class GameInputController {
     }
 
     public void requestNames() {
-        inputView.requestNames();
-        cars.settingNames();
+        String names = inputView.requestNames();
+        cars.settingNames(names);
     }
 
     public void requestTryNumber() {
