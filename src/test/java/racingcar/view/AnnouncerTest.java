@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -6,7 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.view.Announcer;
+import racingcar.Car;
 
 class AnnouncerTest extends NsTest {
     private final Announcer announcer = new Announcer();

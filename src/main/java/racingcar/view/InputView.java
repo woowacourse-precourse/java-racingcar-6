@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class Viewer {
+public class InputView {
     private final String CAR_NAME_DELIMITER = ",";
     private final String INVALID_INPUT_TYPE = "입력은 자동차 이름과 구분자(,)만 가능합니다.";
     private final Integer MIN_TRY_COUNT = 1;

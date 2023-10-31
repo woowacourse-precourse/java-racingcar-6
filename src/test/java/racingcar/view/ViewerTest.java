@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -8,10 +8,9 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.view.Viewer;
 
 public class ViewerTest {
-    private final Viewer viewer = new Viewer();
+    private final InputView inputView = new InputView();
 
     @Nested
     class 자동차_이름_입력 extends NsTest {
@@ -26,7 +25,7 @@ public class ViewerTest {
 
         @Override
         protected void runMain() {
-            viewer.inputCarNames();
+            inputView.inputCarNames();
         }
     }
 
@@ -53,7 +52,7 @@ public class ViewerTest {
 
         @Override
         protected void runMain() {
-            viewer.inputTryCount();
+            inputView.inputTryCount();
         }
     }
 }

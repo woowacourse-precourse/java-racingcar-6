@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 import racingcar.view.Announcer;
-import racingcar.view.Viewer;
+import racingcar.view.InputView;
 
 public class Game {
     private final int MOVING_FORWARD = 4;
@@ -11,25 +11,25 @@ public class Game {
     private final CarGenerator carGenerator;
     private final RandomNumberGenerator randomNumberGenerator;
     private final WinnerChecker winnerChecker;
-    private final Viewer viewer;
+    private final InputView inputView;
 
     public Game(Announcer announcer, CarGenerator carGenerator, RandomNumberGenerator randomNumberGenerator,
-                WinnerChecker winnerChecker, Viewer viewer) {
+                WinnerChecker winnerChecker, InputView inputView) {
         this.announcer = announcer;
         this.carGenerator = carGenerator;
         this.randomNumberGenerator = randomNumberGenerator;
         this.winnerChecker = winnerChecker;
-        this.viewer = viewer;
+        this.inputView = inputView;
     }
 
     public void init() {
         announcer.announceToInputCarName();
-        carList = carGenerator.generate(viewer.inputCarNames());
+        carList = carGenerator.generate(inputView.inputCarNames());
         announcer.announceToInputTryCount();
     }
 
     public void play() {
-        int tryCount = viewer.inputTryCount();
+        int tryCount = inputView.inputTryCount();
         announcer.announceResultComment();
 
         for (int i = 0; i < tryCount; i++) {
