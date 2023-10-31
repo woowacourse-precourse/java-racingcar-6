@@ -45,7 +45,7 @@ public class Race {
 
     public String getWinnerString() {
         return findWinnerCars().stream()
-                .map(Car::getNameString)
+                .map(Car::getName)
                 .collect(Collectors.joining(", "));
     }
 
