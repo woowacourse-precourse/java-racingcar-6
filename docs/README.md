@@ -1,8 +1,3 @@
-23.10.30
- 
-제출을 위한 git clone, push 환경 설정 완료
-pull request 미 설정
-
 기능 요구 사항 분석
         
         1. 사용자 입력으로 쉼표(,)를 기준으로 나눈다.
@@ -21,20 +16,57 @@ pull request 미 설정
 
 
 - Controller
-  - GameManager.java
-    1. initGame
-    2. playGame
-    3. listUp
-    4. playRound
-    5. playUntilRound
-    6. finishGame
+
+
+    - GameManager.java
+      1. initGame
+      2. playGame
+      3. listUp
+      4. playRound
+      5. playUntilRound
+      6. finishGame
+
 - model
-  - Car.java
+
+
+    - Car.java
     1. Car
     2. setDistance
     3. getDistance
     4. setName
     5. getName
-    6. 
-  - NumberGenerator.java
-  
+    - NumberGenerator.java
+    1. generateNumber
+
+
+
+- util
+
+
+    - Constant.java
+    1. MAX_NAME_LENGTH
+    - InputValidator
+    1. isValidInteger
+    2. isValidNameLength
+    - Message
+    1. NAME_INPUT_MESSAGE
+    2. COUNT_INPUT_MESSAGE
+    3. ROUND_RESULT
+    4. FINAL_WINNER
+    5. MOVE_PRINT
+    6. INPUT_ERROR_MESSAGE
+
+
+- view
+
+
+    -InputView
+    1. userInputName
+    2. userInputCount
+    - OutputView
+    1. printMessage
+    2. printGameStartMessage
+    3. printInputNumberMessage
+    4. printRoundResultMessage
+    5. printGameResultMessage
+
