@@ -5,7 +5,7 @@ public class Check {
         boolean result = true;
         //이름 중간에 공백이 있는 입력값 체크하기 위해서 작성 ( 중간에 공백이 있다면 요구사항에 부합하지 않는 입력값이라 판단)
         String noBlank = carlist.replace(" ", "");
-        if (noBlank.length() != carlist.trim().length()) result = false;
+        if (noBlank.length() != carlist.length()) result = false;
 
         String[] car_list = noBlank.split(",");
         int comma = countComma(noBlank);
