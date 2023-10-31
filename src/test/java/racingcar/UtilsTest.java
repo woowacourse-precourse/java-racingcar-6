@@ -107,4 +107,20 @@ public class UtilsTest {
         //then
         assertThat(result1).isEqualTo(rightResult);
     }
+
+    @Test
+    void 문자열을_정수형으로_변환하면_통과() {
+        final int rightResult = 5;
+        //given
+        String case1 = "5";
+        String case2 = " 5 ";
+
+        //when
+        int result1 = Utils.stringToInt(case1);
+        int result2 = Utils.stringToInt(case2);
+
+        //then
+        assertThat(result1).isEqualTo(rightResult);
+        assertThat(result2).isEqualTo(rightResult);
+    }
 }
