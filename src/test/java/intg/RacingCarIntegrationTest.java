@@ -95,6 +95,27 @@ public class RacingCarIntegrationTest {
                 .hasMessageContaining("[ERROR] 하나의 숫자만 입력해주세요.");
     }
 
+    @Test
+    void 게임_횟수_0_입력_인풋_실패_케이스(){
+        //given
+        System.setIn(createUserInput("car1,car2,car3\n0\n"));
+
+        //then
+        assertThatThrownBy(GameController::new)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 횟수는 1 이상이어야 합니다.");
+    }
+    @Test
+    void 게임_횟수_음수_입력_인풋_실패_케이스(){
+        //given
+        System.setIn(createUserInput("car1,car2,car3\n-1\n"));
+
+        //then
+        assertThatThrownBy(GameController::new)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 횟수는 1 이상이어야 합니다.");
+    }
+
 
 
     private InputStream createUserInput(String input) {
