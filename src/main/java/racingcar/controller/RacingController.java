@@ -5,7 +5,6 @@ import racingcar.util.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class RacingController {
@@ -37,15 +36,15 @@ public class RacingController {
 
         for (RacingCar car : racingCars.getRacingCars()) {
             max = Math.max(car.getDistance(), max);
-            if(map.containsKey(max)){
-                List<RacingCar> values = map.get(max);
+            if(map.containsKey(car.getDistance())){
+                List<RacingCar> values = map.get(car.getDistance());
                 values.add(car);
-                map.put(max, values);
+                map.put(car.getDistance(), values);
                 continue;
             }
             List<RacingCar> values = new ArrayList<>();
             values.add(car);
-            map.put(max, values);
+            map.put(car.getDistance(), values);
         }
         return map.get(max);
     }
