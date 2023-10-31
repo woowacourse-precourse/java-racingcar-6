@@ -14,7 +14,7 @@ public class CarMoveService {
     public static final int DEPARTURE_CRITERIA = 4;
 
     public void move(Cars cars, UserInputCarMoveCountDto userInputCarMoveCountDto){
-        IntStream.range(0,userInputCarMoveCountDto.getMoveCount()).forEach(i -> {
+        IntStream.range(0,(int)userInputCarMoveCountDto.getMoveCount()).forEach(i -> {
             cars.getCars().forEach(car -> {
                 move(car);
                 Output.addResultOutput(car);

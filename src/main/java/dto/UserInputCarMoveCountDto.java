@@ -2,13 +2,13 @@ package dto;
 
 public class UserInputCarMoveCountDto {
 
-    private int moveCount;
+    private long moveCount;
 
-    public UserInputCarMoveCountDto(int moveCount){
+    public UserInputCarMoveCountDto(long moveCount){
         this.moveCount = moveCount;
     }
 
-    public int getMoveCount(){
+    public long getMoveCount(){
         return moveCount;
     }
 }
