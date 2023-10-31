@@ -15,6 +15,7 @@ public class Application {
         List<Car> carList = inputAndGetCarList();
         int racingCount = inputRacingCount();
 
+        System.out.println("실행결과");
         for (int i = 0; i < racingCount; i++) {
             playRacing(carList);
         }
@@ -51,7 +52,9 @@ public class Application {
         for (Car car : carList) {
             int randomNumber = getRandomNumber();
             updateMovingCountOrNot(car, randomNumber);
+            car.printResult();
         }
+        System.out.println();
     }
 
     private static int getRandomNumber() {
