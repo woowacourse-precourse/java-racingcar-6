@@ -46,7 +46,8 @@ public class CarCreatorTest {
         return Stream.of(
                 Arguments.arguments(List.of("")),
                 Arguments.arguments(List.of("", "pobbi", "wonni")),
-                Arguments.arguments(List.of("pobbii", "wonni", "jun"))
+                Arguments.arguments(List.of("pobbii", "wonni", "jun")),
+                Arguments.arguments(List.of("pobi", "wonni", "pobi"))
         );
     }
 

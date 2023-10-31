@@ -16,12 +16,12 @@ public class RaceManager {
 
     public static List<String> decideWinner(List<Car> cars) {
         return cars.stream()
-                .filter((car) -> isWinner(car, calculateFarthestLocation(cars)))
+                .filter((car) -> isWinner(car, measureFarthestLocation(cars)))
                 .map(Car::getName)
                 .toList();
     }
 
-    private static int calculateFarthestLocation(List<Car> cars) {
+    private static int measureFarthestLocation(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getLocation)
                 .max()
