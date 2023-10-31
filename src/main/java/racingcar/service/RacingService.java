@@ -8,7 +8,6 @@ import racingcar.view.SystemInputMessage;
 import racingcar.view.SystemOutputMessage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
