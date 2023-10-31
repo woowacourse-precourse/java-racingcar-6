@@ -168,3 +168,10 @@
   - 자동차 이름 6자 이상
 - 정상 입력값 검사
 - 우승자 판단 검사
+
+
+### CarRegisterTest.java
+- 자동차 등록 검사
+
+
+### CarMoveManagerTest.java
