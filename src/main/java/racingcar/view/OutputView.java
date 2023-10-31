@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import racingcar.common.consts.SystemMessage;
+import racingcar.domain.RacingCars;
+import racingcar.domain.RacingCarsResult;
 
 public class OutputView {
     public static void print(String text) {
@@ -29,6 +31,15 @@ public class OutputView {
 
     public static void printFinalWinnerMessage() {
         println(SystemMessage.FINAL_WINNER_MESSAGE);
+    }
+
+    public static void printRacingCarsMoveMessage(RacingCars racingCars) {
+        println(racingCars.toString());
+    }
+
+    public static void printRacingCarsWinnersMessage(RacingCarsResult racingCarsResult) {
+        print(SystemMessage.FINAL_WINNER_MESSAGE);
+        print(racingCarsResult.toString());
     }
 
 }
