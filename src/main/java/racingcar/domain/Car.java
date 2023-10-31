@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.utils.Output;
 import racingcar.utils.RandomUtil;
 
 public class Car {
@@ -16,6 +17,10 @@ public class Car {
     public void tryMove(){
         int randomNumber = RandomUtil.getRandomNumber();
         handleMove(randomNumber);
+    }
+
+    public void printCurrentLocation(){
+        Output.printCurrentLocation(name,forwardCount);
     }
 
     private void handleMove(int randomNumber) {

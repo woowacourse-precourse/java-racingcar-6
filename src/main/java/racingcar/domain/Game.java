@@ -46,6 +46,7 @@ public class Game {
 
     private void raceOneTime() {
         carList.forEach(Car::tryMove);
+        carList.forEach(Car::printCurrentLocation);
     }
 
 }
