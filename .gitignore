@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+intellij-java-wooteco-style.xml
+.gitmessage.txt
 
 ### STS ###
 .apt_generated
@@ -19,6 +21,7 @@ build/
 *.iws
 *.iml
 *.ipr
+*.class
 out/
 
 ### NetBeans ###
