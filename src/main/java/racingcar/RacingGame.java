@@ -17,6 +17,7 @@ public class RacingGame {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
+        checkTryCount(tryCount);
 
         System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
@@ -26,6 +27,12 @@ public class RacingGame {
         }
 
         printGameWinners();
+    }
+
+    private void checkTryCount(int tryCount) {
+        if (tryCount < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
     }
 
     private void printGameWinners() {
