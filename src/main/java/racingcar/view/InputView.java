@@ -12,8 +12,9 @@ public class InputView {
         return Console.readLine();
     }
 
-    public void requestTryNumber() {
+    public String requestTryNumber() {
         System.out.println(MESSAGE_OF_REQUEST_TRY_NUMBER);
+        return Console.readLine().trim();
     }
 
 
