@@ -27,9 +27,9 @@ class InputValidationTest {
     }
 
     @ParameterizedTest
-    @MethodSource("inputOutOfRangeName")
+    @MethodSource("inputOutOfLengthName")
     void 자동차_이름_길이에_대한_예외_처리(String[] names) {
-        assertThatThrownBy(() -> inputValidation.validateNameOfCarsRange(names))
+        assertThatThrownBy(() -> inputValidation.validateNameOfCarsLength(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -46,7 +46,7 @@ class InputValidationTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    private static Stream<Arguments> inputOutOfRangeName() {
+    private static Stream<Arguments> inputOutOfLengthName() {
         return Stream.of(
                 Arguments.of((Object) new String[]{"cheonwoo", "pobi", "woni"}),
                 Arguments.of((Object) new String[]{"", "pobi", "woni"})
