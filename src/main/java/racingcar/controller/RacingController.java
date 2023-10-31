@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.CarList;
 import racingcar.view.InputView;
 
 public class RacingController {
@@ -10,5 +11,6 @@ public class RacingController {
     }
 
     public void run() {
+        CarList carList = inputView.inputPlayer();
     }
 }
