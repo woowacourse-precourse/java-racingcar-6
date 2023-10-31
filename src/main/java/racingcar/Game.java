@@ -13,6 +13,7 @@ public class Game {
 
     public Game() {
         carList = new ArrayList<>();
+        moveNumber = 0;
     }
 
     public void run() {
