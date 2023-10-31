@@ -17,4 +17,8 @@ public class FinalWinners {
   public List<String> getWinners() {
     return winners;
   }
+
+  public boolean isMultipleWinners() {
+    return winners.size() > 1;
+  }
 }
