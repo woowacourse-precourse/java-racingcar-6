@@ -4,13 +4,12 @@ import racingcar.domain.Generator;
 
 public class Car {
 
-    public static final int MOVE_BOUNDARY = 4;
+    private static final int MOVE_BOUNDARY = 4;
     private final Generator generator;
     private final CarName name;
     private int location;
 
     public Car(String name, Generator generator) {
-
         this.name=new CarName(name);
         this.generator = generator;
         location = 0;

@@ -6,10 +6,10 @@ import racingcar.dto.StatusResponse;
 
 public class OutputView {
 
-    public static final String FINAL_WINNER_MESSAGE = "최종 우승자";
+    private static final String FINAL_WINNER_MESSAGE = "최종 우승자";
     private static final String HYPHEN = "-";
     private static final String PLAY_RESULT_MESSAGE = "실행 결과";
-    public static final String PATTERN = "%s : %s";
+    private static final String PATTERN = "%s : %s";
 
     public static void printPlayResultMessage() {
         print(PLAY_RESULT_MESSAGE);

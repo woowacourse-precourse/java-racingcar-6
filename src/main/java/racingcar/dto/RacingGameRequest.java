@@ -11,7 +11,6 @@ public class RacingGameRequest {
     private final List<Car> cars;
     private final int count;
 
-
     public RacingGameRequest(String names, String count) {
         validateCount(count);
         this.cars= toList(names);
