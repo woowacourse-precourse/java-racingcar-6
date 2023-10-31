@@ -34,11 +34,17 @@ public class GameController {
             race();
             rounds--;
         }
+
+        end();
     }
 
     private void init() {
         getCars();
         getRounds();
+    }
+
+    private void end() {
+        findWinner();
     }
 
     private void getCars() {
@@ -64,5 +70,10 @@ public class GameController {
 
     private Boolean canMove() {
         return gameService.canMove(RandomValue.getRandomValue());
+    }
+
+    private void findWinner() {
+        List<String> results = gameService.getWinner(cars);
+        outputView.printWinner(results);
     }
 }

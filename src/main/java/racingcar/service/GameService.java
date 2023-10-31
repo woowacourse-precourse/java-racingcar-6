@@ -48,4 +48,24 @@ public class GameService {
     public String toMovingString(int moving_int) {
         return Constant.MOVING_UNIT.repeat(moving_int);
     }
+
+    public List<String> getWinner(List<Car> cars) {
+        int maxMoving = -1;
+        List<String> carNames = new ArrayList<>();
+
+        for (Car car : cars) {
+            int moving = car.getMoving();
+
+            if (maxMoving < moving) {
+                maxMoving = moving;
+                carNames.clear();
+            }
+
+            if (maxMoving == moving) {
+                carNames.add(car.getName());
+            }
+        }
+
+        return carNames;
+    }
 }

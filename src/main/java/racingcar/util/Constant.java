@@ -10,4 +10,7 @@ public class Constant {
     public static final String SPLIT_UNIT = ",";
     public static final String MOVING_UNIT = "-";
     public static final String ONE_CAR_RESULT = "%s : %s";
+    public static final String WINNER_JOIN_DELIMITER = ", ";
+
+    public static final String WINNER = "최종 우승자 : %s";
 }

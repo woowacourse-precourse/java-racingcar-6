@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.util.Constant;
 import racingcar.util.Message;
 
 public class OutputView {
@@ -25,6 +26,13 @@ public class OutputView {
             println(result);
         }
         println("");
+    }
+
+    public void printWinner(List<String> results) {
+        String winner = String.join(Constant.WINNER_JOIN_DELIMITER, results);
+        String winnerFormat = String.format(Constant.WINNER, winner);
+
+        println(winnerFormat);
     }
 
     private void println(String output) {
