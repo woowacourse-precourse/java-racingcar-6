@@ -20,7 +20,7 @@ public class RacingService {
         createRacingCars(carNames);
     }
 
-    public void createRacingCars(List<String> carNames) {
+    private void createRacingCars(List<String> carNames) {
         carRepository.createCars(carNames);
     }
 }
