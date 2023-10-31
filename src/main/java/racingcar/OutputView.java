@@ -26,6 +26,6 @@ public class OutputView implements RacingCarGameText {
         if (carDistance.isBlank()){
             carDistance = RACINGCAR_DOES_NOT_MOVE;
         }
-        printOutput(String.join(RACINGCAR_FORMAT_STATUS, carName, carDistance));
+        printOutput(String.format(RACINGCAR_FORMAT_STATUS, carName, carDistance));
     }
 }
