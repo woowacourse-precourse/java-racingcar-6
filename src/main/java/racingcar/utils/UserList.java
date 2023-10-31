@@ -3,10 +3,10 @@ package racingcar.utils;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+
 import camp.nextstep.edu.missionutils.Console;
 
 import racingcar.model.Car;
-
 
 public class UserList {
 

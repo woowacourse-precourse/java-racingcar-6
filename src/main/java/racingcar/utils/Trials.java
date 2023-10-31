@@ -2,7 +2,6 @@ package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Console;
 
-
 public class Trials {
 
     private static final int MIN_BOUND = 1;

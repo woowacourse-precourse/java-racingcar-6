@@ -1,12 +1,19 @@
 package mytest;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import racingcar.model.Car;
+import racingcar.utils.UserList;
 
 public class UserSettingTest {
     @DisplayName("자동차 생성 테스트")
@@ -16,13 +23,5 @@ public class UserSettingTest {
                 .doesNotThrowAnyException();
     }
 
-    @DisplayName("문자열로 입력 받은 사용자 이름에 대한 리스트 생성 확인 테스트")
-    @Test
-    void 입력받은_사용자_리스트_반환_태스트() {
-        //given
 
-        //when
-
-        //then
-    }
 }

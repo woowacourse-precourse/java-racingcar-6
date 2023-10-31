@@ -20,7 +20,10 @@ public class GetWinner {
         return car.getPosition() == winnersPosition;
     }
     private static int winnerPosition(List<Car> Users) {
-        return Users.stream().mapToInt(Car::getPosition).max().orElse(Integer.MIN_VALUE);
+        return Users.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(Integer.MIN_VALUE);
     }
 
 
