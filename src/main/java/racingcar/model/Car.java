@@ -1,11 +1,6 @@
 package racingcar.model;
 
-import racingcar.validator.RacingCarNameValidator;
-
 public class Car {
-
-
-  //  private final String carName;
   private final CarName carName;
   private final Location location;
 
