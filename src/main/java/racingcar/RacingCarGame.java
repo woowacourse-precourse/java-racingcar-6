@@ -30,7 +30,7 @@ public class RacingCarGame {
      * @param carNames 자동차 이름 리스트
      * @param tryCount 시도 횟수
      */
-    private static void running(int tryCount, String carNames[], int progress[]) {
+    protected static void running(int tryCount, String carNames[], int progress[]) {
         Console.printResult();
 
         for (int i = 0; i < tryCount; i++) {
@@ -44,9 +44,9 @@ public class RacingCarGame {
      *
      * @param progress
      */
-    private static void updateProgress(int progress[]) {
+    protected static void updateProgress(int progress[]) {
         for (int i = 0; i < progress.length; i++) {
-            progress[i] += goOrStop();
+            progress[i] += goOrStop(getRandomNumber());
         }
     }
 
@@ -57,7 +57,7 @@ public class RacingCarGame {
      * @param progress 진행 상황 리스트
      * @return 우승자 리스트
      */
-    private static List<String> findWinners(String carNames[], int progress[]) {
+    protected static List<String> findWinners(String carNames[], int progress[]) {
         int maxProgress = Arrays.stream(progress).max().getAsInt();
         return Stream.iterate(0, i -> i + 1)
                 .limit(progress.length)
@@ -71,8 +71,8 @@ public class RacingCarGame {
      *
      * @return 전진 또는 멈춤
      */
-    private static int goOrStop() {
-        if (getRandomNumber() >= ADVANCE_CONDITION) {
+    protected static int goOrStop(int randomNumber) {
+        if (randomNumber >= ADVANCE_CONDITION) {
             return 1;
         }
         return 0;
