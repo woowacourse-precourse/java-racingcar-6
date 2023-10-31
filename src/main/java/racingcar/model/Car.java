@@ -2,11 +2,7 @@ package racingcar.model;
 
 import racingcar.util.CarUtil;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Car {
 
@@ -32,17 +28,17 @@ public class Car {
         });
     }
 
-    public int findMaxPosition() {
+    private int findMaxPosition() {
         return carData.values()
                 .stream().mapToInt(v -> v).max()
                 .orElseThrow(NoSuchElementException::new);
     }
 
-    public List<String> findWinner(int maxPosition) {
+    public List<String> findWinner() {
         List<String> result = new ArrayList<>();
 
         carData.entrySet().stream()
-                .filter(car -> car.getValue() == maxPosition)
+                .filter(car -> car.getValue() == findMaxPosition())
                 .forEach(car -> result.add(car.getKey()));
         return result;
     }
