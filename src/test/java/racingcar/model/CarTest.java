@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static racingcar.model.Car.createCar;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,7 +12,7 @@ public class CarTest {
 
     @BeforeAll
     static void setUp() {
-        car = new Car("TestCar", 0);
+        car = createCar("test1");
     }
 
     @ParameterizedTest
