@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.message.ExceptionMessage;
+import racingcar.message.ProcessMessage;
 
 public class Car {
     private static final int START_INCLUSIVE = 0;
@@ -39,6 +40,8 @@ public class Car {
     }
 
     public String mapRecord() {
-        return name + " : " + "-".repeat(position);
+        String nameColon = String.format(ProcessMessage.RECORD.toString(), name);
+        String hyphenRepeat = ProcessMessage.HYPHEN.toString().repeat(position);
+        return nameColon + hyphenRepeat;
     }
 }
