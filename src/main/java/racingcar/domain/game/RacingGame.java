@@ -2,7 +2,6 @@ package racingcar.domain.game;
 
 import java.util.List;
 import racingcar.domain.racing.Racing;
-import racingcar.domain.raingcar.RacingCar;
 import racingcar.domain.raingcar.RacingCars;
 import racingcar.view.RacingGameInputView;
 import racingcar.view.RacingGameOutputView;

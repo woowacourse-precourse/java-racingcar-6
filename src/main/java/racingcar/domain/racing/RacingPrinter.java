@@ -10,9 +10,12 @@ public class RacingPrinter {
         this.sb = new StringBuilder(RACING_ROUND_RESULT_MESSAGE);
     }
 
-    public void updateRacingResult(List<RacingMovement> movements) {
-        for(RacingMovement move : movements) {
-            sb.append(move.getName()).append(" : ").append("-".repeat(move.getNumber())).append("\n");
+    public void updateRacingResult(RacingCars cars) {
+        for(RacingCar car : cars.getCars()) {
+            sb.append(car.getName())
+                    .append(" : ")
+                    .append("-".repeat(car.getPosition()))
+                    .append("\n");
         }
         sb.append("\n");
     }

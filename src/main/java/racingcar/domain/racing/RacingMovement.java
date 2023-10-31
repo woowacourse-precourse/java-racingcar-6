@@ -19,13 +19,5 @@ public class RacingMovement {
         return this.number >= MOVING_FORWARD;
     }
 
-    public boolean isStop() { return this.number < MOVING_FORWARD; }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public int getNumber() {
-        return this.number;
-    }
+    public boolean isStop() { return !isMovingForward(); }
 }

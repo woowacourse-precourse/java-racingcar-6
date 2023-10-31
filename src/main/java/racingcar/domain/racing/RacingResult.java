@@ -15,11 +15,6 @@ public class RacingResult {
     public List<String> getFinalWinnerList() {
         int maxPosition = cars.getMaxPosition();
 
-        // 삭제할 부분
-        //        for(RacingCar car : cars.getCars()) {
-        //            System.out.printf("%s %d\n", car.getName(), car.getPosition());
-        //        }
-
         return cars
                 .getCars()
                 .stream()
