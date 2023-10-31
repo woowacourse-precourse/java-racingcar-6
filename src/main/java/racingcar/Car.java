@@ -17,6 +17,8 @@ public class Car {
     }
 
     public void run(int count, List<String> names, Map<String, Integer> cars){
+        System.out.println("실행 결과");
+
         for(int i =0;i<count;i++){
             for(String name: names) {
                 if (CanRun()) {
@@ -24,7 +26,6 @@ public class Car {
                 }
             }
 
-            System.out.println("실행 결과");
             for(String name:names){
                 System.out.println(name+" : "+"-".repeat(cars.get(name)));
             }
