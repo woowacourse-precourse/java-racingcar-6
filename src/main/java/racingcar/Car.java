@@ -26,4 +26,12 @@ public class Car {
             move();
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
+    }
 }

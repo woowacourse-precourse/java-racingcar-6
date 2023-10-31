@@ -55,4 +55,8 @@ public class Race {
     private void decreaseMoveCounts() {
         moveCounts--;
     }
+
+    public List<Car> getParticipatingCars() {
+        return participatingCars;
+    }
 }
