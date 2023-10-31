@@ -27,7 +27,7 @@ public class RacingCars {
         return carList;
     }
 
-    public void moveCars() {
+    public void moveCars(List<Car> carList) {
         for (Car car : carList) {
             car.move(getForwardCount());
         }

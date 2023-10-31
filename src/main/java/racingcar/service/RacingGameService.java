@@ -20,7 +20,7 @@ public class RacingGameService {
     }
 
     public List<Car> move(List<Car> carList) {
-        cars.moveCars();
+        cars.moveCars(carList);
         return carList;
     }
 
