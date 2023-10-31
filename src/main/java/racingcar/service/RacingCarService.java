@@ -1,8 +1,10 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.CarDto;
 import racingcar.model.RacingCars;
 import racingcar.util.RandomNuberGenerator;
 
@@ -19,8 +21,12 @@ public class RacingCarService {
         racingCars.moveRacingCars(randomNumbers);
     }
 
-    public List<Car> getRacingCars() {
-        return racingCars.getRacingCars();
+    public List<CarDto> getRacingCarDto() {
+        List<CarDto> carDtoList = new ArrayList<>();
+        for (Car car : racingCars.getRacingCars()) {
+            carDtoList.add(new CarDto(car.getName(), car.getDistance()));
+        }
+        return carDtoList;
     }
 
 }

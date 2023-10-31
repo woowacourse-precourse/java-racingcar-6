@@ -10,15 +10,23 @@ public class ScoreBoard {
         this.scoreBoard = new ArrayList<>();
     }
 
-    public void recordScore(int round, List<Car> score) {
+    public void recordScore(int round, List<CarDto> score) {
         this.scoreBoard.add(new Score(round, score));
     }
 
-    public List<Car> getScoreForRound(int round) {
+    public List<CarDto> getScoreForRound(int round) {
         return scoreBoard.stream()
                 .filter(score -> score.isSameRound(round))
                 .flatMap(score -> score.getScore().stream())
                 .toList();
     }
-    
+
+    public int getSize() {
+        return scoreBoard.size();
+    }
+
+    public List<Score> getScoreBoard() {
+        return scoreBoard;
+    }
+
 }

@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.CarDto;
 import racingcar.model.ScoreBoard;
 
 public class ScoreBoardService {
@@ -11,8 +11,12 @@ public class ScoreBoardService {
         this.scoreBoard = new ScoreBoard();
     }
 
-    public void recordRound(int round, List<Car> racingCars) {
-        scoreBoard.recordScore(round, racingCars);
+    public void recordRound(int round, List<CarDto> racingCars) {
+        this.scoreBoard.recordScore(round, racingCars);
     }
-    
+
+    public ScoreBoard getScoreBoard() {
+        return scoreBoard;
+    }
+
 }
