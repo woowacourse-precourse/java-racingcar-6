@@ -60,6 +60,7 @@ public class CarViewer {
     public void outputWinner(CarDTO.WinnerNames winningCarNames) {
         String result = String.join(RESULT_DELIMITER, winningCarNames.getNames());
         System.out.println(WINNER + KEY_DELIMITER + result);
+        System.out.println();
     }
 
     public void outputResult(CarDTO.ProgressResult gameResult) {
@@ -69,6 +70,7 @@ public class CarViewer {
             for (String carName : round.keySet()) {
                 System.out.println(carName + KEY_DELIMITER + POSITION_SYMBOL.repeat(round.get(carName)));
             }
+            System.out.println();
         }
     }
 }
