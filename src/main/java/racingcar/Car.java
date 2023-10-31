@@ -8,8 +8,6 @@ public class Car {
     int forward = 0;
     Car(String name) {
         randomNumList = new ArrayList<>();
-
-
     }
 
 }
