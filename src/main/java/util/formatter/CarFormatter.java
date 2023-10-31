@@ -30,7 +30,7 @@ public class CarFormatter extends Formatter {
         return String.join(COMMA_BLANK, this.formatListPlayersToListString(players));
     }
 
-    public List<CarPlayerModel> formatListStringToListPlayers(List<String> players){
+    public List<CarPlayerModel> formatListStringToListPlayers(List<String> players) {
         return players.stream().map(this::formatStringToPlayer).collect(Collectors.toList());
     }
 }

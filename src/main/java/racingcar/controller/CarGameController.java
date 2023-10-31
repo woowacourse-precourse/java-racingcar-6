@@ -16,7 +16,7 @@ public class CarGameController {
     private CarGameOutputView carGameOutputView;
     private CarPlayerOutPutView carPlayerOutPutView;
 
-    public void init(){
+    public void init() {
         this.inputController = new InputController();
         this.carFormatController = new CarFormatController();
         this.carGameInputView = new CarGameInputView();
@@ -29,24 +29,24 @@ public class CarGameController {
 
     private void startGame() {
         IntStream.range(0, this.carGameModel.getTryCount())
-            .forEach(i -> {
-                this.movePlayers();
-                this.carPlayerOutPutView.printPlayersPosition(this.carGameModel.getPlayers());
-            });
+                .forEach(i -> {
+                    this.movePlayers();
+                    this.carPlayerOutPutView.printPlayersPosition(this.carGameModel.getPlayers());
+                });
     }
 
     private void endGame() {
         this.carGameOutputView.printWinners(this.carGameModel.getWinners());
     }
 
-    private void movePlayers(){
+    private void movePlayers() {
         this.carGameModel.movePlayers();
     }
 
-    private void initCarGame(){
+    private void initCarGame() {
         this.carGameInputView.printInputCarPlayers();
         String players = this.inputController.readCarPlayers();
-        List<CarPlayerModel> listPlayers= this.carFormatController.formatStringToListCarPlayer(players);
+        List<CarPlayerModel> listPlayers = this.carFormatController.formatStringToListCarPlayer(players);
         this.carGameInputView.printInputTryCount();
         int tryCount = this.inputController.readTryCount();
         this.carGameModel = new CarGameModel(listPlayers, tryCount);

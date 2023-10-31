@@ -60,7 +60,7 @@ public class CarFormatterTest {
         CarPlayerModel player2 = new CarPlayerModel(CAR_NAME_2);
         CarPlayerModel player3 = new CarPlayerModel(CAR_NAME_3);
         CarFormatter formatter = new CarFormatter();
-        String expectedResult = CAR_NAME_1+COMMA_WITH_SPACE+CAR_NAME_2+COMMA_WITH_SPACE+CAR_NAME_3;
+        String expectedResult = CAR_NAME_1 + COMMA_WITH_SPACE + CAR_NAME_2 + COMMA_WITH_SPACE + CAR_NAME_3;
         String result = formatter.formatListPlayersToString(Arrays.asList(player1, player2, player3));
         assertEquals(expectedResult, result);
     }

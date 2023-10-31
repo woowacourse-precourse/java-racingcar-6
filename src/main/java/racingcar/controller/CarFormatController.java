@@ -7,7 +7,7 @@ import util.formatter.CarFormatter;
 public class CarFormatController {
     private final CarFormatter formatter;
 
-    public CarFormatController(){
+    public CarFormatController() {
         this.formatter = new CarFormatter();
     }
 
@@ -27,11 +27,11 @@ public class CarFormatController {
         return this.formatter.formatListPlayersToString(players);
     }
 
-    public List<CarPlayerModel> formatListStringToListCarPlayer(List<String> players){
+    public List<CarPlayerModel> formatListStringToListCarPlayer(List<String> players) {
         return this.formatter.formatListStringToListPlayers(players);
     }
 
-    public List<CarPlayerModel> formatStringToListCarPlayer(String players){
+    public List<CarPlayerModel> formatStringToListCarPlayer(String players) {
         return this.formatter.formatListStringToListPlayers(this.formatter.formatStringToListString(players));
     }
 }

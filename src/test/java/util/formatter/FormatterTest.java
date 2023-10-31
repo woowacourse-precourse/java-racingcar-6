@@ -16,14 +16,13 @@ public class FormatterTest {
     void formatListStringToString_메서드_정상적인_입력() {
         Formatter formatter = new Formatter();
         List<String> inputList = Arrays.asList(CAR_NAME_1, CAR_NAME_2, CAR_NAME_3);
-        StringBuilder sb = new StringBuilder();
-        sb.append(CAR_NAME_1);
-        sb.append(",");
-        sb.append(CAR_NAME_2);
-        sb.append(",");
-        sb.append(CAR_NAME_3);
+        String sb = CAR_NAME_1
+                + ","
+                + CAR_NAME_2
+                + ","
+                + CAR_NAME_3;
         String result = formatter.formatListStringToString(inputList);
-        assertEquals(sb.toString(), result);
+        assertEquals(sb, result);
     }
 
     @Test

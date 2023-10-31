@@ -11,10 +11,10 @@ import org.junit.jupiter.api.Test;
 
 public class CarGameModelTest {
     @Test
-    void getWinners_가장_멀리_간_자동자_우승여부(){
+    void getWinners_가장_멀리_간_자동자_우승여부() {
         CarPlayerModel player1 = new CarPlayerModel(CAR_NAME_1);
         CarPlayerModel player2 = new CarPlayerModel(CAR_NAME_2);
-        while(player1.getCurrentPosition() > ZERO){
+        while (player1.getCurrentPosition() > ZERO) {
             player1.move();
         }
         CarGameModel game = new CarGameModel(List.of(player1, player2), ONE);

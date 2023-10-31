@@ -23,13 +23,13 @@ public class CarPlayerModel {
         return carName;
     }
 
-    public void move(){
-        if(isMoveAllowed()) {
+    public void move() {
+        if (isMoveAllowed()) {
             this.currentPosition++;
         }
     }
 
-    public boolean isMoveAllowed(){
+    public boolean isMoveAllowed() {
         return CarRandoms.getRandomNumber() >= MOVE_CONDITION;
     }
 }
