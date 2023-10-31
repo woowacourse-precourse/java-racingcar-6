@@ -59,6 +59,14 @@ public class RacingGame {
         return winner;
     }
 
+    public void repeatOneSetGameUntilCount(int count) {
+        for (int i = 0; i < count; i++) {
+            move(inputDesk.getCars(),resultList);
+            announcer.resultMessage();
+            announcer.result(resultList, inputDesk.getCars());
+        }
+    }
+
     public void start() {
         inputDesk = new InputDesk();
         announcer = new Announcer();
@@ -67,11 +75,7 @@ public class RacingGame {
             inputDesk.inputCars();
             inputDesk.inputCounts();
             resultList = initResultList();
-            for (int i = 0; i < inputDesk.getCount(); i++) {
-                move(inputDesk.getCars(),resultList);
-                announcer.resultMessage();
-                announcer.result(resultList, inputDesk.getCars());
-            }
+            repeatOneSetGameUntilCount(inputDesk.getCount());
             chooseWinners(winner,resultList);
             announcer.winner(winner);
         } catch (IllegalArgumentException e) {
