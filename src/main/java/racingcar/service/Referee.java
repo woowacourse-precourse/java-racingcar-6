@@ -37,7 +37,7 @@ public class Referee {
         }
     }
 
-    private static boolean isProceedNumber(int randomNumber) {
+    private boolean isProceedNumber(int randomNumber) {
         return randomNumber >= PROCEED_CONDITION;
     }
 

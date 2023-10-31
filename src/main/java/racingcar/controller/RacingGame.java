@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.models.GameStatus;
 import racingcar.service.Referee;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -18,15 +19,10 @@ public class RacingGame {
         referee.startGame(tryCount);
 
         List<GameStatus> gameStatuses = referee.getGameStatuses();
-        printGameStatus(gameStatuses);
-        printGameWinners();
+        OutputView.printPerGameStatusesMessage(gameStatuses);
+
+        List<String> winners = referee.getWinners();
+        OutputView.printGameWinnersMessage(winners);
     }
 
-    private void printGameWinners() {
-        System.out.println("최종 우승자 : " + String.join(", ", referee.getWinners()));
-    }
-
-    private void printGameStatus(List<GameStatus> gameStatus) {
-        gameStatus.forEach(System.out::println);
-    }
 }
