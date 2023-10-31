@@ -22,10 +22,15 @@ public class CarRacingController {
 
     public void setGoNStop(ArrayList<Car> carList) {
         for (int i = 0; i < carList.size(); i++) {
-            int n = Randoms.pickNumberInRange(0, 9);
-            if (n >= 4)
+            if (canGo())
                 carList.get(i).move();
         }
+    }
+
+    public boolean canGo() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4)
+            return true;
+        return false;
     }
 
     public void printRacingResult() {
