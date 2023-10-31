@@ -53,4 +53,8 @@ public class Cars {
 
         return Collections.max(progresses);
     }
+
+    public void moveAheadCars() {
+        this.cars.forEach(Car::moveAheadByRandomNumber);
+    }
 }
