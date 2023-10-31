@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +16,7 @@ public class RacingCarGameController {
     }
 
     public void run() {
-        List<Player> playerList = generatePlayer(Arrays.stream(racingCarGameView.requestCarName()).toList());
+        List<Player> playerList = generatePlayer(racingCarGameView.requestCarName());
 
         int tryNum = racingCarGameView.requestTryNumber();
 
