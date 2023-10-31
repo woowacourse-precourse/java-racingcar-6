@@ -3,7 +3,6 @@ package racingcar.domain;
 public class Car {
     private String carName;
     private int randomNumber;
-    private int forwardDistance;
 
     private StringBuilder distance;
 
@@ -30,10 +29,6 @@ public class Car {
 
     public int getForwardDistance() {
         return distance.length();
-    }
-
-    public void setForwardDistance(int forwarDistance) {
-        this.forwardDistance = forwarDistance;
     }
 
     public void setDistance(String distance) {
