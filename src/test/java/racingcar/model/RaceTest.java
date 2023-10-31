@@ -18,8 +18,9 @@ class RaceTest {
     @Test
     void setCarList_여러_개의_이름으로_초기화된_자동차_객체_리스트_생성() {
         //given
-        Race race = new Race();
         String nameInput = "dawin,suji,son,blue";
+
+        Race race = new Race();
 
         //when
         race.setCarList(nameInput);
@@ -33,6 +34,7 @@ class RaceTest {
     void getCarNames_자동차_객체의_이름_리스트로_반환() {
         //given
         String nameInput = "dawin,suji,blue";
+
         Race race = new Race();
         race.setCarList(nameInput);
 
@@ -47,6 +49,7 @@ class RaceTest {
     void getCarListSize_자동차_객체_리스트의_크기_반환() {
         //given
         String nameInput = "dawin,suji,blue";
+
         Race race = new Race();
         race.setCarList(nameInput);
 
@@ -60,8 +63,9 @@ class RaceTest {
     @Test
     void moveCars_입력된_랜덤_숫자가_4_미만일_경우_자동차_전진하지_않음() {
         //given
-        String nameInput = "0,1,2,3";
+        String nameInput = "a,b,c,d";
         List<Integer> randomNumbers = List.of(0, 1, 2, 3);
+
         Race race = new Race();
         race.setCarList(nameInput);
 
@@ -75,8 +79,9 @@ class RaceTest {
     @Test
     void moveCars_입력된_랜덤_숫자가_4_이상일_경우_자동차_전진() {
         //given
-        String nameInput = "4,5,6,7,8,9";
+        String nameInput = "a,b,c,d,e,f";
         List<Integer> randomNumbers = List.of(4, 5, 6, 7, 8, 9);
+
         Race race = new Race();
         race.setCarList(nameInput);
 
@@ -88,13 +93,22 @@ class RaceTest {
     }
 
     @Test
-    void getRoundResult() {
+    void getRoundResult_각_자동차의_이동_결과를_리스트로_반환() {
         //given
+        String nameInput = "a,b,c,d";
+
+        Race race = new Race();
+        race.setCarList(nameInput);
+
+        race.moveCars(List.of(3,3,3,4));
+        race.moveCars(List.of(3,3,4,4));
+        race.moveCars(List.of(3,4,4,4));
 
         //when
+        List<Integer> roundResult = race.getRoundResult();
 
         //then
-
+        assertThat(roundResult).isEqualTo(List.of(0,1,2,3));
     }
 
     @Test
