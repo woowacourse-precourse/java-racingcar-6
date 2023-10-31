@@ -15,5 +15,11 @@ public class Validation {
         return racers;
 
     }
+    public String nullStringInput(String input) {
+        if (input == null || input == "") {
+            throw new IllegalArgumentException("입력해주세요.");
+        }
+        return input;
+    }
 
 }

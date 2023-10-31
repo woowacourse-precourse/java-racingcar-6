@@ -15,7 +15,8 @@ public class UserInput {
     Validation validation = new Validation();
 
     private String input() {
-        return Console.readLine().trim();
+        String input = validation.nullStringInput(Console.readLine().trim());
+        return input;
     }
 
     private List<String> carNames() {
