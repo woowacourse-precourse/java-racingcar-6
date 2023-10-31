@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import constants.DomainConstant;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
@@ -51,7 +52,7 @@ public class OutputViewTest {
     @DisplayName("한 라운드 전진 결과 출력 테스트")
     void testOneRoundMoveResult() {
         Cars cars = new Cars("tiger,bear,eagle");
-        int drivingSkill = 3;
+        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
 
         for (Car car : cars) {
             car.move(drivingSkill++);
@@ -67,7 +68,7 @@ public class OutputViewTest {
     void testTotalRoundMoveResult() {
         Cars cars = new Cars("tiger,bear,eagle");
         int totalRound = 3;
-        int drivingSkill = 0;
+        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 4;
 
         while (totalRound != 0) {
             totalRound = totalRound - 1;
@@ -98,12 +99,12 @@ public class OutputViewTest {
     void testPrintSoloWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        int drivingSkill = 3;
+        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
 
-        drivingSkill = 2;
+        drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 2;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
@@ -118,12 +119,12 @@ public class OutputViewTest {
     void testPrintCoWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        int drivingSkill = 3;
+        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
 
-        drivingSkill = 3;
+        drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
