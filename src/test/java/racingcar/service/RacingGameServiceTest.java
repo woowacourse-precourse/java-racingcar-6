@@ -1,16 +1,13 @@
 package racingcar.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
-import org.assertj.core.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingCar;
-import racingcar.view.SystemMessage;
 
 class RacingGameServiceTest {
 
@@ -33,27 +30,22 @@ class RacingGameServiceTest {
 
 
         //then
-        assertEquals(3, racingCars.size());
-        assertEquals("Car1", racingCars.get(0).getCarName());
-        assertEquals("Car2", racingCars.get(1).getCarName());
-        assertEquals("Car3", racingCars.get(2).getCarName());
+        assertThat(3).isEqualTo(racingCars.size());
+        assertThat("Car1").isEqualTo(racingCars.get(0).getCarName());
+        assertThat("Car2").isEqualTo(racingCars.get(1).getCarName());
+        assertThat("Car3").isEqualTo(racingCars.get(2).getCarName());
     }
 
     @Test
-    void 경주() {
-    }
+    void 랜덤_수_생성() {
+        //given
+        int randNumber;
 
-    @Test
-    void getWinner() {
-    }
+        //when
+        randNumber = racingGameService.generateRandomNumber();
 
-    @Test
-    void getMaxForwardCount() {
-    }
-
-    @Test
-    void generateRandomNumber() {
-
-
+        //then
+        assertThat(randNumber).isLessThanOrEqualTo(9);
+        assertThat(randNumber).isGreaterThanOrEqualTo(0);
     }
 }
