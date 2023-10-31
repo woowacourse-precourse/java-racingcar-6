@@ -19,7 +19,7 @@ public class GameView {
     public static void printCarNames(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.carName() + " ");
-        }
+        } // join 사용해서
     }
 
     public static void printResultMessage() {

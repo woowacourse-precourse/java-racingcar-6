@@ -17,6 +17,8 @@ public class GameController {
     public void playGame() {
         String carNames = GameView.printStartMessage();
         List<Car> carList = gameService.createCars(carNames);
+        gameService.validateInput(carList);
         GameView.printCarNames(carList);
+
     }
 }

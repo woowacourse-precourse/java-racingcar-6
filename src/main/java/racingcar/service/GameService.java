@@ -6,7 +6,16 @@ import racingcar.model.Car;
 
 public class GameService {
 
-    private List<Car> cars;
+    private final Validator validator;
+
+    public GameService() {
+        this.validator = new Validator();
+    }
+
+    public List<Car> validateInput(List<Car> carList) {
+        validator.validate(carList);
+        return carList;
+    }
 
     public List<Car> createCars(String carNames) {
         String[] names = carNames.split(",");
