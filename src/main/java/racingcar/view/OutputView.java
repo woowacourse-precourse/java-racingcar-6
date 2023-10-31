@@ -14,13 +14,11 @@ public class OutputView {
         for (String result : results) {
             System.out.println(result);
         }
-
         System.out.println();
     }
 
     public void printWinners(final List<String> winners) {
-        String output = String.join(", ", winners);
-
-        System.out.println("최종 우승자 : " + output);
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winners));
     }
 }
