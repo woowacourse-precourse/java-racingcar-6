@@ -11,7 +11,7 @@ public class Round {
         OutputView.resultGame(carList);
     }
 
-    public static void createRandom(List<Car> carList) {
+    private static void createRandom(List<Car> carList) {
         for (Car car : carList) {
             RandomNumber.make();
             if (RandomNumber.isForward()) {

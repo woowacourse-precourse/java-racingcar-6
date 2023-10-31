@@ -13,7 +13,7 @@ public class InputView {
         return read();
     }
 
-    public static String read() {
+    private static String read() {
         return readLine();
     }
 }
