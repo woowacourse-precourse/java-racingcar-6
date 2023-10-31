@@ -34,7 +34,10 @@ public class Validator {
         }
     }
 
-    public void singleComma(final List<String> members) {
+    public void correctCommaLocation(final List<String> members, final String carNames) {
+        if (carNames.startsWith(",") || carNames.endsWith(",")) {
+            throw new IllegalArgumentException("쉼표는 입력의 처음과 끝에 존재할 수 없습니다.");
+        }
         final boolean isMemberEmpty = members.stream()
                 .anyMatch(String::isBlank);
         if (isMemberEmpty) {
