@@ -21,7 +21,7 @@ public class RacingGame {
         this.outputView = outputView;
     }
 
-    public void startGame() {
+    public void start() {
         List<Car> cars = getCarList();
         int count = getCount();
         outputView.printConsole();
@@ -33,14 +33,12 @@ public class RacingGame {
 
     private List<Car> getCarList() {
         String userInput = InputView.getCarNamesFromPlayerInput();
-        List<Car> cars = gameManager.createCarListFromPlayerInput(userInput);
-        return cars;
+        return gameManager.createCarListFromPlayerInput(userInput);
     }
 
     private int getCount() {
         String countInput = InputView.getCountFromPlayerInput();
-        int count = gameManager.createCountFromPlayerInput(countInput);
-        return count;
+        return gameManager.createCountFromPlayerInput(countInput);
     }
 
     private void printGameResult(List<Car> cars) {
