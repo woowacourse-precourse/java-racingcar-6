@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar;
 
 public class Output {
     private static final String MESSAGE_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -7,7 +7,7 @@ public class Output {
     private static final String MESSAGE_CAR_DISTANCE_FORMAT = "%s : %s";
     private static final String MESSAGE_FINAL_WINNER = "최종 우승자 : %s";
 
-    private static final void printMessage(String message){
+    public static final void printMessage(String message){
         System.out.println(message);
     }
 
@@ -24,7 +24,7 @@ public class Output {
     }
 
     public static final void printCarDistance(String name, String distance){
-        System.out.printf(MESSAGE_CAR_DISTANCE_FORMAT, name, distance);
+        System.out.printf((MESSAGE_CAR_DISTANCE_FORMAT) + "%n", name, distance);
     }
 
     public static final void printFinalWinner(String winner){
