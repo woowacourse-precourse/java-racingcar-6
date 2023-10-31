@@ -46,5 +46,20 @@ class ValidatorTest {
 
     @Test
     void checkCarNameIsEnglish() {
+        List<String> carNamesEnglish = List.of("BMW", "Honda", "Ford");
+        Validator.checkCarNameIsEnglish(carNamesEnglish);
+
+        List<String> carNamesNonEnglish = List.of("Ferrari", "Ford", "페라리");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkCarNameIsEnglish(carNamesNonEnglish);
+        });
+
+        List<String> carNamesNonEnglish2 = List.of("@", "!", "페라리");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkCarNameIsEnglish(carNamesNonEnglish2);
+        });
+
+        List<String> emptyCarNames = List.of();
+        Validator.checkCarNameIsEnglish(emptyCarNames);
     }
 }
