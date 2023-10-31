@@ -37,13 +37,30 @@ class InputTest {
     }
 
     @Test
-    void 이름이_없는_경우_에러가_발생한다() {
-        String input = "abc,def,ghi,,";
-        List<String> carNames = List.of(input.split(","));
+    void 이름_입력_형식이_쉼표로_시작하는_경우_에러가_발생한다() {
+        String input = ",abc,def,ghi";
 
-        Assertions.assertThatThrownBy(() -> InputValidate.carNames(carNames))
+        Assertions.assertThatThrownBy(() -> InputValidate.nameFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름은 1이상 5이하만 가능합니다.");
+                .hasMessageContaining("자동차 입력 형식이 올바르지 않습니다. 자동차 이름은 쉼표(,) 기준으로 구분됩니다.");
+    }
+
+    @Test
+    void 이름_입력_형식에_쉼표가_연속으로_입력되는_경우_에러가_발생한다() {
+        String input = "abc,,def,ghi";
+
+        Assertions.assertThatThrownBy(() -> InputValidate.nameFormat(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 입력 형식이 올바르지 않습니다. 자동차 이름은 쉼표(,) 기준으로 구분됩니다.");
+    }
+
+    @Test
+    void 이름_입력_형식이_쉼표로_끝나는_경우_에러가_발생한다() {
+        String input = "abc,def,ghi,";
+
+        Assertions.assertThatThrownBy(() -> InputValidate.nameFormat(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 입력 형식이 올바르지 않습니다. 자동차 이름은 쉼표(,) 기준으로 구분됩니다.");
     }
 
     @Test
