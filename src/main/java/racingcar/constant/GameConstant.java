@@ -15,4 +15,4 @@ public enum GameConstant {
     public int getValue() {
         return this.value;
     }
-    }
+}
