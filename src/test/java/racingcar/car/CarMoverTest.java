@@ -2,6 +2,7 @@ package racingcar.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
+import static racingcar.constant.Constants.CONDITION_RANDOM_VALUE;
 import static racingcar.constant.Constants.MOVING_DISTANCE;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ class CarMoverTest {
     @Test
     void moveCars() {
         RandomManipulator randomManipulator = Mockito.mock(RandomManipulator.class);
-        when(randomManipulator.isMove()).thenReturn(true);
+        when(randomManipulator.pickNumber()).thenReturn(CONDITION_RANDOM_VALUE);
         CarMover carMover = new CarMover(randomManipulator);
 
         Car car1 = new Car("jane");
