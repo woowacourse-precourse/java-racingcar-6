@@ -1,7 +1,7 @@
 # 자동차 경주
 
 ## 기능 요구 사항
-- [ ] 0-9 사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber
+- [x] 0-9 사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber
 - [ ] 경주 할 자동차 입력 받는다. UserInputManager#inputCarName
 - [ ] 쉼표를 기준으로 구분한다. UserInputManager#splitInput
   - [ ] 자동차 이름은 5자 이하 InputValidator#checkCarNameLength
