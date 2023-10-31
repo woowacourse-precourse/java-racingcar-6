@@ -127,4 +127,40 @@ public class RacingGameServiceImplTest {
         racingGame.allParticipationsList()
                 .forEach( car -> assertThat(car.calcPickedNumberSize()).isEqualTo(5));
     }
+
+    @Test
+    public void 단일_우승자_계산하기() {
+        // given
+        Car pobi = Car.create("pobi");
+        pobi.insertPickedNumber(1);
+        pobi.insertPickedNumber(2);
+
+        Car woni = Car.create("woni");
+        woni.insertPickedNumber(1);
+        woni.insertPickedNumber(4);
+
+        List<Car> carList = new ArrayList<>() {{
+           add(pobi);
+           add(woni);
+        }};
+
+        Participations participations = Participations.create(carList);
+
+        int tryCount = 2;
+        Winners winners = Winners.createEmpty();
+        RacingGame racingGame = RacingGame.create(participations, tryCount, winners);
+
+        List<Car> winnerList =  new ArrayList<>() {{
+            add(woni);
+        }};
+
+        // when
+        racingGameService.calculateWinners(racingGame);
+
+        // then
+        assertThat(racingGame.calcWinnerSize()).isEqualTo(1);
+        assertThat(racingGame.getWinnerList()).isEqualTo(winnerList);
+    }
+
+    //TODO: 우승자 없는 경우, 공동 우승자 테스트
 }
