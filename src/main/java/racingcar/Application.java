@@ -1,11 +1,11 @@
 package racingcar;
 
-import racingcar.business.Racing;
+import racingcar.business.Race;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        Racing racing = new Racing();
-        racing.doRacing();
+        Race race = new Race();
+        race.doRacing();
     }
 }
