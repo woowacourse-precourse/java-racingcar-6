@@ -31,8 +31,10 @@ class Car {
 public class Application {
     public static void main(String[] args) {
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<Car> cars = getCars();
 
+        System.out.println("시도할 회수는 몇회인가요?");
         int times = getTimesToMove();
 
         race(cars, times);
@@ -64,6 +66,7 @@ public class Application {
     }
 
     public static void race(List<Car> cars, int times) {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < times; i++) {
             for (Car car : cars) {
                 int num = getRandomNum();
@@ -78,6 +81,7 @@ public class Application {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + dash.repeat(car.getMove()));
         }
+        System.out.println();
     }
 
     public static void forwardOrStop(Car car, int num) {
