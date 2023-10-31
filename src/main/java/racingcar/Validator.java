@@ -10,6 +10,7 @@ public class Validator {
     public static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
     public static final String BLANK_STRING = "";
     public static final String INVALID_INPUT_ERROR_MESSAGE = "잘못된 값이 입력되었습니다.";
+    public static final int ZERO_COUNT = 0;
     public static final String ZERO_INPUT_ERROR_MESSAGE = "0이 아닌 양의 정수 입력해주세요.";
     public static final int VALID_NUMBER_RANGE_START = '0';
     public static final int VALID_NUMBER_RANGE_END = '9';
@@ -36,7 +37,7 @@ public class Validator {
     }
 
     public static void countZeroCheck(String input) {
-        if (Integer.parseInt(input) == 0) {
+        if (Integer.parseInt(input) == ZERO_COUNT) {
             throw new IllegalArgumentException(ZERO_INPUT_ERROR_MESSAGE);
         }
     }
