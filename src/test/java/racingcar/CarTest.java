@@ -37,4 +37,25 @@ public class CarTest {
 
         Assertions.assertEquals(car.getPosition(), 0);
     }
+
+    @Test
+    void isWinner_메소드는_Position이_같은_car가_주어지면_true를_반환한다() {
+        Car winnerCar = new Car(new Name("늘하이"));
+
+        car.move(MOVING_FORWARD);
+        winnerCar.move(MOVING_FORWARD);
+
+        Assertions.assertEquals(car.isWinner(winnerCar), true);
+    }
+
+    @Test
+    void isWinner_메소드는_Position이_다른_car가_주어지면_false를_반환한다() {
+        Car winnerCar = new Car(new Name("늘하이"));
+
+        car.move(MOVING_FORWARD);
+        winnerCar.move(MOVING_FORWARD);
+        winnerCar.move(MOVING_FORWARD);
+
+        Assertions.assertEquals(car.isWinner(winnerCar), false);
+    }
 }
