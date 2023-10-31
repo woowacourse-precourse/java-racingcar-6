@@ -76,5 +76,6 @@ public class RacingGame {
             }
         }
 
+        System.out.println(ServiceMessage.WINNER.serviceMessage+ winners.toString().replaceAll("[\\]\\[]",""));
     }
 }
