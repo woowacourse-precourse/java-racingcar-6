@@ -28,7 +28,7 @@ class CarTest {
         CarMovementDto carMovementDto = car.toCarMovementDto();
 
         // then
-        assertThat(carMovementDto.carName().getName()).isEqualTo("benz");
+        assertThat(carMovementDto.carName()).isEqualTo("benz");
         assertThat(carMovementDto.position()).isEqualTo(0);
     }
 
