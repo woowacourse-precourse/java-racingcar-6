@@ -143,6 +143,10 @@ class CarRepositoryTest {
             assertThrows(IllegalArgumentException.class,
                     carRepository::findAllCarsWithMaxPosition,
                     ErrorMessage.CAR_NOT_EXIST.getErrorMessage());
+
+            assertThrows(IllegalArgumentException.class,
+                    carRepository::findAll,
+                    ErrorMessage.CAR_NOT_EXIST.getErrorMessage());
         }
     }
 }
