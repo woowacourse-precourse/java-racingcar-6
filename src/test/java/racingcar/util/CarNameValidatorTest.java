@@ -35,7 +35,6 @@ class CarNameValidatorTest {
                 .hasMessage("이름에 공백이 존재할 수 없습니다.");
     }
 
-
     @Test
     void 중복된_이름이_존재할수_없다() {
         List<String> carNames = List.of("바보", "바보", "부부");
@@ -43,6 +42,4 @@ class CarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복된 이름이 존재합니다.");
     }
-
-
 }

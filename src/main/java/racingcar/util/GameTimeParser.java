@@ -23,6 +23,4 @@ public class GameTimeParser {
             throw new IllegalArgumentException("숫자만 입력가능합니다.");
         }
     }
-
-
 }

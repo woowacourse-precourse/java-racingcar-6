@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class CarNamesSeperatorTest {
-
     @ParameterizedTest
     @CsvSource(value = {"abcde,fdadde|abcde|fdadde", "lukas,moura|lukas|moura"}, delimiter = '|')
         //결과를 가변인자로 받아보려 했으나 실패
