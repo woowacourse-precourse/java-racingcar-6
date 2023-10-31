@@ -20,4 +20,7 @@ public class Car {
         return go;
     }
 
+    public void add() {
+        this.go++;
+    }
 }

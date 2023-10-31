@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Car;
 import model.InputCheck;
+import model.Round;
 import view.Input;
 
 public class GameStart {
@@ -23,6 +24,8 @@ public class GameStart {
             carList.add(new Car(name));
         }
 
-
+        for (int i = 0; i < round; i++) {
+            Round.play(carList);
+        }
     }
 }
