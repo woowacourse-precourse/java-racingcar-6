@@ -16,6 +16,7 @@ public class RacingService {
     public List<String> stringToList(String str) {
         String[] strArr = str.split(",");
         Validator.validateNameLength(strArr, LENGTH_LIMIT);
+
         return new ArrayList<>(Arrays.asList(strArr));
     }
 
@@ -35,7 +36,7 @@ public class RacingService {
     public List<Car> attempt(List<Car> cars) {
         for (Car car : cars) {
             int rNum = generateRandomNum();
-            if (isMorethanDigit(rNum, FORWARD_LIMIT)) {
+            if (isMoreThanDigit(rNum, FORWARD_LIMIT)) {
                 car.forward(rNum);
             }
         }
@@ -73,7 +74,7 @@ public class RacingService {
         System.out.println(String.join(", ", winners));
     }
 
-    public boolean isMorethanDigit(int digit, int num) {
+    public boolean isMoreThanDigit(int digit, int num) {
         return digit <= num;
     }
 }

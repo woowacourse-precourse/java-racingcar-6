@@ -24,6 +24,7 @@ public class RacingController {
         System.out.println(NoticeType.GET_NUMBER_OF_ROUNDS.getMessage());
         String input = Console.readLine();
         Validator.validateType(input);
+        Validator.validateNumber(Integer.parseInt(input));
 
         return Integer.parseInt(input);
     }
