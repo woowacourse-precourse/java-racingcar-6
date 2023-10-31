@@ -7,11 +7,12 @@ import racingcar.common.Config;
 
 public class InputDataValidator {
 
-    public static void validateInputSize(List<String> inputList) throws IllegalArgumentException {
+    public static void validateInputList(List<String> inputList) throws IllegalArgumentException {
 
         for (String input : inputList) {
             validateEachInputSizeOver(input);
             validateEachInputSizeZero(input);
+            validateIsAlphabet(input);
         }
 
     }
@@ -28,6 +29,14 @@ public class InputDataValidator {
 
         if (input.isEmpty()) {
             throw new IllegalArgumentException(EMPTY);
+        }
+
+    }
+
+    private static void validateIsAlphabet(String input) throws IllegalArgumentException {
+
+        if (!input.chars().allMatch(Character::isLetter)) {
+            throw new IllegalArgumentException(NOT_ALPHABET);
         }
 
     }

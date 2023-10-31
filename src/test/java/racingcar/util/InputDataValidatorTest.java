@@ -15,7 +15,7 @@ class InputDataValidatorTest {
         List<String> stringList = new ArrayList<>();
         stringList.add("SizeOver");
 
-        assertThatThrownBy(() -> validateInputSize(stringList))
+        assertThatThrownBy(() -> validateInputList(stringList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,7 +26,17 @@ class InputDataValidatorTest {
         stringList.add("");
         stringList.add("blur");
 
-        assertThatThrownBy(() -> validateInputSize(stringList))
+        assertThatThrownBy(() -> validateInputList(stringList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("이름 문자 아닐 경우 예외 발생")
+    void testNameIsNotLetter() {
+        List<String> stringList = new ArrayList<>();
+        stringList.add("----");
+
+        assertThatThrownBy(() -> validateInputList(stringList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -40,7 +50,11 @@ class InputDataValidatorTest {
     @Test
     @DisplayName("정상적인 자동차 이름 입력 시 예외 없는지 확인")
     void testCorrectMessage() {
-        assertThatCode(() -> validateHasSpace("asd"))
+        List<String> stringList = new ArrayList<>();
+        stringList.add("song");
+        stringList.add("blur");
+
+        assertThatCode(() -> validateInputList(stringList))
                 .doesNotThrowAnyException();
     }
 
