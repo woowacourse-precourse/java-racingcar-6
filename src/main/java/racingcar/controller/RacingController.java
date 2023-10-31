@@ -1,6 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.util.validator.InputValidator.IsListDuplicate;
+import static racingcar.util.validator.InputValidator.isListDuplicate;
+
 import static racingcar.util.validator.InputValidator.checkComma;
 import static racingcar.util.validator.InputValidator.isStringBlank;
 
@@ -20,19 +21,23 @@ public class RacingController {
         carList = new ArrayList<>();
     }
 
-
-    public void setting(){
+    public void carSet()
+    {
         String cars = inputView.printInputCarName();
         isStringBlank(cars);
         checkComma(cars);
-
         List<String> list = util.splitStringToList(cars);
-        IsListDuplicate(list);
+        isListDuplicate(list);
         list.forEach(car -> carList.add(new Car(car)));
+    }
+
+    public void acceptNumberSet(){
+        String acceptNumberString = inputView.printInputAttemptNumber();
 
     }
     public void startGame() {
-        setting();
+        carSet();
+        acceptNumberSet();
 
     }
 }
