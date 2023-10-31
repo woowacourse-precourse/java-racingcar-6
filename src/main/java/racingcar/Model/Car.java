@@ -11,6 +11,10 @@ public class Car implements Comparable<Car>{
         process = 0;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public int getProcess(){
         return this.process;
     }
