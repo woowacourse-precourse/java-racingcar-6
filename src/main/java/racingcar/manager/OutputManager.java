@@ -7,10 +7,12 @@ import racingcar.domain.Referee;
 public class OutputManager {
 
     private List<Car> cars;
+    private Referee referee;
 
     public OutputManager(List<Car> cars) {
 
         this.cars = cars;
+        referee = new Referee(cars);
     }
 
     public void printInterResult() {
@@ -23,7 +25,6 @@ public class OutputManager {
 
     public void printWinner() {
 
-        Referee referee = new Referee(cars);
         List<String> winners = referee.selectWinner();
         String winnerMessage = String.join(", ", winners);
 
