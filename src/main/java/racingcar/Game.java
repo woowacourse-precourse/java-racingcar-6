@@ -11,6 +11,10 @@ public class Game {
         this.raceCount = raceCount;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public GameResult play() {
         // TODO: 게임 플레이 구현
         return null;

@@ -1,4 +1,6 @@
 package racingcar;
 
-public record GameResult() {
+import java.util.List;
+
+public record GameResult(List<Game> history, List<Car> winners) {
 }

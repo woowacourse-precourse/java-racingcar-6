@@ -11,7 +11,22 @@ public class OutputManager {
     }
 
     public void printGameResult(GameResult gameResult) {
-        System.out.println("게임 결과 출력");
-        // TODO: 게임 결과 출력 구현
+        System.out.println("실행 결과");
+        gameResult.history().forEach(this::printGameSnapshot);
+    }
+
+    private void printGameSnapshot(Game game) {
+        game.getCars().forEach(this::printCarSnapshot);
+        System.out.println();
+    }
+
+    private void printCarSnapshot(Car car) {
+        System.out.print(car.getName() + " : ");
+        printPositionBar(car.getPosition());
+    }
+
+    private void printPositionBar(int position) {
+        System.out.print("-".repeat(position));
+        System.out.println();
     }
 }
