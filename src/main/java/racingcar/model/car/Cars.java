@@ -20,4 +20,14 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public int getMaxCount() {
+        int maxCount = 0;
+        for (Car car : cars) {
+            if (car.getCount() > maxCount) {
+                maxCount = car.getCount();
+            }
+        }
+        return maxCount;
+    }
 }
