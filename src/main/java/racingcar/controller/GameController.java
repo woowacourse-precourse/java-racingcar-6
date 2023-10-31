@@ -5,12 +5,16 @@ import racingcar.model.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class GameController {
     public void playGame() {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
+        RacingCarsValidator racingCarsValidator = new RacingCarsValidator();
 
-        RacingCars racingCars = RacingCars.createRacingCars(inputView.inputRacingCarNames());
+        List<String> racingCarNames = racingCarsValidator.validateNames(inputView.inputRacingCarNames());
+        RacingCars racingCars = RacingCars.createRacingCars(racingCarNames);
         MovingNumber movingNumber = MovingNumber.createMovingNumber(inputView.inputMovingNumber());
         outputView.printMessageStartResult();
 
