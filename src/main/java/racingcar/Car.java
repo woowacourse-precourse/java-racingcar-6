@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.utils.GameRuleNumbers;
 
 public class Car {
-    private String name;
+    private final String name;
     private Integer position;
 
     public Car(String name) {

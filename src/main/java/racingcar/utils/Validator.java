@@ -3,7 +3,7 @@ package racingcar.utils;
 public class Validator {
 
     public static String validateNames(String names) {
-        String CarNames[] = names.split(",");
+        String[] CarNames = names.split(",");
 
         if (names.isBlank()) {
             throw new IllegalArgumentException(Messages.ERROR_EMPTY_NAME);
