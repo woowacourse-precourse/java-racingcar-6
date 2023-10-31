@@ -20,7 +20,7 @@ public class Car {
         progress += moving;
     }
 
-    public boolean compare(Car car) {
+    public boolean isLesser(Car car) {
         if (this.equals(car)) {
             return true;
         }
