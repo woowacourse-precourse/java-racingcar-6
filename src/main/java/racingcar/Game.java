@@ -87,12 +87,6 @@ public class Game {
     }
 
     public static void printResult() {
-        System.out.print("최종 우승자 : " + winners.get(0));
-
-        if (winners.size() > 1) {
-            for (int i = 1; i < winners.size(); i++) {
-                System.out.print(", " + winners.get(i));
-            }
-        }
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 }
