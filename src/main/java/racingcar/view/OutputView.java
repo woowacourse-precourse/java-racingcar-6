@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.CarDto;
+import racingcar.model.CarState;
 
 public class OutputView {
     private static final String RESULT_ANNOUNCEMENT = "실행 결과";
@@ -14,9 +14,9 @@ public class OutputView {
         System.out.println(RESULT_ANNOUNCEMENT);
     }
 
-    public void printAllCarPosition(List<CarDto> carDtos) {
-        carDtos.stream()
-                .map(this::formatCarPosition)
+    public void printAllCarPositionByState(List<CarState> carStates) {
+        carStates.stream()
+                .map(this::formatCarPositionByState)
                 .forEach(System.out::println);
         System.out.println();
     }
@@ -25,10 +25,10 @@ public class OutputView {
         System.out.println(WINNER_ANNOUNCEMENT + String.join(", ", names));
     }
 
-    private String formatCarPosition(CarDto carDto) {
-        return carDto.getName()
+    private String formatCarPositionByState(CarState carState) {
+        return carState.name()
                 + NAME_POSITION_DELIMITER
-                + convertMoveCountToPosition(carDto.getMoveCount());
+                + convertMoveCountToPosition(carState.moveCount());
     }
 
     private String convertMoveCountToPosition(int moveCount) {

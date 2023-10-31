@@ -24,8 +24,8 @@ public class CarTest {
         Car car = new Car("test", new CustomIntGenerator(pickedNumber));
 
         car.tryMove();
-        CarDto state = car.summarizeCurrentState();
+        CarState state = car.summarizeCurrentState();
 
-        assertThat(state.getMoveCount()).isEqualTo(expectedMoveCount);
+        assertThat(state.moveCount()).isEqualTo(expectedMoveCount);
     }
 }

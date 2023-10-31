@@ -34,7 +34,7 @@ public class Car {
         }
     }
 
-    public CarDto summarizeCurrentState() {
-        return new CarDto(this.name, this.moveCount);
+    public CarState summarizeCurrentState() {
+        return new CarState(this.name, this.moveCount);
     }
 }
