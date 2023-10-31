@@ -16,6 +16,10 @@ public class Racing {
         this.raceCount = raceCount;
     }
 
+    public Racing(){
+
+    }
+
     public void racingProcess(){
         Map<String,Integer> racingResultMap = new LinkedHashMap<>();
         for(int j = 0 ; j < raceCount ; j ++){
@@ -40,14 +44,14 @@ public class Racing {
         printWinner(racingResultMap);
     }
 
-    private boolean moveForward(int number){
+    public boolean moveForward(int number){
         if(number > 3){
             return true;
         }
         return false;
     }
 
-    private void printResult(Map<String, Integer> racingResultMap){
+    public void printResult(Map<String, Integer> racingResultMap){
         for (String car : racingResultMap.keySet()) {
             int location = racingResultMap.get(car);
             System.out.println( car + " : " + "-".repeat(location) );
@@ -55,7 +59,7 @@ public class Racing {
         System.out.println("");
     }
 
-    private void printWinner(Map<String, Integer> racingResultMap){
+    public String printWinner(Map<String, Integer> racingResultMap){
         List<String> winners = new ArrayList<>();
         int location = 0;
         for (String car : racingResultMap.keySet()) {
@@ -70,5 +74,7 @@ public class Racing {
         String testString = winners.toString().replace("[", "").replace("]","");
 
         System.out.println("최종 우승자 : " + testString);
+
+        return testString;
     }
 }
