@@ -99,7 +99,7 @@ public class InputViewValidator {
     }
 
     public boolean isCarNameEmpty(String carNames) {
-        return carNames.equals(CAR_NAME_SPLIT_REGEX);
+        return carNames.equals(EMPTY_STRING);
     }
 
 }
