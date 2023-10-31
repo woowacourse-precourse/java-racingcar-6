@@ -11,4 +11,8 @@ public class RacingCarRepository {
     public void save(List<Car> cars) {
         store = cars;
     }
+
+    public List<Car> findAll() {
+        return store;
+    }
 }
