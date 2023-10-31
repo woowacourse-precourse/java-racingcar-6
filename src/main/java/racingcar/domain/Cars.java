@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,9 +20,10 @@ public class Cars {
         return cars.size();
     }
 
-    public void moveCars(int random) {
+    public void moveCars() {
         List<Car> carList = this.getCars();
         carList.forEach(car -> {
+            int random = createRandom();
             if (isMove(random)) {
                 car.accountDistance();
             }
@@ -60,5 +63,9 @@ public class Cars {
             return false;
         }
         return true;
+    }
+
+    public int createRandom() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
