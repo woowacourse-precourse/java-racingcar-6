@@ -1,5 +1,6 @@
 package racingcar.domain.racing;
 
+import java.util.List;
 import racingcar.domain.car.CarManager;
 import racingcar.domain.winner.WinnerChecker;
 
@@ -20,6 +21,6 @@ public class GameManager {
             gameRoundManager.playRound();
         }
 
-        String winners = winnerChecker.getWinners();
+        List<String> winners = winnerChecker.findWinners();
     }
 }
