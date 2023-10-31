@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -25,7 +26,7 @@ class CarMovementDeciderTest {
 
     @Test
     @DisplayName("전진한다.")
-    public void moveFoward() {
+    void moveFoward() {
         // Given
         given(mockRandomValueGenerator.generate()).willReturn(4);
 
@@ -36,12 +37,12 @@ class CarMovementDeciderTest {
         carMovementDecider.move(carList);
 
         // Then
-        Assertions.assertThat(car.getDistanceDriven()).isEqualTo(1);
+        assertThat(car.getDistanceDriven()).isEqualTo(1);
     }
 
     @Test
     @DisplayName("전진하지 않는다.")
-    public void notMove() {
+    void notMove() {
         // Given
         given(mockRandomValueGenerator.generate()).willReturn(3);
 
@@ -52,6 +53,6 @@ class CarMovementDeciderTest {
         carMovementDecider.move(carList);
 
         // Then
-        Assertions.assertThat(car.getDistanceDriven()).isEqualTo(0);
+        assertThat(car.getDistanceDriven()).isZero();
     }
 }

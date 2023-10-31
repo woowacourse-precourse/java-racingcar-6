@@ -1,9 +1,11 @@
 package racingcar.car.name;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,10 +27,10 @@ class CarNameParserTest {
         String input = "pobi,woni,jun";
         List<CarName> result = parser.parse(input);
 
-        assertEquals(3, result.size());
-        assertEquals("pobi", result.get(0).name());
-        assertEquals("woni", result.get(1).name());
-        assertEquals("jun", result.get(2).name());
+        assertThat(result)
+                .hasSize(3)
+                .extracting(CarName::name)
+                .containsExactly("pobi", "woni", "jun");
     }
 
     @DisplayName("CarNameParser 실패")
@@ -39,6 +41,7 @@ class CarNameParserTest {
             "valid1,valid2,invalidcarname"
     })
     void parseMethod_invalidInput_throwException(String input) {
-        assertThrows(IllegalArgumentException.class, () -> parser.parse(input));
+        Assertions.assertThatThrownBy(() -> parser.parse(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
