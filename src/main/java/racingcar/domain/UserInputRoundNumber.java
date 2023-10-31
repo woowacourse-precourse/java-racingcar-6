@@ -3,11 +3,10 @@ package racingcar.domain;
 import racingcar.exception.UserRoundNumberInputException;
 
 public class UserInputRoundNumber {
+    private UserRoundNumberInputException userRoundNumberInputException;
 
     public int createRoundNumber(String userInput){
-        UserRoundNumberInputException.isZeroMinus(userInput);
-        UserRoundNumberInputException.isNumber(userInput);
-        UserRoundNumberInputException.isBlank(userInput);
+        userRoundNumberInputException = new UserRoundNumberInputException(userInput);
         int roundNum = stringToInt(userInput);
         return roundNum;
     }
