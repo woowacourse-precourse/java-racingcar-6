@@ -18,7 +18,9 @@ public class GameController {
     private final OutputView outputView;
     private final RacingService racingService;
 
-    public GameController(InputView inputView, OutputView outputView, RacingService racingService) {
+    public GameController(final InputView inputView,
+                          final OutputView outputView,
+                          final RacingService racingService) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingService = racingService;
@@ -32,7 +34,7 @@ public class GameController {
         announceRaceWinners(circuit);
     }
 
-    private void runRace(TryCount tryCount, Circuit circuit) {
+    private void runRace(final TryCount tryCount, final Circuit circuit) {
         outputView.printRoundHeader();
         IntStream.range(0, tryCount.getCount())
                 .forEach(round -> raceOneRound(circuit));
@@ -46,12 +48,12 @@ public class GameController {
         return Circuit.fromCarNames(cars);
     }
 
-    private void raceOneRound(Circuit circuit) {
+    private void raceOneRound(final Circuit circuit) {
         List<RacingResult> raceResults = racingService.race(circuit);
         outputView.printRacingResult(raceResults);
     }
 
-    private void announceRaceWinners(Circuit circuit) {
+    private void announceRaceWinners(final Circuit circuit) {
         Winners winners = racingService.announceWinners(circuit);
         outputView.printWinner(winners);
     }

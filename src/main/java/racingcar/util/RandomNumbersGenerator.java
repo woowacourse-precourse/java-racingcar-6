@@ -8,8 +8,8 @@ import java.util.stream.IntStream;
 
 public class RandomNumbersGenerator {
 
-    public static final int MIN = 0;
-    public static final int MAX = 9;
+    private static final int MIN = 0;
+    private static final int MAX = 9;
 
     public static List<Integer> generate(int limitSize) {
         return IntStream.range(0, limitSize)

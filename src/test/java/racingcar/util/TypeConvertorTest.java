@@ -15,7 +15,7 @@ class TypeConvertorTest {
     @Test
     @DisplayName("String으로 받은 숫자 문자열을 타입 변환하면 List로 만든다.")
     void stringToStringList() {
-        List<String> integers = TypeConvertor.stringToStringList("123");
+        List<String> integers = TypeConvertor.stringToStringList("1,2,3");
         Assertions.assertThat(integers)
                 .contains("1", "2", "3");
     }

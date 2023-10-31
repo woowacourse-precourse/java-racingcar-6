@@ -24,6 +24,6 @@ class RandomNumbersGeneratorTest {
         List<Integer> generatedNumbers = RandomNumbersGenerator.generate(limitSize);
 
         assertThat(generatedNumbers)
-                .allMatch(num -> num >= RandomNumbersGenerator.MIN && num <= RandomNumbersGenerator.MAX);
+                .allMatch(num -> num >= 0 && num <= 9);
     }
 }
