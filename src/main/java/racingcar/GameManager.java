@@ -15,7 +15,7 @@ public class GameManager {
         eh.isCarNamePlainTextException(input);
 
         List<String> members = Arrays.asList(input.split(","));
-        eh.isMembersException(members, input.length());
+        eh.isMembersException(members, input);
         eh.isMembersException(members);
 
         HashMap<String, String> membersHM = new HashMap<>();

@@ -66,8 +66,8 @@ public class ExceptionHandler {
         }
     }
 
-    public void isMembersException(List<String> members, int inputSize) {
-        if (!Validation.isCorrectComma(members, inputSize)) {
+    public void isMembersException(List<String> members, String input) {
+        if (!Validation.isCorrectComma(members, input)) {
             throw new IllegalArgumentException("쉼표(,)는 자동차 이름 사이에 하나씩 들어가야합니다.");
         }
     }
