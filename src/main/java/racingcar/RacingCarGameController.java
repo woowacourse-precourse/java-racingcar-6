@@ -22,6 +22,13 @@ public class RacingCarGameController {
 
     public void gameStart() {
         List<Result> results = racingCarGame.run();
+
+        List<String> winners = new ArrayList<>();
+        for (Result result : results) {
+            winners.add(result.getName());
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ",winners));
     }
 
     private static String receiveCarNames() {

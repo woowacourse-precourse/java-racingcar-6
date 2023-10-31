@@ -33,4 +33,34 @@ public class RacingCars {
         }
         System.out.println();
     }
+
+    public List<Result> findWinner() {
+
+        int maxAdvance = findMaxAdvance();
+        List<Result> results = new ArrayList<>();
+
+        for (RacingCar racingCar : racingCars) {
+            Result result = racingCar.makeResult();
+            int advance = result.getAdvance();
+            if (advance == maxAdvance) {
+                results.add(result);
+            }
+        }
+
+        return results;
+    }
+
+    private int findMaxAdvance() {
+
+        int maxAdvance = 0;
+
+        for (RacingCar racingCar : racingCars) {
+            int advance = racingCar.makeResult().getAdvance();
+            if (advance > maxAdvance) {
+                maxAdvance = advance;
+            }
+        }
+
+        return maxAdvance;
+    }
 }
