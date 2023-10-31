@@ -1,5 +1,6 @@
 package basis;
 
+import static constant.Constant.STOP_SYMBOL;
 import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
 
 import java.util.LinkedHashMap;
@@ -32,7 +33,7 @@ public class Converter {
         LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
         for (String part : parts) {
             userInputValidator.validateInputCarName(part);
-            carNameHashMap.put(part, "");
+            carNameHashMap.put(part, STOP_SYMBOL);
         }
         return carNameHashMap;
     }
