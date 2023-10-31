@@ -158,11 +158,8 @@ class RoundTest {
             EachRoundResult.add(roundResult);
         }
 
-        // 마지막 라운드 생성
-        Round round = new Round();
-
         // when
-        List<CarDTO> winner = round.calculateFurthestCarInfo(EachRoundResult);
+        List<CarDTO> winner = Round.calculateFurthestCarInfo(EachRoundResult);
 
         // then
         Assertions.assertAll(
