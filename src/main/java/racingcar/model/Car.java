@@ -12,6 +12,7 @@ public class Car {
         this.car = setCarMembers(carMembers);
         isLessThanFive(car);
         isMoreThanTwoCars(car);
+        isSameNameOfCar(car);
     }
 
     public List<String> getCarMembers() {
@@ -33,6 +34,12 @@ public class Car {
     public void isMoreThanTwoCars(List<String> members) throws IllegalArgumentException {
         if (members.size() == 1) {
             throw new IllegalArgumentException("2대 이상의 자동차 이름을 입력해주세요.");
+        }
+    }
+
+    public void isSameNameOfCar(List<String> members) throws IllegalArgumentException {
+        if (members.size() != members.stream().distinct().count()) {
+            throw new IllegalArgumentException("중복된 이름의 자동차가 있습니다.");
         }
     }
 }

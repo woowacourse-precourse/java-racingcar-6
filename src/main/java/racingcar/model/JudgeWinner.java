@@ -4,20 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JudgeWinner {
-    private List<String> winner;
+    private List<String> winner = new ArrayList<>();
 
     public JudgeWinner(int[] result, List<String> carMembers) {
         whoIsWinner(result, carMembers);
     }
 
     public String getWinner() {
-        String str = "";
-
-        for (String tmp : winner) {
-            str += tmp + ",";
-        }
-        str = str.substring(0, str.length() - 1);
-        return str;
+        return String.join(",", winner);
     }
 
     public void whoIsWinner(int[] result, List<String> carMembers) {
