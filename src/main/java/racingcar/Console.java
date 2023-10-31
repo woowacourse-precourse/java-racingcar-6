@@ -7,6 +7,8 @@ import racingcar.constants.Rule;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import static racingcar.constants.ConsoleMessage.CAR_PROGRESS;
+
 public class Console {
     public static void printInputCarName() {
         System.out.println(ConsoleMessage.INPUT_CAR_NAME);
@@ -20,6 +22,11 @@ public class Console {
         System.out.println("\n" + ConsoleMessage.RESULT);
     }
 
+    /**
+     * 우승자 출력
+     *
+     * @param winners
+     */
     public static void printWinners(String[] winners) {
         System.out.print(ConsoleMessage.WINNER);
     }
@@ -108,4 +115,16 @@ public class Console {
         }
     }
 
+    /**
+     * 진행 상황 출력
+     *
+     * @param carNames
+     * @param progress
+     */
+    public static void printProgress(String[] carNames, int[] progress) {
+        for (int i = 0; i < carNames.length; i++) {
+            System.out.println(CAR_PROGRESS.formatted(carNames[i], "-".repeat(progress[i])));
+        }
+        System.out.println();
+    }
 }
