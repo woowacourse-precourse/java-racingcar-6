@@ -57,6 +57,21 @@ class ApplicationTest extends NsTest {
         assertThat(result).containsExactly("Unity", "Chan", "Kawai");
     }
 
+    @Test
+    void 주행_횟수_일치() {
+        Referee referee = null;
+
+        try {
+            final byte[] buf = String.join("\n", "Unity,Chan", "7").getBytes();
+            System.setIn(new ByteArrayInputStream(buf));
+            referee = new Referee();
+        } finally {
+            Console.close();
+        }
+
+        assertThat(referee.getCarRacingCount()).isEqualTo(7);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

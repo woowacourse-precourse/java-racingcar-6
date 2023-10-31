@@ -11,6 +11,11 @@ public class Referee {
     List<Car> carList = null;
     int carRacingCount = 0;
 
+    public Referee() {
+        carList = setCarList();
+        carRacingCount = setCarRacingCnt();
+    }
+
     List<String> setCarNameList() {
         String carNames = null;
         List<String> carNameList = null;
@@ -45,13 +50,13 @@ public class Referee {
 
     int setCarRacingCnt() {
         System.out.println("시도할 회수는 몇회인가요?");
-        System.out.println();
         return Integer.parseInt(Console.readLine());
     }
 
     public void loopCarRacing() {
         int cnt = 0;
 
+        System.out.println();
         System.out.println("실행 결과");
         while (cnt < carRacingCount) {
             startCarRacing();
@@ -98,4 +103,7 @@ public class Referee {
         return carList;
     }
 
+    public int getCarRacingCount() {
+        return carRacingCount;
+    }
 }
