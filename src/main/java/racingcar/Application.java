@@ -97,5 +97,21 @@ public class Application {
             }
             System.out.println();
         }
+
+        // 우승자 출력
+        int fastCar=0;
+        List<String> winnerCar = new ArrayList<>();
+        for (int j=0; j<racingCarCount; j++) {
+            int carProgressTotal = racingCarProgress[j].length();
+            if (carProgressTotal > fastCar) {
+                fastCar = carProgressTotal;
+                winnerCar.clear();
+                winnerCar.add(racingCar[j]);
+            } else if (carProgressTotal == fastCar) {
+                winnerCar.add(racingCar[j]);
+            }
+        }
+        String winner = String.join(",",winnerCar);
+        System.out.println("최종 우승자 : " + winner);
     }
 }
