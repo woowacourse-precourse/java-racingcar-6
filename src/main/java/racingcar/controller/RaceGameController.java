@@ -55,7 +55,7 @@ public class RaceGameController {
 
     private void raceAndPrintRoundResults() {
         Stream.iterate(0, n -> n + 1)
-                .limit(carRace.getTargetTurn())
+                .limit(carRace.getTargetRound())
                 .forEach(turn -> {
                     List<RacingCar> racingCars = carRace.race();
                     view.printRaceRoundResult(racingCars);

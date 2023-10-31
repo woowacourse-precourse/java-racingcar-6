@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 public class CarRace {
     private final List<RacingCar> racingCars;
-    private final int targetTurn;
+    private final int targetRound;
     private final RandomDistanceGenerator randomDistanceGenerator;
 
     public CarRace(List<RacingCar> racingCars, int targetTurn, RandomDistanceGenerator randomDistanceGenerator) {
         this.racingCars = racingCars;
-        this.targetTurn = targetTurn;
+        this.targetRound = targetTurn;
         this.randomDistanceGenerator = randomDistanceGenerator;
     }
 
@@ -19,8 +19,8 @@ public class CarRace {
         return racingCars;
     }
 
-    public int getTargetTurn() {
-        return targetTurn;
+    public int getTargetRound() {
+        return targetRound;
     }
 
     public List<RacingCar> getWinners() {

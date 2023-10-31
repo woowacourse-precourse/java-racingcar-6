@@ -31,9 +31,9 @@ class CarRaceTest {
     }
 
     @Test
-    @DisplayName("최대 천 가져오기 검증")
+    @DisplayName("최대 라운드 가져오기 검증")
     public void testGetTurn() {
-        int carRaceTurn = carRace.getTargetTurn();
+        int carRaceTurn = carRace.getTargetRound();
         assertEquals(5, carRaceTurn);
     }
 
