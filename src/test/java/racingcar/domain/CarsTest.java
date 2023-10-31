@@ -65,10 +65,10 @@ class CarsTest {
         List<String> winnerNameList = cars.findWinnerNameList();
         List<Car> carList = cars.getCars()
                 .stream()
-                .filter(car -> winnerNameList.contains(car.getName()))
+                .filter(car -> winnerNameList.contains(car.getNameString()))
                 .toList();
 
-        assertThat(carList.get(0).getPosition()).isEqualTo(10);
+        assertThat(carList.get(0).getPosition()).isEqualTo(new Position(10));
 
     }
 
@@ -173,7 +173,7 @@ class CarsTest {
         car = Car.from("d");
 
         // then
-        assertThat(beforeCars.getCars().get(0).getName()).isEqualTo("a");
+        assertThat(beforeCars.getCars().get(0).getNameString()).isEqualTo("a");
     }
 
     public static class MonotoneIncreasingNumberGenerator implements NumberGenerator {

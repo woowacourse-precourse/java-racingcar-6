@@ -21,8 +21,8 @@ class CarTest {
         Car car = Car.from(name);
 
         // then
-        assertThat(car.getName()).isEqualTo(name);
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getNameString()).isEqualTo(name);
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
     }
 
     @ParameterizedTest
@@ -32,7 +32,7 @@ class CarTest {
 
         Car car = Car.from(name);
 
-        assertThat(car.getName()).isEqualTo(name);
+        assertThat(car.getNameString()).isEqualTo(name);
     }
 
     @ParameterizedTest
@@ -65,8 +65,8 @@ class CarTest {
         car.go(number);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(1);
-        car.isHere(1);
+        assertThat(car.getPosition()).isEqualTo(new Position(1));
+        car.isHere(new Position(1));
     }
 
     @ParameterizedTest
@@ -80,8 +80,8 @@ class CarTest {
         car.go(number);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(0);
-        car.isHere(0);
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
+        car.isHere(new Position(0));
     }
 
 
