@@ -28,6 +28,6 @@ public class Participant implements Comparable<Participant> {
 
     @Override
     public int compareTo(Participant participant) {
-        return participant.getForward() - this.forward;
+        return this.forward - participant.getForward() ;
     }
 }
