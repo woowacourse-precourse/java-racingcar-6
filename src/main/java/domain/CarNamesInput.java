@@ -11,6 +11,7 @@ public class CarNamesInput {
 
 	public CarNamesInput(String inputNames) {
 		List<String> nameList = splitByCommaToList(inputNames);
+
 		validateNamesDuplicate(nameList);
 		validateAndAddNames(nameList);
 	}
@@ -21,6 +22,7 @@ public class CarNamesInput {
 			validateNameEmpty(name);
 			validateNameBlank(name);
 			validateNameLength(name);
+
 			this.names.add(name);
 		}
 	}
