@@ -52,7 +52,7 @@ public class User {
     }
 
     private void checkNameLength(List<String> splits) {
-        for (String split : carNames) {
+        for (String split : splits) {
             if (split.length() > MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException(RacingCarException.INVALID_CAR_NAME_LENGTH_MSG);
             }
