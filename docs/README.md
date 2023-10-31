@@ -1,6 +1,6 @@
 ## 기능 목록
 
-- [] 한 줄로 입력된 자동차 이름들을 분리한다. : NamesManager # separateNamesString()
+- [x] 한 줄로 입력된 자동차 이름들을 분리한다. : NamesManager # separateNamesString()
   - [] 자동차 이름의 구분자가 ,인지 확인한다. : NamesManager # checkNamesSeparator()
 
 - [] 자동차 이름이 조건에 맞는지 확인한다. : NamesManager # checkNamesException()
