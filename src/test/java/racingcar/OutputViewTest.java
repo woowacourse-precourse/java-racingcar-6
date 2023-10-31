@@ -1,5 +1,7 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -13,7 +15,6 @@ public class OutputViewTest {
 
     @Test
     void 경주할_자동차_이름_입력_요청_출력_테스트() {
-
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
@@ -21,8 +22,7 @@ public class OutputViewTest {
         OutputView.printRequestCarNameMessage();
 
         String caputredOutput = outputStream.toString();
-        Assertions.assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n", caputredOutput);
-
+        assertThat(caputredOutput).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     }
 
     @Test
@@ -35,7 +35,7 @@ public class OutputViewTest {
         OutputView.printRequestTryNumberMessage();
 
         String caputredOutput = outputStream.toString();
-        Assertions.assertEquals("시도할 회수는 몇회인가요?\n", caputredOutput);
+        assertThat(caputredOutput).isEqualTo("시도할 회수는 몇회인가요?\n");
 
     }
 
@@ -50,7 +50,7 @@ public class OutputViewTest {
         OutputView.printResultStartMessage();
 
         String caputredOutput = outputStream.toString();
-        Assertions.assertEquals("\n실행 결과\n", caputredOutput);
+        assertThat(caputredOutput).isEqualTo("\n실행 결과\n");
 
     }
 
@@ -58,27 +58,22 @@ public class OutputViewTest {
     void 게임_실행_결과_출력_테스트() {
 
         CarGameController carGameController = new CarGameController();
-        List<String> carNames = new ArrayList<>();
+        List<String> carNames = List.of("pobi");
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
 
-        carNames.add("pobi");
-
         OutputView.printGameResultMessage(carGameController.createCars(carNames));
         String capturedOutput = outputStream.toString();
 
-        Assertions.assertEquals("pobi : \n\n", capturedOutput);
-
+        assertThat(capturedOutput).isEqualTo("pobi : \n\n");
 
     }
 
     @Test
     void 우승자_출력_테스트() {
-        List<String> winners = new ArrayList<>();
-        winners.add("pobi");
-        winners.add("jun");
+        List<String> winners = List.of("pobi", "jun");
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
@@ -88,10 +83,8 @@ public class OutputViewTest {
 
         String capturedOutput = outputStream.toString();
 
-        Assertions.assertEquals("최종 우승자 : pobi, jun", capturedOutput);
-
+        assertThat(capturedOutput).isEqualTo("최종 우승자 : pobi, jun");
 
     }
-
 
 }
