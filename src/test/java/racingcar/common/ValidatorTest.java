@@ -3,6 +3,7 @@ package racingcar.common;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -59,5 +60,23 @@ class ValidatorTest {
             assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
                     .getMessage().equals(MessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
         }
+    }
+
+    @DisplayName("이동 횟수 검증")
+    @Nested
+    class RoundNumberTest {
+
+        @DisplayName("문자 입력 시 예외 발생")
+        @Test
+        public void notInteger() {
+            //given
+            String roundNumber="aaa";
+
+            //then
+            Assertions.assertThatThrownBy(() -> Validator.validateRoundNumber(roundNumber))
+                            .isInstanceOf(IllegalArgumentException.class)
+                                    .hasMessage(MessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
+        }
+
     }
 }
