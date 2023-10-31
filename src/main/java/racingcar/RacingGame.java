@@ -1,6 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RacingGame {
 
@@ -16,6 +19,7 @@ public class RacingGame {
         for (String carName : carNames) {
             validateCarName(carName);
         }
+        validateDuplicate(carNames);
     }
 
     private void validateCarName(String carName) {
@@ -35,6 +39,14 @@ public class RacingGame {
 
     private void validateBlank(String carName) {
         if (carName.contains(" ")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateDuplicate(String[] carNames) {
+        Set<String> uniqueCarNames = new HashSet<>(Arrays.asList(carNames));
+
+        if (uniqueCarNames.size() != carNames.length) {
             throw new IllegalArgumentException();
         }
     }
