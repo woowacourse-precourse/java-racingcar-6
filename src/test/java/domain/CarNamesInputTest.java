@@ -14,8 +14,7 @@ public class CarNamesInputTest {
 		CarNamesInput carNamesInput = new CarNamesInput(names);
 		List<String> nameList = carNamesInput.splitByCommaToList(names);
 		//then
-		Assertions.assertThat(nameList.get(0)).isEqualTo("pobi");
-		Assertions.assertThat(nameList.get(1)).isEqualTo("crong");
+		Assertions.assertThat(nameList).containsExactly("pobi", "crong");
 	}
 
 	@Test
@@ -25,9 +24,8 @@ public class CarNamesInputTest {
 		CarNamesInput carNamesInput = new CarNamesInput(name);
 
 		// when & then
-		Assertions.assertThatThrownBy(() -> {
-			carNamesInput.validateNameLength(name);
-		}).isInstanceOf(IllegalArgumentException.class);
+		Assertions.assertThatThrownBy(() -> carNamesInput.validateNameLength(name))
+				.isInstanceOf(IllegalArgumentException.class);
 	}
 
 	@Test
@@ -36,9 +34,8 @@ public class CarNamesInputTest {
 		String name = " ";
 		CarNamesInput carNamesInput = new CarNamesInput(name);
 		// when & then
-		Assertions.assertThatThrownBy(() -> {
-			carNamesInput.validateNameBlank(name);
-		}).isInstanceOf(IllegalArgumentException.class);
+		Assertions.assertThatThrownBy(() -> carNamesInput.validateNameBlank(name))
+				.isInstanceOf(IllegalArgumentException.class);
 	}
 
 	@Test
@@ -47,9 +44,8 @@ public class CarNamesInputTest {
 		String name = "";
 		CarNamesInput carNamesInput = new CarNamesInput(name);
 		// when & then
-		Assertions.assertThatThrownBy(() -> {
-			carNamesInput.validateNameEmpty(name);
-		}).isInstanceOf(IllegalArgumentException.class);
+		Assertions.assertThatThrownBy(() -> carNamesInput.validateNameEmpty(name))
+				.isInstanceOf(IllegalArgumentException.class);
 	}
 
 	@Test
@@ -59,8 +55,7 @@ public class CarNamesInputTest {
 		CarNamesInput carNamesInput = new CarNamesInput(inputNames);
 		List<String> names = carNamesInput.getNames();
 		// when & then
-		Assertions.assertThatThrownBy(() -> {
-			carNamesInput.validateNamesDuplicate(names);
-		}).isInstanceOf(IllegalArgumentException.class);
+		Assertions.assertThatThrownBy(() -> carNamesInput.validateNamesDuplicate(names))
+				.isInstanceOf(IllegalArgumentException.class);
 	}
 }
