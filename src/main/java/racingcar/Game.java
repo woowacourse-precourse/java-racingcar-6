@@ -28,7 +28,7 @@ public class Game {
 
         myOutput.printEnterTryTime();
         input = Console.readLine();
-        int tryCount = Integer.parseInt(input);
+        int tryCount = myInput.getTryCount(input);
         myOutput.printExecutionResult();
 
         for(int i=0; i<tryCount; i++){
