@@ -25,4 +25,12 @@ public class Racer {
         String printString = MessageFormat.format("{0} : {1}", name, distance);
         System.out.println(printString);
     }
+
+    public int getCurrentPosition() {
+        return distance.length();
+    }
+
+    public String getName() {
+        return name;
+    }
 }
