@@ -32,7 +32,7 @@ public class ViewMakerTest {
         Car CarB = new Car("bbb");
         Car CarC = new Car("ccc");
 
-        while (CarB.getForwardCount() == 0) {
+        while (CarB.getCurrentPosition() == 0) {
             CarB.forward();
         }
 
@@ -52,11 +52,11 @@ public class ViewMakerTest {
         Car CarB = new Car("bbb");
         Car CarC = new Car("ccc");
 
-        while (CarA.getForwardCount() == 0) {
+        while (CarA.getCurrentPosition() == 0) {
             CarA.forward();
         }
 
-        while (CarB.getForwardCount() == 0) {
+        while (CarB.getCurrentPosition() == 0) {
             CarB.forward();
         }
 

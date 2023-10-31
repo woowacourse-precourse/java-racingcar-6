@@ -13,12 +13,10 @@ public class CarTest {
 
         carA.forward();
         carA.forward();
-        carA.forward();
-        carA.forward();
 
-        int carACount = carA.getForwardCount();
-        int carBCount = carB.getForwardCount();
-        assertThat(carBCount).isLessThanOrEqualTo(carACount);
+        int carACount = carA.getCurrentPosition();
+        int carBCount = carB.getCurrentPosition();
+        assertThat(carBCount).isLessThan(carACount);
     }
 
 }

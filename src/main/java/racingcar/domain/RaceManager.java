@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 
+import static racingcar.constant.CarForwordConstant.MINIMUM_DICE_VALUE;
 import static racingcar.constant.GameResultMessageConstant.EXECUTION_RESULT;
 
 public class RaceManager {
@@ -25,8 +28,12 @@ public class RaceManager {
         for (int i = 0; i < forwardCount; i++) {
 
             for (Car car : entryList) {
+                if (isCarCanForward()) {
+                    car.forward();
+                }
+
                 String currentCarName = car.getName();
-                int currentCarPosition = car.forward();
+                int currentCarPosition = car.getCurrentPosition();
                 resultStringBuilder.append(viewMaker.makeCurrentPositionView(currentCarName, currentCarPosition));
             }
 
@@ -34,6 +41,11 @@ public class RaceManager {
         }
 
         resultStringBuilder.append(viewMaker.makeWinnerView(entryList));
+    }
+
+    private boolean isCarCanForward() {
+        int dice = Randoms.pickNumberInRange(0, 9);
+        return dice >= MINIMUM_DICE_VALUE;
     }
 
     public String getRaceResult() {
