@@ -1,8 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-
-import java.util.HashSet;
+import racingcar.exception.Validator;
 
 public class InputValue {
 
@@ -14,13 +13,9 @@ public class InputValue {
 
         String[] names = temp.split(",");
 
-        HashSet<String> set = new HashSet<>();
-        for(int i = 0; i < names.length; i++) {
-            if(names[i].length() > 5) throw new IllegalArgumentException();
-            set.add(names[i]);
-        }
+        Validator.name_size_check(names);
 
-        if(set.size() != names.length) throw new IllegalArgumentException();
+        Validator.name_duplication_check(names);
 
         return names;
     }
@@ -31,7 +26,7 @@ public class InputValue {
 
         String temp = input.replaceAll(" ", "");
 
-        if(!temp.matches("^[0-9]+$")) throw new IllegalArgumentException();
+        Validator.number_check(temp);
 
         return Integer.parseInt(temp);
     }
