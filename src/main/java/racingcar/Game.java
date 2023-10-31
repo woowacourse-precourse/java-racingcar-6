@@ -14,7 +14,7 @@ public class Game {
         this.trial = trial;
     }
 
-    public void setCars(List<String> carsName){
+    private void setCars(List<String> carsName){
         this.cars = new ArrayList<Car>();
         for(String name : carsName){
             cars.add(new Car(name));
@@ -30,13 +30,13 @@ public class Game {
         }
     }
 
-    public void playRound(){
+    private void playRound(){
         for(Car car : cars){
             car.move(getRandomNumber());
         }
     }
 
-    public int getRandomNumber(){
+    private int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
 
