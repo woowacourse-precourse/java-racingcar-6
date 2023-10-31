@@ -21,6 +21,12 @@ public class Race {
         }
     }
 
+    public void startOneRound() {
+        for (Car car : cars) {
+            car.move(RandomGenerator.generateRandomNumber());
+        }
+    }
+
     public List<String> getWinners() {
         int maxPosition = 0;
         List<String> winners = new ArrayList<>();
