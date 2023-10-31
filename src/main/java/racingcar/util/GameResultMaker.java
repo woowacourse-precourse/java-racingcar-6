@@ -8,7 +8,7 @@ public class GameResultMaker {
 
     public void makeGameResult(List<Car> carNames) {
         for (Car car : carNames) {
-            if (CarMotionMaker.isCarMoved()) {
+            if (Car.isMoved()) {
                 car.increaseMovingCount();
             }
         }

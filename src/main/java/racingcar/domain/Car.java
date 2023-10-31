@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +24,11 @@ public class Car {
 
     public void increaseMovingCount() {
         this.movingCount++;
+    }
+
+    public static boolean isMoved() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
     }
 
     public static List<String> getRacingGameWinner(List<Car> carNames) {
