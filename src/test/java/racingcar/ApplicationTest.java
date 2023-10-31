@@ -40,10 +40,19 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(()->runException("pobi,pobi"))
                         .isInstanceOf(IllegalArgumentException.class));
    }
+
+   @Test
+   void 자동차의_이름에_빈값이_들어갈때_예외처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException(" ","  ","   ","    ","     "))
+                        .isInstanceOf(IllegalArgumentException.class)
+                );
+   }
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
+
 
 
 }

@@ -24,4 +24,12 @@ public class CustomizedException {
             uniqueNames.add(carName);
         }
     }
+
+    public static void emptyCarNameException(List<String> carList) {
+        for (String carName : carList) {
+            if (carName.trim().isEmpty()) {
+                throw new IllegalArgumentException("빈칸을 입력할 수는 없습니다.");
+            }
+        }
+    }
 }
