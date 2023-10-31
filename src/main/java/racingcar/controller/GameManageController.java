@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
@@ -24,7 +25,8 @@ public class GameManageController {
         OutputView.printResultMessage();
         for (int i = 0; i < attempts; i++) {
             for (Car car : carList) {
-                car.move();
+                int moveCommand = Randoms.pickNumberInRange(0, 9);
+                car.move(moveCommand);
             }
             OutputView.printResult(carList);
         }
