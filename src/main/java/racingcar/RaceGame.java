@@ -11,15 +11,13 @@ public class RaceGame {
     private OutputView outputView;
     private Car car;
 
-    public RaceGame(OutputView outputView) {
+    public RaceGame(OutputView outputView, Car car, InputController inputController) {
         this.outputView = outputView;
+        this.car = car;
+        this.inputController = inputController;
     }
 
     public void start() {
-        car = new Car();
-        InputService inputService = new InputService();
-        inputController = new InputController(inputService);
-
         outputView.requestCarName();
         receiveCarName();
 
