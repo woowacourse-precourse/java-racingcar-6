@@ -63,4 +63,5 @@ public class Censor {
             throw new IllegalArgumentException(NOT_INTEGER_ERROR.getContent());
         }
     }
+
 }

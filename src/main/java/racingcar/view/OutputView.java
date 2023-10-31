@@ -37,4 +37,5 @@ public class OutputView {
         return String.valueOf(MOVE_DISPLAY_STRING.getContent())
                 .repeat(currentPosition);
     }
+
 }

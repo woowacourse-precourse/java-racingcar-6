@@ -1,6 +1,7 @@
 package racingcar.util.constant;
 
 public enum GameRule {
+
     MAX_NICKNAME_LENGTH(4),
     START_INCLUSIVE(0),
     END_INCLUSIVE(9),
@@ -15,4 +16,5 @@ public enum GameRule {
     public Integer getValue() {
         return value;
     }
+
 }

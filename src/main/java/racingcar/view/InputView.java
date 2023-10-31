@@ -12,4 +12,5 @@ public class InputView {
     public static void displaySetUpPlayTime() {
         System.out.println(GAME_TIME.getContent());
     }
+
 }

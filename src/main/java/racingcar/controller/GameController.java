@@ -62,4 +62,5 @@ public class GameController {
         censor.checkInputForGameTime(input);
         return input;
     }
+
 }

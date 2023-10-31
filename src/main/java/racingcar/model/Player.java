@@ -40,4 +40,5 @@ public class Player {
     private boolean isWinner(String nickname, int maxPosition) {
         return player.get(nickname) == maxPosition;
     }
+
 }
