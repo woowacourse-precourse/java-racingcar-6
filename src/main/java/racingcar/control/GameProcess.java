@@ -96,13 +96,13 @@ public class GameProcess {
     }
 
     private String[] makeNameArrFromWinnerList() {
-        Integer sizeOfRaceCarList = winnerList.size();
-        String[] nameOfWinnerArr = new String[sizeOfRaceCarList];
+        Integer sizeOfWinnerList = winnerList.size();
+        String[] nameOfWinnerArr = new String[sizeOfWinnerList];
         RaceCar raceCarOfWinner = null;
         String nameOfWinnerCar = "";
 
-        for (int indexOfWinCarList = 0; indexOfWinCarList < sizeOfRaceCarList; indexOfWinCarList++) {
-            raceCarOfWinner = getRaceCarOfWinnerList(indexOfWinCarList);
+        for (int indexOfWinCarList = 0; indexOfWinCarList < sizeOfWinnerList; indexOfWinCarList++) {
+            raceCarOfWinner = getRaceCarFromWinnerList(indexOfWinCarList);
             nameOfWinnerCar = raceCarOfWinner.toString();
             nameOfWinnerArr[indexOfWinCarList] = nameOfWinnerCar;
         }
@@ -110,14 +110,8 @@ public class GameProcess {
         return nameOfWinnerArr;
     }
 
-    /**
-     * 승자 모임 리스트에서 해당하는 index의 값을 반환한다.
-     *
-     * @param indexOfWinCarList
-     * @return
-     */
-    private RaceCar getRaceCarOfWinnerList(int indexOfWinCarList) {
-        return winnerList.get(indexOfWinCarList);
+    private RaceCar getRaceCarFromWinnerList(int index) {
+        return winnerList.get(index);
     }
 
     /**
