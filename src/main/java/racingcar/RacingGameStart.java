@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import pojo.RacingCar;
 
 public class RacingGameStart {
     private static final int NAME_LENGTH = 5;

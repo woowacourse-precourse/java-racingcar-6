@@ -1,5 +1,7 @@
 package racingcar;
 
+import pojo.RacingCar;
+
 import java.util.ArrayList;
 import java.util.List;
 

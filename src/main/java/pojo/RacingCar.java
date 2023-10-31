@@ -1,4 +1,4 @@
-package racingcar;
+package pojo;
 
 public class RacingCar {
     private String name;
