@@ -13,6 +13,7 @@ public enum Constants {
     INVALID_REPETITION_EXCEPTION("ERROR: 잘못된 횟수 입력입니다"),
 
     NAME_VALIDATION_REGEX("^[가-힣\\w]+[가-힣\\w,]*[가-힣\\w]$"),
+    //NAME_VALIDATION_REGEX("^[가-힣\\w]+(,[가-힣\\w]+)*$"),
     SPACE_REGEX("\\s")
     ;
 

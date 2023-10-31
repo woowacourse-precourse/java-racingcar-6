@@ -24,7 +24,9 @@ public class NameValidation {
         if (!correctPattern.matcher(NAMES).matches()) {
             throw new IllegalArgumentException(INVALID_INPUT_EXCEPTION.getValue());
         }
+    }
 
+    public void isCorrectLength() {
 
     }
 
