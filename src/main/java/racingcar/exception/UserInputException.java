@@ -29,7 +29,7 @@ public class UserInputException {
     }
 
     public static void isDuplicate(List<String> carNameList) {
-        if(!(carNameList.size() == carNameList.stream().distinct().count())) {
+        if(!(carNameList.size() == carNameList.stream().count())) {
             throw new IllegalArgumentException(DUPLICATE_MESSAGE);
         }
     }
