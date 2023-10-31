@@ -32,7 +32,7 @@ public class GameController {
 	}
 
 	public void moveCars() {
-		calculateDistanceService.moveCars(cars, getTry());
+		calculateDistanceService.moveAll(cars, getTry());
 	}
 
 	public String getWinner() {
