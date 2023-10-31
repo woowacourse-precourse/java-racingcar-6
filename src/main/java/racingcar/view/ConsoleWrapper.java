@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ConsoleWrapper {
     public static String promptCarNames() {
