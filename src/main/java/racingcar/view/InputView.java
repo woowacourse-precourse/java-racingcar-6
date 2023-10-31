@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Cars;
-import racingcar.domain.dto.input.CarsDto;
+import racingcar.domain.dto.input.CarsRequestDto;
 import racingcar.io.InputReader;
 import racingcar.io.OutputWriter;
 import racingcar.validator.TryTimesValidator;
@@ -18,8 +18,8 @@ public class InputView {
     public Cars getCars() {
         writer.writeInputNameMsg();
         String carNames = reader.readLine();
-        CarsDto carsDto = new CarsDto(carNames);
-        return carsDto.toCars();
+        CarsRequestDto carsRequestDto = new CarsRequestDto(carNames);
+        return carsRequestDto.toCars();
     }
 
     public int getTryTimes() {
