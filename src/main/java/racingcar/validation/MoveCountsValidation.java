@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-public class moveCountsValidation {
+public class MoveCountsValidation {
     public void validateMoveCountsInput(String input) {
         validateNumber(input);
         validateRange(input);
