@@ -17,13 +17,11 @@ public class Application {
 
         // 자동차 전진 거리를 저장할 공간
         int[] carForward = new int[carNames.length];
-        // 자동차 이동 여부를 저장할 공간
-        boolean[] carMoving = new boolean[carNames.length];
 
         // 시도 회수 만큼 진행 하고 결과 출력
         for (int i = 0; i < attempts; i++) {
-            forwardCar(carNames, carForward, carMoving);
-            printCar(carNames, carForward, carMoving);
+            forwardCar(carNames, carForward);
+            printCar(carNames, carForward);
         }
 
         String winner = getWinner(carNames, carForward);
@@ -50,10 +48,6 @@ public class Application {
             if (carNames[i].trim().length() > 5) {
                 throw new IllegalArgumentException();
             }
-            // (,)를 기준 이름이 비어 있으면 안된다.
-            if (carNames[i].trim().isEmpty()) {
-                throw new IllegalArgumentException();
-            }
         }
     }
 
@@ -74,26 +68,21 @@ public class Application {
     }
 
     // 각 자동차 값 4 이상일 때 전진하는 함수
-    private static void forwardCar(String[] carNames, int[] carForward, boolean[] carMoving) {
+    private static void forwardCar(String[] carNames, int[] carForward) {
         for (int i = 0; i < carNames.length; i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
             if (randomNumber >= 4) {
                 carForward[i]++;
-                carMoving[i] = true;
-            } else {
-                carMoving[i] = false;
             }
         }
     }
 
     // 진행 상황 출력 함수
-    private static void printCar(String[] carNames, int[] carForward, boolean[] carMoving) {
+    private static void printCar(String[] carNames, int[] carForward) {
         for (int i = 0; i < carNames.length; i++) {
             System.out.print(carNames[i] + " : ");
-            if (carMoving[i]) {
-                for (int j = 0; j < carForward[i]; j++) {
-                    System.out.print("-");
-                }
+            for (int j = 0; j < carForward[i]; j++) {
+                System.out.print("-");
             }
             System.out.println();
         }
