@@ -12,27 +12,34 @@ import racingcar.view.OutputView;
 
 public class RacingController {
     public void run() {
-        Cars cars = setUpGame();
-        RepeatCount repeatCount = startGame();
-        Judgment judgment = new Judgment(cars, new RandomNumberGenerator());
+        Cars cars = setUpRaceCars();
+        RepeatCount repeatCount = setUpRaceCount();
+        Judgment judgment = setUpJudgment(cars);
 
+        startRace(repeatCount, judgment);
+        doneRace(judgment);
+    }
+
+    private Cars setUpRaceCars() {
+        String names = InputView.inputCarNames();
+        return new Cars(names);
+    }
+
+    private RepeatCount setUpRaceCount() {
+        int repeatCount = InputView.inputRepeatCount();
+        return new RepeatCount(repeatCount);
+    }
+
+    private Judgment setUpJudgment(Cars cars) {
+        return new Judgment(cars, new RandomNumberGenerator());
+    }
+
+    private void startRace(RepeatCount repeatCount, Judgment judgment) {
         OutputView.printRacingResult();
         while (repeatCount.isRunable()) {
             race(judgment);
             repeatCount.disCount();
         }
-
-        raceDone(judgment);
-    }
-
-    private Cars setUpGame() {
-        String names = InputView.inputCarNames();
-        return new Cars(names);
-    }
-
-    private RepeatCount startGame() {
-        int repeatCount = InputView.inputRepeatCount();
-        return new RepeatCount(repeatCount);
     }
 
     private void race(Judgment judgment) {
@@ -40,7 +47,7 @@ public class RacingController {
         OutputView.printRacingStatus(cars);
     }
 
-    private void raceDone(Judgment judgment) {
+    private void doneRace(Judgment judgment) {
         List<Name> winnerNames = judgment.award();
         OutputView.printRacingWinners(winnerNames);
     }
