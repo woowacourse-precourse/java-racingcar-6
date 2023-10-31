@@ -14,5 +14,9 @@ public class RaceCar {
         position =0;
     }
 
+    public void raceForward(){
+        if(Randoms.pickNumberInRange(0,9)>=4) position+=1;
+    }
+
 
 }
