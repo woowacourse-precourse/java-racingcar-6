@@ -1,7 +1,10 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -62,6 +65,23 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, MOVING_FORWARD
         );
     }
+
+    @Test
+    void 난수_생성(){
+        List<Integer> numbers = new ArrayList<Integer>();
+        for(int i = 0; i <= 9; i++)
+            numbers.add(i);
+        while(!numbers.isEmpty()){
+            Integer randomNumber = Randoms.pickNumberInRange(0,9);
+            if(numbers.contains(randomNumber))
+                numbers.remove(randomNumber);
+        }
+
+        assertThat(numbers.size())
+                .isEqualTo(0);
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
