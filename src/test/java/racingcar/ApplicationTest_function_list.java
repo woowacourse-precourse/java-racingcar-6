@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -54,14 +55,15 @@ class ApplicationTest_function_list extends NsTest {
     void 기능목록_테스트_자동차_이름_입력() {
         List<String> testCase = Arrays.asList(
                 "pobi,woni,jun,0,1,2,3,4,5,6,7,8,9",
-                "pobi,0,1,2,3,4,5,6,7,8,9,woni,jun",
-                "0,1,2,3,4,5,6,7,8,9,pobi,woni,jun");
+                "pobi,0,1,2,3,4,5,6,7,9,woni,jun",
+                "0,1,2,3,4,5,6,9,pobi,woni,jun");
 
         for (int i = 0; i < testCase.size(); i++) {
-            final byte[] buf = String.join("\n", testCase).getBytes();
+            final byte[] buf = String.join(System.lineSeparator(), testCase).getBytes();
             System.setIn(new ByteArrayInputStream(buf));
             assertThat(Input.inputCarName())
                     .containsAll(Arrays.asList("pobi", "woni", "jun", "0", "5", "9"));
+            Console.close();
         }
     }
 
@@ -141,25 +143,31 @@ class ApplicationTest_function_list extends NsTest {
                 "9223372036854775807");
 
         List<String> testCaseException = Arrays.asList(
-                "",
                 "0",
                 "-1",
                 "-9223372036854775809",
                 "9223372036854775808");
-        List<String> testCase = new ArrayList<>(testCaseGood);// + testCaseException;
+        List<String> testCase = new ArrayList<>();
+        testCase.addAll(testCaseGood);
         testCase.addAll(testCaseException);
 
-        final byte[] bufTestCaseException = String.join("\n", testCase).getBytes();
-        System.setIn(new ByteArrayInputStream(bufTestCaseException));
+
         for (int i = 0; i < testCaseGood.size(); i++) {
+            final byte[] bufTestCase = testCaseGood.get(i).getBytes();
+            System.out.println(testCaseGood.get(i));
+            System.setIn(new ByteArrayInputStream(bufTestCase));
             String actual = Input.inputRepetitions().toString();
             assertThat(actual).isEqualTo(testCaseGood.get(i));
+            Console.close();
         }
-
         for (int i = 0; i < testCaseException.size(); i++) {
+            final byte[] bufTestCase = testCaseException.get(i).getBytes();
+            System.out.println(testCaseException.get(i));
+            System.setIn(new ByteArrayInputStream(bufTestCase));
             assertThrows(IllegalArgumentException.class, () -> {
                 Input.inputRepetitions();
             });
+            Console.close();
         }
     }
 
