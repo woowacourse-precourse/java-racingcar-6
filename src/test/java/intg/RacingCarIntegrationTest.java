@@ -95,6 +95,7 @@ public class RacingCarIntegrationTest {
                 .hasMessageContaining("[ERROR] 하나의 숫자만 입력해주세요.");
     }
 
+<<<<<<< HEAD
     @Test
     void 게임_횟수_0_입력_인풋_실패_케이스(){
         //given
@@ -116,6 +117,8 @@ public class RacingCarIntegrationTest {
                 .hasMessageContaining("[ERROR] 횟수는 1 이상이어야 합니다.");
     }
 
+=======
+>>>>>>> 8273f20426986ecc7e217bd4089f5ac6c14c254e
 
 
     private InputStream createUserInput(String input) {
