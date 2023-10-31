@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DiceTest {
 
     Dice dice = new Dice();
+
     @Test
     void getDice() {
         int result = dice.getDice();

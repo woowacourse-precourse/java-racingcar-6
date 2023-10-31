@@ -1,4 +1,5 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class User {
@@ -11,6 +12,7 @@ public class User {
         errorHandling.lengthCheck(carName);
         errorHandling.stringCompile(carName);
     }
+
     public String inputCarName() {
         System.out.println(START_MESSAGE);
         String carName = Console.readLine();
@@ -23,7 +25,6 @@ public class User {
         int round = Integer.parseInt(Console.readLine());
         return round;
     }
-
 
 
 }

@@ -12,7 +12,7 @@ public class Exception {
 
     public void lengthCheck(String carName) {
         String[] carNameArray = carName.split(",");
-        for (String name: carNameArray) {
+        for (String name : carNameArray) {
             if (name.length() > CAR_MAX_LENGTH) {
                 throw new IllegalArgumentException(NAME_LENGTH_ERROR);
             }

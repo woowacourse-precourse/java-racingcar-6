@@ -23,7 +23,7 @@ public class ExceptionTest {
         Exception exception = new Exception();
 
         exception.stringCompile("tjwls,MJ");
-        
+
         assertThatThrownBy(() -> exception.stringCompile("Invalid#,MJ!"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("올바른 입력이 아닙니다.");

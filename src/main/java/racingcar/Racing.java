@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Racing {
 
-    private static final int RACE_CONDITION = 3;
     public static final String FINAL_WINNER_IS = "최종 우승자 : ";
+    private static final int RACE_CONDITION = 3;
     private String[] raceCarNameArray;
     private int round;
     private ArrayList<Car> carArray = new ArrayList<>();
