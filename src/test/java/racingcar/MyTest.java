@@ -32,7 +32,7 @@ public class MyTest {
 
     @Test
     void StreamTest() {
-        Racing racing = new Racing(List.of(new Car[]{new Car("tony"), new Car("tommy")}));
+        Racing racing = new Racing(new String[]{"tony", "tommy"});
         assertThat(racing.computeResult()).isEqualTo(List.of(new String[]{"tony", "tommy"}));
     }
 }

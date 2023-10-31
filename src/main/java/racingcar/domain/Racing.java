@@ -1,19 +1,18 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 import java.util.TreeMap;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Racing {
-    public Racing(List<Car> cars) {
-        this.participant = cars;
+    public Racing(String[] userName) {
+        this.participant = Arrays.stream(userName).map(Car::new)
+                .toList();
     }
 
-    List<Car> participant = new ArrayList<>();
+    List<Car> participant;
 
     public void drive(Car car) {
         car.go(createMovePoint());
