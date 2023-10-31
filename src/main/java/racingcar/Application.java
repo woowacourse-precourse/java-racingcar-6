@@ -2,7 +2,6 @@ package racingcar;
 
 import racingcar.controller.RacingCarGameController;
 import racingcar.service.RacingCarGameService;
-import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,9 +11,11 @@ public class Application {
         RacingCarGameService racingCarGameService = new RacingCarGameService();
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
-        RandomNumberGenerator racingNumberGenerator = new RandomNumberGenerator();
-        RacingCarGameController racingCarGameController = new RacingCarGameController(racingCarGameService, inputView,
-                outputView);
-        racingCarGameController.playRacingCarGame(racingNumberGenerator);
+        RacingCarGameController racingCarGameController = new RacingCarGameController(
+                racingCarGameService,
+                inputView,
+                outputView
+        );
+        racingCarGameController.playRacingCarGame();
     }
 }

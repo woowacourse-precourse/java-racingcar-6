@@ -21,11 +21,8 @@ public class RacingCarGameService {
         return racingProgressStatus;
     }
 
-    public void playSingleGame(
-            RandomNumberGenerator racingNumberGenerator,
-            List<String> carNames,
-            LinkedHashMap<String, Integer> racingProgressStatus
-    ) {
+    public void playSingleGame(List<String> carNames, LinkedHashMap<String, Integer> racingProgressStatus) {
+        RandomNumberGenerator racingNumberGenerator = new RandomNumberGenerator();
         for (String carName : carNames) {
             int randomNumber = racingNumberGenerator.getRandomNumber();
             processMoveDecision(randomNumber, racingProgressStatus, carName);

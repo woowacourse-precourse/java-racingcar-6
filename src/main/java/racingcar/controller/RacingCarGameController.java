@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.service.RacingCarGameService;
-import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -24,7 +23,7 @@ public class RacingCarGameController {
         this.outputView = outputView;
     }
 
-    public void playRacingCarGame(RandomNumberGenerator racingNumberGenerator) {
+    public void playRacingCarGame() {
         outputView.printInputRacingCarNamesMessage();
         List<String> carNames = inputView.readCarNames();
         LinkedHashMap<String, Integer> racingProgressStatus = racingCarGameService.racingProgressStatusInitialize(carNames);
@@ -32,7 +31,7 @@ public class RacingCarGameController {
         int attemptCount = inputView.readAttemptCount();
         outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
-            racingCarGameService.playSingleGame(racingNumberGenerator, carNames, racingProgressStatus);
+            racingCarGameService.playSingleGame(carNames, racingProgressStatus);
             outputView.printExecutionResult(racingProgressStatus);
         }
         List<String> winners = racingCarGameService.getWinners(racingProgressStatus);
