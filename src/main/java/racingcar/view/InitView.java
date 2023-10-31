@@ -20,6 +20,10 @@ public class InitView {
             throw new IllegalArgumentException("이름은 공백으로만 이루어질 수 없습니다.");
         }
 
+        if (validator.isDuplicate(names)) {
+            throw new IllegalArgumentException("이름은 중복될 수 없습니다.");
+        }
+
         return names;
     }
 
