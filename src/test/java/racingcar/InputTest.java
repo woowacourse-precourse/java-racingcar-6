@@ -53,9 +53,9 @@ public class InputTest {
     static Stream<Arguments> invalidTimesToTryParameters() {
         return Stream.of(
                 Arguments.of("", ExceptionCase.INPUT_UNGIVEN.message(), "입력 없음"),
-                Arguments.of("asd", ExceptionCase.INPUT_TYPE_MISMATCH.message(), "정수가 아닌 입력"),
-                Arguments.of("-5", ExceptionCase.INPUT_TYPE_MISMATCH.message(), "음수 입력"),
-                Arguments.of("0", ExceptionCase.INPUT_NUMBER_RANGE_MISMATCH.message(), "0 입력")
+                Arguments.of("asd", ExceptionCase.TIMES_TO_TRY_TYPE_MISMATCH.message(), "정수가 아닌 입력"),
+                Arguments.of("-5", ExceptionCase.TIMES_TO_TRY_TYPE_MISMATCH.message(), "음수 입력"),
+                Arguments.of("0", ExceptionCase.TIMES_TO_TRY_TYPE_MISMATCH.message(), "0 입력")
         );
     }
 }
