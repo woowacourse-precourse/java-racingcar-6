@@ -1,26 +1,26 @@
 package racingcar.view;
 
-import java.util.List;
-import racingcar.common.Config;
+import static racingcar.common.Config.*;
+
 
 public class OutputView {
     public static void gameStartMessage() {
-        System.out.println(Config.START_MESSAGE);
+        System.out.println(START_MESSAGE);
     }
 
     public static void inputCountMessage() {
-        System.out.println(Config.INPUT_COUNT_MESSAGE);
+        System.out.println(INPUT_COUNT_MESSAGE);
     }
 
     public static void startRacingMessage() {
-        System.out.println(Config.START_RACING_MESSAGE);
+        System.out.println(START_RACING_MESSAGE);
     }
 
     public static void printWinner(String stringList) {
-        System.out.println(Config.WINNER_MESSAGE + stringList);
+        System.out.println(stringList);
     }
 
-    public static void eachResultMessgae(String result) {
+    public static void eachResultMessage(String result) {
         System.out.println(result);
     }
 }
