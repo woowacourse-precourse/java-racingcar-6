@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car implements Comparable<Car> {
-    private String name;
+    private final String name;
     private int distance;
 
     public String getName() {

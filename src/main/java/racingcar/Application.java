@@ -5,6 +5,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Application {
     public static void main(String[] args) {
@@ -27,7 +28,6 @@ public class Application {
         String carNamesInput = readLine();
 
         String[] carNames = carNamesInput.split(",");
-        int carCount = carNames.length;
 
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
@@ -61,10 +61,10 @@ public class Application {
     }
 
     private static void showResultBoard(List<Car> cars) {
-        int maxDistance = cars.stream()
-                .max(Car::compareTo)
-                .get()
-                .getDistance();
+        int maxDistance = Objects.requireNonNull(cars.stream()
+                        .max(Car::compareTo)
+                        .orElse(null))
+                        .getDistance();
 
         List<String> winnerNames = cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
