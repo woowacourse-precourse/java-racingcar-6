@@ -6,8 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.controller.RacingCarGame;
 import racingcar.model.Car;
+import racingcar.model.Referee;
 import racingcar.model.Validator;
 import racingcar.view.OutputView;
 
@@ -22,11 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ApplicationTest extends NsTest {
     private Validator validator;
     private Car car;
+    private Referee referee;
 
     @BeforeEach
     void setUp() {
         validator = new Validator();
         car = new Car();
+        referee = new Referee(new int[]{5, 4, 5});
     }
 
     @Test
@@ -62,16 +64,18 @@ class ApplicationTest extends NsTest {
 
     @Test
     @DisplayName("random값이 0과 9사이의 숫자여야 한다.")
-    void isRandomNumberInRange(){
+    void isRandomNumberInRange() {
         int randomNumber = car.generateRandomNumber();
-        assertEquals(randomNumber, 0,9);
+        assertEquals(randomNumber, 0, 9);
     }
 
     @Test
-    @DisplayName("자동차가 random값을 받아 그 값이 4이상이면 잘 전진하는지 확인하기")
-    void printExecutionResult(){
-        OutputView.printExecutionResult("pobi");
+    @DisplayName("최댓값을 가진 배열의 인덱스값을 반환한다")
+    void getIndexOfMaxDistanceOfCars() {
+        int[] maxIndexArray = referee.getIndexOfMaxDistanceOfCars();
+        assertThat(maxIndexArray).isEqualTo(new int[]{0,2});
     }
+
 
     @Override
     public void runMain() {

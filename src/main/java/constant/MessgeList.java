@@ -7,4 +7,6 @@ public class MessgeList {
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
     public static final int MOVING_FORWARD = 4;
     public static final int STOP = 3;
+    public static final String FORWARD = "-";
+    public static final String MOVING_STOP = "";
 }

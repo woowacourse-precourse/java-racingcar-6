@@ -34,39 +34,6 @@ public class RacingCarGame {
         return carNameList;
     }
 
-    public void moveCarForward() {
-        for (int i = 0; i < splitCarNamesByComma().size(); i++) {
-            OutputView.printExecutionResult(splitCarNamesByComma().get(i));
-            count[i]++;
-        }
-    }
 
-    public void accumulateCarMoving() {
-        String attempt = InputView.getNumberFromPlayer();
-        int attemptNumber = Integer.parseInt(attempt);
-        if (validator.isNumberFromPlayerValidate(attempt)) {
-            for (int i = 0; i < attemptNumber; i++) {
-                moveCarForward();
-            }
-        }
-    }
 
-    public void compareCarsAndGetWinner() {
-        int max = Arrays.stream(count).max().getAsInt();
-        IntStream maxIndex = IntStream.range(0, count.length).filter(i -> count[i] == max);
-        List<String> carNameList = splitCarNamesByComma();
-
-        if (maxIndex.count() == 1) {
-            int maxIndexNumber = Integer.parseInt(maxIndex.toString());
-            String winner = carNameList.get(maxIndexNumber);
-            OutputView.printSoleWinner(winner);
-        } else {
-            int[] maxIndexNumberArray = maxIndex.toArray();
-            String[] winners = new String[maxIndexNumberArray.length];
-            for (int i = 0; i < maxIndexNumberArray.length; i++) {
-                winners[i] = carNameList.get(i);
-            }
-            OutputView.printJointWinner(winners);
-        }
-    }
 }
