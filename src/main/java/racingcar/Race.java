@@ -18,6 +18,7 @@ public class Race {
         for (String name : names) {
             if (!nameSet.add(name)) {
                 throw new IllegalArgumentException("Duplicate name");
+
             }
         }
     }
