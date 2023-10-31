@@ -19,3 +19,22 @@ pull request 미 설정
         5. 최종 우승자의 이름을 출력한다.
             - 공동 우승이 가능하다.
 
+
+- Controller
+  - GameManager.java
+    1. initGame
+    2. playGame
+    3. listUp
+    4. playRound
+    5. playUntilRound
+    6. finishGame
+- model
+  - Car.java
+    1. Car
+    2. setDistance
+    3. getDistance
+    4. setName
+    5. getName
+    6. 
+  - NumberGenerator.java
+  
