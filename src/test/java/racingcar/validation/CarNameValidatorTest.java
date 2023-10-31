@@ -33,4 +33,13 @@ public class CarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
     }
+
+    @Test
+    public void 자동차_이름이_중복되는_경우_검증() {
+        String input = "car1,car1,car3";
+        List<String> carNames = Arrays.asList(input.split(","));
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 중복될 수 없습니다.");
+    }
 }
