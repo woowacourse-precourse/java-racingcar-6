@@ -3,13 +3,14 @@ package racingcar;
 public class Car {
 
     private String name;
-    private StringBuilder position = new StringBuilder();
+    private final StringBuilder position = new StringBuilder();
 
-    public Car (String name){
+    public Car(String name) {
 
         this.name = name;
 
     }
+
     public String moveForward() {
 
         this.position.append("-");
@@ -21,5 +22,19 @@ public class Car {
 
         return this.position.toString();
 
+    }
+
+    public void choiceActive() {
+        OneDigitRandomNumber randomNumber = new OneDigitRandomNumber();
+
+        if (randomNumber.judgmentFourOrMore()) {
+
+            System.out.println(this.name + " : " + this.moveForward());
+
+        } else {
+
+            System.out.println(this.name + " : " + this.stop());
+
+        }
     }
 }
