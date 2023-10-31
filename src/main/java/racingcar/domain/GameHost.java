@@ -34,7 +34,7 @@ public class GameHost {
      */
     public Integer getMaxCntMoveOfRaceCar(List<RaceCar> raceCarList) {
         int max = raceCarList.stream()
-                .mapToInt(RaceCar::getCntMovementOfCar)
+                .mapToInt(RaceCar::getCntMovement)
                 .max()
                 .orElse(0);
         return max;

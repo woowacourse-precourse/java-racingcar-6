@@ -170,9 +170,9 @@ class ApplicationTest extends NsTest {
         thirdRaceCar.movementControlCar(2);
         thirdRaceCar.movementControlCar(3);
 
-        Integer result_one = raceCarList.get(0).getCntMovementOfCar();
-        Integer result_two = raceCarList.get(1).getCntMovementOfCar();
-        Integer result_three = raceCarList.get(2).getCntMovementOfCar();
+        Integer result_one = raceCarList.get(0).getCntMovement();
+        Integer result_two = raceCarList.get(1).getCntMovement();
+        Integer result_three = raceCarList.get(2).getCntMovement();
 
         // then
         assertThat(result_one).isEqualTo(3);
@@ -196,9 +196,9 @@ class ApplicationTest extends NsTest {
 
         thirdRaceCar.moveForward();
 
-        Integer result_one = raceCarList.get(0).getCntMovementOfCar();
-        Integer result_two = raceCarList.get(1).getCntMovementOfCar();
-        Integer result_three = raceCarList.get(2).getCntMovementOfCar();
+        Integer result_one = raceCarList.get(0).getCntMovement();
+        Integer result_two = raceCarList.get(1).getCntMovement();
+        Integer result_three = raceCarList.get(2).getCntMovement();
 
         // then
         assertThat(result_one).isEqualTo(3);

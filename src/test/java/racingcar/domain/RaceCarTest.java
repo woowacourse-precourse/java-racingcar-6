@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RaceCarTest {
     private final int MOVE = 4;
@@ -27,7 +26,7 @@ class RaceCarTest {
         // when
         raceCar.movementControlCar(MOVE);
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then
@@ -42,7 +41,7 @@ class RaceCarTest {
         raceCar.movementControlCar(MOVE);
         raceCar.movementControlCar(MOVE);
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then
@@ -58,7 +57,7 @@ class RaceCarTest {
         raceCar.movementControlCar(MOVE);
         raceCar.movementControlCar(MOVE);
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then
@@ -74,7 +73,7 @@ class RaceCarTest {
         raceCar.movementControlCar(MOVE);
         raceCar.movementControlCar(STOP);
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then
@@ -108,7 +107,7 @@ class RaceCarTest {
         // when
         raceCar.moveForward();
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then
@@ -123,7 +122,7 @@ class RaceCarTest {
         raceCar.moveForward();
         raceCar.moveForward();
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then
@@ -139,7 +138,7 @@ class RaceCarTest {
         raceCar.moveForward();
         raceCar.moveForward();
 
-        int resultNum = raceCar.getCntMovementOfCar();
+        int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
 
         // then

@@ -62,7 +62,7 @@ public class RaceCar {
         return moveStateStr.toString();
     }
 
-    public Integer getCntMovementOfCar() {
+    public Integer getCntMovement() {
         return cntMovementOfCar;
     }
 }
