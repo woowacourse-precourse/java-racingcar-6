@@ -19,8 +19,8 @@ public class RacingCar {
 		return cars;
 	}
 
-	public int findLocationWithMostMovement(List<Car> cars) {
-		List<Car> sortedCars = new ArrayList<>(cars);
+	public int findLocationWithMostMovement() {
+		List<Car> sortedCars = new ArrayList<>(this.cars);
 		sortCarsByLocation(sortedCars);
 		Car carWithMostMovement = sortedCars.get(0);
 		return carWithMostMovement.getLocation();
@@ -30,9 +30,9 @@ public class RacingCar {
 		Collections.sort(sortedCars, Collections.reverseOrder(Comparator.comparingInt(Car::getLocation)));
 	}
 
-	public List<Car> findCarWithMaxLocation(List<Car> cars, int maxLocation) {
+	public List<Car> findCarWithMaxLocation(int maxLocation) {
 		List<Car> winners = new ArrayList<>();
-		for (Car car : cars) {
+		for (Car car : this.cars) {
 			if (car.getLocation() == maxLocation) {
 				winners.add(car);
 			}

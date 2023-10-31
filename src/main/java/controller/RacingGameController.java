@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import domain.Car;
 import domain.CarNamesInput;
 import domain.RacingCar;
@@ -18,7 +20,17 @@ public class RacingGameController {
 		TryCountInput tryCountInput = setTryCount();
 
 		RacingCar raceOutcome = getRaceOutcome(carNamesInput, tryCountInput);
+		awardWinners(raceOutcome);
+	}
 
+	private void awardWinners(RacingCar raceOutcome) {
+		List<Car> winners = getWinners(raceOutcome);
+
+	}
+
+	private List<Car> getWinners(RacingCar raceOutcome) {
+		int locationWithMostMovement = raceOutcome.findLocationWithMostMovement();
+		return raceOutcome.findCarWithMaxLocation(locationWithMostMovement);
 	}
 
 	public RacingCar getRaceOutcome(CarNamesInput carNamesInput, TryCountInput tryCountInput) {

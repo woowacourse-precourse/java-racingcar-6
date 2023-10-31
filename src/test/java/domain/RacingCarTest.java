@@ -20,7 +20,7 @@ public class RacingCarTest {
 		cars.get(2).moveByNumber(3);
 
 		// when
-		int maxLocation = racingCar.findLocationWithMostMovement(cars);
+		int maxLocation = racingCar.findLocationWithMostMovement();
 
 		//then
 		Assertions.assertThat(maxLocation).isEqualTo(2);
@@ -41,7 +41,7 @@ public class RacingCarTest {
 		int maxLocation = 1;
 
 		// when
-		List<Car> winners = racingCar.findCarWithMaxLocation(cars, maxLocation);
+		List<Car> winners = racingCar.findCarWithMaxLocation(maxLocation);
 
 		//then
 		Assertions.assertThat(winners.get(0).getName()).isEqualTo("pobi");
