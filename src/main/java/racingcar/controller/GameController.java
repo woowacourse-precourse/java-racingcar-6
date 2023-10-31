@@ -38,7 +38,7 @@ public class GameController {
         try {
             int attempts = Integer.parseInt(InputView.getUserInput());
             return new Attempts(attempts);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
     }
