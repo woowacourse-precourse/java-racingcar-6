@@ -12,7 +12,7 @@ public class RacingCarGame {
         inputView.printCarNameInputMsg();
         user.inputCarName();
         List<String> carNames = user.getCarNames();
-        List<Car> Cars = carNames.stream()
+        List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
 
@@ -21,7 +21,7 @@ public class RacingCarGame {
 
         int tryCount = user.getTryCount();
         while (tryCount > 0) {
-            for (Car car : Cars) {
+            for (Car car : cars) {
                 if (car.canMove()) {
                     car.move();
                 }
@@ -29,7 +29,7 @@ public class RacingCarGame {
             tryCount--;
         }
 
-        Judge judge = new Judge(Cars);
+        Judge judge = new Judge(cars);
         List<Car> winners = judge.decideWinner();
     }
 }
