@@ -50,6 +50,8 @@
     - [x] step 기능 구현
         - [x] step 시 Location이 1 증가
     - [x] 위치를 문자열로 변환하는 기능 구현 (추가)
+    - [x] Location들 사이에서 최대 위치 값 구하기 (추가)
+    - [x] Location을 최대 값으로 필터링 할 수 있도록 구현 (추가)
 
 ### TryCount 구현
 - [x] TryCount 구현
