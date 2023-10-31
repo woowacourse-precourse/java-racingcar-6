@@ -7,13 +7,14 @@ public class OutputView {
     private static final String OUTPUT_FINAL_WINNERS = "최종 우승자 : ";
     private static final String OUTPUT_ONE_DISTANCE = "-";
     private static final String WINNERS_DELIMITER = ", ";
+    private static final String OUTPUT_EQUAL = " : ";
 
     public void printResult() {
         System.out.println(OUTPUT_RESULT);
     }
 
     public void printNameAndDistance(String name, int distance) {
-        System.out.println(name + " : " + printDistance(distance));
+        System.out.println(name + OUTPUT_EQUAL + printDistance(distance));
     }
 
     public String printDistance(int distance) {
@@ -30,5 +31,9 @@ public class OutputView {
 
     public String join(List<String> input) {
         return String.join(WINNERS_DELIMITER, input);
+    }
+
+    public void printNewLine(){
+        System.out.println();
     }
 }
