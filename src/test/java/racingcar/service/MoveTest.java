@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class MoveTest {
 
     private Car TC;
@@ -65,7 +63,7 @@ public class MoveTest {
         }
 
         //when
-        TM.moveTheCar(TC.getCarList(),randomNumberList);
+        TM.moveTheCar(TC.getCarList(), randomNumberList);
 
         //then
         Assertions.assertThat(TC.getCarList().get("povi1")).isEqualTo("");
