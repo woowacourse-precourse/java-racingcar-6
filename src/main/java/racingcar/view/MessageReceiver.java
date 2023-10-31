@@ -2,10 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static racingcar.constant.ExceptionConstant.*;
 import static racingcar.constant.NumberConstant.*;
@@ -14,7 +11,7 @@ import static racingcar.constant.TextConstant.COMMA;
 public class MessageReceiver {
 
     public List<String> receiveCarNames() {
-        String inputText = Console.readLine();
+        String inputText = validateReadLine();
         List<String> carNames = Arrays.asList(inputText.split(COMMA));
         validateCarNames(carNames);
 
@@ -22,23 +19,37 @@ public class MessageReceiver {
     }
 
     public int receiveAttemptCount() {
-        String inputText = Console.readLine();
+        String inputText = validateReadLine();
         int attemptCount = parseInteger(inputText);
         validateAttemptCount(attemptCount);
 
         return attemptCount;
     }
 
+    // validate ReadLine
+    private String validateReadLine() {
+        try {
+            return Console.readLine();
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException(READ_LINE_EXCEPTION);
+        }
+    }
+
+    // validate CarName
     private void validateCarNames(final List<String> carNames) {
-        validateLength(carNames);
+        validateCarNamesLength(carNames);
         validateDuplication(carNames);
     }
 
-    private void validateLength(final List<String> carNames) {
+    private void validateCarNamesLength(final List<String> carNames) {
         for (String carName : carNames) {
-            if (carName.length() > MAX_CAR_NAME_SIZE) {
-                throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION);
-            }
+            validateCarNameLength(carName);
+        }
+    }
+
+    private void validateCarNameLength(final String carName) {
+        if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_SIZE) {
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION);
         }
     }
 
@@ -53,6 +64,7 @@ public class MessageReceiver {
         return carNames.size() != distinctCarNames.size();
     }
 
+    // validate AttemptCount
     private int parseInteger(final String inputText) {
         try {
             return Integer.parseInt(inputText);
