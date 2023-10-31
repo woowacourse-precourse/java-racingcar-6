@@ -1,8 +1,6 @@
 package racingcar.domain;
 
 
-import racingcar.Utils;
-
 public class Car {
     public static final String CAR_POSITION_SIGN = "-";
     public static final int START_POSITION = 0;
@@ -20,8 +18,8 @@ public class Car {
         return this.position.getAmount() == position;
     }
 
-    public void moveRandomly() {
-        if (Utils.isTrueWithProbability60Percent()) {
+    public void moveForwardIfTrue(boolean isForward) {
+        if (isForward) {
             position.increment(speed);
         }
     }

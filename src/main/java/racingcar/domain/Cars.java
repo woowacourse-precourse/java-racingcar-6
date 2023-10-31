@@ -17,7 +17,9 @@ public record Cars(List<Car> carList) {
     }
 
     public void commandAllCarsToMove() {
-        carList.forEach(Car::moveRandomly);
+        carList.forEach(car ->
+                car.moveForwardIfTrue(Utils.isTrueWithProbability60Percent())
+        );
     }
 
     public List<Car> getWinnerList() {
