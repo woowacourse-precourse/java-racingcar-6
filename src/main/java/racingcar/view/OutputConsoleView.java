@@ -1,9 +1,12 @@
 package racingcar.view;
 
+import static racingcar.view.Print.ASKING_CAR_NAME;
+import static racingcar.view.Print.ASKING_NUMBER_OF_TRIAL;
+import static racingcar.view.Print.RACE_RESULT;
+import static racingcar.view.Print.FINAL_WINNERS;
 
 import racingcar.dto.RaceStatus;
 import java.util.List;
-import static racingcar.view.Print.*;
 
 public class OutputConsoleView {
 

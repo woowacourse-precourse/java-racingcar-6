@@ -1,17 +1,21 @@
 package racingcar;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import racingcar.dto.RaceStatus;
-import racingcar.view.OutputConsoleView;
+import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.view.Print.ASKING_CAR_NAME;
+import static racingcar.view.Print.ASKING_NUMBER_OF_TRIAL;
+import static racingcar.view.Print.FINAL_WINNERS;
+import static racingcar.view.Print.RACE_RESULT;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import racingcar.dto.RaceStatus;
+import racingcar.view.OutputConsoleView;
 
-import static org.assertj.core.api.Assertions.*;
-import static racingcar.view.Print.*;
+
 
 public class OutputConsoleViewTest {
 
