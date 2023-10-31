@@ -6,6 +6,7 @@ import static racingcar.controller.constants.IntegerConstants.*;
 import static racingcar.controller.constants.DelimiterConstants.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cars {
     ArrayList<Car> cars = new ArrayList<>();
@@ -50,15 +51,13 @@ public class Cars {
     }
 
     public String winnersToString(){
-        ArrayList<String> carNames = carNamesToString(getWinners());
+        List<String> carNames = carNamesToString(getWinners());
         return String.join(DELIMITER_WITH_BLANK.getValue(), carNames);
     }
 
-    public ArrayList<String> carNamesToString(ArrayList<Car> cars){
-        ArrayList<String> carNames = new ArrayList<>();
-        for (Car car : cars) {
-            carNames.add(car.getCarName());
-        }
-        return carNames;
+    public List<String> carNamesToString(ArrayList<Car> cars){
+        return cars.stream()
+                .map(Car::getCarName)
+                .toList();
     }
 }
