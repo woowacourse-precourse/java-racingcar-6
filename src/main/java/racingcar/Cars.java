@@ -7,6 +7,7 @@ import java.util.List;
 public class Cars {
     private static final String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String DELIMITER = ",";
+    private static final String LENGTH_EXCEPTION = "자동차 이름은 5자 이하만 가능하다.";
     private static final int NAME_LENGTH = 5;
     private final List<Car> cars = new ArrayList<>();
 
@@ -17,7 +18,7 @@ public class Cars {
                 Car car = new Car(carName);
                 cars.add(car);
             } else {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능하다.");
+                System.out.println(LENGTH_EXCEPTION);
             }
         }
     }
@@ -30,4 +31,5 @@ public class Cars {
     private static boolean isValidCarNameLength(String carName) {
         return carName.length() <= NAME_LENGTH;
     }
+
 }
