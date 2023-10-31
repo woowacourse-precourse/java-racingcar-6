@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.model.constants.Phrase.GAME_RESULT;
-import static racingcar.model.constants.Phrase.GAME_WINNER;
+import static racingcar.constants.Phrase.GAME_RESULT;
+import static racingcar.constants.Phrase.GAME_WINNER;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;

@@ -1,4 +1,4 @@
-package racingcar.model.constants;
+package racingcar.constants;
 
 public enum Rule {
     CAR_MIN_LENGTH(1),

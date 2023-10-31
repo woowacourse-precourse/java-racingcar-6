@@ -1,6 +1,6 @@
 package racingcar.model.service;
 
-import static racingcar.model.constants.Rule.MOVE_FORWARD;
+import static racingcar.constants.Rule.MOVE_FORWARD;
 
 import java.util.List;
 import java.util.stream.Collectors;

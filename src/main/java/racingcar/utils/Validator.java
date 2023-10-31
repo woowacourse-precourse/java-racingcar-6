@@ -1,14 +1,14 @@
 package racingcar.utils;
 
-import static racingcar.model.constants.Error.DUPLICATE;
-import static racingcar.model.constants.Error.LENGTH_INVALID;
-import static racingcar.model.constants.Error.NON_DELIMITER;
-import static racingcar.model.constants.Error.NUMBER_NOT_INTEGER;
-import static racingcar.model.constants.Error.NUMBER_RANGE_INVALID;
-import static racingcar.model.constants.Phrase.DELIMITER;
-import static racingcar.model.constants.Rule.CAR_MAX_LENGTH;
-import static racingcar.model.constants.Rule.CAR_MIN_LENGTH;
-import static racingcar.model.constants.Rule.TRIAL_MIN_LENGTH;
+import static racingcar.constants.Error.DUPLICATE;
+import static racingcar.constants.Error.LENGTH_INVALID;
+import static racingcar.constants.Error.NON_DELIMITER;
+import static racingcar.constants.Error.NUMBER_NOT_INTEGER;
+import static racingcar.constants.Error.NUMBER_RANGE_INVALID;
+import static racingcar.constants.Phrase.DELIMITER;
+import static racingcar.constants.Rule.CAR_MAX_LENGTH;
+import static racingcar.constants.Rule.CAR_MIN_LENGTH;
+import static racingcar.constants.Rule.TRIAL_MIN_LENGTH;
 
 import java.util.List;
 

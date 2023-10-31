@@ -2,11 +2,11 @@ package racingcar.utils;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static racingcar.model.constants.Error.DUPLICATE;
-import static racingcar.model.constants.Error.LENGTH_INVALID;
-import static racingcar.model.constants.Error.NON_DELIMITER;
-import static racingcar.model.constants.Error.NUMBER_NOT_INTEGER;
-import static racingcar.model.constants.Error.NUMBER_RANGE_INVALID;
+import static racingcar.constants.Error.DUPLICATE;
+import static racingcar.constants.Error.LENGTH_INVALID;
+import static racingcar.constants.Error.NON_DELIMITER;
+import static racingcar.constants.Error.NUMBER_NOT_INTEGER;
+import static racingcar.constants.Error.NUMBER_RANGE_INVALID;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

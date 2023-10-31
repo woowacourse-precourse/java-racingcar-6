@@ -1,4 +1,4 @@
-package racingcar.model.constants;
+package racingcar.constants;
 
 public enum Error {
     NON_DELIMITER("잘못된 값을 입력했습니다. (쉼표가 없습니다.)"),

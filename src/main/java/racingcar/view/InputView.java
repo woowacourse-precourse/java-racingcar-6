@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.constants.Phrase;
+import racingcar.constants.Phrase;
 import racingcar.model.dto.CarRequestDto;
 import racingcar.model.dto.GameRequestDto;
 

@@ -1,7 +1,7 @@
 package racingcar.model.dto;
 
-import static racingcar.model.constants.Phrase.MOVEMENT;
-import static racingcar.model.constants.Phrase.SEPARATOR;
+import static racingcar.constants.Phrase.MOVEMENT;
+import static racingcar.constants.Phrase.SEPARATOR;
 
 import racingcar.model.domain.Car;
 

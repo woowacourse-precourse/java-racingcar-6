@@ -1,8 +1,8 @@
 package racingcar.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.model.constants.Rule.RANDOM_MAX_SIZE;
-import static racingcar.model.constants.Rule.RANDOM_MIN_SIZE;
+import static racingcar.constants.Rule.RANDOM_MAX_SIZE;
+import static racingcar.constants.Rule.RANDOM_MIN_SIZE;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
