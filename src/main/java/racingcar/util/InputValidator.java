@@ -2,10 +2,8 @@ package racingcar.util;
 
 import java.util.regex.Pattern;
 
-public class InputValidatior {
-
+public class InputValidator {
     private static final String REGEXP_PATTERN_NUMBER = "^[\\d]*$";
-    private static final int CAR_MIN_NUMBER = 0;
 
     public boolean hasEmptyCarName(String[] names) {
         for (String name : names) {
