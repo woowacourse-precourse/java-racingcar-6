@@ -30,9 +30,12 @@ public class Verification {
 
     //입력한 시도회수가 자연수인지 확인
     public void verifyNumberOfTry(String number){
-        if (Integer.valueOf(number) <= 0) {
+        try {
+            int parseInt = Integer.parseInt(number);
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
-        } else if (!number.matches(number)) {
+        }
+        if (Integer.valueOf(number) <= 0) {
             throw new IllegalArgumentException();
         }
     }
