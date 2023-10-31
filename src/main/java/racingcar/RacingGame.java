@@ -37,11 +37,13 @@ public class RacingGame {
     }
 
     private void moveCars() {
-        for (Car car : cars) {
-            int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-            if (randomNum >= MOVE_FORWARD_NUM) {
-                car.moveForward();
-            }
+        cars.forEach(this::decideCarMotion);
+    }
+
+    private void decideCarMotion(Car car) {
+        int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
+        if (randomNum >= MOVE_FORWARD_NUM) {
+            car.moveForward();
         }
     }
 
