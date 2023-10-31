@@ -16,11 +16,11 @@ public class CarNameValidator {
     private static void validateNotEmpty(List<String> carNames) {
         for (String carName : carNames) {
             if (carName.trim().isEmpty()) {
-                throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+                throw new IllegalArgumentException("자동차 이름이 공백이면 안됩니다.");
             }
         }
         if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+            throw new IllegalArgumentException("자동차 이름이 공백이면 안됩니다.");
         }
     }
 
