@@ -9,7 +9,7 @@ public final class CarDto {
     private final String carName;
     private final Integer position;
 
-    public CarDto(final String carName, final Integer position) {
+    private CarDto(final String carName, final Integer position) {
         this.carName = carName;
         this.position = position;
     }
