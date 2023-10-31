@@ -5,32 +5,18 @@ import racingcar.dto.OneGameResultsDto;
 import racingcar.dto.ResultDto;
 
 public class OutputView {
+    private static final String HYPHEN = "-";
+    private static final String RESULT_FORM = "%s : %s%n";
 
     public void printPlayResultText() {
         System.out.println("\n실행 결과");
     }
 
     public void printResult(OneGameResultsDto resultDto) {
-        String result = convertToResultForm(resultDto);
-        System.out.println(result);
-    }
-
-    private String convertToResultForm(OneGameResultsDto resultDto) {
-        StringBuilder resultForm = new StringBuilder();
         for (ResultDto result : resultDto.getResults()) {
-            String name = result.getName();
-            int moveCount = result.getPosition();
-            resultForm.append(name).append(" : ").append(convertMoveCountsToHyphens(moveCount)).append("\n");
+            System.out.printf(RESULT_FORM, result.getName(), HYPHEN.repeat(result.getPosition()));
         }
-        return resultForm.toString();
-    }
-
-    private String convertMoveCountsToHyphens(int moveCount) {
-        StringBuilder hyphens = new StringBuilder();
-        while (moveCount-- > 0) {
-            hyphens.append("-");
-        }
-        return hyphens.toString();
+        System.out.println();
     }
 
     public void printFinalWinners(List<String> winners) {
