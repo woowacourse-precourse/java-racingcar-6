@@ -32,9 +32,33 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름의_길이가_5를_넘을_경우() {
+    void 자동차_이름의_길이가_5를_넘을_경우_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi123,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_수가_정수가_아닌_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_수가_0인_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_수가_음수인_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "-2"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
