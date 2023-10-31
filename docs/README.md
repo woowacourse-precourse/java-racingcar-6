@@ -12,7 +12,7 @@
 - [x] 각 차수마다 자동차의 이름과 전진 결과를 문자열로 출력한다. - OutputView: printResult
 ### 우승자
 - [ ] 최종 우승자를 구한다. - RacingController: findWinner
-- [ ] 모든 시도가 끝나면 최종 우승자를 출력한다. - OutputView: printWinner
+- [x] 모든 시도가 끝나면 최종 우승자를 출력한다. - OutputView: printWinner
 
 
 

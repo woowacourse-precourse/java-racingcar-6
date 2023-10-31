@@ -16,8 +16,8 @@ import racingcar.domain.Car;
 
 class OutputViewTest {
 
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
-
     OutputView outputView = new OutputView();
 
     private static Stream<Arguments> provideStringsForPrintResult() {
@@ -87,8 +87,30 @@ class OutputViewTest {
 
     }
 
+    @DisplayName("우승자가 한명인 경우 테스트")
     @Test
     void printWinner() {
+        String lineSeparator = System.lineSeparator();
+        List<String> winners = List.of("pobi");
+
+        outputView.printWinner(winners);
+
+        Assertions.assertThat(output.toString()).isEqualTo(WINNER_MESSAGE + "pobi" + lineSeparator);
+
+
+    }
+
+    @DisplayName("우승자가 여러명인 경우 테스트")
+    @Test
+    void printJointWinner() {
+        String lineSeparator = System.lineSeparator();
+        List<String> winners = List.of("pobi", "woni", "jun");
+
+        outputView.printWinner(winners);
+
+        Assertions.assertThat(output.toString()).isEqualTo(WINNER_MESSAGE + "pobi, woni, jun" + lineSeparator);
+
+
     }
 
 }
