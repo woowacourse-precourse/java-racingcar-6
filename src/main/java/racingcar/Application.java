@@ -21,7 +21,7 @@ public class Application {
     }
     private static Integer isMoreThanFour (Integer randomNum) {
         if (randomNum >= 4) {
-            return randomNum;
+            return 1;
         } else {
             return 0;
         }
