@@ -1,6 +1,7 @@
 package racingcar.validate;
 
 import java.util.Arrays;
+import racingcar.domain.constant.ConstNumber;
 import racingcar.domain.constant.Delimiter;
 import racingcar.enums.ExceptionMessage;
 
@@ -18,7 +19,7 @@ public class InputValidate {
     }
 
     private void validateLength(String[] carNames) {
-        if (Arrays.stream(carNames).anyMatch(carName -> carName.length() > 5)) {
+        if (Arrays.stream(carNames).anyMatch(carName -> carName.length() > ConstNumber.CAR_NAME_MAX_LENGTH.getValue())) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_LENGTH_EXCEPTION_MESSAGE.getValue());
         }
     }

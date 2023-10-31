@@ -57,8 +57,7 @@
 
   - constant 패키지
     - Delimiter : 입력값을 파싱하는 delimiter 에 대한 enum 클래스
-    - CarConstance : Car 에 대한 enum 클래스
-    - RaceConstant : Race 에 대한 enum 클래스
+    - ConstNumber : 게임에서의 상수에 대한 enum 클래스
 
 - ### validate
   - InputValidate : 경주할 자동차 이름과 시도할 횟수를 입력할 때 입력값을 검증하는 클래스
