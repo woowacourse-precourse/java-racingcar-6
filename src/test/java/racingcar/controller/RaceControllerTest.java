@@ -2,6 +2,9 @@ package racingcar.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.RacingCar;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,8 +21,8 @@ class RaceControllerTest {
     @Test
     void 자동차_이름_입력() {
         String input = "young,son,kane";
-        String[] racingCarList = race.ready(input);
-        assertThat(racingCarList[1]).isEqualTo("son");
+        List<RacingCar> racingCarList = race.ready(input);
+        assertThat(racingCarList.get(1).getName()).isEqualTo("son");
     }
 
     @Test

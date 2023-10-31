@@ -24,4 +24,8 @@ public class RacingCar {
             System.out.print("-");
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }
