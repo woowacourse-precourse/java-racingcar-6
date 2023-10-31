@@ -15,4 +15,8 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public void move() {
+        // TODO: 자동차 이동 기능 구현
+    }
 }
