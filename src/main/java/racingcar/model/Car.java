@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int count;
 
     public Car(String name) {
@@ -22,5 +22,9 @@ public class Car {
         return count;
     }
 
+    @Override
+    public String toString() {
+        return this.name;
+    }
 
 }
