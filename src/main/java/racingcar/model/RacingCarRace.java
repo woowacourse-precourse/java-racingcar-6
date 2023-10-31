@@ -14,8 +14,8 @@ public class RacingCarRace {
     }
 
     public void move() {
-        for(RacingCar car: racingCars) {
-            car.randomStepForward();
+        for(RacingCar racingCar: racingCars) {
+            racingCar.randomStepForward();
         }
     }
 
@@ -25,7 +25,7 @@ public class RacingCarRace {
 
         int max = Collections.max(distanceTravels);
         winnerCarNames = racingCars.stream()
-                .filter((car) -> car.getDistanceTraveled() == max)
+                .filter((racingCar) -> racingCar.getDistanceTraveled() == max)
                 .map(RacingCar::getCarName).toList();
 
         return winnerCarNames;
