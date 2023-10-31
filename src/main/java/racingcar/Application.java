@@ -3,7 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Application {
@@ -14,17 +17,18 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = Console.readLine();
         String[] name = names.split(",");
-
-        try {
-            Arrays.stream(name)
-                    .filter(n -> n.length() <= 5)
-                    .forEach(n -> score.put(n, 0));
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
+        for (String n : name) {
+            if (n.length() > 5) throw new IllegalArgumentException();
+            score.put(n, 0);
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        Integer num = Integer.valueOf(Console.readLine());
+        int num;
+        try {
+            num = Integer.parseInt(Console.readLine());
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException();
+        }
 
         System.out.println("실행 결과");
         for (int i = 0; i < num; i++) {
