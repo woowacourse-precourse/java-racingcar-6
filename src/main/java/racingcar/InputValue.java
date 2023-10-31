@@ -6,18 +6,19 @@ import static racingcar.InputValidation.*;
 import static racingcar.PrintUtil.*;
 
 public class InputValue {
+    private static final String nameSeperator = ",";
     public static int movingCount;
     public static String[] carNameList;
 
-    public static void InputSettingValue() {
+    public static void inputSettingValue() {
         printNameOfCarInputMsg();
-        carNameList = InputNameOfCars();
+        carNameList = inputNameOfCars();
 
         printMoveCountInputMsg();
-        movingCount = InputMovingCount();
+        movingCount = inputMovingCount();
     }
 
-    public static String[] InputNameOfCars() {
+    public static String[] inputNameOfCars() {
         String userInputCarName = Console.readLine();
         validateInputCorrectSeparator(userInputCarName);
 
@@ -25,14 +26,14 @@ public class InputValue {
     }
 
     public static String[] createCarList(String userInputCarName) {
-        String[] namesOfCars = userInputCarName.split(MessageConst.STANDARD_SAPARATOR);
-        validateNameOfCarsRange(namesOfCars);
+        String[] namesOfCars = userInputCarName.split(nameSeperator);
+        validateNameOfCarsLength(namesOfCars);
         validateDuplicateName(namesOfCars);
 
         return namesOfCars;
     }
 
-    public static int InputMovingCount() {
+    public static int inputMovingCount() {
         int carMovingCount = Integer.parseInt(Console.readLine());
         validateMoveCountRange(carMovingCount);
         return carMovingCount;

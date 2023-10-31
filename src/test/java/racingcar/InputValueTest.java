@@ -48,7 +48,7 @@ class InputValueTest {
     @ValueSource(strings = "4")
     void 이동_횟수_입력(String input) {
         generateUserInput(input);
-        int moveCount = inputValue.InputMovingCount();
+        int moveCount = inputValue.inputMovingCount();
         assertThat(moveCount).isEqualTo(4);
     }
 
