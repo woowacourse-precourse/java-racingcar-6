@@ -9,6 +9,6 @@ public class RandomCarEngine implements CarEngine {
 
     @Override
     public boolean isStart() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MIN_START_ENGINE_NUMBER;
+        return MIN_START_ENGINE_NUMBER <= Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 }
