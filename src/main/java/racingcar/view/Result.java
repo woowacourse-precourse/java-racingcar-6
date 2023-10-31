@@ -27,7 +27,7 @@ public class Result {
 
     public static void printWinner(List<Car> carList) {
         System.out.print("최종 우승자 : ");
-        int maxDistance = getMaxNumber(carList);
+        int maxDistance = getMaxDistance(carList);
         StringJoiner winner = new StringJoiner(", ");
         for (Car car : carList) {
             if (maxDistance == car.getDistance()) {
@@ -37,7 +37,7 @@ public class Result {
         System.out.print(winner);
     }
 
-    public static int getMaxNumber(List<Car> carList) {
+    public static int getMaxDistance(List<Car> carList) {
         Car maxDistanceCar = Collections.max(carList, Comparator.comparingInt(Car::getDistance));
         return maxDistanceCar.getDistance();
     }
