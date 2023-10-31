@@ -91,13 +91,13 @@ public class Game {
 
     private void moveCars() {
         for (Car car : cars) {
-            if (carShouldMoveForward()) {
+            if (shouldMoveForward()) {
                 car.moveForward();
             }
         }
     }
 
-    private boolean carShouldMoveForward() {
+    private boolean shouldMoveForward() {
         return RandomNumberPicker.pickNumber(LOWER_BOUND_OF_RANDOM_NUMBER,
                 UPPER_BOUND_OF_RANDOM_NUMBER) >= MOVE_FORWARD_CONDITION_OF_CAR;
     }
