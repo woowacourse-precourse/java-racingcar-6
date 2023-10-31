@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.BooleanSupplier;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -35,14 +37,53 @@ class RacingTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("레이싱에 참여하는 차 이름이 겹치면 안됩니다");
         }
+
+        List<Car> createAlwaysMovingMockCars(List<String> names) {
+            int defaultPosition = 0;
+            BooleanSupplier alwaysMovedStrategy = () -> true;
+
+            return names.stream()
+                    .map(name -> (Car) new MockCar(name, defaultPosition, alwaysMovedStrategy))
+                    .toList();
+        }
     }
 
-    List<Car> createAlwaysMovingMockCars(List<String> names) {
-        int defaultPosition = 0;
-        BooleanSupplier alwaysMovedStrategy = () -> true;
+    @Nested
+    @DisplayName("우승자 이름 조회 테스트")
+    class WinnerNameTest {
 
-        return names.stream()
-                .map(name -> (Car) new MockCar(name, defaultPosition, alwaysMovedStrategy))
-                .toList();
+        @Test
+        @DisplayName("우승자가 한 명 일 때, 우승자 이름을 찾을 수 있다")
+        void findWinnersNameTest_whenWinnerIsOne() {
+            Map<String, Integer> nameToPosition = Map.of("pobi", 4, "james", 3, "steve", 3);
+            List<Car> cars = createAlwaysMovingMockCars(nameToPosition);
+            Racing racing = new Racing(cars);
+            List<String> expected = List.of("pobi");
+
+            List<String> actual = racing.findWinnersName();
+
+            assertThat(actual).isEqualTo(expected);
+        }
+
+        @Test
+        @DisplayName("우승자가 여러명 일 때, 우승자 이름을 찾을 수 있다")
+        void findWinnersNameTest() {
+            Map<String, Integer> nameToPosition = Map.of("pobi", 1, "james", 3, "steve", 3);
+            List<Car> cars = createAlwaysMovingMockCars(nameToPosition);
+            Racing racing = new Racing(cars);
+            List<String> expected = List.of("james", "steve");
+
+            List<String> actual = racing.findWinnersName();
+
+            assertThat(actual).isEqualTo(expected);
+        }
+
+        List<Car> createAlwaysMovingMockCars(Map<String, Integer> nameToPosition) {
+            BooleanSupplier alwaysMovedStrategy = () -> true;
+
+            return nameToPosition.keySet().stream()
+                    .map(name -> (Car) new MockCar(name, nameToPosition.get(name), alwaysMovedStrategy))
+                    .toList();
+        }
     }
 }
