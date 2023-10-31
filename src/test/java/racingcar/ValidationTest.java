@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 
 import racingcar.validation.Validation;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 
 public class ValidationTest {
     @Test
@@ -14,6 +13,7 @@ public class ValidationTest {
         String case1 = "붕붕이";
         String case2 = "   ";
         String case3 = null;
+        String case4 = " , , , ";
 
         //when
         Throwable result1 = catchThrowable(()->{
@@ -25,11 +25,15 @@ public class ValidationTest {
         Throwable result3 = catchThrowable(()->{
             Validation.validateIsNotNull(case3);
         });
+        Throwable result4 = catchThrowable(()->{
+            Validation.validateIsNotNull(case4);
+        });
 
         //then
         assertThat(result1).doesNotThrowAnyException();
         assertThat(result2).isInstanceOf(IllegalArgumentException.class);
         assertThat(result3).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result4).isInstanceOf(IllegalArgumentException.class);
     }
 
 }
