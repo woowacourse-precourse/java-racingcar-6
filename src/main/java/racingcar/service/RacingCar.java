@@ -20,6 +20,18 @@ public class RacingCar {
             for (Car car : cars) {
                 car.move();
             }
+            printResult();
+            System.out.println();
+        }
+    }
+
+    public void printResult() {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
         }
     }
 }

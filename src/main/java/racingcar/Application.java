@@ -12,5 +12,6 @@ public class Application {
 
         RacingCar racingCar = new RacingCar(carNames, tryCount);
         racingCar.start();
+        racingCar.printResult();
     }
 }
