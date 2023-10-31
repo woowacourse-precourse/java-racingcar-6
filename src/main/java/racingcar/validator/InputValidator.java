@@ -3,6 +3,8 @@ package racingcar.validator;
 import racingcar.exception.ErrorMessage;
 import racingcar.model.Car;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class InputValidator {
@@ -27,5 +29,20 @@ public class InputValidator {
         }
     }
 
+    public static void validateDuplicateName(String[] carNames) {
+        if (hasDuplicateName(carNames)) {
+            throw ErrorMessage.DUPLICATE_NAME.getNameException();
+        }
+    }
 
+    private static boolean hasDuplicateName(String[] carNames) {
+        Set<String> uniqueNames = new HashSet<>();
+
+        for (String name : carNames) {
+            if (!uniqueNames.add(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
