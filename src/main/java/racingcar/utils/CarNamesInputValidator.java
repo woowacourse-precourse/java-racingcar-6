@@ -3,15 +3,12 @@ package racingcar.utils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.configuration.ConfigurationConstants;
 
 public class CarNamesInputValidator {
 
     private static final String SPLIT_REGEX = ",";
     private static final char COMMA = ',';
-    private static final int CAR_NAME_MAX_LENGTH = 5;
-    private static final int CAR_TOTAL_MIN_COUNT = 1;
-    private static final int CAR_TOTAL_MAX_COUNT = 10;
-
 
     public static void validate(String target) {
         validateIsNotBlank(target);
@@ -26,7 +23,7 @@ public class CarNamesInputValidator {
     }
 
     private static void validateIsNotBlank(String target) {
-        if (target.isBlank()) {
+        if (target == null || target.isBlank()) {
             throw new IllegalArgumentException(CarNamesInputExceptionMessage.BLANK.getError());
         }
     }
@@ -53,7 +50,7 @@ public class CarNamesInputValidator {
 
     private static void validateEachElementCorrectLength(String[] targets) {
         for (String target : targets) {
-            if (target.length() > CAR_NAME_MAX_LENGTH) {
+            if (target.length() > ConfigurationConstants.CAR_NAME_LENGTH_MAX_LIMIT) {
                 throw new IllegalArgumentException(CarNamesInputExceptionMessage.OUT_OF_LENGTH.getError());
             }
         }
@@ -69,7 +66,8 @@ public class CarNamesInputValidator {
     }
 
     private static void validateTotalCount(String[] targets) {
-        if (targets.length < CAR_TOTAL_MIN_COUNT || targets.length > CAR_TOTAL_MAX_COUNT) {
+        if (targets.length < ConfigurationConstants.TOTAL_CAR_MIN_LIMIT
+                || targets.length > ConfigurationConstants.TOTAL_CAR_MAX_LIMIT) {
             throw new IllegalArgumentException(CarNamesInputExceptionMessage.OUT_OF_TOTAL_COUNT.getError());
         }
     }
@@ -81,8 +79,8 @@ public class CarNamesInputValidator {
         ELEMENT_BLANK("자동차 이름은 공백 문자로만 이루어져선 안됩니다."),
         OUT_OF_LENGTH("자동차 이름은 5글자 이하여야 합니다."),
         DUPLICATE_EXISTS("중복된 자동차 이름이 존재합니다."),
-        OUT_OF_TOTAL_COUNT(String.format("자동차이름은 %d ~ %d 개만 입력 가능합니다.", CAR_TOTAL_MIN_COUNT, CAR_TOTAL_MAX_COUNT));
-
+        OUT_OF_TOTAL_COUNT(String.format("자동차이름은 %d ~ %d 개만 입력 가능합니다.", ConfigurationConstants.TOTAL_CAR_MIN_LIMIT,
+                ConfigurationConstants.TOTAL_CAR_MAX_LIMIT));
 
         private final String error;
 

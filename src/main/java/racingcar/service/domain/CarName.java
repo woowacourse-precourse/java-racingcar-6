@@ -1,10 +1,9 @@
 package racingcar.service.domain;
 
 import java.util.Objects;
+import racingcar.configuration.ConfigurationConstants;
 
 public class CarName {
-    private static final int MIN_LENGTH = 1;
-    private static final int MAX_LENGTH = 5;
     private static final String COMMA = ",";
     private static final String OUT_OF_LENGTH = "자동차 이름의 길이는 1 ~ 5자리여야 합니다.";
     private static final String COMMA_EXISTS = "자동차 이름에 콤마(,)가 있으면 안됩니다.";
@@ -24,7 +23,7 @@ public class CarName {
     }
 
     private static void validateLength(String name) {
-        if (name.length() < MIN_LENGTH || name.length() > MAX_LENGTH) {
+        if (name.isEmpty() || name.length() > ConfigurationConstants.CAR_NAME_LENGTH_MAX_LIMIT) {
             throw new IllegalArgumentException(OUT_OF_LENGTH);
         }
     }
