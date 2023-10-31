@@ -47,7 +47,7 @@ class GameControllerTest extends NsTest {
         assertThat(output()).contains("최종 우승자 : ");
     }
 
-    @DisplayName("5글자 초과된 이름 입력")
+    @DisplayName("5글자 초과된 이름 입력 시 에러")
     @Test
     void userCarNameInput_error() {
         run("pobi,javaji", "1");
@@ -55,7 +55,7 @@ class GameControllerTest extends NsTest {
                 .isInstanceOf(UserCarNameInputException.class);
     }
 
-    @DisplayName("횟수에 문자 입력")
+    @DisplayName("횟수에 문자 입력 시 에러")
     @Test
     void userTryNumberInput_error() {
         run("pobi,javai", "asd");
