@@ -19,4 +19,14 @@ public class RacingGameController {
 	public void sortCarsByLocation(List<Car> sortedCars) {
 		Collections.sort(sortedCars, Collections.reverseOrder(Comparator.comparingInt(Car::getLocation)));
 	}
+
+	public List<Car> findCarWithMaxLocation(List<Car> cars, int maxLocation) {
+		List<Car> winners = new ArrayList<>();
+		for (Car car : cars) {
+			if (car.getLocation() == maxLocation) {
+				winners.add(car);
+			}
+		}
+		return winners;
+	}
 }
