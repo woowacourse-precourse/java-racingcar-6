@@ -24,4 +24,13 @@ public class CarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름이 공백이면 안됩니다.");
     }
+
+    @Test
+    public void 자동차_이름이_5자_이상인_경우_검증() {
+        String input = "car1,carrrrrr2222,car3";
+        List<String> carNames = Arrays.asList(input.split(","));
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
+    }
 }
