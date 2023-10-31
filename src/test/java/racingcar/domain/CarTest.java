@@ -23,4 +23,20 @@ class CarTest {
             new Car(longName);
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 랜덤_넘버가_4이상이면_전진한다() {
+        Car car = new Car("car");
+        car.move(4);
+
+        assertThat(car.getPosition().getPosition()).isEqualTo(1);
+    }
+
+    @Test
+    public void 랜덤_넘버가_4미만미면_멈춘다() {
+        Car car = new Car("car");
+        car.move(3);
+
+        assertThat(car.getPosition().getPosition()).isEqualTo(0);
+    }
 }
