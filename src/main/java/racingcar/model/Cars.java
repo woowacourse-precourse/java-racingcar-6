@@ -8,6 +8,7 @@ import java.util.List;
 public class Cars {
     private static final int RANDOM_START_NUMBER = 0;
     private static final int RANDOM_LAST_NUMBER = 9;
+    private static final int STRING_BUILDER_RESET_LENGTH = 0;
     private static final RandomUtils randomUtils = new RandomUtils();
     private static final StringBuilder stringBuilder = new StringBuilder();
     private static final List<Car> carList = new ArrayList<>();
@@ -18,7 +19,7 @@ public class Cars {
     }
 
     public StringBuilder singleRoundResult() {
-        stringBuilder.setLength(0);
+        stringBuilder.setLength(STRING_BUILDER_RESET_LENGTH);
         for (Car car : carList) {
             stringBuilder.append("\n").append(singleCarResult(car));
         }
