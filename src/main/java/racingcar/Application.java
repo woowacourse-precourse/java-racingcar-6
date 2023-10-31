@@ -6,6 +6,23 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+
+class RacingCar{ 
+    private String name; // 레이싱카 이름
+    private int loc = 0; // 레이싱카 현재 위치 : default 0
+    
+    // 생성자 : 이름으로 입력 받아 생성할 수 있도록
+    public RacingCar(String input) {
+        this.name = input;
+    }
+    int getLoc(){ return loc; } // 현재 위치 반환
+    void reset(){ loc = 0;}     // 현재 위치 출발점 초기화
+    void accel(){               // 확률에 의해 이동
+        int prob = Randoms.pickNumberInRange(0,9);
+        if(prob>= 4){ loc += 1;}
+    }
+}
+
 public class Application {
     public static void main(String[] args) {
 
