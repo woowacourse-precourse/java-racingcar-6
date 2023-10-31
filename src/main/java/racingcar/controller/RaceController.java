@@ -17,6 +17,7 @@ public class RaceController {
         inputRacerNames();
         inputMoveNumber();
         repeatMove(racers, moveNumber);
+        System.out.println(WinnerDecider.getWinner(racers));
     }
 
     private void repeatMove(List<Racer> racers, int moveNumber) {
