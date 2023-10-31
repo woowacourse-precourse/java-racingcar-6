@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constant.Constant;
 import racingcar.domain.Car;
@@ -21,8 +20,7 @@ public class OutputView {
     }
 
     public void printCarStatus(CarList carList) {
-        List<Car> cars = carList.getCarList();
-        for (Car car : cars) {
+        for (Car car : carList.getCarList()) {
             printCarNameAndDistance(car);
         }
         System.out.println();
