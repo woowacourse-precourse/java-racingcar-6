@@ -66,12 +66,13 @@ public class RacingCarValidator {
         }
     }
 
-    public static boolean numberAttemptsInputMinValueValidator(String number){
-        if(Integer.parseInt(number)<=0){
+    public static boolean numberAttemptsInputMinValueValidator(String number) {
+        if (Integer.parseInt(number) <= 0) {
             throw new IllegalArgumentException(ATTEMPT_NUMBER_INPUT_MIN_VALUE_EXCEPTION_MESSAGE);
         }
         return true;
     }
+
     public static boolean numberAttemptsEmptyInputValidator(String number) {
         if (number.length() == ZERO) {
             throw new IllegalArgumentException(ATTEMPT_NUMBER_INPUT_EMPTY_EXCEPTION_MESSAGE);

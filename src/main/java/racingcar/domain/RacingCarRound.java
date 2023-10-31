@@ -9,6 +9,7 @@ public class RacingCarRound {
         RacingCarValidator.numberAttemptsInputValidator(number);
         this.round = Integer.parseInt(number);
     }
+
     private void endRound() {
         this.round -= 1;
     }
@@ -16,7 +17,6 @@ public class RacingCarRound {
     public int getRound() {
         return round;
     }
-
 
     public boolean gameCheck() {
         if (this.round == 0) {

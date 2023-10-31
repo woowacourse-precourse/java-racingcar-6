@@ -15,7 +15,7 @@ public class OutputView {
     }
 
     public static void printMoveRacingCar(RacingCars racingCars) {
-        for(RacingCar racingCar : racingCars.getRacingCars()){
+        for (RacingCar racingCar : racingCars.getRacingCars()) {
             System.out.println(drawMoveCar(racingCar));
         }
         System.out.println();
@@ -26,12 +26,12 @@ public class OutputView {
         System.out.print(String.format(WINNER_MESSAGE, String.join(COMMA, winner.getWinners())));
     }
 
-    private static String drawMoveCar(RacingCar racingCar){
+    private static String drawMoveCar(RacingCar racingCar) {
         String carMoveString = drawHyphen(racingCar.getMove());
         return racingCar.getName() + " : " + carMoveString;
     }
 
-    private static String drawHyphen(int moveCount){
+    private static String drawHyphen(int moveCount) {
         return HYPHEN.repeat(moveCount);
     }
 }
