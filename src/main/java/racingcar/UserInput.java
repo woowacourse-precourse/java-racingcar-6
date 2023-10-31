@@ -5,9 +5,17 @@ public class UserInput {
     public String[] inputCarName(){
         String input = Console.readLine();
         String[] carName = input.split(",");
+        carName = removeBlank(carName);
         checkLength(carName);
         checkNull(carName);
         return carName;
+    }
+
+    private String[] removeBlank(String[] str){
+        for(int i = 0; i < str.length; i++){
+            str[i] = str[i].trim();
+        }
+        return str;
     }
 
     private void checkLength(String[] strings){
