@@ -20,4 +20,19 @@ public class RepeatCountTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(REPEAT_COUNT_NOT_ZERO);
     }
+
+    @Test
+    void isRunable_메소드는_count가_0보다_크면_true를_반환한다() {
+        RepeatCount repeatCount = new RepeatCount(3);
+
+        assertEquals(repeatCount.isRunable(), true);
+    }
+
+    @Test
+    void isRunable_메소드는_count가_0이면_false를_반환한다() {
+        RepeatCount repeatCount = new RepeatCount(1);
+        repeatCount.disCount();
+
+        assertEquals(repeatCount.isRunable(), false);
+    }
 }
