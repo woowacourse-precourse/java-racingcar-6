@@ -23,4 +23,8 @@ public class InputManager {
         }
         return Integer.parseInt(input);
     }
+
+    public boolean hasDuplicate(List<String> carNames) {
+        return carNames.stream().distinct().count() != carNames.size();
+    }
 }

@@ -48,9 +48,15 @@ public class RacingGameController implements GameController {
         outputManager.printGameOver();
     }
 
-    public void setUpCars() {
+    public List<String> getCarNames() {
         outputManager.printRequestCarNameInputMessage();
         List<String> carNames = inputManager.getStringListSplitByComma();
+        checkCarNameIsValid(carNames);
+        return carNames;
+    }
+
+    public void setUpCars() {
+        List<String> carNames = getCarNames();
         List<Car> cars = Car.createCars(carNames);
         racingGame.setCars(cars);
     }
@@ -59,5 +65,11 @@ public class RacingGameController implements GameController {
         outputManager.printRequestGameCountInputMessage();
         int gameCount = inputManager.getOnePositiveNumber();
         racingGame.setGameCount(gameCount);
+    }
+
+    public void checkCarNameIsValid(List<String> carNames) {
+        if (inputManager.hasDuplicate(carNames)) {
+            throw new IllegalArgumentException();
+        }
     }
 }
