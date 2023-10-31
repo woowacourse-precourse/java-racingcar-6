@@ -1,15 +1,13 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.RandomNumberGenerator;
 
 public enum ActionType {
 
     GO(1), STOP(0);
 
-    private static final Integer MIN_NUMBER = 0;
-    private static final Integer MAX_NUMBER = 9;
     private static final Integer THRESHOLD = 4;
-
+    
     private Integer action;
 
     ActionType(Integer action) {
@@ -17,7 +15,7 @@ public enum ActionType {
     }
 
     public static Integer randomAction() {
-        Integer randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        Integer randomNumber = RandomNumberGenerator.pickNumber();
         if (randomNumber >= THRESHOLD) {
             return GO.getAction();
         }
