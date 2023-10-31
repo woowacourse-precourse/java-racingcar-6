@@ -36,13 +36,19 @@ public class Game {
             Car car = new Car(name);
             cars.add(car);
         }
+
+        System.out.println();
+        System.out.println("실행 결과");
         for (int attempt = 0; attempt < attemptCount; attempt++) {
             for (Car car : cars) {
                 if (Randoms.pickNumberInRange(0, 9) >= 4) {
                     car.moveForward();
                 }
-                System.out.println(car);
+                String name = car.getName();
+                int forwardCount = car.getForwardCount();
+                System.out.println(name + " : " + "-".repeat(forwardCount));
             }
+            System.out.println();
         }
 
         int maximumForwardCount = 0;
