@@ -40,6 +40,19 @@ class ApplicationTest extends NsTest {
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
+    @Test
+    void 자동차_전진() {
+        String carName = "pobi";
+        Integer attempts = 10;
+        Car car = new Car(carName);
+        for(int i=1; i<=attempts; i++) {
+            car.goForward();
+            assertThat(car.getPosition()).isEqualTo(i);
+        }
+
+        assertThat(car.getName()).isEqualTo(carName);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
