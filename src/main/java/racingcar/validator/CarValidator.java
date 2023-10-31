@@ -1,6 +1,5 @@
 package racingcar.validator;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class CarValidator {
