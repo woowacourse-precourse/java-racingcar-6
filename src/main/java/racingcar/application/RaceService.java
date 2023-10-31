@@ -14,6 +14,7 @@ public class RaceService {
 
     public Integer generateCount(String countInput) {
         Integer count = parseStringToInteger(countInput);
+        validateRange(count);
         return count;
     }
 
@@ -33,5 +34,15 @@ public class RaceService {
 
     private String[] splitNames(String names) {
         return names.split(DELIMITER.getSymbol());
+    }
+
+    private void validateRange(Integer count) {
+        if (isLessThanMinCount(count)) {
+            throw new IllegalArgumentException(String.format("%d 이상의 정수를 입력해주세요.", MIN_RACE_COUNT.getValue()));
+        }
+    }
+
+    private boolean isLessThanMinCount(Integer count) {
+        return count < MIN_RACE_COUNT.getValue();
     }
 }
