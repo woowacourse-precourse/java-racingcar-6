@@ -23,6 +23,5 @@ public class RacingService {
             carDtoList.add(carDto);
         }
         return carDtoList;
-
     }
 }

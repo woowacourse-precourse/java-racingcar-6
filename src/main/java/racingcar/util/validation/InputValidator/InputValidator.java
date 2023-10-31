@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class InputValidator {
 
     private static final String ERROR_MESSAGE = "[ERROR] ";
-    private static final String REQUEST_DELIMETER_MESSAGE = "쉼표(,)를 이용하여 이름을 구분해주세요";
+    private static final String REQUEST_DELIMITER_MESSAGE = "쉼표(,)를 이용하여 이름을 구분해주세요";
     private static final int TRY_NUM_STANDARD = 0;
     private static final int NAME_LIMIT = 5;
 
@@ -16,7 +16,7 @@ public class InputValidator {
 
     private static void isSplit(String userInput) {
         if (!userInput.contains(",")) {
-            System.out.println(ERROR_MESSAGE + REQUEST_DELIMETER_MESSAGE);
+            System.out.println(ERROR_MESSAGE + REQUEST_DELIMITER_MESSAGE);
             throw new IllegalArgumentException();
         }
     }
@@ -61,8 +61,7 @@ public class InputValidator {
 
     private static int isInt(String inputRacingRound) {
         try {
-            int racingRound = Integer.parseInt(inputRacingRound);
-            return racingRound;
+            return Integer.parseInt(inputRacingRound);
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
