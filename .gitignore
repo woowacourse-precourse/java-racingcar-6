@@ -30,3 +30,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### JAVA ###
+*.class
+
+### 이클립스 ###
+.metadata
+
+
