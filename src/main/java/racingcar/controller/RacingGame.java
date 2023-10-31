@@ -25,22 +25,13 @@ public class RacingGame {
         OutputView.displayWinners(getWinners());
     }
 
-    private String getWinners() {
-        List<String> winners = cars.getWinners();
-        return String.join(", ", winners);
-    }
-
     private List<String> getCarNames() {
-        OutputView.displayCarNames();
-        String carNames = InputView.input();
+        String carNames = InputView.getCarNames();
         return parseCarNames(carNames);
     }
 
-    private int getTryCount() {
-        OutputView.displayTryCount();
-        String tryCount = InputView.input();
-        Validator.validateTryCount(tryCount);
-        return Integer.parseInt(tryCount);
+    private List<String> parseCarNames(String carNames) {
+        return Arrays.asList(carNames.split(","));
     }
 
     private void initializeCars(List<String> carNames) {
@@ -50,7 +41,14 @@ public class RacingGame {
         }
     }
 
-    private List<String> parseCarNames(String carNames) {
-        return Arrays.asList(carNames.split(","));
+    private int getTryCount() {
+        String tryCount = InputView.getTryCount();
+        Validator.validateTryCount(tryCount);
+        return Integer.parseInt(tryCount);
+    }
+
+    private String getWinners() {
+        List<String> winners = cars.getWinners();
+        return String.join(", ", winners);
     }
 }
