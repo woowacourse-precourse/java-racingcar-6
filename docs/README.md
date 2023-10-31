@@ -20,4 +20,4 @@
   - [] 자동차가 얼마나 이동했는지 -로 출력한다. : Leaderboard # distance()
 
 - [] 우승자를 출력한다. : Leaderboard # winner()
-  - [] 우승자 안내 문구를 만든다. LeaderBoard # winnerFormat
+  - [x] 우승자 안내 문구를 만든다. LeaderBoard # winnerFormat
