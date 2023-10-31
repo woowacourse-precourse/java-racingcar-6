@@ -11,6 +11,7 @@ import racingcar.Utils.ErrorMessage;
 public class Car {
     private final String name;
     private int position = 0;
+    private static final int MOVE_NUMBER_MIN_RANGE = 4;
 
     public Car(String name) {
         isValidateCar(name);
@@ -18,7 +19,7 @@ public class Car {
     }
 
     public void move(int moveNumber) {
-        if (moveNumber >= 4) {
+        if (moveNumber >= MOVE_NUMBER_MIN_RANGE) {
             position++;
         }
     }

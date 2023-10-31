@@ -13,7 +13,9 @@ import racingcar.Utils.ErrorMessage;
 
 public class Cars {
     private final List<Car> cars;
-
+    private static final int CAR_NAME_MIN_LENGTH = 5;
+    private static final int RANDOM_MOVE_NUMBER_MIN_SIZE= 0;
+    private static final int RANDOM_MOVE_NUMBER_MAX_SIZE = 9;
     public Cars(List<Car> cars) {
         validateUserInput(cars);
         this.cars = cars;
@@ -27,7 +29,7 @@ public class Cars {
 
     public static void validateUserInput(List<Car> userInput) {
         for (Car car : userInput) {
-            if (car.getName().length() > 5) {
+            if (car.getName().length() > CAR_NAME_MIN_LENGTH) {
                 throw new IllegalArgumentException(ErrorMessage.CAR_NAME_ONLY_FIVE_BELOW.getMessage());
             }
         }
@@ -39,7 +41,7 @@ public class Cars {
 
     public void playSingleTurn() {
         for (Car car : cars) {
-            int moveNumber = Randoms.pickNumberInRange(0, 9);
+            int moveNumber = Randoms.pickNumberInRange(RANDOM_MOVE_NUMBER_MIN_SIZE, RANDOM_MOVE_NUMBER_MAX_SIZE);
             car.move(moveNumber);
         }
     }

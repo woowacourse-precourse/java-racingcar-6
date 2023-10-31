@@ -6,6 +6,12 @@ import java.util.Map.Entry;
 
 public class OutputView {
 
+    private static final String CAR_APPEND_STRING_COLON = " : ";
+    private static final String CAR_APPEND_STRING_DASH = "-";
+    private static final String FINAL_WINNER_RESULT_STRING = "최종 우승자 :";
+    private static final String FINAL_WINNER_STRING_JOIN_NAME_COMMA = ", ";
+
+
     private OutputView() {
     }
 
@@ -25,9 +31,9 @@ public class OutputView {
         for (Entry<String, Integer> carsInformation : currentPosition.entrySet()) {
             StringBuilder carString = new StringBuilder();
             carString.append(carsInformation.getKey());
-            carString.append(" : ");
+            carString.append(CAR_APPEND_STRING_COLON);
             for (int i = 0; i < carsInformation.getValue(); i++) {
-                carString.append("-");
+                carString.append(CAR_APPEND_STRING_DASH);
             }
             System.out.println(carString);
         }
@@ -39,6 +45,6 @@ public class OutputView {
     }
 
     public static String winnerPrintFormat(List<String> winners) {
-        return "최종 우승자 :" + " " + String.join(", ", winners);
+        return FINAL_WINNER_RESULT_STRING + " " + String.join(FINAL_WINNER_STRING_JOIN_NAME_COMMA, winners);
     }
 }
