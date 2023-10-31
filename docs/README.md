@@ -34,9 +34,8 @@
 * Parser 문자열 입력을 파싱하는 Parser를 필드로 가진다
 * 게임을 진행하는 Game 클래스를 필드로 가진다.
 
-#### 입력 요청을 출력하는 view패키지 InputView 클래스 생성
-    - 자동차 이름 입력을 요청 메시지 출력하는 printCarNameRequest() 구현
-    - 시도 횟수 입력 요청 메시지 출력하는 printAttemptCountRequest() 구현
+#### 입력을 받는 view패키지 InputView 클래스 생성
+   사용자의 입력을 받는 takeUserInput 구현
 
 #### 유효성 검사를 진행하는 util패키지 Validator 클래스 생성
     - validateLengthForCarNameInput() 구현 : 5글자 이상시 IllegalArgumentException 발생
@@ -50,6 +49,8 @@
 * 사용자로부터 자동차 이름을 얻는 getCars() 구현
 * 사용자로부터 시도 횟수룰 얻는 getAttemptCount()구현
 #### 게임 결과를 출력하는 view패키지 OutputView 클래스 생성
+    - 자동차 이름 입력을 요청 메시지 출력하는 printCarNameRequest() 구현
+    - 시도 횟수 입력 요청 메시지 출력하는 printAttemptCountRequest() 구현
     - 매 시도마다 레이스 상황을 출력하는 printRaceStatus() 구현
     - 우승자를 출력하는 printWinnerName() 구현
 * 어플리케이션 전체 동작을 실행하는 run메서드 구현
