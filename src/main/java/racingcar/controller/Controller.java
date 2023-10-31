@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.Attempt;
 import racingcar.domain.Car;
 import racingcar.service.RacingcarGame;
+import racingcar.utils.Utils;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -29,7 +30,8 @@ public class Controller {
     private void result(List<Car> cars, int attemptCount) {
         while (attemptCount > 0) {
             for (Car car : cars) {
-                racingcarGame.increaseMoveForwardCount(car);
+                int random = Utils.generateRandomNumber();
+                racingcarGame.increaseMoveForwardCount(car, random);
                 OutputView.printMoveForward(car);
             }
             attemptCount--;
