@@ -23,4 +23,18 @@ public class Cars {
     public List<Car> getAllCars() {
         return Collections.unmodifiableList(allCars);
     }
+
+    public List<Car> findWinners() {
+        int maxPosition = getMaxPosition();
+        return allCars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return allCars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalStateException("자동차가 없습니다."));
+    }
 }
