@@ -14,6 +14,10 @@ public class Cars {
         this.cars = toCarList(carName);
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private List<Car> toCarList(List<String> names) {
         List<Car> cars = names.stream().map(Car::new).collect(toList());
         return cars;
