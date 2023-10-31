@@ -1,8 +1,9 @@
-package racingcar.domain;
+package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Validator;
 
-public class UserInputer {
+public class InputView {
 
     Validator validator = new Validator();
 
