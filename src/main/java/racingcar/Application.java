@@ -10,6 +10,8 @@ public class Application {
         ConsoleView view = new ConsoleView();
         GameModel model = null;
         GameController gameController = new GameController(view, model);
+
         gameController.start();
     }
 }
+
