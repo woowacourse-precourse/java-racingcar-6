@@ -1,4 +1,4 @@
-package racingcar.utill;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.iosystem.InputView;
