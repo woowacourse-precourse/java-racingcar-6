@@ -18,8 +18,13 @@ public class InvalidCarNameException extends IllegalArgumentException {
         super(message);
     }
 
-    public static void validateNameLength(String nameString) {
-        String[] names = nameString.split(",");
+    public static void validate(List<Car> cars) {
+        validateNameLength(cars);
+        validateUniqueNames(cars);
+    }
+
+    private static void validateNameLength(List<Car> cars) {
+        List<String> names = cars.stream().map(Car::getName).toList();
         for (String name : names) {
             if (name.trim().length() > MAX_NAME_LENGTH) {
                 throw new InvalidCarNameException(LENGTH_EXCEED_MESSAGE);
@@ -27,7 +32,7 @@ public class InvalidCarNameException extends IllegalArgumentException {
         }
     }
 
-    public static void validateUniqueNames(List<Car> cars) {
+    private static void validateUniqueNames(List<Car> cars) {
         List<String> names = cars.stream().map(Car::getName).toList();
         long distinctCount = names.stream().distinct().count();
         if (distinctCount != names.size()) {
