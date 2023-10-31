@@ -13,6 +13,8 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
+---
+
 ## 📮 기능
 
 ### 1. 경주할 자동차 이름 입력
@@ -39,3 +41,37 @@
 
 ### 4. 최종 우승자 판별
 - [ ] 가장 많이 전진한 자동차를 판별하고, 이 이름들을 쉼표로 구분하여 출력한다.
+
+---
+
+## 도메인 설계
+
+- ### controller
+  - RaceController : 경주 게임의 입출력(presentation)을 담당하는 컨트롤러
+
+- ### domain
+
+  - Car : 자동차 클래스
+    - 자동차의 정보를 갖고 있으며 자동차를 이동시키거나 위치를 비교할 수 있다.
+
+  - Race : 경주 게임 클래스
+    - 경주의 자동차들과 진행된 단위 게임 횟수, 시도 횟수를 갖고 있으며 게임을 진행하고 입력값을 검증할 수 있다. 
+
+  - constant 패키지
+    - CarConstance : Car 에 대한 상수 클래스
+    - RaceConstant : Race 에 대한 상수 클래스
+
+- ### validate
+    - InputValidate : 경주할 자동차 이름과 시도할 횟수를 입력할 때 입력값을 검증하는 클래스
+
+- ### enums
+    - ExceptionMessage : 예외 메시지
+    - InputMessage : 입력값 메시지
+    - OutputMessage : 출력값 메시지
+
+- ### util
+    - RaceUtil : 게임의 각종 기능을 담는 유틸리티 클래스
+
+- ### view
+    - InputView : 입력과 그에 대한 검증을 담당하는 클래스
+    - OutputView : 출력을 담당하는 클래스
