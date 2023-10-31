@@ -1,4 +1,4 @@
-package model;
+package model.service;
 
 import java.util.Arrays;
 import java.util.HashSet;

@@ -1,6 +1,8 @@
-package model;
+package model.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import model.domain.Car;
+import model.domain.Participant;
 
 public class Round {
 

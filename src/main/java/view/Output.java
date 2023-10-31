@@ -1,8 +1,8 @@
 package view;
 
 import java.util.List;
-import model.Car;
-import model.Participant;
+import model.domain.Car;
+import model.domain.Participant;
 
 public class Output {
 

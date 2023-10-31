@@ -1,12 +1,10 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import model.Car;
-import model.GameResult;
-import model.InputCheck;
-import model.Participant;
-import model.Round;
+import model.service.GameResult;
+import model.service.InputCheck;
+import model.domain.Participant;
+import model.service.Round;
 import view.Input;
 import view.Output;
 

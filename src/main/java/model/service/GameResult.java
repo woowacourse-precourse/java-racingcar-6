@@ -1,7 +1,9 @@
-package model;
+package model.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.domain.Car;
+import model.domain.Participant;
 
 public class GameResult {
 
