@@ -17,7 +17,7 @@ public class Race {
         this.view = view;
     }
 
-    private void validateRounds(int rounds2) {
+    private void validateRounds(int rounds) {
         if (rounds <= 0) {
             throw new IllegalArgumentException("시도할 횟수는 0이상이여야 합니다.");
         }

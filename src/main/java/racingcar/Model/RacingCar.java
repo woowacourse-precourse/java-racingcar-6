@@ -1,7 +1,5 @@
 package racingcar.Model;
 
-import static org.mockito.Mockito.validateMockitoUsage;
-
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCar {
@@ -13,7 +11,7 @@ public class RacingCar {
         this.name = name;
     }
 
-    private void validateName(String name2) {
+    private void validateName(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
         }
