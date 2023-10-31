@@ -2,15 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.GameController;
 import racingcar.handler.UserInputHandler;
-import racingcar.model.Car;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ConfirmationTest extends NsTest {
     UserInputHandler userInputHandler = new UserInputHandler();
@@ -70,6 +68,17 @@ public class ConfirmationTest extends NsTest {
 
         List<String> winners = gameController.getWinners();
         assertThat(winners).isNotEmpty();
+    }
+
+    @Test
+    public void getWinners_우승자_자동차_이름_반환_테스트() {
+        gameController.setUp("pobi,dabin,jun");
+        gameController.run(1);
+
+        List<String> winners = gameController.getWinners();
+        assertThat(winners).isNotEmpty();
+        assertThat(winners.size()).isLessThanOrEqualTo(3);
+        assertThat(winners).allMatch(name -> name.equals("pobi") || name.equals("dabin") || name.equals("jun"));
     }
 
     @Override
