@@ -32,12 +32,8 @@ public class InputView {
         if (roundsInput == null || roundsInput.trim().isEmpty()) {
             throw new IllegalArgumentException("라운드 수를 입력해야 합니다.");
         }
-
         try {
-            int rounds = Integer.parseInt(roundsInput);
-            if (rounds <= 0) {
-                throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
-            }
+            Integer.parseInt(roundsInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("라운드 수는 정수여야 합니다.");
         }

@@ -51,6 +51,10 @@ public class Race {
         if (uniqueNamesCount != cars.size()) {
             throw new IllegalArgumentException("중복된 이름의 자동차가 있습니다.");
         }
+
+        if (rounds <= 0) {
+            throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
+        }
     }
 
     private int getMaxPosition() {

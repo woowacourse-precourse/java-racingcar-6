@@ -29,11 +29,11 @@ public class Car {
 
     private void validateCarName(String name) {
         if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다.");
+            throw new IllegalArgumentException("자동차 이름은 한 글자 이상이어야 합니다");
         }
-        
+
         if (name.trim().length() >= 5) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 이하 여야 합니다.");
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
         }
 
         Pattern pattern = Pattern.compile("[a-zA-Z0-9가-힣]*");
