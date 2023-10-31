@@ -14,11 +14,7 @@ public class Player {
 
     public int setLapsOfRace(String inputLaps) {
         Validators validators = new Validators();
-        try {
-            validators.isInteger(inputLaps);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
-        }
+        validators.isInteger(inputLaps);
         int lapsOfRace = Integer.parseInt(inputLaps);
 
         return lapsOfRace;
