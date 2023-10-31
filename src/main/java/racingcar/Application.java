@@ -27,6 +27,23 @@ public class Application {
         return userStatusMap;
    }
 
+   /** Randoms를 활용한 전진 유무 체크 및 문자열 갱신
+     * 
+     * @param status 어떤 유저의 현재 레이싱 상태를 받아옵니다.
+     * @return 랜덤 확률로 "-" 를 추가하거나 하지 않은 String을 return 합니다.
+     */
+    public static String shouldStart(String status) {
+        int random = Randoms.pickNumberInRange(0, 9);
+
+        if (random > 9 || random < 0) 
+            throw new IllegalArgumentException("랜덤 값의 인수가 잘못되었습니다.");
+        
+        if (random > 3) 
+            return status + "-";
+             
+        return status;
+    }
+
     /** 입력과 관련된 메서드 입니다.
      * 
      * @return inputlist 는 사용자에게 입력 받은 유저 리스트를 return합니다.
