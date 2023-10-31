@@ -23,8 +23,8 @@
     - 경주게임을 시도할 숫자는 int여야 한다. int로 변환 실패시 IllegalArgumentException 반환
 
 
--[ ] 입력값을 파싱하는 Parser 인터페이스 구현
-  -[ ] 자동차의 이름을 파싱하는 InputCarNameParser 클래스 구현
+-[x] 입력값을 파싱하는 Parser 인터페이스 구현
+  -[x] 자동차의 이름을 파싱하는 InputCarNameParser 클래스 구현
 
 
 -[ ] 사용자로부터 자동차이름과 경주게임을 시도할 숫자를 입력받는 InputReader 클래스 구현
