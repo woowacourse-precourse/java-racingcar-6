@@ -7,9 +7,10 @@ import java.util.List;
 public class Application {
 
     // 객체 생성 (의존성 주입?)
-    private static final NumberGenerator numberGenerator = new NumberGenerator();
     private static final Input input = new Input();
+    private static final Referee referee = new Referee();
     private static final String RESULT_MESSAGE =  "실행 결과";
+    private static final String WINNERS_MESSAGE = "최종 우승자 : ";
 
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>();
@@ -35,9 +36,8 @@ public class Application {
         cars.forEach(car -> {
             totalMoveList.add(car.getTotalMove());
         });
-
-        int max = Calculator.calculateMax(totalMoveList);
-        List<String> winners = Referee.judgeWinner(cars, max);
+        int max = Calculator.calculateMaxMove(totalMoveList);
+        List<String> winners = referee.judgeWinners(cars, max);
 
         // 우승자 출력
         printWinners(winners);
@@ -48,19 +48,15 @@ public class Application {
 
     public static void runRound(List<Car> cars) {
         cars.forEach(car -> {
-            int randomNumber = numberGenerator.createRandomNumber();
-            boolean isMove = Referee.judgeMoveOrStop(randomNumber);
+            int randomNumber = NumberGenerator.createRandomNumber();
+            boolean isMove = referee.judgeMoveOrStop(randomNumber);
             car.moveOrStop(isMove);
         });
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i + 1 != winners.size())
-                System.out.print(", ");
-        }
-        System.out.println();
+        System.out.print(WINNERS_MESSAGE);
+        String winnerList = String.join(", ", winners);
+        System.out.println(winnerList);
     }
 }
