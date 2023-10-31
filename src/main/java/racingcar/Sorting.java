@@ -27,7 +27,6 @@ public class Sorting { //정렬을 해주는 클래스
             if (!WinnerList.isEmpty() && valueSize < MaxValueSize) {
                 break;
             }
-
             WinnerList.add(key);
         }
 
