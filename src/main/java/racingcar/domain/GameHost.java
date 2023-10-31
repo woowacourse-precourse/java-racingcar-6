@@ -13,22 +13,23 @@ public class GameHost {
     /**
      * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다.
      *
-     * @param progressRaceCarList 현제 진행중인 RaceCarList
+     * @param raceCarList 현제 진행중인 RaceCarList
      * @return
      */
-    public List<RaceCar> giveWinnerRaceCarList(List<RaceCar> progressRaceCarList) {
-        List<RaceCar> raceCarOfWinnerList = new ArrayList<>();
-        int cntOfMaxMove = getCntMaxMove(progressRaceCarList);
-        boolean isVictoryOfRace = true;
+    public List<RaceCar> giveWinnerList(List<RaceCar> raceCarList) {
+        List<RaceCar> winnerList = new ArrayList<>();
+        int cntOfMaxMove = getMaxCntMove(raceCarList);
+        boolean isVictory = true;
 
-        for (RaceCar raceCarOfCurrentProgress : progressRaceCarList) {
-            isVictoryOfRace = judgeStandard.isVictoryCondition(raceCarOfCurrentProgress, cntOfMaxMove);
+        for (RaceCar raceCar : raceCarList) {
+            isVictory = judgeStandard.isVictoryCondition(raceCar, cntOfMaxMove);
 
-            if (isVictoryOfRace) {
-                raceCarOfWinnerList.add(raceCarOfCurrentProgress);
+            if (isVictory) {
+                winnerList.add(raceCar);
             }
         }
-        return raceCarOfWinnerList;
+        
+        return winnerList;
     }
 
     /**
@@ -38,7 +39,7 @@ public class GameHost {
      * @param progressCarList
      * @return
      */
-    public Integer getCntMaxMove(List<RaceCar> progressCarList) {
+    public Integer getMaxCntMove(List<RaceCar> progressCarList) {
         int max = progressCarList.stream()
                 .mapToInt(RaceCar::getCntMovementOfCar)
                 .max()

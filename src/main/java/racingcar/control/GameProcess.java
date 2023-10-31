@@ -79,7 +79,7 @@ public class GameProcess {
         String[] winnerArr = null;
         int sizeOfWinnerList = 0;
 
-        winnerList = gameHost.giveWinnerRaceCarList(raceCarList);
+        winnerList = gameHost.giveWinnerList(raceCarList);
         sizeOfWinnerList = winnerList.size();
 
         if (Utill.valueGreaterThanAndEqualOne(sizeOfWinnerList)) {

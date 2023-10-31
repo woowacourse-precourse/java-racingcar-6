@@ -42,7 +42,7 @@ class GameHostTest {
         moveRaceCar(raceCar_1);
 
         // when
-        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1));
@@ -55,7 +55,7 @@ class GameHostTest {
         moveRaceCar(raceCar_2);
 
         // when
-        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_2));
@@ -68,7 +68,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_3));
@@ -83,7 +83,7 @@ class GameHostTest {
         moveRaceCar(raceCar_2);
 
         // when
-        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1, raceCar_2));
@@ -101,7 +101,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_3));
@@ -124,7 +124,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1, raceCar_2, raceCar_3));
@@ -144,7 +144,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        Integer result = gameHost.getCntMaxMove(progressRaceCarList);
+        Integer result = gameHost.getMaxCntMove(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(3);
@@ -163,7 +163,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        Integer result = gameHost.getCntMaxMove(progressRaceCarList);
+        Integer result = gameHost.getMaxCntMove(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(2);
@@ -179,7 +179,7 @@ class GameHostTest {
         moveRaceCar(raceCar_1);
 
         // when
-        Integer result = gameHost.getCntMaxMove(progressRaceCarList);
+        Integer result = gameHost.getMaxCntMove(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(3);
@@ -194,7 +194,7 @@ class GameHostTest {
         moveRaceCar(raceCar_2);
 
         // when
-        Integer result = gameHost.getCntMaxMove(progressRaceCarList);
+        Integer result = gameHost.getMaxCntMove(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(3);
@@ -209,7 +209,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        Integer result = gameHost.getCntMaxMove(progressRaceCarList);
+        Integer result = gameHost.getMaxCntMove(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(3);
