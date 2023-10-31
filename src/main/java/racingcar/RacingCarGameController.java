@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.List;
 
 public class RacingCarGameController {
@@ -71,7 +70,7 @@ public class RacingCarGameController {
         System.out.println();
     }
 
-    private void printWinners(List<String> winners) {
+    private static void printWinners(List<String> winners) {
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
