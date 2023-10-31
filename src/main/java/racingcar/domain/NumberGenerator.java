@@ -11,6 +11,6 @@ public class NumberGenerator {
     }
 
     public static List<Integer> createRandomNumber(int num) {
-        return Stream.generate(() -> Randoms.pickNumberInRange(0, 9)).limit(num).collect(Collectors.toList());
+        return Stream.generate(() -> createRandomNumber()).limit(num).collect(Collectors.toList());
     }
 }
