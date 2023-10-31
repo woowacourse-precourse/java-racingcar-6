@@ -1,12 +1,12 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.util.Validation;
+import racingcar.service.ValidationService;
 import racingcar.view.InputView;
 
 public class RacingController {
 
-    Validation validation = new Validation();
+    ValidationService validationService = new ValidationService();
     InputView inputView = new InputView();
 
     public void startRacing() {
@@ -15,8 +15,9 @@ public class RacingController {
     }
 
     private List<String> getCarNameList() {
-        String askCarName = inputView.insertCarName();
-        return null;
+        String carNames = inputView.insertCarName();
+        List<String> validatedCarNames = validationService.checkCarNames(carNames);
+        return validatedCarNames;
     }
 
 }
