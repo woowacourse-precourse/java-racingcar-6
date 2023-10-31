@@ -29,15 +29,24 @@ public class RacingGameEvent {
 
     public List<String> getWinnerNames(Map<Car, List<Integer>> positionHistory) {
         List<String> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition(positionHistory);
+        for (Car car : positionHistory.keySet()) {
+            getWinnerName(winners, maxPosition, car);
+        }
+        return winners;
+    }
+
+    private static int getMaxPosition(Map<Car, List<Integer>> positionHistory) {
         int maxPosition = 0;
         for (Car car : positionHistory.keySet()) {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
-        for (Car car : positionHistory.keySet()) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
+        return maxPosition;
+    }
+
+    private static void getWinnerName(List<String> winners, int maxPosition, Car car) {
+        if (car.getPosition() == maxPosition) {
+            winners.add(car.getName());
         }
-        return winners;
     }
 }
