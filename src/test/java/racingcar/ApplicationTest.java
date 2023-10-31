@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarInputProcess;
 import racingcar.domain.RacingRecord;
+import racingcar.domain.RacingResult;
 import racingcar.domain.RepeatInputProcess;
 
 import java.util.*;
@@ -96,6 +97,42 @@ class ApplicationTest extends NsTest {
         racingRecord.printRacingRecord(cars, records);
 
         assertThat(output()).contains("pobi : -", "java : -");
+    }
+
+    @Test
+    void 레이싱_전진거리의_최대값을_찾는다() {
+        RacingResult racingResult = new RacingResult();
+        Map<String, Integer> records = new HashMap<>();
+        records.put("pobi",7);
+        records.put("java",3);
+        int maxDistance = racingResult.findMaximumDistance(records);
+        assertThat(maxDistance).isEqualTo(7);
+    }
+
+    @Test
+    void 우승자가_한_명일_경우_한_명만_출력() {
+        RacingResult racingResult = new RacingResult();
+        Map<String, Integer> records = new HashMap<>();
+        records.put("pobi",7);
+        records.put("java",3);
+        int maxDistance = racingResult.findMaximumDistance(records);
+        List<String> winners = racingResult.findWinners(maxDistance, records);
+
+        assertThat(winners).contains("pobi");
+        assertThat(winners).containsExactly("pobi");
+    }
+
+    @Test
+    void 우승자가_여러_명일_경우_쉼표로_구분하여_출력() {
+        RacingResult racingResult = new RacingResult();
+        Map<String, Integer> records = new HashMap<>();
+        records.put("pobi",7);
+        records.put("java",7);
+        int maxDistance = racingResult.findMaximumDistance(records);
+        List<String> winners = racingResult.findWinners(maxDistance, records);
+
+        assertThat(winners).contains("pobi", "java");
+        assertThat(winners).containsExactly("pobi", "java");
     }
 
     @Override

@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarInputProcess;
 import racingcar.domain.RacingRecord;
+import racingcar.domain.RacingResult;
 import racingcar.domain.RepeatInputProcess;
 
 import java.util.List;
@@ -44,7 +45,28 @@ public class Application {
             racingRecord.printRacingRecord(cars, records);
             System.out.println("");
         }
+
+        racingResult(records);
     }
 
+    private static void racingResult(Map<String, Integer> records) {
+        RacingResult racingResult = new RacingResult();
+        int maximumDistance = racingResult.findMaximumDistance(records);
+        List<String> winners = racingResult.findWinners(maximumDistance, records);
 
+        printResult(winners);
+    }
+
+    private static void printResult(List<String> winners) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        for(int i = 0; i < winners.size(); i++) {
+            sb.append(winners.get(i));
+            if(i != winners.size() - 1) {
+                sb.append(winners.get(i)).append(",");
+            }
+        }
+
+        System.out.println(sb);
+    }
 }
