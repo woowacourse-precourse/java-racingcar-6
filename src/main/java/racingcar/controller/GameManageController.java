@@ -7,6 +7,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameManageController {
 
@@ -16,12 +17,30 @@ public class GameManageController {
         gameManageService = new GameManageService();
     }
 
+    public void startGame() {
+        List<Car> cars = inputCar();
+        int repeatCount = inputCount();
+
+        OutputView.executionResultMessage();
+        repeatRace(cars, repeatCount);
+    }
+
     private List<Car> inputCar() {
         OutputView.inputNameMessage();
         String cars = InputView.input();
         InputVerification.checkAll(cars);
 
         return getCars(cars);
+    }
+
+    private void repeatRace(List<Car> cars, int repeatCount) {
+        for(int i = 0; i < repeatCount; i++) {
+            gameManageService.race();
+            OutputView.carResult(cars.stream()
+                    .map(Car::toDTO)
+                    .collect(Collectors.toList())
+            );
+        }
     }
 
     private List<Car> getCars(String cars) {
