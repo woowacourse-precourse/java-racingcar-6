@@ -28,7 +28,7 @@ public class Application {
             messagePrinter.printResults(cars);
         }
 
-
+        messagePrinter.printWinners(cars);
 
     }
 
