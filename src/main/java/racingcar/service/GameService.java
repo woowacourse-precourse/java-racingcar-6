@@ -1,9 +1,9 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.repository.GameRepository;
+import racingcar.util.RandomUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,14 +46,10 @@ public class GameService {
 
     private void moveForwardByRandomNumber(Game game) {
         for (Car car : game.getCars()) {
-            if (FORWARD_CONDITION <= getRandomNumbers()) {
+            if (FORWARD_CONDITION <= RandomUtil.getRandomNumbers()) {
                 car.moveForward(1);
             }
         }
-    }
-
-    private int getRandomNumbers() { // 범위 내 난수 생성
-        return Randoms.pickNumberInRange(RANGE_OF_START, RANGE_OF_END);
     }
 
     public void save(Game game) {
