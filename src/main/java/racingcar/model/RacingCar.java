@@ -1,9 +1,9 @@
 package racingcar.model;
 
-public class RacingCarInfo {
+public class RacingCar {
     private static final int LENGTH_LIMIT = 5;
 
-    public RacingCarInfo(String carName) {
+    public RacingCar(String carName) {
         validataLength(carName);
     }
 

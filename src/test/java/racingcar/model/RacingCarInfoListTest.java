@@ -15,7 +15,7 @@ class RacingCarInfoListTest {
         list.add("woni");
         list.add("pobi");
 
-        assertThatThrownBy(() -> new RacingCarInfoList(list))
+        assertThatThrownBy(() -> new RacingCarList(list))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -24,7 +24,7 @@ class RacingCarInfoListTest {
         List<String> list = new ArrayList<>();
         list.add("pobipobipobi");
 
-        assertThatThrownBy(() -> new RacingCarInfoList(list))
+        assertThatThrownBy(() -> new RacingCarList(list))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

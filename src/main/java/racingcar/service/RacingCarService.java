@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import racingcar.common.RandomGenerator;
-import racingcar.model.RacingCarInfoList;
+import racingcar.model.RacingCarList;
 
 public class RacingCarService {
     private static final int MIN_NUMBER = 3;
@@ -20,7 +20,7 @@ public class RacingCarService {
 
     public HashMap<String, Integer> initRacingStatus(List<String> carNames) {
         HashMap<String, Integer> racingStatus = new HashMap<>();
-        RacingCarInfoList racingCarList = new RacingCarInfoList(carNames);
+        RacingCarList racingCarList = new RacingCarList(carNames);
         for (String carName : carNames) {
             racingStatus.put(carName, INITIAL_POSITION);
         }

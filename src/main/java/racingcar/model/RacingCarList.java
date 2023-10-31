@@ -3,13 +3,13 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCarInfoList {
+public class RacingCarList {
     private final List<String> carList = new ArrayList<>();
 
-    public RacingCarInfoList(List<String> carNameList) {
+    public RacingCarList(List<String> carNameList) {
         for (String carName : carNameList) {
             validateDuplicate(carName);
-            RacingCarInfo racingCarInfo = new RacingCarInfo(carName);
+            RacingCar racingCarInfo = new RacingCar(carName);
             carList.add(carName);
         }
     }
