@@ -38,4 +38,14 @@ class OutputTest {
         assertEquals(expected, output);
     }
 
+    @Test
+    void 게임을_시작할때_횟수를_입력받는_문구를_출력한다() {
+        String expected = OutputMessage.INPUT_COUNT.message + "\n";
+
+        Output.printInputCount();
+
+        String output = outputStream.toString();
+        assertEquals(expected, output);
+    }
+
 }
