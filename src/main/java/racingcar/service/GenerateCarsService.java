@@ -8,20 +8,20 @@ import racingcar.util.StringAndListParser;
 public class GenerateCarsService {
 	private InputNameException nameException = new InputNameException();
 	private StringAndListParser parser = new StringAndListParser();
-	private String[] carArray;
-
-	public void getNames(String names) {
-		nameException.checkException(setCarArray(names));
-	}
-
-	public String[] setCarArray(String names) {
-		return carArray = parser.splitString(names);
-	}
+	private String[] nameArray;
 
 	public void generateCars(String names, Cars cars) {
 		getNames(names);
-		for (int i=0; i<carArray.length; i++) {
-			cars.setCars(new Car(carArray[i]));
+		for (int i = 0; i< nameArray.length; i++) {
+			cars.setCars(new Car(nameArray[i]));
 		}
+	}
+
+	public String[] setCarArray(String names) {
+		return nameArray = parser.splitString(names);
+	}
+
+	public void getNames(String names) {
+		nameException.checkException(setCarArray(names));
 	}
 }
