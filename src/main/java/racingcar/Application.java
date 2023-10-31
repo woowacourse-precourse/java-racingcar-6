@@ -12,5 +12,19 @@ public class Application {
         System.out.println("시도할 횟수는 몇회인가요?");
         int attempts = Integer.parseInt(Console.readLine());
 
+
+        NumberGenerator Generator = new NumberGenerator();
+        Car[] car = new Car[carNameList.length];
+        WinnerManager winnerManager = new WinnerManager(car);
+        RaceGameManager raceGameManager = new RaceGameManager(car);
+
+        int i = 0;
+        for (String carName : carNameList) { // 자동차 객체 생성 및 초기화
+            car[i] = new Car(carName);
+            i++;
+        }
+
+
+
     }
 }
