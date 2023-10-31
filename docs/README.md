@@ -11,30 +11,63 @@
 - [3. 다음 미션에 적용할 학습 내용](#ledger-다음-미션에-적용할-학습-내용) 
 
 # :ballot_box_with_check: 구현 기능 목록
-- [ ] controller Package
-    - [ ] RacingCarGameController
+- [x] controller Package
+    - [x] CarGameController
         - view Package와 domain Package의 데이터를 전달하며 값을 출력하는 클래스
         - 프로그램을 실행하는 `run` 메서드
-        - RacingCar객체를 반환하여 자동차 이름을 받아오는 `loadCarNames` 메서드
+        - CarNames객체를 반환하여 자동차 이름을 받아오는 `loadCarNames` 메서드
         - TryCount객체를 반환하여 시도 회수를 받아오는 `loadTryCount` 메서드
+        - 자동차의 이름과 위치를 모두 갖고있는 그룹을 만드는 `generateStatusGroup` 메서드
         - 게임을 진행시키는 `playGame` 메서드
+        - 게임을 결과를 내보내는 `gameResult` 메서드
+        - 최종 우승자를 구하는 `finalWinners` 메서드
 
 
-- [ ] domain Package
-    - [x] RacingCar
-        - 게임을 위해 입력한 자동차 이름에 대해서 유효성 검사와 값의 반환을 담당하는 일급 컬렉션
-        - 입력값이 영어와 한글인지 확인하는 (대문자와 소문자 영어, 한글만 가능하고 그 외의 숫자, 기호, 스페이스 바는 예외처리) `validateCarNames` 메서드
-        - 입력값에 중복된 값이 있는지 확인하는 `validateDuplicate` 메서드
-        - 입력한 값이 5자리 이하인지 확인하는 `validateRange` 메서드
-        - 입력값을 꺼낼 수 있는 `getCarNames` 메서드
-    - [x] TryCount
-        - 시도할 회수에 대한 유효성 검사와 값의 반환을 담당하는 클래스
-        - user가 입력한 값이 1 이상의 수 인지 확인하는 `validateRange` 메서드
-        - 입력값을 꺼낼 수 있는 `getTryCount` 메서드
-    - [ ] RandomNumber
-        - 전진하는 조건이 되는 번호를 생성하고 전진 여부를 판단하는 클래스
+- [x] domain Package
+    - [x] RandomNumber
+        - 전진하는 조건이 되는 번호를 생성하는 클래스
         - 전진하는 조건이 되는 번호를 생성하는 `generateNumber` 메서드
         - 전진이 가능한지 판단하는 `isMovePossible` 메서드
+        -  `validateCarNames` 메서드
+    - [x] CarStatus
+        - 자동차의 이름과 위치를 갖고 있는 클래스
+        - 객체를 생성하고 반환하는 `create` 메서드
+        - 전진이 가능한지 판단하고, 가능하다면 위치를 전진시키는 `forWard` 메서드
+        - 자동차의 이름과 위치를 Map 컬렉션으로 저장하고, 그 값을 반환하는 `getCarStatus` 메서드
+        - 들어오는 자동차 객체의 위치와 같은 위치를 가진 자동차의 이름을 반환하는 `isSamePosition` 메서드
+        - 자동차의 위치 값을 비교하는 `compareTo` 메서드
+        - 자동차의 이름을 반환하는 `getCarName` 메서드
+        - 자동차의 위치 값을 반환하는 `getPosition` 메서드
+    - [x] CarStatusGroup
+        - 자동차들의 이름을 그룹화하는 클래스
+        - 객체를 생성하고 반환하는 `create` 메서드
+        - 뽑은 랜덤한 값을 CarStatus 클래스로 보내 전진을 판단하는 `moveForward` 메서드
+        - 가장 전진을 많이 한 자동차의 위치값을 반환하는 `getMaxPosition` 메서드
+        - 가장 많은 위치를 이동한 자동차의 이름들을 반환하는 `getWinnerNames` 메서드
+        - 자동차들의 이름과 위치 그룹을 반환한는 `getCarStatusList` 메서드
+    - [x] wrapper Package
+        - [x] CarName
+            - 자동차 이름 정보를 가지고 있는 wrapper 클래스
+            - 객체를 생성하고 반환하는 `create` 메서드
+            - 입력값이 영어와 한글인지 확인하는 (대문자와 소문자 영어, 한글만 가능하고 그 외의 숫자, 기호, 스페이스 바는 예외처리) `validateCarName` 메서드
+            - 입력한 값이 5자리 이하인지 확인하는 `validateLength` 메서드
+            - 자동차 이름을 반환하는 `getCarName` 메서드
+        - [x] CarNames 
+            - 자동차 이름 정보를 List형태로 가지고 있는 wrapper 클래스   
+            - 객체를 생성하고 반환하는 `create` 메서드
+            - 입력값에 중복된 값이 있는지 확인하는 `validateDuplicate` 메서드
+            - 자동차 이름들을 반환하는 `getCarNames` 메서드
+        - [x] CarPosition
+            - 자동차 위치를 가지고 있는 wrapper 클래스
+            - 객체를 생성하고 반환하는 `create` 메서드
+            - 위치의 값을 더해주는 `addPosition` 메서드
+            - 위치 정보를 반환하는 `getPosition` 메서드
+        - [x] TryCount
+            - 시도할 횟수에 대한 유효성 검사와 값의 반환을 담당하는 wrapper 클래스
+            - 객체를 생성하고 반환하는 `create` 메서드
+            - 숫자로 변환할 수 있는 값인지 확인하는 `validateType` 메서드
+            - user가 입력한 값이 1 이상의 수 인지 확인하는 `validateRange` 메서드
+            - 시도 횟수를 반환하는 `getTryCount` 메서드
 
 
 - [x] handler Package
@@ -44,8 +77,11 @@
         - `inputTryCount` 메서드의 추상화
     - [x] OutputHandler
         - view Package의 ConsoleOutput의 확장성과 변경 용이성을 위한 인터페이스
+        - `printInputCarNameMessage` 메서드의 추상화
+        - `printInputTryCountMessage` 메서드의 추상화
+        - `printGameResultMessage` 메서드의 추상화
         - `printGameProgress` 메서드의 추상화
-        - `printGameResult` 메서드의 추상화
+        - `printFinalWinners` 메서드의 추상화
     - [x] ErrorHandler
         - Enum 클래스를 활용하여 프로그램에서 발생하는 에러 코드들을 관리하는 클래스
         - ErrorMessage와 함께 `IllegalArgumentException` 예외를 발생시키는 `getException` 메서드
@@ -53,24 +89,28 @@
         - 프로그램내의 상수들을 관리하는 클래스
 
 
-- [ ] service Package
-    - [ ] RacingCarGameService
+- [x] service Package
+    - [x] RacingCarGameService
         - 자동차 경주 게임에 대한 비즈니스 로직을 담당하는 클래스
-        - 자동차 경주 게임의 각 차수별 진행을 담당하는 `racingCarGameProgress` 메서드
-        - 자동차 경주 게임의 최종 우승자를 반환하는 `racingCarGameResult` 메서드
+        - 자동차들의 이름을 그룹화하는  `generateStatusGroup` 메서드
+        - 자동차 게임의 시도 횟수별 게임을 진행하는  `carGameProgress` 메서드
+        - 자동차의 이름과 위치 상태를 반환하는 `carGameResult` 메서드
+        - 자동차 경주 게임의 최종 우승자를 반환하는 `getWinnerNames` 메서드
 
 
-- [ ] view Package
+- [x] view Package
     - [x] ConsoleInput
         - 입력을 담당하는 클래스
         - 경주 할 자동차 이름을 입력받는다. 단, 이름은 쉼표(,) 기준으로 구분하는 `inputCarNames` 메서드 구현
-        - 시도할 회수를 입력하는 `inputTryCount` 메서드 구현
+        - 시도할 횟수를 입력하는 `inputTryCount` 메서드 구현
         - string의 입력을 List로 변환하는 `stringToList` 메서드 구현
-        - string의 입력을 int로 변환하는 `stringToInt` 메서드 구현
-    - [ ] ConsoleOutput
+    - [x] ConsoleOutput
         - 출력을 담당하는 클래스
+        - 자동차 이름 입력을 요청하는 `printInputCarNameMessage` 메서드 구현
+        - 시도할 횟수 입력을 요청하는 `printInputTryCountMessage` 메서드 구현
+        - 실행 결과를 출력하는 `printGameResultMessage` 메서드 구현
         - 각 차수별 실행 결과를 출력하는 `printGameProgress` 메서드 구현
-        - 최종 우승자를 출력하는 `printGameResult` 메서드 구현
+        - 최종 우승자를 출력하는 `printFinalWinners` 메서드 구현
 
 ---
 
@@ -78,7 +118,7 @@
 
 ## 🧪 1주차 미션 피드백과 적용 사항
 
-➡️ 2주차 미션에서는 1주차 미션에서 적용하고 싶었던 내용들을 적용해보는 시간을 가졌다.
+➡️ 2주차 미션에서는 1주차 미션에서 적용하고 싶었던 내용들을 적용해보고, 1주차 미션 후 진행한 코드 리뷰를 통해서 받았던 피드백을 적용해보는 시간을 가졌다.
 
 1. 테스트 코드는 마지막이 아닌 기능이 완성되는 경우 바로 작성을 하도록 했고 이를 통해, 놓치고 있는 예외 사항에 대해서 체크할 수 있다는 사실을 알 수 있었다. 다만 구현에 걸리는 시간이 오래 걸렸기 때문에 상황에 맞게 사용하는 것이 좋겠다는 생각을 가졌다.
 
