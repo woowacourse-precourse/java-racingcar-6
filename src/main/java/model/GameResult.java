@@ -5,12 +5,12 @@ import java.util.List;
 
 public class GameResult {
 
-    public static List<String> winner(List<Car> carList) {
+    public static List<String> winner(Participant participant) {
 
         List<String> winner = new ArrayList<>();
         int winnerGoValue = 0;
 
-        for (Car car : carList) {
+        for (Car car : participant.getParticipant()) {
             if (car.getGo() > winnerGoValue) {
                 winner.clear();
                 winnerGoValue = car.getGo();

@@ -2,6 +2,7 @@ package view;
 
 import java.util.List;
 import model.Car;
+import model.Participant;
 
 public class Output {
 
@@ -11,9 +12,9 @@ public class Output {
 
     }
 
-    public static void roundResult(List<Car> carList) {
+    public static void roundResult(Participant participant) {
 
-        for (Car car : carList) {
+        for (Car car : participant.getParticipant()) {
             System.out.print(car.getName() + " : ");
 
             for (int i = 0; i < car.getGo(); i++) {

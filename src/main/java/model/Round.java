@@ -1,7 +1,6 @@
 package model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 
 public class Round {
 
@@ -9,9 +8,9 @@ public class Round {
     private static final int MAXIMUM_VALUE = 9;
     private static final int BASE_NUMBER = 4;
 
-    public static void play(List<Car> carList) {
+    public static void play(Participant participant) {
 
-        for (Car car : carList) {
+        for (Car car : participant.getParticipant()) {
 
             if (makeRandomValue() >= BASE_NUMBER) {
                 car.add();
