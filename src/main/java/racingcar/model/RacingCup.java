@@ -26,16 +26,12 @@ public class RacingCup {
         this.topPlayerCompletedRound = round;
     }
 
-    public int getTOTAL_ROUNDS() {
-        return TOTAL_ROUNDS;
-    }
-
-    public int getNowRound() {
-        return nowRound;
-    }
-
-    public void setNowRound(int nowRound) {
-        this.nowRound = nowRound;
+    public boolean nextRound() {
+        if(nowRound < TOTAL_ROUNDS) {
+            this.nowRound++;
+            return true;
+        }
+        return false;
     }
 
     public List<Player> getPlayerList() {

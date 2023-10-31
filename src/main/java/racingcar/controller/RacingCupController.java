@@ -20,12 +20,7 @@ public class RacingCupController {
     }
 
     public boolean nextRound() {
-        int round = this.racingCup.getNowRound();
-        if (round < this.racingCup.getTOTAL_ROUNDS()) {
-            this.racingCup.setNowRound(round + 1);
-            return true;
-        }
-        return false;
+        return racingCup.nextRound();
     }
 
     public int playerSize() {
