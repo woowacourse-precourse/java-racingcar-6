@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.service.MovementStrategy;
-import racingcar.service.MovementStrategyFactory;
+import racingcar.model.movement.MovementStrategy;
+import racingcar.model.movement.MovementStrategyFactory;
 
 class RaceResultTest {
     private MovementStrategy movementStrategy;

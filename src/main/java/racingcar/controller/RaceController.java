@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Cars;
 import racingcar.model.RaceResult;
-import racingcar.service.MovementStrategy;
-import racingcar.service.MovementStrategyFactory;
+import racingcar.model.movement.MovementStrategy;
+import racingcar.model.movement.MovementStrategyFactory;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

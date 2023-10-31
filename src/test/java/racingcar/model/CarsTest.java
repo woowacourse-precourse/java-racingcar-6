@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.service.StubMovementStrategy;
+import racingcar.model.movement.StubRandomMovementStrategy;
 
 class CarsTest {
 
@@ -15,10 +15,10 @@ class CarsTest {
 
     @BeforeEach
     void setUP() {
-        Car car1 = new Car("goCar1", 0, new StubMovementStrategy(4));
-        Car car2 = new Car("stopCar1", 0, new StubMovementStrategy(3));
-        Car car3 = new Car("stopCar2", 0, new StubMovementStrategy(2));
-        Car car4 = new Car("goCar2", 0, new StubMovementStrategy(6));
+        Car car1 = new Car("goCar1", 0, new StubRandomMovementStrategy(4));
+        Car car2 = new Car("stopCar1", 0, new StubRandomMovementStrategy(3));
+        Car car3 = new Car("stopCar2", 0, new StubRandomMovementStrategy(2));
+        Car car4 = new Car("goCar2", 0, new StubRandomMovementStrategy(6));
 
         cars = new Cars(Arrays.asList(car1, car2, car3, car4));
     }
@@ -27,7 +27,7 @@ class CarsTest {
     void toList_불변리스트_반환_테스트() {
         List<Car> carList = cars.toList();
         assertThatThrownBy(
-            () -> carList.add(new Car("d", 0, new StubMovementStrategy(1)))).isInstanceOf(
+            () -> carList.add(new Car("d", 0, new StubRandomMovementStrategy(1)))).isInstanceOf(
             UnsupportedOperationException.class);
     }
 

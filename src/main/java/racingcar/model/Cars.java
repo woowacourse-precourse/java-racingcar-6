@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.service.MovementStrategy;
+import racingcar.model.movement.MovementStrategy;
 
 public class Cars {
 
