@@ -1,10 +1,12 @@
 package racingcar.validator;
 
+import racingcar.constants.ValidatorConstant;
+
 public class TotalRoundValidator implements Validator {
     @Override
     public void validate(String totalRound) {
         if (isBlank(totalRound) || isNotNumeric(totalRound)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ValidatorConstant.TotalRoundErrorMessage);
         }
     }
 

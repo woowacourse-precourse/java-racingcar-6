@@ -6,7 +6,7 @@ public class CarValidator implements Validator {
     @Override
     public void validate(String name) {
         if (isBlank(name) || isValidCarNameLength(name)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ValidatorConstant.carNameErrorMessage);
         }
     }
 
