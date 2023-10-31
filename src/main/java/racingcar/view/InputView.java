@@ -19,6 +19,7 @@ public class InputView {
     public int getMoveCountsInput() {
         System.out.println("시도할 회수는 몇회인가요?");
         String MoveCountsInput = Console.readLine();
+        carInputValidation.validateMoveCountsInput(MoveCountsInput);
         return Integer.parseInt(MoveCountsInput);
     }
 }
