@@ -12,7 +12,11 @@ public class Racing {
                 .toList();
     }
 
-    List<Car> participant;
+    public Racing(List<Car> cars) {
+        this.participant = cars;
+    }
+
+    private final List<Car> participant;
 
     public void drive(Car car) {
         car.go(createMovePoint());
@@ -38,5 +42,9 @@ public class Racing {
                 .stream()
                 .map(Car::getName)
                 .toList();
+    }
+
+    public List<Car> getParticipant() {
+        return participant;
     }
 }

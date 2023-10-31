@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 
-public class MyTest {
+public class LogicTest {
     @Test
     void 문자열이_5보다_클때() {
-        assertThatThrownBy(() -> {
-            Car car = new Car("sdfsdfsd"); })
-                .isInstanceOf(IllegalArgumentException.class);
+    assertThatThrownBy(() -> {
+        Car car = new Car("sdfsdfsd"); })
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
