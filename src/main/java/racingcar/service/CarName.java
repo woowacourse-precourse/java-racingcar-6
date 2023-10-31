@@ -16,8 +16,8 @@ public class CarName {
         for (String car : splitCars) {
             splitCarList.add(car);
         }
-        System.out.println(splitCarList);
         return splitCarList;
+
     }
 
     public List<String> range() {
@@ -25,9 +25,11 @@ public class CarName {
         for (String range : splitCarList) {
             if (range.length() <= 5) {
                 rangeCarList.add(range);
+            } else{
+                throw new IllegalArgumentException();
             }
         }
-        System.out.println(rangeCarList);
+
         return rangeCarList;
     }
 }

@@ -7,11 +7,10 @@ import racingcar.controller.Car;
 public class CarCreator {
 
 
-
-    public static List<Car> createCars(CarName carName, int length){
+    public List<Car> createCars(List<String> rangeCarList, int length) {
         List<Car> cars = new ArrayList<>();
-        for (String name:carName.rangeCarList){
-            cars.add(new Car(name,length));
+        for (String name : rangeCarList) {
+            cars.add(new Car(name, length));
         }
         return cars;
 
