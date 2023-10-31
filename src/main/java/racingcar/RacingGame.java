@@ -1,17 +1,15 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RacingGame {
 
     private GameSetting gameSetting = new GameSetting();
     private ScriptHandler scriptHandler = new ScriptHandler();
-    private GameController gameController = new GameController();
+    private Judgement judgement = new Judgement();
     private ArrayList<Car> cars;
     private ArrayList<String> winnerList = new ArrayList<>();
-    private int attemptNumber, carNumber, carMoveMent, randomNumber, updateCarValue;
-    private String carName;
+    private int attemptNumber, carNumber;
 
     public void GameStart() {
         scriptHandler.printGetCarNameScript();
@@ -33,31 +31,8 @@ public class RacingGame {
             }
             System.out.println();
         }
-        checkWinner();
+        winnerList = judgement.checkWinner(cars);
         printWinner();
-    }
-
-    public void checkWinner() {
-        int furthestMovement = findFurthestMovement();
-        for (int i = 0; i < cars.size(); i++) {
-            carName = gameController.getCarName(i);
-            carMoveMent = gameController.getCarMoveForward(carName);
-            if (carMoveMent == furthestMovement) {
-                winnerList.add(carName);
-            }
-        }
-    }
-
-    public int findFurthestMovement() {
-        int max = -1;
-        for (int i = 0; i < cars.size(); i++) {
-            carName = gameController.getCarName(i);
-            carMoveMent = gameController.getCarMoveForward(carName);
-            if (carMoveMent > max) {
-                max = carMoveMent;
-            }
-        }
-        return max;
     }
 
     public void printWinner() {

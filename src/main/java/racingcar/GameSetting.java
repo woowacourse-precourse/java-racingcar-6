@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class GameSetting {
 
     public InputDataHandler inputDataHandler = new InputDataHandler();
-    private HashMap<String, Integer> cars;
     private String[] carNames;
     private ArrayList<Car> carArray = new ArrayList<>();
     private int attemptNumber;
