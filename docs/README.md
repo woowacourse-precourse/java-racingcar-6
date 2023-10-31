@@ -75,8 +75,13 @@
   - 랜덤한 값을 생성하여 자동차의 전진 또는 정지를 정함
 </br></br>
 - InputManager
-  - 입력받은 게임 진행 횟수를 처리
+  - InputCars와 InputProgressCount를 관리
+</br></br>
+- InputCars
   - 입력받은 자동차를 처리 -> Cars로 관리
+</br></br>
+- InputProgressCount
+  - 입력받은 게임 진행 횟수를 처리
 </br></br>
 - Cars
   - 입력받은 자동차들을 한 번에 관리하기 위함
@@ -85,8 +90,8 @@
   
 ### View
 - InputView
-  - 사용자에게 게임 진행 시간을 입력받아 InputManager에게 전달
-  - 사용자에게 자동차를 입력받아 InputManager에게 전달
+  - 사용자에게 자동차를 입력받아 InputCars에게 전달
+  - 사용자에게 게임 진행 시간을 입력받아 InputProgressCount에게 전달
 </br></br>
 - OutputView
   - GameController에서 전달된 경기 내용을 출력
@@ -107,20 +112,23 @@
 -----
 - 자동차를 관리하는 Cars 클래스 추가
   - 자동차 객체 Car를 한 번에 관리하는 클래스를 생성해야하는 필요성을 느낌
-
+</br></br>
 - 자동차 이름이 중복되는 경우 예외 발생
   - 동일한 자동차를 존재하지 않는다는 가정을 하고 구현하려고 했으나, 만약 존재할 경우 Unique한 식별이 없으면 Car 객체를 관리할 수 없다 판단하여 추가
-
+</br></br>
 -  CarService의 필요성이 없어짐
-  - CarService에서 사용할 로직이 모두 Model 객체에서 처리할 수 있을 것이라 판단
-  - ~~추후 리팩토링 과정에서 다시 생각하기~~ -> 고려하지 않는다.
-
+   - CarService에서 사용할 로직이 모두 Model 객체에서 처리할 수 있을 것이라 판단
+   - ~~추후 리팩토링 과정에서 다시 생각하기~~ -> 고려하지 않는다.
+</br></br>
 - 게임 진행 횟수가 숫자가 아닌 영어로 입력될 수도 있다.
     - 정규 표현식을 이용하여 예외 발생
-
+</br></br>
 - InputController의 필요성이 없어짐
   - InputManager로만 처리가 가능하다.
-
-- 우승자를 선택하는 로직이 GameService -> Cars로 책임 변경 
-
+</br></br>
+- 우승자를 선택하는 로직이 GameService -> Cars로 책임 변경
+</br></br>
 - 기존에는 OutputView에서 CarController를 통해 값을 받아 진행하려 했으나, 어플리케이션의 범위가 작아 GameController 하나로 통제
+</br></br>
+- 하나의 InputManager에서 두 개의 InputCars, InputTryCount로 나눠서 입력받고 생성자로 InputManager 생성
+  - 하나의 InputManager로 관리하고 싶었으나, 자동차 입력과 게임 진행 횟수를 모두 입력해야 에외를 발생시킬 수 있는 문제 때문에 두 개의 Class로 분리
