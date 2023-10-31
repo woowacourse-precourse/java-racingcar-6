@@ -1,8 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class RacingGame {
@@ -78,5 +80,31 @@ public class RacingGame {
         if (round <= 0) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private void printWinner(List<Car> cars) {
+        StringBuilder result = new StringBuilder();
+        result.append(String.join(",", getWinnerNames(cars)));
+        result.append("가 최종 우승했습니다.");
+        System.out.println(result);
+    }
+
+    private List<String> getWinnerNames(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = Integer.MIN_VALUE;
+
+        for (Car car : cars) {
+            int position = car.getPosition();
+
+            if (position > maxPosition) {
+                maxPosition = position;
+                winners.clear();
+                winners.add(car.getName());
+            }
+            if (position == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 }
