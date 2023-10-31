@@ -5,6 +5,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.domain.util.ErrorMessage;
@@ -70,6 +72,20 @@ class CarInputViewTest {
             assertThrows(IllegalArgumentException.class,
                     carInputView::getTryCount,
                     TRY_COUNT_IS_NOT_DIGIT.getErrorMessage());
+
+            consoleMockedStatic.close();
+        }
+
+        @Test
+        @DisplayName("시도 횟수 입력이 0인 경우 예외를 발생시켜야 한다")
+        public void 시도_횟수_입력이_0인_경우_예외를_발생시켜야_한다() {
+            CarInputView carInputView = new CarInputView();
+            MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+            when(Console.readLine()).thenReturn("0");
+
+            assertThrows(IllegalArgumentException.class,
+                    carInputView::getTryCount,
+                    TRY_COUNT_IS_ZERO.getErrorMessage());
 
             consoleMockedStatic.close();
         }
