@@ -15,7 +15,7 @@ public final class View {
         printlnMessage(CAR_NAMES_REQUEST_MESSAGE);
         String userInput = readLine();
         Validator.validateInvalidDelimiter(userInput);
-        return readLine();
+        return userInput;
     }
 
     public static String requestCount() {
@@ -75,7 +75,7 @@ public final class View {
         }
 
         /* validate requestCount() */
-        public static void validateNumberInput(final String userInput) {
+        private static void validateNumberInput(final String userInput) {
             if (isNotNumber(userInput)) {
                 throw RaceException.of(ErrorMessage.INVALID_COUNT_FORMAT);
             }
@@ -85,7 +85,7 @@ public final class View {
             return !userInput.matches("\\d+");
         }
 
-        public static void validateRange(final String userInput) {
+        private static void validateRange(final String userInput) {
             if (isLessThanMinCount(userInput)) {
                 throw RaceException.of(ErrorMessage.INVALID_COUNT_RANGE);
             }
