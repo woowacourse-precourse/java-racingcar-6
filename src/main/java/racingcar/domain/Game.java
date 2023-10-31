@@ -6,15 +6,20 @@ public class Game {
     private final int playCountEnd;
     private final List<Car> cars;
     private int playCount = 0;
-    public Game(List<Car> cars, int playCount) {
+    public Game(List<Car> cars, int playCountEnd) {
         this.cars = cars;
-        this.playCountEnd = playCount;
+        this.playCountEnd = playCountEnd;
     }
 
     public List<Car> getCars() {
         return cars;
     }
 
+    public void incresePlayCount(){
+        this.playCount++;
+    }
 
-
+    public boolean checkEndPlayCount(){
+        return this.playCount == this.playCountEnd;
+    }
 }
