@@ -1,7 +1,10 @@
 package racingcar.model;
 
+import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_UNIQUE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Cars {
@@ -16,9 +19,10 @@ public class Cars {
     }
 
     public static Cars createCars(List<String> carNames) {
+        validateCarNamesUnique(carNames);
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            cars.add(Car.createCar(carName));
+            cars.add(Car.createCar(carName.trim()));
         }
         return new Cars(cars);
     }
@@ -47,6 +51,12 @@ public class Cars {
             maxDistance = Math.max(maxDistance, car.getDistance());
         }
         return maxDistance;
+    }
+
+    private static void validateCarNamesUnique(List<String> carNames) {
+        if (carNames.size() != new HashSet<>(carNames).size()) {
+            throw new IllegalArgumentException(ERROR_CAR_NAMES_UNIQUE.getErrorMessage());
+        }
     }
 
     private int generateRandomNumber() {
