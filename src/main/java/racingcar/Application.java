@@ -8,6 +8,13 @@ public class Application {
         // TODO: 프로그램 구현
         ApplicationContext context = new ApplicationContext();
         RacingGameController controller = context.racingGameController();
-        controller.run();
+
+        try {
+            controller.run();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        } finally {
+            context.consoleService().close();
+        }
     }
 }

@@ -37,7 +37,7 @@ public class ApplicationContext {
         return new DefaultRandomService();
     }
 
-    private ConsoleService consoleService() {
+    public ConsoleService consoleService() {
         return new DefaultConsoleService();
     }
 }

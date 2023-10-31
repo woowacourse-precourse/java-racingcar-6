@@ -34,6 +34,7 @@
 
 * `Application`
     * [x] : 레이싱 카 경주를 시작한다.
+    * [x] : 자동차 게임이 종료되면 Console 리소스를 반환한다.
 
 * `ApplicationContext`
     * [x] : Application이 실행되면, 객체들을 조립한다.
