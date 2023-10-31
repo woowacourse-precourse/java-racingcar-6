@@ -12,7 +12,7 @@ public class RacingGameController {
     private ValidatePlayerInput validatePlayerInput;
     private RacingGameService racingGameService;
     private List<String> carNames;
-    private int parsedTryCount;
+    private int raceCount;
 
     public RacingGameController() {
         this.racingGameView = new RacingGameView();
@@ -21,32 +21,24 @@ public class RacingGameController {
     }
 
     public void validatePlayerInputLine() {
-        racingGameView.startMessage();
-        String inputLine = getInputLine();
+        racingGameView.raceStartMessage();
+        String carNamesInputLine = getInputLine();
 
-        validatePlayerInput.convertStringToArray(inputLine);
-        validatePlayerInput.validateContainSpace(inputLine);
-        validatePlayerInput.validateNotContainCarName();
-        validatePlayerInput.validateCarNameLength();
-        validatePlayerInput.validateDuplicateCarNames();
-        validatePlayerInput.validateAlphaCarName();
+        this.carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
 
-        this.carNames = validatePlayerInput.convertStringToListCarNames();
+        racingGameView.raceCountMessage();
+        String raceCountInputLine = getInputLine();
 
-        racingGameView.tryCountMessage();
-        String tryCountInputLine = getInputLine();
-        validatePlayerInput.validatePlayerTryCountInput(tryCountInputLine);
-
-        this.parsedTryCount = Integer.parseInt(tryCountInputLine);
+        this.raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
     }
 
     public void play() {
         racingGameService.readyToPlay(carNames);
 
-        racingGameView.gameResultMessage();
+        racingGameView.raceResultMessage();
 
-        String result = racingGameService.getAllRaceResult(parsedTryCount);
-        racingGameView.gameResults(result);
+        String raceResult = racingGameService.allRacePlay(raceCount);
+        racingGameView.raceResults(raceResult);
 
         String winners = racingGameService.getWinners();
         racingGameView.gameWinners(winners);

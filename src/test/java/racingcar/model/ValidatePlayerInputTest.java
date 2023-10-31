@@ -115,7 +115,7 @@ class ValidatePlayerInputTest {
         //given
         String tryInput = "2 1";
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validatePlayerTryCountInput(tryInput))
+        assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(tryInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주시길 바랍니다");
     }
@@ -128,7 +128,7 @@ class ValidatePlayerInputTest {
         //given
         String tryInput = "2,1";
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validatePlayerTryCountInput(tryInput))
+        assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(tryInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주시길 바랍니다");
     }
@@ -142,10 +142,10 @@ class ValidatePlayerInputTest {
         String containKorean = "2ㅁ";
         String containEnglish = "4d";
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validatePlayerTryCountInput(containKorean))
+        assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(containKorean))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주시길 바랍니다");
-        assertThatThrownBy(() -> validatePlayerInput.validatePlayerTryCountInput(containEnglish))
+        assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(containEnglish))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주시길 바랍니다");
     }
@@ -159,10 +159,10 @@ class ValidatePlayerInputTest {
         String containAt = "2@";
         String containSemiColon = "4;";
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validatePlayerTryCountInput(containAt))
+        assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(containAt))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주시길 바랍니다");
-        assertThatThrownBy(() -> validatePlayerInput.validatePlayerTryCountInput(containSemiColon))
+        assertThatThrownBy(() -> validatePlayerInput.validateDigitRaceCount(containSemiColon))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주시길 바랍니다");
     }

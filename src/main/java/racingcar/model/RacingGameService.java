@@ -35,7 +35,7 @@ public class RacingGameService {
         return winners;
     }
 
-    public String getAllRaceResult(final int raceCount) {
+    public String allRacePlay(final int raceCount) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < raceCount; i++) {

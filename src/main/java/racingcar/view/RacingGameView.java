@@ -1,23 +1,20 @@
 package racingcar.view;
 
-import racingcar.model.RacingCar;
-import java.util.List;
-
 public class RacingGameView {
 
-    public void startMessage() {
+    public void raceStartMessage() {
         System.out.println(GameMessage.START_MESSAGE.getStartMessage());
     }
 
-    public void tryCountMessage() {
+    public void raceCountMessage() {
         System.out.println(GameMessage.REQUEST_TRY_MESSAGE.getRequestTryMessage());
     }
 
-    public void gameResultMessage() {
+    public void raceResultMessage() {
         System.out.println(GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
     }
 
-    public void gameResults(String gameResult) {
+    public void raceResults(String gameResult) {
         System.out.println(gameResult);
     }
 
