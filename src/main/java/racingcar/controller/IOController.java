@@ -1,15 +1,18 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.GameRuleValidator;
 import racingcar.view.IOView;
 
 public final class IOController {
     private final IOView ioView;
+    InputValidator inputValidator;
 
     public IOController() {
         this.ioView = new IOView();
+        inputValidator = new InputValidator();
     }
 
     public void showIntroMessage() {
@@ -22,41 +25,34 @@ public final class IOController {
         ioView.showSingleMessage(askRoundMessage);
     }
 
-    public String getUserRequest() {
-        return ioView.getUserRequest();
-    }
-
     public Integer getRoundNumber() {
-        String userInput = getUserRequest();
-        // validate
-        //1. is numver
-        //2. is number given singe ?
+        String userInput = ioView.readUserInput();
+        inputValidator.validateSingleNumber(userInput);
         return Integer.parseInt(userInput);
     }
 
     public List<String> getCarNames() {
-        String userInput = getUserRequest();
-        //validate
-        //validate it contains with ,
-        List<String> carNames = Arrays.asList(userInput.split(","));
-        //check duplicate name
-        //check is name is eng
-        // check is namae is lang  5
-        carNames.stream().map(name -> {
-            Car.validateName(name);
-            return name;
-        }).toList();
+        String userInput = ioView.readUserInput();
+        List<String> carNames = parseIntoCarNames(userInput);
+        GameRuleValidator.validateNames(carNames);
         return carNames;
     }
 
-    public void showRoundResult(List<String> message) {
+    private List<String> parseIntoCarNames(final String givenInput) {
+        String delimiter = ",";
+        inputValidator.validateNamesByDelimiter(givenInput, delimiter);
+        return Arrays.asList(givenInput.split(delimiter));
+    }
+
+    public void showRoundResult(final List<String> message) {
         ioView.showMessages(message);
     }
 
-    public void showWinner(List<String> message) {
+    public void showWinner(final List<String> message) {
         String winnerHeadMessage = "최종 우승자 : ";
         ioView.showHeadMessage(winnerHeadMessage);
-        String winnerNames = message.toString().replace("[", "").replace("]", "");
+        String winnerNames = message.toString().replace("[", "")
+                .replace("]", "");
         ioView.showSingleMessage(winnerNames);
     }
 }
