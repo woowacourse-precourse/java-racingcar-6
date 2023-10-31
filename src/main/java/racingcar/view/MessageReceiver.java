@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static racingcar.constant.ExceptionConstant.*;
 import static racingcar.constant.NumberConstant.*;
 import static racingcar.constant.TextConstant.COMMA;
 
@@ -36,7 +37,7 @@ public class MessageReceiver {
     private void validateLength(final List<String> carNames) {
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_NAME_SIZE) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION);
             }
         }
     }
@@ -45,14 +46,13 @@ public class MessageReceiver {
         Set<String> carNameSet = new HashSet<>(carNames);
 
         if (carNames.size() != carNameSet.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATION_EXCEPTION);
         }
     }
 
-
     private void validateAttemptCount(final int attemptCount) {
         if (attemptCount < MIN_ATTEMPT_COUNT) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ATTEMPT_COUNT_EXCEPTION);
         }
     }
 }
