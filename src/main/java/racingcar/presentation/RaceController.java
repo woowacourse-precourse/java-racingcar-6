@@ -1,16 +1,13 @@
 package racingcar.presentation;
 
-import static racingcar.global.constants.MessageType.CAR_NAME_REQUEST_MESSAGE;
 import static racingcar.global.constants.MessageType.FINAL_RESULT_MESSAGE;
 import static racingcar.global.constants.MessageType.RESULT_MESSAGE;
 import static racingcar.global.constants.MessageType.TOTAL_COUNT_REQUEST_MESSAGE;
-import static racingcar.global.constants.SymbolType.*;
 
 import java.util.List;
 import racingcar.application.RaceService;
 import racingcar.domain.Cars;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.view.View;
 
 public class RaceController {
     private final RaceService raceService;
@@ -20,8 +17,7 @@ public class RaceController {
     }
 
     public void startRace() {
-        OutputView.printlnMessage(CAR_NAME_REQUEST_MESSAGE.getMessage());
-        Cars cars = raceService.generateCars(InputView.readCarNames());
+        Cars cars = raceService.generateCars(View.requestCarNames());
         OutputView.printlnMessage(TOTAL_COUNT_REQUEST_MESSAGE.getMessage());
         Integer count = raceService.generateCount(InputView.readInput());
         play(cars, count);
