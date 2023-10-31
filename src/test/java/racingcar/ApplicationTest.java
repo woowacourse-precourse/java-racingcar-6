@@ -31,7 +31,6 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
-
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
@@ -39,6 +38,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
 
     @Test
     void insertTestData(){
@@ -61,7 +61,14 @@ class ApplicationTest extends NsTest {
         gameMember.setHs(inputValidator.toValidateData(input));
 
         assertThat(gameMember.getHs().get(input)).isEqualTo("");
+        assertThat(gameMember.getHs().size()).isEqualTo(1);
+    }
 
+    @Test
+    void wrongNameTest(){
+        String input = "김김덩동휘휘";
+        assertThatThrownBy(() -> gameMember.setHs(inputValidator.toValidateData(input)))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override
