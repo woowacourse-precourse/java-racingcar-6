@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.position.Position;
@@ -12,24 +11,8 @@ public class OutputView {
         System.out.println(resolveRoundResultMessage(cars));
     }
 
-    public void showGameResult(List<Car> cars) {
-        List<Car> winners = getWinners(cars);
+    public void showGameResult(List<Car> winners) {
         System.out.println(resolveWinnerMessage(winners));
-    }
-
-    private List<Car> getWinners(List<Car> cars) {
-        Position furthestPosition = getFurthestPosition(cars);
-        return cars.stream()
-                .filter(car -> car.getPosition().equals(furthestPosition))
-                .collect(Collectors.toList());
-    }
-
-
-    private Position getFurthestPosition(List<Car> cars) {
-        return cars.stream()
-                .map(Car::getPosition)
-                .max(Position::compareTo)
-                .orElseThrow(NoSuchElementException::new);
     }
 
     private String resolveWinnerMessage(List<Car> winners) {

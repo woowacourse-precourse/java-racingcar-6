@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Referee;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
 
@@ -50,8 +51,8 @@ class OutputViewTest {
         );
 
         String expectedOutput = "최종 우승자 : car2,car3";
-
-        outputView.showGameResult(cars);
+        Referee referee = new Referee();
+        outputView.showGameResult(referee.selectWinners(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 
@@ -65,8 +66,8 @@ class OutputViewTest {
         );
 
         String expectedOutput = "최종 우승자 : car2";
-
-        outputView.showGameResult(cars);
+        Referee referee = new Referee();
+        outputView.showGameResult(referee.selectWinners(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 }

@@ -11,10 +11,12 @@ public class RacingGame {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final Referee referee;
 
-    public RacingGame(InputView inputView, OutputView outputView) {
+    public RacingGame(InputView inputView, OutputView outputView, Referee referee) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.referee = referee;
     }
 
     public void run() {
@@ -27,7 +29,8 @@ public class RacingGame {
             executeRound(cars);
             roundCount.consumeRound();
         }
-        outputView.showGameResult(cars);
+        List<Car> winners = referee.selectWinners(cars);
+        outputView.showGameResult(winners);
     }
 
 
