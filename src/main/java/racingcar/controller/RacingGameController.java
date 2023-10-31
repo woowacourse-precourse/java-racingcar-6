@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.controller.mapper.CarNameMapper;
+import racingcar.model.Car;
 import racingcar.model.vo.CarName;
 import racingcar.validation.NameValidator;
 
@@ -16,14 +17,15 @@ public class RacingGameController {
     }
 
     public void setCarName(String carNames) {
+        // validate has comma
+        nameValidator.validate(carNames);
         // convert String to CarName
         List<CarName> carNameGroup = carNameMapper.toCarName(carNames);
-        // validate
+        // validate & make Car
         for (CarName name : carNameGroup) {
             nameValidator.validate(name);
+            Car.make(name);
         }
-        // make Car
-
     }
 
     public void setAttempts(String attempts) {
