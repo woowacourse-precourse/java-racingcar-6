@@ -35,14 +35,31 @@ public class TestConstants {
 
     // Valid Constants for Car Test
     public static final String TEST_CAR_NAME = "Alice";
-    public static final String MOVING_FOUR = "4";
-    public static final String MOVING_NINE = "9";
-    public static final String STOP_ZERO = "0";
-    public static final String STOP_THREE = "3";
     public static final String POSITION_ZERO = "0";
     public static final String POSITION_ONE = "1";
+
+    // Valid Constants for Moving Car
+    public static final int STOP_ZERO = 0;
+    public static final int STOP_ONE = 1;
+    public static final int STOP_TWO = 2;
+    public static final int STOP_THREE = 3;
+    public static final int MOVING_FOUR = 4;
+    public static final int MOVING_FIVE = 5;
+    public static final int MOVING_NINE = 9;
 
     // Invalid Constants for Car Test
     public static final String MOVING_NEGATIVE = "-1";
     public static final String MOVING_TEN = "10";
+
+
+    // Valid Constants for System Test
+    public static final String ONE_CAR = "1";
+    public static final String THREE_CARS = "3";
+    public static final String FIRST_PLAYER = "Alice";
+    public static final String SECOND_PLAYER = "Bob";
+    public static final String THIRD_PLAYER = "Crong";
+    public static final String TWO_WINNERS_WHEN_PLAY_ONE_TIME =
+            String.join(", ", List.of(FIRST_PLAYER, SECOND_PLAYER));
+    public static final String TWO_WINNERS_WHEN_PLAY_FIVE_TIMES =
+            String.join(", ", List.of(FIRST_PLAYER, THIRD_PLAYER));
 }
