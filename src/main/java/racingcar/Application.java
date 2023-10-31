@@ -15,6 +15,6 @@ public class Application {
         Race race = createRaceFromInput();
         List<Position> racingGames = updatePositions(race);
         Winners winners = createWinners(racingGames, race.tryValue());
-        winners.getWinnersList();
+        winners.printWinners();
     }
 }
