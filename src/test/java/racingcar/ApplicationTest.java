@@ -39,6 +39,14 @@ class ApplicationTest extends NsTest {
         assertThat(list).contains("Garen");
     }
 
+    @Test
+    void 자동차_이름의_길이가_5보다_긴_경우에_대한_예외_처리(){
+        String input = "Garen,Galio,Gangplank,Gragas";
+        assertThatThrownBy(() -> Application.carNameSplit(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름의 길이가 5보다 깁니다.");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
