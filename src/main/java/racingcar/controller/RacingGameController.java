@@ -1,41 +1,55 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.Round;
+import racingcar.domain.RacingRound;
+import racingcar.util.Constants;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
     private Cars cars;
-    private Round round;
+    private RacingRound racingRound;
 
-    public RacingGameController(){
+    public RacingGameController() {
     }
 
     public void playGame() {
+        init();
         playRound();
         showWinners();
     }
 
-    public void playRound() {
+    private void init() {
         cars = new Cars(InputView.inputNames());
-        round = new Round(InputView.inputRound());
+        racingRound = new RacingRound(InputView.inputRound());
+    }
 
+    private void playRound() {
         OutputView.printExecutionResultMessage();
 
-        IntStream.range(0, round.round)
+        IntStream.range(0, racingRound.getRound())
                 .forEach(i -> runRound());
     }
 
     private void runRound() {
-        cars.getCarList().forEach(Car::moveForward);
-        cars.getCarList().forEach(OutputView::printCarNameAndPosition);
-        System.out.println();
+        List<Car> carList = cars.getCarList();
+
+        carList.forEach(car -> {
+            int randomNumber = Randoms.pickNumberInRange(Constants.MIN_INPUT_RANGE, Constants.MAX_INPUT_RANGE);
+            car.moveForward(randomNumber);
+        });
+
+        carList.forEach(OutputView::printCarNameAndPosition);
+
+        OutputView.printBlankLine();
     }
 
     private void showWinners() {
-        OutputView.printWinners(cars.getWinners());
+        List<String> winners = cars.findWinners();
+        OutputView.printWinners(winners);
     }
 }
