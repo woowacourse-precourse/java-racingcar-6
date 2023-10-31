@@ -24,4 +24,18 @@ public class InputValidation {
             throw new IllegalArgumentException();
         }
     }
+
+    public void validateRound(String userInput) {
+        if (userInput.charAt(0) == '0') {
+            throw new IllegalArgumentException();
+        }
+
+        String[] inputs = userInput.split("");
+
+        for (String letter : inputs) {
+            if (letter.charAt(0) < '0' || letter.charAt(0) > '9') {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }
