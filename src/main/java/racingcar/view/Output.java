@@ -9,19 +9,19 @@ public class Output {
     private Output() {
     }
 
-    public static String nameInputMessage() {
-        return NAME_INPUT;
+    public static void nameInputMessage() {
+        System.out.println(NAME_INPUT);
     }
 
-    public static String attemptInputMessage() {
-        return ATTEMPT_INPUT;
+    public static void attemptInputMessage() {
+        System.out.println(ATTEMPT_INPUT);
     }
 
-    public static String attemptResultMessage() {
-        return ATTEMPT_RESULT;
+    public static void attemptResultMessage() {
+        System.out.println(ATTEMPT_RESULT);
     }
 
-    public static String winnerMessage() {
-        return WINNER;
+    public static void winnerMessage() {
+        System.out.println(WINNER);
     }
 }
