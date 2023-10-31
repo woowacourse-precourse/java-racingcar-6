@@ -18,7 +18,7 @@ public class Car {
         return location;
     }
 
-    protected void addLocation(){
+    private void addLocation(){
         this.location++;
     }
 
