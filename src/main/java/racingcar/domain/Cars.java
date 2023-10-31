@@ -51,8 +51,8 @@ public class Cars {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public List<String> getWinningCarNames() {
-        Car winnerCar = findWinnerCar();
+    public List<String> findWinningCarNames() {
+        Car winnerCar = findWinningCar();
 
         return cars.stream()
                 .filter(car -> car.isEqualPosition(winnerCar))
@@ -60,7 +60,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    private Car findWinnerCar() {
+    private Car findWinningCar() {
         return cars.stream()
                 .max(Car::compareTo)
                 .orElseThrow(() -> new IllegalArgumentException(NO_WINNER));

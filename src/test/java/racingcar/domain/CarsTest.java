@@ -87,7 +87,7 @@ class CarsTest {
         cars.moveAll();
 
         // when
-        List<String> winningCarNames = cars.getWinningCarNames();
+        List<String> winningCarNames = cars.findWinningCarNames();
 
         // then
         assertThat(names.containsAll(winningCarNames)).isTrue();

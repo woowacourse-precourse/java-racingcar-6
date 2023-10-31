@@ -30,6 +30,6 @@ public class CarGame {
     }
 
     public CarDTO.WinnerNames getWinner() {
-        return new CarDTO.WinnerNames(cars.getWinningCarNames());
+        return new CarDTO.WinnerNames(cars.findWinningCarNames());
     }
 }
