@@ -17,28 +17,19 @@ public class InputSystem {
 
     public void inputCarName(List<Car> cars) {
         String input = write(INPUT_CAR_SENTENCE);
-        try {
-            checkValidName(input, cars);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        checkValidName(input, cars);
     }
 
     public int inputTryCount() {
         String input = write(INPUT_CNT_SENTENCE);
-        try{
-            checkNumber(input);
-            return Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return -1;
-        }
+        checkNumber(input);
+        return Integer.parseInt(input);
     }
 
     public void checkValidName(String input, List<Car> cars) {
         String[] nameArray = input.split(SEPARATOR, -1);
-        for(String name:nameArray){
-            if(isInvalidName(name, cars)) {
+        for (String name : nameArray) {
+            if (isInvalidName(name, cars)) {
                 throw new IllegalArgumentException();
             }
             cars.add(new Car(name));
@@ -46,7 +37,7 @@ public class InputSystem {
     }
 
     public void checkNumber(String input) {
-        if(!isNumber(input) || !isUnderMax(input)) {
+        if (!isNumber(input) || !isUnderMax(input)) {
             throw new IllegalArgumentException();
         }
     }
@@ -58,8 +49,8 @@ public class InputSystem {
     }
 
     private boolean isDuplicated(String name, List<Car> cars) {
-        for(Car car: cars) {
-            if(name.equals(car.getName())){
+        for (Car car : cars) {
+            if (name.equals(car.getName())) {
                 return true;
             }
         }

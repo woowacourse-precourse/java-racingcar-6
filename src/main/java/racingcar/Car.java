@@ -24,7 +24,7 @@ public class Car {
     }
 
     public void go(int random) {
-        if(isBigger(random)) {
+        if (isBigger(random)) {
             position++;
         }
     }
@@ -37,7 +37,7 @@ public class Car {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(" : ");
 
-        for(int i = 0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             sb.append("-");
         }
         return sb.toString();
