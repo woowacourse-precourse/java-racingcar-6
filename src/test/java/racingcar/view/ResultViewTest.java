@@ -22,8 +22,8 @@ public class ResultViewTest {
         ArrayList<CarModel> carModels = new ArrayList<>();
 
         //given
-        carModels.add(new CarModel("carA", 4));
-        carModels.add(new CarModel("carB", 3));
+        carModels.add(new CarModel("carA"));
+        carModels.add(new CarModel("carB"));
 
         //when
         resultView.showWinnerCars(carModels);
@@ -41,7 +41,7 @@ public class ResultViewTest {
         ArrayList<CarModel> carModels = new ArrayList<>();
 
         //given
-        carModels.add(new CarModel("carA", 4));
+        carModels.add(new CarModel("carA"));
 
         //when
         resultView.showWinnerCars(carModels);
