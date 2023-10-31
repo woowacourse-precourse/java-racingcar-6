@@ -25,15 +25,15 @@ public class Director {
     public void startProcess() {
         List<Car> cars = this.insertName();
         Integer integerRepeatCount = this.insertCount();
-        this.showResultAndClose(cars, integerRepeatCount);
+        this.showResult(cars, integerRepeatCount);
+        this.close();
     }
 
-    private void showResultAndClose(List<Car> cars, Integer integerRepeatCount) {
+    private void showResult(List<Car> cars, Integer integerRepeatCount) {
         outputGenerateManager.printResultAnnounce();
         this.repeatRound(cars, integerRepeatCount);
         outputGenerateManager.printWinnerAnnounce();
         outputGenerateManager.printWinners(cars);
-        this.close();
     }
 
     private Integer insertCount() {
