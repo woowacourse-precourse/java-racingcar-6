@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public class Racing {
 
     ArrayList<Car> cars = new ArrayList<>();
+    int max;
     int count;
 
-    public Racing() {
-
+    public Racing(int max) {
+        this.max = max;
     }
 
     public void registCars(String names) {
