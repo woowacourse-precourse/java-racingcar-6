@@ -33,4 +33,8 @@ public class OutputView {
         }
         return currentPositionMark.toString();
     }
+
+    public static void printWinnerName(List<String> winnerList) {
+        System.out.print("최종 우승자 : " + String.join(",", winnerList));
+    }
 }
