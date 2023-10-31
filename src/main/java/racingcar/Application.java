@@ -9,8 +9,8 @@ public class Application {
     }
 
     private static void StartGame() {
-        String carNameInput = UserEnterCarName();
-        Car[] cars = MakeCarObject(carNameInput);
+        Car[] cars = UserEnterCarName();
+        MakeCarObject(cars);
 
 //        for(int i=0; i<cars.length; i++){
 //            System.out.println(cars[i].name+" "+cars[i].meter);
@@ -66,20 +66,28 @@ public class Application {
         return Integer.parseInt(readLine());
     }
 
-    private static String UserEnterCarName() throws IllegalArgumentException {
+    private static Car[] UserEnterCarName() throws IllegalArgumentException {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return readLine();
-    }
+        String EnteredCarName = readLine();
 
-    private static Car[] MakeCarObject(String carNameInput) {
-        String[] carNames = carNameInput.split(",");
-        Car[] cars = new Car[carNames.length];
+        String[] EnteredCars = EnteredCarName.split(",");
+        for(String car : EnteredCars){
+            if(car == null || car.length()>5 || car.contains(" ")) throw new IllegalArgumentException();
+        }
 
-        for(int i=0; i<carNames.length; i++){
-            cars[i] = new Car(carNames[i]);
+        Car[] cars = new Car[EnteredCars.length];
+        for(int i=0; i<EnteredCars.length; i++){
+            cars[i] = new Car(EnteredCars[i]);
         }
 
         return cars;
+    }
+
+    private static void MakeCarObject(Car[] cars) {
+        for(int i=0; i<cars.length; i++){
+            cars[i] = new Car(cars[i].name);
+        }
+
     }
 
     static class Car {
