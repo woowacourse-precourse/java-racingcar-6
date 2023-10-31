@@ -19,13 +19,15 @@ public class RacingCarService {
 
         List<RoundHistory> roundHistories = new ArrayList<>();
 
-        for (int i = 0; i < numberOfRound.value(); i++) {
+        while (!numberOfRound.isLastRound()) {
             cars.moveAllCars(navigator);
+
             RoundHistory roundHistory = new RoundHistory(
-                    new NumberOfRound(i + 1),
+                    numberOfRound,
                     new RoundResult(cars.getCurrentStatus()));
 
             roundHistories.add(roundHistory);
+            numberOfRound.nextRound();
         }
 
         List<Name> winners = decideWinners(roundHistories);
