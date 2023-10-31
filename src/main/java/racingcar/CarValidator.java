@@ -36,6 +36,11 @@ public class CarValidator {
                 throw new IllegalArgumentException();
             }
 
+            if (carList.size() != carList.stream().distinct().count()) {
+                System.out.println(MessageUtil.Same_Name_Message);
+                throw new IllegalArgumentException();
+            }
+
         }
         return carList;
     }
