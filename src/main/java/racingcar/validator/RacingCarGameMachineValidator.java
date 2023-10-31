@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import racingcar.constant.ErrorMessage;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +20,7 @@ public class RacingCarGameMachineValidator {
     private void validateNameCount(List<String> racingCarNameList) {
         int size = racingCarNameList.size();
         if (isInvalidNameCount(size)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_RACING_CAR_NAME_COUNT.getMessage());
         }
     }
 
@@ -29,7 +31,7 @@ public class RacingCarGameMachineValidator {
     private void validateDuplicateName(List<String> racingCarNameList) {
         Set<String> uniqueNames = new HashSet<>(racingCarNameList);
         if (hasDuplicate(racingCarNameList, uniqueNames)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_RACING_CAR_NAME.getMessage());
         }
     }
 
@@ -39,7 +41,7 @@ public class RacingCarGameMachineValidator {
 
     public void validateRoundCount(int roundCount) {
         if (isInvalidRoundCount(roundCount)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ROUND_COUNT.getMessage());
         }
     }
 
