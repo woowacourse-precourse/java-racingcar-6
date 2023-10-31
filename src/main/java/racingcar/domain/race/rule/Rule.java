@@ -1,4 +1,4 @@
-package racingcar.domain.track;
+package racingcar.domain.race.rule;
 
 public class Rule {
     private final static int MOVING_FORWARD = 4;
@@ -6,7 +6,7 @@ public class Rule {
     private Rule() {
     }
 
-    public Rule newInstance() {
+    public static Rule newInstance() {
         return new Rule();
     }
 
