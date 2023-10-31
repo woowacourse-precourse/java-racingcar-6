@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import com.sun.jdi.IntegerValue;
 
 import java.util.ArrayList;
 
@@ -9,6 +10,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class RacingCarGame {
     int gameCount = 0;
     ArrayList<RacingCar> racingCars = new ArrayList<>();
+    ArrayList<RacingCar> winners = new ArrayList<>();
 
     void startGame() {
         setPlayers();
@@ -64,5 +66,22 @@ public class RacingCarGame {
     }
 
     void printWinners() {
+        int maxScore = Integer.MIN_VALUE;
+        for (RacingCar player : racingCars) {
+            int playerScore = player.getScore();
+            if (playerScore > maxScore) {
+                maxScore = playerScore;
+                winners.clear();
+                winners.add(player);
+            } else if (playerScore == maxScore) {
+                winners.add(player);
+            }
+        }
+        StringBuffer result = new StringBuffer();
+        result.append("최종우승자 : ");
+        for (RacingCar winner: winners) {
+            result.append(winner.getName() + ", ");
+        }
+        System.out.println(result.substring(0, result.length()-2));
     }
 }
