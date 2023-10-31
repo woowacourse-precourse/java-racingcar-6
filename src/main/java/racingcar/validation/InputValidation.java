@@ -1,7 +1,5 @@
 package racingcar.validation;
 
-import racingcar.constant.ConstantNumber;
-
 import static racingcar.constant.ConstantNumber.*;
 
 import java.util.HashMap;

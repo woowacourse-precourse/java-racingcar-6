@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import static racingcar.constant.ConstantNumber.*;
 
 import java.util.HashMap;
