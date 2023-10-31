@@ -10,7 +10,7 @@ public class NumberOfAttempts {
 
     public static int input() {
         String numberOfAttempts = Console.readLine();
-        
+
         return validateNumber(numberOfAttempts);
     }
 
@@ -18,7 +18,7 @@ public class NumberOfAttempts {
         try {
             int numberOfAttemptsToInt = Integer.parseInt(numberOfAttempts);
             if (numberOfAttemptsToInt > 0) {
-                return Integer.parseInt(numberOfAttempts);
+                return numberOfAttemptsToInt;
             }
             throw new IllegalArgumentException();
         } catch (NumberFormatException e) {
