@@ -14,34 +14,29 @@ public class CarService {
     private int round;
 
     public void start() {
-        carList = getCarList();
-        round = getRound();
-
+        getCarList();
+        getRound();
         playRound();
-        String winnerNames = getWinnerNames();
-        CarUtil.printWinner(winnerNames);
+        CarUtil.printWinner(getWinnerNames());
     }
 
-    private List<Car> getCarList() {
+    private void getCarList() {
         CarUtil.printGetCarList();
         String[] carNames = Console.readLine().split(CarUtil.CAR_NAME_SPLIT);
         CarInputValidator.checkCarNameDuplicate(carNames);
 
-        List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             CarInputValidator.checkCarNameLength(carName);
             carList.add(new Car(carName, CarUtil.FIRST_SCORE));
         }
-
-        return carList;
     }
 
-    private int getRound() {
+    private void getRound() {
         CarUtil.printGetRound();
-        String round = Console.readLine();
-        RoundInputValidator.checkRoundNumberFormat(round);
+        String roundString = Console.readLine();
+        RoundInputValidator.checkRoundNumberFormat(roundString);
 
-        return Integer.parseInt(round);
+        round = Integer.parseInt(roundString);
     }
 
     private void playRound() {
