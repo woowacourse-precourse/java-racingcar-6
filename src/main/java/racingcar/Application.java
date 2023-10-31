@@ -42,6 +42,11 @@ public class Application {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("5자 이하 이름만 가능");
             }
+
+            if (carName.length() == 0) {
+                continue;
+            }
+
             Car car = new Car(carName);
             carList.add(car);
         }
