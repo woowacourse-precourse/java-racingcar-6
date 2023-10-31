@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.model.Cars.createCars;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -8,21 +10,19 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    private final Cars cars = new Cars();
-
     public void setUp() {
         List<String> carNames = getCarNames();
-        initializeCars(carNames);
-        play(getTryCount());
+        Cars cars = createCars(carNames);
+        play(cars, getTryCount());
     }
 
-    private void play(int tryCount) {
+    private void play(Cars cars, int tryCount) {
         OutputView.displayGameResultMessage();
         IntStream.range(0, tryCount).forEach(play -> {
             cars.moveAll();
             OutputView.displayGameResult(cars.toString());
         });
-        OutputView.displayWinners(getWinners());
+        OutputView.displayWinners(getWinners(cars));
     }
 
     private List<String> getCarNames() {
@@ -34,20 +34,13 @@ public class RacingGame {
         return Arrays.asList(carNames.split(","));
     }
 
-    private void initializeCars(List<String> carNames) {
-        Validator.validateCarNames(carNames);
-        for (String carName : carNames) {
-            cars.add(carName);
-        }
-    }
-
     private int getTryCount() {
         String tryCount = InputView.getTryCount();
         Validator.validateTryCount(tryCount);
         return Integer.parseInt(tryCount);
     }
 
-    private String getWinners() {
+    private String getWinners(Cars cars) {
         List<String> winners = cars.getWinners();
         return String.join(", ", winners);
     }
