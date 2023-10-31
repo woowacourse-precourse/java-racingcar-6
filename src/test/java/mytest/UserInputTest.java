@@ -36,4 +36,20 @@ public class UserInputTest {
                 UserInput.checkDuplicates(carNames));
         assertEquals("자동차의 이름을 중복되지 않게 입력해주세요.", exception.getMessage());
     }
+
+    @DisplayName("진행할 라운드 값을 입력 받고 유효한지 확인")
+    @Test
+    void testGetTotalRound() {
+        String inputRaceCount = "5";
+        assertDoesNotThrow(() -> UserInput.checkInteger(inputRaceCount));
+    }
+
+    @DisplayName("입력 받은 값이 숫자인지 확인")
+    @Test
+    void testCheckInteger() {
+        String inputRaceCount = "다섯";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                UserInput.checkInteger(inputRaceCount));
+        assertEquals("숫자만 입력해주세요.", exception.getMessage());
+    }
 }

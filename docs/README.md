@@ -33,6 +33,8 @@
 **이동 입력**
 
 - 사용자로부터 이동할 횟수를 입력 받음
+- 입력된 값이 숫자인지 확인
+    - 그렇지 않은 경우 예외(IllegalArgumentException) 발생
 - 입력된 값이 양의 정수인지 확인
     - 그렇지 않은 경우 예외(IllegalArgumentException) 발생
 

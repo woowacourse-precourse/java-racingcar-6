@@ -30,8 +30,17 @@ public class UserInput {
         }
     }
 
-    public static String getTotalRound() {
+    public static int getTotalRound() {
         String inputRaceCount = InputView.setRaceCount();
-        return inputRaceCount;
+        int raceCount = checkInteger(inputRaceCount);
+        return raceCount;
+    }
+
+    public static int checkInteger(String inputRaceCount) {
+        try {
+            return Integer.parseInt(inputRaceCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
     }
 }
