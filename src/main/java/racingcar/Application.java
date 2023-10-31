@@ -32,7 +32,6 @@ public class Application {
             throw new IllegalStateException("숫자로 입력해주세요");
         }
         int numAttempts = Integer.parseInt(numAttempt);
-        System.out.println(numAttempts);
         return numAttempts;
     }
 
