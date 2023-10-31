@@ -8,27 +8,27 @@ import static racingcar.view.constant.ViewConstant.WINNER;
 
 public class RacingView {
 
-    public static void inputCarNameView() {
+    public void inputCarsNameView() {
         System.out.println(CAR_NAME_INPUT);
     }
 
-    public static void inputAttemptNumberView() {
+    public void inputAttemptNumberView() {
         System.out.println(ATTEMPT_NUMBER_INPUT);
     }
 
-    public static void executionResultView() {
+    public void executionResultView() {
         System.out.println(RESULT_VIEW);
     }
 
-    public static void raceResultView(String carName, int cartPosition) {
+    public void raceResultView(String carName, int cartPosition) {
         System.out.println(carName + " : " + CAR_MOVE.repeat(cartPosition));
     }
 
-    public static void newLine() {
+    public void newLine() {
         System.out.println();
     }
 
-    public static void winnerView(String winner) {
+    public void winnerView(String winner) {
         System.out.println(WINNER + winner);
     }
 }

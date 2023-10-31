@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.utill.NumberGenerator;
 
 
-class CarListTest {
+class CarsTest {
 
     private final NumberGenerator numberGenerator = () -> 8;
 
@@ -18,10 +18,10 @@ class CarListTest {
         List<Car> testCarList = new ArrayList<>();
         testCarList.add(new Car("haha"));
         testCarList.add(new Car("hoho"));
-        CarList carList = new CarList(testCarList, numberGenerator);
+        Cars cars = new Cars(testCarList, numberGenerator);
 
         //when
-        String winner = carList.decisionRacingWinner();
+        String winner = cars.decisionWinner();
 
         //then
         assertEquals(winner, "haha, hoho");

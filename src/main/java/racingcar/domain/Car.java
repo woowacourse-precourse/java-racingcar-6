@@ -7,14 +7,14 @@ import java.util.Objects;
 
 public class Car {
     private int position;
-    private final String carName;
+    private final String name;
 
-    public Car(String carName) {
-        this.carName = carName;
+    public Car(String name) {
+        this.name = name;
         position = CAR_INIT_POSITION;
     }
 
-    public int decisionMoveOrStop(int moveDecisionNumber) {
+    public int move(int moveDecisionNumber) {
         if (moveDecisionNumber >= CAR_MOVE_CONDITION) {
             position++;
         }
@@ -23,7 +23,7 @@ public class Car {
     }
 
     public String getCarName() {
-        return carName;
+        return name;
     }
 
     public int getCarPosition() {
@@ -36,7 +36,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return carName;
+        return name;
     }
 
     @Override
@@ -50,12 +50,12 @@ public class Car {
         }
 
         Car cars = (Car) comparedCar;
-        return Objects.equals(carName, cars.carName);
+        return Objects.equals(name, cars.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(carName);
+        return Objects.hash(name);
     }
 
 }

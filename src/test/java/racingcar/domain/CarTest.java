@@ -11,7 +11,7 @@ class CarTest {
         Car car = new Car("hoho");
 
         //when
-        car.decisionMoveOrStop(5);
+        car.move(5);
 
         //then
         Assertions.assertThat(car).extracting("position").isEqualTo(1);
