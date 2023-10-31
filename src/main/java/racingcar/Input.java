@@ -2,26 +2,28 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class Input {
+import java.util.NoSuchElementException;
 
-    static boolean isEmpty(String[] carNames) {
-        if (carNames.length == 0) {
-            return (true);
-        }
-        return (false);
-    }
+public class Input {
 
     static boolean isOutOfRange(long tryNumber) {
         return (tryNumber > 2000000000 || tryNumber < 0);
     }
 
     static String[] getCarName() {
-        String carNameInput = Console.readLine();
-        String[] carNames = carNameInput.split(",");
-        if (isEmpty(carNames))
+        String carNameInput = "";
+        try {
+            carNameInput = Console.readLine();
+        } catch (NoSuchElementException noSuchElementException) {
             Exception.generateInvalidCarNumberException();
+        }
+        carNameInput = carNameInput.replaceAll("^,+|,+$", "").replaceAll(",+", ",");
+        if (carNameInput.isBlank() || carNameInput.isEmpty()) {
+            Exception.generateInvalidCarNumberException();
+        }
+        String[] carNames = carNameInput.split(",");
         return (carNames);
-    }
+        }
 
     static int getTryNumber() {
         String tryNumberInput = Console.readLine();
