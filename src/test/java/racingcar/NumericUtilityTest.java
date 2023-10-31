@@ -1,8 +1,10 @@
 package racingcar;
 
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 class NumericUtilityTest {
 
@@ -28,5 +30,19 @@ class NumericUtilityTest {
 
         Assertions.assertThat(actual1).isEqualTo(false);
         Assertions.assertThat(actual2).isEqualTo(false);
+    }
+
+    @Test
+    @DisplayName("차량 이동 횟수 중에 가장 큰 값을 반환")
+    void findMaxPositionTest1() {
+        List<Car> cars = List.of(new Car("pobi"), new Car("crong"), new Car("honux"));
+        cars.get(0).move(1);
+        cars.get(0).move(1);
+        cars.get(0).move(1);
+        cars.get(1).move(1);
+        cars.get(2).move(1);
+        cars.get(2).move(1);
+        int maxPosition = NumericUtility.findMaxPosition(cars);
+        Assertions.assertThat(maxPosition).isEqualTo(3);
     }
 }
