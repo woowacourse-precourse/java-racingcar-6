@@ -1,16 +1,14 @@
 package racingcar;
 
+import racingcar.core.GenerateHighScores;
 import racingcar.core.GenerateRacer;
 import racingcar.entity.*;
-import racingcar.property.ValidateType;
 import racingcar.tool.InputTool;
 import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static racingcar.validation.ValidateForm.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -21,9 +19,15 @@ public class Application {
     private static void raceBefore(){
         List<String> racerNameList = racerNameForm();
         RaceCount raceCount = raceCountForm();
-        for (int i=0;i<raceCount.inputScore();i++){
+        conductRace(racerNameList,raceCount);
+    }
+    private static void conductRace(List<String> racerNameList,RaceCount raceCount){
+        for (int i = 0; i<raceCount.inputRaceCount(); i++){
             race(racerNameList);
         }
+        raceDone();
+    }
+    private static void raceDone(){
         generateRacingResult();
         generateHighScoreRacer();
     }
@@ -44,40 +48,22 @@ public class Application {
     }
 
     private static List<String> racerNameForm(){
-        String racerNameListInput = InputTool.readLineByConsole();
-        List<String> racerNameList = Arrays.asList(racerNameListInput.split(","));
-        validateRacerNameList(racerNameListInput);
-        validateRacerName(racerNameList);
-        return racerNameList;
+        String inputRacerNameList = InputTool.readLineByConsole();
+        RacerName racerValidate = new RacerName(inputRacerNameList);
+        racerValidate.validateRacerName();
+        return Arrays.asList(inputRacerNameList.split(","));
     }
 
     private static RaceCount raceCountForm(){
         OutputView.outputForRaceCount();
         String raceCountInput = InputTool.readLineByConsole();
         OutputView.outputForLineBreak();
-        return new RaceCount(validateRaceCount(raceCountInput));
+        RaceCount.validateRaceCount(raceCountInput);
+        return new RaceCount(Integer.parseInt(raceCountInput));
     }
-
-    private static void validateRacerNameList(String racerNameList){
-        validateForValidateType(ValidateType.NAME_LIST,racerNameList);
-    }
-
-    private static void validateRacerName(List<String> racerNameList){
-        racerNameList.stream()
-                .forEach(racerName-> validateForValidateType(
-                                ValidateType.NAME,racerName
-                        )
-                );
-    }
-
-    private static int validateRaceCount(String raceCount){
-        validateForValidateType(ValidateType.COUNT,raceCount);
-        return Integer.parseInt(raceCount);
-    }
-
 
     private static void generateRacer(List<String> racerNameList){
-        racerNameList.stream()
+        racerNameList
                 .forEach(racerName->{
                     generateRacerByInputValue().generateRacerByInputValue(racerName);
                 });
@@ -92,13 +78,7 @@ public class Application {
 
     private static void generateHighScoreRacer(){
         List<Racer> racersWithHighScore = RaceStatus.racersWithHighScore();
-        String highScoreRacers = racersWithHighScore
-                                            .stream()
-                                            .map(racer -> racer.getName())
-                                            .collect(Collectors.toList())
-                                            .toString()
-                                            .replaceAll("\\[|\\]", "");
-
-        OutputView.outputForHighScoreRacers(highScoreRacers);
+        GenerateHighScores highScoreRacers = new GenerateHighScores(racersWithHighScore);
+        OutputView.outputForHighScoreRacers(highScoreRacers.generateHighScoresByRacerList());
     }
 }
