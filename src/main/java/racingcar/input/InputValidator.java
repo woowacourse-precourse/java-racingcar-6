@@ -9,18 +9,7 @@ public class InputValidator {
         validatePositiveNumber(stringRaceCount);
     }
 
-    private static void validatePositiveNumber(String stringRaceCount){
-        if (isPositiveNumber(stringRaceCount)) {
-            throw new IllegalArgumentException("입력하실 숫자는 0이상의 수가 아닙니다.");
-        }
-    }
-
-    private static boolean isPositiveNumber(String stringRaceCount) {
-        int raceCount = Integer.parseInt(stringRaceCount);
-        return raceCount < 0;
-    }
-
-    private static void validateOnlyNumber(String stringRaceCount){
+    private static void validateOnlyNumber(String stringRaceCount) {
         if (isOnlyNumber(stringRaceCount)) {
             throw new IllegalArgumentException("입력하신 내용엔 숫자외 값이 포함되었습니다.");
         }
@@ -28,6 +17,17 @@ public class InputValidator {
 
     private static boolean isOnlyNumber(String stringRaceCount) {
         return !stringRaceCount.matches("[0-9]+");
+    }
+
+    private static void validatePositiveNumber(String stringRaceCount) {
+        if (isPositiveNumber(stringRaceCount)) {
+            throw new IllegalArgumentException("입력하실 숫자는 1이상의 수가 아닙니다.");
+        }
+    }
+
+    private static boolean isPositiveNumber(String stringRaceCount) {
+        int raceCount = Integer.parseInt(stringRaceCount);
+        return raceCount <= 0;
     }
 
     public static void validateCarList(List<Car> cars) {
