@@ -72,4 +72,14 @@ public class RacingCarGame {
     static boolean isWinner(int sizeOfProgressPerCar, int trialNumberInt) {
         return sizeOfProgressPerCar >= trialNumberInt;
     }
+
+    static List<String> selectWinner(List<String>[] progressOfCarRacing, int trialNumberInt, List<String> carNamesList) {
+        List<String> winnerIndex = new ArrayList<>();
+        for (int i = 0; i < progressOfCarRacing.length; i++) {
+            if (isWinner(progressOfCarRacing[i].size(), trialNumberInt)) {
+                winnerIndex.add(carNamesList.get(i));
+            }
+        }
+        return winnerIndex;
+    }
 }
