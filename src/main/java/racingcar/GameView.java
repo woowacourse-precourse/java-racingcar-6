@@ -15,6 +15,7 @@ public class GameView {
         for (String name : carNames) {
             validator.validateNameLength(name);
         }
+
         return carNames;
     }
 
@@ -32,9 +33,7 @@ public class GameView {
     public void printExecutionResult(List<Car> cars) {
         for (Car car: cars) {
             System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getStep(); i++) {
-                System.out.print("-");
-            }
+            for (int i = 0; i < car.getStep(); i++) { System.out.print("-");}
             System.out.println("");
         }
         System.out.println("");

@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class GameController {
+    int RANDOM_MIN = 0;
+    int RANDOM_MAX = 9;
+    int THRESHOLD = 4;
     GameView view = new GameView();
     int roundCount;
     List<Car> cars;
@@ -36,8 +39,8 @@ public class GameController {
 
     private void processRound() {
         for (int i = 0; i < cars.size(); i++) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
+            int randomNumber = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+            if (randomNumber >= THRESHOLD) {
                 Car car = cars.get(i);
                 car.increaseStep();
             }
@@ -53,5 +56,4 @@ public class GameController {
         }
         view.printWinners(winners);
     }
-
 }
