@@ -7,34 +7,30 @@ import racingcar.dto.Car;
 
 public class CarRepository {
     private static final CarRepository instance = new CarRepository();
-    private Map<String, Car> cars;
+    private Map<String, Car> carRepository;
 
     public static CarRepository getInstance() {
         return instance;
     }
 
     private CarRepository() {
-        this.cars = new HashMap<>();
+        this.carRepository = new HashMap<>();
     }
 
     public void saveCar(Car car) {
-        cars.put(car.name(), car);
+        carRepository.put(car.name(), car);
     }
 
     public List<Car> findByAll() {
-        List<Car> carList = cars.values().stream().toList();
+        List<Car> carList = carRepository.values().stream().toList();
         return carList;
     }
 
-    public Car findByname(String name) {
-        return cars.get(name);
-    }
-
-    public int size() {
-        return cars.size();
+    public Car findByName(String name) {
+        return carRepository.get(name);
     }
 
     public boolean hasName(String name) {
-        return cars.containsKey(name);
+        return carRepository.containsKey(name);
     }
 }

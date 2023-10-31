@@ -34,7 +34,7 @@ public class CarInfo {
     }
 
     public Car getCarInfo(String carName) {
-        return carRepository.findByname(carName);
+        return carRepository.findByName(carName);
     }
 
     public List<Car> getAllCarInfo() {
