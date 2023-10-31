@@ -42,6 +42,7 @@ public class CarRacing {
         System.out.println(RESULT_MESSAGE);
         getRacingResult();
 
+
     }
 
     public void requestCarNames() {
@@ -149,6 +150,7 @@ public class CarRacing {
             String carName = car.getCarName();
             System.out.println(carName + " : " + carMoveState(car));
         }
+        System.out.println();
     }
 
     public String carMoveState(Car car) {
@@ -160,4 +162,31 @@ public class CarRacing {
         return carState.toString();
     }
 
+    public void printOutWinners() {
+        System.out.print("최종 우승자 : " + getWinners());
+    }
+
+    public String getWinners() {
+        List<String> Winners = new ArrayList<>();
+        int maxCount = getMaxCount();
+        for (Car car : carArray) {
+            int carMoveCount = car.getMoveCount();
+            String carName = car.getCarName();
+            if (carMoveCount == maxCount) {
+                Winners.add(carName);
+            }
+        }
+        return String.join(", ", Winners);
+    }
+
+    public int getMaxCount() {
+        int maxCount = 0;
+        for (Car car : carArray) {
+            int carMoveCount = car.getMoveCount();
+            if (carMoveCount > maxCount) {
+                maxCount = carMoveCount;
+            }
+        }
+        return maxCount;
+    }
 }
