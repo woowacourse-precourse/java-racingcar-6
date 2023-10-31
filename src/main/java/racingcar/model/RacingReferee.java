@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class RacingReferee {
 
-    private static final int threshold = 4;
+    private static final int THRESHOLD = 4;
     private final Players players;
     private final Map<Player, Integer> result;
     private final Dice dice;
@@ -27,7 +27,8 @@ public class RacingReferee {
     }
 
     public Map<Player, Integer> carMove() {
-        for (Player player : players.getPlayers()) {
+        List<Player> playerList = players.getPlayers();
+        for (Player player : playerList) {
             int v = dice.roll();
             if (isMove(v)) {
                 result.put(player, result.get(player) + 1);
@@ -51,6 +52,6 @@ public class RacingReferee {
     }
 
     private boolean isMove(int value) {
-        return value >= threshold;
+        return value >= THRESHOLD;
     }
 }

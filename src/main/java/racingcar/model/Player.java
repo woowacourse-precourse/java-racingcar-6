@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Player {
 
-    static final int MAX_NAME_SIZE = 5;
+    private static final int MAX_NAME_SIZE = 5;
     private String name;
 
     public Player(String name) {
