@@ -7,7 +7,7 @@ import racingcar.domain.dto.CarDTO;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import static racingcar.constant.NumberConstant.*;
+import static racingcar.util.constant.NumberConstant.*;
 
 public class GameManageService {
     private final CarService carService;

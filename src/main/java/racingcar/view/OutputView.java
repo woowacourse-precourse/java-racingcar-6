@@ -2,7 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.dto.CarDTO;
 import java.util.List;
-import static racingcar.constant.PrintMessageConstant.*;
+import static racingcar.util.constant.PrintMessageConstant.*;
 
 public class OutputView {
     public static void inputNameMessage() {

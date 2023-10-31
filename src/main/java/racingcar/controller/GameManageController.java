@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.service.GameManageService;
-import racingcar.verification.InputVerification;
+import racingcar.util.verification.InputVerification;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

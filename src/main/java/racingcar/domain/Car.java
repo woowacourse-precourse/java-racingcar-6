@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import racingcar.domain.dto.CarDTO;
-import static racingcar.constant.NumberConstant.*;
+import static racingcar.util.constant.NumberConstant.*;
 
 public class Car {
 

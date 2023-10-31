@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.util.constant;
 
 public class NumberConstant {
     public static final int DEFAULT_POSITION = 0;
