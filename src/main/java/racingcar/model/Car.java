@@ -26,14 +26,6 @@ public class Car implements Comparable<Car> {
         return false;
     }
 
-    public int getMove() {
-        return this.move;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
     public void doTurn() {
         int pickedNumber = Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
 
@@ -52,5 +44,13 @@ public class Car implements Comparable<Car> {
         sb.append("\n");
 
         return sb.toString();
+    }
+
+    public int getMove() {
+        return this.move;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
