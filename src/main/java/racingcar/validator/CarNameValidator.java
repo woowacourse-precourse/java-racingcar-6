@@ -11,6 +11,9 @@ public class CarNameValidator {
             if (name.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
             }
+            if (name.trim().isEmpty()) {
+                throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
+            }
         }
     }
 }
