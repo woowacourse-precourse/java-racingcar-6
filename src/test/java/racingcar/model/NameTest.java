@@ -6,6 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.message.ErrorMessage;
 
 public class NameTest {
 
@@ -20,21 +21,21 @@ public class NameTest {
     void 길이_제한_못_미치는_이름_실패_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> new Name(""))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1글자 이상 5글자 이하의 이름을 입력해주세요."));
+                .hasMessageContaining(ErrorMessage.ERROR_LENGTH_CONDITION));
     }
 
     @Test
     void 길이_제한_넘는_이름_실패_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> new Name("namename"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1글자 이상 5글자 이하의 이름을 입력해주세요."));
+                .hasMessageContaining(ErrorMessage.ERROR_LENGTH_CONDITION));
     }
 
     @Test
     void 공배_있는_이름_실패_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> new Name("na me"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름에 공백이 없도록 입력해주세요."));
+                .hasMessageContaining(ErrorMessage.ERROR_WHITE_SPACE_CONDITION));
     }
 
     @Test
@@ -42,6 +43,6 @@ public class NameTest {
         List<Name> nameList = List.of(new Name("name"), new Name("NAME"), new Name("name"));
         assertSimpleTest(() -> assertThatThrownBy(() -> Name.validateDuplicateName(nameList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 이름을 입력하셨습니다."));
+                .hasMessageContaining(ErrorMessage.ERROR_DUPLICATE_CONDITION));
     }
 }

@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.message.ErrorMessage;
 
 public class TryCountTest {
 
@@ -12,14 +13,14 @@ public class TryCountTest {
     void 숫자_아닌_이동횟수_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> new TryCount("a"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해주세요."));
+                .hasMessageContaining(ErrorMessage.ERROR_ONLY_NUMBER));
     }
 
     @Test
     void 이동횟수_0_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> new TryCount("0"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1 이상의 숫자를 입력해주세요."));
+                .hasMessageContaining(ErrorMessage.ERROR_POSITIVE_NUMBER_RANGE));
     }
 
     @Test

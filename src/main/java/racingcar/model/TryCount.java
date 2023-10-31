@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.message.ErrorMessage;
+
 public class TryCount {
 
     private static final String NUMBER_REGEX = "^[0-9]+$";
@@ -15,13 +17,13 @@ public class TryCount {
 
     private void validateNumber(String count) {
         if (!count.matches(NUMBER_REGEX)) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_ONLY_NUMBER);
         }
     }
 
     private void validateZero(String count) {
         if (count.matches(ZERO_REGEX)) {
-            throw new IllegalArgumentException("1 이상의 숫자를 입력해주세요.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_POSITIVE_NUMBER_RANGE);
         }
     }
 
