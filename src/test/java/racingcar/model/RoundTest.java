@@ -50,11 +50,16 @@ class RoundTest {
     }
 
     @Test
-    void subtractOne() {
+    void subtractOne_Round_객체의_이동_회수를_1_차감() {
         //given
+        String roundInput = "3";
+        Round round = new Round();
+        round.setRound(roundInput);
 
         //when
+        round.subtractOne();
 
         //then
+        assertThat(round.getRound()).isEqualTo(2);
     }
 }
