@@ -29,7 +29,7 @@ public class RacingCarTest {
         int randomNumber = 5;
         racingCar.move(randomNumber);
         //then
-        List<Boolean> racingCarMove = racingCar.getRacingCarMove();
+        List<Boolean> racingCarMove = racingCar.getMove();
         assertThat(racingCarMove.get(0)).isEqualTo(true);
     }
 
@@ -43,7 +43,7 @@ public class RacingCarTest {
         int randomNumber = 2;
         racingCar.move(randomNumber);
         //then
-        List<Boolean> racingCarMove = racingCar.getRacingCarMove();
+        List<Boolean> racingCarMove = racingCar.getMove();
         assertThat(racingCarMove.isEmpty()).isEqualTo(true);
     }
 

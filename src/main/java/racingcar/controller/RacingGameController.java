@@ -21,8 +21,8 @@ public class RacingGameController {
     }
 
     public void play() {
-        String raceResult = racingGame.allRacePlay();
-        racingGameView.raceResults(raceResult);
+        String raceResults = racingGame.race();
+        racingGameView.raceResults(raceResults);
 
         String winners = racingGame.getWinners();
         racingGameView.gameWinners(winners);

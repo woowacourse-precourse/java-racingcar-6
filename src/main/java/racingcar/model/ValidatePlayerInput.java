@@ -17,8 +17,8 @@ public class ValidatePlayerInput {
         this.convertStringToArray(carNamesInput);
         this.validateContainSpace(carNamesInput);
         this.validateNotContainCarName();
-        this.validateAlphaCarName();
         this.validateCarNameLength();
+        this.validateAlphaCarName();
         this.validateDuplicateCarNames();
 
         final List<String> validateResult = this.convertStringToListCarNames();
@@ -27,7 +27,7 @@ public class ValidatePlayerInput {
     }
     
     public int validateRaceCount(final String raceCountInput) {
-        this.validateEmptyRaceCount(raceCountInput);
+        this.validateDigitRaceCount(raceCountInput);
         this.validateEmptyRaceCount(raceCountInput);
 
         final int validateResult = Integer.parseInt(raceCountInput);

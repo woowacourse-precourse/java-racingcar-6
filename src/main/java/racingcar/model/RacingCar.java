@@ -9,24 +9,24 @@ import java.util.stream.Collectors;
 public class RacingCar {
     private final int MOVE_LIMITS = 3;
     private String racingCarName;
-    private List<Boolean> racingCarMove;
+    private List<Boolean> move;
     private int moveCount;
 
     public RacingCar(final String carName) {
         this.racingCarName = carName;
-        this.racingCarMove= new ArrayList<>();
+        this.move = new ArrayList<>();
         this.moveCount = 0;
     }
 
     public void move(final int movableNumber) {
         if (movableNumber > MOVE_LIMITS) {
-            this.racingCarMove.add(true);
+            this.move.add(true);
             moveCount += 1;
         }
     }
 
     public String getRaceResult() {
-        final String gameResult = this.racingCarMove.stream()
+        final String gameResult = this.move.stream()
                 .filter(move -> move)
                 .map(move -> RacingGameMessage.MOVE.getMoveMessage())
                 .collect(Collectors.joining());
@@ -38,8 +38,8 @@ public class RacingCar {
         return this.racingCarName;
     }
 
-    public List<Boolean> getRacingCarMove() {
-        return this.racingCarMove;
+    public List<Boolean> getMove() {
+        return this.move;
     }
 
     public int getMoveCount() {

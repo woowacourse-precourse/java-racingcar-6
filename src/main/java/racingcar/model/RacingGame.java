@@ -24,11 +24,25 @@ public class RacingGame {
         this.raceCount = raceCount;
     }
 
-    public void race() {
+    public void round() {
         for (RacingCar car : this.racingCars) {
             final int movableNumber = this.generateMovableNumber();
             car.move(movableNumber);
         }
+    }
+
+    public String race() {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < this.raceCount; i++) {
+            this.round();
+            result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining()))
+                    .append(RacingGameMessage.NEWLINE.getNewLine());
+        }
+
+        result.setLength(result.length() - 1);
+
+        return result.toString();
     }
 
     public List<String> findWinners() {
@@ -41,20 +55,6 @@ public class RacingGame {
                 .map(RacingCar::getRacingCarName).toList();
 
         return winners;
-    }
-
-    public String allRacePlay() {
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < this.raceCount; i++) {
-            this.race();
-            result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining()))
-                    .append(RacingGameMessage.NEWLINE.getNewLine());
-        }
-
-        result.setLength(result.length() - 1);
-
-        return result.toString();
     }
 
     public int generateMovableNumber() {
