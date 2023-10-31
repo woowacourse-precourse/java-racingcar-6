@@ -50,12 +50,15 @@ public class Cars {
 
 
     private int getMaxProgress() {
-        List<Integer> progresses = this.cars.stream()
+        List<Integer> progresses = getAllProgressValue();
+        return Collections.max(progresses);
+    }
+
+    private List<Integer> getAllProgressValue() {
+        return this.cars.stream()
                 .map(Car::getProgress)
                 .map(Progress::getValue)
                 .collect(Collectors.toList());
-
-        return Collections.max(progresses);
     }
 
     public void moveAheadCars() {
