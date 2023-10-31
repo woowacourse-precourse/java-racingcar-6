@@ -7,7 +7,6 @@ import racingcar.util.RandomNumberGenerator;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -28,7 +27,10 @@ public class RacingCarGameServiceTest {
         RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
         when(randomNumberGenerator.getRandomNumber()).thenReturn(3, 4, 5);
         List<String> carNames = List.of("car1", "car2", "car3");
-        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>(Map.of("car1", 0, "car2", 1, "car3", 2));
+        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
+        racingProgressStatus.put("car1", 0);
+        racingProgressStatus.put("car2", 1);
+        racingProgressStatus.put("car3", 2);
 
         racingCarGameService.playSingleGame(randomNumberGenerator, carNames, racingProgressStatus);
 
