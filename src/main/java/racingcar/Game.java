@@ -12,9 +12,11 @@ public class Game {
         gameStart(parkinglot, car_name, runtime);
     }
     public void gameStart(Map<String,Integer> parkinglot, String[] car_name, int runtime) {
+        Output output = new Output();
         System.out.println("실행 결과");
         for (int i = 0; i < runtime; i++) {
-
+            movingCar(parkinglot,car_name);
+            output.totalPrint(parkinglot,car_name);
         }
     }
     public void movingCar(Map<String,Integer> parkinglot, String[] car_name) {
