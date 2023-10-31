@@ -114,6 +114,11 @@ class OutputView {
         System.out.print(COLON);
     }
 
+    public void showMove(int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(MOVE_DISTANCE);
+        }
+    }
 
 }
 
