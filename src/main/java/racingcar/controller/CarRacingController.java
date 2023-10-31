@@ -31,12 +31,22 @@ public class CarRacingController {
         for (int raceCarIndex = 0; raceCarIndex < raceGame.getCarNames().size(); raceCarIndex++) {
             randomNumber = randomUtillity.generateRandomNumber();
             AdvenceState = checkAdvenceAndStop(randomNumber);
-            System.out.println(randomNumber + " : " + AdvenceState);
+            if (AdvenceState) {
+                increaseAdvenceCount(raceGame, raceCarIndex);
+            }
         }
         System.out.println();
     }
 
     private boolean checkAdvenceAndStop(int randomNumber) {
         return randomNumber >= RACECAR_ADVENCE_NUMBER;
+    }
+
+    private void increaseAdvenceCount(RaceGame raceGame, int raceCarIndex) {
+        String updateCount = raceGame.getCarMoveCounts().get(raceCarIndex) + "-";
+
+        raceGame.getCarMoveCounts().set(raceCarIndex, updateCount);
+        raceGame.setCarMoveCounts(raceGame.getCarMoveCounts());
+        System.out.println(raceGame.getCarMoveCounts());
     }
 }
