@@ -25,6 +25,6 @@ public class Application {
             }
             System.out.println();
         }
-        carRace.printWinners(carRace.whoseWinner(contestants, move));
+        carRace.printWinners(carRace.theWinnerIs(contestants, move));
     }
 }

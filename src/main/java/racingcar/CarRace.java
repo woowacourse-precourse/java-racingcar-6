@@ -39,32 +39,36 @@ public class CarRace {
     }
 
     public void nameCheck(String name) {
-        if (name.length() > 5) {
+        if (name.length() >= 5) {
             throw new IllegalArgumentException("이름 길이가 5를 초과할 수 없습니다.");
         }
     }
 
-    public List<String> whoseWinner(String[] contestants, int[] move) {
+    public String[] theWinnerIs(String[] contestants, int[] move) {
         int max = move[0];
-        List<String> winners = new ArrayList<>();
+        List<String> winner_list = new ArrayList<>();
         for (int i = 1; i < move.length; i++) {
+            winner_list.add(contestants[i]);
             if (max <= move[i]) {
                 max = move[i];
-                winners.add(contestants[i]);
+                winner_list.remove(contestants[i-1]);
             }
         }
-        if (winners.isEmpty()||max==move[0]) {
-            winners.add(contestants[0]);
+        if (winner_list.isEmpty()||max==move[0]) {
+            winner_list.add(contestants[0]);
         }
+
+        String[] winners = winner_list.toArray(new String[0]);
+
         return winners;
     }
 
-    public void printWinners(List<String> winners) {
+    public void printWinners(String[] winners) {
         System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i < winners.size() - 1) {
-                System.out.print(", "); // 마지막 요소가 아닌 경우에만 쉼표 출력
+        for (int i = 0; i < winners.length; i++) {
+            System.out.print(winners[i]);
+            if (i < winners.length - 1) {
+                System.out.print(", ");
             }
         }
     }
