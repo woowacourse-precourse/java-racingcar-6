@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.model.car.Car;
-import racingcar.model.car.RacingCar;
+
 
 @Nested
 @DisplayName("[Racing Car]")
