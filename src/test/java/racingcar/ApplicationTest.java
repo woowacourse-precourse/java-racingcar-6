@@ -44,6 +44,15 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @DisplayName("자동차 이름이 1 이상 5 이하가 아닐 경우 예외가 발생한다")
+    @Test
+    void overCarName() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobiBest, javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
