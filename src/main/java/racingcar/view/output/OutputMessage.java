@@ -1,4 +1,4 @@
-package racingcar.domain.output;
+package racingcar.view.output;
 
 public enum OutputMessage {
 
@@ -10,7 +10,7 @@ public enum OutputMessage {
 
     final String message;
 
-    OutputMessage(String message){
+    OutputMessage(String message) {
         this.message = message;
     }
 }
