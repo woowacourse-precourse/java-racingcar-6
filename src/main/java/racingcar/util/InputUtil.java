@@ -18,6 +18,7 @@ public class InputUtil {
 
     public List<String> getCarNames() {
         String input = input();
+        InputException.checkContainComma(input);
         List<String> names = splitString(input);
         InputException.checkCarCount(names);
         names.forEach(this::validateCarName);
@@ -46,7 +47,7 @@ public class InputUtil {
     }
 
     public List<String> splitString(String input) {
-        String[] split = input.split(REGEX.getMessage());
+        String[] split = input.split(COMMA.getMessage());
         return List.of(split);
     }
 }

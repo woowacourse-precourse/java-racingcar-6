@@ -34,6 +34,14 @@ public class InputException {
         }
     }
 
+    public static void checkContainComma(String name) {
+        int length = name.length();
+        char lastChar = name.charAt(length - 1);
+        if (lastChar == ',') {
+            throw new IllegalArgumentException(INPUT_ERROR_MESSAGE.getMessage());
+        }
+    }
+
     public static void checkNameType(String name) {
         boolean matches = Pattern.matches(PATTERN.getMessage(), name);
         if (!matches) {

@@ -7,7 +7,8 @@ public enum ExceptionMessage {
     INPUT_ERROR_SPACE_MESSAGE("공백을 제외하고 입력해주세요."),
     INPUT_ERROR_CAR_TYPE_MESSAGE("문자(영문자)만 입력해주세요."),
     INPUT_ERROR_CAR_NAME_LENGTH_MESSAGE("자동차 이름은 1-5자까지 입력 가능합니다."),
-    INPUT_ERROR_NUMBER_RANGE_MESSAGE("1이상의 숫자를 입력하세요.");
+    INPUT_ERROR_NUMBER_RANGE_MESSAGE("1이상의 숫자를 입력하세요."),
+    INPUT_ERROR_MESSAGE("잘못된 입력방식입니다.");
 
     private final String message;
 

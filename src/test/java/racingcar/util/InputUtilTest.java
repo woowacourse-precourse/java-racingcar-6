@@ -97,6 +97,21 @@ public class InputUtilTest {
     }
 
     @Test
+    @DisplayName("자동차 입력 시, 마지막 문자를 ,로 입력한 경우")
+    public void 입력시_마지막_문자열_확인_테스트() throws Exception {
+        // given
+        String names = "poni,poni,hello,";
+
+        // when
+
+        // then
+        Assertions.assertThatThrownBy(() -> InputException.checkContainComma(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("잘못된 입력방식입니다.");
+
+    }
+
+    @Test
     @DisplayName("자동차 입력 시, 2대 이하로 입력한 경우")
     public void 자동차_갯수_입력_테스트() throws Exception {
         // given
