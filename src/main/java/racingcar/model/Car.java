@@ -35,4 +35,12 @@ public class Car {
     private String getConcatenatedPosition(){
         return String.join("", position);
     }
+
+    public Integer getPositionLength(){
+        return position.size();
+    }
+
+    public String getName(){
+        return name;
+    }
 }

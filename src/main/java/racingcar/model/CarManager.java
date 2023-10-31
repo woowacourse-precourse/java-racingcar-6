@@ -23,6 +23,24 @@ public class CarManager {
             Car car = new Car(name);
             cars.add(car);
         }
-
     }
+
+    public List<String> getWinners() {
+        List<Integer> positions = new ArrayList<>();
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            positions.add(car.getPositionLength());
+        }
+        int topPosition = positions.stream()
+                .max(Integer::compareTo).get();
+
+        for (Car car : cars) {
+            if (car.getPositionLength() == topPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
+
 }
