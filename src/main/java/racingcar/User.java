@@ -39,14 +39,14 @@ public class User {
                 .allMatch(s -> s.chars().allMatch(Character::isLetterOrDigit));
 
         if (!separatedByCommas) {
-            throw new IllegalArgumentException("이름은 쉼표(,)로 구분해주세요.");
+            throw new IllegalArgumentException(RacingCarException.NOT_SEPARATED_BY_COMMAS_MSG);
         }
     }
 
     private void checkExceedNameLength(List<String> splits) {
         for (String split : carNames) {
             if (split.length() > 5) {
-                throw new IllegalArgumentException("이름을 5자 이내로 입력해주세요.");
+                throw new IllegalArgumentException(RacingCarException.EXCEED_LENGTH_MSG);
             }
         }
     }
@@ -55,7 +55,7 @@ public class User {
         try {
             int i = Integer.parseInt(count);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("숫자만 입력해주세요.");
+            throw new IllegalArgumentException(RacingCarException.NOT_NUMBER_MSG);
         }
     }
 
