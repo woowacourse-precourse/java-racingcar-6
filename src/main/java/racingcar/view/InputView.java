@@ -9,21 +9,22 @@ public class InputView {
     private final static String INPUT_TRY_COUNT = "시도할 횟수는 몇회인가요?";
 
     public static InputManager startGameInput() {
-        System.out.println(GAME_START_COMMENT);
         String carList = inputCarList();
-        System.out.println(INPUT_TRY_COUNT);
         int tryCount = inputGameProcessCount();
-        InputGameInfoValidate.gameProcessCountValidate(tryCount);
         System.out.println();
         return new InputManager(tryCount, carList);
     }
 
-    private static int inputGameProcessCount() {
-        return Integer.parseInt(Console.readLine());
+    private static String inputCarList(){
+        System.out.println(GAME_START_COMMENT);
+        return Console.readLine();
     }
 
-    private static String inputCarList() {
-        return Console.readLine();
+    private static int inputGameProcessCount() {
+        System.out.println(INPUT_TRY_COUNT);
+        int tryCount = Integer.parseInt(Console.readLine());
+        InputGameInfoValidate.gameProcessCountValidate(tryCount);
+        return tryCount;
     }
 
 }
