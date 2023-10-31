@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.NumberGenerator;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -12,6 +13,12 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    @Test
+    void 숫자_생성(){
+        final NumberGenerator numberGenerator = new NumberGenerator();
+        boolean result = (numberGenerator.createRandomNumber() >= 0)&&(numberGenerator.createRandomNumber() <= 9);
+        assertThat(result).isEqualTo(true);
+    }
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(

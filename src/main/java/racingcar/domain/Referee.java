@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Referee {
-    SystemMessage systemMessage = new SystemMessage();
+    static SystemMessage systemMessage = new SystemMessage();
     final String SEPARATE_WINNER = ",";
     public void printWinner(List<String> winner){
         String winners  = new String();
