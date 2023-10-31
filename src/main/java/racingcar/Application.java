@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Application {
 
-    public static void main(String[] args) { //여기를 출력 및 인터페이스로 만들자
+    public static void main(String[] args) {
         // TODO: 프로그램 구현
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

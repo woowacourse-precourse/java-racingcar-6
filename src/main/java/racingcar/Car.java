@@ -35,18 +35,18 @@ public class Car {
         System.out.println();
     }
 
-    private boolean canMove() { //0~9까지 무작위 값을 구해 4 이상일 경우 전진하는 기능
+    private boolean canMove() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber > 3;
     }
 
-    private void increaseCarPosition(String name) { //자동차 전진 기능
+    private void increaseCarPosition(String name) {
         if (canMove()) {
             this.racingLineup.put(name, this.racingLineup.get(name) + 1);
         }
     }
 
-    private void printRaceResult(String name) { //실행 결과 출력 및 자동차 이름도 같이 출력
+    private void printRaceResult(String name) {
         System.out.printf("%s : ", name);
         for (int i = 0; i < this.racingLineup.get(name); i++) {
             System.out.print("-");
@@ -54,7 +54,7 @@ public class Car {
         System.out.println();
     }
 
-    ArrayList<String> makeWinnerList() { //게임 완료 후 우승자 판단 및 명단 제작
+    ArrayList<String> makeWinnerList() {
         int maxPosition = Collections.max(this.racingLineup.values());
         for (String carName : this.racingLineup.keySet()) {
             this.winnerList.add(findNameByPosition(carName, maxPosition));
@@ -68,7 +68,7 @@ public class Car {
         return racingLineup.get(carName);
     }
 
-    private String findNameByPosition(String carName, Integer position) { //우승자 판단 내부 로직
+    private String findNameByPosition(String carName, Integer position) {
         if (this.getCarPosition(carName) == position) {
             return carName;
         }
