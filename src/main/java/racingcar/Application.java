@@ -18,6 +18,7 @@ public class Application {
         gameView.printMessage("실행결과");
         while (racingCupController.playNextRound()) {
             racingCupController.playRacingGame();
+            racingCupController.updateTopPlayerCompletedRound();
             gameView.nowRoundResultPrint(playersController.getPlayerList());
         }
 

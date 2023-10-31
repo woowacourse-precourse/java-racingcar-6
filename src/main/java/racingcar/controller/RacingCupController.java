@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.model.Player;
 import racingcar.model.RacingCup;
 
 public class RacingCupController {
@@ -22,8 +23,13 @@ public class RacingCupController {
         for (int i = 0; i < playerController.getSizeOfTotalPlayers(); i++) {
             if (Randoms.pickNumberInRange(0, 9) >= FORWARD_THRESHOLD) {
                 playerController.forward(i);
-                racingCup.updateTopPlayerCompletedRound(playerController.getCompletedRounds(i));
             }
+        }
+    }
+
+    public void updateTopPlayerCompletedRound() {
+        for (int i = 0; i < playerController.getSizeOfTotalPlayers(); i++) {
+            racingCup.updateTopPlayerCompletedRound(playerController.getCompletedRounds(i));
         }
     }
 
