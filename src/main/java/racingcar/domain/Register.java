@@ -20,9 +20,9 @@ public class Register {
         return cars;
     }
 
-    private void checkCarName(String car){
+    public void checkCarName(String car){
         if(car.length() > 5){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("String index out of range: 5");
         }
     }
 
