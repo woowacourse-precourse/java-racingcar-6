@@ -30,8 +30,6 @@ public class Application {
         StartRacing(tries, cars); // 경주 시작
         printWinners(findWinners(cars, carNames));
 
-
-
     }
 
     private static String[] inputCarNames() {
