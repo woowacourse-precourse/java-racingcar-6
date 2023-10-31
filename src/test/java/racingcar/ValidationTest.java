@@ -36,4 +36,28 @@ public class ValidationTest {
         assertThat(result4).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 콤마_1개로만_이름의_구분이_가능하면_통과() {
+        //given
+        String case1 = "one,two,three";
+        String case2 = "one1,two2,three3";
+        String case3 = "one, two, three";
+
+        //when
+        Throwable result1 = catchThrowable(()->{
+            Validation.validateSeparator(case1);
+        });
+        Throwable result2 = catchThrowable(()->{
+            Validation.validateSeparator(case2);
+        });
+        Throwable result3 = catchThrowable(()->{
+            Validation.validateSeparator(case3);
+        });
+
+        //then
+        assertThat(result1).doesNotThrowAnyException();
+        assertThat(result2).doesNotThrowAnyException();
+        assertThat(result3).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
