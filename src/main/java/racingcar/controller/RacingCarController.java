@@ -28,6 +28,7 @@ public class RacingCarController {
         List<String> carNames = splitCarNamesByComma(inputCarNames);
         List<Car> cars = createCarList(carNames);
         int inputNumberOfTimes = inputNumberOfTimes(inputView.inputNumberOfTimes());
+        outputView.printStartResult();
         while (inputNumberOfTimes-- > 0) {
             checkEachCarForward(cars);
             outputView.printEachRaceResult(cars);

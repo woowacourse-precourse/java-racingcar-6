@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class OutputView {
+    public void printStartResult(){
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
     public void printEachRaceResult(List<Car> cars) {
         IntStream.range(0, cars.size())
                 .forEach(i -> printEachCarResult(cars.get(i)));
