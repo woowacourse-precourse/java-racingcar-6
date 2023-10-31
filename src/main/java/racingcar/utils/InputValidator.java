@@ -8,7 +8,7 @@ public class InputValidator {
 
     public static List<String> validateCarNames(String names) {
         List<String> carNames = List.of(names.trim().split(","));
-        carNames.forEach(c -> InputValidator.validateCarNames(c.trim()));
+        carNames.forEach(InputValidator::validateCarName);
         return carNames;
     }
 
