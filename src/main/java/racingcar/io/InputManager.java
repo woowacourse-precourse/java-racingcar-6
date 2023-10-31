@@ -22,7 +22,8 @@ public class InputManager {
     public String readCarNameInput() {
         outputManager.printCarNameInputMessage();
         String input = inputProvider.getInput();
-        return getValidatedInput(getCarNameValidators(), input);
+        return input;
+        // return getValidatedInput(getCarNameValidators(), input);
     }
     public String readTryCountInput() {
         outputManager.printTryCountInputMessage();
@@ -44,7 +45,7 @@ public class InputManager {
         return Arrays.asList(
                 input -> IsIntegerValidator.validate(input),
                 input -> IntegerRangeValidator.validate(input,
-                        GameConfig.START_OF_RANGE.getValue(), GameConfig.END_OF_RANGE.getValue())
+                        GameConfig.MIN_TRY_COUNT.getValue(), GameConfig.MAX_TRY_COUNT.getValue())
         );
     }
 
