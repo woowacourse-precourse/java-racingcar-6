@@ -30,7 +30,7 @@ public class GameService {
         List<String> userInputList = convertStrToList(userInput);
         carNameValidator.validateCarName(userInputList);
         userInputList.stream()
-                .forEach(carName -> carList.add(Car.nameFrom(carName)));
+                .forEach(carName -> carList.add(Car.from(carName)));
     }
 
     public void getGameCount() {
