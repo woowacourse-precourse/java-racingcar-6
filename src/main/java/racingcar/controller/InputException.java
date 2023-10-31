@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static racingcar.utility.Constants.IMPROPER_COMMA_POSITION;
+import static racingcar.utility.Constants.IMPROPER_COMMA_POSITION_PATTERN;
+import static racingcar.utility.Constants.VAILD_RACING_COUNT_PATTERN;
 import static racingcar.utility.Constants.NAME_LENGTH_LIMIT;
 
 public class InputException {
@@ -29,8 +30,14 @@ public class InputException {
         }
     }
 
+    public void isVaildRacingCount(int racingCount){
+        if(!isPositiveInteger(racingCount)){
+            throw new IllegalArgumentException();
+        }
+    }
+
     private boolean isCommaAtImproperPosition(String carsName){
-        return(Pattern.matches(IMPROPER_COMMA_POSITION,carsName));
+        return(Pattern.matches(IMPROPER_COMMA_POSITION_PATTERN,carsName));
     }
 
     private boolean isCarsNameEmpty(String carsName){
@@ -64,5 +71,9 @@ public class InputException {
                 .distinct() //중복제거
                 .toArray()
                 .length != carsNameArray.length; //기존 배열과 길이 다르면 true 반환
+    }
+
+    private boolean isPositiveInteger(int racingCount){
+        return(Pattern.matches(VAILD_RACING_COUNT_PATTERN, Integer.toString(racingCount)));
     }
 }
