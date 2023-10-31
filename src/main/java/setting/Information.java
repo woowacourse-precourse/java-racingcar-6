@@ -17,7 +17,7 @@ public class Information {
 
 		for (int i = 0; i < result.length; i++) {
 			if (result[i].length() <= 5) {
-				System.out.println(result[i]);
+				result[i] += " : ";
 			} else {
 				throw new IllegalArgumentException("각 이름은 5글자 이내입니다.");
 			}
@@ -25,7 +25,7 @@ public class Information {
 
 		return result;
 	}
-	
+
 	// 시도할 횟수 입력 및 랜덤 숫자를 통해 4이상인 경우 한 칸 앞으로 전진하기
 	public int inputNum() {
 		String strNum = Console.readLine();
@@ -47,5 +47,19 @@ public class Information {
 		return Num;
 	}
 
+
+
+	// '-' (전진)갯수
+	public int countChar(String name, char ch) {
+		int cnt = 0;
+
+		for (int i = 0; i < name.length(); i++) {
+			if (name.charAt(i) == '-') {
+				cnt++;
+			}
+		}
+
+		return cnt;
+	}
 
 }
