@@ -28,7 +28,7 @@ class GameSystem {
         output.askName();
         makeCars(input, manufacture);
         output.askTry();
-        runGame(input, manufacture);
+
     }
 
 
@@ -50,11 +50,10 @@ class GameSystem {
         }
     }
 
-    public void runGame(InputView input, InputManufacture manufacture) {
-        //int tryNum = makeTryNumber(input, manufacture);
-
+    public int makeTryNumber(InputView input, InputManufacture manufacture) {
+        String attempt = input.readTryNumber();
+        return manufacture.changeIntegerNumber(attempt);
     }
-
 
 }
 
