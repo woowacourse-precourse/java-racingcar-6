@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -110,7 +110,7 @@ class GameConsoleIOTest extends IOTest {
                     gameConsoleIO.getCarNames();
                 }
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Input invalid : size of input value exceeds 5");;
+                .hasMessageContaining("Input invalid : size of input value exceeds 5");
     }
 
     @Test
