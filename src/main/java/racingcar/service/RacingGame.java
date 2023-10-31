@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
 import racingcar.input.count.CountValidator;
@@ -21,22 +22,21 @@ public class RacingGame {
         // 이름 입력 받기
         String inputNames = Console.readLine();
 
-        // 예외 처리
-        if(!NameValidator.hasValidCharacters(inputNames)) {
-            throw new IllegalArgumentException(getErrorMessage("name"));
-        }
+        // 이름과 자동차 전진 횟수를 기록하는 LinkedHashMap
+        LinkedHashMap<String, Integer> nameToDistance = new LinkedHashMap<>();
 
-        if (NameCounter.getCount(inputNames) > 1) {
-            Arrays.stream(inputNames.split(","))
-                    .filter(name -> name.length() > 5)
-                    .findFirst()
-                    .ifPresent(name -> {
-                        throw new IllegalArgumentException(getErrorMessage("name"));
-                    });
-        } else {
-            if(inputNames.length() > 5) {
+
+        // 예외 처리
+        for(String name : inputNames.split(",")) {
+            if(!NameValidator.hasValidCharacters(name)) {
                 throw new IllegalArgumentException(getErrorMessage("name"));
             }
+
+            if(name.length() > 5) {
+                throw new IllegalArgumentException(getErrorMessage("name"));
+            }
+
+            nameToDistance.put(name, 0);
         }
 
         // 횟수 입력 문구 출력
@@ -49,5 +49,7 @@ public class RacingGame {
         }
 
         int n = Integer.parseInt(inputCount);
+
+        System.out.println(nameToDistance);
     }
 }
