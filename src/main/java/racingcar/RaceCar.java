@@ -23,8 +23,11 @@ public class RaceCar {
         if(maxDistanceTraveled < position ) maxDistanceTraveled = position;
     }
 
-    private String winerCarName(){
-        if(maxDistanceTraveled == position) return name;
+    private String winnerCarName(){
+        if(maxDistanceTraveled == position)
+            return name;
+        else
+            return "";
     }
 
 
