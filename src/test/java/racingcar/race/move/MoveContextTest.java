@@ -6,10 +6,6 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.ValidatedRacingCar;
-import racingcar.race.move.CarRaceRecord;
-import racingcar.race.move.Go;
-import racingcar.race.move.MoveContext;
-import racingcar.race.move.Stop;
 
 class MoveContextTest {
 
