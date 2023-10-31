@@ -10,4 +10,6 @@ public interface RacingPrinter {
     void noticeResult();
 
     void printResultDetail(RacingCar racingCar);
+
+    void printLine();
 }

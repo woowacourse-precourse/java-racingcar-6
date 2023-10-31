@@ -28,4 +28,9 @@ public class ConsoleRacingPrinter implements RacingPrinter {
         }
         System.out.println();
     }
+
+    @Override
+    public void printLine() {
+        System.out.println();
+    }
 }
