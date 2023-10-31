@@ -33,6 +33,3 @@ public class Car {
         return progress.toString();
     }
 }
-
-
-
