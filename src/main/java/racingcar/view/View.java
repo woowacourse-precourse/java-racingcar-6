@@ -36,7 +36,7 @@ public final class View {
         return userInput;
     }
 
-    class Validator {
+    private static class Validator {
         private static void validateNonBlankInput(final String input) {
             if (input.isBlank()) {
                 throw RaceException.of(ErrorMessage.BLANK_INPUT_ERROR);
