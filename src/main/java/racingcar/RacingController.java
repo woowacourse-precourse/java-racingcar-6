@@ -20,12 +20,11 @@ public class RacingController {
     public void startGame() {
         consolePrint.requestCarNameInput();
         String carNameInput = Console.readLine();   // 자동차 이름 입력
-        ifInputValidThenMakeCars(carNameInput); // 에러 미발생 시 cars에 값 할당
+        carInputExceptionAndParsing(carNameInput);  // 에러 미발생 시 cars에 값 할당
 
         consolePrint.requestTryCountInput();
-
         String tryCountInput = Console.readLine();  // 시도 회수 입력
-        ifInputValidThenMakeTryCount(tryCountInput);    // 에러 미발생 시 tryCount에 값 할당
+        trtCountExceptionAndParsing(tryCountInput);    // 에러 미발생 시 tryCount에 값 할당
 
         consolePrint.informRacingResult();
 
@@ -50,7 +49,7 @@ public class RacingController {
         consolePrint.racingTryResult(cars);
     }
 
-    private void ifInputValidThenMakeCars(String carNameInput) {
+    private void carInputExceptionAndParsing(String carNameInput) {
         exception.isNameNull(carNameInput);
         cars = parsing.StringToCarList(carNameInput);
         for (Car car : cars) {
@@ -59,7 +58,7 @@ public class RacingController {
         }
     }
 
-    private void ifInputValidThenMakeTryCount(String tryCountInput) {
+    private void trtCountExceptionAndParsing(String tryCountInput) {
         exception.isInteger(tryCountInput);
         tryCount = parsing.stringToInt(tryCountInput);
         exception.isGreaterThanZero(tryCount);
