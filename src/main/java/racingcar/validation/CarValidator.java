@@ -4,7 +4,12 @@ import racingcar.constant.Rule;
 import racingcar.constant.message.ErrorMessage;
 import racingcar.model.car.Car;
 
+import java.util.regex.Pattern;
+
 public class CarValidator implements Validator {
+
+    private static final Pattern ALPHANUMERIC_HANGUL_PATTERN = Pattern.compile("^[ㄱ-ㅎ가-힣a-zA-Z0-9 ]+$");
+
     @Override
     public boolean support(Class<?> clazz) {
         return Car.class.isAssignableFrom(clazz);
@@ -12,8 +17,15 @@ public class CarValidator implements Validator {
 
     @Override
     public void validate(Object target) {
+        validateType((String) target);
         validateLength((String) target);
         validateSpace((String) target);
+    }
+
+    private void validateType(String value) {
+        if (value == null || !ALPHANUMERIC_HANGUL_PATTERN.matcher(value).matches()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void validateLength(String value) {
