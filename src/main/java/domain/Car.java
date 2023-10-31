@@ -1,5 +1,7 @@
 package domain;
 
+import Service.RandomGenerate;
+
 public class Car {
     private final String name;
     private int raceCount;
@@ -17,6 +19,13 @@ public class Car {
 
         if (name.equals(" ")) {
             throw new IllegalArgumentException("공백의 이름은 허용하지 않습니다.");
+        }
+    }
+
+    public void race() {
+        RandomGenerate randomGenerate = new RandomGenerate(0, 9);
+        if (randomGenerate.generate() >= 4) {
+            raceCount++;
         }
     }
 
