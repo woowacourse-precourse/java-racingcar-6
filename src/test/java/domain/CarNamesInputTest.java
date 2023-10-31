@@ -30,4 +30,15 @@ public class CarNamesInputTest {
 		}).isInstanceOf(IllegalArgumentException.class);
 	}
 
+	@Test
+	public void 이름이_공백이면_예외_발생() {
+		//given
+		String name = " ";
+		CarNamesInput carNamesInput = new CarNamesInput();
+		// when & then
+		Assertions.assertThatThrownBy(() -> {
+			carNamesInput.validateNameBlank(name);
+		}).isInstanceOf(IllegalArgumentException.class);
+	}
+
 }
