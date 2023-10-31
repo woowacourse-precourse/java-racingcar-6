@@ -1,14 +1,13 @@
 package racingcar.exception;
 
 public enum ErrorMessage {
-    EMPTY("The input cannot be null"),
-    CONTAIN_TAB("The input cannot ends with tab"),
-    ENDS_WITH_DELIMITER("The input cannot ends with delimiter"),
-    ENDS_WITH_NEW_LINE("The input cannot ends with new line"),
-    CONTAIN_IMPROPER_LETTER("The input cannot contain improper letters."),
-    TOO_LONG_NAME("The name length cannot be over from length configured by the game."),
-    DUPLICATED("The input cannot duplicated."),
-    SYSTEM_ERROR("The game system has crashed");
+    EMPTY("The input cannot be empty"),
+    ENDS_WITH_DELIMITER("The input cannot ends with a delimiter."),
+    ENDS_WITH_NEW_LINE("The input cannot ends with a new line."),
+    CONTAIN_IMPROPER_LETTER("The input cannot contain an improper letter."),
+    TOO_LONG_NAME("The name length cannot be longer than a length configured by the game."),
+    DUPLICATED("The input cannot contain a duplication."),
+    SYSTEM_ERROR("The game system crashed.");
 
     private final String message;
 
