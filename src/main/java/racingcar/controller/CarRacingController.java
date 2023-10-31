@@ -2,14 +2,15 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import racingcar.model.RaceGame;
+import racingcar.view.OutputView;
 
 public class CarRacingController {
     private static final int RACECAR_ADVENCE_NUMBER = 4;
     private int randomNumber;
     private boolean AdvenceState;
     RandomUtility randomUtillity = new RandomUtility();
+    OutputView outputView = new OutputView();
 
     public void playGame(RaceGame raceGame) {
         saveResetCarMoveCounts(raceGame);
@@ -34,6 +35,8 @@ public class CarRacingController {
             if (AdvenceState) {
                 increaseAdvenceCount(raceGame, raceCarIndex);
             }
+            outputView.printRaceResult(raceGame.getCarNames().get(raceCarIndex),
+                    raceGame.getCarMoveCounts().get(raceCarIndex));
         }
         System.out.println();
     }
@@ -47,6 +50,5 @@ public class CarRacingController {
 
         raceGame.getCarMoveCounts().set(raceCarIndex, updateCount);
         raceGame.setCarMoveCounts(raceGame.getCarMoveCounts());
-        System.out.println(raceGame.getCarMoveCounts());
     }
 }
