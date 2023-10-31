@@ -22,6 +22,8 @@ public class RacingCarGameController {
         List<Player> playerList = generatePlayer(Arrays.stream(playerNames).toList());
 
         int tryNum = racingCarGameView.requestTryNumber();
+
+        racingCarGameView.gameResult();
         for (int i=0; i< tryNum; i++) {
             moveOrNot(playerList);
             racingCarGameView.showNowPlayerLocation(playerList);
