@@ -15,7 +15,11 @@ public class RacingViewer {
     }
 
     public void showResultMessage() {
-        System.out.println(RESULT_MESSAGE);
+        System.out.println("\n" + RESULT_MESSAGE);
+    }
+
+    public void showNewLine() {
+        System.out.println();
     }
 
     public void showWinnerMessage() {
