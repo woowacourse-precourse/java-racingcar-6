@@ -19,7 +19,16 @@ public class CarTest {
 
         car1.moveOrStop(4);
 
-        assertThat(car1.compareTo(car2)).isEqualTo(0);
+        assertThat(car1.isSamePosition(car2)).isTrue();
+    }
+    @Test
+    void 주어진_숫자가_4미만이면_전진하지_않는다() {
+        Car car1 = new Car("박정언",0);
+        Car car2 = new Car("홍길동",0);
+
+        car1.moveOrStop(3);
+
+        assertThat(car1.isSamePosition(car2)).isTrue();
     }
     @Test
     void 같은_포지션의_자동차를_찿는다() {
