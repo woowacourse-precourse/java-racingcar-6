@@ -10,10 +10,20 @@ import java.util.Set;
 
 public class Application {
     public static void main(String[] args) {
-      inputCarName();
+      String inputCarName = inputCarName();
+      String[] carNameSplit = inputCarNameSplit(inputCarName);
+      Map<String, Integer> cars = inputCarNameValidation(carNameSplit);
 
+      String inputAttempts = inputAttempts();
+      int attempts = inputAttemptsValidation(inputAttempts);
 
+      for(int count = 1 ; count <= attempts ; count++){
+        cars = movementCount(cars);
+        progressDisplay(cars);
+      }
+      winnerDisplay(cars);
     }
+
     public static String inputCarName(){
       System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
       String input = Console.readLine();
@@ -86,7 +96,7 @@ public class Application {
       System.out.println("");
     }
 
-    public void winnerDisplay(Map<String,Integer> cars){
+    public static void winnerDisplay(Map<String,Integer> cars){
       String winner = "";
       Integer maxValue = Collections.max(cars.values());
       Set<Map.Entry<String, Integer>> entrySet = cars.entrySet();
