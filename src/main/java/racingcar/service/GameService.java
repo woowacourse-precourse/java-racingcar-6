@@ -16,7 +16,8 @@ public class GameService {
             // 각 라운드를 실행하고 자동차를 전진시키는 로직 구현
             moveCars(cars);
             List<Car> roundWinners = determineRoundWinners(cars);
-            gameResults.add(OutputView.printRoundResults(cars));
+            String roundResult = OutputView.getRoundResults(cars);
+            gameResults.add(roundResult);
             if (roundWinners.size() == cars.size()) {
                 gameResults.add("최종 우승자: " + String.join(", ", determineGameWinners(cars)));
                 break;
@@ -64,7 +65,7 @@ public class GameService {
     }
 
     // 각 차수별 실행 결과를 문자열로 출력하는 메서드
-    private String printRoundResults(List<Car> cars) {
+    public static String printRoundResults(List<Car> cars) {
         StringBuilder roundResult = new StringBuilder();
         for (Car car : cars) {
             roundResult.append(car.getName()).append(" : ").append(car.getPositionBar()).append("\n");
