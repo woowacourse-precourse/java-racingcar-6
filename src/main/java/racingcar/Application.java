@@ -1,11 +1,19 @@
 package racingcar;
 
+import racingcar.controller.InputController;
+import racingcar.controller.RacingController;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        RacingController racingController = new RacingController();
+        InputController inputController = new InputController();
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        System.out.println("시도할 회수는 몇회인가요?");
+        inputController.enterCarNamesAndCount();
+        String carNames = inputController.getCarNames();
+        int racingCount = inputController.getRacingCount();
+        racingController.settingCars(carNames);
+        racingController.playRacing(racingCount);
+        racingController.printWinner();
     }
 }
