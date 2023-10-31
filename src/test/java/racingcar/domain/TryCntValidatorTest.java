@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 import racingcar.exception.trycnt.TryCntIsNumberException;
 import racingcar.exception.trycnt.TryCntIsPositiveException;
 
-class InputTryCntValidatorTest {
+class TryCntValidatorTest {
     @Test
     @DisplayName("[에러] 시도 횟수가 숫자가 아니라면 IllegalArgumentException 발생")
     public void checkTryCntIsNumber() {
         String tryCnt = "일";
         assertThatExceptionOfType(TryCntIsNumberException.class)
-                .isThrownBy(() -> InputTryCntValidator.checkTryCount(tryCnt))
+                .isThrownBy(() -> TryCntValidator.checkTryCount(tryCnt))
                 .withMessageMatching("시도 횟수는 숫자여야 합니다.");
     }
 
@@ -22,7 +22,7 @@ class InputTryCntValidatorTest {
     public void checkTryCntIsPositive() {
         String tryCnt = "-1";
         assertThatExceptionOfType(TryCntIsPositiveException.class)
-                .isThrownBy(() -> InputTryCntValidator.checkTryCount(tryCnt))
+                .isThrownBy(() -> TryCntValidator.checkTryCount(tryCnt))
                 .withMessageMatching("시도 횟수는 양수여야 합니다.");
     }
 }

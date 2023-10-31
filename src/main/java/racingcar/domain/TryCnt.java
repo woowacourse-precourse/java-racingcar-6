@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.domain.InputTryCntValidator.checkTryCount;
+import static racingcar.domain.TryCntValidator.checkTryCount;
 
 public class TryCnt {
     private int tryCnt;

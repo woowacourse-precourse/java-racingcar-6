@@ -5,7 +5,7 @@ import racingcar.exception.trycnt.TryCntIsPositiveException;
 
 import static racingcar.domain.constants.Constants.MIN_TRY_COUNT;
 
-public class InputTryCntValidator {
+public class TryCntValidator {
 
     public static int checkTryCount(String tryCnt) {
         int num = checkTryCntIsNumber(tryCnt);

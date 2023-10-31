@@ -12,7 +12,7 @@ import racingcar.exception.car.BlankCarNameException;
 import racingcar.exception.car.CarNameNumberLimitException;
 import racingcar.exception.car.DuplicateCarNameException;
 
-class InputCarValidatorTest {
+class CarValidatorTest {
 
     @Test
     @DisplayName("입력받은 문자열을 쉼표(,)기준으로 쪼개기")
@@ -21,7 +21,7 @@ class InputCarValidatorTest {
         String input = "pobi,woni";
         String[] expectedCars = new String[]{"pobi", "woni"}; // expected
         // when
-        String[] actualCars = InputCarValidator.carsByStringToArray(input); // actual
+        String[] actualCars = CarValidator.carsByStringToArray(input); // actual
         assertThat(actualCars)
                 .isNotNull()
                 .isEqualTo(expectedCars);
@@ -34,7 +34,7 @@ class InputCarValidatorTest {
         String[] cars = new String[]{"pobi", "woni", "json", "pobi"};
         // when & then
         assertThatExceptionOfType(DuplicateCarNameException.class)
-                .isThrownBy(() -> InputCarValidator.checkDuplicateCarName(cars))
+                .isThrownBy(() -> CarValidator.checkDuplicateCarName(cars))
                 .withMessageMatching("자동차 이름은 중복이 될 수 없습니다.");
     }
 
@@ -45,7 +45,7 @@ class InputCarValidatorTest {
         String[] cars = new String[]{"pobi", "woni", "json", "sejin"};
         Set<String> expectedCars = new HashSet<>(Arrays.asList(cars));
         // when
-        Set<String> checkedCars = InputCarValidator.checkDuplicateCarName(cars);
+        Set<String> checkedCars = CarValidator.checkDuplicateCarName(cars);
         // then
         assertThat(checkedCars)
                 .isNotNull()
@@ -60,7 +60,7 @@ class InputCarValidatorTest {
 
         // when & then
         assertThatExceptionOfType(CarNameNumberLimitException.class)
-                .isThrownBy(() -> InputCarValidator.checkOver5Letters(testCar))
+                .isThrownBy(() -> CarValidator.checkOver5Letters(testCar))
                 .withMessageMatching("자동차 이름은 6글자 이상일 수 없습니다.");
     }
 
@@ -72,7 +72,7 @@ class InputCarValidatorTest {
 
         // when & then
         assertThatExceptionOfType(BlankCarNameException.class)
-                .isThrownBy(() -> InputCarValidator.checkCarWithBlank(testCar))
+                .isThrownBy(() -> CarValidator.checkCarWithBlank(testCar))
                 .withMessageMatching("자동차 이름에 공백만 있을 수 없습니다.");
     }
 }

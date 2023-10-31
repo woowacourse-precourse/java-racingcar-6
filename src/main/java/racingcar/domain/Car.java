@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.List;
-
-import static racingcar.domain.InputCarValidator.*;
+import static racingcar.domain.CarValidator.*;
 
 
 public class Car {

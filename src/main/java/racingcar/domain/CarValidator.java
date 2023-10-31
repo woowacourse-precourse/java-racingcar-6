@@ -11,7 +11,7 @@ import static racingcar.domain.constants.Constants.CAR_NAME_NUMBERS_LIMIT_SIZE;
 import static racingcar.domain.constants.Constants.SEPARATE_BY_COMMA;
 
 
-public class InputCarValidator {
+public class CarValidator {
 
     public static String[] carsByStringToArray(String inputAllCars) {
         return inputAllCars.split(SEPARATE_BY_COMMA);
