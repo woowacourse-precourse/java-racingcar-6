@@ -20,7 +20,7 @@ public class RoundResult {
         resultOfRound.append("\n");
     }
 
-    public static StringBuilder getResultOfRound(){
-        return resultOfRound;
+    public static String getResultOfRound(){
+        return resultOfRound.toString();
     }
 }

@@ -71,7 +71,7 @@ public class Application {
     }
 
     private static void generateRacingResult(){
-        OutputView.outputForRacingResult(RoundResult.getResultOfRound().toString());
+        OutputView.outputForRacingResult(RoundResult.getResultOfRound());
     }
 
     private static void generateHighScoreRacer(){
