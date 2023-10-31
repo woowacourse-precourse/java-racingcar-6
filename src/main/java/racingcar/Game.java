@@ -5,30 +5,20 @@ import java.util.List;
 
 public class Game {
 
-    private final GameShow gameShow = new GameShow();
-    private final CarUtil carUtil = new CarUtil();
+    private final List<Car> cars;
+    public final int goal;
 
-
-    public void play() {
-        gameShow.show(gameShow.inputNameMessage);
-        List<Car> cars = carUtil.parseCarName(Console.readLine());
-
-        gameShow.show(gameShow.inputTimeMessage);
-        int time = Integer.parseInt(Console.readLine());
-
-        gameShow.show(gameShow.executeMessage);
-        for(int i = 0; i < time; i++) {
-            gameProceed(cars);
-            gameShow.ProgressShow(cars);
-        }
-
-        gameShow.gameResult(cars);
+    public Game(List<Car> cars, int goal) {
+        this.cars = cars;
+        this.goal = goal;
     }
 
-    public void gameProceed(List<Car> cars) {
-        for(Car car : cars) {
-            carUtil.process(car);
-        }
+
+    public List<Car> getCars() {
+        return cars;
     }
 
+    public int getGoal() {
+        return goal;
+    }
 }
