@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 import racingcar.dto.RaceStatus;
 import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
+import racingcar.exception.RaceCountLessThanOneException;
 
 public class RacingGame {
     private static final int START_NUMBER = 0;
@@ -29,7 +30,7 @@ public class RacingGame {
 
     private void verifyRaceCount(int raceCount) {
         if (raceCount < 1) {
-            throw new IllegalArgumentException("최소 한 번의 경주는 진행되어야 합니다.");
+            throw new RaceCountLessThanOneException();
         }
     }
 
