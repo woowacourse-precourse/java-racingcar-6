@@ -64,6 +64,16 @@ class InputTest {
     }
 
     @Test
+    void 참가자_수가_10명_이상인_경우__에러가_발생한다() {
+        String input = "a,b,c,d,e,f,g,h,i,j,k";
+        List<String> carNames = List.of(input.split(","));
+
+        Assertions.assertThatThrownBy(() -> InputValidate.participantCount(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 게임에 참여할 수 있는 인원은 최소 1명 최대 10명입니다.");
+    }
+
+    @Test
     void 시도_횟수가_숫자가_아닌_경우_에러가_발생한다() {
         String input = "abc";
 
