@@ -10,6 +10,7 @@ public class MakeCars {
         IntegrityCheck integrityCheck = new IntegrityCheck();
         List<String> names;
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         names = makeNames.makeNames();
         for (int i = 0; i < names.size(); i++){
             if (integrityCheck.nameIntegrityCheck(names.get(i))){

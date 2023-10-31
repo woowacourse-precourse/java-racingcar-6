@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
         public void game(List<Racingcar> cars, int roundNum){
+                System.out.println("실행 결과");
                 for (int i = 0; i < roundNum; i++){
                         for (int j = 0; j < cars.size(); j++){
                                 carMove(cars.get(j));
