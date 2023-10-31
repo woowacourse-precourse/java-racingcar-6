@@ -1,17 +1,37 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.Constants;
 import racingcar.utils.RandomUtils;
 import racingcar.utils.StringUtils;
 
 public class Car {
-    private int forward;
-    private String name;
-    private int randomNumber;
+   private final String name;
+   private int position = 0;
 
-    public Car(int forward, String name, int randomNumber){
-        this.forward = forward;
+
+    public Car(String name) {
         this.name = name;
-        this.randomNumber = randomNumber;
+    }
+
+    public void goForward(){
+        if(RandomUtils.generateRandomNumber() >= Constants.GO_NUM){
+            position++;
+        }
+    }
+
+    public String getRoundResult(){
+        return name + Constants.ROUND_RESULT_DELIMITER + StringUtils.createHyphenRepeat(position);
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    public boolean isWinner(int winnerScore){
+        return position == winnerScore;
+    }
+
+    public String getName(){
+        return name;
     }
 }
