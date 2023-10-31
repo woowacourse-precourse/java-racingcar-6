@@ -17,5 +17,9 @@ public class GameUI {
     }
 
     public static int promptForNumberOfRoundsAndReturnInteger() {
+        int roundCount;
+        System.out.println("시도할 회수는 몇회인가요?");
+        roundCount = InputHandler.parseInputToIntager(Console.readLine());
+        return roundCount;
     }
 }
