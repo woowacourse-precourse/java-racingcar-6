@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.Generator;
 
 public class Cars {
     private final List<Car> cars;
@@ -28,10 +28,10 @@ public class Cars {
         return cars;
     }
 
-    public Cars simulateNextRound(RandomNumberGenerator generator) {
+    public Cars simulateNextRound(Generator generator) {
         return new Cars(
                 cars.stream()
-                        .map(car -> car.move(generator.getRandomNumber()))
+                        .map(car -> car.move(generator.getNumber()))
                         .collect(Collectors.toList())
         );
     }

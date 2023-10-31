@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class CarPosition {
+
     private int position;
 
     public CarPosition(int position) {
