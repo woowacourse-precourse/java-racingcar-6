@@ -32,16 +32,16 @@ public class Controller {
     }
 
     private Racing creatRacingByUserInput() {
-        List<Car> carNameList = getCarList();
-        RoundCount roundCount = getRoundCount();
+        List<Car> carNameList = getCarListByUser();
+        RoundCount roundCount = getRoundCountByUser();
         return new Racing(carNameList, roundCount);
     }
 
-    private RoundCount getRoundCount() {
+    private RoundCount getRoundCountByUser() {
         return new RoundCount(inputView.inputRoundCount());
     }
 
-    private List<Car> getCarList() {
+    private List<Car> getCarListByUser() {
         List<String> nameStringList = inputView.inputCarNameStrings();
         return nameStringList.stream()
                 .map(CarName::new)
