@@ -7,6 +7,10 @@ import racingcar.view.Message;
 import java.util.*;
 
 public class Game {
+    private static final int SMALLEST_RANDOM_NUMBER = 0;
+    private static final int LARGEST_RANDOM_NUMBER = 9;
+    private static final String COMMA_WITH_SPACE = ", ";
+
     public void start() {
         List<Car> carList = makeCar();
         int numberOfAttempts = getNumberOfAttempts();
@@ -42,7 +46,7 @@ public class Game {
 
     private void play(List<Car> carList) {
         for (Car car : carList) {
-            car.move(Randoms.pickNumberInRange(0, 9));
+            car.move(Randoms.pickNumberInRange(SMALLEST_RANDOM_NUMBER, LARGEST_RANDOM_NUMBER));
         }
     }
 
@@ -59,7 +63,7 @@ public class Game {
 
         List<String> winnerList = Winner.winnerList(carList, farthestCarPosition);
         Message.printWinnerGuidance();
-        String winnerStr = String.join(", ", winnerList);
+        String winnerStr = String.join(COMMA_WITH_SPACE, winnerList);
         Message.printWinnerNames(winnerStr);
     }
 }

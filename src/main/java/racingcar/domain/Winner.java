@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
+    private static final int STARTING_POINT_INT = 0;
+
     public static int findFarthestCarPosition(List<Car> carList) {
-        int farthestCarPosition = 0;
+        int farthestCarPosition = STARTING_POINT_INT;
 
         for (Car car : carList) {
             farthestCarPosition = Math.max(farthestCarPosition, car.getPositionInt());
