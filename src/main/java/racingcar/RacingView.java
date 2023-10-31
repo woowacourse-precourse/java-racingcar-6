@@ -16,5 +16,27 @@ public class RacingView {
 
         controller.setRacingCarName(inputNames);
     }
+    
+    void inputPlayCount() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String input = readLine();
+
+        int playCount = convertStringToInt(input);
+
+        controller.setRacingPlayCount(playCount);
+    }
+
+    private int convertStringToInt(String input) {
+        int number;
+
+        try {
+            number = Integer.parseInt(input);
+
+        } catch (Exception e) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+
+        return number;
+    }
 
 }

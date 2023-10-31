@@ -9,4 +9,8 @@ public class RacingController {
         racing.initParticipants(splitNames);
     }
 
+    void setRacingPlayCount(int playCount) {
+        racing.initPlayCount(playCount);
+    }
+
 }
