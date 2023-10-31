@@ -3,6 +3,8 @@ package racingcar.config;
 import racingcar.factory.Factory;
 import racingcar.factory.impl.CarFactory;
 import racingcar.game.Game;
+import racingcar.game.Launcher;
+import racingcar.game.impl.GameLauncher;
 import racingcar.game.impl.RacingGame;
 import racingcar.ioadapter.IoAdapter;
 import racingcar.ioadapter.impl.StandardIoAdapter;
@@ -37,5 +39,9 @@ public class AppConfig {
 
     public Game game() {
         return new RacingGame(factory());
+    }
+
+    public Launcher launcher() {
+        return new GameLauncher(ioAdapter(), inputConvertService(), game());
     }
 }
