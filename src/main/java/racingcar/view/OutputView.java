@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OutputView {
@@ -9,21 +8,27 @@ public class OutputView {
     }
 
     public static void printRoundResult(List<String> carNames, List<Integer> roundResult) {
-        List<String> resultList = new ArrayList<>();
-        for (int index = 0; index < carNames.size(); index++) {
-            String resultString = makeResultString(index, carNames, roundResult);
-            resultList.add(resultString);
-        }
-        String result = String.join("\n", resultList);
-        System.out.println(result + '\n');
+        String resultString = buildResultString(carNames, roundResult);
+        System.out.println(resultString);
     }
 
-    private static String makeResultString(Integer index, List<String> carNames, List<Integer> roundResult) {
-        String carName = carNames.get(index);
-        int distance = roundResult.get(index);
-        String carMove = "-".repeat(distance);
+    public static String buildResultString(List<String> carNames, List<Integer> roundResult) {
+        StringBuilder builder = new StringBuilder();
 
-        return carName + " : " + carMove;
+        for (int index = 0; index < carNames.size(); index++) {
+            String carName = carNames.get(index);
+            int distance = roundResult.get(index);
+
+            String carString = makeResultString(carName, distance);
+            builder.append(carString);
+        }
+
+        return builder.toString();
+    }
+
+    public static String makeResultString(String carName, int distance) {
+        String carMove = "-".repeat(distance);
+        return carName + " : " + carMove + "\n";
     }
 
     public static void printGameWinners(List<String> winners) {
