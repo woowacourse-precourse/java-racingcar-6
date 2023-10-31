@@ -28,13 +28,31 @@ public class RacingGame {
         String carNameInputs = Console.readLine();
         carName = carNameInputs.split(",");
         carCount = carName.length;
+        isCarNameValid();
     }
 
     public void inputTryNum() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-
+        isTryNumValid(input);
         tryNumber = Integer.parseInt(input);
+    }
+
+    public void isCarNameValid() {
+        for (int i = 0; i < carCount; i++) {
+            if (carName[i].length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    public void isTryNumValid(String input) {
+        if (input.length() != 1) {
+            throw new IllegalArgumentException();
+        }
+        if (!Character.isDigit(input.charAt(0))) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void startGame() {
