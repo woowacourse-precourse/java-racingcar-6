@@ -30,8 +30,8 @@ public class GameTest {
         String[] inputs = input.split(",");
         List<String> carNameList = game.splitCarName(input);
 
-        assertThat(carNameList).contains("pobi","pom","jun","pobi","king");
-        assertThat(carNameList).containsExactly("pobi","jun","king","pom");
+        assertThat(carNameList).contains("pobi", "pom", "jun", "pobi", "king");
+        assertThat(carNameList).containsExactly("pobi", "jun", "king", "pom");
 
         for (int i = 0; i < carNameList.size(); i++) {
             Assertions.assertTrue(carNameList.get(i).length() <= 5);
@@ -43,17 +43,11 @@ public class GameTest {
     @Test
     void 게임_결과_판단_테스트() {
         CarGameController carGameController = new CarGameController();
-        List<String> carNameList = new ArrayList<>();
-        carNameList.add("pobi");
-        carNameList.add("jun");
-        carNameList.add("king");
-        carNameList.add("mimi");
+        List<String> carNameList = List.of("pobi", "jun", "king", "mimi");
         List<Car> cars = carGameController.createCars(carNameList);
-        List<String> winners;
-        winners = game.judgeWinner(cars);
+        List<String> winners = game.judgeWinner(cars);
 
-        Assertions.assertEquals(4, winners.size());
-
+        assertThat(winners).hasSize(4);
     }
 
 
