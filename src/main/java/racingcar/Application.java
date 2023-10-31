@@ -3,6 +3,7 @@ package racingcar;
 import java.util.*;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
+import org.junit.platform.commons.util.StringUtils;
 
 public class Application {
     public static void main(String[] args)
@@ -54,9 +55,15 @@ public class Application {
         }
 
         /* Print the winner */
-
-
-
-
+        int max = Collections.max(moveNum);
+        ArrayList<String> winner = new ArrayList<String>();
+        for (int i = 0; i < moveNum.size(); i++)
+        {
+            if (moveNum.get(i) == max)
+            {
+                winner.add(cars.get(i));
+            }
+        }
+        System.out.println("The winners: " + String.join(", ",  winner));
     }
 }
