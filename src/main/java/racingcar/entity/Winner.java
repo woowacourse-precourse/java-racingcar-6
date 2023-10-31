@@ -2,6 +2,7 @@ package racingcar.entity;
 
 import racingcar.controller.GameController;
 import racingcar.controller.MaxController;
+import racingcar.generator.WinArrayGenerator;
 
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Winner {
         GameController gameController=new GameController();
 
         MaxController maxController=new MaxController();
-        int[] forwinner = GameController.win;
+        int[] forwinner = WinArrayGenerator.win;
         for(int i=0;i<forwinner.length;i++) {
             int cnt = forwinner[i];
             max = maxController.findMax(max, cnt);

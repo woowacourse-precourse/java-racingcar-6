@@ -3,6 +3,7 @@ package racingcar;
 import racingcar.controller.GameController;
 import racingcar.controller.MaxController;
 import racingcar.entity.Tries;
+import racingcar.generator.WinArrayGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +34,12 @@ public class Application {
             gameController.GameStart(participantes);
 
             for (int j = 0; j < participantes.size(); j++) {
-                String dashString = DashStringGenerator(j, gameController.win);
+                String dashString = DashStringGenerator(j, WinArrayGenerator.win);
                 System.out.println(participantes.get(j) + " : " + dashString);
             }
             System.out.println();
         }
-        int[] forwinner = gameController.win;
+        int[] forwinner = WinArrayGenerator.win;
         int max=0;
         for (int i=0;i<forwinner.length;i++){
             max= maxController.findMax(max,forwinner[i]);
