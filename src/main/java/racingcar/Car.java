@@ -22,19 +22,18 @@ public class Car {
     }
 
     public void move(){
-        if(isMove()) this.distance += 1;
+        int randomNumber = makeRandomNumber();
+        if(canMove(randomNumber)) this.distance += 1;
     }
+
+    public boolean canMove(int num){
+        return num >= 4;
+    }
+
+    public int makeRandomNumber(){ return Randoms.pickNumberInRange(0,9); }
 
     public void printMove() {
         String dash = DASH.repeat(this.distance);
         System.out.println(this.name + " : " + dash);
-    }
-
-    public boolean isMove(){
-        return makeRandomNumber() >= 4;
-    }
-
-    public int makeRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
     }
 }
