@@ -33,11 +33,11 @@ public class Racing {
 
     private void goRace(String[] racerNameArray) {
         for (int i = 0; i < racerNameArray.length; i++) {
-            resultPrint(i);
+            getRoundResults(i);
         }
     }
 
-    private void resultPrint(int i) {
+    private void getRoundResults(int i) {
         Dice dice = new Dice();
         int randomNumber = dice.getDice();
         if (randomNumber > RACE_CONDITION) {
