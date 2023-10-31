@@ -1,11 +1,10 @@
 package racingcar.domain;
 
 import racingcar.utils.InputException;
-import racingcar.utils.Split;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Game {
@@ -17,7 +16,7 @@ public class Game {
     }
 
     public Cars generateCarList(String input) {
-        List<String> carNames = Split.splitString(input);
+        List<String> carNames = Arrays.asList(input.split(","));
         InputException.validateNameDuplication(carNames);
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
