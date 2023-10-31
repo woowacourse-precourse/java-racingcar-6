@@ -1,6 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.global.constants.NumberType.*;
 import static racingcar.global.constants.NumberType.MAX_LENGTH_OF_NUMBER;
+
+import racingcar.utils.RandomUtils;
 
 public class Car {
     private String name;
@@ -14,6 +17,21 @@ public class Car {
 
     public static Car of(String name) {
         return new Car(name);
+    }
+
+    public void tryMove() {
+        Integer randomNumber = RandomUtils.generateRandomNumber();
+        if (isQualified(randomNumber)) {
+            move();
+        }
+    }
+
+    private void move() {
+        this.position++;
+    }
+
+    private boolean isQualified(Integer randomNumber) {
+        return randomNumber >= MIN_FORWARD_THRESHOLD.getValue();
     }
 
     private void validateName(String name) {
