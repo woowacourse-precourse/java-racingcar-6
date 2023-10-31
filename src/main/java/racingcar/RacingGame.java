@@ -19,8 +19,11 @@ public class RacingGame {
     }
 
     private void attemptForwardByCount(List<Car> cars, int attemptCount) {
+        System.out.println("실행 결과");
+
         for (int i = 0; i < attemptCount; i++) {
             cars.forEach(Car::attemptForward);
+            ioHandler.printAttemptResult(cars);
         }
     }
 

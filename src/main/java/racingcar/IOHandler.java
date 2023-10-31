@@ -31,4 +31,12 @@ public class IOHandler {
         System.out.println("최종 우승 : " + names);
     }
 
+    public void printAttemptResult(List<Car> cars) {
+        for (Car car : cars) {
+            String forwardLine = "-".repeat(car.getForwardCount());
+            System.out.println(car);
+        }
+        System.out.println();
+    }
+
 }
