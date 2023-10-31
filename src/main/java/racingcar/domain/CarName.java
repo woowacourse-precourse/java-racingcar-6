@@ -6,6 +6,17 @@ public class CarName {
 
     public CarName(String name) {
         this.name = name;
+        validate();
+    }
+
+    private void validate() {
+        if (isGreaterThanMaximumLength()) {
+            throw new IllegalArgumentException("이름은 5자이내여야 합니다.");
+        }
+    }
+
+    private boolean isGreaterThanMaximumLength() {
+        return name.length() > MAXIMUM_LENGTH;
     }
 
     public String getName() {
