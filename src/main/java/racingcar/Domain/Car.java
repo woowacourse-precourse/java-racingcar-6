@@ -1,6 +1,9 @@
 package racingcar.Domain;
 
-import static racingcar.Domain.RaceNumberGenerator.*;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Car {
     private String name;
@@ -25,7 +28,8 @@ public class Car {
 
     public void CarMove(int randomNumber) {
         if (randomNumber >= 4) {
-            position++;
+            this.position++;
         }
     }
+
 }

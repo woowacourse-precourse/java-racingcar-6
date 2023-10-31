@@ -9,31 +9,42 @@ import racingcar.Domain.Race;
 
 public class OutputView {
 
-    public void printResult(List<Car> cars){
-        printResultMessage();
-        printRaceResult(cars);
+//    public void printResult(List<Car> cars, int raceCount){
+//        printResultMessage();
+//        printRaceResult(cars, raceCount);
+//    }
+    public void printResult(List<String> results){
+        printResultMessage();;
+        printRaceResult(results);
     }
 
     public void printResultMessage(){
-        System.out.println(RESULT_MESSAGE);;
+        System.out.println(RESULT_MESSAGE);
     }
 
-    public void printRaceResult(List<Car> cars) {
-        StringBuilder raceResult = new StringBuilder();
-        for (Car car : cars) {
-            raceResult.append(car.getName()).append(CAR_DELIMITER).append(RACE_MARK.repeat(car.getPosition())).append("\n");
+//    public void printRaceResult(List<Car> cars, int raceCount) {
+//        for (int i = 0; i < raceCount; i++) {
+//            StringBuilder raceResult = new StringBuilder();
+//            for (Car car : cars) {
+//                raceResult.append(car.getName()).append(CAR_DELIMITER).append(RACE_MARK.repeat(car.getPosition())).append("\n");
+//            }
+//            System.out.println(raceResult);
+//        }
+//    }
+
+    public void printRaceResult(List<String> results){
+        for (String result : results) {
+            System.out.println(result);
         }
-        System.out.println(raceResult);;
     }
-
-    public void printWinner(List<Car> cars){
-        if (cars.size()>1){
-            printWinners(cars);
-        } else printSoleWinner(cars);
+    public void printWinner(List<Car> winners){
+        if (winners.size()>1){
+            printWinners(winners);
+        } else printSoleWinner(winners);
     }
 
     public void printSoleWinner(List<Car> car){
-        System.out.println(car.get(0).getName());
+        System.out.println(WINNER_MESSAGE+CAR_DELIMITER+car.get(0).getName());
     }
 
     public void printWinners(List<Car> cars){
@@ -42,6 +53,6 @@ public class OutputView {
             winners.add(car.getName());
         }
         String resultWinners = String.join(WINNER_DELIMITER,winners);
-        System.out.println(resultWinners+WINNER_MESSAGE);
+        System.out.println(WINNER_MESSAGE+CAR_DELIMITER+resultWinners);
     }
 }

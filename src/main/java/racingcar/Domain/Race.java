@@ -7,8 +7,12 @@ public class Race {
         this.raceCount = raceCount;
     }
 
+    public int getRaceCount() {
+        return this.raceCount;
+    }
+
     public boolean isRaceOver(int race) {
-        return race != this.raceCount;
+        return race == this.raceCount;
     }
 
 }

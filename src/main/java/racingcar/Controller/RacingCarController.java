@@ -30,13 +30,15 @@ public class RacingCarController {
 
         // 경주 횟수 입력
         int raceCount = inputView.inputRaceTime();
-        Race race = raceService.inputRaceCount(raceCount);
+        raceService.inputRaceCount(raceCount);
 
         // 경주 시작
-        carService.runRacing(racingCars,raceService);
-        outputView.printResult(carService.carList(racingCars));
+        List<String> raceResults = carService.runRacing(racingCars,raceService);
+        outputView.printResult(raceResults);
 
         // 우승자 결정
-        outputView.printWinner(winnerService.getWinners(racingCars));
+        List<Car> winners = winnerService.getWinners(racingCars);
+        outputView.printWinner(winners);
     }
+
 }
