@@ -14,8 +14,8 @@ public class CarMapper {
         this.carService = carService;
     }
 
-    public void add(List<String> names) {
-        carService.add(names);
+    public void setCars(List<String> names) {
+        carService.setCars(names);
     }
 
     public void playRound() {
@@ -23,7 +23,7 @@ public class CarMapper {
     }
 
     public List<CarDto> getState() {
-        return carsToDto(carService.getState());
+        return carsToDto(carService.getCars());
     }
 
     public List<CarDto> decideWinner() {

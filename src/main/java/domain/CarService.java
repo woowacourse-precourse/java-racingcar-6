@@ -7,36 +7,32 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class CarService {
     private static final int STANDARD_FOR_GO = 4;
-    private final List<Car> cars;
+    private Cars cars;
 
-    public CarService() {
-        cars = new ArrayList<>();
-    }
-
-    CarService(List<Car> cars) {
+    void setCars(Cars cars) {
         this.cars = cars;
     }
 
-    private void add(String name) {
-        cars.add(new Car(name));
+    public void setCars(List<String> names) {
+        cars = new Cars(names);
     }
 
-    public void add(List<String> names) {
-        names.forEach(this::add);
-    }
-
-    public List<Car> getState() {
-        return cars;
+    public List<Car> getCars() {
+        return cars.getAll();
     }
 
     public void playRound() {
-        for (Car car : cars) {
-            if (decideGo(pickNumberInRange(0, 9))) {
-                car.go();
+        for (int i = 0; i < cars.size(); i++) {
+            if (decideGo(getRandomNumber())) {
+                cars.go(i);
                 continue;
             }
-            car.stop();
+            cars.stop(i);
         }
+    }
+
+    private int getRandomNumber() {
+        return pickNumberInRange(0, 9);
     }
 
     boolean decideGo(int condition) {
@@ -44,21 +40,14 @@ public class CarService {
     }
 
     public List<Car> decideWinner() {
-        int max = getMaxPosition();
+        int max = cars.getMaxPosition();
 
-        List<Car> winnerIndex = new ArrayList<>();
+        List<Car> winner = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getPosition() == max) {
-                winnerIndex.add(cars.get(i));
+            if (cars.getPosition(i) == max) {
+                winner.add(cars.getCar(i));
             }
         }
-        return winnerIndex;
-    }
-
-    private int getMaxPosition() {
-        return cars.stream()
-                .max(Car::compareTo)
-                .get()
-                .getPosition();
+        return winner;
     }
 }

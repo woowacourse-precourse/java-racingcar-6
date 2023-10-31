@@ -23,23 +23,18 @@ public class CarServiceTest {
 
     @Test
     void 최종_우승자를_판단할_수_있는가() {
-        List<Car> cars = List.of(
-                new Car("pobi", 1),
-                new Car("woni", 2),
-                new Car("jun", 3)
-        );
-        CarService carService = new CarService(cars);
+        CarService carService = new CarService();
+        List<String> names = List.of("pobi", "woni", "jun");
+
+        List<Integer> positions = List.of(1, 2, 3);
+        carService.setCars(new Cars(names, positions));
         List<String> winnersNames = carService.decideWinner().stream()
                 .map(Car::getName)
                 .toList();
         assertThat(winnersNames).isEqualTo(List.of("jun"));
 
-        cars = List.of(
-                new Car("pobi", 2),
-                new Car("woni", 2),
-                new Car("jun", 1)
-        );
-        carService = new CarService(cars);
+        positions = List.of(2, 2, 1);
+        carService.setCars(new Cars(names, positions));
         winnersNames = carService.decideWinner().stream()
                 .map(Car::getName)
                 .toList();

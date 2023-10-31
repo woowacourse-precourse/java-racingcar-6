@@ -1,15 +1,10 @@
 package controller;
 
-import controller.dto.CarDto;
-import domain.Car;
 import domain.CarService;
 import domain.RemainingRound;
 import mapper.CarMapper;
 import view.InputView;
 import view.OutputView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingcarController {
     private final InputView inputView;
@@ -25,7 +20,7 @@ public class RacingcarController {
 
     public void startGame() {
         outputView.inputCarName();
-        carMapper.add(inputView.carName());
+        carMapper.setCars(inputView.carName());
         outputView.inputRoundNumber();
         remainingRound.set(inputView.roundNumber());
         outputView.outputRunResult();
