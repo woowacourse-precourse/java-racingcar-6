@@ -13,9 +13,7 @@ public class OutputView {
     }
 
     public void printTempMessage() {
-
         System.out.println(INPUT_GAME_PROGRESS_COUNT_MESSAGE);
-
     }
 
     public void printGameProcessMessage() {
