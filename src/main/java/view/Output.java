@@ -19,4 +19,10 @@ public class Output {
 
     }
 
+    public static void finalResult(List<String> winner) {
+
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
+
+    }
+
 }

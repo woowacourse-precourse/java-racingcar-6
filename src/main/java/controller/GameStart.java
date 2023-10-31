@@ -32,5 +32,6 @@ public class GameStart {
         }
 
         List<String> winner = GameResult.winner(carList);
+        Output.finalResult(winner);
     }
 }
