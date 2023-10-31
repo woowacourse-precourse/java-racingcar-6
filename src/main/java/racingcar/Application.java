@@ -26,6 +26,7 @@ public class Application {
             playRacingCar();
             printResult();
         }
+        printWinner();
     }
 
     private static ArrayList<String> carNameInput() {
@@ -113,5 +114,29 @@ public class Application {
         System.out.println(sb);
     }
 
+    private static void printWinner() {
+        ArrayList<String> winners = new ArrayList<>();
+        int max = Integer.MIN_VALUE;
 
+        for(Entry<String, Integer> e : map.entrySet()) {
+            if(max < e.getValue()){
+                max = e.getValue();
+            }
+        }
+
+        for(Entry<String, Integer> e : map.entrySet()) {
+            if(max == e.getValue()){
+                winners.add(e.getKey());
+            }
+        }
+        System.out.print("최종 우승자 : ");
+
+        for(int j = 0; j < winners.size(); j++){
+            if (j == winners.size() - 1) {
+                System.out.print(winners.get(j));
+            }else {
+                System.out.print(winners.get(j) + ", ");
+            }
+        }
+    }
 }
