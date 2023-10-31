@@ -1,17 +1,16 @@
 package racingcar.controller;
 
-import static racingcar.enumType.message.OutputMessage.RESULT_MESSAGE;
-import static racingcar.enumType.message.OutputMessage.WINNER_MESSAGE;
-
 import java.util.List;
 import java.util.stream.Stream;
 import racingcar.service.CarService;
 import racingcar.validation.InputValidation;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class CarController {
 
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private final CarService carService = new CarService();
     private final InputValidation inputValidation = new InputValidation();
 
@@ -31,9 +30,11 @@ public class CarController {
     public int getRaceCount() {
         String input = inputView.readConsoleRace();
         inputValidation.validateAttemptInput(input);
-        int raceCount = Integer.parseInt(input);
-        System.out.println(RESULT_MESSAGE.getValue());
-        return raceCount;
+        return Integer.parseInt(input);
+    }
+
+    public void printStartRaceMessage() {
+        outputView.printStartRaceMessage();
     }
 
     public void forward() {
@@ -41,12 +42,10 @@ public class CarController {
     }
 
     public void getRoundRaceResults() {
-        System.out.println(carService.createRoundRaceResults());
+        outputView.printRoundRaceResults(carService.createRoundRaceResults());
     }
 
     public void getWinner() {
-        StringBuilder winner = new StringBuilder();
-        winner.append(WINNER_MESSAGE.getValue()).append(" : ");
-        System.out.println(carService.createWinner(winner));
+        outputView.printWinnerResult(carService.createWinner(outputView.initWinnerResult()));
     }
 }

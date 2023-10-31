@@ -18,6 +18,7 @@ public class User {
 
     public void race() {
         int raceCount = carController.getRaceCount();
+        carController.printStartRaceMessage();
         int round = 1;
         while (round <= raceCount) {
             carController.forward();
