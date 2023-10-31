@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.*;
 
-public class SettingGame { //게임 진행 전 필요한 정보를 세팅합니다.
+public class SettingGame implements Setting { //게임 진행 전 필요한 정보를 세팅합니다.
     private static IO io;
     private static CheckForm checkForm;
     private List<String> RunnerMap = new ArrayList<>(); //자동차의 이름을 나타냄
@@ -14,6 +14,7 @@ public class SettingGame { //게임 진행 전 필요한 정보를 세팅합니�
         this.checkForm = checkForm;
     }
 
+    @Override
     public void setGame() {
         createRunnerMap();
         io.printNull();
@@ -35,10 +36,12 @@ public class SettingGame { //게임 진행 전 필요한 정보를 세팅합니�
         }
     }
 
+    @Override
     public List<String> getRunnerMap(){
         return RunnerMap;
     }
 
+    @Override
     public LinkedHashMap<String, String> getGameInfoMap(){
         return GameInfoMap;
     }
