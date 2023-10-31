@@ -3,6 +3,8 @@ package racingcar.utils;
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.input.GameCountInputManager;
+import racingcar.utils.input.UsernameInputManager;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

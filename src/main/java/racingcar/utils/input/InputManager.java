@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.input;
 
 /**
  * 입력 처리
