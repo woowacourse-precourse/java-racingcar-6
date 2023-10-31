@@ -2,13 +2,13 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Set;
-import racingcar.domain.CarNameList;
-import racingcar.domain.GameResult;
+import racingcar.view.dto.CarNameList;
+import racingcar.service.dto.GameResult;
 import racingcar.exception.BusinessException;
 import racingcar.exception.ExceptionCode;
 import racingcar.model.Model;
 import racingcar.model.ModelConst;
-import racingcar.domain.TotalGameResult;
+import racingcar.service.dto.TotalGameResult;
 
 public class RaceView {
 
