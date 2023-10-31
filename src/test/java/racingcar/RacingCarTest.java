@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.MoveCount;
 
 public class RacingCarTest {
 
@@ -37,5 +39,18 @@ public class RacingCarTest {
             new Car(" ");
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName(" 시도 횟수는 1이상 이어야 한다.")
+    @Test
+    public void checkMoveCount(){
+        assertThatThrownBy(()->{
+            new MoveCount(0);
+        }).isInstanceOf(IllegalArgumentException.class);
+
+        assertDoesNotThrow(()->{
+            new MoveCount(2);
+        });
+    }
+
 
 }
