@@ -23,4 +23,7 @@ public class CountInput {
         }
     }
 
+    public static int getCount() {
+        return count;
+    }
 }

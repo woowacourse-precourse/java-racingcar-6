@@ -9,6 +9,11 @@ public class Application {
         // 회수 입력 받기
         String input = CountInput.getCountInput();
         CountInput.checkCountInput(input);
+        // 전체 게임 진행
+        MoveForward.totalGame(carArr, CountInput.getCount());
+
+
+
 
     }
 }
