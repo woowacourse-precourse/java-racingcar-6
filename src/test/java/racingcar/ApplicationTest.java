@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -26,6 +29,8 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 레이싱카_등록() {
+        List<RacingCar> repository = new ArrayList<>();
+        RacingCarController.setRacingCarList(repository);
         RacingCar result = RacingCarController.registerRacingCar("포비");
         assertThat(result.getName()).isEqualTo("포비");
         assertThat(result.getLocation()).isEqualTo(0);
@@ -41,13 +46,23 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 레이싱카_출력() {
+        RacingCar racingCar = new RacingCar("testCar", 4);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        InputOutputInterface.printRacingCarInfo(racingCar);
+
+        assertThat(out.toString()).contains("testCar : ----");
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
