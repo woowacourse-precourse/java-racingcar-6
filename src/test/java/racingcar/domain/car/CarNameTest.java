@@ -28,7 +28,6 @@ final class CarNameTest {
 
     }
 
-
     @DisplayName("이름이 null이거나 1~5자가 아닌 자동차 이름 생성 시 예외 발생")
     @Test
     void CarName_withNullOrNameOutOfRange_shouldThrowException() {

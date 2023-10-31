@@ -23,7 +23,7 @@ final class CarsTest {
 
         // when
         cars.moveAllBy(go);
-        final CarsRacingDto dto = cars.toDto();
+        final CarsRacingDto dto = cars.toCarsRacingDto();
         final CarRacingDto first = dto.carRacing().get(0);
         final CarRacingDto second = dto.carRacing().get(1);
         final CarRacingDto third = dto.carRacing().get(2);
@@ -55,7 +55,7 @@ final class CarsTest {
 
         // when
         cars.moveAllBy(stay);
-        final CarsRacingDto dto = cars.toDto();
+        final CarsRacingDto dto = cars.toCarsRacingDto();
         final CarRacingDto first = dto.carRacing().get(0);
         final CarRacingDto second = dto.carRacing().get(1);
         final CarRacingDto third = dto.carRacing().get(2);

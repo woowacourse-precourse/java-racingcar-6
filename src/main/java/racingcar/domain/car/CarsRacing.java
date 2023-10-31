@@ -33,7 +33,7 @@ public final class CarsRacing extends Cars {
         );
     }
 
-    public CarsRacingDto toDto() {
+    public CarsRacingDto toCarsRacingDto() {
         return new CarsRacingDto(
                 cars.stream()
                         .map(c -> ((CarRacing) c).toDto())
