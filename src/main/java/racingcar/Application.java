@@ -9,6 +9,5 @@ public class Application {
         Game game = new Game(io, sort, checkForm);
 
         game.setting();
-
     }
 }
