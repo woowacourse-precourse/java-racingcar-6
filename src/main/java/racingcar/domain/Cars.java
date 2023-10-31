@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.domain.enums.Constants.RANDOM_END_RANGE;
+import static racingcar.domain.enums.Constants.RANDOM_START_RANGE;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Cars {
@@ -25,7 +29,10 @@ public class Cars {
     }
 
     public void moveCars() {
-        carList.stream().forEach(x -> x.moveWithRandomNumber());
+        carList.stream().forEach(x -> x.move(generateRandomNumber()));
     }
 
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(RANDOM_START_RANGE, RANDOM_END_RANGE);
+    }
 }

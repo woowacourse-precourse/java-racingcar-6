@@ -18,10 +18,10 @@ public class RacingService {
     public void startRacing() {
         moveAllRacingCar(racingCount);
     }
-    
+
     private void moveAllRacingCar(int count) {
         while (count-- > 0) {
-            cars.getCarList().stream().forEach(x -> x.moveWithRandomNumber());
+            cars.moveCars();
             Message.printMoveResultMessage(cars.getCarList());
         }
     }

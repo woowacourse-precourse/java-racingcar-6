@@ -2,10 +2,7 @@ package racingcar.domain;
 
 import static racingcar.domain.enums.Constants.MAX_NAME_LENGTH;
 import static racingcar.domain.enums.Constants.MIN_MOVE_THRESHOLD;
-import static racingcar.domain.enums.Constants.RANDOM_END_RANGE;
-import static racingcar.domain.enums.Constants.RANDOM_START_RANGE;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car {
@@ -36,15 +33,14 @@ public class Car {
         }
     }
 
-    public void moveWithRandomNumber() {
-        int num = Randoms.pickNumberInRange(RANDOM_START_RANGE, RANDOM_END_RANGE);
-        if (num >= MIN_MOVE_THRESHOLD) {
-            move();
+    public void move(int number) {
+        if (isMovable(number)) {
+            moveCount++;
         }
     }
 
-    public void move() {
-        this.moveCount++;
+    private boolean isMovable(int number) {
+        return number >= MIN_MOVE_THRESHOLD;
     }
 
     public String getName() {
