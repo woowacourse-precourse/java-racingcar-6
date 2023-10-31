@@ -20,7 +20,7 @@ public class Game {
     }
 
     public void run() {
-        System.out.println(Announcement.EXECUTION_RESULT.getValue());
+        Announcement.EXECUTION_RESULT.speak();
         for (int i = 0; i < this.moveCount; i++) {
             carRuns();
             System.out.println();
@@ -30,7 +30,7 @@ public class Game {
     }
 
     private void printWinner(String[] winnerArray) {
-        System.out.print(Announcement.WINNER.getValue());
+        Announcement.WINNER.speak();
         int i = 0;
         for (; i < winnerArray.length - 1; i++) {
             System.out.print(winnerArray[i] + ", ");
@@ -68,14 +68,14 @@ public class Game {
     }
 
     private String[] getCarNameArrayFromInput() {
-        System.out.println(Announcement.INPUT_CAR_NAMES.getValue());
+        Announcement.INPUT_CAR_NAMES.speak();
         String[] inputCarNameArray = Console.readLine().split(",");
         Validator.validateCarNameArray(inputCarNameArray);
         return inputCarNameArray;
     }
 
     private int getMoveCountFromInput() {
-        System.out.println(Announcement.INPUT_MOVE_COUNT.getValue());
+        Announcement.INPUT_MOVE_COUNT.speak();
         String inputMoveCountString = Console.readLine();
         Validator.validateMoveCount(inputMoveCountString);
         return Integer.parseInt(inputMoveCountString);
