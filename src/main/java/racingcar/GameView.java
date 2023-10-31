@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Game;
 
 public class GameView {
 
@@ -22,6 +23,11 @@ public class GameView {
 
     public void printResult() {
         System.out.println("실행 결과");
+    }
+
+    public void printResultOfRound(Game game) {
+        game.printResultOfRound();
+        System.out.println();
     }
 
 }
