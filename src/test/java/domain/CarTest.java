@@ -36,4 +36,13 @@ class CarTest {
         assertThat(car.getPosition()).isIn(0,1);
     }
 
+    @Test
+    void drive_여러번_실행시_특정_구간_테스트() {
+        for (int i = 0; i < 10; i++) {
+            car.drive();
+        }
+        assertThat(car.getPosition()).isBetween(0,10);
+    }
+
+
 }
