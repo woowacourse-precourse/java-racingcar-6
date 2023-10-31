@@ -3,30 +3,25 @@ package model;
 public class TrialNumber {
     private int trial;
 
-    public TrialNumber(String input){
+    public TrialNumber(String input) {
         validateTrialNumber(input);
         this.trial = Integer.parseInt(input);
     }
 
-    public int getTrialNumber(){
-        return trial;
-    }
-
-    public void decreaseTrialNumber(){
+    public void decreaseTrialNumber() {
         trial--;
     }
 
-    public boolean isTrialNumberZero(){
+    public boolean isTrialNumberZero() {
         return trial == 0;
     }
 
-
-    private void validateTrialNumber(String input){
+    private void validateTrialNumber(String input) {
         validateTrialNumberIsInt(input);
         validateTrialNumberRange(input);
     }
 
-    private void validateTrialNumberIsInt(String input){
+    private void validateTrialNumberIsInt(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -34,10 +29,10 @@ public class TrialNumber {
         }
     }
 
-    private void validateTrialNumberRange(String input){
+    private void validateTrialNumberRange(String input) {
         int intValue = Integer.parseInt(input);
-        if (intValue <= 0){
-            throw  new IllegalArgumentException();
+        if (intValue <= 0) {
+            throw new IllegalArgumentException();
         }
     }
 }
