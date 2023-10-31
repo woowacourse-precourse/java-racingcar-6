@@ -6,9 +6,6 @@ public class Car {
     private String name;
     private int distance;
 
-    Car() {
-    }
-
     Car(String name) {
         this.name = name;
     }

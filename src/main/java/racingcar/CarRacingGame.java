@@ -38,7 +38,7 @@ public class CarRacingGame {
         }
     }
 
-    void rankWinners() {
+    private void rankWinners() {
         List<Car> winners = new ArrayList<>();
 
         Optional<Car> carWithMaximumDistance = cars
@@ -65,7 +65,7 @@ public class CarRacingGame {
         System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 
-    void setCars() {
+    private void setCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
 
@@ -107,7 +107,7 @@ public class CarRacingGame {
         }
     }
 
-    void setNumberOfAttempts() {
+    private void setNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
         int input = Integer.parseInt(Console.readLine()); // 정수값으로 변환 안될 경우 NumberFormatException 발생
         System.out.println();
