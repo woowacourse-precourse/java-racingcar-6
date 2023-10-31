@@ -26,9 +26,9 @@ public class CarController {
         announceResultProcess();
     }
 
-    private void announceResultProcess() {
-        List<String> winner = carService.getWinner();
-        carOutputView.printWinner(winner);
+    private void saveCarsProcess() {
+        List<String> carNames = carInputView.getCarNames();
+        carService.saveCars(carNames);
     }
 
     private void racingCarProcess() {
@@ -43,8 +43,9 @@ public class CarController {
                 .forEach(i -> carOutputView.printRoundResult(carService.startRacingCar()));
     }
 
-    private void saveCarsProcess() {
-        List<String> carNames = carInputView.getCarNames();
-        carService.saveCars(carNames);
+    private void announceResultProcess() {
+        List<String> winner = carService.getWinner();
+        carOutputView.printWinner(winner);
     }
+
 }
