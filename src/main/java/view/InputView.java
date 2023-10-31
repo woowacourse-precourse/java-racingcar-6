@@ -10,7 +10,7 @@ public class InputView {
     public static final String INPUT_CARNAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String INPUT_NUMBEROFTRY_MESSAGE = "시도할 회수는 몇회인가요?";
     public static String[] splitNames(String namesWithComma){
-        checingNullOrBlankException(namesWithComma);
+        checkingNullOrBlankException(namesWithComma);
 
         String[] names = namesWithComma.split(",");
         checkingCarNameException(names);
@@ -18,7 +18,22 @@ public class InputView {
         return names;
     }
 
-    private static void checingNullOrBlankException(String namesWithComma) {
+    public static int numberOfTry(String tryValue){
+        checkingNullOrBlankException(tryValue);
+        return checkingNumber(tryValue);
+    }
+
+    private static int checkingNumber(String tryValue) {
+        int returnValue;
+        try{
+            returnValue = Integer.parseInt(tryValue);
+        }catch (Exception e){
+            throw new IllegalArgumentException();
+        }
+        return returnValue;
+    }
+
+    private static void checkingNullOrBlankException(String namesWithComma) {
         if(namesWithComma == null || namesWithComma == " ")
             throw new IllegalArgumentException();
     }
