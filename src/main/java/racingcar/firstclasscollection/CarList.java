@@ -7,9 +7,9 @@ import racingcar.constant.ExceptionMessage;
 import racingcar.model.Car;
 
 public class CarList {
-    List<Car> cars;
+    private final List<Car> cars;
 
-    public CarList(Supplier<List> listSupplier) {
+    public CarList(Supplier<List<Car>> listSupplier) {
         this.cars = listSupplier.get();
     }
 

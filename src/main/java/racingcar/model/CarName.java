@@ -4,7 +4,7 @@ import java.util.Objects;
 import racingcar.constant.ExceptionMessage;
 
 public class CarName {
-    private String name;
+    private final String name;
 
     public CarName(String name) {
         if (name == null || name.isBlank()) {
