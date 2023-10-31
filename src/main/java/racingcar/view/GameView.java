@@ -14,4 +14,8 @@ public class GameView {
     static final String DELIMITER = ", ";
     static final String RESULT_PHRASE = "\n실행 결과";
     static final String WINNER_PHRASE = "최종 우승자";
+
+    public static void printCarNameInputPhrase() {
+        System.out.println(CAR_NAME_INPUT_PHRASE);
+    }
 }
