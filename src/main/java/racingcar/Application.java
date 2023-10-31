@@ -11,11 +11,7 @@ public class Application {
         RacingCarGameService racingCarGameService = new RacingCarGameService();
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
-        RacingCarGameController racingCarGameController = new RacingCarGameController(
-                racingCarGameService,
-                inputView,
-                outputView
-        );
-        racingCarGameController.playRacingCarGame();
+        RacingCarGameController racingCarGameController = new RacingCarGameController(racingCarGameService, inputView, outputView);
+        racingCarGameController.run();
     }
 }
