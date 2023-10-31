@@ -4,6 +4,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import racingcar.constant.GameCondition;
 import racingcar.domain.Car;
 import racingcar.view.GameConsoleIO;
@@ -49,4 +50,16 @@ public class GameService {
         return randomNum >= GameCondition.MOVING_FORWARD_CONDITION.getValue();
     }
 
+
+    private List<String> getWinners() {
+        int maxLocation = cars.stream()
+                .mapToInt(Car::getLocation)
+                .max()
+                .orElseThrow(NoSuchElementException::new);
+
+        return cars.stream()
+                .filter(car -> car.getLocation() == maxLocation)
+                .map(Car::getName)
+                .toList();
+    }
 }
