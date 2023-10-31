@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import java.util.ArrayList;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class GameProcess {
     private final ArrayList<Car> cars = new ArrayList<>();
@@ -38,4 +39,25 @@ public class GameProcess {
             throw new IllegalArgumentException(e.getMessage());
         }
     }
+
+    public void playingGame() {
+        for (int i = 0; i < this.raceTime; i++) {
+            controlCars();
+            System.out.println();
+        }
+    }
+
+    private void controlCars() {
+        for (Car car: this.cars) {
+            goOrNot(car);
+            System.out.println(car.toString());
+        }
+    }
+
+    private void goOrNot(Car car) {
+        if (pickNumberInRange(0, 9) > 3) {
+            car.moveForward();
+        }
+    }
+
 }

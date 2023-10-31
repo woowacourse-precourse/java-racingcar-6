@@ -25,11 +25,13 @@ public class StartRacing {
         gameProcess.inputName();
         System.out.println("시도할 회수는 몇회인가요?");
         gameProcess.inputRaceTime();
+        System.out.println();
     }
 
     private void playGame() {
         System.out.println("실행 결과");
-
+        gameProcess.playingGame();
+        System.out.println();
     }
 
     private void endGame() {

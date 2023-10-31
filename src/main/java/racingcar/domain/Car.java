@@ -15,16 +15,21 @@ public class Car {
         this.movingTrace.append(CAR_MOVING_TRACE);
     }
 
-    public String toStringCarName() {
+    public String getCarName() {
         return this.carName;
     }
 
-    public String toStringMovingTrace() {
+    public int getMovingDistance() {
+        return this.movingDistance;
+    }
+
+    public String getMovingTrace() {
         return this.movingTrace.toString();
     }
 
     public String toString() {
-        return toStringCarName() + " : " + toStringMovingTrace();
+        return getCarName() + " : " + getMovingTrace();
     }
+
 
 }
