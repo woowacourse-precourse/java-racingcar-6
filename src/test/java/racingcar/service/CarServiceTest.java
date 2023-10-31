@@ -13,8 +13,8 @@ import racingcar.repository.CarRepository;
 class CarServiceTest {
 
     @Test
-    @DisplayName("전진 기능 테스트")
-    void forward() {
+    @DisplayName("랜덤값이 4 이상이면 자동차가 전진한다.")
+    void forwardTest() {
         // given
         Car pobi = new Car("pobi");
         Car woni = new Car("woni");
@@ -29,14 +29,30 @@ class CarServiceTest {
             int randomNum = Randoms.pickNumberInRange(4,9);
             carService.updateCarScore(car, randomNum);
         }
+
+        // then
+        assertThat(pobi.getScore()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("랜덤값이 3 이하면 자동차가 정지한다.")
+    void stopTest() {
+        // given
+        Car pobi = new Car("pobi");
+        Car woni = new Car("woni");
+        CarService carService = new CarService();
+        CarRepository carRepository = new CarRepository();
+
+        // when
+        carRepository.save(pobi);
+        carRepository.save(woni);
+        List<Car> cars = carRepository.getCars();
         for (Car car : cars) {
             int randomNum = Randoms.pickNumberInRange(0,3);
             carService.updateCarScore(car, randomNum);
         }
 
-        // then
-        assertThat(pobi.getScore()).isEqualTo(1);
-        assertThat(woni.getScore()).isEqualTo(1);
+        assertThat(woni.getScore()).isEqualTo(0);
     }
 
     @Test
