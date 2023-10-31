@@ -1,7 +1,6 @@
 package racingcar;
 
-import static racingcar.InputController.carArrList;
-import static racingcar.CycleController.winnerDistance;
+import static racingcar.FindWinnerController.winnerDistance;
 
 public class PrintController {
 
