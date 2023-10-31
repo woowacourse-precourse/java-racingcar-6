@@ -1,8 +1,6 @@
 package racingcar;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Referee;
 import racingcar.input.InputService;
@@ -11,16 +9,18 @@ import racingcar.output.PrintService;
 public class Race {
 
     public static void execute() {
+        PrintService.inputCarNameRequest();
         String[] carNames = InputService.writeCarName().split(",");
         List<Car> cars = Car.create(carNames);
-        PrintService.askAttemtCount();
+        PrintService.askAttemptCount();
         int currentAttemtCount = 0;
         int attemptCount = InputService.attemptCount();
         while (currentAttemtCount < attemptCount) {
-            Referee.report(cars);
-            PrintService.nextLine();
+            List<Car> reportCar = Referee.report(cars);
+            PrintService.show(reportCar);
             currentAttemtCount++;
         }
-        Referee.announceWinner(cars);
+        PrintService.result(Referee.determineWinner(cars));
+        InputService.end();
     }
 }
