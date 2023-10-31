@@ -13,7 +13,8 @@ public class Game {
     public void gameStart(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String persons = Console.readLine();
-        List<String> people = addPerson(persons);
+        String[] personArray = personSplit(persons);
+        List<String> people = addPerson(personArray);
         List<Car> carList = addCar(people);
 
         int count = count();
@@ -28,13 +29,22 @@ public class Game {
 
     }
 
-    //사람 추가
-    public List<String> addPerson(String persons){
+    // 사람 이름 나누기
+    public String[] personSplit(String persons){
         String[] personArray = persons.split(",");
+        return personArray;
+    }
+
+    //사람 추가
+    public List<String> addPerson(String[] personArray){
         List<String> people = new ArrayList<>();
         for(int i = 0; i < personArray.length; i++){
-            if(personArray[i].length() > 5){
-                throw new IllegalArgumentException("길이가 너무 김");
+            if(personArray[i] == null){
+                throw new IllegalArgumentException("값이 없음");
+            }else if(personArray[i].length() > 5){
+                throw new IllegalArgumentException("길이가 너무 긺");
+            }else if(personArray[i].isEmpty()){
+                throw new IllegalArgumentException("길이가 너무 짧음");
             }
             people.add(personArray[i]);
         }
@@ -52,26 +62,27 @@ public class Game {
     }
 
     // 랜덤 숫자 뽑기
-    public int randomNumber(){
-        int number = Randoms.pickNumberInRange(0,9);
-        return number;
-    }
-
-    public int randomNumber(int number){
+    // 테스트를 위해서 메소드 변경
+    public int randomNumber(int... numbers){
+        int number = 0;
+        if(numbers.length == 0){
+            number = Randoms.pickNumberInRange(0,9);
+        }else{
+            number = numbers[0];
+        }
         return number;
     }
 
     // 랜덤 숫자를 이용해서 자동차 움직임 추가
-    public void move(List<Car> carList){
+    // 테스트를 위해서 코드 수정
+    public void move(List<Car> carList, int... randNumber){
         for(int i = 0; i < carList.size(); i++){
-            int randNum = randomNumber();
-            carList.get(i).move(randNum);
-        }
-    }
-
-    public void move(List<Car> carList, int randNumber){
-        for(int i = 0; i < carList.size(); i++){
-            int randNum = randomNumber(randNumber);
+            int randNum = 0;
+            if(randNumber.length == 0){
+                randNum = randomNumber();
+            }else{
+                randNum = randomNumber(randNumber[0]);
+            }
             carList.get(i).move(randNum);
         }
     }
@@ -94,30 +105,28 @@ public class Game {
     }
 
     // 실행 횟수
-    public int count(){
+    public int count(String... strNumber){
         System.out.println("시도할 횟수는 몇회인가요?");
-        String strCount = Console.readLine();
+        String strCount = null;
+        if(strNumber.length == 0){
+            strCount = Console.readLine();
+        }else{
+            strCount = strNumber[0];
+        }
         if(!isNumber(strCount)){
             throw new IllegalArgumentException("숫자가 아닙니다.");
+        }else if(Integer.parseInt(strCount) == 0){
+            throw new IllegalArgumentException("실행횟수는 0번 이상입니다.");
         }
         int count = Integer.parseInt(strCount);
         return count;
     }
 
     // 게임 실행결과
-    public void gameResult(List<Car> carList, int count){
+    public void gameResult(List<Car> carList, int count, int... randomNumber){
         System.out.println("실행 결과");
         for(int i = 0; i < count; i++){
-            move(carList);
-            result(carList);
-            System.out.println();
-        }
-    }
-
-    public void gameResult(List<Car> carList, int randNumber, int count){
-        System.out.println("실행 결과");
-        for(int i = 0; i < count; i++){
-            move(carList, randNumber);
+            move(carList, randomNumber);
             result(carList);
             System.out.println();
         }
