@@ -29,6 +29,22 @@ class Car{
 
 }
 
+class InputException{
+
+    static void checkNameLenth(ArrayList<String> nameList){
+
+        for(String Name : nameList){
+
+            if(Name.length()>5){
+
+                throw new IllegalArgumentException();
+
+            }
+
+        }
+
+    }
+}
 
 
 public class Application {
@@ -41,6 +57,7 @@ public class Application {
         String inputName = Console.readLine();
         String[] nameArray= inputName.split(",");
         ArrayList<String> nameList= new ArrayList<>(Arrays.asList(nameArray));
+        InputException.checkNameLenth(nameList);
 
         System.out.println("시도할 회수는 몇회인가요?");
         String inputCount=Console.readLine();
