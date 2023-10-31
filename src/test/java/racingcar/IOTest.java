@@ -10,28 +10,28 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.factories.CarFactory;
 import racingcar.factories.CarRecordFactory;
+import racingcar.ui.UserInputReader;
 
 public class IOTest {
 
     GameRule rule;
     InputStream stdIn;
-    InputPrompt prompt;
+    UserInputReader userInputReader;
 
     @BeforeEach
     void init() {
         rule = new GameRule(5, 0, 9);
         InputStream stdIn = System.in;
-        prompt = new InputPrompt(rule);
+        userInputReader = new ConsoleReader(rule);
     }
 
     @AfterEach
     void clean() {
-        prompt.close();
+        userInputReader.close();
     }
 
     @Test
@@ -45,25 +45,27 @@ public class IOTest {
         String rawInputString = String.join(",", names) + "\n";
         // when
         stdInWillRead(rawInputString);
-        CarRecord actualNames = prompt.readCarNames();
+        CarRecord actualNames = (CarRecord) userInputReader.readPureWords();
         // then
         assertThat(actualNames).isEqualTo(expectedNames);
         restoreStdIn();
    }
 
     /**
-     * 자동차 이름은 대소문자 알파벳만 가능하다고 가정
+     * 자동차 이름은 대소문자 알파벳과 숫자의 조합만 가능하다고 가정
      */
     @Test
     void 비정상적인_자동차_이름_입력() {
         // given
-        String[] names = new String[] {"woni1", "abcdef"};
+        String[] names = new String[] {"abcdef", "aaa,abcdef"};
         for (int i = 0; i < names.length; i++) {
             // when
-            System.setIn(new ByteArrayInputStream(names[i].getBytes()));
+             System.setIn(new ByteArrayInputStream(names[i].getBytes()));
             // then
-            Assertions.assertThatThrownBy(() -> prompt.readCarNames()).isInstanceOf(IllegalArgumentException.class);
-            prompt.close();
+            Assertions.assertThatThrownBy(
+                    () -> userInputReader.readPureWords())
+                    .isInstanceOf(IllegalArgumentException.class);
+            userInputReader.close();
         }
         restoreStdIn();
     }
@@ -76,10 +78,10 @@ public class IOTest {
        for (int i = 0; i < inputs.length; i++) {
            // when
            stdInWillRead(inputs[i]);
-           NumberOfRepetitions n = prompt.readNumberOfRepetitions();
+           NumberOfRepetitions n = (NumberOfRepetitions) userInputReader.readPureNumber();
            // then
            assertThat(n).isEqualTo(new NumberOfRepetitions(numbers[i]));
-           prompt.close();
+           userInputReader.close();
        }
        restoreStdIn();
    }
@@ -93,9 +95,9 @@ public class IOTest {
             // when
             stdInWillRead(inputs[i]);
             // then
-            Assertions.assertThatThrownBy(() -> prompt.readNumberOfRepetitions())
+            Assertions.assertThatThrownBy(() -> userInputReader.readPureNumber())
                     .isInstanceOf(IllegalArgumentException.class);
-            prompt.close();
+            userInputReader.close();
         }
         System.setIn(stdIn);
     }

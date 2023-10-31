@@ -3,7 +3,8 @@ package racingcar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class NumberOfRepetitions {
+public class NumberOfRepetitions
+        extends RacingGameComponent implements UserInputWrapper {
 
     private int n;
 
@@ -12,20 +13,21 @@ public class NumberOfRepetitions {
     }
 
     public NumberOfRepetitions(String input) throws IllegalArgumentException {
-        this.n = parseInput(input);
+        validate(input);
+        this.n = Integer.parseInt(input);
     }
 
-    private int parseInput(String input) throws IllegalArgumentException {
+    public int getN() {
+        return this.n;
+    }
+
+    @Override
+    public void validate(String input) throws IllegalArgumentException {
         Pattern patter = Pattern.compile("^0*[1-9]+\\d*$");
         Matcher matcher = patter.matcher(input);
         if (!matcher.matches()) {
             throw new IllegalArgumentException();
         }
-        return Integer.parseInt(input);
-    }
-
-    public int getN() {
-        return this.n;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {
+public class Car extends RacingGameComponent {
 
     private CarName name;
     private int distance;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.factories.CarRecordFactory;
 
-public class CarRecord {
+public class CarRecord extends RacingGameComponent {
 
     private List<Car> cars;
 
