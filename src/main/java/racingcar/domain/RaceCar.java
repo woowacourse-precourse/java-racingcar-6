@@ -23,4 +23,24 @@ public class RaceCar {
         }
     }
 
+    public String winner() {
+        String winner = "";
+        int max = 0;
+
+        for (int i = 0; i < moveDistance.size(); i++) {
+            if (max < moveDistance.get(i).length()) {
+                max = moveDistance.get(i).length();
+            }
+        }
+
+        for (int i = 0; i < moveDistance.size(); i++) {
+            if (winner.isEmpty() && max == moveDistance.get(i).length()) {
+                winner = cars.get(i);
+            } else if (!winner.isEmpty() && max == moveDistance.get(i).length()) {
+                winner = winner + ", " + cars.get(i);
+            }
+        }
+
+        return winner;
+    }
 }

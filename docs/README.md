@@ -2,7 +2,7 @@
 
 - [x] 자동차는 전진할지 말지 결정할 수 있다. - RaceCar#forward()
 - [ ] 자동차는 주어진 횟수만큼 경주한다. - RaceCar#race()
-- [ ] 가장 많이 전진한 자동차는 우승한다. - RaceCar#winner()
+- [x] 가장 많이 전진한 자동차는 우승한다. - RaceCar#winner()
 - [x] 0부터 9 사이의 무작위 값을 자동차의 수만큼 생성한다. - Generator#createRandomNumbers()
 - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분하여 입력 가능하다. - UserInput#carName()
 - [ ] 사용자는 몇 번의 이동을 할 것인지 입력 가능하다. - UserInput#moveNumber()
