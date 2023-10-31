@@ -36,7 +36,7 @@ public record Cars(List<Car> cars) {
 
     private int getMaxPosition() {
         return cars.stream()
-                .mapToInt(Car::getPostion)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(() -> new IllegalArgumentException("Cars 객체에 Car가 존재하지 않습니다."));
     }

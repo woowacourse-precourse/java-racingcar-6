@@ -4,30 +4,30 @@ import java.util.Objects;
 
 public class Car {
     private final String name;
-    private int postion = 0;
+    private int position = 0;
 
     public Car(String name) {
         this.name = name;
     }
 
     void move() {
-        this.postion++;
+        this.position++;
     }
 
-    public boolean isPositionEqualTo(int ohterPosition) {
-        return postion == ohterPosition;
+    public boolean isPositionEqualTo(int otherPosition) {
+        return position == otherPosition;
     }
 
     public String formattedProgress() {
-        return name + " : " + "-".repeat(this.postion);
+        return name + " : " + "-".repeat(this.position);
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPostion() {
-        return postion;
+    public int getPosition() {
+        return position;
     }
 
     @Override
@@ -39,11 +39,11 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return postion == car.postion && Objects.equals(name, car.name);
+        return position == car.position && Objects.equals(name, car.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, postion);
+        return Objects.hash(name, position);
     }
 }
