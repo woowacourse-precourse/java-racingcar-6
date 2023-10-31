@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
@@ -46,9 +47,65 @@ public class Game {
         }
     }
 
+    public void operate(int count) {
+        System.out.println();
+        System.out.println("실행 결과");
 
+        for (int i = 0; i < count; i++) {
+            for (Car currentCar : carMembers) {
+                moveCar(currentCar);
+            }
+            printCurrentState();
+        }
+        printVictory();
+    }
 
+    public void moveCar(Car currentCar) {
+        int dice = Randoms.pickNumberInRange(0, 9);
+        if (verifyMoveCondition(dice)) {
+            currentCar.dist += 1;
+        }
+    }
 
+    public boolean verifyMoveCondition(int moveValue) {
+        return moveValue >= Move_Condition;
+    }
 
+    public void printCurrentState() {
+        for (Car currentCar : carMembers) {
+            System.out.print(currentCar.name + " : ");
+            for (int i = 0; i < currentCar.dist; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public void printVictory() {
+        int maxDist = searchMaxDist();
+        String winners = searchWinner(maxDist);
+        System.out.println("최종 우승자 : " + winners);
+    }
+
+    public int searchMaxDist(){
+        int maxDist = 0;
+        for(Car currentCar : carMembers){
+            if (currentCar.dist > maxDist){
+                maxDist = currentCar.dist;
+            }
+        }
+        return maxDist;
+    }
+
+    public String searchWinner(int maxDist){
+        List<String> victory = new ArrayList<>();
+        for(Car currentCar : carMembers){
+            if (currentCar.dist == maxDist){
+                victory.add(currentCar.name);
+            }
+        }
+        return String.join(",",victory);
+    }
 
 }

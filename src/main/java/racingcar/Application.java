@@ -9,5 +9,6 @@ public class Application {
         game.carMembersConstructor(members);
 
         int count = game.inputMoveNum();
+        game.operate(count);
     }
 }

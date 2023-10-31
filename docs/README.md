@@ -5,12 +5,12 @@
   - [x] 이름은 5자 이하만 가능하다. - Game#correctLength()
   - [x] 잘못된 입력에 경우 IllegalArgumentException을 발생시킨다.
 - [x] 사용자가 몇 번의 이동을 할지 입력받는다. - Game#inputMoveNum()
-- [] Game#operate()
-  - [] 전진 조건에 의해 4이상인지 확인한다. - Game#verfityMoveCondition()
-  - [] 전진 조건에 적합하면 이동한다. - Game#moveCar()
-  - [] 이동 현황을 출력한다 - Game#printCurrentState()
-- [] 우승자의 기록을 찾는다. - Game#searchMaxDist()
-- [] 우승자를 선별 후 출력한다. - Game#printVitory()
+- [x] Game#operate()
+  - [x] 전진 조건에 의해 4이상인지 확인한다. - Game#verfityMoveCondition()
+  - [x] 전진 조건에 적합하면 이동한다. - Game#moveCar()
+  - [x] 이동 현황을 출력한다 - Game#printCurrentState()
+  - [x] 우승자의 기록을 찾는다. - Game#searchMaxDist()
+  - [x] 우승자를 선별 후 출력한다. - Game#printVitory()
 
 
 ### 기능 요구 사항
