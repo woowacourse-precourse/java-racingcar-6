@@ -21,6 +21,7 @@ public class GameController {
         carName(carNames, numberOfAttempts);
     }
 
+
     private void printWinner(List<Car> cars, int numberOfAttempts) {
         List<String> winners = determineWinners(cars);
         OutputView.printGameResult(cars, numberOfAttempts);
