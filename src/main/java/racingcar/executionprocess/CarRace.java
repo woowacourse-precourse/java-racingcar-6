@@ -33,8 +33,13 @@ public class CarRace {
         int[] move = new int[cars.size()];
         Result result = new Result(move);
         for (int i = 0; i < number; i++) {
-            result.output(cars);
-            System.out.println();
+            try {
+                result.output(cars);
+                System.out.println();
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.print("최종 우승자 : " + result.findWinner(cars));
