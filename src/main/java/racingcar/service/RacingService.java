@@ -18,12 +18,12 @@ public class RacingService {
     }
 
     public List<Car> playSingleRound(List<Car> cars) {
-        putRaceMove(cars);
+        playRacing(cars);
         checkRoundWinner(cars);
         return cars;
     }
 
-    private static void putRaceMove(List<Car> cars) {
+    private static void playRacing(List<Car> cars) {
         for (Car car : cars) {
             int move = Randoms.pickNumberInRange(0, 9);
             car.setMove(move);
