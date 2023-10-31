@@ -27,5 +27,6 @@ public class RacingGameController {
 	}
 
 	public void setTryCount() {
+		messageView.printTryCountMessage();
 	}
 }
