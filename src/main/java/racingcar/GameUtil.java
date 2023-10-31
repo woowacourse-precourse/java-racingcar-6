@@ -64,6 +64,10 @@ public class GameUtil {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+
+        if (Integer.parseInt(repeatNumber) < 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public String randomProgress(Integer minRandomValue, Integer maxRandomValue) {
