@@ -5,15 +5,18 @@ import org.junit.jupiter.api.Test;
 
 class CarsTest {
 
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     @Test
     public void 전진_스탑_전진() {
         //given
         Cars car = new Cars("JiHun", 0);
 
         //when
-        car.move(7);
-        car.move(3);
-        car.move(7);
+        car.move(MOVING_FORWARD);
+        car.move(STOP);
+        car.move(MOVING_FORWARD);
 
         //then
         Assertions.assertThat(2).isEqualTo(car.getDistance());
