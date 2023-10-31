@@ -7,7 +7,7 @@ import racingcar.exception.RacingGameException;
 
 public record Name(String name) {
 
-    private static final int CAR_LIMIT_NAME_LENGTH = 5;
+    public static final int CAR_LIMIT_NAME_LENGTH = 5;
 
     public Name {
         validate(name);
