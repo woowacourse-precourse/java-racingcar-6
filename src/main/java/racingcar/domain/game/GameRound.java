@@ -7,14 +7,15 @@ import racingcar.view.OutputView;
 
 public class GameRound {
     private static final CarInfo carInfo = CarInfo.getInstance();
-    private Round gameRound;
+    
+    private Round currentRound;
 
-    public GameRound(Round currentRound) {
-        gameRound = currentRound;
+    public GameRound(Round round) {
+        currentRound = round;
     }
 
     public void passRound() {
-        this.gameRound = new Round(gameRound.round() + 1);
+        this.currentRound = new Round(currentRound.round() + 1);
     }
 
     public void startRound() {
@@ -24,6 +25,7 @@ public class GameRound {
     }
 
     public int getCurrentRound() {
-        return gameRound.round();
+        return currentRound.round();
     }
+
 }
