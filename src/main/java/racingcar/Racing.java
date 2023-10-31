@@ -29,4 +29,21 @@ public class Racing {
         System.out.println();
     }
 
+    public void start() {
+
+        for ( int i = 0; i < count; i++ ) {
+
+            for( Car car : cars ) {
+
+                int length = car.distance.length();
+
+                if ( max < length ) {
+                    max = length;
+                }
+            }
+
+            System.out.println();
+        }
+    }
+
 }

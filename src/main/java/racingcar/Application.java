@@ -17,6 +17,7 @@ public class Application {
         racing.registCount(inputCount);
 
         System.out.println("실행 결과");
+        racing.start();
 
         System.out.print("최종 우승자 : ");
     }
