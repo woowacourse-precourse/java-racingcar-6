@@ -16,4 +16,8 @@ public class CarDto {
     public int getAdvancementCount(){
         return advancementCount;
     }
+
+    public void setAdvancementCount(int advancementCount){
+        this.advancementCount = advancementCount;
+    }
 }
