@@ -20,8 +20,23 @@ class CarTest {
 	@Test
 	void testDoNotMoveIfMovableIsFalse() {
 		boolean movable = false;
-		Car car = new Car("dokkisan");
+		Car car = new Car("hana");
 		car.move(movable);
 		assertThat(car.getStep()).isEqualTo(0);
+	}
+
+	@DisplayName("입력값의 길이가 1~5자 사이면 이름이 생성된다.")
+	@Test
+	void testVaLidNameLength() {
+		Car car = new Car("bunny");
+		assertThat(car.getName()).isEqualTo("bunny");
+	}
+
+	@DisplayName("입력값의 길이가 1~5자 사이가 아니면 예외를 발생한다.")
+	@Test
+	void testInvalidNameLength() {
+		assertThatThrownBy(() -> new Car("baedalyee"))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("[ERROR] 자동차의 이름은 1자 이상 5자 이하로 입력해 주세요.");
 	}
 }
