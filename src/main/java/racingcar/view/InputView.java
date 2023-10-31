@@ -29,7 +29,6 @@ public class InputView {
         validateNotNull(input);
 
         return Arrays.stream(input.split(Symbols.COMMA.getSymbol()))
-                .map(String::trim)
                 .toList();
     }
 
