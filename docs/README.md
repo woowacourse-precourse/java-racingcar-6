@@ -8,11 +8,11 @@
   - [x] 자동차 이름은 1자 이상 5자 이하 InputValidator#checkCarNameLength
 - [x] 시도할 횟수를 입력 받는다. UserInputManager#inputNumberOfAttempts
   - [x] 숫자가 아니면 안된다. InputValidator#isNumeric
-- [ ] 전진하는 자동차를 출력 시 자동차 이름을 같이 출력 UserOutputManager#print
+- [ ] 전진하는 자동차를 출력 시 자동차 이름을 같이 출력 Application#printTurnInfo
 - [x] 값이 4 이상인지 체크할 수 있다.Checker#checkAtLeast4
 - [x] 값이 4 이상일 경우 전진. Car#goStright
-- [ ] 승리한 사람을 체크해야 함.(여러명 가능) Checker#checkWinners
-- [ ] 승리한 사람을 알려줘야 함. UserOutputManager#printWinners
+- [x] 승리한 사람을 체크해야 함.(여러명 가능) Checker#checkWinners
+- [ ] 승리한 사람을 알려줘야 함. Application#printWinners
 - [ ] 잘못된 입력을 사용하면 IllegalArgumentException 발생 후 종료
 
 ## 지켜야 할 사항
