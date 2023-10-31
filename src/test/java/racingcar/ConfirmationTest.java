@@ -1,17 +1,20 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.junit.jupiter.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.GameController;
 import racingcar.handler.UserInputHandler;
+import racingcar.model.Car;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class ConfirmationTest {
-    private final UserInputHandler userInputHandler = new UserInputHandler();
+public class ConfirmationTest extends NsTest {
+    UserInputHandler userInputHandler = new UserInputHandler();
+    GameController gameController = new GameController();
 
     @Test
     void 자동차이름_5자초과_예외_처리() {
@@ -59,5 +62,17 @@ public class ConfirmationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도 횟수는 숫자만 입력할 수 있습니다.");
     }
+
+    @Test
+    void setUp_자동차_객체_생성_테스트() {
+        gameController.setUp("pobi,dabin,jun");
+        gameController.run(1);
+
+        List<String> winners = gameController.getWinners();
+        assertThat(winners).isNotEmpty();
+    }
+
+    @Override
+    protected void runMain() { Application.main(new String[]{});}
 }
 
