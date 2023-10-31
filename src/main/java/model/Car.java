@@ -15,11 +15,12 @@ public class Car {
     public String getName(){
         return name;
     }
-    public void moveForward() {
+    public int moveForward() {
         int move = isMovable();
         if (move >= 4) {
             position += "-";
         }
+        return move;
     }
 
     public int isMovable() {
