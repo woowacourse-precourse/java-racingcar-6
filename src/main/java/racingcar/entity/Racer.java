@@ -20,9 +20,7 @@ public class Racer {
     public static Racer getInstance(String name) {
         if (instance.get(name)==null){
             validateRacerName(name);
-            Racer racer = new Racer(name);
-            instance.put(name,racer);
-            return racer;
+            return registerRacer(name);
         }
         return instance.get(name);
     }
@@ -33,5 +31,11 @@ public class Racer {
 
     private static void validateRacerName(String name){
         validateForValidateType(NAME,name);
+    }
+
+    private static Racer registerRacer(String name){
+        Racer racer = new Racer(name);
+        instance.put(name,racer);
+        return racer;
     }
 }
