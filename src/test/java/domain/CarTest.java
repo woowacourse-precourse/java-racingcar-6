@@ -21,6 +21,7 @@ public class CarTest {
 
         assertThat(car1.isSamePosition(car2)).isTrue();
     }
+
     @Test
     void 주어진_숫자가_4미만이면_전진하지_않는다() {
         Car car1 = new Car("박정언",0);
@@ -30,6 +31,7 @@ public class CarTest {
 
         assertThat(car1.isSamePosition(car2)).isTrue();
     }
+
     @Test
     void 같은_포지션의_자동차를_찿는다() {
         Car car1 = new Car("박정언",1);
