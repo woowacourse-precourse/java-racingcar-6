@@ -5,34 +5,36 @@ import pojo.RacingCar;
 
 public class RapsResult {
 
-    RacingCar rc;
+    RacingCar racingCar;
 
-    public RapsResult(RacingCar rc) {
-        this.rc = rc;
+    public RapsResult(RacingCar racingCar) {
+        this.racingCar = racingCar;
     }
 
     //숫자가 4 이상일 경우 true값 반환
-    public boolean reader(int num){
-        if(num >= 4){
+    public boolean reader(int num) {
+        if (num >= 4) {
             return true;
         }
         return false;
     }
+
     //자동차의 위치값을 1 더해줌
-    public void changeCarStatus(boolean flag){
-        if(flag){
-            rc.distanceFoward();
+    public void changeCarStatus(boolean flag) {
+        if (flag) {
+            racingCar.distanceFoward();
         }
     }
+
     //자동차의 최종 이동 거리에 대한 결과값 반환
-    public String resultText(){
-        return rc.getName() + " : " + distanceText();
+    public String resultText() {
+        return racingCar.getName() + " : " + distanceText();
     }
 
     //자동차의 이동 거리 출력값을 반환
-    public String distanceText(){
+    public String distanceText() {
         StringBuilder text = new StringBuilder();
-        for(int i=0; i<rc.getDistance(); i++){
+        for (int i = 0; i < racingCar.getDistance(); i++) {
             text.append("-");
         }
         return text.toString();
@@ -45,7 +47,7 @@ public class RapsResult {
     }
 
     //최종 결과를 반환
-    public String forwardOrNot(){
+    public String forwardOrNot() {
         boolean forward = determineForward();
         changeCarStatus(forward);
         return resultText();

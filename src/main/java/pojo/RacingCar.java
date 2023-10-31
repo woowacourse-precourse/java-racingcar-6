@@ -13,11 +13,11 @@ public class RacingCar {
         return name;
     }
 
-    public int getDistance(){
+    public int getDistance() {
         return distance;
     }
 
-    public void distanceFoward(){
+    public void distanceFoward() {
         distance++;
     }
 
