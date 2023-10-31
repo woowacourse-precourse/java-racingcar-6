@@ -27,6 +27,7 @@ public class SaveInputValue {
 
         checkCarNames();
         isCarNameDuplicated();
+        isCarNameJustOne();
 
         return cars;
     }
@@ -51,6 +52,12 @@ public class SaveInputValue {
         List<String> cmp = cars.stream().distinct().toList();
         if (cars.size() != cmp.size()) {
             throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
+        }
+    }
+
+    public void isCarNameJustOne() {
+        if (cars.size() == 1) {
+            throw new IllegalArgumentException("자동차 이름은 두 개 이상 입력해야 합니다.");
         }
     }
 }
