@@ -23,4 +23,13 @@ public class myTest {
     void 이름_입력이_이상할_경우() {
         assertThatIllegalArgumentException().isThrownBy(() -> new Car("my Car Name is Perfect"));
     }
+
+    @Test
+    void 경기_회수_입력이_이상할_경우() {
+        GameProcess process = new GameProcess();
+        System.setIn(new ByteArrayInputStream("five".getBytes()));
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+            process.inputRaceTime();
+        });
+    }
 }
