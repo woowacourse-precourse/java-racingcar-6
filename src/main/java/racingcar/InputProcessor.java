@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
-리import static racingcar.config.GameConfig.*;
+import static racingcar.config.GameConfig.*;
 
 public class InputProcessor {
     public List<Player> readCarNamesInput() {
