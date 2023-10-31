@@ -15,6 +15,7 @@ public class Application {
 
     public static void startGame(){
         List<String> carNames = inputCarNames();
+        int tryCnt = inputTryCnt();
     }
 
     public static List<String> inputCarNames(){
@@ -22,4 +23,8 @@ public class Application {
         return player.inputCarNames();
     }
 
+    public static int inputTryCnt(){
+        view.println("시도할 회수는 몇회인가요?");
+        return player.inputTryCnt();
+    }
 }
