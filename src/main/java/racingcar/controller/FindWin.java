@@ -32,9 +32,4 @@ public class FindWin {
         }
         return winCars;
     }
-
-
-
-
-
 }
