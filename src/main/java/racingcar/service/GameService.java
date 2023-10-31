@@ -21,12 +21,22 @@ public class GameService {
     }
     public void moveRandomNumber(List<Car> cars){
         for(Car car : cars){
-            if(MOVE_CONDITION < getRandomNumber()){
+            if(MOVE_CONDITION <= getRandomNumber()){
                 car.moveCar(MOVE_NUMBER);
             }
         }
     }
     public int getRandomNumber(){
         return Randoms.pickNumberInRange(START_RANGE,END_RANGE);
+    }
+
+    public int getMaxLocation(List<Car> carList){
+        int max = 0;
+        for(Car car : carList){
+            if(max < car.getCarLocation()){
+                max = car.getCarLocation();
+            }
+        }
+        return max;
     }
 }
