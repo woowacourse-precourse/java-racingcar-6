@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.validator.Validator;
 
 import static camp.nextstep.edu.missionutils.Console.*;
 import static racingcar.constant.GameConstants.*;
@@ -31,7 +30,7 @@ public class CarRaceGameView {
 
     }
 
-    public static void printBlackLine() {
+    public static void printBlankLine() {
         System.out.println(NULL);
     }
 

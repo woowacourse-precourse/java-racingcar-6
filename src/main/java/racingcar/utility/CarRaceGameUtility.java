@@ -31,7 +31,7 @@ public class CarRaceGameUtility {
             }
             CarRaceGameView.printOneRoundResult(car.getCarName(), car.getAdvanceNumber());
         }
-        CarRaceGameView.printBlackLine();
+        CarRaceGameView.printBlankLine();
     }
 
     public static int randomNumberGenerator() {
