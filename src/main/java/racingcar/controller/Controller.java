@@ -1,17 +1,26 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.util.Parser;
 import racingcar.util.Exception;
 import racingcar.repository.CarRepository;
 
+import java.util.List;
+
 public class Controller {
 
     private final Parser parser = new Parser();
     private final Exception exception = new Exception();
     private final CarRepository carRepository = new CarRepository();
+
+    private void saveCars(List<String> carNames) {
+        for (String carName : carNames) {
+            carRepository.save(new Car(carName));
+        }
+    }
 
     private String getCarNameByUserInput(){
         InputView.requestCarNamesMessage();
