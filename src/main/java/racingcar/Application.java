@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import racingcar.domain.CarConverter;
 import racingcar.domain.Race;
 import racingcar.view.InputView;
+import racingcar.view.ResultView;
 
 public class Application {
     public static void main(String[] args) {
@@ -16,6 +17,6 @@ public class Application {
         race.run();
 
         List<Car> winners = race.getWinners();
-        System.out.println(winners);
+        ResultView.printWinners(winners);
     }
 }
