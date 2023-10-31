@@ -7,7 +7,7 @@ import java.util.List;
 import racingcar.domain.validator.Validator;
 
 public class CarFactory {
-    public Cars produceCars(List<String> carNameList) {
+    public static Cars produceCars(List<String> carNameList) {
         Validator.carName(carNameList);
 
         return carNameList.stream()
