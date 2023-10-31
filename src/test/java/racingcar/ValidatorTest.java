@@ -67,5 +67,29 @@ public class ValidatorTest {
         assertThat(result1).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("시도 횟수 입력값이 숫자인지 검사")
+    @Test
+    void 시도_횟수_숫자_테스트() {
+        // given
+        String case1 = "오";
+        String case2 = "1이3";
+        String case3 = "5";
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            Validator.validateIsNumeric(case1);
+        });
+        Throwable result2 = catchThrowable(() -> {
+            Validator.validateIsNumeric(case2);
+        });
+        Throwable result3 = catchThrowable(() -> {
+            Validator.validateIsNumeric(case3);
+        });
+
+        // then
+        assertThat(result1).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result2).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result3).doesNotThrowAnyException();
+    }
 
 }
