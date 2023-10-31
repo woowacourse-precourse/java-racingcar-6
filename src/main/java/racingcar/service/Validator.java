@@ -37,6 +37,12 @@ public class Validator {
             throw new IllegalArgumentException(NAME_DUPLICATE_ERROR_MESSAGE);
         }
     }
+    public void validateTrialNumber(String input){
+        validateNonIntTrialNumber(input);
+        validateZeroTrialNumber(input);
+        validateOverSizeTrialNumber(input);
+
+    }
 
 
 }
