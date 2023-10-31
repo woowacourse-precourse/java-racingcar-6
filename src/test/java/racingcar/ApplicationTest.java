@@ -126,6 +126,33 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void validateCarNameLength_예외처리_테스트() {
+        // given
+        final List<String> case1 = List.of("stephanie", "james", "robinson");
+        final List<String> case2 = List.of("kim", "Jon Doe", "park");
+        final List<String> case3 = List.of("BMW", "Mercedes", "Pagani Zonda");
+
+        // when
+        final Throwable thrown1 = catchThrowable(() -> {
+            Utils.validateCarNameLength(case1);
+        });
+        final Throwable thrown2 = catchThrowable(() -> {
+            Utils.validateCarNameLength(case2);
+        });
+        final Throwable thrown3 = catchThrowable(() -> {
+            Utils.validateCarNameLength(case3);
+        });
+
+        // then
+        assertThat(thrown1).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다.");
+        assertThat(thrown2).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다.");
+        assertThat(thrown3).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다.");
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
