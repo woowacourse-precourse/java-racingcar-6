@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.domain.Car.createCar;
+import static racingcar.domain.Car.createZeroProgressCar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,6 @@ class CarTest {
     @DisplayName("자동차 이름은 5자 미만이어야 한다 테스트")
     @Test
     void validateCarName() {
-        assertThrows(IllegalArgumentException.class, () -> new Car("abcdef"));
+        assertThrows(IllegalArgumentException.class, () -> createZeroProgressCar("abcdef"));
     }
 }
