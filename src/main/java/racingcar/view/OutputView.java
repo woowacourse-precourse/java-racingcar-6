@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.dto.output.CarDto;
 import racingcar.domain.dto.output.CarsDto;
+import racingcar.domain.dto.output.WinnerDto;
 import racingcar.domain.dto.output.WinnersDto;
 import racingcar.io.OutputWriter;
 
@@ -17,6 +18,12 @@ public class OutputView {
         this.writer = writer;
     }
 
+    private static List<String> getWinnerNames(WinnersDto winnersDto) {
+        return winnersDto.winners()
+                .stream()
+                .map(WinnerDto::name)
+                .toList();
+    }
 
     public void printGameResult(CarsDto carsDto) {
         printGameResultMsgOnlyIfFirstRound();
@@ -43,6 +50,7 @@ public class OutputView {
 
     public void printWinner(WinnersDto winnersDto) {
         writer.writeGameWinnerMsg();
-        System.out.println(String.join(DELIMITER, winnersDto.winnerList()));
+        List<String> winnerNames = getWinnerNames(winnersDto);
+        System.out.println(String.join(DELIMITER, winnerNames));
     }
 }

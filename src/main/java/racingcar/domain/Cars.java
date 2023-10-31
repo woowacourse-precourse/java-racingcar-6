@@ -1,6 +1,9 @@
 package racingcar.domain;
 
 import racingcar.domain.dto.output.CarsDto;
+import racingcar.domain.dto.output.WinnerDto;
+import racingcar.domain.dto.output.WinnersDto;
+import racingcar.exception.ExceptionMessage;
 import racingcar.validator.CarNameValidator;
 
 import java.util.List;
@@ -27,6 +30,24 @@ public class Cars {
     }
 
     public CarsDto toCarsDto() {
-        return new CarsDto(carList.stream().map(Car::toCarDto).toList());
+        return new CarsDto(carList.stream()
+                .map(Car::toCarDto)
+                .toList());
+    }
+
+    public WinnersDto toWinnersDto() {
+        int maxPosition = getMaxPosition();
+        List<WinnerDto> winnerList = carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::toWinnerDto)
+                .toList();
+        return new WinnersDto(winnerList);
+    }
+
+    public int getMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(ExceptionMessage.MAX_NOT_EXIST::getException);
     }
 }

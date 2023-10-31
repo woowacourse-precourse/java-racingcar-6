@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.domain.dto.output.CarDto;
+import racingcar.domain.dto.output.WinnerDto;
 
 import static racingcar.domain.MoveInstruction.FORWARD;
 
@@ -28,5 +29,17 @@ public class Car {
 
     public CarDto toCarDto() {
         return new CarDto(name, position);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public WinnerDto toWinnerDto() {
+        return new WinnerDto(name);
     }
 }
