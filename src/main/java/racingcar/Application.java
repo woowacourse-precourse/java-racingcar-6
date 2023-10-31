@@ -11,7 +11,7 @@ public class Application {
     private static final String TRY_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_TITLE_MESSAGE = "\n" + "실행 결과";
 
-    private static final List<Car> cars = new ArrayList<>();
+    private static List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNameInput = camp.nextstep.edu.missionutils.Console.readLine();
@@ -29,6 +29,7 @@ public class Application {
         System.out.println(RESULT_TITLE_MESSAGE);
         for (int nowCount = 1; nowCount <= tryCount; nowCount++) {
             processGame();
+            printResultOfTry();
         }
     }
 
@@ -39,5 +40,13 @@ public class Application {
                 car.move();
             }
         }
+    }
+
+    static void printResultOfTry() {
+        for (Car car : cars) {
+            String movingCount = "-".repeat(car.getPosition());
+            System.out.println(car.getName() + " : " + movingCount);
+        }
+        System.out.println();
     }
 }
