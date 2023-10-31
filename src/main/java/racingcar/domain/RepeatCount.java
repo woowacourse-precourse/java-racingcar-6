@@ -15,4 +15,12 @@ public class RepeatCount {
             throw new IllegalArgumentException(REPEAT_COUNT_NOT_ZERO);
         }
     }
+
+    public void disCount() {
+        count--;
+    }
+
+    public Boolean isRunable() {
+        return count > 0;
+    }
 }
