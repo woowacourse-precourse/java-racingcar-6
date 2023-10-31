@@ -20,17 +20,21 @@ public class SaveInputValue {
         this.repeatNumber = repeatNumber;
     }
 
-    public void saveCarName() {
+    public List<String> saveCarName() {
         String carInput = inputProcess.getCarName();
         String[] temp = carInput.split(",");
         cars = new ArrayList<>(Arrays.asList(temp));
+
         checkCarNames();
         isCarNameDuplicated();
+
+        return cars;
     }
 
-    public void saveRepeatNumber() {
+    public String saveRepeatNumber() {
         repeatNumber = inputProcess.getRepeatNumber();
         checkRepeatNumber();
+        return repeatNumber;
     }
 
     public void checkCarNames() {
