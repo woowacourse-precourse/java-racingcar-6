@@ -10,6 +10,10 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> carList) {
+        int count = (int) carList.stream().map(Car::getCarName).distinct().count();
+        if (carList.size() != count) {
+            throw new IllegalArgumentException("자동차 이름 중복");
+        }
         this.cars = carList;
     }
 

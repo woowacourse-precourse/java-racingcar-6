@@ -10,8 +10,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class CarsTest {
+
+    @Test
+    void 중복된_차이름_입력시_오류발생() {
+        //given
+        List<Car> carList = Arrays.asList(
+                new Car(new CarName("pobi"), new Position(0))
+                , new Car(new CarName("pobi"), new Position(0))
+                , new Car(new CarName("jun"), new Position(0)));
+        assertThatThrownBy(() -> new Cars(carList))
+                .isInstanceOf(IllegalArgumentException.class).hasMessage("자동차 이름 중복");
+    }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2})
