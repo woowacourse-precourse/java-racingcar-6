@@ -6,6 +6,7 @@ import static racingcar.AppConfig.MIN_DICE_NUMBER;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.AppConfig;
 import racingcar.service.Dice;
 
 public class RandomDiceImplTest {
@@ -14,7 +15,7 @@ public class RandomDiceImplTest {
 
     @BeforeEach
     public void beforeEach() {
-        dice = new RandomDiceImpl();
+        dice = new AppConfig().dice();
     }
 
     @Test

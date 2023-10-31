@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.AppConfig;
 import racingcar.domain.Car;
 import racingcar.domain.RacingBoard;
 import racingcar.service.Judgement;
@@ -16,7 +17,7 @@ class JudgementImplTest {
 
     @BeforeEach
     public void beforeEach() {
-        judgement = new JudgementImpl();
+        judgement = new AppConfig().judgement();
         racingBoard = new RacingBoard();
     }
 
