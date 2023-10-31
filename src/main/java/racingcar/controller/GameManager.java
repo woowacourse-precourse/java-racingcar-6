@@ -36,16 +36,22 @@ public class GameManager {
     }
 
     private void displayGameResult() {
-        List<Car> winner = determineWinner();
-        RaceView.displayWinner(winner);
+        List<Car> winners = determineWinners();
+        RaceView.displayWinner(winners);
     }
 
-    private List<Car> determineWinner() {
+    private List<Car> determineWinners() {
         int maxDistance = this.cars.stream()
                 .mapToInt(Car::getForwardDistance)
-                .max().orElse(0);
-        return this.cars.stream()
-                .filter(car -> car.getForwardDistance() == maxDistance)
-                .toList();
+                .max()
+                .orElse(0);
+
+        List<Car> winners = new ArrayList<>();
+        for (Car car : this.cars) {
+            if (car.getForwardDistance() == maxDistance) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 }
