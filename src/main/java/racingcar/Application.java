@@ -8,11 +8,17 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
 
     public class Car {
-        String Name = "";
-        int Location = 0;
+        String name = "";
+        int location = 0;
 
         public void move(int moveDistance) {
-            this.Location = this.Location + moveDistance;
+            this.location = this.location + moveDistance;
+        }
+        public String getName() {
+            return this.name;
+        }
+        public int getLocation() {
+            return this.location;
         }
     }
 
@@ -35,7 +41,7 @@ public class Application {
             }
 
             // 입력이 유효하면 cars 클래스에 자동차 이름 입력
-            cars[i].Name = CarName;
+            cars[i].name = CarName;
         }
 
         return cars;
@@ -70,8 +76,8 @@ public class Application {
     }
 
     public static void printCar(Car car) {
-        System.out.printf("%s : ", car.Name);
-        for (int i = 0; i < car.Location; i++) {
+        System.out.printf("%s : ", car.getName());
+        for (int i = 0; i < car.getLocation(); i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -84,11 +90,30 @@ public class Application {
                 printCar(cars[i]);
             }
             System.out.println();
-            
+
             racingCount = racingCount - 1;
         }
 
         return cars;
+    }
+
+    public static String getChampion(Car[] cars) {
+        int maxLocation = 0;
+        String champions = "";
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getLocation() > maxLocation) {
+                maxLocation = cars[i].getLocation();
+            }
+        }
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getLocation() == maxLocation) {
+                champions.join(", ", cars[i].getName());
+            }
+        }
+
+        return champions;
     }
 
     public static void main(String[] args) {
@@ -103,7 +128,8 @@ public class Application {
         int racingCount = isRacingCountValid(inp);
 
         System.out.println("\n실행 결과");
-        
         cars = racing(cars, racingCount);
+
+        System.out.printf("최종 우승자 : %s\n", getChampion(cars));
     }
 }
