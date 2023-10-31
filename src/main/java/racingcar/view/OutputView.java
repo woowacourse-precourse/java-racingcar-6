@@ -15,7 +15,7 @@ public class OutputView {
             System.out.print(carNames.get(i) + " : ");
             System.out.println(MOVE_SYMBOL.repeat(forwardCounts.get(i)));
         }
-        System.out.print("\n");
+        System.out.println();
     }
 
     public static void printWinners(List<String> winnerNames) {
