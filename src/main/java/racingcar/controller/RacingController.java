@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.model.AttemptCountValidator;
 import racingcar.model.CarNameValidator;
@@ -36,9 +37,14 @@ public class RacingController {
         // 게임 실행 로직
         for (int i = 0; i < attemptCount; i++) {
             racingGame.race();
+            printRaceResults(racingGame.getCars());
         }
     }
 
+    private void printRaceResults(List<Car> cars) {
+        cars.forEach(car -> System.out.println(car.display()));
+        System.out.println();
+    }
 }
 
 
