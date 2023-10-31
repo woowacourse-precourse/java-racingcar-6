@@ -1,24 +1,30 @@
 package racingcar.validation;
 
+import static racingcar.constant.IllegalArgumentMessage.COUNT_NOT_INTEGER;
 import static racingcar.constant.IllegalArgumentMessage.COUNT_NOT_POSITIVE;
 
-public final class CountValidation extends InputValidation {
+public class CountValidation {
 
     private CountValidation() {
     }
 
     public static void validate(String input) {
-        isEmptyInput(input);
-        isNumeric(input);
+        int number = isInteger(input);
+        isPositive(number);
     }
 
-    private static void isNumeric(String input) {
+    private static Integer isInteger(String input) {
+        int number;
         try {
-            int number = Integer.parseInt(input);
-            if (number <= 0) {
-                throw new IllegalArgumentException(COUNT_NOT_POSITIVE.getMessage());
-            }
+            number = Integer.parseInt(input);
         } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(COUNT_NOT_INTEGER.getMessage());
+        }
+        return number;
+    }
+
+    private static void isPositive(int number) {
+        if (number <= 0) {
             throw new IllegalArgumentException(COUNT_NOT_POSITIVE.getMessage());
         }
     }

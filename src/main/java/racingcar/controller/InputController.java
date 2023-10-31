@@ -7,6 +7,7 @@ import java.util.List;
 import racingcar.model.RacingCars;
 import racingcar.validation.CarNameValidation;
 import racingcar.validation.CountValidation;
+import racingcar.validation.InputValidation;
 
 public class InputController {
 
@@ -14,7 +15,7 @@ public class InputController {
     }
 
     public static RacingCars toRacingCars(String input) {
-        CarNameValidation.isEmptyInput(input);
+        InputValidation.isEmptyInput(input);
         List<String> carNameList = splitStringToListWithTrim(input);
         CarNameValidation.validate(carNameList);
 
@@ -22,6 +23,7 @@ public class InputController {
     }
 
     public static Integer toMoveCount(String input) {
+        InputValidation.isEmptyInput(input);
         CountValidation.validate(input);
         return Integer.parseInt(input);
     }
