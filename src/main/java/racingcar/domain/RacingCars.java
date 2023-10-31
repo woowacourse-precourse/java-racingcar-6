@@ -18,9 +18,6 @@ public class RacingCars implements Iterable<Car> {
         return cars.iterator();
     }
 
-    public List<Car> showRacingCars() {
-        return Collections.unmodifiableList(cars);
-    }
 
     public String showRacingStates() {
         StringBuilder racingStates = new StringBuilder();
