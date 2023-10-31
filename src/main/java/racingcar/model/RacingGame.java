@@ -1,46 +1,38 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import racingcar.controller.Controller;
 import racingcar.controller.Validator;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    List<String> playerName = new ArrayList<>();
-    List<Integer> playerDistance = new ArrayList<>();
+    CarName carName;
+    CarDistance carDistance;
     Integer count;
     Integer winnerDistance = 0;
 
     public void startGame() {
         OutputView.askCarName();
-        this.playerName = Controller.splitName(OutputView.readInput());
-        Validator.isRightName(playerName);
-        setStartPoint();
+        carName = carName.makeCarName(OutputView.readCarName());
+        carDistance.setStartPoint();
         OutputView.askCount();
         this.count = Controller.readCount(OutputView.readInput());
         OutputView.startRace();
         for (int i = 0; i < this.count; i++) {
             moveForward();
-            OutputView.printResult(playerName, playerDistance);
+            OutputView.printResult(carName.getCarName(), carDistance.getPlayerDistance());
         }
-        OutputView.printWinner(playerName, playerDistance, winnerDistance);
+        OutputView.printWinner(carName.getCarName(), carDistance.getPlayerDistance(), winnerDistance);
     }
 
-    private void setStartPoint() {
-        for (int i = 0; i < playerName.size(); i++) {
-            playerDistance.add(i, 0);
-        }
-    }
 
     private void moveForward() {
-        for (int i = 0; i < playerName.size(); i++) {
+        for (int i = 0; i < carName.getSize(); i++) {
             int randomNumber = Controller.makeRandomNum();
             if (Validator.isFourOrMore(randomNumber)) {
-                playerDistance.set(i, playerDistance.get(i) + 1);
+                carDistance.setDistance(i);
             }
-            if (winnerDistance < playerDistance.get(i)) {
-                winnerDistance = playerDistance.get(i);
+            if (winnerDistance < carDistance.getDistanceOf(i)) {
+                winnerDistance = carDistance.getDistanceOf(i);
             }
         }
     }
