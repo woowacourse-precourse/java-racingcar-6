@@ -4,8 +4,7 @@ import java.util.List;
 
 public class Print {
 
-    private static final RacingGame rg = new RacingGame();
-    private static final Util util = new Util();
+    private final Util util = new Util();
 
     public void showResult(List<Car> cars) {
         String dash = "-";
@@ -15,8 +14,7 @@ public class Print {
         System.out.println();
     }
 
-    public void showWinner(List<Car> cars) {
-        List<String> winnersName = rg.getMaxMoveCar(cars);
+    public void showWinner(List<Car> cars, List<String> winnersName) {
         System.out.println("최종 우승자 : " + util.join(winnersName));
     }
 }

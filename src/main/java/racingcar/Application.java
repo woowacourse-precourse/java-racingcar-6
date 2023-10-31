@@ -6,7 +6,6 @@ public class Application {
 
     private static final Input input = new Input();
     private static final RacingGame rg = new RacingGame();
-    private static final Print print = new Print();
 
     public static void main(String[] args) {
 
@@ -16,6 +15,5 @@ public class Application {
 
         rg.race(cars, times);
 
-        print.showWinner(cars);
     }
 }

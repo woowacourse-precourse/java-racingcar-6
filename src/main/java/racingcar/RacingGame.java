@@ -17,6 +17,7 @@ public class RacingGame {
             }
             print.showResult(cars);
         }
+        print.showWinner(cars, getMaxMoveCar(cars));
     }
 
     void forwardOrStop(Car car, int num) {
