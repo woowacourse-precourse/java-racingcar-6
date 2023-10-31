@@ -21,12 +21,12 @@ public class RaceGameController {
     }
 
     public void start() {
-        initializeGame();
-        raceStart();
-        racePrintRaceResults();
+        initializeRace();
+        startRace();
+        printRaceResults();
     }
 
-    private void initializeGame() {
+    private void initializeRace() {
         List<String> carNames = getValidatedCarNames();
         int targetTurn = getValidatedTargetTurn();
 
@@ -48,7 +48,7 @@ public class RaceGameController {
         return inputValidator.validateInputNumber(requestRound);
     }
 
-    private void raceStart() {
+    private void startRace() {
         view.raceResult();
         raceAndPrintRoundResults();
     }
@@ -62,7 +62,7 @@ public class RaceGameController {
                 });
     }
 
-    private void racePrintRaceResults() {
+    private void printRaceResults() {
         List<RacingCar> winners = carRace.getWinners();
         String winnersNames = winners.stream()
                 .map(RacingCar::getName)
