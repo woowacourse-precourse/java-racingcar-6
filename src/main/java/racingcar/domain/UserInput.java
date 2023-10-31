@@ -10,10 +10,10 @@ public class UserInput {
         String input = Console.readLine();
         List<String> nameList = NameValidator.splitComma(input);
         if (!NameValidator.correctNumberOfChar(nameList)) {
-            throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
+            throw new IllegalArgumentException("글자수를 초과 입력하여 게임을 종료합니다.");
         }
         if (!NameValidator.hasOnlyAlphabets(nameList)) {
-            throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
+            throw new IllegalArgumentException("영문자 외의 값을 입력하여 게임을 종료합니다.");
         }
         if (!NameValidator.isNotRedundant(nameList)) {
             throw new IllegalArgumentException("중복된 값을 입력하여 게임을 종료합니다.");
