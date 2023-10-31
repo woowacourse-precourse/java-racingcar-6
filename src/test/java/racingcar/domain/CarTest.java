@@ -13,20 +13,19 @@ class CarTest {
         this.car = new Car("pobi");
     }
 
-
     @Test
-    @DisplayName("자동차가 5 이상 이동하는 경우")
+    @DisplayName("자동차가 이동하는 경우")
     void moveTest1() {
         int firstPostion = car.getPosition();
-        car.move(6);
+        car.move(1);
         int secondPostion = car.getPosition();
 
         Assertions.assertThat(firstPostion).isEqualTo(0);
-        Assertions.assertThat(secondPostion).isEqualTo(6);
+        Assertions.assertThat(secondPostion).isEqualTo(1);
     }
 
     @Test
-    @DisplayName("자동차가 0만큼 이동하는 경우")
+    @DisplayName("자동차가 이동하지 않는 경우")
     void moveTest2() {
         int firstPostion = car.getPosition();
         car.move(0);

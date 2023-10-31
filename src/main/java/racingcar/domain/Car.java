@@ -13,6 +13,11 @@ public class Car {
         this.position += value;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
     }
@@ -24,10 +29,5 @@ public class Car {
             return this.name.equals(car.name);
         }
         return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return this.name.hashCode();
     }
 }
