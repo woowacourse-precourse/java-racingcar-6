@@ -32,7 +32,10 @@ public class RacingGameView {
 
     public static int inputTryCount() {
         inputTryCountMessage();
-        return ExceptionController.tryCountNotIntException(readLine());
+        String tryCount = readLine();
+        ExceptionController.tryCountNotIntException(tryCount);
+        ExceptionController.tryCountLengthException(tryCount);
+        return Integer.parseInt(tryCount);
     }
 
     public static void forwardResultMessage(String carName, String result) {
