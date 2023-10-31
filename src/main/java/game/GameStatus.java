@@ -1,5 +1,5 @@
 package game;
 
 public enum GameStatus {
-    READY, PROCEEDING, END
+    READY, PROCEEDING, END, EXIT
 }
