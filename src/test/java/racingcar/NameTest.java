@@ -39,4 +39,12 @@ public class NameTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 중복되는_이름_있는지() {
+        assertThatThrownBy(() -> {
+            Cars cars = new Cars("a,b");
+        })
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
