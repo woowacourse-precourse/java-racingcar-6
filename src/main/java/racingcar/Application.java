@@ -9,10 +9,15 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> cars = Arrays.asList(Console.readLine().split(","));
         System.out.println("시도할 회수는 몇회인가요?");
-        int num = Integer.parseInt(Console.readLine());
+        int num;
+        try {
+            num = Integer.parseInt(Console.readLine());
+            Game game = new Game(cars, num);
+            game.checkCarName();
+            game.startGame();
+        } catch(IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
 
-        Game game = new Game(cars, num);
-        game.checkCarName();
-        game.startGame();
     }
 }
