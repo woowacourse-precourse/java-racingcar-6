@@ -12,6 +12,7 @@ public class RacingController {
 
     public void start() {
         initGame();
+        startGame();
     }
 
     private void initGame() {
@@ -22,6 +23,10 @@ public class RacingController {
         int numberOfAttempt = getNumberOfAttempt();
 
         racingService.initGame(carNames, numberOfAttempt);
+    }
+
+    private void startGame(){
+        racingService.startGame();
     }
 
     private List<String> getCarNames() {
