@@ -47,4 +47,22 @@ class InputViewTest {
                         .hasMessageContaining("아라비아 숫자만 입력 가능합니다.")
         );
     }
+
+    @Test
+    @DisplayName("빈 값을 입력하면 IllegalArgumentException 확인")
+    public void 빈_값_검증() {
+        // given
+        final InputView inputView = new InputView();
+
+        // when
+        String input = "";
+
+        // then
+        assertAll(
+                () -> assertThatThrownBy(() -> inputView.validateEmptyInput(input))
+                        .isInstanceOf(IllegalArgumentException.class),
+                () -> assertThatThrownBy(() -> inputView.validateEmptyInput(input))
+                        .hasMessageContaining("빈 값은 입력할 수 없습니다.")
+        );
+    }
 }
