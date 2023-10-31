@@ -52,7 +52,7 @@ public class OutputView {
                 .map(Car::getName)
                 .collect(Collectors.toList());
 
-        String result = String.join(",", multipleWinnerName);
+        String result = String.join(", ", multipleWinnerName);
         System.out.print(result);
     }
 
