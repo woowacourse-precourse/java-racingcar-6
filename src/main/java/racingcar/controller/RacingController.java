@@ -1,8 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.Information;
-import racingcar.model.RacingCar;
-import racingcar.model.RacingCars;
+import racingcar.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +8,7 @@ import java.util.List;
 public class RacingController {
     public final RacingCars racingCars;
     public final int times;
+
     public RacingController(Information information){
         racingCars = init(information.getNames());
         this.times = information.getTimes();
@@ -24,5 +23,8 @@ public class RacingController {
     }
 
     public void go() {
+        for(RacingCar car : racingCars.getRacingCars()) {
+            car.move(new RandomNumberGenerator());
+        }
     }
 }

@@ -5,9 +5,17 @@ import racingcar.util.Constants;
 import racingcar.util.ExceptionMessages;
 
 public class RacingCar {
+
     private static int distance;
     private static String name;
 
+    public static int getDistance() {
+        return distance;
+    }
+
+    public static String getName() {
+        return name;
+    }
 
     private RacingCar(String name) {
         this.name = name;
@@ -26,7 +34,7 @@ public class RacingCar {
     }
 
     private static boolean checkSymbol(String name) {
-        return !name.matches(Constants.COMMA_MATCH_REGEX+Constants.PARSER_REGEX+Constants.COMMA_MATCH_REGEX);
+        return !name.matches(Constants.COMMA_MATCH_REGEX + Constants.PARSER_REGEX + Constants.COMMA_MATCH_REGEX);
     }
 
     private static boolean checkNotEmpty(String name) {
@@ -34,7 +42,14 @@ public class RacingCar {
     }
 
     private static boolean checkLength(String name) {
-        return name.length() < Constants.NAME_MAX_LENGTH;
+        return name.length() <= Constants.NAME_MAX_LENGTH;
     }
 
+    public void move(NumberGenerator numberGenerator) {
+        int playType = numberGenerator.generate();
+        if (PlayType.findByNum(playType) == PlayType.GO) {
+            distance++;
+        }
+        return;
+    }
 }
