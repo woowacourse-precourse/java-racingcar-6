@@ -3,7 +3,6 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.IntStream;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingRound;
 import racingcar.util.Constants;
@@ -31,21 +30,23 @@ public class RacingGameController {
     private void playRound() {
         OutputView.printExecutionResultMessage();
 
-        IntStream.range(0, racingRound.getRound())
-                .forEach(i -> runRound());
+        IntStream.range(0, racingRound.getRound()).forEach(i -> {
+            moveCars();
+            displayCars();
+            OutputView.printBlankLine();
+        });
     }
 
-    private void runRound() {
-        List<Car> carList = cars.getCarList();
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(Constants.MIN_INPUT_RANGE, Constants.MAX_INPUT_RANGE);
+    }
 
-        carList.forEach(car -> {
-            int randomNumber = Randoms.pickNumberInRange(Constants.MIN_INPUT_RANGE, Constants.MAX_INPUT_RANGE);
-            car.moveForward(randomNumber);
-        });
+    private void moveCars() {
+        cars.getCarList().forEach(car -> car.moveForward(generateRandomNumber()));
+    }
 
-        carList.forEach(OutputView::printCarNameAndPosition);
-
-        OutputView.printBlankLine();
+    private void displayCars() {
+        cars.getCarList().forEach(OutputView::printCarNameAndPosition);
     }
 
     private void showWinners() {
