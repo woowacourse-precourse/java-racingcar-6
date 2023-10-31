@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.NumberGenerator;
+
 public class Car implements Comparable<Car> {
     private String name;
     private int position;
@@ -9,8 +11,9 @@ public class Car implements Comparable<Car> {
         this.position = 0;
     }
 
-    public void move() {
-        if (Driver.pressAccelerator() >= 4) {
+    public void move(NumberGenerator numberGenerator) {
+        final int pressStrength = numberGenerator.press();
+        if (pressStrength >= 4) {
             this.position++;
         }
     }
