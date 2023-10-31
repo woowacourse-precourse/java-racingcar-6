@@ -10,6 +10,7 @@ public class Application {
     public static void main(String[] args) {
         Input input = new Input();
         Game game = new Game();
+        Output output = new Output();
 
         ArrayList<String>userArray = Input.inputUser();
         // 자른 문자열을 ArrayList에 저장
@@ -44,23 +45,9 @@ public class Application {
 
         ArrayList<String>resultArray = new ArrayList<>();
 
-        for (int i = 0; i < raceCount.length; i++) {
-            if (raceCount[i] == max) {
-                resultArray.add(userArray.get(i)); // 더 큰 값을 발견하면 최대값을 업데이트
-            }
-        }
+        resultArray = output.resultSum(resultArray, userArray,raceCount,max);
 
-        System.out.print("최종 우승자 : ");
-
-        if(resultArray.size() == 1){
-            System.out.print(resultArray.get(0));
-        } else {
-            System.out.print(resultArray.get(0));
-            for(int i = 1; i < resultArray.size();i++){
-                System.out.print(","+resultArray.get(i));
-
-            }
-        }
+        output.printresult(resultArray);
 
     }
 }
