@@ -19,9 +19,9 @@ public class RegisterController {
         List<String> carList = registerService.convertCarNameToList(carNames);
         registerService.validateCarName(carList,carNames);
 
-        String chance = InputView.inputChanceNumber();
-        registerService.validateChanceNumber(chance);
-        int moveCount = registerService.convertNumberToInt(chance);
+        String movementNumber = InputView.inputChanceNumber();
+        registerService.validateInputMovementNumber(movementNumber);
+        int moveCount = registerService.convertNumberToInt(movementNumber);
 
         Manager manager = new Manager(moveCount);
 

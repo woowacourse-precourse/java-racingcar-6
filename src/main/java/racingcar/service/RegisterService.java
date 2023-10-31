@@ -25,7 +25,7 @@ public class RegisterService {
         }
     }
 
-    public void validateChanceNumber(String inputNumber){
+    public void validateInputMovementNumber(String inputNumber){
         try{
             Integer.parseInt(inputNumber);
         } catch (NumberFormatException e){

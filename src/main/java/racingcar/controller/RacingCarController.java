@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Manager;
 import racingcar.view.OutputView;
@@ -16,16 +15,16 @@ public class RacingCarController {
         Manager manager = registerController.registerCar();
         OutputView.outputResultMessage();
         do {
-            manager.manageMoveOneCycle();
+            manager.manageOneCycle();
 
             for(Car car : manager.getCarList()){
-                OutputView.outputCarAndScore(car.getName(), car.getScore());
+                OutputView.outputCarAndScore(car.getName(), car.getMovementScore());
             }
             System.out.println();
 
-        }while(manager.getMoveCount()>0);
+        }while(manager.getRemainingCycle()>0);
 
-        OutputView.outputWinner(manager.resultWinner());
+        OutputView.outputWinner(manager.announceWinner());
 
     }
 }
