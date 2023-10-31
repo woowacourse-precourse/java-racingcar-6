@@ -71,6 +71,13 @@ public class Application {
 
     private static void printWinners(List<Car> carList) {
         List<String> winnerList = getWinnerList(carList);
+        int listSize = winnerList.size();
+
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < listSize-1; i++) {
+            System.out.print(winnerList.get(i) + ", ");
+        }
+        System.out.println(winnerList.get(listSize - 1));
     }
 
     private static List<String> getWinnerList(List<Car> carList) {
