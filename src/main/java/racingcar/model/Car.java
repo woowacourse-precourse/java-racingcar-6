@@ -13,7 +13,7 @@ public class Car {
     private Integer moveCount;
 
     public Car(CarName name) {
-        this.name = name.getName();
+        this.name = name.name();
         this.moveCount = 0;
     }
 

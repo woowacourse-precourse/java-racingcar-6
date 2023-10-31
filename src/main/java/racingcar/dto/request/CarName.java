@@ -1,17 +1,11 @@
 package racingcar.dto.request;
 
-public class CarName {
+public record CarName(String name) {
 
     private static final Integer MAX_NAME_LENGTH = 5;
-    private final String name;
 
-    public CarName(String name) {
+    public CarName {
         validateNameLength(name.length());
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     private void validateNameLength(Integer nameLength) {
