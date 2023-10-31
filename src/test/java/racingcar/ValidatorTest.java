@@ -1,37 +1,38 @@
 package racingcar;
 
-
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-
 public class ValidatorTest {
-    // TODO: Test given each element of the ArrayList is same or less than 5
-    // if the input string couldn't be seperated by , delimiter, this validator would cover that.
     @Test
-    void testAreCarNamesOverFive() {
-        Validators validator = new Validators();
-        String[] testArray = "pobi,javajiww".split(",");
-        ArrayList<String> testList = new ArrayList<String>(Arrays.asList(testArray));
+    void testIsCarNameOverFive() {
+        String[] testSample = "pobi,javajiww".split(",");
+        ArrayList<String> testList = new ArrayList<String>(Arrays.asList(testSample));
 
+        Validators validator = new Validators();
+        assertThatThrownBy(() -> {
+            validator.isCarNameOverFive(testList.get(1));
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("잘못된 값을 입력하였습니다.");
     }
 
     @Test
-    void testIsNumeric() {
+    void testIsInteger() {
         Validators validator = new Validators();
+        ArrayList<String> testNumbers = new ArrayList<>();
+        testNumbers.add("2.3");
+        testNumbers.add("-4");
 
-        assertThat(validator.isInteger("12345")).isTrue();
-        assertThat(validator.isInteger("5.05")).isFalse();
-        assertThat(validator.isInteger("-200")).isFalse();
-        assertThat(validator.isInteger("abc")).isFalse();
-        assertThat(validator.isInteger(null)).isFalse();
-
-
+        for(String number : testNumbers){
+            assertThatThrownBy(
+                    () -> {
+                        validator.isInteger(number);
+                    }).isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining("잘못된 값을 입력하였습니다.");
+        }
     }
-
 }

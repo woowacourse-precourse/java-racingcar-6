@@ -16,14 +16,13 @@ public class Validators {
         }
     }
 
-    public boolean isInteger(String inputString) {
+    public void isInteger(String inputString) {
         Pattern pattern = Pattern.compile("^\\d+$");
         boolean result = pattern.matcher(inputString).matches();
 
         if (!result) {
             throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
         }
-        return result;
     }
 }
 

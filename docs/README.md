@@ -1,34 +1,30 @@
 # 미션 - 자동차 경주
 
-# 구현 기능 목록
+# 구현 기능 목록 [x]
 
-- [x] 사용자가 입력한 총 게임 회수와 자동차 이름을 배열로 반환한다. - Player#createPlayerCarList, Player#setLapsOfRace
-- [x] 입력 값이 올바른지 검사한다. 
-  - [x] 입력한 자동차 이름이 5자 이하인지 검사한다. - Validators#isListElementOverFive
-  - [x] 입력한 게임 회수가 정수로 변환 가능한지 검사한다. - Validators#isInteger
-- [ ] 1턴동안 자동차가 1칸 전진 또는 멈추고, 이를 주어진 횟수 동안 반복한다. Game#startRace
-  - [x] 0~9 사이의 임의의 숫자 1개를 생성한다. - NumberGenerator#createRandomNumber
-  - [x] 전진 조건을 충족했는지 검사한다. - Judgement#moveForward
-  - [x] 플레이어별로 전진 가능한지 비교한다. - Judgement#playerMoveForward
-  - [ ] 게임 결과를 기록하는 변수를 생성하고 모든 클래스에서 접근 가능해야 한다. - Application?
-  - [x] 1턴 게임 결과를 출력한다. - Game#printLapResult
-- [x] 최종 우승자를 출력한다. 
-  - [x] 마지막 게임 결과를 가지고 플레이어 간 비교를 통해 가장 많이 이동한 사람을 알 수 있다. - Referee#compares
-  - [x] 최종 우승자를 출력한다. - Referee#printWinners
+# 테스트 동작 확인한 기능 [t]
 
+- [x][] 사용자가 입력한 총 게임 회수와 자동차 이름을 배열로 반환한다. - Player#createPlayerCarList, Player#setLapsOfRace
 
-
-
-
+- 입력 값이 올바른지 검사한다.
+  - [x][t] 입력한 자동차 이름이 5자 이하인지 검사한다. - Validators#isListElementOverFive
+  - [x][t] 입력한 게임 회수가 정수로 변환 가능한지 검사한다. - Validators#isInteger
+- 1턴동안 자동차가 1칸 전진 또는 멈추고, 이를 주어진 횟수 동안 반복한다. Game#startRace
+  - [x][] 0~9 사이의 임의의 숫자 1개를 생성한다. - NumberGenerator#createRandomNumber
+  - [x][] 전진 조건을 충족했는지 검사한다. - Judgement#moveForward
+  - [x][] 플레이어별로 전진 가능한지 비교한다. - Judgement#playerMoveForward
+  - [x][] 1턴 게임 결과를 출력한다. - Game#printLapResult
+- 최종 우승자를 출력한다.
+    - [x][] 마지막 게임 결과를 가지고 플레이어 간 비교를 통해 가장 많이 이동한 사람을 알 수 있다. - Referee#compares
+    - [x][] 최종 우승자를 출력한다. - Referee#printWinners
 
 ## 🔍 진행 방식
 
 - 미션은 **기능 요구 사항, 프로그래밍 요구 사항, 과제 진행 요구 사항** 세 가지로 구성되어 있다.
-- 세 개의 요구 사항을 만족하기 위해 노력한다. 
-- 
+- 세 개의 요구 사항을 만족하기 위해 노력한다.
+-
 - 기능을 구현하기 전에 기능 목록을 만들고, 기능 단위로 커밋 하는 방식으로 진행한다.
 - 기능 요구 사항에 기재되지 않은 내용은 스스로 판단하여 구현한다.
-
 
 ---
 
@@ -44,11 +40,6 @@
 - 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
-
-
-
-
-
 
 ### 입출력 요구 사항
 
