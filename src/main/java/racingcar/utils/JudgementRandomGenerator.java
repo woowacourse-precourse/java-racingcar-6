@@ -2,7 +2,7 @@ package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class JudgementRandomGenerator implements JudgementGenerator {
+public class JudgementRandomGenerator {
 
     private static final int MIN_RANGE = 0;
     private static final int MAX_RANGE = 9;

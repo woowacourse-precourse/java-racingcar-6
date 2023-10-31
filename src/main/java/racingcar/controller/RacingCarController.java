@@ -12,10 +12,10 @@ public class RacingCarController {
     private final InputView inputView;
     private final RacingCarService racingCarService;
 
-    public RacingCarController(final OutputView outputView, final InputView inputView) {
+    public RacingCarController(final OutputView outputView, final InputView inputView, final RacingCarService racingCarService) {
         this.outputView = outputView;
         this.inputView = inputView;
-        this.racingCarService = new RacingCarService();
+        this.racingCarService = racingCarService;
     }
 
     public void play() {

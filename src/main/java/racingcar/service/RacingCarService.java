@@ -4,17 +4,16 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.utils.CarNameSeperator;
-import racingcar.utils.JudgementGenerator;
 import racingcar.utils.JudgementRandomGenerator;
 
 public class RacingCarService {
 
     private final CarNameSeperator carNameSeperator;
-    private final JudgementGenerator judgementGenerator;
+    private final JudgementRandomGenerator judgementRandomGenerator;
 
-    public RacingCarService() {
-        this.carNameSeperator = new CarNameSeperator();
-        this.judgementGenerator = new JudgementRandomGenerator();
+    public RacingCarService(CarNameSeperator carNameSeperator, JudgementRandomGenerator judgementRandomGenerator) {
+        this.carNameSeperator = carNameSeperator;
+        this.judgementRandomGenerator = judgementRandomGenerator;
     }
 
     public Cars saveCarName(final String input) {
@@ -28,7 +27,7 @@ public class RacingCarService {
 
     private void judgeMoveCar(final Cars cars) {
         for (Car car : cars.getCars()) {
-            if (judgementGenerator.isIncreaseDistance()) {
+            if (judgementRandomGenerator.isIncreaseDistance()) {
                 car.increaseDistance();
             }
         }
