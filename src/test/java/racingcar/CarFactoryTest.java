@@ -25,4 +25,12 @@ public class CarFactoryTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하, 1자 이상만 가능합니다.");
     }
+
+    @Test
+    void 이름이_중복된_경우_예외() {
+        assertThatThrownBy(
+                () -> carFactory.generate(List.of("pobi", "pobi")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
 }
