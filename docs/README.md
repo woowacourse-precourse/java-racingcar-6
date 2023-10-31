@@ -11,7 +11,7 @@
 ## Output
 
 - [x] 각 라운드당 실행 결과 출력
-- [] 우승자 출력
+- [x] 우승자 출력
     - 여러 명일 경우 쉼표를 이용하여 구분
 
 ## RandomNumberGenerator

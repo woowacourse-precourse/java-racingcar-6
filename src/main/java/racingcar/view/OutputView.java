@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.dto.output.CarDto;
 import racingcar.domain.dto.output.CarsDto;
+import racingcar.domain.dto.output.WinnersDto;
 import racingcar.io.OutputWriter;
 
 import java.util.List;
@@ -33,4 +34,8 @@ public class OutputView {
         return DASH.repeat(Math.max(0, position));
     }
 
+    public void printWinner(WinnersDto winnersDto) {
+        writer.writeGameWinnerMsg();
+        System.out.println(String.join(", ", winnersDto.winnerList()));
+    }
 }
