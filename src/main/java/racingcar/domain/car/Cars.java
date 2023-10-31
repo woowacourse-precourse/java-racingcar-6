@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.dto.CarMovementDto;
@@ -49,9 +48,8 @@ public class Cars {
     }
 
     private Car findCarWithMaxPosition() {
-        if (cars.isEmpty()) {
-            throw new IllegalArgumentException(Err.EMPTY_CAR_LIST.getMessage());
-        }
-        return Collections.max(cars);
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(Err.EMPTY_CAR_LIST.getMessage()));
     }
 }
