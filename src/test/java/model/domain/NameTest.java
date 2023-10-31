@@ -9,9 +9,9 @@ class NameTest {
 
     @Test
     void 이름_5자_초과에_대한_예외_처리() {
-        String carNames = "leenayeon";
+        String name = "leenayeon";
         assertThatThrownBy(() -> {
-            new Name(carNames);
+            new Name(name);
         })
                 .isInstanceOf(IllegalArgumentException.class);
     }
