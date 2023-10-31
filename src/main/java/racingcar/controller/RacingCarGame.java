@@ -34,6 +34,8 @@ public class RacingCarGame {
             console.print(results);
         }
 
+        List<Result> winners = cars.calculateWinners();
+        console.printWinners(winners);
     }
 
 }

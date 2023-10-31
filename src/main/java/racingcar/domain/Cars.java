@@ -26,4 +26,19 @@ public class Cars {
                 .toList();
     }
 
+    public List<Result> calculateWinners() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .map(car -> new Result(car.getCarName(), car.getPosition()))
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow();
+    }
+
 }

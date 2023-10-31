@@ -43,4 +43,8 @@ public class Car {
         return this.position.getPosition();
     }
 
+    public boolean isWinner(int maxPosition) {
+        return this.position.equals(new Position(maxPosition));
+    }
+
 }
