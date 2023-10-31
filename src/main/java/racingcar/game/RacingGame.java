@@ -19,13 +19,9 @@ public class RacingGame {
     }
 
     private void setUp() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = Console.readLine();
-        manager.setCars(carNames);
-
-        System.out.println("시도할 횟수는 몇회인가요?");
-        String round = Console.readLine();
-        manager.setRound(round);
+        setUpCars();
+        setUpMovingCount();
+        cleanUpResource();
     }
 
     private void race() {
@@ -40,6 +36,22 @@ public class RacingGame {
     private void announceWinner() {
         List<String> winnerList = manager.findWinners();
         printWinners(winnerList);
+    }
+
+    private void setUpCars() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carNames = Console.readLine();
+        manager.setCars(carNames);
+    }
+
+    private void setUpMovingCount() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String round = Console.readLine();
+        manager.setRound(round);
+    }
+
+    private void cleanUpResource() {
+        Console.close();
     }
 
     private void printCarsState(List<String> racingState) {
