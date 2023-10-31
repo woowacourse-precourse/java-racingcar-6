@@ -22,8 +22,7 @@ public class FeatureTest {
         String input = "car1,car2,car3";
         String [] carNameList = input.split(",");
 
-        int i;
-        for(i = 0; i < carNameList.length; i++){
+        for(int i = 0; i < carNameList.length; i++){
             carList.add(new Car(carNameList[i], ""));
         }
 
@@ -34,5 +33,26 @@ public class FeatureTest {
         assertThat(carList.get(0).getDistance()).isEqualTo("");
         assertThat(carList.get(1).getDistance()).isEqualTo("");
         assertThat(carList.get(2).getDistance()).isEqualTo("");
+    }
+
+    @Test
+    void checkNames(){
+        ArrayList<Car> carList = new ArrayList<Car>();
+        String input = "car123,car234,car345";
+        String [] carNameList = input.split(",");
+
+        int result = 0;
+
+        for(int i = 0; i < carNameList.length; i++){
+            carList.add(new Car(carNameList[i], ""));
+        }
+
+        for(int i = 0; i < carNameList.length; i++)
+            if (carList.get(i).getName().length() > 5){
+                result = 1;
+                break;
+            }
+
+        assertThat(result).isEqualTo(1);
     }
 }
