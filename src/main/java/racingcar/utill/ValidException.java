@@ -125,7 +125,7 @@ public class ValidException {
     }
 
     public static boolean onlyOneNameOfRaceCar(String nameLine) {
-        String[] nameArr = Utill.makeArrFromString(nameLine, ",");
+        String[] nameArr = Utill.makeArrFromString(nameLine, COMMA_REGEX);
         List<String> nameList = Utill.makeListFromArr(nameArr);
         Integer sizeNameList = nameList.size();
 
