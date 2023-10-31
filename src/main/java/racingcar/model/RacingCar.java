@@ -21,7 +21,7 @@ public class RacingCar {
         return this.position;
     }
 
-    public String getResultMoving() {
+    public String getResult() {
         return this.name + " : " + "-".repeat(this.position);
     }
 

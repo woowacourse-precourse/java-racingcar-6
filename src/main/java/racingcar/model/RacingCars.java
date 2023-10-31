@@ -24,11 +24,11 @@ public class RacingCars {
         }
     }
 
-    public List<String> getResultsMoving() {
+    public List<String> getResults() {
         List<String> results = new ArrayList<>();
 
         for (RacingCar racingCar : this.racingCars) {
-            results.add(racingCar.getResultMoving());
+            results.add(racingCar.getResult());
         }
 
         return results;

@@ -40,7 +40,7 @@ class RacingCarTest extends NsTest {
                     racingCar.tryMove();
                     assertThat(racingCar.getName()).isEqualTo("infi");
                     assertThat(racingCar.getPosition()).isEqualTo(1);
-                    assertThat(racingCar.getResultMoving()).isEqualTo("infi : -");
+                    assertThat(racingCar.getResult()).isEqualTo("infi : -");
                 },
                 MOVING_FORWARD
         );
@@ -54,7 +54,7 @@ class RacingCarTest extends NsTest {
                     racingCar.tryMove();
                     assertThat(racingCar.getName()).isEqualTo("infi");
                     assertThat(racingCar.getPosition()).isEqualTo(0);
-                    assertThat(racingCar.getResultMoving()).isEqualTo("infi : ");
+                    assertThat(racingCar.getResult()).isEqualTo("infi : ");
                 },
                 STOP
         );

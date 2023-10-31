@@ -11,7 +11,7 @@ public class OutputView {
         System.out.println(RESULT_PRINT_START_MESSAGE);
     }
 
-    public void printResultsMoving(final List<String> results) {
+    public void printResults(final List<String> results) {
         for (String result : results) {
             System.out.println(result);
         }
