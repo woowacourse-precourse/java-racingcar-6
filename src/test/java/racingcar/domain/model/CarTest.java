@@ -20,4 +20,5 @@ class CarTest {
         assertEquals(car.getPostion(), initPosition + 1);
     }
 
+
 }
