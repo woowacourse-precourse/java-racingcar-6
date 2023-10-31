@@ -9,10 +9,10 @@ public class CarSetting {
     private static int maxScore;
 
     public CarSetting(){
-        carGameSituation = new HashMap<>();
     }
 
     protected CarSetting(String inputCarName){
+        carGameSituation = new HashMap<>();
         String[] splitCars = inputCarName.split(",");
         Arrays.stream(splitCars).map(car -> carGameSituation.put(car, 0));
     }

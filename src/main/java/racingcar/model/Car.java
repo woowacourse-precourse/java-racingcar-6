@@ -31,15 +31,20 @@ public class Car {
             int randomNumber = RandomPlay.randomNumberGenerator();
             if(randomNumber>=4) {
                 carsSituation.replace(key, carsSituation.get(key) + randomNumber);
-                if(maxScore < carsSituation.get(key)){
-                    maxScore = carsSituation.get(key);
-                }
+                maxScore = getMaxScore(maxScore, carsSituation, key);
             }
         }
 
         carSetting.setCarsSituation(carsSituation);
         carSetting.setMaxScore(maxScore);
         return carsSituation;
+    }
+
+    private static int getMaxScore(int maxScore, Map<String, Integer> carsSituation, String key) {
+        if(maxScore < carsSituation.get(key)){
+            maxScore = carsSituation.get(key);
+        }
+        return maxScore;
     }
 
     public List<String> resultWinner(){
