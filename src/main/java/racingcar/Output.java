@@ -16,7 +16,7 @@ public class Output {
         System.out.println(String.join(",", groupName));
     }
 
-    public static void tellHowManyRoundWant(){
+    public static void tellHowManyRoundWant() {
         System.out.println("시도할 회수는 몇회인가요?");
 
     }
@@ -58,7 +58,7 @@ public class Output {
             }
         }
         String[] winnerGroup = new String[winnerList.size()];
-        for(int i = 0; i <winnerList.size();i++){
+        for (int i = 0; i < winnerList.size(); i++) {
             winnerGroup[i] = winnerList.get(i);
         }
         return winnerGroup;
@@ -70,8 +70,8 @@ public class Output {
             System.out.println(winnerGroup[0]);
         } else {
             System.out.print(winnerGroup[0]);
-            for(int i =1;i<winnerGroup.length;i++){
-                System.out.print(", "+winnerGroup[i]);
+            for (int i = 1; i < winnerGroup.length; i++) {
+                System.out.print(", " + winnerGroup[i]);
             }
         }
     }
