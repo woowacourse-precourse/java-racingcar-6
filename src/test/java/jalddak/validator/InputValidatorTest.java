@@ -14,96 +14,55 @@ import static racingcar.validator.InputValidator.validateName;
 import static racingcar.validator.InputValidator.validateRangeOfMatches;
 import static racingcar.validator.InputValidator.validateStringToInteger;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class InputValidatorTest {
-    @Test
-    void 에외테스트_validateName() {
-        List<String> givenList = new ArrayList<>();
-        givenList.add(",,,,,a,,,");
-        givenList.add("a,     ,     ,");
-        givenList.add("a,,,,");
-        givenList.add(",a");
-        givenList.add("a,");
-
-        for (String given : givenList) {
-            assertThatThrownBy(() -> validateName(given))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(BLANK.getMessage());
-        }
+    @ParameterizedTest
+    @ValueSource(strings = {",,,,,a,,,", "a,     ,     ,", "a,,,,", ",a", "a,"})
+    void 에외테스트_validateName(String given) {
+        assertThatThrownBy(() -> validateName(given))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(BLANK.getMessage());
     }
 
-    @Test
-    void 예외테스트_validateDuplicateName() {
-        List<String> givenList = new ArrayList<>();
-        givenList.add("a,b,c,d,e,a");
-        givenList.add("a,a,a");
-//        givenList.add("a,b,c,d,e");
-
-        for (String given : givenList) {
-            assertThatThrownBy(() -> validateDuplicateName(given))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(DUPLICATE.getMessage());
-        }
+    @ParameterizedTest
+    @ValueSource(strings = {"a,b,c,d,e,a", "a,a,a"})
+    void 예외테스트_validateDuplicateName(String given) {
+        assertThatThrownBy(() -> validateDuplicateName(given))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(DUPLICATE.getMessage());
     }
 
-    @Test
-    void 예외테스트_validateLenOfCar() {
-        List<String> givenList = new ArrayList<>();
-        givenList.add("a");
-//        givenList.add("a,b");
-
-        for (String given : givenList) {
-            assertThatThrownBy(() -> validateLenOfCar(given))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(LESS_THAN_MIN_NUM_OF_CAR.getMessage());
-        }
+    @ParameterizedTest
+    @ValueSource(strings = {"b", "a", ""})
+    void 예외테스트_validateLenOfCar(String given) {
+        assertThatThrownBy(() -> validateLenOfCar(given))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(LESS_THAN_MIN_NUM_OF_CAR.getMessage());
     }
 
-    @Test
-    void 예외테스트_validateLenOfCarName() {
-        List<String> givenList = new ArrayList<>();
-        givenList.add("asdasd");
-        givenList.add("   s  ");
-
-        for (String given : givenList) {
-            assertThatThrownBy(() -> validateLenOfCarName(given))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(EXCEED_MAX_LEN_OF_CAR_NAME.getMessage());
-        }
+    @ParameterizedTest
+    @ValueSource(strings = {"basdasd", "     s", "s     "})
+    void 예외테스트_validateLenOfCarName(String given) {
+        assertThatThrownBy(() -> validateLenOfCarName(given))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(EXCEED_MAX_LEN_OF_CAR_NAME.getMessage());
     }
 
-    @Test
-    void 예외테스트_validateStringToInteger() {
-        List<String> givenList = new ArrayList<>();
-        givenList.add("");
-        givenList.add("asd");
-        givenList.add("31sda");
-//        givenList.add("123141");
-        givenList.add("2147483648");
-
-        for (String given : givenList) {
-            assertThatThrownBy(() -> validateStringToInteger(given))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(NOT_INTEGER.getMessage());
-        }
+    @ParameterizedTest
+    @ValueSource(strings = {"", "asd", "31asd", "2147483648"})
+    void 예외테스트_validateStringToInteger(String given) {
+        assertThatThrownBy(() -> validateStringToInteger(given))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NOT_INTEGER.getMessage());
     }
 
-    @Test
-    void 예외테스트_validateRangeOfMatches() {
-        List<String> givenList = new ArrayList<>();
-//        givenList.add("123141");
-        givenList.add("0");
-//        givenList.add("1");
-//        givenList.add("2147483647");
-
-        for (String given : givenList) {
-            assertThatThrownBy(() -> validateRangeOfMatches(given))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());
-        }
-
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1", "-100"})
+    void 예외테스트_validateRangeOfMatches(String given) {
+        assertThatThrownBy(() -> validateRangeOfMatches(given))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());
     }
 }
