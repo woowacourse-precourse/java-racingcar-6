@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.Collections;
 import java.util.List;
 import racingcar.exception.DuplicateCarNamesException;
 import racingcar.model.dto.RacingResult;
@@ -66,9 +65,5 @@ public class Cars {
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .toList();
-    }
-
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
     }
 }
