@@ -44,4 +44,10 @@ public class RacingCar {
 
 		return winners;
 	}
+
+	public List<Car> getWinners() {
+		int locationWithMostMovement = findLocationWithMostMovement();
+
+		return findCarWithMaxLocation(locationWithMostMovement);
+	}
 }
