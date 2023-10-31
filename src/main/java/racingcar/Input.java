@@ -7,11 +7,16 @@ import java.util.List;
 
 public class Input {
     public List<String> carNameInput(){
-        List<String> carNames = new ArrayList<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String splitStr = Console.readLine();
+        String carNamesWithComma = Console.readLine();
 
-        String[] carName = splitStr.split(",");
+        List<String> carNames = carNameSplit(carNamesWithComma);
+        return carNames;
+    }
+
+    public List<String> carNameSplit(String carNamesWithComma){
+        List<String> carNames = new ArrayList<>();
+        String[] carName = carNamesWithComma.split(",");
         for(int i=0; i<carName.length; i++){
             if(carName[i].length() > 5) {
                 throw new IllegalArgumentException("자동차 이름이 5자 초과함");
