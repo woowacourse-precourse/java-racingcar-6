@@ -12,6 +12,9 @@ public class Application {
 
         RacingCar racingCar = new RacingCar(carNames, tryCount);
         racingCar.start();
+        List<String> winners = racingCar.Winners();
+
         racingCar.printResult();
+        racingCar.printWinners(winners);
     }
 }

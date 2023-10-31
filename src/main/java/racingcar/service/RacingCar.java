@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -32,6 +33,39 @@ public class RacingCar {
                 System.out.print("-");
             }
             System.out.println();
+        }
+    }
+
+    public int maxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
+
+    public List<String> Winners() {
+        int maxPosition = maxPosition();
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    public void printWinners(List<String> winners) {
+        System.out.print("\n최종 우승자 : ");
+        boolean firstWinner = true;
+        for (String winner : winners) {
+            if (!firstWinner) {
+                System.out.print(", ");
+            }
+            System.out.print(winner);
+            firstWinner = false;
         }
     }
 }
