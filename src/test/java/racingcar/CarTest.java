@@ -11,7 +11,7 @@ import racingcar.model.Cars;
 public class CarTest {
 
     @Test
-    public void 테스트_자동차_전진() {
+    void 테스트_자동차_전진() {
         // given
         Car car = new Car("Car1");
         // when
@@ -22,7 +22,7 @@ public class CarTest {
     }
 
     @Test
-    public void 테스트_자동차_이름() {
+    void 테스트_자동차_이름() {
         // given
         Car car = new Car("pobi");
         // when
@@ -33,7 +33,7 @@ public class CarTest {
     }
 
     @Test
-    public void 테스트_우승자_이름_리스트() {
+    void 테스트_우승자_이름_리스트() {
         // given
         Car car1 = new Car("pobi");
         car1.moveForward();
