@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Racing {
 
     ArrayList<Car> cars = new ArrayList<>();
+    InputValidCheck ivc = new InputValidCheck();
     int max;
     int count;
 
@@ -21,6 +22,8 @@ public class Racing {
             Car c = new Car(n, "");
             cars.add(c);
         }
+
+        ivc.isNameRepeat(cars);
     }
 
     public void registCount(String count) {
