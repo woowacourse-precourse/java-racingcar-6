@@ -16,11 +16,11 @@ class InputDeskTest {
     }
 
     @Test
-    void checkIllegalArgumentException_입력된_경주_자동차_이름_null() {
+    void checkIsNull_입력된_값_null() {
         String input = null;
-        assertThatThrownBy(() -> inputdesk.checkIllegalArgumentException(input))
+        assertThatThrownBy(() -> inputdesk.checkIsNull(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름 입력값 null");
+                .hasMessageContaining("사용자 입력값 null");
     }
 
     @Test
