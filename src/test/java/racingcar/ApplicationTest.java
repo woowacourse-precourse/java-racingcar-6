@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.GameController;
+import racingcar.controller.GenerateRandomNum;
 import racingcar.model.GameMember;
 import racingcar.validator.InputValidator;
 
@@ -19,6 +20,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
     private InputValidator inputValidator = new InputValidator();
     private GameMember gameMember = new GameMember();
+    private GenerateRandomNum generateRandomNum = new GenerateRandomNum();
 
 
     @Test
@@ -70,6 +72,28 @@ class ApplicationTest extends NsTest {
         assertThatThrownBy(() -> gameMember.setHs(inputValidator.toValidateData(input)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void movingForwardTest(){
+        String input = "김동휘";
+        gameMember.setHs(inputValidator.toValidateData(input));
+        assertThat(gameMember.getHs().get(input)).isEqualTo("");
+        if(generateRandomNum.pickNum(5)){
+            gameMember.setDuringGame(input);
+            assertThat(gameMember.getHs().get(input)).isEqualTo("-");
+        }
+        if(generateRandomNum.pickNum(5)){
+            gameMember.setDuringGame(input);
+            assertThat(gameMember.getHs().get(input)).isEqualTo("--");
+        }
+        if(generateRandomNum.pickNum(3)){
+            gameMember.setDuringGame(input);
+            assertThat(gameMember.getHs().get(input)).isEqualTo("--");
+        }
+        assertThat(gameMember.getHs().get(input)).isEqualTo("--");
+
+    }
+
 
     @Override
     public void runMain() {
