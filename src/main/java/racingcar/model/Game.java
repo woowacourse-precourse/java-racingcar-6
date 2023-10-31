@@ -41,14 +41,7 @@ public class Game {
 
     public List<String> getWinners() {
         int maxPosition = getMaxPosition();
-        List<String> winners = new ArrayList<>();
-
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
+        return findWinners(maxPosition);
     }
 
     private int getMaxPosition() {
@@ -57,5 +50,20 @@ public class Game {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
         return maxPosition;
+    }
+
+    private List<String> findWinners(int maxPosition) {
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (isWinner(car, maxPosition)) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private boolean isWinner(Car car, int maxPosition) {
+        return car.getPosition() == maxPosition;
     }
 }
