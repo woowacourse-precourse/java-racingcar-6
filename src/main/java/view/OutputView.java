@@ -3,6 +3,8 @@ package view;
 import model.Car;
 import model.Race;
 
+import java.util.ArrayList;
+
 public class OutputView {
     public void printPosition(Car car){
         System.out.printf("%s : ", car.getName());
@@ -16,8 +18,8 @@ public class OutputView {
         System.out.printf("실행 결과\n");
     }
 
-    public void printWinner(String winner){
-        System.out.printf("최종 우승자 : %s",winner);
+    public void printWinner(ArrayList winner){
+        System.out.printf("최종 우승자 : ");
 
     }
 }

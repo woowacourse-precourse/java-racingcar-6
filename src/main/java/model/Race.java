@@ -25,7 +25,7 @@ public class Race {
         carArrayList.forEach(Car::drive);
     }
 
-    public void CheckWinner(){
+    public ArrayList CheckWinner(){
         int max = carArrayList.stream()
                 .max(Comparator.comparing(Car::getPosition))
                 .get()
@@ -35,5 +35,7 @@ public class Race {
                 .filter(car -> car.getPosition() == max)
                 .map(car -> car.getName())
                 .collect(Collectors.toCollection(()->new ArrayList<>()));
+
+        return winner;
     }
 }
