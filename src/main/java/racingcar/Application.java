@@ -9,12 +9,14 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         start();
-
+        play();
     }
 
     public static void start(){
-
-
+        makeCar();
+    }
+    public static void play(){
+        System.out.println("실행결과");
     }
 
     public static void makeCar(){
