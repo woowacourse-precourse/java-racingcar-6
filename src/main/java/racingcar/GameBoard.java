@@ -33,7 +33,7 @@ public class GameBoard {
                 .getPosition();
 
         return players.stream()
-                .filter(car -> car.getPosition() == maxDistance)
+                .filter(car -> car.getPosition().equals(maxDistance))
                 .toList();
     }
 
