@@ -4,20 +4,23 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class UserInputTest {
+
+    UserInput userInput = new UserInput();
 
     @Test
     void 회수가_숫자_아닌_경우_예외_처리() {
         String input = "abc";
-        Assertions.assertThat(!UserInput.isNumberInteger(input));
+        assertThat(!UserInput.isNumberInteger(input));
     }
 
     @Test
     void 회수가_0보다_작은_경우_예외_처리() {
         int input = 0;
-        Assertions.assertThat(!UserInput.isNumberOverZero(input));
+        assertThat(!UserInput.isNumberOverZero(input));
     }
 
     @Test
@@ -28,8 +31,44 @@ public class UserInputTest {
         List<String> blankList = Arrays.asList(blank.split(","));
         List<String> includeBlankList = Arrays.asList(includeBlank.split(","));
 
-        Assertions.assertThat(!UserInput.isNotEmpty(blankList));
-        Assertions.assertThat(!UserInput.isNotEmpty(includeBlankList));
+        assertThat(!UserInput.isNotEmpty(blankList));
+        assertThat(!UserInput.isNotEmpty(includeBlankList));
+    }
+
+    @Test
+    void 자동차_이름_입력_기능() {
+        String wrongInput1 = "tomi,rabbit,sam";
+        String wrongInput2 = "tomi, ,sam";
+        // String OkInput = "tomi,sam,,";
+        assertThatThrownBy(() -> {
+                    userInput.getCarNamesInput(wrongInput1);
+                })
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> {
+                    userInput.getCarNamesInput(wrongInput2);
+                })
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 입력에_따른_리스트생성_보기() {
+        String input1 = "tomi, ,sam";
+        String input2 = "tomi,sam,,";
+
+        List<String> list1 = Arrays.asList(input1.split(","));
+        List<String> list2 = Arrays.asList(input2.split(","));
+
+        assertThat(list1.size() == 3);
+        assertThat(list2.size() == 2);
+    }
+
+    @Test
+    void 경주_회수_입력_기능() {
+        String input = "ABC";
+        assertThatThrownBy(() -> {
+                    userInput.getTryTimeInput(input);
+                })
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
