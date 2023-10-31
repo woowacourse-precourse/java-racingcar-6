@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.common.config.RacingCarRule;
@@ -38,8 +39,8 @@ class RacerRegistryTest {
 
         static Stream<List<RacingCar>> successArgument() {
             return Stream.of(
-                    getRacingCarList("A", "B", "C", "D"),
-                    getRacingCarList("pobi")
+                    getRacingCarList(RacingCarRule.MIN_RACER_SIZE),
+                    getRacingCarList(RacingCarRule.MIN_RACER_SIZE + 1)
             );
         }
 
@@ -47,12 +48,6 @@ class RacerRegistryTest {
             return Stream.of(
                     getRacingCarList("A", "B", "A", "D"),
                     getRacingCarList("1", "2", "3", "1")
-            );
-        }
-
-        static Stream<List<RacingCar>> fail_OverRacingCarMaxNumberArgument() {
-            return Stream.of(
-                    getRacingCarList(RacingCarRule.MAX_RACER_SIZE + 1)
             );
         }
 
@@ -81,10 +76,21 @@ class RacerRegistryTest {
         }
 
         @DisplayName("등록할 수 있는 최대 개수보다 많다면 예외를 발생시킨다.")
-        @MethodSource("fail_OverRacingCarMaxNumberArgument")
-        @ParameterizedTest
-        void fail_OverRacingCarMaxNumber(List<RacingCar> racingCarList) {
+        @Test
+        void fail_GreaterThanMaxRacingCarSize() {
             //given
+            List<RacingCar> racingCarList = getRacingCarList(RacingCarRule.MAX_RACER_SIZE + 1);
+            //when then
+            RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
+            assertThatThrownBy(() -> racerRegistry.addAll(racingCarList))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @DisplayName("등록해야 하는 최소 개수보다 적다면 예외를 발생시킨다.")
+        @Test
+        void fail_LessThanMinRacingCarSize() {
+            //given
+            List<RacingCar> racingCarList = getRacingCarList(RacingCarRule.MIN_RACER_SIZE - 1);
             //when then
             RacerRegistry<RacingCar> racerRegistry = new RacerRegistry<>();
             assertThatThrownBy(() -> racerRegistry.addAll(racingCarList))

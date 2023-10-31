@@ -27,9 +27,9 @@ public final class RacingCarValidator {
         }
     }
 
-    public static <T extends Racer> void validateUnderThanMaxRacingCarNumber(List<T> racers) {
-        if (racers.size() > RacingCarRule.MAX_RACER_SIZE) {
-            throw ErrorMessage.INVALID_NUMBER_OF_RACING_CAR.getException();
+    public static <T extends Racer> void validateRacerSize(List<T> racers) {
+        if (racers.size() > RacingCarRule.MAX_RACER_SIZE || racers.size() < RacingCarRule.MIN_RACER_SIZE) {
+            throw ErrorMessage.INVALID_RACER_SIZE.getException();
         }
     }
 

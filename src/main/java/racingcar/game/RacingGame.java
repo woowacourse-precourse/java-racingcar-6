@@ -15,6 +15,7 @@ public class RacingGame<T extends Racer> {
         this.racers.addAll(racerRegistry.getRacers());
     }
 
+
     public void progressTurn() {
         for (T racer : racers) {
             racer.move();

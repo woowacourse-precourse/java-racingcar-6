@@ -9,7 +9,7 @@ public class RacerRegistry<T extends Racer> {
     private final List<T> racers = new ArrayList<>();
 
     public void addAll(List<? extends T> racers) {
-        RacingCarValidator.validateUnderThanMaxRacingCarNumber(racers);
+        RacingCarValidator.validateRacerSize(racers);
         RacingCarValidator.validateDuplicatedName(racers);
 
         this.racers.addAll(racers);
