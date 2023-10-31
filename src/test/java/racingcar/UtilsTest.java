@@ -5,11 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.Utils;
 
 class UtilsTest {
 
-    @DisplayName("정상적으로 ','로 파싱이 된다.")
+    @DisplayName("parseCarName()로 정상적으로 ','로 파싱이 된다.")
     @Test
     void parse_carName() {
         // given
@@ -22,17 +21,17 @@ class UtilsTest {
         assertThat(carNames).containsExactly("i", "am", "sully");
     }
 
-    @DisplayName("Integer 타입 List에서 가장 큰 값을 찾는다.")
+    @DisplayName("repeatDash()로 position의 수만큼 '-'가 생성된다.")
     @Test
-    void find_max_integer() {
+    void repeat_dash() {
         // given
-        List<Integer> integerList = List.of(1, 3, 4, 2, 9);
+        int position = 5;
 
         // when
-        Integer maxInteger = Utils.findMaxInteger(integerList);
+        Utils.repeatDash(position);
 
         // then
-        assertThat(maxInteger).isEqualTo(9);
+        assertThat(Utils.repeatDash(position)).isEqualTo("-----");
     }
 
 }

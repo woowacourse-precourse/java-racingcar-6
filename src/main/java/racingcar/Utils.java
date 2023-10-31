@@ -1,9 +1,13 @@
 package racingcar;
 
+import static racingcar.constant.MessageConstants.DASH;
 import static racingcar.constant.MessageConstants.NONE_INSTANTIABLE_CLASS;
 import static racingcar.constant.MessageConstants.PARSE_CAR_NAME_DELIMITER;
+import static racingcar.constant.NumberConstants.MAX_MOVE_CONDITION;
+import static racingcar.constant.NumberConstants.MIN_MOVE_CONDITION;
+import static racingcar.constant.NumberConstants.ZERO;
 
-import java.util.Collections;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Utils {
@@ -16,8 +20,12 @@ public class Utils {
         return List.of(input.split(PARSE_CAR_NAME_DELIMITER));
     }
 
-    public static Integer findMaxInteger(List<Integer> list) {
-        return Collections.max(list);
+    public static int makeRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_MOVE_CONDITION, MAX_MOVE_CONDITION);
+    }
+
+    public static String repeatDash(int position) {
+        return DASH.repeat(Math.max(ZERO, position));
     }
 
 }

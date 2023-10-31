@@ -1,10 +1,10 @@
 package racingcar.view;
 
-import static racingcar.constant.MessageConstants.WINNER_DELIMITER;
 import static racingcar.constant.MessageConstants.INPUT_CAR_NAME;
 import static racingcar.constant.MessageConstants.INPUT_TRY_COUNT;
 import static racingcar.constant.MessageConstants.NONE_INSTANTIABLE_CLASS;
 import static racingcar.constant.MessageConstants.RESULT;
+import static racingcar.constant.MessageConstants.WINNER_DELIMITER;
 import static racingcar.constant.MessageConstants.WINNER_PREFIX;
 import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
 

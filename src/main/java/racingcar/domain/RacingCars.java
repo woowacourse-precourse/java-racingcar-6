@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-import static racingcar.Utils.findMaxInteger;
+import static racingcar.Utils.makeRandomNumber;
+import static racingcar.constant.NumberConstants.ZERO;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.view.RacingOutputView;
 
 public class RacingCars {
 
@@ -14,30 +14,29 @@ public class RacingCars {
         carNames.forEach(carName -> racingCarList.add(new RacingCar(carName)));
     }
 
-    public void playRound() {
+    public List<String> playRound() {
         moveRacingCar();
-        RacingOutputView.outputRoundResults(
-                racingCarList.stream()
-                        .map(RacingCar::createRoundResult)
-                        .toList()
-        );
+        return racingCarList.stream()
+                .map(RacingCar::createRoundResult)
+                .toList();
     }
 
     private void moveRacingCar() {
-        racingCarList.forEach(RacingCar::move);
+        racingCarList.forEach(racingCar -> racingCar.move(makeRandomNumber()));
     }
 
-    public void noticeWinners() {
-        RacingOutputView.outputWinners(racingCarList.stream()
-                .filter(racingCar -> racingCar.isWinner(findMaxInteger(findPositions())))
-                .map(RacingCar::getCarName)
-                .toList());
-    }
-
-    private List<Integer> findPositions() {
+    public List<String> noticeWinners() {
         return racingCarList.stream()
-                .map(RacingCar::getPosition)
+                .filter(racingCar -> racingCar.isWinner(findMaxPosition()))
+                .map(RacingCar::createWinnerName)
                 .toList();
+    }
+
+    private int findMaxPosition() {
+        return racingCarList.stream()
+                .mapToInt(RacingCar::createMaxPosition)
+                .max()
+                .orElse(ZERO);
     }
 
 }
