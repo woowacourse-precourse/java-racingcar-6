@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.game.GamePhrases.*;
 
 public class Game {
     private String carNames;
@@ -21,8 +22,19 @@ public class Game {
         initRound();
     }
 
+    public void startGame(List<Car> cars) throws IllegalArgumentException {
+        printPhrasesGameStart();
+
+        while (tryNumber --> 0) {
+            Round round = new Round(cars);
+            round.startRound();
+        }
+
+        printPhrasesWinner(getWinner(cars));
+    }
+
     private void printPhrasesCarName() {
-        System.out.println(GamePhrases.PHRASES_INPUT_CAR_NAME);
+        System.out.println(PHRASES_INPUT_CAR_NAME);
     }
 
     private void inputCarName() {
@@ -30,7 +42,7 @@ public class Game {
     }
 
     private void printPhraseNumberOfTry() {
-        System.out.println(GamePhrases.PHRASES_INPUT_NUMBER_OF_TRY);
+        System.out.println(PHRASES_INPUT_NUMBER_OF_TRY);
     }
 
     private void inputNumberOfTry() {
@@ -56,7 +68,7 @@ public class Game {
         return true;
     }
 
-    public void initRound() throws IllegalArgumentException {
+    private void initRound() throws IllegalArgumentException {
         if (!checkNumberOfTry()) throw new IllegalArgumentException();
 
         tryNumber = Integer.parseInt(numberOfTry);
@@ -72,18 +84,7 @@ public class Game {
         return true;
     }
 
-    public void startGame(List<Car> cars) throws IllegalArgumentException {
-        printPhrasesGameStart();
-
-        while (tryNumber --> 0) {
-            Round round = new Round(cars);
-            round.startRound();
-        }
-
-        printPhrasesWinner(getWinner(cars));
-    }
-
-    private List<String> getWinner(List<Car> cars) {
+    private String getWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
 
         int maxDistance = 0;
@@ -98,14 +99,14 @@ public class Game {
             }
         }
 
-        return winner;
+        return String.join(",", winner);
     }
 
-    private void printPhrasesWinner(List<String> names) {
-        System.out.println(GamePhrases.PHRASES_GAME_WINNER+String.join(",", names));
+    private void printPhrasesWinner(String winner) {
+        System.out.println(PHRASES_GAME_WINNER + winner);
     }
 
     private void printPhrasesGameStart() {
-        System.out.println(GamePhrases.PHRASES_OUTPUT_GAME_START);
+        System.out.println(PHRASES_OUTPUT_GAME_START);
     }
 }
