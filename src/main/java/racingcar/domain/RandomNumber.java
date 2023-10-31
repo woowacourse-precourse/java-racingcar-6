@@ -1,7 +1,18 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.Map;
+
 public class RandomNumber {
-    public int createRandomNumber(){
-        return 0;
+    public String createRandomNumber(String carName){
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        String moveCar = "";
+        if (randomNum >= 4){
+            moveCar += "-";
+        } else if(randomNum < 4){
+            moveCar += "";
+        }
+        return moveCar;
     }
 }
