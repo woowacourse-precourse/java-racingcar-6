@@ -9,6 +9,7 @@ import racingcar.view.OutputView;
 public class CarRacingGame {
     private Cars cars = new Cars();
 
+    // 레이싱 게임 시작 함수
     public void start() {
 
         setCarsName(cars);
@@ -16,6 +17,7 @@ public class CarRacingGame {
         OutputView.printCarResult();
     }
 
+    // 자동차 이름 설정하기
     public void setCarsName(Cars cars) {
 
         try {
@@ -25,6 +27,7 @@ public class CarRacingGame {
         }
     }
 
+    // 게임 시도 회수  설정하기
     public void setTryNumber(Cars cars) {
         try {
             cars.setTryNumber(InputView.printGetTryNumberMessage());
@@ -51,10 +54,12 @@ public class CarRacingGame {
         }
     }
 
+    // 우승자 출력
     public void printWinner(Cars cars) {
         OutputView.printWinner(getWinner(cars));
     }
 
+    // 우승자 반환하기
     private String getWinner(Cars cars) {
         return cars.getWinner(cars.getCarsPosition());
     }

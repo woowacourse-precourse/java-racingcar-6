@@ -3,6 +3,7 @@ package racingcar.view;
 
 public class OutputView {
 
+    // 결과 시작 문구
     public static void printCarResult(){
         System.out.println();
         System.out.println("실행 결과");

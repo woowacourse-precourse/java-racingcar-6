@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-import racingcar.domain.random.TryNumber;
+import racingcar.domain.trynumber.TryNumber;
 
 import java.util.ArrayList;
 import java.util.Collections;
