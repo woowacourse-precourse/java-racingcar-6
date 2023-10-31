@@ -1,7 +1,11 @@
 package racingcar;
 
+import racingcar.domain.NumberManager;
+import racingcar.domain.PlayRacing;
+import racingcar.domain.RaceSetting;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        new PlayRacing().playRace();
     }
 }
