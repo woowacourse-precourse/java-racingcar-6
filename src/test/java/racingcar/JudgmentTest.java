@@ -17,7 +17,7 @@ public class JudgmentTest {
         carList.add(new Car("lisa", 5));
         Judgment judgment = new Judgment();
 
-        int actual = judgment.findMaxPosition(carList, 6);
+        int actual = judgment.findMaxPosition(carList);
 
         assertThat(actual).isEqualTo(5);
     }
