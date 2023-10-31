@@ -2,7 +2,7 @@ package racingcar.exception;
 
 import java.util.List;
 
-public class InputException {
+public class Validator {
 
 
     public static void validateName(List<String> nameList) throws IllegalArgumentException {

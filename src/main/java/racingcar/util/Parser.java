@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import racingcar.exception.InputException;
+import racingcar.exception.Validator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ public final class Parser {
         String[] cutIntoComma = userInput.split(regex);
         List<String> nameList = new ArrayList<>(Arrays.asList(cutIntoComma));
         try {
-            InputException.validateName(nameList);
+            Validator.validateName(nameList);
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }

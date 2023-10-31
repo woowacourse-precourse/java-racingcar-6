@@ -2,7 +2,6 @@ package racingcar.impl;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.UserInput;
-import racingcar.exception.InputException;
 
 public class UserInputImpl implements UserInput {
     @Override

@@ -3,7 +3,7 @@ package racingcar.util;
 import racingcar.UserInput;
 import racingcar.entity.GameInfo;
 import racingcar.entity.Participant;
-import racingcar.exception.InputException;
+import racingcar.exception.Validator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,10 +17,10 @@ public class GameSetting {
 
     public GameInfo createGameInfo() {
         List<String> nameList = Parser.splitName(userInput.readUserInputNames(), ",");
-        InputException.validateName(nameList);
+        Validator.validateName(nameList);
 
         String attemptNum = userInput.readUserInputAttemptNum();
-        InputException.validateAttemptNum(attemptNum);
+        Validator.validateAttemptNum(attemptNum);
 
         List<Participant> participants = makeParticipants(nameList);
         return new GameInfo(participants, Integer.parseInt(attemptNum));
