@@ -56,7 +56,7 @@
 | 메소드                | 설명                                    |
 |--------------------|---------------------------------------|
 | addCarsFromInput() | 입력받은 경주할 자동차 이름을 추가한다                 |
-| runSingleRace()    | 경주를 한번 진행한다                           |
+| runSingleRace()    | 경주를 한 번 진행한다                          |
 | pickWinners()      | 우승자를 뽑는다                              |
 | createWinnerData() | `Car` 클래스에 생성한 `WinnerData` 클래스를 반환한다 |
 
@@ -66,17 +66,10 @@
 |---------------------|---------------------------------------------|
 | validateName()      | 입력받은 이름의 글자 수를 검사한다                         |
 | randomMoveForward() | 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 전진한다 |
-| saveResult()        | `RaceResult` 클래스에 경주 결과를 저장한다               |
+| getMoveResult()     | 이동 결과를 반환한다                                 |
 | createWinnerData()  | `WinnerData` 클래스를 생성한다                      |
 | isWinner()          | 우승자인지 판단한다                                  |
 | addWinner()         | `WinnerData` 클래스에 이름을 추가한다                  |
-
-### RaceResult
-
-| 메소드        | 설명                     |
-|------------|------------------------|
-| append()   | 이름과 전진 횟수를 저장한다        |
-| toString() | 경주 결과를 `String`으로 반환한다 |
 
 ### WinnerData
 
