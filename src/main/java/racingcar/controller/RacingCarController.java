@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.*;
 import racingcar.utils.CarListGenerator;
-import racingcar.vo.RoundCount;
+import racingcar.vo.RacingRoundCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -20,8 +20,8 @@ public class RacingCarController {
 
     public void run() {
         Cars cars = getCarsFromUser();
-        RoundCount roundCount = getRoundCountFromUser();
-        displayRunRacingWithRounds(cars, roundCount);
+        RacingRoundCount racingRoundCount = getRoundCountFromUser();
+        displayRunRacingWithRounds(cars, racingRoundCount);
         displayFinalWinners(cars);
     }
 
@@ -36,9 +36,9 @@ public class RacingCarController {
         return inputView.requestCarNameFromUser();
     }
 
-    private RoundCount getRoundCountFromUser() {
+    private RacingRoundCount getRoundCountFromUser() {
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
-        return new RoundCount(racingRoundCountFromUser);
+        return new RacingRoundCount(racingRoundCountFromUser);
     }
 
     private String requestRacingRoundCountFromUser() {
@@ -46,15 +46,15 @@ public class RacingCarController {
         return inputView.requestRacingRoundCountFromUser();
     }
 
-    private void displayRunRacingWithRounds(Cars cars, RoundCount roundCount) {
+    private void displayRunRacingWithRounds(Cars cars, RacingRoundCount racingRoundCount) {
         outputView.displayExecutionResult();
-        runRacingWithRounds(cars, roundCount);
+        runRacingWithRounds(cars, racingRoundCount);
     }
 
-    private void runRacingWithRounds(Cars cars, RoundCount roundCount) {
+    private void runRacingWithRounds(Cars cars, RacingRoundCount racingRoundCount) {
         Race race = new Race();
         Camera camera = new Camera();
-        for (int round = 0; round < roundCount.value(); round++) {
+        for (int round = 0; round < racingRoundCount.value(); round++) {
             race.runOneRound(cars);
             String racingState = camera.captureRaceState(cars);
             outputView.displayRacingState(racingState);

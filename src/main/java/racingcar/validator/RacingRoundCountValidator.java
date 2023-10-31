@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-public class RoundCountValidator {
+public class RacingRoundCountValidator {
 
     private static final int ROUND_COUNT_MAX_INT_VALUE = 2_147_483_647; // RoundCount 최대 개수
     private static final int ROUND_COUNT_MIN_INT_VALUE = 1; // RoundCount 최소 개수
@@ -10,7 +10,7 @@ public class RoundCountValidator {
     private static final String ERROR_NON_NUMERIC = ERROR + "숫자를 입력해 주세요." + "입력 값은 1부터 "  + ROUND_COUNT_MAX_INT_VALUE + "까지 입니다.";
     private static final String ERROR_NON_ZERO = ERROR + "1 이상인 양수를 입력해 주세요.";
 
-    private RoundCountValidator() {}
+    private RacingRoundCountValidator() {}
 
     public static void validate(final String input) {
         validateBlankException(input);

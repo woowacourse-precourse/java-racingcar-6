@@ -1,13 +1,13 @@
 package racingcar.vo;
 
-import racingcar.validator.RoundCountValidator;
+import racingcar.validator.RacingRoundCountValidator;
 
-public final class RoundCount {
+public final class RacingRoundCount {
 
     private final int value;
 
-    public RoundCount(final String count) {
-        RoundCountValidator.validate(count);
+    public RacingRoundCount(final String count) {
+        RacingRoundCountValidator.validate(count);
         this.value = Integer.parseInt(count);
     }
 
@@ -24,8 +24,8 @@ public final class RoundCount {
             return false;
         }
 
-        RoundCount roundCount = (RoundCount) o;
-        return value == roundCount.value;
+        RacingRoundCount racingRoundCount = (RacingRoundCount) o;
+        return value == racingRoundCount.value;
     }
 
     @Override
