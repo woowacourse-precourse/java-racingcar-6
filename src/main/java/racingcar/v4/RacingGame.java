@@ -9,5 +9,10 @@ public class RacingGame {
         return inputTryCount;
     }
 
+    public void validateTryCountNotEmpty(String inputTryCount) {
+        if (inputTryCount == null || inputTryCount.trim().isEmpty()) {
+            throw new IllegalArgumentException("빈 값입니다. 시도 횟수를 입력해 주세요.");
+        }
+    }
 
 }
