@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private static final int INITIAL_PROGRESS_COUNT = 0;
     private static final int NAME_LENGTH_LIMIT = 5;
@@ -33,6 +33,15 @@ public class Car {
 
     private void moveForward() {
         progressCount++;
+    }
+
+    public boolean isSameProgress(Car car) {
+        return car.progressCount == progressCount;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return car.progressCount - progressCount;
     }
 
     public String getName() {

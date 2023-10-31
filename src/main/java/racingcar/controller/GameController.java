@@ -2,11 +2,10 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
-import racingcar.domain.Referee;
+import racingcar.domain.Players;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,41 +23,19 @@ public class GameController {
 
     public void startRace() {
         String carsName = inputView.readCarsName();
-        List<Car> carList = createCarList(carsName);
+        Players players = createCarList(carsName);
 
         int raceCount = inputView.readCarMoveCount();
         validateRaceCount(raceCount);
         outputView.printRaceStart();
 
-        race(carList, raceCount);
-        announceWinner(carList);
+        race(players, raceCount);
+        announceWinner(players);
     }
 
-    private List<Car> createCarList(String carsName) {
-        List<String> carNameList = convertStringToList(carsName);
-        List<Car> carList = new ArrayList<>();
-
-        for (int carNameIndex = 0; carNameIndex < carNameList.size(); carNameIndex++) {
-            carList.add(new Car(carNameList.get(carNameIndex)));
-        }
-
-        return carList;
-    }
-
-    private List<String> convertStringToList(String carsName) {
+    private Players createCarList(String carsName) {
         List<String> carNameList = Arrays.asList(carsName.split(","));
-        validateDuplicateName(carNameList);
-        return carNameList;
-    }
-
-    private void validateDuplicateName(List<String> carNameList) {
-        int uniqueCarNameCount = (int) carNameList.stream()
-                .distinct()
-                .count();
-
-        if (uniqueCarNameCount != carNameList.size()) {
-            throw new IllegalArgumentException();
-        }
+        return new Players(carNameList);
     }
 
     private void validateRaceCount(int raceCount) {
@@ -67,17 +44,17 @@ public class GameController {
         }
     }
 
-    private void race(List<Car> carList, int raceCount) {
+    private void race(Players players, int raceCount) {
         for (int i = 0; i < raceCount; i++) {
-            for (Car car : carList) {
+            for (Car car : players.getCars()) {
                 car.move(NumberGenerator.createRandomNumber());
             }
-            outputView.printCarsProgress(carList);
+            outputView.printCarsProgress(players.getCars());
         }
     }
 
-    private void announceWinner(List<Car> carList) {
-        List<String> winnerList = Referee.findMostProgressCar(carList);
+    private void announceWinner(Players players) {
+        List<String> winnerList = players.findWinner();
         outputView.printWinner(winnerList);
     }
 }

@@ -1,7 +1,7 @@
 # 📚 기능목록
 - [x] 자동차의 이름들을 입력받는다. ``InputView - readCarsName``
   - [x] 🚫 자동차 이름이 공백인지 검증한다. ``InputView - validateBlankCarsName``
-  - [x] 🚫 중복된 자동차 이름이 있는지 검증한다. ``Car - validateDuplicateName``
+  - [x] 🚫 중복된 자동차 이름이 있는지 검증한다. ``Players - validateDuplicateName``
   - [x] 🚫 자동차 이름이 5자 이하인지 검증한다. ``Car - validateNameLength``
 - [x] 이름 문자열을 이름 리스트로 변환한다. ``GameController - convertStringToList``
 - [x] 자동차 리스트를 생성한다. ``GameController - createCarList``
@@ -19,5 +19,5 @@
 - [x] 자동차의 이름을 출력한다. ``OutputView - printCarName``
 - [x] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
 - [x] 우승자를 안내한다. ``GameController - announceWinner``
-- [x] 자동차중 가장 많이 전진한 자동차들이 누구인지 확인한다. ``Referee - findMostProgressCar``
+- [x] 우승자가 누구인지 확인한다. ``Players - findWinner``
 - [x] 우승자를 출력한다. ``OutputView - printWinner``
