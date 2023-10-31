@@ -28,6 +28,6 @@ public class OutputView {
     }
 
     public static void printWinners(Winners winnerNames) {
-        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames.getWinnerNames()));
+        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames.getWinnersNames()));
     }
 }
