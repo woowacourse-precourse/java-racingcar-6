@@ -20,11 +20,10 @@ public class RacingGame {
     public void run(){
         setRacingCarsFromUser();
 
-        System.out.println(NUMBER_OF_ATTEMPTS_PROMPT_MESSAGE);
         int numberOfAttempts = getNumberOfAttemptsFromUser();
 
         this.racingCars.attemptMove(numberOfAttempts);
-
+        this.racingCars.printWinners();
     }
 
     private void setRacingCarsFromUser() {
@@ -39,9 +38,9 @@ public class RacingGame {
     }
 
     private int getNumberOfAttemptsFromUser() {
+        System.out.println(NUMBER_OF_ATTEMPTS_PROMPT_MESSAGE);
         String userInput = inputHandler.getUserInput();
         return Validator.validateNumberOfAttempts(userInput);
     }
-
 
 }

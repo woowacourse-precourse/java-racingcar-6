@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCars {
     private List<RacingCar> cars;
@@ -34,5 +35,31 @@ public class RacingCars {
                 .forEach(racingCar -> {
                     racingCar.printCurrentDistance();
                 });
+    }
+
+    public void printWinners() {
+        int maxDistance = getMaxDistance();
+        List<String> winners = getWinners(maxDistance);
+        printWinnersName(winners);
+    }
+
+
+    private List<String> getWinners(int maxDistance) {
+        return cars.stream()
+                .filter(racingCar -> racingCar.getDistance() == maxDistance)
+                .map(racingCar -> racingCar.getName())
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxDistance() {
+        return cars.stream()
+                .mapToInt(RacingCar::getDistance)
+                .max()
+                .orElse(0);
+    }
+
+    private static void printWinnersName(List<String> winners) {
+        String result = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + result);
     }
 }
