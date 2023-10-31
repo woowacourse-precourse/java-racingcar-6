@@ -28,6 +28,7 @@ public class RacingRoundCountValidator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             throw new IllegalArgumentException(ERROR_NON_NUMERIC);
         }
     }

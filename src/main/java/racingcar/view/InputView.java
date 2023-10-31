@@ -12,6 +12,7 @@ public class InputView {
             validateBlankException(input);
             return input;
         } catch (NoSuchElementException e) {
+            e.printStackTrace();
             throw new IllegalArgumentException("입력값이 존재하지 않습니다. 자동차 이름을 입력해주세요.");
         }
     }
@@ -22,6 +23,7 @@ public class InputView {
             validateBlankException(input);
             return input.trim();
         } catch (NoSuchElementException e) {
+            e.printStackTrace();
             throw new IllegalArgumentException("입력값이 존재하지 않습니다. 시도할 횟수를 입력해주세요.");
         }
     }
