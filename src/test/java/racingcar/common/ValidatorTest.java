@@ -2,6 +2,7 @@ package racingcar.common;
 
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,13 +14,18 @@ class ValidatorTest {
     @DisplayName("자동차 이름 검증")
     @Nested
     class carNameTest {
+        StringToListConverter converter;
+
+        @BeforeEach
+        void init() {
+            converter = new StringToListConverter();
+        }
+
         @DisplayName("빈 문자열 입력 시 예외 발생")
         @ParameterizedTest(name = "carName=\"{0}\"")
         @ValueSource(strings = {" ", " ,", "pobi, ,jun"})
         void empty(String carNames) {
-            StringToListConverter converter = new StringToListConverter();
             List<String> carNameList = converter.convert(carNames);
-
             //then
             Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
                     .isInstanceOf(IllegalArgumentException.class)
@@ -30,7 +36,6 @@ class ValidatorTest {
         @ParameterizedTest(name = "carName=\"{0}\"")
         @ValueSource(strings = {"", ","})
         void nullTest(String carNames) {
-            StringToListConverter converter = new StringToListConverter();
             List<String> carNameList = converter.convert(carNames);
 
             Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
@@ -43,7 +48,6 @@ class ValidatorTest {
         void duplicated() {
             //given
             String carNames = "pobi, pobi";
-            StringToListConverter converter = new StringToListConverter();
             List<String> carNameList = converter.convert(carNames);
 
             //then
@@ -57,7 +61,6 @@ class ValidatorTest {
         void overLength() {
             //given
             String carNames = "longlongname";
-            StringToListConverter converter = new StringToListConverter();
             List<String> carNameList = converter.convert(carNames);
 
             //then
