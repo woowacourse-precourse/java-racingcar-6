@@ -39,11 +39,11 @@ public class InputManager {
         try {
             int times = Integer.parseInt(input);
             if (times < 0) {
-                throw new IllegalArgumentException("[입력오류] 자연수를 입력해야 합니다.");
+                throw new NumberFormatException();
             }
             return times;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[입력오류] 정수를 입력해야 합니다.");
+            throw new IllegalArgumentException("[입력오류] 자연수를 입력해야 합니다.");
         }
     }
 }
