@@ -91,6 +91,11 @@ class CreateCarTest {
                 .hasMessage("중복된 이름이 존재합니다.");
     }
 
-
+    @Test
+    void 자동차_수가_2대_이상_10대_이하인_경우_예외가_발생하지_않는다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("페라리", "벤츠", "레드불", "맥라린", "BWT", "윌리엄스", "하스", "에스턴마틴", "알파로메오", "현다이");
+        createCar.validateCarCount(carNames);
+    }
 
 }
