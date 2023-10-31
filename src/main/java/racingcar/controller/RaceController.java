@@ -14,15 +14,8 @@ public class RaceController {
     private List<Racer> racers;
 
     public void play() {
-        OutputView.printInputRacersNameMessage();
-        this.carNames = InputView.readRacersName();
-        racersNames = RacerManager.seperateRacersName(carNames);
-        InputValidator.validateRacersName(racersNames);
-        racers = RacerManager.createRacers(racersNames);
-
-        OutputView.printInputMoveNumberMessage();
-        moveNumber = InputView.readMoveNumber();
-
+        inputRacerNames();
+        inputMoveNumber();
         repeatMove(racers, moveNumber);
     }
 
@@ -34,5 +27,18 @@ public class RaceController {
             }
             OutputView.printMoveResult(racers);
         }
+    }
+
+    private void inputRacerNames() {
+        OutputView.printInputRacersNameMessage();
+        this.carNames = InputView.readRacersName();
+        racersNames = RacerManager.seperateRacersName(carNames);
+        InputValidator.validateRacersName(racersNames);
+        racers = RacerManager.createRacers(racersNames);
+    }
+
+    private void inputMoveNumber() {
+        OutputView.printInputMoveNumberMessage();
+        moveNumber = InputView.readMoveNumber();
     }
 }
