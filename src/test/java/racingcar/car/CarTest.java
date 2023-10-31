@@ -1,7 +1,7 @@
 package racingcar.car;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.constant.Constants.DISTANCE;
+import static racingcar.constant.Constants.MOVING_DISTANCE;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ class CarTest {
     void move() {
         // given
         Car car = new Car("dsj");
-        int result = DISTANCE + car.getLocation();
+        int result = MOVING_DISTANCE + car.getLocation();
 
         // when
         car.move();
