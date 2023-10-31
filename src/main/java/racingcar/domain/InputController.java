@@ -12,17 +12,18 @@ public class InputController {
         return carNames;
     }
 
-    public List<String> setCar(String carNames) {
-        List<String> carList = new ArrayList<>();
-        for (String car : carNames.split(",")) {
-            nameLengthCheck(car);
+    public List<Car> setCar(String carNames) {
+        List<Car> carList = new ArrayList<>();
+        for (String carName : carNames.split(",")) {
+            nameLengthCheck(carName);
+            Car car = new Car(carName);
             carList.add(car);
         }
         return carList;
     }
 
-    private void nameLengthCheck(String car) {
-        if (car.length() > 5) {
+    private void nameLengthCheck(String carName) {
+        if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자이하이고 여러개라면 쉽표(,)로 구분해야 합니다.");
         }
     }
@@ -32,6 +33,4 @@ public class InputController {
         String attemptCount = readLine();
         return Integer.parseInt(attemptCount);
     }
-
-
 }
