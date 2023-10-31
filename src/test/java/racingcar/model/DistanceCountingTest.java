@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DistanceCountingTest {
 
     private static final int PASS = 4;
-    private static final int FAIL = 1;
     private static final int TRY = 5;
     private static final String DISTANCE = "_";
 
@@ -19,5 +18,16 @@ public class DistanceCountingTest {
             }
         }
         assertThat(distanceCounting.totalDistance()).isEqualTo("_____");
+    }
+
+    @Test
+    void 자동차_이동거리_증가_테스트() {
+        DistanceCounting distanceCounting = new DistanceCounting();
+
+        distanceCounting.plusDistance(DISTANCE);
+        distanceCounting.plusDistance(DISTANCE);
+        distanceCounting.plusDistance(DISTANCE);
+
+        assertThat(distanceCounting.totalDistance()).isEqualTo("___");
     }
 }
