@@ -92,4 +92,4 @@
 
 ## constant
   - NumberConstant : 숫자로 이루어진 값을 상수로 관리하는 객체
-  - MessageConstant : 출력 메시지를 상수로 관리하는 객체
+  - PrintMessageConstant : 출력 메시지를 상수로 관리하는 객체
