@@ -28,8 +28,7 @@ public class CarName {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof CarName) {
-            CarName temp = (CarName)obj;
+        if (obj instanceof CarName temp) {
             return carName.equals(temp.carName);
         }
         return false;
