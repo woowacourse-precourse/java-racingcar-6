@@ -25,9 +25,10 @@ public class RacingGame {
         rewardMVP();
     }
     private void setPlay(){
+        userInputRoundNumber = new UserInputRoundNumber();
         cars = new Cars(InputView.createCarName());
         userRoundNum = InputView.createRoundNumber();
-        roundRepeatNum = UserInputRoundNumber.stringToInt(userRoundNum); // 라운드 반복 횟수
+        roundRepeatNum = userInputRoundNumber.createRoundNumber(userRoundNum); // 라운드 반복 횟수
     }
 
     private void play(){
