@@ -2,6 +2,7 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.InputError.EXCEEDED_MAXIMUM_INPUT;
 import static racingcar.constant.InputError.NOT_DIGIT_MOVING_COUNT;
 
 import org.junit.jupiter.api.DisplayName;
@@ -33,5 +34,17 @@ class MovingCountTest {
         assertThatThrownBy(() -> MovingCount.createMovingCount(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NOT_DIGIT_MOVING_COUNT.toString());
+    }
+
+    @DisplayName("이동 횟수 생성 시 제한된 최댓값보다 큰 값을 입력 받으면 예외가 발생한다.")
+    @Test
+    void exception_Invalid_Input_Exceed_Maximum_Integer() {
+        // given
+        String input = "2147483648";
+
+        // when // then
+        assertThatThrownBy(() -> MovingCount.createMovingCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEEDED_MAXIMUM_INPUT.toString());
     }
 }
