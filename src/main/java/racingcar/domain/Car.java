@@ -14,4 +14,8 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public void moveForward(){
+        this.moveCnt += 1;
+    }
+
 }
