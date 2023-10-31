@@ -4,16 +4,25 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class OutputView {
+
+    private static final String REQUEST_CARNAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String REQUEST_TRY_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String RESULT_START_MESSAGE = "\n실행 결과";
+
+    private static final String FINAL_WINNER_START_MESSAGE = "최종 우승자 : ";
+    private static final String CAR_PROGRESS = "-";
+
+
     public static void printRequestCarNameMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(REQUEST_CARNAME_MESSAGE);
     }
 
     public static void printRequestTryNumberMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(REQUEST_TRY_MESSAGE);
     }
 
     public static void printResultStartMessage() {
-        System.out.println("\n실행 결과");
+        System.out.println(RESULT_START_MESSAGE);
     }
 
     public static void printGameResultMessage(List<Car> cars) {
@@ -26,20 +35,20 @@ public class OutputView {
 
     public static void printCarLocationMessage(int position) {
         for (int i = 0; i < position; i++) {
-            System.out.print("-");
+            System.out.print(CAR_PROGRESS);
         }
         System.out.println();
     }
 
 
     public static void printFinalWinner(List<String> winners) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(FINAL_WINNER_START_MESSAGE);
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
                 System.out.print(", ");
             }
         }
-
     }
+
 }
