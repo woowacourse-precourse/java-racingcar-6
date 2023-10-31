@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class StringTrimmerTest {
+class StringParserTest {
 
     @Test
     @DisplayName("주어진 자동차 이름들을 ,로 구분합니다.")
@@ -16,7 +16,7 @@ class StringTrimmerTest {
         String[] cars = {"pobipobi", "qwe", "ert"};
 
         // WHEN
-        String[] splittedNames = StringTrimmer.trimAndSplit(carNames);
+        String[] splittedNames = StringParser.trimAndSplit(carNames);
 
         // THEN
         assertTrue(Arrays.equals(cars, splittedNames));
@@ -30,7 +30,7 @@ class StringTrimmerTest {
         String[] cars = {"pobipobi", "qwe", "ert"};
 
         // WHEN
-        String[] splittedNames = StringTrimmer.trimAndSplit(carNames);
+        String[] splittedNames = StringParser.trimAndSplit(carNames);
 
         // THEN
         assertTrue(Arrays.equals(cars, splittedNames));

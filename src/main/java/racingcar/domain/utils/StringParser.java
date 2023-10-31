@@ -1,7 +1,7 @@
 package racingcar.domain.utils;
 
-public final class StringTrimmer {
-    private StringTrimmer() {
+public final class StringParser {
+    private StringParser() {
     }
 
     // 공백제거 후, ","를 통해 구분
