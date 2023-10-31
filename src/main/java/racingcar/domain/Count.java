@@ -24,4 +24,10 @@ public class Count {
     public static Count from(int totalCount) {
         return new Count(totalCount);
     }
+
+    public void repeat(Runnable runnable) {
+        for (int count = 0; count < totalCount; count++) {
+            runnable.run();
+        }
+    }
 }
