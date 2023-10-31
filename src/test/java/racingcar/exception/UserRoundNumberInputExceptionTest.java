@@ -1,14 +1,19 @@
 package racingcar.exception;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserRoundNumberInputExceptionTest {
+    private UserRoundNumberInputException userRoundNumberInputException;
+    @BeforeEach
+    void setUp(){
+        userRoundNumberInputException = new UserRoundNumberInputException();
+    }
     private static final String IS_NOT_NUMBER_MESSAGE = "숫자만 입력해주세요";
     private static final String IS_BLANK_MESSAGE = "공백을 입력하시면 안됩니다.";
     private static final String IS_NOT_ZERO_OR_MINUS = "0이나 음수값을 입력하시면 안됩니다.";
-    private static final int Zero = 0;
 
     @Test
     void 입력_값_으로_숫자가_아닌_것(){
