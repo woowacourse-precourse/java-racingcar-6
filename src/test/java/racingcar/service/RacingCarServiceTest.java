@@ -136,4 +136,47 @@ class RacingCarServiceTest {
 
     }
 
+
+    @Test
+    @DisplayName("우승자 출력(단독) - 성공")
+    public void get_winner_success() {
+        //given
+        String inputNameList = "L,K,H";
+        setIn(new ByteArrayInputStream(inputNameList.getBytes()));
+        CarList carList = racingCarService.createCarList();
+
+        //when
+        carList.getCarList().get(0).move();
+        List<String> nameList = Arrays.stream(inputNameList.split(",")).toList();
+        List<String> winnerList = racingCarService.getWinner();
+
+        //then
+        assertThat(winnerList.get(0)).isEqualTo(nameList.get(0));
+
+    }
+
+
+    @Test
+    @DisplayName("우승자 출력(공동) - 성공")
+    public void get_winners_success() {
+        //given
+        String inputNameList = "L,K,H,A,B";
+        setIn(new ByteArrayInputStream(inputNameList.getBytes()));
+        CarList carList = racingCarService.createCarList();
+
+        //when
+        for(int i = 0; i < 3; i++) {
+            carList.getCarList().get(0).move();
+            carList.getCarList().get(2).move();
+        }
+        carList.getCarList().get(4).move();
+        List<String> nameList = Arrays.stream(inputNameList.split(",")).toList();
+        List<String> winnerList = racingCarService.getWinner();
+
+        //then
+        assertThat(winnerList.get(0)).isEqualTo(nameList.get(0));
+        assertThat(winnerList.get(1)).isEqualTo(nameList.get(2));
+
+    }
+
 }
