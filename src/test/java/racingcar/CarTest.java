@@ -7,11 +7,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
 
-    private Car car;
     private static final int GREATER_THAN_FOUR = 4;
     private static final int LESS_THAN_FOUR = 3;
     private static final int STOP = 0;
     private static final int GO = 1;
+
+    private Car car;
 
     @BeforeEach
     void createCar() {
