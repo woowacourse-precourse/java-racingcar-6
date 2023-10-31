@@ -23,12 +23,17 @@ public class GameService {
         System.out.println(Constants.RESULT_OF_GAME);
         Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
 
+        printMoveGameNumber(gameNumber, carList, numMoveMap);
+
+        List<String> winnerList = getWinner(numMoveMap);
+        systemOutput.printOverallResult(winnerList);
+    }
+
+    public void printMoveGameNumber(int gameNumber, List<String> carList, Map<String, Integer> numMoveMap){
         for (int i = 0; i < gameNumber; i++) {
             numMoveMap = moveContainer.decideIncMove(carList, numMoveMap);
             systemOutput.printMoveResult(numMoveMap);
         }
-        List<String> winnerList = getWinner(numMoveMap);
-        systemOutput.printOverallResult(winnerList);
     }
 
     public static List<String> getWinner(Map<String, Integer> numMap) {
