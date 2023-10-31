@@ -2,7 +2,7 @@ package racingcar.data;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class InputNumber {
+public class RandomNumber {
     private int randomNumber;
     private static final int RANGE_MIN = 0;
     private static final int RANGE_MAX = 9;

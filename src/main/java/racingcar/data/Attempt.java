@@ -1,10 +1,10 @@
 package racingcar.data;
 
 public class Attempt {
-    private final InputNumber inputNumber;
+    private final RandomNumber inputNumber;
 
     public Attempt() {
-        this.inputNumber = new InputNumber();
+        this.inputNumber = new RandomNumber();
     }
 
     public void initInputNumber() {
