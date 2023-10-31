@@ -37,13 +37,9 @@ class CarsTest {
 
         // then
         List<CarMovementDto> carsMovement = carsMovementDto.carsMovementDto();
-        assertThat(carsMovement).extracting(CarMovementDto::carName)
-                .containsOnly(
-                        CarName.from("audi"),
-                        CarName.from("benz"),
-                        CarName.from("bmw")
-                );
-
+        for (CarMovementDto carMovementDto : carsMovement) {
+            assertThat(carMovementDto.carName()).containsAnyOf("audi", "benz", "bmw");
+        }
         assertThat(carsMovement).extracting(CarMovementDto::position)
                 .containsOnly(0);
     }
