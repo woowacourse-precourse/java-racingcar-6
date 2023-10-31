@@ -14,12 +14,24 @@ public class InputValidator {
     }
 
     public static void validateCarNameLength(List<String> carNames) {
-        boolean isOverMaxCarNameLength = carNames.stream().map(carName -> carName.length())
+        boolean isOverMaxCarNameLength = carNames.stream()
+                .map(carName -> carName.length())
                 .filter(nameLength -> nameLength > MAX_CAR_NAME_LENGTH)
                 .count() > 0;
 
         if (isOverMaxCarNameLength) {
             throw new IllegalArgumentException("자동차의 이름이 5글자를 초과 했습니다. 5글자 이하의 이름으로 입력해주세요.");
+        }
+    }
+
+    public static void validateBlankName(List<String> carNames) {
+        boolean hasBlank = carNames.stream()
+                .map(carName -> carName.trim())
+                .filter(carName -> carName.equals(""))
+                .count() > 0;
+
+        if (hasBlank) {
+            throw new IllegalArgumentException("자동차의 이름 중 공백으로만 이루어진 이름이 포함되어있습니다. 공백 이름은 입력하실 수 없습니다.");
         }
     }
 

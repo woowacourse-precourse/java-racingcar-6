@@ -22,6 +22,7 @@ public class InputView {
         List<String> names = Arrays.asList(inputNames.split(DELIMITER));
         InputValidator.validateCarNamesSize(names);
         InputValidator.validateCarNameLength(names);
+        InputValidator.validateBlankName(names);
 
         CarNames carNames = new CarNames(names);
 
