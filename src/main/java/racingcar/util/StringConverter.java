@@ -2,7 +2,7 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.validation.InputValidator;
+import racingcar.util.validation.InputValidator;
 import racingcar.vo.CarName;
 import racingcar.vo.TryNumber;
 

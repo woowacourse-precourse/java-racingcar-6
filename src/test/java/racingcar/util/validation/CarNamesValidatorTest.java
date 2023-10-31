@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.util.validation;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;

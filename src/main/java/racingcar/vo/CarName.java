@@ -1,6 +1,6 @@
 package racingcar.vo;
 
-import racingcar.validation.CarNameValidator;
+import racingcar.util.validation.CarNameValidator;
 
 public record CarName(String name) {
 

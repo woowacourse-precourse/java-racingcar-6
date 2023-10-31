@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.util.validation;
 
 public class InputValidator {
 
