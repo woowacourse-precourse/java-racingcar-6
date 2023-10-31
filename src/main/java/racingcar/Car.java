@@ -4,6 +4,13 @@ public class Car {
     private String name;
     private int movingCount = 0;
 
+    public Car() {
+    }
+
+    public Car(String name) {
+        this.name = name;
+    }
+
     public void increaseMovingCount() {
         this.movingCount++;
     }
