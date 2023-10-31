@@ -6,6 +6,7 @@ public class RaceGame {
     private String inputCarName;
     private List<String> carNames;
     private List<String> carMoveCounts;
+    private List<String> winnerCarNames;
     private int raceNumber;
 
     public void setInputCarName(String inputCarName) {
@@ -30,6 +31,14 @@ public class RaceGame {
 
     public List<String> getCarMoveCounts() {
         return carMoveCounts;
+    }
+
+    public void setWinnerCarNames(List<String> winerCarNames) {
+        this.winnerCarNames = winerCarNames;
+    }
+
+    public List<String> getWinnerCarNames() {
+        return winnerCarNames;
     }
 
     public void setRaceNumber(int raceNumber) {

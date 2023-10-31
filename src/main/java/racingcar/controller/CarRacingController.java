@@ -78,6 +78,7 @@ public class CarRacingController {
                 winnerCarName.add(raceGame.getCarNames().get(i));
             }
         }
-        System.out.println(winnerCarName);
+        raceGame.setWinnerCarNames(winnerCarName);
+        System.out.println(raceGame.getWinnerCarNames());
     }
 }
