@@ -1,17 +1,17 @@
 package racingcar.model;
 
-public class Advance {
+public class Position {
     private int value;
 
-    public Advance(){
+    public Position() {
         this.value = 0;
     }
 
-    public void add(){
+    public void add() {
         value++;
     }
 
-    public int getValue(){
+    public int getValue() {
         return value;
     }
 }
