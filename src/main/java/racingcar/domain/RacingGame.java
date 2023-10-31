@@ -9,7 +9,9 @@ public class RacingGame {
     private int currentRound;
 
     public RacingGame(int finalRound, List<String> carNames) {
-        carNames.stream().map(Car::new).forEach(cars::add);
+        carNames.stream()
+                .map(Car::new)
+                .forEach(cars::add);
         this.finalRound = finalRound;
         this.currentRound = 0;
     }
