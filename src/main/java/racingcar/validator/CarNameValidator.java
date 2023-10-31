@@ -14,6 +14,18 @@ public class CarNameValidator {
             if (name.trim().isEmpty()) {
                 throw new IllegalArgumentException(CAR_NAME_EMPTY_ERROR);
             }
+            if (!isAlphabetic(name)) {
+                throw new IllegalArgumentException(CAR_NAME_FORMAT_ERROR);
+            }
         }
+    }
+
+    private static boolean isAlphabetic(String name) {
+        for (char c : name.toCharArray()) {
+            if (!Character.isLetter(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
