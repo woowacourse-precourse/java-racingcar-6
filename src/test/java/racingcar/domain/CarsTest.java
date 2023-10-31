@@ -49,7 +49,7 @@ class CarsTest {
     }
 
     @Test
-    public void Car의_수_만큼_printCarsNameAndPosition이_호출된다(){
+    public void Car의_수_만큼_printCarsNameAndPosition이_호출된다() {
         Car mock1 = mock(Car.class);
         Car mock2 = mock(Car.class);
         Car mock3 = mock(Car.class);
@@ -57,9 +57,9 @@ class CarsTest {
 
         cars.printCarNamesAndPositions();
 
-        verify(mock1,times(1)).printCarNameAndPosition();
-        verify(mock2,times(1)).printCarNameAndPosition();
-        verify(mock3,times(1)).printCarNameAndPosition();
+        verify(mock1, times(1)).printCarNameAndPosition();
+        verify(mock2, times(1)).printCarNameAndPosition();
+        verify(mock3, times(1)).printCarNameAndPosition();
 
     }
 }

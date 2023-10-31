@@ -11,7 +11,7 @@ public class Cars {
         this.cars = list;
     }
 
-    public int getSize(){
+    public int getSize() {
         return cars.size();
     }
 
