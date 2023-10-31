@@ -3,7 +3,7 @@ package racingcar.domain;
 public class Validate {
     public static void validatePositiveNumber(int num) {
         if (num <= 0) {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다, 1 이상의 자연수를 입력해 주세요");
+            throw new IllegalArgumentException("유효하지 않은 입력입니다, 자연수를 입력해 주세요");
         }
     }
 
