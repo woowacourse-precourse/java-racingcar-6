@@ -16,9 +16,16 @@ public class Application {
 
         List<String> results = CarNameColon(carNames);
 
+        System.out.println("\n실행결과");
+        moveCars(results, numAttempts);
+
+        List<String> winners = calculateWinners(results);
+
+        printWinners(winners);
+
     }
 
-    private static void moveCars(List<String> results) {
+    private static void moveCars(List<String> results, int numAttempts) {
         for (int i = 0; i < results.size(); i++) {
             if (shouldCarMove()) {
                 String currentResult = results.get(i);
@@ -78,4 +85,13 @@ public class Application {
         }
         return winners;
     }
+
+    private static void printWinners(List<String> winners) {
+        if (winners.size() == 1) {
+            System.out.println("최종 우승자: " + winners.get(0));
+        } else {
+            System.out.println("최종 공동 우승자: " + String.join(", ", winners));
+        }
+    }
 }
+
