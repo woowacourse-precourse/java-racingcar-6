@@ -19,4 +19,4 @@
     - [x] 자동차의 이동을 출력한다. - Car.printPosition()
 - [x] 우승자를 출력한다. - RacingCarGame.printFinishCarNames()
     - **완주 조건**은 정해진 이동 시도 횟수가 모두 끝난 뒤 가장 멀리 전진한 경우를 의미한다.
-    - [ ] 가장 멀리 전진한 자동차 이름을 구한다. - RacingCarGame.getFinishCarNames()
+    - [x] 가장 멀리 전진한 자동차 이름을 구한다. - RacingCarGame.getFinishCarNames()

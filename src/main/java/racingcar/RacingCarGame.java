@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import static racingcar.Constant.*;
 
@@ -33,6 +34,17 @@ public class RacingCarGame {
     }
 
     public List<String> getFinishCarNames(){
-        return null;
+        List<String> FinishCarNamesList = new ArrayList<>();
+        int maxDistance = 0;
+        for (Car car : carList){
+            int currentDistance = car.getDistance();
+            if (currentDistance > maxDistance){
+                maxDistance = currentDistance;
+                FinishCarNamesList.clear();
+            }else if (currentDistance == maxDistance){
+                FinishCarNamesList.add(car.getCarName());
+            }
+        }
+        return FinishCarNamesList;
     }
 }
