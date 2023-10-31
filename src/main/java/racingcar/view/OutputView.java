@@ -10,7 +10,7 @@ public class OutputView {
     private static final String PROGRESS_SYMBOL = "-";
 
     public void printRacingStartMessage() {
-        System.out.println("실행결과");
+        System.out.println("실행 결과");
     }
 
     public void printRoundResult(List<String> carsName, Map<String, Integer> CarsScore) {
