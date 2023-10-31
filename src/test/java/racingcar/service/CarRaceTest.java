@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
@@ -8,7 +9,6 @@ import racingcar.model.Car;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.utils.Numbers;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -31,11 +31,7 @@ class CarRaceTest {
                 .map(car -> car.getPosition())
                 .collect(Collectors.toList());
 
-        int randomNumber = Randoms.pickNumberInRange(
-                Numbers.MOVE_POSITION_NUMBER.getNumber(),
-                Numbers.RANDOM_END_NUMBER.getNumber()
-        );
-        carRace.moveForward(randomNumber);
+        carRace.moveForward(Numbers.MOVE_POSITION_NUMBER.getNumber(), Numbers.RANDOM_END_NUMBER.getNumber());
 
         List<String> movedPosition = cars.stream()
                 .map(car -> car.getPosition())
@@ -53,12 +49,7 @@ class CarRaceTest {
                 .map(car -> car.getPosition())
                 .collect(Collectors.toList());
 
-        int randomNumber = Randoms.pickNumberInRange(
-                Numbers.RANDOM_START_NUMBER.getNumber(),
-                Numbers.STAY_POSITION_NUMBER.getNumber()
-        );
-
-        carRace.moveForward(randomNumber);
+        carRace.moveForward(Numbers.RANDOM_START_NUMBER.getNumber(), Numbers.STAY_POSITION_NUMBER.getNumber());
 
         List<String> movedPosition = cars.stream()
                 .map(car -> car.getPosition())
