@@ -5,21 +5,30 @@ import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-    static private List<Car> cars;
+    static private Cars singletonInstance;
+    static private final String DELIMITER = ",";
+    private List<Car> cars;
 
     private Cars() {
+        cars = new ArrayList<>();
     }
 
-    static public void initializeByInput(String input) {
-        cars = new ArrayList<>();
-        String[] names = input.split(",");
+    static public Cars getInstance() {
+        if (singletonInstance == null) {
+            singletonInstance = new Cars();
+        }
+        return singletonInstance;
+    }
+
+    public void addCarsFromInput(String input) {
+        String[] names = input.split(DELIMITER);
         for (String name : names) {
             Car car = new Car(name.trim());
             cars.add(car);
         }
     }
 
-    static public RaceResult runSingleRace() {
+    public RaceResult runSingleRace() {
         RaceResult raceResult = new RaceResult();
         for (Car car : cars) {
             car.moveForward();
@@ -28,7 +37,7 @@ public class Cars {
         return raceResult;
     }
 
-    static public WinnerData pickWinners() {
+    public WinnerData pickWinners() {
         Collections.sort(cars);
         WinnerData winnerData = createWinnerData();
 
@@ -41,7 +50,7 @@ public class Cars {
         return winnerData;
     }
 
-    static private WinnerData createWinnerData() {
+    private WinnerData createWinnerData() {
         Car winner = cars.get(0);
         return winner.createWinnerData();
     }
