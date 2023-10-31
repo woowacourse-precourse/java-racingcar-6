@@ -5,6 +5,7 @@ import static racingcar.Message.OutputMessage.*;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Domain.Car;
+import racingcar.Domain.Race;
 
 public class OutputView {
 
@@ -22,7 +23,7 @@ public class OutputView {
         for (Car car : cars) {
             raceResult.append(car.getName()).append(CAR_DELIMITER).append(RACE_MARK.repeat(car.getPosition())).append("\n");
         }
-        System.out.println(raceResult.toString());;
+        System.out.println(raceResult);;
     }
 
     public void printWinner(List<Car> cars){

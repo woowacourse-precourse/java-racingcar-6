@@ -26,17 +26,17 @@ public class RacingCarController {
     public void carRacing() {
         // 자동차 이름 입력
         String carNames = inputView.inputCar();
-        carService.inputCarNames(carNames);
+        RacingCars racingCars = carService.inputCarNames(carNames);
 
         // 경주 횟수 입력
         int raceCount = inputView.inputRaceTime();
-        raceService.inputRaceCount(raceCount);
+        Race race = raceService.inputRaceCount(raceCount);
 
         // 경주 시작
-        carService.runRacing();
-        outputView.printResult(carService.carList());
+        carService.runRacing(racingCars,raceService);
+        outputView.printResult(carService.carList(racingCars));
 
         // 우승자 결정
-        outputView.printWinner(winnerService.getWinners());
+        outputView.printWinner(winnerService.getWinners(racingCars));
     }
 }

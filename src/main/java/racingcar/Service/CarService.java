@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Domain.Car;
 import racingcar.Domain.Race;
+import racingcar.Domain.RaceNumberGenerator;
 import racingcar.Domain.RacingCars;
 
 public class CarService {
-    RaceService raceService = new RaceService();
-    RacingCars racingCars;
-    public void inputCarNames(String carNames) {
-        racingCars = RacingCars.create(carNames);
+    RaceNumberGenerator generateRandomNumber = new RaceNumberGenerator();
+    public RacingCars inputCarNames(final String carNames) {
+        return RacingCars.create(carNames,this.generateRandomNumber);
     }
 
-    public void runRacing(){
+    public void runRacing(RacingCars racingCars, RaceService raceService){
         int currentRace = 0;
         while (!raceService.isRaceOver(currentRace)) {
             racingCars.race();
@@ -31,7 +31,7 @@ public class CarService {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> carList(){
+    public List<Car> carList(RacingCars racingCars){
         return racingCars.getCars();
     }
 

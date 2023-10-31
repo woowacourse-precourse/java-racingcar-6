@@ -4,7 +4,8 @@ import java.util.*;
 import racingcar.Message.ExceptionMessage;
 
 public class CarException {
-    Set<String> nameSet;
+    private Set<String> nameSet;
+    private StringBuilder carNames = new StringBuilder();
     public String checkExceptionCar(String names){
         nameSet = new HashSet<>();
         String[] cars = checkNameCount(names);
@@ -15,8 +16,9 @@ public class CarException {
                 checkSpaceWords(car);
                 isSameName(car);
             }
+            carNames.append(car).append(",");
         }
-        return names;
+        return carNames.toString();
     }
     public String[] checkNameCount(String names){
         if (Arrays.stream(names.split(",")).count() <= 1)

@@ -15,18 +15,18 @@ public class InputView {
         try {
             return carException.checkExceptionCar(carsName);
         } catch (IllegalArgumentException e) {
-            System.out.println(ERROR_MESSAGE + e.getMessage());
+            System.out.println(e.getMessage());
             return null;
         }
     }
 
     public int inputRaceTime(){
-        System.out.println(CAR_NAME_MESSAGE);
+        System.out.println(TIMES_MESSAGE);
         String raceTime = Console.readLine();
         try {
             return raceException.checkExceptionRace(raceTime);
         } catch (IllegalArgumentException e) {
-            System.out.println(ERROR_MESSAGE + e.getMessage());
+            System.out.println(e.getMessage());
             return -1;
         }
     }

@@ -1,14 +1,14 @@
 package racingcar.Service;
 
-import racingcar.Domain.Car;
 import racingcar.Domain.Race;
 import racingcar.Domain.RacingCars;
 
 public class RaceService {
     private Race race;
 
-    public void inputRaceCount(int raceCount) {
+    public Race inputRaceCount(int raceCount) {
         this.race = new Race(raceCount);
+        return race;
     }
 
 
