@@ -1,28 +1,11 @@
+## 프로그램 진행
+
+![](https://velog.velcdn.com/images/sohyun9527/post/1d27b934-9b87-443d-9134-408fe0783711/image.jpg)
+
 ## 구현할 게임의 로직
 
 ```
-1. 게임 시작 시 '경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)' [출력]
-
-2. 사용자로부터 자동차 이름들 입력받기 [입력]
-    2-1. 입력값이 ','로 구분되어있는지 검증
-    2-2. 구분자로 자른 후 빈 배열이 있는지 검증
-    
-3. '시도할 회수는 몇회인가요?' 문구 출력[출력]
-    3-1. 입력값이 숫자로만 이루어져 있는지 검증
-    
-4. 횟수만큼 게임 진행
-    4-1. 각각 자동차는 랜덤 주사위를 굴린다.
-    4-2. 결과값이 4 이상이라면 전진한다.
-    4-3. 전진했다면 점수를 부여받는다.
-    4-4. 1회의 결과값을 출력한다 [출력]
-
-5. 최종 우승자를 출력한다. [출력]
-```
-
-## 세부 진행 과정
-
-```
-1. 사전값을 세팅
+1. 사전값 세팅
     - 자동차 이름 넣어달라는 메시지 출력
     - 값을 입력 받는다
     - 입력받은 값 검증 진행
@@ -49,24 +32,21 @@
 
 ### 게임 진행 관련 기능
 
-- RaceInfo 클래스
-    - 사전값 세팅
+- ScoreBoard 클래스
+    - 핵심 데이터가 되는 점수판을 저장하고, 상태값을 관리한다.
         - [x] 점수판을 만드는 기능
             - Map<String, StringBuilder> makeScoreBoard(List<String> carNames)
-
-- RaceProcess 클래스
-    - 게임 진행 과정
         - [x] 한 판의 게임을 진행하는 기능
-            - void oneRound(Map<String, StringBuilder> scoreBoard)
+            - void updateScore()
         - [x] 전진 가능한지 판별하는 기능
             - int isMovable()
 
 - RaceResult 클래스
     - 게임 종료 후 우승자 선발
         - [x] 가장 많은 전진 포인트를 계산하는 기능
-            - int calculateForwardPoint(Map<String, StringBuilder> scoreResult)
+            - int calculateForwardPoint(ScoreBoard scoreBoard)
         - [x] 우승자를 발표하는 기능
-            - List<String> findWinners(int maxPoint, Map<String, StringBuilder> scoreResult)
+            - List<String> findWinners(int maxPoint, ScoreBoard scoreBoard)
 
 ### 입력 기능
 
@@ -98,7 +78,7 @@
 - 입력받은 횟수에 대한 검증
     - [x] 입력받은 횟수가 숫자가 아닐 경우
         - int validateGameRound(String input)
-    - [ ] 라운드 횟수를 입력하지 않았을 경우
+    - [x] 라운드 횟수를 입력하지 않았을 경우
         - void validateBlankRound(String input)
 
 ### 출력 기능
