@@ -1,8 +1,8 @@
-package Exceptions;
+package exceptions;
 
 public class EncounterExceptions {
 	
-	private final int longest_name=5;
+	private static final int longest_name_length=5;
 
 	public String [] nameInspection(String names) {
 		
@@ -16,7 +16,7 @@ public class EncounterExceptions {
 		return eachName;
 	}
 	
-	public boolean ifSplitProblem(String names) {
+	private boolean ifSplitProblem(String names) {
 		
 		if(names==null)
 			return true;
@@ -28,20 +28,30 @@ public class EncounterExceptions {
 		return false;
 	}
 	
-	public boolean nameIsProblem(String names) {
+	private boolean nameIsProblem(String names) {
 		
 		String [] eachName=names.split(",");
+		
+		if(commaOnly(eachName))
+			return true;
 		
 		for(String name:eachName) {
 			if(name.equals(""))
 				return true;
-			else if(name.length()>longest_name)
+			else if(name.length()>longest_name_length)
 				return true;
 		}
 		return false;
 	}
 	
-	public boolean upexpectedExceptions(String names) {
+	private boolean commaOnly(String [] eachName) {
+		
+		if(eachName.length==0)
+			return true;
+		return false;
+	}
+	
+	private boolean upexpectedExceptions(String names) {
 		
 		try {
 			names.split(",");
@@ -59,7 +69,7 @@ public class EncounterExceptions {
 		return Integer.parseInt(inputCount);
 	}
 	
-	public boolean naN(String inputCount) {
+	private boolean naN(String inputCount) {
 		
 		try {
 			Integer.parseInt(inputCount);

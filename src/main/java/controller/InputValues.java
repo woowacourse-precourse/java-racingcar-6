@@ -1,18 +1,19 @@
-package Controller;
+package controller;
 
-import Exceptions.EncounterExceptions;
 import camp.nextstep.edu.missionutils.Console;
+
+import static data.Constants.VERIFICATION;
 
 public class InputValues {
 	
-	private final Exceptions.EncounterExceptions verification=new EncounterExceptions();
-
+	//private static final exceptions.EncounterExceptions VERIFICATION=new EncounterExceptions();
+	
 	public String [] provideNames() {
 		
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String names=Console.readLine();
 		
-		String [] eachName=verification.nameInspection(names);
+		String [] eachName=VERIFICATION.nameInspection(names);
 		
 		return eachName;
 	}
@@ -22,7 +23,7 @@ public class InputValues {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String inputCount=Console.readLine();
 		
-		int roundCount=verification.countInspection(inputCount);
+		int roundCount=VERIFICATION.countInspection(inputCount);
 		
 		return roundCount;
 	}
