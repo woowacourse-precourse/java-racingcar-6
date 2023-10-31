@@ -1,5 +1,9 @@
 package racingcar;
 
+import static racingcar.constant.OutputMessage.INPUT_CAR_NAMES;
+import static racingcar.constant.OutputMessage.INPUT_TRY_COUNT;
+import static racingcar.constant.OutputMessage.RUN_RESULT;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Player;
@@ -21,7 +25,7 @@ public class Application {
 
         racingGame = new RacingGame(carNames, tryCnt);
 
-        view.println("실행 결과");
+        view.println(RUN_RESULT);
         while (!racingGame.isEndGame()){
             List<PerGameCarResultDto> resultDtos = racingGame.startRacingGame();
             view.printResult(resultDtos);
@@ -32,12 +36,12 @@ public class Application {
 
     }
     public static List<String> inputCarNames(){
-        view.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        view.println(INPUT_CAR_NAMES);
         return player.inputCarNames();
     }
 
     public static int inputTryCnt(){
-        view.println("시도할 회수는 몇회인가요?");
+        view.println(INPUT_TRY_COUNT);
         return player.inputTryCnt();
     }
 }
