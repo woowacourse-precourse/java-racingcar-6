@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.constants.GameResultElement;
+import racingcar.constants.RacingCarMove;
 import racingcar.constants.RacingCarRole;
 import racingcar.constants.message.ErrorMessage;
 import racingcar.exception.car.CarNameLengthException;
@@ -24,7 +25,7 @@ public class Car {
     }
 
     public void movePosition() {
-        this.position++;
+        position += RacingCarMove.NEXT_POSITION.getValue();
     }
 
     public String statusCarPosition() {
