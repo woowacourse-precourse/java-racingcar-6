@@ -66,7 +66,7 @@ public class RacingCarGame {
         return carResultList;
     }
 
-    static void printWinner(List<String> carNamesList, List<Integer> raceResultList) {
+    static List<String> getWinner(List<String> carNamesList, List<Integer> raceResultList) {
         Integer max = Collections.max(raceResultList);
         List<Integer> winnerIndex = new ArrayList<>();
         List<String> winnerNames = new ArrayList<>();
@@ -77,10 +77,14 @@ public class RacingCarGame {
             }
         }
 
-        for (int i = 0; i < winnerIndex.size(); i++) {
-            winnerNames.add(carNamesList.get(winnerIndex.get(i)));
+        for (Integer index : winnerIndex) {
+            winnerNames.add(carNamesList.get(index));
         }
 
+        return winnerNames;
+    }
+
+    static void printWinner(List<String> winnerNames) {
         String winnerOutput = String.join(",", winnerNames);
 
         System.out.println("최종 우승자 : " + winnerOutput);
@@ -88,6 +92,7 @@ public class RacingCarGame {
 
     static void doRace(List<String> carNamesList, int playNumber) {
         List<Integer> raceResultList = new ArrayList<>();
+        List<String> winnerNames;
 
         for (int i = 0; i < carNamesList.size(); i++) {
             raceResultList.add(0);
@@ -98,7 +103,9 @@ public class RacingCarGame {
             System.out.println();
         }
 
-        printWinner(carNamesList, raceResultList);
+        winnerNames = getWinner(carNamesList, raceResultList);
+
+        printWinner(winnerNames);
     }
 
     public static void playGame() {
