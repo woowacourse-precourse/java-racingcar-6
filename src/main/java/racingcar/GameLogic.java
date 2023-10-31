@@ -5,13 +5,11 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class GameLogic {
-    public static boolean decideMove() {
+    public static void decideMove(Car car) {
         int num = getRandomNumber();
         if (9 >= num && num >= 4) {
-            return true;
-        } else if (3 >= num && num >= 0) {
-            return false;
-        } else {
+            car.moveForward();
+        } else if (9< num | num < 0) {
             throw new IllegalArgumentException("랜덤 값 오류");
         }
     }

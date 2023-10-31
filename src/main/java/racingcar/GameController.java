@@ -3,6 +3,9 @@ package racingcar;
 import static racingcar.GameLogic.decideMove;
 import static racingcar.GameLogic.findMaxMove;
 import static racingcar.GameLogic.findWinner;
+import static racingcar.InputValidator.*;
+import static racingcar.view.OutputView.*;
+
 import java.util.Arrays;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,9 +22,9 @@ public class GameController {
     }
     public static int getGameRound(){
         String inputRound = InputView.inputRound();
-        InputValidator.checkRoundNumber(inputRound);
+        checkRoundNumber(inputRound);
         int gameRound = Integer.parseInt(inputRound);
-        InputValidator.checkNotNegative(gameRound);
+        checkNotNegative(gameRound);
         return gameRound;
     }
 
@@ -32,9 +35,9 @@ public class GameController {
     }
     public static String[] getCarName(){
         String inputCars = InputView.inputCarName();
-        String[] cars = InputValidator.splitCarName(inputCars);
-        InputValidator.checkNameLength(cars);
-        InputValidator.checkNameNull(cars);
+        String[] cars = splitCarName(inputCars);
+        checkNameLength(cars);
+        checkNameNull(cars);
         return cars;
     }
 
@@ -46,17 +49,15 @@ public class GameController {
 
     public static void carMove(Car[] carList){
         for (Car car : carList) {
-            if (decideMove()) {
-                car.moveForward();
-            }
-            OutputView.roundResult(car);
-            }
-        OutputView.roundFinish();
+            decideMove(car);
+            roundResult(car);
+        }
+        roundFinish();
     }
 
     public static void resultGame(Car[] carList){
         int finalMax = findMaxMove(carList);
         String result = findWinner(carList, finalMax);
-        OutputView.finalWinner(result);
+        finalWinner(result);
     }
 }
