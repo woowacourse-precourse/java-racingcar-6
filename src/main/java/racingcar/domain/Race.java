@@ -29,17 +29,10 @@ public class Race {
     }
 
     public int getMaxCount() {
-        return cars.getCars().stream()
-            .mapToInt(Car::getMoveCount)
-            .max()
-            .orElse(Constant.MIN_RANDOM_NUMBER);
+        return cars.getMaxCount();
     }
 
     public List<String> getWinnerNames() {
-        int maxCount = getMaxCount();
-        return cars.getCars().stream()
-            .filter(car -> car.getMoveCount() == maxCount)
-            .map(Car::getName)
-            .collect(Collectors.toList());
+        return cars.getWinners(getMaxCount());
     }
 }
