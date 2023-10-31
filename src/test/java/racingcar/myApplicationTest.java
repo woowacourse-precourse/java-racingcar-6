@@ -127,7 +127,7 @@ public class myApplicationTest {
         }
         @Test
         void 전진_상황_테스트() {
-            CarRaceGameView.tryForwardResultView("Alice", 3);
+            CarRaceGameView.printOneRoundResult("Alice", 3);
             org.junit.jupiter.api.Assertions.assertEquals("Alice : ---\r\n", outputMessage.toString());
         }
     }
@@ -157,7 +157,7 @@ public class myApplicationTest {
         @ParameterizedTest
         @MethodSource("generateData")
         void 우승자_출력_테스트(List<String> winnerList,String result) {
-            CarRaceGameView.gameResultView(winnerList);
+            CarRaceGameView.printGameResult(winnerList);
             org.junit.jupiter.api.Assertions.assertEquals(result, outputMessage.toString());
         }
     }
