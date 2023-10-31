@@ -31,19 +31,14 @@ public class RacingService {
     public String[] InputCarName() {
         String carsString = Console.readLine();
         String[] cars = carsString.split(Constants.COMMA);
-        try {
             IsValidName(cars);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return InputCarName();
-        }
         return cars;
     }
 
     private void IsValidName(String[] cars) {
         for (String car : cars) {
-            if (car.length() > Constants.MAXIMUM_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException(Constants.NAME_LENGTH_ERROR_MESSAGE);
+            if (car.length() > Constants.MAXIMUM_CAR_NAME_LENGTH || car.length()==0) {
+                throw new IllegalArgumentException();
             }
         }
     }
