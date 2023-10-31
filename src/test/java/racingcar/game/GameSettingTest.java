@@ -29,7 +29,7 @@ class GameSettingTest {
     @Test
     void 자동차_및_이동_횟수_최초_세팅() {
         initializeSettingCars("hwang", "jung", "seop");
-        initializeSettingRound("5");
+        initializeSettingRound(5);
 
         assertThat(setting.getCars())
                 .extracting("name")
@@ -63,7 +63,7 @@ class GameSettingTest {
         setting.initializeCars(carNameList);
     }
 
-    private void initializeSettingRound(String round) {
+    private void initializeSettingRound(int round) {
         setting.initializeRound(round);
     }
 

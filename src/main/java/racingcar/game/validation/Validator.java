@@ -1,7 +1,7 @@
 package racingcar.game.validation;
 
-public interface Validator {
+public interface Validator<T> {
 
-    void execute(String name);
+    void execute(T t);
 
 }

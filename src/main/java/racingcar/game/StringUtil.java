@@ -7,15 +7,24 @@ import java.util.Set;
 
 import static racingcar.game.constant.CarExceptionMessage.EXIST_SAME_NAMES;
 import static racingcar.game.constant.CarExceptionMessage.OUT_OF_COUNT_RANGE;
+import static racingcar.game.constant.RoundExceptionMessage.NOT_INTEGER;
 
 public class StringUtil {
 
     public static List<String> separate(String carNames) {
         String[] carNameArray = carNames.split(",");
         List<String> carNameList = Arrays.asList(carNameArray);
+
         validateNamesDifferent(carNameList);
         validateNamesCount(carNameList);
+
         return carNameList;
+    }
+
+    public static int makeInteger(String stringMovingCount) {
+        int movingCount = validateInteger(stringMovingCount);
+
+        return movingCount;
     }
 
     private static void validateNamesDifferent(List<String> carNameList) throws IllegalArgumentException {
@@ -32,6 +41,14 @@ public class StringUtil {
     private static void validateNamesCount(List<String> carNameList) {
         if (carNameList.size() > 10) {
             throw new IllegalArgumentException(OUT_OF_COUNT_RANGE);
+        }
+    }
+
+    private static int validateInteger(String stringMovingCount) {
+        try {
+            return Integer.parseInt(stringMovingCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NOT_INTEGER, e);
         }
     }
 

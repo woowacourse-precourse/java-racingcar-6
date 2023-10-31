@@ -2,7 +2,7 @@ package racingcar.game.validation;
 
 import static racingcar.game.constant.CarExceptionMessage.*;
 
-public class CarValidator implements Validator{
+public class CarValidator implements Validator<String>{
 
     @Override
     public void execute(String name) {

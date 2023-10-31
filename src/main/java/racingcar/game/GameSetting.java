@@ -22,7 +22,7 @@ public class GameSetting {
         }
     }
 
-    public void initializeRound(String round) {
+    public void initializeRound(int round) {
         this.round = Round.create(round);
     }
 

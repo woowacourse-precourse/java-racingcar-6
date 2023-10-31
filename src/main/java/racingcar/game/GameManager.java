@@ -21,7 +21,8 @@ public class GameManager {
     }
 
     public void setRound(String round) {
-        setting.initializeRound(round);
+        int movingCount = StringUtil.makeInteger(round);
+        setting.initializeRound(movingCount);
     }
 
     public List<String> raceOneRound() {

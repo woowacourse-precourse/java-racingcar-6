@@ -13,10 +13,9 @@ public class Round {
         this.movingCount = movingCount;
     }
 
-    public static Round create(String stringMovingCount) {
-        VALIDATOR.execute(stringMovingCount);
+    public static Round create(int movingCount) {
+        VALIDATOR.execute(movingCount);
 
-        int movingCount = Integer.parseInt(stringMovingCount);
         return new Round(movingCount);
     }
 
