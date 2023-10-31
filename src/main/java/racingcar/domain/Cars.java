@@ -8,13 +8,13 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(final List<String> racingCarNames) {
-        this.cars = racingCarNames.stream()
+    public Cars(final CarNames carNames) {
+        this.cars = carNames.getCarNames().stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
 
-    public Integer getMaxForwardDistance() {
+    public ForwardDistance getMaxForwardDistance() {
         return Collections.max(cars).getForwardDistance();
     }
 
