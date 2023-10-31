@@ -5,9 +5,7 @@ public final class GameConfig {
 
     }
 
-    public static final String MOVE_VALUE = "-";
     public static final String INPUT_NAMES_SEPARATOR = ",";
-    public static final String WINNER_NAMES_RESULT_SEPARATOR = ", ";
     public static final int MIN_RANDOM_VALUE = 0;
     public static final int MAX_RANDOM_VALUE = 9;
     public static final int MIN_TO_MOVE = 4;
