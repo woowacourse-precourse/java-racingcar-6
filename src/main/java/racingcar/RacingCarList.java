@@ -64,17 +64,17 @@ public class RacingCarList {
     }
 
     private void validateNameCount(List<String> names) {
-        validateNameCountLargerThanMinimumValue(names);
-        validateNameCountSmallerThanMaximumValue(names);
+        validateListLengthLowerRange(names);
+        validateListLengthUpperRange(names);
     }
 
-    private void validateNameCountLargerThanMinimumValue(List<String> names) {
+    private void validateListLengthLowerRange(List<String> names) {
         if (names.size() < MIN_LIST_LENGTH) {
             throw new ArgumentRangeOutOfBoundsException();
         }
     }
 
-    private void validateNameCountSmallerThanMaximumValue(List<String> names) {
+    private void validateListLengthUpperRange(List<String> names) {
         if (names.size() > MAX_LIST_LENGTH) {
             throw new ArgumentRangeOutOfBoundsException();
         }
