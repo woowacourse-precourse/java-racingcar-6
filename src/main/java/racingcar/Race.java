@@ -17,7 +17,11 @@ public class Race {
 
     public void registerCar(List<String> participatingCars) {
         participatingCarsValidation.validateParticipatingCars(participatingCars);
-        for (String carName : participatingCars) {
+        registerEachCar(participatingCars);
+    }
+
+    private void registerEachCar(List<String> carNames) {
+        for (String carName : carNames) {
             this.participatingCars.add(new Car(carName));
         }
     }
@@ -69,23 +73,37 @@ public class Race {
         return getWinnersNames(furthestLocation);
     }
 
-    public int findFurthestLocation() {
+    private int findFurthestLocation() {
         int furthestLocation = 0;
         for (Car car : participatingCars) {
-            if (car.getLocation() > furthestLocation) {
-                furthestLocation = car.getLocation();
-            }
+            furthestLocation = updateFurthestLocation(car, furthestLocation);
         }
         return furthestLocation;
     }
 
-    public List<String> getWinnersNames(int furthestLocation) {
+    private int updateFurthestLocation(Car car, int currentMaxLocation) {
+        return Math.max(car.getLocation(), currentMaxLocation);
+    }
+
+    private List<String> getWinnersNames(int furthestLocation) {
         List<String> winnersNames = new ArrayList<>();
-        for (Car car : participatingCars) {
-            if (car.getLocation() == furthestLocation) {
-                winnersNames.add(car.getName());
-            }
-        }
+        addWinners(furthestLocation, winnersNames);
         return winnersNames;
+    }
+
+    private void addWinners(int furthestLocation, List<String> winnersNames) {
+        for (Car car : participatingCars) {
+            addWinner(car, furthestLocation, winnersNames);
+        }
+    }
+
+    private void addWinner(Car car, int furthestLocation, List<String> winnersNames) {
+        if (isWinner(car, furthestLocation)) {
+            winnersNames.add(car.getName());
+        }
+    }
+
+    private boolean isWinner(Car car, int furthestLocation) {
+        return car.getLocation() == furthestLocation;
     }
 }
