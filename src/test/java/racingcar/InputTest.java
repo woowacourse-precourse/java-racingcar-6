@@ -22,4 +22,11 @@ public class InputTest {
                 IllegalArgumentException.class);
     }
 
+    @Test
+    void 이름_중복_예외_처리() {
+        List<String> input = List.of("pobi", "gorani", "goni", "goni");
+        assertThatThrownBy(() -> InputValidator.checkNameIsDuplicated(input)).isInstanceOf(
+                IllegalArgumentException.class);
+    }
+
 }
