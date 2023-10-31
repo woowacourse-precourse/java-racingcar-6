@@ -22,9 +22,16 @@ public class Exception {
     public static void isSpace(String[] carNames) {
         for (String name : carNames) {
             String word = name.trim();
-            if (word.contains(" ") || word.contains(", ")) {
-                throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다");
+            if (word.contains(" ")) {
+                throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다.");
             }
         }
     }
+
+    public static void isFrontSpace(String carNames) {
+        if (carNames.contains(", ")) {
+            throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다");
+        }
+    }
+    
 }

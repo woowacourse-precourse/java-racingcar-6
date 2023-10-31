@@ -32,13 +32,20 @@ public class RacingGame {
 
     public void registerCars() {
         String carNames = InputView.carNames();
+
+        String[] names = checkIncludeSpace(carNames);
+        for (String name : names) {
+            addCar(name);
+        }
+    }
+
+    private String[] checkIncludeSpace(String carNames) {
+        Exception.isFrontSpace(carNames);
         String[] names = carNames.split(",");
 
         Exception.isSpace(names);
 
-        for (String name : names) {
-            addCar(name);
-        }
+        return names;
     }
 
     private void addCar(String name) {
