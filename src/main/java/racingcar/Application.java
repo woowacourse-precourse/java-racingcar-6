@@ -47,4 +47,12 @@ public class Application {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void racing() {
+        for(Car car : carList) {
+            car.moveForward();
+            String tempPosition = "-".repeat(car.getPosition());
+            System.out.println(car.getName() + " : " + tempPosition);
+        }
+    }
 }
