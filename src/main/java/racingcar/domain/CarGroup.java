@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class CarGroup {
 
@@ -17,7 +16,7 @@ public class CarGroup {
             car.move();
     }
 
-    public List<String> calculateWinners() {
+    public List<String> getWinnerList() {
         return carGroup.stream()
             .filter(car -> car.getPosition() == getMaxPosition())
             .map(Car::getName)

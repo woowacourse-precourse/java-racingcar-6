@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.global.Validation.validateRound;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,18 +26,12 @@ public class RacingCarService {
         return Integer.parseInt(round);
     }
 
-    private void validateRound(String round) {
-        if (round == null || !round.matches("[0-9]+")) {
-            throw new IllegalArgumentException("0이상의 숫자만 입력 가능합니다.");
-        }
-    }
-
     public CarGroup moveCarGroup(CarGroup carGroup) {
         carGroup.move();
         return carGroup;
     }
 
     public Winners getWinners(CarGroup carGroup) {
-        return new Winners(carGroup.calculateWinners());
+        return new Winners(carGroup.getWinnerList());
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.global.Validation;
 
 public class Car {
 
@@ -12,7 +13,7 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        validateName(name);
+        Validation.validateName(name);
         this.name = name;
         this.position = 0;
     }
@@ -32,9 +33,5 @@ public class Car {
         return position;
     }
 
-    private void validateName(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-        }
-    }
+
 }
