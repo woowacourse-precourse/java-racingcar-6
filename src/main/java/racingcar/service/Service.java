@@ -8,15 +8,10 @@ import racingcar.repository.CarRepository;
 
 public class Service {
 
-    private static final Service instance = new Service();
     CarRepository carRepository;
 
-    private Service() {
+    public Service() {
         this.carRepository = new CarRepository();
-    }
-
-    public static Service getInstance() {
-        return instance;
     }
 
     public void saveCarsToRepository(CarsDto carsDto) {

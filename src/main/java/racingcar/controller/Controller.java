@@ -17,16 +17,10 @@ import racingcar.view.InputView;
 
 public class Controller {
 
-    private static final Controller instance = new Controller();
-
     private final Service service;
 
-    private Controller() {
-        this.service = Service.getInstance();
-    }
-
-    public static Controller getInstance() {
-        return instance;
+    public Controller() {
+        this.service = new Service();
     }
 
     public void setting() {

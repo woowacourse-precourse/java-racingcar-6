@@ -12,7 +12,7 @@ import racingcar.dto.CarsDto;
 
 class ServiceTest {
 
-    Service service = Service.getInstance();
+    Service service = new Service();
 
     CarsDto carsDto;
 

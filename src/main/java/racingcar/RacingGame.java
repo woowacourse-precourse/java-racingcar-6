@@ -6,7 +6,7 @@ public class RacingGame {
     Controller controller;
 
     public RacingGame() {
-        this.controller = Controller.getInstance();
+        this.controller = new Controller();
     }
 
     public void run() {
