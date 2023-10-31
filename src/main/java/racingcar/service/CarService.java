@@ -1,14 +1,11 @@
-package racingcar.controller;
+package racingcar.service;
 
 import racingcar.dto.ProgressResponseDto;
 import racingcar.dto.WinnersResponseDto;
-import racingcar.service.CarService;
 
-public class CarController {
+public class CarService {
 
-    private final CarService carService = new CarService();
-
-    public static void createCars(String cars) {
+    public static void addCars(String cars) {
 
     }
 
@@ -19,4 +16,6 @@ public class CarController {
     public static WinnersResponseDto getWinners() {
         return null;
     }
+
+
 }
