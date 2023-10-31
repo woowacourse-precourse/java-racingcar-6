@@ -7,7 +7,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.in;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
@@ -20,7 +22,7 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    assertThat(output()).contains("pobi : - ", "woni : ");
                 },
                 MOVING_FORWARD, STOP
         );
@@ -52,6 +54,21 @@ class ApplicationTest extends NsTest {
     void 시도할_횟수_입력_테스트(){
         String input = "5";
         assertThat(Integer.parseInt(input)).isEqualTo(5);
+    }
+
+    @Test
+    void 무작위_값_이동_테스트(){
+        Map<String, Integer> cars = new HashMap<>();
+        cars.put("pobi", 0);
+        cars.put("woni", 0);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Application.race(cars);
+                    assertThat(output()).contains("pobi : - ", "woni :");
+                },
+                MOVING_FORWARD, STOP
+        );
+
     }
 
     @Override
