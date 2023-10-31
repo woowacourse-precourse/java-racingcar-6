@@ -17,47 +17,82 @@
 
 ---
 
-## 🏎 Car `Class Car`
+## 🏎 Car `Class Car` 
 
 - 변수
     - `String name`
     - `int position`
 - 메서드
-    - `void move(int distance)`
+    - `void move(int distance)` 
         - 차 위치 이동 ✔
-    - 차 위치 이동 표시 ✔
+    - `void showPosition()`
+      - 차 위치 이동 표시 ✔
 
 ## 🎮 Game `Class Game`
 
 - 변수
     - `int trial`
     - `List <Car> cars`
-    - `int done_trial`
 - 메서드
-    - cars 생성 ✔
-    - 시도 횟수만큼 실행하기 ✔
-    - 각 차수 별 실행 결과 출력하기 ✔
+    - `void setCars(List<String> carsName)`
+      - cars 리스트 생성 ✔
+    - `void playGame()`
+      - 시도 횟수만큼 실행하기 ✔
+    - `void playRound()`
+      - 각 차수 별 실행 결과 출력하기 ✔
+    - `int getRandomNumber()`
+      - 무작위 숫자 반환 ✔
+      - ex) `Randoms.pickNumberInRange(0,9);`
+          - from) [README.md](..\README.md)
+
 
 ## 🚦 Game Manager `Class GameManager`
 
 - 변수
 - 메서드
-  - 경주 자동차 이름 입력받기 ✔
-  - 시도횟수 입력받기 ✔
-  - 우승자 판별 ✔
-  - 우승자 출력하기 ✔
-  - 예외처리
+  - `List<String> inputListCarsName()`
+    - 경주 자동차 이름 입력받기 ✔
+  - `void checkValidationListCarNames(List<String> input)`
+    - list 형태 예외처리 ✔
+  - `String inputStringCarsName()`
+    - String 형태 입력받기 ✔
+  - `void checkValidationStringCarNames(String input)`
+    - String 형태 예외처리 ✔
+  - `int inputTrial()`
+    - 시도횟수 입력받기 ✔
+  - `void checkValidationTrial(String input)`
+    - trial 예외처리
+  - `void findWinner(List <Car> cars)`
+    - 우승자 찾기 ✔
+    - `comparePosition` , `judge`
+      - 우승자 판별 & 출력 ✔
 
 ## 🚧 Validator `Class Validator`
 예외 처리 검증
 - 메서드
-  - cechkCarName
-    - string 부분 체크 ✔
-    - list 부분 체크
-  - checkTrial
+  - `void checkListCarNames(List<String> carsName)`
+    - list 형태 예외처리 ✔
+      - `void checkCarNameLength(List<String> carsName)`
+        - 길이 5 이상일 때 ✔
+      - `void checkListDuplication(List<String> carsName)`
+        - 같은 이름이 있을 때 ✔
+    
+  - `void checkStringCarNames(String input)`
+    - string 형태 예외처리 ✔
+    - `void checkEmpty(String input)`
+      - 값이 입력 안됬을 때 ✔
+    - `void checkLastIndex(String input)`
+      - , 와 , 사이에 입력이 없을 때 ✔
+    
+  - `checkTrial(String input)`
+    - trial 예외처리 ✔
+    - `void checkEmpty(String input)`
+      - 값이 입력되지 않았을 때 ✔
+    - `void checkChar(String input)`
+      - 숫자가 입력 되지 않았을 때 ✔
 
 ## 💻 Application `Class Application`
-기본 클래스 객체 생성 & 게임 실행
+기본 클래스 객체 생성 & 게임 실행 ✔
 
 # ****📝 피드백****
 
