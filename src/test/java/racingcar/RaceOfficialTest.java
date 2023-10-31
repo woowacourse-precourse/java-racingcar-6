@@ -3,14 +3,13 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RaceOfficialTest {
-    private final RaceOfficial raceOfficial = new RaceOfficial();
+    private final RaceOfficial official = new RaceOfficial();
 
     private static final List<Car> cars = new ArrayList<>();
     private static final int CAR_SIZE = 3;
@@ -25,12 +24,12 @@ public class RaceOfficialTest {
         }
 
         Car firstCar = cars.get(0);
-        firstCar.moveFowrard();
-        firstCar.moveFowrard();
+        firstCar.moveForward();
+        firstCar.moveForward();
 
         Car secondCar = cars.get(1);
-        secondCar.moveFowrard();
-        secondCar.moveFowrard();
+        secondCar.moveForward();
+        secondCar.moveForward();
 
         winners.add(firstCar);
         winners.add(secondCar);
@@ -38,11 +37,12 @@ public class RaceOfficialTest {
 
     @Test
     void findLongestDistance_최대_거리_찾기() {
-        assertThat(raceOfficial.findLongestDistance(cars)).isEqualTo(longestDistance);
+        assertThat(official.findLongestDistance(cars)).isEqualTo(longestDistance);
     }
 
     @Test
     void findWinners_우승자_찾기() {
-        assertThat(raceOfficial.findWinners(cars)).isEqualTo(winners);
+        int longestDistance = official.findLongestDistance(cars);
+        assertThat(official.findWinners(cars, longestDistance)).isEqualTo(winners);
     }
 }

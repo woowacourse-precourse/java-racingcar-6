@@ -8,9 +8,9 @@ public class CarTest {
     private final Car car = new Car("abc");
 
     @Test
-    void moveFowrard_자동차_전진() {
+    void moveForward_자동차_전진() {
         int pre = car.getDistance();
-        car.moveFowrard();
+        car.moveForward();
 
         assertThat(car.getDistance()).isEqualTo(pre + 1);
     }

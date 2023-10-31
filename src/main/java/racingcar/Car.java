@@ -12,24 +12,26 @@ public class Car {
 
     public void tryToMove() {
         if (canMove()) {
-            moveFowrard();
-        }
-        else {
+            moveForward();
+        } else {
             stop();
         }
     }
 
     public boolean canMove() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
+        int randomNum = Randoms.pickNumberInRange(
+                            Constant.RANDOM_BEGIN,
+                            Constant.RANDOM_END
+                        );
 
-        if (randomNum >= 4) {
+        if (randomNum >= Constant.RANDOM_THRESHOLD) {
             return true;
         } else {
             return false;
         }
     }
 
-    public void moveFowrard() {
+    public void moveForward() {
         distance++;
     }
 
