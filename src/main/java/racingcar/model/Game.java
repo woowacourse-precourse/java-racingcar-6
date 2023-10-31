@@ -20,4 +20,38 @@ public class Game {
         this.messageProcessor = messageProcessor;
     }
 
+    public void play() {
+        messageProcessor.print(MessageFactory.gameEndingMessage);
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < tryCount; i++) {
+            for (Car car : cars) {
+                car.move();
+                result.append(car.getName()).append(" : ").append(car.getMoveResult()).append("\n");
+            }
+            result.append("\n");
+        }
+        result.append(MessageFactory.getWinnerMessage(getWinners()));
+        messageProcessor.print(result.toString());
+    }
+
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
 }
