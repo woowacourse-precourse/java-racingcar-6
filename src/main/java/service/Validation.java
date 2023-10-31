@@ -13,7 +13,7 @@ public class Validation {
     private static final int MAX_NAME_SIZE = 5;
     private static final Pattern timesPattern = Pattern.compile("^[1-9][0-9]*$");
     private static final Pattern spacePattern = Pattern.compile("^\\s*$");
-    private static final Pattern commaPattern = Pattern.compile("^,*$");
+    private static final Pattern commaPattern = Pattern.compile(".*,.*");
     public static void CheckCarNames(List<String> carNames){
         CheckDuplicate(carNames);
         CheckNameCount(carNames);
