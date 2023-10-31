@@ -10,8 +10,9 @@ public class Game {
         System.out.println();
         System.out.println("실행 결과");
         List<Integer> count = new ArrayList<>();
-        for (int i = 0; i < members.size(); i++)
+        for (int i = 0; i < members.size(); i++) {
             count.add(0);
+        }
         for (int i = 0; i < TryNumber; i++) {
             count = moveChecker.checkMoveOrStop(members, count);
             System.out.println();
