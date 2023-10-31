@@ -8,18 +8,18 @@ public class TryCount {
 
     public TryCount(String count) {
         validateCountIsNumber(count);
-        validateCount(count);
+        validateMinTryCount(count);
         this.count = Integer.parseInt(count);
     }
 
-    public void validateCountIsNumber(String count){
-        if(!count.matches("^[0-9]*$")){
+    public void validateCountIsNumber(String count) {
+        if (!count.matches("^[0-9]*$")) {
             throw new IllegalArgumentException(Constants.ERROR_TRY_COUNT_NUM);
         }
     }
 
-    public void validateCount(String count){
-        if(Integer.parseInt(count) < Constants.MIN_TRY_COUNT){
+    public void validateMinTryCount(String count) {
+        if (Integer.parseInt(count) < Constants.MIN_TRY_COUNT) {
             throw new IllegalArgumentException(Constants.ERROR_TRY_COUNT_MIN);
         }
     }

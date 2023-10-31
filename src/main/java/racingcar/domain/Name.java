@@ -15,18 +15,17 @@ public class Name {
         return name;
     }
 
-    public void validateNameNotEmptyOrBlank(String name){
-        if(name.isBlank() || name.isEmpty()){
+    public void validateNameNotEmptyOrBlank(String name) {
+        if (name.isBlank() || name.isEmpty()) {
             throw new IllegalArgumentException(Constants.ERROR_UNKNOWN_NAME);
         }
     }
 
-    public void validateNameLength(String name){
-        if(name.length() > Constants.MAX_NAME_LENGTH){
+    public void validateNameLength(String name) {
+        if (name.length() > Constants.MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(Constants.ERROR_NAME_MAX_LENGTH);
         }
     }
-
 
 
 }

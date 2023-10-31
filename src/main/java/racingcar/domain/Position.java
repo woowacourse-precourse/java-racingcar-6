@@ -8,7 +8,7 @@ public class Position {
         this.position = position;
     }
 
-    public void addPosition(){
+    public void addPosition() {
         position++;
     }
 

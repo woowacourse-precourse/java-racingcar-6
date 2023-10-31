@@ -5,6 +5,8 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
 import racingcar.domain.TryCount;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGame {
     private final OutputView outputView = new OutputView();
@@ -19,11 +21,11 @@ public class RacingGame {
     }
 
     public void init() {
-        outputView.inputCarNames();
+        outputView.printInputCarNames();
         String carNames = inputView.inputCarNames();
         generateCar(carNames);
 
-        outputView.inputTryCount();
+        outputView.printInputTryCount();
         String count = inputView.inputTryCount();
         tryCount = new TryCount(count);
 
@@ -36,7 +38,7 @@ public class RacingGame {
 
 
     public void printWinners() {
-        outputView.winnerOutput(carList.getWinnerNames());
+        outputView.printWinners(carList.getWinnerNames());
     }
 
     public void moveForCount(int tryCount) {
@@ -47,7 +49,7 @@ public class RacingGame {
     }
 
     public void printCarsStatus() {
-        outputView.raceOutput(carList.getCarsStatus());
+        outputView.printCurrentNameAndPosition(carList.getCarsStatus());
     }
 
     public List<Car> generateCar(String carNames) {
