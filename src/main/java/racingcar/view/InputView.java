@@ -9,10 +9,12 @@ public class InputView {
     private static final String TRIALS_UNDER_LOWER_LIMIT_ERROR_MESSAGE = "시도 횟수는 양의 정수여야 합니다";
     private static final String TRIALS_CHARACTER_ERROR_MESSAGE = "시도 횟수에 문자가 포함될 수 없습니다";
     private static final String CAR_NAME_BLANK_ERROR_MESSAGE = "자동차 이름은 공백일 수 없습니다";
+    private static final String CAR_NAME_INPUT_WRONG_MESSAGE = "잘못된 입력입니다";
 
     public List<String> getCarNames() {
         String userInput = getUserInput();
         List<String> userInputList = Arrays.asList(userInput.split(","));
+        validateCarNameListIsNotEmpty(userInputList);
         validateCarNameIsNotBlank(userInputList);
         return userInputList;
     }
@@ -30,6 +32,12 @@ public class InputView {
 
     private String getUserInput() {
         return Console.readLine();
+    }
+
+    private void validateCarNameListIsNotEmpty(List<String> carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException(CAR_NAME_INPUT_WRONG_MESSAGE);
+        }
     }
 
     private void validateCarNameIsNotBlank(List<String> carNames) {
