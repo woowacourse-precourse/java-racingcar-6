@@ -153,6 +153,25 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void validateStringIsDigit_정상처리_테스트() {
+        // given
+        final String case1 = "5";
+        final String case2 = "10";
+
+        // when
+        final Throwable thrown1 = catchThrowable(() -> {
+            Utils.validateStringDigit(case1);
+        });
+        final Throwable thrown2 = catchThrowable(() -> {
+            Utils.validateStringDigit(case2);
+        });
+
+        // then
+        assertThat(thrown1).doesNotThrowAnyException();
+        assertThat(thrown2).doesNotThrowAnyException();
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {

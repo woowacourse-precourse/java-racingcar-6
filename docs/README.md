@@ -13,7 +13,7 @@
 - ✅ getCount 메서드 구현
     - ✅ 시도할 회수 입력받기
         - ✅ `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용해 시도할 회수를 입력받는다.
-        - ✅ validateStringIsDigit 메서드 구현
+        - ✅ validateStringDigit 메서드 구현
             - ✅ 입력된 값이 숫자면 통과
             - ✅ 아니라면 IllegalArgumentException 예외 발생
         - ✅ 문자열을 정수 타입으로 변환하여 반환한다.
