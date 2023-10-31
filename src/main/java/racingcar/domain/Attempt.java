@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Attempt {
     public int getCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇 회인가요?");
         String inputCount = Console.readLine();
 
         return validateAttemptCount(inputCount);
@@ -17,7 +17,7 @@ public class Attempt {
         return countNum;
     }
 
-    private int checkInt(String inputCount) {
+    public int checkInt(String inputCount) {
         try {
             return Integer.parseInt(inputCount);
         } catch (IllegalArgumentException e) {
