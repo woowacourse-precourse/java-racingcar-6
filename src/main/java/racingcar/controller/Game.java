@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
@@ -37,7 +38,9 @@ public class Game {
         }
         for (int attempt = 0; attempt < attemptCount; attempt++) {
             for (Car car : cars) {
-                car.moveForward();
+                if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                    car.moveForward();
+                }
                 System.out.println(car);
             }
         }
