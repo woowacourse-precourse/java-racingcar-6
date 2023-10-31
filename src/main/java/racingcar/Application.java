@@ -26,7 +26,7 @@ public class Application {
     private static List<Car> generateCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesInput = readLine();
-
+        validateCarNames(carNamesInput);
         String[] carNames = carNamesInput.split(",");
 
         List<Car> cars = new ArrayList<>();
@@ -34,6 +34,15 @@ public class Application {
             cars.add(new Car(carName, 0));
         }
         return cars;
+    }
+
+    private static void validateCarNames(String carNamesInput) {
+        String[] carNames = carNamesInput.split(",");
+        for (String carName : carNames) {
+            if (carName.length()>5){
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        }
     }
 
     private static void showProcessingBoard(List<Car> cars, int roundCount) {
