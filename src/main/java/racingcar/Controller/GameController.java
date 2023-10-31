@@ -1,90 +1,89 @@
 package racingcar.Controller;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.Model.Car;
-import racingcar.Model.RandomNumberGenerator;
+import racingcar.Util.InputUtil;
 import racingcar.Util.NameUtil;
-import racingcar.Util.ValidateTryNumber;
-import racingcar.View.InputView;
-import racingcar.View.OutputView;
+import racingcar.Util.NumberUtil;
+import racingcar.Util.OutputUtil;
 
 public class GameController {
+    private static final String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_TIMES = "시도할 회수는 몇회인가요?";
+    private static final String RESULT = "실행 결과";
+    private static final String WINNER_IS = "최종 우승자 : ";
+    private static final String BLANK = "";
+    private static final String MOVE = "-";
+    private static final String BLANK_WITH_COLON = " : ";
+    private static final String BLANK_WITH_COMMA = ", ";
+    private static final int MIN_MOVE_LENGTH = 4;
 
-    String carsName;
-    int tryNumber;
-    List<String> carsNameList;
-    List<Car> cars = new ArrayList<>();
 
-    public void playGame() {
-        inputCarsName();
-        howManyTimesToTry();
-        this.carsNameList = NameUtil.splitName(this.carsName);
-        makeCarsList(this.carsNameList);
-        tryingResult(this.cars);
-        printWinner();
+    public void startGame() {
+        play(makeCarsList(NameUtil.splitName(inputCarsName())), getTimes());
     }
 
-    public void inputCarsName() {
-        InputView.printInputCarsName();
-        this.carsName = Console.readLine();
+    private String inputCarsName() {
+        OutputUtil.println(INPUT_CAR_NAME);
+        String input = InputUtil.readLine();
+        NameUtil.validateNameLength(input);
+        return input;
     }
 
-    public void howManyTimesToTry() {
-        InputView.printHowManyTimesToTry();
-        int inputTryNumber = Integer.parseInt(Console.readLine());
-        ValidateTryNumber.validateTryNumberIsPositive(inputTryNumber);
-        this.tryNumber = inputTryNumber;
+    private int getTimes() {
+        OutputUtil.println(INPUT_TIMES);
+        String input = InputUtil.readLine();
+        NumberUtil.validateNumber(input);
+        return Integer.parseInt(input);
     }
 
-    public void makeCarsList(List<String> carsNameList) {
-        carsNameList.forEach(carName -> this.cars.add(Car.from(carName)));
+    private List<Car> makeCarsList(List<String> carsNameList) {
+        return carsNameList.stream()
+                .map(Car::from)
+                .collect(Collectors.toList());
     }
 
-    public void tryingResult(List<Car> cars) {
-        OutputView.printResult();
-        for (int i = 0; i < this.tryNumber; i++) {
+    private void play(List<Car> cars, int times) {
+        OutputUtil.println(RESULT);
+        for (int i = 0; i < times; i++) {
             moveCars(cars);
             printCarsLocation(cars);
         }
+        printWinner(checkWhoIsWinner(cars));
     }
 
-    public void moveCars(List<Car> cars) {
+    private void moveCars(List<Car> cars) {
         for (Car car : cars) {
             if (canMove()) {
-                // goForward 수정 필요
-                car.goForward(car);
+                car.goForward();
             }
         }
     }
 
-    public boolean canMove() {
-        int randomNumber = RandomNumberGenerator.newInstance().getRandomNumber();
-        return randomNumber > 3;
+    private boolean canMove() {
+        return NumberUtil.create() >= MIN_MOVE_LENGTH;
     }
 
-    public void printCarsLocation(List<Car> cars) {
-        for (Car car : cars) {
-            printCarLocation(car);
-        }
-        System.out.println();
+    private void printCarsLocation(List<Car> cars) {
+        cars.forEach(this::printCarLocation);
+        OutputUtil.println(BLANK);
     }
 
-    public void printCarLocation(Car car) {
-        System.out.print(car.getName() + " : ");
+    private void printCarLocation(Car car) {
+        OutputUtil.print(car.getName() + BLANK_WITH_COLON);
         for (int i = 0; i < car.getLocation(); i++) {
-            System.out.print("-");
+            OutputUtil.print(MOVE);
         }
-        System.out.println();
+        OutputUtil.println(BLANK);
     }
 
-    public void printWinner() {
-        OutputView.printWinner();
-        System.out.print(checkWhoIsWinner(this.cars));
+    private void printWinner(String winner) {
+        OutputUtil.print(WINNER_IS);
+        OutputUtil.print(winner);
     }
 
-    public String checkWhoIsWinner(List<Car> cars) {
+    private String checkWhoIsWinner(List<Car> cars) {
         int maxLocation = cars.stream()
                 .map(Car::getLocation)
                 .max(Integer::compareTo)
@@ -95,6 +94,6 @@ public class GameController {
                 .map(Car::getName)
                 .toList();
 
-        return String.join(", ", winnerCars);
+        return String.join(BLANK_WITH_COMMA, winnerCars);
     }
 }
