@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static racingcar.constants.Delimiters.CAR_NAME_DELIMITER;
-import static racingcar.constants.ErrorMessage.INVALID_CAR_NAME_LENGTH_ERROR;
-import static racingcar.constants.ErrorMessage.INVALID_CAR_RANGE_ERROR;
+import static racingcar.constants.ErrorMessage.*;
 import static racingcar.constants.RacingCarConstants.*;
 
 public class ValidationService {
@@ -34,6 +33,14 @@ public class ValidationService {
             }
         });
 
+    }
+
+    public int validateRoundType(String round) {
+        try {
+            return Integer.parseInt(round);
+        } catch (NumberFormatException e) {
+            throw new RacingCarException(INVALID_ROUND_TYPE_ERROR);
+        }
     }
 
 }
