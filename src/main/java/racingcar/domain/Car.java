@@ -14,7 +14,7 @@ public class Car {
         this.forwardCount = 0L;
     }
 
-    public void tryMove(){
+    public void tryMove() {
         int randomNumber = RandomUtil.getRandomNumber();
         handleMove(randomNumber);
     }
@@ -24,13 +24,13 @@ public class Car {
     }
 
     private void handleMove(int randomNumber) {
-        if(randomNumber>=MOVE_DELIMITER){
+        if (randomNumber >= MOVE_DELIMITER) {
             moveForward();
         }
     }
 
     private void moveForward() {
-        this.forwardCount ++;
+        this.forwardCount++;
     }
 
     public String getName() {

@@ -7,6 +7,6 @@ public class RandomUtil {
     private static final int MAX_VALUE = 9;
 
     public static int getRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_VALUE,MAX_VALUE);
+        return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
     }
 }

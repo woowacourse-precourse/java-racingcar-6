@@ -14,17 +14,18 @@ public class Output {
     private static final String WINNER_DELIMITER = ", ";
 
 
-    public static void askCarName(){
+    public static void askCarName() {
         System.out.println(ASK_CAR_NAME);
     }
 
-    public static void askGameCount(){
+    public static void askGameCount() {
         System.out.println(ASK_GAME_COUNT);
     }
 
-    public static void printRaceResultIntro(){
+    public static void printRaceResultIntro() {
         System.out.println(RACE_RESULT_INTRO);
     }
+
     public static void printCurrentLocation(String name, Long forwardCount) {
         System.out.println(name + " : " + makePointMessage(forwardCount));
     }
