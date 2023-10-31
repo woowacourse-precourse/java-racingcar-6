@@ -19,9 +19,13 @@ public class RacingService {
     public static final int MAX_BIGGER_NUMBER = 4;
     public static final int PICK_MIN_NUMBER = 0;
     public static final int PICK_MAX_NUMBER = 9;
-    private CarRepository carRepository = new CarRepository();
-    private ResultRepository resultRepository = new ResultRepository();
+    private CarRepository carRepository;
+    private ResultRepository resultRepository;
 
+    public RacingService(CarRepository carRepository, ResultRepository resultRepository) {
+        this.carRepository = carRepository;
+        this.resultRepository = resultRepository;
+    }
     public void initializeGame() {
         inputCarName();
     }
