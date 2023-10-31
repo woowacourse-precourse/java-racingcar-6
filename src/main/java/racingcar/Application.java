@@ -13,6 +13,7 @@ public class Application {
         inputCarInformation();
         inputTryCount();
         determineForwardMovementCount();
+        printWinner();
     }
     // 자동차 이름 입력 받기
     static void inputCarInformation() {
@@ -81,6 +82,26 @@ public class Application {
             }
             System.out.printf("%n");
         }
+    }
+
+    // 우승자 출력하기
+    static void printWinner () {
+        int winnerForwardNum = 0;
+        for (int elementForwardCountsList : forwardCountsList) {
+            if (winnerForwardNum < elementForwardCountsList) {
+                winnerForwardNum = elementForwardCountsList;
+            }
+        }
+        int winningCarCount = 0;
+        List<String> winnerList = new ArrayList<>();
+        for (int i = 0; i < forwardCountsList.size(); i++) {
+            if (forwardCountsList.get(i).equals(winnerForwardNum)) {
+                winnerList.add(inputCarNameList.get(i));
+            }
+        }
+        String winnerListToMessage = String.join(", ", winnerList);
+        String winnerMessage = "%n최종 우승자 : " + winnerListToMessage + "%n";
+        System.out.printf(winnerMessage);
     }
 }
 
