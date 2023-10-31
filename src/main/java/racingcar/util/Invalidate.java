@@ -7,16 +7,16 @@ import static racingcar.util.FixedNumber.ASCII_NINE;
 
 public class Invalidate {
     public static void checkNameLength(String[] cars) throws IllegalArgumentException {
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i].length() > 5) {
+        for(String name : cars) {
+            if(name.length() > 5) {
                 throw new IllegalArgumentException("이름의 길이가 다섯 글자가 넘습니다.");
             }
         }
     }
 
     public static void checkNameGap(String[] cars) throws IllegalArgumentException {
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i].contains(" ")) {
+        for(String name : cars) {
+            if(name.contains(" ")) {
                 throw new IllegalArgumentException("이름에 공백이 들어갑니다.");
             }
         }
@@ -25,12 +25,12 @@ public class Invalidate {
     public static void checkNameDuplicate(String[] cars) throws IllegalArgumentException {
         HashSet<String> carList = new HashSet<>();
 
-        for (int i = 0; i < cars.length; i++) {
-            if (carList.contains(cars[i])) {
+        for(String name : cars) {
+            if(carList.contains(name)) {
                 throw new IllegalArgumentException("중복된 이름이 있습니다.");
             }
 
-            carList.add(cars[i]);
+            carList.add(name);
         }
     }
 
