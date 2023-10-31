@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Referee {
@@ -13,5 +14,10 @@ public class Referee {
         }
         return distances;
     }
+
+    public int findMaxDistance(List<Integer> distances) {
+        return Collections.max(distances);
+    }
+
 
 }
