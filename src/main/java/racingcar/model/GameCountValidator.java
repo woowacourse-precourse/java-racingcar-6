@@ -7,7 +7,7 @@ public class GameCountValidator {
     }
 
     private static void isInteger(String gameCount) {
-        if (!gameCount.matches("^-?\\d+$\n")) {
+        if (!gameCount.matches("^[0-9]+$")) {
             throw new IllegalArgumentException("게임 횟수는 숫자만 입력 가능합니다.");
         }
     }
