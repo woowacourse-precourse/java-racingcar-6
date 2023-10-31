@@ -19,4 +19,9 @@ public class Car {
             throw new IllegalArgumentException();
         }
     }
+
+    @Override
+    public String toString() {
+        return this.name + " : " + "-".repeat(this.distance);
+    }
 }
