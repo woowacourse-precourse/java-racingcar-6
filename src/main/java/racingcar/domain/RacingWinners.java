@@ -7,8 +7,12 @@ import java.util.stream.Collectors;
 public class RacingWinners {
     private final List<Car> cars;
 
-    public RacingWinners(List<Car> cars) {
+    private RacingWinners(List<Car> cars) {
         this.cars = Collections.unmodifiableList(cars);
+    }
+
+    public static RacingWinners of(List<Car> carList) {
+        return new RacingWinners(carList);
     }
 
     public List<String> getWinnerNames() {

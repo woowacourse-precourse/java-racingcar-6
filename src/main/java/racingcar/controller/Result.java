@@ -8,8 +8,12 @@ import racingcar.dto.output.WinnerDTO;
 public class Result {
     private final RacingWinners racingWinners;
 
-    public Result(RacingWinners racingWinners) {
+    private Result(RacingWinners racingWinners) {
         this.racingWinners = racingWinners;
+    }
+
+    public static Result of(RacingWinners racingWinners) {
+        return new Result(racingWinners);
     }
 
     public WinnerDTO announce() {

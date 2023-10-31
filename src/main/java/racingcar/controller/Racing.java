@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.common.strategy.MoveStrategy;
 import racingcar.common.type.TrialCount;
 import racingcar.dto.output.AllRoundDTO;
 import racingcar.dto.output.WinnerDTO;
@@ -11,7 +10,11 @@ public class Racing {
     private final Game game;
     private final Result result;
 
-    public Racing(Game game, Result result) {
+    public static Racing of(Game game, Result result) {
+        return new Racing(game, result);
+    }
+
+    private Racing(Game game, Result result) {
         this.game = game;
         this.result = result;
     }

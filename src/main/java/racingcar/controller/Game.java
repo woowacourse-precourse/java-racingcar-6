@@ -1,18 +1,21 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 import racingcar.common.factory.DTOFactory;
-import racingcar.common.strategy.MoveStrategy;
 import racingcar.common.type.TrialCount;
 import racingcar.domain.RacingCars;
 import racingcar.dto.output.AllRoundDTO;
-import java.util.List;
 
 public class Game {
     private final RacingCars racingCars;
 
-    public Game(RacingCars racingCars) {
+    private Game(RacingCars racingCars) {
         this.racingCars = racingCars;
+    }
+
+    public static Game of(RacingCars racingCars) {
+        return new Game(racingCars);
     }
 
     public List<AllRoundDTO> play(TrialCount trialCount) {

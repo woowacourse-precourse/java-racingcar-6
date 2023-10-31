@@ -1,10 +1,8 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.common.factory.GameComponentFactory;
 import racingcar.common.strategy.MoveStrategy;
 import racingcar.common.type.Names;
-import racingcar.common.type.TrialCount;
 import racingcar.controller.Game;
 import racingcar.controller.Racing;
 import racingcar.controller.Result;
@@ -16,46 +14,45 @@ import racingcar.view.InputView;
 
 public class GameLauncher {
     public static void run() {
-        //사용자 입력
-        InputDTO userInput = getUserInput();
+        InputDTO userInput = InputView.readUserInput();
 
-        //각종 객체 초기화
-        List<Car> carList = generateCars(userInput);
+        Racing racing = initializeRacingGame(userInput);
+
+        racing.start(userInput.trialCount());
+    }
+
+    private static Racing initializeRacingGame(InputDTO userInput) {
+        //자동자 리스트 생성 및 움직임 전략 생성
+        List<Car> carList = createCarList(userInput.names());
         MoveStrategy moveStrategy = initializeMoveStrategy();
-        Game game = initializeGame(carList, moveStrategy);
-        Result result = initializeResult(carList);
-        Racing racing = startRacing(game, result);
 
-        //레이싱 시작
-        TrialCount trialCount = userInput.trialCount();
-        racing.start(trialCount);
+        //도메인 객체(일급 컬렉션) 생성
+        RacingCars racingCars = createRacingCars(carList, moveStrategy);
+        RacingWinners racingWinners = createRacingWinners(carList);
+
+        //레이싱 객체 생성
+        return createRacing(racingCars, racingWinners);
+    }
+
+    private static List<Car> createCarList(Names names) {
+        return Car.createCarList(names);
     }
 
     private static MoveStrategy initializeMoveStrategy() {
-        return GameComponentFactory.createMoveStrategy();
+        return MoveStrategy.of();
     }
 
-    private static InputDTO getUserInput() {
-        return InputView.readUserInput();
+    private static RacingCars createRacingCars(List<Car> carList, MoveStrategy moveStrategy) {
+        return RacingCars.of(carList, moveStrategy);
     }
 
-    private static List<Car> generateCars(InputDTO userInput) {
-        Names names = userInput.names();
-        return GameComponentFactory.createCarList(names);
+    private static RacingWinners createRacingWinners(List<Car> carList) {
+        return RacingWinners.of(carList);
     }
 
-    private static Game initializeGame(List<Car> carList, MoveStrategy moveStrategy) {
-        RacingCars racingCars = GameComponentFactory.createRacingCars(carList, moveStrategy);
-
-        return GameComponentFactory.createGame(racingCars);
-    }
-
-    private static Result initializeResult(List<Car> carList) {
-        RacingWinners racingWinners = GameComponentFactory.createRacingWinners(carList);
-        return GameComponentFactory.createResult(racingWinners);
-    }
-
-    private static Racing startRacing(Game game, Result result) {
-        return GameComponentFactory.createRacing(game, result);
+    private static Racing createRacing(RacingCars racingCars, RacingWinners racingWinners) {
+        Game game = Game.of(racingCars);
+        Result result = Result.of(racingWinners);
+        return Racing.of(game, result);
     }
 }

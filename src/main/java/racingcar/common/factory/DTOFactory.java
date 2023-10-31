@@ -12,6 +12,10 @@ import racingcar.dto.output.WinnerDTO;
 
 public class DTOFactory {
 
+    private DTOFactory() {
+        throw new AssertionError();
+    }
+
     // AllRoundDTO를 생성하는 public 메서드
     public static AllRoundDTO createAllRoundDTO(List<Car> cars) {
         return new AllRoundDTO(carsToRoundDTOs(cars));
@@ -34,9 +38,5 @@ public class DTOFactory {
     // RoundDTO를 생성하는 private 메서드
     private static RoundDTO carToRoundDTO(Car car) {
         return new RoundDTO(car.getName(), car.getDistance());
-    }
-
-    private DTOFactory() {
-        throw new AssertionError();
     }
 }
