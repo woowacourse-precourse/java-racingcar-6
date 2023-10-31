@@ -21,8 +21,9 @@ public class Game {
 
     private void setRace() { //레이스 세팅
         List<String> carNameList = makeCarNameList();
+        int raceRounds = Integer.parseInt(Input.inputRounds());
         race.setCarList(carNameList);
-        race.setRaceRounds();
+        race.setRaceRounds(raceRounds);
     }
 
     private List<String> makeCarNameList() {
@@ -33,7 +34,8 @@ public class Game {
     }
 
     private void runRace(){ //각 라운드 시작
-        while (race.isRaceFinished()) {
+        Output.printRaceStart();
+        while (!race.isRaceFinished()) {
             race.playOneRound();
             printRoundResult(race.getCarList());
         }

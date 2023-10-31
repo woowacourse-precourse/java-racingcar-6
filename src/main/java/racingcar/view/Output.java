@@ -15,6 +15,6 @@ public class Output {
     }
 
     public static void printRaceResult(List<String> carNames){
-        System.out.println("\n최종 우승자 : " + String.join(", ", carNames));
+        System.out.println("최종 우승자 : " + String.join(", ", carNames));
     }
 }
