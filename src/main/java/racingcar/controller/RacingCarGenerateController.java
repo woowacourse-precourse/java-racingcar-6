@@ -6,20 +6,21 @@ import racingcar.model.CarRepository;
 public class RacingCarGenerateController {
     private CarRepository carRepository = CarRepository.getInstance();
     static final int NAME_LENGTH = 5;
-    private String[] nameArr;
 
     public void generateCar(String inputName) {
+        String[] nameArr;
+
         checkNull(inputName);
-        splitNames(inputName);
-        setCarList();
+        nameArr = splitNames(inputName);
+        checkLength(nameArr);
+        setCarList(nameArr);
     }
 
-    void splitNames(String t) {
-        nameArr = t.split(",");
-        checkLength();
+    String[] splitNames(String t) {
+        return t.split(",");
     }
 
-    void setCarList() {
+    void setCarList(String[] nameArr) {
         for (String s : nameArr)
             carRepository.insertCar(new Car(s, 0));
     }
@@ -34,7 +35,7 @@ public class RacingCarGenerateController {
         if (s.equals("\n")) throw new IllegalArgumentException();
     }
 
-    void checkLength() {
+    void checkLength(String[] nameArr) {
         for (String name : nameArr)
             if (name.length() > NAME_LENGTH) throw new IllegalArgumentException();
     }
