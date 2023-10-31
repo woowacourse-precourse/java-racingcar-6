@@ -6,6 +6,7 @@ import racingcar.service.CarFactoryService;
 import racingcar.service.RaceService;
 import racingcar.service.ValidationService;
 import racingcar.view.InputView;
+import racingcar.view.ResultView;
 
 import java.util.List;
 
@@ -26,6 +27,11 @@ public class RaceController {
         validationService.validateRoundRange(rounds);
         List<Car> cars = CarFactoryService.createCars(carNames);
         return new Race(cars, rounds);
+    }
+
+    private void playRace(Race race) {
+        raceService.executeRace(race);
+        ResultView.printRoundResult(race.getCars());
     }
 
 }
