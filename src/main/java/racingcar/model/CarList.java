@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.util.Utils;
 import racingcar.validator.CarNameValidator;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +27,16 @@ public class CarList {
     }
 
     public void printRoundResult(CarList carList) {
-        carList.cars.stream().forEach(car -> car.printRoundResult());
+        OutputView.printRoundResult(carList.cars.stream()
+                .map(Car::getRoundResult)
+                .collect(Collectors.toList()));
     }
 
     public void printFinalResult(CarList carList) {
        int maxDistance = Utils.getMaxDistance(carList.cars);
-        String winners = cars.stream()
-                .filter(car -> car.isWinner(maxDistance))
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        System.out.println("최종 우승자 : " + winners);
+       OutputView.printWinner(cars.stream()
+               .filter(car -> car.isWinner(maxDistance))
+               .map(Car::getName)
+               .collect(Collectors.joining(", ")));
     }
 }

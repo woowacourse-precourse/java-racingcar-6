@@ -17,9 +17,8 @@ public class Car {
         }
     }
 
-    public void printRoundResult() {
-        String totalDistance = Utils.convertDistanceToSymbol(distance);
-        System.out.println(name + " : " + totalDistance);
+    public String getRoundResult() {
+        return name + " : " + Utils.convertDistanceToSymbol(distance);
     }
 
     public int getDistance() {
