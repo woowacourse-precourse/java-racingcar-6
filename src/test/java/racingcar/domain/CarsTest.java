@@ -46,9 +46,20 @@ public class CarsTest extends NsTest {
         assertEquals(cars.getCarList().size(), 3);
     }
 
+    @Test
+    @DisplayName("moveCars 함수 테스트")
+    void 자동차_이동_기능_테스트() {
+        assertRandomNumberInRangeTest(() -> {
+            Cars cars = Cars.from(carNames1);
+            cars.moveCars();
+            assertEquals(cars.getCarList().get(0).getPosition(), 1);
+            assertEquals(cars.getCarList().get(1).getPosition(), 1);
+            assertEquals(cars.getCarList().get(2).getPosition(), 0);
+        }, MOVING_FORWARD, MOVING_FORWARD, STOP);
+    }
+
     @Override
     protected void runMain() {
 
     }
 }
-트
