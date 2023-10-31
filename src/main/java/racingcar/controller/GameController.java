@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.io.Input;
+import racingcar.io.OutPut;
 import racingcar.service.GameService;
 
 public class GameController {
@@ -20,12 +21,12 @@ public class GameController {
         System.out.println(EXECUTION_RESULT);
         while (!racingGame.isFinalRound()) {
             GameService.playSingleRound(racingGame);
-            //각 라운드 종료후 게임 결과 출력 기능 추가
+            OutPut.resultSingleRound(racingGame);
         }
     }
 
     public void endGame() {
         List<Car> winners = GameService.getWinners(racingGame.getCars());
-        //우승자 출력 기능 추가
+        OutPut.winner(winners);
     }
 }
