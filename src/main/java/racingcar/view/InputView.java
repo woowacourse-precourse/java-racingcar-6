@@ -11,7 +11,7 @@ public class InputView {
 
         String carNames = readLine();
 
-        if (carNames.matches(REGULAR_EXP_CAR_NAMES)) {
+        if (!carNames.matches(REGULAR_EXP_CAR_NAMES)) {
             throw new IllegalArgumentException("[ERROR] 입력 형식이 올바르지 않습니다.");
         }
 
@@ -20,6 +20,7 @@ public class InputView {
 
     public static int getAttemptCount() {
         try {
+            System.out.println("시도할 회수는 몇회인가요?");
             return Integer.parseInt(readLine());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자만 입력할 수 있습니다.");
