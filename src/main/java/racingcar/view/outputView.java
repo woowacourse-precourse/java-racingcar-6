@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.model.Player;
+
 public class outputView {
 
     private static final String REQUEST_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -17,5 +20,15 @@ public class outputView {
 
     public void gameResult() {
         System.out.print(GAME_RESULT);
+    }
+
+    public void showNowPlayerLocation(List<Player> playerList) {
+        for (Player player : playerList) {
+            System.out.print(player.getName() + " : ");
+            for (int i = 0; i < player.getLocation(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 }

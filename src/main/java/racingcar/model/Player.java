@@ -8,4 +8,12 @@ public class Player {
         this.name = name;
         this.location = location;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getLocation() {
+        return this.location;
+    }
 }
