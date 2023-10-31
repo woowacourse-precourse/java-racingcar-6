@@ -35,14 +35,26 @@ public class RacingGame implements GameInterface{
     }
 
     private void competing( int time, final Cars cars) {
+        printRaceResult();
+        competeIteration(time, cars);
+    }
+
+    private static void printRaceResult() {
         Printer.switchLine();
         Printer.raceResult();
+    }
+
+    private void competeIteration(int time, Cars cars) {
         while(isCounting(time)){
-            racing.race(cars);
-            output.showPlaying(new CarsOutputDto(cars));
-            System.out.println();
+            oneTimeCompeting(cars);
             time--;
         }
+    }
+
+    private void oneTimeCompeting(Cars cars) {
+        racing.race(cars);
+        output.showPlaying(new CarsOutputDto(cars));
+        Printer.switchLine();
     }
 
     private static boolean isCounting(final int time) {
