@@ -8,6 +8,15 @@ public class RacingCar {
         this.carName = carName;
     }
 
+    // getter 메소드
+    public String getCarName() {
+        return carName;
+    }
+
+    public String getProgress() {
+        return progress;
+    }
+
     // 한 칸 전진
     public void plusProgress() {
         progress += "-";

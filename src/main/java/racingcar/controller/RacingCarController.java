@@ -20,6 +20,15 @@ public class RacingCarController {
         startGame(racingCarList, iter);
     }
 
+    // 실행 결과 출력
+    private void printResult(List<RacingCar> racingCarList) {
+        for (int carNum = 0; carNum < racingCarList.size(); carNum++) {
+            System.out.println(
+                    racingCarList.get(carNum).getCarName() + " : " + racingCarList.get(carNum).getProgress());
+        }
+        System.out.println();
+    }
+
     // 확률 계산 및 판단
     private void calculateMovement(RacingCar racingCar) {
         int randNum = Randoms.pickNumberInRange(0, 9);
@@ -31,11 +40,17 @@ public class RacingCarController {
 
     // 게임 진행
     public void startGame(List<RacingCar> racingCarList, int iter) {
+        System.out.println("\n실행 결과");
+
         // 시도 횟수만큼 반복
         for (int i = 0; i < iter; i++) {
+            // 각 자동차 전진 OR 멈춤 수행
             for (int carNum = 0; carNum < racingCarList.size(); carNum++) {
                 calculateMovement(racingCarList.get(carNum));
             }
+
+            // 실행 결과 출력
+            printResult(racingCarList);
         }
     }
 }
