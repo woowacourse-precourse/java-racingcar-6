@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,10 +14,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
     private Car car;
+    private InputStream inputCarNames;
 
     @BeforeEach
     void setUp() {
         car = new Car();
+        inputCarNames = System.in;
+    }
+
+    @Test
+    @DisplayName("입력된 자동차 이름을 정상적으로 반환")
+    void successGetNames() {
+        String input = "pobi,woni,jun";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        List<String> expected = List.of("pobi", "woni", "jun");
+        List<String> result = car.getNames();
+
+        assertEquals(expected, result);
     }
 
     @Test
