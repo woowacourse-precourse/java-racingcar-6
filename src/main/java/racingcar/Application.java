@@ -22,6 +22,25 @@ public class Application {
             throw new IllegalArgumentException("잘못 입력하셨습니다.");
         }
 
+        race(carNames, count);
+    }
+
+    public static void race(String[] carNames, int count) {
+        int carCount = carNames.length;
+        int[] carPositions = new int[carCount];
+
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for(int i = 0; i < count; i++) {
+            updateCarMoves(carNames, carPositions);
+
+            for(int j = 0; j < carCount; j++) {
+                printRace(carNames[j], carPositions[j]);
+            }
+            System.out.println();
+        }
+        findWinners(carNames, carPositions);
     }
 
     public static void updateCarMoves(String[] carNames, int[] carPositions) {
