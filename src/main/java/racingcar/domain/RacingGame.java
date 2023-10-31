@@ -21,6 +21,10 @@ public class RacingGame {
         }
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public void playGame() {
         GameOutput gameOutput = new GameOutput();
         gameOutput.initialize();
