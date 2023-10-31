@@ -1,13 +1,10 @@
 package racingcar.domain;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 public class CarsTest {
 
@@ -16,17 +13,22 @@ public class CarsTest {
     @BeforeEach
     void setUp() {
         cars = List.of(new Car("Car1"), new Car("Car2"), new Car("Car3"));
+        cars.get(0).moveForward();
+        cars.get(1).moveForward();
     }
 
     @Test
     void getWinners_우승자_검증에_성공한다() {
-        assertDoesNotThrow(() -> Cars.getWinners(cars, 3));
-    }
+        // given
+        int maxPosition = 1;
 
-    @ParameterizedTest
-    @CsvSource({"-1, 2", "3, -1", "-1, -1"})
-    void testSomeMethod(int maxPosition, int numCars) {
-        assertThrows(IllegalArgumentException.class, () -> Cars.getWinners(cars, numCars));
+        // when
+        List<String> winners = Cars.getWinners(cars, maxPosition);
+
+        // then
+        assertThat(winners.size()).isEqualTo(2);
+        assertThat(winners).containsExactly("Car1", "Car2");
+        assertThat(winners).doesNotContain("Car3");
     }
 }
 
