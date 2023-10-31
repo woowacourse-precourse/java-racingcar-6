@@ -18,4 +18,9 @@ public class Car {
         // TODO: 상수 선언
         this.score += 0;
     }
+
+    public String getCarName(){
+        // TODO: getter 사용 지양
+        return this.name;
+    }
 }
