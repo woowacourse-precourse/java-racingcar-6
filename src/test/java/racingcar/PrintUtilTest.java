@@ -17,15 +17,17 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.MessageConst.WINNER_MESSAGE;
+import static racingcar.MessageConst.*;
 import static racingcar.PrintUtil.*;
 
 class PrintUtilTest {
 
     private static OutputStream out;
+    private StringBuilder expectedResult;
 
     @BeforeEach
     void setUp() {
+        expectedResult = new StringBuilder();
         out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
     }
@@ -42,17 +44,36 @@ class PrintUtilTest {
 
         String expectedResult = generateGameResult(result);
 
-        assertThat(out.toString().replace(System.lineSeparator(), "\n")).isEqualTo(expectedResult);
+    @ParameterizedTest
+    @MethodSource("provideOneWinner")
+    void 게임_우승자_한명_출력(Map<String, String> result, List<String> winner) {
+        printWinnerMsg(result, winner);
+
+        expectedResult.append("최종 우승자 : woni");
+
+        assertThat(out.toString()).isEqualTo(expectedResult.toString());
     }
 
     @ParameterizedTest
-    @MethodSource("provideWinner")
-    void 게임_우승자_출력(Map<String, String> result, List<String> winner) {
+    @MethodSource("provideTwoWinner")
+    void 게임_우승자_두명_출력(Map<String, String> result, List<String> winner) {
         printWinnerMsg(result, winner);
 
-        String expectedWinner = generateWinnerReuslt(result, winner);
+        StringBuilder expectedResult = new StringBuilder();
+        expectedResult.append("최종 우승자 : pobi, woni");
 
-        assertThat(out.toString().replace(System.lineSeparator(), "\n")).isEqualTo(expectedWinner.toString());
+        assertThat(out.toString()).isEqualTo(expectedResult.toString());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideThreeWinner")
+    void 게임_우승자_세명_출력(Map<String, String> result, List<String> winner) {
+        printWinnerMsg(result, winner);
+
+        StringBuilder expectedResult = new StringBuilder();
+        expectedResult.append("최종 우승자 : pobi, woni, jun");
+
+        assertThat(out.toString()).isEqualTo(expectedResult.toString());
     }
 
     private static String generateGameResult(Map<String, String> result) {
