@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class RacingRacingRoundCountValidatorTest {
+public class RacingRoundCountValidatorTest {
 
     @Test
     void 입력받은_레이싱_경기_횟수_숫자_성공() {
