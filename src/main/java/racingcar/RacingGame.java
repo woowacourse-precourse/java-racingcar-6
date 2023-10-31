@@ -6,6 +6,7 @@ import java.util.List;
 
 public class RacingGame {
     private List<Racer> racers;
+    private int timesOfTurn;
 
     public RacingGame() {
         String racerNames = Console.readLine();
@@ -16,6 +17,14 @@ public class RacingGame {
         List<String> racerNameList = sanitizeRacerNames(racerNames);
 
         this.racers = racerNameList.stream().map(Racer::new).toList();
+
+        String turnInput = Console.readLine();
+
+        try {
+            this.timesOfTurn = Integer.parseInt(turnInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("illegal number");
+        }
 
         Console.close();
     }
