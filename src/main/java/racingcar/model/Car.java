@@ -28,6 +28,11 @@ public class Car {
         return Randoms.pickNumberInRange(0,9);
     }
 
+    public String getRoundResult(){
+        return name + " : " + getConcatenatedPosition();
+    }
 
-
+    private String getConcatenatedPosition(){
+        return String.join("", position);
+    }
 }

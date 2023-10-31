@@ -1,6 +1,7 @@
 package racingcar.controller;
 
-import racingcar.model.Cars;
+import racingcar.model.Car;
+import racingcar.model.CarManager;
 import racingcar.view.RacingCarView;
 
 public class RacingCarController {
@@ -12,12 +13,22 @@ public class RacingCarController {
     }
 
     public void play(){
-        Cars cars = new Cars();
+        CarManager carManager = new CarManager();
         String carNames = racingCarView.promptForNames();
-        cars.setNames(carNames);
-
+        carManager.setNames(carNames);
         Integer totalRounds = Integer.parseInt(racingCarView.promptForNumbers());
+        startRace(totalRounds, carManager);
+    }
 
+    private void startRace(Integer totalRounds, CarManager carManager){
+        racingCarView.printRaceStart();
+        for (int i = 0; i < totalRounds; i++) {
+            for (Car car : carManager.cars) {
+                car.moveForward();
+                racingCarView.printRoundResult(car);
+            }
+            racingCarView.printEmptyLine();
+        }
     }
 
 
