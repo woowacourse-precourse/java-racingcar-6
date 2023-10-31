@@ -15,6 +15,7 @@ public class ValidException {
     private static final String KOREAN_ENGLISH_REGEX = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*";
     private static final String SPECIAL_CHARACTER_REGEX = ".*[!@#$%^&*().?\":{}|<>].*";
     private static final String NOTING_STRING = "";
+    private static final Integer POSITIVE_CONDITION_ZERO = 0;
 
     public static Boolean lessFIveLen(String strLine) {
         int len = strLine.length();
@@ -55,7 +56,7 @@ public class ValidException {
 
     public static void negative(String strLine) {
         Integer inputNum = Integer.valueOf(strLine);
-        if (inputNum < 0) {
+        if (inputNum < POSITIVE_CONDITION_ZERO) {
             throw new IllegalArgumentException(ValidConstants.MSG_NOT_POSITIVE_NUM());
         }
     }
