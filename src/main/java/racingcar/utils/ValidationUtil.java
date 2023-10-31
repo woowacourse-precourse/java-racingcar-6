@@ -16,7 +16,7 @@ public class ValidationUtil {
     }
 
     public static void racingCarValidator(String input) {
-        if (isEmpty(input)) {
+        if (input.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.EMPTY_ERROR_MESSAGE);
         }
         if(!isInMaxLength(input)){
@@ -43,7 +43,7 @@ public class ValidationUtil {
     }
 
     public static void attemptValidator(String input) {
-        if (isEmpty(input)) {
+        if (input.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.EMPTY_ERROR_MESSAGE);
         }
         if(!isNumber(input)) {
@@ -54,10 +54,6 @@ public class ValidationUtil {
             throw new IllegalArgumentException(
                     String.format(ErrorMessage.LESS_THAN_MIN_COUNT_ERROR_MESSAGE, MIN_ATTEMPT_COUNT));
         }
-    }
-
-    private static boolean isEmpty(String input){
-        return input.length() == 0;
     }
 
     private static boolean isInMaxLength(String input) {
