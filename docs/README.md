@@ -24,6 +24,93 @@
       - 우승자가 여러 명이면 쉼표를 구분자로 해 모두 출력
 
 
+## 📂 패키지 구조
+
+```
+racingcar
+├── constants
+│   └── Delimiters.java
+│   └── ViewMessages.java
+│   └── RacingcarConstants.java
+│   └── ErrorMessage.java
+├── controller
+│   └── RaceController.java
+├── exception
+│   └── RacingCarException.java
+├── model
+│   └── Car.java
+│   └── Race.java
+├── service
+│   └── CarFactoryService.java
+│   └── RaceService.java
+│   └── RandomNumberService.java
+│   └── ValidationService.java
+├── view
+│   ├── InputView.java
+│   └── ResultView.java
+└── Application.java
+
+```   
+
+
+### constants
+- `Delimiters` : 구분자를 정의한다.
+- `RacingCarConstants`: 게임과 관련된 상수 값들을 정의한다.
+- `ErrorMessages`: 예외 처리와 관련된 에러 메시지를 정의한다.
+- `ViewMessages` : 출력 메시지를 정의한다.  
+
+
+
+### controller
+- `RaceController`
+    - `startGame()`: 게임을 시작한다.
+    - `getRaceInput()`: 사용자로부터 게임에 필요한 입력을 받는다.
+    - `playRace()`: 레이스를 실행한다.
+    - `endRace()`: 레이스 결과를 출력하고 게임을 종료한다.
+
+
+### exception
+- `RacingCarException`: `IllegalException`을 상속받으며 ErrorMessages 를 매개변수로 받아 에러 메시지를 출력
+
+### model
+- `Car`: 자동차의 이름과 위치를 저장한다.
+
+- `Race`: 매 라운드에서 자동차의 움직임(전진)을 관리한다.
+
+
+### service
+- `RaceService`:
+    - `executeRace(race: Race)`: 레이스를 실행합니다. 이 메서드에서 각 라운드별로 자동차의 이동을 관리
+    - `findWinners(race: Race)`: 레이스의 우승자를 찾는다.
+
+
+- `RandomNumberService`
+    - `generateRandomNumber()`: 주어진 범위 내에서 랜덤한 숫자를 생성한다.
+
+
+- `ValidationService`
+    - `validateCarNames(names: List<String>)`: 입력 받은 자동차 이름의 유효성을 검사한다.
+    - `validateCarsRange(cars: String)`: 입력 받은 자동차의 범위의 유효성을 검사한다.
+    - `validateRoundType(round: String)`: 입력 받은 라운드 수가 int가 맞는지 검사한다.
+    - `validateRoundRange(round: Int)`: 입력 받은 라운드 수의 범위의 유효성을 검사한다.
+
+    
+- `CarFactoryService` : List<String>을 List<Car>로 변환한다.
+
+
+### view
+
+- `InputView`
+    - `getCarNames()`: 사용자로부터 자동차 이름을 입력 받는다.
+    - `getRounds()`: 사용자로부터 라운드 수를 입력 받는다.
+
+
+- `ResultView`
+    - `printRoundResult(cars: List<Car>)`: 각 라운드별 레이스 결과를 출력한다.
+    - `printWinners(winners: List<Car>)`: 레이스의 우승자를 출력한다.
+
+
+
 # 🎯 프로그래밍 요구 사항
 - **indent**
     - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
