@@ -17,4 +17,12 @@ class CreateCarTest {
                 .hasMessage("자동차 이름은 1자 이상이어야 합니다.");
     }
 
+    @Test
+    void 자동차_이름이_null인_경우_예외가_발생한다() {
+        CreateCar createCar = new CreateCar();
+        assertThatThrownBy(() -> createCar.validateCarNameNotEmpty(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 1자 이상이어야 합니다.");
+    }
+
 }
