@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class RaceController {
 
@@ -50,19 +51,15 @@ public class RaceController {
         outputView.printWinner(winner);
     }
 
-    private Cars generateCars(List<String> carsName) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carsName) {
-            Car car = new Car(carName);
-            cars.add(car);
-        }
+    private Cars generateCars(String carsName) {
+        List<Car> cars = Arrays.stream(carsName.split(DELIMITER))
+                .map(Car::new).collect(Collectors.toList());
         return new Cars(cars);
     }
 
-    public List<String> getCarsName() {
+    public String getCarsName() {
         outputView.printInputCarsName();
-        String stringNames = inputView.inputName();
-        return Arrays.stream(stringNames.split(DELIMITER)).toList();
+        return inputView.inputName();
     }
 
     private int getTryNumber() {
@@ -76,7 +73,7 @@ public class RaceController {
 
     private static void validateNumeric(String tryNumber) {
         Matcher matcher = Pattern.compile(NUMERIC_REGX).matcher(tryNumber);
-        if(!matcher.matches())
+        if (!matcher.matches())
             throw new IllegalArgumentException("숫자가 아님");
     }
 
