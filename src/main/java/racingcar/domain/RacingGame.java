@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import static racingcar.constant.RacingGameConstant.ATTEMPT_NUMBER;
+import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_END_INCLUSIVE;
+import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_START_INCLUSIVE;
 
 import java.util.List;
 import racingcar.domain.random.RandomNumberFactory;
@@ -22,7 +24,7 @@ public class RacingGame {
 
     private void move(List<RacingCar> cars) {
         cars.forEach(racingCar -> {
-            racingCar.race(randomNumberFactory.create(0, 9));
+            racingCar.race(randomNumberFactory.create(RANDOM_NUMBER_START_INCLUSIVE, RANDOM_NUMBER_END_INCLUSIVE));
         });
     }
 

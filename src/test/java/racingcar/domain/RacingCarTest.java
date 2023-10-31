@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_END_INCLUSIVE;
+import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_START_INCLUSIVE;
 import static racingcar.constant.RacingGameConstant.START_POSITION;
 import static racingcar.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
 
@@ -49,7 +51,7 @@ public class RacingCarTest {
         MoveCondition moveCondition = new MoveCondition();
         RacingCar racingCar = new RacingCar("tobi", moveCondition);
         RandomNumberFactory randomNumberFactory = new RandomNumberFactory(new DoubleRandomService(given));
-        int randomNumber = randomNumberFactory.create(0, 9);
+        int randomNumber = randomNumberFactory.create(RANDOM_NUMBER_START_INCLUSIVE, RANDOM_NUMBER_END_INCLUSIVE);
 
         // when
         racingCar.race(randomNumber);
@@ -66,7 +68,7 @@ public class RacingCarTest {
         MoveCondition moveCondition = new MoveCondition();
         RacingCar racingCar = new RacingCar("tobi", moveCondition);
         RandomNumberFactory randomNumberFactory = new RandomNumberFactory(new DoubleRandomService(given));
-        int randomNumber = randomNumberFactory.create(0, 9);
+        int randomNumber = randomNumberFactory.create(RANDOM_NUMBER_START_INCLUSIVE, RANDOM_NUMBER_END_INCLUSIVE);
 
         // when
         racingCar.race(randomNumber);

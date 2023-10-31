@@ -1,10 +1,13 @@
 package racingcar.domain.random;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_END_INCLUSIVE;
+import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_START_INCLUSIVE;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.constant.RacingGameConstant;
 
 public class RandomNumberFactoryTest {
 
@@ -16,7 +19,7 @@ public class RandomNumberFactoryTest {
         RandomNumberFactory randomNumberFactory = new RandomNumberFactory(new DoubleRandomService(given));
 
         // when
-        int result = randomNumberFactory.create(0, 9);
+        int result = randomNumberFactory.create(RANDOM_NUMBER_START_INCLUSIVE, RANDOM_NUMBER_END_INCLUSIVE);
 
         // then
         assertThat(result).isEqualTo(given);
