@@ -5,6 +5,7 @@ import java.util.List;
 public class RaceGame {
     private String inputCarName;
     private List<String> carNames;
+    private int raceNumber;
 
     public void setInputCarName(String inputCarName) {
         this.inputCarName = inputCarName.replaceAll(" ", "");
@@ -20,5 +21,13 @@ public class RaceGame {
 
     public List<String> getCarNames() {
         return carNames;
+    }
+
+    public void setRaceNumber(int raceNumber) {
+        this.raceNumber = raceNumber;
+    }
+
+    public int getRaceNumber() {
+        return raceNumber;
     }
 }

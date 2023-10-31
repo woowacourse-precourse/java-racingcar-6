@@ -14,7 +14,8 @@ public class GameController {
     public void startGame() {
         raceGame.setInputCarName(inputView.enterCarName());
         saveCarNames();
-        System.out.println(inputView.enterRaceNumber());
+        raceGame.setRaceNumber(Integer.parseInt(inputView.enterRaceNumber()));
+        System.out.println(raceGame.getRaceNumber());
     }
 
     public void saveCarNames() {
