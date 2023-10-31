@@ -1,13 +1,21 @@
 package racingcar.util;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class CarNameValidator {
 
     private final static String CAR_NAME_LENGTH_ERROR = "자동차의 이름은 5글자 이하로 입력해야 합니다.";
     private final static int MAX_CAR_NAME_LENGTH = 5;
 
-    public static String[] validateCarNames(String input) {
-        String[] carNames = splitCarNames(input);
-        isLengthValid(carNames);
+    public static List<String> validateCarNames(String input) {
+
+        List<String> carNames = Arrays.asList(splitCarNames(input));
+
+        if(!isNameLengthValid(carNames)){
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
+        }
         return carNames;
     }
 
@@ -15,12 +23,14 @@ public class CarNameValidator {
         return input.split(",");
     }
 
-    private static void isLengthValid(String[] carNames) {
+    private static boolean isNameLengthValid(List<String> carNames) {
 
         for (String carName : carNames) {
             if (carName.length() >= MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
+                return false;
             }
         }
+        return true;
     }
+
 }

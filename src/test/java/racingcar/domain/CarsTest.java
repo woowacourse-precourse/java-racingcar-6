@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.*;
 import org.mockito.MockedStatic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -27,7 +28,11 @@ public class CarsTest {
 
     @BeforeEach
     void init(){
-        String[] carNames = {"car1", "car2", "car3"};
+        List<String> carNames = new ArrayList<>();
+        carNames.add("car1");
+        carNames.add("car2");
+        carNames.add("car3");
+
         cars = new Cars(carNames);
     }
 

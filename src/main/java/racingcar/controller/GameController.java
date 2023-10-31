@@ -9,7 +9,7 @@ import java.util.List;
 public class GameController {
 
     public void playGame() {
-        String[] carNames = InputView.readCarNames();
+        List<String> carNames = InputView.readCarNames();
         int attemptCount = InputView.readAttemptCount();
         Cars cars = new Cars(carNames);
         OutputView.printResultLabel();
