@@ -16,11 +16,7 @@ class RaceTest {
     void registerRacer로_레이서를등록하고_run을_실행하면_getTotalProgress로_승자를확인할수있다() {
         String expectedWinnerName = "김길동";
         Race race = new Race();
-        race.registerRacer(
-                List.of(new Racer(expectedWinnerName, new SuccessRaceRandoms()),
-                        new Racer("홍길동", new FailureRaceRandoms()))
-        );
-        race.decideRoundNumber(1);
+        setUpWinnerRacerAndLoserRacer(expectedWinnerName, race);
 
         race.run();
         RaceTotalProgress totalProgress = race.getTotalProgress();
@@ -28,6 +24,14 @@ class RaceTest {
 
         mustBeOneWinner(actualWinners);
         assertThat(getWinnerName(actualWinners)).isEqualTo(expectedWinnerName);
+    }
+
+    private static void setUpWinnerRacerAndLoserRacer(String expectedWinnerName, Race race) {
+        race.registerRacer(
+                List.of(new Racer(expectedWinnerName, new SuccessRaceRandoms()),
+                        new Racer("홍길동", new FailureRaceRandoms()))
+        );
+        race.decideRoundNumber(1);
     }
 
     private static AbstractLongAssert<?> mustBeOneWinner(Winners actualWinners) {
