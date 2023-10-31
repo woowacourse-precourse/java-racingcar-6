@@ -10,7 +10,7 @@ public class Game {
     public void start() {
         List<Car> carList = makeCar();
         int numberOfAttempts = getNumberOfAttempts();
-        System.out.println("실행 결과");
+        Message.printResultGuidance();
 
         for (int count = 0; count < numberOfAttempts; count++) {
             play(carList);

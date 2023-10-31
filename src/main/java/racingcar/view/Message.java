@@ -26,6 +26,10 @@ public class Message {
         System.out.print("최종 우승자 : ");
     }
 
+    public static void printResultGuidance() {
+        System.out.println("실행 결과");
+    }
+
     public static void printWinnerNames(String winnerStr) {
         System.out.println(winnerStr);
     }
