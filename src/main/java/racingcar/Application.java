@@ -1,7 +1,15 @@
 package racingcar;
 
+import Controller.GameController;
+import Model.CarList;
+import Model.TryCount;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        CarList carList = new CarList();
+        TryCount tryCount = new TryCount();
+        GameController controller = new GameController(carList, tryCount);
+
+        controller.startRacingGame();
     }
 }
