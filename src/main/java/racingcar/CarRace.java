@@ -6,6 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRace {
+
+    public String[] contestantSignup(String input) {
+        String[] contestants = input.split(",");
+
+        for (String contestant : contestants){
+            nameCheck(contestant);
+        }
+
+        return contestants;
+    }
     public int goStop(int previousRound) {
         int randomNum  = Randoms.pickNumberInRange(0,9);
         if (randomNum > 3) {
