@@ -17,4 +17,10 @@ public class RacingCarManager {
         }
     }
 
+    public void playRacingGame() {
+        for (Car car : carList) {
+            car.moveOrStop();
+        }
+    }
+
 }
