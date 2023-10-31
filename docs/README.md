@@ -24,7 +24,7 @@
    [ ] (9) 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다. -> exceptionHandler()
 2. 클래스 명 정하기
     자동차 클래스 Car : 기능 (1), (2), (3), (4), (5), (6)
-    우승자 클래스 Winner : 기능 (7), (8)
+    게임 관리 클래스 Game : 기능 (5), (7), (8)
     예외 클래스 CarException : 기능 (9)
 
     
