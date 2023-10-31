@@ -12,8 +12,13 @@ public class GameExecutor {
 
     public void run(GameRandom random) {
         try {
-            game = new RacingCarGame(in.getNames(), in.getTrial(), out, random);
-            game.run();
+            game = new RacingCarGame(in.getNames(), in.getTrial(),  random);
+            out.println("실행 결과");
+            while(!game.isFinished()){
+                game.runStage();
+                out.printStage(game);
+            }
+            out.printWinners(game.getWinners());
         } finally {
             in.close();
         }

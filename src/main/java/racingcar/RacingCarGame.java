@@ -11,27 +11,21 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 public class RacingCarGame {
-    private final int trial;
+    private final int maxTrial;
     private final List<RacingCar> cars;
-    private final OutputInterface out;
     private final GameRandom random;
 
-    public RacingCarGame(String[] names, int trial, OutputInterface out, GameRandom random) {
-        checkTrial(trial);
-        this.trial = trial;
-        this.out = out;
+    private int currentTrial = 0;
+
+    public RacingCarGame(String[] names, int maxTrial, GameRandom random) {
+        checkTrial(maxTrial);
+        this.maxTrial = maxTrial;
         this.random = random;
         cars = createCars(names);
     }
 
-    public void run() {
-        out.println("실행 결과");
-        IntStream.range(0, trial)
-                .forEach(i -> runStage());
-        out.printWinners(getWinners());
-    }
 
-    private List<String> getWinners() {
+    public List<String> getWinners() {
         RacingCar highest = getCarWithHighestPosition();
 
         return cars.stream()
@@ -51,7 +45,6 @@ public class RacingCarGame {
         return highest.get();
     }
 
-
     private List<RacingCar> createCars(String[] names) {
         checkNames(names);
 
@@ -60,14 +53,16 @@ public class RacingCarGame {
                 .collect(toList());
     }
 
-    private void runStage() {
+    public void runStage() {
+        if (isFinished()) {
+            return;
+        }
         cars.stream()
                 .forEach(car -> {
                     car.tryForward(random.randomNumberRange(0, 10));
                 });
-        out.printStage(this);
+        currentTrial++;
     }
-
 
     private static void checkTrial(int trial) {
         if (trial <= 0) {
@@ -84,6 +79,10 @@ public class RacingCarGame {
             }
             carSet.add(name);
         }
+    }
+
+    public boolean isFinished() {
+        return maxTrial <= currentTrial;
     }
 
     @Override
