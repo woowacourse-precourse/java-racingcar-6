@@ -38,11 +38,9 @@ public class MessagePrinter {
         System.out.println(BLANK);
     }
 
-
     public void printWinners(final RacingCarRace racingCarRace) {
         List<RacingCar> winners = racingCarRace.findWinners();
         String result = RacingCarRace.concatCarNames(winners);
-
         System.out.println(result);
     }
 }
