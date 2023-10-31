@@ -16,7 +16,7 @@ public class User {
 
     public void inputCarName() {
         String input = Console.readLine();
-        List<String> carNames = asList(input.split(SEPERATE_NAME_CHAR));
+        List<String> carNames = asList(split(input));
         validateCarNames(carNames);
         this.carNames = carNames;
     }
@@ -25,6 +25,10 @@ public class User {
         String count = Console.readLine();
         validateTryCount(count);
         this.tryCount = Integer.parseInt(count);
+    }
+
+    public String[] split(String input) {
+        return input.split(SEPERATE_NAME_CHAR);
     }
 
     private void validateCarNames(List<String> carNames) {
