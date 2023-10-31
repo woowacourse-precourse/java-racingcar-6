@@ -11,14 +11,14 @@ import org.junit.jupiter.api.Test;
 public class CarsTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-    private static final String carNames1 = "bora,dori,nana";
-    private static final String carNames2 = "bora,,nana,ddubi";
+    private static final String CARNAME = "bora,dori,nana";
+    private static final String CARNAME_WITH_BLANK = "bora,,nana,ddubi";
 
     @Test
     @DisplayName("from 함수 테스트")
     void 입력_사이에_빈_값이_들어왔을_경우_제거_후_반환_기능_테스트() {
         //given
-        Cars cars = Cars.from(carNames2);
+        Cars cars = Cars.from(CARNAME_WITH_BLANK);
         //then
         assertEquals(cars.getCarList().size(), 3);
     }
@@ -27,7 +27,7 @@ public class CarsTest extends NsTest {
     @DisplayName("findWinners 함수 테스트")
     void 우승자_반환_기능_테스트() {
         assertRandomNumberInRangeTest(() -> {
-            Cars cars = Cars.from(carNames1);
+            Cars cars = Cars.from(CARNAME);
             cars.moveCars();
             List<String> winners = cars.findWinners();
             assertEquals(winners.size(), 2);
@@ -41,7 +41,7 @@ public class CarsTest extends NsTest {
     @DisplayName("getCarList 함수 테스트")
     void 자동차_목록_반환_기능_테스트() {
         //given
-        Cars cars = Cars.from(carNames1);
+        Cars cars = Cars.from(CARNAME);
         //then
         assertEquals(cars.getCarList().size(), 3);
     }
@@ -50,7 +50,7 @@ public class CarsTest extends NsTest {
     @DisplayName("moveCars 함수 테스트")
     void 자동차_이동_기능_테스트() {
         assertRandomNumberInRangeTest(() -> {
-            Cars cars = Cars.from(carNames1);
+            Cars cars = Cars.from(CARNAME);
             cars.moveCars();
             assertEquals(cars.getCarList().get(0).getPosition(), 1);
             assertEquals(cars.getCarList().get(1).getPosition(), 1);
