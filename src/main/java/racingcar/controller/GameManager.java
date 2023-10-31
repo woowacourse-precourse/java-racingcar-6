@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,10 +18,12 @@ public class GameManager {
 
 
     private void playGame() {
+        int maxMove = 0;
         List<String> carList = inputView.userInputName();
         int count = inputView.userInputCount();
         List<Car> Cars = listUp(carList);
-        playUntilRound(count);
+        maxMove = playUntilRound(count, Cars);
+        finishGame(Cars, maxMove);
     }
 
     private List<Car> listUp (List<String> carList) {
@@ -32,10 +35,31 @@ public class GameManager {
         return Cars;
     }
 
-    private void playUntilRound(int count) {
-
+    private int playRound(List<Car> Cars) {
+        int maxMove = 0;
+        for (Car car : Cars) {
+            if (NumberGenerator.generateNumber() >= 4) {
+                car.setDistance(car.getDistance() + 1);
+            }
+            if (car.getDistance() >= maxMove) {
+                maxMove = car.getDistance();
+            }
+        }
+        return maxMove;
     }
 
+    private int playUntilRound(int count, List<Car> Cars) {
+        int maxMove = 0;
+        for (int i = 0; i < count; i++) {
+            maxMove = playRound(Cars);
+            OutputView.printRoundResultMessage(Cars);
+        }
+        return maxMove;
+    }
+
+    private void finishGame(List<Car> Cars, int maxMove) {
+        OutputView.printGameResultMessage(Cars, maxMove);
+    }
 
 
 

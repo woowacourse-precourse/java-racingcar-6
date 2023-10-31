@@ -9,6 +9,10 @@ public class Car {
         this.distance = distance;
     }
 
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
     public String getName() {
         return name;
     }
