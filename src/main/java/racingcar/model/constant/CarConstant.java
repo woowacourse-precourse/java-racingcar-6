@@ -1,7 +1,7 @@
 package racingcar.model.constant;
 
 public enum CarConstant {
-    INITIAL_POSITION(1),
+    INITIAL_POSITION(0),
     CAR_MOVEABLE_VALUE(4);
 
     private final int number;

@@ -1,24 +1,30 @@
 package racingcar.model;
 
+import racingcar.model.dto.CarStatusDto;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameResult {
-    private final List<Car> winnerCarList = new ArrayList<>();
+    private final Cars cars;
     private final int winPosition;
 
-    public GameResult(int winPosition) {
+    public GameResult(Cars cars, int winPosition) {
+        this.cars = cars;
         this.winPosition = winPosition;
     }
 
-    public void addCarList(List<Car> carList) {
+    public List<CarStatusDto> printWinCarsStatus() {
+        List<CarStatusDto> carStatusDtos = new ArrayList<>();
+        List<Car> carList = cars.getCars();
         carList.forEach(car -> {
-            if (car.getPosition() == this.winPosition) winnerCarList.add(car);
+            if(isSameWinPosition(car)) carStatusDtos.add(new CarStatusDto(car));
         });
+        return carStatusDtos;
     }
 
-    public String provideWinnderCarName() {
-        return winnerCarList.stream().map(Car::getName).collect(Collectors.joining(", "));
+    private boolean isSameWinPosition(Car car) {
+        return car.getPosition() == winPosition;
     }
 }

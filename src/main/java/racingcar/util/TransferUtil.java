@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import racingcar.model.Car;
+import racingcar.model.dto.CarStatusDto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,9 +19,15 @@ public class TransferUtil {
         return new ArrayList<>(Arrays.asList(targetStringList));
     }
 
-//    public List<Car> transferStringToListCar(String carNames) {
-//        List<String> carNameList = transferStringToListString(carNames);
-//        return carNameList.stream().map(carName -> new Car(carName,CAR_START_POSITION))
-//                .collect(Collectors.toList());
-//    }
+    public String transferCarStatusDtoToNameAndPosition(CarStatusDto carStatusDto) {
+        String result = carStatusDto.getName() + " : ";
+        for(int i = 0; i < carStatusDto.getTryCount(); i++) {
+            result += "-";
+        }
+        return result;
+    }
+
+    public String transferCarStatusDtoToNameJoining(List<CarStatusDto> carStatusDtos) {
+        return carStatusDtos.stream().map(CarStatusDto::getName).collect(Collectors.joining(", "));
+    }
 }
