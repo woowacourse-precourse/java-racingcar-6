@@ -1,7 +1,6 @@
-package usercontroller;
+package controller;
 
-import controller.UserController;
-import car.Car;
+import model.Car;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

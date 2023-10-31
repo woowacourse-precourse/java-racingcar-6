@@ -1,6 +1,6 @@
 package controller;
 
-import dto.Car;
+import model.Car;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
