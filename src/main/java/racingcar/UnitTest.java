@@ -30,6 +30,20 @@ public class UnitTest {
     }
 
     @Test
+    void 자동차_움직임_결정(){
+        car test_car = new car("test", 0);
+        boolean test_result;
+
+        test_result = true;
+        test.car_move(test_car, test_result);
+        assertThat(test_car.position).isEqualTo(1);
+
+        test_result = false;
+        test.car_move(test_car, test_result);
+        assertThat(test_car.position).isEqualTo(1);
+    }
+
+    @Test
     void 최댓값_확인1() {
         car[] test_car = new car[6];
 
