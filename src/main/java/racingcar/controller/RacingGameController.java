@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -35,7 +36,28 @@ public class RacingGameController {
             OutputView.outputDistanceResult(registeredCars);
             attemptNumber--;
         } while (attemptNumber > ATTEMPT_END_NUMBER);
+        endGame();
+    }
 
+    public void endGame() {
+        List<String> winnerList = extractWinner();
+    }
+
+    public List<String> extractWinner() {
+        List<String> winnerList = new LinkedList<>();
+        Integer registeredCarsListIndex = 0;
+        Integer registeredCarsListSize = registeredCars.size();
+
+        Collections.sort(registeredCars);
+        Car winner = (Car) registeredCars.get(registeredCarsListIndex);
+
+        while (registeredCarsListIndex < registeredCarsListSize
+                && winner.isSameDistance(registeredCars.get(registeredCarsListIndex))) {
+            Vehicle registeredCar = registeredCars.get(registeredCarsListIndex);
+            registeredCar.addCarName(winnerList);
+            registeredCarsListIndex++;
+        }
+        return winnerList;
     }
 
     private void makeCarList() {
