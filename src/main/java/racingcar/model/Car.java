@@ -8,6 +8,6 @@ public class Car {
     private int randomNumber;
 
     public void pickRandomNumber() {
-        this.randomNumber = Randoms.pickNumberInRange(1, 9);
+        this.randomNumber = Randoms.pickNumberInRange(0, 9);
     }
 }
