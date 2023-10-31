@@ -1,7 +1,5 @@
 package model;
 
-import controller.Controller;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
