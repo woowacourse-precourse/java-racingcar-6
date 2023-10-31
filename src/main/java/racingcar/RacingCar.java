@@ -6,8 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class RacingCar {
-    public List<String> carName = new ArrayList<String>();
-    public List<Integer> movementSoFar = new ArrayList<Integer>();
+    public List<String> carName = new ArrayList<>();
+    public List<Integer> movementSoFar = new ArrayList<>();
     Integer numberOfTries;
 
     public RacingCar() {
@@ -43,11 +43,7 @@ public class RacingCar {
     }
 
     public boolean move() {
-        Integer randomNumber = generateRandomNumber();
-        if (randomNumber >= 4) {
-            return true;
-        }
-        return false;
+        return generateRandomNumber() >= 4;
     }
 
     public void updateMovement(Integer indexOfCarName) {
@@ -57,11 +53,7 @@ public class RacingCar {
     }
 
     public String getDash(Integer indexOfCarName) {
-        String getDash = "";
-        for (int i = 0; i < movementSoFar.get(indexOfCarName); i++) {
-            getDash += "-";
-        }
-        return getDash;
+        return "-".repeat(Math.max(0, movementSoFar.get(indexOfCarName)));
     }
 
     public void printMovement(Integer indexOfCarName) {
@@ -70,12 +62,11 @@ public class RacingCar {
     }
 
     public int longestMovement(List<Integer> movementSoFar) {
-        int longestMovement = Collections.max(movementSoFar);
-        return longestMovement;
+        return Collections.max(movementSoFar);
     }
 
     public List<Integer> howManyWinners(int longestMovement) {
-        List<Integer> winnerIndexList = new ArrayList<Integer>();
+        List<Integer> winnerIndexList = new ArrayList<>();
         for (int i = 0; i < movementSoFar.size(); i++) {
             if (movementSoFar.get(i) == longestMovement) {
                 winnerIndexList.add(i);

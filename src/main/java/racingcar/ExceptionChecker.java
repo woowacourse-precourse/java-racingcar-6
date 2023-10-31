@@ -8,8 +8,7 @@ import java.util.Set;
 
 public class ExceptionChecker {
     public List<String> containsComma(String strCarName) {
-        List<String> strCarNameList = new ArrayList<String>(Arrays.asList(strCarName.split(",")));
-        return strCarNameList;
+        return new ArrayList<>(Arrays.asList(strCarName.split(",")));
     }
 
     public void nameLongerThanFiveWithComma(String strCarName) throws IllegalArgumentException {

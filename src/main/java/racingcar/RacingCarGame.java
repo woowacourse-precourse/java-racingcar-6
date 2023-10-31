@@ -1,14 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarGame {
-    public List<String> carName = new ArrayList<String>();
-    public List<Integer> movementSoFar = new ArrayList<Integer>();
+    public List<String> carName;
+    public List<Integer> movementSoFar;
     RacingCar racingCar = new RacingCar();
 
     public RacingCarGame() {

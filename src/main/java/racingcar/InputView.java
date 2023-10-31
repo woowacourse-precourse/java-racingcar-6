@@ -7,12 +7,11 @@ import java.util.List;
 
 public class InputView {
     static ExceptionChecker exceptionChecker = new ExceptionChecker();
-    static List<String> carNameList = new ArrayList<String>();
+    static List<String> carNameList = new ArrayList<>();
 
     public static String inputString(String inputText) {
         System.out.println(inputText);
-        String inputStr = Console.readLine();
-        return inputStr;
+        return Console.readLine();
     }
 
     public static void stringToList(String strCarName) {
@@ -20,7 +19,7 @@ public class InputView {
         if (strCarName.contains(",")) {
             carNameList = Arrays.asList(strCarName.split(","));
         } else if (!strCarName.contains(",")) {
-            carNameList = Arrays.asList(strCarName);
+            carNameList = List.of(strCarName);
         }
         // return carNameList;
     }
