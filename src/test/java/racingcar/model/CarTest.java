@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.model.Car.createCar;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -49,5 +50,14 @@ public class CarTest {
     void 자동차_이름_길이_성공_테스트(String name) {
         assertDoesNotThrow(
                 () -> createCar(name));
+    }
+
+    @Test
+    void 자동차_이름_공백_테스트() {
+        assertThrows(IllegalArgumentException.class,
+                () -> createCar(""));
+
+        assertThrows(IllegalArgumentException.class,
+                () -> createCar(" "));
     }
 }
