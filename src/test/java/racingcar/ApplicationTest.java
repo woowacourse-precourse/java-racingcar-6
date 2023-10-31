@@ -6,6 +6,7 @@ import racingcar.controller.GameController;
 import racingcar.controller.GenerateRandomNum;
 import racingcar.model.GameMember;
 import racingcar.validator.InputValidator;
+import racingcar.view.InputView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,7 @@ class ApplicationTest extends NsTest {
     private InputValidator inputValidator = new InputValidator();
     private GameMember gameMember = new GameMember();
     private GenerateRandomNum generateRandomNum = new GenerateRandomNum();
+    private InputView inputView = new InputView();
 
 
     @Test
@@ -90,9 +92,11 @@ class ApplicationTest extends NsTest {
             gameMember.setDuringGame(input);
             assertThat(gameMember.getHs().get(input)).isEqualTo("--");
         }
-        assertThat(gameMember.getHs().get(input)).isEqualTo("--");
+
 
     }
+
+
 
 
     @Override

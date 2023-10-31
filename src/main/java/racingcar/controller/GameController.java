@@ -66,7 +66,8 @@ public class GameController {
     }
 
     private void setTryNum() {
-        gameMember.setTryNum(inputView.enterGameNumber());
+        gameMember.setTryNum(Integer.parseInt(inputValidator.toValidateTryNum(inputView.enterGameNumber())));
+//        gameMember.setTryNum(Integer.parseInt(inputView.enterGameNumber()));
         System.out.println("");
         System.out.println("실행 결과");
     }

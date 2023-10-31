@@ -15,8 +15,24 @@ public class InputValidator {
         }
         return list;
     }
-
+    public static boolean isNumeric(String s) {
+        try {
+            Double.parseDouble(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    public String toValidateTryNum(String tryNum){
+        if(!isNumeric(tryNum)){
+            throw new IllegalArgumentException();
+        }
+        return tryNum;
+    }
     public boolean isOverLength(List<String> inputList) {
+        if(inputList.get(0) == ""){
+            return false;
+        }
         for (String carName : inputList) {
             if (carName.length() > 5) {
                 return false;

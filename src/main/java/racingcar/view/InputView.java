@@ -11,9 +11,9 @@ public class InputView {
         return Console.readLine();
     }
 
-    public int enterGameNumber() {
+    public String enterGameNumber() {
         System.out.println(INPUT_NUM_TRY);
-        return Integer.parseInt(Console.readLine());
+        return (Console.readLine());
     }
 
 }
