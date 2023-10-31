@@ -8,7 +8,6 @@ public class Game {
     boolean hasWinners; // 우승자가 여러명인지 판별하는 변수 : true이면 우승자가 여러명
 
 
-
     // 최대 전진 회수를 체크하는 함수
     private int checkMaxGoNumber(Car car, int maxGoNumber, List<Car> winners) {
         if (car.totalGoNumber > maxGoNumber) { // 현재 자동차의 전진 회수 > 기존 최고 전진 회수
@@ -51,6 +50,13 @@ public class Game {
         for (Car car : cars) {
             System.out.printf("%s : %s\n", car.carName, arrayToStringByTurn(car.result, turn));
         }
+    }
 
+    String arrayToStringByTurn(String[] arr, int turn) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i <= turn; i++) {
+            result.append(arr[i]);
+        }
+        return result.toString();
     }
 }
