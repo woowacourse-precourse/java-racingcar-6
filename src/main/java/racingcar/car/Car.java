@@ -1,5 +1,7 @@
 package racingcar.car;
 
+import racingcar.Constant;
+
 public class Car {
     private String name;
     private Integer position = 0;
@@ -10,5 +12,11 @@ public class Car {
 
     public String getName() {
         return this.name;
+    }
+
+    public void forward(int value) {
+        if (value >= Constant.MINIMUM_MOVABLE_NUMBER) {
+            position++;
+        }
     }
 }
