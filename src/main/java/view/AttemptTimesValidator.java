@@ -1,18 +1,25 @@
 package view;
 
-public class AttemptTimesValidator {
+import constants.Constants;
+import constants.ExceptionMessage;
 
-    private void validateInteger(String input) {
+public class AttemptTimesValidator {
+    public void validate(String input){
+        int validatedInteger = validateInteger(input);
+        validatePlus(validatedInteger);
+    }
+
+    private int validateInteger(String input) {
         try {
-            Integer.parseInt(input);
+            return Integer.parseInt(input);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.NOT_INTEGER);
         }
     }
 
     private void validatePlus(int input) {
         if (input < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ExceptionMessage.NOT_PLUS);
         }
     }
 }
