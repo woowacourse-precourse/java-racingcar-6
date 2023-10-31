@@ -3,7 +3,6 @@ package racingcar.game;
 import racingcar.controller.Dice;
 import racingcar.view.OutputView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Cars {
