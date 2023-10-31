@@ -23,7 +23,7 @@ public class Racing {
         }
     }
 
-    public void race() {
+    private void race() {
         List<RacingMovement> randomMoves = new ArrayList<>();
 
         for (RacingCar car : cars.getCars()) {
@@ -37,6 +37,10 @@ public class Racing {
         }
 
         printer.updateRacingResult(randomMoves);
+    }
+
+    public int getRound() {
+        return round;
     }
 
     public String getTotalRacingResult() {
