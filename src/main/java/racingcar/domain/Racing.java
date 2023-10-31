@@ -91,10 +91,8 @@ public class Racing {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for(Car car : carList){
-            sb.append(car.toString());
-            sb.append("\n");
-        }
+        carList.stream().forEach((car)->
+                sb.append(car.toString()+"\n"));
 
         return sb.toString();
     }
