@@ -17,6 +17,30 @@ public class PlayRacingGame {
         maxCount = 0;
     }
 
+    public int getMaxCount() {
+        return maxCount;
+    }
+
+    public void setMaxCount(int maxCount) {
+        this.maxCount = maxCount;
+    }
+
+    public Cars getCars() {
+        return cars;
+    }
+
+    public void setCars(Cars cars) {
+        this.cars = cars;
+    }
+
+    public int getRoundCount() {
+        return roundCount;
+    }
+
+    public void setRoundCount(int roundCount) {
+        this.roundCount = roundCount;
+    }
+
     public void input() {
         System.out.println(Texts.STARTINPUT);
         String tmpName = Console.readLine();
@@ -30,7 +54,6 @@ public class PlayRacingGame {
         inputRoundCountException(tmpCount);
 
         roundCount = Integer.parseInt(tmpCount);
-
     }
 
     public void play() {
