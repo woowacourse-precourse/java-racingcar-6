@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import racingcar.util.Utils;
 import racingcar.validator.CarNameValidator;
 
 import java.util.ArrayList;
@@ -13,5 +12,4 @@ public class Cars {
         CarNameValidator validator = new CarNameValidator(carNames);
         validator.carNameList.stream().forEach(name -> cars.add(new Car(name)));
     }
-
 }
