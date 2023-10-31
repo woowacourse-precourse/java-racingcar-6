@@ -8,6 +8,7 @@ public class Exception {
     public void checkCarNamesInput(String input) throws IllegalArgumentException {
         checkLengthAndThrowException(input);
         checkSpaceAndThrowException(input);
+        checkEmptyAndThrowException(input);
     }
 
     private void checkSpaceAndThrowException(String carName) {
@@ -20,7 +21,11 @@ public class Exception {
         throw new IllegalArgumentException("자동차 이름안에 공백을 제거하세요.");
     }
 
-
+    private void checkEmptyAndThrowException(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름을 입력하세요.");
+        }
+    }
 
     private void checkLengthAndThrowException(String carName) {
         if (CAR_NAME_LIMIT_MAX < carName.length()) {
