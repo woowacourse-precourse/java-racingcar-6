@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import racingcar.domain.strategy.MoveStrategy;
 
@@ -17,5 +18,9 @@ public class Cars {
 
     public void moveAllCars() {
         allCars.forEach(car -> car.move(moveStrategy));
+    }
+
+    public List<Car> getAllCars() {
+        return Collections.unmodifiableList(allCars);
     }
 }
