@@ -5,11 +5,11 @@ import racingcar.exception.InvalidCoordinateException;
 
 public final class Coordinate {
     private static final int MIN_COORDINATE = 0;
-    private int coordinate;
+    private int value;
 
-    public Coordinate(final int coordinate) {
-        validateCoordinate(coordinate);
-        this.coordinate = coordinate;
+    public Coordinate(final int value) {
+        validateCoordinate(value);
+        this.value = value;
     }
 
     public static Coordinate zero() {
@@ -23,23 +23,23 @@ public final class Coordinate {
     }
 
     public void increase() {
-        coordinate++;
+        value++;
     }
 
-    public int getCoordinate() {
-        return coordinate;
+    public int value() {
+        return value;
     }
 
     public boolean isSameAs(final Coordinate other) {
-        return coordinate == other.getCoordinate();
+        return value == other.value();
     }
 
-    public int subtractAsInt(final Coordinate other) {
-        return coordinate - other.getCoordinate();
+    public int subtract(final Coordinate other) {
+        return value - other.value();
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
@@ -47,11 +47,11 @@ public final class Coordinate {
             return false;
         }
         Coordinate that = (Coordinate) o;
-        return coordinate == that.coordinate;
+        return value == that.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coordinate);
+        return Objects.hash(value);
     }
 }

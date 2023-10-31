@@ -24,6 +24,6 @@ public final class CarFinished extends Car implements Comparable<CarFinished> {
 
     @Override
     public int compareTo(final CarFinished other) {
-        return other.coordinate.subtractAsInt(coordinate);
+        return other.coordinate.subtract(coordinate);
     }
 }

@@ -21,8 +21,8 @@ final class CoordinateTest {
         final Coordinate coordinate2 = new Coordinate(input2);
 
         // then
-        assertThat(coordinate1.getCoordinate()).isEqualTo(input1);
-        assertThat(coordinate2.getCoordinate()).isEqualTo(input2);
+        assertThat(coordinate1.value()).isEqualTo(input1);
+        assertThat(coordinate2.value()).isEqualTo(input2);
     }
 
     @DisplayName("Coordinate를 음수로 생성 시, 예외를 던진다")
@@ -47,8 +47,8 @@ final class CoordinateTest {
         final Coordinate coordinate2 = new Coordinate(2);
 
         // when
-        final int result1 = coordinate1.subtractAsInt(coordinate2);
-        final int result2 = coordinate2.subtractAsInt(coordinate1);
+        final int result1 = coordinate1.subtract(coordinate2);
+        final int result2 = coordinate2.subtract(coordinate1);
 
         // then
         assertThat(result1).isEqualTo(-1);
@@ -83,7 +83,7 @@ final class CoordinateTest {
         coordinate1.increase();
 
         // then
-        assertThat(coordinate1.getCoordinate()).isEqualTo(input1 + 1);
+        assertThat(coordinate1.value()).isEqualTo(input1 + 1);
     }
 
 
@@ -95,6 +95,6 @@ final class CoordinateTest {
 
         // when
         // then
-        assertThat(coordinate1.getCoordinate()).isZero();
+        assertThat(coordinate1.value()).isZero();
     }
 }
