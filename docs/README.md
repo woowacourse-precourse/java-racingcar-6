@@ -20,11 +20,11 @@
     - [x] 같은 이름이 들어갔을 때
         - [x] IllegalCheck -> 중복체크기능생성
     - [ ] 공백이 입력되었을 때
-        - [ ] IllegalCheck -> 공백체크기능생성
+        - [x] IllegalCheck -> 공백체크기능생성
 - [ ] 라운드 입력 테스트
     - [ ] 문자가 입력되었을 때
     - [ ] 공백이 입력되었을 때
-        - [ ] IllegalCheck -> 공백체크기능생성
+        - [x] IllegalCheck -> 공백체크기능생성
     - [ ] 입력값이 Integer범위를 넘었을 때
 
 ---

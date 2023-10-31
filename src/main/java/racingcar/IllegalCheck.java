@@ -15,6 +15,25 @@ public class IllegalCheck {
         return false;
     }
 
+    public boolean blankCheck(String inputLine){
+        if(inputLine.length() == 0){
+            return false;
+        }
+
+        if(!middleBlankCheck(inputLine)){
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean middleBlankCheck(String inputLine){
+        if(inputLine.length() != inputLine.trim().length()){
+            return false;
+        }
+
+        return true;
+    }
 
     public boolean stringLengthOverCheck(String splittedName) {
         return splittedName.length() > STRING_MAX_LENGTH;

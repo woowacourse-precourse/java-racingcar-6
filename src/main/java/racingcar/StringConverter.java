@@ -10,6 +10,11 @@ public class StringConverter {
 
     public int stringToInteger() {
         String inputLine = Console.readLine();
+
+        if(!illegalCheck.blankCheck(inputLine)){
+            throw new IllegalArgumentException(ERROR_MESSAGE);
+        }
+
         if (!inputLine.chars().allMatch(illegalCheck::availableConvertInteger)) {
             throw new IllegalArgumentException(ERROR_MESSAGE);
         }
@@ -26,6 +31,10 @@ public class StringConverter {
     public List<String> stringToCarNames(String separator) {
         String inputLine = Console.readLine();
         List<String> splittedNames = Arrays.stream(inputLine.split(separator)).toList();
+
+        if(!illegalCheck.blankCheck(inputLine)){
+            throw new IllegalArgumentException(ERROR_MESSAGE);
+        }
 
         if (splittedNames.stream().anyMatch(illegalCheck::stringLengthOverCheck)) {
             throw new IllegalArgumentException(ERROR_MESSAGE);
