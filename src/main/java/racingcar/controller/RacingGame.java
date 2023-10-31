@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 import racingcar.util.GameResultMaker;
 import racingcar.util.RacingGameManager;
 import racingcar.view.OutputView;
@@ -48,7 +49,8 @@ public class RacingGame {
     }
 
     private void printGameWinner(List<Car> cars) {
-        List<String> gameWinner = Car.getRacingGameWinner(cars);
-        outputView.printGameWinner(gameWinner);
+        Winner winner = new Winner(cars);
+        List<String> gameWinners = winner.getWinners();
+        outputView.printGameWinner(gameWinners);
     }
 }

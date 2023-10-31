@@ -3,6 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 
 import java.util.List;
 
@@ -39,7 +40,8 @@ class CarTest {
                 new Car("tokyo", 1)
         );
 
-        List<String> gameWinner = Car.getRacingGameWinner(carNames);
+        Winner winner = new Winner(carNames);
+        List<String> gameWinner = winner.getWinners();
         assertThat(gameWinner).containsExactly("rome");
     }
 
@@ -58,7 +60,8 @@ class CarTest {
                 new Car("tokyo", 1)
         );
 
-        List<String> gameWinner = Car.getRacingGameWinner(carNames);
+        Winner winner = new Winner(carNames);
+        List<String> gameWinner = winner.getWinners();
         assertThat(gameWinner).contains("rome", "seoul");
     }
 }
