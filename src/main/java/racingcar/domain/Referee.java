@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import racingcar.RandomNumberGenerator;
+import racingcar.domain.dto.CarStatus;
+import racingcar.domain.dto.GameStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,5 +24,13 @@ public class Referee {
                 car.proceed();
             }
         }
+    }
+
+    public GameStatus getGameStatus() {
+        GameStatus gameStatus = new GameStatus();
+        for (Car car : cars) {
+            gameStatus.addCarStatus(CarStatus.of(car));
+        }
+        return gameStatus;
     }
 }
