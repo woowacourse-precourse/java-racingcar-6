@@ -25,7 +25,7 @@ public class Car {
     }
 
     private void checkNonEmptyName(String name) {
-        if (name == null || name.isEmpty()) {
+        if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException(ErrorMessages.MISSING_CAR_NAME_ERROR);
         }
     }
