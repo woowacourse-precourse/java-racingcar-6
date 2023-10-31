@@ -10,12 +10,8 @@ public class Cars {
     }
 
     public List<Car> moveAll() {
-        for (Car car : cars) {
-            int randomNumber = car.createRandomNumber();
-            if (randomNumber >= 4) {
-                car.move();
-            }
-        }
+        cars.stream().filter(car -> car.createRandomNumber() >= 4)
+                .forEach(car -> car.move());
         return cars;
     }
 
