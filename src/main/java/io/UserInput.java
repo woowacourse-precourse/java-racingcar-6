@@ -7,7 +7,7 @@ import basis.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
 
-public class UserInterface {
+public class UserInput {
     Converter converter = new Converter();
 
     public int getAttemptsNumber() {

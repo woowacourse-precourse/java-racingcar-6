@@ -29,14 +29,14 @@ public class MovingStatus {
     }
 
     private String decideMove() {
-        return checkDecidingMove(getRandomNumber());
+        return decideMove(getRandomNumber());
     }
 
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(MINIMUM_RANGE, MAXIMUM_RANGE);
     }
 
-    private String checkDecidingMove(int number) {
+    private String decideMove(int number) {
         if (number >= MOVE_CRITERIA) {
             return MOVE_SYMBOL;
         }
