@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.global.Constants;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,12 +42,19 @@ public class InputView {
     private void validateCarNames(List<String> carNames) {
         for (String carName : carNames) {
             validateNotEmpty(carName);
+            validateNameLength(carName);
         }
     }
 
     private void validateNotEmpty(String carName) {
         if (carName.isEmpty()) {
             throw new IllegalArgumentException(InputViewException.EMPTY_NAME);
+        }
+    }
+
+    private void validateNameLength(String carName) {
+        if (carName.length() > Constants.MAX_CARNAME_LENGTH) {
+            throw new IllegalArgumentException(InputViewException.INVALID_NAME_LENGTH);
         }
     }
 }
