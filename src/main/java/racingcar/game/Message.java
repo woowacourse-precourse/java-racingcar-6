@@ -3,7 +3,7 @@ package racingcar.game;
 import java.util.List;
 
 public class Message {
-    public final String requestPlayerName = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public final String requestPlayerName = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분, 최대 10명)";
     public final String requestPlayCount = "시도할 회수는 몇회인가요? (1~100회 제한)";
     public final String result = "실행 결과";
     private final String champion = "최종 우승자 : ";
