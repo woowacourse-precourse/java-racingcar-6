@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Result {
     private final List<String> winnerNames;
@@ -14,21 +14,17 @@ public class Result {
     }
 
     private int findWinnerDistance(RacingCars cars) {
-        int maxDistance = 0;
-        for (Car car : cars.getAllCars()) {
-            maxDistance = Math.max(car.getCurrentPosition(), maxDistance);
-        }
-        return maxDistance;
+        return cars.getAllCars().stream()
+                .mapToInt(Car::getCurrentPosition)
+                .max()
+                .orElse(0);
     }
 
     private List<String> findWinnerNames(RacingCars cars) {
-        List<String> winnerNames = new ArrayList<>();
-        for (Car car : cars.getAllCars()) {
-            if (winnerDistance == car.getCurrentPosition()) {
-                winnerNames.add(car.getName());
-            }
-        }
-        return winnerNames;
+        return cars.getAllCars().stream()
+                .filter(car -> winnerDistance == car.getCurrentPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     public List<String> getWinnerNames() {
