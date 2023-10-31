@@ -1,5 +1,10 @@
-package racingcar;
+package racingcar.controller;
 
+
+import racingcar.controller.Action;
+import racingcar.model.Car;
+import racingcar.view.Input;
+import racingcar.view.Output;
 
 import java.util.ArrayList;
 import java.util.List;
