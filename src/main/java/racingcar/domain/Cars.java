@@ -8,33 +8,26 @@ import racingcar.view.InputView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
+
+import static racingcar.Constant.DUPLICATE_NAME_ERROR;
 import static racingcar.Constant.EXCEPTION_MESSAGE;
-import static racingcar.vaildator.InputValidator.isBlankInput;
-import static racingcar.vaildator.InputValidator.isValidLengthCarNames;
 
 public class Cars {
 
     List<Car> cars = new ArrayList<>();
 
     public Cars(String nameBeforeSeparation){
-        List<String> carNames = Arrays.asList(nameBeforeSeparation.split(","));
+        List<String> carNames = transToListString(nameBeforeSeparation);
 
-        if(carNames.size() == 0){
-            throw new IllegalArgumentException(EXCEPTION_MESSAGE);
-        }
+        noHaveCarNames(carNames);
+        duplicateNameCheck(carNames);
 
-        for(String carName : carNames){
-            if(isBlankInput(carName)) throw new IllegalArgumentException(EXCEPTION_MESSAGE);
-        }
+        cars = makeCar(carNames);
+    }
 
-
-        if(!isValidLengthCarNames(carNames)){
-            throw new IllegalArgumentException(EXCEPTION_MESSAGE);
-        }
-
-        cars = MakeCar(carNames);
+    private List<String> transToListString(String carNamesBeforeSeparation) {
+        return Arrays.stream(carNamesBeforeSeparation.split(",")).map(String::trim).toList();
     }
 
     public void moveForward() {
@@ -43,16 +36,6 @@ public class Cars {
             cars.get(i).forward(number);
         }
     }
-
-    public List<CarRecord> saveRecord(){
-        return cars.stream().map(car -> new CarRecord(car.getCarName(), car.getNowStep())).toList();
-    }
-
-
-    private List<Car> MakeCar(List<String> carNames) {
-        return carNames.stream().map(Car::new).toList();
-    }
-
 
     public List<String> pickWinnersName(){
         List<String> winnerNames = new ArrayList<>();
@@ -74,5 +57,22 @@ public class Cars {
         return winnerNames;
     }
 
+    public List<CarRecord> saveRecord(){
+        return cars.stream().map(car -> new CarRecord(car.getCarName(), car.getNowStep())).toList();
+    }
+
+    protected List<Car> makeCar(List<String> carNames) {
+        return carNames.stream().map(Car::new).toList();
+    }
+
+    protected void duplicateNameCheck(List<String> carNames) {
+        if(carNames.stream().distinct().count() < carNames.size()){
+            throw new IllegalArgumentException(DUPLICATE_NAME_ERROR);
+        }
+    }
+
+    protected void noHaveCarNames(List<String> carNames) {
+        if(carNames.size() == 0) throw new IllegalArgumentException(EXCEPTION_MESSAGE);
+    }
 
 }

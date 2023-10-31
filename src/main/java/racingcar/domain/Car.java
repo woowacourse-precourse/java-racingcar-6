@@ -1,12 +1,22 @@
 package racingcar.domain;
 
+import racingcar.vaildator.InputValidator;
+
+import static racingcar.Constant.EXCEPTION_MESSAGE;
+import static racingcar.vaildator.InputValidator.*;
+
 public class Car {
 
     private String carName;
     private int numberOfStep;
 
     public Car(String carName){
-        this.carName = carName;
+        String trimCarName = removeTrimString(carName);
+
+        isBlankInput(trimCarName);
+        isValidLengthCarNames(trimCarName);
+
+        this.carName = trimCarName;
     }
 
     public void forward(int number){

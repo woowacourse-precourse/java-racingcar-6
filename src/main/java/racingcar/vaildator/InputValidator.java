@@ -5,8 +5,7 @@ import racingcar.view.InputView;
 
 import java.util.List;
 
-import static racingcar.Constant.EXCEPTION_MESSAGE;
-import static racingcar.Constant.OVER_LENGTH_CAR_NAME;
+import static racingcar.Constant.*;
 
 public class InputValidator {
 
@@ -15,7 +14,7 @@ public class InputValidator {
     }
 
     //코드 리펙토링
-    public static boolean isValidLengthCarNames(List<String> carNames){
+    public static void isValidLengthCarNames(String... carNames){
 
         for(String carName : carNames){
             if(!isValidLengthCarName(carName.trim())) {
@@ -23,7 +22,6 @@ public class InputValidator {
             }
         }
 
-        return true;
     }
 
     public static boolean isNotInteger(String input) {
@@ -36,12 +34,12 @@ public class InputValidator {
     }
 
 
-    private static String removeTrimString(String input){
+    public static String removeTrimString(String input){
         return input.trim();
     }
 
     private static boolean isValidLengthCarName(String name){
-        return name.length() > 0 && name.length() <= 5;
+        return name.length() >= MINIMUM_NAME_LENGTH && name.length() <= MAXIMUM_NAME_LENGTH;
     }
 
 }
