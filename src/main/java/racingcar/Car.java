@@ -3,12 +3,13 @@ package racingcar;
 import java.util.Objects;
 
 public class Car {
+    private final Integer INITIAL_POSITION = 0;
     private final String name;
     private Integer position;
 
     public Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = INITIAL_POSITION;
     }
 
     public void moveForward() {
