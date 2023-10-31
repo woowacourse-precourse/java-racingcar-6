@@ -52,9 +52,18 @@ public class Cars {
     }
 
     public List<String> getWinningCarNames() {
-        Car winnerCar = cars.stream().max(Car::compareTo).orElseThrow(() -> new IllegalArgumentException(NO_WINNER));
+        Car winnerCar = findWinnerCar();
 
-        return cars.stream().filter(car -> car.isEqualPosition(winnerCar)).map(Car::getCarName).collect(Collectors.toList());
+        return cars.stream()
+                .filter(car -> car.isEqualPosition(winnerCar))
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
+    private Car findWinnerCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(NO_WINNER));
     }
 
     public Map<String, Integer> getStatus() {
