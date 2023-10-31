@@ -37,8 +37,7 @@ public class Input {
     }
 
     private void validateDuplication(List<CarName> carNames) {
-        Set<CarName> carNamesToSet = new HashSet<>();
-        carNamesToSet.addAll(carNames);
+        Set<CarName> carNamesToSet = new HashSet<>(carNames);
         if(carNamesToSet.size()!= carNames.size()){
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
