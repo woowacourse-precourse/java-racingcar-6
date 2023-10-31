@@ -6,8 +6,13 @@ import racingcar.domain.Car;
 
 public class Util {
     public static List<String> splitNameByComma(String names) {
-        List<String> splits = Arrays.stream(names.split(",")).toList();
-        return splits;
+        return Arrays
+                .stream(removeSpaceAll(names).split(","))
+                .toList();
+    }
+
+    public static String removeSpaceAll(String names) {
+        return names.replaceAll("\\s", "");
     }
 
     public static int convertStringToInt(String count) {
