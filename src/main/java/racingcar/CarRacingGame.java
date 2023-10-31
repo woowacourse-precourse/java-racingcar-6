@@ -22,8 +22,8 @@ public class CarRacingGame {
     }
 
     private void proceedRacing() {
-        for(int i = 0; i< numberOfAttempts; i++) {
-            for (Car car: cars) {
+        for (int i = 0; i < numberOfAttempts; i++) {
+            for (Car car : cars) {
                 car.decideMoveForwardOrStop();
             }
 
@@ -33,7 +33,7 @@ public class CarRacingGame {
     }
 
     private void printCurrentCarStatus() {
-        for (Car car: cars) {
+        for (Car car : cars) {
             System.out.println(car);
         }
     }
@@ -50,7 +50,7 @@ public class CarRacingGame {
         int maximumDistance = carWithMaximumDistance.get().getDistance();
         String maximumDistanceCarName = carWithMaximumDistance.get().getName();
 
-        for (Car car: cars) {
+        for (Car car : cars) {
             if ((car.getDistance() == maximumDistance) && !(car.getName().equals(maximumDistanceCarName))) {
                 winners.add(car);
             }
@@ -58,7 +58,7 @@ public class CarRacingGame {
 
         List<String> winnerNames = new ArrayList<>();
 
-        for(Car car: winners) {
+        for (Car car : winners) {
             winnerNames.add(car.getName());
         }
 
@@ -75,14 +75,14 @@ public class CarRacingGame {
         isDistinct(carName);
         isElementLengthAbove5(carName);
 
-        for (String element: carName) {
+        for (String element : carName) {
             cars.add(new Car(element));
         }
 
     }
 
     private static void hasComma(String string) {
-        if(!(string.contains(","))) {
+        if (!(string.contains(","))) {
             throw new IllegalArgumentException();
         }
     }
@@ -90,7 +90,7 @@ public class CarRacingGame {
     private static void isDistinct(List<String> strings) {
         List<String> emptyStrings = new ArrayList<>();
 
-        for (String string: strings) {
+        for (String string : strings) {
             if (emptyStrings.contains(string)) {
                 throw new IllegalArgumentException();
             }
@@ -100,7 +100,7 @@ public class CarRacingGame {
     }
 
     private static void isElementLengthAbove5(List<String> strings) {
-        for (String string: strings) {
+        for (String string : strings) {
             if (string.length() > 5) {
                 throw new IllegalArgumentException();
             }

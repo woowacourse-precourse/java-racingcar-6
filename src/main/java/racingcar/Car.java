@@ -37,7 +37,7 @@ public class Car {
     public String toString() {
         String distanceInDash = "";
 
-        for (int i=0; i<distance; i++) {
+        for (int i = 0; i < distance; i++) {
             distanceInDash += "-";
         }
 
