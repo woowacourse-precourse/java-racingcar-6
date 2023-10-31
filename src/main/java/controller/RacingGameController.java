@@ -1,13 +1,11 @@
 package controller;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import domain.Car;
 import domain.CarNamesInput;
 import domain.RacingCar;
 import domain.RandomNumberGenerator;
 import domain.TryCountInput;
+import domain.Winners;
 import view.InputView;
 import view.MessageView;
 import view.OutputView;
@@ -49,27 +47,14 @@ public class RacingGameController {
 	}
 
 	private void awardWinners(RacingCar raceOutcome) {
-		List<Car> winners = getWinners(raceOutcome);
+		Winners winners = new Winners(raceOutcome.getWinners());
 		receiveAward(winners);
 	}
 
-	private List<Car> getWinners(RacingCar raceOutcome) {
-		int locationWithMostMovement = raceOutcome.findLocationWithMostMovement();
-
-		return raceOutcome.findCarWithMaxLocation(locationWithMostMovement);
-	}
-
-	private void receiveAward(List<Car> winners) {
+	private void receiveAward(Winners winners) {
 		messageView.printAwardMessage();
-		List<String> winnersName = getCarNames(winners);
 
-		outputView.printAwardWinner(winnersName);
-	}
-
-	private List<String> getCarNames(List<Car> winners) {
-		return winners.stream()
-				.map(Car::getName)
-				.collect(Collectors.toList());
+		outputView.printAwardWinner(winners);
 	}
 
 	public CarNamesInput initCarNameData() {
