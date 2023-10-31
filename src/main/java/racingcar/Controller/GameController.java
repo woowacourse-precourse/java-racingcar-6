@@ -23,6 +23,20 @@ public class GameController {
             throw new IllegalArgumentException();
     }
 
+    public void checkIntOverZero(int n){
+        if(n <= 0)
+            throw new IllegalArgumentException();
+    }
+
+    public int convertStringInteger(String intStr){
+        try{
+            return Integer.parseInt(intStr);
+        }
+        catch (Exception e){
+            throw new IllegalArgumentException();
+        }
+    }
+
     public void setCarString(){
         view.printSetCarString();
         String carString = Console.readLine();
@@ -35,6 +49,12 @@ public class GameController {
     }
 
     public void setNumOfAttemp(){
+        int n = convertStringInteger(Console.readLine());
+        checkIntOverZero(n);
+        attemptNum = n;
+    }
+
+    public void executeGame(){
 
     }
 }
