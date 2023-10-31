@@ -15,7 +15,7 @@ public class Car {
     }
 
     public boolean validCarName( String nameList ) {
-        List<String> carNameList = List.of( nameList.trim().split(",") );
+        List<String> carNameList = List.of( nameList.split(",", -1) );
 
         this.checkMinNumber( carNameList );
 
