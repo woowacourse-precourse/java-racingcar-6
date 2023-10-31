@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 import racingcar.view.constants.Strings;
 
@@ -17,13 +18,16 @@ public class OutputView {
         System.out.println(Strings.RESULT.getMessage());
     }
 
-    public static void showCurrentDistance(RacingCars racingcars) {
-        for (int i = 0; i < racingcars.size(); i++) {
-            System.out.print(racingcars.get(i).getName() + " : ");
+    private static void printRacingCarDistance(RacingCar racingCar) {
+        for (int j = 0; j < racingCar.getDistance(); j++) {
+            System.out.print("-");
+        }
+    }
 
-            for (int j = 0; j < racingcars.get(i).getDistance(); j++) {
-                System.out.print("-");
-            }
+    public static void showCurrentDistance(RacingCars racingCars) {
+        for (int i = 0; i < racingCars.size(); i++) {
+            System.out.print(racingCars.get(i).getName() + " : ");
+            printRacingCarDistance(racingCars.get(i));
             System.out.println();
         }
         System.out.println();
