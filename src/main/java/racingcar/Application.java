@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.console.ConsoleInput;
+import racingcar.interceptors.*;
 
 import java.util.*;
 
@@ -11,46 +13,22 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
-        String input = Console.readLine();
+        ConsoleInput<List<String>, Map<String, String>> carInput = new ConsoleInput<>(
+                new CarNameInitInterceptor(),
+                new CarNameFinalizeInterceptor()
+        )
+                .registerInterceptor(new CarNameStripInterceptor())
+                .registerInterceptor(new CarNameLengthCheckInterceptor());
 
-        if (input.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
+        Map<String, String> carDistanceMap = carInput.getUserInput();
 
-        if (!input.contains(",")) {
-            throw new IllegalArgumentException();
-        }
+        ConsoleInput<Long, Long> countInput = new ConsoleInput<>(
+                new CountInitInterceptor(),
+                new CountFinalizeInterceptor()
+        )
+                .registerInterceptor(new CountRangeInterceptor());
 
-        if (input.charAt(input.length() - 1) == ',') {
-            throw new IllegalArgumentException();
-        }
-
-        String[] strCars = input.split(",");
-
-        List<String> carList = Arrays.stream(strCars)
-                .map(String::strip)
-                .filter(strCar -> strCar.length() <= 5 && !strCar.isEmpty())
-                .toList();
-
-        if (strCars.length != carList.size()) {
-            throw new IllegalArgumentException();
-        }
-
-        Map<String, String> carDistanceMap = carList.stream().collect(toMap(Object::toString, data -> ""));
-
-
-        input = Console.readLine();
-        long count = 0;
-
-        try {
-            count = Long.parseLong(input);
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException();
-        }
-
-        if (count <= 0) {
-            throw new IllegalArgumentException();
-        }
+        Long count = countInput.getUserInput();
 
         for (int i = 0; i < count; i++) {
             for (Map.Entry<String, String> entry : carDistanceMap.entrySet()) {

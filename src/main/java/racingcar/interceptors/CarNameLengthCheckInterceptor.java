@@ -2,7 +2,7 @@ package racingcar.interceptors;
 
 import java.util.List;
 
-public class LengthCheckInterceptor implements Interceptor<List<String>, List<String>> {
+public class CarNameLengthCheckInterceptor implements Interceptor<List<String>, List<String>> {
     @Override
     public List<String> handling(List<String> targetObjects) throws IllegalArgumentException {
         for (String targetObject : targetObjects) {
@@ -10,7 +10,6 @@ public class LengthCheckInterceptor implements Interceptor<List<String>, List<St
                 throw new IllegalArgumentException();
             }
         }
-
         return targetObjects;
     }
 }
