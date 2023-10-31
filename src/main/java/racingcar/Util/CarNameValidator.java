@@ -1,9 +1,7 @@
-package racingcar.model;
+package racingcar.Util;
 
 import java.util.ArrayList;
-
-import racingcar.Rule;
-import racingcar.Util;
+import racingcar.Util.Rule;
 
 public class CarNameValidator {
     private final String NAMES_STRING;
@@ -29,7 +27,7 @@ public class CarNameValidator {
     }
 
     public void isRightNameSize() {
-        if (NAMES.stream().anyMatch(name -> name.isEmpty() || name.length() > Rule.MIN_CARNAMESIZE)) {
+        if (NAMES.size() > Rule.MAX_CARNAMESIZE || NAMES.isEmpty()){
             throw new IllegalArgumentException(Rule.CAR_NAME_SIZE_ERROR);
         }
     }
