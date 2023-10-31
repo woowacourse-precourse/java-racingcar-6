@@ -85,6 +85,7 @@ public class Application {
         for (int i = 0; i < raceCount; i++) {
             moveCars(carMoveStatus);
         }
+        endRace(carMoveStatus);
     }
 
     private static HashMap initCarMoveStatus(String[] carNames) {
