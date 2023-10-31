@@ -18,7 +18,7 @@ public class Racing {
     }
 
     public List<String> findWinners() {
-        if(score.isEmpty()) {
+        if (score.isEmpty()) {
             throw new IllegalArgumentException("게임이 진행되지 않았습니다.");
         }
         Integer maxScore = Collections.max(score.values());

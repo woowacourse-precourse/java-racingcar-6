@@ -10,6 +10,7 @@ public class Cars {
     public Cars(List<String> names) {
         this.cars = new ArrayList<>();
         namesJudege(names);
+        oneCarName(names);
         setting(names);
     }
 
@@ -33,6 +34,12 @@ public class Cars {
     private void namesJudege(List<String> names) {
         if (names.size() != names.stream().distinct().count()) {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+        }
+    }
+
+    private void oneCarName(List<String> names) {
+        if (names.size() < 2) {
+            throw new IllegalArgumentException("한 개 이상의 이름을 입력하세요.");
         }
     }
 

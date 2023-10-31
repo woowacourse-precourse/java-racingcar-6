@@ -17,7 +17,7 @@ public class PrintMessage {
         for (String name : history.keySet()) {
             Integer positionValue = history.get(name);
             System.out.println(
-                    name + COLON + CAR_MOVEING_HISTROY.repeat(positionValue));
+                name + COLON + CAR_MOVEING_HISTROY.repeat(positionValue));
         }
         System.out.println();
     }

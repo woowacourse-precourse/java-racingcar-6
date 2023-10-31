@@ -32,9 +32,7 @@ public class RacingcarController {
         for (int i = 0; i < movingTrial; i++) {
             gameCondition.race();
 
-            printMessage.printRacingResult(gameCondition
-                    .racing()
-                    .getScore());
+            printMessage.printRacingResult(gameCondition.racing().getScore());
         }
     }
 }

@@ -13,7 +13,10 @@ public class Player {
 	
     public List<String> promptCarNames() {
 		System.out.println(START_MESSAGE);
-        return Arrays.asList(Console.readLine().split(","));
+		String inputName = Console.readLine();
+		blankName(inputName);
+
+        return Arrays.asList(inputName.split(","));
     }
 
     public List<String> getCarNames() {
@@ -25,10 +28,16 @@ public class Player {
 		String numberInput = Console.readLine();
 		int movingNumber = Integer.parseInt(numberInput);
 
-		if(movingNumber > 0) {
+		if (movingNumber > 0) {
 			return movingNumber;
 		}
 		throw new IllegalArgumentException("회수는 1이상만 가능합니다");
+	}
+
+	private void blankName(String input) {
+		if (input.isEmpty()) {
+			throw new IllegalArgumentException("입력 값이 비었습니다");
+		}
 	}
 }
 
