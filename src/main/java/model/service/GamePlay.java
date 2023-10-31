@@ -10,7 +10,7 @@ public class GamePlay {
     private static final int MAXIMUM_VALUE = 9;
     private static final int BASE_NUMBER = 4;
 
-    public static void play(Participant participant) {
+    public static void round(Participant participant) {
 
         for (Car car : participant.getParticipant()) {
 

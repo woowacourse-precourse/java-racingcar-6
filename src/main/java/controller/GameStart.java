@@ -18,7 +18,7 @@ public class GameStart {
 
         Output.startResult();
         for (int i = 0; i < round.getRound(); i++) {
-            GamePlay.play(participant);
+            GamePlay.round(participant);
             Output.roundResult(participant);
         }
 
