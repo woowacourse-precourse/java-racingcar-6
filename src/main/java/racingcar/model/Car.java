@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static racingcar.exception.ExceptionMessage.CAR_NAME_CANNOT_EXCEED_MAX_LENGTH;
 
+import racingcar.util.BlankValidator;
+
 public class Car {
     private static final int INITIAL_CAR_POSITION = 0;
     private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -20,6 +22,11 @@ public class Car {
     }
 
     private void validate(String name) {
+        validateNameLength(name);
+        BlankValidator.validateBlank(name);
+    }
+
+    private void validateNameLength(String name) {
         if (isInvalidNameLength(name)) {
             throw new IllegalArgumentException(CAR_NAME_CANNOT_EXCEED_MAX_LENGTH);
         }

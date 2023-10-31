@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import static racingcar.exception.ExceptionMessage.INPUT_IS_NOT_DIGIT;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
@@ -35,9 +33,7 @@ public class InputView {
     }
 
     private void validateRaceCount(String rawRaceCount) {
-        if (!DigitValidator.isInteger(rawRaceCount)) {
-            throw new IllegalArgumentException(INPUT_IS_NOT_DIGIT);
-        }
+        DigitValidator.validateIsInteger(rawRaceCount);
     }
 
     private List<String> splitStringByComma(String carNames) {
