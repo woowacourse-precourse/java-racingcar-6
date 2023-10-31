@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 
 import java.util.Arrays;
@@ -15,6 +16,11 @@ public class GameManageService {
 
     public void saveCars(List<Car> cars) {
         cars.forEach(carService::saveCar);
+    }
+
+    public void race() {
+        List<Car> cars = carService.findCars();
+        cars.forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
     }
 
     public static List<Car> convertToCarList(String cars) {

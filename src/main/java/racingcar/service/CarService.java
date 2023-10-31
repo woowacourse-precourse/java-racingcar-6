@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarService {
 
@@ -10,5 +11,9 @@ public class CarService {
 
     public void saveCar(Car car) {
         cars.add(car);
+    }
+
+    public List<Car> findCars() {
+        return new ArrayList<>(cars);
     }
 }
