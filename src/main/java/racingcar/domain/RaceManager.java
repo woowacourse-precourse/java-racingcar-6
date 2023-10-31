@@ -2,7 +2,10 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 import static racingcar.constant.CarForwordConstant.MINIMUM_DICE_VALUE;
 import static racingcar.constant.GameResultMessageConstant.EXECUTION_RESULT;
@@ -39,8 +42,19 @@ public class RaceManager {
 
             resultStringBuilder.append("\n");
         }
+        List<String> winners = makeWinnerList(entryList);
+        resultStringBuilder.append(viewMaker.makeWinnerView(winners));
+    }
 
-        resultStringBuilder.append(viewMaker.makeWinnerView(entryList));
+    public List<String> makeWinnerList(List<Car> entryList) {
+        Car WinnerCar = entryList.stream().
+                max(Comparator.comparingInt(Car::getCurrentPosition)).
+                orElseThrow(NoSuchElementException::new);
+
+        return entryList.stream().
+                filter(car -> car.getCurrentPosition() == WinnerCar.getCurrentPosition()).
+                map(Car::getName).
+                collect(Collectors.toList());
     }
 
     private boolean isCarCanForward() {

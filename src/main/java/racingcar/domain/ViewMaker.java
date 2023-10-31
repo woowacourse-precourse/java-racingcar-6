@@ -17,16 +17,7 @@ public class ViewMaker {
                 PROGRESSIVE_BAR.repeat(Math.max(0, position)) + "\n";
     }
 
-    public String makeWinnerView(List<Car> cars) {
-        Car WinnerCar = cars.stream().
-                max(Comparator.comparingInt(Car::getCurrentPosition)).
-                orElseThrow(NoSuchElementException::new);
-
-        List<String> winnerNames = cars.stream().
-                filter(car -> car.getCurrentPosition() == WinnerCar.getCurrentPosition()).
-                map(Car::getName).
-                collect(Collectors.toList());
-
-        return WINNER_RESULT + String.join(", ", winnerNames);
+    public String makeWinnerView(List<String> winners) {
+        return WINNER_RESULT + String.join(", ", winners);
     }
 }
