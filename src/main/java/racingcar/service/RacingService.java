@@ -1,15 +1,24 @@
 package racingcar.service;
 
-import racingcar.domain.CarsDto;
-import racingcar.domain.Client;
-import racingcar.domain.RacingCars;
+import racingcar.domain.*;
+import racingcar.repository.CarRepository;
+
+import java.math.BigInteger;
 
 public class RacingService {
-    RacingCars racingCars;
-    Client client;
+    private final CarRepository carRepository;
+    private BigInteger currentRound;
 
     public RacingService(CarsDto carsDto, Client client) {
-        this.racingCars = new RacingCars(carsDto);
-        this.client = client;
+        this.carRepository = new CarRepository(carsDto, client);
+        currentRound = BigInteger.ZERO;
+    }
+
+    public ResultDto playCarRacing() {
+        while (!carRepository.isFinalRound()) {
+            currentRound = currentRound.add(BigInteger.ONE);
+            carRepository.race(currentRound);
+        }
+        return carRepository.finishFinalRound();
     }
 }

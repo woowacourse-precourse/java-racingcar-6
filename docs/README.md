@@ -42,8 +42,8 @@
 
 ## 2. RacingService
 ### State
-- RacingCars
-- Client
+- CarRepository
+- currentRound
 
 ### Behavior
 - `construct` (CarsDto carsDto, Client client)
