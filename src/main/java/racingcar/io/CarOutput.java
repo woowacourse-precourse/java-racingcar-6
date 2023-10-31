@@ -1,13 +1,6 @@
-package racingcar.util;
+package racingcar.io;
 
-public class CarUtil {
-    public static final String CAR_NAME_SPLIT = ",";
-    public static final String SHOW_MOVE_DISTANCE = "-";
-    public static final String WINNER_SEPARATOR = ", ";
-    public static final int FIRST_SCORE = 0;
-    public static final int MIN_POSSIBLE_MOVE_NUMBER = 4;
-    public static final int MIN_RANDOM_NUMBER = 0;
-    public static final int MAX_RANDOM_NUMBER = 9;
+public class CarOutput {
     private static final String RESULT = "실행 결과";
     private static final String WINNER = "최종 우승자 : ";
     private static final String INPUT_CAR_LIST = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";

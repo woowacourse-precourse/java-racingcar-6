@@ -3,7 +3,8 @@ package racingcar.data;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.util.CarUtil;
+import racingcar.io.CarOutput;
+import racingcar.utils.CarUtil;
 import racingcar.validator.CarInputValidator;
 
 public class CarRepository {
@@ -29,7 +30,7 @@ public class CarRepository {
             carList.forEach(car -> {
                 car.move(isPossibleMove());
             });
-            CarUtil.printNewLine();
+            CarOutput.printNewLine();
         }
     }
 
