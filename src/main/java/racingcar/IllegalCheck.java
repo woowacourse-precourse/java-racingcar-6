@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.Optional;
-
 public class IllegalCheck {
 
     private static final int INPUT_RANGE_MIN = 0;

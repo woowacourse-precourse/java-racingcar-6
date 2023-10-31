@@ -7,18 +7,18 @@ public class Car {
     private String currentLocation;
     private int score;
 
-    Car(String carName, String field){
+    Car(String carName, String field) {
         this.carName = carName;
         this.currentLocation = field;
         this.score = 0;
     }
 
-    static public Car attendCar(String carName){
+    static public Car attendCar(String carName) {
         return new Car(carName, FIELD);
     }
 
-    public int nowScore(){
-            return score;
+    public int nowScore() {
+        return score;
     }
 
 }
