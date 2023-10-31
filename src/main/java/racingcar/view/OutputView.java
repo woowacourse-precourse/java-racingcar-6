@@ -5,6 +5,7 @@ import racingcar.model.Car;
 
 public class OutputView {
     public static void exeutionResult() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -14,6 +15,7 @@ public class OutputView {
             printPosition(car);
             System.out.println();
         }
+        System.out.println();
     }
 
     private static void printPosition(Car car) {
