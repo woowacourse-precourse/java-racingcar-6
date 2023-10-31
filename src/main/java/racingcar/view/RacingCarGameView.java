@@ -18,7 +18,9 @@ public class RacingCarGameView {
 
     public int requestTryNumber() {
         System.out.println(REQUEST_TRY_NUMBER);
-        return Integer.parseInt(Console.readLine());
+        int tryNum = Integer.parseInt(Console.readLine());
+        System.out.println();
+        return tryNum;
     }
 
     public void gameResult() {
