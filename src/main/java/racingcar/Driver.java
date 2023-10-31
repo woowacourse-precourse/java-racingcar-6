@@ -16,7 +16,7 @@ public class Driver {
         this.car = car;
     }
 
-    public static Driver of(String name, Car car){
+    public static Driver of(String name, Car car) {
         return new Driver(name, car);
     }
 

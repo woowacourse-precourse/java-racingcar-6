@@ -17,8 +17,8 @@ public class RaceManager {
     }
 
     public void run() {
-        askAndSetNumbersOfRaces();
         entryDrivers();
+        askAndSetNumbersOfRaces();
         race.start();
         award();
     }
