@@ -37,10 +37,7 @@ public class OutputView {
     }
 
     public static void printResultMessage() {
-        System.out.println(NoticeMessage.RESULT_MESSAGE);
-    }
-
-    public static void newLine() {
         System.out.println();
+        System.out.println(NoticeMessage.RESULT_MESSAGE);
     }
 }
