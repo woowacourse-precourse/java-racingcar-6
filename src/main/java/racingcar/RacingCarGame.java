@@ -46,4 +46,11 @@ public class RacingCarGame {
     static int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    static void executePerCar(int i, List<String>[] progressOfCarRacing) {
+        int number = getRandomNumber();
+        if (number >= 4) {
+            progressOfCarRacing[i].add("-");
+        }
+    }
 }
