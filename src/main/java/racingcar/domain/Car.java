@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import racingcar.enums.Movement;
+
 public class Car {
-    private static final int MIN_MOVE_CONDITION = 4;
     private final String name;
     private int position = 0;
 
@@ -10,7 +11,7 @@ public class Car {
     }
 
     public void move(int moveCondition) {
-        if (moveCondition >= MIN_MOVE_CONDITION) {
+        if (moveCondition >= Movement.MIN_MOVE_CONDITION.getValue()) {
             position++;
         }
     }

@@ -4,9 +4,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarStatusDto;
+import racingcar.enums.Separator;
 
 public class RacingResult {
-    private static final String JOIN_SEPARATOR = ", ";
     private List<CarStatusDto> carStatuses;
 
 
@@ -22,7 +22,7 @@ public class RacingResult {
         return carStatuses.stream()
                 .filter(car -> car.position() == getMaxPosition())
                 .map(CarStatusDto::name)
-                .collect(Collectors.joining(JOIN_SEPARATOR));
+                .collect(Collectors.joining(Separator.JOIN_SEPARATOR.toString()));
     }
 
     public List<CarStatusDto> getCarStatuses() {

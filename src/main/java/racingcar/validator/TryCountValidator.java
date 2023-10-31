@@ -1,10 +1,9 @@
 package racingcar.validator;
 
-import java.util.regex.Pattern;
+import racingcar.enums.RegexPattern;
 import racingcar.util.Convertor;
 
 public class TryCountValidator {
-    private static final Pattern ONLY_NUMBER = Pattern.compile("^[0-9]*$");
     private static final char ZERO = '0';
     private static final int MIN_COUNT = 1;
 
@@ -20,27 +19,27 @@ public class TryCountValidator {
 
     private static void validateNull(String input) {
         if (input.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.NULL_ERROR);
+            throw new IllegalArgumentException(ErrorMessage.NULL_ERROR.getMessage());
         }
     }
 
     private static void validateInputFormat(String input) {
-        if (!ONLY_NUMBER.matcher(input).matches()) {
-            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_ONY_NUMBER);
+        if (!RegexPattern.ONLY_NUMBER.matches(input)) {
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_ONY_NUMBER.getMessage());
         }
     }
 
     private static void validateInputRange(String input) {
         int tryCount = Convertor.convertStringToInt(input);
         if (tryCount < MIN_COUNT) {
-            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_GT_ZERO);
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_GT_ZERO.getMessage());
         }
     }
 
     private static void validateIsStartZero(String input) {
         if (input.charAt(0) == ZERO) {
             Integer.parseInt(input);
-            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST);
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST.getMessage());
         }
     }
 }

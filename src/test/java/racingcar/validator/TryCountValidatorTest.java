@@ -18,7 +18,7 @@ class TryCountValidatorTest {
         Throwable exception = getException(input);
 
         // then
-        assertEquals(ErrorMessage.NULL_ERROR, exception.getMessage());
+        assertEquals(ErrorMessage.NULL_ERROR.getMessage(), exception.getMessage());
     }
 
     @DisplayName("숫자만 입력할 수 있다.")
@@ -29,7 +29,7 @@ class TryCountValidatorTest {
         Throwable exception = getException(input);
 
         // then
-        assertEquals(ErrorMessage.TRY_COUNT_ONY_NUMBER, exception.getMessage());
+        assertEquals(ErrorMessage.TRY_COUNT_ONY_NUMBER.getMessage(), exception.getMessage());
     }
 
     @DisplayName("횟수는 1회 이상만 입력할 수 있다.")
@@ -42,7 +42,7 @@ class TryCountValidatorTest {
         Throwable exception = getException(input);
 
         // then
-        assertEquals(ErrorMessage.TRY_COUNT_GT_ZERO, exception.getMessage());
+        assertEquals(ErrorMessage.TRY_COUNT_GT_ZERO.getMessage(), exception.getMessage());
     }
 
     @DisplayName("횟수는 0으로 시작할 수 없다.")
@@ -55,7 +55,7 @@ class TryCountValidatorTest {
         Throwable exception = getException(input);
 
         // then
-        assertEquals(ErrorMessage.TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST, exception.getMessage());
+        assertEquals(ErrorMessage.TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST.getMessage(), exception.getMessage());
     }
 
     private Throwable getException(String input) {

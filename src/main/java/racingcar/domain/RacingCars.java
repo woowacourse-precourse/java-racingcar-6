@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarStatusDto;
+import racingcar.enums.Movement;
 
 public class RacingCars {
     private final List<Car> cars;
@@ -23,6 +24,6 @@ public class RacingCars {
     }
 
     private int getMoveCondition() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(Movement.MIN_MOVE_RANGE.getValue(), Movement.MAX_MOVE_RANGE.getValue());
     }
 }
