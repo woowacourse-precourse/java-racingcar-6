@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.service.CarNameService;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,6 @@
-package racingcar.domain;
+package racingcar.service;
+
+import racingcar.domain.InputMoveNumber;
 
 public class MoveNumberService {
     private final static String exceptionMessage = "숫자만 입력할 수 있습니다.";
