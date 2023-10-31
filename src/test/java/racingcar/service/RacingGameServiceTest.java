@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import racingcar.domain.RacingCar;
 
 class RacingGameServiceTest {
@@ -35,6 +36,29 @@ class RacingGameServiceTest {
         assertThat("Car1").isEqualTo(racingCars.get(0).getCarName());
         assertThat("Car2").isEqualTo(racingCars.get(1).getCarName());
         assertThat("Car3").isEqualTo(racingCars.get(2).getCarName());
+    }
+
+    @Test
+    public void 경주(){
+        //given
+        RacingCar car1 = new RacingCar();
+        RacingCar car2 = new RacingCar();
+        RacingCar car3 = new RacingCar();
+        List<RacingCar> racingCars = List.of(car1, car2, car3);
+
+        RacingGameService racingCarServiceSpy = Mockito.spy(racingGameService);
+        //generateRandomNumber를 실행하면 4를 반환
+        Mockito.doReturn(4).when(racingCarServiceSpy).generateRandomNumber();
+
+        //when
+        racingCarServiceSpy.race(racingCars);
+
+        //then
+        //4가 나오므로 1씩 증가
+        assertThat(1).isEqualTo(car1.getForwardCount());
+        assertThat(1).isEqualTo(car2.getForwardCount());
+        assertThat(1).isEqualTo(car3.getForwardCount());
+
     }
 
     @Test
