@@ -70,4 +70,17 @@ class CarTest {
         //then
         assertThat(car.getStraightCount()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("랜덤한 값이 4 미만이면 정지한다.")
+    void executeStopRandomValueIsLessThanFour() {
+        //given
+        Car car = Car.createForStart("테스트1");
+
+        //when
+        car.moveStraight(3);
+
+        //then
+        assertThat(car.getStraightCount()).isEqualTo(0);
+    }
 }
