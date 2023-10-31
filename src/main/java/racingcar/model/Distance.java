@@ -12,7 +12,7 @@ public class Distance {
         return this.distance;
     }
 
-    public void Distance() {
+    public Distance() {
         this.distance = "";
     }
 }
