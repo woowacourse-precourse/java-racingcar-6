@@ -21,6 +21,7 @@ public class GameController {
         List<String> carNames;
         List<Car> cars;
         int trialNumber;
+        List<String> winnerName;
 
         carNames = stringParser.splitCarNames(view.inputCarName());
         cars = createCarObject(carNames);
@@ -29,7 +30,9 @@ public class GameController {
         trialNumber = stringParser.toInteger(view.inputTrialNumber());
         gameStart(trialNumber);
 
-        view.printWinner();
+        winnerName = model.getCarNameWithLongestDistance();
+        System.out.println(winnerName);
+        view.printWinner(winnerName);
     }
 
     private List<Car> createCarObject(List<String> carNames) {
@@ -53,5 +56,6 @@ public class GameController {
             }
             view.printEnter();
         }
+
     }
 }
