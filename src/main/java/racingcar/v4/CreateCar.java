@@ -21,12 +21,16 @@ public class CreateCar {
         return new ArrayList<>(Arrays.asList(carNames.split(",")));
     }
 
-    public void validateCarNameLength(List carNamesList) {
-        for (int i = 0; i < carNamesList.size(); i++) {
-            if (carNamesList.get(i).toString().length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
+    public List<String> trimCarNames(List<String> carNames) {
+        List<String> trimmedCarNames = new ArrayList<>();
+        for (String carName : carNames) {
+            trimmedCarNames.add(carName.trim());
         }
+        return trimmedCarNames;
     }
+
+
+
+
 
 }
