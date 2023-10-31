@@ -4,9 +4,11 @@ import java.util.List;
 
 public class RacingCars {
 
-    private List<String> carNames;
+    private List<Car> racingCars;
 
     public RacingCars(List<String> carNames){
-        this.carNames = carNames;
+        for(String carName : carNames){
+            racingCars.add(new Car(carName));
+        }
     }
 }

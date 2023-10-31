@@ -1,14 +1,16 @@
 package racingcar.service;
 
+import racingcar.domain.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
 
 public class CarService {
 
-    public List<String> getCarNames(){
+    private RacingCars racingCars;
+
+    public RacingCars getCarNames(){
         OutputView.inputCarNamesMessage();
-        return InputView.readCarNames();
+        return new RacingCars(InputView.readCarNames());
     }
 }
