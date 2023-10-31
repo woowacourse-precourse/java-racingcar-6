@@ -7,7 +7,6 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -27,20 +26,7 @@ class ConsoleOutputWinnerTest {
     }
 
     static Stream<Arguments> provideCarList() {
-        List<Car> carList1 = IntStream.rangeClosed(1, 5)
-                .mapToObj(number -> createTestCar("DY" + number, number))
-                .toList();
-        String result1 = "최종 우승자 : DY5";
-
-        List<Car> carList2 = IntStream.rangeClosed(1, 5)
-                .mapToObj(number -> createTestCar("DY" + number, 6 - number))
-                .toList();
-        String result2 = "최종 우승자 : DY1";
-
-        return Stream.of(
-                Arguments.of(carList1, result1),
-                Arguments.of(carList2, result2)
-        );
+        return PrintWinnerTestCase.getArgumentsStream();
     }
 
     private String run(List<Car> carList) {
