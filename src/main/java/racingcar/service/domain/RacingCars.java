@@ -10,10 +10,12 @@ import java.util.stream.Collectors;
 // TODO: RacingCars public 메서드 단위 테스트
 // TODO: getter 없애도록 고민해볼 것
 public class RacingCars {
+    private static final String DUPLICATE_EXISTS = "중복된 이름이 존재합니다.";
     private final List<Car> cars;
 
     public RacingCars(List<String> carNames, Engine engine) {
         List<Car> cars = mapToCarList(carNames, engine);
+        validateDuplicate(cars, carNames);
         this.cars = cars;
     }
 
@@ -22,6 +24,12 @@ public class RacingCars {
                 .map(carName -> new Car(carName, engine))
                 .distinct()
                 .collect(Collectors.toList());
+    }
+
+    private void validateDuplicate(List<Car> cars, List<String> carNames) {
+        if (cars.size() != carNames.size()) {
+            throw new IllegalArgumentException(DUPLICATE_EXISTS);
+        }
     }
 
     public List<Car> findWinners() {
