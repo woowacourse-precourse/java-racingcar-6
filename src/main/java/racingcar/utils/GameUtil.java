@@ -1,13 +1,15 @@
 package racingcar.utils;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class GameUtil {
 
     public void splitNamesByComma() {
 
     }
 
-    public void generateRandomNumber() {
-
+    public int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public void formatWinners() {
@@ -15,7 +17,7 @@ public class GameUtil {
     }
 
     public void judgeGo() {
-        
+
     }
 
 }
