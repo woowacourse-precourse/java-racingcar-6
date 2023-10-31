@@ -20,7 +20,7 @@ public class Racing {
             racingResult.append("\n");
             for (Car car : carList) {
                 move(car);
-                racingResult.append(car.result());
+                racingResult.append(car.getResult());
             }
         }
         return racingResult.toString();

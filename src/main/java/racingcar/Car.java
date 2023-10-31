@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.List;
-
 public class Car {
     String name;
     int move;
@@ -11,7 +9,7 @@ public class Car {
         this.move = move;
     }
 
-    public String result() {
+    public String getResult() {
         String dash = "-".repeat(move);
 
         String result = String.format("%s : %s%n", name, dash);
