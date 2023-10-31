@@ -32,15 +32,19 @@
 - `GameExecution`
 
 ## GameData
-- `RacingCars` : List<Car>
-- `AttemptData` : List<Attempt>
+- `RacingCars` : List\<Car>
+- `AttemptData`
 
 ## Car
 - `CarName` : String
 - `CarPosition` : int
 
+## AttemptData
+- `GameAttempts` : List\<Attempt>
+- `AttemptIndex` : int
+
 ## Attempt
-- `InputNumber` : int
+- `RandomNumber` : int
 
 ## GameExecution
 - `GameInput`
