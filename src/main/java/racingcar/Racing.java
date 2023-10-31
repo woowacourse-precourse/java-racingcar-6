@@ -1,7 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Racing {
@@ -12,10 +12,11 @@ public class Racing {
     public void run() {
         generateRacingCar();
         promptForExecutionCount();
-        ioHandler.printComment("");
-        ioHandler.printComment("실행결과");
+
+        ioHandler.printComment("\n" + "실행결과");
 
         execute();
+        printResult();
     }
 
 
@@ -23,7 +24,7 @@ public class Racing {
         ioHandler.printComment("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = ioHandler.readConsoleInput();
 
-        List<String> carsList = Arrays.asList(cars.split(","));
+        String[] carsList = cars.split(",");
         for (String car : carsList) {
             racingCars.add(new RacingCar(car));
         }
@@ -36,7 +37,7 @@ public class Racing {
     }
 
     private void execute() {
-        int count = execution.count;
+        int count = Execution.count;
         for (int i = 0; i < count; i++) {
             for (RacingCar racingCar : racingCars) {
                 racingCar.execute();
@@ -47,10 +48,33 @@ public class Racing {
     }
 
     private void printStatus(String name, int count) {
-        String output = name + " : ";
-        for (int i = 0; i < count; i++) {
-            output += "-";
+        ioHandler.printComment(name + " : " + "-".repeat(Math.max(0, count)));
+    }
+
+    private void printResult() {
+        ArrayList<RacingCar> winnerList = getWinners();
+        StringBuilder output = new StringBuilder();
+
+        for (RacingCar racingCar : winnerList) {
+            if (!output.toString().equals("")) {
+                output.append(", ");
+            }
+            output.append(racingCar.name);
         }
-        ioHandler.printComment(output);
+        ioHandler.printComment("최종 우승자 : " + output);
+    }
+
+    private ArrayList<RacingCar> getWinners() {
+        ArrayList<RacingCar> winnerList = new ArrayList<>();
+        int maxCount = 0;
+
+        Collections.sort(racingCars);
+        for (int i = racingCars.size(); i > 0; i--) {
+            if (racingCars.get(i - 1).count < maxCount) {
+                break;
+            }
+            winnerList.add(racingCars.get(i - 1));
+        }
+        return winnerList;
     }
 }
