@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 class RefereeTest {
 
+    private static final int VALUE_FOR_MOVING_FORWARD = 5;
+    private static final int VALUE_FOR_STOP = 2;
+
     @DisplayName("우승한 자동차의 수는 가장 많이 전진한 자동차의 수와 같다.")
     @Test
     void decideWinners_Success_IsResultSizeSameAsCarsCount() {
@@ -15,8 +18,8 @@ class RefereeTest {
         Car car2 = new Car("car2");
         Car car3 = new Car("car3");
 
-        car1.move(5);
-        car2.move(5);
+        car1.move(VALUE_FOR_MOVING_FORWARD);
+        car2.move(VALUE_FOR_MOVING_FORWARD);
 
         Referee referee = new Referee();
 

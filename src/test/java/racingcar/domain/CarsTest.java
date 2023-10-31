@@ -10,6 +10,7 @@ import racingcar.utils.FixedNumberGenerator;
 class CarsTest {
 
     private static final int MAX_CARS_SIZE = 10;
+    private static final int VALUE_FOR_MOVING_FORWARD = 5;
 
     @DisplayName("cars 생성 시 최소 자동차 개수보다 적으면 예외가 발생한다.")
     @Test
@@ -77,7 +78,7 @@ class CarsTest {
         Cars cars = new Cars(List.of(carA, carB, carC));
 
         for (int i = 0; i < 2; i++) {
-            carA.move(8);
+            carA.move(VALUE_FOR_MOVING_FORWARD);
         }
 
         // when

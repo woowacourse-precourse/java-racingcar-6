@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
+    private static final int VALUE_FOR_MOVING_FORWARD = 5;
+    private static final int VALUE_FOR_STOP = 2;
+
     @DisplayName("자동차 생성 시 이름 글자수가 최솟값보다 작으면 예외가 발생한다.")
     @Test
     void constructCar_Fail_ByNameLengthIsLessThanMinimum() {
@@ -26,10 +29,10 @@ class CarTest {
     @Test
     void move_Success() {
         // given
-        Car car = new Car("pobi");
+        Car car = createCar();
 
         // when
-        int forwardCount = car.move(5);
+        int forwardCount = car.move(VALUE_FOR_MOVING_FORWARD);
 
         // then
         Assertions.assertThat(forwardCount).isEqualTo(1);
@@ -39,10 +42,10 @@ class CarTest {
     @Test
     void move_Fail_ByValueIsLessThanSpecifiedNumber() {
         // given
-        Car car = new Car("pobi");
+        Car car = createCar();
 
         // when
-        int forwardCount = car.move(3);
+        int forwardCount = car.move(VALUE_FOR_STOP);
 
         // then
         Assertions.assertThat(forwardCount).isEqualTo(0);
@@ -52,10 +55,14 @@ class CarTest {
     @Test
     void isForwardCountSameAs_True() {
         // given
-        Car car = new Car("pobi");
-        car.move(5);
+        Car car = createCar();
+        car.move(VALUE_FOR_MOVING_FORWARD);
 
         // when, then
         Assertions.assertThat(car.isForwardCountSameAs(1)).isTrue();
+    }
+
+    private Car createCar() {
+        return new Car("pobi");
     }
 }

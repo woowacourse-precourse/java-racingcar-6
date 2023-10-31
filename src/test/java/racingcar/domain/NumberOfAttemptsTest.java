@@ -6,11 +6,14 @@ import org.junit.jupiter.api.Test;
 
 class NumberOfAttemptsTest {
 
+    private static final int MIN_NUMBER_OF_ATTEMPTS = 1;
+    private static final int MAX_NUMBER_OF_ATTEMPTS = 100;
+
     @DisplayName("시도 횟수 생성 시 최솟값보다 적을 경우 예외가 발생한다.")
     @Test
     void constructNumberOfAttempts_Fail_ByLessThanMinimum() {
         // when, then
-        Assertions.assertThatThrownBy(() -> new NumberOfAttempts(0))
+        Assertions.assertThatThrownBy(() -> new NumberOfAttempts(MIN_NUMBER_OF_ATTEMPTS - 1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -18,7 +21,7 @@ class NumberOfAttemptsTest {
     @Test
     void constructNumberOfAttempts_Fail_ByGreaterThanMaximum() {
         // when, then
-        Assertions.assertThatThrownBy(() -> new NumberOfAttempts(200))
+        Assertions.assertThatThrownBy(() -> new NumberOfAttempts(MAX_NUMBER_OF_ATTEMPTS + 1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
