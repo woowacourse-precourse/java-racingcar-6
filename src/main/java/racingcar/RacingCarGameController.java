@@ -23,23 +23,10 @@ public class RacingCarGameController {
         String[] split = input.split(",");
 
         // 2.게임 데이터를 다룰 List 생성
-        Map<String, Integer> racingCar = new HashMap<>();
-
-        // 3.자동차 이름 검증
-        for (int i = 0; i < split.length; i++) {
-
-            // 3-1.자동차 이름 길이 검증
-            if (split[i].length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자 이하만 입력 가능합니다.");
-            }
-
-
-            // 3-2.자동차 이름 중복 검증
-            if (racingCar.containsKey(split[i])) {
-                throw new IllegalArgumentException("중복된 자동차가 존재합니다.");
-            }
-            racingCar.put(split[i], 0);
-        }
+        List<Car> carList = Arrays.stream(input.split(","))
+                .peek(this::validationCarNameLength)
+                .map(Car::registerCar)
+                .collect(Collectors.toList());
 
 
         // 4. 이동회수 입력 (숫자만 가능)
@@ -91,5 +78,11 @@ public class RacingCarGameController {
         // 7. 우승자 출력
         String result = resultList.stream().map(String::valueOf).collect(Collectors.joining(", "));
         System.out.println("최종 우승자 : " + result);
+    }
+
+    public void validationCarNameLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차의 이름은 5자 이하만 입력 가능합니다.");
+        }
     }
 }
