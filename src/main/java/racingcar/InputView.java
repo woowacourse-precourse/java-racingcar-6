@@ -11,8 +11,13 @@ public class InputView {
 
     public static List<String> inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> inputCarNames = new ArrayList<>();
+
         String input = Console.readLine();
+        return toCarNames(input);
+    }
+
+    public static List<String> toCarNames(String input) {
+        List<String> inputCarNames = new ArrayList<>();
         String[] names = input.split(DELIMITER_CAR_NAMES);
         for (String name : names) {
             if (name.length() > NAME_MAXIMUM_LENGTH) {
@@ -24,9 +29,15 @@ public class InputView {
     }
 
     public static int inputTryNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+
+        return tryNumber(input);
+    }
+
+    public static int tryNumber(String input) {
         try {
-            System.out.println("시도할 회수는 몇회인가요?");
-            int tryNumberInt = Integer.parseInt(Console.readLine());
+            int tryNumberInt = Integer.parseInt(input);
             if (tryNumberInt <= 0) {
                 throw new IllegalArgumentException("양수를 입력하시오");
             }
