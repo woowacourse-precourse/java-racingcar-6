@@ -36,6 +36,18 @@ public class RacingTest {
     }
 
     @Test
+    @DisplayName("성공 : 입차량이름에 5자리 이상의 문자열 기입")
+    public void 차량이름에_5자리_이상의_문자열_기입() {
+        String input = "1,3,2,456789";
+
+        final Racing racing = new Racing();
+
+        assertThatThrownBy(() -> racing.getCarList(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름은 1~5자로 입력해주세요.");
+    }
+
+    @Test
     @DisplayName("성공 : 차량이름 정상기입 후 리턴타입 확인")
     public void 차량이름_정상기입_후_리턴타입_확인() {
         String input = "1,3,2,4";
