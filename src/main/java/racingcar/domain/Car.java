@@ -20,10 +20,13 @@ public class Car {
         return movePossibilityChecker.canMove();
     }
 
-    public CarDto moveBy(MovePossibilityChecker movePossibilityChecker) {
+    public void moveBy(MovePossibilityChecker movePossibilityChecker) {
         if (isPossibleToMoveBy(movePossibilityChecker)) {
             position++;
         }
+    }
+
+    public CarDto toCarDto() {
         return new CarDto(name, position);
     }
 }

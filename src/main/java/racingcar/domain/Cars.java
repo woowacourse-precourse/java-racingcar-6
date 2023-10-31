@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import racingcar.domain.dto.output.CarDto;
 import racingcar.domain.dto.output.CarsDto;
 import racingcar.validator.CarNameValidator;
 
@@ -21,10 +20,13 @@ public class Cars {
         return new Cars(carNameList);
     }
 
-    public CarsDto moveCarsBy(MovePossibilityChecker movePossibilityChecker) {
-        List<CarDto> carDtoList = carList.stream()
-                .map(car -> car.moveBy(movePossibilityChecker))
-                .toList();
-        return new CarsDto(carDtoList);
+    public void moveCarsBy(MovePossibilityChecker movePossibilityChecker) {
+        for (Car car : carList) {
+            car.moveBy(movePossibilityChecker);
+        }
+    }
+
+    public CarsDto toCarsDto() {
+        return new CarsDto(carList.stream().map(Car::toCarDto).toList());
     }
 }
