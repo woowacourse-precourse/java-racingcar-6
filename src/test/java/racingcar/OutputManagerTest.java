@@ -1,6 +1,7 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.CarTest.MIN_VALUE_FOR_MOVE_FORWARD;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
@@ -27,7 +28,6 @@ class OutputManagerTest extends NsTest {
     }
 
     static Stream<Arguments> 전진_테스트를_위한_매개변수() {
-        final int MIN_VALUE_FOR_MOVE_FORWARD = 4;
         return Stream.of(
                 Arguments.of(List.of("test1", "test2"),
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD - 1)),
@@ -49,7 +49,6 @@ class OutputManagerTest extends NsTest {
     }
 
     static Stream<Arguments> 우승자_출력_테스트를_위한_매개변수() {
-        final int MIN_VALUE_FOR_MOVE_FORWARD = 4;
         return Stream.of(
                 Arguments.of(List.of("test1", "test2"),
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD - 1), "최종 우승자 : test1"),

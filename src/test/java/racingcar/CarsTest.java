@@ -1,6 +1,7 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.CarTest.MIN_VALUE_FOR_MOVE_FORWARD;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -20,7 +21,6 @@ class CarsTest {
     }
 
     static Stream<Arguments> 전진_테스트를_위한_매개변수() {
-        final int MIN_VALUE_FOR_MOVE_FORWARD = 4;
         return Stream.of(
                 Arguments.of(List.of("test1", "test2"),
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD - 1), "test1 : -\ntest2 : "),
@@ -41,7 +41,6 @@ class CarsTest {
     }
 
     static Stream<Arguments> 우승자_판별_테스트를_위한_매개변수() {
-        final int MIN_VALUE_FOR_MOVE_FORWARD = 4;
         return Stream.of(
                 Arguments.of(List.of("test1", "test2"),
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD - 1), "test1"),
