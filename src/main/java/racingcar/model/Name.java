@@ -1,9 +1,9 @@
 package racingcar.model;
 
 public class Name {
-    private String name;
+    private final String name;
 
-    public Name(String name) {
+    public Name(final String name) {
         this.name = name;
     }
 

@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Cars {
-    private List<Car> racingCars = new ArrayList<>();
+    private final List<Car> racingCars = new ArrayList<>();
 
-    public Cars(List<String> stringCars) {
+    public Cars(final List<String> stringCars) {
         for (String stringCar : stringCars) {
             racingCars.add(new Car(stringCar));
         }
