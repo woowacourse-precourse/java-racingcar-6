@@ -1,12 +1,14 @@
 package racingcar.Model;
 
-public class Car {
-    String name;
-    String position;
+import camp.nextstep.edu.missionutils.Randoms;
 
-    public Car(String name, String position) {
+public class Car {
+    private String name;
+    private String position;
+
+    public Car(String name) {
         this.name = name;
-        this.position = position;
+        this.position = "";
     }
 
     public String getName() {
@@ -16,4 +18,9 @@ public class Car {
     public String getPosition() {
         return position;
     }
+
+    public void updatePosition() {
+        this.position += "-";
+    }
+
 }
