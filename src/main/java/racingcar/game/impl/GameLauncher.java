@@ -47,6 +47,7 @@ public class GameLauncher implements Launcher {
     private RoundCount makeRoundCount() {
         ioAdapter.printMessage(GameMessage.ASK_ATTEMPT_MESSAGE.getMessage());
         String inputAttempt = ioAdapter.inputStream();
+        ioAdapter.printNewLine();
         return inputConvertService.inputConvertRoundCount(inputAttempt);
     }
 }
