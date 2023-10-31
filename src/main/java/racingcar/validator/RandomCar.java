@@ -3,16 +3,16 @@ package racingcar.validator;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.util.ZeroToNineGenerator;
 
-public class Car {
+public class RandomCar {
     private String name;
     private int position = 0;
     private RandomNumberGenerator randomNumberGenerator;
 
-    public Car(String name) {
+    public RandomCar(String name) {
         this(name, new ZeroToNineGenerator());
     }
 
-    public Car(String name, RandomNumberGenerator randomGenerator) {
+    public RandomCar(String name, RandomNumberGenerator randomGenerator) {
         this.name = name;
         this.randomNumberGenerator = randomGenerator;
     }
