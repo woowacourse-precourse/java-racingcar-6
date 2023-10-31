@@ -71,11 +71,10 @@ class RacingTest {
             Map<String, Integer> nameToPosition = Map.of("pobi", 1, "james", 3, "steve", 3);
             List<Car> cars = createAlwaysMovingMockCars(nameToPosition);
             Racing racing = new Racing(cars);
-            List<String> expected = List.of("james", "steve");
 
             List<String> actual = racing.findWinnersName();
 
-            assertThat(actual).isEqualTo(expected);
+            assertThat(actual).contains("james", "steve").hasSize(2);
         }
 
         List<Car> createAlwaysMovingMockCars(Map<String, Integer> nameToPosition) {
