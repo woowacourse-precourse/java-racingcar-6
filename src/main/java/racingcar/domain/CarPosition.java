@@ -24,11 +24,11 @@ public class CarPosition {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarPosition that = (CarPosition) o;
-        return position == that.position;
+        return this.position == that.position;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(position);
+        return Objects.hash(this.position);
     }
 }

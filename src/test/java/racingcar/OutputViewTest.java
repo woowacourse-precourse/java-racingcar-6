@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.dto.CarDto;
 import racingcar.domain.dto.CarDtos;
+import racingcar.domain.dto.WinnersDto;
 import racingcar.view.OutputView;
 
 import java.io.ByteArrayOutputStream;
@@ -60,9 +61,9 @@ class OutputViewTest {
     @Test
     void printWinners() {
         OutputView outputView = new OutputView();
-        List<String> winnerNames = Arrays.asList("car1", "car2");
+        WinnersDto winnersDto = new WinnersDto( Arrays.asList("car1", "car2"));
 
-        outputView.printWinners(winnerNames);
+        outputView.printWinners(winnersDto);
 
         String expectedOutput = "최종 우승자 : car1, car2\n";
         assertEquals(expectedOutput, outContent.toString());

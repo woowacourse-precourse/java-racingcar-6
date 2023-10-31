@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.common.GameServiceFactory;
+import racingcar.domain.dto.WinnersDto;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -25,25 +26,26 @@ public class GameController {
     private void initializeGame() {
         String carNames = receiveCarNames();
         String tryCount = receiveGameCount();
-        gameService.initializeGame(carNames, tryCount);
+        this.gameService.initializeGame(carNames, tryCount);
     }
 
     private void playGame() {
-        outputView.printResultMessage();
-        while (!gameService.isGameFinished()) {
-            gameService.playRound();
-            outputView.printCarPositions(gameService.getCarPositions());
+        this.outputView.printResultMessage();
+        while (!this.gameService.isGameFinished()) {
+            this.gameService.playRound();
+            this.outputView.printCarPositions(this.gameService.getCarPositions());
         }
-
+        WinnersDto winners = this.gameService.getWinners();
+        this.outputView.printWinners(winners);
     }
 
     private String receiveCarNames() {
-        outputView.printInputCarNamesMessage();
-        return inputView.inputCarNames();
+        this.outputView.printInputCarNamesMessage();
+        return this.inputView.inputCarNames();
     }
 
     private String receiveGameCount() {
-        outputView.printInputGameTryCountMessage();
-        return inputView.inputGameCount();
+        this.outputView.printInputGameTryCountMessage();
+        return this.inputView.inputGameCount();
     }
 }

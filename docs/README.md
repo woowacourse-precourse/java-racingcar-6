@@ -34,3 +34,5 @@
    * winnersDto 일급컬렉션 추가
    * CarPositionDto 추가
    * 테스트 코드 작성 중 랜덤 넘버 생성 과정에서 의존성 관련 문제가 발생해서 인터페이스로 분리하고 구현체를 작성하기로 결정
+   * RandomNumberGenerator 인터페이스를 도입
+   * Factory 패턴을 적용하여 RandomNumberGenerator의 생성을 관리하기로 결정

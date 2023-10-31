@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import racingcar.common.RandomNumberGenerator;
 import racingcar.domain.dto.CarDtos;
+import racingcar.domain.dto.WinnersDto;
 
 public class Game {
     private final Cars cars;
@@ -19,6 +20,13 @@ public class Game {
         currentRound.increase();
     }
 
+    public CarDtos createCarDtos(){
+        return this.cars.toCarDtos();
+    }
+
+    public WinnersDto createWinnersDto(){
+        return this.cars.toWinnersDto();
+    }
 
     public void moveAll() {
         cars.forEach(Car::move);
@@ -28,7 +36,4 @@ public class Game {
         return currentRound.equals(totalRounds);
     }
 
-    public CarDtos createCarDtos(){
-        return this.cars.toCarDtos();
-    }
 }

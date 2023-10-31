@@ -33,13 +33,17 @@ public class Car {
     }
 
     private boolean shouldMove() {
-        int randomNumber = randomNumberGenerator.generate();
+        int randomNumber = this.randomNumberGenerator.generate();
         return randomNumber >= CONDITION_NUMBER;
     }
 
     public CarDto toCarDto() {
-        CarPositionDto carPositionDto =carPosition.createPositionDto();
+        CarPositionDto carPositionDto = this.carPosition.createPositionDto();
         return new CarDto(this.carName,carPositionDto.getPosition() );
+    }
+
+    public CarPositionDto createPositionDto() {
+        return this.carPosition.createPositionDto();
     }
 
     @Override
@@ -52,6 +56,6 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(carName);
+        return Objects.hash(this.carName);
     }
 }

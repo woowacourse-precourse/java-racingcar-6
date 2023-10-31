@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.domain.dto.CarDto;
 import racingcar.domain.dto.CarDtos;
+import racingcar.domain.dto.WinnersDto;
 
 import java.util.List;
 
@@ -22,19 +23,19 @@ public class OutputView {
     public void printResultMessage(){
         System.out.println(RESULT_MESSAGE);
     }
-    public void printCarPositions(CarDtos carDtos) {
+    public void printCarPositions(final CarDtos carDtos) {
         for (CarDto carDto : carDtos.getCarDtos()) {
             printSingleCarPosition(carDto);
         }
         System.out.println();
     }
 
-    private void printSingleCarPosition(CarDto carDto) {
+    private void printSingleCarPosition(final CarDto carDto) {
         System.out.println(carDto.getName() + " : " + "-".repeat(carDto.getPosition()));
     }
 
 
-    public void printWinners(List<String> winnerNames) {
-        System.out.println(WINNER_MESSAGE + String.join(", ", winnerNames));
+    public void printWinners(final WinnersDto winners) {
+        System.out.println(WINNER_MESSAGE + String.join(", ", winners.getWinnerNames()));
     }
 }
