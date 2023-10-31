@@ -12,6 +12,7 @@ pobi,woni,jun
 - Error case 생각해보기
 1. 5글자 이하인지.
 2. 입력글자가 없을경우
+3. white스페이스도 이름으로 칠건지
 
 시도할 회수 : 5
 -> string으로 받고 trim. 

@@ -1,19 +1,25 @@
 package racingcar;
 
 public class Error {
-    static void isNameError(String userInput){
+    static void isEmptyError(String userInput) {
         if (userInput.isEmpty())
-            throw new IllegalArgumentException("Empty Error is occurred" + userInput);
+            throw new IllegalArgumentException("Empty Error is occurred");
+    }
+    static void isLengthError(String userInput){
         if (userInput.length() > 5)
             throw new IllegalArgumentException("Invalid Length: " + userInput.length());
     }
     static void isDigitError(String userInput){
+        int userNumber;
+
+        if (userInput.isEmpty())
+            throw new IllegalArgumentException("Empty Error is occurred");
         for (int i = 0; i < userInput.length(); i++){
-            char word = userInput.charAt(i);
-            if (!Character.isDigit(word))
-                throw new IllegalArgumentException("Invalid word: " + userInput);
+            char digit = userInput.charAt(i);
+            if (!Character.isDigit(digit))
+                throw new IllegalArgumentException("Invalid digit: " + digit);
         }
-        int userNumber = Integer.parseInt(userInput);
+        userNumber = Integer.parseInt(userInput);
         if (userNumber < 0)
             throw new IllegalArgumentException("Invalid Digit Range: " + userInput);
     }

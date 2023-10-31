@@ -9,4 +9,19 @@ public class Message {
     private static String digitError = "숫자가 아닙니다";
     private static String digitRangeError = "음수입니다";
     private String makeMessage = "";
+
+    void getStartMessage(){
+        System.out.println(startMessage);
+    }
+
+    void getAttemptNumberMessage() {
+        System.out.println(attemptNumbersMessage);
+    }
+
+    void getResultMessage() {
+        System.out.println(resultMessage);
+    }
+    void makeResultMessage(String userInput){
+
+    }
 }
