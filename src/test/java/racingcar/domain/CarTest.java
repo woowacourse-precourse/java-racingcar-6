@@ -17,7 +17,8 @@ class CarTest {
     @ValueSource(strings = {"k", "stark"})
     @DisplayName(("자동차 이름 검증 통과"))
     void givenName_whenCreateCar_thenNoException(String name) {
-        assertThatNoException().isThrownBy(() -> new Car(name));
+        assertThatNoException()
+                .isThrownBy(() -> new Car(name));
     }
 
     @ParameterizedTest(name = "입력값 : {0}")

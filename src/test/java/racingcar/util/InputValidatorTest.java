@@ -23,7 +23,8 @@ class InputValidatorTest {
     @ValueSource(strings = {"pobi,woni,jun", "5"})
     @DisplayName("입력값 공백 검증 통과")
     void givenInput_whenIsBlankInput_thenNoException(String input) {
-        assertThatNoException().isThrownBy(() -> InputValidator.validateEmptyOrContainBlank(input));
+        assertThatNoException()
+                .isThrownBy(() -> InputValidator.validateEmptyOrContainBlank(input));
     }
 
     @Test
@@ -38,7 +39,8 @@ class InputValidatorTest {
     @ValueSource(strings = {"pobi,woni,jun", "5"})
     @DisplayName("입력값 null 검증 통과")
     void givenInput_whenIsNullInput_thenNoException(String input) {
-        assertThatNoException().isThrownBy(() -> InputValidator.validateIsNull(input));
+        assertThatNoException()
+                .isThrownBy(() -> InputValidator.validateIsNull(input));
     }
 
 }
