@@ -5,13 +5,17 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.exception.DomainExceptionCode;
 
 
 @DisplayName("[도메인] 잔여 트랙 수를 ")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class ExtractTrackTest {
 
     @Nested
@@ -22,7 +26,8 @@ class ExtractTrackTest {
         @ValueSource(ints = {-1, -2, -3})
         void _0보다_작을_수_없습니다(int count) {
             assertThatIllegalArgumentException()
-                    .isThrownBy(() -> new ExtractTrack(count));
+                    .isThrownBy(() -> new ExtractTrack(count))
+                    .withMessageContaining(DomainExceptionCode.EXTRACT_TRACK_MUST_BE_GRATER_THAN_ZERO.getMessage());
         }
     }
 
@@ -39,8 +44,7 @@ class ExtractTrackTest {
                             .consumerCount()
                             .consumerCount()
                             .consumerCount()
-                            .consumerCount()
-                    );
+                    ).withMessageContaining(DomainExceptionCode.EXTRACT_TRACK_MUST_BE_GRATER_THAN_ZERO.getMessage());
         }
 
         @Test
