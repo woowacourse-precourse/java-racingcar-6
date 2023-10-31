@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.Constant.ENTER_ATTEMPT_MESSAGE;
+import static racingcar.Constant.ENTER_CAR_NAMES_MESSAGE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +27,9 @@ public class Application {
     }
 
     private static void getUserInput() {
+        outputView.println(ENTER_CAR_NAMES_MESSAGE);
         carNames = inputView.getCarName();
+        outputView.println(ENTER_ATTEMPT_MESSAGE);
         attemptCount = inputView.getAttemptCount();
     }
 
