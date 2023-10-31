@@ -29,8 +29,8 @@ public class RacingCarTest {
         int randomNumber = 5;
         racingCar.move(randomNumber);
         //then
-        List<Boolean> racingCarMove = racingCar.getMove();
-        assertThat(racingCarMove.get(0)).isEqualTo(true);
+        int racingCarMove = racingCar.getMoveCount();
+        assertThat(racingCarMove).isEqualTo(1);
     }
 
     @DisplayName("랜던한 숫자가 4이하 일때, 레이싱 자동차가 전진하지 않는지 대한 테스트")
@@ -43,8 +43,8 @@ public class RacingCarTest {
         int randomNumber = 2;
         racingCar.move(randomNumber);
         //then
-        List<Boolean> racingCarMove = racingCar.getMove();
-        assertThat(racingCarMove.isEmpty()).isEqualTo(true);
+        int racingCarMove = racingCar.getMoveCount();
+        assertThat(racingCarMove).isEqualTo(0);
     }
 
     @DisplayName("레이싱 자동차의 게임 결과를 string으로 반환해주는 테스트")
