@@ -12,7 +12,7 @@ import racingcar.model.RoundNumber;
 public class Game {
     private CarList carList;
     private final RoundNumber roundNumber;
-    private PositionMap positions;
+    private PositionMap positionMap;
 
     public Game(String[] carNames, String roundString) {
         makeCars(carNames);
@@ -28,8 +28,8 @@ public class Game {
     }
 
     private void initPosition() {
-        positions = new PositionMap(HashMap::new);
-        carList.forEachCar(car -> positions.putCar(car));
+        positionMap = new PositionMap(HashMap::new);
+        carList.forEachCar(car -> positionMap.putCar(car));
     }
 
     public void play() {
@@ -52,14 +52,14 @@ public class Game {
         if (!car.isMove()) {
             return;
         }
-        positions.moveCar(car);
+        positionMap.moveCar(car);
     }
 
     private void printWinner() {
-        String winner = positions.getWinners()
+        String winnersInString = positionMap.getWinners()
                 .stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(","));
-        System.out.println("최종 우승자 : " + winner);
+        System.out.println("최종 우승자 : " + winnersInString);
     }
 }
