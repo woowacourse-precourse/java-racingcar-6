@@ -51,6 +51,6 @@ public class Cars {
     }
 
     public List<Car> getRacingCars() {
-        return racingCars;
+        return List.copyOf(racingCars);
     }
 }
