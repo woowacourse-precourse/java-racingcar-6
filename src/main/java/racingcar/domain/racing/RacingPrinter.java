@@ -1,6 +1,7 @@
 package racingcar.domain.racing;
 
-import java.util.List;
+import racingcar.domain.raingcar.RacingCar;
+import racingcar.domain.raingcar.RacingCars;
 
 public class RacingPrinter {
     private static final String RACING_ROUND_RESULT_MESSAGE = "실행 결과\n";

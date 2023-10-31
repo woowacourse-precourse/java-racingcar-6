@@ -1,6 +1,5 @@
 package racingcar.domain.racing;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.raingcar.RacingCar;
 import racingcar.domain.raingcar.RacingCars;
@@ -24,19 +23,15 @@ public class Racing {
     }
 
     private void race() {
-        List<RacingMovement> randomMoves = new ArrayList<>();
-
         for (RacingCar car : cars.getCars()) {
-            RacingMovement move = new RacingMovement(car.getName());
+            RacingMovement move = RacingMovement.random();
 
             if (move.isMovingForward()) {
                 car.moveForward();
             }
-
-            randomMoves.add(move);
         }
 
-        printer.updateRacingResult(randomMoves);
+        printer.updateRacingResult(cars);
     }
 
     public int getRound() {
