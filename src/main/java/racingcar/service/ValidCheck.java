@@ -9,6 +9,21 @@ public class ValidCheck {
         }
     }
 
+    public static void emptyName_check(String car_name) {
+
+        if (car_name.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
+        if (car_name.charAt(0) == ',' || car_name.charAt(car_name.length() - 1) == ',') {
+            throw new IllegalArgumentException();
+        }
+
+        if (car_name.contains(",,")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void nameSize_check(String car_name) {
         if (car_name.length() > 5) {
             throw new IllegalArgumentException();

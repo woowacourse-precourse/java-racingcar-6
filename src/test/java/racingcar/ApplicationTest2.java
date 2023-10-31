@@ -80,6 +80,42 @@ public class ApplicationTest2 extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("자동차 이름이 비었을 때 유효성 검사")
+    void emptyName_Test() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 비었을 때 유효성 검사2")
+    void emptyName_Test2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("kim,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 비었을 때 유효성 검사2")
+    void emptyName_Test3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",kim", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 비었을 때 유효성 검사2")
+    void emptyName_Test4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("kim,,min", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

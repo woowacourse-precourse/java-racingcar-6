@@ -11,6 +11,8 @@ public class SettingGame {
     public String[] inputCar() {
         String input_carName = Console.readLine();
 
+        ValidCheck.emptyName_check(input_carName);
+
         return input_carName.split(",");
     }
 
