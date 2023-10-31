@@ -29,6 +29,12 @@ public class Application {
             }
             System.out.println();
         }
+
+        List<String> winners = new ArrayList<>();
+        winners = findWinners(winners);
+
+        String result = String.join(", ", winners);
+        System.out.printf("최종 우승자 : %s", result);
     }
 
     private static void validateCarName() {
@@ -47,5 +53,19 @@ public class Application {
         if (randomNum >= 4)
             presentDistance.get(j).append("-");
         System.out.printf("%s : %s\n", cars.get(j), presentDistance.get(j));
+    }
+
+    private static List<String> findWinners(List<String> winners) {
+        int maxDistance = 0;
+        for (int i = 0; i < cars.size(); i++) {
+            if (presentDistance.get(i).length() > maxDistance) {
+                winners = new ArrayList<>();
+                winners.add(cars.get(i));
+            }
+            else if (presentDistance.get(i).length() == maxDistance) {
+                winners.add(cars.get(i));
+            }
+        }
+        return winners;
     }
 }
