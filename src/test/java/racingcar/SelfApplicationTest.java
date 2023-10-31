@@ -39,6 +39,14 @@ public class SelfApplicationTest extends NsTest {
     }
 
     @Test
+    void 선수가_둘_미만인_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("benz", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 시행횟수_숫자가_아닌_입력_예외처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("benz,bmw", "1a5b"))

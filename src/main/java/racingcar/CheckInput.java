@@ -22,6 +22,12 @@ public class CheckInput extends Player {
         }
     }
 
+    public static void checkIsMultiple(List<RacingCar> player) {
+        if (player.size() < 2) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static int checkIsNumber(String input) {
         try {
             return Integer.parseInt(input);

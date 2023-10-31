@@ -13,6 +13,7 @@ public class GameManager extends Player {
         List<RacingCar> player = new ArrayList<>();
         Player.getPlayer(input, player);
         CheckInput.checkLength(player);
+        CheckInput.checkIsMultiple(player);
 
         System.out.println("시도할 회수는 몇회인가요?");
         input = Console.readLine();
