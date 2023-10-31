@@ -3,9 +3,10 @@ package racingcar.domain.car;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private Name name;
 
-    private Distance distance;
+    protected Name name;
+
+    protected Distance distance;
 
     private Car() {
 
