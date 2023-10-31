@@ -44,6 +44,6 @@ public class OutputView {
                     .substring(STRING_FIRST_INDEX, winnerMsg.length() - NUMBER_FOR_LAST_COMMA_REMOVE);
         }
 
-        System.out.println(winnerMsg);
+        System.out.print(winnerMsg);
     }
 }
