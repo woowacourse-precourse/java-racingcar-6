@@ -29,6 +29,7 @@ public class RacingGameController {
         roundCounter = createRoundCounter(InputController.scanTotalNumberOfRounds());
 
         playAllRounds();
+        OutputController.printWinnersMessage(pickWinners());
     }
 
     private Cars createCars(String userInput) {
@@ -48,7 +49,6 @@ public class RacingGameController {
             playOneRound();
             roundCounter.plusOne();
         }
-        OutputController.printWinnersMessage(pickWinners());
     }
 
     private void playOneRound() {
