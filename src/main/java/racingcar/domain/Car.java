@@ -11,11 +11,9 @@ public class Car {
     private int dist;
 
     public Car() {
-
     }
 
     public Car(String name) {
-        name = name.trim();
         validateCarName(name);
 
         this.name = name;
@@ -44,7 +42,7 @@ public class Car {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_OVER);
         }
         // 자동차 이름이 공백일 경우 예외 발생
-        if (name==null || name.isEmpty()) {
+        if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_BLANK);
         }
     }
