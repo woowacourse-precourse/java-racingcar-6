@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.service.JudgeResult.getWinners;
+import static racingcar.util.RandomNumber.getRandomNumber;
 import static racingcar.view.InitialInputs.readCarNames;
 import static racingcar.view.InitialInputs.readExcecutionNumber;
 import static racingcar.view.RacingProcess.showOneRound;
@@ -9,8 +11,6 @@ import static racingcar.view.Winners.showWinners;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.service.JudgeResult;
-import racingcar.util.RandomNumber;
 
 public class GameManager {
     private List<Car> cars = new ArrayList<>();
@@ -37,11 +37,11 @@ public class GameManager {
 
     private void updateOneRound() {
         for (Car car : cars) {
-            car.updateDistance(RandomNumber.getRandomNumber());
+            car.updateDistance(getRandomNumber());
         }
     }
 
     void result() {
-        showWinners(JudgeResult.getWinners(cars));
+        showWinners(getWinners(cars));
     }
 }

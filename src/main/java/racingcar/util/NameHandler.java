@@ -1,10 +1,11 @@
 package racingcar.util;
 
-import java.util.Arrays;
+import static java.util.Arrays.asList;
+
 import java.util.List;
 
 public class NameHandler {
     public static List<String> splitNames(String in) {
-        return Arrays.asList(in.split(",", -1));
+        return asList(in.split(",", -1));
     }
 }

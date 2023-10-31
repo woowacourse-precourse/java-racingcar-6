@@ -1,9 +1,9 @@
 package racingcar.util;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RandomNumber {
     public static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return pickNumberInRange(0, 9);
     }
 }

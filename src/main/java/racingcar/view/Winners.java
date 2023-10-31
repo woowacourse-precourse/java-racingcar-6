@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static java.lang.String.join;
+
 import java.util.List;
 
 public class Winners {
@@ -8,7 +10,7 @@ public class Winners {
     }
 
     static String makeString(List<String> winners) {
-        String str = String.join(", ", winners);
+        String str = join(", ", winners);
         return str;
     }
 }
