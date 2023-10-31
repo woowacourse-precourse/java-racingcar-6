@@ -1,4 +1,4 @@
-package racingcar.game.model;
+package racingcar.domain;
 
 public class RaceResult {
     private StringBuilder stringBuilder;

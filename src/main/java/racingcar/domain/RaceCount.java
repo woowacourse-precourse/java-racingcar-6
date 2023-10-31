@@ -1,4 +1,4 @@
-package racingcar.game.model;
+package racingcar.domain;
 
 public class RaceCount {
     static final String NUMBER_SIGN_ERROR = "[ERROR] 시도 횟수는 양수여야 합니다.";
