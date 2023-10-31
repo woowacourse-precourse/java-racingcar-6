@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import racingcar.view.OutputView;
 
-import java.util.List;
-
 public class Car implements Comparable<Car> {
     private final CarName carName;
     private int movingDistance;

@@ -13,10 +13,6 @@ public class CarName {
         this.carName = carName;
     }
 
-    public void addToWinnerNameList(List<String> winnerNameList) {
-        winnerNameList.add(carName);
-    }
-
     private void validateCarNameLengthExceed(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자를 넘어갈 수 없습니다.");

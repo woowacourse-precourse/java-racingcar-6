@@ -2,7 +2,6 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.domain.TrialNumber;
-import racingcar.view.InputView;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
