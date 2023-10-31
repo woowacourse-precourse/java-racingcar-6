@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Application {
     public static void main(String[] args) {
         InputView read = new InputView();
@@ -20,7 +22,11 @@ class GameSystem {
 }
 
 class InputView {
-
+    public String readCarNames() {
+        String input = Console.readLine();
+        runNameValidator(input);
+        return input;
+    }
 
     private void runNameValidator(String input) {
         NameValidation.checkWord(input);
