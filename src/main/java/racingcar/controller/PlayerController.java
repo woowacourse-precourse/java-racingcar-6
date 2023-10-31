@@ -9,7 +9,7 @@ public class PlayerController {
     public PlayerController() {
         this.playerList = new ArrayList<>();
     }
-    public void addPlayer(List<String> carNames) {
+    public void addPlayers(List<String> carNames) {
         for(String carName : carNames) {
             Player player = new Player(carName);
             playerList.add(player);

@@ -12,11 +12,11 @@ public class Application {
 
         PlayerController playersController = new PlayerController();
         RacingCupController racingCupController = new RacingCupController(gameView.getTotalRounds(), playersController);
-        playersController.addPlayer(carNames);
+        playersController.addPlayers(carNames);
 
         gameView.printMessage("실행결과");
-        while(racingCupController.nextRound()) {
-            racingCupController.gamePlay();
+        while(racingCupController.playNextRound()) {
+            racingCupController.playRacingGame();
             gameView.nowRoundResultPrint(playersController.getPlayerList());
         }
 
