@@ -1,5 +1,10 @@
 package racingcar;
 
+import static racingcar.RacingConstant.MAX_NAME_LENGTH;
+import static racingcar.RacingConstant.MAX_PLAY_COUNT;
+import static racingcar.RacingConstant.MIN_NAME_LENGTH;
+import static racingcar.RacingConstant.MIN_PLAY_COUNT;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -96,8 +101,8 @@ public class Racing {
     }
 
     private void checkCarNameLength(String carName) {
-        if (1 > carName.length() || carName.length() > 5) {
-            throw new IllegalArgumentException("이름 길이는 1 ~ 5자 이내 입니다.");
+        if (MIN_NAME_LENGTH > carName.length() || carName.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("이름 길이는 " + MIN_NAME_LENGTH + " ~ " + MAX_NAME_LENGTH + "자 이내 입니다.");
         }
     }
 
@@ -108,8 +113,8 @@ public class Racing {
     }
 
     private void checkPlayCount(int playCount) {
-        if (playCount < 1 || playCount > 10) {
-            throw new IllegalArgumentException("플레이 횟수는 1~10 사이 입니다.");
+        if (playCount < MIN_PLAY_COUNT || playCount > MAX_PLAY_COUNT) {
+            throw new IllegalArgumentException("플레이 횟수는 " + MIN_PLAY_COUNT + "~" + MAX_PLAY_COUNT + " 사이 입니다.");
         }
     }
 

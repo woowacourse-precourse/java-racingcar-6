@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static racingcar.RacingConstant.CAR_MOVE_CONDITION_NUM;
 
 public class Car {
 
@@ -20,7 +21,7 @@ public class Car {
 
         int randomNumber = pickNumberInRange(0, 9);
 
-        if (randomNumber >= 4) {
+        if (randomNumber >= CAR_MOVE_CONDITION_NUM) {
             changeLocation();
         }
 
