@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.core.Core;
 import racingcar.model.Car;
+import racingcar.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -97,6 +99,30 @@ class ApplicationTest extends NsTest {
         assertThat(result1).isEqualTo(List.of("woni"));
         assertThat(result2).isEqualTo(List.of("lee", "park"));
         assertThat(result3).isEqualTo(List.of("james"));
+    }
+
+    @Test
+    void validateCarNameLength_정상처리_테스트() {
+        // given
+        final List<String> case1 = List.of("pobi", "woni", "jun");
+        final List<String> case2 = List.of("kim", "le e", "park");
+        final List<String> case3 = List.of("james", "tom", "Mr.Jo");
+
+        // when
+        final Throwable thrown1 = catchThrowable(() -> {
+            Utils.validateCarNameLength(case1);
+        });
+        final Throwable thrown2 = catchThrowable(() -> {
+            Utils.validateCarNameLength(case2);
+        });
+        final Throwable thrown3 = catchThrowable(() -> {
+            Utils.validateCarNameLength(case3);
+        });
+
+        // then
+        assertThat(thrown1).doesNotThrowAnyException();
+        assertThat(thrown2).doesNotThrowAnyException();
+        assertThat(thrown3).doesNotThrowAnyException();
     }
 
     @Test
