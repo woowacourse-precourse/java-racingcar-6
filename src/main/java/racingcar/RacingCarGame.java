@@ -19,6 +19,7 @@ public class RacingCarGame {
             playGame();
             printResult();
         }
+        computeWinners();
         printWinners();
     }
 
@@ -45,7 +46,7 @@ public class RacingCarGame {
 
     void playGame() {
         for (RacingCar player : racingCars) {
-            player.move(Randoms.pickNumberInRange(0,9));
+            player.move(Randoms.pickNumberInRange(0, 9));
         }
     }
 
@@ -59,13 +60,13 @@ public class RacingCarGame {
         StringBuffer playerScore = new StringBuffer();
         playerScore.append(player.getName());
         playerScore.append(" : ");
-        for(int i=0; i<player.getScore(); i++) {
+        for (int i = 0; i < player.getScore(); i++) {
             playerScore.append("-");
         }
         System.out.println(playerScore);
     }
 
-    void printWinners() {
+    void computeWinners() {
         int maxScore = Integer.MIN_VALUE;
         for (RacingCar player : racingCars) {
             int playerScore = player.getScore();
@@ -77,11 +78,14 @@ public class RacingCarGame {
                 winners.add(player);
             }
         }
+    }
+
+    void printWinners() {
         StringBuffer result = new StringBuffer();
         result.append("최종우승자 : ");
-        for (RacingCar winner: winners) {
+        for (RacingCar winner : winners) {
             result.append(winner.getName() + ", ");
         }
-        System.out.println(result.substring(0, result.length()-2));
+        System.out.println(result.substring(0, result.length() - 2));
     }
 }
