@@ -53,7 +53,7 @@ class CarGroupTest {
                 .toList();
 
         //then
-        assertThat(winners.size()).isEqualTo(1);
+        assertThat(winners).hasSize(1);
         assertThat(winnerNames).containsExactly("Jinx");
     }
 
@@ -74,7 +74,7 @@ class CarGroupTest {
                 .toList();
 
         //then
-        assertThat(winners.size()).isEqualTo(2);
+        assertThat(winners).hasSize(2);
         assertThat(winnerNames).containsExactly("Ahri", "Yone");
     }
 }
