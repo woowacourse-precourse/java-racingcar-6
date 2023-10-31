@@ -5,10 +5,16 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
+
+    @BeforeEach
+    void init() {
+        MonotoneIncreasingNumberGenerator.clear();
+    }
 
     @Test
     @DisplayName("자동차들 정상 생성")
@@ -20,32 +26,7 @@ class CarsTest {
         Cars cars = Cars.of(nameList, new RandomNumberGenerator());
 
         // then
-        assertThat(cars.getCars().size()).isEqualTo(4);
-    }
-
-    @Test
-    @DisplayName("자동차들 이름에 5글자 초과가 들어올 수 없다.")
-    void Cars_비정상_생성() {
-        // given
-        List<String> nameList = List.of("a", "bb", "ccc", "dddddd");
-
-        // when then
-        assertThatThrownBy(() -> Cars.of(nameList, new RandomNumberGenerator()))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이름 길이는 5 이하만 가능합니다.");
-    }
-
-    @Test
-    @DisplayName("자동차들의 이름이 공백일 수 없다.")
-    void Cars_비정상_생성_이름없음() {
-        // given
-        List<String> nameZero = List.of("", " ");
-
-        // when then
-        assertThatThrownBy(() -> Cars.of(nameZero, new RandomNumberGenerator()))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이름은 빈칸일 수 없습니다.");
-
+        assertThat(cars.getCars().size()).isEqualTo(nameList.size());
     }
 
     @Test
@@ -57,18 +38,19 @@ class CarsTest {
         int n = 10;
 
         // when
-        while (n-- > 0) {
+        for (int i = 0; i < n; i++) {
             cars.goByNumber();
         }
 
         // then
-        List<String> winnerNameList = cars.findWinnerNameList();
+        List<Car> winnerCarList = cars.findWinnerCarList();
+
         List<Car> carList = cars.getCars()
                 .stream()
-                .filter(car -> winnerNameList.contains(car.getNameString()))
+                .filter(winnerCarList::contains)
                 .toList();
 
-        assertThat(carList.get(0).getPosition()).isEqualTo(new Position(10));
+        assertThat(carList.get(0).getPosition()).isEqualTo(new Position(n));
 
     }
 
@@ -86,17 +68,16 @@ class CarsTest {
         }
 
         // then
-        assertThatThrownBy(cars::findWinnerNameList)
+        assertThatThrownBy(cars::findWinnerCarList)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 최대 위치를 찾을 수 없습니다.");
     }
 
     @Test
     @DisplayName("우승자 추출")
-    void 우승자_이름_추출() {
+    void 우승자_추출() {
         // given
-        List<String> nameList = List.of("a", "b", "c", "d", "e");
-        Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
+        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new MonotoneIncreasingNumberGenerator());
         int n = 10;
 
         // when
@@ -105,9 +86,9 @@ class CarsTest {
         }
 
         // then
-        List<String> winnerNameList = cars.findWinnerNameList();
+        List<Car> winnerCarList = cars.findWinnerCarList();
 
-        assertThat(winnerNameList)
+        assertThat(winnerCarList.get(0).getNameString())
                 .contains("e");
     }
 
@@ -125,9 +106,9 @@ class CarsTest {
 
         // then
 
-        List<String> winnerNameList = cars.findWinnerNameList();
+        List<Car> winnerCarList = cars.findWinnerCarList();
 
-        assertThat(winnerNameList)
+        assertThat(winnerCarList.stream().map(Car::getNameString).toList())
                 .containsExactly("a", "b", "c", "d", "e");
     }
 
@@ -135,7 +116,8 @@ class CarsTest {
     @DisplayName("자동차들 객체를 외부 변경으로부터 보호해야한다.")
     void 외부_변경_빈리스트_보호() {
         // given
-        Cars beforeCars = Cars.of(List.of("a", "b", "c"), new RandomNumberGenerator());
+        List<String> nameList = List.of("a", "b", "c");
+        Cars beforeCars = Cars.of(nameList, new RandomNumberGenerator());
 
         // when
         List<Car> carList = beforeCars.getCars();
@@ -143,7 +125,7 @@ class CarsTest {
         carList = new ArrayList<>();
 
         // then
-        assertThat(beforeCars.getCars().size()).isEqualTo(3);
+        assertThat(beforeCars.getCars().size()).isEqualTo(nameList.size());
     }
 
     @Test
@@ -182,6 +164,10 @@ class CarsTest {
         @Override
         public int generate() {
             return number++;
+        }
+
+        public static void clear() {
+            number = 0;
         }
     }
 

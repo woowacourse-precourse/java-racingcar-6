@@ -1,7 +1,8 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.CarConstant.CAR_CAN_GO_NUMBER;
+import static racingcar.constant.CarConstant.CAR_START_POSITION;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,8 +13,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 class CarTest {
 
     @Test
-    @DisplayName("자동차의 초기위치는 0")
-    void 초기_위치_0() {
+    @DisplayName("자동차의 초기위치는 " + CAR_START_POSITION)
+    void 초기_위치() {
         // given
         String name = "1234";
 
@@ -22,42 +23,13 @@ class CarTest {
 
         // then
         assertThat(car.getNameString()).isEqualTo(name);
-        assertThat(car.getPosition()).isEqualTo(new Position(0));
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"1", "12", "123", "1234", "12345", " a", "a ", "a a"})
-    @DisplayName("이름 길이는 5이하 가능")
-    void 이름길이_5_이하(String name) {
-
-        Car car = Car.from(name);
-
-        assertThat(car.getNameString()).isEqualTo(name);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"123456", "abcdef", "12345678", "123456789", "123456789012345"})
-    @DisplayName("이름 길이는 5초과 불가능")
-    void 이름길이_5초과_예외(String name) {
-        assertThatThrownBy(() -> Car.from(name))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이름 길이는 5 이하만 가능합니다.");
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "\n", "   "})
-    @DisplayName("빈문자는 생성 불가능")
-    void 빈문자_예외(String name) {
-
-        assertThatThrownBy(() -> Car.from(name))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 이름은 빈칸일 수 없습니다.");
+        assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {4,5,6,10,100,1000,99999})
-    @DisplayName("숫자 4이상일 떄 이동")
-    void 숫자_4이상만_이동(int number) {
+    @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "이상일 떄 이동")
+    void 이동_가능(int number) {
         // given
         Car car = Car.from("car");
 
@@ -71,8 +43,8 @@ class CarTest {
 
     @ParameterizedTest
     @ValueSource(ints = {-999,-1,0,1,2,3})
-    @DisplayName("숫자 4미만 이동불가")
-    void 숫자_4_미만_이동불가(int number) {
+    @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "미만 이동 불가능")
+    void 이동불가(int number) {
         // given
         Car car = Car.from("1234");
 
@@ -80,12 +52,12 @@ class CarTest {
         car.go(number);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(new Position(0));
-        car.isHere(new Position(0));
+        assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
+        assertThat(car.isHere(new Position(CAR_START_POSITION))).isTrue();
     }
 
     @Test
-    void Position_안정성_테스트() {
+    void 안정성_테스트_재할당() {
         // given
         Car car = Car.from("a");
 
@@ -95,11 +67,11 @@ class CarTest {
 
 
         // then
-        assertThat(car.getPosition()).isEqualTo(new Position(0));
+        assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
     }
 
     @Test
-    void Position_안정성_테스트_2() {
+    void Position_안정성_테스트_변화() {
         // given
         Car car = Car.from("a");
 
@@ -108,8 +80,7 @@ class CarTest {
         position.plus();
 
         // then
-        assertThat(car.getPosition()).isEqualTo(new Position(0));
+        assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
     }
-
 
 }

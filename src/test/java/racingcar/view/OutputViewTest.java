@@ -13,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
+import racingcar.dto.WinnerNameDto;
 
 class OutputViewTest {
 
@@ -57,9 +58,10 @@ class OutputViewTest {
     void 우승자_출력() {
         // given
         List<String> winnerName = List.of("a", "b", "c");
+        WinnerNameDto winnerNameDto = new WinnerNameDto(winnerName);
 
         // when
-        outputView.printWinners(winnerName);
+        outputView.printWinners(winnerNameDto);
 
         // then
         assertThat(out.toString()).contains("최종 우승자 : a, b, c");
