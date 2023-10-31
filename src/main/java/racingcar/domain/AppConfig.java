@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.domain.car.controller.CarController;
+import racingcar.domain.car.controller.CarControllerImpl;
 import racingcar.domain.car.dao.CarRepository;
 import racingcar.domain.car.service.CarService;
 import racingcar.domain.car.view.CarInputView;
@@ -8,8 +8,8 @@ import racingcar.domain.car.view.CarOutputView;
 
 public class AppConfig {
 
-    public static CarController getController() {
-        return new CarController(getCarInputView(), getCarOutputView(), getCarService());
+    public static CarControllerImpl getController() {
+        return new CarControllerImpl(getCarInputView(), getCarOutputView(), getCarService());
     }
 
     private static CarService getCarService() {
