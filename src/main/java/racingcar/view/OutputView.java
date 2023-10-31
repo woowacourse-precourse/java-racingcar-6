@@ -6,7 +6,7 @@ public class OutputView {
         System.out.println("\n실행 결과");
     }
 
-    public void printGameLog(String car, String log) {
+    public void printCarAndLog(String car, String log) {
         System.out.println(car + " : " + log);
     }
 
