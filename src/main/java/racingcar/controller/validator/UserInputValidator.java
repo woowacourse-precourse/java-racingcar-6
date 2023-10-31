@@ -23,15 +23,28 @@ public class UserInputValidator {
         List<String> carNames = Arrays.stream(rawInput.split(","))
                 .toList();
 
-        if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다.");
-        }
+        validateCarNamesFormat(rawInput, carNames);
 
         for (String carName : carNames) {
             validateNameLength(carName);
         }
 
         return carNames;
+    }
+
+    private void validateCarNamesFormat(String rawInput, List<String> carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다.");
+        }
+
+        int splitterCount = rawInput.length() - rawInput.replace(",","").length();
+        if (carNames.size() != splitterCount + 1) {
+            throw new IllegalArgumentException("구분자 ',' 뒤에는 이름이 위치해야 합니다.");
+        }
+
+        if(carNames.contains("")) {
+            throw new IllegalArgumentException("이름은 빈칸일 수 없습니다.");
+        }
     }
 
     private void validateNumberUnderZero(int roundCount) {
