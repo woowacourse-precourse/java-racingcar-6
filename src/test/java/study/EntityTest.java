@@ -59,4 +59,23 @@ public class EntityTest {
         //then
         assertThat(roundResult).isInstanceOf(RoundScore.class);
     }
+
+    @Test
+    void RoundResult_라운드_결과_기록_로직_테스트(){
+        //given
+        Racer testRacer = Racer.getInstance("test");
+        String targetResult = "test : -\n";
+        //when
+        racerScored(testRacer);
+        RoundResult.writeRoundResult(testRacer);
+        //then
+        assertThat(RoundResult.getResultOfRound().toString()).isEqualTo(targetResult);
+    }
+
+    private static void racerScored(Racer racer){
+        //given
+        RoundScore roundResult=RoundScore.FORWARD;
+
+        RaceStatus.scoreWriteByRacer(racer,roundResult);
+    }
 }
