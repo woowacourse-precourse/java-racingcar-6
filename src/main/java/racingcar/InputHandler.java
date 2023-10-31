@@ -13,9 +13,7 @@ public class InputHandler {
     }
 
     public int convertToNumber(String input) {
-        if (!isRightTrialCount(input)) {
-            throw new IllegalArgumentException();
-        }
+        validateTrialCount(input);
         return Integer.parseInt(input);
     }
 
