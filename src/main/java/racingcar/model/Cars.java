@@ -30,11 +30,11 @@ public class Cars {
 
     public String result() {
         return cars.stream()
-                .map(this::formatCarInfo)
+                .map(this::formatCarResult)
                 .collect(Collectors.joining(NEWLINE));
     }
 
-    private String formatCarInfo(Car car) {
+    private String formatCarResult(Car car) {
         return car.getName() + SINGLE_BLANK + COLON + SINGLE_BLANK + HYPHEN.repeat(car.getPoint());
     }
 
