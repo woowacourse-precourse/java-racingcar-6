@@ -37,3 +37,13 @@
 
 - main
   - CarGame 객체를 생성하고 자동차 경주 게임을 수행한다.
+
+## Test Code
+
+- Car 생성자 Test
+  - Car 클래스의 constructor 에서 초기화가 잘 작동하는지 Test 합니다.
+- Car 전진 Test
+  - Car 클래스의 goForward 메서드가 잘 작동하는지 Test 합니다.
+- Car toString Test
+  - Car 클래스의 toString 메서드가 잘 작동하는지 Test 합니다.
+  - Car 객체의 진행도가 의도대로 잘 변환되는지 Test 합니다.
