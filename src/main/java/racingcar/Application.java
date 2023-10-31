@@ -16,11 +16,14 @@ public class Application {
         List<Car> cars = createCars(getCarNames(getInputLineOfCarNames()));
         int numberOfAttempts = getNumberOfAttempts();
         printHeadResult();
+        attempt(cars,numberOfAttempts);
+        printWinner(cars);
+    }
+    private static void attempt(List<Car> cars, int numberOfAttempts){
         for (int i = 0; i < numberOfAttempts; i++) {
             attemptOneRound(cars);
             printOneRoundResult(cars);
         }
-        printWinner(cars);
     }
 
     private static String getInputLineOfCarNames() {
