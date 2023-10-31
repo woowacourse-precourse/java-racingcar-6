@@ -32,7 +32,7 @@ public class Server {
     }
     public void startRace(){
         System.out.println("실행 결과");
-        for (int i =0; i<raceRound;i++){
+        for (int i = 0; i < raceRound; i++){
             continueRace();
             Printer.printRaceResultInProgressWithRacerList(racerList);
         }

@@ -5,7 +5,7 @@ import racingcar.configs.Config;
 
 public class Car {
 
-    public boolean checkCanMoveForwardIfSpeedIsExceedThreshold(){
+    public boolean checkCarSpeedIsExceedThreshold(){
         int randomSpeed = generateRandomSpeed();
         if (randomSpeed >= Config.FORWARD_THRESHOLD){
             return true;

@@ -29,7 +29,7 @@ public class CarTest {
         RandomsMocking.fixPickNumberInRangeOverThreshold(
             () -> {
                 Assertions.assertEquals
-                    (car.checkCanMoveForwardIfSpeedIsExceedThreshold(),true);
+                    (car.checkCarSpeedIsExceedThreshold(),true);
             }
         );
     }
@@ -39,7 +39,7 @@ public class CarTest {
         RandomsMocking.fixPickNumberInRangeUnderThreshold(
             () -> {
                 Assertions.assertEquals
-                    (car.checkCanMoveForwardIfSpeedIsExceedThreshold(),false);
+                    (car.checkCarSpeedIsExceedThreshold(),false);
             }
         );
     }
