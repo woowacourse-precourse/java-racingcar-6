@@ -7,6 +7,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.util.InputParser;
+import racingcar.util.InputValidator;
 import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -38,11 +39,15 @@ public class GameController {
 
     private void initializeTryCount() {
         outputView.requestTryCount();
-        try {
-            tryCount = generateTryCount(inputView.inputTryCount());
-        } catch (NumberFormatException e) {
+        String input = inputView.inputTryCount();
+        if (isInputInvalid(input)) {
             ExceptionMessages.INVALID_INPUT_ERROR_MESSAGE.throwException();
         }
+        tryCount = generateTryCount(input);
+    }
+
+    private boolean isInputInvalid(String input) {
+        return !InputValidator.isInteger(input);
     }
 
     private Cars generateCars(String carNames) {
@@ -50,7 +55,7 @@ public class GameController {
         return new Cars(carNameList);
     }
 
-    private TryCount generateTryCount(String tryCountInput) throws NumberFormatException {
+    private TryCount generateTryCount(String tryCountInput) {
         int parsedTryCount = InputParser.tryCountParser(tryCountInput);
         return new TryCount(parsedTryCount);
     }
