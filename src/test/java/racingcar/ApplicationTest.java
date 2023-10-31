@@ -42,22 +42,22 @@ class ApplicationTest extends NsTest {
 
         //자동차 이름이 5글자를 넘는 경우
         inputs.carNamesList.clear();
-        Throwable exception1 = catchThrowable(() -> {
-            inputs.splitCarNames(tooLongCarName);
-        });
-        assertThat(exception1).isInstanceOf(IllegalArgumentException.class).hasMessage("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다.");
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputs.splitCarNames(tooLongCarNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다."));
 
         //자동차 이름이 5글자를 넘고 쉼표로 구분된 경우
         inputs.carNamesList.clear();
-        Throwable exception2 = catchThrowable(() -> {
-            inputs.splitCarNames(tooLongCarNames);
-        });
-        assertThat(exception2).isInstanceOf(IllegalArgumentException.class).hasMessage("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다.");
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputs.splitCarNames(tooLongCarNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다."));
+
         //콤마 이후에 공백이 있는 경우
         inputs.carNamesList.clear();
         inputs.splitCarNames(carNameWithSpace);
         assertThat(inputs.carNamesList).containsExactly("자동차1", " 자동차2");
-
     }
 
     @Test
@@ -71,7 +71,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
+        @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
