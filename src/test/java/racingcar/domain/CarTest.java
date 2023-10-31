@@ -13,10 +13,10 @@ public class CarTest {
     void getChanceToMoveTest() {
         Car car = Mockito.mock(Car.class);
 
-        Mockito.when(car.pickRandomNumberToMove()).thenReturn(4);
-        car.getChanceToMove();
+        Mockito.when(car.pickRandomNumberToMove()).thenReturn(7);
+        car.tryToGetMovementScore();
 
-        Assertions.assertEquals(0,car.getScore());
+        Assertions.assertEquals(0,car.getMovementScore());
     }
 
     @DisplayName("랜덤숫자 범위 테스트")
@@ -52,9 +52,9 @@ public class CarTest {
         Car car = new Car("test",3);
 
         for(int i=0; i<3; i++) {
-            car.getChanceToMove();
+            car.tryToGetMovementScore();
         }
 
-        Assertions.assertEquals(0,car.getRemainMoveCount());
+        Assertions.assertEquals(0,car.getRemainingOpportunity());
     }
 }
