@@ -19,4 +19,8 @@ public final class Utils {
     public static String[] splitByComma(String string) {
         return string.split(",");
     }
+
+    public static String[] splitByCommaAndBlank(String string) {
+        return string.split("\\s*,\\s*");
+    }
 }
