@@ -2,6 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -65,4 +66,18 @@ public class Application {
         }
     }
     //우승자 구하는 함수
+    public static List<String> getWinner(List<Car> cars){
+        int max = 0;
+        for(Car car : cars){
+            max = Math.max(car.getPosition(), max);
+        }
+        List<String> winner = new ArrayList<>();
+        for(Car car : cars){
+            if(car.getPosition() == max){
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
+
 }
