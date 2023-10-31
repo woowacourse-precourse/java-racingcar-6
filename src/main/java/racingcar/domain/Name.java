@@ -9,4 +9,7 @@ public class Name {
         this.name = name;
     }
 
+    public String getValue() {
+        return this.name;
+    }
 }
