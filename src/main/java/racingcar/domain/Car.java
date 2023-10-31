@@ -20,7 +20,18 @@ public class Car {
         }
     }
 
-    private void processTurn() {
+    public void processTurn() {
+        if(this.engine.canMoveForward()) {
+            moveForward();
+        }
+        printResult();
+    }
 
+    private void moveForward() {
+        this.forwardCount++;
+    }
+
+    private void printResult() {
+        System.out.println(String.format("%s : %s", this.name, "-".repeat(this.forwardCount)));
     }
 }

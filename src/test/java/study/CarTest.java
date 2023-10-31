@@ -22,4 +22,13 @@ public class CarTest {
     void Car_객체의_이름은_1글자에서_5글자이다_성공(String name) {
         assertThatCode(() -> new Car(name));
     }
+
+    @Test
+    void Car_이동메서드_체크() {
+        Integer moveCount = 5;
+        Car car = new Car("name");
+        for (int i = 0; i < moveCount; i++) {
+            car.processTurn();
+        }
+    }
 }
