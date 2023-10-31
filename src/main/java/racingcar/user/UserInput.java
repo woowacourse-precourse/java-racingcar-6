@@ -21,7 +21,7 @@ public class UserInput {
         return input;
     }
 
-    private List<String> carNames() {
+    public List<String> carNames() {
         String input = input();
         String[] arr = input.split(",");
         carNames = Arrays.asList(arr);
@@ -33,8 +33,7 @@ public class UserInput {
         return Integer.parseInt(input);
     }
 
-
-    private void startRace() {
+    public void startRace() {
         List<String> carNames = this.carNames;
         int tryCount = this.attemptCount;
 

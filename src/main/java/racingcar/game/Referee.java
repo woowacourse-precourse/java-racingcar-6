@@ -18,12 +18,8 @@ public class Referee {
       return user.attemptCountInput();
     }
 
-    private int randomValueForMove() {
-        return numberGenerator.createRandomNumber();
-    }
-
     private Boolean isMovingCondition() {
-        int randomNumber = randomValueForMove();
+        int randomNumber = numberGenerator.createRandomNumber();
         return randomNumber >= 4;
     }
 
