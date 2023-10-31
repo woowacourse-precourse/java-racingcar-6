@@ -25,6 +25,9 @@ public class CarGroup {
     }
 
     public int getMaxDistance() {
+        for (Car car : carList) {
+            this.maxDistance = Math.max(this.maxDistance, car.getDistance());
+        }
         return maxDistance;
     }
 
