@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class Application {
 
     private static final Computer computer = new Computer();
@@ -11,11 +13,12 @@ public class Application {
         String roundInput = Prompt.ROUND_INPUT_MESSAGE.read();
         computer.readRound(roundInput);
 
-        Prompt.RESULT_MESSAGE.println("\n", "");
-        String raceResult = computer.startRace();
-        System.out.println(raceResult);
+        List<String> raceResult = computer.startRace();
+        Prompt.RESULT_MESSAGE.println();
+        Prompt.println("\n\n", raceResult);
 
-        String winner = computer.findWinner();
-        Prompt.WINNER_MESSAGE.print("", winner);
+        List<String> raceWinners = computer.findWinner();
+        Prompt.WINNER_MESSAGE.print();
+        Prompt.print(", ", raceWinners);
     }
 }

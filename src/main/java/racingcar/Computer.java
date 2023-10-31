@@ -59,7 +59,7 @@ public class Computer {
         return number == 0;
     }
 
-    public String startRace() {
+    public List<String> startRace() {
         if (isZero(this.round)) {
             throw new IllegalArgumentException();
         }
@@ -67,7 +67,7 @@ public class Computer {
             this.roundResults.add(playRound());
             endRound();
         }
-        return raceResult();
+        return this.roundResults;
     }
 
     private boolean hasNextRound() {
@@ -86,14 +86,10 @@ public class Computer {
     private String roundResult() {
         return this.carNames.stream()
                 .map(RacingCar::toString)
-                .collect(Collectors.joining("\n", "", "\n"));
+                .collect(Collectors.joining("\n"));
     }
 
-    private String raceResult() {
-        return String.join("\n", this.roundResults);
-    }
-
-    public String findWinner() {
+    public List<String> findWinner() {
         if (isNotZero(this.round) || this.roundResults.isEmpty()) {
             throw new IllegalArgumentException();
         }
@@ -105,7 +101,7 @@ public class Computer {
                 .filter(car ->
                         car.getPosition() == maxPosition)
                 .map(RacingCar::getName)
-                .collect(Collectors.joining(", "));
+                .toList();
     }
 
     private boolean isNotZero(int round) {

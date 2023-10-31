@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import camp.nextstep.edu.missionutils.test.Assertions;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -95,7 +96,7 @@ public class UnitTest {
         void 무작위값이_4이상이면_전진() {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
-                        String raceResult = computer.startRace();
+                        List<String> raceResult = computer.startRace();
                         System.out.println(raceResult);
                         assertThat(raceResult).contains("green : -");
                     },
@@ -107,7 +108,7 @@ public class UnitTest {
         void 무작위값이_3이하이면_정지() {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
-                        String raceResult = computer.startRace();
+                        List<String> raceResult = computer.startRace();
                         assertThat(raceResult).contains("green : ");
                     },
                     STOP
@@ -120,11 +121,10 @@ public class UnitTest {
 
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
-                        String raceResult = computer.startRace();
-                        String[] roundResults = raceResult.split("\n\n");
+                        List<String> raceResult = computer.startRace();
 
                         assertThat(raceResult).contains("green : ---");
-                        assertThat(roundResults).hasSize(3);
+                        assertThat(raceResult).hasSize(3);
                     },
                     MOVE_FORWARD
             );
@@ -146,8 +146,8 @@ public class UnitTest {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
                         computer.startRace();
-                        String winner = computer.findWinner();
-                        assertThat(winner).contains("green");
+                        List<String> raceWinners = computer.findWinner();
+                        assertThat(raceWinners).contains("green");
                     },
                     MOVE_FORWARD, STOP, MOVE_FORWARD, STOP
             );
@@ -158,8 +158,8 @@ public class UnitTest {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
                         computer.startRace();
-                        String winner = computer.findWinner();
-                        assertThat(winner).contains("green", "red");
+                        List<String> raceWinners = computer.findWinner();
+                        assertThat(raceWinners).contains("green", "red");
                     },
                     MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
             );
@@ -172,8 +172,8 @@ public class UnitTest {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
                         computer.startRace();
-                        String winner = computer.findWinner();
-                        assertThat(winner).contains("red", "green");
+                        List<String> raceWinners = computer.findWinner();
+                        assertThat(raceWinners).contains("red", "green");
                     },
                     MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
             );
