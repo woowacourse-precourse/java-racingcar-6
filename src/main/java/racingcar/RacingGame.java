@@ -16,17 +16,27 @@ public class RacingGame {
 	}
 
 	public void gameStart() {
-		String[] cars = inputCarName();
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+		String carNames = Console.readLine();
+
+		String[] cars = inputCarName(carNames);
 		makeCarStepList(cars.length);
-		int tryCount = inputTryCount();
-		showTheResults(cars, tryCount);
+
+		System.out.println("시도할 횟수는 몇 회인가요?");
+
+		String tryCount = Console.readLine();
+		System.out.println();
+
+		int count = inputTryCount(tryCount);
+
+		showTheResults(cars, count);
 		String winners = umpire.decideTheWinners(cars, steps);
 		announceTheWinners(winners);
 	}
 
-	public String[] inputCarName() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-		String carNames = Console.readLine();
+	public String[] inputCarName(String carNames) {
+
 		String[] carArray = carNames.split(",");
 
 		carNameValidator.validateCarName(carArray);
@@ -40,10 +50,8 @@ public class RacingGame {
 		}
 	}
 
-	public int inputTryCount() {
-		System.out.println("시도할 횟수는 몇 회인가요?");
-		String tryCount = Console.readLine();
-		System.out.println();
+	public int inputTryCount(String tryCount) {
+
 		if (!Pattern.matches("^[0-9]+$", tryCount)) {
 			throw new IllegalArgumentException("숫자만 입력하실 수 있습니다.");
 		}
@@ -51,8 +59,8 @@ public class RacingGame {
 		return Integer.parseInt(tryCount);
 	}
 
-	public void showTheResults(String[] cars, int tryCount) {
-		for (int i = 0; i < tryCount; i++) {
+	public void showTheResults(String[] cars, int count) {
+		for (int i = 0; i < count; i++) {
 			steps = car.moveForward(steps);
 
 			for (int j = 0; j < cars.length; j++) {
