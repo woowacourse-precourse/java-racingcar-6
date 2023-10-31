@@ -20,7 +20,7 @@ public class OutputView {
         }
     }
 
-    public static void printWinners(List<Car> winners) {
+    public void printWinners(List<Car> winners) {
         StringBuilder winnerNames = new StringBuilder();
 
         for (Car winner : winners) {
