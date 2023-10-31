@@ -44,13 +44,11 @@ public class GameService {
             System.out.println();
         });
 
-        //winner 출력
         gameConsoleIO.printWinners(getWinners());
     }
 
 
     private void executeEachMovingCount() {
-        //리스트의 자동차마다
         for (Car car : cars) {
             if (isForward()) {
                 car.goForward();

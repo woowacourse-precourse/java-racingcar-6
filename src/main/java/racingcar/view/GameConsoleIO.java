@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.GameCondition;
-import racingcar.validation.InputValidation;
 
 public class GameConsoleIO {
     private final static String PRINT_FORMAT_CAR_LOCATION_BY_NAME = "%s : ";
@@ -32,7 +31,7 @@ public class GameConsoleIO {
         String carNames = Console.readLine();
 
         return Arrays.stream(carNames.split(MEMBER_SEPARATOR))
-                .peek(name -> inputValidation.validateCarNameSize(name, GameCondition.NAME_SIZE.getValue()))
+                .peek(name -> inputValidation.validateCarNameSize(name, GameCondition.NAME_MAX_SIZE.getValue()))
                 .toList();
 
     }

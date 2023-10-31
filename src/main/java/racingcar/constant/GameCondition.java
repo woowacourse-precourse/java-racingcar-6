@@ -1,8 +1,8 @@
 package racingcar.constant;
 
 public enum GameCondition {
-    NAME_SIZE(5),
-    MOVING_FORWARD_CONDITION(4),
+    NAME_MAX_SIZE(5),
+    MOVING_FORWARD_CONDITION(4),    //전진조건
     MIN_RANDOM_NUM(0),
     MAX_RANDOM_NUM(9);
 
