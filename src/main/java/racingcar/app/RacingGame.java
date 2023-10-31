@@ -20,7 +20,8 @@ public class RacingGame {
     private List<Map<String, String>> result = new ArrayList<>();
 
     /**
-     * 메인 함수에서 호출하는 메서드
+     * 메인 함수에서 호출하는 게임 실행 메서드
+     * - 사용자 입력을 받아 Racing 게임을 시작한다
      */
     public void start() {
         // 사용자 입력
@@ -33,12 +34,16 @@ public class RacingGame {
         play();
     }
 
+    /**
+     * 승리한 차량이 나올 때까지 라운드를 반복하는 함수
+     * - 매 라운드마다
+     */
     private void play() {
-        while (true) {
-            Round round = new Round();
-            round.init(carList, cnt);
-            round.play();
+        Round round = new Round();
+        round.init(carList, cnt);
 
+        while (true) {
+            round.play();
             result.add(round.saveResult());
 
             if (hasVictory(round)) {
@@ -47,6 +52,11 @@ public class RacingGame {
         }
     }
 
+    /**
+     * 승리한 차량이 존재하는지 판단하기 위한 메서드
+     * @param round
+     * @return
+     */
     private boolean hasVictory(Round round) {
         if (!round.victory().isEmpty()) {
             printResult(result);

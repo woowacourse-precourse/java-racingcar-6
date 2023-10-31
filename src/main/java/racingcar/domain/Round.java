@@ -19,6 +19,8 @@ public class Round {
 
     /**
      * 게임에 참여하는 레이싱카 리스트와 총 회차를 저장하는 초기화 함수
+     * @param carList
+     * @param cnt
      */
     public void init(List<Car> carList, int cnt) {
         carList.forEach(car -> carScoreMap.put(car, ""));
@@ -26,6 +28,7 @@ public class Round {
     }
 
     public void play() {
+        reset();
         for (Car car : carScoreMap.keySet()) {
             int num = car.extract();
             String result = car.advance(num);
@@ -35,6 +38,10 @@ public class Round {
             }
             carScoreMap.replace(car, result);
         }
+    }
+
+    private void reset() {
+        carScoreMap.keySet().forEach(car -> carScoreMap.put(car, ""));
     }
 
     /**
