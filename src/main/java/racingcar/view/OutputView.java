@@ -5,8 +5,7 @@ import java.util.Map;
 
 import static racingcar.util.OutputMessage.*;
 import static racingcar.util.Constants.HYPHEN;
-import static racingcar.util.Constants.SQUARE_BRACKET_ELIMINATE;
-import static racingcar.util.Constants.EMPTY;
+import static racingcar.util.Constants.DELIMITER;
 public class OutputView {
     public void start() {
         System.out.println(START);
@@ -31,8 +30,7 @@ public class OutputView {
         return sb;
     }
     public StringBuilder winnerList(List<String> winnerList, StringBuilder sb){
-        String str = winnerList.toString().replaceAll(SQUARE_BRACKET_ELIMINATE, EMPTY);
-        sb.append(str);
+        sb.append(String.join(DELIMITER,winnerList));
         return sb;
     }
     public void printBuilder(StringBuilder sb) {

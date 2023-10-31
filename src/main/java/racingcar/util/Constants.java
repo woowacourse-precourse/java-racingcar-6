@@ -2,8 +2,7 @@ package racingcar.util;
 
 public class Constants {
     public static final String NUMBER_REGEXP = "^[0-9]*$";
-    public static final String SQUARE_BRACKET_ELIMINATE ="\\[|\\]";
-    public static final String EMPTY = "";
+    public static final String DELIMITER =", ";
     public static final String SPLIT = ",";
     public static final String HYPHEN = "-";
     public static final int CAR_NAME_MAX_LENGTH = 5;
