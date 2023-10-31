@@ -1,63 +1,60 @@
 package racingcar.controller;
 
+import static racingcar.common.Config.*;
+import static racingcar.model.CarNameList.*;
+import static racingcar.model.CountCarMovement.*;
+import static racingcar.model.RandomNumbers.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Cars;
-import racingcar.model.RandomNumbers;
-import racingcar.view.InputView;
-
-import static racingcar.view.OutputView.gameStartMessage;
-import static racingcar.view.OutputView.eachResultMessgae;
-import static racingcar.view.OutputView.inputCountMessage;
-import static racingcar.view.OutputView.startRacingMessage;
-import static racingcar.view.OutputView.printWinner;
+import racingcar.model.CarNameList;
+import racingcar.model.CountCarMovement;
 
 public class CarController {
-    private final Cars cars = Cars.createCars();
-    private final InputView inputView = InputView.createInputView();
-    private List<String> stringList = new ArrayList<>();
-    private Integer countNumber = 0;
+    private final CarNameList carNameList;
+    private final CountCarMovement countCarMovement;
 
-    private CarController() {
-
+    private CarController(List<String> carStringList) {
+        this.countCarMovement = createCountCarMovement(carStringList.size());
+        this.carNameList = createCar(carStringList);
     }
 
-    public static CarController createCarController() {
-        return new CarController();
+    public static CarController createCars(List<String> carStringList) {
+        return new CarController(carStringList);
     }
 
-    public void welcome() {
-        gameStartMessage();
-    }
+    public void ifForwardCars() {
+        List<Boolean> resultRandomNumbers = createRandomNumbers(carNameList.countCar())
+                .getRandomNumberList();
 
-    public void registerRacer() {
-        stringList = inputView.inputCars();
-        cars.createEachCar(stringList);
-    }
-
-    public void setRacingCount() {
-        inputCountMessage();
-        countNumber = inputView.inputCountNumber();
-    }
-
-    public void startRacing() {
-        startRacingMessage();
-    }
-
-    public void inRacing() {
-
-        for (int i = 0; i < countNumber; i++) {
-            RandomNumbers randomNumbers = RandomNumbers.createRandomNumbers(stringList.size());
-
-            cars.ifForwardCars(randomNumbers.getRandomNumberList());
-
-            eachResultMessgae(cars.toString());
+        for (int i = 0; i < resultRandomNumbers.size(); i++) {
+            if(resultRandomNumbers.get(i)) {
+                countCarMovement.forwardCar(i);
+            }
         }
     }
 
-    public void endRacing() {
+    public String chooseWinner() {
+        List<String> winnersName = new ArrayList<>();
 
-        printWinner(cars.chooseWinner());
+        for (Integer index : countCarMovement.winnersIndex()) {
+            winnersName.add(carNameList.toString(index));
+        }
 
+        return String.join(", ", winnersName);
+    }
+
+    public String toString() {
+        StringBuilder carsMessage = new StringBuilder();
+
+        for (int i = 0; i < carNameList.countCar(); i++) {
+            carsMessage.append(
+                    String.format(
+                            EACH_RACER_RESULT,
+                            carNameList.toString(i),
+                            countCarMovement.toString(i)));
+        }
+
+        return carsMessage.toString();
     }
 }
