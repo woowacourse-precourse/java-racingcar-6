@@ -13,4 +13,8 @@ public class SingleRoundResultDto {
     public Car.CarResultDto getCarResultDto(int index) {
         return carResultDtoList.get(index);
     }
+
+    public long getCarNumbers() {
+        return carResultDtoList.size();
+    }
 }

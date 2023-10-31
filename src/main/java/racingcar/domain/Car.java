@@ -10,8 +10,8 @@ import static racingcar.util.Consts.MOVEMENT_CRITERIA;
 import static racingcar.util.Consts.MOVEMENT_DISTANCE;
 
 public class Car {
-    private BigInteger id;
-    private String name;
+    private final BigInteger id;
+    private final String name;
     private BigInteger distance;
 
     private Car(BigInteger id, String name) {
@@ -37,8 +37,8 @@ public class Car {
     }
 
     public static class CarResultDto {
-        private String name;
-        private long distance;
+        private final String name;
+        private final long distance;
 
         public CarResultDto(String name, BigInteger distance) {
             this.name = name;
@@ -52,6 +52,15 @@ public class Car {
         public long getDistance() {
             return distance;
         }
-    }
 
+        @Override
+        public String toString() {
+            StringBuilder resultExpression = new StringBuilder(name);
+            resultExpression.append(" : ");
+            for (long i = 0; i < distance; i++) {
+                resultExpression.append("-");
+            }
+            return resultExpression.toString();
+        }
+    }
 }

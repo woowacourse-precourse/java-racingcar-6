@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.CarsDto;
 import racingcar.domain.Client;
+import racingcar.domain.ResultDto;
 import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -15,6 +16,8 @@ public class RacingController {
         CarsDto carsDto = createCarsDto();
         Client client = createClientDto();
         racingService = new RacingService(carsDto, client);
+        ResultDto result = racingService.playCarRacing();
+        outputView.printResult(result);
     }
 
     private CarsDto createCarsDto() {
