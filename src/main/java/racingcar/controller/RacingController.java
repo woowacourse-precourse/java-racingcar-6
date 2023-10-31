@@ -31,12 +31,12 @@ public class RacingController {
 
         for (int i = 0; i < tryCount; i++) {
             game.move();
-            output.printStatus(game.getStatus());
+            output.printStatus(game.status());
         }
     }
 
     private static void endGame() {
-        List<String> winner = game.judge();
+        List<String> winner = game.judgeWinner();
         output.printWinner(winner);
     }
 

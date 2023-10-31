@@ -5,8 +5,8 @@ import java.util.List;
 public class JudgeWinnerImpl implements JudgeWinner {
 
     @Override
-    public List<String> judge(Cars cars) {
-        return cars.judgeMaxStep();
+    public List<CarDTO> judge(Cars cars) {
+        return cars.judge();
     }
 
 }

@@ -17,11 +17,14 @@ public class RacingGame {
         cars.move();
     }
 
-    public List<Car> getStatus() {
-        return cars.getCars();
+    public List<CarDTO> status() {
+        return cars.getStatus();
     }
 
-    public List<String> judge() {
-        return judgeWinner.judge(cars);
+    public List<String> judgeWinner() {
+        return judgeWinner.judge(cars)
+                .stream()
+                .map(CarDTO::name)
+                .toList();
     }
 }

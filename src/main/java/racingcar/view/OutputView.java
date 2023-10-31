@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.CarDTO;
 
 public class OutputView {
 
@@ -15,10 +15,10 @@ public class OutputView {
         System.out.println(GAME_RESULT_TITLE);
     }
 
-    public void printStatus(List<Car> cars) {
-        for (Car car : cars) {
-            String steps = ONE_STEP.repeat(car.getStep());
-            System.out.printf(GAME_STATUS_FORMAT, car.getName(), steps);
+    public void printStatus(List<CarDTO> cars) {
+        for (CarDTO carDTO : cars) {
+            String steps = ONE_STEP.repeat(carDTO.step());
+            System.out.printf(GAME_STATUS_FORMAT, carDTO.name(), steps);
         }
         System.out.println();
     }

@@ -27,19 +27,21 @@ public class Cars {
         cars.forEach(Car::moveOneStep);
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public List<String> judgeMaxStep() {
-        int maxStep = getMaxStep();
+    public List<CarDTO> getStatus() {
         return cars.stream()
-                .filter(car -> car.compare(maxStep))
-                .map(Car::getName)
+                .map(Car::toCarDTO)
                 .toList();
     }
 
-    private int getMaxStep(){
+    public List<CarDTO> judge() {
+        int maxStep = getMaxStep();
+        return cars.stream()
+                .filter(car -> car.compare(maxStep))
+                .map(Car::toCarDTO)
+                .toList();
+    }
+
+    private int getMaxStep() {
         return cars.stream()
                 .mapToInt(Car::getStep)
                 .max()
