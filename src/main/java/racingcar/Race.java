@@ -1,10 +1,6 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /*
  * 자동차 이동
@@ -41,7 +37,10 @@ public class Race {
             }
         }
 
-        distance = new ArrayList<> (cars.size());
+        distance = new ArrayList<>(cars.size());
+        for (int i = 0; i < cars.size(); i++) {
+            distance.add(0);
+        }
     }
 
     public void setRound(int round) {
