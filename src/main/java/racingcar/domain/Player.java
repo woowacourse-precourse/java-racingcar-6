@@ -9,7 +9,7 @@ public class Player {
     private static final List<String> carNames = new ArrayList<>();
     private static int raceCount;
 
-    private static final int CAR_NAME_LENGTH = 5;
+    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
 
     public void inputCarNames() {
         String input = Console.readLine();
@@ -31,7 +31,7 @@ public class Player {
     }
 
     private void validateCarNameLength(String input) {
-        if (input.length() > CAR_NAME_LENGTH) {
+        if (input.isEmpty() || input.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
