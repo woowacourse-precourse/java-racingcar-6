@@ -7,11 +7,12 @@ public class Car {
 
     public Car(String name){
         this.name = name;
+        this.score = 0;
     }
     public void moveCar(){
         int moveNum = Randoms.pickNumberInRange(0, 9);
         if(moveNum >= 4){
-            score+=1;
+            score++;
         }
     }
     public String getName(){
@@ -20,7 +21,4 @@ public class Car {
     public int getScore(){
         return score;
     }
-
-
-
 }
