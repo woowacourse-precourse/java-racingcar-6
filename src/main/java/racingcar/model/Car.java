@@ -9,10 +9,10 @@ import static racingcar.validator.Constants.*;
 public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car o) {
-        return this.getPosition() - o.getPosition();
+        return o.getPosition() - this.getPosition();
     }
     private final String NAME;
-    private static int position =0;
+    private int position =0;
     public Car(String name){
         this.NAME = name;
     }
@@ -28,8 +28,10 @@ public class Car implements Comparable<Car> {
         }
     }
     public String getResult(){
-        String result = getName()+":"+Util.getDashString(DASH,getPosition());
-        return result;
+        return NAME+" : "+ Util.getDashString(DASH,position);
+    }
+    public boolean isWinner(int winDistance) {
+        return position == winDistance;
     }
     public int getRandomNumber(){
         return Randoms.pickNumberInRange(STARTNUM,ENDNUM);

@@ -1,11 +1,13 @@
 package racingcar.model;
 
-import org.mockito.internal.util.StringUtil;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static racingcar.validator.Util.getMax;
+
 
 public class Cars {
     public final ArrayList<Car> CARS = new ArrayList<>();
@@ -20,25 +22,21 @@ public class Cars {
                 .collect(Collectors.toList())
         ));
     }
-    public void searchWinner(){
-        int maxPosition = CARS.stream()
-                .map(Car::getPosition)
-                .max(Integer::compareTo)
-                .orElse(0);
-        List<String> winnerNames = CARS.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+    public void searchWinner() {
+        OutputView.printWinner(new ArrayList<>(CARS.stream()
+                .filter(car -> car.isWinner(getMax(getPositions())))
                 .map(Car::getName)
-                .collect(Collectors.toList());
-        OutputView.printWinner(winnerNames);
+                .collect(Collectors.toList())
+        ));
     }
+
     public void go(){
         CARS.forEach(Car::go);
     }
-    public ArrayList<Integer> getCarsPosition(){
-       ArrayList<Integer> carsPositions = new ArrayList<Integer>();
-       for (Car car : CARS) {
-           carsPositions.add(car.getPosition());
-       }
-       return carsPositions;
+
+    private ArrayList<Integer> getPositions() {
+        ArrayList<Integer> positions = new ArrayList<>();
+        CARS.forEach(car -> positions.add(car.getPosition()));
+        return positions;
     }
 }

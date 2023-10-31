@@ -1,6 +1,8 @@
 package racingcar.validator;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.stream.IntStream;
 
 public class Util {
     public static ArrayList<String> toArrayList(String carString){
@@ -13,12 +15,10 @@ public class Util {
     }
     public static String getDashString(String dash,int repeat){
         StringBuilder sb = new StringBuilder();
-        for(int i=0;i<repeat;i++){
-            sb.append(dash);
-        }
+        IntStream.range(0, repeat).forEach(i -> sb.append(dash));
         return sb.toString();
     }
-    public static int maxPosition(){
-        return 0;
+    public static int getMax(ArrayList<Integer> integers) {
+        return Collections.max(integers);
     }
 }

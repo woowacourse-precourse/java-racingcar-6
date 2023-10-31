@@ -18,8 +18,6 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winners){
-        System.out.print(WINNER);
-        winners.forEach(System.out::println);
-
+        System.out.print(WINNER+String.join(",", winners));
     }
 }
