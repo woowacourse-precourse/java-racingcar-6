@@ -30,6 +30,7 @@ class GameSystem {
         attempt = makeTryNumber(input, manufacture);
         output.showLine();
         runGame(output);
+        showWinner(output);
     }
 
     public TotalCar makeCars(InputView input, InputManufacture manufacture) {
@@ -63,6 +64,7 @@ class GameSystem {
 
     public void showWinner(OutputView output) {
         output.showWinnerNotice();
+        output.showColon();
         Winner winner = new Winner();
         List<String> winnerList = winner.who(totalCar);
         output.showWinners(winnerList);
