@@ -20,7 +20,8 @@ public class RacingController {
     private final Cars cars = new Cars();
     private int attemptCount;
     private Racing racing;
-    public RacingController(RandomNumberGenerator randomNumberGenerator){
+
+    public RacingController(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
