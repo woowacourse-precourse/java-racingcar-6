@@ -16,5 +16,6 @@ public class Application {
         RaceController raceController = new RaceController(raceView);
         raceController.initRace(new CarNameValidatorImpl(), new LongConverter(), new MoveCountValidatorImpl());
         raceController.startRace(new RandomGenerator());
+        raceController.endRace();
     }
 }

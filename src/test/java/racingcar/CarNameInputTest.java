@@ -3,7 +3,6 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static racingcar.util.GameConstants.CAR_NAME_DELIMITER;
-import static racingcar.util.GameConstants.COUNT_OF_CAR;
 import static racingcar.util.GameConstants.MAXIMUM_CAR_NAME_LENGTH;
 
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ import racingcar.model.validator.carName.CarNameValidatorImpl;
 public class CarNameInputTest {
 
     static CarNameValidatorImpl carNameValidator;
+    static final int COUNT_OF_CAR = 3;
 
     @BeforeEach
     void beforeEach() {

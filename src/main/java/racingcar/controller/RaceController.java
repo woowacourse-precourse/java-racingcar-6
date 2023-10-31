@@ -47,5 +47,9 @@ public class RaceController {
         List<Map<String, Integer>> result = race.startMove(movementGenerator);
         raceView.displayRaceStatus(result);
     }
-    public void endRace() {}
+
+    public void endRace() {
+        List<String> winners = race.determineWinners();
+        raceView.displayWinners(winners);
+    }
 }

@@ -1,9 +1,11 @@
 package racingcar.model.data;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import racingcar.model.generator.MovementGenerator;
 import racingcar.model.record.MoveCount;
 
@@ -24,5 +26,17 @@ public class Race {
         }
         return results;
     }
-    public void determineWinners() {}
+
+    public List<String> determineWinners() {
+        Map<String, Integer> rankingTable = cars.getRankingTable();
+
+        int maxPosition = Collections.max(rankingTable.values());
+        List<String> winners = rankingTable.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == maxPosition)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        return winners;
+    }
 }
