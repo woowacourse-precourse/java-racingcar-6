@@ -1,36 +1,36 @@
 package racingcar.util;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class CarNameValidatorTest {
+    private final int NAME_LIMIT = 5;
 
+    @ParameterizedTest
+    @CsvSource(value = {"''", "NULL"}, nullValues = {"NULL"})
+    void 이름_유효성_검사_null(String name) {
 
-    @Test
-    void 이름_유효성_검사_null() {
-        String userName = null;
-
-        assertThatThrownBy(() -> CarNameValidator.validate(userName))
+        assertThatThrownBy(() -> CarNameValidator.validateEmptyCheck(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름을 입력하지 않았습니다.");
-
     }
 
-    @Test
-    void 이름_유효성_검사_length() {
-        String userName = "길이초과입니다";
-
-        assertThatThrownBy(() -> CarNameValidator.validate(userName))
+    @ParameterizedTest
+    @CsvSource(value = {"길이초초과과", "길이상당히초과"})
+    void 이름_유효성_검사_length(String name) {
+        assertThatThrownBy(() -> CarNameValidator.validateLengthCheck(name, NAME_LIMIT))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름의 길이는 5를 초과할 수 없습니다.");
     }
 
-    @Test
-    void 이름_유효성_검사_공백() {
-        String userName = "  공백";
-
-        assertThatThrownBy(() -> CarNameValidator.validate(userName))
+    @ParameterizedTest
+    @CsvSource(value = {" 공백포함", "공백  포함"}, ignoreLeadingAndTrailingWhitespace = false)
+    void 이름_유효성_검사_공백(String name) {
+        assertThatThrownBy(() -> CarNameValidator.validateSpaceCheck(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름에 공백이 존재할 수 없습니다.");
     }
