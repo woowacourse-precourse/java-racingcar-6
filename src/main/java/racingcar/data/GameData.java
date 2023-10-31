@@ -4,7 +4,7 @@ import racingcar.execution.GameInput;
 
 public class GameData {
     private final RacingCars racingCars;
-    private final String DATA_SPLITERATOR = ",";
+    private static final String DATA_SPLITERATOR = ",";
 
     public GameData() {
         this.racingCars = new RacingCars();
