@@ -26,12 +26,12 @@ public class Controller {
         return scoreBoard;
     }
 
-    public int decideMove (int position) {
+    public int decideMove (int score) {
         int randomValue = Randoms.pickNumberInRange(0,9);
         if (randomValue >= 4) {
-            position++;
+            score++;
         }
-        return position;
+        return score;
     }
 
     public String findWinner (HashMap<String, Integer> scoreBoard) {
