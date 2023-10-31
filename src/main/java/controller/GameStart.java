@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import model.Car;
+import model.GameResult;
 import model.InputCheck;
 import model.Round;
 import view.Input;
@@ -29,5 +30,7 @@ public class GameStart {
             Round.play(carList);
             Output.roundResult(carList);
         }
+
+        List<String> winner = GameResult.winner(carList);
     }
 }
