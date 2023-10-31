@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Race {
 
+    private static final int MOVE_PIVOT_NUMBER = 4;
     private final Cars cars;
     private int gameCount;
 
@@ -17,7 +18,7 @@ public class Race {
     }
 
     public void playOneRound() {
-        this.cars.driveOneRound( 4);
+        this.cars.driveOneRoundAllCar(MOVE_PIVOT_NUMBER);
         this.gameCount--;
     }
 
