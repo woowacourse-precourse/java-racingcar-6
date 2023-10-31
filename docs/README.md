@@ -22,7 +22,11 @@
       - (forward) int
     - 생성자 (name)
       - new randomNumList
-  - (carList) ArrayList<Car> : car 객체 리스트 생성 -> from carNameSplit
+  - class CarList
+    - List<Car> carList
+    - (round) int
+    - 생성자 (carNameSplit)
+      - car 객체 리스트 생성
 - 중
   - (round)회 반복
     - (carList.length)회 반복
