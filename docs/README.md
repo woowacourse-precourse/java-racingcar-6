@@ -2,6 +2,13 @@
 
 ## 기능 목록 V4
 
+- [ ] 경주에 참여하는 자동차를 생성한다.CreateCar
+  - [ ] 빈 문자열이 아닌 자동차 이름을 입력 받는다. CreateCar#input()
+    - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다. CreateCar#splitCarName()
+    - [ ] 자동차 이름은 5자 이하만 가능하다. CreateCar#validateCarNameLength() 
+    - [ ] 자동차 이름은 중복될 수 없다. CreateCar#validateCarNameDuplicate()
+    - [ ] 자동차의 수는 2대 이상 10대 이하여야 한다. CreateCar#validateCarCount()
+  - [ ] 자동차의 이름과 전진 값을 담아두는 stateMap을 만든다. CreateCar#stateMap()
  
   
 
