@@ -26,7 +26,7 @@ public class Application {
         }
 
         //횟수 입력
-        System.out.println("시도할 횟수를 입력하세요.");
+        System.out.println("시도할 회수는 몇회인가요?");
         int num = Integer.parseInt(readLine());
 
         //조건 확인합니다. 자동차는 두 대 이상이어야 승부가 가능하고, 시도할 횟수도 1회 이상이어야 한다.
@@ -67,11 +67,9 @@ public class Application {
         int[] carPos = new int[carNum];
         int maxPos = 0;
 
-        System.out.println("경주를 시작합니다!");
-
+        System.out.println();
+        System.out.println("실행 결과");
         for (int gameCnt = 0; gameCnt < num; gameCnt++) {
-            System.out.println("\n" + "시도 " + (gameCnt + 1) + ":");
-
             for (int carIndex = 0; carIndex < carNum; carIndex++) {
                 //무작위 값 입력
                 int rand = Randoms.pickNumberInRange(0, 9);
@@ -92,9 +90,9 @@ public class Application {
                 }
                 System.out.println();
             }
+            System.out.println();
         }
 
-        System.out.println("\n" + "경주가 종료되었습니다!");
 
         //최종우승자 판별
         StringBuilder win = new StringBuilder();
