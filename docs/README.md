@@ -10,6 +10,7 @@
 6. 우승자 안내 문구를 출력한다.
 
 ---
+
 ### 사용자 측면 기능
 
 - 입력 요청 메세지 출력 기능
@@ -35,54 +36,59 @@
 
 ### Controller
 
-- RacingController
-  - [x] 자동차 경주 진행 기능
 - Parser
-  - [x] 들어온 자동차 이름을 쉼표를 기준으로 파싱하는 기능
-- InputValidation
-  - [ ] 받은 문자열이 숫자인지 검사 기능
-
-### Service
-- RacingService
-  - [x] 자동차 경주 준비 기능
-  - [x] 1회 경주 기능
-  - [x] race 진행 여부 반환 기능
-  - [x] 우승자 반환 기능
+    - [x] 들어온 자동차 이름을 쉼표를 기준으로 파싱하는 기능
+- RacingController
+    - [x] 자동차 경주 진행 기능
+- validator
+    - [x] 받은 문자열이 숫자인지 검사 기능
 
 ### Model
 
 - Car
-  - 이름, 위치 저장
-  - [x] 자동차 전진 기능
-  - [x] 위치 반환 기능
-  - [x] 이름 1-5자 유효성 검사 기능
+    - 이름, 위치 저장
+    - [x] 자동차 전진 기능
+    - [x] 위치 반환 기능
+- CarName
+    - 자동차 이름 원시값 포장
+    - [x] 이름 1-5자 유효성 검사 기능
+- CarNameLength(ENUM)
+    - 자동차 이름 길이 관련 ENUM
 - CarRepository
-  - [x] n 대 Car 저장 기능
-  - [x] 이름이 중복되는지 검사 기능
-  - [x] 우승자 찾는 기능
-  - [x] 자동차 저장 용량 검사 기능
-- Race
-  - race 회수 저장
-  - [x] race 회수 유효성 검사 기능
-  - [x] race 진행 기능
+    - [x] n 대 Car 저장 기능
+    - [x] 이름 중복 검사 기능
+    - [x] 자동차 저장 용량 검사 기능
+    - [x] 우승자 찾는 기능
+- ErrorMessage(ENUM)
+    - exception message 관련 ENUM
 - Generator
-  - [x] 0-9 사이의 무작위 값 생성 기능
+    - [x] 0-9 사이의 무작위 값 생성 기능
+- Race
+    - race 회수 저장
+    - [x] race 회수 유효성 검사 기능
+    - [x] 한 경기 진행 기능
+    - [x] race 진행중 여부 반환 기능
+- RaceLimits(ENUM)
+    - race 제한 사항 관련 ENUM
+
+### Service
+
+- RacingService
+    - [x] 자동차 경주 준비 기능
+    - [x] 한 경기 진행 기능
+    - [x] race 진행중 여부 반환 기능
+    - [x] 우승자 반환 기능
 
 ### View
 
 - InputView
-  - [x] 경주할 자동차 입력 기능
-  - [x] 시도할 회수 입력 기능
+    - [x] 경주할 자동차 입력 기능
+    - [x] 시도할 회수 입력 기능
+- OutputMessage(ENUM)
+    - 출력할 메세지 관련 ENUM
 - OutputView
-  - [x] 자동차 이름 입력 요청 메세지 출력 기능
-  - [x] 시도할 회수 요청 메세지 출력 기능
-  - [x] 실행 결과 메세지 출력 기능
-  - [x] 차수별 실행 결과 메세지 출력 기능
-  - [x] 우승자 안내 문구 출력 기능
-
-
-
-controller - RacingController, Parser
-model - Car, CarDto, CarName, CarNameLength, CarRepository, ErrorMessage, Generator, Race
-service - CarDto, RacingService
-view - InputView, OutputMessage, OutputView
+    - [x] 자동차 이름 입력 요청 메세지 출력 기능
+    - [x] 시도할 회수 요청 메세지 출력 기능
+    - [x] 실행 결과 메세지 출력 기능
+    - [x] 차수별 실행 결과 메세지 출력 기능
+    - [x] 우승자 안내 문구 출력 기능
