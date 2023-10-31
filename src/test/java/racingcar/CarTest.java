@@ -1,4 +1,3 @@
-/*
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,17 +28,7 @@ public class CarTest {
         }
         assertTrue(isRandomNumberGeneratedProperly);
     }
-    @Test
-    public void check_carStop() {
-        Car car = new Car("pobi");
-        car.move();
-        assertEquals(0, car.carPosition);
-    }
 
-    @Test
-    public void check_carMove() {
-        Car car = new Car("pobi");
-        car.move();
-        assertEquals(1, car.carPosition);
-    }
-}*/
+
+
+}

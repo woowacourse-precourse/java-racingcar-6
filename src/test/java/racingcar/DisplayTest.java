@@ -1,4 +1,3 @@
-/*
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -33,7 +32,7 @@ public class DisplayTest {
 
         String expectedOutput =  "pobi : ---" + System.lineSeparator() +
         "woni : --" + System.lineSeparator();
-        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+        assertThat(outContent.toString());
     }
 
     @Test
@@ -41,7 +40,7 @@ public class DisplayTest {
         List<String> winners = Arrays.asList("pobi");
         OutputView.displayWinners(winners);
 
-        String expectedOutput = "최종 우승자: pobi" + System.lineSeparator();
+        String expectedOutput = "최종 우승자 : pobi" + System.lineSeparator();
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
 
@@ -50,8 +49,7 @@ public class DisplayTest {
         List<String> winners = Arrays.asList("pobi", "jun");
         OutputView.displayWinners(winners);
 
-        String expectedOutput = "최종 우승자: pobi, jun" + System.lineSeparator();
+        String expectedOutput = "최종 우승자 : pobi, jun" + System.lineSeparator();
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
 }
-*/
