@@ -9,16 +9,20 @@ import java.util.Map;
 
 public class GameManager {
 
-    private final static GameManager instance = new GameManager();
+    private static GameManager instance;
+
+    private final List<Map.Entry<String, String>> carIdxNamePosList;
 
     private GameManager() {
+        carIdxNamePosList = new ArrayList<>();
     }
 
     public static GameManager getInstance() {
+        if (instance == null) {
+            instance = new GameManager();
+        }
         return instance;
     }
-
-    private final List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
 
     public boolean chkCarGoOrStop() {
         return setRandomNum() >= 4;

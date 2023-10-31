@@ -1,5 +1,7 @@
 package model;
 
+import controller.Controller;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -7,16 +9,20 @@ import java.util.Map;
 
 public class GameResult {
 
-    private final static GameResult instance = new GameResult();
+    private static GameResult instance;
+
+    private final ArrayList<String> winnersList;
 
     private GameResult() {
+        winnersList = new ArrayList<>();
     }
 
     public static GameResult getInstance() {
+        if (instance == null) {
+            instance = new GameResult();
+        }
         return instance;
     }
-
-    private final ArrayList<String> winnersList = new ArrayList<>();
 
     private List<Map.Entry<String, String>> sortByPositionLength(List<Map.Entry<String, String>> carIdxNamePosList) {
         carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(), Comparator.reverseOrder()));

@@ -8,20 +8,28 @@ import view.OutputView;
 
 public class Controller {
 
-    private final static Controller instance = new Controller();
+    private static Controller instance;
+
+    private final UserInput userInput;
+    private final GameManager gameManager;
+    private final GameResult gameResult;
+    private final InputView inputView;
+    private final OutputView outputView;
 
     private Controller() {
+        userInput = UserInput.getInstance();
+        gameManager = GameManager.getInstance();
+        gameResult = GameResult.getInstance();
+        inputView = InputView.getInstance();
+        outputView = OutputView.getInstance();
     }
 
     public static Controller getInstance() {
+        if (instance == null) {
+            instance = new Controller();
+        }
         return instance;
     }
-
-    private final UserInput userInput = UserInput.getInstance();
-    private final GameManager gameManager = GameManager.getInstance();
-    private final GameResult gameResult = GameResult.getInstance();
-    private final InputView inputView = InputView.getInstance();
-    private final OutputView outputView = OutputView.getInstance();
 
     public void playGame() {
         getUserInput();

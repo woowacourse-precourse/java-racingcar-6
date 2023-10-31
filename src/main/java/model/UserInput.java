@@ -5,18 +5,22 @@ import java.util.Arrays;
 
 public class UserInput {
 
-    private final static UserInput instance = new UserInput();
+    private static UserInput instance;
+
+    private final ArrayList<String> carsName;
+    private int carCount;
+    private int playTime;
 
     private UserInput() {
+        carsName = new ArrayList<>();
     }
 
     public static UserInput getInstance() {
+        if (instance == null) {
+            instance = new UserInput();
+        }
         return instance;
     }
-
-    private final ArrayList<String> carsName = new ArrayList<>();
-    private int carCount;
-    private int playTime;
 
     public void setCarsName(String inputString) {
         String[] carsNameInput = inputString.replaceAll("\\s+", "").split(",");

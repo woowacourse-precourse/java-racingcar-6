@@ -6,12 +6,15 @@ import java.util.Map;
 
 public class OutputView {
 
-    private final static OutputView instance = new OutputView();
+    private static OutputView instance;
 
     private OutputView() {
     }
 
     public static OutputView getInstance() {
+        if (instance == null) {
+            instance = new OutputView();
+        }
         return instance;
     }
 
