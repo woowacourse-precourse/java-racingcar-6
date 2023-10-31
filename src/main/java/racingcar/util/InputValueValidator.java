@@ -1,9 +1,9 @@
 package racingcar.util;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import racingcar.exception.ErrorMessage;
 
 public class InputValueValidator {
@@ -11,17 +11,26 @@ public class InputValueValidator {
     public List<String> validateName(String inputCarNames) {
         List<String> carNames = convertStringToList(inputCarNames);
 
-        if (!isDuplicateName(carNames)) {
+        if (hasDuplicateName(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_DUPLICATE.getMessage());
-        } else if (!isCarNameLength(carNames)) {
+        }
+
+        if (!isValidCarNameLength(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_LENGTH.getMessage());
-        } else if (inputCarNames.contains(" ")) {
+        }
+
+        if (inputCarNames.contains(" ")) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_NO_SPACES.getMessage());
-        } else if (inputCarNames.isEmpty()) {
+        }
+
+        if (inputCarNames.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_IS_NOT_NULL.getMessage());
-        } else if (!isMinimumTwoCarNames(carNames)) {
+        }
+
+        if (!hasMinimumTwoCarNames(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_MINIMUM_NAMES.getMessage());
         }
+
         return carNames;
     }
 
@@ -54,16 +63,16 @@ public class InputValueValidator {
         return tryCountNumber > 0;
     }
 
-    private boolean isMinimumTwoCarNames(List<String> carNames) {
+    private boolean hasMinimumTwoCarNames(List<String> carNames) {
         return carNames.size() > 1;
     }
 
-    private boolean isDuplicateName(List<String> carNames) {
-        Set<String> set = new HashSet<>(carNames);
-        return set.size() == carNames.size();
+    private boolean hasDuplicateName(List<String> carNames) {
+        Set<String> nameSet = carNames.stream().collect(Collectors.toSet());
+        return nameSet.size() != carNames.size();
     }
 
-    private boolean isCarNameLength(List<String> carNames) {
+    private boolean isValidCarNameLength(List<String> carNames) {
         return carNames.stream().allMatch(name -> name.length() <= 5);
     }
 
