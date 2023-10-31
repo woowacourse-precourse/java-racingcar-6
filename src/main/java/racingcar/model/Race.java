@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 public class Race {
 
     private final int totalTrial;
-    private final int currentTrial;
+    private int currentTrial;
     private final List<Car> carList;
 
     public Race(int totalTrial, List<String> carNameList) {
@@ -27,6 +27,7 @@ public class Race {
         for (Car car : carList) {
             car.decideDrive();
         }
+        this.currentTrial += 1;
     }
 
     public List<String> makeCarNameList() {
