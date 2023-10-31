@@ -15,10 +15,22 @@ class InputValidatorTest {
     @Test
     @DisplayName("이름 입력 예외 발생 테스트")
     void isValidList() {
-        List<String> invalidList = Arrays.asList("a", "b", "U-keun");
+        List<String> invalidList1 = Arrays.asList("a", "b", "U-keun");
 
         assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isValidList(invalidList);
+            testInputValidator.isValidList(invalidList1);
+        });
+
+        List<String> invalidList2 = Arrays.asList("", "aa");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            testInputValidator.isValidList(invalidList2);
+        });
+
+        List<String> invalidList3 = Arrays.asList("ukeun", "ukeun");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            testInputValidator.isValidList(invalidList3);
         });
 
         List<String> validList = Arrays.asList("hi", "I'm", "ukeun");
@@ -31,10 +43,22 @@ class InputValidatorTest {
     @Test
     @DisplayName("숫자 입력 예외 발생 테스트")
     void isNumber() {
-        String invalidCount = "12af";
+        String invalidCount1 = "";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isPositiveInteger(invalidCount);
+            testInputValidator.isPositiveInteger(invalidCount1);
+        });
+
+        String invalidCount2 = "12af";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            testInputValidator.isPositiveInteger(invalidCount2);
+        });
+
+        String invalidCount3 = "-34";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            testInputValidator.isPositiveInteger(invalidCount3);
         });
 
         String validCount = "34";
