@@ -20,4 +20,8 @@ public class OutputView {
         });
         System.out.println();
     }
+
+    public static void outputFinalWinner(List<String> winnerString) {
+        System.out.println(OutputMessages.FINAL_WINNER.getMessage() + String.join(", ", winnerString));
+    }
 }

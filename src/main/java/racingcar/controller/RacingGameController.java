@@ -40,7 +40,7 @@ public class RacingGameController {
     }
 
     public void endGame() {
-        List<String> winnerList = extractWinner();
+        OutputView.outputFinalWinner(extractWinner());
     }
 
     public List<String> extractWinner() {
