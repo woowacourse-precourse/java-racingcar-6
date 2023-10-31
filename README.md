@@ -89,18 +89,18 @@ jun : -----
 - [x] 프로그램 실행의 시작점이 `Application`의 `main()`인가?
 - [x] `build.gradle` 파일을 변경하지 않았는가?
 - [x] 외부 라이브러리를 사용하지 않았는가?
-- [ ] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍하였는가?
+- [x] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/master/styleguide/java) 가이드를 준수하며 프로그래밍하였는가?
 - [x] 프로그램 종료 시 `System.exit()`를 호출하지 않았는가?
 - [x] `ApplicationTest`의 모든 테스트가 성공하는가?
 - [x] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않았는가?
-- [ ] 요구 사항에 명시된 출력값 형식을 제대로 지켰는가?
+- [x] 요구 사항에 명시된 출력값 형식을 제대로 지켰는가?
 
 ### 추가된 요구 사항
 
-- [ ] indent(인덴트, 들여쓰기) depth를 2까지 허용한다.
+- [x] indent(인덴트, 들여쓰기) depth를 2까지 허용한다.
   - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
   - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
 - [x] 3항 연산자를 쓰지 않는다.
-- [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
+- [x] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 - [x] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
   - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
