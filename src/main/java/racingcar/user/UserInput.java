@@ -1,6 +1,8 @@
 package racingcar.user;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.car.Car;
+import racingcar.game.Referee;
 import racingcar.utils.Validation;
 
 import java.util.ArrayList;
@@ -29,8 +31,19 @@ public class UserInput {
 
     public int attemptCountInput() {
         String input = input();
-        attemptCount = Integer.parseInt(input);
-        return attemptCount;
+        return Integer.parseInt(input);
+    }
+
+    public void startRace() {
+        List<String> carNames = cars;
+        int tryCount = attemptCount;
+
+        // Car 객체 생성
+        Car car = new Car(carNames);
+
+        // 경주 실행
+        Referee referee = new Referee();
+        referee.runRace(car, tryCount);
     }
 
 }
