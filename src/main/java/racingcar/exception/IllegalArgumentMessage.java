@@ -6,7 +6,7 @@ public enum IllegalArgumentMessage {
     ONLY_DIGIT("시도 횟수는 숫자여야 합니다."),
     UNDER_5_LENGTH_OR_NON_EMPTY("자동차 이름은 5자 이내이거나 공백이 아니어야 합니다.");
 
-    private String message;
+    private final String message;
 
     IllegalArgumentMessage(String message) {
         this.message = message;

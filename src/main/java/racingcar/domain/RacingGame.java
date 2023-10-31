@@ -7,7 +7,7 @@ import racingcar.view.OutputView;
 public class RacingGame {
     private static final int ZERO = 0;
     private int tryCount;
-    private Cars cars;
+    private final Cars cars;
 
     public RacingGame() {
         cars = new Cars();
