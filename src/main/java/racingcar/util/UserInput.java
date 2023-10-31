@@ -29,4 +29,9 @@ public class UserInput {
             }
         }
     }
+
+    public static String getTotalRound() {
+        String inputRaceCount = InputView.setRaceCount();
+        return inputRaceCount;
+    }
 }

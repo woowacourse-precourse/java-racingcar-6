@@ -14,4 +14,8 @@ public class RaceController {
         }
         return cars;
     }
+
+    public static String setTotalRound() {
+        return UserInput.getTotalRound();
+    }
 }
