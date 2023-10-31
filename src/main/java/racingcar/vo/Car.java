@@ -1,25 +1,24 @@
 package racingcar.vo;
 
+
 import racingcar.exception.RacingCarError;
+
 
 public class Car {
 
     private String name;
+
 
     private final StringBuilder position = new StringBuilder();
 
     public Integer getPositionLength() {
         return position.length();
     }
-    public Car(String name) {
-        validCarName(name);
-        this.name = name;
-
-    }
 
     private void validCarName(String name) {
         if (name.isEmpty() || name.isBlank() || name.length() < 6) {
             new IllegalArgumentException(RacingCarError.NOT_VALID_NAME.getMsg());
+
         }
     }
 
