@@ -13,12 +13,12 @@ public class Car implements Comparable<Car> {
         this.forwardCount = 0;
     }
 
-    public int generateRandomNumber(){
+    public int generateRandomNumber() {
 
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void forward(){
+    public void forward() {
 
         forwardCount++;
     }
@@ -36,7 +36,7 @@ public class Car implements Comparable<Car> {
 
     public String getState() {
 
-        StringBuilder state = new StringBuilder(name+" : ");
+        StringBuilder state = new StringBuilder(name + " : ");
         for (int count = 0; count < forwardCount; count++) {
             state.append("-");
         }

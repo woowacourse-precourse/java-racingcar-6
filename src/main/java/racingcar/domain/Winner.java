@@ -6,15 +6,17 @@ import java.util.List;
 public class Winner {
 
     private Car currentWinner;
-    private List<String> candidates = new ArrayList<>();;
+    private List<String> candidates = new ArrayList<>();
 
     public Winner(Car currentWinner) {
+
         candidates.clear();
         this.currentWinner = currentWinner;
         this.candidates.add(currentWinner.getName());
     }
 
     public void compare(Car car) {
+
         int compareState = currentWinner.compareTo(car);
 
         if (isChangeWinner(compareState)) {

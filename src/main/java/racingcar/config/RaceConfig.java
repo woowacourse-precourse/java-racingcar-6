@@ -18,6 +18,6 @@ public class RaceConfig {
         InputManager inputManager = new InputManager();
         OutputManager outputManager = new OutputManager(cars);
 
-        return new RaceManager(cars, carService, inputManager,outputManager);
+        return new RaceManager(cars, carService, inputManager, outputManager);
     }
 }

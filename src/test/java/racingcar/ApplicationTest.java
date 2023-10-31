@@ -31,11 +31,11 @@ class ApplicationTest extends NsTest {
                     run("pobi,woni,jun", "5");
                     assertThat(output()).contains("최종 우승자 : pobi, jun");
                 },
-                MOVING_FORWARD, STOP,MOVING_FORWARD,
-                MOVING_FORWARD, STOP,MOVING_FORWARD,
-                MOVING_FORWARD, STOP,MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD,STOP,
-                STOP, STOP,MOVING_FORWARD
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, STOP,
+                STOP, STOP, MOVING_FORWARD
         );
     }
 

@@ -14,7 +14,6 @@ public class CarService {
     }
 
     private boolean isForward(int engine) {
-
         return engine >= 4;
     }
 }
