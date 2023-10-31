@@ -7,7 +7,7 @@ import racingcar.utils.Converter;
 public class Game {
 
     private List<Car> carList = new ArrayList<>();
-    private List<Car> winner = new ArrayList<>();
+    private List<Car> winners = new ArrayList<>();
 
     private Player player;
     private Long gameCount;
