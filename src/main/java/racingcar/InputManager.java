@@ -13,6 +13,11 @@ public class InputManager {
     }
 
     public int readNumberOfTimes() {
-        return 0;
+        System.out.println("시도할 회수는 몇회인가요?");
+        String enteredNumber = readLine();
+        if (!Validation.validNumber(enteredNumber))
+            throw new IllegalArgumentException("1회 이상의 횟수를 숫자로만 입력해주세요.");
+
+        return Integer.parseInt(enteredNumber);
     }
 }
