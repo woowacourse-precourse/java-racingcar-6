@@ -11,6 +11,8 @@
 
 - Car이 모여있는 집합체이다.
 - [x] Car들을 콜렉션에 담아둔다.
+- [x] 생성된 cars로 회차에 대한 이동을 진행
+- [x] 이동후 우승자 판별
 
 ### InputView
 
@@ -19,7 +21,7 @@
         -[x] 자동차의 이름 입력이 없는 경우
         -[x] 자동차 이름이 5자 이하가 아닌경우
 - [x] 시도할 횟수를 입력 받는다.
-    - [ ] 잘못된 값을 입력 받으면 IllegalArgumentException 후 종료시킨다.
+    - [x] 잘못된 값을 입력 받으면 IllegalArgumentException 후 종료시킨다.
         - 음수를 입력할경우
         - 정수가 아닌값을 입력할경우
 
@@ -36,11 +38,3 @@
 ### GenerageCarService
 
 - [x] view에서 입력받은 자동차 이름을 토대로 car을 생성
-
-### CarMovingService
-
-- [ ] 생성된 cars로 회차에 대한 이동을 진행
-
-### FindWinnerService
-
-- [ ] 이동후 우승자 판별
