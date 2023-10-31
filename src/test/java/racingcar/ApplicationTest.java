@@ -34,9 +34,17 @@ class ApplicationTest extends NsTest {
     @Test
     void input이_없는_경우(){
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(" ", "1"))
+                assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
                 );
+    }
+
+    @Test
+    void input이_빈단어_경우(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
@@ -50,6 +58,17 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 큰_값_시도의_경우(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi", "100");
+                    assertThat(output()).contains("pobi : --------------------------------------------------" +
+                            "--------------------------------------------------", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
