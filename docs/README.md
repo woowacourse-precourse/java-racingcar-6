@@ -29,6 +29,7 @@
 ### RacingGame
 - racingStart - 경주를 시작함
 - convertStringToInt - 문자열을 숫자로 변환 하여 리턴함
+- tryMove - 자동차 수에 맞춰서 랜덤 숫자를 생성 하고 전진 업데이트 함수를 실행함
 
 ## util
 
