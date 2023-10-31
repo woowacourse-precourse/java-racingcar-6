@@ -1,6 +1,8 @@
 package racingcar.domain.car;
 
-public class CarPosition {
+import java.util.Objects;
+
+public class CarPosition implements Comparable<CarPosition> {
     private static final int START_POSITION = 0;
 
     private int position;
@@ -19,6 +21,28 @@ public class CarPosition {
 
     public void driveForward() {
         ++position;
+    }
+
+    @Override
+    public int compareTo(CarPosition carPosition) {
+        return Integer.compare(position, carPosition.position);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof CarPosition carPosition)) {
+            return false;
+        }
+
+        return position == carPosition.position;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position);
     }
 
     public int getPosition() {
