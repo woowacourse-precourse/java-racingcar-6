@@ -6,8 +6,8 @@ import racingcar.view.ResultView;
 
 public class Race {
 
-    private List<Car> cars;
-    private int attemptCount;
+    private final List<Car> cars;
+    private final int attemptCount;
 
     public Race(List<Car> cars, int attemptCount) {
         this.cars = cars;
@@ -25,9 +25,8 @@ public class Race {
     }
 
     public List<Car> findWinners() {
-        int maxPosition = findMaxPosition();
         return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> car.getPosition() == findMaxPosition())
                 .toList();
     }
 
