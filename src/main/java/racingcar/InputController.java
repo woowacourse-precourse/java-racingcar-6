@@ -11,6 +11,12 @@ public class InputController {
         return inputToStringList(input);
     }
 
+    int getTrialNumber() {
+        String input = inputView.getTrialNumber();
+        Validator.validateIsInteger(input);
+        return Integer.parseInt(input);
+    }
+
     private List<String> inputToStringList(String input) {
         String removeSpaceResult = Util.removeSpace(input);
         String[] splitByCommaResult = Util.splitByComma(removeSpaceResult);

@@ -9,6 +9,8 @@ public class MainController {
 
     public void initGame() {
         List<String> carNames = inputController.getCarNames();
-        game = new Game(carNames);
+        int trialNumber = inputController.getTrialNumber();
+
+        game = new Game(carNames, trialNumber);
     }
 }
