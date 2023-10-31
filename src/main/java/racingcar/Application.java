@@ -19,5 +19,12 @@ public class Application {
             carList.add(new Car(token.nextToken()));
         }
 
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        int gameCount = Integer.parseInt(Console.readLine());
+        if (gameCount <= 0) {
+            throw new IllegalArgumentException("시도할 회수는 0 이하일 수 없습니다.");
+        }
+
     }
 }
