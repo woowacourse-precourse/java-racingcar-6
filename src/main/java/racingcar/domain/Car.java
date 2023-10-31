@@ -50,4 +50,8 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름은 문자와 숫자만 가능");
         }
     }
+
+    public void moveForward() {
+        this.position++;
+    }
 }
