@@ -17,6 +17,7 @@ public class GameController {
     }
 
     public void play() {
+        gameView.printResult(); // "실행 결과" 출력
         int numberOfAttempts = game.getNumberOfAttempts();
         // 시도 횟수만큼 돌면서
         for (int i = 0; i < numberOfAttempts; i++) {
@@ -27,7 +28,6 @@ public class GameController {
 
     public void finish() {
         game.findWinners();
-        gameView.printResult();
         gameView.printWinners(game);
     }
 
