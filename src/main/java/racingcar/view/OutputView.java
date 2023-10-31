@@ -1,7 +1,7 @@
 package racingcar.view;
 
-public class OutputView {
-    public void printlnMessage(String message) {
+public final class OutputView {
+    public static void printlnMessage(String message) {
         System.out.println(message);
     }
 }
