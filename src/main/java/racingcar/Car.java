@@ -42,7 +42,7 @@ public class Car {
         return distance + step;
     }
 
-    public void printPosition(){
+    private void printPosition(){
         String distanceString = "";
         for (int i=0; i<distance; i++){
             distanceString += "-";
