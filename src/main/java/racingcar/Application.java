@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.*;
 
 public class Application {
-    private static String[] inputCarNames() {
+    public static String[] inputCarNames() {
         String carName = Console.readLine();
         String[] carNames = spilitNames(carName);
 
