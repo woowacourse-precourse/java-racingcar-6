@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.controller.mapper.CarNameMapper;
-import racingcar.model.CarName;
+import racingcar.model.vo.CarName;
 import racingcar.validation.NameValidator;
 
 public class RacingGameController {

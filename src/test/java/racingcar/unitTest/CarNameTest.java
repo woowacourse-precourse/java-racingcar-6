@@ -2,7 +2,7 @@ package racingcar.unitTest;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.model.CarName;
+import racingcar.model.vo.CarName;
 
 public class CarNameTest {
 

@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import racingcar.model.vo.CarName;
+import racingcar.model.vo.RacingNumber;
+
 public class Car {
 
     private CarName name;
