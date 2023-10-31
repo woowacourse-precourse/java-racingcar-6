@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
-public final class CarDto {
+public class CarDto {
 
     private final String carName;
     private final Integer position;
