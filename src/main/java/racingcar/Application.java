@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import static Service.RaceState.state;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -26,6 +28,7 @@ public class Application {
             throw new IllegalArgumentException("시도할 회수는 0 이하일 수 없습니다.");
         }
 
+        System.out.println("\n실행 결과");
         /**
          * 게임 회수만큼 레이스 진행
          */
@@ -33,6 +36,7 @@ public class Application {
             for (int j = 0; j < carList.size(); j++) {
                 carList.get(j).race();
             }
+            state(carList);
         }
 
     }
