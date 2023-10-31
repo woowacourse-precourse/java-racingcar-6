@@ -35,7 +35,7 @@ public class GameTest {
     }
 
     @Test
-    void getCurrentWinners_현재_게임_우승자_반환() {
+    void getCurrentWinners_현재_게임_단일_우승자_반환() {
         assertRandomNumberInRangeTest(
                 () -> {
                     List<Car> cars = Arrays.asList(new Car("pobi"), new Car("woni"));
@@ -47,6 +47,22 @@ public class GameTest {
                     assertThat(winners).contains("pobi");
                 },
                 MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void getCurrentWinners_현재_게임_공동_우승자_반환() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    List<Car> cars = Arrays.asList(new Car("pobi"), new Car("woni"));
+                    Game game = new Game(cars);
+
+                    game.executeSingleCycleCarMove();
+
+                    List<String> winners = game.getCurrentWinners();
+                    assertThat(winners).contains("pobi", "woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
