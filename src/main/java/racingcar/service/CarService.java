@@ -1,14 +1,15 @@
-package racingcar.model;
+package racingcar.service;
 
+import racingcar.model.Car;
 import racingcar.validator.InputValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarManager {
+public class CarService {
     public final List<Car> cars;
 
-    public CarManager(){
+    public CarService(){
         cars = new ArrayList<>();
     }
 
