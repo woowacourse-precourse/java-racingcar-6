@@ -30,8 +30,8 @@ public class InputException {
         }
     }
 
-    public void isVaildRacingCount(int racingCount){
-        if(!isPositiveInteger(racingCount)){
+    public void isVaildRacingCount(String racingCountInput){
+        if(!isPositiveInteger(racingCountInput)){
             throw new IllegalArgumentException();
         }
     }
@@ -73,7 +73,7 @@ public class InputException {
                 .length != carsNameArray.length; //기존 배열과 길이 다르면 true 반환
     }
 
-    private boolean isPositiveInteger(int racingCount){
-        return(Pattern.matches(VAILD_RACING_COUNT_PATTERN, Integer.toString(racingCount)));
+    private boolean isPositiveInteger(String racingCountInput){
+        return(Pattern.matches(VAILD_RACING_COUNT_PATTERN, racingCountInput));
     }
 }
