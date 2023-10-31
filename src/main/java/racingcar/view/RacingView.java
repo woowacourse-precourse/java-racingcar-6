@@ -1,15 +1,13 @@
 package racingcar.view;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.constant.Limits.MAX_NAME_SIZE;
 
-public class RacingCar {
+public class RacingView {
 
     public List<String> gameStart() throws IOException {
         List<String> resultList = new ArrayList<>();
@@ -38,9 +36,9 @@ public class RacingCar {
         }
     }
 
-    public void showLoad(List<String> name, List<String> location, int theNumberOfCar) {
-//        자동차 별 진척 사항 시각화
-        for (int i = 0; i < theNumberOfCar; i++) {
+    public void showLoad(List<String> name, List<String> location, int theNumOfCar) {
+//        자동차 별 진척 상황 시각화
+        for (int i = 0; i < theNumOfCar; i++) {
             System.out.println(name.get(i) + " : " + location.get(i));
         }
     }

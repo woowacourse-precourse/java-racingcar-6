@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Cars;
-import racingcar.view.RacingCar;
+import racingcar.view.RacingView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,17 +11,17 @@ import java.util.List;
 import static racingcar.constant.Limits.*;
 
 public class GameController {
-    private final RacingCar racingCar;
+    private final RacingView racingView;
     private int tryNum;
     private List<Cars> carsList;
 
-    public GameController(RacingCar racingCar) {
-        this.racingCar = racingCar;
+    public GameController(RacingView racingView) {
+        this.racingView = racingView;
     }
 
 
-    public void GameStart() throws IOException {
-        List<String> resultList = racingCar.gameStart();
+    public void gameStart() throws IOException {
+        List<String> resultList = racingView.gameStart();
         this.carsList = new ArrayList<>();
 
         int index = 0;
@@ -46,7 +46,7 @@ public class GameController {
             showLoad(this.carsList, carNum);
         }
         String result = getResult(this.carsList);
-        System.out.println("최종 우승자 : " + result);
+        System.out.println("최종 우승자 : " + result); // Todo: View로 이동
     }
 
     public void playDices(List<Cars> carsList) {
@@ -68,7 +68,7 @@ public class GameController {
             names.add(car.getName());
             locations.add(car.getLoadState());
         }
-        racingCar.showLoad(names, locations, theNumOfCar);
+        racingView.showLoad(names, locations, theNumOfCar);
     }
 
     public String getResult(List<Cars> carsList) {

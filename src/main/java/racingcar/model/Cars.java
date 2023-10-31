@@ -21,12 +21,7 @@ public class Cars {
         return this.loadState = this.loadState.concat("-");
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getLength() {
-        int length = loadState.length();
-        return length;
+        return loadState.length();
     }
 }
