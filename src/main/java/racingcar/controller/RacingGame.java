@@ -2,13 +2,12 @@ package racingcar.controller;
 
 import racingcar.iosystem.InputView;
 import racingcar.iosystem.OutputView;
-import racingcar.utill.RunGame;
+import racingcar.util.RunGame;
 
 public class RacingGame {
     public RacingGame() {
         InputView inputView = new InputView();
-        RunGame runGame = new RunGame();
-        runGame.run(inputView);
+        RunGame.run(inputView);
         OutputView.endGameResult(inputView.getCarMove(), inputView.getCars());
     }
 }
