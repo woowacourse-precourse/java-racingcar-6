@@ -15,7 +15,7 @@ public class RaceController {
     private static RaceController raceController;
     private RaceService raceService;
 
-    public static RaceController createRaceController(RaceService raceService) {
+    public static RaceController getInstance(RaceService raceService) {
         if (raceController == null) {
             raceController = new RaceController(raceService);
         }
