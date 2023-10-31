@@ -1,7 +1,6 @@
 package racingcar;
 
 public class Game {
-
     public static final String RESULT_MESSAGE = "실행 결과";
     private String inputRacerName;
     private String[] racerNameArray;
