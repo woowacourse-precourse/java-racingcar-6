@@ -18,6 +18,10 @@ public class RaceService {
         return count;
     }
 
+    public void playRace(Cars cars) {
+        cars.tryMoveCars();
+    }
+
     private Integer parseStringToInteger(String count) {
         try {
             return Integer.parseInt(count);
@@ -44,11 +48,5 @@ public class RaceService {
 
     private boolean isLessThanMinCount(Integer count) {
         return count < MIN_RACE_COUNT.getValue();
-    }
-
-    public void startRace(Cars cars, Integer totalCount) {
-        for (int count = 0; count < totalCount; count++) {
-            cars.tryMoveCars();
-        }
     }
 }
