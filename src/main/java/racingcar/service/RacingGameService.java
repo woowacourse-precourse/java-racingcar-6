@@ -20,6 +20,8 @@ public class RacingGameService {
 
         String input = readLine();
 
+        inputValidation.validateCarName(input);
+
         List<String> carNames = List.of(input.split(","));
         List<RacingCar> racingCars = new ArrayList<>();
 
