@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

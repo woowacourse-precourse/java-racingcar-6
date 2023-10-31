@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -17,11 +17,6 @@ public class Car {
 
     public int getStatus() {
         return status;
-    }
-
-    public void race() {
-        int conditionNumber = Randoms.pickNumberInRange(0, 9);
-        moveOrStop(conditionNumber);
     }
 
     public void moveOrStop(int condition) {
