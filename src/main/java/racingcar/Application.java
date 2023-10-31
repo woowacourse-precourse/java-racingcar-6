@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Application {
-
     private static final String SPLIT_REGEX = ",";
     private static final String JOIN_REGEX = ", ";
     private static final String CAR_MOVEMENT_MARK = "-";
