@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.List;
-import java.io.IOException;
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
@@ -105,7 +104,7 @@ public class Application {
 
     public static String getChampion(Car[] cars) {
         int maxLocation = 0;
-        String champions = "";
+        List<String> champions = new ArrayList<String>();
 
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].getLocation() > maxLocation) {
@@ -115,11 +114,11 @@ public class Application {
 
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].getLocation() == maxLocation) {
-                champions.join(", ", cars[i].getName());
+                champions.add(cars[i].getName());
             }
         }
 
-        return champions;
+        return String.join(",", champions);
     }
 
     public static void main(String[] args) {
