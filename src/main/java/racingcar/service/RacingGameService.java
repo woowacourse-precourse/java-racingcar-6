@@ -71,5 +71,23 @@ public class RacingGameService {
         player.incScore();
     }
     // 우승자 선출
-
+    public Vector<Player> findWinners(){
+        Vector<Player> winners = new Vector<>();
+        int maxScore = findMaxScore();
+        for(Player player: playerRepository.getPlayers()){
+            if(maxScore == player.getScore()){
+                winners.add(player);
+            }
+        }
+        return winners;
+    }
+    private int findMaxScore(){
+        int maxScore = -1;
+        for(Player player: playerRepository.getPlayers()){
+            if (maxScore < player.getScore()){
+                maxScore = player.getScore();
+            }
+        }
+        return maxScore;
+    }
 }
