@@ -1,10 +1,12 @@
 package racingcar.validator;
 
+import racingcar.view.ErrorMessages;
+
 public class RoundValidator {
 
     public static void validateRounds(String input) {
         if (isNotValidPositiveInteger(input)) {
-            throw new IllegalArgumentException(("경기 횟수는 1 이상의 양수로만 작성되어야합니다."));
+            throw new IllegalArgumentException((ErrorMessages.POSTIVE_INTEGER.getMessage()));
         }
     }
 
