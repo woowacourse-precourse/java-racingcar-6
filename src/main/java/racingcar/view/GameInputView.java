@@ -10,4 +10,8 @@ public class GameInputView {
     public static void printStartMessage(){
         System.out.println(START_MESSAGE);
     }
+
+    public static void printTryInputMessage(){
+        System.out.println(TRY_INPUT_MESSAGE);
+    }
 }

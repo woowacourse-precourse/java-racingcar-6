@@ -16,5 +16,7 @@ public class GameController {
     public void start(){
         GameInputView.printStartMessage();
         String carNames = readLine();
+
+        GameInputView.printTryInputMessage();
     }
 }
