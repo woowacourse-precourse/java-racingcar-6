@@ -22,19 +22,19 @@ public class Race {
         return new Race(position, tryCnt);
     }
 
-    public List<Position> positionList() {
-        return position;
-    }
-
-    public int tryValue() {
-        return tryCnt.tryValue();
-    }
-
     public static Race createRaceFromInput() {
         Set<String> carNames = InputView.inputCarNames();
         List<Position> positions = createPositions(carNames);
         TryCnt tryCnt = TryCnt.createTryCnt(InputView.inputTryCnt());
         System.out.println(LINE_BLANK + RACE_RESULT_START);
         return Race.createRace(positions, tryCnt);
+    }
+
+    public List<Position> positionValues() {
+        return this.position;
+    }
+
+    public int tryValue() {
+        return this.tryCnt.tryValue();
     }
 }

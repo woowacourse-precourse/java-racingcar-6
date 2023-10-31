@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -12,6 +11,11 @@ public class Position extends Car {
     private static final String INITIAL_POSITION = "%s : ";
     private static final int MIN_RANDOM = 0;
     private static final int MAX_RANDOM = 9;
+
+    private static final int STANDARD_VALUE = 4;
+
+    private static final int MOVING_DISTANCE = 1;
+    private static final String MOVING_POSITION = "-";
     private int distance;
     private StringBuilder position;
 
@@ -25,21 +29,6 @@ public class Position extends Car {
         return new Position(car);
     }
 
-    public int distanceValue() {
-        return this.distance;
-    }
-
-    public String positionValue() {
-        return this.position.toString();
-    }
-
-    public void move(int random) {
-        if (random >= 4) {
-            this.distance += 1;
-            this.position.append("-");
-        }
-    }
-
     public static List<Position> createPositions(Set<String> carNames) {
         List<Position> positions = new ArrayList<>();
         for (String carName : carNames) {
@@ -50,16 +39,31 @@ public class Position extends Car {
         return positions;
     }
 
+    public int distanceValue() {
+        return this.distance;
+    }
+
+    public String positionValue() {
+        return this.position.toString();
+    }
+
+    public void move(int random) {
+        if (random >= STANDARD_VALUE) {
+            this.distance += MOVING_DISTANCE;
+            this.position.append(MOVING_POSITION);
+        }
+    }
+
     public static List<Position> updatePositions(Race race) {
-        while (race.positionList().get(0).distanceValue() < race.tryValue()
-                && race.positionList().get(1).distanceValue() < race.tryValue()) {
-            for (Position position : race.positionList()) {
+        while (race.positionValues().get(0).distanceValue() < race.tryValue()
+                && race.positionValues().get(1).distanceValue() < race.tryValue()) {
+            for (Position position : race.positionValues()) {
                 int randomDistance = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
                 position.move(randomDistance);
                 System.out.println(position.positionValue());
             }
             System.out.println();
         }
-        return race.positionList();
+        return race.positionValues();
     }
 }
