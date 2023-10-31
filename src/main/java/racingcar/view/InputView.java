@@ -43,5 +43,11 @@ public class InputView {
         return carList;
     }
 
+    public int getGameCountInput() {
+        String input = Console.readLine();
 
+        int totalCount = InputValidation.checkCountRight(input);
+
+        return totalCount;
+    }
 }

@@ -26,4 +26,12 @@ public class InputValidation {
 
         return false;
     }
+
+    public static int checkCountRight(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("유효하지 않은 숫자입니다.");
+        }
+    }
 }
