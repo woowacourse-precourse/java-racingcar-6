@@ -37,9 +37,7 @@ public class RacingCarGameView {
     public void showNowPlayerLocation(List<Player> playerList) {
         for (Player player : playerList) {
             System.out.print(player.getName() + " : ");
-            for (int i = 0; i < player.getLocation(); i++) {
-                System.out.print("-");
-            }
+            showLocation(player.getLocation());
             System.out.println();
         }
         System.out.println();
@@ -52,6 +50,12 @@ public class RacingCarGameView {
     public void validName(String name) {
         if (name.length() > 4) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    public void showLocation(int location) {
+        for (int i = 0; i < location; i++) {
+            System.out.print("-");
         }
     }
 }
