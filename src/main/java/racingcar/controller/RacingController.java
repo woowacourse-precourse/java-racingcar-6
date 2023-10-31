@@ -19,7 +19,7 @@ public class RacingController {
         view.startPrintTryResult();
         for (Integer i = 0; i < tryCount; i++) {
             racing.tryCarsMoveForward();
-            view.showRacingProgress(racing);
+            view.showRacingStatus(racing.getRacingStatus());
         }
         view.showRacingWinner(racing);
     }

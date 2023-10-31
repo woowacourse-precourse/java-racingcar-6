@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import java.util.List;
+import racingcar.dto.CarInfo;
+import racingcar.dto.RacingStatus;
 
 public class Racing {
 
@@ -24,8 +26,12 @@ public class Racing {
             .toList();
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<CarInfo> getCarInfoList() {
+        return cars.stream().map(CarInfo::from).toList();
+    }
+
+    public RacingStatus getRacingStatus() {
+        return RacingStatus.from(this);
     }
 
     private Integer getMaxMoveCount() {
