@@ -31,9 +31,7 @@ class RacingGameTest {
         System.setIn(new ByteArrayInputStream(buf));
 
         //when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            RacingGame racingGame = new RacingGame();
-        });
+        assertThrows(IllegalArgumentException.class, RacingGame::new);
 
         Console.close();
     }
@@ -45,9 +43,19 @@ class RacingGameTest {
         System.setIn(new ByteArrayInputStream(buf));
 
         //when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            RacingGame racingGame = new RacingGame();
-        });
+        assertThrows(IllegalArgumentException.class, RacingGame::new);
+
+        Console.close();
+    }
+
+    @Test
+    void 참가자_명단_길이_테스트() {
+        //given
+        final byte[] buf = "AA,BB,CCCCCC,DD\n4".getBytes();
+        System.setIn(new ByteArrayInputStream(buf));
+
+        //when & then
+        assertThrows(IllegalArgumentException.class, RacingGame::new);
 
         Console.close();
     }
