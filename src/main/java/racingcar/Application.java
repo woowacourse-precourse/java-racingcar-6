@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.*;
 
 public class Application {
+    // 자동차 이름을 입력 받는 함수
     public static String[] inputCars(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -25,9 +26,19 @@ public class Application {
         return carName;
     }
 
-    public static void inputTry(){
 
+    // 시도할 횟수를 입력받는 함수
+    public static int inputTry(){
+        try {
+            int tryCnt = Integer.parseInt(Console.readLine());
+            return tryCnt;
+        }
+        catch (Exception exception) {
+            throw new IllegalArgumentException();
+        }
     }
+
+
 
     public static void moveForward(){
 
@@ -42,5 +53,8 @@ public class Application {
         for(int i =0; i < carName.length; i++){
             System.out.println(carName[i]);
         }
+
+        int tryCnt = inputTry();
+        System.out.println(tryCnt);
     }
 }
