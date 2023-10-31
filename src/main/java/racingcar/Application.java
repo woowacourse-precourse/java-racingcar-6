@@ -6,11 +6,12 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
-import javax.print.attribute.PrintRequestAttribute;
 
 class Cars {
     public final List<String> carNames;
     public final List<Integer> carNumbers;
+
+    public static final int
 
     public Cars() {
         carNames = new ArrayList<>();
@@ -21,9 +22,10 @@ class Cars {
     public void addCar(String carName) {
         String[] InputArray = carName.split(",");
         for (String car : InputArray) {
+            if (car.length() > 5)
+                throw new IllegalArgumentException("carname cannot exceed 5!");
             carNames.add(car.trim());
         }
-        //carNames.add(carName);
     }
 
     public void resetBar() {
@@ -51,7 +53,7 @@ public class Application {
 
     public static int max_move;
 
-    public static Cars cars = new Cars();
+    private static final Cars cars = new Cars();
 
     public static void main(String[] args) {
         RacingStart();
@@ -68,23 +70,19 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String InputCars = Console.readLine();
-        //List<String> cars = new ArrayList<>();
-        //Cars cars = new Cars();
         cars.addCar(InputCars);
         cars.resetBar();
-//        String[] InputArray = InputCars.split(",");
-//        for(String car : InputArray){
-//            cars.addCar(car.trim());
-//        }
-
 
     }
 
     public static void HowManyMoves() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String InputMoves = Console.readLine();
-        moves = Integer.parseInt((InputMoves));
-
+        try {
+            System.out.println("시도할 회수는 몇회인가요?");
+            String InputMoves = Console.readLine();
+            moves = Integer.parseInt((InputMoves));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("You should input integer");
+        }
     }
 
     public static void MoveCars() {
@@ -107,7 +105,7 @@ public class Application {
     public static void PrintResult(int Listnum) {
         System.out.print(cars.carNames.get(Listnum) + " : ");
         for (int i = 0; i < cars.carNumbers.get(Listnum); i++) {
-            System.out.print("_");
+            System.out.print("-");
         }
         System.out.println();
     }
@@ -138,3 +136,8 @@ public class Application {
     }
 
 }
+// 매직넘버, 변수명
+// 캡슐화를 할 때 List 를 빼오자
+// 인덴트 쪼개기(2 초과 x)
+// stream?
+// mvc
