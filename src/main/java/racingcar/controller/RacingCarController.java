@@ -8,18 +8,18 @@ public class RacingCarController {
     RacingCarView view;
     RacingCarModel model;
 
-    public RacingCarController(RacingCarView view){
+    public RacingCarController(RacingCarView view) {
         this.view = view;
     }
 
-    public void play(){
+    public void play() {
         view.displayCarNameSetupMessage();
         setupModel();
 
         view.displayRoundCountSetupMessage();
         int roundCount = getRoundCount();
 
-        while (roundCount != 0){
+        while (roundCount != 0) {
             model.takeStep();
             Iterator<String> roundResultIterator = model.getRoundResultIterator();
             view.displayRoundResults(roundResultIterator);
@@ -31,7 +31,7 @@ public class RacingCarController {
         view.displayWinnerList(winnerListIterator);
     }
 
-    private void setupModel(){
+    private void setupModel() {
         UserInputHandler<Iterator<String>> carNameHandler = new CarNameHandler();
         String rawCarNames = view.getUserInput();
         carNameHandler.handle(rawCarNames);
@@ -39,7 +39,7 @@ public class RacingCarController {
         model = new RacingCarModel(carNameListIterator);
     }
 
-    private int getRoundCount(){
+    private int getRoundCount() {
         UserInputHandler<Integer> roundCountHandler = new RoundCountHandler();
         String stringRoundCount = view.getUserInput();
         roundCountHandler.handle(stringRoundCount);
