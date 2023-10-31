@@ -37,12 +37,4 @@ public class NameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.ERROR_WHITE_SPACE_CONDITION));
     }
-
-    @Test
-    void 중복_이름_테스트() {
-        List<Name> nameList = List.of(new Name("name"), new Name("NAME"), new Name("name"));
-        assertSimpleTest(() -> assertThatThrownBy(() -> Name.validateDuplicateName(nameList))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.ERROR_DUPLICATE_CONDITION));
-    }
 }

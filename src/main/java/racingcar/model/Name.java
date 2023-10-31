@@ -49,13 +49,6 @@ public class Name {
         return names.split(",");
     }
 
-    public static void validateDuplicateName(List<Name> nameList) {
-        Set<Name> nameSet = new HashSet<>(nameList);
-        if (nameSet.size() != nameList.size()) {
-            throw new IllegalArgumentException(ErrorMessage.ERROR_DUPLICATE_CONDITION);
-        }
-    }
-
     public String value() {
         return name;
     }
