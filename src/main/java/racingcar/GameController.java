@@ -16,6 +16,7 @@ public class GameController {
         int roundCount = 0;
         while (game.isProcess(++roundCount)) {
             game.play();
+            PromptHandler.promptOutput(game.getTotalExecuteResult());
         }
     }
 }

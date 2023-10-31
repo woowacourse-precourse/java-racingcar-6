@@ -23,6 +23,15 @@ public class Game {
         }
     }
 
+    public String getTotalExecuteResult() {
+        StringBuilder totalExecuteResult = new StringBuilder();
+        for (Car c : cars) {
+            totalExecuteResult.append(c.getExecuteResult()).append("\n");
+        }
+
+        return totalExecuteResult.toString();
+    }
+
     private void settingRound() {
         PromptHandler.promptOutput(GameMessage.ASK_ROUND_COUNT.getMessage());
         maxRoundCount = PromptHandler.promptInputRoundCount();

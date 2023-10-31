@@ -14,4 +14,14 @@ public class Car {
             position++;
         }
     }
+
+    public String getExecuteResult() {
+        StringBuilder executeResult = new StringBuilder(name);
+        executeResult.append(GameMessage.COLON.getMessage());
+        for (int i = 0; i < position; i++) {
+            executeResult.append(GameMessage.EXECUTE_RESULT_SIGN.getMessage());
+        }
+
+        return executeResult.toString();
+    }
 }
