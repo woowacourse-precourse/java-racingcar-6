@@ -51,7 +51,7 @@ class Cars {
                 .max().orElse(0);
     }
 
-    int carCount(){
+    int carCount() {
         return carList.size();
     }
 }

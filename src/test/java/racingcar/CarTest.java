@@ -11,14 +11,14 @@ class CarTest {
 
     @ParameterizedTest
     @MethodSource("전진_테스트를_위한_매개변수")
-    void 전진_테스트(String carName, String carToString,  int movePower) {
+    void 전진_테스트(String carName, String carToString, int movePower) {
         Car car = new Car(carName);
         car.tryMove(movePower);
         assertThat(car.toString())
                 .isEqualTo(carToString);
     }
 
-    static Stream<Arguments> 전진_테스트를_위한_매개변수(){
+    static Stream<Arguments> 전진_테스트를_위한_매개변수() {
         return Stream.of(
                 Arguments.of("test", "test : -", 4),
                 Arguments.of("test", "test : ", 3),

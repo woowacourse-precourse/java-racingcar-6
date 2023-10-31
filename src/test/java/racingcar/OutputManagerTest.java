@@ -64,14 +64,14 @@ class OutputManagerTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_입력_가이드_출력_테스트(){
+    void 자동차_이름_입력_가이드_출력_테스트() {
         OutputManager.printCarsNameInputGuide();
         assertThat(output())
                 .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n".trim());
     }
 
     @Test
-    void 이동_시도_횟수_입력_가이_출력_테스트(){
+    void 이동_시도_횟수_입력_가이_출력_테스트() {
         OutputManager.printMoveTryCountInputGuide();
         assertThat(output())
                 .isEqualTo("시도할 회수는 몇회인가요?\n".trim());

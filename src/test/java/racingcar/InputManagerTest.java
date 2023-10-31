@@ -78,7 +78,7 @@ class InputManagerTest {
     }
 
     @Test
-    void 자동차_이동_시도_횟수_테스트(){
+    void 자동차_이동_시도_횟수_테스트() {
         assertThatThrownBy(() -> InputManager.getMoveTryCount("a"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("0 이상의 int 정수가 아닙니다!");
