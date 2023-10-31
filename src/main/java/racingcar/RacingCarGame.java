@@ -24,6 +24,38 @@ public class RacingCarGame {
         moveCnt = Integer.parseInt(line);
     }
 
+    public void printWinner() {
+        List<String> winnerNames = new ArrayList<>();
+        if (cars.size() == 0) {
+            return;
+        }
+
+        int maxDistance = cars.get(0).getMoveDistance();
+
+        for (RacingCar car : cars) {
+            if (car.getMoveDistance() > maxDistance) {
+                maxDistance = car.getMoveDistance();
+            }
+        }
+
+        for (RacingCar car : cars) {
+            if (car.getMoveDistance() == maxDistance) {
+                winnerNames.add(car.getName());
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+
+        for (int i = 0; i < winnerNames.size(); i++) {
+            System.out.print(winnerNames.get(i));
+            if (i < winnerNames.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+
+        System.out.println();
+    }
+
     public List<RacingCar> getCars() {
         return cars;
     }

@@ -1,7 +1,10 @@
 package racingcar;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -71,5 +74,24 @@ class RacingCarGameTest {
             racingCarGame.setMoveCntByConsole();
         }).isInstanceOf(IllegalArgumentException.class);
     }
-    
+
+    @Test
+    public void 최종_우승자를_출력하는_기능() {
+        String input = "red,green,blue";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        RacingCarGame racingCarGame = new RacingCarGame();
+        racingCarGame.setRacingCarsByConsole();
+
+        racingCarGame.getCars().get(0).moveForward();
+        racingCarGame.getCars().get(1).moveForward();
+
+        racingCarGame.printWinner();
+
+        Assertions.assertThat(out.toString()).isEqualTo("최종 우승자 : red, green\n");
+    }
 }
