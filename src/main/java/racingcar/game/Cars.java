@@ -6,6 +6,7 @@ import racingcar.utils.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static racingcar.utils.RandomNumber.*;
 import racingcar.utils.Converter.*;
@@ -49,22 +50,14 @@ public class Cars {
         return maxMoving;
     }
     public String getWinner(){
-        String winner = "";
-
         int maxMoving = getMaxMoving();
-        
-        // TODO : 함수 분리하기
-        for(Car car:this.cars){
-            if(maxMoving == car.getMoving()){
-                if(winner.isEmpty()){
-                    winner = winner.concat(car.getName());
-                } else {
-                    winner = winner.concat(", ").concat(car.getName());
-                }
-            }
-        }
 
-        return winner;
+        List<String> winners = cars.stream()
+                .filter(car -> car.getMoving() == maxMoving)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
+        return String.join(", ", winners);
     }
     public List<Car> getCars(){
         return cars;
