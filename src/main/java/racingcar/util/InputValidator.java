@@ -4,8 +4,10 @@ import java.util.Objects;
 import racingcar.domain.Car;
 
 public class InputValidator {
+    private static final String INPUT_NON = "";
+
     public void nameNonInputValidate(int carsSize, String firstElementName) {
-        if (carsSize == 1 && Objects.equals(firstElementName, "")) {
+        if (carsSize == 1 && Objects.equals(firstElementName, INPUT_NON)) {
             printException("어떠한 이름도 입력되지 않았습니다! 값을 입력해주세요!");
         }
     }
@@ -17,7 +19,7 @@ public class InputValidator {
     }
 
     public void roundNonInputValidate(String input) {
-        if (Objects.equals(input, "")) {
+        if (Objects.equals(input, INPUT_NON)) {
             printException("어떠한 것도 입력되지 않았습니다! 값을 입력해주세요!");
         }
     }

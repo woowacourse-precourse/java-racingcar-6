@@ -3,6 +3,8 @@ package racingcar.view;
 import java.util.List;
 
 public class View {
+    private static final int FIRST_IDX = 0;
+    private static final int NUMBER_FOR_ACCESS_LAST_ELEMENT = 1;
 
     private void printMsg(String output) {
         System.out.println(output);
@@ -31,10 +33,10 @@ public class View {
     public void finalWinnerMsg(List<String> cars) {
         System.out.print("최종 우승자 : ");
 
-        for (int i = 0; i < cars.size(); i++) {
+        for (int i = FIRST_IDX; i < cars.size(); i++) {
             String carName = cars.get(i);
             System.out.print(carName);
-            isThatNotLastCar(i != cars.size() - 1);
+            isThatNotLastCar(i != cars.size() - NUMBER_FOR_ACCESS_LAST_ELEMENT);
         }
     }
 

@@ -1,12 +1,15 @@
 package racingcar.domain;
 
 public class Car implements Comparable<Car> {
+    private static final int INIT_VAL = 0;
+    private static final String PROCESS_INDICATOR = "-";
+
     private final String name;
     private int position;
 
     public Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = INIT_VAL;
     }
 
     public String getName() {
@@ -14,7 +17,7 @@ public class Car implements Comparable<Car> {
     }
 
     public String process() {
-        return ("-".repeat(position));
+        return (PROCESS_INDICATOR.repeat(position));
     }
 
     public void updatePosition() {
