@@ -1,6 +1,5 @@
 # 기능 명세서
 
-## MVC 디자인 패턴 적용
 ### RacingGameController : 사용자 입력과 자동차 모델 처리
 - RacingGameModel, RacingGameView 의존
 **레이싱 게임 시작(startRacingGame)**
@@ -35,3 +34,10 @@
 - 현재 이름 반환(getter)
 - 현재 위치 반환(getter)
 - 현재 위치 표현 -> getPositionString
+
+### 테스트 코드
+- 전진 정지
+- 이름에 대한 예외 처리
+- 무작위 값이 나올 때, 4이상은 전진, 4미만은 정지하는 과정 테스트
+- 단독 우승자 출력 테스트
+- 공동 우승자 출력 테스트

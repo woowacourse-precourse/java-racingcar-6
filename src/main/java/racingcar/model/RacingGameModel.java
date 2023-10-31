@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RacingGameModel {
@@ -26,9 +27,9 @@ public class RacingGameModel {
     }
 
     public void setCarNames(String carNames) {
+        List<String> carNameList = new ArrayList<>(Arrays.asList(carNames.split(",")));
         cars = new ArrayList<>();
-        List<String> names = List.of(",".split(carNames));
-        for (String name : names) {
+        for (String name : carNameList) {
             validateCarName(name);
             cars.add(new Car(name));
         }
