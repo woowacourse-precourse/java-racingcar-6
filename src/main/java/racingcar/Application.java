@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.RaceBefore;
 import racingcar.domain.RaceEnd;
 import racingcar.domain.RaceStart;
@@ -21,7 +22,10 @@ public class Application {
         System.out.println("\n실행 결과");
         //게임 시작
         while(cnt <= tryNumber){
-            RaceStart.allowNumber(car);
+            for(String s : car.keySet()){
+                int random = Randoms.pickNumberInRange(0, 9);
+                RaceStart.forwardDecision(car, random, s);
+            }
             RaceStart.showResult(car);
             cnt++;
         }
