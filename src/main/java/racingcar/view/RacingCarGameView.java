@@ -11,9 +11,19 @@ public class RacingCarGameView {
     private static final String GAME_RESULT = "실행 결과";
     private static final String GAME_WINNER = "최종 우승자 : ";
 
-    public String requestCarName() {
+    public String[] requestCarName() {
         System.out.println(REQUEST_CAR_NAME);
-        return Console.readLine();
+        String[] carNames = Console.readLine().split(",");
+
+        for (String name : carNames) {
+            if (name.length() > 4) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
+        }
+
+        Console.close();
+
+        return carNames;
     }
 
     public int requestTryNumber() {
