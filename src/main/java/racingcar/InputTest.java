@@ -25,7 +25,7 @@ public class InputTest {
 
     @Test
     void round_값_exception_처리_확인() {
-        String[] input = {"asdf", "123", ""};
+        String[] input = {"asdf", "a", ""};
         for (String num : input) {
             assertThatThrownBy(() -> Application.checkWrongRound(num))
                     .isInstanceOf(IllegalArgumentException.class);

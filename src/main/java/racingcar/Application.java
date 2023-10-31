@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
+import org.mockito.internal.matchers.Null;
 
 public class Application {
     static final int NAME_LENGTH_LIMIT = 5;
@@ -81,11 +82,14 @@ public class Application {
     }
 
     public static void checkWrongRound(String round) {
-        if (round.length() != 1) {
-            throw new IllegalArgumentException("0에서 9사이의 숫자를 입력하세요");
-        }
-        if (round.charAt(0) < 48 || round.charAt(0) > 57) {
+        // 빈 문자열인 경우 예외처리
+        if (round.isEmpty()){
             throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
+        for (char c : round.toCharArray()) {
+            if (c < 48 || c > 57) {
+                throw new IllegalArgumentException("숫자를 입력해주세요");
+            }
         }
     }
 }
