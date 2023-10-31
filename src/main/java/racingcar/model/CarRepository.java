@@ -7,6 +7,10 @@ public class CarRepository {
 
     private static final CarRepository instance = new CarRepository();
 
+    public void setRacingCars(ArrayList<Car> cars) {
+        this.racingCars = cars;
+    }
+
     public static CarRepository getInstance() {
         return instance;
     }
