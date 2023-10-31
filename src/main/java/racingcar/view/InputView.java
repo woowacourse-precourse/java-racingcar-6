@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class InputView {
-    public static List<String> inputCarNames() {
+    public List<String> inputCarNames() {
         String carstr = Console.readLine();
         validateCarInput(carstr);
         List<String> carNames = Arrays.stream(carstr.split(","))
@@ -17,14 +17,14 @@ public class InputView {
         return carNames;
     }
 
-    public static void validateCarInput(String carNames) {
+    public void validateCarInput(String carNames) {
         if (carNames.contains(",")) {
             return;
         }
         throw new IllegalArgumentException(INVALID_SPLIT_CHAR.getMessage());
     }
 
-    public static int inputAttemptNumber() {
+    public int inputAttemptNumber() {
         try {
             int attemptNumber = Integer.parseInt(Console.readLine());
             return attemptNumber;

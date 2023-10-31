@@ -2,8 +2,6 @@ package racingcar.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.domain.Car.createCar;
-import static racingcar.view.OutputView.printAttempResult;
-import static racingcar.view.OutputView.printWinners;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -13,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
 class OutputViewTest {
+    OutputView outputView = new OutputView();
 
     @Test
     void testPrintAttempResult() {
@@ -24,7 +23,7 @@ class OutputViewTest {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        printAttempResult(cars);
+        outputView.printAttempResult(cars);
 
         assertEquals("car A : --\ncar B : --\ncar C : --\n\n",out);
 
@@ -40,7 +39,7 @@ class OutputViewTest {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        printWinners(cars);
+        outputView.printWinners(cars);
 
         assertEquals("최종 우승자 : car A, car B, car C\n",out);
     }
