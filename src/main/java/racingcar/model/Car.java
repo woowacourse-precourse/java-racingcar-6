@@ -5,7 +5,7 @@ import racingcar.dto.CarDto;
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
-    private static final Integer INIT_POSITION = 0;
+    private static final Integer INITIAL_POSITION = 0;
 
     private final String name;
     private Integer position;
@@ -13,7 +13,7 @@ public class Car implements Comparable<Car> {
     public Car(String name) {
         CarValidator.validate(name);
         this.name = name;
-        this.position = INIT_POSITION;
+        this.position = INITIAL_POSITION;
     }
 
     public void go(boolean canMove) {
