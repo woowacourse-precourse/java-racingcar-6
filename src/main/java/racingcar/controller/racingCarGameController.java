@@ -16,5 +16,6 @@ public class racingCarGameController {
             racingCars.race();
             outputView.racingCarRelay(racingCars);
         }
+        outputView.printWinners(racingCars.calculateWinners());
     }
 }

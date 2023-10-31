@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class racingCars {
@@ -51,5 +52,22 @@ public class racingCars {
         Map<String, Integer> racingCarRelayResult = racingCarList.stream()
                 .collect(Collectors.toMap(racingCar::getRacingCarName, racingCar::getForwardCount));
         return racingCarRelayResult;
+    }
+
+    public String[] calculateWinners() {
+        Map<String, Integer> racingCarRelayResult = getRacingCarRelayResult();
+
+        // 최대 Integer 값 찾기
+        int maxForward = racingCarRelayResult.values().stream()
+                .max(Integer::compareTo)
+                .orElse(0);
+
+        // 최대값을 가진 Key들만 가져와 String 배열로 반환
+        String[] winners = racingCarRelayResult.entrySet().stream()
+                .filter(entry -> entry.getValue() == maxForward)
+                .map(Entry::getKey)
+                .toArray(String[]::new);
+
+        return winners;
     }
 }
