@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.common.Converter;
+import racingcar.common.InputValidator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

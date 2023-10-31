@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.domain;
 
+import racingcar.common.Converter;
+import racingcar.common.InputValidator;
+import racingcar.common.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
