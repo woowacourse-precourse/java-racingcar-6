@@ -34,8 +34,8 @@
 
 
 ## 우승자를 알려준다.
-  - [ ] 우승자 안내 문구를 생성한다. - MessageContainer#showWinners()
-    - [ ] 공동 우승자는 쉼표로 구분하여 표기한다.
+  - [X] 우승자 안내 문구를 생성한다. - MessageContainer#showWinners()
+    - [X] 공동 우승자는 쉼표로 구분하여 표기한다.
 
 
 ## 안내 메시지를 출력한다.
