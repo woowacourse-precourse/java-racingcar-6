@@ -50,16 +50,12 @@ public class Game {
     void whoIsWinner(Car car) {
         String name = car.getName();
         int forwards = car.getForward();
-        if (maxForwards < forwards) {
-            maxForwards = forwards;
-            removeAll(new ArrayList<>(winnerName));
-            winnerName.add(name);
-        }
         if (maxForwards == forwards)
             winnerName.add(name);
-    }
-
-    void removeAll(ArrayList<String> winnerNameClone){
-        winnerName.removeAll(winnerNameClone);
+        if (maxForwards < forwards) {
+            maxForwards = forwards;
+            winnerName = new ArrayList<>();
+            winnerName.add(name);
+        }
     }
 }

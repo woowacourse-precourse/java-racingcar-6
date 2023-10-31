@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     final private String name;
     private int forward = 0;
+    private String carState;
 
     Car(String name) {
         this.name = name;
