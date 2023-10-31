@@ -32,7 +32,6 @@ public class RacingCar {
     private void playRacing() {
         raceTry = InputView.RaceCount();
         OutputView.setTryMessage();
-
         for (int i = 0; i < raceTry; i++) {
             RacingRandomNumberIsMoveORStop();
             System.out.println();
