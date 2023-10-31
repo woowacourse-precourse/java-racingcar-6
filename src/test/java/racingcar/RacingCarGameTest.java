@@ -24,7 +24,7 @@ public class RacingCarGameTest extends NsTest {
                             "pobi : --",
                             "woni : --",
                             "toni : --",
-                            "최종 우승자 : pobi, woni, toni");
+                            "최종 우승자 : pobi, toni, woni");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD,
                 MOVING_FORWARD, MOVING_FORWARD, STOP,
@@ -41,17 +41,17 @@ public class RacingCarGameTest extends NsTest {
                             "pobi : -",
                             "woni : ",
                             "toni : -",
-                            "pobi : --",
-                            "woni : -",
-                            "toni : -",
-                            "pobi : --",
+                            "pobi : -",
                             "woni : --",
                             "toni : -",
-                            "최종 우승자 : pobi, woni");
+                            "pobi : -",
+                            "woni : --",
+                            "toni : --",
+                            "최종 우승자 : toni, woni");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, STOP,
-                STOP, MOVING_FORWARD, STOP
+                STOP, MOVING_FORWARD, STOP,
+                STOP, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
