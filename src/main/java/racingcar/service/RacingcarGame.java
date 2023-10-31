@@ -7,9 +7,9 @@ import racingcar.domain.Car;
 
 public class RacingcarGame {
     private static final int COUNT_ONE = 1;
-    private static final int NUMBER_FOUR = 4;
-    private static final int NUMBER_ZERO = 0;
-    private static final int NUMBER_NINE = 9;
+    private static final int CRITERION_FOUR = 4;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER_ = 9;
 
     public List<String> createWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
@@ -39,10 +39,10 @@ public class RacingcarGame {
     }
 
     private boolean isGreaterThanOrEqualFour() {
-        return generateRandomNumber() >= NUMBER_FOUR;
+        return generateRandomNumber() >= CRITERION_FOUR;
     }
 
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(NUMBER_ZERO, NUMBER_NINE);
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER_);
     }
 }
