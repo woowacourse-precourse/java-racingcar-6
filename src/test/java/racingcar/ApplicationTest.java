@@ -21,6 +21,7 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private InputView inputView;
+    private Validator validator;
 
     @Test
     void 전진_정지() {
@@ -44,18 +45,16 @@ class ApplicationTest extends NsTest {
     @BeforeEach
     public void setup() {
         inputView = new InputView();
+        validator = new Validator();
     }
 
     @Test
     public void 자동차_이름_예외_처리() {
-        String input = "pobi,woni,jun";
+        String input = "pobi123,woni,jun";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        List<String> carNames = inputView.getCarNames();
-
-        List<String> expectedCarNames = Arrays.asList("pobi", "woni", "jun");
-        assertEquals(expectedCarNames, carNames);
+        assertThrows(IllegalArgumentException.class, () -> validator.checkCarNameLength(input));
     }
 
     @Test

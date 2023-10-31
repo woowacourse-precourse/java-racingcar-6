@@ -4,17 +4,19 @@ public class Validator {
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
     public void validateCarName(String carNames) {
-        try {
             checkCarNameLength(carNames);
             checkCarNameBlank(carNames);
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-        }
     }
     public void checkCarNameLength(String carNames) {
-        int length = carNames.split(",").length;
-        if (length < MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+        String[] names = carNames.split(",");
+        for (String name : names) {
+            if (name.length() < MAX_CAR_NAME_LENGTH) {
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+            }
+
+            if (name.matches(".*\\d.*")) {
+                throw new IllegalArgumentException("자동차 이름에는 정수가 포함되어서는 안됩니다.");
+            }
         }
     }
 
