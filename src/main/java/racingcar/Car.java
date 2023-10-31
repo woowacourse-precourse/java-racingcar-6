@@ -5,12 +5,14 @@ import java.util.Objects;
 public class Car {
     private final String carName;
     private int progress;
-
+    private int trial;
     public Car(String carName) {
         this.carName = carName;
+        this.trial = 0;
     }
 
     public void movable(int number) {
+        trial++;
         if (number >= 4) {
             move(1);
         }
