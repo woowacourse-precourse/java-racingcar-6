@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import racingcar.domain.RacingPlayer;
 import racingcar.exception.InvalidCountException;
 import racingcar.exception.InvalidNameException;
@@ -9,9 +11,15 @@ import racingcar.util.NumberPicker;
 
 public class RacingService {
     public void validateNames(List<String> racerList) {
+        Set<String> nameSet = new HashSet<>();
+
         for (String name : racerList) {
             if (name.isEmpty() || name.length() > 5) {
                 throw new InvalidNameException("이름은 공백일 수 없으며, 5자를 초과할 수 없습니다.");
+            }
+
+            if (!nameSet.add(name)) {
+                throw new InvalidNameException("중복된 이름이 있습니다: " + name);
             }
         }
     }
