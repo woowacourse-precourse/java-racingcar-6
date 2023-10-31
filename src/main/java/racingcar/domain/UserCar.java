@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ public class UserCar {
     public UserCar(){
     }
 
-    public void inputUserCar(){
+    public void inputCarName(){
         Map<String, Integer> car = new HashMap<>();
 
         String str = Console.readLine();
