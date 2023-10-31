@@ -12,7 +12,7 @@ public class OutputView {
         System.out.println(GAME_START_MESSAGE);
     }
 
-    public void printTempMessage() {
+    public void printInputGameProgressCountMessage() {
         System.out.println(INPUT_GAME_PROGRESS_COUNT_MESSAGE);
     }
 
