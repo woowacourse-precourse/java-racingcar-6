@@ -25,7 +25,7 @@ public class RacingGame {
 		announceTheWinners(winners);
 	}
 
-	private String[] inputCarName() {
+	public String[] inputCarName() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carNames = Console.readLine();
 		String[] carArray = carNames.split(",");
@@ -41,7 +41,7 @@ public class RacingGame {
 		}
 	}
 
-	private int inputTryCount() {
+	public int inputTryCount() {
 		System.out.println("시도할 횟수는 몇 회인가요?");
 		String tryCount = Console.readLine();
 		System.out.println();
@@ -52,7 +52,7 @@ public class RacingGame {
 		return Integer.parseInt(tryCount);
 	}
 
-	private void showTheResults(String[] cars, int tryCount) {
+	public void showTheResults(String[] cars, int tryCount) {
 		for (int i = 0; i < tryCount; i++) {
 			steps = car.moveForward(steps);
 
@@ -63,7 +63,7 @@ public class RacingGame {
 		}
 	}
 
-	private void announceTheWinners(String winners) {
+	public void announceTheWinners(String winners) {
 		System.out.println("최종 우승자 : " + winners);
 	}
 }
