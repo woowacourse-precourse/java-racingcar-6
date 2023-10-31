@@ -55,6 +55,36 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 입력_횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,kyu", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 우승자가_다수일_경우에_대한_예외_처리() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,kyu", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "kyu : -", "최종 우승자 : pobi, woni, kyu");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 움직이지_않아도_우승_가능() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi", "1");
+                    assertThat(output()).contains("pobi : ", "최종 우승자 : pobi");
+                },
+                STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
