@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.common.config.RacingCarRule;
 import racingcar.game.RacingCarRegistry;
 import racingcar.racer.RacingCar;
 
@@ -51,7 +52,7 @@ class RacingCarRegistryTest {
 
         static Stream<List<RacingCar>> fail_OverRacingCarMaxNumberArgument() {
             return Stream.of(
-                    getRacingCarList(101)
+                    getRacingCarList(RacingCarRule.MAX_RACING_CAR_SIZE + 1)
             );
         }
 
