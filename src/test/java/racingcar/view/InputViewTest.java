@@ -10,8 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.view.InputMessages;
-import racingcar.view.InputView;
 
 class InputViewTest {
 
@@ -38,6 +36,7 @@ class InputViewTest {
     @AfterEach
     void 테스트_함수_실행_후_실행() {
         System.setOut(System.out);
+        System.setIn(System.in);
     }
 
     @Test
