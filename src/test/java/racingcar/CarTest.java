@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
@@ -31,9 +32,9 @@ public class CarTest {
 
     @Test
     void 랜덤수_정상적인지_확인() {
-        Car carObj = new Car("vega");
+        int randNum = Randoms.pickNumberInRange(0, 9);
 
-        assertThat(carObj.getRandomNumber()).isBetween(0, 9);
+        assertThat(randNum).isBetween(0, 9);
     }
 
     @Test
@@ -54,7 +55,7 @@ public class CarTest {
         Car carObj = new Car("vega");
         String compareStringFirst = "vega : ";
         String compareStringSecond = "vega : -";
-        
+
         carObj.runCar();
 
         if (carObj.getForwardCount() == 0) {
