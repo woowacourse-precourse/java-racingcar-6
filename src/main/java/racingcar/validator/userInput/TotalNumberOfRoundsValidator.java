@@ -3,15 +3,16 @@ package racingcar.validator.userInput;
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.round.NonPositiveIntegerException;
 
-public class RoundValidator extends UserInputValidator {
+public class TotalNumberOfRoundsValidator extends UserInputValidator {
 
-    private static RoundValidator roundValidator = new RoundValidator();
+    private static TotalNumberOfRoundsValidator totalNumberOfRoundsValidator
+            = new TotalNumberOfRoundsValidator();
 
-    private RoundValidator() {
+    private TotalNumberOfRoundsValidator() {
     }
 
-    public static RoundValidator getInstance() {
-        return roundValidator;
+    public static TotalNumberOfRoundsValidator getInstance() {
+        return totalNumberOfRoundsValidator;
     }
 
     @Override

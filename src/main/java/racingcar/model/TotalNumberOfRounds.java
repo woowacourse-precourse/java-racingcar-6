@@ -8,8 +8,7 @@ public class TotalNumberOfRounds {
     public TotalNumberOfRounds(int total) {
         this.total = total;
 
-        ModelValidator modelValidator = new ModelValidator();
-        modelValidator.validate(this);
+        (new ModelValidator()).validate(this);
     }
 
     public int getTotal() {

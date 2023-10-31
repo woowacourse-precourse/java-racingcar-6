@@ -7,14 +7,14 @@ import racingcar.exception.car.name.LengthException;
 import racingcar.exception.cars.DuplicateException;
 import racingcar.utils.Parser;
 
-public class CarsValidator extends UserInputValidator {
-    private static CarsValidator carsValidator = new CarsValidator();
+public class CarNamesValidator extends UserInputValidator {
+    private static CarNamesValidator carNamesValidator = new CarNamesValidator();
 
-    private CarsValidator() {
+    private CarNamesValidator() {
     }
 
-    public static CarsValidator getInstance() {
-        return carsValidator;
+    public static CarNamesValidator getInstance() {
+        return carNamesValidator;
     }
 
     @Override

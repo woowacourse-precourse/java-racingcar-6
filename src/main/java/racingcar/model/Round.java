@@ -9,10 +9,6 @@ public class Round {
         currentRoundNumber = 1;
     }
 
-    public int getTotalNumberOfRounds() {
-        return totalNumberOfRounds.getTotal();
-    }
-
     public boolean over() {
         return currentRoundNumber > totalNumberOfRounds.getTotal();
     }
@@ -20,6 +16,4 @@ public class Round {
     public void plusOne() {
         currentRoundNumber++;
     }
-
-
 }

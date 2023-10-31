@@ -10,8 +10,7 @@ public class Cars {
     public Cars(List<Car> carList) {
         this.carList = carList;
 
-        ModelValidator modelValidator = new ModelValidator();
-        modelValidator.validate(this);
+        (new ModelValidator()).validate(this);
     }
 
     public List<Car> getCarList() {

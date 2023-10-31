@@ -8,8 +8,7 @@ public class CarName {
     public CarName(String name) {
         this.name = name;
 
-        ModelValidator modelValidator = new ModelValidator();
-        modelValidator.validate(this);
+        (new ModelValidator()).validate(this);
     }
 
     public String getName() {

@@ -2,7 +2,6 @@ package racingcar.model;
 
 import racingcar.constant.RacingGameConstants;
 import racingcar.utils.RandomGenerator;
-import racingcar.validator.model.ModelValidator;
 
 public class Car {
     private final CarName carName;
@@ -11,9 +10,6 @@ public class Car {
     public Car(String name) {
         this.carName = new CarName(name);
         position = 0;
-
-        ModelValidator modelValidator = new ModelValidator();
-        modelValidator.validate(this);
     }
 
     public CarName getCarName() {
