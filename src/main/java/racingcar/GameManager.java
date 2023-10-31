@@ -30,7 +30,7 @@ public class GameManager {
         }
     }
 
-    public String inputStringCarsName(){
+    private String inputStringCarsName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
 
@@ -69,24 +69,23 @@ public class GameManager {
         int bestPosition = 0;
         String judgment = "";
         for(Car car : cars){
-            //크거나 같을 때
+            //bestPosition 보다 크거나 같을 때
             if(comparePosition(bestPosition,car.getPosition())){
                 judgment = judge(judgment,bestPosition,car.getPosition(),car.getName());
                 bestPosition = car.getPosition();
             }
         }
-
         System.out.println("최종 우승자 : " + judgment);
     }
 
-    public boolean comparePosition(int bestPosition, int carPosition){
+    private boolean comparePosition(int bestPosition, int carPosition){
         if(bestPosition > carPosition){
             return false;
         }
         return true;
     }
 
-    public String judge(String judgment, int bestPosition, int carPosition, String carName){
+    private String judge(String judgment, int bestPosition, int carPosition, String carName){
         if(bestPosition < carPosition){
             return carName;
         }
