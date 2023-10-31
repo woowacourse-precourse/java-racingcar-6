@@ -24,6 +24,7 @@ public class CarService {
         carsName = carNameValidator.validateInputCarName(carName) ;
 
         carCount = carsName.size();
+
         return carCount;
     }
 
@@ -34,20 +35,21 @@ public class CarService {
             car[i] = new Car(carsName.get(i), 0);
         }
     }
+
     public void initBuilder() {
         builderUtils = new BuilderUtils(carsName);
     }
 
-
-
     public void updateCarPosition() {
         RandomUtils randomUtils = new RandomUtils();
+
         for (int carIndex = 0; carIndex < carsName.size(); carIndex++) {
+
             CarPosition position = randomUtils.determinePositionByRandomNumber();
+
             if (position.increase(car[carIndex])) {
                 builderUtils.appendToCarPosition(carIndex);
             }
-            ;
         }
     }
 
@@ -55,8 +57,7 @@ public class CarService {
         return builderUtils.getCarPositions();
     }
 
-    public List<String> getWinner() {
-        List<String> winner = new ArrayList<>();
+    public List<String> getWinner(List<String> winner) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < carCount; i++) {
             if (car[i].getPosition() > max) {

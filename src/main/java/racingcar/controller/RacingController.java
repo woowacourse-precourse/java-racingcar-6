@@ -7,6 +7,7 @@ import racingcar.service.GameService;
 import racingcar.view.InputMessage;
 import racingcar.view.OutputMessage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -70,7 +71,8 @@ public class RacingController {
     }
 
     public void getWinner() {
-        List<String> winner = carService.getWinner();
+        List<String> winner = new ArrayList<>();
+        winner = carService.getWinner(winner);
         System.out.print(OutputMessage.OUTPUT_WINNER_MESSAGE);
         String WINNER_MESSAGE = OutputMessage.printWinnerMessage(winner);
         System.out.println(WINNER_MESSAGE);
