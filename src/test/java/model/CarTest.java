@@ -48,7 +48,7 @@ public class CarTest {
         Car car = new Car(new Name("pobi"), mockedMovingCount);
 
         //when
-        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+        car.move();
 
         //then
         Mockito.verify(mockedMovingCount).increase();
@@ -73,9 +73,9 @@ public class CarTest {
     void 현재_경주_상태_테스트() {
         //given
         Car car = new Car(new Name("pobi"), new MovingCount(0));
-        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
-        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
-        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+        car.move();
+        car.move();
+        car.move();
 
         //when
         String currentStatus = car.currentRacingStatus();
@@ -94,7 +94,7 @@ public class CarTest {
         List<Car> cars = new ArrayList<>();
         String expectedCarName = "lisa";
 
-        lisaCar.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+        lisaCar.move();
 
         cars.add(pobiCar);
         cars.add(lisaCar);

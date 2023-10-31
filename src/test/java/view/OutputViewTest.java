@@ -37,8 +37,8 @@ public class OutputViewTest {
         Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
         Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
         Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
-        pobiCar.increaseMovingCountIfGreater(4, 5);
-        lisaCar.increaseMovingCountIfGreater(4, 5);
+        pobiCar.move();
+        lisaCar.move();
         carList.add(pobiCar);
         carList.add(lisaCar);
         carList.add(jinyCar);

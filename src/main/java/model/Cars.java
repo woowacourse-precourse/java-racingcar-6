@@ -1,8 +1,9 @@
 package model;
 
+import static utils.Generator.generateRandomNumber;
+
 import java.util.ArrayList;
 import java.util.List;
-import utils.Generator;
 
 public class Cars {
 
@@ -11,7 +12,6 @@ public class Cars {
     public Cars(List<Car> cars) {
         this.cars = cars;
     }
-
 
     public List<Car> findCarsWithMaxMovingCount() {
         cars.sort(Car::compareTo);
@@ -30,8 +30,9 @@ public class Cars {
 
     public void updateMovingCount(int minimumNumber) {
         for (Car car : cars) {
-            int randomNumber = Generator.generateRandomNumber();
-            car.increaseMovingCountIfGreater(minimumNumber, randomNumber);
+            if (generateRandomNumber() >= minimumNumber) {
+                car.move();
+            }
         }
     }
 
