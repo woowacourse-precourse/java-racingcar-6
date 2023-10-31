@@ -20,7 +20,7 @@ public class Racer{
     public void moveForward() {
         int random = Randoms.pickNumberInRange(0, 9);
 
-        if (Judgment.isGreaterThanFour(random))
+        if (Judgment.isOverFourDistance(random))
             this.distance += distance;
     }
 

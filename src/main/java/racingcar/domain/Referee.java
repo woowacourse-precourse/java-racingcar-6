@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Referee{
-
     private List<Racer> group;
     private int playerCount;
     private int maxDistance;
@@ -56,6 +55,16 @@ public class Referee{
     if (player.getDistance() >= this.maxDistance)
       members.add(player.getName());
   }
+
+  public void readPlayer(String str){
+        String[] player = str.split(",");
+
+        for(String name : player){
+            Judgment.isOverFiveLength(name); // 자동차 이름 길이가 5를 초과하는지 확인
+            addGroup(name);
+        }
+  }
+
 
 
     public void run() {
