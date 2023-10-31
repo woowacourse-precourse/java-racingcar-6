@@ -29,7 +29,7 @@ public class ScoreBoard {
         return scoreBoard.get(getFinalRound()).findFarthestScores();
     }
 
-    public int getFinalRound() {
+    private int getFinalRound() {
         return getSize() - 1;
     }
 
