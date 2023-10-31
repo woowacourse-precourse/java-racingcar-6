@@ -35,12 +35,22 @@ class UserInputTest {
     }
 
     @Test
-    void 사용자_입력테스트_차이름_입력_InputCarNames() {
+    void 사용자_입력테스트_차이름_입력_inputCarNames() {
         String input = "car1,car2,car3\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         String[] carNames = UserInput.inputCarNames();
 
         assertThat(carNames).containsExactly("car1", "car2", "car3");
+    }
+
+    @Test
+    void 사용자_입력_negative_테스트_inputCarNames() {
+        String input = "엄청나게긴이름의자동차의이름,car2";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThatThrownBy(UserInput::inputCarNames)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5글자 이하여야 합니다: " + "엄청나게긴이름의자동차의이름");
     }
 }
