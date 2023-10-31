@@ -9,5 +9,6 @@ public final class GameConfig {
     public static final int MAX_RANDOM_VALUE = 9;
     public static final int MIN_TOTAL_ROUND = 1;
     public static final int MAX_CAR_NAME_LENGTH = 5;
+    public static final int MIN_TO_MOVING_FORWARD = 4;
     public static final int INITIAL_DISTANCE = 0;
 }

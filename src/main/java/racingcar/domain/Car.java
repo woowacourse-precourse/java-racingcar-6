@@ -7,7 +7,7 @@ import java.util.Objects;
 import static racingcar.config.GameConfig.INITIAL_DISTANCE;
 import static racingcar.config.GameConfig.MAX_RANDOM_VALUE;
 import static racingcar.config.GameConfig.MIN_RANDOM_VALUE;
-import static racingcar.config.GameConfig.MIN_TO_MOVE;
+import static racingcar.config.GameConfig.MIN_TO_MOVING_FORWARD;
 
 public class Car implements Comparable<Car> {
     private final String name;
@@ -20,7 +20,7 @@ public class Car implements Comparable<Car> {
 
     public void move() {
         final int randomNumber = createRandomNumber();
-        if (randomNumber >= MIN_TO_MOVE) {
+        if (randomNumber >= MIN_TO_MOVING_FORWARD) {
             distance++;
         }
     }
