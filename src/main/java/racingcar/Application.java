@@ -10,8 +10,6 @@ public class Application {
 
         RaceController raceController = new RaceController(user);
         raceController.run();
-
-
     }
 
 }
