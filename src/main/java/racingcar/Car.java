@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Car {
+    String carName; //자동차 이름
     int randomNumber;
     int turn = 0; // 현재 턴 숫자(0부터 시작)
     int totalGoNumber = 0; // 총 전진횟수
@@ -24,5 +25,10 @@ public class Car {
         // 현재 턴의 값을 "-"로 저장
         this.result[turn] = "-";
         this.totalGoNumber++;
+    }
+
+    public Car(String carName, int turnLength) {
+        this.carName = carName;
+        String[] result = new String[turnLength];
     }
 }
