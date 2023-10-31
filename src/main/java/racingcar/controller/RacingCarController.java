@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.Cars;
 import racingcar.service.RacingCarService;
 import racingcar.service.RacingCarValidateService;
 import racingcar.vIew.InputView;
@@ -12,47 +13,41 @@ public class RacingCarController {
     private final OutputView outputView = new OutputView();
     private final RacingCarService racingCarService = new RacingCarService();
     private final RacingCarValidateService racingCarValidateService = new RacingCarValidateService();
-    private String carNames;
-    private String numberOfGames;
     private List<String> winners;
 
     public void gamePlay() {
-        inputCarNames();
-        createCars();
-        inputNumberOfGame();
-        gameResultMessage();
-        gameResult();
-        gameWinnerResult();
+        String carsName = inputCarNames();
+        Cars cars = createCars(carsName);
+        int numberOfGames = inputNumberOfGame();
+        gameResult(cars, numberOfGames);
+        gameWinnerResult(cars);
     }
 
-    public void inputCarNames() {
-        carNames = inputView.inputCars();
+    public String inputCarNames() {
+        String carNames = inputView.inputCars();
         racingCarValidateService.validateInputCarName(carNames);
-
+        return carNames;
     }
 
-    public void createCars() {
-        racingCarService.generateCars(carNames);
+    public Cars createCars(String carsName) {
+        return racingCarService.generateCars(carsName);
     }
 
-    public void inputNumberOfGame() {
-        numberOfGames = inputView.inputNumberOfGame();
-        racingCarValidateService.validateInputNumberOfGame(numberOfGames);
+    public int inputNumberOfGame() {
+        String numberOfGame = inputView.inputNumberOfGame();
+        racingCarValidateService.validateInputNumberOfGame(numberOfGame);
+        return Integer.parseInt(numberOfGame);
     }
 
-
-    public void gameResultMessage() {
+    public void gameResult(Cars cars, int numberOfGame) {
         outputView.gameResultMessageOutput();
-    }
-
-    public void gameResult() {
-        for (int i = 0; i < Integer.parseInt(numberOfGames); i++) {
-            outputView.gameReslutOutput(racingCarService.judgeResult());
+        for (int i = 0; i < numberOfGame; i++) {
+            outputView.gameReslutOutput(racingCarService.judgeResult(cars.getCarsStatus()));
         }
     }
 
-    public void gameWinnerResult() {
-        winners = racingCarService.judgeWinners();
+    public void gameWinnerResult(Cars cars) {
+        winners = racingCarService.judgeWinners(cars.getCarsStatus());
         outputView.WinnerOutput(winners);
     }
 
