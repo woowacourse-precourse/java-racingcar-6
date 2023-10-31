@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 public class RacingCarManager {
-
     private final CarList carList;
 
     public RacingCarManager(CarNameList carNameList) {
@@ -21,5 +20,4 @@ public class RacingCarManager {
     public CarList getMostDistanceCarList() {
         return this.carList.getMostDistanceCarList();
     }
-
 }

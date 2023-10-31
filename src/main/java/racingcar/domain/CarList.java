@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarList {
-
     private final List<Car> carList;
 
     public CarList(CarNameList carNameList) {
@@ -38,5 +37,4 @@ public class CarList {
                 .toList();
         return sortedCarList.get(0).getDistance();
     }
-
 }

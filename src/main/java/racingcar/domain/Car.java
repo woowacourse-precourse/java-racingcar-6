@@ -51,5 +51,4 @@ public class Car {
     public Long getDistance() {
         return this.distance;
     }
-
 }

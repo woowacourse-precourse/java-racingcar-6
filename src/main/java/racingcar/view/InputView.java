@@ -8,7 +8,6 @@ import racingcar.validator.CarNamesInputValidator;
 import racingcar.validator.NumberOfGamesInputValidator;
 
 public class InputView {
-
     private final CarNamesInputValidator carNamesInputValidator;
     private final NumberOfGamesInputValidator numberOfGamesInputValidator;
 

@@ -15,5 +15,4 @@ public class CarNameList {
     public List<String> getCarNameList() {
         return this.carNameList;
     }
-
 }
