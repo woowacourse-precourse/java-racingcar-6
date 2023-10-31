@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.Player;
 
@@ -10,12 +11,14 @@ public class RacingCarGameView {
     private static final String GAME_RESULT = "실행 결과";
     private static final String GAME_WINNER = "최종 우승자 : ";
 
-    public void requestCarName() {
-        System.out.print(REQUEST_CAR_NAME);
+    public String requestCarName() {
+        System.out.println(REQUEST_CAR_NAME);
+        return Console.readLine();
     }
 
-    public void requestTryNumber() {
-        System.out.print(REQUEST_TRY_NUMBER);
+    public int requestTryNumber() {
+        System.out.println(REQUEST_TRY_NUMBER);
+        return Integer.parseInt(Console.readLine());
     }
 
     public void gameResult() {

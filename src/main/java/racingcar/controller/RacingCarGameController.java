@@ -14,7 +14,7 @@ public class RacingCarGameController {
     }
 
     public void run() {
-
+        racingCarGameView.requestCarName();
     }
 
     public List<Player> generatePlayer(List<String> playeNamerList) {
