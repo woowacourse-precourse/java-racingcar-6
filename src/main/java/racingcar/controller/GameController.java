@@ -13,20 +13,23 @@ public class GameController {
     private Round round;
 
     public void play() {
-        start();
+        startGame();
         OutputView outputView = new OutputView();
-        outputView.printResult(cars);
+        outputView.printResultMessage();
+
         while (!round.isMaxRound()) {
             cars.run();
             outputView.printCars(cars);
         }
+
         outputView.printWinner(cars);
     }
 
-    private void start() {
+    private void startGame() {
         InputView inputView = new InputView();
         List<String> names = Parser.stringToList(inputView.inputCarNames());
         int tryNumber = inputView.inputTryNumber();
+
         this.cars = new Cars(names);
         this.round = new Round(tryNumber);
     }

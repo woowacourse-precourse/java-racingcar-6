@@ -3,8 +3,6 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.utils.MessageConstant;
 
-import java.util.List;
-
 public class InputView {
 
     public String inputCarNames() {
