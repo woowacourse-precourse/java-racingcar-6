@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarNames {
 
@@ -19,7 +20,7 @@ public class CarNames {
     public void validateNameLength(List<String> carNames) {
         for (int i = 0; i < carNames.size(); i++) {
             if (carNames.get(i).length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("[ERROR] 5자리를 초과한 자동차 이름이 입력되었습니다.");
             }
         }
     }
