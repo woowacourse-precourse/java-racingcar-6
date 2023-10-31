@@ -14,4 +14,6 @@ public class GameDetail {
 
     public static final Pattern CAR_NAME_PATTERN = Pattern.compile(".*[a-zA-Z가-힣]+.*");
 
+    public static final String MOVE_MARK = "-";
+
 }
