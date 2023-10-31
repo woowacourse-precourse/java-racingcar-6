@@ -9,6 +9,14 @@ public class TryCount {
         return inputTryCount;
     }
 
+    public int validateTryCount() {
+        String inputTryCount = inputTryCount();
+        validateTryCountNotEmpty(inputTryCount);
+        validateTryCountIsNumber(inputTryCount);
+        validateTryCountInRange(inputTryCount);
+        return Integer.parseInt(inputTryCount);
+    }
+
     public void validateTryCountNotEmpty(String inputTryCount) {
         if (inputTryCount == null || inputTryCount.trim().isEmpty()) {
             throw new IllegalArgumentException("빈 값입니다. 시도 횟수를 입력해 주세요.");
