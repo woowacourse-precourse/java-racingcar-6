@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,6 +16,9 @@ class CarTest {
 
     @Test
     void giveNameOfCar() {
+        /*Car car = new Car();
+        car.giveNameOfCar("tear");
+        assertThat(1).isEqualTo(car.getCarName().size());*/
     }
 
     @Test
@@ -34,5 +39,9 @@ class CarTest {
         String carName = "1231";
         boolean expected = (carName.length() <= 5);
         assertThat(false).isEqualTo(expected);
+    }
+
+    @Test
+    void inputMoveCountsIntoCar() {
     }
 }
