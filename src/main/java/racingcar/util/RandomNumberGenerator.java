@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.constant.NumberLimits;
 
-public class RandomNuberGenerator {
+public class RandomNumberGenerator {
     public static List<Integer> createRandomNumbers(int size) {
         List<Integer> randomNumbers = new ArrayList<>();
         while (randomNumbers.size() < size) {

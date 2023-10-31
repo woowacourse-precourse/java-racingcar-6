@@ -17,7 +17,6 @@ public class Score {
         return score;
     }
 
-
     private int findFarthestDistance() {
         return score.stream()
                 .max(Comparator.comparing(ScoreDto::getDistance))

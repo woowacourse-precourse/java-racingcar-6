@@ -7,7 +7,7 @@ import racingcar.constant.Symbols;
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.model.ScoreDto;
-import racingcar.util.RandomNuberGenerator;
+import racingcar.util.RandomNumberGenerator;
 
 public class RacingCarService {
     private final RacingCars racingCars;
@@ -17,7 +17,7 @@ public class RacingCarService {
     }
 
     public void moveRacingCars() {
-        List<Integer> randomNumbers = RandomNuberGenerator.createRandomNumbers(racingCars.getSize());
+        List<Integer> randomNumbers = RandomNumberGenerator.createRandomNumbers(racingCars.getSize());
         racingCars.moveRacingCars(randomNumbers);
     }
 
