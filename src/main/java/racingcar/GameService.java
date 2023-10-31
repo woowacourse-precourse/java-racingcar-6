@@ -12,6 +12,12 @@ public class GameService {
     private int tryCount;
     private ResultView view = new ResultView();
 
+    GameService() {
+        setUpGame();
+        addRacingCar();
+        startGame();
+    }
+
     private void setUpGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         racingCarNames = splitCarNames(Console.readLine());
@@ -39,5 +45,12 @@ public class GameService {
         }
     }
 
-
+    void showGameProgress() {
+        for(int i=1; i <= tryCount; i++) {
+            for(RacingCar racingCar : racingCarList) {
+                view.showCurrentPosition(i, racingCar.getSuccessCount());
+            }
+            System.out.println("");
+        }
+    }
 }
