@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
@@ -24,6 +25,19 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("세명이_동시_우승")
+    void 세명의_우승자() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,kiwi", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "kiwi : -", "최종 우승자 : pobi, woni, kiwi");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    @DisplayName("두명이_동시_우승")
     void 여러명의_우승자() {
         assertRandomNumberInRangeTest(
                 () -> {
@@ -35,6 +49,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("이름이 6자이상인 경우에 대한 테스트")
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
@@ -43,6 +58,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("이름이_공백으로_들어올때_테스트")
     void 이름_공백에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(" , ", "1"))
@@ -51,6 +67,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("중복_이름에_대한_테스트")
     void 이름_중복에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,pobi", "1"))
