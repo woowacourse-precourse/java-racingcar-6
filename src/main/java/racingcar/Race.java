@@ -59,4 +59,29 @@ public class Race {
     public List<Car> getParticipatingCars() {
         return participatingCars;
     }
+
+    public List<String> calculateWinners() {
+        int furthestLocation = findFurthestLocation();
+        return getWinnersNames(furthestLocation);
+    }
+
+    public int findFurthestLocation() {
+        int furthestLocation = 0;
+        for (Car car : participatingCars) {
+            if (car.getLocation() > furthestLocation) {
+                furthestLocation = car.getLocation();
+            }
+        }
+        return furthestLocation;
+    }
+
+    public List<String> getWinnersNames(int furthestLocation) {
+        List<String> winnersNames = new ArrayList<>();
+        for (Car car : participatingCars) {
+            if (car.getLocation() == furthestLocation) {
+                winnersNames.add(car.getName());
+            }
+        }
+        return winnersNames;
+    }
 }
