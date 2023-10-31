@@ -251,7 +251,47 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_현재_상태_출력() {
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList(Arrays.asList("pobi", "woni", "jun"),
+                        Arrays.asList(MOVING_FORWARD, STOP, MOVING_FORWARD),
+                        String.join(System.lineSeparator(), "pobi : -", "woni : ", "jun : -")),
+                Arrays.asList(Arrays.asList("pobi"),
+                        Arrays.asList(MOVING_FORWARD, MOVING_FORWARD),
+                        String.join(System.lineSeparator(), "pobi : --")),
+                Arrays.asList(Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"),
+                        Arrays.asList(
+                                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                                STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP),
+                        String.join(System.lineSeparator(),
+                                "1 : -", "2 : ", "3 : -", "4 : ", "5 : -",
+                                "6 : ", "7 : -", "8 : ", "9 : -", "0 : ")));
 
+        for (List<Object> input : testCase) {
+            Race race = new Race();
+            List<String> names = ((List<?>) input.get(0)).stream()
+                    .filter(x -> x instanceof String)
+                    .map(Object::toString)
+                    .toList();
+            race.addCars(names);
+            String expectString = ((String) input.get(input.size() - 1)).trim();
+            List<Integer> inputRandom = ((List<?>) input.get(1)).stream().mapToInt(x -> (Integer) x).boxed().toList();
+            Integer inputRandomFirst = inputRandom.get(0);
+            Integer[] inputRandomElse = inputRandom.subList(1, inputRandom.size()).stream().toArray(Integer[]::new);
+
+            init();
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        for (int i = 0; i < ((List<?>) input.get(1)).size()
+                                / ((List<?>) input.get(0)).size(); i++) {
+                            race.getCars().forEach(Car::run);
+                        }
+                        Print.raceSituation(race);
+                        String result = output();
+                        System.err.println(result);
+                        assertThat(result).isEqualTo(expectString);
+                    },
+                    inputRandomFirst, (Integer[]) inputRandomElse);
+        }
     }
 
     @Test
