@@ -20,11 +20,11 @@ public class View {
         return Console.readLine();
     }
 
-    public void raceResult() {
+    public void printRaceResult() {
         System.out.println("\n" + RACE_RESULT_MESSAGE);
     }
 
-    public void raceRoundResult(List<RacingCar> racingCars) {
+    public void printRaceRoundResult(List<RacingCar> racingCars) {
         racingCars.forEach(System.out::println);
         System.out.println();
     }

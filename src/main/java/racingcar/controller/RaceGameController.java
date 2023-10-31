@@ -49,7 +49,7 @@ public class RaceGameController {
     }
 
     private void startRace() {
-        view.raceResult();
+        view.printRaceResult();
         raceAndPrintRoundResults();
     }
 
@@ -58,7 +58,7 @@ public class RaceGameController {
                 .limit(carRace.getTargetTurn())
                 .forEach(turn -> {
                     List<RacingCar> racingCars = carRace.race();
-                    view.raceRoundResult(racingCars);
+                    view.printRaceRoundResult(racingCars);
                 });
     }
 

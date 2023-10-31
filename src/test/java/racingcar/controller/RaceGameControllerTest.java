@@ -39,8 +39,8 @@ class RaceGameControllerTest {
 
         controller.start();
 
-        verify(viewMock).raceResult();
-        verify(viewMock, times(36)).raceRoundResult(anyList());
+        verify(viewMock).printRaceResult();
+        verify(viewMock, times(36)).printRaceRoundResult(anyList());
         verify(viewMock).raceWinners(anyString());
     }
 
