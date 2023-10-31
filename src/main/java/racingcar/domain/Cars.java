@@ -20,6 +20,16 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : getCars()) {
+            if (car.getPosition() > maxPosition)
+                maxPosition = car.getPosition();
+        }
+        return maxPosition;
+    }
+
+
 
 
 }
