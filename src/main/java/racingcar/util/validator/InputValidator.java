@@ -38,8 +38,22 @@ public class InputValidator {
             throw new IllegalArgumentException("문자열 중복");
         }
     }
-
-
+    public static int isNonNumericString(String str)
+    {
+        int acceptNumber =0;
+        try {
+            acceptNumber = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력받은 값이 정수형 숫자가 아님");
+        }
+        return acceptNumber;
+    }
+    public static void isNegativeNumber (int acceptNumber)
+    {
+        if(acceptNumber < 0){
+            throw new IllegalArgumentException("입력받은 값이 음수");
+        }
+    }
 
 
 }
