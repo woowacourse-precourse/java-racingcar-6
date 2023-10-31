@@ -18,15 +18,14 @@ public class Application {
         Race race = new Race();
         Referee referee = new Referee();
 
-        Map<String, Integer> raceResult = new HashMap<String, Integer>();
-        raceResult = race.racing(carNames, moveCount);
+        Map<String, Integer> raceResult = race.racing(carNames, moveCount);
 
-        List<String> winnerNames = new ArrayList<String>();
-        winnerNames = referee.winner(raceResult);
+        List<String> winnerNames = referee.winner(raceResult);
 
         System.out.print("최종 우승자 : ");
         String winner = String.join(", ", winnerNames);
-        System.out.print(winner);    }
+        System.out.print(winner);
+    }
 
     public static List<String> askCarNames() {
         List<String> carNames = new ArrayList<String>();
@@ -34,10 +33,9 @@ public class Application {
         String input[] = Console.readLine().replaceAll("\\p{Z}", "").split(",");
 
         for (String x : input) {
-            if(x.length() <=5) {
+            if (x.length() <= 5) {
                 carNames.add(x);
-            }
-            else throw new IllegalArgumentException();
+            } else throw new IllegalArgumentException();
         }
         return carNames;
     }
@@ -47,7 +45,9 @@ public class Application {
         String input = Console.readLine();
         try {
             int d = Integer.parseInt(input);
-        } catch(NumberFormatException e) { throw new IllegalArgumentException(); }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
         int moveCount = Integer.parseInt(input);
         System.out.print("\n");
         return moveCount;
