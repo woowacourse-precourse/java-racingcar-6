@@ -11,19 +11,23 @@ public class RacingcarController {
     public static ArrayList<String> carNames;
     public static HashMap<String, Integer> carsMap;
     public static int numberOfTries;
+    public static int maxDistance = 0;
+    public static String winners;
 
-    public void startGame() {
+    public void playGame() {
         carNames = Car.inputNames();
         carsMap = Car.makeMap(carNames);
         numberOfTries = Race.inputNumberOfTries();
         System.out.println("\n실행 결과");
         for (int i = 0; i < numberOfTries; i++) {
-            playGame(carsMap);
+            raceCar();
             System.out.print("\n");
         }
+        winners = takeWinners();
+        OutputView.printWinners(winners);
     }
 
-    public void playGame(HashMap<String, Integer> carsMap) {
+    public void raceCar() {
         for (String carName : carsMap.keySet()) {
             int randomNumber = Race.generateRandomNumber();
             int beforeMove = carsMap.get(carName);
@@ -33,8 +37,24 @@ public class RacingcarController {
         }
     }
 
-
     public String takeWinners() {
-        return null;
+        ArrayList<String> winnersList = new ArrayList<>();
+
+        takeMaxDistance();
+        for (String carName : carsMap.keySet()) {
+            if (carsMap.get(carName) == maxDistance) {
+                winnersList.add(carName);
+            }
+        }
+
+        return String.join(", ", winnersList);
+    }
+
+    public void takeMaxDistance() {
+        for (String carName : carsMap.keySet()) {
+            if (carsMap.get(carName) > maxDistance) {
+                maxDistance = carsMap.get(carName);
+            }
+        }
     }
 }
