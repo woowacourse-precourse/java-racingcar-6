@@ -2,6 +2,8 @@ package racingcar.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -57,6 +59,13 @@ public class InputExceptionTest {
         String carsName = "jun,jun,sang";
 
         assertThatThrownBy(() -> inputException.carsNameException(carsName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "jun", "0"})
+    void 레이싱_게임_실행_횟수가_양의_정수가_아닐_때_IllegalArgumentException(String racingCountInput) {
+        assertThatThrownBy(() -> inputException.isVaildRacingCount(racingCountInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
