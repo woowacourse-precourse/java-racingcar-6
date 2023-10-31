@@ -5,11 +5,6 @@ import java.util.List;
 import java.util.Map;
 import racingcar.controller.GameController;
 import racingcar.domain.Car;
-import racingcar.domain.ControlTower;
-import racingcar.domain.GameRecord;
-import racingcar.domain.Referee;
-import racingcar.service.ControlTowerService;
-import racingcar.service.RefereeService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,34 +12,17 @@ public class RacingApp {
 
     private GameController gameController;
 
-    public RefereeService refereeService() {
-        return new RefereeService(referee());
-    }
-
-    public Referee referee() {
-        return new Referee();
-    }
-
-    public ControlTowerService controlTowerService() {
-        return new ControlTowerService(controlTower(), gameRecord());
-    }
-
-    public ControlTower controlTower() {
-        return new ControlTower();
-    }
-
-    public GameRecord gameRecord() {
-        return new GameRecord();
-    }
-
     public void run() {
-        gameController = new GameController(refereeService(), controlTowerService());
+        RacingConfig racingConfig = new RacingConfig();
+        gameController = new GameController(racingConfig.refereeService(), racingConfig.controlTowerService());
 
         List<Car> carList = requestInputCarNames();
         int roundNumber = requestInputRoundNumber();
-        Map<Integer, List<String>> recordMap = startRacingGame(carList, roundNumber);
-        printRecord(recordMap);
+
+        Map<Integer, List<String>> recordMap = requestStartRacingGame(carList, roundNumber);
         List<String> winnerList = requestFindWinner(carList);
+
+        printRecord(recordMap);
         OutputView.printWinner(winnerList);
     }
 
@@ -58,7 +36,7 @@ public class RacingApp {
         return gameController.addRoundNumber(Console.readLine());
     }
 
-    private Map<Integer, List<String>> startRacingGame(List<Car> car, int roundNumber) {
+    private Map<Integer, List<String>> requestStartRacingGame(List<Car> car, int roundNumber) {
         return gameController.startRacingGame(car, roundNumber);
     }
 
