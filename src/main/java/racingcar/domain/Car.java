@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.domain;
 
 import static racingcar.util.RandomNumberGenerator.generateRandomNumber;
 
@@ -9,7 +9,7 @@ public class Car implements Comparable<Car> {
     private static final int MAX_NAME_LENGTH = 5;
     private static final String NAME_LENGTH_ERROR_MESSAGE = "자동차 이름은 1-5글자이어야 함";
 
-    private final String name;
+    private String name;
     private int distance;
 
 

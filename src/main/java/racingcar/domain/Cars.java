@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,16 +11,19 @@ public class Cars {
 
     private List<Car> cars;
 
-    private Cars() {
+    private Cars(List<String> carNames) {
         this.cars = new ArrayList<>();
+        carNames.stream()
+                .map(Car::createNewCar)
+                .forEach(car -> insert(car));
     }
 
     public void updateAllDistance() {
         cars.forEach(Car::updateDistance);
     }
 
-    public static Cars createNewCars() {
-        return new Cars();
+    public static Cars createNewCars(List<String> carNames) {
+        return new Cars(carNames);
     }
 
     public List<Car> getCars() {
