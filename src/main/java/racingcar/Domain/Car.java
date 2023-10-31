@@ -1,7 +1,5 @@
 package racingcar.Domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private static final int MOVE_THRESHOLD = 4;
     private static final int START_POSITION = 0;
@@ -12,5 +10,11 @@ public class Car {
     public Car(String name) {
         this.name = name;
         this.position = START_POSITION;
+    }
+
+    public void moveForward() {
+        if (RandomNumber.chooseRandomNumber() >= MOVE_THRESHOLD) {
+            this.position += TICK;
+        }
     }
 }
