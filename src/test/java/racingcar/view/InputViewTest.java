@@ -1,16 +1,13 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.view.InputView.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -56,7 +53,6 @@ class InputViewTest {
     @DisplayName("레이서 이름 입력 예외 테스트")
     void testInputCarsException() {
         //given
-        List<String> inputList;
         String inputString = "po bi,blur";
 
         //when
@@ -70,7 +66,7 @@ class InputViewTest {
     @DisplayName("레이싱 횟수 입력 테스트")
     void testInputCounter() {
         //given
-        Integer inputList = 0;
+        Integer inputList;
         String inputString = "1";
 
         //when
@@ -85,7 +81,6 @@ class InputViewTest {
     @DisplayName("레이싱 횟수 입력 예외 테스트")
     void testInputCounterException() {
         //given
-        Integer inputList = 0;
         String inputString = "a";
 
         //when
