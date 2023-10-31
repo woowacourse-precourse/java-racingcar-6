@@ -50,5 +50,29 @@
 
 - [x] 최종 우승자를 출력한다.
   - [x] 최종 우승자 목록을 문자열로 반환한다.
+
+## 🛠 리팩토링 목록
+
+### 매직넘버 및 리터럴의 상수 분리
+
+- [ ] 시스템 메시지 목록을 enum을 통해 상수로 분리한다.
+- [ ] 레이싱 게임 설정 목록을 enum을 통해 상수로 분리한다.
+- [ ] 예외 발생 시의 에러 메시지 목록을 enum을 통해 상수로 분리한다.
+
+### 세부적인 접근 제한 설정
+
+- [x] 유틸 클래스에 private 생성자를 추가한다.
+  - [x] CarNameValidator 클래스에 private 생성자를 추가한다.
+  - [x] TryCountValidator 클래스에 private 생성자를 추가한다.
+  - [x] InputUtil 클래스에 private 생성자를 추가한다.
+
+
+- [x] Car 클래스와 그 멤버 변수로 있는 Name, Distance 등의 wrapper 클래스 생성자를 접근 제한한다.
+  - [x] Name 클래스에 protected 생성자를 추가한다.
+  - [x] Distance 클래스에 protected 생성자를 추가한다.
+  - [x] Car 클래스에 private 생성자를 추가한다.
+
+
+- [x] 타 객체로 호출될 일이 없는 객체 내부 하위 메소드를 private 키워드로 접근 제한한다.
   
   
