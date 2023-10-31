@@ -34,4 +34,20 @@ class CarTest {
                 .hasMessage(LONG_CAR_NAME.getMessage());
     }
 
+    @Test
+    @DisplayName("4 이상인 값일 때 자동차가 전진한다.")
+    void forward_GreaterThanFour_Forward() {
+        // Given
+        Car car = new Car("다나카");
+        int value = 4;
+
+        // When
+        car.forward(value);
+
+        // Then
+        int result = car.getForwardCount();
+
+        assertThat(result).isEqualTo(1);
+    }
+
 }
