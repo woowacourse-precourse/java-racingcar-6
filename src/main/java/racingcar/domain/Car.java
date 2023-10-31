@@ -30,7 +30,7 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public void printGameProceed() {
+    public void printCarPosition() {
         System.out.print(this.name + " : ");
         for (int proceed = 0; proceed < this.position; proceed++) {
             System.out.print(StringConstant.GAME_PROCEED_CHAR.getMessage());

@@ -22,7 +22,7 @@ public class GameService {
     }
 
     public void playGame() {
-        carList.playGame(gameCount.convertStrToInt());
+        carList.printGameProceed(gameCount.convertStrToInt());
     }
 
     public void printWinner(){

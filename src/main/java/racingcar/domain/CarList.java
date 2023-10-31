@@ -36,11 +36,11 @@ public class CarList {
                 .collect(Collectors.toList());
     }
 
-    public void playGame(int gameCount) {
+    public void printGameProceed(int gameCount) {
         for (int count = 0; count < gameCount; count++) {
             for (Car carList : carList) {
                 carList.movePosition(numberGenerator.generateRandomNumber());
-                carList.printGameProceed();
+                carList.printCarPosition();
             }
             System.out.println();
         }
