@@ -26,6 +26,21 @@ class CarTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {"한글이름", "a한글", "1234", "한글123", ".pobi", "pobi*"})
+    void 자동차_이름_형식이_올바르지_않을_경우_예외가_발생한다(String name) {
+        // when & then
+        assertThatThrownBy(() -> new Car(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a123", "1pobi", "pobi", "1jun1"})
+    void 자동차_이름_형식이_올바를_경우_예외가_발생하지_않는다(String name) {
+        // when & then
+        assertDoesNotThrow(() -> new Car(name));
+    }
+
+    @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4, 5})
     void 자동차의_move메서드를_호출한_만큼_전진횟수가_증가한다(int moveCount) {
         // given
