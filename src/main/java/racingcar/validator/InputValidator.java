@@ -1,16 +1,18 @@
 package racingcar.validator;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputValidator {
+    private static final String NOT_CAR_FORMAT_REGEX = "[^a-zA-Z,]+";
+    private static final Pattern NOT_CAR_PATTERN = Pattern.compile(NOT_CAR_FORMAT_REGEX);
     private static final String DELIMITER = ",";
 
     public static void validateCarsFormat(String input) {
-        Pattern pattern = Pattern.compile("[^a-zA-Z,]+"); // regex: 문자||쉼표 외의 문자가 있는지 확인
-        Matcher matcher = pattern.matcher(input);
-        if (matcher.find() || input.endsWith(DELIMITER) || input.startsWith(DELIMITER)) {
+        Matcher matcher = NOT_CAR_PATTERN.matcher(input);
+        if (matcher.matches() || input.endsWith(DELIMITER) || input.startsWith(DELIMITER)) {
             throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
         }
     }
