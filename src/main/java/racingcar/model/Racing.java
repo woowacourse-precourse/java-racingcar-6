@@ -22,13 +22,20 @@ public class Racing {
         return new Racing(carNames.getNames().stream().map(Car::new).toList(), tryCount.getCount());
     }
 
-    public void tryCarsMoveForward() {
+    public void race() {
+        if (isFinished()) {
+            throw new IllegalStateException();
+        }
         cars.forEach(car -> car.randomGoForward());
+        currentTryCount++;
     }
 
     public List<String> getWinningCarNames() {
+        if (!isFinished()) {
+            throw new IllegalStateException();
+        }
         Integer maxCount = getMaxMoveCount();
-        return cars.stream().filter(car -> car.getMoveCount() == maxCount).map(Car::getName)
+        return cars.stream().filter(car -> maxCount.equals(car.getMoveCount())).map(Car::getName)
             .toList();
     }
 
@@ -38,6 +45,10 @@ public class Racing {
 
     public RacingStatus getRacingStatus() {
         return RacingStatus.from(this);
+    }
+
+    public Boolean isFinished() {
+        return maxTryCount == currentTryCount;
     }
 
     private Integer getMaxMoveCount() {

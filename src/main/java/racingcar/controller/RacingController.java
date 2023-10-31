@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import racingcar.dto.CarNames;
-import racingcar.dto.TryCount;
 import racingcar.model.Racing;
 import racingcar.view.RacingView;
 
@@ -14,12 +12,10 @@ public class RacingController {
     }
 
     public void run() {
-        final CarNames carNames = view.inputCarNames();
-        TryCount tryCount = view.inputTryCount();
-        final Racing racing = Racing.of(carNames, tryCount);
+        final Racing racing = Racing.of(view.inputCarNames(), view.inputTryCount());
         view.startPrintTryResult();
-        for (Integer i = 0; i < tryCount.getCount(); i++) {
-            racing.tryCarsMoveForward();
+        while (!racing.isFinished()) {
+            racing.race();
             view.showRacingStatus(racing.getRacingStatus());
         }
         view.showRacingWinner(racing);
