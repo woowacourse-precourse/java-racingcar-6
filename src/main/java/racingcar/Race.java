@@ -46,7 +46,7 @@ public class Race {
 
     private void validateRaceNotOver() {
         if (isRaceOver()) {
-            throw new IllegalStateException("경기가 종료되었습니다.");
+            throw new IllegalArgumentException("경기가 종료되었습니다.");
         }
     }
 
