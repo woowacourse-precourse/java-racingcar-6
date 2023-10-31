@@ -7,15 +7,22 @@ public class InputView {
     private static final int MAX_CAR_NAME_LENGTH = 5;
     public String[] getCarNames(){
         String[] cars = readLine().split(",");
+        validateCarNames(cars);
+        return cars;
+    }
 
+    public int getNumberOfAttempts(){
+        String inputAttempts = readLine();
+        return validateNumberOfAttempts(inputAttempts);
+    }
+
+    private void validateCarNames(String[] cars) {
         if(!isShortEnough(cars)){
             throw new IllegalArgumentException("자동차의 이름이 5자 보다 큽니다.");
         }
-        return cars;
     }
-    public int getNumberOfAttempts(){
-        String inputAttempts = readLine();
 
+    private static int validateNumberOfAttempts(String inputAttempts) {
         int attempts;
         try{
             attempts = Integer.parseInt(inputAttempts);
