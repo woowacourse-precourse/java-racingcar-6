@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.exception.CarNameException;
-
 import static racingcar.exception.CarNameException.*;
 
 public class Car {
@@ -22,8 +20,8 @@ public class Car {
         validateCarNameEng(name);
     }
 
-    public void move(RandomNumberGenerator randomNumberGenerator) {
-        final int number = randomNumberGenerator.randomNumber();
+    public void move(NumberGenerator numberGenerator) {
+        final int number = numberGenerator.generate();
 
         if (number >= CAR_MOVABLE_MIN_NUMBER) {
             position++;
