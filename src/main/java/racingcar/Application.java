@@ -275,7 +275,11 @@ class Winner {
     }
 
     public int carCompare(List<Integer> carDistance) {
-
+        for (int result = 0; result < carDistance.size(); result++) {
+            if (distanceCompare(carDistance.get(result))) {
+                maxDistance = carDistance.get(result);
+            }
+        }
         return 0;
     }
 
