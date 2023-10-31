@@ -39,6 +39,20 @@ class MessageReceiverTest {
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
+        @Test
+        void 경주할_자동차_이름_입력시_공백을_입력하면_예외발생() {
+            // expected
+            assertThatThrownBy(() -> run(""))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
+        void 경주할_자동차_이름_입력시_쉼표만_입력하면_예외발생() {
+            // expected
+            assertThatThrownBy(() -> run(","))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
         @Override
         protected void runMain() {
             MessageReceiver messageReceiver = new MessageReceiver();
