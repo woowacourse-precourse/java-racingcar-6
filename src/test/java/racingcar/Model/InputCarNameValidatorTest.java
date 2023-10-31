@@ -98,4 +98,28 @@ public class InputCarNameValidatorTest {
         assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 구분자로_시작() {
+        String input = ",pobi,woni,jun";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 쉼표(,)로 시작할 수 없습니다.");
+    }
+
+    @Test
+    void 구분자로_끝() {
+        String input = "pobi,woni,jun,";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 쉼표(,)로 끝날 수 없습니다.");
+    }
+
+    @Test
+    void 구분자로_중복() {
+        String input = ",pobi,,woni,jun,";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 쉼표(,)로 시작할 수 없습니다.");
+    }
 }

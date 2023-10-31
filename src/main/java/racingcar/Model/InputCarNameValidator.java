@@ -15,16 +15,33 @@ public class InputCarNameValidator {
     private static final String ERROR_MESSAGE_FOR_DUPLICATE = "중복된 이름이 존재합니다.";
     private static final String ERROR_MESSAGE_FOR_DELIMITER = "자동차 이름은 쉼표(,)를 기준으로 구분해야 합니다.";
 
+    private static final String ERROR_MESSAGE_FOR_FIRST_DELIMITER = "자동차 이름은 쉼표(,)로 시작할 수 없습니다.";
+    private static final String ERROR_MESSAGE_FOR_LAST_DELIMITER = "자동차 이름은 쉼표(,)로 끝날 수 없습니다.";
+
     private static final String ENG_REGEX = "^[a-zA-Z,]*$";
 
     public static InputCarNameValidator getInstance() {
         return singleton;
     }
 
-    public List<String> validateNameBeforeSplit (String userInput) {
+    public List<String> validateNameBeforeSplit(String userInput) {
         isContainDelimiter(userInput);
         isContainOtherLanguage(userInput);
+        isFirstDelimiter(userInput);
+        isLastDelimiter(userInput);
         return new ArrayList<>(Arrays.asList(userInput.split(DELIMITER)));
+    }
+
+    private void isFirstDelimiter(String userInput) {
+        if (userInput.startsWith(DELIMITER)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_FOR_FIRST_DELIMITER);
+        }
+    }
+
+    private void isLastDelimiter(String userInput) {
+        if (userInput.endsWith(DELIMITER)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_FOR_LAST_DELIMITER);
+        }
     }
 
     // 영어 외 문자가 포함되어 있는지 확인
@@ -41,7 +58,7 @@ public class InputCarNameValidator {
         }
     }
 
-    public List<String> validateNameAfterSplit (List<String> carNames) {
+    public List<String> validateNameAfterSplit(List<String> carNames) {
         isLessThanMinimumCarCountLength(carNames);
         isDuplicate(carNames);
         validateCarLength(carNames);
