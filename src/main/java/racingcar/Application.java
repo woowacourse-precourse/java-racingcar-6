@@ -24,7 +24,7 @@ public class Application {
     }
 
     public static Car[] isCarNameValid(String inp) {
-        // 입력에 컴마가 없는 경우
+        // 입력에 쉼표가 없는 경우 예외 처리
         if (!inp.contains(",")) {
             throw new IllegalArgumentException();
         }
@@ -36,7 +36,7 @@ public class Application {
         for (int i = 0; i < ArraysInp.length; i++) {
             CarName = ArraysInp[i];
 
-            // 입력이 빈칸인 경우
+            // 입력이 5자 이상이거나 빈칸인 경우 예외 처리
             if ((CarName.length() > 5) || (CarName == "" )) {
                 throw new IllegalArgumentException();
             }
@@ -51,7 +51,7 @@ public class Application {
     public static int isRacingCountValid(String inp) {
         int racingCount;
 
-        // 입력이 숫자가 아닌 경우
+        // 입력이 숫자가 아닌 경우 예외 처리
         try {
             racingCount = Integer.parseInt(inp);
         }
@@ -59,7 +59,7 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
-        // 입력된 숫자가 0보다 작은 경우
+        // 입력된 숫자가 0보다 작은 경우 예외 처리
         if (racingCount < 0) {
             throw new IllegalArgumentException();
         }
@@ -75,7 +75,7 @@ public class Application {
             randomNumber = Randoms.pickNumberInRange(0, 9);
         } while (randomNumber < 4);
          */
-        
+
         randomNumber = Randoms.pickNumberInRange(4, 9);
 
         return randomNumber;
