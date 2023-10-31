@@ -1,13 +1,13 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.CustomIntGenerator;
 import racingcar.util.RandomIntGenerator;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarTest {
     @ParameterizedTest
@@ -24,7 +24,8 @@ public class CarTest {
         Car car = new Car("test", new CustomIntGenerator(pickedNumber));
 
         car.tryMove();
+        CarDto state = car.summarizeCurrentState();
 
-        assertThat(car.getMoveCount()).isEqualTo(expectedMoveCount);
+        assertThat(state.getMoveCount()).isEqualTo(expectedMoveCount);
     }
 }
