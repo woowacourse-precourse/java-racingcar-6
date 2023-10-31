@@ -28,8 +28,8 @@ public class Car {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START.getNumber(), RANDOM_NUMBER_RANGE_END.getNumber());
     }
 
-    public boolean isEqualOrGreaterThan(int otherCarDistance) {
-        return distance >= otherCarDistance;
+    public boolean isSameDistanceOrFurtherThan(Car otherCar) {
+        return distance >= otherCar.getDistance();
     }
 
     public String getName() {
