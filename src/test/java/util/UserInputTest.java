@@ -25,12 +25,22 @@ class UserInputTest {
     }
 
     @Test
-    public void 사용자_inputMoveCount_문자열_입력_테스트() {
+     void 사용자_inputMoveCount_문자열_입력_테스트() {
         String input = "잘못된입력\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         assertThatThrownBy(UserInput::inputMoveCount)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자를 입력해주세요.");
+    }
+
+    @Test
+    void 사용자_입력테스트_차이름_입력_InputCarNames() {
+        String input = "car1,car2,car3\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        String[] carNames = UserInput.inputCarNames();
+
+        assertThat(carNames).containsExactly("car1", "car2", "car3");
     }
 }
