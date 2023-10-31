@@ -8,8 +8,13 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
+        this(name, 0);
+    }
+
+    public Car(String name, int position) {
         CarNameValidator.validate(name);
         this.name = name;
+        this.position = position;
     }
 
     public static Car maxByPostion(Car car1, Car car2) {
