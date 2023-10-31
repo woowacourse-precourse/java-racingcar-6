@@ -271,9 +271,8 @@ class Winner {
     private int maxDistance = 0;
 
     public List<String> who(TotalCar totalCar) {
-        List<String> winnerList = new ArrayList<>();
         carCompare(totalCar.distanceList());
-
+        List<String> winnerList = findWinner(totalCar.nameList(), totalCar.distanceList());
         return winnerList;
     }
 
