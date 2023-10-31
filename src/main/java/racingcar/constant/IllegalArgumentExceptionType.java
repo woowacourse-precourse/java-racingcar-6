@@ -6,7 +6,7 @@ public enum IllegalArgumentExceptionType implements ExceptionType<IllegalArgumen
     EMPTY_CARS_ERROR_MESSAGE("차량은 한 대 이상이어야 합니다."),
     DUPLICATED_CARS_ERROR_MESSAGE("차량 이름이 중복되었습니다."),
     ATTEMPT_COUNT_INIT_ERROR_MESSAGE("최소 1회의 시도 횟수를 입력해 주세요."),
-    READ_ATTEMPT_COUNT_ERROR_MESSAGE("숫자만 입력해 주세요");
+    PARSE_INT_ERROR_MESSAGE("숫자만 입력해 주세요");
 
     private final String message;
 

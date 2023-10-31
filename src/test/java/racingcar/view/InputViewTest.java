@@ -45,7 +45,7 @@ class InputViewTest {
     @Test
     void 시도횟수_입력_실패_테스트() {
         IllegalArgumentException exception = IllegalArgumentExceptionType
-                .READ_ATTEMPT_COUNT_ERROR_MESSAGE
+                .PARSE_INT_ERROR_MESSAGE
                 .getException();
 
         String[] args = new String[]{"삼"};
