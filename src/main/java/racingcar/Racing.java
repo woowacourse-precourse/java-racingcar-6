@@ -51,6 +51,33 @@ public class Racing {
         return playResults;
     }
 
+    List<String> getWinnerNames() {
+        return calculateWinner();
+    }
+
+    private List<String> calculateWinner() {
+
+        int maxMoveDistance = 0;
+        List<String> winnerNames = new ArrayList<>();
+
+        for (Car car : participants) {
+
+            int nowCarMoveDistance = car.getMovedDistance();
+
+            if (nowCarMoveDistance == maxMoveDistance) {
+                winnerNames.add(car.getName());
+            }
+
+            if (nowCarMoveDistance > maxMoveDistance) {
+                maxMoveDistance = nowCarMoveDistance;
+                winnerNames.clear();
+                winnerNames.add(car.getName());
+            }
+        }
+
+        return winnerNames;
+    }
+
     private void moveCars() {
         for (Car car : participants) {
             car.move();

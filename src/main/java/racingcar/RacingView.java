@@ -36,6 +36,13 @@ public class RacingView {
         for (String result : playResults) {
             System.out.println(result);
         }
+
+        String winners = String.join(
+                ",",
+                controller.getWinners()
+        );
+
+        System.out.println("최종 우승자 : " + winners);
     }
 
     private int convertStringToInt(String input) {

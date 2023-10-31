@@ -19,4 +19,8 @@ public class RacingController {
         return racing.getPlayResults();
     }
 
+    List<String> getWinners() {
+        return racing.getWinnerNames();
+    }
+
 }
