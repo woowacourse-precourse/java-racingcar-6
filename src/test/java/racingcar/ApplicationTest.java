@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -35,4 +38,13 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @ParameterizedTest
+    @DisplayName("자동차의 이름은 5자 이하만 가능하다.")
+    @ValueSource(strings = {"IAmCar", "car,IAmCar","car,Acar,IAmCar"})
+    void 차_이름은_5이하만가능하다(String input) {
+        assertThatThrownBy(() -> new Car(input)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+
 }
