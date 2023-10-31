@@ -12,11 +12,14 @@ public class Game {
 
     public void userInputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
         String userInputCarNameString = Console.readLine();
+        String[] userInputCarNameArray = stringToArrayByComma(userInputCarNameString);
+        
+        for (String userInputCarName : userInputCarNameArray) {
+
+        }
 
         System.out.println("시도할 회수는 몇회인가요?");
-
         attemptsNumber = Integer.valueOf(Console.readLine());
     }
 
