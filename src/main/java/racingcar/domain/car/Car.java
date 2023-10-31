@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import exception.WrongNameException;
 import racingcar.domain.policy.DriveRule;
 import racingcar.domain.policy.MovePolicy;
 
@@ -19,7 +20,7 @@ public class Car {
 
     private void valid(String name) {
         if (isOver(name) || isEmpty(name)) {
-            throw new IllegalArgumentException("이름을 확인해주세요.");
+            throw new WrongNameException("이름을 확인해주세요.");
         }
     }
 

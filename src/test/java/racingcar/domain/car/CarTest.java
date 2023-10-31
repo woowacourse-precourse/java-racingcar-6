@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import exception.WrongNameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,7 +30,7 @@ class CarTest {
     @Test
     @DisplayName("Car의 이름이 5글자를 넘으면 오류가 발생한다.")
     void Car_Name_6글자_이상이면_익셉션_발생() {
-        assertThrows(IllegalArgumentException.class, () -> new Car("abcdef"));
+        assertThrows(WrongNameException.class, () -> new Car("abcdef"));
     }
 
     @ParameterizedTest

@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import exception.WrongInputException;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 
@@ -34,7 +35,7 @@ public class Converter {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력해주세요.");
+            throw new WrongInputException("숫자만 입력해주세요.");
         }
 
     }

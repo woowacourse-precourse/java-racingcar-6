@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import exception.WrongInputException;
+import exception.WrongNameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -46,7 +48,7 @@ class ConverterTest {
     void 이름이_5초과_익셉션_발생() {
         String names = "abcdef";
 
-        assertThrows(IllegalArgumentException.class, () -> Converter.stringToCar(names));
+        assertThrows(WrongNameException.class, () -> Converter.stringToCar(names));
     }
 
     @Test
@@ -54,7 +56,7 @@ class ConverterTest {
     void 이름이_비어있으면_익셉션_발생() {
         String names = "";
 
-        assertThrows(IllegalArgumentException.class, () -> Converter.stringToCar(names));
+        assertThrows(WrongNameException.class, () -> Converter.stringToCar(names));
     }
 
     @ParameterizedTest
@@ -70,6 +72,6 @@ class ConverterTest {
     @ValueSource(strings = {"", "a", "cde"})
     @DisplayName("숫자가 아니면 오류 발생")
     void String이_숫자가_아니면_익셉션_발생(String value) {
-        assertThrows(IllegalArgumentException.class, () -> Converter.stringToTrial(value));
+        assertThrows(WrongInputException.class, () -> Converter.stringToTrial(value));
     }
 }
