@@ -19,7 +19,7 @@ class InputValidatorTest {
 
         assertThatThrownBy(() -> InputValidator.validateCarNamesSize(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("경주에 참여할 자동차의 이름 수가 모자릅니다. 적어도 2개 이상의 이름을 입력해주세요.");
+                .hasMessageContaining(InputValidator.CAR_NAMES_UNDER_SIZE_ERROR_MESSAGE);
     }
 
     @DisplayName("5글자를 초과한 이름이면 예외처리")
@@ -29,7 +29,7 @@ class InputValidatorTest {
 
         assertThatThrownBy(() -> InputValidator.validateCarNameLength(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름이 5글자를 초과 했습니다. 5글자 이하의 이름으로 입력해주세요.");
+                .hasMessageContaining(InputValidator.CAR_NAME_LENGTH_OVER_ERROR_MESSAGE);
     }
 
     @DisplayName("공백 이름이 포함되어 있으면 예외처리")
@@ -40,7 +40,7 @@ class InputValidatorTest {
 
         assertThatThrownBy(() -> InputValidator.validateBlankName(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름 중 공백으로만 이루어진 이름이 포함되어있습니다. 공백 이름은 입력하실 수 없습니다.");
+                .hasMessageContaining(InputValidator.BLANK_CAR_NAME_ERROR_MESSAGE);
     }
 
     @DisplayName("1회 미만의 시도 횟수이면 예외처리")
@@ -49,6 +49,6 @@ class InputValidatorTest {
     void validateMoveCountRangeTest(int moveCount) {
         assertThatThrownBy(() -> InputValidator.validateMoveCountRange(moveCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("최소 시도 횟수보다 낮은 값을 입력하셨습니다. 최소 1회 이상의 시도 횟수를 입력해주세요.");
+                .hasMessageContaining(InputValidator.UNDER_MIN_MOVE_COUNT_ERROR_MESSAGE);
     }
 }
