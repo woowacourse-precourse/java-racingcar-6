@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 
 public class RacingGame {
@@ -35,6 +34,7 @@ public class RacingGame {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + generatePositionString(car.getPosition()));
         }
+
         System.out.println();
     }
 
@@ -43,6 +43,7 @@ public class RacingGame {
         for (int i = 0; i < position; i++) {
             positionString.append("-");
         }
+
         return positionString.toString();
     }
 
