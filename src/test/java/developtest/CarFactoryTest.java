@@ -1,6 +1,7 @@
 package developtest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,22 +19,21 @@ public class CarFactoryTest {
 
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         carFactory = new CarFactory();
     }
 
     @ParameterizedTest
-    @ValueSource(strings={"pobi,crong"})
-    void stringtoListByComma_콤마를_기준으로_문자열을_리스트로_변환(String string){
+    @ValueSource(strings = {"pobi,crong"})
+    void stringtoListByComma_콤마를_기준으로_문자열을_리스트로_변환(String string) {
         List<String> result = carFactory.stringtoListByComma(string);
-        assertThat(result.toString()).isEqualTo(Arrays.asList("pobi","crong").toString());
+        assertThat(result.toString()).isEqualTo(Arrays.asList("pobi", "crong").toString());
     }
 
     @Test
-    void hasDuplicatedName_중복된_이름_가지고_있는지_확인(){
-        List<String> names = new ArrayList<String>(Arrays.asList("pobi","crong","pobi"));
-        boolean result = carFactory.hasDuplicatedName(names);
-        assertThat(result).isEqualTo(true);
+    void hasDuplicatedName_중복된_이름_가지고_있는지_확인() {
+        List<String> names = new ArrayList<String>(Arrays.asList("pobi", "crong", "pobi"));
+        assertThatThrownBy(() -> carFactory.checkDuplicatedName(names))
+                .isInstanceOf(IllegalArgumentException.class);
     }
-
 }
