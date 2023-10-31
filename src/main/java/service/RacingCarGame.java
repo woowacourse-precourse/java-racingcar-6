@@ -49,6 +49,8 @@ public class RacingCarGame {
     }
 
     private void getResult(String[] carNameList, int carNameLength, int[] forwardCounts, StringBuilder sb, int i) {
+        final String ONE_STEP = "-";
+
         for (int j = 0; j < carNameLength; j++) {
             if (canCarMoveForward(pickRandomNumber())) {
                 forwardCounts[j]++;
@@ -58,7 +60,7 @@ public class RacingCarGame {
         for (int k = 0; k < carNameLength; k++) {
             sb.append(carNameList[k])
                     .append(" : ")
-                    .append("-".repeat(forwardCounts[k]))
+                    .append(ONE_STEP.repeat(forwardCounts[k]))
                     .append("\n");
         }
 
