@@ -5,16 +5,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
-
-    @BeforeEach
-    void init() {
-        MonotoneIncreasingNumberGenerator.clear();
-    }
 
     @Test
     @DisplayName("자동차들 정상 생성")
@@ -160,14 +154,10 @@ class CarsTest {
 
     public static class MonotoneIncreasingNumberGenerator implements NumberGenerator {
 
-        private static int number = 0;
+        private int number = 0;
         @Override
         public int generate() {
             return number++;
-        }
-
-        public static void clear() {
-            number = 0;
         }
     }
 
