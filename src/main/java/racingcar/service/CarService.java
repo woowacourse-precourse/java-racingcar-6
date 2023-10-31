@@ -1,9 +1,10 @@
 package racingcar.service;
 
-import static racingcar.view.input.Input.bringTrialAmount;
+import static racingcar.view.input.Input.inputTrialAmount;
+import static racingcar.view.output.Output.printMessage;
+import static racingcar.view.output.Output.printNewLine;
 
 import racingcar.domain.car.Cars;
-import racingcar.view.output.Output;
 import racingcar.view.output.OutputMessage;
 
 public class CarService {
@@ -17,19 +18,20 @@ public class CarService {
     }
 
     public void progressCarGame() {
-        Output.printMessage(OutputMessage.HOW_MANY_TIME);
-        int trialAmount = bringTrialAmount();
-        Output.printNewLine();
-        Output.printMessage(OutputMessage.EXECUTION_RESULT);
+        printMessage(OutputMessage.HOW_MANY_TIME);
+        int trialAmount = inputTrialAmount();
+        printNewLine();
+        printMessage(OutputMessage.EXECUTION_RESULT);
         for (int trial = 0; trial < trialAmount; trial++) {
             cars.randomCarMove();
+            printNewLine();
         }
         announceWinner();
     }
 
-    public void announceWinner() {
+    private void announceWinner() {
         String winners = String.join(MERGING_STANDARD, cars.findWinners());
-        Output.printMessage(OutputMessage.FINAL_WINNER, winners);
+        printMessage(OutputMessage.FINAL_WINNER, winners);
     }
 
 
