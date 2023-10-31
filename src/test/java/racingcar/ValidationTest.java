@@ -84,4 +84,23 @@ public class ValidationTest {
         assertThat(result3).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 문자열의_길이가_5이하면_통과() {
+        //given
+        String case1 = "onetwothree";
+        String case2 = "one";
+
+        //when
+        Throwable result1 = catchThrowable(()->{
+            Validation.validateCarNameLength(case1);
+        });
+        Throwable result2 = catchThrowable(()->{
+            Validation.validateCarNameLength(case2);
+        });
+
+        //then
+        assertThat(result1).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result2).doesNotThrowAnyException();
+    }
+
 }
