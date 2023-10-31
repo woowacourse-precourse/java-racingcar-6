@@ -68,6 +68,14 @@ class UserTest extends NsTest {
         Assertions.assertThat(pass).isEqualTo(true);
     }
 
+    @Test
+    @DisplayName("자동차의 이름이 없으면 예외를 발생한다.")
+    void 이름_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,hello, ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {
