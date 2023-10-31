@@ -41,12 +41,12 @@
 
 ### 🚨 주의할 점
 
-- [ ] 랜덤 값 추출은 ```camp.nextstep.edu.missionutils.Randoms```의 ```pickNumberInRange()```를 활용한다.
-- [ ] 사용자가 입력하는 값은 ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```을 활용한다.
-- [ ] 사용자가 잘못된 값을 입력할 경우 ```IllegalArgumentException```을 발생시킨 후 애플리케이션은 **종료**되어야 한다.
-- [ ] indent(들여쓰기)는 2까지만 허용한다.
-- [ ] 3항 연산자를 쓰지 않는다.
-- [ ] 함수가 한 가지 일만 하도록 최대한 작게 만든다.
-- [ ] **기능 단위로 테스트 코드를 작성**해야 한다.
-- [ ] 기능 단위로 커밋하고, 커밋 시 **커밋 컨벤션 가이드를 지켜야 한다.**
-- [ ] 배열 대신 **Java Collection을 사용**하자.
+- [x] 랜덤 값 추출은 ```camp.nextstep.edu.missionutils.Randoms```의 ```pickNumberInRange()```를 활용한다.
+- [x] 사용자가 입력하는 값은 ```camp.nextstep.edu.missionutils.Console```의 ```readLine()```을 활용한다.
+- [x] 사용자가 잘못된 값을 입력할 경우 ```IllegalArgumentException```을 발생시킨 후 애플리케이션은 **종료**되어야 한다.
+- [x] indent(들여쓰기)는 2까지만 허용한다.
+- [x] 3항 연산자를 쓰지 않는다.
+- [x] 함수가 한 가지 일만 하도록 최대한 작게 만든다.
+- [x] **기능 단위로 테스트 코드를 작성**해야 한다.
+- [x] 기능 단위로 커밋하고, 커밋 시 **커밋 컨벤션 가이드를 지켜야 한다.**
+- [x] 배열 대신 **Java Collection을 사용**하자.
