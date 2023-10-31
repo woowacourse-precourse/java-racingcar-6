@@ -11,6 +11,36 @@ import org.junit.jupiter.api.Test;
 public class CarsTest {
 
     @Test
+    @DisplayName("공백을 입력할 경우 예외를 발생시킨다.")
+    void should_ThrowIllegalArgumentException_When_InputIsEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(List.of(
+                    new Car(new CarName(""), new CarPosition(0))
+            ));
+        });
+    }
+
+    @Test
+    @DisplayName("자동차를 한 대만 입력할 경우 예외를 발생시킨다.")
+    void should_ThrowIllegalArgumentException_When_NoCompetitor() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(List.of(
+                    new Car(new CarName("엄준식"), new CarPosition(0))
+            ));
+        });
+    }
+
+    @Test
+    @DisplayName("쉼표만 입력할 경우 예외를 발생시킨다.")
+    void should_ThrowIllegalArgumentException_When_OnlyCommas() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(List.of(
+                    new Car(new CarName(",,,,,,,,,,,,,,,,,"), new CarPosition(0))
+            ));
+        });
+    }
+
+    @Test
     @DisplayName("5가 나올경우 이동한다.")
     void should_Move_When_RandomNumberIs5() {
         NumberGenerator generator = new NumberGenerator(5);
