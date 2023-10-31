@@ -1,6 +1,7 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import racingcar.exception.ErrorMessage;
+import racingcar.model.NumberGenerator;
 
 public class Car {
     private static final int FORWARD_LOWER_INCLUSIVE = 4;

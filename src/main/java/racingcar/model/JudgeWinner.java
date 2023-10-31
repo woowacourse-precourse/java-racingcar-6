@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.car.CarDTO;
 
 public interface JudgeWinner {
 

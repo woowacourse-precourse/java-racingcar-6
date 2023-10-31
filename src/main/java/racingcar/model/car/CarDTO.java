@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.car;
 
 public record CarDTO(
         String name,

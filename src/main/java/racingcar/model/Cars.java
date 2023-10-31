@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.exception.ErrorMessage;
+import racingcar.model.car.Car;
+import racingcar.model.car.CarDTO;
 
 public class Cars {
     private final List<Car> cars;
