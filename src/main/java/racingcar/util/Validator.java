@@ -28,7 +28,13 @@ public class Validator {
 		checkCharAndThrowException(input);
 	}
 
-
+	private void checkCharAndThrowException(String input) {
+		try {
+			Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자여야 합니다.");
+		}
+	}
 
 	private void checkEmptyAndThrowException(String input) {
 		if (input.isEmpty()) {
