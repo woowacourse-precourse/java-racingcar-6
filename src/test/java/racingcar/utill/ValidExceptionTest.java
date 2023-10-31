@@ -127,7 +127,7 @@ class ValidExceptionTest {
     void isValidCarEachNameFIveLessStringCheck(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.NameOfEachFIveLessString(input))
+                        () -> ValidException.nameOfEachFIveLessString(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

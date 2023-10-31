@@ -109,7 +109,7 @@ public class ValidException {
      * @param nameLine
      * @return
      */
-    public static boolean NameOfEachFIveLessString(String nameLine) {
+    public static boolean nameOfEachFIveLessString(String nameLine) {
         String[] nameArr = Utill.makeArrFromString(nameLine, ",");
         List<String> nameList = Utill.makeListFromArr(nameArr);
 

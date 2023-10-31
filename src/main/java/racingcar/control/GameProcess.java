@@ -38,7 +38,7 @@ public class GameProcess {
     }
 
     private void ValidNameOfRaceCar(String inputStr) {
-        ValidException.NameOfEachFIveLessString(inputStr);
+        ValidException.nameOfEachFIveLessString(inputStr);
         ValidException.includeKorean(inputStr);
         ValidException.commaNextBlank(inputStr);
         ValidException.onlyOneNameOfRaceCar(inputStr);
