@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class Game {
@@ -17,5 +20,12 @@ public class Game {
             System.out.println();
         }
         System.out.println();
+    }
+    public static int topScore(Map<String, Integer> racers){
+        List<Integer> maxRacerValue = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : racers.entrySet()) {
+            maxRacerValue.add(entry.getValue());
+        }
+        return Collections.max(maxRacerValue);
     }
 }
