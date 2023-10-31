@@ -40,7 +40,7 @@ public class OutputView {
 
     // result에 승리자 목록 추가
     private void appendWinners(List<String> winners) {
-        String tmp = String.join(",", winners);
+        String tmp = String.join(", ", winners);
         String string = String.format("최종 우승자 : %s\n", tmp);
 
         result.append(string);
