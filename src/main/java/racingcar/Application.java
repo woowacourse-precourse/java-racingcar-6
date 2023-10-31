@@ -16,5 +16,7 @@ public class Application {
         while (count-- != 0) {
             racingCar.playRacingGame(car_list);
         }
+
+        racingCar.findCorrectCar(car_list);
     }
 }

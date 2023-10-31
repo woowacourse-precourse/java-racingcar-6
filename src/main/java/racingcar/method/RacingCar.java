@@ -23,7 +23,7 @@ public class RacingCar {
     public Integer countRacingGame() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-        if (input.matches("[1-9]+")) {
+        if (input.matches("[1-9][0-9]*")) {
             return Integer.parseInt(input);
         } else {
             throw new IllegalArgumentException();
@@ -48,5 +48,23 @@ public class RacingCar {
         }
 
         return max;
+    }
+
+    public void findCorrectCar(ArrayList<Car> car_list){
+        ArrayList<Car> result_list = new ArrayList<>();
+        Integer max = compareMoveCount(car_list);
+        String result_string = "";
+
+        for(Car car : car_list){
+            if(car.getMove_count() == max){
+                result_list.add(car);
+            }
+        }
+
+        for(Car car : result_list){
+            result_string += car.getCar_name() + ", ";
+        }
+
+        System.out.println("최종 우승자 : " + result_string.substring(0,result_string.length()-2));
     }
 }
