@@ -6,15 +6,22 @@ import racingcar.car.Car;
 import racingcar.car.name.CarName;
 import racingcar.car.name.CarNameParser;
 import racingcar.io.UserIo;
+import racingcar.result.RacingCarResultFormatter;
+import racingcar.result.RacingResult;
 
 public class RacingCarGame {
 
     private final CarNameParser carNameParser;
     private final CarMovementDecider carMovementDecider;
+    private final RacingCarResultFormatter racingCarResultFormatter;
 
-    public RacingCarGame(CarNameParser carNameParser, CarMovementDecider carMovementDecider) {
+    public RacingCarGame(
+            CarNameParser carNameParser,
+            CarMovementDecider carMovementDecider,
+            RacingCarResultFormatter racingCarResultFormatter) {
         this.carNameParser = carNameParser;
         this.carMovementDecider = carMovementDecider;
+        this.racingCarResultFormatter = racingCarResultFormatter;
     }
 
     public void run(UserIo userIo) {
@@ -23,7 +30,7 @@ public class RacingCarGame {
         RacingAttempt racingAttempt = getRacingAttempt(userIo);
 
         List<Car> carList = createCarList(carNameList);
-        List<RacingResult> racingResultList = race(carList, racingAttempt);
+        List<RacingResult> racingResultList = race(carList, racingAttempt, userIo);
     }
 
     private List<CarName> getCarNameList(UserIo userIo) {
@@ -43,9 +50,19 @@ public class RacingCarGame {
                 .toList();
     }
 
-    private List<RacingResult> race(List<Car> carList, RacingAttempt racingAttempt) {
+    private List<RacingResult> race(List<Car> carList, RacingAttempt racingAttempt, UserIo userIo) {
+        userIo.print("\n실행결과\n");
+
         IntStream.range(0, racingAttempt.getAttempts())
-                .forEach(i -> carMovementDecider.move(carList));
+                .forEach(i -> {
+                    carMovementDecider.move(carList);
+
+                    List<RacingResult> rountResultList = carList.stream()
+                            .map(car -> new RacingResult(car.getCarName(), car.getDistanceDriven()))
+                            .toList();
+
+                    userIo.print(racingCarResultFormatter.formatRoundResult(rountResultList));
+                });
 
         return carList.stream()
                 .map(car -> new RacingResult(car.getCarName(), car.getDistanceDriven()))

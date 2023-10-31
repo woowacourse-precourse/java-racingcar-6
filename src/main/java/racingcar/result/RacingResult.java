@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.result;
 
 public record RacingResult(
         String carName,
