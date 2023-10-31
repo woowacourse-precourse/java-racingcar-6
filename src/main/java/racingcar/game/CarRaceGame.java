@@ -1,6 +1,8 @@
 package racingcar.game;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.constant.CarRaceMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.CarRaceService;
@@ -17,8 +19,19 @@ public class CarRaceGame implements Game {
 
     @Override
     public void startGame() {
-        System.out.println();
-
+        System.out.println(CarRaceMessage.PROMPT_NAME);
+        String input = Console.readLine();
+        service.addCars(input);
+        System.out.println(CarRaceMessage.PROMPT_COUNT);
+        input = Console.readLine();
+        saveRaceRound(input);
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < this.gameRound; i++) {
+            service.moveCars();
+            printResult();
+            System.out.println();
+        }
+        printFinalResult();
     }
 
     private void saveRaceRound(String input) {
