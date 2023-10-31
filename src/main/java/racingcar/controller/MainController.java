@@ -56,9 +56,7 @@ public class MainController {
     }
 
     private List<String> inputToNameCar() {
-        String inputToNameCar = inputView.inputToNameCar();
-        List<String> splits = Util.splitNameByComma(inputToNameCar);
-        return splits;
+        return inputView.inputToNameCar();
     }
 
     private int inputTryToMoveCar() {
