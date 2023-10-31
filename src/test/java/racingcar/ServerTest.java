@@ -3,6 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.mocking.RandomsMocking;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -38,20 +39,41 @@ public class ServerTest {
     }
     @Test
     void 레이서들중_단일_우승자를_출력한다(){
-        server.confirmRacerList("pobi,woni,crong");
-        ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStreamCaptor));
         String expectedResult = "최종 우승자 : crong";
 
-        var racerList = server.getRacerList();
-        int multipleUnit = 1;
-        for ( Racer racer : racerList){
-            for ( int i =0;i<multipleUnit;i++)
-                racer.runRaceEachStep();
-            multipleUnit *=10;
-        }
+        server.confirmRacerList("pobi,woni,crong");
+        RandomsMocking.fixPickNumberInRangeOverThreshold(
+            () -> {
+                    int multipleUnit = 1;
+                    for ( Racer racer : server.getRacerList()){
+                        for ( int i =0;i<multipleUnit;i++)
+                            racer.runRaceEachStep();
+                        multipleUnit +=1;
+                    }
+            }
+        );
+        ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
         server.finishRace();
 
         Assertions.assertEquals(expectedResult, outputStreamCaptor.toString().trim());
+    }
+    @Test
+    void 레이서들중_다중_우승자를_출력한다(){
+        String expectedResult = "최종 우승자 : pobi, woni, crong";
+
+        RandomsMocking.fixPickNumberInRangeOverThreshold(
+                ()->{
+                    server.confirmRacerList("pobi,woni,crong");
+                    server.confirmRacerCount("10");
+                    server.startRace();
+                }
+        );
+        ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+        server.finishRace();
+
+        Assertions.assertEquals(expectedResult, outputStreamCaptor.toString().trim());
+
     }
 }
