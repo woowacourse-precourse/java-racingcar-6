@@ -11,7 +11,6 @@ class GameTest {
     void move() {
         int randomNum = 3;
         Game game = new Game(randomNum);
-        boolean result = game.move();
-        assertThat(result).isEqualTo(false);
+        assertThat(game.move()).isEqualTo(false);
     }
 }
