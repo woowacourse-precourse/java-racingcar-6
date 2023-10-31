@@ -17,7 +17,5 @@ public class Application {
     MoveResult move = new MoveResult();
     move.move(savedCarNames, number);
 
-
-
   }
 }

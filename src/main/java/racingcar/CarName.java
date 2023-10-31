@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class CarName {
 
   private List<String> carNames;
-  
+
 
   public CarName() {
     carNames = new ArrayList<>();
@@ -45,8 +45,11 @@ public class CarName {
 
   private void exception_Length(List<String> names) {
     for (String name : names) {
-      if (name.length() > 5) {
-        throw new IllegalArgumentException("5자 이하로 입력하세요.");
+      if (name.length() > 5 | name.length() < 1) {
+        throw new IllegalArgumentException("1자 이상 5자 이하로 입력하세요.");
+      }
+      if(name.contains(name)) {
+        throw new IllegalArgumentException("동일한 이름은 입력할 수 없습니다.");        
       }
     }
   }
