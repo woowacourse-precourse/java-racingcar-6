@@ -34,18 +34,7 @@ public class Output {
 
     public static void finalResult(Winner winner) {
 
-        System.out.print("최종 우승자 : ");
-
-        List<Name> names = winner.getWinner();
-        for(int i = 0; i < names.size(); i++){
-
-            Name name = names.get(i);
-            System.out.print(name.getName());
-
-            if(i != (names.size() - 1)){
-                System.out.print(", ");
-            }
-        }
+        System.out.print("최종 우승자 : " + winner);
 
     }
 
