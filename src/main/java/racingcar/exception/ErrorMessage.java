@@ -12,13 +12,14 @@ public enum ErrorMessage {
     NEGATIVE_POSITION("위치가 음수일 수 없습니다.");
 
     private final String message;
+    public static final String header = "[ERROR] ";
 
     ErrorMessage(String message) {
         this.message = message;
     }
 
     public String getMessage() {
-        return "[ERROR] " + message;
+        return header + message;
     }
 
 }
