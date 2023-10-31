@@ -11,4 +11,12 @@ public class Racing {
             racingCars.add(new Car(car, 0));
         }
     }
+
+    public static void racing() {
+        for (int i = 0; i < racingCars.size(); i++) {
+            Car car = racingCars.get(i);
+            car.go();
+            System.out.println(car.getName() + " : " + "-".repeat(car.getAdvance()));
+        }
+    }
 }
