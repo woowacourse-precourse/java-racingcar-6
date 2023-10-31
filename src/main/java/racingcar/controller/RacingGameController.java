@@ -19,7 +19,7 @@ public class RacingGameController {
     public void startGame() {
         setting();
         playGame();
-        OutputView.printWinners(cars.winner());
+        showWinner();
     }
 
     private void setting() {
@@ -47,5 +47,9 @@ public class RacingGameController {
             cars.playOneGame();
             OutputView.printOneGameResult(cars);
         }
+    }
+
+    private void showWinner() {
+        OutputView.printWinners(cars.winner());
     }
 }
