@@ -7,9 +7,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 
 public class Game {
-    Cars carList;
-    int tryChance;
-    Map<String, Integer> gameResult;
+    private final Cars carList;
+    private int tryChance;
+    private Map<String, Integer> gameResult;
 
     public Game(Cars cars) {
         this.carList = cars;
@@ -21,6 +21,10 @@ public class Game {
 
     public Cars getCars() {
         return carList;
+    }
+
+    public int getTryChance() {
+        return tryChance;
     }
 
     public Map<String, Integer> getGameResult() {

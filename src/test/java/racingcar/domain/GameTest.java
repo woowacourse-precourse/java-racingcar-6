@@ -31,7 +31,7 @@ class GameTest {
     })
     void 시도횟수를_올바르게_입력한_경우(String input) {
         game.settingChance(input);
-        assertEquals(1, game.tryChance);
+        assertEquals(1, game.getTryChance());
     }
 
     @ParameterizedTest
