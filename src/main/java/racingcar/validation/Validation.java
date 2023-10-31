@@ -1,10 +1,14 @@
 package racingcar.validation;
 
-public class Validation {
+import static racingcar.utils.Utils.replaceCommaToBlank;
+
+public final class Validation {
 
     public static void validateIsNotNull(String inputString){
-        if (inputString == null || inputString.isBlank()) {
+        if (inputString == null
+                || replaceCommaToBlank(inputString).isBlank()) {
             throw new IllegalArgumentException();
         }
     }
+
 }
