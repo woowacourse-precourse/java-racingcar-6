@@ -20,4 +20,12 @@ public class RacingCar {
             this.distance++;
         }
     }
+
+    public void printDistance() {
+        System.out.print(this.name + " : ");
+        for (int i = 0; i < distance; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
