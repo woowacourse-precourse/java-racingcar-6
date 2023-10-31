@@ -13,6 +13,11 @@ public class Car {
         this.distance = initialDistance;
     }
 
+    public Car(String name, Integer distance){
+        this.name = name;
+        this.distance = distance;
+    }
+
     public String getName(){
         return name;
     }
