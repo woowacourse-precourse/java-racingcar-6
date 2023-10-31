@@ -36,16 +36,18 @@ public class Application {
             //System.out.println(cars[i].getName());
         }
 
-        // 결과 출력
         System.out.println("실행 결과");
-        displayResult(tries, cars);
+        StartRacing(tries, cars);
+        FinalWinner(cars, carNames);
+
     }
 
-    public static void displayResult(int tries, Car[] cars) {
+    // 경주 시작
+    public static void StartRacing(int tries, Car[] cars) {
         for (int i = 0; i < tries; i++) { // 시도 횟수 만큼 반복
             for (int j = 0; j < cars.length; j++) { // 차 개수 만큼 반복
                 cars[j].RandomNumber = Randoms.pickNumberInRange(0, 9); // 랜덤한 숫자 할당
-                if (cars[j].RandomNumber > 4) { // 4 이상시
+                if (cars[j].RandomNumber > 3) { // 4 이상시
                     cars[j].AdvanceCount++; // 전진
                     cars[j].name = cars[j].name.concat("-");
                 }
@@ -55,8 +57,35 @@ public class Application {
             }
             System.out.println();
         }
+    }
 
-        System.out.println("촤종 우승자 : ");
+    public static void FinalWinner(Car[] cars, String[] carNames) {
+
+        // AdvanceCount 최댓값 찾기
+        int max = cars[0].AdvanceCount; // 초기값
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].AdvanceCount >= max) {
+                max = cars[i].AdvanceCount;
+            }
+        }
+
+        System.out.print("최종 우승자 :"); // 1등 출력
+
+        boolean isFirstWinner = true; // 첫 번쨰 우승자인지 확인하기 위한 변수
+
+        // max와 값이 같은 자동차를 공동 우승자로 포함시키기
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].AdvanceCount == max) {
+                if (!isFirstWinner) {
+                    System.out.print(", "); // 첫 번쨰 우승자가 아닐 경우 콤마 출력
+                }
+                System.out.print(" " + carNames[i]);
+                isFirstWinner = false; // 첫 번쨰 우승자가 아니라고 표ㅕ시
+
+            }
+        }
+
     }
 }
 
