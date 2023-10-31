@@ -13,7 +13,7 @@ public class SystemOutput {
     }
 
     public static void printThisIsResult() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
 
@@ -23,6 +23,6 @@ public class SystemOutput {
     }
 
     public static void printWinner(List<String> winner) {
-        System.out.println(String.join(", ", winner));
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 }
