@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.GameTry;
 import racingcar.domain.RacingGame;
+import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,18 +16,25 @@ public class RacingController {
     }
 
     public void play() {
-        String carNames = InputView.inputCarNames();
-        GameTry gameTry = new GameTry(InputView.inputTryNumber());
-        RacingGame racingGame = new RacingGame(carNames, gameTry);
-        race(racingGame);
+        RacingGame racingGame = initRacingGame();
+        race(racingGame, inputGameTry());
+        OutputView.printWinners(new Winners(racingGame.getCars()));
     }
 
-    private void race(RacingGame racingGame) {
-        OutputView.printMainMessage();
+    private static GameTry inputGameTry() {
+        return new GameTry(InputView.inputTryNumber());
+    }
 
-        while (racingGame.isContinue()) {
+    private static RacingGame initRacingGame() {
+        String carNames = InputView.inputCarNames();
+        return new RacingGame(carNames);
+    }
+
+    private void race(RacingGame racingGame, GameTry targetGameTry) {
+        OutputView.printMainMessage();
+        while (racingGame.isContinue(targetGameTry.getGameTry())) {
             racingGame.race();
             OutputView.printCarsStatus(racingGame.getCars());
-        }
+        };
     }
 }

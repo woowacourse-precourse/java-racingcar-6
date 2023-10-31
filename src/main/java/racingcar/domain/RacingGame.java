@@ -10,12 +10,12 @@ public class RacingGame {
     private final List<Car> cars;
     private GameTry gameTry;
 
-    public RacingGame(String carNames, GameTry gameTry) {
+    public RacingGame(String carNames) {
         this.cars = initCars(carNames);
-        this.gameTry = gameTry;
+        this.gameTry = new GameTry("0");
     }
 
-    private List<Car> initCars(String carNames) {
+    public static List<Car> initCars(String carNames) {
         validateCarNames(carNames);
         String[] names = carNames.split(",");
         checkDuplicates(names);
@@ -46,22 +46,20 @@ public class RacingGame {
     }
 
     public void race() {
-        if (isContinue()) {
-            moveCars();
-            decreaseGameTry();
-        }
+        moveCars();
+        increaseGameTry();
     }
 
-    public boolean isContinue() {
-        return gameTry.isNotGameEnd();
+    public boolean isContinue(int targetGameTry) {
+        return gameTry.isNotGameEnd(targetGameTry);
     }
 
     private void moveCars() {
         cars.forEach(car -> car.move(new RandomMovingStrategy()));
     }
 
-    private void decreaseGameTry() {
-        gameTry.decrease();
+    private void increaseGameTry() {
+        gameTry.increase();
     }
 
     public List<Car> getCars() {

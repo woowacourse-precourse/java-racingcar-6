@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Winners;
 
 public class OutputView {
     private static final OutputView instance = new OutputView();
@@ -35,9 +36,14 @@ public class OutputView {
         return "-".repeat(Math.max(0, car.getPosition()));
     }
 
+    public static void printWinners(Winners winners) {
+        System.out.println(String.format(Message.OUTPUT_WINNERS_FORMAT.message, winners.getWinners()));
+    }
+
     private enum Message {
         OUTPUT_MAIN_MESSAGE("실행 결과"),
-        OUTPUT_CARMOVE_FORMAT("%s : %s");
+        OUTPUT_CARMOVE_FORMAT("%s : %s"),
+        OUTPUT_WINNERS_FORMAT("최종 우승자 : %s");
 
         private final String message;
 

@@ -21,8 +21,10 @@ public class Winners {
                 .orElse(0);
     }
 
-    public List<Car> getCars() {
-        return winners;
+    public List<String> getNames() {
+        return winners.stream()
+                .map(Car::getNickName)
+                .toList();
     }
 
     @Override
