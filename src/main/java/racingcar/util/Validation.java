@@ -74,7 +74,7 @@ public class Validation {
     }
 
     public void validateBlankRound(String input) {
-        if (input.length() == 0) {
+        if (input.length() == 0 || input.equals("0")) {
             throw new IllegalArgumentException(EXCEPTION_ROUND_LENGTH);
         }
     }
