@@ -3,13 +3,13 @@ package racingcar.config;
 import io.reader.StdReader;
 import io.writer.StdWriter;
 import number.RandomNumberPicker;
-import racingcar.component.ComponentWriter;
 import racingcar.controller.GameController;
 import racingcar.domain.move.RandomMoveCommander;
-import racingcar.parser.InputParser;
-import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import racingcar.view.component.ComponentWriter;
+import racingcar.view.parser.InputParser;
+import racingcar.view.validator.InputValidator;
 
 public final class Configuration {
 

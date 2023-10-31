@@ -1,10 +1,10 @@
 package racingcar.view;
 
-import racingcar.component.ComponentWriter;
-import racingcar.component.output.GameResultComponent;
-import racingcar.component.output.RoundResultComponent;
 import racingcar.domain.car.dto.output.CarsRacingDto;
 import racingcar.domain.car.dto.output.WinnersDto;
+import racingcar.view.component.ComponentWriter;
+import racingcar.view.component.output.GameResultComponent;
+import racingcar.view.component.output.RoundResultComponent;
 
 public final class OutputView {
     private final ComponentWriter componentWriter;

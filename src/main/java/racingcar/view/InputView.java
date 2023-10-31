@@ -1,12 +1,12 @@
 package racingcar.view;
 
 import io.reader.Reader;
-import racingcar.component.ComponentWriter;
-import racingcar.component.input.MaxRoundComponent;
-import racingcar.component.input.NameComponent;
 import racingcar.domain.car.CarsRacing;
 import racingcar.domain.round.boxed.MaxRound;
-import racingcar.parser.InputParser;
+import racingcar.view.component.ComponentWriter;
+import racingcar.view.component.input.MaxRoundComponent;
+import racingcar.view.component.input.NameComponent;
+import racingcar.view.parser.InputParser;
 
 public final class InputView {
     private final InputParser inputParser;
