@@ -13,35 +13,35 @@ public class createCars {
     public void testGetCarAtIndex() {
 
         List<Car> carList = new ArrayList<>();
-        carList.add(new Car("Car1"));
-        carList.add(new Car("Car2"));
-        carList.add(new Car("Car3"));
+        carList.add(new Car("pobi"));
+        carList.add(new Car("hong"));
+        carList.add(new Car("min"));
         Cars cars = new Cars(carList);
 
         Car car = cars.get(1);
 
-        assertEquals("Car2", car.getName());
+        assertEquals("hong", car.getName());
     }
 
     @Test
     public void testToString() {
         List<Car> carList = new ArrayList<>();
-        carList.add(new Car("Car1"));
-        carList.add(new Car("Car2"));
-        carList.add(new Car("Car3"));
+        carList.add(new Car("hong"));
+        carList.add(new Car("min"));
+        carList.add(new Car("pobi"));
         Cars cars = new Cars(carList);
 
         String carsAsString = cars.toString();
 
-        assertTrue(carsAsString.contains("[Car1, Car2, Car3]"));
+        assertEquals("[hong, min, pobi]", carsAsString);
     }
 
     @Test
     public void testSize() {
         List<Car> carList = new ArrayList<>();
-        carList.add(new Car("Car1"));
-        carList.add(new Car("Car2"));
-        carList.add(new Car("Car3"));
+        carList.add(new Car("pobi"));
+        carList.add(new Car("hong"));
+        carList.add(new Car("min"));
         Cars cars = new Cars(carList);
 
         int size = cars.size();
