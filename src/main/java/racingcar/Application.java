@@ -3,6 +3,8 @@ package racingcar;
 import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
 
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class Application {
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -38,7 +40,20 @@ public class Application {
         }
         WhoIsWinner(MoveCount);
     }
-    public static void WhoIsWinner(String[] mc){}
-    public static String GoOrStop(String mc){return mc;}
 
+    public static String GoOrStop(String movecount){ //전진인지 아닌지 구별
+        int computer = Computer.getRandomNumber();
+        if (computer >= 4){
+            movecount += "-";
+        }
+        return movecount;
+    }
+
+    public static void WhoIsWinner(String[] mc){}
+}
+
+class Computer {
+    public static int getRandomNumber() {
+        return pickNumberInRange(0, 9);
+    }
 }
