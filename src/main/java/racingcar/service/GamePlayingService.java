@@ -10,6 +10,9 @@ import racingcar.model.Winners;
 import racingcar.validator.AttemptCountValidator;
 
 public class GamePlayingService {
+    private Cars cars;
+
+
     public Cars generateCars(String inputNames) {
         CarsGenerator carsGenerator = new CarsGenerator();
         return carsGenerator.generate(inputNames);
@@ -25,12 +28,11 @@ public class GamePlayingService {
         return Integer.parseInt(input);
     }
 
-    public CarsState tryForward(Cars cars) {
+    public void tryForward(Cars cars) {
         cars.attemptForward();
-        return getCarsState(cars);
     }
 
-    private CarsState getCarsState(Cars cars) {
+    public CarsState getCarsState(Cars cars) {
         return cars.getCarsState();
     }
 

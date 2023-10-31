@@ -44,12 +44,13 @@ public class Controller {
         view.printAttemptResultMessage();
 
         for (int current = 0; current < count; current++) {
-            view.printCurrentCarsState(tryForward(cars));
+            gamePlayingService.tryForward(cars);
+            view.printCurrentCarsState(getCarsState(cars));
         }
     }
 
-    private CarsState tryForward(Cars cars) {
-        return gamePlayingService.tryForward(cars);
+    private CarsState getCarsState(Cars cars) {
+        return gamePlayingService.getCarsState(cars);
     }
 
     private void printWinners(Cars cars) {
