@@ -3,10 +3,12 @@ package control;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import model.Car;
+import valid.ValidCheck;
 
 public class CarSetting {
     private String[] carName;
     private Car[] car;
+    ValidCheck validCheck = new ValidCheck();
 
     public void setCars() {
         for (int index = 0; index < carName.length; index++) {
@@ -34,25 +36,15 @@ public class CarSetting {
 
     public void setCarName() {
         carName = Console.readLine().split(",");
-        if (check_name(carName)) {
-            throw new IllegalArgumentException();
-        }
         for (String name : carName) {
-            if (name.length() >= 5) {
-                throw new IllegalArgumentException();
-            }
+            validCheck.checkNameLength(name);
+            validCheck.checkNameNoInput(name);
         }
+
         setCar();
     }
 
-    boolean check_name(String[] name) {
-        for (var s : name) {
-            if (s.equals("")) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     public void setCar() {
         car = new Car[carName.length];
