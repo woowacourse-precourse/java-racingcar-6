@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.Car;
 
 public class Printer {
     public void printInputCarNamesMessage() {
@@ -15,17 +16,17 @@ public class Printer {
         System.out.println("실행 결과");
     }
 
-    public void printCurrent(List<Car> carList) {
+    public void printRoundState(List<Car> carList) {
         for (Car car : carList) {
             System.out.print(car.getName() + " : ");
-            printMovedDistance(car);
+            printMovedDistance(car.getLocation());
             System.out.println();
         }
         System.out.println();
     }
 
-    private void printMovedDistance(Car car) {
-        for (int i = 0; i < car.getLocation(); i++) {
+    private void printMovedDistance(Integer location) {
+        for (int i = 0; i < location; i++) {
             System.out.print("-");
         }
     }

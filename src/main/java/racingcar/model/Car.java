@@ -1,32 +1,24 @@
-package racingcar;
+package racingcar.model;
 
 public class Car {
     String name;
     Integer location;
-    Integer currentValue;
     Boolean isWinner;
-    Car(String name){
+    Accelerator accelerator;
+    public Car(String name, Accelerator accelerator){
         this.name = name;
+        this.accelerator = accelerator;
         location = 0;
-        currentValue = 0;
         isWinner = false;
     }
-    public void advance(Integer movingDistance){
-        location += movingDistance;
+    public void advance(){
+        location += accelerator.advance();
     }
     public Integer getLocation() {
         return location;
     }
-
     public String getName() {
         return name;
-    }
-
-    public void setCurrentValue(Integer currentValue) {
-        this.currentValue = currentValue;
-    }
-    public Integer getCurrentValue() {
-        return currentValue;
     }
     public void setWinner(){
         isWinner = true;

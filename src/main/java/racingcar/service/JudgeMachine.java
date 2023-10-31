@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.model.Car;
 
 public class JudgeMachine {
     private void judge(List<Car> carList) {

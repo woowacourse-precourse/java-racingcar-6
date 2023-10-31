@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.configurations;
 
 public class Configurations {
     private int minimumOfRange;
@@ -8,7 +8,7 @@ public class Configurations {
     private int movingDistance;
     private int maximumNameLength;
 
-    Configurations() {
+    public Configurations() {
         minimumOfRange = 0;
         maximumOfRange = 9;
         delimiter = ",";
@@ -25,15 +25,18 @@ public class Configurations {
         return maximumOfRange;
     }
 
-    public String getDelimiter(){
+    public String getDelimiter() {
         return delimiter;
     }
+
     public int getControlValue() {
         return controlValue;
     }
-    public int getMovingDistance(){
+
+    public int getMovingDistance() {
         return movingDistance;
     }
+
     public int getMaximumNameLength() {
         return maximumNameLength;
     }

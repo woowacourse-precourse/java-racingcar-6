@@ -2,13 +2,14 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.configurations.Configurations;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 import racingcar.service.CarsGenerator;
 import racingcar.service.JudgeMachine;
 
 public class RacingCarPlayer implements GamePlayer {
     Configurations configurations;
     JudgeMachine judgeMachine;
+    CarsGenerator carsGenerator;
     Scanner scanner;
     Printer printer;
 
@@ -26,10 +27,10 @@ public class RacingCarPlayer implements GamePlayer {
         scanner = new Scanner(configurations.getDelimiter(), configurations.getMaximumNameLength());
         printer = new Printer();
         judgeMachine = new JudgeMachine();
+        carsGenerator = new CarsGenerator(configurations);
     }
     private List<Car> generateCars(List<String> carNames) {
         List<Car> carList;
-        CarsGenerator carsGenerator = new CarsGenerator(configurations);
         carList = carsGenerator.generateCars(carNames);
         return carList;
     }
