@@ -39,7 +39,17 @@ public class Cars {
         return maxForward;
     }
 
-    
+    public List<String> getMVP(){
+        int maxForward = findMaxForward();
+        List<String> mvpList = new ArrayList<>();
+
+        findMax.entrySet().stream()
+                .filter(entry -> entry.getValue() == maxForward)
+                .forEach(entry -> mvpList.add(entry.getKey()));
+
+        return mvpList;
+    }
+
 
 
 
