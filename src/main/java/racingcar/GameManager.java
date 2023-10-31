@@ -9,10 +9,9 @@ import java.util.stream.Collectors;
 public class GameManager {
 
 
-    private Input input;
-    private Output output;
+    private final Input input;
+    private final Output output;
     private List<Car> cars;
-
     private int count;
 
     public GameManager() {
@@ -23,10 +22,13 @@ public class GameManager {
 
     public void startGame() {
         obtainCars();
+        obtainTime();
+        System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
+            continueGame();
             printNow();
         }
-
+        printWinner();
     }
 
 
@@ -40,6 +42,7 @@ public class GameManager {
 
     private void obtainCars() {
         output.startOutput();
+        input.input();
         String[] carsArray = input.inputCars();
         List<String> stringList = Arrays.stream(carsArray).toList();
         List<Car> carObjects = stringList.stream()
@@ -48,8 +51,18 @@ public class GameManager {
         cars = carObjects;
     }
 
+    private void obtainTime() {
+        output.timeOutput();
+        input.input();
+        count = Integer.parseInt(input.inputTime());
+    }
+
     private void printNow() {
         output.printNow(cars);
+    }
+
+    private void printWinner() {
+        output.printWinner(cars);
     }
 
 
