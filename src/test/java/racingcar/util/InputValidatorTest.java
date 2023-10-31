@@ -51,4 +51,14 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(InputValidator.UNDER_MIN_MOVE_COUNT_ERROR_MESSAGE);
     }
+
+    @DisplayName("숫자가 아닌 값이면 예외처리")
+    @Test
+    void validateNumericInputTest() {
+        String notNumeric = "테스트";
+
+        assertThatThrownBy(() -> InputValidator.validateNumericInput(notNumeric))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputValidator.NOT_NUMERIC_ERROR_MESSAGE);
+    }
 }
