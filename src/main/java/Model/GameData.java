@@ -1,13 +1,10 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GameData {
 
-    private Map<String, Integer> cars = new HashMap<>();
+    private Map<String, Integer> cars = new LinkedHashMap<>();
 
     public void addData(String name) {
         cars.put(name, 0);
@@ -17,10 +14,10 @@ public class GameData {
         return new ArrayList<>(cars.keySet());
     }
 
-    public Map<String, Integer> getResult() {
-        List<String> keyset = new ArrayList<>(cars.keySet());
-        keyset.sort(((o1, o2) -> cars.get(o2).compareTo(cars.get(o1))));
-        return cars;
+    public List<Map.Entry<String, Integer>> getResult() {
+        List<Map.Entry<String,Integer>> entryList = new ArrayList<>(cars.entrySet());
+        entryList.sort(((o1, o2) -> cars.get(o2.getKey()).compareTo(cars.get(o1.getKey()))));
+        return entryList;
     }
 
     public int moveForward(String name, int move) {

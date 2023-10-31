@@ -46,14 +46,14 @@ public class GameController {
     }
 
     public void findWinner() {
-        Map<String, Integer> cars = gameData.getResult();
+        List<Map.Entry<String, Integer>> cars = gameData.getResult();
 
         List<String> winner = new ArrayList<>();
         int max = -1;
-        for(String car : cars.keySet()) {
-            if(max <= cars.get(car)) {
-                max = cars.get(car);
-                winner.add(car);
+        for(Map.Entry<String,Integer> car : cars) {
+            if(max <= car.getValue()) {
+                max = car.getValue();
+                winner.add(car.getKey());
             }
         }
         gameBoard.showWinner(winner);
