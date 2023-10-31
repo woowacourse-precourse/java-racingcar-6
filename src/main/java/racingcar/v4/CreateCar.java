@@ -1,7 +1,11 @@
 package racingcar.v4;
 import camp.nextstep.edu.missionutils.Console;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class CreateCar {
     public String inputCarNames() {
@@ -59,5 +63,18 @@ public class CreateCar {
         }
         return stateMap;
     }
+
+    @Test
+    void 상태_맵이_정상적으로_생성된다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("페라리", "벤츠", "레드불");
+        Map<String, Integer> stateMap = createCar.racingStateMap(carNames);
+        assertThat(stateMap)
+                .isNotNull()
+                .hasSize(3)
+                .containsKeys("페라리", "벤츠", "레드불")
+                .containsValues(0);
+    }
+
 
 }
