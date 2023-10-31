@@ -18,11 +18,11 @@ public class ResultStringifier {
         return progressBuilder.toString();
     }
 
-    public static String formatProgressString(int position) {
-        return Constants.PROGRESS_DELIMITER.repeat(Math.max(0, position));
-    }
-
     public static String generateWinnersString(List<String> winners) {
         return String.join(Constants.CAR_NAME_DELIMITER, winners);
+    }
+
+    private static String formatProgressString(int position) {
+        return Constants.PROGRESS_DELIMITER.repeat(Math.max(0, position));
     }
 }
