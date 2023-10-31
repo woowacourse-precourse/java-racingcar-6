@@ -8,23 +8,23 @@ import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.Referee;
 import racingcar.util.InputValidator;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceController {
-    public static final String DELIMITER = ",";
+    private final InputView inputView;
     private final OutputView outputView;
 
-    public RaceController(OutputView outputView) {
+    public RaceController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
         this.outputView = outputView;
     }
 
     public void run() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = askCarNames();
+        List<String> carNames = inputView.askCarNames();
         List<Car> cars = createCars(carNames);
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        int moveCount = askMoveCount();
+        int moveCount = inputView.askMoveCount();
 
         System.out.println("\n실행 결과");
         repeatMoveCars(moveCount, cars);
@@ -51,26 +51,6 @@ public class RaceController {
             tryMoveCars(cars);
             System.out.println();
         }
-    }
-
-    public List<String> askCarNames() {
-        String inputNames = Console.readLine();
-        return divideCarNames(inputNames);
-    }
-
-    public int askMoveCount() {
-        String inputMoveCount = Console.readLine();
-        int moveCount = Integer.valueOf(inputMoveCount);
-
-        return moveCount;
-    }
-
-    public List<String> divideCarNames(String inputNames) {
-        List<String> carNames = Arrays.asList(inputNames.split(DELIMITER));
-        InputValidator.validateCarNamesSize(carNames);
-        InputValidator.validateCarNameLength(carNames);
-
-        return carNames;
     }
 
     public List<Car> createCars(List<String> carNames) {
