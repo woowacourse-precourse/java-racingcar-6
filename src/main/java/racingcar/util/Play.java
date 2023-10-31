@@ -1,7 +1,9 @@
 package racingcar.util;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Play {
     final List<Car> car;
@@ -23,10 +25,14 @@ public class Play {
         this.round_index=round_index;
     }
 
-    public boolean Check_Round_over(){
+    public boolean Check_Round_Over(){
         if(round.Get_Round_Remaining()<=0){
             return false;
         }
         return true;
+    }
+
+    public List<Car> Get_Car() {
+        return new ArrayList<>(car);
     }
 }

@@ -62,7 +62,7 @@ public class Play_Test {
         while(Result){
             play.One_Round(move_selector);
             assertTrue(Result);
-            Result = play.Check_Round_over();
+            Result = play.Check_Round_Over();
         }
         assertFalse(Result);
     }
