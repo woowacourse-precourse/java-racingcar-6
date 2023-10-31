@@ -1,41 +1,35 @@
 package racingcar;
-
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 public class Application {
 
-    static ArrayList<String> user = new ArrayList<>();
-    static int TESTCASE = 0;
+    static ArrayList<String> playerCar = new ArrayList<>();
+    static ArrayList<Integer> randomNumber = new ArrayList<>();
     public static void main(String[] args) {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-
-
-        try {
-            st = new StringTokenizer(br.readLine(),",");
-            user.add(st.nextToken());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        String input = readLine().trim();
+        for(String carName: input.split(",")){
+            if(carName.length() == 0 || carName.length() > 5){
+                throw new IllegalArgumentException("자동차 이름을 다시 입력해주세요.");
+            }
+            playerCar.add(carName);
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
+        String testCase = readLine();
 
         try {
-            TESTCASE = Integer.parseInt(br.readLine());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            Integer.parseInt(testCase);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력해주세요.");
         }
 
         System.out.println("\n" + "실행결과" + "\n");
+
     }
 }
