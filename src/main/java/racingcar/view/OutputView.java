@@ -4,20 +4,20 @@ import racingcar.domain.dto.CarMovementDto;
 import racingcar.domain.dto.CarsMovementDto;
 import racingcar.domain.dto.WinnersDto;
 import racingcar.io.writer.StdWriter;
+import racingcar.util.StringUtils;
 
 public class OutputView {
-    private static final String DISTANCE = "-";
     private static final String NEW_LINE = "\n";
-    private final StdWriter stdWriter;
+    private final StdWriter writer;
     private boolean isInitialPrintDone = true;
 
-    public OutputView(StdWriter stdWriter) {
-        this.stdWriter = stdWriter;
+    public OutputView(StdWriter writer) {
+        this.writer = writer;
     }
 
     private void printInitialResultMessage() {
         if (isInitialPrintDone) {
-            stdWriter.write(NEW_LINE + "실행 결과" + NEW_LINE);
+            writer.write(NEW_LINE + "실행 결과" + NEW_LINE);
             isInitialPrintDone = false;
         }
     }
@@ -29,18 +29,14 @@ public class OutputView {
 
     private void printCarMovement(CarsMovementDto carsMovementDto) {
         for (CarMovementDto carMovementDto : carsMovementDto.carsMovementDto()) {
-            String carName = carMovementDto.carName().getName();
-            String totalDistanceForPosition = positionToTotalDistance(carMovementDto);
-            stdWriter.write(String.format("%s : %s%s", carName, totalDistanceForPosition, NEW_LINE));
+            String carName = carMovementDto.carName();
+            String positionDashString = StringUtils.generateDashString(carMovementDto.position());
+            writer.write(String.format("%s : %s%s", carName, positionDashString, NEW_LINE));
         }
-        stdWriter.write(NEW_LINE);
-    }
-
-    private String positionToTotalDistance(CarMovementDto carMovementDto) {
-        return DISTANCE.repeat(carMovementDto.position());
+        writer.write(NEW_LINE);
     }
 
     public void printGameWinner(WinnersDto winnersDto) {
-        stdWriter.write("최종 우승자 : " + winnersDto.winners());
+        writer.write("최종 우승자 : " + winnersDto.winners());
     }
 }
