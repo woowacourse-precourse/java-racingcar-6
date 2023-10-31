@@ -106,8 +106,8 @@ public class RacingGame {
 
     private void printWinner(List<Car> cars) {
         StringBuilder result = new StringBuilder();
-        result.append(String.join(",", getWinnerNames(cars)));
-        result.append("가 최종 우승했습니다.");
+        result.append("최종 우승자 : ");
+        result.append(String.join(", ", getWinnerNames(cars)));
         System.out.println(result);
     }
 
