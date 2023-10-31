@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.List;
-import java.util.Map;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,12 +12,11 @@ public class Application {
 
         String names = inputView.inputCarName();
         List<String> nameList = inputView.splitNames(names);
+        Racing racing = new Racing(nameList);
 
         int round = inputView.inputTryNumber();
 
-        Racing racing = new Racing(nameList);
-
-        List<String> racingResult = racing.startRacing(nameList, round);
+        String racingResult = racing.startRacing(nameList, round);
 
         outputView.roundResult(racingResult);
 
