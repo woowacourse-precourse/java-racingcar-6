@@ -37,7 +37,7 @@ public class Cars {
     }
 
     private boolean hasNoCars(final String names) {
-        return getSplitNamesByDelimiter(names).length == 0;
+        return getSplitNamesByDelimiter(names).size() == 0;
     }
 
     private void validateDuplication(final String names) {
@@ -47,21 +47,22 @@ public class Cars {
     }
 
     private boolean hasDuplicatedName(final String names) {
-        return getSplitNamesByDelimiter(names).length !=
-                Arrays.stream(getSplitNamesByDelimiter(names))
+        return getSplitNamesByDelimiter(names).size() !=
+                getSplitNamesByDelimiter(names).stream()
                         .map(Name::new)
                         .collect(Collectors.toSet())
                         .size();
     }
 
     private List<Car> convertToCars(final String names) {
-        return Arrays.stream(getSplitNamesByDelimiter(names))
+        return getSplitNamesByDelimiter(names).stream()
                 .map(Car::new)
                 .toList();
     }
 
-    private String[] getSplitNamesByDelimiter(final String names) {
-        return names.split(NAME_DELIMITER);
+    private List<String> getSplitNamesByDelimiter(final String names) {
+        return Arrays.stream(names.split(NAME_DELIMITER))
+                .toList();
     }
 
     public void moveEachCar() {
