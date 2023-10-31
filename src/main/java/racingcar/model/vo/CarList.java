@@ -1,5 +1,7 @@
 package racingcar.model.vo;
 
+import static racingcar.error.ErrorMessage.NO_REGISTERED_CAR;
+
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
@@ -17,6 +19,10 @@ public record CarList(
                 .map(Car::new)
                 .toList();
 
+        if (carList.isEmpty()) {
+            throw new IllegalArgumentException(NO_REGISTERED_CAR.getMessage());
+        }
+
         return new CarList(carList);
     }
 
@@ -25,10 +31,6 @@ public record CarList(
                 .map(Car::getForwardCount)
                 .reduce(Integer::max)
                 .orElse(0);
-    }
-
-    public boolean isEmpty() {
-        return this.cars.isEmpty();
     }
 
 }
