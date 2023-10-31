@@ -1,6 +1,7 @@
 package racingcar;
 
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
@@ -19,5 +20,18 @@ class WinnerCheckerTest {
         assertThatThrownBy(() -> winnerChecker.getWinnerList(carList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("경주 중 이동한 자동차가 없습니다.");
+    }
+
+    @Test
+    void 우승자를_정상적으로_반환하는가() {
+        Car pobi = new Car("pobi");
+        Car woni = new Car("woni");
+        Car moly = new Car("moly");
+        List<Car> carList = List.of(pobi, woni, moly);
+
+        woni.moveForward();
+        moly.moveForward();
+
+        assertThat(winnerChecker.getWinnerList(carList)).containsExactly("woni", "moly");
     }
 }
