@@ -15,14 +15,15 @@ public class Car {
     }
 
     public boolean validCarName( String nameList ) {
-        List<String> carNameList = List.of( nameList.split(",") );
+        List<String> carNameList = List.of( nameList.trim().split(",") );
+
+        this.checkMinNumber( carNameList );
 
         for ( String carName : carNameList ) {
 
             this.checkNameLength( carName );
             this.checkIsEmpty( carName );
         }
-        this.checkMinNumber( carNameList );
         this.checkIsDuplicate( carNameList );
 
         return true;
@@ -37,7 +38,7 @@ public class Car {
 
     private void checkIsEmpty( String name ) {
 
-        if ( name.isEmpty() ) {
+        if ( name.trim().isEmpty() ) {
             throw new IllegalArgumentException("자동차 이름은 빈 값이 존재할 수 없습니다.");
         }
     }
