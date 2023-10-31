@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class InputRacingInformation {
     public List<String> InputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Constant.INPUT_CAR_NAME);
         String names = Console.readLine();
         StringTokenizer name_st = new StringTokenizer(names, ",");
         List<String> carNames = new ArrayList<>();
@@ -18,7 +18,7 @@ public class InputRacingInformation {
     }
 
     public int round_number() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Constant.INPUT_ROUND_NUMBER);
         try{
             int round = Integer.parseInt(Console.readLine());
             return round;

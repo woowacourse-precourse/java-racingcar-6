@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class race_controller {
-    private int leadCarNumber = 0;
+    private int leadCarNumber;
     private Cars cars;
     private int[] storage;
     private Cars_preparation carGoCountMap;
@@ -71,8 +71,8 @@ public class race_controller {
     }
 
     public boolean isGo() {
-        int go_number = Randoms.pickNumberInRange(0, 9);
-        if (go_number >= 4) {
+        int go_number = Randoms.pickNumberInRange(Constant.MIN_RANDOM_NUM, Constant.MAX_RANDOM_NUM);
+        if (go_number >= Constant.GO_RANDOM_NUM) {
             return true;
         }
         return false;
