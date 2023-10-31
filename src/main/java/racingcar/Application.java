@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        // 경주 게임을 생성하고 시작
+        // 경주 게임 시작
         RaceGame raceGame = createRaceGame();
         raceGame.start();
     }
@@ -32,7 +32,7 @@ public class Application {
         return Integer.parseInt(Console.readLine());
     }
 
-    // 사용자로부터 입력받은 자동차 이름을 검증하고 리스트에 추가
+    // 사용자로부터 입력받은 자동차 이름을 검증하여 리스트에 추가
     private static List<Car> initializeCars() {
         String[] carNames = readCarNames().split(",");
         List<Car> cars = new ArrayList<>();
