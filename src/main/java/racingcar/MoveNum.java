@@ -2,15 +2,15 @@ package racingcar;
 
 public class MoveNum {
     final static int MAX_MOVE_NUM = 10000;
-    int num;
+    private final int value;
 
     MoveNum(String moveNumString) {
         isValidMoveNum(moveNumString);
-        num = Integer.parseInt(moveNumString);
+        value = Integer.parseInt(moveNumString);
     }
 
     boolean isInRange(int currentNum) {
-        return (num > currentNum);
+        return (value > currentNum);
     }
 
     void isValidMoveNum(String moveNumString) throws IllegalArgumentException {
