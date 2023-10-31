@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class InputValidator {
 
-    public void validateCarNamesInput(List<String> carNameList){
+    public void validateCarNamesInput(List<String> carNameList) {
         for (String carName : carNameList) {
             validateCarNameOutOfRange(carName);
         }
@@ -17,41 +17,41 @@ public class InputValidator {
         validateIsCompetitorExist(carNameList);
     }
 
+    public void validateRepeatTimesInput(String repeatTimesInput) {
+        int repeatTimes = Integer.parseInt(repeatTimesInput);
+        validateIsInputInteger(repeatTimesInput);
+        validateIsNumberPositive(repeatTimes);
+    }
+
     private void validateIsCompetitorExist(List<String> carNameList) {
-        if (carNameList.size() == 1){
+        if (carNameList.size() == 1) {
             throw new IllegalArgumentException(COMPETITOR_NOT_EXIST.getMessage());
         }
     }
 
     private void validateCarNameDuplicate(List<String> carNameList) {
         long distinctCount = carNameList.stream().distinct().count();
-        if(distinctCount != carNameList.size()){
+        if (distinctCount != carNameList.size()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATED.getMessage());
         }
     }
 
-    public void validateRepeatTimesInput(String repeatTimesInput) {
-        int repeatTimes = validateIsInputInteger(repeatTimesInput);
-        validateIsNumberPositive(repeatTimes);
-    }
-
-
-    private void validateCarNameOutOfRange(String carName){
-        if(carName.length() > SystemConstant.CAR_NAME_MAX_RANGE){
+    private void validateCarNameOutOfRange(String carName) {
+        if (carName.length() > SystemConstant.CAR_NAME_MAX_RANGE) {
             throw new IllegalArgumentException(INPUT_OUT_OF_RANGE.getMessage());
         }
     }
 
-    private void validateIsNumberPositive(int repeatTimes){
-        if (repeatTimes < 0 ){
+    private void validateIsNumberPositive(int repeatTimes) {
+        if (repeatTimes < 0) {
             throw new IllegalArgumentException(INPUT_POSITIVE_INTEGER_ONLY.getMessage());
         }
     }
 
-    private int validateIsInputInteger(String repeatTimesInput){
+    private void validateIsInputInteger(String repeatTimesInput) {
         try {
-            return Integer.parseInt(repeatTimesInput);
-        } catch (NumberFormatException e){
+            Integer.parseInt(repeatTimesInput);
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INPUT_POSITIVE_INTEGER_ONLY.getMessage());
         }
     }
