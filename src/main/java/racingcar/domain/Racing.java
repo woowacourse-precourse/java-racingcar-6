@@ -1,54 +1,35 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-
-import racingcar.view.PrintMessage;
+import java.util.Map;
 
 public class Racing {
-    private final List<Car> cars;
-    private final int numberOfMoves;
+    private HashMap<String, Integer> score;
 
-    public Racing(List<Car> cars, int numberOfMoves) {
-        this.cars = cars;
-        this.numberOfMoves = numberOfMoves;
+    public Racing(HashMap<String, Integer> score) {
+        this.score = score;
     }
 
-    public void startGame() {
-        for (int i = 0; i < numberOfMoves; i++) {
-            moveCars();
-        }
-        printGameResult();
+    public HashMap<String, Integer> getScore() {
+        return score;
     }
-    
-    private void moveCars() {
-        for (Car car : cars) {
-            car.moveForward();
-        }
-    }
-    
-    private void printGameResult() {
-        List<String> names = new ArrayList<>();
-        for (Car car : cars) {
-            names.add(car.getName());
-        }
-        PrintMessage.printGameResult(names, numberOfMoves);
-    }
-    
+
     public List<String> findWinners() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
+        if(score.isEmpty()) {
+            throw new IllegalArgumentException("게임이 진행되지 않았습니다.");
         }
+        Integer maxScore = Collections.max(score.values());
 
         List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
+        for (Map.Entry<String, Integer> entry : score.entrySet()) {
+            if (entry.getValue().equals(maxScore)) {
+                winners.add(entry.getKey());
             }
         }
 
         return winners;
     }
 }
-

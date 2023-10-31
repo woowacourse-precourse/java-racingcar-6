@@ -1,29 +1,27 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.PrintMessage;
+import java.util.HashMap;
+import java.util.List;
 
 public class GameCondition {
-    private static final GameCondition instance = new GameCondition();
+    private Cars cars;
+    private RandomChance randomChance;
 
-    public static GameCondition getInstance() {
-        return instance;
+    public GameCondition(List<String> names) {
+        this.cars = new Cars(names);
+        this.randomChance = new RandomChance();
     }
 
-    public int getNumberOfMoves() {
-        PrintMessage.printQuestionChanceMessage();
-        return Integer.parseInt(Console.readLine());
+    public void race() {
+        cars.moveCar(randomChance);
+    } 
 
-    }
-
-    public int forwardCar() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    public boolean shouldCarMove() {
-        int random = Randoms.pickNumberInRange(0, 9);
-        return random >= 4;
+    public Racing racing() {
+        HashMap<String, Integer> score = new HashMap<>();
+        for (Car car : cars.getCars()) {
+            score.put(car.getName(), car.getPosition());
+        }
+        return new Racing(score);
     }
 
 }

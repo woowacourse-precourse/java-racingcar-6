@@ -1,42 +1,29 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.Map;
 
 public class PrintMessage {
-	public PrintMessage() {}
-	
-	public static String START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-	public static String QUESTION_CHANCE = "시도할 회수는 몇회인가요?";
-	public static String GAME_RESULT = "실행 결과";
-	public static String END_GAME = "최종 우승자 : ";
-	public static String DELIMITER = ",";
-	public static String RACING_RESULT_BAR = "-";
+  	private static final String RESULT_MESSAGE = "\n실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자 : %s";
+    private static final String CAR_MOVEING_HISTROY = "-";
+    private static final String COLON = " : ";
 
-	public static void printRacingWinner(List<String> winners){
-		System.out.println(END_GAME + String.join(DELIMITER, winners));
-	}
+    public void printNotice() {
+        System.out.println(RESULT_MESSAGE);
+    }
 
-	public static void printStartMessage(){
-		System.out.println(START_MESSAGE);
-	}
+    public void printRacingResult(Map<String, Integer> history) {
+        for (String name : history.keySet()) {
+            Integer positionValue = history.get(name);
+            System.out.println(
+                    name + COLON + CAR_MOVEING_HISTROY.repeat(positionValue));
+        }
+        System.out.println();
+    }
 
-	public static void printQuestionChanceMessage(){
-		System.out.println(QUESTION_CHANCE);
-	}
-	
-	public static void printGameResult(List<String> names, int numberOfMoves) {
-		for (String name : names) {
-			System.out.println(name + " : " + RACING_RESULT_BAR.repeat(numberOfMoves));
-		}
-		System.out.println();
-	}
-	
-
+    public void printWinner(List<String> winners) {
+        String winnerNames = winners.toString();
+        System.out.printf(WINNER_MESSAGE, winnerNames.substring(1, winnerNames.length()-1));
+    }
 }
-
-	
-
-
-
-
-
