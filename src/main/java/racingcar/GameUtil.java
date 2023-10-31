@@ -19,5 +19,4 @@ public class GameUtil {
         return carsList;
     }
 
-
 }
