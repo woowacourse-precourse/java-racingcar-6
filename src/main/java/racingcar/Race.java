@@ -1,8 +1,6 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,11 +8,16 @@ public class Race {
 
     private List<Driver> participants = new ArrayList<>();
     private int numbersOfRace;
+    private static final int MIN_RACES = 1;
+    private static final int MAX_RACES = 5;
 
-    public Race(){}
 
+    private Race(){}
+    public static Race toRaceManager(){
+        return new Race();
+    }
     public void start(){
-        System.out.println("실행 결과");
+        System.out.println(UserMessages.RACE_RESULT);
         for (int raceTime = 0; raceTime < this.numbersOfRace; raceTime++){
             for (Driver driver : this.participants){
                 driver.drive();
@@ -25,32 +28,38 @@ public class Race {
     }
 
     private void printDriverDistance(Driver driver) {
-        String repeatedDash = String.join("", Collections.nCopies(driver.getScore(), "-"));
+        String repeatedDash = "-".repeat(driver.getScore());
         System.out.println(driver.getName() + " : " + repeatedDash);
     }
 
 
-    public void setNumbersOfRaces(int numbersOfRace){
-        if (numbersOfRace > 5 || numbersOfRace < 1){
-            throw new IllegalArgumentException("경주 횟수는 1이상 5 이하로 입력");
+    public void setNumberOfRaces(int numbersOfRace){
+        if (numbersOfRace > MAX_RACES || numbersOfRace < MIN_RACES){
+            throw new IllegalArgumentException(UserMessages.INVALID_NUMBER_INPUT.getContent());
         }
         this.numbersOfRace = numbersOfRace;
     }
 
-    public List<Driver> getWinner() {
-
-        int maxDistance = this.participants.stream()
-                .mapToInt(Driver::getScore)
-                .max()
-                .orElse(0);
+    public List<Driver> getWinners() {
+        int maxDistance = findMaxDistance();
 
         return this.participants.stream()
                 .filter(driver -> driver.getScore() == maxDistance)
                 .collect(Collectors.toList());
     }
 
+    private int findMaxDistance() {
+        return this.participants.stream()
+                .mapToInt(Driver::getScore)
+                .max()
+                .orElse(0);
+    }
+
+
     public void addParticipant(String driverName) {
-        this.participants.add(Driver.of(driverName));
+        Car car = new Car();
+        Driver driver = Driver.of(driverName, car);
+        this.participants.add(driver);
     }
 
 }

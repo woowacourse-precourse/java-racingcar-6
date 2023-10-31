@@ -10,17 +10,14 @@ public class Driver {
     private int score;
     private Car car;
 
-    public Driver(String name){
-        this.name = new Name(name);
+    private Driver(String name, Car car){
+        this.name = Name.of(name);
         this.score = 0;
-        this.car = new Car();
+        this.car = car;
     }
 
-    public static Driver of(String name){
-        if (name.length() > 5){
-            throw new IllegalArgumentException("이름은 5글자 이하");
-        }
-        return new Driver(name);
+    public static Driver of(String name, Car car){
+        return new Driver(name, car);
     }
 
     public void drive() {
