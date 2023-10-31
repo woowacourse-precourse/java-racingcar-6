@@ -14,7 +14,7 @@ public class CarTest {
   @Test
   public void 자동차_움직임_검증() {
     Car car = new Car("dog");
-    car.move(4);
+    car.move();
     assertEquals(1, car.getPosition());
   }
 }
