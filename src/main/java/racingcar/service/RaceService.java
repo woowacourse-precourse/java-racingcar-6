@@ -12,4 +12,9 @@ public class RaceService {
     public void initializeRace(String attemptCountInput, String carNamesInput) {
         race.initializeRace(attemptCountInput, carNamesInput);
     }
+
+    public void advanceRace() {
+        race.advanceFullRound();
+    }
+
 }
