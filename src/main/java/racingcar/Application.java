@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class Application {
 
         // 자동차 이름 입력
         String carName = Console.readLine();
-        
+
         // 입력된 자동차 이름을 (,)기준으로 split
         String[] carNames = carName.split(",");
 
@@ -35,6 +36,31 @@ public class Application {
         // 잘못된 입력에 대해 IllegalArgumentException 발생
         if (attempts <= 0) {
             throw new IllegalArgumentException();
+        }
+
+        // 실행 결과 문구 출력
+        System.out.println();
+        System.out.println("실행 결과");
+
+        // 전진 결과를 저장
+        int[] carForward = new int[carNames.length];
+
+        // 각 자동차 값 4 이상일 때 전진, 회차별 결과 출력
+        for (int i = 0; i < attempts; i++) {
+            for (int j = 0; j < carNames.length; j++) {
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                if (randomNumber >= 4) {
+                    carForward[j]++;
+                }
+            }
+            for (int j = 0; j < carNames.length; j++) {
+                System.out.print(carNames[j] + " : ");
+                for (int k = 0; k < carForward[j]; k++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println();
         }
     }
 }
