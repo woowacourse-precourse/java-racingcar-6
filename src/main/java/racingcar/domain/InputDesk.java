@@ -8,6 +8,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class InputDesk {
     private List<String> cars = new ArrayList<>();
     private int count;
+    private final int ERR_NUM = Integer.MIN_VALUE;
 
     public List<String> getCars() {
         return cars;
@@ -17,11 +18,23 @@ public class InputDesk {
         return count;
     }
 
-    public void checkIsNull(String inputStr) {
+    public boolean checkIsNull(String inputStr) {
         if (inputStr == null) {
             throw new IllegalArgumentException("사용자 입력값 null");
         }
+        return true;
     }
+
+    public boolean checkIsInt(String inputStr) {
+        try {
+            Integer.parseInt(inputStr);
+            return true;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("사용자 입력값 null");
+        }
+
+    }
+
 
     public void checkIllegalArgumentException(String carName) {
 
@@ -60,16 +73,26 @@ public class InputDesk {
 
     }
 
+    public int validateInputCount(String inputStr) {
+        int inputCount = ERR_NUM;
+
+        try {
+            if (checkIsNull(inputStr) && checkIsInt(inputStr)) {
+                inputCount = Integer.parseInt(inputStr);
+                checkIllegalArgumentException(inputCount);
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        } finally {
+            return inputCount;
+        }
+    }
+
     public void inputCounts() {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
             String inputStr = Console.readLine();
-            checkIsNull(inputStr);
-            int inputCount = Integer.parseInt(inputStr);
-            if (inputCount < 1) {
-                checkIllegalArgumentException(inputCount);
-            }
-            count = inputCount;
+            count = validateInputCount(inputStr);
         } catch (IllegalArgumentException e) {
             throw e;
         }
