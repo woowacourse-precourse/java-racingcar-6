@@ -20,10 +20,7 @@ public class Application {
     }
 
     public static void startGame(){
-        List<String> carNames = inputCarNames();
-        int tryCnt = inputTryCnt();
-
-        racingGame = new RacingGame(carNames, tryCnt);
+        racingGame = new RacingGame(inputCarNames(), inputTryCnt());
 
         view.println(RUN_RESULT);
         while (!racingGame.isEndGame()){
