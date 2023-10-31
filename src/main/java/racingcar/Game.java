@@ -32,6 +32,23 @@ public class Game {
         }
     }
 
+    // 랜덤 숫자가 4 이상이면 전진, 아니면 제자리
+    boolean isGo() {
+        int randNum = Randoms.pickNumberInRange(0, 9);
+        return randNum >= 4;
+    }
+
+    // 매 라운드 진행
+    // 랜덤 숫자 4 이상인지 확인
+    void round() {
+        for (int i = 0; i < cars.size(); i++) {
+            if (isGo()) {
+                int curMoveNum = car[i].getMoveNum();
+                car[i].setMoveNum(curMoveNum + 1);
+            }
+        }
+    }
+
     void startGame() {
         initCar();
     }
