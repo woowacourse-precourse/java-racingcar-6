@@ -26,6 +26,22 @@ public class Round {
         return roundResult;
     }
 
+    public List<CarDTO> calculateFurthestCarInfo(List<List<CarDTO>> EachRoundResult) {
+        // 가장 마지막 라운드의 결과 추출
+        List<CarDTO> lastRoundResult = EachRoundResult.get(EachRoundResult.size() - 1);
+
+        // 가장 멀리 이동한 위치 계산
+        int maxPosition = lastRoundResult.stream()
+                .mapToInt(CarDTO::getPosition)
+                .max()
+                .orElse(0);
+
+        // 가정 멀리 이동한 위치에 있는 모든 자동차 정보 반환
+        return lastRoundResult.stream()
+                .filter(carDTO -> carDTO.getPosition() == maxPosition)
+                .collect(Collectors.toList());
+    }
+
     public static int getCurrentRoundCount() {
         return currentRoundCount;
     }
