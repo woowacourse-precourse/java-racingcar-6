@@ -33,12 +33,15 @@ public class Race {
         return carNames;
     }
 
+    public int getSize() {
+        return carList.size();
+    }
+
     public void moveCars() {
         for (Car car : carList) {
             int randomNumber = RandomGenerator.createNumber();
             if (randomNumber >= CAN_MOVE) {
                 car.moveForward();
-
             }
         }
     }
@@ -66,4 +69,6 @@ public class Race {
         List<Integer> result = getRoundResult();
         return Collections.max(result);
     }
+
+
 }
