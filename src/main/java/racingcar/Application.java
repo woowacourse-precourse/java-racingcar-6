@@ -51,9 +51,12 @@ public class Application {
     public static void Try_Number() {
         String Input_TryNumber = readLine();
         if (isInteger(Input_TryNumber) == false) {
-            throw new IllegalArgumentException();
+            Error();
         }
         TryNumber = Integer.parseInt(Input_TryNumber);
+        if (TryNumber < 0) {
+            Error();
+        }
     }
 
     public static void Error() {
