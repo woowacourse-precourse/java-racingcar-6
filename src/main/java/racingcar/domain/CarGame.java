@@ -22,9 +22,10 @@ public class CarGame {
     public CarDTO.ProgressResult race(NumberGenerator generator) {
         CarDTO.ProgressResult progressResult = new CarDTO.ProgressResult(new ArrayList<>());
 
-        for (int i = 0; gameRound.isRunning(i); i++) {
+        while (gameRound.isRunning()) {
             cars.moveAll(generator);
             progressResult.addResult(cars.getStatus());
+            gameRound.nextRound();
         }
 
         return progressResult;

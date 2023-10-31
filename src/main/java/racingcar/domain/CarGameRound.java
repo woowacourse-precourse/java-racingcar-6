@@ -1,6 +1,13 @@
 package racingcar.domain;
 
-public record CarGameRound(int gameRound) {
+public class CarGameRound {
+
+    private final int finishGameRound;
+    private int currentGameRound;
+
+    public CarGameRound(int finishGameRound) {
+        this.finishGameRound = finishGameRound;
+    }
 
     private static final String GAMR_ROUND_MUST_DIGIT = "시도할 횟수는 숫자이어야 합니다.";
 
@@ -12,7 +19,11 @@ public record CarGameRound(int gameRound) {
         }
     }
 
-    public boolean isRunning(int currentRound) {
-        return gameRound > currentRound;
+    public boolean isRunning() {
+        return finishGameRound > currentGameRound;
+    }
+
+    public void nextRound() {
+        currentGameRound += 1;
     }
 }
