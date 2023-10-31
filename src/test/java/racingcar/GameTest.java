@@ -1,25 +1,20 @@
 package racingcar;
 
-import java.sql.Array;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.CarGameController;
 import racingcar.model.Car;
-import racingcar.model.Cars;
 import racingcar.model.Game;
 
 public class GameTest {
 
-    Game game;
+    private Game game;
 
 
     @BeforeEach
@@ -31,9 +26,12 @@ public class GameTest {
     @Test
     void 자동차_이름_분리_테스트() {
 
-        String input = "pobi,jun,king,pobi,pobi";
+        String input = "pobi,jun,king,pom";
         String[] inputs = input.split(",");
         List<String> carNameList = game.splitCarName(input);
+
+        assertThat(carNameList).contains("pobi","pom","jun","pobi","king");
+        assertThat(carNameList).containsExactly("pobi","jun","king","pom");
 
         for (int i = 0; i < carNameList.size(); i++) {
             Assertions.assertTrue(carNameList.get(i).length() <= 5);

@@ -6,7 +6,6 @@ public class Car {
 
     private final int RANDOM_START_NUMBER = 0;
     private final int RANDOM_END_NUMBER = 0;
-
     private int position;
     private final String name;
 

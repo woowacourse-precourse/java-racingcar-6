@@ -1,16 +1,10 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
-import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.Game;
+
 
 public class CarTest {
 
@@ -32,7 +26,6 @@ public class CarTest {
         int carNumber = car.createRandomNumber();
         Assertions.assertTrue(carNumber >= 0 && carNumber <= 9);
     }
-
 
     @Test
     void 자동차_이름_게터_테스트() {
