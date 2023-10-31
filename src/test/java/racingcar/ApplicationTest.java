@@ -54,6 +54,13 @@ class ApplicationTest extends NsTest {
         assertThat(rg.racingCars).extracting("name").contains("Kim", "Park", "Lee");
     }
 
+    @Test
+    void 자동차_단일_처리() {
+        String name = "Kim";
+        RacingGame rg = new RacingGame(name);
+        rg.playGame(1);
+        assertThat(output()).contains("Kim : ", "최종 우승자 : Kim");
+    }
 
     @Override
     public void runMain() {
