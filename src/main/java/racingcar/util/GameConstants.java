@@ -18,4 +18,10 @@ public class GameConstants {
     public static final int MINIMUM_GENERATED_NUM = 0;
     public static final int MAXIMUM_GENERATED_NUM = 9;
     public static final int STANDARD_MOVEMENT = 4;
+
+    // 초기 위치
+    public static final int INITIAL_POSITION = 0;
+
+    // 출력 토큰
+    public static final String OUTPUT_TOKEN = "-";
 }
