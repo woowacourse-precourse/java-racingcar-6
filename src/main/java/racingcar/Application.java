@@ -102,7 +102,7 @@ public class Application {
             System.out.println("시도할 회수는 몇회인가요?");
             String input = Console.readLine();
 
-            if (!checkisDigit(input)) {
+            if (!checkIsDigit(input)) {
                 throw new IllegalArgumentException("숫자만 입력하세요");
             } else if (!checkNegative(input)) {
                 throw new IllegalArgumentException("양수만 입력하세요");
@@ -116,7 +116,7 @@ public class Application {
         return num;
     }
 
-    private static boolean checkisDigit(String s) {
+    private static boolean checkIsDigit(String s) {
         boolean flag = true;
 
         for (int i = 0; i < s.length(); i++) {
