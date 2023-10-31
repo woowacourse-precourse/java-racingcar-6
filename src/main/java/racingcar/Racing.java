@@ -19,12 +19,17 @@ public class Racing {
     public void playRacing() {
     }
 
-    private void tryOnce() {
+    public void tryOnce() {
         playerList.stream()
                 .forEach(car -> car.move());
     }
 
-    private void printResult() {
+    public void printResult() {
+        playerList.stream()
+                .forEach(car -> {
+                    System.out.println(car.getCarName() + " : " + "-".repeat(car.getPosition()));
+                });
+        System.out.println("");
     }
 
     public void printWinner() {
