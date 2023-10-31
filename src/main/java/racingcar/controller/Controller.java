@@ -24,11 +24,10 @@ public class Controller {
         outputView.displayCarNameInputMessage();
         List<Car> carList = prepareCarList();
 
-        outputView.displayTryCountInputMessage();
-        int tryNumber = inputView.inputTry();
+        int tryCount = getTryCount();
 
         outputView.displayResultGuideMessage();
-        executeRaces(carList, tryNumber);
+        executeRaces(carList, tryCount);
 
         announceWinner(carList);
     }
@@ -41,6 +40,13 @@ public class Controller {
         }
         validator.checkDuplicateName(list);
         return list;
+    }
+
+    private int getTryCount() {
+        outputView.displayTryCountInputMessage();
+        String tryCount = inputView.inputTryCount();
+        validator.checkTryCountInput(tryCount);
+        return Integer.parseInt(tryCount);
     }
 
     private void executeRaces(List<Car> list, int tryNumber) {

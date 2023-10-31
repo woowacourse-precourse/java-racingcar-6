@@ -25,4 +25,10 @@ public class Validator {
             throw new IllegalArgumentException("Name must not be duplicated");
         }
     }
+
+    public void checkTryCountInput(String tryCount) {
+        if (tryCount.length() >= 10) {
+            throw new IllegalArgumentException("Too many try count");
+        }
+    }
 }

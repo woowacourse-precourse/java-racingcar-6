@@ -7,7 +7,7 @@ public class InputView {
         return Console.readLine().split(",");
     }
 
-    public int inputTry() {
-        return Integer.parseInt(Console.readLine());
+    public String inputTryCount() {
+        return Console.readLine();
     }
 }
