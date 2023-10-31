@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static racingcar.view.Message.RESULT;
+import static racingcar.view.Constants.RESULT;
 
 public class OutputView {
 

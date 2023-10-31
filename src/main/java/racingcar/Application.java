@@ -1,14 +1,24 @@
 package racingcar;
 
-import racingcar.view.InputView;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        String input = InputView.inputName();
-        System.out.println(input);
+        String input = "조나단,김치,라면";
+        boolean isValidInput = isValidInputString(input);
 
-        String input1 = InputView.inputAttempt();
-        System.out.println(input1);
+        if (isValidInput) {
+            System.out.println("입력이 유효합니다.");
+        } else {
+            System.out.println("입력이 유효하지 않습니다.");
+        }
+    }
+
+    public static boolean isValidInputString(String input) {
+        String regex = "^[\\w]+[\\w,]*[\\w]$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
     }
 }
