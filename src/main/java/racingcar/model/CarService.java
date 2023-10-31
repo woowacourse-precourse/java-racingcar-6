@@ -23,7 +23,7 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public void FowardCars(){
+    public void fowardCars(){
         List<Car> cars = getAllCars();
         for(Car car : cars){
             if (FOWARD_CONDITION <= getRandomNumber()){

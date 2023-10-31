@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.controller.utils.CarNameValidator;
 import racingcar.controller.utils.StringParser;
+import racingcar.controller.utils.TrialNumberValidator;
 import racingcar.model.Car;
 import racingcar.model.CarService;
 import racingcar.view.GameView;
@@ -13,6 +14,7 @@ public class GameController {
     private final GameView view;
     private final StringParser stringParser = new StringParser();
     private final CarNameValidator carNameValidator = new CarNameValidator();
+    private final TrialNumberValidator trialNumberValidator = new TrialNumberValidator();
 
     public GameController(CarService model, GameView view) {
         this.model = model;
@@ -29,10 +31,13 @@ public class GameController {
         input = view.inputCarName();
         carNameValidator.validateCarNameInput(input);
         carNames = stringParser.splitCarNames(input);
+
         cars = createCarObject(carNames);
         model.saveAllCars(cars);
 
-        trialNumber = stringParser.toInteger(view.inputTrialNumber());
+        input = view.inputTrialNumber();
+        trialNumberValidator.validateTrialNumber(input);
+        trialNumber = stringParser.toInteger(input);
         gameStart(trialNumber);
 
         winnerNames = model.getCarNameWithLongestDistance();
@@ -53,7 +58,7 @@ public class GameController {
 
         view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
-            model.FowardCars();
+            model.fowardCars();
             for(Car car : cars){
                 view.printCurrentStatus(car.getName(), car.getCurrentLocation());
             }
