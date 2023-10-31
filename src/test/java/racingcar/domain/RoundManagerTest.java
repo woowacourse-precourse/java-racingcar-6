@@ -14,7 +14,7 @@ class RoundManagerTest {
 
     private final RoundManager roundManager = new RoundManager();
 
-    private List<Car> cars = Arrays.asList(new Car("pobi",3));
+    private List<Car> cars = Arrays.asList(new Car("pobi", 3));
 
     @Test
     void 랜덤값이_4이상인_전진하는_경우() {
@@ -32,7 +32,7 @@ class RoundManagerTest {
     @Test
     void 랜덤값이_4미만인_전진하지않는_경우() {
         assertRandomNumberInRangeTest(
-                ()->{
+                () -> {
                     roundManager.moveCars(cars);
                     assertThat(cars.get(0).getTotalMovedDistance())
                             .isEqualTo(3);

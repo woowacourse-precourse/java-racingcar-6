@@ -14,7 +14,7 @@ class RefereeTest {
     @Nested
     class SingleWinnerTests {
         @ParameterizedTest
-        @CsvSource({"4,3,2,pobi","1,2,3,jun","2,5,4,woni"})
+        @CsvSource({"4,3,2,pobi", "1,2,3,jun", "2,5,4,woni"})
         void 단독우승자인경우(int pobiDistance, int woniDistance, int junDistance, String expectedWinners) {
             List<Car> cars = new ArrayList<>();
             cars.add(new Car("pobi", pobiDistance));
@@ -30,7 +30,7 @@ class RefereeTest {
     @Nested
     class MultipleWinnersTests {
         @ParameterizedTest
-        @CsvSource(value = {"4:4:4:pobi,woni,jun","4:2:4:pobi,jun","0:1:1:woni,jun"}, delimiter = ':')
+        @CsvSource(value = {"4:4:4:pobi,woni,jun", "4:2:4:pobi,jun", "0:1:1:woni,jun"}, delimiter = ':')
         void 공동우승자인경우(int pobiDistance, int woniDistance, int junDistance, String expectedWinners) {
             List<Car> cars = new ArrayList<>();
             cars.add(new Car("pobi", pobiDistance));

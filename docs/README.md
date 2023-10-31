@@ -1,6 +1,9 @@
 ## 📝 구현 대상
+
 ### 자동차 경주
+
 ### - 클래스 다이어그램
+
 <img src="img/class.png">
 
 ### - 기능 목록 정리
@@ -52,4 +55,4 @@
         1. gameStart 기능
         2. gameRunning 기능
         3. gameEnd 기능
-            <br><br>
+           <br><br>

@@ -13,9 +13,9 @@ public class CarNameVerifier implements Verifier {
         checkCarNameLength(carNames);
     }
 
-    private void checkCarNameLength(List<String> carNames){
+    private void checkCarNameLength(List<String> carNames) {
         carNames.forEach(carName -> {
-            if(carName.length()> SystemConstant.MAX_CAR_NAME_LENGTH)
+            if (carName.length() > SystemConstant.MAX_CAR_NAME_LENGTH)
                 throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME);
         });
     }

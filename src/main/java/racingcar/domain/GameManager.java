@@ -14,39 +14,42 @@ public class GameManager {
     private final List<Car> raceCars;
     private final int attempts;
 
-    public GameManager(){
+    public GameManager() {
         raceCars = initRaceCars();
         attempts = initAttempts();
     }
 
-    public void run(){
+    public void run() {
         gameStart();
         gameRunning();
         gameEnd();
     }
+
     private void gameStart() {
         outputView.printGameStartMessage();
     }
+
     private void gameRunning() {
-        IntStream.range(0,attempts).forEach(i -> playSingeRound());
+        IntStream.range(0, attempts).forEach(i -> playSingeRound());
     }
+
     private void gameEnd() {
         List<String> winnerCarNames = Referee.determineWinner(this.raceCars);
         outputView.printWinners(winnerCarNames);
     }
 
-    private List<Car> initRaceCars(){
+    private List<Car> initRaceCars() {
         List<String> carNames = inputView.getCarNames();
         return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
 
-    private int initAttempts(){
+    private int initAttempts() {
         return inputView.getAttempts();
     }
 
-    private void playSingeRound(){
+    private void playSingeRound() {
         roundManager.moveCars(raceCars);
         outputView.printRoundResult(raceCars);
     }

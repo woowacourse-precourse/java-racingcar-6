@@ -11,11 +11,12 @@ public class OutputView {
 
     private final String DELIMITER = ", ";
 
-    public void printGameStartMessage(){
-        System.out.println("\n"+GAME_START_MESSAGE);
+    public void printGameStartMessage() {
+        System.out.println("\n" + GAME_START_MESSAGE);
     }
-    public void printRoundResult(List<Car> cars){
-        for(Car car : cars){
+
+    public void printRoundResult(List<Car> cars) {
+        for (Car car : cars) {
             makeRoundResultMessage(car);
         }
         System.out.println();
@@ -26,11 +27,11 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public void printWinners(List<String> cars){
+    public void printWinners(List<String> cars) {
         System.out.println(makeGameResultMessage(cars));
     }
 
-    private String makeGameResultMessage(List<String> cars){
-        return WINNER_OUTPUT_MESSAGE + String.join(DELIMITER,cars);
+    private String makeGameResultMessage(List<String> cars) {
+        return WINNER_OUTPUT_MESSAGE + String.join(DELIMITER, cars);
     }
 }

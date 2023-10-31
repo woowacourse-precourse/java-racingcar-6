@@ -17,14 +17,15 @@ public class InputView {
     private final Verifier carNameVerifier = new CarNameVerifier();
 
     private final Verifier attemptsNumVerifier = new AttemptsNumVerifier();
-    public List<String> getCarNames(){
+
+    public List<String> getCarNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNames = Console.readLine();
         carNameVerifier.check(carNames);
         return Arrays.asList(carNames.split(","));
     }
 
-    public Integer getAttempts(){
+    public Integer getAttempts() {
         System.out.println(ATTEMPTS_INPUT_MESSAGE);
         String attempts = Console.readLine();
         attemptsNumVerifier.check(attempts);

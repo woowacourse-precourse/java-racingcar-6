@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 
 class InputViewTest extends NsTest {
 
-    private final List<String> answer = Arrays.asList("pobi","woni","jun");
+    private final List<String> answer = Arrays.asList("pobi", "woni", "jun");
     private final InputView inputView = new InputView();
 
     @Test
