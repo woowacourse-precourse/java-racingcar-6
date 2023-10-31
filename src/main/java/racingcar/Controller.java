@@ -21,6 +21,8 @@ public class Controller {
         return nameValidation(names);
     }
 
-
+    public int tryCountInput() {
+        return Integer.parseInt(Console.readLine());
+    }
 
 }
