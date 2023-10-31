@@ -1,15 +1,13 @@
 package racingcar.domain;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class CarTest extends NsTest {
+public class CarTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private static final String CAR_NAME = "car";
@@ -72,11 +70,5 @@ public class CarTest extends NsTest {
         //then
         assertEquals(car1.getPosition(), 1);
         assertEquals(car2.getPosition(), 0);
-    }
-
-    @Override
-    protected void runMain() {
-        Car car = new Car(CAR_NAME);
-        car.moveForward(MOVING_FORWARD);
     }
 }
