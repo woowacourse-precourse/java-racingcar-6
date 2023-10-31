@@ -34,6 +34,6 @@ public class Game {
     }
 
     private void getWinners(){
-        cars.getWinners();
+        OutputView.finalGameResult(cars.winnersToString());
     }
 }

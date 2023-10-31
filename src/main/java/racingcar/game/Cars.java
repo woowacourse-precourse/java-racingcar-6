@@ -46,17 +46,12 @@ public class Cars {
         return winners;
     }
 
-    public void getWinners(){
-        // TODO: 위치를 고민해 봐야 할 메서드
-        OutputView.finalGameResult(winnersToString(getMaxOfScores()));
-    }
-
-    public String winnersToString(ArrayList<Car> winners){
-        ArrayList<String> carNames = getCarNames(winners);
+    public String winnersToString(){
+        ArrayList<String> carNames = getCarNames(getMaxOfScores());
         return String.join(DELIMITER_WITH_BLANK.getValue(), carNames);
     }
 
-    public ArrayList<String> getCarNames(ArrayList<Car> cars) {
+    public ArrayList<String> getCarNames(ArrayList<Car> cars){
         ArrayList<String> carNames = new ArrayList<>();
         for (Car car : cars) {
             carNames.add(car.getCarName());
