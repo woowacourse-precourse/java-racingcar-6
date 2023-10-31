@@ -50,13 +50,13 @@ public class GameProcess {
         makeNameOfCurrentCarListFromStringLine();
 
         for (String nameOfRaceCar : nameSplitList) {
-            newRaceCar = generateNewRaceCar(nameOfRaceCar);
+            newRaceCar = generateRaceCar(nameOfRaceCar);
             AddRaceCar2CurrentList(newRaceCar);
         }
     }
 
 
-    private RaceCar generateNewRaceCar(String nameOfRaceCar) {
+    private RaceCar generateRaceCar(String nameOfRaceCar) {
         return new RaceCar(nameOfRaceCar);
     }
 
