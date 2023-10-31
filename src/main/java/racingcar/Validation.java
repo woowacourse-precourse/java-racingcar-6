@@ -73,10 +73,18 @@ public class Validation {
         return false;
     }
 
-    public static boolean isCorrectComma(List<String> members, int inputSize) {
-        if (members.size() - (inputSize - members.size()) == 1) {
+    public static boolean isCorrectComma(List<String> members, String input) {
+        int cnt = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == ',') {
+                cnt++;
+            }
+        }
+
+        if (members.size() - 1 == cnt) {
             return true;
         }
+
         return false;
     }
 }
