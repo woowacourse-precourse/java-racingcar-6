@@ -1,8 +1,9 @@
 package racingcar.race;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class NumberTimeTryExceptionProcessingTest {
 
@@ -10,33 +11,34 @@ public class NumberTimeTryExceptionProcessingTest {
     public void testCheckNumberWithValidRange() {
         int validNumber = 100; // 유효한 범위 내의 숫자
         int result = NumberTimeTryExceptionProcessing.checkNumber(validNumber);
-        assertEquals(validNumber, result);
+        assertThat(result).isEqualTo(validNumber);
     }
 
     @Test
     public void testCheckNumberWithMinValue() {
-        int minValue = 1; // 최소 유효 범위 내의 숫자
+        int minValue = 1;
         int result = NumberTimeTryExceptionProcessing.checkNumber(minValue);
-        assertEquals(minValue, result);
+        assertThat(result).isEqualTo(minValue);
     }
 
     @Test
     public void testCheckNumberWithMaxValue() {
-        int maxValue = 2_147_483_646; // 최대 유효 범위 내의 숫자
+        int maxValue = 2_147_483_646;
         int result = NumberTimeTryExceptionProcessing.checkNumber(maxValue);
-        assertEquals(maxValue, result);
+        assertThat(result).isEqualTo(maxValue);
     }
 
     @Test
     public void testCheckNumberBelowMinValue() {
-        int belowMinValue = 0; // 최소 범위 미만의 숫자
-        assertThrows(IllegalArgumentException.class, () -> NumberTimeTryExceptionProcessing.checkNumber(belowMinValue));
+        int belowMinValue = 0;
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> NumberTimeTryExceptionProcessing.checkNumber(belowMinValue));
     }
 
     @Test
     public void testCheckNumberAboveMaxValue() {
-        int aboveMaxValue = 2_147_483_647; // 최대 범위 초과의 숫자
-        assertThrows(IllegalArgumentException.class, () -> NumberTimeTryExceptionProcessing.checkNumber(aboveMaxValue));
+        int aboveMaxValue = 2_147_483_647;
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> NumberTimeTryExceptionProcessing.checkNumber(aboveMaxValue));
     }
 }
-

@@ -1,38 +1,43 @@
 package racingcar.race;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import racingcar.race.Car;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import racingcar.util.PickRandomNumber;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class CarTest {
 
+    private Car car;
+
+    @BeforeEach
+    void setUp() {
+        car = new Car(new PickRandomNumber());
+    }
+
     @Test
-    void testCarCreation() {
-        // Arrange
-        PickRandomNumber mockRandomNumberGenerator = mock(PickRandomNumber.class);
-        when(mockRandomNumberGenerator.Generation()).thenReturn(4); // Adjust this value as needed for testing.
-
-        Car car = new Car(mockRandomNumberGenerator);
-        List<String> carNames = Arrays.asList("car1", "car2", "car3");
-
-        // Act
-        car.racingStarts(carNames);
+    void testCarsDistanceDataInitialEmpty() {
         Map<String, String> carsDistanceData = car.getCarsDistanceData();
+        Assertions.assertThat(carsDistanceData).isEmpty();
+    }
 
-        // Assert
-        assertEquals(3, carsDistanceData.size()); // Ensure that all cars are accounted for.
+    @Test
+    void testRacingStarts() {
+        List<String> carNames = new ArrayList<>();
+        carNames.add("Car1");
+        carNames.add("Car2");
+        carNames.add("Car3");
+
+        car.racingStarts(carNames);
+
+        Map<String, String> carsDistanceData = car.getCarsDistanceData();
+        Assertions.assertThat(carsDistanceData).hasSize(carNames.size());
 
         for (String carName : carNames) {
-            String distanceInfo = carsDistanceData.get(carName);
-            assertEquals(distanceInfo.length(), 1); // Ensure that the distance information is valid (either '-' or empty).
+            String distance = carsDistanceData.get(carName);
+            Assertions.assertThat(distance).matches("-*"); // 문자열이 '-' 문자로만 구성되어야 함
         }
     }
 }

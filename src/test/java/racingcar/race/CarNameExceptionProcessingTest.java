@@ -1,20 +1,22 @@
 package racingcar.race;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.Test;
 
 public class CarNameExceptionProcessingTest {
-
 
     @Test
     public void testCheckEmpty() {
         String validCarName = "Car";
         String invalidCarName = "";
 
-        assertDoesNotThrow(() -> CarNameExceptionProcessing.checkEmpty(validCarName));
-        assertThrows(IllegalArgumentException.class, () -> CarNameExceptionProcessing.checkEmpty(invalidCarName));
+        assertThatCode(() -> CarNameExceptionProcessing.checkEmpty(validCarName))
+                .doesNotThrowAnyException();
+
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> CarNameExceptionProcessing.checkEmpty(invalidCarName));
     }
 
     @Test
@@ -22,8 +24,12 @@ public class CarNameExceptionProcessingTest {
         String validCarName = "Car";
         String invalidCarName = " ";
 
-        assertDoesNotThrow(() -> CarNameExceptionProcessing.checkEquals(validCarName));
-        assertThrows(IllegalArgumentException.class, () -> CarNameExceptionProcessing.checkEquals(invalidCarName));
+        assertThatCode(() -> CarNameExceptionProcessing.checkEquals(validCarName))
+                .doesNotThrowAnyException();
+
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> CarNameExceptionProcessing.checkEquals(invalidCarName));
     }
 }
+
 

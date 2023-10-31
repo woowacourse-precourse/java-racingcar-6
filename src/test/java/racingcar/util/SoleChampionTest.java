@@ -12,18 +12,15 @@ public class SoleChampionTest {
     @Test
     public void testFinalWinnerOutput() {
 
-        //given
         SoleChampion soleChampion = new SoleChampion();
         List<String> winnerInformation = Arrays.asList("Car1", "Car2", "Car3");
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-        //when
         System.setOut(new PrintStream(outputStream));
         soleChampion.finalWinnerOutput(winnerInformation);
         System.setOut(System.out);
         String expectedOutput = "Car1, Car2, Car3\r\n";
 
-        //then
         Assertions.assertThat(expectedOutput).isEqualTo(outputStream.toString());
 
     }

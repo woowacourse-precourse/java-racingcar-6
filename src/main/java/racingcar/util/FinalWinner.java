@@ -9,6 +9,10 @@ public class FinalWinner {
     private static final int SOLE_CHAMPION = 1;
     private final List<String> winnerInformation = new LinkedList<>();
 
+    public List<String> getWinnerInformation() {
+        return winnerInformation;
+    }
+
     public void carsDistanceComparison(Map<String, String> carsDistanceData, int numberOfAttempts) {
 
         while (winnerInformation.isEmpty()) {
