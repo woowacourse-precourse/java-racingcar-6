@@ -26,6 +26,15 @@ public class Racing {
         return racingResult.toString();
     }
 
+    public List<String> determineWinner() {
+        int maxMove = getMax();
+
+        return carList.stream()
+                .filter(car -> car.move == maxMove)
+                .map(car -> car.name)
+                .collect(Collectors.toList());
+    }
+
     private void move(Car car) {
         if (isGo()) {
             car.move += 1;
@@ -38,15 +47,6 @@ public class Racing {
             return true;
         }
         return false;
-    }
-
-    public List<String> determineWinner() {
-        int maxMove = getMax();
-
-        return carList.stream()
-                .filter(car -> car.move == maxMove)
-                .map(car -> car.name)
-                .collect(Collectors.toList());
     }
 
     private int getMax() {
