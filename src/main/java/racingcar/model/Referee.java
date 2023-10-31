@@ -22,4 +22,14 @@ public class Referee {
         return maxIndexArray;
     }
 
+    public String[] getWinner(List<String> carNameList) {
+        String[] winners = new String[maxIndexArray.length];
+
+        for (int i = 0; i < maxIndexArray.length; i++) {
+            winners[i] = carNameList.get(maxIndexArray[i]);
+        }
+
+        return winners;
+    }
+
 }

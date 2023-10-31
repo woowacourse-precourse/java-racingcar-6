@@ -11,6 +11,9 @@ import racingcar.model.Referee;
 import racingcar.model.Validator;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static constant.MessgeList.MOVING_FORWARD;
 import static constant.MessgeList.STOP;
 
@@ -73,9 +76,15 @@ class ApplicationTest extends NsTest {
     @DisplayName("최댓값을 가진 배열의 인덱스값을 반환한다")
     void getIndexOfMaxDistanceOfCars() {
         int[] maxIndexArray = referee.getIndexOfMaxDistanceOfCars();
-        assertThat(maxIndexArray).isEqualTo(new int[]{0,2});
+        assertThat(maxIndexArray).isEqualTo(new int[]{0, 2});
     }
 
+    @Test
+    @DisplayName("우승자 이름이 담긴 배열을 반환한다")
+    void getWinner() {
+        String[] winners = referee.getWinner(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
+        assertThat(winners).isEqualTo(new String[]{"pobi", "jun"});
+    }
 
     @Override
     public void runMain() {
