@@ -6,11 +6,11 @@ import racingcar.domain.Car;
 import java.util.List;
 
 
-public class Simulator {
+public class RacingSimulator {
     String Number;
 
 
-    public Simulator(String number) {
+    public RacingSimulator(String number) {
         Number = number;
     }
 
