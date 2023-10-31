@@ -20,15 +20,15 @@ public class InputView {
         return stream(carNamesSplit).collect(Collectors.toList());
     }
 
-    public static int inputNum() {
+    public static int inputRound() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int num;
+        int round;
         try {
             String number = Console.readLine();
-            num = Integer.parseInt(number);
+            round = Integer.parseInt(number);
         } catch (Exception e1) {
             throw new IllegalArgumentException();
         }
-        return num;
+        return round;
     }
 }

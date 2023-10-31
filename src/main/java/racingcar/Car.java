@@ -9,5 +9,4 @@ public class Car {
     Car(String name) {
         randomNumList = new ArrayList<>();
     }
-
 }
