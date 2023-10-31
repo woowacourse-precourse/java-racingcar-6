@@ -14,7 +14,7 @@ public class User {
         carNameVaildation(carNames);
     }
 
-    public void carNameSplit(String userInput){
+    private void carNameSplit(String userInput){
         String[] carNameArray = userInput.split(",");
 
         for(String carName : carNameArray) {
@@ -22,7 +22,7 @@ public class User {
         }
     }
 
-    public void carNameVaildation(List<String> carNames){
+    private void carNameVaildation(List<String> carNames){
         for(String carName : carNames){
             if(carName.length() > CARNAME_MAXSIZE){
                 throw new IllegalArgumentException("입력한 이름은 5자 이하만 가능합니다.");
