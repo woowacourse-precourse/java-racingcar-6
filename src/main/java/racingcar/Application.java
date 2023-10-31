@@ -22,7 +22,7 @@ public class Application {
         validateNumber(repeatNumber);
 
         int repeat = Integer.parseInt(readLine());
-        Map<String, Integer> carsWithResult = carsListToMap(carNames);
+        Map<String, Integer> carsWithResult = carListToMap(carNames);
 
         // run result
         System.out.println("실행 결과");
@@ -51,7 +51,7 @@ public class Application {
         return winners;
     }
 
-    public static Map<String, Integer> carsListToMap(List<String> cars) {
+    public static Map<String, Integer> carListToMap(List<String> cars) {
         Map<String, Integer> carAndWins = new HashMap<>();
         for (String car : cars) {
             carAndWins.put(car, 0);
