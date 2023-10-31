@@ -1,12 +1,14 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 
 public class Car {
+
     private final HashMap<String, Integer> racingLineup;
     private final ArrayList<String> winnerList;
 
@@ -18,11 +20,12 @@ public class Car {
         }
     }
 
-    void runRace (int repeatNumber) {
+    void runRace(int repeatNumber) {
         for (int i = 0; i < repeatNumber; i++) {
             this.runRaceOnce();
         }
     }
+
     private void runRaceOnce() {
         Set<String> carNames = this.racingLineup.keySet();
         for (String name : carNames) {
@@ -33,18 +36,19 @@ public class Car {
     }
 
     private boolean canMove() { //0~9까지 무작위 값을 구해 4 이상일 경우 전진하는 기능
-        int randomNumber = Randoms.pickNumberInRange(0,9);
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber > 3;
     }
+
     private void increaseCarPosition(String name) {
         if (canMove()) {
             this.racingLineup.put(name, this.racingLineup.get(name) + 1);
         }
     }
 
-    private void printRaceResult(String name) { //출력 부분 -> Application 클래스로 옮기기
-        System.out.printf("%s : ",name);
-        for (int i=0; i<this.racingLineup.get(name); i++) {
+    private void printRaceResult(String name) { //실행 결과 출력 및 자동차 이름도 같이 출력
+        System.out.printf("%s : ", name);
+        for (int i = 0; i < this.racingLineup.get(name); i++) {
             System.out.print("-");
         }
         System.out.println();
@@ -59,8 +63,9 @@ public class Car {
 
         return this.winnerList;
     }
+
     private String findNameByPosition(String carName, Integer position) { //우승자 판단 내부 로직
-        if(racingLineup.get(carName).equals(position)) {
+        if (racingLineup.get(carName).equals(position)) {
             return carName;
         }
         return null;
