@@ -10,8 +10,15 @@ import racingcar.view.ResultView;
 import racingcar.view.SettingView;
 
 public class GameController {
+    private static final GameController INSTANCE = new GameController();
     private static final ArrayList<Car> carList = new ArrayList<>();
     private static int round;
+
+    private GameController(){};
+
+    public static GameController getInstance(){
+        return INSTANCE;
+    }
 
     public void setGame() {
         setCars();

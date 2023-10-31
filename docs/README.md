@@ -84,12 +84,12 @@
 - [ ] 추가 학습 자료
 - [ ] static의 올바른 사용
 - [ ] 유틸성이 짙은 클래스만 정적 팩토리 메소드를 고려하는
-- [ ] Controller, Service 계층은 싱글톤으로 유지
-- [ ] 직관적 네이밍
+- [x] Controller, Service 계층은 싱글톤으로 유지
+- [x] 직관적 네이밍
 - [ ] collection 활용
-- [ ] enum 활용
+- [x] enum 활용
 - [ ] indent depth 길어지지 않도록!
-- [ ] 서비스가 뷰 의존하지 않도록
+- [x] 서비스가 뷰 의존하지 않도록
 - [ ] 원시값 포장, 일급 컬렉션
 - [ ] command+option+L 습관 만들기
 
