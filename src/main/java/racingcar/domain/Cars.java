@@ -2,7 +2,9 @@ package racingcar.domain;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.response.RaceResultResponse;
 
@@ -27,7 +29,7 @@ public class Cars {
     }
 
     public void validate(List<String> carNames) {
-        validateCarNamesSize(carNames);
+        validateCarsSize(carNames);
         validateDuplicatedCarNames(carNames);
     }
 
@@ -53,12 +55,9 @@ public class Cars {
     }
 
     public void validateDuplicatedCarNames(List<String> carNames) {
-        HashMap<String, Integer> namesMap = new HashMap<>();
-        for (String name : carNames) {
-            namesMap.put(name, namesMap.getOrDefault(name, 0) + 1);
-            if (namesMap.get(name) > 1) {
-                throw new IllegalArgumentException("중복되는 이름이 있으면 안됩니다.");
-            }
+        Set<String> uniqueNames = new HashSet<>(carNames);
+        if (uniqueNames.size() != carNames.size()) {
+            throw new IllegalArgumentException("중복되는 이름이 있으면 안됩니다.");
         }
     }
 
