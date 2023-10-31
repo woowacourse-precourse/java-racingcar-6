@@ -13,7 +13,7 @@ public class SystemOutput {
         System.out.println(GAMEPLAY_RESULT);
     }
 
-    public void printScore(Map<String,Integer> scoreBoard) {
+    public void printScore(Map<String, Integer> scoreBoard) {
         for (Map.Entry<String, Integer> entry : scoreBoard.entrySet()) {
             System.out.println(entry.getKey() + RESULT_DELIMITER + printIndicator(entry.getValue()));
         }

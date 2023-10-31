@@ -16,7 +16,7 @@ public class Controller {
     private final int MIN_MOVE_NUMBER = 0;
 
 
-    public HashMap<String, Integer> createScoreBoard(){
+    public HashMap<String, Integer> createScoreBoard() {
         UserInput userInput = new UserInput();
         HashMap<String, Integer> scoreBoard = new HashMap<>();
         for (String carName : userInput.carName()) {
@@ -25,22 +25,22 @@ public class Controller {
         return scoreBoard;
     }
 
-    public HashMap<String, Integer> carMove(HashMap<String, Integer> scoreBoard){
-        for (Map.Entry<String,Integer> score : scoreBoard.entrySet()){
+    public HashMap<String, Integer> carMove(HashMap<String, Integer> scoreBoard) {
+        for (Map.Entry<String, Integer> score : scoreBoard.entrySet()) {
             score.setValue(decideMove(score.getValue()));
         }
         return scoreBoard;
     }
 
-    public int decideMove (int score) {
-        int randomValue = Randoms.pickNumberInRange(MIN_MOVE_NUMBER,MAX_MOVE_NUMBER);
+    public int decideMove(int score) {
+        int randomValue = Randoms.pickNumberInRange(MIN_MOVE_NUMBER, MAX_MOVE_NUMBER);
         if (randomValue >= MOVE_DECIDE_NUMBER) {
             score++;
         }
         return score;
     }
 
-    public String findWinner (HashMap<String, Integer> scoreBoard) {
+    public String findWinner(HashMap<String, Integer> scoreBoard) {
         List<String> winnerList = new ArrayList<>();
 
         int maxValue = Collections.max(scoreBoard.values());
@@ -49,6 +49,6 @@ public class Controller {
                 winnerList.add(entry.getKey());
             }
         }
-        return String.join(",",winnerList);
+        return String.join(",", winnerList);
     }
 }
