@@ -35,7 +35,7 @@ public class RacingGame {
 
     /**
      * 경주 게임을 시작한다.
-     * @param moveCount
+     * @param moveCount 입력받은 이동 횟수
      */
     public GameResult start(int moveCount) {
         status = GameStatus.PLAYING;
