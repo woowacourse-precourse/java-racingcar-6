@@ -44,7 +44,7 @@ class InputHandlerTest {
 
         assertThatThrownBy(() -> InputHandler.parseInputToList(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 입력 값입니다 자동차 이름을 5자리 이하로 입력해주세요.");
+                .hasMessageContaining("자동차 이름이 5자 이상입니다. 5자리 이하로 입력해주세요.");
 
     }
 
@@ -54,7 +54,7 @@ class InputHandlerTest {
 
         assertThatThrownBy(() -> InputHandler.parseInputToList(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 입력 값입니다. 최소 하나의 이상의 이름을 입력해주세요.");
+                .hasMessageContaining("입력이 비어있습니다. 값을 입력해주세요.");
     }
 
     // parseInputToIntager에 대한 테스트
@@ -63,17 +63,25 @@ class InputHandlerTest {
     void 숫자_0_입력() {
         String input = "0";
 
-        assertThatThrownBy(() -> InputHandler.parseInputToIntager(input))
+        assertThatThrownBy(() -> InputHandler.parseInputToInteger(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 입력 값입니다. 자연수를 입력해주세요.");
+                .hasMessageContaining("양의 정수가 아닌 입력값입니다. 양의 정수를 입력해주세요.");
     }
 
     @Test
     void 숫자_음수의_값_입력() {
         String input = "-21421";
 
-        assertThatThrownBy(() -> InputHandler.parseInputToIntager(input))
+        assertThatThrownBy(() -> InputHandler.parseInputToInteger(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 입력 값입니다. 숫자를 입력해주세요.");
+                .hasMessageContaining("숫자가 아닌 입력값입니다. 숫자를 입력해주세요.");
+    }
+
+    @Test
+    void 숫자_빈값_입력() {
+        String input = "";
+        assertThatThrownBy(() -> InputHandler.parseInputToInteger(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력이 비어있습니다. 값을 입력해주세요.");
     }
 }

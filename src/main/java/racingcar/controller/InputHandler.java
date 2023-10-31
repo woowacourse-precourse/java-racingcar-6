@@ -12,25 +12,18 @@ public class InputHandler {
 
     public static List<String> parseInputToList(String input) throws IllegalArgumentException {
         List<String> parsedList;
-        if (input.isEmpty()) {
-            throw new IllegalArgumentException("잘못된 입력 값입니다. 최소 하나의 이상의 이름을 입력해주세요.");
-        }
+        validateNotEmpty(input);
         parsedList = splitInputByComma(input);
-        if (!validateCarNameLength(parsedList)) {
-            throw new IllegalArgumentException("잘못된 입력 값입니다 자동차 이름을 5자리 이하로 입력해주세요.");
-        }
+        validateCarNameLength(parsedList);
         return parsedList;
     }
 
     public static int parseInputToInteger(String input) throws IllegalArgumentException {
         int parsedInt;
-        if (!isNumber(input)) {
-            throw new IllegalArgumentException("잘못된 입력 값입니다. 숫자를 입력해주세요.");
-        }
+        validateNotEmpty(input);
+        validateIsNumber(input);
         parsedInt = Integer.parseInt(input);
-        if (!isPositiveInteger(parsedInt)) {
-            throw new IllegalArgumentException("잘못된 입력 값입니다. 자연수를 입력해주세요.");
-        }
+        validateIsPositiveInteger(parsedInt);
         return parsedInt;
     }
 
@@ -38,21 +31,30 @@ public class InputHandler {
         return Arrays.stream(input.split(",")).toList();
     }
 
-    private static boolean validateCarNameLength(List<String> carNames) {
+    private static void validateNotEmpty(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("입력이 비어있습니다. 값을 입력해주세요.");
+        }
+    }
+
+    private static void validateCarNameLength(List<String> carNames) {
         int endInclusive = 5;
         for (String carName : carNames) {
             if (carName.length() > endInclusive) {
-                return false;
+                throw new IllegalArgumentException("자동차 이름이 5자 이상입니다. 5자리 이하로 입력해주세요.");
             }
         }
-        return true;
     }
 
-    private static boolean isNumber(String input) {
-        return Pattern.matches(INTEGER_REG, input);
+    private static void validateIsNumber(String input) {
+        if (!Pattern.matches(INTEGER_REG, input)) {
+            throw new IllegalArgumentException("숫자가 아닌 입력값입니다. 숫자를 입력해주세요.");
+        }
     }
 
-    private static boolean isPositiveInteger(int num) {
-        return num > 0;
+    private static void validateIsPositiveInteger(int num) {
+        if (num <= 0) {
+            throw new IllegalArgumentException("양의 정수가 아닌 입력값입니다. 양의 정수를 입력해주세요.");
+        }
     }
 }
