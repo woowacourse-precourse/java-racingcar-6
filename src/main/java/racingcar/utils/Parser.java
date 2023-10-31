@@ -10,4 +10,8 @@ public class Parser {
     public List<String> parseCarNameInput(String userInput) {
         return Arrays.asList(userInput.split(SPLIT_REGEX));
     }
+
+    public int parseAttemptCountInput(String userInput) {
+        return Integer.parseInt(userInput);
+    }
 }

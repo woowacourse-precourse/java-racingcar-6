@@ -15,7 +15,7 @@ class ValidatorTest {
     private static final String NOT_NUMBER_STRING_ERROE_MESSAGE = "숫자가 아닙니다";
 
     Parser parser = new Parser();
-    
+
     @Test
     void 차_이름_길이_예외테스트() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, () -> {

@@ -10,6 +10,7 @@ public class Validator {
     private static final String WRONG_LENGTH_CAR_NAME_ERROR_MESSAGE = "이름은 5자 이하여야 합니다";
     private static final String CAR_NAME_DUPLICATION_ERROR_MESSAGE = "이름이 중복되어선 안됩니다";
     private static final String CAR_NAME_BLANK_ERROR_MESSAGE = "이름이 비어있으면 안 됩니다";
+    private static final String NOT_NUMBER_STRING_ERROE_MESSAGE = "숫자가 아닙니다";
 
     Parser parser = new Parser();
 
@@ -44,5 +45,14 @@ public class Validator {
                 throw new IllegalArgumentException(CAR_NAME_BLANK_ERROR_MESSAGE);
             }
         }
+    }
+
+    public String validateAttemptCountInput(String userInput) {
+        try {
+            parser.parseAttemptCountInput(userInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NOT_NUMBER_STRING_ERROE_MESSAGE);
+        }
+        return userInput;
     }
 }
