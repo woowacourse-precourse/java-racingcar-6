@@ -9,12 +9,12 @@ public class Car {
 
 
     public Car(String name, int distance) {
-        constructorValidation(name);
+        constructorValidation(name, distance);
         this.name = name;
         this.distance = distance;
     }
 
-    private void constructorValidation(String name) {
+    private void constructorValidation(String name, int distance) {
         if (name.isEmpty() || name.length() > NAME_MAX_LENGTH || distance < DISTANCE_MIN) {
             throw new IllegalArgumentException();
         }
