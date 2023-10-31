@@ -1,7 +1,7 @@
 package racingcar.view.constants;
 
 public enum Strings {
-    
+
     ASK_CAR_NAME("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
     ASK_PLAY_TIME("시도할 회수는 몇회인가요?"),
     RESULT("실행 결과"),
@@ -12,6 +12,7 @@ public enum Strings {
     DUPLICATED_CAR_NAME_ERROR("중복된 이름을 가질 수 없습니다"),
     LENGTH_OF_CAR_NAME_ERROR("유효하지 않은 자동차 이름 길이입니다."),
     LAST_CHARACTER_IS_COMMA_ERROR("구분자는 이름 사이에만 사용 가능합니다."),
+    PLAYTIME_OUT_OF_RANGE_ERROR("시도 횟수가 너무 많거나 적습니다."),
     VALID_CAR_NAME_LETTERS("abcdefghijklmnopqrstuvwxyz,"),
     VALID_PLAYTIME_LETTERS("0123456789");
     private final String string;
