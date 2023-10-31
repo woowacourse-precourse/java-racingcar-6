@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public class CarRacingGame {
     private List<Car> cars = new ArrayList<>();
-    private int trial;
+    private int numberOfAttempts;
 
     void execute() {
         setCars();
-        setTrialInput();
+        setNumberOfAttempts();
 
         System.out.println("실행 결과");
         proceedRacing();
@@ -22,7 +22,7 @@ public class CarRacingGame {
     }
 
     private void proceedRacing() {
-        for(int i=0; i<trial; i++) {
+        for(int i = 0; i< numberOfAttempts; i++) {
             for (Car car: cars) {
                 car.decideMoveForwardOrStop();
             }
@@ -107,7 +107,7 @@ public class CarRacingGame {
         }
     }
 
-    void setTrialInput() throws IllegalArgumentException {
+    void setNumberOfAttempts() throws IllegalArgumentException {
         System.out.println("시도할 회수는 몇회인가요?");
         int input = Integer.parseInt(Console.readLine()); // 정수값으로 변환 안될 경우 NumberFormatException 발생
         System.out.println();
@@ -116,7 +116,7 @@ public class CarRacingGame {
             throw new IllegalArgumentException();
         }
 
-        this.trial = input;
+        this.numberOfAttempts = input;
     }
 
 }
