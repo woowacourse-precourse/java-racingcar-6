@@ -17,12 +17,16 @@ public class RacingGameRq {
         return new RacingGameRq(racingCarDtoList, leftNumberOfAttempts);
     }
 
-    public long getLeftNumberOfAttempts() {
-        return leftNumberOfAttempts;
-    }
-
     public List<RacingCar> toRacingCars() {
         return racingCarDtoList.stream()
                 .map(RacingCarDto::toRacingCar).toList();
+    }
+
+    public List<RacingCarDto> getRacingCarDtoList() {
+        return racingCarDtoList;
+    }
+
+    public long getLeftNumberOfAttempts() {
+        return leftNumberOfAttempts;
     }
 }

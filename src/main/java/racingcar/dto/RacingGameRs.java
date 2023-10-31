@@ -25,4 +25,8 @@ public class RacingGameRs {
     public List<RacingCarDto> getRacingCarDtoList() {
         return racingCarDtoList;
     }
+
+    public long getLeftNumberOfAttempts() {
+        return leftNumberOfAttempts;
+    }
 }
