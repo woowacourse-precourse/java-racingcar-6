@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGame;
+import racingcar.utils.RacingCarGameOutput;
 
 public class RacingCarGameTest {
     private static final int MOVING_FORWARD = 4;
@@ -45,5 +46,16 @@ public class RacingCarGameTest {
         racingCarGame.run(() -> STOP);
 
         assertThat(getOutputString()).isEqualTo("yang :");
+    }
+
+    @Test
+    void 우승자가_1명일시_우승자_리스트_반환_정상_작동(){
+        racingCarGame = new RacingCarGame(List.of(
+                new RacingCar("yang")
+        ), 1);
+        List<RacingCar> winners = racingCarGame.getWinners();
+        RacingCarGameOutput.printWinnersMessage(winners);
+
+        assertThat(getOutputString()).isEqualTo("최종 우승자 : yang");
     }
 }
