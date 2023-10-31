@@ -12,12 +12,12 @@ public class Position {
         this.position = START_POSITION;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public void moveForward() {
         this.position++;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
