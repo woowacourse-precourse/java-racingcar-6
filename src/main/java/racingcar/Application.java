@@ -12,7 +12,8 @@ public class Application {
     public static void main(String[] args) {
       String inputCarName = inputCarName();
       String[] carNameSplit = inputCarNameSplit(inputCarName);
-      Map<String, Integer> cars = inputCarNameValidation(carNameSplit);
+      inputCarNameValidation(carNameSplit);
+      Map<String, Integer> cars = createCars(carNameSplit);
 
       String inputAttempts = inputAttempts();
       int attempts = inputAttemptsValidation(inputAttempts);
@@ -34,25 +35,27 @@ public class Application {
       String[] cars = inputCarName.split(",");
 
       if(cars.length<2){
-        throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
+        throw new IllegalArgumentException("자동차는 최소 2대 이상 이어야 합니다. 이름은 쉼표(,) 기준으로 구분합니다.");
       }
 
       return cars;
     }
 
-    public static Map<String,Integer> inputCarNameValidation(String[] inputCarNameSplit){
-      Map<String,Integer> cars = new HashMap<>();
-
+    public static void inputCarNameValidation(String[] inputCarNameSplit){
       for (String car : inputCarNameSplit){
         if(car.length()>5){
-          throw new IllegalArgumentException("자동차이름은 5자 이하만 가능합니다.");
+          throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
-
-        cars.put(car,0);
       }
-
-      return cars;
     }
+
+  public static Map<String,Integer> createCars(String[] inputCarNameSplit){
+    Map<String,Integer> cars = new HashMap<>();
+    for (String car : inputCarNameSplit){
+      cars.put(car,0);
+    }
+    return cars;
+  }
 
     public static String inputAttempts(){
       System.out.println("시도할 회수는 몇회인가요?");
@@ -81,7 +84,6 @@ public class Application {
           cars.replace(carName,movement);
         }
       });
-
       return cars;
     }
 
