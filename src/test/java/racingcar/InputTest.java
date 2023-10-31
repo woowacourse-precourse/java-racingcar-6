@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -52,6 +53,13 @@ class InputTest extends NsTest {
         );
     }
 
+    @Test
+    void 정수_문자열_무결성_검사_예외처리(){
+        IntegrityCheck integrityCheck = new IntegrityCheck();
+
+        assertThat(integrityCheck.intIntegrityCheck("00000123456789")).isEqualTo(false);
+        assertThat(integrityCheck.intIntegrityCheck("123!456A7890")).isEqualTo(true);
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
