@@ -90,7 +90,31 @@ class Car {
 
 #### racing() 함수 생성 및 세부 기능
 - racing() : 프로그램의 전체적인 기능 수행
-  - checkNamelength() : 이름 입력 시, 각 이름별로 5글자를 초과하는 경우 Exception이 발생하도록 정의
+```java
+public void racing() {
+    scanner = new Scanner(System.in);
+    // Implement input
+    // 경주 할 자동차 이름 입력
+    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    String racerNames = scanner.nextLine();
+    // ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
+    String[] racerArray = racerNames.split(",");
+    checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
+    // 시도할 횟수 입력
+    System.out.println("시도할 회수는 몇회인가요?");
+    int tryCount = scanner.nextInt();
+
+    System.out.println("실행 결과");
+    tryRace(tryCount);
+
+    // 제일 멀리 간 position 확인
+    int maxPosition = findMaxPosition();
+    // 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
+    List<String> winners = findWinners(maxPosition);
+    printWinner(winners);   // 최종 우승자 출력
+}
+```
+- checkNamelength() : 이름 입력 시, 각 이름별로 5글자를 초과하는 경우 Exception이 발생하도록 정의
 ```java
 public void checkNamelength(String[] racerArray) {
     for (int i = 0; i < racerArray.length; i++) {
@@ -154,44 +178,7 @@ public void printWinner(List<String> winners) {
     }
 }
 ```
-```java
-- 위 기능들을 사용한 racing()
 
-public void racing() {
-    scanner = new Scanner(System.in);
-    // Implement input
-    // 경주 할 자동차 이름 입력
-    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String racerNames = scanner.nextLine();
-    // ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
-    String[] racerArray = racerNames.split(",");
-    checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
-    // 시도할 횟수 입력
-    System.out.println("시도할 회수는 몇회인가요?");
-    int tryCount = scanner.nextInt();
-
-    System.out.println("실행 결과");
-    tryRace(tryCount);
-
-    // 제일 멀리 간 position 확인
-    int maxPosition = findMaxPosition();
-    // 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
-    List<String> winners = findWinners(maxPosition);
-    printWinner(winners);   // 최종 우승자 출력
-}
-```
---- 
-
-## 프로그래밍 요구 사항
-### 
-
-```java
-
-```
-
-```java
-
-```
 ---
 ## test 결과
 ※ 노트북 환경에서 프로그램 실행할 경우, 출력 시 한글이 깨지는 문제가 발생하지만, test 진행시 정상임을 확인
