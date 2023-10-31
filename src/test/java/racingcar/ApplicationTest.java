@@ -80,6 +80,11 @@ class ApplicationTest extends NsTest {
         });
 
         assertSimpleTest(() -> {
+            assertThatThrownBy(() -> movingCountValidator.checkMovementCount("101"))
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
+
+        assertSimpleTest(() -> {
             assertThatThrownBy(() -> movingCountValidator.checkMovementCount("abc"))
                     .isInstanceOf(IllegalArgumentException.class);
         });
