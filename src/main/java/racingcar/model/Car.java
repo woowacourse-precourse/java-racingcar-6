@@ -1,6 +1,8 @@
 package racingcar.model;
 
 public class Car {
+
+    private static final int CAR_FORWARD_NUMBER = 4;
     private String carName;
     private int position;
 
@@ -18,7 +20,7 @@ public class Car {
     }
 
     public void moveForward(int number) {
-        if (number >= 4) {
+        if (number >= CAR_FORWARD_NUMBER) {
             position++;
         }
     }
