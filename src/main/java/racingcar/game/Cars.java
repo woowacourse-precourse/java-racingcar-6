@@ -11,9 +11,7 @@ public class Cars {
     ArrayList<Car> cars = new ArrayList<>();
 
     public Cars(ArrayList<String> inputCarNames){
-        for (String inputCarName : inputCarNames) {
-            cars.add(new Car(inputCarName));
-        }
+        inputCarNames.forEach(inputCarName -> cars.add(new Car(inputCarName)));
     }
 
     public void roundRace(){
