@@ -15,10 +15,13 @@ public class GameController {
         this.INPUT_VIEW = INPUT_VIEW;
     }
 
-    public void startGame() {
+    public void setupGame() {
         List<String> carNames = INPUT_VIEW.inputName();
-        this.cars = createCars(carNames);
-        this.totalRoundCount = INPUT_VIEW.inputNumber();
+        List<Car> cars = createCars(carNames);
+        setCars(cars);
+
+        int inputNumber = INPUT_VIEW.inputNumber();
+        setTotalRoundCount(inputNumber);
     }
 
     public List<Car> createCars(List<String> carNames) {
@@ -29,5 +32,13 @@ public class GameController {
         }
 
         return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public void setTotalRoundCount(int totalRoundCount) {
+        this.totalRoundCount = totalRoundCount;
     }
 }
