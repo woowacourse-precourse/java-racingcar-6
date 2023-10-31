@@ -1,10 +1,9 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.RacingCars;
 
 import java.util.ArrayList;
 import java.util.List;
