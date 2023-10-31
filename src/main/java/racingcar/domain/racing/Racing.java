@@ -7,14 +7,14 @@ import racingcar.domain.raingcar.RacingCars;
 
 
 public class Racing {
-    private RacingCars racingCars;
+    private RacingCars cars;
     private int round;
-    private RacingPrinter racingPrinter;
+    private RacingPrinter printer;
 
     public Racing(RacingCars cars, int round) {
-        this.racingCars = cars;
+        this.cars = cars;
         this.round = round;
-        this.racingPrinter = new RacingPrinter();
+        this.printer = new RacingPrinter();
     }
 
     public void process() {
@@ -23,25 +23,23 @@ public class Racing {
         }
     }
 
-    private void race() {
+    public void race() {
         List<RacingMovement> randomMoves = new ArrayList<>();
-        for (RacingCar car : racingCars.getCars()) {
-            RacingMovement move = new RacingMovement(car.getName());
 
-            if (move.isMovingForward()) {
-                car.moveForward();
-            }
-
+        for (RacingCar car : cars.getCars()) {
+            RacingMovement move = RacingMovement.getRacingMovement(car);
             randomMoves.add(move);
         }
-        racingPrinter.updateRacingResult(randomMoves);
+
+        printer.updateRacingResult(randomMoves);
     }
 
     public String getTotalRacingResult() {
-        return racingPrinter.getRacingResult();
+        return printer.getRacingResult();
     }
 
     public List<String> getFinalWinnerList() {
-        return RacingResult.getFinalWinners(racingCars);
+        RacingResult racingResult = new RacingResult(cars);
+        return racingResult.getFinalWinnerList();
     }
 }
