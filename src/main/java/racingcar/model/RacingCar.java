@@ -3,11 +3,11 @@ package racingcar.model;
 public class RacingCar {
 
     private final Name name;
-    private final Location location;
+    private final Location currentLocation;
 
-    public RacingCar(Name name, Location location) {
+    public RacingCar(Name name, Location currentLocation) {
         this.name = name;
-        this.location = location;
+        this.currentLocation = currentLocation;
     }
 
     public static RacingCar init(String carName) {
@@ -15,14 +15,14 @@ public class RacingCar {
     }
 
     public RacingCar move() {
-        return new RacingCar(name, location.move());
+        return new RacingCar(name, currentLocation.move());
     }
 
     public String getName() {
         return name.name();
     }
 
-    public int getLocation() {
-        return location.location();
+    public int getCurrentLocation() {
+        return currentLocation.location();
     }
 }

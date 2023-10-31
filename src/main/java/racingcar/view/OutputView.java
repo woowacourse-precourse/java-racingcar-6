@@ -27,7 +27,7 @@ public class OutputView {
 
     private void printCarCurrentLocation(RacingCar racingCar) {
         String carName = racingCar.getName();
-        int currentLocationValue = racingCar.getLocation();
+        int currentLocationValue = racingCar.getCurrentLocation();
         System.out.println(carName + " : " + "-".repeat(currentLocationValue));
     }
 

@@ -30,12 +30,12 @@ public record RacingCars(List<RacingCar> racingCarList) {
 
     private int getMaxLocation() {
         return racingCarList.stream()
-                .mapToInt(RacingCar::getLocation)
+                .mapToInt(RacingCar::getCurrentLocation)
                 .max()
                 .orElse(0);
     }
 
     private boolean isWinner(RacingCar car, int maxLocation) {
-        return car.getLocation() == maxLocation;
+        return car.getCurrentLocation() == maxLocation;
     }
 }
