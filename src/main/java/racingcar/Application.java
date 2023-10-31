@@ -1,4 +1,6 @@
 package racingcar;
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,10 @@ public class Application {
             RacingCar racingCar = new RacingCar(userInputList.get(i),0);
             carList.add(racingCar);
         }
+
+        System.out.println("시도할 횟수를 입력하세요.");
+        int userTryInput = Integer.parseInt(readLine());
+
         for(int j=0;j<carList.size();j++){
             System.out.println(carList.get(j).getName());
         }
