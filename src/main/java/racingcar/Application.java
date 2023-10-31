@@ -13,6 +13,7 @@ public class Application {
 
         // TODO: 프로그램 구현
         List<Car> carNameList = getCarNames();
+        int tryingCount = getTryingNumber();
 
     }
 
@@ -48,6 +49,14 @@ public class Application {
         int count = checkTryingNumber(tryingCount);
 
         return count;
+    }
+
+    public static int checkTryingNumber(String input){
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException();
+        }
     }
 
 
