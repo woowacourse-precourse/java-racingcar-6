@@ -23,4 +23,13 @@ class RoundTest {
 
         assertEquals(4, test.getRound());
     }
+
+    @Test
+    void 횟수가_1미만일_경우_예외_처리() {
+        String number = "0";
+        assertThatThrownBy(() -> {
+            new Round(number);
+        })
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
