@@ -113,6 +113,26 @@ class ApplicationTest extends NsTest {
 
     }
 
+    @Test
+    void 우승자_여러명_출력(){
+        Game game = new Game();
+        game.addCarList("carName1");
+        game.addCarList("carName2");
+        game.addCarList("carName3");
+        List<Car> carList=game.getCarList();
+
+        carList.get(0).move(5,4);
+        carList.get(1).move(5,4);
+
+        ByteArrayOutputStream output= new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        GameView gameView = new GameView();
+        gameView.printWinner(game.getWinnerList());
+
+        assertThat(output.toString()).isEqualTo("최종 우승자 : carName1, carName2");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
