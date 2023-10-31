@@ -1,6 +1,9 @@
 package racingcar.vo;
 
+import static racingcar.constants.Integers.*;
+
 import java.util.Objects;
+import racingcar.constants.Integers;
 import racingcar.exception.CarNameLengthExceedException;
 
 public class CarName {
@@ -13,7 +16,7 @@ public class CarName {
     }
 
     private void checkNameFormat(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_CAR_NAME_LENGTH.show()) {
             throw new CarNameLengthExceedException();
         }
     }
