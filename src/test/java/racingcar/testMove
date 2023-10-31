@@ -1,0 +1,21 @@
+package racingcar;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
+
+public class testMove {
+
+    @Test
+    public void testMove() {
+        Car car = new Car("Car");
+        car.move(3);
+        assertThat(car.getDistance()).isEqualTo(1);
+
+        car.move(2);
+        assertThat(car.getDistance()).isEqualTo(2);
+
+        car.move(1);
+        assertThat(car.getDistance()).isEqualTo(2);
+    }
+}
