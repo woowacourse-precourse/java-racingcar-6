@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +30,4 @@ public class Game {
             cars.add(Car.getInstance(name));
         }
     }
-
 }
