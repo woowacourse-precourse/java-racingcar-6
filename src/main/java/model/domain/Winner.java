@@ -7,7 +7,7 @@ public class Winner {
 
     private static final String SEPERATOR = ", ";
 
-    private List<Name> winner;
+    private final List<Name> winner;
 
     public Winner() {
         winner = new ArrayList<>();

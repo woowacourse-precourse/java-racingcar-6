@@ -2,8 +2,8 @@ package model.domain;
 
 public class Car {
 
-    private Name name;
-    private Go go;
+    private final Name name;
+    private final Go go;
 
     public Car(String name) {
 

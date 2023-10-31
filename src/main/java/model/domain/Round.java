@@ -2,7 +2,7 @@ package model.domain;
 
 public class Round {
 
-    private int round;
+    private final int round;
 
     public Round(String roundStr) {
         this.round = checkIsNumber(roundStr);
