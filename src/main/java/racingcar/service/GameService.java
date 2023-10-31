@@ -2,10 +2,10 @@ package racingcar.service;
 
 import racingcar.model.Car;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.StringJoiner;
 
 public class GameService {
     private static GameService INSTANCE;
@@ -24,8 +24,12 @@ public class GameService {
     public String doTurns(List<Car> cars, final int tries) {
         StringBuilder sb = new StringBuilder();
 
-        for (int turn = 0; turn < tries; turn++) {
-            sb.append(doTurnCars(cars)).append("\n");
+        try {
+            for (int turn = 0; turn < tries; turn++) {
+                sb.append(doTurnCars(cars)).append("\n");
+            }
+        } catch (OutOfMemoryError e) {
+            throw new IllegalArgumentException("Tries Input is too large at this system!");
         }
 
         return sb.toString();
@@ -33,15 +37,13 @@ public class GameService {
 
     public String getWinnersList(List<Car> cars) {
         List<Car> winners = getWinners(cars);
-        StringBuilder sb = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(", ");
 
         for (Car winner : winners) {
-            sb.append(winner.getName()).append(", ");
+            joiner.add(winner.getName());
         }
-        sb.deleteCharAt(sb.length()-1);
-        sb.deleteCharAt(sb.length()-1);
 
-        return sb.toString();
+        return joiner.toString();
     }
 
     private String doTurnCars(List<Car> cars) {
@@ -58,12 +60,9 @@ public class GameService {
     private List<Car> getWinners(List<Car> cars) {
         Collections.sort(cars);
 
-        List<Car> winners = new LinkedList<Car>();
-        ListIterator<Car> carsIterator = cars.listIterator();
+        List<Car> winners = new ArrayList<Car>();
         int maxMove = -1;
-        while (carsIterator.hasNext()) {
-            Car car = carsIterator.next();
-
+        for (Car car : cars) {
             if (!car.isWinner(maxMove))
                 break;
 
