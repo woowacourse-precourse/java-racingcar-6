@@ -20,10 +20,10 @@
 
 ### 플레이어의 입력을 받는 view 객체를 구현 -> RacingInputView
 
-- [ ] 플레이어의 입력을 문자열 형태로 받는다.
+- [x] 플레이어의 입력을 문자열 형태로 받는다.
     - [x] 자동차 이름들을 입력 받는다.
     - [x] 자동차들이 몇 번 이동할 지 입력 받는다.
-- [ ] 입력에 대해 'null'이나 빈 문자열 입력에 대해 IllegalArgumentException을 발생시킨다.
+- [x] 입력에 대해 'null'이나 빈 문자열 입력에 대해 IllegalArgumentException을 발생시킨다.
 
 
 ### 플레이어의 입력을 필요한 포멧으로 변경해주는 객체를 구현 -> RacingFormatter

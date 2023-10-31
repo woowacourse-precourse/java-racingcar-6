@@ -10,12 +10,20 @@ public class RacingInputView {
     public String readCarNames() {
         System.out.println(CAR_NAMES_REQUEST);
         String carNames = Console.readLine();
+        validateIsEmptyInput(carNames);
         return carNames;
     }
 
     public String readAttempt() {
         System.out.println(ATTEMPT_REQUEST);
         String attempt = Console.readLine();
+        validateIsEmptyInput(attempt);
         return attempt;
+    }
+
+    private void validateIsEmptyInput(String input) {
+        if (input == null || input.isEmpty()) {
+            throw new IllegalArgumentException("입력이 비어있습니다.");
+        }
     }
 }
