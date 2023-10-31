@@ -1,14 +1,22 @@
 package racingcar;
 
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameManager {
-    private InputView inputView;
+    private final InputView inputView;
+    private final OutputView outputView;
+
     List<RandomCar> randomCars = new ArrayList<>();
 
-    public GameManager(InputView inputView) {
+    public GameManager(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void launch() {
@@ -18,7 +26,8 @@ public class GameManager {
         int attemptCount = inputView.inputMoveNumber();
         moveRandomCars(attemptCount);
 
-        printWinnerCars();
+        selectWinners();
+
     }
 
     private void createRandomCars(List<String> names) {
@@ -35,34 +44,18 @@ public class GameManager {
         }
     }
 
-    private void printWinnerCars() {
-        List<String> winners = new ArrayList<>();
-        selectWinners(winners);
-
-        String format = String.format("최종 우승자 : ");
-        for (String winner : winners) {
-            format += winner + ", ";
-        }
-
-        format = format.substring(0, format.length() - 2);
-        System.out.println(format);
-    }
-
-    private void selectWinners(List<String> winnerList) {
+    private List<RandomCar> selectWinners() {
         int maxPosition = getMaxPosition();
-        for (RandomCar randomCar : randomCars) {
-            if (randomCar.getPosition() == maxPosition) {
-                winnerList.add(randomCar.getName());
-            }
-        }
+
+        return randomCars.stream()
+                .filter(randomCar -> randomCar.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
     private int getMaxPosition() {
-        int maxPosition = -1;
-        for (RandomCar randomCar : randomCars) {
-            maxPosition = Math.max(maxPosition, randomCar.getPosition());
-        }
-
-        return maxPosition;
+        return randomCars.stream()
+                .mapToInt(RandomCar::getPosition)
+                .max()
+                .getAsInt();
     }
 }
