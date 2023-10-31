@@ -12,6 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.car.Car;
+import racingcar.exception.ExceptionMessage;
 import racingcar.player.Player;
 
 class RacingCarGameTest {
@@ -41,7 +42,7 @@ class RacingCarGameTest {
         assertThatThrownBy(
                 () -> car.createName(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("");
+                .hasMessageContaining(ExceptionMessage.NAME_OF_RANGE);
     }
 
     @Test
@@ -64,5 +65,24 @@ class RacingCarGameTest {
         List<String> result = car.winnerList();
 
         assertThat(result).contains("Alex", "Lux", "Jinx");
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1,1", "2,2", "3,3"})
+    void moveOnInput_메서드_사용시_경기_시도할_횟수_반환(String tryCount, int expected) {
+        player.moveOnInput(tryCount);
+
+        int actual = player.getCount();
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1", "hello", "오잉?", "%"})
+    void moveOnInput_메서드_사용시_0보다_큰_정수_아닐_때_예외_발생(String tryCount) {
+        assertThatThrownBy(
+                () -> player.moveOnInput(tryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.MOVE_OF_RANGE);
     }
 }
