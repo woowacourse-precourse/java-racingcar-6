@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarGroup {
-    private final List<Car> carList;
+    private List<Car> carList;
     private List<String> winnerList;
     private int maxDistance = Integer.MIN_VALUE;
 
