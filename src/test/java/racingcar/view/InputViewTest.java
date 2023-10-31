@@ -59,6 +59,21 @@ class InputViewTest extends NsTest {
         }
     }
 
+    @Test
+    public void 시도_횟수_숫자가_아닌경우() {
+        // given
+        String input = "pobi,crong,honux";
+        String tryCount = "a";
+
+        try {
+            // when
+            run(input, tryCount);
+        } catch (IllegalArgumentException e) {
+            // then
+            assertThat(e.getMessage()).isEqualTo("시도 횟수는 숫자만 가능합니다.");
+        }
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
