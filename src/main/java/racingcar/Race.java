@@ -8,7 +8,6 @@ import java.util.Map;
 import model.Car;
 
 public class Race {
-    private final Map<String, String> raceResult = new HashMap<>();
     int max = 0;
 
     public void raceCar(List<Car> cars, int times){
@@ -26,9 +25,7 @@ public class Race {
 
     public void updateResult(List<Car> cars){
         cars.forEach(car -> {
-            String name = car.getName();
             String position = car.getPosition();
-            raceResult.put(name,position);
             if (position.length() > max){
                 max  = position.length();
             }
