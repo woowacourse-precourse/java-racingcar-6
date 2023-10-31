@@ -30,4 +30,16 @@ public class ApplicationFuncTest {
         assertEquals("숫자로 입력해주세요", exception.getMessage());
     }
 
+    @DisplayName("Race 해보기")
+    @Test
+    public void RaceTest() {
+        String[] carNames = {"pobi", "woni", "jun"};
+        int[] carPositions = {0, 0, 0};
+        int numAttempts = 3;
+        Application.Race(carNames, carPositions, numAttempts);
+    }
+
+
+
+
 }
