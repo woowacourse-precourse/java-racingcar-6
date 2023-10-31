@@ -4,11 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
-    public int parseStringToInt(String input) throws IllegalArgumentException{
+
+    private static final String SEPARATOR = ",";
+
+    public static int parseStringToInt(String input) throws IllegalArgumentException{
         return Integer.parseInt(input);
     }
 
-    public List<String> parseCarNames(String input) {
-        return Arrays.asList(input.split(","));
+    public static List<String> parseCarNames(String input) {
+        return Arrays.asList(input.split(SEPARATOR, -1));
     }
 }

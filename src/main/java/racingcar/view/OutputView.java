@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class OutputView {
+
+    private static final String DELIMITER = ", ";
+    private static final String PROGRESS_SYMBOL = "-";
+
     public void printRacingStartMessage() {
         System.out.println("실행결과");
     }
@@ -18,20 +22,17 @@ public class OutputView {
         System.out.println(makeWinnersMessage(winner));
     }
 
+    private void printCarScore(String carName, int carScore) {
+        System.out.println(carName + " : " + PROGRESS_SYMBOL.repeat(carScore));
+    }
+
     private String makeWinnersMessage(List<String> winner) {
         Iterator<String> iterator = winner.iterator();
         StringBuilder sb = new StringBuilder("최종 우승자 : " + iterator.next());
         while(iterator.hasNext()) {
-            sb.append(", ");
+            sb.append(DELIMITER);
             sb.append(iterator.next());
         }
         return sb.toString();
     }
-
-
-    private void printCarScore(String carName, int carScore) {
-        System.out.println(carName + " : " + "-".repeat(carScore));
-    }
-
-
 }

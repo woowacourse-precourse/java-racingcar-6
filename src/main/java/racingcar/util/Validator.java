@@ -2,18 +2,21 @@ package racingcar.util;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
+
+import static racingcar.util.Parser.parseCarNames;
+import static racingcar.util.Parser.parseStringToInt;
 
 public class Validator {
 
     private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int CAR_NAME_MIN_LENGTH = 1;
+    private static final int POSITIVE_NUMBER_MIN = 1;
 
 
-    public void validateCarNames(List<String> carNames){
-        validateCarNamesLength(carNames);
-        validateCarNamesNotNull(carNames);
-        validateCarNamesNotDuplication(carNames);
-
+    public void validateCarNames(String carNames){
+        List<String> parsedCarNames = parseCarNames(carNames);
+        validateCarNamesLength(parsedCarNames);
+        validateCarNamesNotDuplication(parsedCarNames);
     }
 
     public void validateAttemptNumber(String attemptNumber) {
@@ -21,33 +24,32 @@ public class Validator {
         validatePositiveNumber(attemptNumber);
     }
 
-    private void validateCarNamesLength(List<String> carNames) {
-        if(carNames.stream().anyMatch(carName -> carName.length() > CAR_NAME_MAX_LENGTH))
-            throw new IllegalArgumentException("자동차 이름의 길이가 5를 넘어갔습니다.");
-    }
 
-    private void validateCarNamesNotNull(List<String> carNames) {
-        if(carNames.stream().anyMatch(Objects::isNull))
-            throw new IllegalArgumentException("자동차의 이름이 null 입니다.");
+    private void validateCarNamesLength(List<String> carNames) {
+        if(carNames.stream().anyMatch(carName -> carName.length() > CAR_NAME_MAX_LENGTH ))
+            throw new IllegalArgumentException("[ERROR] 자동차 이름의 길이는 5이하여야 합니다.");
+        if(carNames.stream().anyMatch(carName -> carName.length() < CAR_NAME_MIN_LENGTH))
+            throw new IllegalArgumentException("[ERROR] 자동차 이름의 길이는 1이상여야 합니다.");
+
     }
 
     private void validateCarNamesNotDuplication(List<String> carNames) {
         HashSet<String> Set = new HashSet<>(carNames);
         if (Set.size() < carNames.size()) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름이 중복됐습니다.");
+            throw new IllegalArgumentException("[ERROR] 자동차 이름이 중복 되면 안됩니다.");
         }
     }
 
     private void validateInteger(String attemptNumber) {
         try {
-            Integer.parseInt(attemptNumber);
+            parseStringToInt(attemptNumber);
         } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 시도횟수는 정수여야합니다.");
         }
     }
 
     private void validatePositiveNumber(String attemptNumber) {
-        if(Integer.parseInt(attemptNumber) < 1)
-            throw new IllegalArgumentException("시도횟수가 양수가 아닙니다.");
+        if(parseStringToInt(attemptNumber) < POSITIVE_NUMBER_MIN)
+            throw new IllegalArgumentException("[ERROR] 시도횟수는 양수여야합니다.");
     }
 }
