@@ -42,5 +42,13 @@ public class Application {
         }
     }
 
+    public static int getTryingNumber() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String tryingCount = readLine();
+        int count = checkTryingNumber(tryingCount);
+
+        return count;
+    }
+
 
 }
