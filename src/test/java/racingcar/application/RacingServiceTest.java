@@ -74,7 +74,7 @@ class RacingServiceTest {
 
     private Cars createCars(int createCount) {
         List<Car> cars = IntStream.range(0, createCount)
-                .mapToObj(i -> new Car("test"))
+                .mapToObj(i -> new Car("car" + i))
                 .toList();
         return new Cars(cars);
     }

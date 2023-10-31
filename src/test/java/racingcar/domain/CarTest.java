@@ -17,7 +17,7 @@ class CarTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"a", "abcde", "pobi!"})
+    @ValueSource(strings = {"a", "abcde", "pobi"})
     void 자동차_이름_길이가_올바를_경우_예외가_발생하지_않는다(String name) {
         // when & then
         assertDoesNotThrow(() -> new Car(name));
