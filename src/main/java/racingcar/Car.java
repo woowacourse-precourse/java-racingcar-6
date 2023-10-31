@@ -15,4 +15,10 @@ public class Car {
 
         this.canGo = randomNumber >= 4;
     }
+
+    private void updateDistance() {
+        if (this.canGo) {
+            this.distance += "-";
+        }
+    }
 }
