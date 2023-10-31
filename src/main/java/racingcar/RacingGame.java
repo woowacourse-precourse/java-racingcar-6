@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class RacingGame {
 
     private static final String NAME_DELIMITER = ",";
+    private static final int MIN_TRY_COUNT = 1;
     private final Referee referee = new Referee();
 
     public void start() {
@@ -31,7 +32,7 @@ public class RacingGame {
     }
 
     private void checkTryCount(int tryCount) {
-        if (tryCount < 1) {
+        if (tryCount < MIN_TRY_COUNT) {
             throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
         }
     }
