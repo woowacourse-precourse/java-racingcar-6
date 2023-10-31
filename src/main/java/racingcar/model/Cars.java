@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.util.GameNumber.MOVING_CONDITION;
+
 public class Cars {
 
     private final String name;
@@ -25,6 +27,6 @@ public class Cars {
     }
 
     private boolean movable(int moving) {
-        return moving >= 4;
+        return moving >= MOVING_CONDITION;
     }
 }

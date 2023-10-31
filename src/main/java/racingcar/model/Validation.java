@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.util.GameNumber.NAME_LENGTH;
 import static racingcar.util.Message.COUNT_MUST_INT;
 import static racingcar.util.Message.COUNT_MUST_POSITIVE_INT;
 import static racingcar.util.Message.NAME_LIMIT_LENGTH;
@@ -22,7 +23,7 @@ public class Validation {
 
     private static void nameLimitLength(List<Cars> cars) {
         for (Cars car : cars) {
-            if (car.getName().length() > 5) {
+            if (car.getName().length() > NAME_LENGTH) {
                 throw new IllegalArgumentException(NAME_LIMIT_LENGTH);
             }
         }
