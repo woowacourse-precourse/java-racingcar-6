@@ -39,18 +39,6 @@ public class RacingCarGameView {
     }
 
     public void showGameWinner(List<Player> winner) {
-        StringBuilder gameWinner = new StringBuilder();
-        boolean first = true;
-
-        for (Player player : winner) {
-            if (!first) {
-                gameWinner.append(", ");
-            }
-            gameWinner.append(player.getName());
-            first = false;
-        }
-
-        System.out.print(GAME_WINNER + gameWinner);
-
+        System.out.println(GAME_WINNER + String.join(", ", winner.stream().map(Player::getName).toList()));
     }
 }
