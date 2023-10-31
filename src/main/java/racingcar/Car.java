@@ -11,7 +11,7 @@ public class Car {
         this.movingCount = 0;
     }
 
-    public void movingCar(){
+    public void carInfoUpdate(){
         this.carPath += "-";
         this.movingCount++;
     }

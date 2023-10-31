@@ -15,16 +15,20 @@ public class Racing {
 
     public void doRacing(){
         while (dataSet.getNumTotalMoving() > 0){
-                for (Car car : dataSet.carList) {
-                    if(dataSet.makeRandomNumber()) {
-                        car.movingCar();
-                    }
-                }
+            moveCar(dataSet.carList);
             dataSet.setNumtotalMoving(dataSet.getNumTotalMoving() - 1);
             dataSet.printMovingResult();
         }
 
         getWinner();
+    }
+
+    public void moveCar(List<Car> carList){
+        for (Car car : carList) {
+            if(dataSet.makeRandomNumber()) {
+                car.carInfoUpdate();
+            }
+        }
     }
 
     public void getWinner(){
