@@ -40,8 +40,22 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도_횟수_입력_예외_처리() {
+    void 시도_횟수_입력_숫자_아닌_경우_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobi,woni", "t"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_횟수_입력_0인_경우_예외_처리() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_횟수_입력_음수인_경우_예외_처리() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobi,woni", "-1"))
                 .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -54,6 +68,32 @@ class ApplicationTest extends NsTest {
                     assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi,woni");
                 },
                 MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 한칸_전진_테스트() {
+        int lastPosition = 1;
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Integer result = RacingCarGame.carMoveForwardResult(lastPosition);
+                    assertThat(result).isEqualTo(lastPosition + 1);
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_불가능_테스트() {
+        int lastPosition = 1;
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Integer result = RacingCarGame.carMoveForwardResult(lastPosition);
+                    assertThat(result).isEqualTo(lastPosition);
+                },
+                STOP
         );
     }
 
