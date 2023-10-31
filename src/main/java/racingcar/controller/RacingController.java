@@ -22,5 +22,8 @@ public class RacingController {
             ArrayList<String> resultList = carList.move();
             OutputView.printStatus(resultList);
         }
+
+        ArrayList<String> winner = carList.getWinner();
+
     }
 }

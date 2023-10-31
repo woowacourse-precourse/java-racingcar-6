@@ -17,4 +17,19 @@ public class CarList {
         }
         return resultList;
     }
+
+    public ArrayList<String> getWinner() {
+        ArrayList<String> winnerList = new ArrayList<>();
+        int winnerPosition = 0;
+
+        for (Car car : carList) {
+            winnerPosition = Integer.max(winnerPosition, car.getPosition());
+        }
+        for (Car car : carList) {
+            if (winnerPosition == car.getPosition()) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
 }
