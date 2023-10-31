@@ -67,7 +67,6 @@
                     GameInfoMap.put(key, value + "-");
                 }
             }
-
         }
 
         private void printRunResult() {
