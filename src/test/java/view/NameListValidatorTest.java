@@ -1,9 +1,11 @@
 package view;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 import constants.ExceptionMessage;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class NameListValidatorTest {
@@ -49,4 +51,11 @@ class NameListValidatorTest {
                 .hasMessage(ExceptionMessage.DUPLICATED_NAME);
     }
 
+    @Test
+    public void 하나의_이름만_입력할_때_정상작동(){
+        String input = "aa";
+        List<String> carName = nameListValidator.validate(input);
+        assertThat(carName.size()).isEqualTo(1);
+        assertThat(carName).contains(input);
+    }
 }
