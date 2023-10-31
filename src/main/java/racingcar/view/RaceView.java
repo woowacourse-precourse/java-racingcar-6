@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import java.util.List;
+import java.util.Map;
+
 public class RaceView {
     private InputView inputView;
     private OutputView outputView;
@@ -21,4 +24,8 @@ public class RaceView {
 
     public String getMoveCountFromUsers() {
         return inputView.getMoveCountFromUsers();}
+
+    public void displayRaceStatus(List<Map<String, Integer>> result) {
+        outputView.displayRaceStatus(result);
+    }
 }
