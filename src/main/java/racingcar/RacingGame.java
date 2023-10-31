@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,24 +19,20 @@ public class RacingGame {
 
     void splitNames(String cars) {
         String[] names = cars.split(",");
-        for(String name : names) {
+        Arrays.stream(names).forEach(name -> {
             ExceptionString.exceptionCheckName(name);
             name = name.trim();
             racingCars.add(new Car(name));
-        }
+        });
     }
 
     void printStep() {
-        for(Car car : racingCars) {
-            System.out.println(car);
-        }
+        racingCars.stream().forEach(car -> System.out.println(car));
         System.out.println();
     }
 
     void executeStep() {
-        for(Car car : racingCars) {
-            car.moveRandom();
-        }
+        racingCars.stream().forEach(car -> car.moveRandom());
     }
 
     void printResult() {
