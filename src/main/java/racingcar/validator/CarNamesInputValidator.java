@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import java.util.Arrays;
 import racingcar.constant.GameConstant;
 import racingcar.constant.InputConstant;
 import racingcar.constant.message.CarNamesInputErrorMessage;
@@ -10,6 +11,7 @@ public class CarNamesInputValidator {
         containsDelimiter(userInput);
         isEndsWithDelimiter(userInput);
         isEachCarNameLengthInAppropriateRange(userInput);
+        isDuplicated(userInput);
     }
 
     private void isNotEmpty(String userInput) {
@@ -53,4 +55,24 @@ public class CarNamesInputValidator {
             isNotEmpty(carName);
         }
     }
+
+    private void isDuplicated(String userInput) {
+        String[] carNames = userInput.split(InputConstant.INPUT_CAR_NAMES_DELIMITER);
+        trimCarNames(carNames);
+        throwExceptionIfCarNameIsDuplicated(carNames);
+    }
+
+    private void trimCarNames(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
+        }
+    }
+
+    private void throwExceptionIfCarNameIsDuplicated(String[] carNames) {
+        long distinctCarNamesCount = Arrays.stream(carNames).distinct().count();
+        if (distinctCarNamesCount < carNames.length) {
+            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_CAR_NAMES_DUPLICATED);
+        }
+    }
+
 }
