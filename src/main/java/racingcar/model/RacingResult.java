@@ -20,10 +20,6 @@ public class RacingResult {
         return sb.substring(0, sb.length() - 2);
     }
 
-    private int getMaxDistance() {
-        return cars.maxDistance();
-    }
-
     private List<String> findWinners() {
         int maxDistance = cars.maxDistance();
         return cars.getCars().stream()
