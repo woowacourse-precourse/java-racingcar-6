@@ -17,17 +17,13 @@ public class RacingCarGame {
     }
 
     public void playRacingCar() {
-        System.out.printf("%n실행결과%n");
+        racingCar.printResultText();
         for (int i = 0; i < racingCar.numberOfTries; i++) {
             for (int j = 0; j < racingCar.carName.size(); j++) {
-                racingCar.updateMovement(j);
-                racingCar.getDash(j);
                 racingCar.printMovement(j);
             }
             racingCar.changeLine();
         }
-        int longestMovement = racingCar.longestMovement(movementSoFar);
-        List<Integer> winnerIndexList = racingCar.howManyWinners(longestMovement);
-        racingCar.printFinalWinner(winnerIndexList);
+        racingCar.printFinalWinner(movementSoFar);
     }
 }

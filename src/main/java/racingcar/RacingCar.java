@@ -20,6 +20,10 @@ public class RacingCar {
         System.out.println();
     }
 
+    public void printResultText() {
+        System.out.printf("%n실행결과%n");
+    }
+
     public void carName() {
         carName = InputView.getCarName("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
@@ -61,6 +65,7 @@ public class RacingCar {
     }
 
     public void printMovement(Integer indexOfCarName) {
+        updateMovement(indexOfCarName);
         System.out.printf("%s : %s%n", carName.get(indexOfCarName), getDash(indexOfCarName));
     }
 
@@ -79,11 +84,17 @@ public class RacingCar {
         return winnerIndexList;
     }
 
-    public void printFinalWinner(List<Integer> winnerIndexList) {
+    public void printWinner(List<Integer> winnerIndexList) {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winnerIndexList.size() - 1; i++) {
             System.out.printf("%s, ", carName.get(winnerIndexList.get(i)));
         }
         System.out.println(carName.get(winnerIndexList.get(winnerIndexList.size() - 1)));
+    }
+
+    public void printFinalWinner(List<Integer> movementSoFar) {
+        int longestMovement = longestMovement(movementSoFar);
+        List<Integer> winnerIndexList = howManyWinners(longestMovement);
+        printWinner(winnerIndexList);
     }
 }
