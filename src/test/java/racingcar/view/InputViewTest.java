@@ -21,4 +21,19 @@ class InputViewTest {
         // Then
         assertThat(input).isEqualTo(carNames);
     }
+
+    @Test
+    void 반복_횟수_입력_테스트() {
+        // Given
+        String input = "5";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        // When
+        InputView inputView = new InputView();
+        int moveNumber = inputView.readMoveNumber();
+
+        // Then
+        assertThat(Integer.parseInt(input)).isEqualTo(moveNumber);
+    }
 }
