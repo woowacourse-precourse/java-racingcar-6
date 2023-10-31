@@ -14,7 +14,7 @@ public class SettingGame {
         this.handleInput = new HandleInput();
     }
 
-    public Race setGame(){
+    public Race settingRaceAndReturn(){
         List<String> carNames = handleInput.inputCarNames();
         int tryNum = handleInput.inputTryNumber();
         List<Car> cars = carNames.stream().map(Car::new).toList();

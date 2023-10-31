@@ -6,10 +6,9 @@ public class GameManger {
 
     public static void handleGame(){
         SettingGame settingGame = new SettingGame();
-        Race race = settingGame.setGame();
+        Race race = settingGame.settingRaceAndReturn();
 
         StartGame startGame = new StartGame(race);
         startGame.startGame();
     }
-
 }

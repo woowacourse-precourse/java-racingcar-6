@@ -30,9 +30,11 @@ public class Race {
 
     public int getMaxLocationOfCar(){
         int maxLocation = Integer.MIN_VALUE;
+
         for(Car car : cars){
             if(car.getLocation() > maxLocation) maxLocation = car.getLocation();
         }
+
         return maxLocation;
     }
 }

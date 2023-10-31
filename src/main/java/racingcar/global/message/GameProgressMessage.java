@@ -20,8 +20,4 @@ public enum GameProgressMessage {
     public void printMessageWithNoNewLine(){
         System.out.print(this.message);
     }
-
-    public String getMessage() {
-        return message;
-    }
 }

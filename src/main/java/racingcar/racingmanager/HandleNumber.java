@@ -13,7 +13,6 @@ public class HandleNumber {
         for(int i = 0; i < countOfNumbers; i++){
             randomNumbers.add(Randoms.pickNumberInRange(0,9));
         }
-
         return randomNumbers;
     }
 

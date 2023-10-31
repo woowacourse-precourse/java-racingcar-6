@@ -18,7 +18,6 @@ public class HandleInput {
         for(String carName : carNames){
             InputValidator.isFiveLettersOver(carName);
         }
-
         return carNames;
     }
 
@@ -36,6 +35,7 @@ public class HandleInput {
         List<String> parsedList = Arrays.stream(input.split(",")).map(String::trim).toList();
         InputValidator.isListEmpty(parsedList);
         parsedList.forEach(InputValidator::isInputValid);
+
         return parsedList;
     }
 
