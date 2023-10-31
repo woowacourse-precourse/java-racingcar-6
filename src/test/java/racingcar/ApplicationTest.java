@@ -25,6 +25,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 레이싱카_등록() {
+        RacingCar result = RacingCarController.registerRacingCar("포비");
+        assertThat(result.getName()).isEqualTo("포비");
+        assertThat(result.getLocation()).isEqualTo(0);
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
