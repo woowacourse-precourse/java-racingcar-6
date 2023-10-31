@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class Winners {
     private List<String> winners = new ArrayList<>();
 
-    public int countWinners() {
+    public int getWinnersCount() {
         if (winners == null) {
             return 0;
         } else {
