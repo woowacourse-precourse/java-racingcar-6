@@ -2,15 +2,16 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import racingcar.exception.car.BlankCarNameException;
 import racingcar.exception.car.CarNameNumberLimitException;
 import racingcar.exception.car.DuplicateCarNameException;
 
+import static racingcar.domain.constants.Constants.CAR_NAME_NUMBERS_LIMIT_SIZE;
+import static racingcar.domain.constants.Constants.SEPARATE_BY_COMMA;
+
+
 public class InputCarValidator {
-    public static final int CAR_NAME_NUMBERS_LIMIT_SIZE = 5;
-    private static final String SEPARATE_BY_COMMA = ",";
 
     public static String[] carsByStringToArray(String inputAllCars) {
         return inputAllCars.split(SEPARATE_BY_COMMA);

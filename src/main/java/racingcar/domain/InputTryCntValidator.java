@@ -3,8 +3,9 @@ package racingcar.domain;
 import racingcar.exception.trycnt.TryCntIsNumberException;
 import racingcar.exception.trycnt.TryCntIsPositiveException;
 
+import static racingcar.domain.constants.Constants.MIN_TRY_COUNT;
+
 public class InputTryCntValidator {
-    public static final int MIN_TRY_COUNT = 0;
 
     public static int checkTryCount(String tryCnt) {
         int num = checkTryCntIsNumber(tryCnt);

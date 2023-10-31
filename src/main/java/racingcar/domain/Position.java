@@ -6,16 +6,15 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static racingcar.domain.constants.Constants.INITIAL_DISTANCE;
+import static racingcar.domain.constants.Constants.INITIAL_POSITION;
+import static racingcar.domain.constants.Constants.STANDARD_VALUE;
+import static racingcar.domain.constants.Constants.MOVING_DISTANCE;
+import static racingcar.domain.constants.Constants.MOVING_POSITION;
+import static racingcar.domain.constants.Constants.MIN_RANDOM;
+import static racingcar.domain.constants.Constants.MAX_RANDOM;
+
 public class Position extends Car {
-    private static final int INITIAL_DISTANCE = 0;
-    private static final String INITIAL_POSITION = "%s : ";
-    private static final int MIN_RANDOM = 0;
-    private static final int MAX_RANDOM = 9;
-
-    private static final int STANDARD_VALUE = 4;
-
-    private static final int MOVING_DISTANCE = 1;
-    private static final String MOVING_POSITION = "-";
     private int distance;
     private StringBuilder position;
 

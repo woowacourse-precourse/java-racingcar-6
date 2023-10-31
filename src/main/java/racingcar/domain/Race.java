@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 import static racingcar.domain.Position.createPositions;
+import static racingcar.domain.constants.Constants.LINE_BLANK;
+import static racingcar.domain.constants.Constants.RACE_RESULT_START;
 
 public class Race {
-    private static final String RACE_RESULT_START = "실행 결과";
-    private static final String LINE_BLANK = "\n";
     private List<Position> position;
     private TryCnt tryCnt;
 

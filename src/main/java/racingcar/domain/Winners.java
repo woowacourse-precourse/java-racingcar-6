@@ -3,10 +3,11 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.domain.constants.Constants.FINAL_WINNERS;
+import static racingcar.domain.constants.Constants.FINAL_WINNERS_DELIMITER;
+
 public class Winners {
 
-    private static final String FINAL_WINNERS = "최종 우승자 : ";
-    private static final String FINAL_WINNERS_DELIMITER = ", ";
     private List<Position> positions;
     private int tryCnt;
 
