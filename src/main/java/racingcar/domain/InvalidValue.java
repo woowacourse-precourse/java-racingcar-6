@@ -11,4 +11,16 @@ public class InvalidValue {
         }
         return false;
     }
+
+    public boolean isNaturalNumber(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            if(number > 0){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            return false;
+        }
+    }
 }

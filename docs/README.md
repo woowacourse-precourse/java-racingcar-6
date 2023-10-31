@@ -6,4 +6,4 @@
 - [x] 자동차 이름은 쉼표(,)를 기준으로 구분하여 입력 가능하다. - UserInput#carName()
 - [x] 사용자는 몇 번의 이동을 할 것인지 입력 가능하다. - UserInput#moveNumber()
 - [x] 자동차 이름은 5자를 초과할 수 없다. - InvalidValue#isExceedFiveLetters()
-- [ ] 사용자가 몇 번의 이동을 할 지 입력할 때 자연수만을 입력해야 한다. - InvalidValue#isNaturalNumber()
+- [x] 사용자가 몇 번의 이동을 할지 입력할 때 자연수만을 입력해야 한다. - InvalidValue#isNaturalNumber()
