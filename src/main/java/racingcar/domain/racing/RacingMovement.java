@@ -14,7 +14,11 @@ public class RacingMovement {
     }
 
     public boolean isMovingForward() { return this.number >= MOVING_FORWARD; }
+
     public String getName() {
         return this.name;
+    }
+    public int getNumber() {
+        return this.number;
     }
 }
