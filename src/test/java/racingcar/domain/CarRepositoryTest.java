@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -74,4 +76,14 @@ class CarRepositoryTest {
         assertEquals(repetition, updatedCar.getForwardCount());
     }
 
+    @Test
+    void 중복되는이름의_경주차를_생성하면_예외발생시키기() {
+        // given
+        carRepository.save("meoru");
+
+        // when & then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            carRepository.save("meoru");
+        });
+    }
 }
