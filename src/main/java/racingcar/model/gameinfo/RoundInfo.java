@@ -1,10 +1,10 @@
 package racingcar.model.gameinfo;
 
-public class RacingInfo {
+public class RoundInfo {
     private final int maxRound;
     private int currentRound;
 
-    public RacingInfo(int maxRound) {
+    public RoundInfo(int maxRound) {
         this.currentRound = 1;
         this.maxRound = maxRound;
     }
