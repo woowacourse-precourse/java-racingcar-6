@@ -9,6 +9,8 @@ import java.util.function.BooleanSupplier;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.MockCar;
 
 class RacingTest {
 

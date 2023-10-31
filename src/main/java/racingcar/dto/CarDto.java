@@ -1,6 +1,6 @@
 package racingcar.dto;
 
-import racingcar.domain.Car;
+import racingcar.domain.car.Car;
 
 public record CarDto(String name, int position) {
 

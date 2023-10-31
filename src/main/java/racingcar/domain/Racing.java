@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.Objects;
+import racingcar.domain.car.Car;
 
 public class Racing {
 

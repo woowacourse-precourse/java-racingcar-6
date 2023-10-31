@@ -1,7 +1,10 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import java.util.Objects;
 import java.util.function.BooleanSupplier;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.CarName;
+import racingcar.domain.car.CarPosition;
 
 public class MockCar extends Car {
 
@@ -13,7 +16,7 @@ public class MockCar extends Car {
     private int position;
     private final BooleanSupplier movingStrategy;
 
-    MockCar(String name, int position, BooleanSupplier movingStrategy) {
+    public MockCar(String name, int position, BooleanSupplier movingStrategy) {
         super(SUPER_CAR_NAME, SUPER_POSITION, ALWAYS_MOVE_STRATEGY);
         this.name = name;
         this.position = position;
