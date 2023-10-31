@@ -21,9 +21,7 @@ public class InputValue {
         String userInputCarName = Console.readLine();
         validateInputCorrectSeparator(userInputCarName);
 
-        String[] carList = createCarList(userInputCarName);
-
-        return carList;
+        return createCarList(userInputCarName);
     }
 
     public static String[] createCarList(String userInputCarName) {
@@ -36,7 +34,7 @@ public class InputValue {
 
     public static int InputMovingCount() {
         int carMovingCount = Integer.parseInt(Console.readLine());
-        InputValidation.validateMoveCountRange(carMovingCount);
+        validateMoveCountRange(carMovingCount);
         return carMovingCount;
     }
 }
