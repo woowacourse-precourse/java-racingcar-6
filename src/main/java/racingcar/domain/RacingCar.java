@@ -13,6 +13,10 @@ public class RacingCar {
         return this.distance;
     }
 
+    public int getId(String name) {
+        return this.id;
+    }
+
     public void moving(int id, int forward) {
         distance += forward;
     }
