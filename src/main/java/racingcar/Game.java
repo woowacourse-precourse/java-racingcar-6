@@ -25,7 +25,7 @@ final class Game {
     }
 
     public void play() {
-        Output.printTryCountMessage();
+        Output.printTryNumberMessage();
         String tryNumber = User.inputTryNumber();
         Output.printTryCount(tryNumber);
 

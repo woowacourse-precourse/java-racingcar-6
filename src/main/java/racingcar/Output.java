@@ -17,8 +17,8 @@ final class Output {
         System.out.println(StringUtils.joinWithoutBlank(players));
     }
 
-    static void printTryCountMessage() {
-        System.out.println(GameMessage.TRY_COUNT.message);
+    static void printTryNumberMessage() {
+        System.out.println(GameMessage.TRY_NUMBER.message);
     }
 
     static void printTryCount(String moveNumber) {
