@@ -1,12 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.assertj.core.api.ObjectArrayAssert;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -18,7 +15,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 우승_자동차_테스트_우승자_여러명(){
+    void 우승_자동차_테스트_우승자_여러명() {
         Application application = new Application();
         Car[] carlist = new Car[3];
         carlist[0] = new Car("pobi", 5);
@@ -33,7 +30,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 우승_자동차_테스트_우승자_1명(){
+    void 우승_자동차_테스트_우승자_1명() {
         Application application = new Application();
         Car[] carlist = new Car[3];
         carlist[0] = new Car("pobi", 3);
@@ -47,13 +44,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_이동(){
+    void 자동차_이동() {
         Application application = new Application();
         String[] split = {"pobi", "crong", "wooni"};
         Car[] carlist = application.createCar(split);
 
-        application.move(carlist[0], true);
-        application.move(carlist[1], false);
+        application.move(carlist[0], 5);
+        application.move(carlist[1], 2);
 
         assertThat(carlist[0].getPos()).isEqualTo(1);
         assertThat(carlist[1].getPos()).isEqualTo(0);
@@ -61,7 +58,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_생성(){
+    void 자동차_생성() {
         Application application = new Application();
         String[] split = {"pobi", "crong", "wooni"};
 
@@ -75,19 +72,9 @@ class ApplicationTest extends NsTest {
         assertThat(carlist[2].getPos()).isEqualTo(0);
 
     }
-    
-    @Test
-    void 전진_조건(){
-        Application application = new Application();
-        int randomNumberTest1 = 3;
-        int randomNumberTest2 = 5;
-
-        assertThat(application.go(randomNumberTest1)).isEqualTo(true);
-        assertThat(application.go(randomNumberTest2)).isEqualTo(false);
-    }
 
     @Test
-    void 이름_분류(){
+    void 이름_분류() {
         Application application = new Application();
         String input = "pobi,crong,woni";
         String[] devidedName = application.devide_name(input);
@@ -98,11 +85,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
