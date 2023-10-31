@@ -14,7 +14,7 @@ public class CarPosition {
         return position;
     }
 
-    public CarPosition next() {
+    public CarPosition goForward() {
         return new CarPosition(this.position + 1);
     }
 

@@ -21,7 +21,7 @@ public class Car {
 
     public Car move(int number) {
         if (isGreaterThanOrEqualToLeastNumber(number)) {
-            return new Car(this.carName, this.carPosition.next());
+            return new Car(this.carName, this.carPosition.goForward());
         }
         return this;
     }
