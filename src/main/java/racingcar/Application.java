@@ -22,6 +22,7 @@ public class Application {
 
             tryingCount--;
         }
+        checkWinners(cars);
 
     }
 
@@ -103,5 +104,45 @@ public class Application {
         }
     }
 
+    public static void checkWinners(Car[] cars) {
+        int maxDistance = getMaxDistance(cars);
+        List<Car> winners = getWinners(cars, maxDistance);
+        printWinners(winners);
+    }
+
+    private static int getMaxDistance(Car[] cars) {
+        int maxDistance = 0;
+
+        for (Car car : cars) {
+            if (car.getDistance() > maxDistance) {
+                maxDistance = car.getDistance();
+            }
+        }
+
+        return maxDistance;
+    }
+
+    private static List<Car> getWinners(Car[] cars, int maxDistance) {
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getDistance() == maxDistance) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    private static void printWinners(List<Car> winners) {
+        StringBuilder winnerNames = new StringBuilder();
+
+        for (Car winner : winners) {
+            winnerNames.append(winner.getName()).append(", ");
+        }
+        winnerNames.setLength(winnerNames.length() - 2);
+
+        System.out.println("최종 우승자 : " + winnerNames);
+    }
 }
 
