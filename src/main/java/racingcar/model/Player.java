@@ -19,9 +19,13 @@ public class Player {
         int randomNumber = Randoms.pickNumberInRange(MIN, MAX);
 
         if (randomNumber < 4) return false;
+        addForward();
+        return true;
+    }
+
+    private void addForward() {
         forward++;
         Distance.DISTANCE.update(forward);
-        return true;
     }
 
     public String getStatus() {
