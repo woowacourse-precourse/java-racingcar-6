@@ -34,4 +34,8 @@ public class RacingController {
         outputView.printRaceStatus(sb);
     }
 
+    public void readVictoryPlayers(List<Car> cars) {
+        List<String> victoryPlayers = racingService.findByVictoryPlayers(cars);
+        outputView.printVictoryPlayers(victoryPlayers);
+    }
 }
