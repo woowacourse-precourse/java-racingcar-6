@@ -11,4 +11,11 @@ public class UserInput {
 
         return carName;
     }
+
+    public int moveNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int input = Integer.parseInt(Console.readLine());
+
+        return input;
+    }
 }
