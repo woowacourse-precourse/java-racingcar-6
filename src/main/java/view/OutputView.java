@@ -15,4 +15,9 @@ public class OutputView {
     public void printResult(){
         System.out.printf("실행 결과\n");
     }
+
+    public void printWinner(String winner){
+        System.out.printf("최종 우승자 : %s",winner);
+
+    }
 }
