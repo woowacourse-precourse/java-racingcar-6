@@ -6,8 +6,12 @@ public class Application {
         CheckForm checkForm = new CheckForm();
         Sorting sort = new Sorting();
         IO io = new IO(checkForm);
-        Game game = new Game(io, sort, checkForm);
 
-        game.setting();
+        SettingGame settingGame = new SettingGame(io, checkForm);
+        RunningGame runningGame = new RunningGame(io, sort, settingGame);
+
+        settingGame.setGame();
+        runningGame.runGame();
+        runningGame.createResult();
     }
 }
