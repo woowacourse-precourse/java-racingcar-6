@@ -30,7 +30,7 @@ public class Cars {
     public void decideToMove() {
         cars.forEach(car -> {
             if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MIN_MOVE_NUMBER) {
-                car.move();
+                car.movePosition();
             }
         });
     }

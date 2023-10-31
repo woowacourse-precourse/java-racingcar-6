@@ -9,8 +9,8 @@ public class Car {
         position = new Position();
     }
 
-    public void move() {
-        position.movePosition();
+    public void movePosition() {
+        position.move();
     }
 
     public boolean isWinner(Position maxPosition) {

@@ -17,7 +17,7 @@ public class Position {
         this.position = testNumber;
     }
 
-    public void movePosition() {
+    public void move() {
         this.position += MOVE_SIZE;
     }
 
