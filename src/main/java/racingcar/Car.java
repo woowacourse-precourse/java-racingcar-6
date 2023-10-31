@@ -19,10 +19,6 @@ public class Car {
     }
   }
   
-//  private int generateRandomNumber() {
-//    return (int) (Math.random() * 10);
-//  }
-  
   public int getPosition() {
     return position;
   }
