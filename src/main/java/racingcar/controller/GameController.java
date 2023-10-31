@@ -44,22 +44,42 @@ public class GameController {
     }
 
     public List<List<CarDTO>> play() {
+        // 현재 라운드 및 결과를 저장하는 변수 초기화
         Round currentRound;
         List<CarDTO> currentRoundResult;
         List<List<CarDTO>> EachRoundResult = new ArrayList<>();
 
+        // 게임 시작 메시지 출력
         OUTPUT_VIEW.printPlayStart();
 
+        // 전체 라운드 진행
         while (Round.getCurrentRoundCount() < totalRoundCount) {
+            // 새 라운드 생성
             currentRound = createRound();
+
+            // 라운드 시작 및 종료
             currentRound.startRace(cars);
             currentRound.endRace();
+
+            // 라운드 결과 생성 및 저장
             currentRoundResult = currentRound.generateResult(cars);
             EachRoundResult.add(currentRoundResult);
+
+            // 현재 라운드 결과 출력
             OUTPUT_VIEW.printRoundResult(currentRoundResult);
         }
 
+        // 모든 라운드 종료 후 우승한 자동차 정보 추출
+        List<CarDTO> finalRoundResult = Round.calculateFurthestCarInfo(EachRoundResult);
+
+        // 최종 우승자 출력
+        toOutputView(finalRoundResult);
+
         return EachRoundResult;
+    }
+
+    public void toOutputView(List<CarDTO> finalRoundResult) {
+        OUTPUT_VIEW.printWinner(finalRoundResult);
     }
 
     public void setCars(List<Car> cars) {
