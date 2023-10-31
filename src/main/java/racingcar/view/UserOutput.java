@@ -18,7 +18,7 @@ public class UserOutput {
     }
 
     static public void consoleOutExecutionResult(ArrayList<Car> cars) {
-        for(Car car : cars){
+        for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getLocation()));
         }
         System.out.println();
@@ -26,7 +26,7 @@ public class UserOutput {
 
     static public void consoleOutWinner(ArrayList<Car> winners) {
         ArrayList<String> winnerNames = new ArrayList<>();
-        for(Car car : winners){
+        for (Car car : winners) {
             winnerNames.add(car.getName());
         }
 

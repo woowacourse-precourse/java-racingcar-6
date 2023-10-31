@@ -30,7 +30,7 @@ public class Controller {
 
     public static ArrayList<Car> makeCarInstances(ArrayList<String> car_names) {
         ArrayList<Car> cars = new ArrayList<>();
-        for(String name : car_names){
+        for (String name : car_names) {
             cars.add(new Car(name));
         }
 
@@ -39,7 +39,7 @@ public class Controller {
 
     public static ArrayList<String> convertStringToArrayList(String names) {
         ArrayList<String> name_list = new ArrayList<>();
-        for(String n : names.split(",")){
+        for (String n : names.split(",")) {
             String name = n.trim();
             checkNameValidation(name);
             name_list.add(name);
@@ -49,22 +49,22 @@ public class Controller {
     }
 
     public static Integer convertStringToInteger(String cnt) {
-        try{
+        try {
             Integer number = Integer.parseInt(cnt);
             return number;
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new IllegalArgumentException("Execution cnt must be Integer type");
         }
     }
 
     public static void checkNameValidation(String name) {
-        if(name.length() > Constant.MAX_LEN_OF_CAR_NAME){
+        if (name.length() > Constant.MAX_LEN_OF_CAR_NAME) {
             throw new IllegalArgumentException("The length of name of car is too long");
         }
     }
 
     public static void checkExecutionCntValidation(Integer execution_cnt) {
-        if(execution_cnt < 0){
+        if (execution_cnt < 0) {
             throw new IllegalArgumentException("The execution count must be positive integer");
         }
     }

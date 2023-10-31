@@ -14,7 +14,7 @@ import static java.lang.Math.max;
 public class Service {
     public static void raceStart(RaceGame raceGame) {
         int execution_cnt = raceGame.getExecution_cnt();
-        while(execution_cnt-- > 0){
+        while (execution_cnt-- > 0) {
             moveAllCars(raceGame.getParticipants());
             UserOutput.consoleOutExecutionResult(raceGame.getParticipants());
         }
@@ -22,8 +22,8 @@ public class Service {
     }
 
     public static void moveAllCars(ArrayList<Car> cars) {
-        for(Car car : cars){
-            if(canMove()){
+        for (Car car : cars) {
+            if (canMove()) {
                 moveCar(car);
             }
         }
@@ -41,8 +41,8 @@ public class Service {
         ArrayList<Car> winners = new ArrayList<>();
         int max_distance = findMaxDistance(cars);
 
-        for(Car car : cars){
-            if(car.getLocation() == max_distance){
+        for (Car car : cars) {
+            if (car.getLocation() == max_distance) {
                 winners.add(car);
             }
         }
@@ -52,7 +52,7 @@ public class Service {
 
     public static Integer findMaxDistance(ArrayList<Car> cars) {
         int max_distance = 0;
-        for(Car car : cars){
+        for (Car car : cars) {
             max_distance = max(car.getLocation(), max_distance);
         }
 
