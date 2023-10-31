@@ -1,4 +1,4 @@
-package study;
+package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.util.Round;
