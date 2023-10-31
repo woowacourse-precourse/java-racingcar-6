@@ -2,13 +2,15 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Application {
     static String carNameBeforeSplit, stringNumberOfMoves;
     static ArrayList<String> carList;
-    static int numberOfMoves;
+    static int numberOfMoves, randomNumber;
+    static boolean checkMoreThanFour;
 
     public static void main(String[] args) {
 
@@ -26,9 +28,22 @@ public class Application {
         // 입력 받은 횟수 에러 확인하기
         numberOfMoves = check_error_numberofmoves(stringNumberOfMoves);
 
+        // 모든 입력이 정상이라면 0~9의 랜덤 숫자를 추출하여 4 이상인지 판단하기
+        randomNumber = make_random_number();
+        checkMoreThanFour = judge_number_more_than_four(randomNumber);
+
         System.out.println(carList);
         System.out.println(numberOfMoves);
     }
+
+    public static boolean judge_number_more_than_four(int randomNumber) {
+        return randomNumber >= 4;
+    }
+
+    public static int make_random_number() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
 
     public static void make_name_split() {
         // 입력 받은 문자열을 쉼표를 기준으로 구분하여 자동차 이름 저장하기
