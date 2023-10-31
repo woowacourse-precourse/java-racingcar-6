@@ -8,6 +8,9 @@ import racingcar.utils.MessagePrinter;
 import racingcar.utils.Validator;
 
 public class RacingGame {
+    private static final int MIN_GENERATE_VALUE = 0;
+    private static final int MAX_GENERATE_VALUE = 9;
+
     private final List<Car> cars;
     private final Validator validator;
     private final MessagePrinter messagePrinter;
@@ -58,7 +61,7 @@ public class RacingGame {
     }
 
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_GENERATE_VALUE, MAX_GENERATE_VALUE);
     }
 
     private List<Car> judgeWinners(final List<Car> cars) {
