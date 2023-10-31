@@ -65,19 +65,19 @@ public class InputValidationTest {
         assertDoesNotThrow(() -> InputValidation.validateNameList(carNames));
     }
 
+    private static Stream<Arguments> validateNameList_자동차_이름_검증에_성공한다() {
+        return Stream.of(
+            Arguments.of(List.of("pobi")),
+            Arguments.of(List.of("pobi", "crong"))
+        );
+    }
+
     @ParameterizedTest
     @MethodSource("validateNameList_자동차_이름_검증에_실패한다")
     void validateNameList_자동차_이름_검증에_실패한다(List<String> carNames, String failureMessage) {
         assertThatThrownBy(() -> InputValidation.validateNameList(carNames))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(failureMessage);
-    }
-
-    private static Stream<Arguments> validateNameList_자동차_이름_검증에_성공한다() {
-        return Stream.of(
-            Arguments.of(List.of("pobi")),
-            Arguments.of(List.of("pobi", "crong"))
-        );
     }
 
     private static Stream<Arguments> validateNameList_자동차_이름_검증에_실패한다() {
