@@ -18,7 +18,7 @@ class OutputViewTest {
     void printRacingResultTitleTest() {
         MockPrinter printer = new MockPrinter();
         OutputView outputView = new OutputView(printer);
-        String expectedMessage = "%n실행 결과".formatted();
+        String expectedMessage = "%n실행 결과%n".formatted();
 
         outputView.printRacingResultTitle();
 

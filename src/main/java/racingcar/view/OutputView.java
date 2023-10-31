@@ -12,7 +12,7 @@ import racingcar.view.printer.Printer;
 
 public class OutputView {
 
-    private static final String LOCATION_RESULT_TITLE = "%n실행 결과".formatted();
+    private static final String LOCATION_RESULT_TITLE = "%n실행 결과%n".formatted();
     private static final String CAR_RESULT_FORMAT = "%s : %s%n";
     private static final String POSITION_CHARACTER = "-";
     private static final String NEW_NINE = "%n".formatted();
