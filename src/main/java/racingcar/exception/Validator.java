@@ -6,9 +6,23 @@ public class Validator {
 
     public static void validateCarName(String carName) {
 
+        validateCarNameLength(carName);
+    }
+
+    private static void validateCarNameLength(String carName) {
         boolean isValidCarName = (carName.length() <= 5) && (carName.length() > 0);
+
         if (!isValidCarName) {
             throw new IllegalArgumentException("자동차 이름은 앞,뒤 공백 없는 1~5자 사이입니다.");
+        }
+    }
+
+    public static void validateDuplicatedCarName(List<String> carNames) {
+        long uniqueCount = carNames.stream().distinct().count();
+        boolean isDuplicated =  uniqueCount < carNames.size();
+
+        if (isDuplicated) {
+            throw new IllegalArgumentException("자동차 이름이 중복되지 않아야 합니다.");
         }
     }
 

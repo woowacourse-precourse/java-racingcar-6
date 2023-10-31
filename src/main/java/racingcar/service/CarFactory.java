@@ -16,6 +16,7 @@ public class CarFactory {
         List<Car> cars = new ArrayList<>();
 
         Validator.validateNumberOfCar(carNames);
+        Validator.validateDuplicatedCarName(carNames);
 
         for (String carName : carNames) {
 
