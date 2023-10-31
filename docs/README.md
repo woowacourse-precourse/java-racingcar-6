@@ -64,11 +64,11 @@
             <li>
                 <h3>사용자의 입력을 테스트하는 기능</h3>
                 <ol>
-                    <li><p>이름 중 하나라도 5글자를 넘는 경우 IllegalArgumentException을 발생시키는가? - [ ]</p></li>
-                    <li><p>이름들의 ',' 사이에 공백을 포함한 경우 IllegalArgumentException을 발생시키는가? - [ ]</p></li>
-                    <li><p>이름에 공백을 입력한 경우 IllegalArgumentException을 발생시키는가? - [ ]</p></li>
-                    <li><p>시도할 횟수가 0 이하인 경우 IllegalArgumentException을 발생시키는가? - [ ]</p></li>
-                    <li><p>시도 횟수를 입력하지 않은 경우 IllegalArgumentException을 발생시키는가? - [ ]</p></li>
+                    <li><p>이름 중 하나라도 5글자를 넘는 경우 IllegalArgumentException을 발생시키는가? - [v]</p></li>
+                    <li><p>이름들의 ',' 사이에 공백을 포함한 경우 IllegalArgumentException을 발생시키는가? - [v]</p></li>
+                    <li><p>이름에 공백을 입력한 경우 IllegalArgumentException을 발생시키는가? - [v]</p></li>
+                    <li><p>시도할 횟수가 0 이하인 경우 IllegalArgumentException을 발생시키는가? - [v]</p></li>
+                    <li><p>시도 횟수를 입력하지 않은 경우 IllegalArgumentException을 발생시키는가? - [v]</p></li>
                 </ol>
             </li>
             <li>
