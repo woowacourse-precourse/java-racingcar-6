@@ -27,10 +27,14 @@ public class Validator {
         String[] carNames = dividedByCommas(carNamesInput);
         validateBlankCarNames(carNames);
         ignoreSpacing(carNames);
-        if (!isUnder5digits(carNames) || isDuplicateCarName(carNames)) {
+        if (isCarNamesValid(carNames)) {
             throw new IllegalArgumentException();
         }
         return carNames;
+    }
+
+    private boolean isCarNamesValid(String[] carNames) {
+        return !isUnder5digits(carNames) || isDuplicateCarName(carNames);
     }
 
     private void validateBlankCarNames(String[] carNames) {
