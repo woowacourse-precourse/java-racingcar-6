@@ -1,5 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.constant.SystemConstant.CAR_FORWARD_LIMIT_NUMBER;
+
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.StringJoiner;
+
 public class Car {
     private final String carName;
     private final StringBuilder forward;
@@ -10,13 +15,22 @@ public class Car {
     }
 
     public void isForward() {
+        int random = Randoms.pickNumberInRange(0, 9);
 
+        if (random >= CAR_FORWARD_LIMIT_NUMBER) {
+            this.forward.append("-");
+        }
     }
 
     @Override
     public String toString() {
+        StringJoiner stringJoiner = new StringJoiner(" ");
 
-        return null;
+        stringJoiner.add(this.carName);
+        stringJoiner.add(":");
+        stringJoiner.add(this.forward.toString());
+
+        return stringJoiner.toString();
     }
 
     public int getForwardSize() {
