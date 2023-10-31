@@ -29,7 +29,11 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean isWinner(Car maxDistanceCar) {
-        return distance.equals(maxDistanceCar.distance);
+        return isDistanceEqual(maxDistanceCar.distance);
+    }
+
+    private boolean isDistanceEqual(Distance distance) {
+        return this.distance.compare(distance) == 0;
     }
 
     public String getName() {
