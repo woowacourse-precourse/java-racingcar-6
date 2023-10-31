@@ -49,6 +49,11 @@ public class RacingGame {
     public void start() {
         for (int i = 0; i < this.moveCount; i++) {
             this.run();
+
+            List<String> currentMovedCarsReports = this.getCurrentMovedCarsReports();
+
+            printStream.println(String.join("\n", currentMovedCarsReports));
+            printStream.println();
         }
     }
     private int createRandomNumber() {
@@ -76,5 +81,18 @@ public class RacingGame {
                 car.setMovingDistance(movingDistance + 1);
             }
         }
+    }
+
+    private List<String> getCurrentMovedCarsReports() {
+        int carsCount = this.cars.size();
+        List<String> currentMovedCarsReports = new ArrayList<String>(carsCount);
+
+        for (int i = 0; i < carsCount; i++) {
+            Car car = this.cars.get(i);
+
+            currentMovedCarsReports.add(car.toString());
+        }
+
+        return currentMovedCarsReports;
     }
 }

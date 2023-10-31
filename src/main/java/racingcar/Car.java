@@ -24,4 +24,9 @@ public class Car {
     public void setMovingDistance(int movingDistance) {
         this.movingDistance = movingDistance;
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(movingDistance);
+    }
 }

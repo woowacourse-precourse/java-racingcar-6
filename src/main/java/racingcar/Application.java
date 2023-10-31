@@ -12,5 +12,9 @@ public class Application {
         
         printStream.println("시도할 회수는 몇회인가요?");
         game.enterMoveCount();
+        
+        printStream.println();
+        printStream.println("실행 결과");
+        game.start();
     }
 }
