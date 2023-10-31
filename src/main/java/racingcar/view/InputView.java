@@ -15,4 +15,10 @@ public class InputView {
         String[] carsList = carInput.split(",");
         return Arrays.asList(carsList);
     }
+
+    public int getMoveCountsInput() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String MoveCountsInput = Console.readLine();
+        return Integer.parseInt(MoveCountsInput);
+    }
 }
