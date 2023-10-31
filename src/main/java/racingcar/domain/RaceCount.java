@@ -2,7 +2,6 @@ package racingcar.domain;
 
 public class RaceCount {
     static private RaceCount singletonInstance;
-    static private final String NUMBER_SIGN_ERROR = "[ERROR] 시도 횟수는 양수여야 합니다.";
     private int totalCount;
     private int currentCount;
 
@@ -24,7 +23,7 @@ public class RaceCount {
 
     private void validateTotalCount() {
         if (totalCount <= 0) {
-            throw new IllegalArgumentException(NUMBER_SIGN_ERROR);
+            throw new IllegalArgumentException(ErrorMessage.COUNT_NUMBER_SIGN.toString());
         }
     }
 

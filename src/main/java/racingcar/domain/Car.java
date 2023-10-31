@@ -3,8 +3,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Comparable<Car> {
-    static final String NAME_LENGTH_MIN_LIMIT_ERROR = "[ERROR] 자동차 이름의 길이는 1 이상여야 합니다.";
-    static final String NAME_LENGTH_MAX_LIMIT_ERROR = "[ERROR] 자동차 이름의 길이는 5 이하여야 합니다.";
     static final int NAME_LENGTH_MIN_LIMIT = 1;
     static final int NAME_LENGTH_MAX_LIMIT = 5;
     static final int MOVE_FORWARD_MIN_NUMBER = 4;
@@ -19,10 +17,10 @@ public class Car implements Comparable<Car> {
 
     private void validateName(String name) {
         if (name.length() < NAME_LENGTH_MIN_LIMIT) {
-            throw new IllegalArgumentException(NAME_LENGTH_MIN_LIMIT_ERROR);
+            throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_MIN_LIMIT.toString());
         }
         if (name.length() > NAME_LENGTH_MAX_LIMIT) {
-            throw new IllegalArgumentException(NAME_LENGTH_MAX_LIMIT_ERROR);
+            throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_MAX_LIMIT.toString());
         }
     }
 

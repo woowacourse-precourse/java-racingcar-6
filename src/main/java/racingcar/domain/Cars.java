@@ -26,6 +26,13 @@ public class Cars {
             Car car = new Car(name.trim());
             cars.add(car);
         }
+        validatePlayerNumber();
+    }
+
+    private void validatePlayerNumber() {
+        if (cars.size() < 2) {
+            throw new IllegalArgumentException(ErrorMessage.PLAYER_NUMBER.toString());
+        }
     }
 
     public RaceResult runSingleRace() {
