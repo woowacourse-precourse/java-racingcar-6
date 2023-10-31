@@ -39,6 +39,18 @@ class CarTest {
             assertThat(afterRaceCar.getPosition()).isEqualTo(0);
             assertThat(afterRaceCar.getName()).isEqualTo("Car");
         }
+
+        @Test
+        @DisplayName("자신의 이름과 위치 정보를 성공적으로 출력해야 한다")
+        public void 자신의_이름과_위치_정보를_성공적으로_출력해야_한다() {
+            String expectedMessage = "Pobi : -\n";
+            Car car = new Car("Pobi");
+            car.race(4);
+
+            String carToString = car.toString();
+
+            assertThat(carToString).isEqualTo(expectedMessage);
+        }
     }
 
 }
