@@ -32,4 +32,13 @@ public class Cars {
                 .orElse(0);
         return max;
     }
+
+    public void playOneGame() {
+        for (Car car : cars) {
+            int randomNumber = RandomNumberGenerator.makeNumber();
+            if (randomNumber >= 4) {
+                car.go();
+            }
+        }
+    }
 }
