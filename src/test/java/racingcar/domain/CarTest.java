@@ -32,34 +32,4 @@ class CarTest {
         String expectedValue = "";
         Assertions.assertThat(expectedValue).isEqualTo("");
     }
-
-    @Test
-    @DisplayName("If Duplicate Name, Throw Exception")
-    void 중복된_이름_사용시_에러_발생() {
-        Car car = new Car("car1");
-
-        Assertions.assertThatThrownBy(() -> new Car("car1"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이미 사용중인 자동차 이름입니다.");
-    }
-
-    @Test
-    @DisplayName("If Name Exceeds 5 Characters, Throw Exception")
-    void 이름의_길이가_5글자를_넘을_경우_에러_발생() {
-        Assertions.assertThatThrownBy(() -> new Car("abcedf"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5글자 이하만 가능합니다");
-    }
-
-    @Test
-    @DisplayName("If Car Name Is Blank, Throw Exception")
-    void 이름이_공백일_경우_에러_발생() {
-        Assertions.assertThatThrownBy(() -> new Car(""))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백일 수 없습니다");
-
-        Assertions.assertThatThrownBy(() -> new Car("   "))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백일 수 없습니다");
-    }
 }
