@@ -1,4 +1,4 @@
-package service;
+package Model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
