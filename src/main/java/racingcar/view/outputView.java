@@ -10,6 +10,8 @@ public class outputView {
 
     private static final String GAME_RESULT = "실행 결과";
 
+    private static final String GAME_WINNER = "최종 우승자 : ";
+
     public void requestCarName() {
         System.out.print(REQUEST_CAR_NAME);
     }
@@ -30,5 +32,21 @@ public class outputView {
             }
             System.out.println();
         }
+    }
+
+    public void showGameWinner(List<Player> winner) {
+        StringBuilder gameWinner = new StringBuilder();
+        boolean first = true;
+
+        for (Player player : winner) {
+            if (!first) {
+                gameWinner.append(", ");
+            }
+            gameWinner.append(player.getName());
+            first = false;
+        }
+
+        System.out.print(GAME_WINNER + gameWinner);
+
     }
 }
