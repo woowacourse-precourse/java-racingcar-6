@@ -18,6 +18,15 @@ public class RacingController {
         String carNames = InputView.inputCarNames();
         GameTry gameTry = new GameTry(InputView.inputTryNumber());
         RacingGame racingGame = new RacingGame(carNames, gameTry);
+        race(racingGame);
+    }
+
+    private void race(RacingGame racingGame) {
         OutputView.printMainMessage();
+
+        while (racingGame.isContinue()) {
+            racingGame.race();
+            OutputView.printCarsStatus(racingGame.getCars());
+        }
     }
 }

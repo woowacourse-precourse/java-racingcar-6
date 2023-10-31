@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,17 +8,21 @@ public class Winners {
     private final Position maxPosition;
 
     public Winners(List<Car> cars) {
-        this.maxPosition = getMaxPosition(cars);
+        this.maxPosition = new Position(getMaxPosition(cars));
         winners = cars.stream()
                 .filter(car -> car.isWinner(maxPosition))
                 .toList();
     }
 
-    private Position getMaxPosition(List<Car> cars) {
+    private int getMaxPosition(List<Car> cars) {
         return cars.stream()
                 .map(Car::getPosition)
-                .max(Comparator.comparing(Position::getPosition))
-                .orElse(new Position(0));
+                .max(Integer::compareTo)
+                .orElse(0);
+    }
+
+    public List<Car> getCars() {
+        return winners;
     }
 
     @Override

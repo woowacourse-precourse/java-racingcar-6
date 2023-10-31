@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class GameTry {
-    private final int gameTry;
+    private int gameTry;
 
     public GameTry(String gameTry) {
         this.gameTry = parseInt(gameTry);
@@ -16,6 +16,12 @@ public class GameTry {
     }
 
     public boolean isNotGameEnd() {
-        return gameTry != 0;
+        return this.gameTry != 0;
+    }
+
+    public void decrease() {
+        if (gameTry > 0) {
+            this.gameTry--;
+        }
     }
 }

@@ -15,12 +15,12 @@ public class Car {
         this.position = new Position(position);
     }
 
-    public NickName getNickName() {
-        return nickName;
+    public String getNickName() {
+        return nickName.toString();
     }
 
-    public Position getPosition() {
-        return position;
+    public int getPosition() {
+        return position.getPosition();
     }
 
     public void move(MovingStrategy movingStrategy) {

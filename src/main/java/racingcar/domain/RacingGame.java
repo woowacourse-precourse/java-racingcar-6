@@ -2,11 +2,12 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import racingcar.util.StringUtils;
 
 public class RacingGame {
-    private final Cars cars;
+    private final List<Car> cars;
     private GameTry gameTry;
 
     public RacingGame(String carNames, GameTry gameTry) {
@@ -14,7 +15,7 @@ public class RacingGame {
         this.gameTry = gameTry;
     }
 
-    private Cars initCars(String carNames) {
+    private List<Car> initCars(String carNames) {
         validateCarNames(carNames);
         String[] names = carNames.split(",");
         checkDuplicates(names);
@@ -38,10 +39,32 @@ public class RacingGame {
         return uniqueNames.size() < names.length;
     }
 
-    private static Cars createCars(String[] names) {
-        return new Cars(Arrays
-                .stream(names)
+    private static List<Car> createCars(String[] names) {
+        return Arrays.stream(names)
                 .map(Car::new)
-                .toList());
+                .toList();
+    }
+
+    public void race() {
+        if (isContinue()) {
+            moveCars();
+            decreaseGameTry();
+        }
+    }
+
+    public boolean isContinue() {
+        return gameTry.isNotGameEnd();
+    }
+
+    private void moveCars() {
+        cars.forEach(car -> car.move(new RandomMovingStrategy()));
+    }
+
+    private void decreaseGameTry() {
+        gameTry.decrease();
+    }
+
+    public List<Car> getCars() {
+        return this.cars;
     }
 }

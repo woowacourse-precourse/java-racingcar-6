@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 import racingcar.util.StringUtils;
 
@@ -10,10 +9,6 @@ public class NickName {
     public NickName(String nickName) {
         this.nickName = validateName(nickName);
 
-    }
-
-    private static int generateUniqueNumber() {
-        return Randoms.pickNumberInRange(0, 100);
     }
 
     private String validateName(String nickName) {
@@ -41,5 +36,10 @@ public class NickName {
     @Override
     public int hashCode() {
         return Objects.hash(nickName);
+    }
+
+    @Override
+    public String toString() {
+        return nickName.toString();
     }
 }
