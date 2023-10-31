@@ -1,7 +1,5 @@
 package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
-
 import java.util.List;
 
 public class View {
@@ -20,14 +18,12 @@ public class View {
         System.out.println("실행 결과");
     }
 
-    public void raceResult(List<Car> cars) {
-
-        for (Car car  : cars) {
-            System.out.println(car);
+    public void raceResult(List<String> carResults){
+        for(String carResult : carResults){
+            System.out.println(carResult);
         }
         System.out.println();
     }
-
     public void winnerCar(String winner){
         System.out.println("최종 우승자 : " + winner);
     }
