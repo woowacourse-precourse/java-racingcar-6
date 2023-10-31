@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.*;
 
-// 효율적인 구현을 위한 Class 정의
 class Car {
     private String carName;
     private int position;
@@ -94,7 +93,7 @@ public class Application {
         String racerNames = Console.readLine();
         // ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
         String[] racerArray = racerNames.split(",");
-        checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
+        checkNamelength(racerArray);
         // 시도할 횟수 입력
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
