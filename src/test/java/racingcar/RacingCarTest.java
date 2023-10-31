@@ -28,7 +28,7 @@ public class RacingCarTest {
         int initialLocation = car.getLocation();
 
         // Act
-        car.moveOrStop(4);
+        car.tryMove(4);
 
         // Assert
         int expectedLocation = initialLocation + 1;

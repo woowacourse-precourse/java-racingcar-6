@@ -52,7 +52,7 @@ public class Race {
 
     private void conductRace() {
         for (Car car : participatingCars) {
-            car.moveOrStop(injectFuel());
+            car.tryMove(injectFuel());
         }
     }
 
