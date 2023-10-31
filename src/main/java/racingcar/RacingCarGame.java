@@ -1,28 +1,23 @@
 package racingcar;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class RacingCarGame {
-    private RaceInfo raceInfo;
+//    private RaceInfo raceInfo;
 
     public void play() {
-        getRaceInfo();
-        System.out.print("자동차 이름 : ");
-        for (String str: raceInfo.getCarNames()){
-            System.out.print(str);
-            System.out.print(" ");
-        }
-        System.out.println("");
-        System.out.println("시도횟수 : " + raceInfo.getAttemptCount());
+
+//        CarMoveDisplay carMoveDisplay = new CarMoveDisplay(raceInfo);
+        RaceInfo raceInfo = getRaceInfo();
+        CarMoveDisplay.carRace(raceInfo);
+        WinnerDisplay.winnerPrint(WinnerDisplay.verifyWinner(raceInfo));
+
 
     }
 
-    public void getRaceInfo(){
-        System.out.print("자동차 이름 : ");
+    public RaceInfo getRaceInfo() {
+
         String[] carNames = RaceInfoInput.inputCarName();
-        System.out.print("시도횟수 : ");
         String attemptCount = RaceInfoInput.inputNumberOfAttempts();
-        raceInfo = new RaceInfo(carNames, attemptCount);
+        return new RaceInfo(carNames, attemptCount);
 
     }
 }
