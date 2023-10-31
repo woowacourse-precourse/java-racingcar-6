@@ -8,4 +8,6 @@ public interface RacingCarGameRenderer {
     String renderCar(String name, Position position);
 
     String renderWinners(List<String> winners);
+
+    String renderFirstStage(String text);
 }

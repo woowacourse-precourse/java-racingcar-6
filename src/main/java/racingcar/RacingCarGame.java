@@ -13,7 +13,6 @@ public class RacingCarGame {
     private final int maxTrial;
     private final List<RacingCar> cars;
     private final GameRandom random;
-
     private int currentTrial = 0;
 
     public RacingCarGame(String[] names, int maxTrial, GameRandom random) {
@@ -85,6 +84,11 @@ public class RacingCarGame {
     }
 
     public String render(RacingCarGameRenderer renderer) {
+        if (currentTrial == 1) {
+            return renderer.renderFirstStage(
+                    renderer.renderCars(List.copyOf(cars))
+            );
+        }
         return renderer.renderCars(List.copyOf(cars));
     }
 }

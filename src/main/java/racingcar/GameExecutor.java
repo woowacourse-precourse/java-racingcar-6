@@ -13,7 +13,6 @@ public class GameExecutor {
 
     public void run() {
         try {
-            out.println("실행 결과");
             while(!game.isFinished()){
                 game.runStage();
                 out.printStage(game);
