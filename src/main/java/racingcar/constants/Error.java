@@ -1,6 +1,5 @@
 package racingcar.constants;
 
-
 public enum Error {
     CAR_COUNT_ERROR("2대 이상의 자동차 이름을 입력해 주세요."),
     BLANK_ERROR("이름을 공백으로 입력하지 마세요."),
