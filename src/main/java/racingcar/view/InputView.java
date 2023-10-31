@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.controller.RacingController;
 import racingcar.global.Constants;
 
 import java.util.HashSet;
@@ -21,9 +22,12 @@ public class InputView {
         return InputViewCreater.INSTANCE;
     }
 
+    private final static RacingController racingController = RacingController.getInstance();
+
     public void startGame() {
         List<String> carNames = getCarNames();
         int tryCount = getTryCount();
+        racingController.startRound(carNames,tryCount);
     }
 
     private List<String> getCarNames() {
