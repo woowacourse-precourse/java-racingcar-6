@@ -40,6 +40,16 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining("이름은 5자 이하만 가능합니다.");
     }
 
+    @Test
+    void 숫자가_아닌_경우_예외처리() {
+        String input = "dfds";
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", input))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("숫자만 입력하세요"));
+    }
+
 
     @Override
     public void runMain() {
