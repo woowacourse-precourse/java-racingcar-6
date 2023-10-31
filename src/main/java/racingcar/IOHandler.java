@@ -21,7 +21,7 @@ public class IOHandler {
         System.out.println("시도할 회수는 몇회인가요?");
 
         String input = Console.readLine();
-        // TODO: validator.validateAttemptCount(input);
+        validator.validateAttemptCount(input);
 
         return Integer.parseInt(input);
     }

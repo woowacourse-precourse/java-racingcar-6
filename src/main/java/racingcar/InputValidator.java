@@ -13,6 +13,11 @@ public class InputValidator {
     public static final String INVALID_CAR_NAME_LENGTH = "자동차 이름은 1자 이상 5자 이하로 입력해주세요.";
     public static final String INVALID_CAR_NAME_WHITESPACE = "자동차 이름은 공백을 포함할 수 없습니다.";
 
+    private static final int MIN_ATTEMPT_COUNT = 1;
+    private static final int MAX_ATTEMPT_COUNT = 1_000_000;
+    public static final String INVALID_ATTEMPT_COUNT_TYPE = "정수를 입력해주세요.";
+    public static final String INVALID_ATTEMPT_COUNT_RANGE = "1 이상 100만 이하의 정수를 입력해주세요.";
+
 
     public void validateCarNames(List<String> carNames) {
         validateCarCount(carNames.size());
@@ -37,4 +42,19 @@ public class InputValidator {
             throw new IllegalArgumentException(INVALID_CAR_NAME_WHITESPACE);
         }
     }
+
+    public void validateAttemptCount(String input) {
+        int attemptCount;
+
+        try {
+            attemptCount = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT_TYPE);
+        }
+
+        if (attemptCount < MIN_ATTEMPT_COUNT || attemptCount > MAX_ATTEMPT_COUNT) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT_RANGE);
+        }
+    }
+
 }

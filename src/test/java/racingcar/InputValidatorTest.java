@@ -58,4 +58,40 @@ public class InputValidatorTest {
                 .hasMessageContaining(InputValidator.INVALID_CAR_NAME_WHITESPACE);
     }
 
+    @Test
+    void 시도_횟수가_숫자가_아니면_예외_발생() {
+        String input = "abc";
+
+        assertThatThrownBy(() -> validator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputValidator.INVALID_ATTEMPT_COUNT_TYPE);
+    }
+
+    @Test
+    void 시도_횟수가_정수가_아니면_예외_발생() {
+        String input = "11.11";
+
+        assertThatThrownBy(() -> validator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputValidator.INVALID_ATTEMPT_COUNT_TYPE);
+    }
+
+    @Test
+    void 시도_횟수가_최소값보다_작으면_예외_발생() {
+        String input = "-1";
+
+        assertThatThrownBy(() -> validator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputValidator.INVALID_ATTEMPT_COUNT_RANGE);
+    }
+
+    @Test
+    void 시도_횟수가_최대값보다_크면_예외_발생() {
+        String input = "1000001";
+
+        assertThatThrownBy(() -> validator.validateAttemptCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(InputValidator.INVALID_ATTEMPT_COUNT_RANGE);
+    }
+
 }
