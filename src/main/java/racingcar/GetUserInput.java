@@ -2,6 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class GetUserInput {
     public GetUserInput(){
@@ -25,7 +26,11 @@ public class GetUserInput {
         int userInput = 0;
 
         System.out.println("시도할 회수는 몇회인가요?");
-        userInput = Integer.parseInt(Console.readLine());
+        try{
+            userInput = Integer.parseInt(Console.readLine());
+        }catch(Exception e){
+            exception();
+        }
 
         return userInput;
     }

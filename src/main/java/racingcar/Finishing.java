@@ -2,7 +2,6 @@ package racingcar;
 import java.util.ArrayList;
 
 public class Finishing {
-    Judging judging = new Judging();
     public Finishing(){
     }
 
