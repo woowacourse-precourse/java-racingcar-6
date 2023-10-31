@@ -1,6 +1,8 @@
-package racingcar.utils;
+package racingcar.utils.input;
 
 import camp.nextstep.edu.missionutils.Console;
+
+import java.util.NoSuchElementException;
 
 /**
  * 게임 횟수 입력
@@ -15,11 +17,13 @@ public class GameCountInputManager implements InputManager<Integer>{
     public Integer input() {
         try{
             String input = Console.readLine();
-            if(Integer.parseInt(input)<0)
+            if (Integer.parseInt(input) < 0)
                 throw new IllegalArgumentException();
             return Integer.parseInt(input);
-        }catch (NumberFormatException e){
+        }catch (NumberFormatException | NoSuchElementException | IllegalStateException e){
             throw new IllegalArgumentException();
+        }finally {
+            Console.close();
         }
     }
 }
