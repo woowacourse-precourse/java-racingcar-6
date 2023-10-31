@@ -19,9 +19,14 @@ public class RaceService {
     public TotalGameResult doGame(CarNameList carNames, String attemptNumberString) {
         CarList carList = new CarList(carNames);
         int attemptNumber = convertToInt(attemptNumberString);
+
+        List<GameResult> results = doMainContent(carList, attemptNumber);
+
+        return new TotalGameResult(results, carList.calculateWinner());
+    }
+
+    private List<GameResult> doMainContent(CarList carList, int attemptNumber) {
         List<GameResult> results = new ArrayList<>();
-
-
         for (int i = 0; i < attemptNumber; i++) {
             carList.moveEach(
                     randomNumberGenerator.generateNumbers(
@@ -30,8 +35,7 @@ public class RaceService {
             );
             results.add(carList.createResult());
         }
-
-        return new TotalGameResult(results, carList.calculateWinner());
+        return results;
     }
 
     private int convertToInt(String attemptNumberString) {
