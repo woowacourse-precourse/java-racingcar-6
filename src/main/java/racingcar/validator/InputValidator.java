@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class InputValidator {
     private static final String NOT_CAR_FORMAT_REGEX = "[^a-zA-Z,]+"; // 영어나 쉼표외의 다른 값
-    private static final String NUMBER_FORMAT_REGEX = "^[0-9]*$";
+    private static final String NUMBER_FORMAT_REGEX = "^[1-9][0-9]*$"; // 양수 정수
     private static final Pattern NOT_CAR_PATTERN = Pattern.compile(NOT_CAR_FORMAT_REGEX);
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_FORMAT_REGEX);
     private static final String DELIMITER = ",";
