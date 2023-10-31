@@ -28,7 +28,7 @@ public class Car {
 
 
     public int createRandomNumber() {
-        int carNumber = Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_START_NUMBER);
+        int carNumber = Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER);
         return carNumber;
     }
 
