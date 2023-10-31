@@ -27,10 +27,14 @@ public class OutputView {
 
     public void printResult(final List<RacingResult> racingResult) {
         racingResult.forEach(result -> {
-            System.out.print(result.getCarName() + COLON);
+            printNameResult(result.getCarName());
             printPositionResult(result.getCarPosition());
         });
         System.out.println();
+    }
+
+    private static void printNameResult(final String name) {
+        System.out.print(name + COLON);
     }
 
     private void printPositionResult(final int count) {
