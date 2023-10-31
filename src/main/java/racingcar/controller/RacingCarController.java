@@ -2,15 +2,18 @@ package racingcar.controller;
 
 import racingcar.service.GearShifting;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RacingCarController {
-    final InputView inputView;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public RacingCarController(InputView inputView){
+    public RacingCarController(InputView inputView, OutputView outputView){
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void run(){
@@ -24,8 +27,12 @@ public class RacingCarController {
             position.put(name, 0);
         }
 
+        outputView.printExecution();
+        // 라운드 별 각각의 레이서 결과 출력
         for (int i=0 ; i < round ; i++){
             play(position);
+            outputView.printResult(position);
+            System.out.println();
         }
     }
 
