@@ -1,8 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 
 public class Application {
@@ -29,11 +26,10 @@ public class Application {
         Car[] carList = util.createCar(split);
 
         print.printInitCount();
-        int cnt = Integer.parseInt(Console.readLine());
+        int cnt = input.input_count();
+
         for (int i = 0; i < cnt; i++) {
-            for (Car car : carList) {
-                util.move(car, Randoms.pickNumberInRange(0, 9));
-            }
+            util.moveWithRandom(carList);
         }
 
         print.printResult(carList);
