@@ -16,4 +16,13 @@ public class MoveCountInputValidationTest {
                 .isExactlyInstanceOf(IllegalArgumentException.class)
                 .hasMessage("움직일 횟수의 입력값이 숫자가 아닙니다.");
     }
+
+    @Test
+    @DisplayName("움질일 횟수 입력값 공백 테스트")
+    public void isNotBlankTest() {
+        assertThatThrownBy(() -> moveCountInputValidation.isNumber(""))
+                .isExactlyInstanceOf(IllegalArgumentException.class)
+                .hasMessage("움직일 횟수의 입력값이 숫자가 아닙니다.");
+    }
+
 }
