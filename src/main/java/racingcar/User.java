@@ -9,6 +9,7 @@ import java.util.List;
 public class User {
 
     private final String SEPERATE_NAME_CHAR = ",";
+    private final int MAX_NAME_LENGTH = 5;
 
     List<String> carNames = new ArrayList<>();
     private int tryCount = 0;
@@ -27,36 +28,42 @@ public class User {
     }
 
     private void validateCarNames(List<String> carNames) {
-        checkCarNamesSeparatedByCommas(carNames);
-        checkExceedNameLength(carNames);
+        checkNameLength(carNames);
+        checkNameEmpty(carNames);
     }
 
-    private void validateTryCount(String count) {
-        checkNumber(count);
-    }
-
-    private void checkCarNamesSeparatedByCommas(List<String> carNames) {
-        boolean separatedByCommas = carNames.stream()
-                .allMatch(s -> s.chars().allMatch(Character::isLetterOrDigit));
-
-        if (!separatedByCommas) {
-            throw new IllegalArgumentException(RacingCarException.NOT_SEPARATED_BY_COMMAS_MSG);
-        }
-    }
-
-    private void checkExceedNameLength(List<String> splits) {
+    private void checkNameEmpty(List<String> carNames) {
         for (String split : carNames) {
-            if (split.length() > 5) {
-                throw new IllegalArgumentException(RacingCarException.EXCEED_LENGTH_MSG);
+            if (split.isBlank()) {
+                throw new IllegalArgumentException(RacingCarException.INVALID_BLANK_NAME_MSG);
             }
         }
     }
 
-    private void checkNumber(String count) {
+    private void validateTryCount(String count) {
+        checkCountLength(count);
+        checkCountNumber(count);
+    }
+
+    private void checkCountLength(String count) {
+        if (count.isEmpty()) {
+            throw new IllegalArgumentException(RacingCarException.INVALID_TRY_COUNT_LENGTH_MSG);
+        }
+    }
+
+    private void checkNameLength(List<String> splits) {
+        for (String split : carNames) {
+            if (split.length() > MAX_NAME_LENGTH) {
+                throw new IllegalArgumentException(RacingCarException.INVALID_CAR_NAME_LENGTH_MSG);
+            }
+        }
+    }
+
+    private void checkCountNumber(String count) {
         try {
             int i = Integer.parseInt(count);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(RacingCarException.NOT_NUMBER_MSG);
+            throw new IllegalArgumentException(RacingCarException.INVALID_NUMBER_MSG);
         }
     }
 
