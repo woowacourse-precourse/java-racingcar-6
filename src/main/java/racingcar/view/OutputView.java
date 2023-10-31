@@ -6,8 +6,7 @@ import racingcar.car.Car;
 public class OutputView {
     public String printToResult(List<String> winners) {
         String result = winnersToMulti(winners);
-        System.out.println("최종 우승자 : " + result);
-        return result;
+        return "최종 우승자 : " + result;
     }
 
     private String winnersToMulti(List<String> winners) {

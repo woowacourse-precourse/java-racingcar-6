@@ -1,8 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.Car;
 import racingcar.player.Player;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 /* 객체 지향 프로그래밍
@@ -26,25 +26,20 @@ public class RacingCarGame {
             currentResult();
         }
 
-        outputView.printToResult(car.winnerList());
+        System.out.println(outputView.printToResult(car.winnerList()));
     }
 
     private void ready() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carName = Console.readLine();
-        car = new Car();
-        car.createName(carName); // 경주할 자동차 이름 입력
-
-        System.out.println("시도할 횟수는 몇회인가요?");
-        String tryCount = Console.readLine();
-        player = new Player();
-        player.moveOnInput(tryCount); // 시도할 횟수 입력
-
+        InputView inputView = new InputView();
         outputView = new OutputView();
+        car = new Car();
+        player = new Player();
+
+        inputView.readyToInput(car, player);
     }
 
     private void playCar() {
-        car.driving(car.getNames());
+        car.driving();
     }
 
     private void currentResult() {
