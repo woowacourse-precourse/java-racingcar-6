@@ -12,6 +12,15 @@ public class Application {
 
     private static List<String> splitCarNames(String input) {
         String[] carNamesArray = input.split(",");
+        validateCarNames(carNamesArray);
         return List.of(carNamesArray);
+    }
+
+    private static void validateCarNames(String[] carNamesArray) {
+        for (String name : carNamesArray) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        }
     }
 }
