@@ -35,29 +35,29 @@ class InputManagerTest {
     void 마지막_글자가_콤마이면_예외_테스트() {
         assertThatThrownBy(() -> InputManager.getCarNames("name,"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("마지막 글자가 콤마가 될 수 없습니다!");
+                .hasMessageContaining(ExceptionMessage.COMMA_MESSAGE);
     }
 
     @Test
     void 자동차_이름의_길이_예외_테스트() {
         assertThatThrownBy(() -> InputManager.getCarNames("name,123456"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
+                .hasMessageContaining(ExceptionMessage.CAR_NAME_LENGTH);
 
         assertThatThrownBy(() -> InputManager.getCarNames("1234567,123456"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
+                .hasMessageContaining(ExceptionMessage.CAR_NAME_LENGTH);
     }
 
     @Test
     void 자동차_이름의_공백_예외_테스트() {
         assertThatThrownBy(() -> InputManager.getCarNames("name, "))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름에는 공백이 아닌 문자가 한개 이상 포함되어야 합니다.");
+                .hasMessageContaining(ExceptionMessage.CAR_NAME_BLANK);
 
         assertThatThrownBy(() -> InputManager.getCarNames("   ,abc"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름에는 공백이 아닌 문자가 한개 이상 포함되어야 합니다.");
+                .hasMessageContaining(ExceptionMessage.CAR_NAME_BLANK);
     }
 
     @Test
@@ -65,7 +65,7 @@ class InputManagerTest {
         String input = makeToMuchNameInput();
         assertThatThrownBy(() -> InputManager.getCarNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 개수가 너무 많습니다!");
+                .hasMessageContaining(ExceptionMessage.CAR_COUNT);
     }
 
     private static String makeToMuchNameInput() {
@@ -81,10 +81,10 @@ class InputManagerTest {
     void 자동차_이동_시도_횟수_테스트() {
         assertThatThrownBy(() -> InputManager.getMoveTryCount("a"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("0 이상의 int 정수가 아닙니다!");
+                .hasMessageContaining(ExceptionMessage.POSITIVE_INTEGER);
         assertThatThrownBy(() -> InputManager.getMoveTryCount("1234567891234"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("0 이상의 int 정수가 아닙니다!");
+                .hasMessageContaining(ExceptionMessage.POSITIVE_INTEGER);
 
         assertThat(InputManager.getMoveTryCount("1234"))
                 .isEqualTo(1234);
