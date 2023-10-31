@@ -31,4 +31,10 @@ public class Check {
         }
         return result;
     }
+
+    public static boolean checkForward(int randomNumber) {
+        boolean result = true;
+        if (randomNumber < 4) result = false;
+        return result;
+    }
 }
