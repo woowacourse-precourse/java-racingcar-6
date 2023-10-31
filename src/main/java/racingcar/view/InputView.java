@@ -11,7 +11,7 @@ public class InputView {
     private static final int FIVE_LENGTH = 5;
 
     public static String getTryCountFromUser() {
-        System.out.println(Message.ASK_TRY_COUNT);
+        System.out.println(Message.ASK_TRY_COUNT.getMessage());
         return Console.readLine();
     }
 
@@ -30,7 +30,7 @@ public class InputView {
     }
 
     public static String getNamesFromUser() {
-        System.out.println(Message.INPUT_CAR_NAMES);
+        System.out.println(Message.INPUT_CAR_NAMES.getMessage());
         return Console.readLine();
     }
 
