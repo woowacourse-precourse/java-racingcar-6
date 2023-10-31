@@ -1,8 +1,8 @@
 package game.car;
 
 public class Car {
-    CarName carName;
-    int position;
+    private final CarName carName;
+    private int position;
 
     public Car(String inputSting) {
         this.carName = new CarName(inputSting);
@@ -11,5 +11,9 @@ public class Car {
 
     public void moveForward() {
 
+    }
+
+    public void printPosition(){
+        System.out.printf("%s : %s\n",carName.getCarName(),"-".repeat(position));
     }
 }
