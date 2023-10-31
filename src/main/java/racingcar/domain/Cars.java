@@ -30,6 +30,10 @@ public class Cars {
         }
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private static int createRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }

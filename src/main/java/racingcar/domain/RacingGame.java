@@ -2,10 +2,12 @@ package racingcar.domain;
 
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.InputView.inputRaceCount;
+import static racingcar.view.OutputView.printSituation;
 
 import java.util.List;
 import racingcar.common.exception.CustomErrorException;
 import racingcar.common.response.ErrorCode;
+import racingcar.dto.CarDto;
 
 public class RacingGame {
 
@@ -21,8 +23,20 @@ public class RacingGame {
 
     public void run() {
         for (int i = 0; i < raceCount.count(); i++) {
-            cars.racing();
+            racing();
         }
+    }
+
+    private void racing() {
+        cars.racing();
+        printRaceResult();
+    }
+
+    private void printRaceResult() {
+        cars.getCars().forEach(car -> {
+            CarDto dto = CarDto.of(car);
+            printSituation(dto);
+        });
     }
 
     private Cars getCars() {

@@ -5,11 +5,11 @@ public class Car {
     public static final int INIT_POSITION = 0;
     private static final int MIN_MOVE_NUMBER = 4;
 
-    private final CarName name;
+    private final CarName CarName;
     private int position;
 
-    public Car(String name) {
-        this.name = new CarName(name);
+    public Car(String CarName) {
+        this.CarName = new CarName(CarName);
         this.position = INIT_POSITION;
     }
 
@@ -17,6 +17,10 @@ public class Car {
         if (number >= MIN_MOVE_NUMBER) {
             position++;
         }
+    }
+
+    public String getName() {
+        return CarName.name();
     }
 
     public int getPosition() {
