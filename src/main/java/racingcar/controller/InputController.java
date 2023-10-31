@@ -26,4 +26,8 @@ public class InputController {
     public void doRace(Car car) {
         inputService.doRace(car);
     }
+
+    public String choiceWinner(Car car) {
+        return inputService.choiceWinner(car);
+    }
 }

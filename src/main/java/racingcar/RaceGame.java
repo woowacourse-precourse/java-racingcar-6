@@ -22,14 +22,15 @@ public class RaceGame {
 
         outputView.requestCarName();
         receiveCarName();
+
         outputView.requestNumberOfAttempts();
         receiverNumberOfAttempts();
-        outputView.printStartCarRace();
 
-        for (int i = 0; i < car.getAttemptNumber(); i++) {
-            inputController.doRace(car);
-            outputView.printCar(car);
-        }
+        outputView.printStartCarRace();
+        doRace();
+
+        String winner = inputController.choiceWinner(car);
+        outputView.printWinner(winner);
     }
 
     public void receiveCarName() {
@@ -40,5 +41,12 @@ public class RaceGame {
     public void receiverNumberOfAttempts() {
         int numberOfAttempts = this.inputController.receiverNumberOfAttempts();
         this.car.setAttemptNumber(numberOfAttempts);
+    }
+
+    public void doRace() {
+        for (int i = 0; i < car.getAttemptNumber(); i++) {
+            inputController.doRace(car);
+            outputView.printCar(car);
+        }
     }
 }
