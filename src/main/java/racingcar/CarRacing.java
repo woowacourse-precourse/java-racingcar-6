@@ -31,9 +31,12 @@ public class CarRacing {
         System.out.println(PROMPT_ENTER_CAR_NAME);
         requestCarNames();
         getCarNamesArray(carNames);
+
+        System.out.println(PROMPT_ENTER_COUNT);
         requestUserCount();
 
-        
+
+
     }
 
     public void requestCarNames() {

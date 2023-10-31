@@ -2,7 +2,7 @@ package racingcar;
 
 public class Car {
     final String carName;
-    int moveState;
+    int moveCount;
 
     public Car(String carName) {
         this.carName = carName;
@@ -12,7 +12,7 @@ public class Car {
         return carName;
     }
 
-    int getMoveState(){
-        return moveState;
+    int getMoveState() {
+        return moveCount;
     }
 }
