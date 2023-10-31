@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -35,6 +35,17 @@ public class Application {
             }
             System.out.println();
         }
+
+        List<String> keySet = new ArrayList<>(score.keySet());
+        keySet.sort((o1, o2) -> score.get(o2).compareTo(score.get(o1)));
+
+        Integer maxScore = score.get(keySet.get(0));
+        String result = score.entrySet().stream()
+                .filter(entry -> entry.getValue().equals(maxScore))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.joining("," + " "));
+
+        System.out.println("최종 우승자" + " : " + result);
 
     }
 }
