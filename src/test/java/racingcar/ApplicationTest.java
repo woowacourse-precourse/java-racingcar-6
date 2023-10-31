@@ -49,17 +49,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
-    @Test
-    void 숫자_0_이상_9_이하의_랜덤_숫자를_생성한다() throws Exception {
-        //given
-        Application application = new Application();
-
-        //when
-
-        //then
-    }
-
+    
     @Test
     void 자동차_이름과_시도할_횟수를_입력받는다() {
         assertSimpleTest(

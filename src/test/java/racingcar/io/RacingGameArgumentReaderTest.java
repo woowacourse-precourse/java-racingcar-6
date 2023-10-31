@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class GameArgumentReaderTest {
+class RacingGameArgumentReaderTest {
 
     @Test
     void 자동차_이름를_입력받아서_리스트로_반환한다() {

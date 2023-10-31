@@ -7,13 +7,14 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.car.Car;
 
 class CarTest {
 
-    private OutputStream captor;
+    OutputStream captor;
 
     @BeforeEach
-    protected final void init() {
+    void init() {
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
     }

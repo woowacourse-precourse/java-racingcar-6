@@ -1,6 +1,7 @@
-package racingcar.game;
+package racingcar.car;
 
 import racingcar.io.GameConsoleOutput;
+import racingcar.utils.GameUtils;
 
 public class Car {
 

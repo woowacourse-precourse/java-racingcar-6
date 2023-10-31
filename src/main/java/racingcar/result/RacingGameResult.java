@@ -1,14 +1,19 @@
-package racingcar.game;
+package racingcar.result;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.car.Car;
 import racingcar.io.GameConsoleOutput;
 
-public class Result {
+public class RacingGameResult {
 
     private final List<Car> cars;
 
-    public Result(List<Car> cars) {
+    public static RacingGameResult of(List<Car> cars) {
+        return new RacingGameResult(cars);
+    }
+
+    private RacingGameResult(List<Car> cars) {
         this.cars = cars;
     }
 

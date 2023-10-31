@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.utils;
 
 public abstract class GameUtils {
     public static final String INITIAL_PROGRESS = "";
