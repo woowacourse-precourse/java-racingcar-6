@@ -1,12 +1,8 @@
 package racingcar.controller;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.exception.CustomException;
-import racingcar.message.ErrorMessages;
 import racingcar.model.Car;
-import racingcar.model.CarDto;
 import racingcar.model.Cars;
+import racingcar.model.RandomGenerator;
 import racingcar.model.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

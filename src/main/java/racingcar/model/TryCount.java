@@ -6,6 +6,7 @@ import racingcar.util.count.EqualityCheckerImpl;
 public class TryCount {
     public final int tryCount;
 
+
     public TryCount(String countString) {
         this.tryCount = convertStringToInt(countString);
         validatePositive(tryCount);
