@@ -10,7 +10,7 @@ public class RandomNumberGenerator {
 
     public boolean isIncreseDistance() {
         int pick = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
-        return pick > STANDARD_OF_JUDGMENT;
+        return pick >= STANDARD_OF_JUDGMENT;
     }
 
 }
