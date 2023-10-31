@@ -6,7 +6,7 @@ public class RacingGameController {
         return Console.readLine().trim().split(",");
     }
 
-    public Integer getInputRepeatCount() {
-        return Integer.parseInt(Console.readLine().trim());
+    public String getInputRepeatCount() {
+        return Console.readLine().trim();
     }
 }

@@ -52,6 +52,4 @@ public class RacingGameService {
         }
         return maxPosition;
     }
-
-
 }

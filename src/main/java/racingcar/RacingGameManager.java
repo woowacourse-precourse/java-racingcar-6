@@ -2,6 +2,8 @@ package racingcar;
 import java.util.stream.IntStream;
 
 import static racingcar.service.RacingGameService.createRacingCars;
+import static racingcar.validator.InputValidator.validateRepeatNumberIsNumber;
+import static racingcar.validator.InputValidator.validateRepeatNumberSign;
 
 import racingcar.controller.RacingGameController;
 import racingcar.service.RacingGameService;
@@ -23,7 +25,8 @@ public class RacingGameManager {
         view.printGameStartMessage();
         userCars = createRacingCars(controller.getInputCarNames());
         view.printRepeatCountMessage();
-        Integer repeatCount = controller.getInputRepeatCount();
+        Integer repeatCount = validateRepeatNumberIsNumber(controller.getInputRepeatCount());
+        validateRepeatNumberSign(repeatCount);
         view.printExecutionMessage();
         IntStream.range(0, repeatCount).forEach(j -> {
             IntStream.range(0, userCars.getCarsLength()).mapToObj(i ->
