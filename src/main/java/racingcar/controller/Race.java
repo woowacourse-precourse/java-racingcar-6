@@ -45,7 +45,7 @@ public class Race {
 
     public void settingCar(List<String> carNameList) {
         for (String carName : carNameList) {
-            Car car = new Car(carName);
+            Car car = new Car(carName, 0);
             carList.add(car);
         }
     }
