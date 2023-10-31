@@ -9,11 +9,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarsTest {
-
-    // TODO : Cars에서는 어떤걸 입력시 잘못된 값일지 고민해보기
     @Test
-    void 잘못된_입력_테스트() {
-//        assertThatThrownBy(() -> new Cars("pobi,pobi")).isInstanceOf(IllegalArgumentException.class);
+    void 빈_입력_테스트() {
+        assertThatThrownBy(() -> new Car(",")).isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    void 중복된_입력_테스트() {
+        assertThatThrownBy(() -> new Car("isaac,isaac")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
