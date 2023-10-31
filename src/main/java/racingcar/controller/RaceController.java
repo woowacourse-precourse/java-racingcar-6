@@ -25,14 +25,24 @@ public class RaceController {
 
     public StringBuilder getWinner(List<Car> carNameList, Referee referee) {
         StringBuilder gameResult = getInstance().getGameResult();
-
+        boolean anyCarMove = false;
         for (int k = 0; k < carNameList.size(); k++) {
             Car car = carNameList.get(k);
+            int previousDistance = car.getDistance();
             referee.startEngine(car);
-            gameResult.append(car).append('\n');
+
+            if (car.getDistance() > previousDistance) {
+                anyCarMove = true;
+            }
         }
 
-        gameResult.append('\n');
+        if (anyCarMove) {
+            for (Car car : carNameList) {
+                gameResult.append(car).append('\n');
+            }
+            gameResult.append('\n');
+        }
+
         return gameResult;
     }
 }
