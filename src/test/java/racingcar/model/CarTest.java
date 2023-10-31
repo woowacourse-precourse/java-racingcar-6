@@ -1,38 +1,24 @@
 package racingcar.model;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.BDDMockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import racingcar.util.MoveResolver;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class CarTest {
-
-    MoveResolver moveResolver = Mockito.mock(MoveResolver.class);
-
     private final int MOVING_DISTANCE = 1;
 
+    private MovePolicy movePolicy;
 
-    @Test
-    void 자동차는_조건에_부합하면_움직인다() {
-        given(moveResolver.isMoveAble()).willReturn(true);
+    @ParameterizedTest
+    @CsvSource(value = {"true,1","false,0"})
+    void 자동차는_정해진_정책에_부합해야_움직인다(boolean returnIsMoveable,int result) {
+        movePolicy = () -> returnIsMoveable;
         Car car = new Car("테스트");
         int currentPosition = car.getPosition();
 
-        car.move(MOVING_DISTANCE, moveResolver);
+        car.move(MOVING_DISTANCE, movePolicy);
 
-        assertThat(car.getPosition() - currentPosition).isEqualTo(MOVING_DISTANCE);
-    }
-
-    @Test
-    void 자동차는_조건에_부합하지않으면_움직이지_않는다() {
-        given(moveResolver.isMoveAble()).willReturn(false);
-        Car car = new Car("테스트");
-        int currentPosition = car.getPosition();
-
-        car.move(MOVING_DISTANCE, moveResolver);
-
-        assertThat(car.getPosition() - currentPosition).isEqualTo(0);
+        assertThat(car.getPosition() - currentPosition).isEqualTo(result);
     }
 }
