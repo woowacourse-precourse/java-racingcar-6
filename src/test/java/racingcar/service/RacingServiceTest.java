@@ -1,8 +1,11 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Application;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
@@ -29,6 +32,12 @@ class RacingServiceTest extends NsTest{
         carRepository = CarRepository.getInstance();
         resultRepository = ResultRepository.getInstance();
         racingService = new RacingService(carRepository, resultRepository);
+    }
+
+    @AfterEach
+    void end() {
+        carRepository.clean();
+        resultRepository.clean();
     }
 
     @Test
@@ -73,30 +82,18 @@ class RacingServiceTest extends NsTest{
         );
     }
 
-    @Test
-    void 우승자_저장_테스트() {
+    @ParameterizedTest
+    @CsvSource(value = {"ex1, 0, ex2, 1, 1", "ex1, 1, ex2, 1, 2", "ex1, 0, ex2, 0, 2"})
+    void 우승자_저장_테스트(String firstName, int firstDistance, String secondName, int secondDistance, int expected) {
         //given
-        carRepository.add(new Car("ex1", 0));
-        carRepository.add(new Car("ex2", 1));
+        carRepository.add(new Car(firstName, firstDistance));
+        carRepository.add(new Car(secondName, secondDistance));
 
         // when
         List<Car> resultList = racingService.chooseWinner();
 
         // then
-        assertThat(resultList.size()).isEqualTo(1);
-    }
-
-    @Test
-    void 우승자_여러명_저장_테스트() {
-        //given
-        carRepository.add(new Car("ex1", 1));
-        carRepository.add(new Car("ex2", 1));
-
-        // when
-        List<Car> resultList = racingService.chooseWinner();
-
-        // then
-        assertThat(resultList.size()).isEqualTo(2);
+        assertThat(resultList.size()).isEqualTo(expected);
     }
 
     @Override
