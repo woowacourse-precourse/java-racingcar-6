@@ -1,9 +1,8 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import camp.nextstep.edu.missionutils.Console;
 
 public class ReceiveController {
     public ArrayList<String> carNames() {

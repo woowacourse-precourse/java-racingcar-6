@@ -5,9 +5,6 @@ import racingcar.model.Race;
 import racingcar.view.CarView;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
-
-import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
     private Race race;
