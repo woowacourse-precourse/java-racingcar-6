@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,42 +28,26 @@ public class ViewMakerTest {
     void 단일_승자_출력_테스트() {
 
         ViewMaker viewMaker = new ViewMaker();
+        List<String> winner = new ArrayList<>();
+        winner.add("bbb");
 
-        Car CarA = new Car("aaa");
-        Car CarB = new Car("bbb");
-        Car CarC = new Car("ccc");
+        String winnerView = viewMaker.makeWinnerView(winner);
 
-        while (CarB.getCurrentPosition() == 0) {
-            CarB.forward();
-        }
-
-        List<Car> carList = Arrays.asList(CarA, CarB, CarC);
-
-        String winnerView = viewMaker.makeWinnerView(carList);
         String expect = "최종 우승자 : bbb";
         Assertions.assertThat(expect).isEqualTo(winnerView);
     }
 
 
     @Test
-    void 다중_승자_테스트(){
+    void 다중_승자_테스트() {
+
         ViewMaker viewMaker = new ViewMaker();
+        List<String> winner = new ArrayList<>();
+        winner.add("aaa");
+        winner.add("bbb");
 
-        Car CarA = new Car("aaa");
-        Car CarB = new Car("bbb");
-        Car CarC = new Car("ccc");
+        String winnerView = viewMaker.makeWinnerView(winner);
 
-        while (CarA.getCurrentPosition() == 0) {
-            CarA.forward();
-        }
-
-        while (CarB.getCurrentPosition() == 0) {
-            CarB.forward();
-        }
-
-        List<Car> carList = Arrays.asList(CarA, CarB, CarC);
-
-        String winnerView = viewMaker.makeWinnerView(carList);
         String expect = "최종 우승자 : aaa, bbb";
         Assertions.assertThat(expect).isEqualTo(winnerView);
 
