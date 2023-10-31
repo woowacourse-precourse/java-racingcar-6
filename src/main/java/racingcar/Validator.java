@@ -10,7 +10,7 @@ public class Validator {
         }
     }
 
-    public static boolean isCarNamesOutOfSize(String[] separatedCarNames) {
+    private static boolean isCarNamesOutOfSize(String[] separatedCarNames) {
         List<Boolean> sizeChecker = new ArrayList<>();
         for (int i = 0; i < separatedCarNames.length; i++) {
             if (separatedCarNames[i].length() > 5) {
@@ -35,7 +35,7 @@ public class Validator {
         }
     }
 
-    public static boolean isAttemptsOutOfRange(String attempts) {
+    private static boolean isAttemptsOutOfRange(String attempts) {
         return Integer.parseInt(attempts) < 1;
     }
 }

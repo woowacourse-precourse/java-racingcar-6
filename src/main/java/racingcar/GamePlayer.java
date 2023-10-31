@@ -26,7 +26,7 @@ public class GamePlayer {
         OutputView.printWinners(findWinners(findFurthestMovedCar()));
     }
 
-    public Car findFurthestMovedCar() {
+    private Car findFurthestMovedCar() {
         Car furthestMovedCar = null;
         for (int i = 0; i < cars.size() - 1; i++) {
             int firstPlace = cars.get(i).compare(cars.get(i), cars.get(i + 1));
@@ -40,7 +40,7 @@ public class GamePlayer {
         return furthestMovedCar;
     }
 
-    public List<Car> findWinners(Car furthestMovedCar) {
+    private List<Car> findWinners(Car furthestMovedCar) {
         List<Car> winners = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             if (furthestMovedCar.getDistance().size() == cars.get(i).getDistance().size()) {
