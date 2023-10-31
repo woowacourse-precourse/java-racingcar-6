@@ -20,9 +20,4 @@ public class RacingCars {
         }
     }
 
-    public void addCar(String carNames) {
-        for (String carName : carNames.split(",")) {
-            racingCars.add(carName);
-        }
-    }
 }
