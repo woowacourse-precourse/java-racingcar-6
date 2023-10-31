@@ -14,6 +14,9 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int tryCount = Integer.parseInt(Console.readLine());
 
+        GameService gameService = new GameService(carNames, tryCount);
+        gameService.run();
+
     }
 
     static String [] divideNames(String names) {

@@ -21,6 +21,14 @@ public class Car {
         return position;
     }
 
+    public String getProgress() {
+        StringBuilder progress = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            progress.append("-");
+        }
+        return progress.toString();
+    }
+
     public String getName() {
         return name;
     }

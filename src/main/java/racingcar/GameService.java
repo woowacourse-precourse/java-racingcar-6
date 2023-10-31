@@ -6,6 +6,37 @@ import java.util.List;
 public class GameService {
 
     private final List<Car> cars = new ArrayList<>();
+    private final int tryCount;
+
+    public GameService(String [] names, int tryCount) {
+        String[] carNames = names;
+        for (String name : carNames) {
+            cars.add(new Car(name));
+        }
+        this.tryCount = tryCount;
+    }
+
+    public void run() {
+        for (int i = 0; i < tryCount; i++) {
+            playRound(i + 1);
+        }
+        determineWinner();
+    }
+
+    private void playRound(int round) {
+        for (Car car : cars) {
+            car.move();
+        }
+        printRoundResult(round);
+    }
+
+    private void printRoundResult(int round) {
+        System.out.println("실행 결과");
+        for (Car car : cars) {
+            System.out.printf("%s : %s%n", car.getName(), car.getProgress());
+        }
+        System.out.println();
+    }
 
      void determineWinner() {
         int maxPosition = 0;
