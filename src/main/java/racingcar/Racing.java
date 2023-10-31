@@ -19,6 +19,7 @@ public class Racing {
         String[] name = names.split(",");
 
         for ( String n : name ) {
+            ivc.isValidLength(n);
             Car c = new Car(n, "");
             cars.add(c);
         }

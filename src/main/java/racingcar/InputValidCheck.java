@@ -27,4 +27,11 @@ public class InputValidCheck {
         }
     }
 
+    public void isValidLength(String input) {
+
+        if ( input.length() > 5 ) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
