@@ -6,6 +6,8 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 public class game {
     car[] participate;
     int try_number;
+    car[] max_stacks;
+    int top;
 
     String[] input_name(String name_bundle){ //자동차 이름 분류
         String[] names = name_bundle.split(",");
@@ -69,5 +71,18 @@ public class game {
             print_car(participate[i]);
         }
         System.out.println("");
+    }
+
+    void find_max(car par){ //최종 우승자 스택 저장
+        if(max_stacks[0] == null){
+            max_stacks[++top] = par;
+        }
+        else if(par.position > max_stacks[0].position){
+            top = -1;
+            max_stacks[++top] = par;
+        }
+        else if(par.position == max_stacks[0].position){
+            max_stacks[++top] = par;
+        }
     }
 }
