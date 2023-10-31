@@ -34,6 +34,7 @@
 - [x] CarController : 제작된 자동차들을 횟수에 맞게 조작(control)하는 역할
 - [x] CarFactory : 받은 정보를 바탕으로 자동차들을 제작하는 역할
 - [x] GameOption : 자동차 경주 관련된 옵션들
+- [x] Referee : 우승한 자동차를 판단하는 역할
 
 - [x] Input : 입력을 받아 가공(Mapper) 및 검증(Validator) 후 값을 리턴하는 역할
 - [x] Mapper : 받은 값을 알맞게 가공하는 역할
