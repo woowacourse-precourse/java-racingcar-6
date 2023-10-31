@@ -5,12 +5,18 @@ public class Application {
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] nameList = Console.readLine().split(",");
-        // 이름에 대한 여러 예외들 처리 (5자 이하만 가능)
+        for (String name : nameList) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다");
+            }
+        }
+        // 이름에 대한 여러 예외들 처리 (5자 이하만 가능), 그냥 엔터를 쳤을 때는??
         System.out.println("시도할 횟수는 몇 회인가요?");
         String gameRoundString = Console.readLine();
         // 숫자 아닌 경우 예외 처리 신경쓰자
+        int gameRound;
         try{
-            int gameRound = Integer.parseInt(gameRoundString);
+            gameRound = Integer.parseInt(gameRoundString);
         }
         catch (NumberFormatException exception){
             throw new IllegalArgumentException();
@@ -18,13 +24,27 @@ public class Application {
         }
         System.out.println();
         System.out.println("실행 결과");
+
+        Car[] carList = new Car[nameList.length];
+
+        for (int i = 0; i < nameList.length; i++){
+            carList[i] = new Car(nameList[i]);
+        }
+
+        for (int i = 0; i < gameRound; i++) {
+            for (Car car : carList) {
+                car.randomMove();
+                car.gameResultPrint();
+            }
+            System.out.println();
+        }
     }
 }
 
-class Game{
+class Car{
     private String name;
     private int moveCount;
-    Game(String name){
+    Car(String name){
         this.name = name;
         moveCount = 0;
     }
