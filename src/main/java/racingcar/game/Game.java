@@ -1,15 +1,13 @@
 package racingcar.game;
 
+import static racingcar.car.CarMover.moveCarsIterator;
+
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.car.Car;
 import racingcar.car.CarFactory;
 import racingcar.io.InputHandler;
 import racingcar.io.PrintHandler;
-import racingcar.util.RandomManipulator;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static racingcar.car.CarMover.moveCarsIterator;
 
 public class Game {
     public void start() {

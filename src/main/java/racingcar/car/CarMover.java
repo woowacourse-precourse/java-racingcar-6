@@ -1,9 +1,8 @@
 package racingcar.car;
 
+import java.util.List;
 import racingcar.io.PrintHandler;
 import racingcar.util.RandomManipulator;
-
-import java.util.List;
 
 public class CarMover {
     public static void moveCarsIterator(List<Car> cars, int trialNum) {

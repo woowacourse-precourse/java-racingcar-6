@@ -1,8 +1,10 @@
 package racingcar.util;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.constant.Constants.CONDITION_RANDOM_VALUE;
+import static racingcar.constant.Constants.MAX_RANDOM_VALUE;
+import static racingcar.constant.Constants.MIN_RANDOM_VALUE;
 
-import static racingcar.constant.Constants.*;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomManipulator {
     public static boolean isMove() {

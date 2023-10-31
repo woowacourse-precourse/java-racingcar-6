@@ -1,12 +1,12 @@
 package racingcar.util;
 
+import static racingcar.constant.Constants.MAX_CAR_NAME_LEN;
+import static racingcar.constant.Constants.MIN_CAR_NAME_LEN;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import static racingcar.constant.Constants.MAX_CAR_NAME_LEN;
-import static racingcar.constant.Constants.MIN_CAR_NAME_LEN;
 
 public class StringManipulator {
     public static String[] splitSeparator(String sentence, String separator) {

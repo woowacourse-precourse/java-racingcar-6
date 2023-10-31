@@ -1,10 +1,15 @@
 package racingcar.io;
 
+import static racingcar.constant.RacingGameMessage.FINAL_WINNER_SENTENCE;
+import static racingcar.constant.RacingGameMessage.FINAL_WINNER_SEPARATOR;
+import static racingcar.constant.RacingGameMessage.INPUT_CAR_NAMES_PROMPT;
+import static racingcar.constant.RacingGameMessage.INPUT_TRIAL_NUMBER_PROMPT;
+import static racingcar.constant.RacingGameMessage.RESULT_LOCATION_EXPRESSION;
+import static racingcar.constant.RacingGameMessage.RESULT_RUNNING_SENTENCE;
+import static racingcar.constant.RacingGameMessage.RESULT_SEPARATOR;
+
 import racingcar.car.Car;
-
 import java.util.List;
-
-import static racingcar.constant.RacingGameMessage.*;
 
 public class PrintHandler {
     public static void inputCarNamesPrompt() {
@@ -39,7 +44,6 @@ public class PrintHandler {
             } else if (i != winnerNames.size()-1) {
                 System.out.print(winnerNames.get(i) + FINAL_WINNER_SEPARATOR);
             }
-
         }
     }
 
