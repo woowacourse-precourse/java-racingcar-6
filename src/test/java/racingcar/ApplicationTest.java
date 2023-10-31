@@ -167,6 +167,12 @@ class ApplicationTest extends NsTest {
             car.setForward(5);
             assertThat(car.getForward()).isEqualTo(5);
         }
+
+        @Test
+        void getName() {
+            Car car = new Car("temp");
+            assertThat(car.getName()).isEqualTo("temp");
+        }
     }
 
     @Override
