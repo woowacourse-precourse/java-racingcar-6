@@ -1,9 +1,9 @@
 package racingcar.view;
 
 
-import java.util.List;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
+import racingcar.dto.WinnerNameDto;
 
 public class OutputView {
 
@@ -34,8 +34,8 @@ public class OutputView {
         System.out.printf(format, name);
     }
 
-    public void printWinners(final List<String> winnerNames) {
-        System.out.printf(FINAL_WINNER_FORMAT, String.join(NAME_JOIN_SIGNAL, winnerNames));
+    public void printWinners(final WinnerNameDto winnerNames) {
+        System.out.printf(FINAL_WINNER_FORMAT, String.join(NAME_JOIN_SIGNAL, winnerNames.names()));
     }
 
 }

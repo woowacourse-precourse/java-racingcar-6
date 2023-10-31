@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.dto.CarsDto;
+import racingcar.dto.WinnerNameDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -25,7 +26,7 @@ public class RacingGame {
 
         rotate(cars, rotateCount);
 
-        outputView.printWinners(cars.findWinnerNameList());
+        outputView.printWinners(WinnerNameDto.from(cars.findWinnerCarList()));
         Console.close();
     }
 
