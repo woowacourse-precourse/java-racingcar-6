@@ -68,5 +68,43 @@ public class Application {
             System.out.println();
 
         }
+
+        int maxMoveCount=0;
+
+        for(int i=0;i<carList.size();i++){
+
+            Car car = carList.get(i);
+            if(car.moveCount>maxMoveCount){
+
+                maxMoveCount=car.moveCount;
+
+            }
+
+        }
+
+        ArrayList<String> winner = new ArrayList<>();
+
+        for(int j=0;j<carList.size();j++){
+
+            Car car = carList.get(j);
+            if(car.moveCount==maxMoveCount){
+
+                String name=car.name;
+                winner.add(name);
+            }
+        }
+        StringBuilder result = new StringBuilder();
+        for (String name : winner) {
+
+            result.append(name).append(", ");
+
+        }
+
+        if (result.length() > 2) {
+            result.setLength(result.length() - 2);
+        }
+
+        System.out.print("최종 우승자 : "+result);
     }
+
 }
