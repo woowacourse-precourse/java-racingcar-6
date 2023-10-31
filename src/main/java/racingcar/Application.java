@@ -11,7 +11,7 @@ public class Application {
         saveTrialNumber(Console.readLine().trim());
     }
 
-    private static void driveCar () {
+    private static void createDriveCarNum () {
         Integer driveNumber = isMoreThanFour(createRandomNum());
     }
 
