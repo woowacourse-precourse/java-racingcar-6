@@ -48,6 +48,10 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
+        if (count <= 0) {
+            throw new IllegalArgumentException();
+        }
+
         for (int i = 0; i < count; i++) {
             for (Map.Entry<String, String> entry : carDistanceMap.entrySet()) {
                 if (Randoms.pickNumberInRange(0, 9) >= 4) {
