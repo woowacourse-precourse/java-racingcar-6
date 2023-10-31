@@ -175,3 +175,8 @@
 * Observer pattern을 쓰는 방식이 있긴 하다.
 * 다만 그렇게 하면 좀 그렇다(Model의 의존 금지 위배)
 * `doAttempts`같은 method를 `isFinished`와 함께 사용하면 반복해도 됨
+
+### 그건 그렇고, attempts를 Race가 가지고 있는 건 옳나?
+
+* Race가 가지게 되면 getter와 setter가 우후죽순 생기는 문제가 있다
+* Controller가 횟수 로직을 들고 있어도 충분할듯 함.
