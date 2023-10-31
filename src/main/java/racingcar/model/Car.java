@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 
 public class Car {
     private String name;
