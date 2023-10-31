@@ -17,8 +17,10 @@ public class CarMovement {
     private void decideMovement() {
         if (GameCondition.hasDriveCondition()) {
             raceCar = fowardMovement(raceCar);
-            carStore.updateCarInfo(raceCar);
+        } else {
+            raceCar = stopMovement(raceCar);
         }
+        carStore.updateCarInfo(raceCar);
     }
 
     private Car fowardMovement(Car currentCar) {
