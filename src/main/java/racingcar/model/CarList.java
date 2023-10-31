@@ -23,10 +23,11 @@ public class CarList {
         return Collections.max(positions);
     }
 
-    public List<Car> getWinners() {
+    public List<String> getWinners() {
         int maxPosition = getMaxPosition();
         return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 

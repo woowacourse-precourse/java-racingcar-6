@@ -1,7 +1,10 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.model.Car;
 import racingcar.model.CarList;
 import racingcar.model.move.RandomMove;
+import racingcar.util.number.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,6 +18,32 @@ public class GameController {
         this.inputView = inputView;
         this.outputView = outputView;
         this.randomMove = randomMove;
+    }
+
+    private void start() {
+        setCarList();
+        moveCars();
+    }
+
+    private boolean isMove() {
+        return randomMove.isMove(NumberGenerator.getRandomNumber());
+    }
+
+    private void setCarList() {
+        List<String> carNames = inputView.inputCarNames();
+        carNames.stream()
+                .map(Car::new)
+                .forEach(carList::addCar);
+    }
+
+    private void moveCars() {
+        int inputTry = inputView.inputTryCount();
+        outputView.printResultMessage();
+        for (int i = 0; i < inputTry; i++) {
+            carList.carList().forEach(car -> car.move(isMove()));
+            outputView.printCarResult(carList.carList());
+        }
+        outputView.printWinners(carList.getWinners());
     }
 
 }
