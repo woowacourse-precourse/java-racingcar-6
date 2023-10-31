@@ -270,17 +270,19 @@ class CarCondition {
 class Winner {
     private int maxDistance = 0;
 
-    public void who(TotalCar totalCar) {
+    public List<String> who(TotalCar totalCar) {
+        List<String> winnerList = new ArrayList<>();
+        carCompare(totalCar.distanceList());
 
+        return winnerList;
     }
 
-    public int carCompare(List<Integer> carDistance) {
+    public void carCompare(List<Integer> carDistance) {
         for (int result = 0; result < carDistance.size(); result++) {
             if (distanceCompare(carDistance.get(result))) {
                 maxDistance = carDistance.get(result);
             }
         }
-        return 0;
     }
 
     public boolean distanceCompare(int distance) {
@@ -289,5 +291,17 @@ class Winner {
         }
         return false;
     }
+
+    public List<String> findWinner(List<String> nameList, List<Integer> carDistance) {
+        List<String> winnerList = new ArrayList<>();
+        for (int order = 0; order < nameList.size(); order++) {
+            if (maxDistance == carDistance.get(order)) {
+                winnerList.add(nameList.get(order));
+            }
+        }
+        return winnerList;
+    }
+
+
 }
 
