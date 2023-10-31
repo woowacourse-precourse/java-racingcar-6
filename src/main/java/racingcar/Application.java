@@ -81,6 +81,10 @@ class OutputView {
     public void askTry() {
         System.out.println(TRY_MESSAGE);
     }
+
+    public void showResultNotice() {
+        System.out.println(RESULT_MESSAGE);
+    }
 }
 
 class NameValidation {
