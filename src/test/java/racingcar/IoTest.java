@@ -1,21 +1,24 @@
 package racingcar;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.game.Car;
+import racingcar.io.CommonMessages;
 import racingcar.io.InputManager;
+import racingcar.io.OutputManager;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class IoTest {
 
     InputManager inputManager = new InputManager();
+    OutputManager outputManager = new OutputManager();
 
     @Test
-    void validateNameListSize() {
+    void InputManagerValidateNameListSize() {
         String names = "pobi,woni,jun,jan,sj,tomo";
         List<String> nameList = inputManager.namestoList(names);
 
@@ -24,7 +27,7 @@ public class IoTest {
     }
 
     @Test
-    void validateName() {
+    void InputManagerValidateName() {
         String failCaseOne = "abc,def,ghijkl";
         String failCaseTwo = "abc,def,!@#A";
 
@@ -38,7 +41,7 @@ public class IoTest {
     }
 
     @Test
-    void validateTrialFormat() {
+    void InputManagerValidateTrialFormat() {
         String failCaseOne = "12";
         String failCaseTwo = "A";
 
@@ -48,8 +51,19 @@ public class IoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    public void setSystemIn(String input) {
-        if(input != null) System.setIn(new ByteArrayInputStream(input.getBytes()));
-        else System.setIn(null);
+    @Test
+    void OutputManagerPrintRoundResult() {
+        List<Car> carList = new ArrayList<>();
+
+        Car pobiCar = new Car("pobi");
+        Car woniCar = new Car("woni");
+        carList.add(pobiCar);
+        carList.add(woniCar);
+
+        woniCar.move();
+
+        String roundResult = CommonMessages.roundResult(carList);
+        assertThat(roundResult).contains("실행결과", "pobi :", "woni : -");
     }
 }
+
