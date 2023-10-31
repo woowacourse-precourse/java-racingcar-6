@@ -1,6 +1,8 @@
-package racingcar;
+package study;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,7 +11,7 @@ public class CarNamesCheckerTest {
     @Test
     public void testValidCarNames() {
         String validCarNames = "Car1,Car2,Car3";
-        assertTrue(Application.checkCarNames(validCarNames));
+        Assertions.assertTrue(Application.checkCarNames(validCarNames));
     }
 
     @Test
@@ -38,7 +40,7 @@ public class CarNamesCheckerTest {
 
     @Test
     public void testEmptyCarNames() {
-        String emptyCarNames = "";
+        String emptyCarNames = "car1,,car3";
         assertFalse(Application.checkCarNames(emptyCarNames));
 
 //        String str = "car1,,";

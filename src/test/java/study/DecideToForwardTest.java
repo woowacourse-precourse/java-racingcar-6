@@ -1,6 +1,7 @@
-package racingcar;
+package study;
 
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
