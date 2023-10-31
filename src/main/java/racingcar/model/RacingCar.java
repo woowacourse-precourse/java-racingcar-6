@@ -50,10 +50,6 @@ public class RacingCar {
 
     @Override
     public String toString() {
-        return this.name + COLON + position();
-    }
-
-    private String position() {
-        return POSITION_SIGN.repeat(this.position);
+        return this.name + COLON + POSITION_SIGN.repeat(this.position);
     }
 }
