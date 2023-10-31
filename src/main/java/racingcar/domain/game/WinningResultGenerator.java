@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WinningResultGenerator {
-    private static final String SEPARATOR = ",";
+    private static final String SEPARATOR = ", ";
 
-    public String generateWinningCarsResult(List<Car> cars) {
+    public String generateWinners(List<Car> cars) {
         List<String> winningCars = chooseWinningCars(cars);
         return String.join(SEPARATOR, winningCars);
     }

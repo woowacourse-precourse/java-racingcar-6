@@ -34,6 +34,6 @@ public class RacingGame {
     }
 
     public String selectWinners() {
-        return winningResultGenerator.generateWinningCarsResult(cars.getCars());
+        return winningResultGenerator.generateWinners(cars.getCars());
     }
 }
