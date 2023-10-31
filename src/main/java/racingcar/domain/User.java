@@ -1,19 +1,17 @@
 package racingcar.domain;
 
-import static racingcar.constants.Messages.INVALID_INPUT_ERROR;
 import static racingcar.constants.Messages.PROMPT_CAR_NAMES;
 import static racingcar.constants.Messages.PROMPT_RACE_COUNT;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import racingcar.util.Validator;
 
 public class User {
+    Validator validator = new Validator();
 
-    private static final int MIN_RACE_COUNT = 1;
-    private static final int MAX_RACE_COUNT = 10;
+
 
     public List<String> getCarNames() {
         System.out.println(PROMPT_CAR_NAMES);
@@ -31,36 +29,17 @@ public class User {
     }
 
     private void validateInput(String input) {
-        if (input == null || input.isEmpty()) {
-            throw new IllegalArgumentException(INVALID_INPUT_ERROR);
-        }
-
-        String[] splitInput = input.split(",");
-        if (splitInput.length < 2 || splitInput.length > 5) {
-            throw new IllegalArgumentException(INVALID_INPUT_ERROR);
-        }
-
-        Set<String> set = new HashSet<>();
-        for (String carName : splitInput) {
-            if (carName == null || carName.isEmpty() || carName.length() > 5) {
-                throw new IllegalArgumentException(INVALID_INPUT_ERROR);
-            }
-            set.add(carName);
-        }
-        if (set.size() != splitInput.length) {
-            throw new IllegalArgumentException(INVALID_INPUT_ERROR);
-        }
-
+        validator.validateInput(input);
+        validator.validateNameCount(input);
+        validator.validateNameLength(input);
+        validator.validateUniqueName(input);
     }
 
     private void validateCount(String input) {
-        try {
-            int count = Integer.parseInt(input);
-            if (count < MIN_RACE_COUNT || MAX_RACE_COUNT < count) {
-                throw new IllegalArgumentException(INVALID_INPUT_ERROR);
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(INVALID_INPUT_ERROR);
-        }
+        validator.validateInput(input);
+        validator.validateMoveCount(input);
+
     }
+
+
 }
