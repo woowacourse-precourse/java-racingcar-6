@@ -10,23 +10,23 @@ public class Application {
 
     private static void StartGame() {
         Car[] cars = UserEnterCarName();
-        MakeCarObject(cars);
 
-//        for(int i=0; i<cars.length; i++){
-//            System.out.println(cars[i].name+" "+cars[i].meter);
-//        }
+//        MakeCarObject(cars);
 
         int repeatNumber = UserEnterRepeatNumber();
-//        System.out.println(repeatNumber);
 
-        System.out.println("실행 결과");
-        for(int i=0; i<repeatNumber; i++){
-        CalculateGoOrStop(cars);
-        PrintResult(cars);
-        }
+        PlayRound(repeatNumber, cars);
 
         WhoIsWinner(cars);
 
+    }
+
+    private static void PlayRound(int repeatNumber, Car[] cars) {
+        System.out.println("실행 결과");
+        for(int i = 0; i< repeatNumber; i++){
+        CalculateGoOrStop(cars);
+        PrintResult(cars);
+        }
     }
 
     private static void WhoIsWinner(Car[] cars) {
@@ -80,15 +80,18 @@ public class Application {
             cars[i] = new Car(EnteredCars[i]);
         }
 
-        return cars;
-    }
-
-    private static void MakeCarObject(Car[] cars) {
         for(int i=0; i<cars.length; i++){
             cars[i] = new Car(cars[i].name);
         }
 
+        return cars;
     }
+
+//    private static void MakeCarObject(Car[] cars) {
+//        for(int i=0; i<cars.length; i++){
+//            cars[i] = new Car(cars[i].name);
+//        }
+//    }
 
     static class Car {
         String name;
@@ -101,7 +104,3 @@ public class Application {
     }
 
 }
-
-
-//    pickNumberInRange(1,9);
-//    readLine();
