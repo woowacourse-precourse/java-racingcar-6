@@ -15,7 +15,7 @@ public class CarsTest extends NsTest {
     private static final String CARNAME_WITH_BLANK = "bora,,nana,ddubi";
 
     @Test
-    @DisplayName("from 함수 테스트")
+    @DisplayName("from 함수 기능 테스트")
     void 입력_사이에_빈_값이_들어왔을_경우_제거_후_반환_기능_테스트() {
         //given
         Cars cars = Cars.from(CARNAME_WITH_BLANK);
@@ -24,7 +24,7 @@ public class CarsTest extends NsTest {
     }
 
     @Test
-    @DisplayName("findWinners 함수 테스트")
+    @DisplayName("findWinners 함수 기능 테스트")
     void 우승자_반환_기능_테스트() {
         assertRandomNumberInRangeTest(() -> {
             Cars cars = Cars.from(CARNAME);
@@ -38,7 +38,7 @@ public class CarsTest extends NsTest {
 
 
     @Test
-    @DisplayName("getCarList 함수 테스트")
+    @DisplayName("getCarList 함수 기능 테스트")
     void 자동차_목록_반환_기능_테스트() {
         //given
         Cars cars = Cars.from(CARNAME);
@@ -47,7 +47,7 @@ public class CarsTest extends NsTest {
     }
 
     @Test
-    @DisplayName("moveCars 함수 테스트")
+    @DisplayName("moveCars 함수 기능 테스트")
     void 자동차_이동_기능_테스트() {
         assertRandomNumberInRangeTest(() -> {
             Cars cars = Cars.from(CARNAME);
