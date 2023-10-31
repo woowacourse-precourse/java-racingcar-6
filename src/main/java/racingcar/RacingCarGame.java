@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class RacingCarGame {
@@ -24,6 +25,7 @@ public class RacingCarGame {
         int numberOfRace = getNumberOfRace();
         repeatCarRace(carList, numberOfRace);
         List<Car> winner = decideWinner(carList);
+        printOutWinner(winner);
     }
 
     private String getCarsName() {
@@ -92,5 +94,21 @@ public class RacingCarGame {
         }
         i++;
         return i;
+    }
+
+    private void printOutWinner(List<Car> winner) {
+        StringBuilder sb = new StringBuilder();
+        Iterator<Car> it = winner.iterator();
+        while (it.hasNext()) {
+            sb.append(it.next().getName());
+            hasNext(sb, it);
+        }
+        System.out.print("최종 우승자 : " + sb);
+    }
+
+    private void hasNext(StringBuilder sb, Iterator<Car> it) {
+        if (it.hasNext()) {
+            sb.append(", ");
+        }
     }
 }
