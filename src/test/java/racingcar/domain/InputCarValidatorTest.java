@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.car.BlankCarNameException;
+import racingcar.exception.car.CarNameNumberLimitException;
 import racingcar.exception.car.DuplicateCarNameException;
 
 class InputCarValidatorTest {
@@ -44,5 +46,29 @@ class InputCarValidatorTest {
         Set<String> checkedCars = InputCarValidator.checkDuplicateCarName(cars);
         // then
         assertEquals(expectedCars, checkedCars);
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 6글자 이상일 경우 IllegalArgumentException 발생")
+    public void checkOver5Letters() {
+        // given
+        String testCar = "javagili";
+
+        // when & then
+        assertThatExceptionOfType(CarNameNumberLimitException.class)
+                .isThrownBy(() -> InputCarValidator.checkOver5Letters(testCar))
+                .withMessageMatching("자동차 이름은 6글자 이상일 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("자동차 이름에 공백만 있을 경우 IllegalArgumentException 발생")
+    public void checkCarWithBlank() {
+        // given
+        String testCar = " ";
+
+        // when & then
+        assertThatExceptionOfType(BlankCarNameException.class)
+                .isThrownBy(() -> InputCarValidator.checkCarWithBlank(testCar))
+                .withMessageMatching("자동차 이름에 공백만 있을 수 없습니다.");
     }
 }

@@ -1,11 +1,10 @@
 package racingcar.domain;
 
-import racingcar.exception.car.BlankCarNameException;
-import racingcar.exception.car.CarNameNumberLimitException;
+import static racingcar.domain.InputCarValidator.checkCarWithBlank;
+import static racingcar.domain.InputCarValidator.checkOver5Letters;
+
 
 public class Car {
-    public static final int CAR_NAME_NUMBERS_LIMIT_SIZE = 5;
-
     private String name;
 
     private Car(String name) {
@@ -16,18 +15,5 @@ public class Car {
         checkOver5Letters(name);
         checkCarWithBlank(name);
         return new Car(name);
-    }
-
-    public static void checkOver5Letters(String name) {
-        if (name.length() > CAR_NAME_NUMBERS_LIMIT_SIZE) {
-            throw new CarNameNumberLimitException();
-        }
-
-    }
-
-    public static void checkCarWithBlank(String name) {
-        if (name.isBlank()) {
-            throw new BlankCarNameException();
-        }
     }
 }
