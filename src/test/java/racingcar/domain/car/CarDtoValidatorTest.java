@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.utils.StringTrimmer;
 
 class CarDtoValidatorTest {
 
@@ -15,7 +16,7 @@ class CarDtoValidatorTest {
         // GIVEN
         CarDto carDto = new CarDto("pobipobi,qwe,ert");
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -32,7 +33,7 @@ class CarDtoValidatorTest {
         // GIVEN
         CarDto carDto = new CarDto("12345,1234,123,12,1");
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         // THEN
@@ -47,7 +48,7 @@ class CarDtoValidatorTest {
         // GIVEN
         CarDto carDto = new CarDto("12345,1234,123,12,1");
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -65,7 +66,7 @@ class CarDtoValidatorTest {
         // GIVEN
         CarDto carDto = new CarDto("!@no,no)*,(n),+{,.");
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -83,7 +84,7 @@ class CarDtoValidatorTest {
         // GIVEN
         CarDto carDto = new CarDto("❤👫💸🗃,🤦‍♂,️👍🎉,👀");
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -101,7 +102,7 @@ class CarDtoValidatorTest {
         // GIVEN
         CarDto carDto = new CarDto("이성문,성게,pobi,tony");
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // WHEN
         // THEN

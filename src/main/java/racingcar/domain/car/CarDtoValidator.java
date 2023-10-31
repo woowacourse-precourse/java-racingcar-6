@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import java.util.function.Function;
+import racingcar.domain.utils.StringTrimmer;
 
 public final class CarDtoValidator {
     private CarDtoValidator() {
@@ -14,7 +15,7 @@ public final class CarDtoValidator {
     public static void validateCarDto(CarDto carDto) throws IllegalArgumentException {
         // 공백을 제거하고 ,을 통해 구분합니다.
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = CarDtoParser.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
 
         // 예외를 검증합니다.
         applyValidationsOverCarNames(splittedCarNames,
