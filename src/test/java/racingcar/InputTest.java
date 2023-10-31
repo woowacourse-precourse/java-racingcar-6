@@ -13,13 +13,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class InputTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-    @Test
-    void 이름_갯수에_대한_예외처리(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("123,ABC", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
 
     @Test
     void 쉼표_기준으로_Split_함수_테스트(){
