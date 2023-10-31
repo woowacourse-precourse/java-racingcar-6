@@ -2,7 +2,6 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.service.RacingCarService;
 
 import java.util.stream.IntStream;
 
@@ -52,8 +51,7 @@ class CarsTest {
         //given
         Cars cars = new Cars("pobi,woni,jun");
         Car car = cars.getRacingCars().get(0);
-        IntStream
-                .range(0, 3)
+        IntStream.range(0, 3)
                 .forEach(i -> car.movePosition());
 
         //when
@@ -61,20 +59,5 @@ class CarsTest {
 
         //then
         assertThat(finalWinners).isEqualTo("pobi");
-    }
-
-    @Test
-    @DisplayName("최종 우승자를 알 수 있다.")
-    void get_final_winners() {
-        //given
-        Cars cars = new Cars("pobi,woni,jun");
-        RacingCarService racingCarService = new RacingCarService();
-        racingCarService.startRacing(cars);
-
-        //when
-        String finalWinners = cars.getFinalWinners();
-
-        //then
-        assertThat(finalWinners).containsAnyOf("pobi", "woni", "jun");
     }
 }
