@@ -11,12 +11,12 @@ import racingcar.global.exception.RaceException;
 import racingcar.utils.RandomUtils;
 
 public class Car {
-    private String name;
+    private Name name;
     private Integer position;
 
     private Car(final String name) {
         Validator.validateName(name);
-        this.name = name;
+        this.name = Name.of(name);
         this.position = 0;
     }
 
@@ -24,7 +24,7 @@ public class Car {
         return new Car(name);
     }
 
-    public String getName() {
+    public Name getName() {
         return this.name;
     }
 
