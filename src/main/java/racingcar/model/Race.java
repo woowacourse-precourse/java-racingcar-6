@@ -46,7 +46,7 @@ public class Race {
         }
     }
 
-    private Map<String, Integer> getPerMatchResult() {
+    public Map<String, Integer> getPerMatchResult() {
         Map<String, Integer> perMatchResult = new HashMap<>();
         for (Car car : this.carList) {
             perMatchResult.put(car.getName(), car.getDistance());
