@@ -42,7 +42,7 @@ public class Car {
     }
 
     public String printPosition() {
-        return name + " : " + "-".repeat(Math.max(0, position)) + "\n";
+        return name + " : " + "-".repeat(position) + "\n";
     }
 
     public String getWinner(List<Car> cars) {
@@ -64,6 +64,6 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        return name.hashCode();
     }
 }
