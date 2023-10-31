@@ -4,7 +4,6 @@ import racingcar.core.GenerateHighScores;
 import racingcar.core.GenerateRacer;
 import racingcar.entity.*;
 import racingcar.tool.InputTool;
-import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,9 +16,7 @@ public class Application {
     }
 
     private static void raceBefore(){
-        List<String> racerNameList = racerNameForm();
-        RaceCount raceCount = raceCountForm();
-        conductRace(racerNameList,raceCount);
+        conductRace(racerNameForm(),raceCountForm());
     }
     private static void conductRace(List<String> racerNameList,RaceCount raceCount){
         for (int i = 0; i<raceCount.inputRaceCount(); i++){
@@ -49,8 +46,8 @@ public class Application {
 
     private static List<String> racerNameForm(){
         String inputRacerNameList = InputTool.readLineByConsole();
-        RacerName racerValidate = new RacerName(inputRacerNameList);
-        racerValidate.validateRacerName();
+        RacerNameList racerValidate = new RacerNameList(inputRacerNameList);
+        racerValidate.validateRacerNameList();
         return Arrays.asList(inputRacerNameList.split(","));
     }
 
