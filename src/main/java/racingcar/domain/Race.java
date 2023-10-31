@@ -5,6 +5,7 @@ import racingcar.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Race {
     private final List<Car> candidates;
@@ -28,7 +29,7 @@ public class Race {
     }
 
     public void play() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (int round = 0; round < roundNumber; round++) {
             playOneRound();
             System.out.println();
@@ -40,6 +41,13 @@ public class Race {
             car.moveOrStop(numberGenerator.generateNumberRange(0, 9));
             car.showStatus();
         }
+    }
+
+    public void printWinners() {
+        List<Car> winners = getWinners();
+        StringJoiner joiner = new StringJoiner(", ", "최종 우승자 : ", "");
+        winners.forEach(winner -> joiner.add(winner.getName()));
+        System.out.println(joiner);
     }
 
     public List<Car> getWinners() {
