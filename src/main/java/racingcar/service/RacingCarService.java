@@ -15,17 +15,7 @@ public class RacingCarService {
         inputUtil = new InputUtil();
     }
 
-    public void start() {
-        initCars();
-        int count = initCount();
-        System.out.println("실행결과");
-        for (int i = 0; i < count; i++) {
-            move(cars);
-        }
-        printWinner();
-    }
-
-    public void move(Cars cars) {
+    public void move() {
         cars.moveCars();
         cars.printMoves();
     }
@@ -41,16 +31,15 @@ public class RacingCarService {
         return inputUtil.getRound();
     }
 
+    public void printWinner() {
+        String winner = cars.getWinner();
+        System.out.print("최종 우승자 : ");
+        System.out.print(winner);
+    }
+
     public Cars createCars(List<String> names) {
         List<Car> carList = new ArrayList<>();
         names.forEach(name -> carList.add(new Car(name)));
-        cars = new Cars(carList);
-        return cars;
-    }
-
-    public void printWinner() {
-        String s = cars.showWinner();
-        System.out.print("최종 우승자 : ");
-        System.out.print(s);
+        return new Cars(carList);
     }
 }

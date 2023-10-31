@@ -45,7 +45,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public String showWinner() {
+    public String getWinner() {
         List<String> winner = findWinner();
         return String.join(", ", winner);
     }
