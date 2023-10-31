@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,9 +9,9 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingCarTest {
-    RacingCars racingCars;
-    @BeforeEach
-    void initRacingCars() {
+    static RacingCars racingCars;
+    @BeforeAll
+    static void initRacingCars() {
         List<String> list = List.of("pobi", "java");
         racingCars = new RacingCars(list);
     }
