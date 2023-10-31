@@ -64,6 +64,13 @@ class ApplicationTest extends NsTest {
         assertThat(result).isEqualTo(true);
     }
 
+    @Test
+    void 음수_확인(){
+        RoundNumberManager manager = new RoundNumberManager();
+        boolean result = manager.negativeNumber(-5);
+        assertThat(result).isEqualTo(true);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

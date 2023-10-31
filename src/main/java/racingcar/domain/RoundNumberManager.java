@@ -26,7 +26,7 @@ public class RoundNumberManager {
         return false;
     }
 
-    public static boolean negativeNumber(Integer number){
+    public boolean negativeNumber(Integer number){
         if (number<0) {
             return true;
         }
