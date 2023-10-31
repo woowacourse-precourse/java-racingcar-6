@@ -39,9 +39,8 @@ public class GameManager {
         for (int i = 0; i < trialCount; i++) {
             for (RandomCar randomCar : randomCars) {
                 randomCar.move();
-                randomCar.printPosition();
             }
-            System.out.println();
+            outputView.printCarStatus(randomCars);
         }
     }
 
