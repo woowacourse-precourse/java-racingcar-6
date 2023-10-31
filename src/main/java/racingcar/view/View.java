@@ -18,7 +18,7 @@ public class View {
     }
 
     public static void printWinner(WinnerResponseDto winners) {
-        String winnerNames = String.join(",", winners.winnerNames());
+        String winnerNames = String.join(", ", winners.winnerNames());
         System.out.println(winnerNames);
     }
 }
