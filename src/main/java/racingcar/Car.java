@@ -23,7 +23,28 @@ public class Car {
 		System.out.println("\n" + "실행 결과");
 		ready.isDigit(times);
 
-		//레이싱 플레이
+		play(Integer.parseInt(times));
 	}
 
+	private void play(int finalR) {
+		int round = 0;
+		int size = carList.length;
+
+		List<Integer> position = new ArrayList<Integer>();
+
+		do {
+			position = Racing.move(position, size);
+			currentPrint(carList, position);
+			round++;
+		} while (round != finalR);
+
+		//결과 확인
+	}
+
+	private static void currentPrint(String[] c, List<Integer> p) {
+		for (int i = 0; i < c.length; i++) {
+			System.out.println(c[i] + " : " + p.get(i));
+		}
+		System.out.println();
+	}
 }
