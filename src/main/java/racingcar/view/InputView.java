@@ -29,6 +29,10 @@ public class InputView {
     }
 
     private static void validateRoundsInput(String roundsInput) {
+        if (roundsInput == null || roundsInput.trim().isEmpty()) {
+            throw new IllegalArgumentException("라운드 수를 입력해야 합니다.");
+        }
+
         try {
             int rounds = Integer.parseInt(roundsInput);
             if (rounds <= 0) {
