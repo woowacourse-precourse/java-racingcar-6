@@ -24,6 +24,7 @@ public class ManagerController {
 
         resultExecutionMessage();
         executeRacing(cars,tryCount);
+        judgeWinnerCar(cars);
 
     }
     public boolean isPossibleToMove(){
@@ -59,6 +60,26 @@ public class ManagerController {
             String totalMoveCount = managerView.getTotalMoveCount(moveCount);
             managerView.printMovingMessage(carName,totalMoveCount);
         }
+    }
+
+    public List<String> judgeWinnerCar(List<Car> cars){
+        int maxMove = ZERO_MOVE;
+        List<String> winnerCars = new ArrayList<>();
+        for(Car car:cars){
+            if(car.getMoveCount()>maxMove){
+                maxMove = car.getMoveCount();
+                winnerCars.clear();
+                winnerCars.add(car.getCarName());
+            }
+            else if(car.getMoveCount()==maxMove){
+                winnerCars.add(car.getCarName());
+            }
+        }
+        return winnerCars;
+    }
+
+    public void finalWinner(List<String> winnerCars){
+        managerView.printFinalWinners(winnerCars);
     }
 
 
