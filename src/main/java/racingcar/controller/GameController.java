@@ -12,6 +12,7 @@ import java.util.List;
 public class GameController {
 
     private static final int RACE_COUNT_MINIMUM = 1;
+    private static final String NAME_SEPARATOR = ",";
 
     private InputView inputView;
     private OutputView outputView;
@@ -34,7 +35,7 @@ public class GameController {
     }
 
     private Players createCarList(String carsName) {
-        List<String> carNameList = Arrays.asList(carsName.split(","));
+        List<String> carNameList = Arrays.asList(carsName.split(NAME_SEPARATOR));
         return new Players(carNameList);
     }
 
