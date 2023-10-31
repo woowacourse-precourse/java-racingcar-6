@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Cars {
     private ArrayList<Car> cars;
@@ -30,7 +31,29 @@ public class Cars {
         System.out.println();
     }
 
-    public void printRacingResult() {
+    public ArrayList<String> getFinalWinners() {
+        int max = getMaxCarDistance();
 
+        ArrayList<String> winners = new ArrayList<>();
+
+        for(int i=0;i<cars.size();i++) {
+            Car car = cars.get(i);
+
+            if(max == car.getDistance()) {
+                winners.add(car.name);
+            }
+        }
+
+        return winners;
+    }
+
+    private int getMaxCarDistance() {
+        int max = 0;
+
+        for(int i=0;i<cars.size();i++) {
+            max = Math.max(max, cars.get(i).getDistance());
+        }
+
+        return max;
     }
 }

@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -29,6 +30,8 @@ public class Game {
             cars.racing();
             cars.printRoundRacingResult();
         }
+
+        printFinalResult(cars.getFinalWinners());
     }
 
 
@@ -38,7 +41,8 @@ public class Game {
         }
     }
 
-    private List<Integer> getMaxForwardCarsIndex() {
-        return null;
+    private void printFinalResult(ArrayList<String> winners) {
+        System.out.println(Constants.PRINT_FINAL_RESULT +
+                String.join(", " , winners));
     }
 }
