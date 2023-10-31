@@ -38,8 +38,9 @@ public class Application {
             throw new IllegalArgumentException("잘못된 값을 입력했습니다!");
         }
 
-        scoreBoard.showCarsScore(carList, tryNumber);
-        System.out.println(referee.showWinner(carList));
+        System.out.println();
+        System.out.print(scoreBoard.showCarsScore(carList, tryNumber));
+        System.out.print(referee.showWinner(carList));
         Console.close();
     }
 }
