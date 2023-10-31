@@ -23,7 +23,8 @@ public class MoveNumberValidator {
     }
 
     private static boolean isNumeric(String moveNumber) {
-        return moveNumber.matches("[0-9]+");
+        Matcher matcher = numberPattern.matcher(moveNumber);
+        return matcher.matches();
     }
 
     private static boolean outOfRange(String moveNumber) {
