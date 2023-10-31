@@ -17,7 +17,7 @@ public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
     private final MovingStrategy movingStrategy;
-    private final Cars cars;
+    private Cars cars;
     private RaceRound raceRound;
 
 
@@ -35,10 +35,24 @@ public class GameController {
     // 프로그램 전체 흐름을 파악할 수 있는 형식으로 작성하기
     public void play() {
         // Cars 생성
+        createCars();
         // 게임 라운드 받기
         // 게임 라운드 만큼 실행
         // 결과 찾기 및 출력
     }
 
+    private void createCars() {
+        List<String> names = inputView.inputNames();
+        List<Car> carList = createCarList(names);
+        cars = new Cars(carList);
+    }
 
+    private List<Car> createCarList(List<String> names) {
+        List<Car> carList = new ArrayList<>();
+        for (String name : names) {
+            carList.add(new Car(movingStrategy, name));
+        }
+
+        return carList;
+    }
 }
