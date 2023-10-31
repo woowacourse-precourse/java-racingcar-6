@@ -67,7 +67,7 @@ public class ResultTest {
         carList1.add(new Car("car3", 7));
         carList2.add(new Car("car4", 2));
         carList2.add(new Car("car5", 2));
-        carList2.add(new Car("car6", 3));
+        carList2.add(new Car("car6", 1));
 
         OutputStream result1 = new ByteArrayOutputStream();
         System.setOut(new PrintStream(result1));

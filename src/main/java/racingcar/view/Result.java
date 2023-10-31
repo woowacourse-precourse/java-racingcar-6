@@ -34,7 +34,7 @@ public class Result {
                 winner.add(car.getCarName());
             }
         }
-        System.out.println(winner);
+        System.out.print(winner);
     }
 
     public static int getMaxNumber(List<Car> carList){
