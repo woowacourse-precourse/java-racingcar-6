@@ -1,7 +1,5 @@
 package racingcar.service;
 
-import racingcar.service.MovementStrategy;
-
 public class StubMovementStrategy implements MovementStrategy {
     private final int number;
 

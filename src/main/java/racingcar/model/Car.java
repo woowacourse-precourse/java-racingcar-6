@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.service.MovementStrategy;
 
 public record Car(String carName, int distance, MovementStrategy movementStrategy) {
