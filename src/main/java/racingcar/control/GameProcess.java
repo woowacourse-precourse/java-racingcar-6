@@ -29,9 +29,6 @@ public class GameProcess {
         raceCarStringMap = new LinkedHashMap<>();
     }
 
-    /**
-     * 경주할 자동차 이름을 입력하는 메서드
-     */
     public void inputNameOfRaceCar() {
         String inputStr = Utill.inputString();
 
