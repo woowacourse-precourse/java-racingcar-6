@@ -1,15 +1,14 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import racingcar.util.RandomNumber;
+
+import java.util.*;
 
 public class Cars {
     private UserInputCarName userInputCarName;
-    public static List<Car> cars = new ArrayList<>();
     public static Map<String, Integer> findMax = new HashMap<>();
-
+    private RandomNumber randomNumber = new RandomNumber();
+    public static List<Car> cars = new ArrayList<Car>();
     public Cars(String input) {
         userInputCarName = new UserInputCarName();
         List<String> carName = userInputCarName.createCarName(input);
@@ -19,28 +18,27 @@ public class Cars {
         }
     }
 
-    public void depart(int random){
+    public void depart(){
         for (Car car : cars){
-            car.goForward(random);
+            car.goForward(randomNumber.createRandomNumber());
         }
     }
-    public Map<String, Integer> makeHash(){
+    public static void makeHash(){
         for(Car car : cars){
             findMax.put(car.getName(), car.getForward());
         }
-        return findMax;
     }
 
-    public int findMaxForward(){
+    public static int findMaxForward(){
+        makeHash();
         int maxForward = findMax.values().stream()
                 .mapToInt(Integer::intValue)
                 .max()
                 .orElse(0);
-
         return maxForward;
     }
 
-    public List<String> getMVP(){
+    public static List<String> getMVP(){
         int maxForward = findMaxForward();
         List<String> mvpList = new ArrayList<>();
 
@@ -51,13 +49,15 @@ public class Cars {
         return mvpList;
     }
 
-    public Map<String, Integer> getForwardState(){
-        Map<String, Integer> forwardState = new HashMap<>();
+    public static LinkedHashMap<String, Integer> getForwardState(){
+        LinkedHashMap<String, Integer> forwardState = new LinkedHashMap<>();
         for(Car car : cars){
             forwardState.put(car.getName(), car.getForward());
         }
         return forwardState;
     }
+
+
 
 
 
