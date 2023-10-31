@@ -1,37 +1,37 @@
 package racingcar.domain;
 
-import static racingcar.domain.constant.CarConstant.CAR_INIT_POSITION;
 import static racingcar.domain.constant.CarConstant.CAR_MOVE_CONDITION;
+import static racingcar.domain.constant.CarConstant.DISTANCE;
 
 import java.util.Objects;
 
 public class Car {
-    private int position;
+    private final Position position;
     private final String name;
 
     public Car(String name) {
         this.name = name;
-        position = CAR_INIT_POSITION;
+        position = new Position();
     }
 
     public int move(int moveDecisionNumber) {
         if (moveDecisionNumber >= CAR_MOVE_CONDITION) {
-            position++;
+            position.moveForward(DISTANCE);
         }
 
-        return position;
+        return position.toInt();
     }
 
-    public String getCarName() {
+    public String getName() {
         return name;
     }
 
-    public int getCarPosition() {
-        return position;
+    public int getPosition() {
+        return position.toInt();
     }
 
     public boolean isSamePosition(int position) {
-        return this.getCarPosition() == position;
+        return this.getPosition() == position;
     }
 
     @Override

@@ -24,7 +24,7 @@ public class CarRacingService {
         this.racingView = new RacingView();
     }
 
-    public void runCarRacing() {
+    public void run() {
         racingView.inputCarsNameView();
         Cars cars = new Cars(convertStringToCarList(customReadLine.inputCarsName()), numberGenerator);
         racingView.inputAttemptNumberView();
@@ -53,7 +53,7 @@ public class CarRacingService {
             List<CarRacingResponse> carsResponses = cars.decisionCarsMove();
             carsResponses.forEach(carResponse -> racingView.raceResultView(carResponse.getName(),
                     carResponse.getPosition()));
-            racingView.newLine();
+
         }
     }
 }

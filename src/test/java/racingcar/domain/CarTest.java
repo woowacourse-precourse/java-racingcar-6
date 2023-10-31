@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
@@ -9,11 +9,12 @@ class CarTest {
     void stopOrMoveDecisionTest() {
         //given
         Car car = new Car("hoho");
-
+        Position position = new Position();
         //when
         car.move(5);
+        position.moveForward(1);
 
         //then
-        Assertions.assertThat(car).extracting("position").isEqualTo(1);
+        Assertions.assertEquals(car.getPosition(), position.toInt());
     }
 }

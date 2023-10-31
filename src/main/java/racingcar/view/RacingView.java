@@ -17,17 +17,14 @@ public class RacingView {
     }
 
     public void executionResultView() {
+        System.out.println();
         System.out.println(RESULT_VIEW);
     }
 
     public void raceResultView(String carName, int cartPosition) {
         System.out.println(carName + " : " + CAR_MOVE.repeat(cartPosition));
     }
-
-    public void newLine() {
-        System.out.println();
-    }
-
+    
     public void winnerView(String winner) {
         System.out.println(WINNER + winner);
     }

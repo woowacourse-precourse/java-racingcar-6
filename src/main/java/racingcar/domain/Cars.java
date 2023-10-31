@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.domain.constant.CarConstant.CAR_INIT_POSITION;
+import static racingcar.domain.constant.CarConstant.INIT_POSITION;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +19,11 @@ public class Cars {
 
     public List<CarRacingResponse> decisionCarsMove() {
         List<CarRacingResponse> carsResponses = new ArrayList<>();
+
         for (Car car : cars) {
             int carPosition = car.move(numberGenerator.generateNumber());
-            String carName = car.getCarName();
-            carsResponses.add(CarRacingResponse.create(carName, carPosition));
+            String carName = car.getName();
+            carsResponses.add(CarRacingResponse.of(carName, carPosition));
         }
 
         return carsResponses;
@@ -35,14 +36,14 @@ public class Cars {
     private List<String> findWinner() {
         return cars.stream()
                 .filter(car -> car.isSamePosition(findMaxPosition()))
-                .map(Car::getCarName)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
     private int findMaxPosition() {
         return cars.stream()
-                .mapToInt(Car::getCarPosition)
-                .max().orElse(CAR_INIT_POSITION);
+                .mapToInt(Car::getPosition)
+                .max().orElse(INIT_POSITION);
     }
 
     @Override
