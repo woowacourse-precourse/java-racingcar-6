@@ -26,6 +26,4 @@ public class TrialValidator {
 			throw new IllegalArgumentException("시도는 1 이상으로 입력해야 합니다.");
 		}
 	}
-
-
 }
