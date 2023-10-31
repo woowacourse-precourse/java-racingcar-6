@@ -13,10 +13,8 @@ public class InputView {
 
     public static ArrayList<String> readCarNames(){
         ArrayList<String> carNames = Parser.parsingByComma(readLine());
-        // TODO: 리팩토링
-        for (String carName : carNames) {
-            InputValidator.lessThenFiveLetters(carName);
-        }
+        
+        carNames.forEach(InputValidator::lessThenFiveLetters);
         return carNames;
     }
 }
