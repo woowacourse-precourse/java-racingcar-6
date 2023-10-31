@@ -1,4 +1,4 @@
-package Object;
+package custom_object;
 
 public class Car {
     private String name;
@@ -9,4 +9,9 @@ public class Car {
         this.name = name;
     }
 
+    public void tryMoving(Integer number) {
+        if (number >= MOVE_THRESHOLD) {
+            postion++;
+        }
+    }
 }
