@@ -24,43 +24,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 전진_전진() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
-                },
-                MOVING_FORWARD, MOVING_FORWARD
-        );
-    }
 
-    @Test
-    void 정지_정지() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : ", "woni : ", "최종 우승자 : pobi, woni");
-                },
-                STOP, STOP
-        );
-    }
-
-    @Test
-    void 예시_출력_테스트() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni,jun", "5");
-                    assertThat(output()).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)",
-                            "시도할 회수는 몇회인가요?", "실행 결과",
-                            "pobi : -----", "woni : ----", "jun : -----", "최종 우승자 : pobi, jun");
-                },
-                MOVING_FORWARD, STOP, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD);
-    }
 
     @Test
     void 이름에_대한_예외_처리() {

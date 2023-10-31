@@ -30,7 +30,7 @@ public class MainController {
         int moveCount  = 0;
         OutputView.printMessage(ViewMessage.GAME_RESULT);
         while (trialCount.moreThen(moveCount)) {
-            cars.moveRandomly();
+            cars.commandAllCarsToMove();
             OutputView.printMovingResult(cars);
             moveCount++;
         }

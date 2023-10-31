@@ -16,10 +16,8 @@ public record Cars(List<Car> carList) {
         return new Cars(carList);
     }
 
-    public void moveRandomly() {
-        carList.stream()
-                .filter((car) -> Utils.isTrueWithProbability60Percent())
-                .forEach(Car::moveForward);
+    public void commandAllCarsToMove() {
+        carList.forEach(Car::moveRandomly);
     }
 
     public List<Car> getWinnerList() {
