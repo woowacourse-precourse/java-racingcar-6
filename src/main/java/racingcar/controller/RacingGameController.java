@@ -40,6 +40,6 @@ public class RacingGameController {
         }
         int maxPosition = cars.findMaxPosition();
         List<String> winnerNames = cars.findWinners(maxPosition);
-
+        output.printWinners(winnerNames);
     }
 }

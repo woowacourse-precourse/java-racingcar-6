@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.model.Car;
 import racingcar.model.CarList;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -35,5 +36,24 @@ public class OutputView {
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
     }
+
+    public void printWinners(List<String> winnerNames) {
+        int winnerCount = winnerNames.size();
+        if(winnerCount >1){
+            printMultipleWinnerName(winnerNames);
+        }else{
+            printSingleWinnerName(winnerNames);
+        }
+    }
+
+    private void printSingleWinnerName(List<String> winnerNames) {
+        System.out.println("최종 우승자 : "+winnerNames.get(0));
+    }
+
+    private void printMultipleWinnerName(List<String> winnerNames) {
+        String joinWinnerNames = String.join(", ", winnerNames);
+        System.out.println("최종 우승자 : "+joinWinnerNames);
+    }
+
 
 }
