@@ -19,6 +19,9 @@ public class OutputView {
         System.out.println();
     }
 
+    public void printWinner(RacingCarWinnerDTO racingCarWinnerDTO) {
+        System.out.println("최종 우승자 : " + racingCarWinnerDTO.winners());
+    }
 
     public void outputResultHeader() {
         System.out.println("실행 결과");
