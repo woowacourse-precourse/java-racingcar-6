@@ -28,10 +28,7 @@ public class RacingCar {
 
     public List<Car> findWinners() {
         Integer maxDistance = findMaxDistance();
-
-        return this.cars.stream()
-                .filter(car -> car.getTravelDistance().equals(maxDistance))
-                .collect(Collectors.toList());
+        return findCarsMovingSameDistance(maxDistance);
     }
 
     public List<Car> getCars() {
@@ -47,8 +44,13 @@ public class RacingCar {
         for (Car car : cars) {
             max = Math.max(car.getTravelDistance(), max);
         }
-
         return max;
+    }
+
+    private List<Car> findCarsMovingSameDistance(Integer distance) {
+        return this.cars.stream()
+                .filter(car -> car.getTravelDistance().equals(distance))
+                .collect(Collectors.toList());
     }
 
     private List<String> splitInputByComma(String userInput) {
