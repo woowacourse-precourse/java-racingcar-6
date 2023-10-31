@@ -23,9 +23,13 @@ public class OutputView {
     }
 
     public void printGameProcessResult(List<CarResultResponse> carResultResponses) {
+        StringBuilder sb = new StringBuilder();
+
         for (CarResultResponse carResultResponse : carResultResponses) {
-            System.out.println(carResultResponse.toString());
+            sb.append(carResultResponse).append("\n");
         }
+
+        System.out.println(sb);
     }
 
     public void printGameWinners(List<String> winners) {
