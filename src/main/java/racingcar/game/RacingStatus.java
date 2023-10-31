@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.car.Car;
 
-public final class RaceResult {
+public final class RacingStatus {
     private static final String MOVE_UI = "-";
     private static final String COLON = " : ";
     private static final String COMMA = ", ";

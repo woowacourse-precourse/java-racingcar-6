@@ -35,14 +35,14 @@ public final class RacingGame {
     }
 
     private void playGame(int raceCount) {
-        RaceResult raceResult = new RaceResult();
+        RacingStatus racingStatus = new RacingStatus();
         for (int round = 1; round <= raceCount; round++) {
             cars.race(getRandomNumbers());
-            System.out.println(raceResult.getRaceProgress(cars.carList()));
+            System.out.println(racingStatus.getRaceProgress(cars.carList()));
         }
 
         List<Car> winnerList = cars.findWinners();
-        System.out.println(raceResult.getWinners(winnerList));
+        System.out.println(racingStatus.getWinners(winnerList));
     }
 
     private List<Integer> getRandomNumbers() {

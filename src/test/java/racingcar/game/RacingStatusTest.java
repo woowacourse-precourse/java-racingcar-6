@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
 import racingcar.car.Cars;
 
-class RaceResultTest {
-    RaceResult raceResult = new RaceResult();
+class RacingStatusTest {
+    RacingStatus racingStatus = new RacingStatus();
     Cars cars;
     Car car;
 
@@ -38,7 +38,7 @@ class RaceResultTest {
     void getProgressOfCar_IsReturnCorrectResult() {
         String expected = "sangd : ----------";
 
-        assertThat(raceResult.getProgressOfCar(car))
+        assertThat(racingStatus.getProgressOfCar(car))
                 .isEqualTo(expected);
     }
 
@@ -53,7 +53,7 @@ class RaceResultTest {
                 e : -
                 """;
 
-        assertThat(raceResult.getRaceProgress(cars.carList()))
+        assertThat(racingStatus.getRaceProgress(cars.carList()))
                 .isEqualTo(expected);
     }
 
@@ -62,7 +62,7 @@ class RaceResultTest {
     void getWinners_IsReturnCorrectResult() {
         String expected = "최종 우승자 : b, d";
 
-        assertThat(raceResult.getWinners(cars.findWinners()))
+        assertThat(racingStatus.getWinners(cars.findWinners()))
                 .isEqualTo(expected);
     }
 }
