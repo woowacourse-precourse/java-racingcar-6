@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.in;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
@@ -45,6 +46,12 @@ class ApplicationTest extends NsTest {
         String input = "pobi, wonii, junnie";
         assertThatThrownBy(() -> Application.getCarNamesFromInput(input))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도할_횟수_입력_테스트(){
+        String input = "5";
+        assertThat(Integer.parseInt(input)).isEqualTo(5);
     }
 
     @Override
