@@ -1,10 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
@@ -35,7 +31,6 @@ public class Application {
         }
 
         Race race = new Race(car, num);
-
 
         return race;
     }
@@ -106,10 +101,11 @@ public class Application {
         }
 
         if (win.toString().contains(", ")) {
-            System.out.println("최종 우승자: " + win);
+            System.out.println("최종 우승자 : " + win);
         } else {
-            System.out.println("최종 우승자: " + win.toString());
+            System.out.println("최종 우승자 : " + win.toString());
         }
+
     }
 
 
