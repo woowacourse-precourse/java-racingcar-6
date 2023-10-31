@@ -9,11 +9,19 @@ public class User {
     public List<String> inputCar() {
         String input = Console.readLine();
         List<String> carNames = Arrays.asList(input.split(","));
-
+        checkLastComma(input);
+        checkInputCarName(carNames);
         return carNames;
     }
 
-    public void checkInputCar(List<String> carNames) {
+    public void checkLastComma(String input){
+        boolean endsWithComma = input.endsWith(",");
+        if(endsWithComma){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void checkInputCarName(List<String> carNames) {
         checkDuplicateName(carNames);
         for (String carName : carNames) {
             checkLengthName(carName);
