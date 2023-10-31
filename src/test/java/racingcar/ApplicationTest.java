@@ -33,6 +33,17 @@ class ApplicationTest extends NsTest {
         );
 
     }
+    @Test
+    void 우승자가_없는_경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,dori", "1");
+                    assertThat(output()).contains("pobi : ", "woni : ", "dori : " , "우승자가 없습니다.");
+                },
+                STOP, STOP, STOP
+        );
+
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
