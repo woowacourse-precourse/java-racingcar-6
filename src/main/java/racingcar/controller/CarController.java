@@ -3,20 +3,13 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class CarController {
 
-    public ArrayList<Car> createCars(String names) {
-        ArrayList<Car> carList = new ArrayList<>();
-        StringTokenizer stringTokenizer = new StringTokenizer(names, ",");
-
-        while (stringTokenizer.hasMoreTokens()) {
-            String name = stringTokenizer.nextToken();
-            carList.add(new Car(name));
-        }
-        return carList;
+    public List<Car> createCars(List<String> names) {
+        return names.stream().map(Car::of).collect(Collectors.toList());
     }
 
     public void race(Car car) {

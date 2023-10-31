@@ -7,11 +7,12 @@ public class Car {
     private int distance;
 
     public Car(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException();
-        }
         this.name = name;
         this.distance = 0;
+    }
+
+    public static Car of(String name){
+        return new Car(name);
     }
 
     public void addDistance() {
