@@ -17,7 +17,7 @@ public class CarRacing {
     private static final String ERROR_WRONG_FORMAT = "[error] 잘못된 형식의 입력입니다.";
     private static final String ERROR_DUPLICATE_CAR_NAME = "[error] 자동차 이름이 중복되었습니다.";
     private static final String ERROR_CAR_NAME_LENGTH = "[error] 자동차 이름의 길이는 1이상 5이하 이어야 합니다.";
-    private static final String ERROR_WRONG_COUNT = "[error] 시도 횟수는 1이상의 정수 이어야 합니다.";
+    private static final String ERROR_WRONG_COUNT = "[error] 시도 횟수는 자연수 이어야 합니다.";
 
     private static final int STANDARD_LENGTH = 5;
 
