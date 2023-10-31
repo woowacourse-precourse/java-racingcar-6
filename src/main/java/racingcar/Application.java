@@ -15,11 +15,31 @@ public class Application {
 		return user;
 	}
 	
+	public static int get_move() { // 움직일 값 입력받기
+		int result; // 승패 여부
+
+		int randomNumber = Randoms.pickNumberInRange(0, 9);
+		if (randomNumber >= 4) {
+			result = 1;
+		} else {
+			result = 0;
+		}
+		return result;
+	}
+	
     public static void main(String[] args) {
     	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
 		// 사용자 이름 입력받기
 		String[] user = get_user();
 		int usernum = user.length; // 사용자 인원
+		
+		int[] result = new int[usernum]; // 결과값
+
+		System.out.println("시도할 회수는 몇회인가요?");
+
+		// 시도할 횟수 입력받기
+		String s = Console.readLine();
+		int num = Integer.parseInt(s);
     }
 }
