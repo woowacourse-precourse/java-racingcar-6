@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.utility.Constants.MAX_LENGTH;
 import static racingcar.utility.Constants.ONLYINT;
 
 import racingcar.model.Car;
@@ -8,7 +9,7 @@ import racingcar.model.CarStorage;
 public class InputException {
     private InputException() {}
     public static void checkNameLength(String newCarName) { // 이름 길이 5자 초과 예외처리
-        if (newCarName.length() > 5) {
+        if (newCarName.length() > MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
     }

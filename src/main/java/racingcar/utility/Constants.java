@@ -9,6 +9,7 @@ public class Constants {
     public static final String LINE = "-";
     public static final String COMMA = ",";
     public static final String WINNERS = "최종 우승자";
+    public static final Integer MAX_LENGTH = 5;
 
     // 정규식 (문자열이 숫자로만 이루어져 있는지 검사)
     public static final String ONLYINT = "\\d+";
