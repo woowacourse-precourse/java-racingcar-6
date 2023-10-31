@@ -161,7 +161,7 @@ class CarGame {
         output.showResultNotice();
         for (int move = 0; move < attempt; move++) {
             saveResult(totalCar);
-
+            showResult(totalCar);
         }
     }
 
