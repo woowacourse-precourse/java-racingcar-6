@@ -1,5 +1,5 @@
 # Java-racingcar
-
+---
 ## Game 패키지
 ### Game
 - `void run()`
@@ -14,13 +14,15 @@
 - `boolean isForward(Player player)`
   - 전진 여부를 판단합니다.
   - 0~9 사이의 난수를 뽑아 4 이상인 경우 player가 전진합니다.
-- `List<Player> getChampions( List<Player> players )`
+- `List<Player> getChampions(List<Player> players)`
   - 플레이어 중 가장 먼 거리를 이동한 플레이어들을 반환합니다.
 - `boolean isInteger(String count)`
   - 입력된 파라미터가 정수로 변환 가능하면 true, 아니면 false를 반환합니다.
+- `boolean checkRangeOfNumber(int count)`
+  - 입력된 숫자가 1이상 100이하인지 체크합니다.
 ---
 ### Message
-- `String distanceOfPlayer( Player player )`
+- `String distanceOfPlayer(Player player)`
   - 플레이어의 이동 거리 메시지를 생성하여 반환합니다.
 - `String champions( List<Player> champions )`
   - 우승자 메시지를 생성하여 반환합니다.
