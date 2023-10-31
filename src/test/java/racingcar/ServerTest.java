@@ -24,13 +24,13 @@ public class ServerTest {
     }
     @Test
     void 경주를_시도하는_횟수를_접수한다(){
-        server.confirmRacerCount("5");
-        Assertions.assertEquals(5,server.getRacerCount());
+        server.confirmRaceRound("5");
+        Assertions.assertEquals(5,server.getRaceRound());
     }
     @Test
     void 경주를_시작할_수_있다() {
         server.confirmRacerList("pobi,woni");
-        server.confirmRacerCount("20");
+        server.confirmRaceRound("20");
 
         server.startRace();
 
@@ -67,7 +67,7 @@ public class ServerTest {
         RandomsMocking.fixPickNumberInRangeOverThreshold(
                 ()->{
                     server.confirmRacerList("pobi,woni,crong");
-                    server.confirmRacerCount("10");
+                    server.confirmRaceRound("10");
                     server.startRace();
                 }
         );

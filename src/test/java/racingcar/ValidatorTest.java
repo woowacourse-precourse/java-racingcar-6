@@ -43,14 +43,14 @@ public class ValidatorTest {
     @Test
     void 양의_정수를_입력하면_에러없이_동작한다(){
         String correctInput = "5";
-        Assertions.assertDoesNotThrow(()->validator.validateUserInputIsCorrectCount(correctInput));
+        Assertions.assertDoesNotThrow(()->validator.validateUserInputIsCorrectRound(correctInput));
     }
     @Test
     void 숫자가_아닌값을_입력하면_에러가_발생한다(){
         String wrongInput = "notInteger";
         IllegalArgumentException exception =
                 Assertions.assertThrows(IllegalArgumentException.class,()->
-                        validator.validateUserInputIsCorrectCount(wrongInput));
+                        validator.validateUserInputIsCorrectRound(wrongInput));
         Assertions.assertEquals("양의 정수를 입력해주세요!",exception.getMessage());
     }
     @Test
@@ -58,7 +58,7 @@ public class ValidatorTest {
         String wrongInput = "-4";
         IllegalArgumentException exception =
                 Assertions.assertThrows(IllegalArgumentException.class,()->
-                        validator.validateUserInputIsCorrectCount(wrongInput));
+                        validator.validateUserInputIsCorrectRound(wrongInput));
         Assertions.assertEquals("양의 정수를 입력해주세요!",exception.getMessage());
     }
     @Test
@@ -66,7 +66,7 @@ public class ValidatorTest {
         String wrongInput = "0";
         IllegalArgumentException exception =
                 Assertions.assertThrows(IllegalArgumentException.class,()->
-                        validator.validateUserInputIsCorrectCount(wrongInput));
+                        validator.validateUserInputIsCorrectRound(wrongInput));
         Assertions.assertEquals("양의 정수를 입력해주세요!",exception.getMessage());
     }
 }

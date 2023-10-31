@@ -5,7 +5,6 @@ import racingcar.server.Server;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         Player player = new Player();
         Server server = new Server();
 
@@ -14,8 +13,8 @@ public class Application {
         server.confirmRacerList(racerListString);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        String racerCountString = player.getPlayerInput();
-        server.confirmRacerCount(racerCountString);
+        String racerRoundString = player.getPlayerInput();
+        server.confirmRaceRound(racerRoundString);
 
         server.startRace();
         server.finishRace();

@@ -33,7 +33,7 @@ public class Validator {
             return;
         throw new IllegalArgumentException("중복된 이름이 있습니다!");
     }
-    public static void validateUserInputIsCorrectCount(String userInput){
+    public static void validateUserInputIsCorrectRound(String userInput){
         validateUserInputIsInteger(userInput);
         Integer count = Integer.parseInt(userInput);
         validateIntegerIsPositiveInteger(count);

@@ -10,27 +10,29 @@ import java.util.List;
 
 public class Server {
     private List<Racer> racerList;
-    private Integer racerCount;
+    private int raceRound;
     public Server(){
         racerList = new ArrayList<>();
-        racerCount = 0;
     }
 
     public void confirmRacerList(String racerListString){
         Validator.validateUserInputIsCorrectFormat(racerListString);
         List<String> racerNameList = Util.parseStringToListSplitComma(racerListString);
+        addRacerToList(racerNameList);
+    }
+    private void addRacerToList(List<String> racerNameList){
         for ( String racerName : racerNameList){
             racerList.add(new Racer(racerName));
         }
     }
-    public void confirmRacerCount(String racerCountString){
-        Validator.validateUserInputIsCorrectCount(racerCountString);
-        Integer racerCount = Integer.parseInt(racerCountString);
-        this.racerCount = racerCount;
+    public void confirmRaceRound(String raceRoundString){
+        Validator.validateUserInputIsCorrectRound(raceRoundString);
+        int raceRound = Integer.parseInt(raceRoundString);
+        this.raceRound = raceRound;
     }
     public void startRace(){
         System.out.println("실행 결과");
-        for (int i =0; i<racerCount;i++){
+        for (int i =0; i<raceRound;i++){
             continueRace();
             Printer.printRaceResultInProgressWithRacerList(racerList);
         }
@@ -46,9 +48,9 @@ public class Server {
         Printer.printRaceResultInTotalWithWinnerList(winnerList);
     }
     private List<String> aggregateRaceResults(){
-        Integer maxPos = 0;
+        int maxPos = 0;
         for ( Racer racer : racerList){
-            Integer racerPos = racer.getCurrentPos();
+            int racerPos = racer.getCurrentPos();
             if ( racerPos>= maxPos){
                 maxPos = racerPos;
             }
@@ -62,6 +64,6 @@ public class Server {
         return winnerList;
     }
     public List<Racer> getRacerList(){ return racerList; }
-    public int getRacerCount() { return racerCount;}
+    public int getRaceRound() { return raceRound;}
 
 }
