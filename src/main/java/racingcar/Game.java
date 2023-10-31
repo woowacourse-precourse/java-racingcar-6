@@ -17,12 +17,16 @@ public class Game extends Player {
         for (int i = 0; i < player.size(); i++) {
             int movingOrNot = Randoms.pickNumberInRange(0, 9);
             if (movingOrNot > 3) {
-                RacingCar racingCar = new RacingCar();
-                racingCar.name = player.get(i).name;
-                racingCar.distance = player.get(i).distance + 1;
-                player.set(i, racingCar);
+                move(player, i);
             }
         }
+    }
+
+    private static void move(List<RacingCar> player, int index) {
+        RacingCar racingCar = new RacingCar();
+        racingCar.name = player.get(index).name;
+        racingCar.distance = player.get(index).distance + 1;
+        player.set(index, racingCar);
     }
 
     private static void printMiddleResult(List<RacingCar> player) {
