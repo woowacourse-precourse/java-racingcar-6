@@ -41,7 +41,7 @@ public class Application {
                 throw new IllegalArgumentException("자동차 이름은 5자를 넘길수 없습니다.");
             }
 
-            if (!carNames[i].matches("^[0-9a-zA-Z]*$")) {
+            if (!carNames[i].matches("^[0-9a-zA-Z]+$")) {
                 throw new IllegalArgumentException("자동차 이름은 영어 숫자만 가능 합니다.");
             }
         }
