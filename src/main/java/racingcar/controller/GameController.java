@@ -5,6 +5,7 @@ import racingcar.model.CarList;
 import racingcar.model.RoundNumber;
 import racingcar.util.Utils;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.io.InputStream;
 import java.util.stream.IntStream;
@@ -25,6 +26,7 @@ public class GameController {
     }
 
     public void startGame() {
+        OutputView.printRoundResultMessage();
         IntStream.range(0, roundNumber.roundNumber).forEach(i -> carList.raceOneRound(carList));
     }
 
