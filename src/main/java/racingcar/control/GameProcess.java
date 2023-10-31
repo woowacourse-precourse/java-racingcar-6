@@ -95,11 +95,6 @@ public class GameProcess {
         return String.join(", ", raceCarOfWinnerArr);
     }
 
-    /**
-     * CarList에 있는 각각의 Car 이름을 Arr으로 만들어 반환한다.
-     *
-     * @return
-     */
     private String[] makeNameArrFromWinnerList() {
         Integer sizeOfRaceCarList = winnerList.size();
         String[] nameOfWinnerArr = new String[sizeOfRaceCarList];
