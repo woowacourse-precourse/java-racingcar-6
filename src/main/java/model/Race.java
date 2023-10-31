@@ -9,4 +9,12 @@ public class Race {
     public Race(int laps){
         this.laps = laps;
     }
+
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
+
+    public int getLaps() {
+        return laps;
+    }
 }

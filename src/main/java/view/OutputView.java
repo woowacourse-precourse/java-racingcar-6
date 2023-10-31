@@ -1,6 +1,7 @@
 package view;
 
 import model.Car;
+import model.Race;
 
 public class OutputView {
     public void printPosition(Car car){
@@ -10,6 +11,14 @@ public class OutputView {
         }
         System.out.printf("\n");
     }
-    public void printResult(){
+    
+    public void printResult(Race race){
+        System.out.printf("실행 결과\n");
+        for(int i = 0;i<race.getLaps();i++){
+            for(Car car:race.getCars()){
+                printPosition(car);
+            }
+            System.out.printf("\n");
+        }
     }
 }
