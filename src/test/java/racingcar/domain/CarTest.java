@@ -23,4 +23,16 @@ class CarTest {
         assertThat(roundRaceResult.toString()).isEqualTo("pobi : ---");
     }
 
+    @Test
+    @DisplayName("최종 우승자 생성 시 정해진 출력값 형식과 다르면 오류 발생")
+    void createWinnerTest() {
+        // given
+        Car pobi = new Car("pobi");
+
+        // when
+        StringBuilder winner = pobi.createWinner();
+
+        // then
+        assertThat(winner.toString()).isEqualTo("pobi, ");
+    }
 }
