@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 
 public class Application {
@@ -10,5 +8,12 @@ public class Application {
         Message.startMessage();
         List<String> playerList = carNames.inputCarNames();
         System.out.println(playerList);
+
+        InputMovingcount inputMovingCount = new InputMovingcount();
+
+        Message.countMessage();
+        int MovingCount = inputMovingCount.inputMovingCount();
+        System.out.println(MovingCount);
+
     }
 }
