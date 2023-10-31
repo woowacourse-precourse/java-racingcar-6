@@ -87,7 +87,14 @@ public class RaceProgressTest extends NsTest {
             assertThat(console).contains(distance);
         }
     }
-    
+
+    @DisplayName("이동한 거리순으로 정렬해서 우승자 찾기 AND 공동 우승자 출력")
+    @Test
+    void 이동한_거리순으로_정렬해서_우승자_찾기_AND_공동_우승자_출력() {
+        setDistance();
+        controller.findWinner();
+        assertThat(output()).contains("최종 우승자 : bb, cc, ee");
+    }
 
     @Override
     protected void runMain() {
