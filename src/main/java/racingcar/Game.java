@@ -19,7 +19,7 @@ public class Game {
 
         List<Car> cars = new ArrayList<>();
 
-        for(String name : carNames) {
+        for (String name : carNames) {
             cars.add(new Car(name));
         }
 
@@ -40,6 +40,15 @@ public class Game {
             }
             System.out.println();
         }
+    }
+
+    public int getMaxValue(List<Car> cars) {
+        int maxValue = 0;
+        for (Car car : cars) {
+            maxValue = Math.max(maxValue, car.getPosition().length());
+        }
+
+        return maxValue;
     }
 
 }
