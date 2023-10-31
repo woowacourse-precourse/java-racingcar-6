@@ -82,5 +82,23 @@ public class Application {
             }
             System.out.println();
         }
+
+        // 5. 우승자 출력
+        int max = 0;
+        int te = 0;
+        List<String> winners = new ArrayList<>();
+
+        for(Map.Entry<String, List<Integer>> entry:forwardState.entrySet()) {
+            List<Integer> lt = entry.getValue();
+            te = lt.get(lt.size() - 1);
+            if (max < te) {        // 최대 값이랑 작거나 같음(
+                max = te;
+                winners.clear();
+                winners.add(entry.getKey());
+            }else if(max == te) {
+                winners.add(entry.getKey());
+            }
+        }
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
