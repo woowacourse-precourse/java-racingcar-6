@@ -30,9 +30,12 @@ public class View {
 
     public void showRoundResultView(Map<String, Integer> roundResult) {
         StringBuffer result = new StringBuffer();
-
+        roundResult.forEach((carName, position) -> {
+            result.append(carName + " : " + "-".repeat(position) + "\n");
+        });
         System.out.println(result.toString());
     }
+
 }
 /*
 실행 결과
