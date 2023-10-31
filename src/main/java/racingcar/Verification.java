@@ -9,7 +9,7 @@ public class Verification {
     public void verifyArg(List<String> strings){
         for (String string : strings) {
             if (string.length() > 5){
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(Exceptions.OVER_5ARG.errMessage());
             }
         }
     }
@@ -23,7 +23,7 @@ public class Verification {
         for (int i = size-1; i >= 1; i--) {
             removed = check.remove(i);
             if (check.contains(removed)){
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(Exceptions.DUPLICATION.errMessage());
             }
         }
     }
@@ -33,10 +33,10 @@ public class Verification {
         try {
             int parseInt = Integer.parseInt(number);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Exceptions.INPUT_IS_NOT_INTEGER.errMessage());
         }
         if (Integer.valueOf(number) <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Exceptions.INPUT_IS_NOT_OVER_ZERO.errMessage());
         }
     }
 }
