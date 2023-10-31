@@ -1,11 +1,8 @@
 package study;
 
-<<<<<<< HEAD
-=======
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
->>>>>>> origin/MyStraw
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,12 +13,11 @@ import java.util.Random;
 
 public class Practice {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String carNames = br.readLine();
-        // String[] carName = carNames.split(",");
+        String carNames = Console.readLine();
+
         List<String> carNameList = Arrays.asList(carNames.split(","));
-        // int n = carName.length;
-        int movement = Integer.parseInt(br.readLine());
+
+        int movement = Integer.parseInt(Console.readLine());
 
         List<ownCar> cars = new ArrayList<>();
 
@@ -47,10 +43,11 @@ class ownCar {
     public ownCar(String name) {
         this.name = name;
         this.position = 0;
-        this.random = new Random();
+        //this.random = new Random();
     }
 
     public void move() {
+        int random = Randoms.pickNumberInRange(0,9);
         if (random.nextInt(10) >= 4) {
             position++;
         }
@@ -62,6 +59,14 @@ class ownCar {
 
     public int getPosition() {
         return position;
+    }
+
+    public String getMoveHyphen() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position ; i++){
+            sb.append("-");
+        }
+        return sb.toString();
     }
 
 }
