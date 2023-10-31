@@ -4,10 +4,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.view.RacingcarView;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class RacingcarControllerTest {
 
@@ -22,9 +24,20 @@ class RacingcarControllerTest {
         Car woniCar = carMap.get("woni");
         Car junCar = carMap.get("jun");
 
-        Assertions.assertThat(carMap).contains(Map.entry("pobi",pobiCar));
-        Assertions.assertThat(carMap).contains(Map.entry("woni",woniCar));
-        Assertions.assertThat(carMap).contains(Map.entry("jun",junCar));
+        assertThat(carMap).contains(Map.entry("pobi",pobiCar));
+        assertThat(carMap).contains(Map.entry("woni",woniCar));
+        assertThat(carMap).contains(Map.entry("jun",junCar));
     }
 
+    @Test
+    void moveForwardTest() {
+        Car car1 = new Car("pobi", 0);
+        Car car2 = new Car("woni", 0);
+
+        for (int i = 0; i < 10; i++) {
+            car1.moveForward();
+        }
+
+        assertThat(car1.getDistance()).isNotEqualTo(car2.getDistance());
+    }
 }
