@@ -13,6 +13,11 @@ public class Move {
 
     public void moveTheCar(String carname) {
         String moveValue = car.getCarList().get(carname);
-        car.getCarList().put(carname,moveValue + "-");
+        car.getCarList().put(carname, moveValue + "-");
+    }
+
+    public void stopTheCar(String carname) {
+        String moveValue = car.getCarList().get(carname);
+        car.getCarList().put(carname, moveValue + "");
     }
 }
