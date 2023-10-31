@@ -18,7 +18,6 @@ public class OutputView {
 
     public void printRacingStatus(Map<String, Integer> racingStatus) {
         StringBuilder racingStatusMessage = new StringBuilder();
-
         for (String carName : racingStatus.keySet()) {
             int countOfMove = racingStatus.get(carName);
             racingStatusMessage
