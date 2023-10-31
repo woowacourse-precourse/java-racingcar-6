@@ -8,17 +8,16 @@ import racingcar.io.CarRacingInputProcessor;
 import racingcar.io.CarRacingOutputProcessor;
 
 public class CarRacingManager {
+    // 주요 의존성 관리
+    private final CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
+    private final CarRacingInputProcessor inputProcessor = new CarRacingInputProcessor(outputProcessor);
 
     public void execute() {
-        CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
-        CarRacingInputProcessor inputProcessor = new CarRacingInputProcessor(outputProcessor);
-
-        CarRacing carRacing = createCarRacing(inputProcessor, outputProcessor);
+        CarRacing carRacing = createCarRacing();
         carRacing.start();
     }
 
-    private static CarRacing createCarRacing(CarRacingInputProcessor inputProcessor,
-                                             CarRacingOutputProcessor outputProcessor) {
+    private CarRacing createCarRacing() {
         Cars cars = readCarsInfo(inputProcessor);
         Turn turn = readTurn(inputProcessor);
         Referee referee = new Referee();
@@ -26,11 +25,11 @@ public class CarRacingManager {
         return new CarRacing(cars, turn, referee, outputProcessor);
     }
 
-    private static Turn readTurn(CarRacingInputProcessor inputProcessor) {
+    private Turn readTurn(CarRacingInputProcessor inputProcessor) {
         return Turn.fromTryCount(inputProcessor.readTryToMoveTurnCount());
     }
 
-    private static Cars readCarsInfo(CarRacingInputProcessor inputProcessor) {
+    private Cars readCarsInfo(CarRacingInputProcessor inputProcessor) {
         return Cars.fromCarNames(inputProcessor.readCarNames());
     }
 }
