@@ -5,11 +5,15 @@ import java.util.List;
 
 public class Player {
     String name;
+    int randomNumber;
+    String distanceLine;
     int distance;
 
-
+    public Player(){}
     public Player(String name) {
         this.name = name;
+        this.randomNumber = 0;
+        this.distanceLine = "";
         this.distance = 0;
     }
 
@@ -21,19 +25,22 @@ public class Player {
         this.name = name;
     }
 
+    public int getRandomNumber() {
+        return randomNumber;
+    }
+
+    public void setRandomNumber(int randomNumber) {
+        this.randomNumber = randomNumber;
+    }
+
+    public String getDistanceLine() {
+        if(this.randomNumber >= 4)
+            distanceLine = distanceLine + "-";
+            distance++;
+        return distanceLine;
+    }
+
     public int getDistance() {
         return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
-
-    public List<String> printDistance(int distance) {
-        List<String> returnList = new ArrayList<>();
-        for(int i = 0; i < distance; i++) {
-            returnList.add("-");
-        }
-        return returnList;
     }
 }
