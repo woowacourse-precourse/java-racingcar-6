@@ -4,7 +4,7 @@ public class Car {
 	private String name;
 	StringBuilder distance = new StringBuilder();
 
-	public void setName(String name) {
+	public Car(String name) {
 		this.name = name;
 	}
 
