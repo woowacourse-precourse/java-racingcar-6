@@ -14,7 +14,7 @@ public class Car implements Comparable<Car> {
         this.position = 0;
     }
 
-    public void goForward(int movableSymbol) {
+    public void move(int movableSymbol) {
 
         if (!(0 <= movableSymbol && movableSymbol <= 9)) {
             throw new IllegalArgumentException(INVALID_MOVABLE_SYMBOL);

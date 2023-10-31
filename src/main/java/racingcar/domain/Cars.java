@@ -44,7 +44,7 @@ public class Cars {
     }
 
     public void goForward() {
-        cars.forEach(car -> car.goForward(generateMoveSymbol()));
+        cars.forEach(car -> car.move(generateMoveSymbol()));
     }
 
     private int generateMoveSymbol() {
