@@ -3,7 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 
 public class Racing {
-
     public static final String FINAL_WINNER_IS = "최종 우승자 : ";
     private static final int RACE_CONDITION = 3;
     private String[] raceCarNameArray;
@@ -56,5 +55,4 @@ public class Racing {
     private void getWinnerResultPrint(String winner) {
         System.out.println(FINAL_WINNER_IS + winner);
     }
-
 }
