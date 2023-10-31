@@ -19,7 +19,7 @@ public class Car {
         car.put(carName, getMovingCount(carName) + 1);
     }
 
-    private int getMovingCount(String carName) {
+    public int getMovingCount(String carName) {
         return car.get(carName);
     }
 

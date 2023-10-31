@@ -14,18 +14,20 @@ public class GameService {
     private Output output = Output.getOutput();
     private Input input = Input.getInput();
     private ExceptionHandler exceptionHandler = ExceptionHandler.getExceptionHandler();
-    private Racing racing = new Racing();
+    private Racing racing;
 
     private Car carList;
     private int attemp;
 
     public GameService() {
+        racing = new Racing();
     }
 
     public void start() {
         output.printMessage(AnnouncerScript.START_MENTION);
-
         carList = new Car(setCarName());
+
+        output.printMessage(AnnouncerScript.ASK_NUMBER_OF_ATTEMPTS);
         setTryNumber();
 
         racing.play(carList, attemp);
