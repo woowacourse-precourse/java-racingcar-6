@@ -10,7 +10,7 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         List<String> carNames = carNames();
-//        System.out.println(carNames);
+
     }
 
 
@@ -18,7 +18,7 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
 
-        HashMap<String, Integer> namesMap = InputValidator.validateInput(input);
+        HashMap<String, Integer> namesMap = InputValidator.validateNames(input);
         return new ArrayList<>(namesMap.keySet());
     }
 

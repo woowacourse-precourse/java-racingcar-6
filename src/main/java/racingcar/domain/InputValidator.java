@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class InputValidator {
-    public static HashMap<String, Integer> validateInput(String input) {
+    public static HashMap<String, Integer> validateNames(String input) {
         HashMap<String, Integer> namesMap = new HashMap<>();
         Set<String> nameSet = new HashSet<>();
 
