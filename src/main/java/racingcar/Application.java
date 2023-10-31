@@ -35,8 +35,8 @@ public class Application {
         try{
             String[] carNames = Console.readLine().split(",");
             cars = new ArrayList<>();
-            for (String carName : carNames) { // TODO: "" 처리 필요
-                if(carName.equals("")){
+            for (String carName : carNames) { // TODO: 이름은 5자 이하만 가능
+                if(carName.equals("") || carName.length() > 5){
                     throw new IllegalArgumentException();
                 }
                 cars.add(new Car(carName));
