@@ -2,7 +2,7 @@
 
 - [ ]  게임을 시작합니다. - startGame() → Game
 - [ ]  경주 자동차를 N개 생성합니다. - createCar() → CarFactory
-    - [ ]  5자 이내의 자동차 이름을 N개 입력 받습니다 - receiveCarName() → CarFactory
+    - [ ]  자동차 이름 문자열을 리스트로 변환합니다. - stringToListByComma()→ CarFactory
     - [ ]  예외) 같은 이름이 있는지 확인합니다. - hasDuplicatedName() → CarFactory
     - [ ]  이름이 Valid한지 확인합니다. - isValidCarName() →CarName
         - [ ]  예외) 5자 이내인지 확인합니다. - isBeyondLengthRange() → CarName

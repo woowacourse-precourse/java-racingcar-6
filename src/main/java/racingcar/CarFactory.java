@@ -6,11 +6,11 @@ public class CarFactory {
 
     }
 
-    public void receiveCarName(){
-
+    public List<String> receiveCarName(){
+        return null;
     }
 
     public void hasDuplicatedName(){
-        
+
     }
 }
