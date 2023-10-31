@@ -15,7 +15,7 @@
 ### 우승자 발표
   [] 한명 이상일 경우 쉼표(,)로 구분
 ### 예외처리
-[] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생<br>
+[x] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생<br>
 [] 애플리케이션은 종료
 
 ## 💫 기능 요구사항

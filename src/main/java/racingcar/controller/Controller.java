@@ -14,7 +14,7 @@ public class Controller {
     public void testRun(){
         parser = new Parser();
 
-        outputView.printRoundResult(getCarNames(), getRacingRound());
+        outputView.printRacingResult(getCarNames(), getRacingRound());
     }
 
     private int getRacingRound(){
