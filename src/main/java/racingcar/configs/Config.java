@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.configs;
 
 public class Config {
     public final static Integer MINIMUM_VALUE = 0;

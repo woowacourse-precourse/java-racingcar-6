@@ -4,7 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import racingcar.car.Car;
+import racingcar.configs.Config;
 import racingcar.mocking.RandomsMocking;
+import racingcar.racer.Racer;
 
 
 public class RacerTest {

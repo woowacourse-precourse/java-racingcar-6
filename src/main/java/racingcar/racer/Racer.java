@@ -1,10 +1,14 @@
-package racingcar;
+package racingcar.racer;
+
+import racingcar.car.Car;
+import racingcar.car.CarFactory;
+import racingcar.configs.Config;
 
 public class Racer {
     private final String name;
     private final Car raceCar;
     private Integer currentPos;
-    Racer(String racerName){
+    public Racer(String racerName){
         raceCar = CarFactory.getNewCarInstance();
         name = racerName;
         currentPos = 0;
@@ -12,7 +16,7 @@ public class Racer {
     public void runRaceEachStep(){
         Boolean canMoveForwardStatus = raceCar.checkCanMoveForwardIfSpeedIsExceedThreshold();
         if (canMoveForwardStatus){
-            currentPos+=Config.FORWARD_DISTANCE;
+            currentPos+= Config.FORWARD_DISTANCE;
         }
     }
     public Integer getCurrentPos(){

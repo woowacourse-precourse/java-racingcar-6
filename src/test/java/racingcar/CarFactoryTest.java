@@ -3,6 +3,8 @@ package racingcar;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.car.Car;
+import racingcar.car.CarFactory;
 
 public class CarFactoryTest {
     @Test

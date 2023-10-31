@@ -1,6 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.*;
+import racingcar.player.Player;
 
 import java.io.ByteArrayInputStream;
 

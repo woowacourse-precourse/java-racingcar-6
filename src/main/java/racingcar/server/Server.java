@@ -1,4 +1,9 @@
-package racingcar;
+package racingcar.server;
+
+import racingcar.racer.Racer;
+import racingcar.utils.Printer;
+import racingcar.utils.Util;
+import racingcar.utils.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +12,7 @@ public class Server {
     private List<Racer> racerList;
     private Validator validator;
     private Integer racerCount;
-    Server(){
+    public Server(){
         racerList = new ArrayList<>();
         validator = new Validator();
         racerCount = 0;

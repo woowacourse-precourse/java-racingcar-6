@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.configs.Config;
 
 public class Car {
 
@@ -11,7 +12,7 @@ public class Car {
         }
         return false;
     }
-    protected int generateRandomSpeed(){
+    public int generateRandomSpeed(){
         int randomSpeed = Randoms.pickNumberInRange(Config.MINIMUM_VALUE,Config.MAXIMUM_VALUE);
         return randomSpeed;
     }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.mocking.RandomsMocking;
+import racingcar.racer.Racer;
+import racingcar.server.Server;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

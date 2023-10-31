@@ -10,7 +10,7 @@ import org.mockito.MockedStatic;
 import org.mockito.ArgumentMatchers;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.Config;
+import racingcar.configs.Config;
 
 
 public class RandomsMocking {
