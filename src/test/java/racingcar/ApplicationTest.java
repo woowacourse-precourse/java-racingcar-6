@@ -3,10 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -159,22 +156,20 @@ class ApplicationTest extends NsTest {
     @Test
     void winnerDisplay() {
       Map<String,Integer> cars = new HashMap<>();
-      String winner = "";
+      StringJoiner winner = new StringJoiner(",");
       cars.put("테스트1",3);
-      cars.put("테스트2",0);
+      cars.put("테스트2",3);
       cars.put("테스트3",1);
       Integer maxValue = Collections.max(cars.values());
       Set<Map.Entry<String, Integer>> entrySet = cars.entrySet();
       for(Map.Entry<String,Integer> entry: entrySet){
         if(entry.getValue() == maxValue){
-          winner+=",";
-          winner+=entry.getKey();
+          winner.add(entry.getKey());
         }
       }
-      winner = winner.replaceFirst(",","");
-      System.out.println("최종 우승자 : " + winner);
 
-      assertThat(maxValue).isEqualTo(3);
+      System.out.println("최종 우승자 : " + winner);
+      assertThat(winner.toString()).contains("테스트1","테스트2");
     }
 
 }
