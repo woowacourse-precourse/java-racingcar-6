@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class Output {
 
 
@@ -15,8 +17,15 @@ public class Output {
     }
 
     // 상황 출력 //TODO
-    
+    public void printNow(List<Car> cars) {
 
+        cars.stream()
+                .forEach(car -> {
+                    int dashesCount = car.getCurrentPlace();
+                    String dashes = "-".repeat(dashesCount);
+                    System.out.println(car.getName() + " : " + dashes);
+                });
+    }
 
     // 최종 우승자 출력 //TODO
 
