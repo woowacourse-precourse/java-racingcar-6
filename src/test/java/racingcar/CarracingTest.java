@@ -65,9 +65,12 @@ class CarracingTest {
     }
 
     private static boolean checkNull(Map<String, String> nameList) {
-        for (Map.Entry<String, String> entrySet : nameList.entrySet()) {
-            if(entrySet.getValue().equals(null))
-                return true;
+
+        boolean containNullValue = nameList.entrySet().stream()
+                .anyMatch(entry -> entry.getValue() == null);
+
+        if(containNullValue) {
+            return true;
         }
         return false;
     }
