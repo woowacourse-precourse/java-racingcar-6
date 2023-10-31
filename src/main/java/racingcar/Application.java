@@ -14,6 +14,7 @@ public class Application {
 
         for (int i = 0; i < tryCount; i++) { // 입력한 시도 횟수만큼 반복하여 게임, 출력
             race(cars); // 자동차 무작위 값에 따라 전진 여부를 결정(1회전)하고 업데이트
+            printCurrentPositions(cars); // 차량 위치 업데이트 후 현재 자동차들의 위치를 출력
         }
     }
 
@@ -57,6 +58,15 @@ public class Application {
             car.move(Randoms.pickNumberInRange(0, 9));
         }
     }
+
+    // 현재 자동차들의 위치를 출력하는 메서드, 차량 수만큼
+    private static void printCurrentPositions(List<Car> cars) {
+        System.out.println();
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
+    }
 }
 
 // 자동차를 나타내는 클래스
@@ -74,5 +84,15 @@ class Car {
         if (number >= 4) {
             this.position++;
         }
+    }
+
+    // 자동차 이름 반환
+    public String getName() {
+        return name;
+    }
+
+    // 현재 위치 반환
+    public int getPosition() {
+        return position;
     }
 }
