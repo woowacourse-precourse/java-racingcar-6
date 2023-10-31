@@ -25,20 +25,15 @@ public class Race {
     }
 
     private void playRace(int playCount) {
-        Iterator<Map.Entry<String, Integer>> iterator;
-        Map.Entry<String, Integer> entry;
+        Map<String, Integer> cars = car.getCars();
 
         for (int i = 0; i < playCount; i++) {
-            iterator = car.getCars().entrySet().iterator();
-
-            while (iterator.hasNext()) {
-                entry = iterator.next();
+            for (Map.Entry<String, Integer> entry : cars.entrySet()) {
                 car.forward(entry, NumberGenerator.generateRandomNumber());
                 outputView.currentScore(entry);
             }
             System.out.println();
         }
-        Map<String, Integer> cars = car.getCars();
         outputView.winner(Winner.winnerList(cars, Winner.maxForward(cars)));
     }
 }
