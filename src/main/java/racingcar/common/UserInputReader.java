@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.common;
 
 import racingcar.underhood.RacingGameComponent;
 

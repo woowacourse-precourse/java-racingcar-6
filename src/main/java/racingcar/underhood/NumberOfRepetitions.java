@@ -1,6 +1,6 @@
 package racingcar.underhood;
 
-import racingcar.UserInputWrapper;
+import racingcar.common.UserInputWrapper;
 
 public class NumberOfRepetitions
         extends RacingGameComponent implements UserInputWrapper {

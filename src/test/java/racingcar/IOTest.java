@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import racingcar.common.UserInputReader;
 import racingcar.factories.CarFactory;
 import racingcar.factories.CarRecordFactory;
 import racingcar.underhood.CarRecord;
