@@ -16,3 +16,8 @@
   - [x] 자동차 입력에서 글자수가 5자가 넘는 경우 - **Validator / validateCarName()**
   - [x] 레이스의 참여한 자동차가 1대 이하인 경우 - **Validator / validateNumberOfCar()**
   - [x] 시도 횟수를 숫자가 아닌 값을 넣은 경우 - **Validator / validateTryCount()**
+
+## 📜 테스트 작성 계획
+- [x] 자동차 생성 테스트
+- [x] 중복 우승자 선정 태스트
+- [ ] Validator 검증 테스트
