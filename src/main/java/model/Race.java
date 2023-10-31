@@ -1,5 +1,7 @@
 package model;
 
+import service.RacingService;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
@@ -25,16 +27,9 @@ public class Race {
         carArrayList.forEach(Car::drive);
     }
 
-    public ArrayList CheckWinner(){
-        int max = carArrayList.stream()
-                .max(Comparator.comparing(Car::getPosition))
-                .get()
-                .getPosition();
-
-        ArrayList<String> winner = carArrayList.stream()
-                .filter(car -> car.getPosition() == max)
-                .map(car -> car.getName())
-                .collect(Collectors.toCollection(()->new ArrayList<>()));
+    public ArrayList<String> CheckWinner(){
+        int max = RacingService.findMax(carArrayList);
+        ArrayList<String> winner = RacingService.findWinner(carArrayList, max);
 
         return winner;
     }

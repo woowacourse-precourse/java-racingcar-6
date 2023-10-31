@@ -10,21 +10,22 @@ public class OutputView {
     public void printPosition(Car car){
         System.out.printf("%s : ", car.getName());
         for(int i = 0; i<car.getPosition(); i++){
-            System.out.printf("-");
+            System.out.print("-");
         }
-        System.out.printf("\n");
+        System.out.print("\n");
     }
 
     public void printResult(){
-        System.out.printf("실행 결과\n");
+        System.out.print("실행 결과\n");
     }
 
     public void printLine(){
-        System.out.printf("\n");
+        System.out.print("\n");
     }
 
     public void printWinner(ArrayList<String> winnerlist){
-        String winner = (String) winnerlist.stream().collect(Collectors.joining(", "));
+        String winner = winnerlist.stream()
+                .collect(Collectors.joining(", "));
         System.out.printf("최종 우승자 : %s", winner);
     }
 }
