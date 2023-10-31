@@ -3,8 +3,6 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class RacingCars {
 
@@ -23,7 +21,7 @@ public class RacingCars {
         StringBuilder racingStates = new StringBuilder();
 
         cars.forEach(car ->
-                racingStates.append(String.format("%s:", car.showName()))
+                racingStates.append(String.format("%s : ", car.showName()))
                             .append("-".repeat(car.showForwardCount()))
                             .append("\n")
         );
@@ -32,7 +30,7 @@ public class RacingCars {
 
     }
 
-    public RacingWinners showRacingWinners() {
+    public RacingWinners calculateRacingWinners() {
         int maxForwardCounts = getMaxForwardCountFromCars();
         List<Car> racingWinners = this.cars.stream()
                 .filter(car -> car.showForwardCount() == maxForwardCounts)

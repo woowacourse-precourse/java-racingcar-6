@@ -4,7 +4,6 @@ import racingcar.controller.RacingController;
 import racingcar.domain.RacingCars;
 import racingcar.domain.ForwardTryCount;
 import racingcar.domain.RacingWinners;
-import racingcar.service.RacingPlayService;
 import racingcar.view.MessageOutputView;
 import racingcar.view.RacingTurnsInput;
 
@@ -40,7 +39,7 @@ public class CarRacingApplication {
     }
 
     private RacingWinners getWinnersFrom(RacingCars racingCars) {
-        return racingCars.showRacingWinners();
+        return racingCars.calculateRacingWinners();
     }
 
     private ForwardTryCount getForwardTryCountFromInput() {
