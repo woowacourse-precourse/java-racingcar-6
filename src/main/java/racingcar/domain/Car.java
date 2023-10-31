@@ -9,12 +9,13 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+
     public void moveCar() {
         location += 1;
     }
 
     public RoundResultDto getCarInfo() {
-        return new RoundResultDto(name,location);
+        return new RoundResultDto(name, location);
     }
 
     public boolean isSameLocation(int otherLocation) {

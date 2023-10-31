@@ -50,7 +50,7 @@ public class RacingController {
 
     private void racingGame(Cars cars, int tries) {
         ConsoleOutput.displayRaceResultMessage();
-        IntStream.range(0,tries)
+        IntStream.range(0, tries)
                 .forEach(i -> cars.playGame());
         outputView.printGameResult(cars.getWinner());
     }
