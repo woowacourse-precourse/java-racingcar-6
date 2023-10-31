@@ -103,7 +103,7 @@
 
 ## 진행 사항
 - [X] Validator 객체
-- [ ] Input 객체
+- [X] Input 객체
 - [ ] Car 객체
 - [ ] GameUtil 객체
 - [ ] RacingCarGame 객체
