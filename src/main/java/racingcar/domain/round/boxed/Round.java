@@ -8,7 +8,7 @@ public abstract class Round {
     protected final int value;
 
     protected Round(final int value) {
-        validateRound(value);
+        // validateRound(value);
         this.value = value;
     }
 

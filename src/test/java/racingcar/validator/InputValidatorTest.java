@@ -13,7 +13,7 @@ final class InputValidatorTest {
     @Test
     void validateCarNamesInput_withStringSeparatedCommas_shouldBeOk() {
         // given
-        final String input1 = "a,b,c";
+        final String input1 = "a";
         final String input2 = "pobi,pss";
         final InputValidator inputValidator = new InputValidator();
         // when
