@@ -53,3 +53,12 @@
 
 - [x] 기능 4. 최종 우승자 선정
   - 모든 경주가 종료되면(시도 회수만큼 주행했다면) 자동차의 위치를 비교하여 최종 우승자를 가린다.
+
+
+---
+### 클래스 구조
+<img src="img/classarchitecture.png">
+
+---
+### 흐름도
+<img src="img/flowdiagram.png">
