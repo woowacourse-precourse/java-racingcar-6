@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.utils.StringUtils;
 import racingcar.utils.constant.Constant;
 import racingcar.utils.validation.InputValidation;
@@ -39,6 +40,6 @@ public class Race {
         return cars.getCars().stream()
             .filter(car -> car.getMoveCount() == maxCount)
             .map(Car::getName)
-            .toList();
+            .collect(Collectors.toList());
     }
 }

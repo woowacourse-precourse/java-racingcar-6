@@ -2,11 +2,12 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 
 class CarsTest {
     @Test
+    @DisplayName("자동차 리스트 생성 성공")
     public void create() {
         // given
         String names = "race,car,coin";
@@ -19,6 +20,7 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("이름이 중복될 경우, 자동차 리스트 생성 실패")
     public void createError() {
         // given
         String names = "race,car,car";
@@ -28,4 +30,6 @@ class CarsTest {
         assertThatThrownBy(() -> new Cars(names))
             .isInstanceOf(IllegalArgumentException.class);
     }
+
+
 }
