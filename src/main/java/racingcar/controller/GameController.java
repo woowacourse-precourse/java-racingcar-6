@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Game;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.view.InputView;
@@ -12,7 +13,7 @@ public class GameController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final NumberGenerator numberGenerator = new RandomNumberGenerator();
+    private final NumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public GameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -25,4 +26,18 @@ public class GameController {
                 .toList();
     }
 
+    public void runGame() {
+        List<Car> initCars =InitializeCars(inputView.inputCarNames());
+        int trialNumber = inputView.inputTrialNumber();
+        outputView.printResultPhrase();
+        Game game = new Game(initCars);
+
+        for(int i = 0; i < trialNumber; i++) {
+            game.playOnce(randomNumberGenerator);
+            outputView.printGameProgress(game);
+            outputView.wrapLine();
+        }
+
+        outputView.printWinner(game.pickWinner());
+    }
 }
