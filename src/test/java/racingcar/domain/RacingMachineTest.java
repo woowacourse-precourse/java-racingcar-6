@@ -79,5 +79,12 @@ class RacingMachineTest {
 
         assertEquals(racingMachine.selectWinner().size(), 1);
     }
+
+    @Test
+    void getCars_메서드는_자동차들을_반환한다() {
+        RacingMachine racingMachine = new RacingMachine(cars, 5);
+
+        assertEquals(cars, racingMachine.getCars());
+    }
 }
 
