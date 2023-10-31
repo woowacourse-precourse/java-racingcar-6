@@ -12,4 +12,9 @@ public class RacingMovement {
         this.name = name;
         this.number = RandomNumberGenerator.pick();
     }
+
+    public boolean isMovingForward() { return this.number >= MOVING_FORWARD; }
+    public String getName() {
+        return this.name;
+    }
 }
