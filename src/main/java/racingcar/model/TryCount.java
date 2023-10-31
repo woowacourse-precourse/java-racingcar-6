@@ -5,14 +5,14 @@ public class TryCount {
 
     private static final String INPUT_NUMBER_TYPE = "^\\d+$";
 
-    private String tryCount;
+    private final String tryCount;
 
     public TryCount(String tryCount) {
-    this.tryCount = validateTryCount(tryCount);
+        this.tryCount = validateTryCount(tryCount);
     }
 
-    private String validateTryCount(String tryCount){
-        if(!tryCount.matches(INPUT_NUMBER_TYPE)){
+    private String validateTryCount(String tryCount) {
+        if (!tryCount.matches(INPUT_NUMBER_TYPE)) {
             throw new IllegalArgumentException(INPUT_TRYCOUNT);
         }
         return tryCount;

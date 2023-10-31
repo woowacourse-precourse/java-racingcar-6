@@ -25,11 +25,12 @@ public class Cars {
             car.go();
 
         }
-
     }
+
     public List<Car> getCars() {
         return cars;
     }
+
     public static void validateDuplicated(ArrayList<String> carNames) {
         Set<String> uniqueNames = new HashSet<>();
         for (String name : carNames) {
@@ -38,9 +39,6 @@ public class Cars {
             }
         }
     }
-
-
-
 
 
 }

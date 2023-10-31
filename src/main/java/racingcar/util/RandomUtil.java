@@ -8,9 +8,8 @@ public class RandomUtil {
 
 
     public static int createRandomNumber() {
-            int randomNumber = Randoms.pickNumberInRange(NUMBER_START,
-                    NUMBER_END);
-                return randomNumber;
+        return Randoms.pickNumberInRange(NUMBER_START,
+                NUMBER_END);
     }
 
 }

@@ -1,10 +1,8 @@
 package racingcar.view;
 
 import racingcar.model.Car;
-import racingcar.model.CarName;
 
 import java.util.List;
-import java.util.Map;
 
 public class OutputView {
     private static final String WINNER = "최종 우승자 : ";
@@ -21,6 +19,6 @@ public class OutputView {
     }
 
     public static void winner(String winner) {
-        System.out.println(WINNER+winner);
+        System.out.println(WINNER + winner);
     }
 }

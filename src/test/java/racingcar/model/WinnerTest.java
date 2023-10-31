@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WinnerTest {
     @Test
-    void  우승자_테스트()  {
-        // given
+    void 우승자_테스트() {
+
         String name1 = "inho";
         String name2 = "ru";
 
@@ -20,24 +20,22 @@ public class WinnerTest {
         carNames.add(new CarName(name1));
         carNames.add(new CarName(name2));
 
-        // when
-        Winner winner = new Winner();
 
-        // then
-        assertThat(winner.buildWinnersString(carNames))
+        assertThat(Winner.buildWinnersString(carNames))
                 .contains("inho, ru");
     }
+
     @Test
-    void  가장큰_스코어_찾기()  {
+    void 가장큰_스코어_찾기() {
         // given
         String name1 = "inho";
         String name2 = "se";
         String name3 = "agg";
 
         HashMap<CarName, Integer> carMap = new HashMap<>();
-        carMap.put(new CarName(name1),5);
-        carMap.put(new CarName(name2),1);
-        carMap.put(new CarName(name3),3);
+        carMap.put(new CarName(name1), 5);
+        carMap.put(new CarName(name2), 1);
+        carMap.put(new CarName(name3), 3);
 
         // when
         int maxScore = Winner.findMaxScore(carMap);
@@ -45,17 +43,18 @@ public class WinnerTest {
         // then
         assertEquals(5, maxScore);
     }
+
     @Test
-    void  우승자_리스트_테스트()  {
+    void 우승자_리스트_테스트() {
         // given
         String name1 = "inho";
         String name2 = "se";
         String name3 = "agg";
 
         HashMap<CarName, Integer> carMap = new HashMap<>();
-        carMap.put(new CarName(name1),5);
-        carMap.put(new CarName(name2),1);
-        carMap.put(new CarName(name3),3);
+        carMap.put(new CarName(name1), 5);
+        carMap.put(new CarName(name2), 1);
+        carMap.put(new CarName(name3), 3);
         int maxScore = 5;
 
         // when

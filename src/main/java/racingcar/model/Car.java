@@ -12,24 +12,27 @@ public class Car {
     private static final int STANDARD_VALUE = 4;
     private static final int START_POSITION = 0;
 
-    private static final  HashMap<CarName, Integer> carMap = new HashMap<>();
+    private static final HashMap<CarName, Integer> carMap = new HashMap<>();
     private final CarName carName;
-    private int position ;
+    private int position;
 
     public Car(String name) {
         this.carName = new CarName(name);
-        this.position= START_POSITION;
+        this.position = START_POSITION;
     }
-    public void go(){
+
+    public void go() {
         int random = RandomUtil.createRandomNumber();
-        if(random>=STANDARD_VALUE){
+        if (random >= STANDARD_VALUE) {
             position++;
             winner();
         }
     }
-    private void winner(){
-        carMap.put(getCarName(),position);
+
+    private void winner() {
+        carMap.put(getCarName(), position);
     }
+
     public static Map<CarName, Integer> getCarMap() {
         return Collections.unmodifiableMap(carMap);
     }
@@ -40,7 +43,7 @@ public class Car {
 
     public String getPosition() {
         String bar = "";
-        for (int  i = 0;i<position;i++){
+        for (int i = 0; i < position; i++) {
             bar += "-";
         }
         return bar;
