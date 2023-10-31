@@ -8,7 +8,7 @@ class CarTest {
 
     @Test
     void 자동차의_객체를_생성() {
-        
+
         Car car = new Car("car1",0);
 
         String carName = car.getCarName();
