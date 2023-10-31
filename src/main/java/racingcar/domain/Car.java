@@ -2,22 +2,34 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import racingcar.Utils.ErrorMessage;
 
 public class Car {
     private final String name;
     private int position = 0;
 
     public Car(String name) {
+        isValidateCar(name);
         this.name = name;
     }
 
-    public int move() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+    public void move(int moveNumber) {
+        if (moveNumber >= 4) {
             position++;
         }
-        return randomNumber;
+    }
+
+    public void isValidateCar(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_ONLY_FIVE_BELOW.getMessage());
+        }
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.USER_INSERT_NOT_BLANK.getMessage());
+        }
     }
 
     public String getName() {

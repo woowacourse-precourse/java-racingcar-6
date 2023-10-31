@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,7 +12,6 @@ import java.util.stream.Collectors;
 import racingcar.Utils.ErrorMessage;
 
 public class Cars {
-
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -39,7 +39,8 @@ public class Cars {
 
     public void playSingleTurn() {
         for (Car car : cars) {
-            car.move();
+            int moveNumber = Randoms.pickNumberInRange(0, 9);
+            car.move(moveNumber);
         }
     }
 

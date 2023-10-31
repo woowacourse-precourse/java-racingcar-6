@@ -4,24 +4,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.MoveCount;
 import racingcar.view.OutputView;
 
 public class Race {
 
     private final Cars cars;
-    private int moveCnt;
+    private final MoveCount moveCnt;
 
-    public Race(Cars cars, int moveCnt) {
+    public Race(Cars cars, MoveCount moveCnt) {
         this.cars = cars;
         this.moveCnt = moveCnt;
     }
 
     public void run() {
         OutputView.printResult();
-        while (moveCnt > 0) {
+        while (moveCnt.isOn()) {
             cars.playSingleTurn();
             OutputView.printCarsMove(cars.carsInformation());
-            moveCnt--;
+            moveCnt.next();
         }
         List<String> winnerNames = findWinners().stream()
                 .map(Car::getName)

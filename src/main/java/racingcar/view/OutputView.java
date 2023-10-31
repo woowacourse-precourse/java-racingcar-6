@@ -35,6 +35,10 @@ public class OutputView {
     }
 
     public static void printFindWinner(List<String> winners) {
-        System.out.println("최종 우승자 :" + " " + String.join(", ", winners));
+        System.out.println(winnerPrintFormat(winners));
+    }
+
+    public static String winnerPrintFormat(List<String> winners) {
+        return "최종 우승자 :" + " " + String.join(", ", winners);
     }
 }
