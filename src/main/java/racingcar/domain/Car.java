@@ -24,10 +24,16 @@ public class Car {
 
     private boolean canMove() {
         int randomNumber = numberGenerator.generate();
-        if (randomNumber >= MIN_BOUND && randomNumber <= MAX_BOUND) {
-            return randomNumber >= THRESHOLD;
+        checkRandomNumberInRange(randomNumber);
+
+        return randomNumber >= THRESHOLD;
+    }
+
+
+    private void checkRandomNumberInRange(int randomNumber) {
+        if (randomNumber < MIN_BOUND || randomNumber > MAX_BOUND){
+            throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
     }
 
     public int getPosition() {
