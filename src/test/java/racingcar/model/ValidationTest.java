@@ -27,6 +27,11 @@ class ValidationTest {
     }
 
     @Test
+    public void 자동차_이름_한개_이상_참여_공백만_입력은_금지() {
+
+    }
+
+    @Test
     public void 회수는_양의_정수만_입력_가능() {
         String input1 = "string";
         String input2 = "-1";
