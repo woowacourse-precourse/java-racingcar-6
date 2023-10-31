@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.DTO.CarDTO;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
     private static final String DISPLAY_FORMAT = "-";
@@ -19,7 +20,7 @@ public class OutputView {
     }
 
     public void printPlayStart() {
-        System.out.println(OutputMessage.ROUND_RESULT.message);
+        System.out.printf("%n%s%n", OutputMessage.ROUND_RESULT.message);
     }
 
     public void printRoundResult(List<CarDTO> roundResult) {
@@ -28,6 +29,7 @@ public class OutputView {
             String movementCount = calculateMovementCount(carStatus.getPosition());
             System.out.printf("%s : %s%n", carName, movementCount);
         }
+        System.out.printf("%n");
     }
 
     public String calculateMovementCount(int position) {
