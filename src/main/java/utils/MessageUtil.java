@@ -1,0 +1,33 @@
+package utils;
+
+import java.util.Map;
+
+public class MessageUtil {
+    public void gameStart() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    public void tryGame() {
+        System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    public void runGame() {
+        System.out.println("실행 결과");
+    }
+
+    public void resultGame(Map<String, Integer> carResult) {
+        for (String carName : carResult.keySet()) {
+            System.out.println(carName + " : " + transformDashes(carResult.get(carName)));
+        }
+    }
+
+    public String transformDashes(Integer carRunCnt) {
+        StringBuilder dashes = new StringBuilder();
+
+        if (carRunCnt != null && carRunCnt > 0) {
+            dashes.append("-".repeat(carRunCnt));
+        }
+
+        return dashes.toString();
+    }
+}
