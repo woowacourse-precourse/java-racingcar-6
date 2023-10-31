@@ -7,7 +7,7 @@ public enum ErrorCode {
     CAR_NAME_CONTAIN_SPACE("공백이 없는 자동차 이름을 입력해 주세요."),
     CAR_NAME_DUPLICATION("중복되지 않는 자동차 이름을 입력해 주세요."),
     RACE_COUNT_INVALID_RANGE("1 이상의 경주 횟수를 입력해 주세요."),
-    ;
+    NOT_NUMBER_STRING("경주 횟수는 숫자를 입력해 주세요.");
 
     private final String message;
 
