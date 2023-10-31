@@ -17,9 +17,12 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        String winnerNames = String.join(DELIMITER_CAR_NAMES + " ", winners);
-        System.out.println(winnerNames);
+        String output = winnerPrintFormat(winners);
+        System.out.println(output);
+    }
+
+    public static String winnerPrintFormat(List<String> winners) {
+        return "최종 우승자 : " + String.join(DELIMITER_CAR_NAMES + " ", winners);
     }
 
     public static void printScore(int score) {

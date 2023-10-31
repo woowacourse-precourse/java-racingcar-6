@@ -47,8 +47,8 @@ public class Application {
 
     private static int getMaxScore(int[] scores) {
         int max = scores[0];
-        for(int score : scores) {
-            if(max < score) {
+        for (int score : scores) {
+            if (max < score) {
                 max = score;
             }
         }
