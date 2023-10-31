@@ -7,18 +7,24 @@ import camp.nextstep.edu.missionutils.Randoms;
  *
  * @author haiseong
  */
-public class RacingCar {
+public class RacingCar{
     private static final int START_DISTANCE = 0;
     private static final int MINIMUM_RANDOM_NUMBER_TO_MOVE = 4;
-    private static final int RANDOM_START_INCLUSIVE = 1;
-    private static final int RANDOM_END_INCLUSIVE = 9;
 
     private String name;
     private int distance;
+    private final RandomNumberGenerator randomNumberGenerator;
 
     public RacingCar(String name) {
         this.name = name;
         this.distance = START_DISTANCE;
+        this.randomNumberGenerator = new CarRandomNumberGenerator();
+    }
+
+    public RacingCar(String name, RandomNumberGenerator randomNumberGenerator) {
+        this.name = name;
+        this.distance = START_DISTANCE;
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     /**
@@ -37,7 +43,7 @@ public class RacingCar {
      * @return 전진해야하면 true 정지해야하면 false
      */
     private boolean isMovable() {
-        int randomNumber = Randoms.pickNumberInRange(RANDOM_START_INCLUSIVE, RANDOM_END_INCLUSIVE);
+        int randomNumber = randomNumberGenerator.generateRandomNumber();
         return randomNumber >= MINIMUM_RANDOM_NUMBER_TO_MOVE;
     }
 
