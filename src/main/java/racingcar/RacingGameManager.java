@@ -55,7 +55,8 @@ public class RacingGameManager {
      * 출력: 없음
      */
     private void showCarMoveResult() {
-
+        for (Car car : carList)
+            System.out.println(car.getName() + " : " + "-".repeat(car.getMove().intValue()));
     }
 
     /**
