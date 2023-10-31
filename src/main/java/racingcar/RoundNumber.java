@@ -5,6 +5,7 @@ public class RoundNumber {
     private final int round_Num;
 
     public RoundNumber(int round_Num) {
+        validate_min_max_round_number(round_Num);
         this.round_Num = round_Num;
     }
 
