@@ -7,7 +7,10 @@ public class Application {
     static ArrayList<String> carNameSplit(String racingCarNames){
         ArrayList<String> nameList = new ArrayList<>();
         for(String carName : racingCarNames.split(",")){
-            if (carName.length() > 5){
+            if (carName.charAt(0) == ' '){
+                carName = carName.replaceFirst(" ", "");
+            }
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름의 길이가 5보다 깁니다.");
             }
             nameList.add(carName);
