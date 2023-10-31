@@ -55,3 +55,18 @@
 
   #### RandomMovement
   - [x] 랜덤 숫자 4이상일때 이동합니다.
+
+### TryCountManager
+- [x] 시도횟수 만큼 람다를 호출합니다.
+
+### TryCountFactory
+- [x] 시도 횟수를 만듭니다.
+  #### InputTryCountFactory
+  - [x] 입력을 통해 시도 횟수를 만듭니다.
+
+### VictoryManager
+- [x] 경주에서 승리한 자동차를 계산해줍니다.
+- [x] 승리한 자동차를 화면에 표출해줍니다.
+- 
+### VictoryView
+- [x] 승리한 자동차를 화면에 표출해줍니다.
