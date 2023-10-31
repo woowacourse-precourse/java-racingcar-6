@@ -44,7 +44,11 @@ public class Cars {
     }
 
     public void goForward() {
-        cars.forEach(car -> car.goForward(Randoms.pickNumberInRange(0, 9)));
+        cars.forEach(car -> car.goForward(generateMoveSymbol()));
+    }
+
+    private int generateMoveSymbol() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public List<String> getWinningCarNames() {
