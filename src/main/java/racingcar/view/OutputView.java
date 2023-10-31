@@ -29,12 +29,22 @@ public class OutputView {
         printGameResultMsgOnlyIfFirstRound();
         List<CarDto> carDtoList = carsDto.carDtoList();
         for (CarDto carDto : carDtoList) {
-            String carGameResult = String.format("%s : %s",
-                    carDto.name(),
-                    convertToDashes(carDto.position()));
-            System.out.println(carGameResult);
+            getRoundResultOf(carDto);
         }
         System.out.println();
+    }
+
+    public void printWinner(WinnersDto winnersDto) {
+        writer.writeGameWinnerMsg();
+        List<String> winnerNames = getWinnerNames(winnersDto);
+        System.out.println(String.join(DELIMITER, winnerNames));
+    }
+
+    private void getRoundResultOf(CarDto carDto) {
+        String carGameResult = String.format("%s : %s",
+                carDto.name(),
+                convertToDashes(carDto.position()));
+        System.out.println(carGameResult);
     }
 
     private void printGameResultMsgOnlyIfFirstRound() {
@@ -48,9 +58,4 @@ public class OutputView {
         return DASH.repeat(Math.max(0, position));
     }
 
-    public void printWinner(WinnersDto winnersDto) {
-        writer.writeGameWinnerMsg();
-        List<String> winnerNames = getWinnerNames(winnersDto);
-        System.out.println(String.join(DELIMITER, winnerNames));
-    }
 }
