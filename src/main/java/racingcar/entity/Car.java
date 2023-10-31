@@ -1,10 +1,9 @@
 package racingcar.entity;
 
-import static racingcar.util.GameDefaultMessage.*;
-
 // 게임에서 사용하는 자동차 정보를 저장하기 위한 클래스
 public class Car {
-    private final static int LOCATION_CONSTRAINT = 4; // 전진 조건
+    private final int LOCATION_CONSTRAINT = 4; // 전진 조건
+    private final String LOCATION_TOKEN = "-"; // 자동차의 위치를 이미지로 나타내는데에 활용하는 값
     private String carName; // 자동차 이름
     private int location; // 자동차의 위치
 
@@ -36,7 +35,7 @@ public class Car {
             return "";
         }
 
-        return MESSAGE_CAR_LOCATION.toString().repeat(location); // 자동차의 위치에 따른 결과 반환
+        return LOCATION_TOKEN.repeat(location); // 자동차의 위치에 따른 결과 반환
     }
 
     @Override
