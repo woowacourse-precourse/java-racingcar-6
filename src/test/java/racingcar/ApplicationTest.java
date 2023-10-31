@@ -31,6 +31,15 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_생성자() {
+        String carName = "pobi";
+        Car car = new Car(carName);
+
+        assertThat(car.getName()).isEqualTo(carName);
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
