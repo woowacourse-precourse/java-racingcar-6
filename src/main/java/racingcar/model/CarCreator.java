@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CarCreator {
@@ -13,7 +14,7 @@ public class CarCreator {
     }
 
     public static void validateCarNames(List<String> carNames) {
-        carNames.forEach(CarCreator::validateCarName);
+        carNames.forEach(car -> validateCarName(car, carNames));
     }
 
     public static List<Car> createCars(List<String> carNames) {
@@ -26,8 +27,9 @@ public class CarCreator {
         return Arrays.asList(array);
     }
 
-    private static void validateCarName(String carName) {
-        if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH) {
+    private static void validateCarName(String carName, List<String> carNames) {
+        if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH
+                || Collections.frequency(carNames, carName) > 1) {
             throw new IllegalArgumentException();
         }
     }
