@@ -10,11 +10,9 @@ public class GameRepository {
     private static final Map<Long, Game> games = new HashMap<>();
     private static Long id = 0L;
 
-    public Long save(Game game) {
-        Long currentId = id;
+    public void save(Game game) {
         games.put(id, game);
         id += 1;
-        return currentId;
     }
 
     public boolean isEnd(Game game) {
