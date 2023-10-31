@@ -1,14 +1,9 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NameValidationTest {
 
     @Test
-    public void testIsCorrectPattern_ValidInput() {
+    void testIsCorrectPattern_ValidInput() {
         // 유효한 입력 예제 (쉼표로 구분된 이름)
         String validInput = "John,Doe";
 
@@ -25,7 +20,7 @@ class NameValidationTest {
     }
 
     @Test
-    public void testIsCorrectPattern_InvalidInput() {
+    void testIsCorrectPattern_InvalidInput() {
         // 유효하지 않은 입력 예제 (띄어쓰기가 포함된 경우)
         String invalidInput = "John, Doe";
 
@@ -34,7 +29,7 @@ class NameValidationTest {
     }
 
     @Test
-    public void testIsCorrectPattern_InvalidInput_NoComma() {
+    void testIsCorrectPattern_InvalidInput_NoComma() {
         // 쉼표가 없는 경우
         String validInput = "John";
 
@@ -55,7 +50,7 @@ class NameValidationTest {
     }*/
 
     @Test
-    public void testIsCorrectPattern_InvalidInput_StartWithComma() {
+    void testIsCorrectPattern_InvalidInput_StartWithComma() {
         // 이름이 쉼표로 시작하는 경우
         String invalidInput = ",John,Doe";
 
@@ -66,7 +61,7 @@ class NameValidationTest {
 
     @Test
     @DisplayName("입력된 이름은 1자 이상, 5자 이하의 길이를 가져야 한다")
-    public void testIsCorrectLength() {
+    void testIsCorrectLength() {
         String invalidNames = "Car1,Car2,Car333333333";
         assertThrows(IllegalArgumentException.class, () -> new NameValidation(invalidNames));
 
@@ -76,7 +71,7 @@ class NameValidationTest {
 
     @Test
     @DisplayName("중복된 자동차 이름은 사용할 수 없다")
-    public void testIsDuplicate() {
+    void testIsDuplicate() {
         String validNames = "Alice,Bob,Chris,1";
         assertDoesNotThrow(() -> new NameValidation(validNames));
 

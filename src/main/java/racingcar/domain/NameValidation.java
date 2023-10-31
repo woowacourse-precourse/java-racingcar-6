@@ -11,7 +11,7 @@ import static racingcar.utils.Constants.*;
 public class NameValidation {
 
     private final String NAMES;
-    private final List<String> NAME_LIST;
+    public final List<String> NAME_LIST;
 
     public NameValidation(String names) {
         this.NAMES = names;
