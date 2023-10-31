@@ -22,5 +22,11 @@ public class Game {
         currentAttemptCount++;
     }
 
+    public boolean isGameOver() {
+        if (currentAttemptCount == givenAttemptCount)
+            return true;
+        return false;
+    }
+
 
 }
