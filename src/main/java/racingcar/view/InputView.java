@@ -4,9 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.PrintMessage;
 import racingcar.utils.InputException;
 
-import java.util.List;
-
 public class InputView {
+
+    private InputView() {
+    }
+
     public static String inputCarName() {
         String carNames = printAndInput(PrintMessage.INPUT_RACING_CAR_NAME);
         InputException.isContainComma(carNames);
