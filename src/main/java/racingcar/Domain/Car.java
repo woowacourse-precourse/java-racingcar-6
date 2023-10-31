@@ -31,6 +31,10 @@ public class Car {
 
         Integer randomValue = createRandomValue();
 
+        boolean randomValueValidation = checkRandomValueValidation(randomValue);
+
+
+
     }
 
     private Integer createRandomValue(){
@@ -41,6 +45,10 @@ public class Car {
     }
 
     private boolean checkRandomValueValidation(Integer randomValue){
+
+        if (randomValue >= 4){
+            return true;
+        }
 
         return false;
     }
