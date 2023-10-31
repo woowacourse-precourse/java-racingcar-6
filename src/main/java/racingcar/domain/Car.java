@@ -29,11 +29,11 @@ public class Car implements Comparable<Car> {
     }
 
     public Car(String name, int position) {
-        this(name, new DefaultSupplier(), position);
+        this(name, RandomNumberSupplier.getInstance(), position);
     }
 
     public Car(String name) {
-        this(name, new DefaultSupplier(), DEFAULT_CAR_POSITION);
+        this(name, RandomNumberSupplier.getInstance(), DEFAULT_CAR_POSITION);
     }
 
     private void validateName(String name) {
