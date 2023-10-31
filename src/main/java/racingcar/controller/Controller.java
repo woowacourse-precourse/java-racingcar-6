@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.service.TypeConverter;
 import racingcar.service.Validator;
 import racingcar.view.Views;
 import racingcar.service.GameService;
@@ -14,6 +15,7 @@ public class Controller {
     GameService service = new GameService();
     Cars cars = new Cars();
     Validator validator = new Validator();
+    TypeConverter typeConverter = new TypeConverter();
 
     public void makeGame(){
         startGame();
@@ -61,7 +63,7 @@ public class Controller {
     public int getTrialNumber(){
         String input = Console.readLine();
         validator.validateTrialNumber(input);
-        return Integer.parseInt(input);
+        return typeConverter.StringToInt(input);
     }
     public void makeCarList(List<String> input){
         for(String name : input){
