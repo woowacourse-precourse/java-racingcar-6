@@ -158,17 +158,17 @@ class ApplicationTest extends NsTest {
 
 
         // when
-        firstRaceCar.movementControlCar(4);
-        firstRaceCar.movementControlCar(5);
-        firstRaceCar.movementControlCar(6);
+        firstRaceCar.movementControl(4);
+        firstRaceCar.movementControl(5);
+        firstRaceCar.movementControl(6);
 
-        secondRaceCar.movementControlCar(7);
-        secondRaceCar.movementControlCar(8);
-        secondRaceCar.movementControlCar(1);
+        secondRaceCar.movementControl(7);
+        secondRaceCar.movementControl(8);
+        secondRaceCar.movementControl(1);
 
-        thirdRaceCar.movementControlCar(9);
-        thirdRaceCar.movementControlCar(2);
-        thirdRaceCar.movementControlCar(3);
+        thirdRaceCar.movementControl(9);
+        thirdRaceCar.movementControl(2);
+        thirdRaceCar.movementControl(3);
 
         Integer result_one = raceCarList.get(0).getCntMovement();
         Integer result_two = raceCarList.get(1).getCntMovement();
@@ -214,17 +214,17 @@ class ApplicationTest extends NsTest {
         List<RaceCar> winRaceCarList = new ArrayList<>();
 
         // when
-        firstRaceCar.movementControlCar(4);
-        firstRaceCar.movementControlCar(5);
-        firstRaceCar.movementControlCar(6);
+        firstRaceCar.movementControl(4);
+        firstRaceCar.movementControl(5);
+        firstRaceCar.movementControl(6);
 
-        secondRaceCar.movementControlCar(7);
-        secondRaceCar.movementControlCar(8);
-        secondRaceCar.movementControlCar(1);
+        secondRaceCar.movementControl(7);
+        secondRaceCar.movementControl(8);
+        secondRaceCar.movementControl(1);
 
-        thirdRaceCar.movementControlCar(2);
-        thirdRaceCar.movementControlCar(3);
-        thirdRaceCar.movementControlCar(4);
+        thirdRaceCar.movementControl(2);
+        thirdRaceCar.movementControl(3);
+        thirdRaceCar.movementControl(4);
 
         winRaceCarList = gameHost.giveWinnerList(raceCarList);
         String result = winRaceCarList.get(0).toString();
@@ -240,13 +240,13 @@ class ApplicationTest extends NsTest {
         // given
 
         // when
-        firstRaceCar.movementControlCar(4);
-        firstRaceCar.movementControlCar(5);
-        firstRaceCar.movementControlCar(6);
+        firstRaceCar.movementControl(4);
+        firstRaceCar.movementControl(5);
+        firstRaceCar.movementControl(6);
 
-        secondRaceCar.movementControlCar(7);
-        secondRaceCar.movementControlCar(8);
-        secondRaceCar.movementControlCar(1);
+        secondRaceCar.movementControl(7);
+        secondRaceCar.movementControl(8);
+        secondRaceCar.movementControl(1);
 
         boolean result_true = judgeStandard.isVictory(firstRaceCar, 3);
         boolean result_false = judgeStandard.isVictory(secondRaceCar, 3);

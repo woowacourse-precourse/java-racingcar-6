@@ -23,7 +23,7 @@ public class RaceCar {
      * @param numOfRan 0 ~ 9의 랜덤 한자릿 숫자
      * @return
      */
-    public void movementControlCar(Integer numOfRan) {
+    public void movementControl(Integer numOfRan) {
         if (isMovement(numOfRan)) {
             moveForward();
         }

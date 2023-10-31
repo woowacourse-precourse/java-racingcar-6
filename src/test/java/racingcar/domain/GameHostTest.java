@@ -28,11 +28,11 @@ class GameHostTest {
     }
 
     private void moveRaceCar(RaceCar raceCar) {
-        raceCar.movementControlCar(MOVE);
+        raceCar.movementControl(MOVE);
     }
 
     private void stopRaceCar(RaceCar raceCar) {
-        raceCar.movementControlCar(STOP);
+        raceCar.movementControl(STOP);
     }
 
     @DisplayName("자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다._1 ")

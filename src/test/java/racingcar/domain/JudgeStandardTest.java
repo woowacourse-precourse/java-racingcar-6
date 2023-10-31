@@ -18,7 +18,7 @@ class JudgeStandardTest {
     }
 
     private void moveRaceCar(RaceCar raceCar) {
-        raceCar.movementControlCar(MOVE);
+        raceCar.movementControl(MOVE);
     }
 
     @DisplayName("레이스 게임의 승리 여부 확인._1")

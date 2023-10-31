@@ -116,7 +116,7 @@ public class GameProcess {
 
     public void moveAllRaceCar() {
         for (RaceCar raceCar : raceCarList) {
-            raceCar.movementControlCar(createRandomNum.createRanOneNum());
+            raceCar.movementControl(createRandomNum.createRanOneNum());
         }
     }
 

@@ -17,14 +17,14 @@ class RaceCarTest {
     }
 
     private void moveRaceCar(RaceCar raceCar) {
-        raceCar.movementControlCar(MOVE);
+        raceCar.movementControl(MOVE);
     }
 
     @DisplayName("자동차의 이동을 제어한다.")
     @Test
     void movementControlCar() {
         // when
-        raceCar.movementControlCar(MOVE);
+        raceCar.movementControl(MOVE);
 
         int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
@@ -38,8 +38,8 @@ class RaceCarTest {
     @Test
     void movementControlCar_2() {
         // when
-        raceCar.movementControlCar(MOVE);
-        raceCar.movementControlCar(MOVE);
+        raceCar.movementControl(MOVE);
+        raceCar.movementControl(MOVE);
 
         int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
@@ -53,9 +53,9 @@ class RaceCarTest {
     @Test
     void movementControlCar_3() {
         // when
-        raceCar.movementControlCar(MOVE);
-        raceCar.movementControlCar(MOVE);
-        raceCar.movementControlCar(MOVE);
+        raceCar.movementControl(MOVE);
+        raceCar.movementControl(MOVE);
+        raceCar.movementControl(MOVE);
 
         int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
@@ -69,9 +69,9 @@ class RaceCarTest {
     @Test
     void movementControlCar_4() {
         // when
-        raceCar.movementControlCar(MOVE);
-        raceCar.movementControlCar(MOVE);
-        raceCar.movementControlCar(STOP);
+        raceCar.movementControl(MOVE);
+        raceCar.movementControl(MOVE);
+        raceCar.movementControl(STOP);
 
         int resultNum = raceCar.getCntMovement();
         String rasultStr = raceCar.toStringMoveState();
