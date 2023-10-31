@@ -20,11 +20,12 @@ public class RacingController {
     }
 
     private void race(Cars cars, int attemptCount) {
+        int remainingCount = attemptCount;
         outputView.printResultMessage();
-        while (attemptCount > 0) {
+        while (remainingCount > 0) {
             cars.forward();
             outputView.printCarsPosition(cars);
-            attemptCount--;
+            remainingCount--;
         }
     }
 
