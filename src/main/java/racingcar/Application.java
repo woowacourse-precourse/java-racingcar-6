@@ -2,9 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Judgment;
 
@@ -23,10 +21,7 @@ public class Application {
         Judgment judgment = new Judgment();
         for(int i = 0; i < trialCount; i++) {
             // 경기 한 턴 진행
-            // carList에 대해 확인 진행
-            if (judgment.decideMovement()) {
-
-            }
+            judgment.decideMovement(carList);
         }
     }
 }
