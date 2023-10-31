@@ -6,6 +6,10 @@ import java.util.List;
 
 public class CarNameValidator {
 
+    private CarNameValidator() {
+
+    }
+
     public static void validateForInputString(String carNames) {
         validateEmptyForInputString(carNames);
         validateContainsCommaForInputString(carNames);
