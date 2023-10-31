@@ -25,4 +25,14 @@ public class Car {
         return position;
     }
 
+    public String getMoveResult() {
+        return "-".repeat(Math.max(0, position));
+    }
+
+    public void move() {
+        int move = Randoms.pickNumberInRange(0,9);
+        if (move >= MoveThreshold.MIN_THRESHOLD.getValue()) {
+            position++;
+        }
+    }
 }
