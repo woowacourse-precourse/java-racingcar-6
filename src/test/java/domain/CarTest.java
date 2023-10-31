@@ -1,11 +1,14 @@
 package domain;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarTest {
     private Car car;
@@ -13,6 +16,26 @@ public class CarTest {
     private ByteArrayOutputStream mockOutput;
     private static final String SPERATOR = " : ";
     private static final String PROGRESS_BAR = "-";
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "dakki",
+            "pobi",
+            "nan",
+            "A",
+    })
+    void Car_정상생성(String input) {
+        Car car = new Car(input);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "qwerty",
+            "",
+    })
+    void Car_예외생성(String input) {
+        assertThatThrownBy(() -> new Car(input)).isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Test
     void toString_출력확인() {
