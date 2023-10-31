@@ -7,10 +7,15 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
     private static final int MOVE_THRESHOLD = 4;
-    private static final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private final RandomNumberGenerator randomNumberGenerator;
     private final List<RacingCar> racingCars;
 
     public RacingGame(CarNames carNames) {
+        this(carNames, new RandomNumberGenerator());
+    }
+
+    public RacingGame(CarNames carNames, RandomNumberGenerator randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
         this.racingCars = carNames.getNames().stream()
                 .map(RacingCar::new)
                 .collect(Collectors.toList());
