@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class CarNameHandler implements UserInputHandler<Iterator<String>> {
     static private final String DELIMITER = ",";
     static private final int MAX_CAR_NAME_LENGTH = 5;
-
+    static private final int MIN_CAR_COUNT = 2;
     ArrayList<String> carNameList;
 
 
@@ -16,7 +16,10 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
     @Override
     public void handle(String rawCarNames) {
         String[] rawCarNameArray = rawCarNames.split(DELIMITER);
-        carNameList = new ArrayList<>(rawCarNameArray.length);
+        int carCount = rawCarNameArray.length;
+        isValidCarCount(carCount);
+
+        carNameList = new ArrayList<>(carCount);
 
         for (String rawCarName : rawCarNameArray) {
             String trimmedCarName = getTrimmedCarName(rawCarName);
@@ -31,6 +34,12 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
 
     private String getTrimmedCarName(String carName) {
         return carName.trim();
+    }
+
+    private void isValidCarCount(int carCount){
+        if (carCount < MIN_CAR_COUNT){
+            throw new IllegalArgumentException();
+        }
     }
 
     private void isCarNameEmpty(String carName) {
