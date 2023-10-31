@@ -18,6 +18,15 @@ public class Application {
 
     }
 
+    private static void moveCars(List<String> results) {
+        for (int i = 0; i < results.size(); i++) {
+            if (shouldCarMove()) {
+                String currentResult = results.get(i);
+                results.set(i, currentResult + "-");
+            }
+        }
+    }
+
     private static boolean shouldCarMove() {
         int move = Randoms.pickNumberInRange(0, 9);
         return move >= 4;
