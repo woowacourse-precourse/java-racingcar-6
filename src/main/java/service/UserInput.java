@@ -15,7 +15,7 @@ public class UserInput {
         List<String> carNames = Arrays.stream(Input().split(","))
                                     .toList();
 
-        carNames.forEach(Validation::CarNames);
+        Validation.CheckCarNames(carNames);
 
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
@@ -28,7 +28,7 @@ public class UserInput {
 
     public static int Times(){
         String times = Input();
-        Validation.Times(times);
+        Validation.CheckTimes(times);
 
         return Integer.parseInt(times);
     }
