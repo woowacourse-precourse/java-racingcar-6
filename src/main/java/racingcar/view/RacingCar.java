@@ -6,19 +6,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.constant.Limits.MAX_NAME_SIZE;
 
 public class RacingCar {
 
     public List<String> gameStart() throws IOException {
         List<String> resultList = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
 //            입력값 받기: 자동차 이름, 플레이 횟수
-            String nameLine = bufferedReader.readLine();
+            String nameLine = readLine();
             String[] userCar = nameLine.split(",");
-            String tryNumber = bufferedReader.readLine();
+            String tryNumber = readLine();
 
 //            Error Handler
             nameHandler(userCar);
