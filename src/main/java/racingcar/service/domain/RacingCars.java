@@ -3,20 +3,25 @@ package racingcar.service.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
+// TODO: for문 람다식으로 수정
+// TODO: RacingCars가 검증해야할 부분 방어 코드 작성
+// TODO: RacingCars public 메서드 단위 테스트
+// TODO: getter 없애도록 고민해볼 것
 public class RacingCars {
     private final List<Car> cars;
 
     public RacingCars(List<String> carNames, Engine engine) {
-        this.cars = initializeCars(carNames, engine);
+        List<Car> cars = mapToCarList(carNames, engine);
+        this.cars = cars;
     }
 
-    private List<Car> initializeCars(List<String> carNames, Engine engine) {
-        List<Car> participateCars = new ArrayList<>();
-        for (String carName : carNames) {
-            participateCars.add(new Car(carName, engine));
-        }
-        return participateCars;
+    private List<Car> mapToCarList(List<String> carNames, Engine engine) {
+        return carNames.stream()
+                .map(carName -> new Car(carName, engine))
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     public List<Car> findWinners() {
@@ -42,7 +47,6 @@ public class RacingCars {
         for (Car car : this.cars) {
             car.moveCar();
         }
-        System.out.println("레이스 완료: " + this.cars);
         return Collections.unmodifiableList(cars);
     }
 }
