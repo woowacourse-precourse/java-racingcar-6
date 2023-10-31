@@ -5,7 +5,7 @@ public class Validator {
     private Set<String> nameSet;
     private final StringBuilder carNames = new StringBuilder();
 
-    public String checkCarValidate(String names){
+    public void checkCarValidate(String names){
         nameSet = new HashSet<>();
         String[] cars = validateNameCount(names);
         for (String car: cars){
@@ -15,14 +15,12 @@ public class Validator {
 
             carNames.append(car).append(",");
         }
-        return carNames.toString();
     }
 
-    public int checkRaceValidate(String race){
+    public void checkRaceValidate(String race){
         if (race.isEmpty() || isNotInteger(race)){
             throw new IllegalArgumentException("1 이상의 숫자를 입력해 주세요.");
         }
-        return Integer.parseInt(race);
     }
 
     public static boolean isNotInteger(String race){

@@ -6,7 +6,7 @@ import racingcar.utils.Winner;
 import java.util.ArrayList;
 import java.util.List;
 public class OutputView {
-    public static void displayResults(List<Car> cars){
+    public void displayResults(List<Car> cars){
         for (Car car : cars){
             displayRound(car);
         }
@@ -47,4 +47,5 @@ public class OutputView {
     public static void printSoloWinner(List<Car> car){
         System.out.println("최종 우승자 : "+car.get(0).getName());
     }
+
 }
