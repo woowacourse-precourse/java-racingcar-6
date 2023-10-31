@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int distance;
 
     Car(String name){
@@ -11,10 +11,18 @@ public class Car {
         this.distance = 0;
     }
 
-    void move_forward(Car car){
+    void moveForward(){
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) {
             this.distance++;
         }
+    }
+
+    void printState(){
+        System.out.printf("%s : ", this.name);
+        for (int i = 0; i < this.distance; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
