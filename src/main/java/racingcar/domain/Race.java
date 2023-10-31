@@ -1,7 +1,10 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import racingcar.util.ParserUtils;
 
 public class Race {
@@ -30,6 +33,21 @@ public class Race {
         validateAttempt(attemptCountInput);
         parsePositiveInteger(attemptCountInput);
         initializeCar(carNamesInput);
+    }
+
+    public String selectWinners() {
+        // Key=전진 횟수, Value=자동차의 이름
+        Map<Integer, String> map = new HashMap<>();
+
+        for (Car car : cars) {
+            map.put(car.getMoveCount(),
+                    map.getOrDefault(car.getMoveCount(), "") + ", " + car.getCarName());
+        }
+
+        Integer maxMoveCount = Collections.max(map.keySet());
+        String winners = map.get(maxMoveCount).substring(2);
+
+        return winners;
     }
 
     private void validateAttempt(String input) {
