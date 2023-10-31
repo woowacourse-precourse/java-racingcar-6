@@ -32,7 +32,7 @@ public class Game {
 
     }
 
-    // 각 시도 횟수마다 자동차의 결과를 나타냄
+    // 각 시도 횟수마다 자동차의 상태를 나타냄
     private void executionResult(){
         Output.printExecutionResult();
         for(int i = 0; i < this.
@@ -43,6 +43,7 @@ public class Game {
         }
     }
 
+    // 각 시도 횟수마다 각 자동차의 이동 거리를 나타냄
     private void carDistance(){
         for(int i = 0; i < cars.getCarsSize(); i++){
             Car car = cars.getCars()
@@ -57,6 +58,7 @@ public class Game {
 
     }
 
+    // 난수 생성
     private Integer randomNumberGenerator(){
         return Randoms.pickNumberInRange(0, 9);
     }
