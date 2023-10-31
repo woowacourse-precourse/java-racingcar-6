@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import racingcar.enums.Message;
 import racingcar.enums.Symbol;
 
@@ -13,11 +14,14 @@ public class RacingGame {
     private RacingCars winners;
 
     private RacingGame(RacingCars racingCars, int totalRound) {
+        Objects.requireNonNull(racingCars);
         this.racingCars = racingCars;
         this.totalRound = totalRound;
     }
 
     public static RacingGame of(String inputCarNames, String inputTotalRound) {
+        Objects.requireNonNull(inputCarNames);
+        Objects.requireNonNull(inputTotalRound);
         return new RacingGame(
                 RacingCars.from(inputCarNames),
                 Integer.parseInt(inputTotalRound)
@@ -32,29 +36,6 @@ public class RacingGame {
         currentRound++;
     }
 
-    public String getRunResultMessage() {
-        StringBuilder stringBuilder = new StringBuilder();
-        this.racingCars
-                .getRacingCars()
-                .forEach(racingCar -> {
-                    stringBuilder.append(racingCar.getName());
-                    stringBuilder.append(Symbol.KEY_VALUE_SEPARATOR.getValue());
-                    stringBuilder.append(racingCar.getPositionMarkers());
-                    stringBuilder.append("\n");
-                });
-        stringBuilder.append("\n\n\n\n\n");
-
-        return stringBuilder.toString();
-    }
-
-    public String getWinnerMessage() {
-        return Message.FINAL_WINNER.getMessage()
-                + Symbol.KEY_VALUE_SEPARATOR.getValue()
-                + winners.toNames()
-                + "\n";
-    }
-
-
     public void runRound() {
         racingCars.getRacingCars()
                 .forEach(this::decideWhetherToMoveForward);
@@ -66,7 +47,20 @@ public class RacingGame {
         }
     }
 
-    public void decideWinner() {
+    public String getRunResultMessage() {
+        StringBuilder stringBuilder = new StringBuilder();
+        this.racingCars
+                .getRacingCars()
+                .forEach(racingCar -> {
+                    stringBuilder.append(racingCar.getName());
+                    stringBuilder.append(Symbol.KEY_VALUE_SEPARATOR.getValue());
+                    stringBuilder.append(racingCar.getPositionMarkers());
+                    stringBuilder.append("\n");
+                });
+        return stringBuilder.toString();
+    }
+
+    public void decideWinners() {
         this.winners = getRacingCarsWithMaximumPosition();
     }
 
@@ -84,5 +78,11 @@ public class RacingGame {
                 .mapToInt(RacingCar::getPosition)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
+    }
+
+    public String getFinalWinnerMessage() {
+        return Message.FINAL_WINNER.getMessage()
+                + Symbol.KEY_VALUE_SEPARATOR.getValue()
+                + winners.toNameString();
     }
 }
