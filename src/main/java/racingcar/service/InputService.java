@@ -5,11 +5,12 @@ import racingcar.exception.NotValidInputException;
 import java.util.regex.Pattern;
 
 import static racingcar.exception.GameExceptionMessage.*;
-import static racingcar.util.GameCondition.*;
 
 // 사용자가 입력한 값의 유효성을 판단하는 클래스
 public class InputService {
     private final static String REGEXP_PATTERN_NUMBER = "^[0-9]*$"; // 숫자만 입력 가능
+    private final static int INPUT_MAX_LENGTH = 5;
+    private final static int INPUT_MIN_LENGTH = 1;
 
     public void checkCarNameValidation(String carName) {
         checkBlankValidation(carName, CAR_NAME_CAN_NOT_BE_BLANK.getMessage()); // 공백 확인
@@ -29,7 +30,7 @@ public class InputService {
     private void checkLengthValidation(String carName) {
         int length = carName.length();
 
-        if(length > CONDITION_INPUT_MAX_LENGTH.getCondition() || length < CONDITION_INPUT_MIN_LENGTH.getCondition())
+        if(length > INPUT_MAX_LENGTH || length < INPUT_MIN_LENGTH)
             throw new NotValidInputException(CAR_NAME_LENGTH.getMessage());
     }
 
