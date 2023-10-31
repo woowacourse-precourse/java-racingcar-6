@@ -71,10 +71,10 @@ public class Racing {
                 winners.add(car);
             }
         }
-        String testString = winners.toString().replace("[", "").replace("]","");
+        String resultMessage = winners.toString().replace("[", "").replace("]","");
 
-        System.out.println("최종 우승자 : " + testString);
+        System.out.println("최종 우승자 : " + resultMessage);
 
-        return testString;
+        return resultMessage;
     }
 }
