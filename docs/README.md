@@ -105,6 +105,23 @@
 
 ---
 
+##### 자동차 이름을 입력받는 메서드
+- signature : `public String getCarName()`
+- return : 입력받은 문자열
+- description
+  - "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"을 출력한다.
+  - `Console.readLine()`메소드로 입력받은 값을 반환한다.
+
+##### 회수를 입력받는 메서드
+- signature : `public Integer getMoveCount()`
+- return : 입력받은 문자열을 정수로 변환한 값
+- error : 정수가 아니라면 `IllegalArgumentException`을 발생시킨다.
+- description
+  - "시도할 회수는 몇회인가요?"를 출력한다.
+  - `Console.readLine()`메소드로 입력을 받는다.
+  - 입력받은 값이 정수로 변환될 수 있으면 그 값을 반환한다.
+  - 변환이 불가능하다면 `IllegalArgumentException`을 발생시킨다.
+
 ##### 각 차수 결과를 출력해주는 메소드
 - signature : `public void printEachResult(final List<Racer> racerList)`
 - parameters
