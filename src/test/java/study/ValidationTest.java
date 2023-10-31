@@ -103,4 +103,17 @@ public class ValidationTest {
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.SCORE_VALUE_IS_OVER_STANDARD);
     }
+
+    @Test
+    void 이름_입력_값_마지막자리_콤마_검증_로직(){
+        //given
+        String target = "test,user,";
+
+        //when
+        assertThatThrownBy(()->{
+            NameValidation.verifyForRacerNameContainComma(target);
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorProperty.NAME_VALUE_CONTAINS_COMMA);
+    }
 }
