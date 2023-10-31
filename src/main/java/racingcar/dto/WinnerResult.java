@@ -7,7 +7,7 @@ import racingcar.model.Winner;
 
 public class WinnerResult {
 
-    private List<String> winners;
+    private final List<String> winners;
 
     public WinnerResult(Winner winner) {
         this.winners = getNames(winner.getWinners());
