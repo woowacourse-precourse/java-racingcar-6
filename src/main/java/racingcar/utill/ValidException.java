@@ -15,8 +15,8 @@ public class ValidException {
     private static final String KOREAN_ENGLISH_REGEX = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*";
     private static final String SPECIAL_CHARACTER_REGEX = ".*[!@#$%^&*().?\":{}|<>].*";
 
-    public static Boolean lessFIveLen(String str) {
-        int len = str.length();
+    public static Boolean lessFIveLen(String strLine) {
+        int len = strLine.length();
 
         if (len > START_NUM_ZERO && len <= END_NUM_FIVE) {
             return true;
@@ -25,9 +25,9 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
 
-    public static Boolean includeKorean(String str) {
+    public static Boolean includeKorean(String strLine) {
         Pattern pattern = Pattern.compile(KOREAN_REGEX);
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = pattern.matcher(strLine);
 
         if (matcher.find()) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_KOREA_STRING());
@@ -36,17 +36,17 @@ public class ValidException {
         return false;
     }
 
-    public static void includeNum(String str) {
+    public static void includeNum(String strLine) {
         Pattern pattern = Pattern.compile(NUM_REGEX);
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = pattern.matcher(strLine);
 
         if (matcher.matches()) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_NUM());
         }
     }
 
-    public static Boolean blankCheck(String str) {
-        if (!str.equals("")) {
+    public static Boolean blankCheck(String strLine) {
+        if (!strLine.equals("")) {
             return true;
         }
         throw new IllegalArgumentException(ValidConstants.MSG_BLANK_STRING());
