@@ -22,10 +22,11 @@ public class Input {
         userInput = Console.readLine();
         validateGameCountNubmer(userInput);
         GameCount gameCount = new GameCount(userInput);
+        closeConsole();
         return gameCount;
     }
 
-    public void closeConsole() {
+    private void closeConsole() {
         Console.close();
     }
 
