@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
 import racingcar.domain.CarDto;
 import racingcar.domain.Game;
 import racingcar.repository.CarRepository;
@@ -13,16 +14,16 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-    private GameService gameService = new GameService();
-    private Parser parser = new Parser();
-    private OutputView outputView = new OutputView();
-    private Validator validator = new Validator();
-    private CarRepository carRepository = new CarRepository();
+    private final GameService gameService = new GameService();
+    private final Parser parser = new Parser();
+    private final OutputView outputView = new OutputView();
+    private final Validator validator = new Validator();
+    private final CarRepository carRepository = new CarRepository();
 
     public void run() {
         List<String> carNames = parser.parseCarNames(getCarNamesByUserInput());
         saveCars(carNames);
-        List<CarDto> cars = carRepository.findAll();
+        List<Car> cars = carRepository.findAll();
         int trial = parser.parseNumberOfTrial(getTrialByUserInput());
         Long gameId = gameService.save(new Game(cars, trial));
         List<CarDto> carDtos = gameService.play(gameId);
@@ -31,7 +32,7 @@ public class Controller {
 
     private void saveCars(List<String> carNames) {
         for (String carName : carNames) {
-            CarDto car = new CarDto(carName);
+            Car car = new Car(carName);
             carRepository.save(car);
         }
     }

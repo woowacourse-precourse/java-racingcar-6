@@ -3,8 +3,8 @@ package racingcar.domain;
 import java.util.List;
 
 public class Game {
-    private int trial;
-    private List<CarDto> cars;
+    private final int trial;
+    private final List<Car> cars;
     private int trialNum = 0;
 
     public Game(List<Car> cars, int trial) {
@@ -12,9 +12,8 @@ public class Game {
         this.trial = trial;
     }
 
-    public List<CarDto> getCars() {
+    public List<Car> getCars() {
         return cars;
-
     }
 
     public void increaseTrialNum() {
