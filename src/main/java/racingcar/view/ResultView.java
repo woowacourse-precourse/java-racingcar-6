@@ -8,21 +8,21 @@ public class ResultView {
     private static final String POSITION_STATUS = "-";
     private static final String NANE_COLON = " : ";
 
-    public ResultView() {
+    private ResultView() {
     }
 
-    public void printShowResult() {
+    public static void printShowResult() {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void showRoundResult(Cars cars) {
+    public static void showRoundResult(Cars cars) {
         cars.stream().forEach(car ->
             System.out.println(car.getName() + NANE_COLON + POSITION_STATUS.repeat(car.getPosition())));
 
         System.out.println();
     }
 
-    public void callWinner(String winnerNames) {
+    public static void callWinner(String winnerNames) {
         System.out.print(CALL_WINNER_MESSAGE);
         System.out.println(winnerNames);
     }
