@@ -32,9 +32,8 @@ public class CarList {
     }
 
     private long findMaxDistanceValueInCarList() {
-        List<Car> sortedCarList = carList.stream()
+        return carList.stream()
                 .sorted(Comparator.comparingLong(Car::getDistance).reversed())
-                .toList();
-        return sortedCarList.get(0).getDistance();
+                .toList().get(0).getDistance();
     }
 }
