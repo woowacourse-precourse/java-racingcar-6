@@ -36,9 +36,15 @@ class PlayerTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {" ", ",name1", "name1,,name2", "namename1"})
-    void 입력한_자동차_이름_길이_예외처리(String input) {
+    @ValueSource(strings = {" ", "n ame1", ",name1", "name1,,name2"})
+    void 입력한_자동차_이름_공백_예외처리(String input) {
         setInput(input);
+        assertThatThrownBy(player::inputCarNames).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 입력한_자동차_이름_길이_예외처리() {
+        setInput("namename3");
         assertThatThrownBy(player::inputCarNames).isInstanceOf(IllegalArgumentException.class);
     }
 
