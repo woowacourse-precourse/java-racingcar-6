@@ -10,7 +10,9 @@
    - 무작위 숫자를 생성하여 4이상인지 판단 후 전진 가능 여부 결정
 5. updateDistance()
    - determineCanGo()에 의해 결정된 전진 가능 여부에 따라 이동 거리를 수정
-6. displayResult()
+6. createRacingCars()
+   - 레이싱에 참가할 자동차들을 생성 및 저장
+7. displayResult()
    - 이동 거리를 수정한 결과를 출력
-7. getWinner()
+8. getWinner()
     - 이동 거리를 비교하여 최종 우승자 또는 최종 우승자들을 가져옴

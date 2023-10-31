@@ -25,4 +25,10 @@ public class Controller {
         return Integer.parseInt(Console.readLine());
     }
 
+    public void createRacingCars(String[] names) {
+        for (String name : names) {
+            this.racingCars.add(new Car(name));
+        }
+    }
+
 }
