@@ -66,6 +66,12 @@
 - [x] 이동 회수를 1회 줄인다. Round#subtractOneRound()
 
 
+- [x] 입력된 자동차 이름 문자열을 분리해 리스트로 반환한다. Race#makeStringToList()
+
+
+- [x] 자동차 리스트의 크기를 반환한다. Race#getCarListSize()
+
+
 - [x] 자동차들의 이름 리스트를 반환한다. Race#getCarNames()
     - [x] 자동차의 이름을 반환한다. Car#getName()
 
@@ -80,10 +86,11 @@
 - [x] 이동 회수가 0보다 작으면 예외를 발생시킨다. Game#checkRoundRange()
 
 
-- [x] 게임의 결과를 출력하기 전 "실행 결과" 메시지를 출력한다. OutputView#printResultStartMessage
+- [x] 게임의 결과를 출력하기 전 "실행 결과" 메시지를 출력한다. OutputView#printResultStartMessage()
 
 
-- [x] 출력할 게임 결과 문자열을 만든다. OutputView#makeResultString()
+- [x] 출력할 게임 결과 문자열을 만든다. OutputView#buildResultString()
+    - [x] 자동차의 이름과 "-"로 이루어진 게임 결과 문자열을 만든다. OutputView#makeResultString()
 
 
 - [x] 랜덤 숫자로 이루어진 특정 크기의 리스트를 반환한다. RandomGenerator#getNumbers()
