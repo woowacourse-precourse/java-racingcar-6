@@ -187,7 +187,14 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_숫자_자연수() {
-
+        Class<?> testClass = Input.class;
+        String testMethodName = "isNotNaturalNumber";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList("0", true),
+                Arrays.asList("1", false),
+                Arrays.asList("-1", true),
+                Arrays.asList("2147483647", false));
+        testPrivateMethod(testClass, testMethodName, testCase);
     }
 
     @Test
