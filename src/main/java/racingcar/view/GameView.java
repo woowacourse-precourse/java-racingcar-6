@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class GameView {
@@ -17,21 +18,26 @@ public class GameView {
         return Console.readLine();
     }
 
-    public static void printCarNames(List<Car> cars) {
+    public static void printCarNames(List<Car> carList) {
         List<String> carNames = new ArrayList<>();
-        for (Car car : cars) {
+        for (Car car : carList) {
             carNames.add(car.carName());
         }
         String joinedName = String.join(" ", carNames);
-        System.out.print(joinedName);
+        System.out.println(joinedName);
     }
 
     public static void printResultMessage() {
         System.out.println("실행 결과");
     }
 
-//    public static void printWinMessage() {
-//        System.out.println("최종 우승자 : " + String.join(", " + winUser));
-//    }
+    public static void printCarStatus(Car car, int count) {
+        System.out.println(car + " : " + "-".repeat(count));
+    }
 
+    public static void printWinMessage(List<Car> carList) {List<String> winnerNames = carList.stream()
+            .map(Car::carName)
+            .collect(Collectors.toList());
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
+    }
 }
