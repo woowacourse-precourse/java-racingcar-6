@@ -34,4 +34,9 @@ class CarsTest {
         // then
         assertThat(result).isNotNull();
     }
+
+    @Test
+    void 자동차_경주_우승자() {
+        // todo: 메서드를 추가하지 않고, 게임 결과를 예상(조작)할 수 있을지 고민해보기...
+    }
 }
