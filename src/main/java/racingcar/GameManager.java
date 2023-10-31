@@ -29,6 +29,7 @@ public class GameManager {
     private static void splitPlayer(String input, List<RacingCar> player) {
         String[] splitInput = input.split(",");
         for (int i = 0; i < splitInput.length; i++) {
+            CheckInput.checkIsUnique(splitInput[i], player);
             addPlayer(splitInput[i], player);
         }
     }
