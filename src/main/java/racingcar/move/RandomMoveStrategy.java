@@ -1,7 +1,4 @@
-package racingcar.domain.game.move;
-
-import racingcar.util.MoveStrategy;
-import racingcar.util.NumberGenerator;
+package racingcar.move;
 
 public class RandomMoveStrategy implements MoveStrategy {
     private static final int THRESHOLD = 4;
