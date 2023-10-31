@@ -14,10 +14,10 @@ import java.util.List;
 import org.junit.platform.commons.util.StringUtils;
 
 public class InputValidator {
-    private final static int MAX_CAR_NAME_LENGTH = 5;
-    private final static int MIN_VALID_VALUE = 1;
-    private final String EMPTY_STRING = "";
-    private final String SPACE = " ";
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MIN_VALID_VALUE = 1;
+    private static final String EMPTY_STRING = "";
+    private static final String SPACE = " ";
 
     public void validateCarName(String input) {
         validBlankInput(input);

@@ -171,7 +171,8 @@ classDiagram
 
 ## 목표
 - [x] 리뷰받은 Stream, Enum, record 공부해서 적용해보기
-- [ ] 리뷰하면서 알게된 var, Sealed Class 공부해서 적용해보기
+- [x] 리뷰하면서 알게된 var, Sealed Class 공부해서 적용해보기
+  - sealed class는 이번에 크게 사용해야 할 필요를 느끼지 못함
 - [x] 유효성 검사를 어디서 할지 고민
 - [x] 테스트 코드 작성하면서 개발하기
 

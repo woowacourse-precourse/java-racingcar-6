@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.dto.CarProgressResponse;
 
 public class OutputView {
@@ -8,6 +9,7 @@ public class OutputView {
     private static final String RACE_TIME_PROMPT = "시도할 회수는 몇회인가요?";
     private static final String RESULT_HEADER = "실행 결과";
     private static final String WINNER_TEMPLATE = "최종 우승자 : %s";
+    private static final String WINNER_DELIMITER = ", ";
     private static final String CAR_PROGRESS_SEPARATOR = " : ";
     private static final String CAR_POSITION_SYMBOL = "-";
 
@@ -33,7 +35,7 @@ public class OutputView {
     }
 
     public void printWinnerConsole(List<String> winners) {
-        String winnerNames = String.join(", ", winners);
+        String winnerNames = String.join(WINNER_DELIMITER, winners);
         printLine(String.format(WINNER_TEMPLATE, winnerNames));
     }
 }

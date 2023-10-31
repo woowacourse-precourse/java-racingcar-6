@@ -21,8 +21,8 @@ import racingcar.view.OutputView;
 import racingcar.view.input.InputView;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class RacingCarControllerTest {
-    private final String inputCarNames = "pobi,woni,jun";
-    private final String inputRaceTime = "3";
+    private static final String inputCarNames = "pobi,woni,jun";
+    private static final String inputRaceTime = "3";
     private static final int moveForwardNumber = 5;
     private static final List<String> carNameList = List.of("pobi", "woni", "jun");
     private final InputHandler inputHandler = getInputHandler();

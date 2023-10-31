@@ -8,9 +8,9 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarTest {
-    private final String name = "벤츠";
-    private final Car benz = Car.from(name);
+    private static final String name = "벤츠";
     private static final int notMovedBenzProgress = 0;
+    private final Car benz = Car.from(name);
 
     @Test
     void move_4이상의_숫자를_받으면_전진_해야한다() {

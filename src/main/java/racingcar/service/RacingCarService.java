@@ -43,9 +43,7 @@ public final class RacingCarService {
 
     GameResult determineRaceResult(Cars cars) {
         List<CarProgressResponse> responseList = cars.getCars().stream()
-            .map(car ->
-                new CarProgressResponse(car.getName(), car.getProgress())
-            )
+            .map(car -> new CarProgressResponse(car.getName(), car.getProgress()))
             .toList();
 
         List<String> winners = cars.getWinner();

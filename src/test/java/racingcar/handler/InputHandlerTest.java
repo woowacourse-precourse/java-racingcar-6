@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.view.input.InputView;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class InputHandlerTest {
-    private final String inputCarNames = "pobi,woni,jun";
-    private final String inputRaceTime = "3";
+    private static final String inputCarNames = "pobi,woni,jun";
+    private static final String inputRaceTime = "3";
     private final InputHandler inputHandler = new InputHandler(new InputConvertor(), new InputValidator(),
         new InputView() {
             @Override
