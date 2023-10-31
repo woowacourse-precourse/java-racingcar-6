@@ -8,6 +8,7 @@ public class Car {
         checkInputValue(name);
         this.name = name;
     }
+
     public void checkInputValue(String input) {
         input = input.trim();
         if (isEmptyName(input)
@@ -24,14 +25,14 @@ public class Car {
         return false;
     }
 
-    public boolean isCheckLength(String input){
+    public boolean isCheckLength(String input) {
         if (input.length() > 5) {
             return false;
         }
         return true;
     }
 
-    public static boolean isNumber(String input){
+    public static boolean isNumber(String input) {
         try {
             Integer.parseInt(input);
             return true;
