@@ -7,15 +7,15 @@ import racingcar.view.OutputView;
 public class Race {
     private List<Car> carList;
     private int round = 0;
-    private boolean isRacing = true;
     OutputView outputView = new OutputView();
 
-    public void raceStart() {
+    public void initialRace() {
+        outputView.printStartMessage();
         InputView inputView = new InputView();
         carList = Car.generate(inputView.inputName());
-        outputView.printStartMessage();
         outputView.askNumOfAttemptsMessage();
         round = inputView.inputRound();
+        startRace();
     }
 
     private void duringRace() {
