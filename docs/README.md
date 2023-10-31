@@ -11,7 +11,7 @@
   - [X] (검사) 자연수만 가능하다. Validation#checkNatureNumber, NotNatureNumberException
 - [X] 한 라운드를 시작한다. Race#playRound
   - [X] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다.
-    - 랜덤값 생성기 Random#
+    - 랜덤값 생성기 
       - [X] 0 - 9 사이의 정수를 생성한다.
     - [X] 생성된 값이 4이상일 경우 전진한다. Car#moveFoward
   - [X] 경주는 한번의 라운드가 끝날 때마다 진행상황을 저장한다. 
