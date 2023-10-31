@@ -7,6 +7,7 @@ import racingcar.model.RacingCarRace;
 import racingcar.view.RacingCarGameView;
 
 import static racingcar.utils.Constants.COMMA;
+import static racingcar.utils.Constants.ZERO;
 
 public class RacingCarGame {
     RacingCarRace carRace;
@@ -33,7 +34,7 @@ public class RacingCarGame {
     private void start() {
         view.printResultText();
 
-        for(int n=0; n<this.carRace.getTotalMoveCount(); n++) {
+        for(int n=ZERO; n<this.carRace.getTotalMoveCount(); n++) {
             this.carRace.move();
             view.printResult(this.carRace.getCarsStatus());
         }
