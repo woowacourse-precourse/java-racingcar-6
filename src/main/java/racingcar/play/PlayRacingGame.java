@@ -75,20 +75,20 @@ public class PlayRacingGame {
     public void inputNameException() {
         for (Car car : cars.getCars()) {
             if (car.getName().length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("이름을 5글자 이하로 입력하세요");
             }
             if (car.getName().isEmpty()) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("이름이 비어있을 수 없습니다.");
             }
         }
     }
 
     public void inputRoundCountException(String roundCount) {
         if (roundCount.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("round 수를 입력하세요");
         }
         if (Integer.parseInt(roundCount) < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("음수일수 없습니다");
         }
     }
 }
