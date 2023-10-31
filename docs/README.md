@@ -4,7 +4,6 @@
     - Game.start() : 게임을 시작한다
     - Game.currentRound : 게임의 현재 라운드
     - Game.attemptsNumber : 게임 총 라운드 횟수
-
 - [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
     - Car.currentLocation : 차의 현재 위치 속성
     - Car.movingForward() : 차가 전진하는 기능

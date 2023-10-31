@@ -4,8 +4,8 @@ public class Car {
     private Integer cuurentLocation;
     private String name;
 
-    public Car() {
-
+    public Car(String name) {
+        this.name = name;
     }
 
     public void movingForward() {
@@ -20,7 +20,6 @@ public class Car {
     }
 
     public void printName() {
-
     }
 
     public void setName(String name) {
