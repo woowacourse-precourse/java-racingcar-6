@@ -25,6 +25,14 @@ class UserInputValidatorTest {
     }
 
     @Test
+    @DisplayName("자동차이름: 정상 중복 허용")
+    public void correctInput3() {
+        String rawInput = "A,B,B";
+
+        userInputValidator.validateCarNames(rawInput);
+    }
+
+    @Test
     @DisplayName("자동차이름: ,사이 이름 없음")
     public void wrongInput() {
         String rawInput = ",,,";
