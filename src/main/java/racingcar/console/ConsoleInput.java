@@ -22,7 +22,9 @@ public class ConsoleInput<T, K> {
         this.finalize = finalize;
     }
 
-    public K getUserInput() {
+    public K getUserInput(String inputMessage) {
+        System.out.println(inputMessage);
+
         String input = Console.readLine();
 
         T targetObject = init.handling(input);

@@ -17,6 +17,10 @@ public class Car {
         return name;
     }
 
+    public long getDistance() {
+        return distance;
+    }
+
     public void increaseDistance() {
         this.distance += 1;
     }
