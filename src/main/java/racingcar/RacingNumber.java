@@ -8,8 +8,8 @@ public class RacingNumber {
         this.racingNum = "";
     }
 
-    public void setRacingNum(){
-        this.racingNum = Console.readLine();
+    public void setRacingNum(String num){
+        this.racingNum = num;
     }
 
     public boolean isPositiveInteger(){

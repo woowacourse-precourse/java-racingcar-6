@@ -13,8 +13,7 @@ public class CarList {
         this.carList = new ArrayList<>();
     }
 
-    public void setCarName(){
-        String carString = Console.readLine();
+    public void setCarName(String carString){
         String[] carArray = carString.split(",");
         this.carList =  new ArrayList<>(Arrays.asList(carArray));
     }

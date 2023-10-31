@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,13 +11,15 @@ public class Application {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         CarList carList = new CarList();
-        carList.setCarName();
+        String carString = Console.readLine();
+        carList.setCarName(carString);
         if (!carList.checkCarName()) throw new IllegalArgumentException();
         List<String> carArrayList = carList.getCarList();
 
         System.out.println("시도할 회수는 몇회인가요?");
         RacingNumber racingNumber = new RacingNumber();
-        racingNumber.setRacingNum();
+        String num = Console.readLine();
+        racingNumber.setRacingNum(num);
         if(!racingNumber.isPositiveInteger()) throw new IllegalArgumentException();
         int racingNum = racingNumber.getRacingNum();
 

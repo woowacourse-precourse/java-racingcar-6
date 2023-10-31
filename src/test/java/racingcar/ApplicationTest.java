@@ -3,73 +3,89 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    // Success
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
-    // CarList Exception Test
     @Test
-    void 이름에_대한_예외_처리1_6글자() {
+    void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
+    // carList Class
     @Test
-    void 이름에_대한_예외_처리2_NoEnglish(){
+    void CarNameMethodSuccess(){
+        CarList carList = new CarList();
+        carList.setCarName("pobi,woni");
+        assertTrue(carList.checkCarName());
+    }
+
+    @Test
+    void hasAtLeastTwoItemsFailed(){
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,안녕", "1"))
+                assertThatThrownBy(() -> runException("pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리3_NoName(){
+    void isDuplicateFailed(){
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("", "1"))
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리4_DuplicatedName(){
+    void isShortNameFailed(){
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,Amy,pobi", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    // RacingNumber Class Exception Test
-    @Test
-    void 시도횟수에_대한_예외처리1_정수가아닌경우(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,Amy,pobi", "y"))
+                assertThatThrownBy(() -> runException(",pobi,,amy", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
-    void 시도횟수에_대한_예외처리1_0일경우(){
+    void isEnglishNameFailed(){
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,Amy,pobi", "0"))
+                assertThatThrownBy(() -> runException("ㄱ,name", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    // RacingNumber Class
+    @Test
+    void RacingNumberSuccess(){
+        RacingNumber racingNumber = new RacingNumber();
+        racingNumber.setRacingNum("1");
+        assertTrue(racingNumber.isPositiveInteger());
+    }
+
+    @Test
+    void isPositiveIntegerFailed(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("name", "10"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
