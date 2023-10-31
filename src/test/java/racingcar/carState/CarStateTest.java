@@ -5,7 +5,6 @@ import racingcar.model.Car;
 import racingcar.validator.CarNameValidator;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarStateTest {
     @Test
@@ -31,5 +30,18 @@ public class CarStateTest {
             car.move(i);
             assertThat(car.getCarPosition()).isEqualTo(1);
         }
+    }
+
+    @Test
+    void 차_위치_반환_테스트(){
+        Car car = new Car("Hyun");
+        assertThat(car.getCarPosition()).isEqualTo(0);
+    }
+
+    @Test
+    void 차_이름_반환_테스트(){
+        String Name = "Hyun";
+        Car car = new Car(Name);
+        assertThat(car.getCarName()).isEqualTo(Name);
     }
 }
