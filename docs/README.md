@@ -11,7 +11,7 @@
 7. 게임 끝
 
 ### CarGameManager
-- [ ] PlayerList 와 게임 횟수를 입력받는다.
+- [x] PlayerList 와 게임 횟수를 입력받는다.
 - [ ] 게임 횟수만큼 반복하면서 플레이어를 이동한다.
 
 ### RacingReferee
