@@ -17,11 +17,6 @@ public class RacingGame {
         this.userInput = userInput;
         this.carmanagement = carmanagement;
     }
-    public void run(){
-        setting();
-        play();
-        this.carmanagement.printWinner();
-    }
     public void setting(){
         List<String> carList = this.userInput.getCarList();
         for(String car:carList){
@@ -35,5 +30,10 @@ public class RacingGame {
         for(;this.attemptCount>0;this.attemptCount--){
             this.carmanagement.playRound(rangeStart,ragneEnd,limitNumber);
         }
+    }
+    public void run(){
+        setting();
+        play();
+        this.carmanagement.printWinner();
     }
 }

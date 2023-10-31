@@ -7,9 +7,8 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.io.ByteArrayInputStream;
-import java.util.List;
+import java.lang.reflect.Field;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -36,12 +35,27 @@ public class RacingGameTest {
         verify(spyUserInput).getAttemptNumber();
     }
     @Test
-    void playTest(){
-
+    void playTest() throws NoSuchFieldException, IllegalAccessException {
+        CarManagement spyCarManagement = Mockito.spy(carManagement);
+        racingGame = new RacingGame(userInput,spyCarManagement);
+        int attemptCountValue = 4;
+        Field attemptCountField = RacingGame.class.getDeclaredField("attemptCount");
+        attemptCountField.setAccessible(true);
+        attemptCountField.setInt(racingGame, attemptCountValue);
+        racingGame.play();
+        verify(spyCarManagement,times(4)).playRound(Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt());
     }
     @Test
     void playRun(){
-
+        CarManagement spyCarManagement = Mockito.spy(carManagement);
+        racingGame = new RacingGame(userInput,spyCarManagement);
+        RacingGame spyRacingGame = Mockito.spy(racingGame);
+        ByteArrayInputStream in = new ByteArrayInputStream("carA,carB,carC\n5".getBytes());
+        System.setIn(in);
+        spyRacingGame.run();
+        verify(spyRacingGame).setting();
+        verify(spyRacingGame).play();
+        verify(spyCarManagement).printWinner();
     }
 
 }
