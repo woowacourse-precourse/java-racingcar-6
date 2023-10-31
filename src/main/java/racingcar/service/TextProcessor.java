@@ -4,6 +4,7 @@ import racingcar.exception.ExceptionMessage;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class TextProcessor {
@@ -14,7 +15,15 @@ public class TextProcessor {
     private final static String NEW_LINE = "\n";
 
     public String[] splitCarNames(String str) {
-        return str.split(SPLIT);
+        var splitNames = str.split(SPLIT);
+
+        return trimWhitespace(splitNames);
+    }
+
+    private String[] trimWhitespace(String[] strArr) {
+        return Arrays.stream(strArr)
+                .map(String::trim)
+                .toArray(String[]::new);
     }
 
     public int parseTryNumber(String str) {
