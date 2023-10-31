@@ -15,6 +15,7 @@
 - wrong Input : IllegalArgumentException 발생 -> 애플리케이션 종료
 ## InGame : Controller 자동차 경주 게임
 - 전
+- create carList by CarName, Round
   - class Car
     - 멤버 변수
       - (name) final String

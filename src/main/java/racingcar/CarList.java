@@ -5,9 +5,11 @@ import java.util.List;
 
 public class CarList {
     final List<Car> carList = new ArrayList<>();
+    int round = 0;
 
-    public CarList(List<String> carNameSplit) {
-        for(String carName : carNameSplit){
+    public CarList(int round, List<String> carNameSplit) {
+        this.round = round;
+        for(String carName : carNameSplit) {
             this.carList.add(new Car(carName));
         }
     }
