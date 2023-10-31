@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Round {
     private List<CarDTO> roundResult;
 
-    protected void startRace(List<Car> cars) {
+    public void startRace(List<Car> cars) {
         cars.forEach(Car::startEngine);
     }
 
