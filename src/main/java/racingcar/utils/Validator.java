@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-    public static String validateNames(String names) {
+    public static void validateNames(String names) {
         String[] CarNames = names.split(",");
 
         if (names.isBlank()) {
@@ -19,8 +19,6 @@ public class Validator {
         for (String name : CarNames) {
             validateName(name);
         }
-
-        return names;
     }
 
     public static void validateName(String name) {
@@ -32,7 +30,7 @@ public class Validator {
         }
     }
 
-    public static String validateNumber(String number) {
+    public static void validateNumber(String number) {
         Matcher matcher = GameRuleNumbers.NUMBER_FORMAT.matcher(number);
         if (!matcher.matches()) {
             throw new IllegalArgumentException(Messages.ERROR_INCLUSION_STRING);
@@ -40,6 +38,5 @@ public class Validator {
         if (Integer.parseInt(number) < 1) {
             throw new IllegalArgumentException(Messages.ERROR_NUMBER_SMALL);
         }
-        return number;
     }
 }

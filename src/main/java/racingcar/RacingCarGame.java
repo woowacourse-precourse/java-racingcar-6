@@ -14,15 +14,11 @@ public class RacingCarGame {
         RacingCarInputView racingCarInputView = new RacingCarInputView();
 
         String names = racingCarInputView.carNameInput();
-        if (!Validator.validateNames(names).equals(names)) {
-            return;
-        }
+        Validator.validateNames(names);
         createCars(names);
 
         String number = racingCarInputView.carNumberInput();
-        if (!Validator.validateNumber(number).equals(number)) {
-            return;
-        }
+        Validator.validateNumber(number);
         iterNumber = Integer.parseInt(number);
 
         RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
