@@ -13,9 +13,8 @@ public class Game {
         OutputView.startGame();
         cars = new Cars(InputView.readCarNames());
         askGameRounds();
-        OutputView.startGameResult();
         startRace();
-        result();
+        getWinners();
     }
 
     private void askGameRounds(){
@@ -24,13 +23,14 @@ public class Game {
     }
 
     private void startRace(){
-        for(int count = STARTING_POINT.getValue(); count < round; count++){
+        OutputView.startGameResult();
+        for (int count = STARTING_POINT.getValue(); count < round; count++) {
             cars.roundRace();
             OutputView.theEndOfRound();
         }
     }
 
-    private void result(){
+    private void getWinners(){
         cars.getWinners();
     }
 }
