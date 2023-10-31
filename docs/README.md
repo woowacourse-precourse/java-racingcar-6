@@ -134,7 +134,12 @@
 
 ![test-case-success-intelliJ](./images/test-case-success-intelliJ.png)
 
+## 클래스 다이어그램
+
+![class-diagram](./images/class-diagram.png)
+
 ## 제약 조건 (체크리스트)
+
 - [x] 인덴트 깊이가 3을 넘지 않도록 구현했는가? (2까지는 허용)
 - [x] 3항 연산자를 사용하지 않았는가?
 - [x] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들었는가?
