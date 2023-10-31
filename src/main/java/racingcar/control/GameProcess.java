@@ -9,6 +9,8 @@ import racingcar.utill.ValidException;
 import java.util.*;
 
 public class GameProcess {
+    private static final String COMMA_REGEX = ",";
+    private static final String COMMA_BLANK_DELIMITER = ", ";
     Map<RaceCar, String> raceCarMap;
     private List<RaceCar> raceCarList;
     private String nameLineOfRaceCar;
@@ -66,7 +68,7 @@ public class GameProcess {
     private void makeCarNameListFromStrLine() {
         String[] nameSplitArr = null;
 
-        nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, ",");
+        nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, COMMA_REGEX);
         nameSplitList = Utill.makeListFromArr(nameSplitArr);
     }
 
@@ -90,9 +92,8 @@ public class GameProcess {
         return nameOfWinner;
     }
 
-
     private String getNameOfWinnerFromWinnerArr(String[] raceCarOfWinnerArr) {
-        return String.join(", ", raceCarOfWinnerArr);
+        return String.join(COMMA_BLANK_DELIMITER, raceCarOfWinnerArr);
     }
 
     private String[] makeNameArrFromWinnerList() {
