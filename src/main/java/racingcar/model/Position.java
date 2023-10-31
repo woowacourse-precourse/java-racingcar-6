@@ -15,4 +15,9 @@ public class Position {
     public int getPosition() {
         return this.position;
     }
+
+//    @Override
+//    public String toString() {
+//        return String.valueOf(position);
+//    }
 }

@@ -1,8 +1,13 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import racingcar.view.OutputView;
 
 public class Cars {
     private final List<Car> racingCars = new ArrayList<>();
@@ -16,7 +21,7 @@ public class Cars {
     public void run() {
         for (Car car : racingCars) {
             car.movePosition();
-            System.out.println(car.getStatusString());
+            OutputView.printString(car.getPositionString());
         }
     }
 
@@ -24,7 +29,7 @@ public class Cars {
         List<String> winnerNames = new ArrayList<>();
         for (Car car : racingCars) {
             if (car.isWinnerCondition(getMaxScore())) {
-                winnerNames.add(car.getName());
+                winnerNames.add(car.toString());
             }
         }
         return winnerNames;

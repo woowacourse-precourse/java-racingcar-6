@@ -12,7 +12,7 @@ import racingcar.model.RandomNumber;
 public class PositionTest {
     @ParameterizedTest
     @CsvSource(value = {"4:true", "3:false", "0:false"}, delimiter = ':')
-    void isMovable_성공(int number,boolean expected){
+    void isMovable_성공(int number, boolean expected) {
         RandomNumber r = new RandomNumber(number);
         assertThat(r.isMovable()).isEqualTo(expected);
     }

@@ -9,6 +9,7 @@ import racingcar.view.OutputView;
 public class Game {
     private static final String GET_RESULT_STRING = "실행 결과";
     private static final String FINAL_WINNER_STRING = "최종 우승자 : ";
+    private static final String NO_WINNER_STRING = "최종 우승자가 없습니다!";
 
     public void start() {
         OutputView.printStartMessage();
@@ -28,7 +29,7 @@ public class Game {
 
     private static String getWinnerString(List<String> winners) {
         if (winners.size() <1) {
-            return "최종 우승자가 없습니다!";
+            return NO_WINNER_STRING;
         }
 
         StringBuilder sb = new StringBuilder();

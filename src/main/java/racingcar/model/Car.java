@@ -16,15 +16,6 @@ public class Car {
         }
     }
 
-    public String getStatusString() {
-        String postionString = "";
-        for (int i = 0; i < position.getPosition(); i++) {
-            postionString += "-";
-        }
-        StringBuilder sb = new StringBuilder();
-        return sb.append(name).append(" : ").append(postionString).toString();
-    }
-
     public boolean isWinnerCondition(int maxScore) {
         return position.getPosition() == maxScore && position.getPosition() > 0;
     }
@@ -33,7 +24,21 @@ public class Car {
         return position.getPosition();
     }
 
-    public String getName() {
+    @Override
+    public String toString() {
         return name.toString();
+    }
+
+    public String getPositionString() {
+        String positionString = makePositionString("");
+        StringBuilder sb = new StringBuilder();
+        return sb.append(name).append(" : ").append(positionString).toString();
+    }
+
+    private String makePositionString(String string) {
+        for (int i = 0; i < position.getPosition(); i++) {
+            string += "-";
+        }
+        return string;
     }
 }
