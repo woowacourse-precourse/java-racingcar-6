@@ -25,4 +25,8 @@ public class Player {
     public String getName(int memberNum){
         return member.get(memberNum);
     }
+
+    public List<String> getPlayer(){
+        return member;
+    }
 }
