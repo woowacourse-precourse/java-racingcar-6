@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -18,15 +19,16 @@ public class Application {
             goTime.add(0);
         }
         System.out.println("시도할 회수는 몇회인가요?");
-        Integer runTime = Integer.parseInt(readLine());
+        int runTime = Integer.parseInt(readLine());
         System.out.println();
         System.out.println("실행 결과");
         for(int i=0; i<runTime; i++){
             for(int j=0; j< car.size(); j++){
-                goTime.set(i,randGo(goTime.get(i)));
+                goTime.set(j,randGo(goTime.get(j)));
             }
             printCar(car,goTime);
         }
+        topCar(car,goTime);
     }
     public static Integer randGo(Integer go){
         Integer num = pickNumberInRange(0,9);
@@ -45,5 +47,26 @@ public class Application {
             System.out.println();
         }
         System.out.println();
+    }
+    public static void topCar(ArrayList<String> car, ArrayList<Integer> goTime){
+        List<Integer> maxIndex = new ArrayList<>();
+        int min = Integer.MIN_VALUE;
+        for(int i=0; i< car.size(); i++){
+            int temp = goTime.get(i);
+            if(temp > min){
+                min = temp;
+                maxIndex.clear();
+                maxIndex.add(i);
+            } else if(temp == min){
+                maxIndex.add(i);
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        for(int i=0; i< maxIndex.size();i++){
+            System.out.print(car.get(maxIndex.get(i)));
+            if(i<(maxIndex.size()-1)){
+                System.out.print(",");
+            }
+        }
     }
 }
