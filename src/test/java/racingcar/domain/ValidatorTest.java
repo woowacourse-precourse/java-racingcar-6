@@ -43,7 +43,7 @@ class ValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"mickey,mickey,minnie"})
+    @ValueSource(strings = {"test1,test1,test2"})
     void 중복된_이름(String input) {
         assertThrows(IllegalArgumentException.class, () -> validator.validateUniqueName(input));
     }
