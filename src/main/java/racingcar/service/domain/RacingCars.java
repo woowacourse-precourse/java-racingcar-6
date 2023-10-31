@@ -11,11 +11,15 @@ import java.util.stream.Collectors;
 // TODO: getter 없애도록 고민해볼 것
 public class RacingCars {
     private static final String DUPLICATE_EXISTS = "중복된 이름이 존재합니다.";
+    private static final String OUT_OF_CAPACITY = "자동차 개수 범위가 맞지 않습니다.";
+    private static final int MIN_CAPACITY = 2;
+    private static final int MAX_CAPACITY = 10;
     private final List<Car> cars;
 
     public RacingCars(List<String> carNames, Engine engine) {
         List<Car> cars = mapToCarList(carNames, engine);
         validateDuplicate(cars, carNames);
+        validateTotalCount(cars);
         this.cars = cars;
     }
 
@@ -29,6 +33,12 @@ public class RacingCars {
     private void validateDuplicate(List<Car> cars, List<String> carNames) {
         if (cars.size() != carNames.size()) {
             throw new IllegalArgumentException(DUPLICATE_EXISTS);
+        }
+    }
+
+    private void validateTotalCount(List<Car> cars) {
+        if (cars.size() < MIN_CAPACITY || cars.size() > MAX_CAPACITY) {
+            throw new IllegalArgumentException(OUT_OF_CAPACITY);
         }
     }
 
