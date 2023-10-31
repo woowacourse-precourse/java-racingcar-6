@@ -30,6 +30,59 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 콤마_문자열_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 빈문자열_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 빈문자열_종료_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 빈문자열_시작_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",woni,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 게임_라운드_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 게임_라운드_숫자_아닌_경우_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "abc"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 게임_라운드_빈_문자열_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", " "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+
+
 
     @Override
     public void runMain() {
