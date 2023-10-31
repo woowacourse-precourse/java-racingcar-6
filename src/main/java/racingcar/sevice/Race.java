@@ -1,7 +1,11 @@
-package racingcar;
+package racingcar.sevice;
+
+import racingcar.util.OutputManager;
+import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Race {
 

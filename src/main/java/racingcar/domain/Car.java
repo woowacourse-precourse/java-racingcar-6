@@ -1,8 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.Random;
 
 public class Car {
     private final String name;
