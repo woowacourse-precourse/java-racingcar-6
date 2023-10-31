@@ -1,8 +1,8 @@
-package racingcar.type;
+package racingcar.common;
 
 import java.util.List;
 
-import static racingcar.type.ExceptionConstants.*;
+import static racingcar.common.ExceptionConstants.*;
 import static racingcar.util.TextUtil.hasDuplicates;
 import static racingcar.util.TextUtil.isOverLength;
 

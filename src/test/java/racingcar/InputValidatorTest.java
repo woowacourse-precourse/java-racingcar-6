@@ -2,7 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.type.InputValidator;
+import racingcar.common.InputValidator;
 
 import java.util.List;
 

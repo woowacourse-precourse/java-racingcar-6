@@ -1,4 +1,4 @@
-package racingcar.type;
+package racingcar.common;
 
 /**
  * @Enum : 자동차 경주의 출력 메세지 타입

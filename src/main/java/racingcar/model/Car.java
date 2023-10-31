@@ -2,8 +2,8 @@ package racingcar.model;
 
 import org.junit.platform.commons.util.StringUtils;
 
-import static racingcar.type.ExceptionConstants.*;
-import static racingcar.type.MessageType.*;
+import static racingcar.common.ExceptionConstants.*;
+import static racingcar.common.MessageType.*;
 
 /**
  * @Class : 자동차 클래스

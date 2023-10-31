@@ -3,13 +3,13 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
-import racingcar.type.MessageType;
+import racingcar.common.MessageType;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.type.InputValidator.*;
-import static racingcar.type.MessageType.*;
+import static racingcar.common.InputValidator.*;
+import static racingcar.common.MessageType.*;
 import static racingcar.util.TextUtil.*;
 
 /**

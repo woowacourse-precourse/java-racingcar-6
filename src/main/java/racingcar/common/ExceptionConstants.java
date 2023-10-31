@@ -1,4 +1,4 @@
-package racingcar.type;
+package racingcar.common;
 
 /**
  * @Class : 예외 메세지 상수 클래스
