@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Set;
 import racingcar.view.dto.CarNameList;
 import racingcar.service.dto.GameResult;
 import racingcar.exception.BusinessException;
