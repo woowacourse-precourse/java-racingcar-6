@@ -40,4 +40,16 @@ public class UserInputNameTest {
             Assertions.assertEquals(Message.NAME_INPUT_NULL_ERROR, e.getMessage());
         }
     }
+
+    @Test
+    void 이름_형식_아무_입력이_없는_경우() {
+        String input_names = "";
+
+        try {
+            Controller.convertStringToArrayList(input_names);
+        } catch (IllegalArgumentException e) {
+            System.out.println("이름 형식에 아무런 입력이 없는 경우 : " + e.getMessage());
+            Assertions.assertEquals(Message.NAME_INPUT_NULL_ERROR, e.getMessage());
+        }
+    }
 }
