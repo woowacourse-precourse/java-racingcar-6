@@ -10,7 +10,7 @@ public class NumberGenerator implements Generator {
     }
 
     @Override
-    public int getNumber() {
+    public int generate() {
         return this.number;
     }
 }

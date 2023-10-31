@@ -46,7 +46,7 @@ public class Cars {
     public Cars simulateNextRound(Generator generator) {
         return new Cars(
                 cars.stream()
-                        .map(car -> car.move(generator.getNumber()))
+                        .map(car -> car.move(generator.generate()))
                         .collect(Collectors.toList())
         );
     }

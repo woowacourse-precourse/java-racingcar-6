@@ -14,7 +14,7 @@ public class NumberGeneratorTest {
     @DisplayName("범위안의 수를 생성한다.")
     void should_GenerateNumber1To9(int number) {
         NumberGenerator generator = new NumberGenerator(number);
-        int num = generator.getNumber();
+        int num = generator.generate();
         assertThat(num).isEqualTo(number);
     }
 }
