@@ -1,6 +1,6 @@
 package racingcar;
 
-public class RepeatRacing {
+public class DoRacing {
 
     private String[] carNames;
     private int carNumber;
@@ -16,12 +16,12 @@ public class RepeatRacing {
 
         moveCar = new MoveCar();
 
-        doRacing(racingInfo.racingTimes);
+        doTotalRacing(racingInfo.racingTimes);
 
         return statusCarMovement;
     }
 
-    public void doRacing(int racingTimes) {
+    public void doTotalRacing(int racingTimes) {
         System.out.println("\n실행 결과");
         for (int i = 0; i < racingTimes; i++) {
             moveCarsOneTime();

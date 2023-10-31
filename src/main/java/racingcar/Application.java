@@ -5,12 +5,12 @@ public class Application {
     public static void main(String[] args) {
 
         // 경기 시작 전
-        InputRacingInfo inputRacingInfo = new InputRacingInfo();
-        RacingInfo racingInfo = inputRacingInfo.createRacingInfo();
+        RequestRacing requestRacing = new RequestRacing();
+        RacingInfo racingInfo = requestRacing.createRacingInfo();
 
         // 경기 진행
-        RepeatRacing repeatRacing = new RepeatRacing();
-        int[] statusCarMovement = repeatRacing.startRacing(racingInfo);
+        DoRacing doRacing = new DoRacing();
+        int[] statusCarMovement = doRacing.startRacing(racingInfo);
 
         // 경기 종료 후
         FindWinner findWinner = new FindWinner();

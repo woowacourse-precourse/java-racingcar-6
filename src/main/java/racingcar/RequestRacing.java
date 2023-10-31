@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputRacingInfo {
+public class RequestRacing {
 
     public RacingInfo createRacingInfo() {
         return new RacingInfo(requestCarNames(), requestRacingTimes());
