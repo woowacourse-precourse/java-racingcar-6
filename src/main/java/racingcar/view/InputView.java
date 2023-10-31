@@ -21,7 +21,14 @@ public class InputView {
         String userInput = readUserInput();
         carNamesInputValidator.validate(userInput);
         String[] carNames = userInput.split(InputConstant.INPUT_CAR_NAMES_DELIMITER);
+        trimCarNames(carNames);
         return new CarNameList(carNames);
+    }
+
+    private void trimCarNames(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
+        }
     }
 
     public NumberOfGames getNumberOfGamesFromUser() {
