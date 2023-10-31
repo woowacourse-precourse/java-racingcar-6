@@ -11,6 +11,10 @@ import racingcar.io.views.RacingGameView;
 public class Application {
 
     public static void main(String[] args) {
+        executeRacingGameApplication();
+    }
+
+    private static void executeRacingGameApplication() {
         try {
             RacingGame racingGame = getRacingGame();
             racingGame.play();
