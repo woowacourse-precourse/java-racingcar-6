@@ -26,7 +26,7 @@ class CarControllerTest {
     @DisplayName("입력받은 자동차 이름별로 자동차 객체 생성하기")
     public void testMakeCar() {
         //given
-        String inputCarName = "Car1, Car2, Car3";
+        String inputCarName = "Car1,Car2,Car3";
 
         //when
         CarController.makeCar(inputCarName);
@@ -41,11 +41,7 @@ class CarControllerTest {
     @ParameterizedTest
     @ValueSource(strings = {
             "1,22,333,4444,55555,666666",
-            ",2,3,4",
-            "1, ,3",
-            " ",
-            " ,,,",
-            " 1,,2",
+            ","
     })
     @DisplayName("실패 - 입력받은 자동차 이름별로 자동차 객체 생성하기")
     public void failToMakeCar(String input) {

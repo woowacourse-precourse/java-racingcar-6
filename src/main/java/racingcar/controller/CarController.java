@@ -19,8 +19,8 @@ public class CarController {
 
     private static void addCarsToList(String[] carNames) {
         for (int i = 0; i < carNames.length; i++) {
-            String carName = carNames[i].trim();
-            Validation.valiCarName(carName.trim());
+            String carName = carNames[i];
+            Validation.valiCarName(carName);
             cars.add(new Car(carName));
         }
     }

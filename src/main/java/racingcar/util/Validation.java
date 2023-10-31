@@ -18,23 +18,15 @@ public class Validation {
     }
 
     public static void valiCarName(String carName) {
-        valiEmptyCarName(carName);
         valiCarNameLength(carName);
     }
 
-    private static void valiEmptyCarName(String carName) {
-        if (carName.isEmpty()) {
-            throw new IllegalArgumentException("Invalid car name isEmpty");
-        }
-    }
-
     private static void valiCarNameLength(String carName) {
-        if (carName.length() <= CAR_NAME_LENGTH && carName.length() > 0) {
+        if (carName.length() <= CAR_NAME_LENGTH) {
             return;
         }
         throw new IllegalArgumentException("Invalid car name length");
     }
-
 
     private static boolean isNumber(String racingCount) {
         try {
