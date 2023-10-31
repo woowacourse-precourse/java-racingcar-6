@@ -1,12 +1,16 @@
 package service;
 
+import static service.RandomNumber.getRandomNumber;
+
 import java.util.Collections;
 import java.util.List;
 
 public record Cars(List<Car> car) {
 
     public void go() {
-        car.forEach(Car::go);
+        car.forEach(car -> {
+            car.go(getRandomNumber());
+        });
     }
 
     public List<String> determineWinner() {
