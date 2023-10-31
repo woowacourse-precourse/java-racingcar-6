@@ -1,0 +1,57 @@
+#  🚗 java-racingcar 🚗
+<div align="center">
+
+<p align="center"><img src="data:image/png;base64,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" height="300px" width="300px"></p>
+
+
+ ### 🚥 racingcar Application 🚦
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
+ <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/>
+
+</div>
+
+## 🚗 자동차 경주 게임
+이 프로젝트는 Java를 사용하여 구현된 자동차 경주 게임입니다. 이 게임은 여러 자동차가 경주를 벌이며, 특정 규칙에 따라 승자를 결정하는 간단한 콘솔 기반 게임입니다.
+  
+## 🚀 게임 규칙
+1. **자동차 이름 부여**
+   - 사용자는 경주에 참가할 자동차에 이름을 부여한다.
+   - 각 자동차의 이름은 쉼표(,)를 기준으로 구분되며, 이름은 최대 5자까지 허용
+2. **이동 횟수 설정**
+   - 사용자는 경주할 자동차들이 얼마나 많은 이동을 할지 설정
+   - 정수를 입력하고 잘못된 값을 입력할 경우 IllegalArgumentException을 발생 시킨 후 종료
+3. **자동차 이동 조건**
+   - 각 자동차는 0 에서 9 사이에 무작위 값을 생성
+   - 무작위 값이 4 이상인 경우, 자동차 전진
+4. **우승자 결정**
+   - 게임이 종료된 후, 가장 멀리 나아간 자동차가 우승
+   - 거리가 같은 경우, 동시 우승자 발생 가능
+5. **잘못된 입력 처리**
+   - 사용자가 부적절한 값을 입력할 경우, IllegalArgumentException을 발생 시킨 후 종료
+<br/>
+
+## ⚾ 숫자 야구 게임 기능 목록
+1. **Car 클래스**
+   - <b>Car</b> 클래스는 자동차를 정보를 관리
+   - 주요 멤버 변수로 자동차의 이름과 현재 위치를 가짐
+   - 생성자를 통해 자동차의 이름 초기화, 위치 0 으로 초기화
+   - <b>move</b>메서드는 랜덤한 값에 따라 자동차를 전진시키는 역할
+2. **Race 클래스**
+   - <b>Race</b> 클래스는 경주를 관리하고 수행하는 역할
+   - 생성자를 통해 자동차 목록 초기화
+   - <b>runRace</b> 메서드는 입력받은 횟수만큼 경주를 시뮬레이션. 랜덤 값을 생성하여 자동차를 움직이고, 경주 상태 출력
+   - <b>getWinners</b> 메서드는 모든 경주가 종료된 후 가장 멀리 나간 자동차를 결정하고 우승자 선정
+3. **Utils 클래스**
+   - <b>Utils</b> 클래스는 다양한 유틸리티 메서드를 제공
+   - <b>parseInput</b> 메서드는 사용자로부터 입력받은 자동차 이름을 쉼표(,)로 구분하여 리스트로 반환
+   - <b>formatWinners</b> 메서드는 우승자 목록을 받아 문자열로 형식화
+4. **Application 클래스**
+   - <b>Application</b> 클래스는 프로그램의 진입점
+   - <b>main</b> 메서드는 프로그램 실행의 시작점, 사용자로부터 입력을 받고 경주를 수행, 우승자를 출력
+<br/>
+
+## ⚙️ 개발환경 및 언어
+  - git 
+  - vs code
+  - java 언어
