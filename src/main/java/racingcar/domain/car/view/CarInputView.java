@@ -37,8 +37,25 @@ public class CarInputView {
     public int getTryCount() {
         printTryCount();
         String tryCount = Console.readLine();
-        checkIsDigit(tryCount);
+        checkTryCountIsValid(tryCount);
         return Integer.parseInt(tryCount);
+    }
+
+    private void checkTryCountIsValid(String tryCount) {
+        checkIsDigit(tryCount);
+        checkRange(tryCount);
+    }
+
+    private void checkRange(String tryCount) {
+        if (isTryCountPositive(tryCount)) {
+            return;
+        }
+
+        throw new IllegalArgumentException(TRY_COUNT_IS_NOT_POSITIVE.getErrorMessage());
+    }
+
+    private boolean isTryCountPositive(String tryCount) {
+        return Integer.parseInt(tryCount) > 0;
     }
 
     private void checkIsDigit(String userInput) {
