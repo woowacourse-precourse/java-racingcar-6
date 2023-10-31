@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.CarController;
 import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
+import racingcar.domain.Referee;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
@@ -12,20 +13,28 @@ public class GameController {
 
     private final CarController carController;
 
+    private final Referee referee;
+
+    private Cars cars;
+
     public GameController() {
         carFactory = new CarFactory();
         carController = new CarController();
+        referee = new Referee();
     }
 
     public void play() {
+        setConfiguration();
         startRacing();
         showWinner();
     }
 
-    public void startRacing() {
-        Cars cars = carFactory.produceCars(Input.inputCarName());
+    public void setConfiguration() {
+        cars = carFactory.produceCars(Input.inputCarName());
         carController.setStatus(cars, Input.inputMoveChance());
+    }
 
+    public void startRacing() {
         while (carController.checkMoveChance()) {
             carController.moveCars();
 
@@ -36,6 +45,6 @@ public class GameController {
     }
 
     public void showWinner() {
-        Output.winnerMessage(carController.findWinner());
+        Output.winnerMessage(referee.findWinner(cars));
     }
 }
