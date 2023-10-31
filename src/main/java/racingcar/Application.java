@@ -24,6 +24,12 @@ public class Application {
             i++;
         }
 
+        while (attempts != 0) { // 입력받은 시도 횟수만큼 실행
+            raceGameManager.noticeRacingResult(carNameList, Generator);
+            attempts--;
+        }
+
+
 
 
     }
