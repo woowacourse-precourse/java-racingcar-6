@@ -1,7 +1,8 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,63 +14,47 @@ class RaceResultTest {
     private MovementStrategy movementStrategy;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         movementStrategy = MovementStrategyFactory.createDefault();
     }
+
     @Test
     void 모든_자동차_거리가_다른_경우_winner() {
-        List<Car> carList = Arrays.asList(
-            new Car("a", 1,movementStrategy),
-            new Car("b", 2, movementStrategy),
-            new Car("c", 3, movementStrategy)
-        );
-        Cars cars = new Cars(carList);
-        RaceResult raceResult = new RaceResult(cars);
-        List<String> result = raceResult.getWinners();
-        List<String> expected = Arrays.asList("c");
-        assertEquals(expected, result);
+        List<Car> carList = createCars(1, 2, 3);
+        assertWinners(carList, Arrays.asList("c"));
     }
 
     @Test
     void 모든_자동차_거리가_같은_경우_winner() {
-        List<Car> carList = Arrays.asList(
-            new Car("a", 1, movementStrategy),
-            new Car("b", 1, movementStrategy),
-            new Car("c", 1, movementStrategy)
-        );
-        Cars cars = new Cars(carList);
-        RaceResult raceResult = new RaceResult(cars);
-        List<String> result = raceResult.getWinners();
-        List<String> expected = Arrays.asList("a", "b", "c");
-        assertEquals(expected, result);
+        List<Car> carList = createCars(1, 1, 1);
+        assertWinners(carList, Arrays.asList("a", "b", "c"));
     }
 
     @Test
     void 일부_자동차_거리가_같은_경우_winner() {
-        List<Car> carList = Arrays.asList(
-            new Car("a", 3, movementStrategy),
-            new Car("b", 1, movementStrategy),
-            new Car("c", 3, movementStrategy)
-        );
-        Cars cars = new Cars(carList);
-        RaceResult raceResult = new RaceResult(cars);
-        List<String> result = raceResult.getWinners();
-        List<String> expected = Arrays.asList("a", "c");
-        assertEquals(expected, result);
+        List<Car> carList = createCars(3, 1, 3);
+        assertWinners(carList, Arrays.asList("a", "c"));
     }
 
     @Test
     void 일부_자동차_거리가_같은_경우_winner2() {
-        List<Car> carList = Arrays.asList(
-            new Car("a", 3, movementStrategy),
-            new Car("b", 1, movementStrategy),
-            new Car("c", 1, movementStrategy)
-        );
+        List<Car> carList = createCars(3, 1, 1);
+        assertWinners(carList, Arrays.asList("a"));
+    }
+
+    private List<Car> createCars(int... distances) {
+        String[] names = {"a", "b", "c"};
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < distances.length; i++) {
+            carList.add(new Car(names[i], distances[i], movementStrategy));
+        }
+        return carList;
+    }
+
+    private void assertWinners(List<Car> carList, List<String> expected) {
         Cars cars = new Cars(carList);
         RaceResult raceResult = new RaceResult(cars);
         List<String> result = raceResult.getWinners();
-        List<String> expected = Arrays.asList("a");
-        assertEquals(expected, result);
+        assertThat(result).containsExactlyInAnyOrderElementsOf(expected);
     }
-
 }
