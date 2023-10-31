@@ -29,6 +29,4 @@ public class CarTest {
         assertTrue(isRandomNumberGeneratedProperly);
     }
 
-
-
 }
