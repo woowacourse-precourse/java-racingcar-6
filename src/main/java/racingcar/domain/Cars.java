@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import racingcar.util.Generator;
-import racingcar.view.OutputView;
 
 public class Cars {
     private static final String RESULT_DELIMITER = "\n";
@@ -29,13 +28,12 @@ public class Cars {
         return cars;
     }
 
-    public void tryMovements() {
+    public String tryMovements() {
         cars.forEach(car -> {
             int number = Generator.createRandomNumber();
             car.judgeNumberToGo(number);
         });
-
-        OutputView.printUpdatedResult(updateResult());
+        return updateResult();
     }
 
     public String updateResult() {
