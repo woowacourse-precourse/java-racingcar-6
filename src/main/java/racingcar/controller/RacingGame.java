@@ -1,4 +1,4 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.CarInfo;
