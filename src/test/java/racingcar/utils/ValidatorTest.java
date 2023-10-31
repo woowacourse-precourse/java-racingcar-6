@@ -94,4 +94,15 @@ class ValidatorTest {
             Validator.checkTryCountNumber(nullTryCount);
         });
     }
+
+    @Test
+    void testCheckCarNameLength() {
+        List<String> validCarNames = List.of("Audi", "BMW", "Ford");
+        Validator.checkCarNameLength(validCarNames);
+
+        List<String> invalidCarNames = List.of("Mercedes", "Toyota123");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkCarNameLength(invalidCarNames);
+        });
+    }
 }

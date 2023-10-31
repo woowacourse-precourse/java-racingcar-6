@@ -60,6 +60,5 @@ public class Validator {
         if (number < 1) {
             throw new IllegalArgumentException("입력한 숫자는 1 이상이어야 합니다.");
         }
-
     }
 }
