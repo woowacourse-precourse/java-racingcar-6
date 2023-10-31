@@ -20,10 +20,6 @@ public class MakeNames {
         List<String> names;
         String[] tmpNames;
 
-        if (commaCheck(originalStr) != 2){
-            throw new IllegalArgumentException();
-        }
-
         tmpNames = originalStr.split(",");
         names = new ArrayList<String>(Arrays.asList(tmpNames));
         return names;
