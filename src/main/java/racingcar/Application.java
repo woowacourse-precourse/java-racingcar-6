@@ -79,11 +79,11 @@ public class Application {
     private static void generateRacer(List<String> racerNameList){
         racerNameList.stream()
                 .forEach(racerName->{
-                    generateRacerByInputValue(racerName);
+                    generateRacerByInputValue().generateRacerByInputValue(racerName);
                 });
     }
-    private static GenerateRacer generateRacerByInputValue(String inputValue){
-        return (racerName)-> Racer.getInstance(inputValue);
+    private static GenerateRacer generateRacerByInputValue(){
+        return Racer::getInstance;
     }
 
     private static void generateRacingResult(){
