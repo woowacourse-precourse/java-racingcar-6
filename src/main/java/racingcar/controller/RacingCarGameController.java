@@ -3,11 +3,14 @@ package racingcar.controller;
 import java.util.LinkedList;
 import java.util.List;
 import racingcar.model.Player;
+import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
 
-    public RacingCarGameController() {
+    private final RacingCarGameView racingCarGameView;
 
+    public RacingCarGameController(RacingCarGameView racingCarGameView) {
+        this.racingCarGameView = racingCarGameView;
     }
 
     public void run() {
