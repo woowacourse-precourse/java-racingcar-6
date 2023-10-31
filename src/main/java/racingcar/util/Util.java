@@ -18,11 +18,11 @@ public class Util {
 
     public static String getDash(int position)
     {
-        String dash ="";
-        for(int i=0; i<position ;i++){
-            dash +="-";
+        StringBuilder dash = new StringBuilder();
+        for(int i=0; i<position; i++){
+            dash.append("-");
         }
-        return dash;
+        return  dash.toString();
     }
 
     private int getPositionMax(List<Car> carList){
