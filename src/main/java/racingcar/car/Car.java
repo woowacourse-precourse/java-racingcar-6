@@ -7,8 +7,8 @@ public class Car {
     private int distance;
     private boolean canMove;
 
-    public Car(String name) {
-        checkValidCarName(name);
+    public Car(String name) throws IllegalArgumentException {
+        if (checkValidCarName(name)) throw new IllegalArgumentException();
 
         this.name = name;
         this.distance = 0;
@@ -20,7 +20,7 @@ public class Car {
     }
 
     private boolean checkValidCarName(String carName) {
-        if (!checkLengthOfName(carName)) return false;
+        if (checkLengthOfName(carName)) return false;
 
         return true;
     }
