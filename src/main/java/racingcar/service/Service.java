@@ -1,15 +1,12 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Car;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class RaceService {
+public class Service {
 
     private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
 
     private final OutputView outputView = new OutputView();
 
