@@ -4,12 +4,17 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class OutputView {
+    private static final OutputView outputview = new OutputView();
     private static final String POSITION_SEPERATOR = "-";
     private static final String OUTPUT_RESULT_MESSAGE = "실행 결과";
     private static final String OUTPUT_RESULT_FORMAT = "%s : %s\n";
     private static final String OUTPUT_WINNERS = "최종 우승자 : %s";
 
     private OutputView() {
+    }
+
+    public static OutputView getOutputview() {
+        return outputview;
     }
 
     public void printResultMessage() {
