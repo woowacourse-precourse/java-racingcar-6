@@ -16,7 +16,7 @@ public class RacingTest {
     }
 
     @Test
-    void testCarRacingGameStart() {
+    void 전진하라() {
         racing.carRacingGameStart();
     }
 }
