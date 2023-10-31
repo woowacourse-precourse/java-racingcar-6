@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.domain.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
+
 import java.util.Objects;
 import racingcar.domain.condition.MoveCondition;
 
@@ -13,7 +15,7 @@ public class RacingCar {
             this.moveCondition = moveCondition;
             return;
         }
-        throw new IllegalArgumentException("자동차 이름은 5글자 이하로만 입력할 수 있습니다.");
+        throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION);
     }
 
     @Override

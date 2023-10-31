@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.domain.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,5 +23,18 @@ public class RacingCarTest {
 
         // then
         assertThat(racingCar).isEqualTo(new RacingCar(given, moveCondition));
+    }
+
+    @ParameterizedTest
+    @DisplayName("자동차 이름이 5자라 넘으면 예외가 발생한다.")
+    @ValueSource(strings = {"suzhan", "&(&(12", "chanlee"})
+    void createRacingCarError(String given) {
+        // given
+        MoveCondition moveCondition = new MoveCondition();
+
+        // when //then
+        assertThatThrownBy(() -> new RacingCar(given, moveCondition))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION);
     }
 }
