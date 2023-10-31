@@ -85,8 +85,8 @@ public class Application {
         int maxMovement = Collections.max(carsStatus);
         StringBuilder winners = new StringBuilder();
         System.out.print("최종 우승자 : ");
-        for (int i=0;i<carsStatus.size();i++){
-            if(carsStatus.get(i) == maxMovement){
+        for (int i = 0; i < carsStatus.size(); i++) {
+            if (carsStatus.get(i) == maxMovement) {
                 winners.append(cars.get(i)).append(",");
             }
         }
@@ -97,8 +97,7 @@ public class Application {
         System.out.println(winners);
 
     }
-
-
+    
     public static void main(String[] args) {
         game();
     }
