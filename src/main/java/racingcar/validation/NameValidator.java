@@ -1,5 +1,6 @@
 package racingcar.validation;
 
+import java.util.List;
 import racingcar.model.vo.CarName;
 
 public class NameValidator {
@@ -8,9 +9,11 @@ public class NameValidator {
         hasComma(carNameString);
     }
 
-    public void validate(CarName carName) {
-        isLengthLessThan5(carName);
-        isBlank(carName);
+    public void validate(List<CarName> carNames) {
+        for (CarName carName : carNames) {
+            isLengthLessThan5(carName);
+            isBlank(carName);
+        }
     }
 
     private void hasComma(String carNames) {
