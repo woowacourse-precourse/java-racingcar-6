@@ -51,4 +51,12 @@ public class InputExceptionTest {
         assertThatThrownBy(() -> inputException.carsNameException(carsName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_이름이_중복될_때_IllegalArgumentException() {
+        String carsName = "jun,jun,sang";
+
+        assertThatThrownBy(() -> inputException.carsNameException(carsName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
