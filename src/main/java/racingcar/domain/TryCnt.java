@@ -4,10 +4,19 @@ public class TryCnt {
 
     private int tryCnt;
 
+    private TryCnt(int tryCnt) {
+        this.tryCnt = tryCnt;
+    }
 
-    public static void checkTryCount(String tryCnt) {
+    public TryCnt createTryCnt(String tryCnt) {
+        int num = checkTryCount(tryCnt);
+        return new TryCnt(num);
+    }
+
+    public static int checkTryCount(String tryCnt) {
         int num = checkTryCntIsNumber(tryCnt);
         checkTryCntIsPositive(num);
+        return  num;
     }
 
     private static int checkTryCntIsNumber(String string) {
@@ -18,6 +27,6 @@ public class TryCnt {
         }
     }
     private static void checkTryCntIsPositive(int tryCnt) {
-        if (tryCnt <= 0) throw new IllegalArgumentException("시도 횟수는 최소 1번 이상이어야 합니다.");
+        if (tryCnt <= 0) throw new IllegalArgumentException("시도 횟수는 양수여야 합니다.");
     }
 }
