@@ -34,6 +34,7 @@ public class Winner {
         for (CarDTO car : states) {
             if (car.getPosition() == farthest) {
                 String name = car.getName();
+
                 winners.add(name);
             }
         }

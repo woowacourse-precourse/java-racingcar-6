@@ -13,7 +13,6 @@ public class Round {
         this.result = result;
     }
 
-
     public RoundDTO toDTO() {
         int round = this.round;
         List<CarDTO> states = this.result;

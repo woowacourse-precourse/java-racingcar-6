@@ -27,6 +27,7 @@ public class Controller {
     private void createGameSession() {
         String[] cars = askAndGetCarList();
         int attempts = askAndGetAttempts();
+        
         game = new RacingGame(cars, attempts);
     }
 

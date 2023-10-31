@@ -9,21 +9,20 @@ import racingcar.dto.RoundDTO;
 public class RacingGame {
     private final CarManager manager = new CarManager();
     private final List<Round> rounds = new ArrayList<>();
-    private int CAR_AMOUNT, ROUND_MAX;
+    private int ROUND_MAX;
 
     public RacingGame(String[] cars, int round) {
-        this.CAR_AMOUNT = cars.length;
-        this.ROUND_MAX = round;
         manager.createAndAddCars(cars);
+        this.ROUND_MAX = round;
     }
 
 
     public List<RoundDTO> getRoundDTO() {
         List<RoundDTO> roundDTO = new ArrayList<>();
+
         for (Round round : rounds) {
             roundDTO.add(round.toDTO());
         }
-
         return roundDTO;
     }
 
@@ -36,7 +35,7 @@ public class RacingGame {
 
     // 라운드 진행 - car에게 각자 순서대로 이동 지시, 라운드 정보 저장
     private void playRound(int round) {
-        manager.tryToMoveCar(CAR_AMOUNT);
+        manager.tryToMoveCar();
         saveRoundStatus(round);
     }
 
