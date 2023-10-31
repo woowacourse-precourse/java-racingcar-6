@@ -28,7 +28,7 @@ public class InputValidator {
         }
     }
 
-    private static void printException(String msg) {
+    private void printException(String msg) {
         throw new IllegalArgumentException(msg);
     }
 }
