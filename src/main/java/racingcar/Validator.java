@@ -3,6 +3,8 @@ package racingcar;
 import java.util.List;
 
 public class Validator {
+    private static final int CAR_NAME_MIN = 1;
+    private static final int CAR_NAME_MAX = 5;
     public void checkListCarNames(List<String> carsName) throws IllegalArgumentException{
         checkListDuplication(carsName);
         checkCarNameLength(carsName);
@@ -10,8 +12,8 @@ public class Validator {
 
     private void checkCarNameLength(List<String> carsName){
         for(String carName : carsName){
-            if(5 < carName.length()){
-                throw new IllegalArgumentException("자동차 이름은 5 글자 이하여야 합니다");
+            if(CAR_NAME_MAX < carName.length()){
+                throw new IllegalArgumentException("자동차 이름은 " + CAR_NAME_MAX + " 글자 이하여야 합니다");
             }
         }
     }
@@ -43,7 +45,7 @@ public class Validator {
 
     private void checkLastIndex(String input){
         if(input.lastIndexOf(",") == input.length() - 1){
-            throw new IllegalArgumentException("자동차 이름은 0 글자 이상 입력해주세요");
+            throw new IllegalArgumentException("자동차 이름은 " + CAR_NAME_MIN + " 글자 이상 입력해주세요");
         }
     }
 
