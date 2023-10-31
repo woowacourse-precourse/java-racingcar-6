@@ -37,7 +37,7 @@ public final class RoundDtoValidator {
 
     // 숫자가 아닌 문자 케이스
     static Function<String, Void> validateNotNumber = roundInput -> {
-        if (roundInput.matches(".*[^0-9].*")) {
+        if (roundInput.matches("^(?!-?\\+\\d+$|-?\\d+$).*")) {
             throw new IllegalArgumentException(NOT_NUMBER_EXCEPTION_MESSAGE);
         }
         return null;

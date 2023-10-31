@@ -1,5 +1,6 @@
 package racingcar.domain.round;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -31,6 +32,7 @@ class RoundDtoValidatorTest {
         RoundDto prefixNumberStr = new RoundDto("1nin");
         RoundDto suffixNumberStr = new RoundDto("nin1");
         RoundDto middleNumberStr = new RoundDto("ni11n");
+        RoundDto specialChars = new RoundDto("!^()#@{}\"\\\\");
 
         // WHEN
         IllegalArgumentException onlyStringThrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -45,12 +47,16 @@ class RoundDtoValidatorTest {
         IllegalArgumentException middleNumberStrThrown = assertThrows(IllegalArgumentException.class, () -> {
             RoundDtoValidator.validateNotNumber.apply(middleNumberStr.roundInput());
         });
+        IllegalArgumentException specialCharsThrown = assertThrows(IllegalArgumentException.class, () -> {
+            RoundDtoValidator.validateNotNumber.apply(specialChars.roundInput());
+        });
 
         // THEN
         assertEquals(onlyStringThrown.getMessage(), RoundDtoValidator.NOT_NUMBER_EXCEPTION_MESSAGE);
         assertEquals(prefixNumberStrThrown.getMessage(), RoundDtoValidator.NOT_NUMBER_EXCEPTION_MESSAGE);
         assertEquals(suffixNumberStrThrown.getMessage(), RoundDtoValidator.NOT_NUMBER_EXCEPTION_MESSAGE);
         assertEquals(middleNumberStrThrown.getMessage(), RoundDtoValidator.NOT_NUMBER_EXCEPTION_MESSAGE);
+        assertEquals(specialCharsThrown.getMessage(), RoundDtoValidator.NOT_NUMBER_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -96,5 +102,20 @@ class RoundDtoValidatorTest {
         assertEquals(floatingNumberCaseThrown.getMessage(), RoundDtoValidator.NOT_INTEGER_EXCEPTION_MESSAGE);
         assertEquals(positiveFloatingNumberCaseThrown.getMessage(), RoundDtoValidator.NOT_INTEGER_EXCEPTION_MESSAGE);
         assertEquals(negativeFloatingNumberCaseThrown.getMessage(), RoundDtoValidator.NOT_INTEGER_EXCEPTION_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("+가 붙은 정수 혹은 일반 정수는 입력가능합니다.")
+    void acceptInteger() {
+        // GIVEN
+        RoundDto integerNumberCase = new RoundDto("3");
+        RoundDto integerWithPositiveSignCase = new RoundDto("+3");
+
+        // WHEN
+        // THEN
+        assertDoesNotThrow(() -> {
+            RoundDtoValidator.validateRoundDto(integerNumberCase);
+            RoundDtoValidator.validateRoundDto(integerWithPositiveSignCase);
+        });
     }
 }
