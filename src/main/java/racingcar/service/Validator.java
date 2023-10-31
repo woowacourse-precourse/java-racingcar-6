@@ -9,6 +9,7 @@ public class Validator {
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름의 길이가 5보다 큽니다.";
     private static final String NAME_SPACE_ERROR_MESSAGE = "이름에 공백이 존재합니다.";
     private static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
+    private static final String TRIAL_NUMBER_RANGE_ERROR_MESSAGE = "입력값은 0~9까지의 범위만 허용됩니다.";
     public void validateCarNames(List<String> input){
         validateNameLength(input);
         validateNameSpace(input);
@@ -41,8 +42,14 @@ public class Validator {
         validateNonIntTrialNumber(input);
         validateZeroTrialNumber(input);
         validateOverSizeTrialNumber(input);
-
     }
+    public void validateOverSizeTrialNumber(String input){
+        int trialNum = typeConverter.StringToInt(input);
+        if(trialNum > 9){
+            throw new IllegalArgumentException(TRIAL_NUMBER_RANGE_ERROR_MESSAGE);
+        }
+    }
+
 
 
 }
