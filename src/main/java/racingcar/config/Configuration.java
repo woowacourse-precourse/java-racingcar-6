@@ -17,14 +17,17 @@ import racingcar.view.OutputView;
 
 public class Configuration {
     public static GameController getGameController() {
-        StdReader stdReader = new InputReader();
-        StdWriter stdWriter = new OutputWriter();
-        OutputView outputView = new OutputView(stdWriter);
+        StdReader reader = new InputReader();
+        StdWriter writer = new OutputWriter();
+
+        OutputView outputView = new OutputView(writer);
         InputValidator inputValidator = new InputValidator();
         InputConverter inputConverter = new InputConverter(inputValidator);
-        InputView inputView = new InputView(stdReader, stdWriter, inputConverter);
+        InputView inputView = new InputView(reader, writer, inputConverter);
+
         NumberGenerator randomNumberGenerator = new RandomNumberGenerator(0, 9);
         MoveStrategy randomMoveStrategy = new RandomMoveStrategy(randomNumberGenerator);
+
         return new GameController(inputView, outputView, randomMoveStrategy);
     }
 
