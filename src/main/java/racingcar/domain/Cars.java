@@ -1,13 +1,12 @@
 package racingcar.domain;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private final Set<Car> cars = new HashSet<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public Cars(List<String> carNames) {
         this.cars.addAll(createCarsFromNames(carNames));
@@ -26,14 +25,15 @@ public class Cars {
         return cars.size();
     }
 
-    private Set<Car> createCarsFromNames(List<String> carNames) {
-        Set<Car> carSet = carNames.stream().distinct()
-                .map(name -> new Car(new Name(name))
-                ).collect(Collectors.toSet());
+    private List<Car> createCarsFromNames(List<String> carNames) {
+        List<Car> carList = carNames.stream()
+                .distinct()
+                .map(name -> new Car(new Name(name)))
+                .toList();
 
-        if (carNames.size() != carSet.size()) {
+        if (carList.size() != carNames.size()) {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
-        return carSet;
+        return carList;
     }
 }
