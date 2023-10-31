@@ -63,5 +63,15 @@ class ConverterTest extends NsTest{
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining(EMPTY_NAME_CASE_MESSAGE)
         );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,   crong", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EMPTY_NAME_CASE_MESSAGE)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("     pobi,crong", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EMPTY_NAME_CASE_MESSAGE)
+        );
     }
 }

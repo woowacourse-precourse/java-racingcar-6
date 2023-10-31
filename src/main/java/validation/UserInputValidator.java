@@ -7,10 +7,10 @@ import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
 public class UserInputValidator {
 
     public static void validateInput(String name) {
-        if (name.length() > NAME_LENGTH_LIMIT) {
-            throw new IllegalArgumentException(EXCEED_NAME_CASE_MESSAGE);
-        } if (name.isBlank()) {
+        if (name.contains(" ")) {
             throw new IllegalArgumentException(EMPTY_NAME_CASE_MESSAGE);
+        } else if (name.length() > NAME_LENGTH_LIMIT) {
+            throw new IllegalArgumentException(EXCEED_NAME_CASE_MESSAGE);
         }
     }
 }
