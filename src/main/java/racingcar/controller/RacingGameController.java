@@ -15,6 +15,15 @@ public class RacingGameController {
     public String inputCarName(){
         racingGameView.showCarNameInputMessage();
         String carName = Console.readLine();
+
         return carName;
+    }
+
+    // 2. 시도할 회수 입력받는 기능
+    public Integer inputTrialNumber(){
+        racingGameView.showTrialNumberInputMessage();
+        String inputValue = Console.readLine();
+
+        return Integer.valueOf(inputValue);
     }
 }
