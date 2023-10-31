@@ -43,7 +43,6 @@ public class RacingCar {
 				winners.add(players.get(i));
 			}
 		}
-		System.out.println(winners);
 		OutputView.printFinalRacingResults(winners);
 	}
 
