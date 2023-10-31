@@ -4,7 +4,7 @@ import static racingcar.constant.CarConstant.CAR_LIMIT_NAME_LENGTH;
 import static racingcar.constant.CarConstant.CAR_NAME_SPLIT_STRING;
 
 public enum ErrorMessage {
-    NOT_INTEGER("숫자만 입력가능합니다."),
+    NOT_POSITIVE_INTEGER("양의 정수만 입력가능합니다."),
     INVALID_NAME_LENGTH(String.format("이름 길이는 %d 이하만 가능합니다.", CAR_LIMIT_NAME_LENGTH)),
     CANT_FIND_MAX_VALUE("최대 위치를 찾을 수 없습니다."),
     BLANK_NAME("이름은 빈칸일 수 없습니다."),

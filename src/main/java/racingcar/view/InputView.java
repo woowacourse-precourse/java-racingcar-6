@@ -2,7 +2,7 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.constant.CarConstant.CAR_NAME_SPLIT_STRING;
-import static racingcar.exception.ErrorMessage.NOT_INTEGER;
+import static racingcar.exception.ErrorMessage.NOT_POSITIVE_INTEGER;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +42,7 @@ public class InputView {
 
     private void validateNumber(final String inputNumberString) {
         if (isNotNumber(inputNumberString)) {
-            throw RacingGameException.of(NOT_INTEGER);
+            throw RacingGameException.of(NOT_POSITIVE_INTEGER);
         }
 
     }
