@@ -58,7 +58,7 @@ class RoundTest {
 
     @Test
     @DisplayName("라운드 종료 후 전진 조건의 자동차의 이름과 위치 확인")
-    public void 라운드_종료_후_결과_반환() throws Exception {
+    public void 라운드_종료_후_결과_반환() {
         // given
         // 테스트 자동차 생성
         List<Car> cars = new ArrayList<>();
