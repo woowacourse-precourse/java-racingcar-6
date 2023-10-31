@@ -29,4 +29,24 @@ public class GameService {
         return gameConsoleIO.getMovingCount();
     }
 
+
+    private void executeEachMovingCount() {
+        //리스트의 자동차마다
+        for (Car car : cars) {
+            if (isForward()) {
+                car.goForward();
+            }
+            gameConsoleIO.printCarLocationByCarName(car.getName(), car.getLocation());
+        }
+    }
+
+    private boolean isForward() {
+        int randomNum = Randoms.pickNumberInRange(
+                GameCondition.MIN_RANDOM_NUM.getValue(),
+                GameCondition.MAX_RANDOM_NUM.getValue()
+        );
+
+        return randomNum >= GameCondition.MOVING_FORWARD_CONDITION.getValue();
+    }
+
 }
