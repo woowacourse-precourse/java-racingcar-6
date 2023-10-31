@@ -37,7 +37,7 @@ public class Car {
         return generatedRandomNumber() >= MOVE_CONDITION;
     }
 
-    protected int generatedRandomNumber() {
+    private int generatedRandomNumber() {
         return Randoms.pickNumberInRange(MIN, MAX);
     }
 }
