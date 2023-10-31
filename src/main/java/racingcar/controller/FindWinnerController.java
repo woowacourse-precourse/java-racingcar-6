@@ -9,28 +9,22 @@ public class FindWinnerController {
     private final List<Car> cars;
 
     public FindWinnerController(final List<Car> cars) {
-        
+
         this.cars = new ArrayList<>(cars);
     }
 
     public List<String> getWinners() {
-
-        sortedCarByAdvances();
         return findWinner();
     }
 
-    private void sortedCarByAdvances() {
-
-        cars.sort((o1, o2) -> o2.getCarAdvances() - o1.getCarAdvances());
+    private int getMaxPosition() {
+        return cars.stream().mapToInt(Car::getPosition).max().orElse(-1);
     }
 
     private List<String> findWinner() {
-
-        int maxAdvance = cars.get(0).getCarAdvances();
-
         return cars.stream()
-                .filter(car -> maxAdvance == car.getCarAdvances())
-                .map(Car::getCarName)
+                .filter(car -> getMaxPosition() == car.getPosition())
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }
