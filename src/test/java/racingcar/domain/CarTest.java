@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class CarTest {
 
     @Test
-    void 전진() {
+    void move_전진() {
         Car car = Car.of("test");
         assertRandomNumberInRangeTest(
                 () -> {
@@ -21,7 +21,7 @@ class CarTest {
     }
 
     @Test
-    void 정지() {
+    void move_정지() {
         Car car = Car.of("test");
         assertRandomNumberInRangeTest(
                 () -> {
@@ -33,7 +33,7 @@ class CarTest {
     }
 
     @Test
-    void 주어진_값으로_자동차_생성시_이름이_6자_글자_이상이면_예외발생() {
+    void of_주어진_값으로_자동차_생성시_이름이_6자_글자_이상이면_예외발생() {
         String input = "pobibibi";
 
         assertThatThrownBy(() -> Car.of(input))
@@ -42,7 +42,7 @@ class CarTest {
     }
 
     @Test
-    void 빈문자열으로_자동차_생성시_예외발생() {
+    void of_빈문자열으로_자동차_생성시_예외발생() {
         String input = "";
 
         assertThatThrownBy(() -> Car.of(input))

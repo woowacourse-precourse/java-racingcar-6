@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class CarsGeneratorTest {
 
     @Test
-    void 주어진_값으로_자동차_생성() {
+    void generateCars_주어진_값으로_자동차_생성() {
         String input = "pobi,woni,jun";
         List<Car> cars = CarsGenerator.generateCars(input);
         assertThat(cars).contains(Car.of("pobi"), Car.of("woni"), Car.of("jun"));
