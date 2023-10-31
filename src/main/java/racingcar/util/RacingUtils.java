@@ -34,4 +34,12 @@ public class RacingUtils {
         }
         return false;
     }
+
+    public boolean isRandomNumberOverFour() {
+        int randomNum = Randoms.pickNumberInRange(0,9);
+        if(randomNum > 3) {
+            return true;
+        }
+        return false;
+    }
 }
