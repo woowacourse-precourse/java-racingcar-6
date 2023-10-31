@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import racingcar.dto.namesRequestDto;
+import racingcar.dto.NamesRequestDto;
 import racingcar.dto.CarsResponseDto;
 import racingcar.dto.WinnerResponseDto;
 import racingcar.service.CarService;
 
 public class CarController {
 
-    private CarService carService = new CarService();
+    private final CarService carService = new CarService();
 
-    public void createCars(namesRequestDto cars) {
+    public void createCars(NamesRequestDto cars) {
         carService.addCars(cars);
     }
 

@@ -1,9 +1,11 @@
 package racingcar.domain;
 
+import java.util.Arrays;
+
 public class Car {
     private static final int INIT_PROGRESS = 0;
 
-    private String name;
+    private final String name;
     private int progress;
 
     public Car(String name, int progress) {
@@ -28,17 +30,23 @@ public class Car {
         return progress == maxProgress;
     }
 
-    public Car getCar(){
+    public Car getCar() {
         return new Car(name, progress);
     }
 
-    public void move(boolean move) {
-        if (move) {
+    public void move(boolean moveTrigger) {
+        if (moveTrigger) {
             progress++;
         }
     }
 
     public void updateProgress(int progress) {
         this.progress = progress;
+    }
+
+    public char[] progressBar() {
+        char[] bars = new char[getProgress()];
+        Arrays.fill(bars, '-');
+        return bars;
     }
 }

@@ -12,9 +12,14 @@ public class CarData {
 
     public void addAll(List<Car> carList) {
         carFactory.addAll(carList);
-        indexCarByName.putAll((Map<? extends String, ? extends Car>) carFactory.stream()
-                .map(car -> Map.of(car.getName(), car))
-                .toList());
+        for (Car car : carList) {
+            indexAddCar(car);
+
+        }
+    }
+
+    private void indexAddCar(Car car) {
+        indexCarByName.put(car.getName(), car);
     }
 
     public int getCountMax() {
@@ -40,7 +45,7 @@ public class CarData {
     public List<Car> updateAll(List<Car> findCars) {
         for (Car findCar : findCars) {
             Car car = indexCarByName.get(findCar.getName());
-            car.updateProgress(car.getProgress());
+            car.updateProgress(findCar.getProgress());
         }
         return findAll();
     }
