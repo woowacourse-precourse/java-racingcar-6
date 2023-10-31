@@ -26,6 +26,15 @@ public class CarGame {
     if(attempts < 0) throw new IllegalArgumentException();
   }
 
+  public void play() {
+    System.out.println("\n실행 결과");
+    for(int i=0; i<attempts; i++) {
+      playOneTime();
+      printCurrentStatus();
+    }
+    printWinner();
+  }
+
   private void playOneTime() {
     for(Car car : cars) {
       if(pickNumberInRange(0,9) < 4) continue;
