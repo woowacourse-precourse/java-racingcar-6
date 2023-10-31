@@ -27,6 +27,26 @@ public class RacingGame {
         return cars;
     }
 
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxPosition() {
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+        return max;
+    }
+
     public int getRounds() {
         return rounds;
     }
