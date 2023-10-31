@@ -10,4 +10,7 @@ public class GameInfo {
     public static final int MAX_ROUND_NUM = 999;
     public static final String ROUND_NUM_REGEX = "^[1-9]\\d{0,2}$";
     public static final String WINNER_SEPARATOR = ", ";
+    public static final int MIN_RANDOM_NUM = 0;
+    public static final int MAX_RANDOM_NUM = 9;
+    public static final int MOVE_OR_STOP_CRITERIA = 4;
 }
