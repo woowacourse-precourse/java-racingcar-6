@@ -31,6 +31,7 @@ public class Cars {
 
     private void getMaxPosition(final List<Car> winnerList) {
         int maxPosition = 0;
+
         for (Car car : carList) {
             if (car.getPosition() > maxPosition) {
                 maxPosition = car.getPosition();
