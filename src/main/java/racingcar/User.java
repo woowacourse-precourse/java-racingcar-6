@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+    GameUI gameUI = new GameUI();
     private List<Car> carList = new ArrayList<>();
 
     public void makeCars(String inputStr) {
@@ -32,15 +33,14 @@ public class User {
         for (int i = 0; i < attemptNum; i++) {
             drivingEachCar();
             // 각각의 자동차를 한 번씩 출력하면 줄바꿈
-            System.out.println();
+            gameUI.printNewLine();
         }
     }
 
     private void drivingEachCar() {
         for (Car car : carList) {
             car.driving();
-            // 자동차의 누적 주행거리 출력
-            System.out.println(car.getCarName() + " : " + car.getDistanceDriven());
+            gameUI.printCarDistance(car);
         }
     }
 
