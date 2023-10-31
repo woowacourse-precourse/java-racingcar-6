@@ -30,6 +30,7 @@ public class Application {
             print(map);
             i++;
         }
+        output(map);
     }
 
     public static String[] inputCarName() {
@@ -148,6 +149,34 @@ public class Application {
             System.out.println(key + " : " + "-".repeat(Math.max(0, value)));
         }
         System.out.println();
+    }
+
+    public static void output(Map<String, Integer> map){
+        ArrayList<String> list = new ArrayList<>();
+        Comparator<Map.Entry<String, Integer>> comparator = new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+        };
+        Map.Entry<String, Integer> maxEntry = Collections.max(map.entrySet(), comparator);
+        list.add(maxEntry.getKey());
+        out(list);
+    }
+
+    public static void out(ArrayList<String> list){
+        System.out.print("최종 우승자 : ");
+
+        if(list.size() >= 2){
+            for (String s : list) {
+                System.out.print(s + ", ");
+            }
+            System.out.println();
+        } else if (list.size() == 1) {
+            for(String s : list){
+                System.out.println(s);
+            }
+        }
     }
 
 }
