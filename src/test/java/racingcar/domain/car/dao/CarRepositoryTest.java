@@ -124,11 +124,11 @@ class CarRepositoryTest {
             carRepository.save(car);
             carRepository.save(car);
 
-            assertThat(carRepository.findAll().size()).isEqualTo(3);
+            assertThat(carRepository.findAll()).hasSize(3);
 
             carRepository.clear();
 
-            assertThat(carRepository.findAll().size()).isEqualTo(0);
+            assertThat(carRepository.findAll()).hasSize(0);
         }
     }
 
