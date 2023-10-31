@@ -36,6 +36,10 @@ public class OutputView {
         System.out.println();
     }
     public static String winnerCarsList(int[] carMove, String[] cars) {
+        return String.join(", ", countWinner(carMove, cars));
+    }
+
+    public static String[] countWinner(int[] carMove, String[] cars) {
         int maxValue = Arrays.stream(carMove).max().getAsInt();
         int occurrences = countOccurrences(carMove, maxValue);
         String[] winnerCars = new String[occurrences];
@@ -46,6 +50,6 @@ public class OutputView {
                 cnt++;
             }
         }
-        return String.join(", ", winnerCars);
+        return winnerCars;
     }
 }
