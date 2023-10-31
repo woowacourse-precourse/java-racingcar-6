@@ -1,10 +1,11 @@
 package racingcar.game.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.game.constant.RoundExceptionMessage;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.game.constant.RoundExceptionMessage.NOT_INTEGER;
+import static racingcar.game.constant.RoundExceptionMessage.OUT_OF_RANGE;
 
 
 class RoundTest {
@@ -20,7 +21,20 @@ class RoundTest {
         assertThatThrownBy(() -> Round.create("asdf"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasCauseInstanceOf(NumberFormatException.class)
-                .hasMessageContaining(RoundExceptionMessage.NOT_INTEGER);
+                .hasMessageContaining(NOT_INTEGER);
+    }
+
+    @Test
+    void 입력값이_범위_내_값이_아니면_예외_발생() {
+        assertExceptionCase("0", OUT_OF_RANGE);
+        assertExceptionCase("101", OUT_OF_RANGE);
+    }
+
+    private void assertExceptionCase(String movingCount, String errorMessage) {
+        assertThatThrownBy(() -> Round.create(movingCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(errorMessage);
+
     }
 
 }
