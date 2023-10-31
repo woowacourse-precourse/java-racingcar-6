@@ -13,7 +13,7 @@ public class Application {
 
     public static String[] carNameList;
     public static ArrayList<String> winner;
-    public static Map<String, Car> carInfo;
+    public static ArrayList<Car> carList;
     public static int tryCount;
     public static int maxScore = 0;
 
@@ -29,7 +29,7 @@ public class Application {
     public static void initVariables() {
 
         winner = new ArrayList<>();
-        carInfo = new HashMap<>();
+        carList = new ArrayList<>();
     }
 
     public static void startRacing() {
@@ -47,26 +47,25 @@ public class Application {
 
     public static void GoOrStop() {
 
-        for (String carName : carNameList) {
+        for (Car car : carList) {
 
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            checkRandomNumberAndUpdateCarScore(carName, randomNumber);
+            checkRandomNumberAndUpdateCarScore(car, randomNumber);
         }
     }
 
-    private static void checkRandomNumberAndUpdateCarScore(String carName, int randomNumber) {
+    private static void checkRandomNumberAndUpdateCarScore(Car car, int randomNumber) {
         if (randomNumber >= 4) {
 
-            Car car = carInfo.get(carName);
             car.plusScore();
         }
     }
 
     public static void printCurrentState() {
 
-        for (String carName : carNameList) {
+        for (Car car : carList) {
 
-            Car car = carInfo.get(carName);
+            String carName = car.getName();
             System.out.println(carName + " : " + "-".repeat(car.getScore()));
         }
 
@@ -75,9 +74,9 @@ public class Application {
 
     public static void getMaxScore() {
 
-        for (String carName : carNameList) {
+        for (Car car : carList) {
 
-            int carScore = carInfo.get(carName).getScore();
+            int carScore = car.getScore();
             updateMaxScore(carScore);
         }
     }
@@ -92,9 +91,10 @@ public class Application {
 
     public static void printWinner() {
 
-        for (String carName : carNameList) {
+        for (Car car : carList) {
 
-            int carScore = carInfo.get(carName).getScore();
+            int carScore = car.getScore();
+            String carName = car.getName();
             updateWinner(carScore, carName);
         }
 
@@ -142,7 +142,7 @@ public class Application {
     public static void createCar() {
 
         for (String carName : carNameList) {
-            carInfo.put(carName, new Car(carName));
+            carList.add(new Car(carName));
         }
     }
 
