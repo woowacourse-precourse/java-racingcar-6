@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 public class RacingGame {
 
     public void start() {
-        List<Car> cars = createCars();
+        String input = InputView.carInput();
+        List<Car> cars = createCars(input);
         Race race = new Race(cars);
         int tryCount = getTryCount();
 
@@ -22,8 +23,8 @@ public class RacingGame {
         OutputView.printWinners(winners);
     }
 
-    public List<Car> createCars() {
-        return Arrays.stream(InputView.carInput().split(","))
+    public List<Car> createCars(String input) {
+        return Arrays.stream(input.split(","))
                 .map(String::trim)
                 .map(Car::new)
                 .collect(Collectors.toList());
