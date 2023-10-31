@@ -11,7 +11,7 @@ public class GameControllerTest extends NsTest {
     void 공동_우승자() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,woni", "2");
+                    run("pobi,  woni", "2");
                     assertThat(output()).contains("pobi : -", "woni : -", "pobi : --", "woni : --",
                             "최종 우승자 : pobi, woni");
                 }, 4, 4, 4, 4

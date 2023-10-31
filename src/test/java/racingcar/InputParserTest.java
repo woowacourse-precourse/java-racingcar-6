@@ -38,7 +38,7 @@ public class InputParserTest {
     @DisplayName("자동차 이름 입력을 List형태로 파싱하는지를 테스트")
     void parserCarNameTest() {
         String input1 = "car1,car2,car3";
-        String input2 = "car1.car2,car3";
+        String input2 = "q.w,car3";
 
         List<Car> result1 = inputParser.parseCarName(input1);
         List<Car> result2 = inputParser.parseCarName(input2);
@@ -47,7 +47,7 @@ public class InputParserTest {
         expected1.add(new Car("car2"));
         expected1.add(new Car("car3"));
         List<Car> expected2 = new ArrayList<>();
-        expected2.add(new Car("car1.car2"));
+        expected2.add(new Car("q.w"));
         expected2.add(new Car("car3"));
 
         assertThat(deepEquals(result1, expected1)).isTrue();
