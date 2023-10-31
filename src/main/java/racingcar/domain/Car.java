@@ -9,8 +9,6 @@ public class Car implements Comparable {
         this.process = 0;
     }
 
-
-
     public String getCarName(){
         return carName;
     }
