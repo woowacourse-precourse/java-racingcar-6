@@ -19,4 +19,16 @@ public class RacingTest {
                 .hasMessage("이름은 1~5자로 입력해주세요.");
     }
 
+
+    @Test
+    @DisplayName("성공 : 이름에 콤마 연속 삽입")
+    public void 이름에_콤마_연속_삽입() {
+        String input = "1,,2";
+
+        final Racing racing = new Racing();
+
+        assertThatThrownBy(() -> racing.getCarList(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름은 1~5자로 입력해주세요.");
+    }
 }
