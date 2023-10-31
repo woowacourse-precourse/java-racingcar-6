@@ -3,6 +3,7 @@ package racingcar;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -34,7 +35,8 @@ public class ViewTest {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         OutputView outputView = new OutputView();
-        outputView.printResult(List.of(new String[]{"tony", "poby"}));
+//        outputView.printResult(List.of(new String[]{"tony", "poby"}));
+        outputView.printResult(Arrays.asList("tony", "poby"));
         Assertions.assertThat(out.toString()).isEqualTo("최종 우승자 : tony, poby\n");
     }
 }

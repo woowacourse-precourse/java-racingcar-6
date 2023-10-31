@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+import racingcar.Dto.CurrentRacingStatusDto;
 
 public class Racing {
     public Racing(String[] userName) {
@@ -26,12 +27,11 @@ public class Racing {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public String play(int turnLeft) {
-        if(turnLeft == 0) return "ANS";
+    public CurrentRacingStatusDto play() {
         for(Car car : participant) {
             this.drive(car);
         }
-        return play(turnLeft - 1);
+        return new CurrentRacingStatusDto(this);
     }
 
     public List<String> computeResult() {
