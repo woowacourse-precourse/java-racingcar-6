@@ -15,7 +15,7 @@ public class RacingcarGame {
 
     private int position = 0;
     private String race = "";
-    private String name;
+    public String name;
     private int tryNumber;
     private final ArrayList<RacingcarGame> carName = new ArrayList<>();
 
