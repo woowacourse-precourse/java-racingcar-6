@@ -33,6 +33,7 @@ public class GameManager {
     }
 
     private int initializeRaceCount() {
+        outputManager.printRaceCountRequestMessage();
         return inputManager.getRaceCount();
     }
 }
