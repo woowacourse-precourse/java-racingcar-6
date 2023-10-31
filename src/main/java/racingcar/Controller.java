@@ -13,9 +13,7 @@ public class Controller {
         System.out.println(resultPrint);
 
         for(int i=0; i<gameNumber; i++){
-            List<Integer> RandomNumberList = racing.raceRandomNumberList(user.carNames);
-            racing.forwardValidation(RandomNumberList);
-            OutputMessage.racePrint(racing.raceSituation);
+            racing.racing(user.carNames);
             System.out.println();
         }
 
