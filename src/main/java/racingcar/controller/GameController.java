@@ -5,6 +5,7 @@ import racingcar.domain.Cars;
 import racingcar.util.Parser;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
     private final RandomNumberGenerator generator;
@@ -33,16 +34,16 @@ public class GameController {
     }
 
     private void play(Attempts attempts) {
-        InputView.printResult();
+        OutputView.printResult();
         while (attempts.isNotZero()) {
             this.cars = cars.simulateNextRound(generator);
-            InputView.printCurrentCarLocation(cars);
+            OutputView.printCurrentCarLocation(cars);
             attempts.minusAttempts();
         }
     }
 
     private void showResult() {
-        InputView.printWinners(cars.getWinners());
+        OutputView.printWinners(cars.getWinners());
     }
 
 }
