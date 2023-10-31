@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.exception.InputException;
 
 public class InputView {
 
@@ -12,7 +13,7 @@ public class InputView {
         System.out.println(GET_CAR_NAME);
         String carNames = Console.readLine();
         List<String> carNameList = stringToList(carNames);
-
+        validateNameLength(carNameList);
         return carNameList;
     }
 
@@ -20,6 +21,16 @@ public class InputView {
         System.out.println(GET_TRIAL_NUM);
         String trialNum = Console.readLine();
         return Integer.parseInt(trialNum);
+    }
+
+    private void validateNameLength(List<String> carNameList) {
+        boolean invalidNameLength = carNameList.stream()
+                .anyMatch(carName -> carName.length() > 5);
+
+        if (invalidNameLength) {
+            throw new IllegalArgumentException(InputException.INVALID_NAME_LENGTH.getExceptionMessage());
+        }
+
     }
 
     public List<String> stringToList(String str) {
