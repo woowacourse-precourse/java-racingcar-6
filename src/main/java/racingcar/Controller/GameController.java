@@ -22,6 +22,9 @@ public class GameController {
     public void playGame(){
 
         String carsName = inputView.getCarsName();
+        this.tryCount = inputView.getTryCount();
+
+        System.out.println(this.tryCount);
 
     }
 
