@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.application.RacingService;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.dto.RacingResult;
 import racingcar.factory.CarFactory;
