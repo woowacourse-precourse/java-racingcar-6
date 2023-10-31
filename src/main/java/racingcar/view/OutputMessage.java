@@ -4,6 +4,8 @@ import java.util.List;
 import racingcar.model.MessageEnum;
 
 public class OutputMessage {
+    private static final int WINNER_COUNT = 1;
+
     public void resultMessage() {
         System.out.println(MessageEnum.RESULT_MESSAGE.getMessage());
     }
@@ -19,10 +21,10 @@ public class OutputMessage {
     public void winnerMessage(List<String> winner) {
         System.out.print(MessageEnum.WINNER_MESSAGE.getMessage());
 
-        if (winner.size() == 1) {
+        if (winner.size() == WINNER_COUNT) {
             System.out.println(winner.get(0));
         }
-        if (winner.size() > 1) {
+        if (winner.size() > WINNER_COUNT) {
             String winnerList = String.join(", ", winner);
             System.out.println(winnerList);
         }
