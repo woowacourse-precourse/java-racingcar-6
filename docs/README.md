@@ -15,8 +15,9 @@
 
 ## 구현 기능 목록
 
-1. RacingGame
+### Controller
 
+1. RacingGame
 - 자동차 경주 게임의 주요 동작을 관리하는 클래스
   - [x] 자동차 경주 게임을 시작한다.
   - [x] RacingGameManager가 자동차(Car)와 시도 횟수를 입력받도록 명령한다.
@@ -24,14 +25,18 @@
   - [x] GameResultView가 게임 결과를 출력하도록 시킨다.
   - [x] GameResultView가 최종 우승자를 출력하도록 시킨다.
 
-2. Car
+### Domain
+
+1. Car
 
 - 자동차 경주 게임에 참여하는 차를 추상화한 클래스
   - [x] 필드로 이름(name)과 이동 횟수(movingCount)를 가진다.
   - [x] movingCount를 증가시킨다.
   - [x] 최종 우승자를 List로 반환한다.
 
-3. RacingGameManager
+### Util
+
+1. RacingGameManager
 
 - 경주 게임에 참여하는 자동차와 시도 횟수를 입력받아 검증하는 클래스
 
@@ -48,17 +53,25 @@
       - 숫자가 아닌 입력값(영어 및 한글)을 검증한다.
       - 공백을 검증한다.
 
-4. CarMotionController
+2. CarMotionMaker
 
 - 게임에 참여하는 자동차(Car)가 이동(전진)하도록 만드는 책임을 가진 클래스
   - [x] 0에서 9 사이의 무작위 값을 뽑아, 그 수가 4 이상일 경우에 True, 아니라면 False를 반환한다.
 
-5. GameResultMaker
+3. GameResultMaker
 
 - RacingGameManager와 CarMotionController가 협력하여 차(Car)가 이동한 결과를 반영한다. 
   - [x] List<Car>를 순회하면서, CarMotionController가 이동시킨 결과로 Car의 이동 횟수(count)를 증가시킨다.
 
-6. GameResultView
+### View
+
+1. InputView
+
+- 사용자의 입력을 받는 책임을 가진 클래스
+  - [x] 플레이어로부터 자동차들의 이름을 입력받아, String으로 반환한다.
+  - [x] 플레이어로부터 시도할 횟수를 입력받아, int형으로 반환한다.
+
+2. OutputView
 
 - 게임 실행 결과를 출력하는 책임을 가진 클래스
   - [x] 라운드 별 레이스 결과를 출력한다.
@@ -66,13 +79,9 @@
   - [x] 최종 우승자를 출력한다.
     - 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다.
 
-7. InputManager
+### Config
 
-- 사용자의 입력을 받는 책임을 가진 클래스
-  - [x] 플레이어로부터 자동차들의 이름을 입력받아, String으로 반환한다.
-  - [x] 플레이어로부터 시도할 횟수를 입력받아, int형으로 반환한다.
-
-8. RacingGameConfig
+1. RacingGameConfig
 
 - RacingGame에 필요한 객체들을 모아 초기화 하는 책임을 가진 클래스
   - [x] RacingGame에 필요한 객체들을 모아 초기화한다.
