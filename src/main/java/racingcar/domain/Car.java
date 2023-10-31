@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+import racingcar.exception.NoExistCarException;
 import racingcar.util.converter.NameAndDistanceMessageGenerator;
 
 public class Car {
@@ -29,6 +31,21 @@ public class Car {
 
     public String generateNameAndDistanceMessage() {
         return nameAndDistanceMessageGenerator.generate(name, drivenDistance);
+    }
+
+    public boolean matchesDrivenDistance(int expectedDistance) {
+        return drivenDistance == expectedDistance;
+    }
+
+    public void standAsWinner(WinnerStand winnerStand) {
+        winnerStand.addWinner(name);
+    }
+
+    public static int getMaxDistanceAmongCars(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(car -> car.drivenDistance)
+                .max()
+                .orElseThrow(NoExistCarException::new);
     }
 
     private void drive() {

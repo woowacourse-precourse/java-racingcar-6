@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomGasolineProvider {
+public class RandomGasolineProvider implements GasolineProvider {
 
     private static final int MIN_GASOLINE = 0;
     private static final int MAX_GASOLINE = 9;

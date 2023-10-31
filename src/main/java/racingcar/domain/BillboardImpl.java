@@ -9,6 +9,7 @@ public class BillboardImpl implements Billboard {
 
     @Override
     public void displayraceprogress(RaceProgressDTO raceProgressDTO) {
+        display(Message.NEW_LINE);
         String raceProgress = raceProgressDTO.nameAndDistanceMessages()
                 .stream()
                 .collect(Collectors.joining(Message.NEW_LINE));
@@ -18,7 +19,8 @@ public class BillboardImpl implements Billboard {
 
     @Override
     public void displayWinners(WinnerStand winnerStand) {
-
+        String winners = GameMessage.WINNER_STAND_PREFIX.getMessage() + winnerStand.getWinners();
+        display(winners);
     }
 
     private void display(GameMessage gameMessage) {
