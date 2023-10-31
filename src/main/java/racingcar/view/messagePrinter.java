@@ -7,6 +7,11 @@ public class messagePrinter {
 
     public static void askTryNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
-
     }
+
+    public static void printResultTitle(){
+        System.out.println("실행 결과");
+    }
+
+
 }
