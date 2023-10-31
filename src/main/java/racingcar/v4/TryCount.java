@@ -2,7 +2,7 @@ package racingcar.v4;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class RacingGame {
+public class TryCount {
     public String inputTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTryCount = Console.readLine();
@@ -20,6 +20,13 @@ public class RacingGame {
             Integer.parseInt(inputTryCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다. 시도 횟수를 입력해 주세요.");
+        }
+    }
+
+    public void validateTryCountRange(String inputTryCount) {
+        int tryCount = Integer.parseInt(inputTryCount);
+        if (tryCount < 1 || tryCount > 10) {
+            throw new IllegalArgumentException("시도 횟수는 1이상 10이하로 입력해 주세요.");
         }
     }
 
