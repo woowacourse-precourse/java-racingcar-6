@@ -28,7 +28,8 @@ public class Game {
         myOutput.printExecutionResult();
 
         for(int i=0; i<tryCount; i++){
-
+            movingALLCar();
+            printTryResult();
         }
     }
 
@@ -36,5 +37,13 @@ public class Game {
         for(int i=0; i<carList.size(); i++){
             carList.get(i).moving();
         }
+    }
+
+    public void printTryResult(){
+        for(int i=0; i<carList.size(); i++){
+            System.out.print(carList.get(i).getName() + " : ");
+            myOutput.printDashBoard(carList.get(i).getDistance());
+        }
+        System.out.println();
     }
 }
