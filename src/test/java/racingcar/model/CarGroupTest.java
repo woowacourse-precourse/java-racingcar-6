@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.dto.CarDto;
+import racingcar.dto.CarGroupDto;
 import racingcar.utils.Movement;
 
 import java.util.ArrayList;
@@ -22,6 +23,12 @@ public class CarGroupTest {
     @BeforeEach
     void setInit() {
         carGroup = new CarGroup(List.of("자동차1", "자동차2", "자동차3"));
+    }
+
+    @Test
+    void toDto_메서드는_CarGroupDto_객체를_생성한다(){
+        CarGroupDto carGroupDto = carGroup.toDto();
+        assertThat(carGroupDto.getCars().size()).isEqualTo(3);
     }
 
     @Test
