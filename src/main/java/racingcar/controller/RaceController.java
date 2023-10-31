@@ -5,6 +5,7 @@ import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.service.CarFactoryService;
 import racingcar.service.RaceService;
+import racingcar.service.RandomNumberService;
 import racingcar.service.ValidationService;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
@@ -16,8 +17,8 @@ public class RaceController {
     private final RaceService raceService;
     private final ValidationService validationService;
 
-    public RaceController() {
-        this.raceService = new RaceService();
+    public RaceController(RandomNumberService randomNumberService) {
+        this.raceService = new RaceService(randomNumberService);
         this.validationService = new ValidationService();
     }
 

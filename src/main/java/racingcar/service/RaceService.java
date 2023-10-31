@@ -11,11 +11,17 @@ import static racingcar.constants.RacingCarConstants.FORWARD_THRESHOLD;
 
 public class RaceService {
 
+    private final RandomNumberService randomNumberService;
+
+    public RaceService(RandomNumberService randomNumberService) {
+        this.randomNumberService = randomNumberService;
+    }
+
     public void executeRace(Race race) {
         int totalRounds = race.getTotalRounds();
 
         for (int i = 0; i < totalRounds; i++) {
-            int randomNumber = RandomNumberService.generateRandomNumber();
+            int randomNumber = randomNumberService.generateRandomNumber();
             moveCars(race.getCars(), randomNumber);
             ResultView.printRoundResult(race.getCars());
         }
