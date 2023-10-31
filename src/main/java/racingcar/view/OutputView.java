@@ -36,10 +36,19 @@ public class OutputView {
     }
 
     public static void printWinnerName(List<String> winners) {
-        if(winners.isEmpty()) {
-            System.out.println(NO_WINNER_MESSAGE);
+        if (winners.isEmpty()) {
+            printNoWinnerMessage();
             return;
         }
+        printWinners(winners);
+    }
+
+    private static void printNoWinnerMessage() {
+        System.out.println(NO_WINNER_MESSAGE);
+    }
+
+    private static void printWinners(List<String> winners) {
         System.out.print("최종 우승자 : " + String.join(",", winners));
     }
+
 }
