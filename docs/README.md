@@ -73,7 +73,7 @@
 
 # 테스트코드 작성
 
-+ [ ] Car 클래스 테스트
++ [x] Car 클래스 테스트
     + [x] 생성자를 통해 멤버 변수 값을 초기화 하는지 테스트
     + [x] 현재 거리를 증가시키는 기능을 테스트
     + [x] 자동차의 이름을 얻는 기능(toString 오버라이드)을 테스트
@@ -92,5 +92,5 @@
     + [x] 시행횟수를 Int형태로 파싱 테스트
 + [x] RandomGenerator 클래스 테스트
     + [x] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
-+ [ ] GameController 클래스를 통합 테스트
++ [x] GameController 클래스를 통합 테스트
   

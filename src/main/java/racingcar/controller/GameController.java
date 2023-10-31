@@ -12,9 +12,7 @@ public class GameController {
 
     private static final InputView INPUT_VIEW = new InputView();
     private static final OutputView OUTPUT_VIEW = new OutputView();
-
     private static final InputParser INPUT_PARSER = new InputParser();
-
     private Cars cars;
     private int numberOfAttempt;
 
@@ -49,7 +47,6 @@ public class GameController {
         List<String> roundResult = new ArrayList<>();
         List<String> carNames = cars.getNames();
         List<Integer> carDistances = cars.getTotalDistances();
-
         for (int i = 0; i < cars.getNumberOfCar(); i++) {
             String result = carNames.get(i);
             result += " : ";
