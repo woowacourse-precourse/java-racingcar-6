@@ -21,4 +21,14 @@ public class CarList {
     public List<Car> getCarList() {
         return Collections.unmodifiableList(this.carList);
     }
+
+    public int findMaxPosition() {
+        int maxPosition=0;
+        for (Car car : carList) {
+            if(maxPosition<car.getPosition()){
+                maxPosition=car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
 }

@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import game.car.Car;
 import game.car.CarList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
     public GameStatus status;
@@ -56,6 +58,18 @@ public class RacingGame {
     }
 
     private void end() {
+        this.decideWinner();
+        this.status = GameStatus.EXIT;
+    }
 
+    private void decideWinner() {
+        int maxPosition=carList.findMaxPosition();
+        List<String> winnerList=new ArrayList<>();
+        for (Car car : carList.getCarList()) {
+            if(maxPosition==car.getPosition()){
+                winnerList.add(car.getCarName());
+            }
+        }
+        System.out.printf("최종 우승자 : %s",String.join(", ",winnerList));
     }
 }

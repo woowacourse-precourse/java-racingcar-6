@@ -16,4 +16,12 @@ public class Car {
     public void printPosition(){
         System.out.printf("%s : %s\n",carName.getCarName(),"-".repeat(position));
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getCarName() {
+        return carName.getCarName();
+    }
 }
