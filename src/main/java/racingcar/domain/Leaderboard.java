@@ -12,12 +12,12 @@ public class Leaderboard {
         }
     }
 
-    public void round(){
-        for (String name : board.keySet()){
+    public void round() {
+        for (String name : board.keySet()) {
             int currentPlace = board.get(name);
 
-            if (new Car().engine()){
-                board.put(name, currentPlace+1);
+            if (new Car().engine()) {
+                board.put(name, currentPlace + 1);
             }
         }
     }
@@ -47,22 +47,21 @@ public class Leaderboard {
             }
         }
 
-        System.out.print( winnerFormat(winnerList) );
+        System.out.print(winnerFormat(winnerList));
     }
 
-    public String winnerFormat(List<String> winnerList){
+    public String winnerFormat(List<String> winnerList) {
         String format = "";
 
         for (String name : winnerList) {
             if (format.isEmpty()) {
                 format = format + name;
-            }
-            else {
+            } else {
                 format = format + (", " + name);
             }
         }
 
-        return "최종 우승자 : "+format;
+        return "최종 우승자 : " + format;
     }
 
 }

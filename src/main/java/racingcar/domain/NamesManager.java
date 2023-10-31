@@ -33,9 +33,9 @@ public class NamesManager {
         return false;
     }
 
-    public boolean duplicateName(List<String> names){
+    public boolean duplicateName(List<String> names) {
         Set<String> nameSet = new HashSet<>(names);
-        if (nameSet.size()!=names.size()){
+        if (nameSet.size() != names.size()) {
             return true;
         }
 
