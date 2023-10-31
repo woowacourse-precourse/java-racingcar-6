@@ -20,26 +20,20 @@ public class ValidatePlayerInput {
     }
 
     public void validateNotContainCarName() {
-        for (String carName : splitsPlayerInput) {
-            if (carName.equals("")) {
-                throw new IllegalArgumentException("레이싱 자동차 이름이 없습니다");
-            }
+        if (Arrays.stream(splitsPlayerInput).anyMatch(String::isEmpty)) {
+            throw new IllegalArgumentException("레이싱 자동차 이름이 없습니다");
         }
     }
 
     public void validateAlphaCarName() {
-        for (String carName : this.splitsPlayerInput) {
-            if (!Pattern.matches("^[a-zA-Z]*$", carName)) {
-                throw new IllegalArgumentException("레이싱 자동차 이름은 영어만 허용됩니다");
-            }
+        if (Arrays.stream(this.splitsPlayerInput).anyMatch(carName -> !Pattern.matches("^[a-zA-Z]*$", carName))) {
+            throw new IllegalArgumentException("레이싱 자동차 이름은 영어만 허용됩니다");
         }
     }
 
     public void validateCarNameLength() {
-        for (String carName : this.splitsPlayerInput) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름 길이는 5이하 입니다");
-            }
+        if (Arrays.stream(this.splitsPlayerInput).anyMatch(carName -> carName.length() > 5)) {
+            throw new IllegalArgumentException("자동차 이름 길이는 5이하 입니다");
         }
     }
 
@@ -52,13 +46,9 @@ public class ValidatePlayerInput {
     }
 
     public void validatePlayerTryCountInput(String playerInput) {
-        List<Character> inputStream = playerInput.chars().mapToObj(c -> (char) c).toList();
-
-        inputStream.forEach(c -> {
-            if (!Character.isDigit(c)) {
-                throw new IllegalArgumentException("숫자만 입력해주시길 바랍니다");
-            }
-        });
+        if (playerInput.chars().anyMatch(c -> !Character.isDigit((char) c))) {
+            throw new IllegalArgumentException("숫자만 입력해주시길 바랍니다");
+        }
     }
 
     public List<String> convertStringToListCarNames() {
