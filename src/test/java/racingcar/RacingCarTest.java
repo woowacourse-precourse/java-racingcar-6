@@ -1,8 +1,10 @@
 package racingcar;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,6 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.MoveCount;
+import racingcar.view.OutputView;
 
 public class RacingCarTest {
 
@@ -50,6 +53,15 @@ public class RacingCarTest {
         assertDoesNotThrow(()->{
             new MoveCount(2);
         });
+    }
+
+    @DisplayName("우승자 출력 포맷을 확인한다 . 우승자는 한명 또는 여러명 일 수 있다.")
+    @Test
+    public void checkWinnerFormat(){
+        List<String> winnerOnlyOne = List.of("a");
+        assertThat(OutputView.winnerPrintFormat(winnerOnlyOne)).isEqualTo("최종 우승자 : a");
+        List<String> winnersMany = List.of("a","b","c");
+        assertThat(OutputView.winnerPrintFormat(winnersMany)).isEqualTo("최종 우승자 : a, b, c");
     }
 
 
