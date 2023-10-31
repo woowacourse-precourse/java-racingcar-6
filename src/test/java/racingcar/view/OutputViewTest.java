@@ -5,11 +5,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
-public class OutViewTest extends NsTest {
+public class OutputViewTest extends NsTest {
     private static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ROUND_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
+    private static final String CAR_NAME = "car";
+    private static final int MOVING_FORWARD = 4;
 
     @Test
     @DisplayName("printNameInputMessage 함수 기능 테스트")
