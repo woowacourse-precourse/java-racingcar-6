@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 class ValidatorTest {
-    private Validator validator;
-
     @Test
     void validateCarNames_입력값의_앞뒤에_쉼표가_있으면_예외_발생() {
         String input = ",aaaa,bbbb,cccc,";

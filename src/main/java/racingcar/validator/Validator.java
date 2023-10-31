@@ -10,8 +10,8 @@ public class Validator {
         List<String> nameList = Arrays.asList(nameArray);
 
         isValidInput(input);
-        isValidType(nameArray);
         isValidLength(nameArray);
+        isValidType(nameArray);
         isDuplicate(nameList);
     }
 
@@ -26,15 +26,6 @@ public class Validator {
         }
     }
 
-    private static void isValidType(String[] nameArray) {
-        String regex = "^[a-zA-Z0-9]+$";
-        for (String name : nameArray) {
-            if (name.matches(regex)) {
-                throw new IllegalArgumentException("자동차의 이름은 영문과 숫자로만 이루어져야 합니다.");
-            }
-        }
-    }
-
     private static void isValidLength(String[] nameArray) {
         for (String name : nameArray) {
             if (name.length() > 5) {
@@ -45,6 +36,16 @@ public class Validator {
             }
         }
     }
+
+    private static void isValidType(String[] nameArray) {
+        String regex = "^[a-zA-Z0-9]+$";
+        for (String name : nameArray) {
+            if (!name.matches(regex)) {
+                throw new IllegalArgumentException("자동차의 이름은 영문과 숫자로만 이루어져야 합니다.");
+            }
+        }
+    }
+
 
     private static void isDuplicate(List<String> nameList) {
         if (nameList.size() != nameList.stream().distinct().count()) {
