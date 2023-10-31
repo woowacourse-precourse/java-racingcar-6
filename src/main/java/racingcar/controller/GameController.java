@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.controller.utils.CarNameValidator;
@@ -58,7 +57,7 @@ public class GameController {
         view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
             model.fowardCars();
-            for(Car car : cars){
+            for (Car car : cars) {
                 view.printCurrentStatus(car.getName(), car.getCurrentLocation());
             }
             view.printEnter();
