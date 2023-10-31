@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constants.GameConstants;
-import racingcar.view.out.GameOutputView;
+import racingcar.view.output.GameOutputView;
 
 public class GameResult {
     private final GameOutputView gameOutputView = new GameOutputView();

@@ -8,9 +8,9 @@ import racingcar.service.RacingCarGameService;
 import racingcar.domain.Car;
 import racingcar.domain.GameResult;
 import racingcar.validator.GameValidator;
-import racingcar.view.in.GameInputMessage;
-import racingcar.view.in.GameInputView;
-import racingcar.view.out.GameOutputView;
+import racingcar.view.input.GameInputMessage;
+import racingcar.view.input.GameInputView;
+import racingcar.view.output.GameOutputView;
 
 public class RacingCarGameController {
     private final RacingCarGameService racingCarGameService;
