@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import org.junit.platform.commons.util.StringUtils;
-import racingcar.type.ExceptionConstants;
 
 import static racingcar.type.ExceptionConstants.*;
 import static racingcar.type.MessageType.*;
@@ -19,7 +18,7 @@ public class Car {
 
     public Car(String name) {
         if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
+            throw new IllegalArgumentException(ERROR_BLANK);
         }
         this.name = name;
         this.position = 0;

@@ -13,13 +13,13 @@ public class InputValidator {
 
     public static void validateNameLength(List<String> targetList, int maxSize) {
         if (hasOverLengthString(targetList, maxSize)) {
-            throw new IllegalArgumentException(ERROR_TOO_LONG_CAR_NAME);
+            throw new IllegalArgumentException(ERROR_TOO_LONG_INPUT);
         }
     }
 
     public static void validateNoDuplicates(List<String> targetList) {
         if (hasDuplicates(targetList)) {
-            throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME);
+            throw new IllegalArgumentException(ERROR_DUPLICATE_ENTRIES);
         }
     }
 
@@ -27,13 +27,13 @@ public class InputValidator {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_INPUT_NOT_NUMBER);
+            throw new IllegalArgumentException(ExceptionConstants.ERROR_NON_NUMERIC_INPUT);
         }
     }
 
     public static void validateMinCount(int target, int minCount) {
         if (target < minCount) {
-            throw new IllegalArgumentException(ERROR_INVALID_ATTEMPTS);
+            throw new IllegalArgumentException(ERROR_NON_POSITIVE_INPUT);
         }
     }
 
