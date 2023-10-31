@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.controller.utils.CarNameValidator;
 import racingcar.controller.utils.StringParser;
 import racingcar.controller.utils.TrialNumberValidator;
@@ -38,6 +39,7 @@ public class GameController {
         input = view.inputTrialNumber();
         trialNumberValidator.validateTrialNumber(input);
         trialNumber = stringParser.toInteger(input);
+
         gameStart(trialNumber);
 
         winnerNames = model.getCarNameWithLongestDistance();
@@ -45,12 +47,9 @@ public class GameController {
     }
 
     private List<Car> createCarObject(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            Car car = new Car(carName, 0);
-            cars.add(car);
-        }
-        return cars;
+        return carNames.stream()
+                .map(name -> new Car(name, 0))
+                .collect(Collectors.toList());
     }
 
     private void gameStart(int trialNumber) {
