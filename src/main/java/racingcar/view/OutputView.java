@@ -28,7 +28,9 @@ public class OutputView {
     }
 
     public StringBuilder countPositionToString(StringBuilder stringBuilder, Position position) {
-        return stringBuilder.append(CAR_POSITION.repeat(Math.max(MIN_VALUE, position.getCarPosition())));
+        return stringBuilder.append(
+                CAR_POSITION.repeat(
+                        Math.max(MIN_VALUE, position.getCarPosition())));
     }
 
     public void showWinner(Referee referee, Cars generatedCars) {

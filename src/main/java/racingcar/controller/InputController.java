@@ -8,7 +8,6 @@ public class InputController {
 
     private static final String COMMA_DELIMITER = ",";
     private final DataValidator dataValidator;
-
     private final InputView inputView;
 
     public InputController() {
