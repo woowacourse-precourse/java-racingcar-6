@@ -17,7 +17,11 @@ public class Cars {
 
   public static Cars createFromCarNames(final List<String> carNames) {
     List<Car> carList = carNames.stream()
-        .map(Car::from)
+        .map(name -> {
+          CarName carName = new CarName(name);
+          Location location = new Location();
+          return Car.from(carName, location);
+        })
         .toList();
     return new Cars(carList);
   }

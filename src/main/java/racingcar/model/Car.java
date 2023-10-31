@@ -4,33 +4,34 @@ import racingcar.validator.RacingCarNameValidator;
 
 public class Car {
 
-  static RacingCarNameValidator validator = new RacingCarNameValidator();
 
-  private final String carName;
-  private Integer location = 0;
+  //  private final String carName;
+  private final CarName carName;
+  private final Location location;
 
-  private Car(final String carName) {
+  private Car(final CarName carName, final Location location) {
     this.carName = carName;
+    this.location = location;
   }
 
-  public static Car from(final String carName) {
-    validator.validate(carName);
-    return new Car(carName);
+  public static Car from(final CarName carName, final Location location) {
+    return new Car(carName, location);
   }
 
   public void move() {
-    this.location++;
+    this.location.moveForward();
   }
 
   public String getCarInfo() {
-    return String.format("%s : %s\n", this.carName, "-".repeat(Math.max(0, location)));
+    return String.format("%s : %s\n", this.carName.getCarName(),
+        "-".repeat(Math.max(0, location.getLocation())));
   }
 
   public String getCarName() {
-    return this.carName;
+    return this.carName.getCarName();
   }
 
   public Integer getLocation() {
-    return this.location;
+    return this.location.getLocation();
   }
 }
