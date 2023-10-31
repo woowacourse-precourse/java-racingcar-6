@@ -71,7 +71,7 @@ public class Referee{
         }
     }
 
-    public void readGameCount(){
+    public void readGameCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         gameCount = Judgment.checkInteger(Console.readLine());
         System.out.println();
@@ -86,6 +86,15 @@ public class Referee{
     }
 
     public void run() {
+        readPlayer();
+        readGameCount();
 
+        System.out.println("실행 결과");
+        while (presentCount < gameCount) {
+            cycle();
+            printProgress();
+        }
+
+        printWinner();
     }
 }
