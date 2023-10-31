@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Referee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +67,17 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    @DisplayName("게임 횟수 입력")
+    void 게임횟수_입력(){
+        Referee referee = new Referee();
+        String numOfname = "1";
+        referee.setNumOfGame(numOfname);
+
+        assertThat(referee.getNumOfGame()).isEqualTo(1);
+
     }
 
     @Test
