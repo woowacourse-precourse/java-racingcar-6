@@ -11,6 +11,8 @@ public class RacingcarGame {
     private final Computer computer = new Computer();
     private final Moderator moderator = new Moderator();
 
+    private int position = 0;
+    private String race = "";
     private String name;
     private int tryNumber;
     private final ArrayList<RacingcarGame> carName = new ArrayList<>();
@@ -48,7 +50,8 @@ public class RacingcarGame {
     }
 
     public void printMove() {
-
+        carName.forEach(i -> System.out.println(i.name + " : " + i.race));
+        System.out.println();
     }
 
     public void setMovePoint() {
