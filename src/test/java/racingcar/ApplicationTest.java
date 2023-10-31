@@ -2,6 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -15,7 +16,37 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void 전진_정지_우승자_두명() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "1");
+                assertThat(output())
+                    .contains("pobi : -", "woni : -", "jun : ", "최종 우승자 : pobi,woni");
+            },
+            MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "1");
+                assertThat(output())
+                    .contains("pobi : -", "woni : ", "jun : -", "최종 우승자 : pobi,jun");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "1");
+                assertThat(output())
+                    .contains("pobi : ", "woni : -", "jun : -", "최종 우승자 : woni,jun");
+            },
+            STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_정지_우승자_한명() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
