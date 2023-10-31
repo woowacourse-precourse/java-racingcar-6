@@ -25,5 +25,15 @@ public class View implements ViewInterface{
 
     }
 
+    @Override
+    public void MoveCar() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int attemptsNumber = Integer.parseInt(Console.readLine());
 
+        while(attemptsNumber == 0){
+            attemptsNumber--;
+
+        }
+
+    }
 }
