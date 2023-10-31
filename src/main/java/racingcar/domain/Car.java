@@ -1,9 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.common.Constants.MAX_LENGTH_OF_NAME;
+import static racingcar.common.Constants.MIN_NUMBER_FOR_MOVEMENT;
+import static racingcar.common.Constants.MOVEMENT_DISTANCE;
+
 public class Car {
-    private static final int MAX_LENGTH_OF_NAME = 5;
-    private static final int MIN_NUMBER_FOR_MOVEMENT = 4;
-    private static final int MOVEMENT_DISTANCE = 1;
 
     String name;
     int meter;

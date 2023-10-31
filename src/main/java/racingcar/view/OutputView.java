@@ -1,14 +1,15 @@
 package racingcar.view;
 
+import static racingcar.common.Constants.ANNOUNCEMENT_OF_WINNER;
+import static racingcar.common.Constants.MOVING_MARK;
+import static racingcar.common.Constants.NEW_LINE;
+import static racingcar.common.Constants.RESULT_LOG;
+import static racingcar.common.Constants.RESULT_MESSAGE;
+
 import java.util.ArrayList;
 import java.util.Map;
 
 public class OutputView {
-    private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String MOVING_MARK = "-";
-    private static final String ANNOUNCEMENT_OF_WINNER = "최종 우승자 : %s";
-    private static final String NEW_LINE = System.lineSeparator();
-    private static final String RESULT_LOG = "%s : %s \n";
 
     public void showResultLog() {
         System.out.print(NEW_LINE);
