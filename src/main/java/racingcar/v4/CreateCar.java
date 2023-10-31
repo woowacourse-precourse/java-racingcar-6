@@ -64,12 +64,12 @@ public class CreateCar {
     }
 
 
-    public Map<String, Integer> racingStateMap(List<String> carNames) {
-        Map<String, Integer> stateMap = new HashMap<>();
-        for (String carName : carNames) {
-            stateMap.put(carName, 0);
+    public Map<String, Integer> racingStateMap(List<String> validatedCarNames) {
+        Map<String, Integer> racingStateMap = new HashMap<>();
+        for (String carName : validatedCarNames) {
+            racingStateMap.put(carName, 0);
         }
-        return stateMap;
+        return racingStateMap;
     }
 
 }
