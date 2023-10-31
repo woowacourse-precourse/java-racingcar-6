@@ -129,6 +129,30 @@ public class ValidationTest {
     }
 
     @Test
+    void 숫자로만_이루어져있으면_통과() {
+        //given
+        String case1 = "5";
+        String case2 = "-1";
+        String case3 = " 3 ";
+
+        //when
+        Throwable result1 = catchThrowable(()->{
+            Validation.validateIsDigit(case1);
+        });
+        Throwable result2 = catchThrowable(()->{
+            Validation.validateIsDigit(case2);
+        });
+        Throwable result3 = catchThrowable(()->{
+            Validation.validateIsDigit(case3);
+        });
+
+        //then
+        assertThat(result1).doesNotThrowAnyException();
+        assertThat(result2).doesNotThrowAnyException();
+        assertThat(result3).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 시도횟수가_0이상이면_통과() {
         final HashMap<String,String> hashMap = new HashMap<>();
         hashMap.put("one", "--"); hashMap.put("two", "---");
