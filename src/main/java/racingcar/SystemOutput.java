@@ -8,7 +8,7 @@ public class SystemOutput {
     public void showStatus(String name, int location) {
         System.out.printf(name + " : ");
         for (int i = 0; i < location; i++) {
-            System.out.printf("-");
+            System.out.print("-");
         }
         System.out.println();
     }
@@ -26,7 +26,7 @@ public class SystemOutput {
         int maxValue = Collections.max(result.values());
 
         for (Map.Entry<String, Integer> entry : result.entrySet()) {
-            if (entry.getValue().equals(maxValue)){
+            if (entry.getValue().equals(maxValue)) {
                 winnerList.add(entry.getKey());
             }
         }

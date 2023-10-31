@@ -26,7 +26,7 @@ public class UserInput {
         System.out.println("시도할 회수는 몇회인가요?");
         String readLine = Console.readLine();
         verification.verifyNumberOfTry(readLine);
-        numberOfTry = Integer.valueOf(readLine);
+        numberOfTry = Integer.parseInt(readLine);
     }
 
 

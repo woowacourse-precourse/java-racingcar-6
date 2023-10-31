@@ -9,7 +9,7 @@ public enum Exceptions {
 
     private final String errMessage;
 
-    Exceptions(String errMessage){
+    Exceptions(String errMessage) {
         this.errMessage = errMessage;
     }
 
