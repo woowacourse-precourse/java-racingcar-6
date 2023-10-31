@@ -1,12 +1,24 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mock;
 import racingcar.controller.CarRaceGame;
+import racingcar.domain.Car;
+import racingcar.validator.Validator;
+import racingcar.view.CarRaceGameView;
 
 public class myApplicationTest extends NsTest {
     @Nested
@@ -39,20 +51,29 @@ public class myApplicationTest extends NsTest {
         }
     }
 
+
+
     @Nested
-    @DisplayName("게임횟수 테스트")
+    @DisplayName("게임시도횟수 테스트")
     class AttemptNumberTest {
         @ParameterizedTest
-        @ValueSource(strings = {"a", "-1"})
-        @DisplayName("게임시도횟수 입력을 테스트한다.")
-        void 시도횟수테스트(String carNames) {
+        @ValueSource(strings = {"a",",","!"})
+        @DisplayName("게임시도횟수 입력이 숫자인지 테스트한다.")
+        void 시도횟수_숫자_테스트(String roundNumber) {
             Assertions.assertThatThrownBy(
-                    () -> runException(carNames)
+                    () -> Validator.isNumber(roundNumber)
+            ).isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"0","-1"})
+        @DisplayName("게임시도횟수가 1이상인지 테스트한다.")
+        void 시도횟수_범위_테스트(String roundNumber) {
+            Assertions.assertThatThrownBy(
+                    () -> Validator.attemptNumberRange(roundNumber)
             ).isInstanceOf(IllegalArgumentException.class);
         }
     }
-
-    
 
 
 
