@@ -1,12 +1,10 @@
 package controller;
 
-import java.util.List;
 import model.domain.Round;
 import model.domain.Winner;
+import model.service.GamePlay;
 import model.service.GameResult;
-import model.service.InputCheck;
 import model.domain.Participant;
-import model.service.Game;
 import model.service.Split;
 import view.Input;
 import view.Output;
@@ -20,7 +18,7 @@ public class GameStart {
 
         Output.startResult();
         for (int i = 0; i < round.getRound(); i++) {
-            Game.play(participant);
+            GamePlay.play(participant);
             Output.roundResult(participant);
         }
 

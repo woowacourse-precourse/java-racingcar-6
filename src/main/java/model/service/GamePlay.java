@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import model.domain.Car;
 import model.domain.Participant;
 
-public class Game {
+public class GamePlay {
 
     private static final int MINIMUM_VALUE = 0;
     private static final int MAXIMUM_VALUE = 9;
