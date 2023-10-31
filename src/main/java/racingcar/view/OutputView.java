@@ -7,8 +7,8 @@ import java.util.List;
 
 public class OutputView {
 
-    private final String delimiter = " : ";
-    private final String forwardMark = "-";
+    private final static String delimiter = " : ";
+    private final static String forwardMark = "-";
 
     public void printRoundResult(RoundResult roundResult){
         List<CarRecord> round = roundResult.getRound();
