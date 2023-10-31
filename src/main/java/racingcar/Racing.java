@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Racing {
+    private static final int RANDOM_RANGE_MIN_NUMBER = 0;
+    private static final int RANDOM_RANGE_MAX_NUMBER = 9;
+    private static final int RANDOM_NUMBER_LIMIT_LENGTH = 4;
+
     ArrayList<Integer> playerResult = new ArrayList<>();
     Input input;
 
@@ -13,12 +17,12 @@ public class Racing {
     }
 
     public int selectNumber() {
-        int pickNumber = Randoms.pickNumberInRange(0, 9);
+        int pickNumber = Randoms.pickNumberInRange(RANDOM_RANGE_MIN_NUMBER, RANDOM_RANGE_MAX_NUMBER);
         return pickNumber;
     }
 
     public boolean verifyNumber(int pickNumber) {
-        if (pickNumber >= 4) {
+        if (pickNumber >= RANDOM_NUMBER_LIMIT_LENGTH) {
             return true;
         }
         return false;
