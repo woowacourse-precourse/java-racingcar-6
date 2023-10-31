@@ -1,5 +1,10 @@
 package racingcar.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.dto.CarStatus;
+import racingcar.dto.WinnerResult;
+import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TryCount;
 import racingcar.model.Winner;
@@ -17,7 +22,7 @@ public class GameController {
         raceOn(cars, tryCount);
 
         Winner winners = new Winner(cars);
-        OutputView.printWinners(winners.toString());
+        OutputView.printWinners(getWinnerResult(winners));
     }
 
     private void raceOn(Cars cars, TryCount tryCount) {
@@ -26,9 +31,18 @@ public class GameController {
 
         for (int i = 0; i < tryCount.value(); i++) {
             cars.tryRun();
-            OutputView.printResult(cars.toString());
-            OutputView.newLine();
+            OutputView.printCurrentCarStatus(getCurrentCarsStatus(cars.getCars()));
         }
+    }
+
+    private List<CarStatus> getCurrentCarsStatus(List<Car> cars) {
+        return cars.stream()
+                .map(CarStatus::new)
+                .collect(Collectors.toList());
+    }
+
+    private WinnerResult getWinnerResult(Winner winner) {
+        return new WinnerResult(winner);
     }
 
     private String getCarNames() {
