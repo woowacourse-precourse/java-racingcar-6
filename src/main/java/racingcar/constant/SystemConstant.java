@@ -9,4 +9,6 @@ public class SystemConstant {
     public static final int RANGE_OF_END = 9;
     public static final int FORWARD_CONDITION = 4;
 
+    public static int MAX = Integer.MIN_VALUE;
+
 }
