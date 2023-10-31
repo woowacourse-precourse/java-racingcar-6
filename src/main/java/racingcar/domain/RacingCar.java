@@ -7,6 +7,9 @@ public class RacingCar {
     private int distance;
 
     public RacingCar(String name) {
+        if(name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.distance = 0;
     }
