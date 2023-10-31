@@ -18,4 +18,13 @@ public class Exception {
         }
         return false;
     }
+
+    public static void isSpace(String[] carNames) {
+        for (String name : carNames) {
+            String word = name.trim();
+            if (word.contains(" ")) {
+                throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다");
+            }
+        }
+    }
 }
