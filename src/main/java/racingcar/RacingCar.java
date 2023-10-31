@@ -20,6 +20,7 @@ public class RacingCar {
         return false;
     }
 
+    // 테스트를 위해 추가
     @Override
     public String toString() {
         return "name : " + name;
