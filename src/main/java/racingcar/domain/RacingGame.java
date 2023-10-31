@@ -40,7 +40,7 @@ public class RacingGame {
         return resultList;
     }
 
-    public void chooseWinners(List<String> resultList) {
+    public List<String> chooseWinners(List<String> winner, List<String> resultList) {
 
         List<String> cars = inputDesk.getCars();
         int maxLen = 0;
@@ -56,7 +56,7 @@ public class RacingGame {
                 continue;
             }
         }
-
+        return winner;
     }
 
     public void start() {
@@ -72,7 +72,7 @@ public class RacingGame {
                 announcer.resultMessage();
                 announcer.result(resultList, inputDesk.getCars());
             }
-            chooseWinners(resultList);
+            chooseWinners(winner,resultList);
             announcer.winner(winner);
         } catch (IllegalArgumentException e) {
             throw e;
