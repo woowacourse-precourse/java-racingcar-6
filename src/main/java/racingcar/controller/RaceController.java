@@ -49,10 +49,14 @@ public class RaceController {
     }
 
     private void printResult() {
-        List<CarDto> carDtos = cars.getCars().stream()
+        List<CarDto> carDtos = convertCarToDto();
+        outputView.printResult(carDtos);
+    }
+
+    private List<CarDto> convertCarToDto() {
+        return cars.getCars().stream()
                 .map(car -> new CarDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
-        outputView.printResult(carDtos);
     }
 
     private void printFinalWinner() {
