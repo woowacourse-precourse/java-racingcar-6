@@ -68,4 +68,15 @@ class OutputTest {
         assertThat(output).contains(status);
     }
 
+    @Test
+    void 게임_종료후_우승자를_출력한다() {
+        List<String> status = List.of("a", "aaa");
+        String expected = OutputMessage.WINNER.message + "a, aaa" + "\n";
+
+        Output.printWinner(status);
+
+        String output = outputStream.toString();
+        assertEquals(expected, output);
+    }
+
 }
