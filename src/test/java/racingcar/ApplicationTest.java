@@ -93,6 +93,14 @@ class ApplicationTest extends NsTest {
             carRepository.carForward(0, 5);
             assertThat(carRepository.findByName("pobi").getForward()).isEqualTo(1);
         }
+
+        @Test
+        void carStop() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.save("pobi");
+            carRepository.carForward(0,3);
+            assertThat(carRepository.findByName("pobi").getForward()).isEqualTo(0);
+        }
     }
 
     @Override
