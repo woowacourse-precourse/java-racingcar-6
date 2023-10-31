@@ -22,7 +22,7 @@ public class Controller {
         OutputView.printResult();
         result(cars, attemptCount);
 
-        List<String> winner = racingcarGame.findMaxMoveForwardCount(cars);
+        List<String> winner = racingcarGame.createWinner(cars);
         OutputView.printWinner(winner);
     }
 

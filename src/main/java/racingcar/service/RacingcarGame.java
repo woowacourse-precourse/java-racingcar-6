@@ -11,20 +11,25 @@ public class RacingcarGame {
     private static final int NUMBER_ZERO = 0;
     private static final int NUMBER_NINE = 9;
 
-    public List<String> findMaxMoveForwardCount(List<Car> cars) {
+    public List<String> createWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
-        int max = 0;
-        for (Car car : cars) {
-            if (car.getMoveForwardCount() > max) {
-                max = car.getMoveForwardCount();
-            }
-        }
+        int max = findMaxMoveForwardCount(cars);
         for (Car car : cars) {
             if (car.getMoveForwardCount() == max) {
                 winner.add(car.getCarName());
             }
         }
         return winner;
+    }
+
+    public int findMaxMoveForwardCount(List<Car> cars) {
+        int max = 0;
+        for (Car car : cars) {
+            if (car.getMoveForwardCount() > max) {
+                max = car.getMoveForwardCount();
+            }
+        }
+        return max;
     }
 
     public void increaseMoveForwardCount(Car car) {
