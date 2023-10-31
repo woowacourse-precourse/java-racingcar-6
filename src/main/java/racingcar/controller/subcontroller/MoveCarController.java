@@ -17,6 +17,10 @@ public class MoveCarController {
 
     public void moveCar() {
         int attemptCount = inputAttemptToMoveCar(); // 이동을 시도할 횟수 입력
+        repeatAttemptAsCount(attemptCount);
+    }
+
+    private void repeatAttemptAsCount(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
             attemptToMoveCar();
             outputMovingRecord();
