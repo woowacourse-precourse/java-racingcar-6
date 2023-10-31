@@ -9,7 +9,6 @@ public class OutputView {
     public static final String RACE_RESULT_MESSAGE = "실행 결과";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
     public static final String COLON = " : ";
-    public static final String DASH = "-";
 
     public void printInputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
@@ -40,15 +39,7 @@ public class OutputView {
         String progress = "";
         progress += car.getName();
         progress += COLON;
-        progress += getDash(car.getProgress());
+        progress += car.getDash();
         return progress;
-    }
-
-    public String getDash(int number) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < number; i++) {
-            sb.append(DASH);
-        }
-        return sb.toString();
     }
 }
