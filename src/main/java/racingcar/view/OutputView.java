@@ -25,4 +25,15 @@ public class OutputView {
     }
     System.out.println();
   }
+
+  public void displayWinner(List<String> winnerList) {
+    StringBuilder winnerResult = new StringBuilder();
+    for (String winner : winnerList) {
+      winnerResult.append(winner).append(", ");
+    }
+    // remove last comma
+    int length = winnerResult.length();
+    System.out.print(OutputMessage.WINNER_PREFIX.getMessage() + winnerResult.substring(0, length - 2));
+  }
+
 }
