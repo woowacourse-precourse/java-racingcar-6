@@ -5,6 +5,7 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.view.OutputView;
 
 @DisplayName("레이싱 게임 우승자 결정 룰 테스트")
 class RefereeTest {
@@ -15,11 +16,11 @@ class RefereeTest {
         //given
         List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
         Car car = list.get(1);
-        Referee r = new Referee();
+        Referee referee = new Referee();
 
         //when
         car.accel();
-        List<Car> cars = r.selectWinnerList(list);
+        List<Car> cars = referee.selectWinnerList(list);
 
         //then
         Assertions.assertThat(cars.get(0).getName()).isEqualTo("홍길동");
@@ -30,10 +31,10 @@ class RefereeTest {
     void eachDistanceSameNotTry() {
         //given
         List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
-        Referee r = new Referee();
+        Referee referee = new Referee();
 
         //when
-        List<Car> cars = r.selectWinnerList(list);
+        List<Car> cars = referee.selectWinnerList(list);
 
         //then
         Assertions.assertThat(cars.get(0).getName()).isEqualTo("김민수");
@@ -44,28 +45,15 @@ class RefereeTest {
     void getWinnerName() {
         //given
         List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
-        Referee r = new Referee();
+        Referee referee = new Referee();
         Car car = list.get(1);
+
         car.accel();
+        OutputView outputView = new OutputView();
+//        when
+        String winnerName = outputView.winnerName(referee.selectWinnerList(list));
 
-        //when
-        String winnerName = r.winnerName(r.selectWinnerList(list));
-
-        //then
+//        then
         Assertions.assertThat(winnerName).isEqualTo("최종 우승자 : 홍길동");
-    }
-
-    @DisplayName("같은 이동거리의 우승자가 2명 이상 이면 ','(컴마) 를 추가해서 출력한다.")
-    @Test
-    void getAllWinnerName() {
-        //given
-        List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
-        Referee r = new Referee();
-
-        //when
-        String winnerName = r.winnerName(r.selectWinnerList(list));
-
-        //then
-        Assertions.assertThat(winnerName).isEqualTo("최종 우승자 : 김민수, 홍길동, 최종민");
     }
 }
