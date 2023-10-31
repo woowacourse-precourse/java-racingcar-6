@@ -24,7 +24,7 @@ class CarNameValidatorTest {
 		String[] arr = {""};
 		assertThatThrownBy(() -> carNameValidator.validateCarName(arr))
 				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessageContaining(message);
+				.hasMessage(message);
 	}
 
 	@Test
@@ -33,7 +33,7 @@ class CarNameValidatorTest {
 		String[] arr = {"abcdef"};
 		assertThatThrownBy(() -> carNameValidator.validateCarName(arr))
 				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessageContaining(message);
+				.hasMessage(message);
 	}
 
 	@Test
@@ -42,7 +42,7 @@ class CarNameValidatorTest {
 		String[] arr = {"abcdefg"};
 		assertThatThrownBy(() -> carNameValidator.validateCarName(arr))
 				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessageContaining(message);
+				.hasMessage(message);
 	}
 
 	@Test
