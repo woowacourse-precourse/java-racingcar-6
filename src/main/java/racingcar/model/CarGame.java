@@ -8,12 +8,12 @@ public class CarGame {
     private final List<Cars> cars = new ArrayList<>();
     private int playCount;
 
-    public void setCarsName(String name) {
+    public void setCars(String name) {
         divideName(name);
         Validation.name(cars);
     }
 
-    public List<Cars> getCarsName() {
+    public List<Cars> getCars() {
         return cars;
     }
 

@@ -15,8 +15,8 @@ class CarGameTest {
         String input = " JiHun ";
 
         //when
-        carGame.setCarsName(input);
-        int length = carGame.getCarsName().get(0).getName().length();
+        carGame.setCars(input);
+        int length = carGame.getCars().get(0).getName().length();
 
         //then
         Assertions.assertThat(5).isEqualTo(length);
@@ -26,7 +26,7 @@ class CarGameTest {
     public void 자동차_이름_한개_이상_참여_공백만_입력은_금지() {
         String input = " ";
 
-        assertThatThrownBy(() -> carGame.setCarsName(input))
+        assertThatThrownBy(() -> carGame.setCars(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("한 대 이상의 자동차가 있어야 합니다.");
     }

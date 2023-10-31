@@ -11,7 +11,7 @@ public class GameController {
     private final CarGame car = new CarGame();
 
     public void play() {
-        car.setCarsName(inputView.carName());
+        car.setCars(inputView.carName());
         car.setPlayCount(inputView.playCount());
         outputView.printMessage();
 
@@ -23,7 +23,7 @@ public class GameController {
 
         while (playCount-- > 0) {
             car.moveOrStop();
-            outputView.printPlayResult(car.getCarsName());
+            outputView.printPlayResult(car.getCars());
         }
     }
 }
