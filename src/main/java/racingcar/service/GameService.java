@@ -35,8 +35,7 @@ public class GameService {
         return new PlayGameResponseDto(getGameWinner(carList));
     }
 
-    private List<Car> initCarList(String carNameString){
-        List<String> carNameList = List.of(carNameString.split(","));
+    private List<Car> initCarList(List<String> carNameList){
         List<Car> carList = carNameList.stream().map(Car::new).collect(Collectors.toList());
         return carList;
     }

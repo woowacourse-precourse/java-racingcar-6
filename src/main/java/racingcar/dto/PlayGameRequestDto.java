@@ -1,16 +1,18 @@
 package racingcar.dto;
 
+import java.util.List;
+
 public class PlayGameRequestDto {
-    public String carNameString;
+    public List<String> carNameList;
     public Integer tryNumber;
 
-    public PlayGameRequestDto(String carNameString, Integer tryNumber) {
-        this.carNameString = carNameString;
+    public PlayGameRequestDto(List<String> carNameList, Integer tryNumber) {
+        this.carNameList = carNameList;
         this.tryNumber = tryNumber;
     }
 
-    public String getCarNameString() {
-        return carNameString;
+    public List<String> getCarNameString() {
+        return carNameList;
     }
 
     public Integer getTryNumber() {
