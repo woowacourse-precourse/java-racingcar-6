@@ -43,4 +43,19 @@ class RacingGameResultReportTest {
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
     }
 
+    @Test
+    void announceWinners_단일_우승() {
+        RacingGameResultReport report = new RacingGameResultReport();
+        Map<String, Integer> racingStateMap = new HashMap<>();
+        racingStateMap.put("벤츠", 3);
+        racingStateMap.put("페라리", 2);
+        racingStateMap.put("레드불", 5);
+
+        report.announceWinners(racingStateMap);
+
+        String expectedOutput = "최종 우승자: 레드불" + System.lineSeparator();
+
+        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+    }
+
 }
