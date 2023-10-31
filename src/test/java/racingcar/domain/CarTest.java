@@ -21,7 +21,7 @@ class CarTest {
         // when
         car.move();
         // then
-        Assertions.assertThat(car.getPosition()).isEqualTo(1);
+        Assertions.assertThat(car.toDTO().getPosition()).isEqualTo(1);
     }
 
     @Test
@@ -31,6 +31,6 @@ class CarTest {
         // when
         car.move();
         // then
-        Assertions.assertThat(car.getPosition()).isEqualTo(0);
+        Assertions.assertThat(car.toDTO().getPosition()).isEqualTo(0);
     }
 }

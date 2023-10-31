@@ -29,17 +29,16 @@ public class Cars {
     }
 
     public List<CarDTO> getMaxPositionCars() {
-        int maxPosition = getMaxPosition();
+        Car maxCar = getMaxCar();
         return cars.stream()
-                .filter(car -> car.isSamePosition(maxPosition))
+                .filter(maxCar::isSamePosition)
                 .map(Car::toDTO)
                 .toList();
     }
 
-    private int getMaxPosition() {
+    private Car getMaxCar() {
         return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
+                .max(Car::compareTo)
                 .orElseThrow();
     }
 }

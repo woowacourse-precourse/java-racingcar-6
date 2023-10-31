@@ -4,7 +4,7 @@ import racingcar.domain.driver.Driver;
 import racingcar.dto.CarDTO;
 import racingcar.vo.CarName;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final CarName name;
     private final Driver driver;
     private int position = 0;
@@ -20,15 +20,17 @@ public class Car {
         }
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public CarDTO toDTO() {
         return new CarDTO(name.getName(), position);
     }
 
-    public boolean isSamePosition(int targetPosition) {
-        return this.position == targetPosition;
+    public boolean isSamePosition(Car car) {
+        return compareTo(car) == 0;
     }
+
+    @Override
+    public int compareTo(Car car) {
+        return Integer.compare(this.position, car.position);
+    }
+
 }

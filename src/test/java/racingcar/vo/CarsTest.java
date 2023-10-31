@@ -49,8 +49,8 @@ class CarsTest {
         // when
         cars.moveAll();
         // then
-        assertThat(pobi.getPosition()).isEqualTo(1);
-        assertThat(woni.getPosition()).isEqualTo(1);
+        assertThat(pobi.toDTO().getPosition()).isEqualTo(1);
+        assertThat(woni.toDTO().getPosition()).isEqualTo(1);
     }
 
     @Test
