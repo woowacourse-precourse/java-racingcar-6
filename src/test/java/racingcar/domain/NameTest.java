@@ -21,7 +21,7 @@ class NameTest {
     }
 
     @ParameterizedTest(name = "입력값 : {0}")
-    @ValueSource(strings = {"", "  ", "abcabc", "p obi"})
+    @ValueSource(strings = {"", "  ", "abcabc", "p obi", " pobi", "pobi "})
     @DisplayName("자동차 이름 생성 실패 예외 처리")
     void givenInput_whenCreateName_thenThrowException(String input) {
         assertThatIllegalArgumentException()
