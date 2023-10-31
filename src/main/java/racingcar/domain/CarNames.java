@@ -10,6 +10,7 @@ import racingcar.validator.Validator;
  * */
 
 public class CarNames {
+
     private static final String SPLIT_SIGN = ",";
     private final List<CarName> names;
 
@@ -37,7 +38,6 @@ public class CarNames {
         Validator.commandsSizeZero(namesToString);
         Validator.commandsNotDuplicated(namesToString);
     }
-    //일급컬렉션의 불변성을 지키기위해 getter 제거
 
     public List<Car> createCars() {
         List<Car> cars = new ArrayList<>();

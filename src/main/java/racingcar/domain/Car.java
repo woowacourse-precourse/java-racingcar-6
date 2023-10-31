@@ -4,12 +4,11 @@ package racingcar.domain;
  *   자동차의 관한 정보를 담당
  * */
 
-import static racingcar.constant.CarConstant.MOVE_COUNT_INITIAL;
-
 public class Car {
 
+    public static final int MOVE_COUNT_INITIAL = 0;
+
     private CarName name;
-    //변수명 수정 해보기 클래스도 (distance)
     private int moveDistance;
 
     private Car(CarName carName) {

@@ -7,6 +7,7 @@ import java.util.List;
  * */
 
 public class GameWinner {
+    
     private final int FROM_BEGIN = 0;
     private final int NOT_USED_INDEX = 2;
     private final List<Car> cars;
@@ -20,7 +21,7 @@ public class GameWinner {
     }
 
     public String getNames() {
-        StringBuilder names = new StringBuilder("");
+        StringBuilder names = new StringBuilder();
         for (Car car : cars) {
             names.append(car.getName()).append(", ");
         }

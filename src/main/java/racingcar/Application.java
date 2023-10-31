@@ -9,6 +9,5 @@ public class Application {
         final GameService gameService = new GameService();
         final GameController gameController = new GameController(gameService);
         gameController.run();
-
     }
 }

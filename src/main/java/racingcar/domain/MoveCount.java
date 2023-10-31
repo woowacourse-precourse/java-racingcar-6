@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.constant.CarConstant.MAX_MOVE_COUNT;
-import static racingcar.constant.CarConstant.MIN_MOVE_COUNT;
 
 import racingcar.validator.Validator;
 
@@ -10,6 +8,9 @@ import racingcar.validator.Validator;
  * */
 
 public class MoveCount {
+    
+    public static final int MIN_MOVE_COUNT = 0;
+    public static final int MAX_MOVE_COUNT = 10000;
     private final int count;
 
     private MoveCount(String input) {

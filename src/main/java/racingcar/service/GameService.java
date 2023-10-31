@@ -1,10 +1,5 @@
 package racingcar.service;
 
-
-import static racingcar.constant.CarConstant.MAX_MOVE_CONDITION_NUMBER;
-import static racingcar.constant.CarConstant.MIN_MOVE_CONDITION_NUMBER;
-import static racingcar.constant.CarConstant.STANDARD_MOVE_CONDITION_NUMBER;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
@@ -17,6 +12,10 @@ import racingcar.domain.GameWinner;
  * */
 
 public class GameService {
+
+    public static final int MAX_MOVE_CONDITION_NUMBER = 9;
+    public static final int MIN_MOVE_CONDITION_NUMBER = 0;
+    public static final int STANDARD_MOVE_CONDITION_NUMBER = 4;
 
     public GamePlayer createGamePlayer(CarNames carNames) {
         List<Car> cars = carNames.createCars();

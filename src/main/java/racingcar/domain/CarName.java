@@ -1,9 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.constant.CarConstant.MAX_NAME_SIZE;
-import static racingcar.constant.CarConstant.MIN_NAME_SIZE;
-import static racingcar.constant.CarConstant.NAME_REGEX;
-
 import racingcar.validator.Validator;
 
 /*
@@ -11,6 +7,11 @@ import racingcar.validator.Validator;
  * */
 
 public class CarName {
+    
+    public static final int MIN_NAME_SIZE = 1;
+    public static final int MAX_NAME_SIZE = 5;
+    public static final String NAME_REGEX = "^[0-9a-zA-Zㄱ-ㅎ가-힣]*$";
+
     private String name;
 
     public CarName(String name) {

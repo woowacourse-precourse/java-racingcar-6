@@ -29,8 +29,6 @@ public class GameController {
     }
 
     private void showWinner(GamePlayer gamePlayer) {
-        //createGameRankBy(gamePlayer) 가 더 가독성이 좋은가
-//        GameRank gameRank = gameService.createGameRank(gamePlayer);
         GameWinner gameWinner = gameService.createGameWinner(gamePlayer);
         outputView.gameWinner(gameWinner);
     }
@@ -38,7 +36,6 @@ public class GameController {
     private void play(GamePlayer gamePlayer) {
         outputView.requestMoveCount();
         MoveCount moveCount = inputView.moveCount();
-        //다른 네이밍은 없을까
         outputView.beforeMovingMessage();
         moveRepeatByCount(moveCount, gamePlayer);
     }
@@ -52,10 +49,6 @@ public class GameController {
 
     private GamePlayer start() {
         outputView.requestCarName();
-        //inputView.carNames();
-        //함수를 넣는것이 아닌 함수로 정보를 저장한뒤 저장한 인스턴스를 전달하는 과정은 어떤지
-        //현재 GamePlayer가 inputView의 기능을 담당하고 있다고 봐도 되는 것인지
-//        GamePlayer gamePlayer = gameService.initializePlayer(inputView.carNames());
         CarNames carNames = inputView.carNames();
         return gameService.createGamePlayer(carNames);
     }

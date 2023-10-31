@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 
 public class Validator {
+    
     private static final String NAME_LENGTH_OVER_MESSAGE = "이름이 주어진 길이를 벗어났습니다.";
     private static final String NAME_NOT_EXIST_NAME_MESSAGE = "이름이 존재하지 않습니다.";
     private static final String DUPLICATED_NAME_MESSAGE = "이름이 존재하지 않습니다.";

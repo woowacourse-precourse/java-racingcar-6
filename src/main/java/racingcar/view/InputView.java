@@ -8,6 +8,7 @@ import racingcar.domain.MoveCount;
  *   사용자의 입력을 담당
  * */
 public class InputView {
+
     public CarNames carNames() {
         String input = Console.readLine();
         return CarNames.fromInput(input);
