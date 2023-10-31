@@ -21,4 +21,7 @@ public class ResultList {
             System.out.println("s = " + s);
         }
     }
+    public List<String> getResultList(){
+        return resultList;
+    }
 }

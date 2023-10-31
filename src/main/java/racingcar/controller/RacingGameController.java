@@ -3,6 +3,7 @@ package racingcar.controller;
 import static java.lang.Integer.parseInt;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.CarNameList;
@@ -19,6 +20,22 @@ public class RacingGameController {
 
         resultList = ResultList.getInstance(getResultList());
         resultList.PrintResult();
+
+        for(int i=0; i<tryNumber; i++){
+            MovingCar();
+        }
+        resultList.PrintResult();
+    }
+    public void MovingCar(){
+        List<String> result = resultList.getResultList();
+        for(int i=0; i<result.size(); i++){
+            MovingForward(i, result);
+        }
+    }
+    public void MovingForward(int idx, List<String> result){
+        if(Randoms.pickNumberInRange(0,9) >= 4){
+            result.set(idx, result.get(idx)+"-");
+        }
     }
     public String[] getCarString(){
         String carName = Console.readLine();
