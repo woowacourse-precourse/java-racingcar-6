@@ -38,7 +38,7 @@ public class Car {
 			round++;
 		} while (round != finalR);
 
-		//결과 확인
+		checkReult(position);
 	}
 
 	private static void currentPrint(String[] c, List<Integer> p) {
@@ -46,5 +46,26 @@ public class Car {
 			System.out.println(c[i] + " : " + p.get(i));
 		}
 		System.out.println();
+	}
+
+	private static void checkReult(List<Integer> p) {
+		int max = Racing.findMax(p);
+		indexList = Racing.findIndexes(p, max);
+
+		System.out.print("최종 우승자 : ");
+		if (indexList.size() > 1)
+			printindexes(indexList);
+		else
+			System.out.println(carList[indexList.get(0)]);
+	}
+
+	private static void printindexes(List<Integer> index) {
+		int i = 0;
+		System.out.print(carList[i]);
+
+		for (int j = 1; j < index.size(); j++) {
+			i = index.get(j);
+			System.out.print(", " + carList[i]);
+		}
 	}
 }
