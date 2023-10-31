@@ -7,20 +7,21 @@
 - [ ] 시도 횟수 k와 자동차 n대를 입력받아 생성
 
     - [ ] 사용자가 이동 시도 횟수와 각 자동차 이름을 입력한다.
-        - [ ] 이동 시도 횟수 입력 - InputController#insertMoveAttempt()
-        - [ ] 각 자동차 이름 입력 - InputController#insertCarNames()
+        - [ ] 이동 시도 횟수 입력 - InputController#insertAttemptCount()
+            - [ ] 입력받은 횟수를 int형으로 변환한다. - InputController#AttemptCountToInt()
 
-    - [ ] 자동차 생성하며 이름을 부여한다. - InputController#setCar()
-        - [ ] 쉼표(,)를 기준으로 구분한다.
-        - [ ] 5자 이하의 이름만 받는다.
+        - [x] 각 자동차 이름 입력 - InputController#insertCarNames()
+            - [x] 자동차를 생성하며 이름을 부여한다. - InputController#setCar()
+                - [x] 쉼표(,)를 기준으로 구분한다.
+                - [ ] 5자 이하의 이름만 받는다.
 
 - [ ] 전진 또는 멈춤 - GameController#MoveOrNot()
     - [ ] 0~9의 무작위 값이 4 이상이면 전진한다(k번 반복) == 4미만이면 멈춘다.
 
 - [ ] 우승자 발표 - Announcer#displayWinner()
     - [ ] 가장 많이 이동한 자동차(우승자)를 식별한다. - Referee#identifyWinner
-    - [ ] 한명이상
-    - [ ] 여러명일 경우 쉼표(,)로 구분한다.
+        - [ ] 한명이상
+        - [ ] 여러명일 경우 쉼표(,)로 구분한다.
 
 ---
 
