@@ -79,6 +79,23 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자가_여럿인_경우에_대한_출력_확인(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("Ryze,Lux,Leona,Lulu", "3");
+                    assertThat(output()).contains(
+                            "Ryze : -", "Lux : ", "Leona : ", "Lulu : ",
+                            "Ryze : --", "Lux : -", "Leona : -", "Lulu : -",
+                            "Ryze : --", "Lux : --", "Leona : -", "Lulu : -",
+                            "최종 우승자 : Ryze, Lux");
+                },
+                MOVING_FORWARD, STOP, STOP, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, STOP, STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
