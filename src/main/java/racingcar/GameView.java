@@ -63,4 +63,15 @@ public class GameView {
         }
         System.out.println();
     }
+
+    //게임 결과 출력하기
+    public void printWinners(List<Car> winners) {
+        System.out.print(Constant.WINNER_MESSAGE);
+        for (int i = 0; i < winners.size(); i++) {
+            if (i >= 1) {
+                System.out.print(", ");
+            }
+            System.out.print(winners.get(i).getName());
+        }
+    }
 }

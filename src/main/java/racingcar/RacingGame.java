@@ -23,9 +23,10 @@ public class RacingGame {
         makeCarList();
         getRound();
         raceStart(this.round);
+        findWinners();
     }
 
-    public void makeCarList() {
+    private void makeCarList() {
         cars = new ArrayList<>();
         String[] carNames = gameView.carsInput();
         for (String carName : carNames) {
@@ -33,12 +34,12 @@ public class RacingGame {
         }
     }
 
-    public void getRound() {
+    private void getRound() {
         String roundString = gameView.roundInput();
         round = new Round(roundString);
     }
 
-    public void raceStart(Round round) {
+    private void raceStart(Round round) {
         gameView.printRound();
         while (this.round.getRound() > 0) {
             moveCars();
@@ -47,10 +48,30 @@ public class RacingGame {
         }
     }
 
-    public void moveCars() {
+    private void moveCars() {
         for (Car car : cars) {
             int randomValue = car.getRandomValue();
             car.forward(randomValue);
         }
+    }
+
+    private void findWinners() {
+        List<Car> winners = new ArrayList<>();
+        int maxPosition = findMaxPosition(cars);
+        for (Car car : cars) {
+            if (car.isWinner(maxPosition)) {
+                winners.add(car);
+            }
+        }
+        gameView.printWinners(winners);
+    }
+
+
+    private int findMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
     }
 }

@@ -28,4 +28,11 @@ public class Car {
     public int getRandomValue() {
         return Randoms.pickNumberInRange(Constant.START_RANDOM_NUMBER, Constant.END_RANDOM_NUMBER);
     }
+
+    public boolean isWinner(Integer position) {
+        if (this.position == position) {
+            return true;
+        }
+        return false;
+    }
 }
