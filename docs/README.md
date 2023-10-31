@@ -59,6 +59,7 @@
           - List<Car> getCarList()
           - void trial() // execute one attempt
           - void calWinner()
+          - List<String> getWinner()
     - view
       - View Interface
         - void printGetCarString()

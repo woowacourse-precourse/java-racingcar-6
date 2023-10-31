@@ -35,4 +35,10 @@ public class RacingMap {
                     winner.add(car.getName());
         }
     }
+
+    public List<String> getWinner(){
+        if(winner.isEmpty())
+            calWinner();
+        return winner;
+    }
 }
