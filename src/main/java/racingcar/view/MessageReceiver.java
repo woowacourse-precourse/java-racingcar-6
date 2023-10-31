@@ -11,7 +11,7 @@ import static racingcar.constant.TextConstant.COMMA;
 public class MessageReceiver {
 
     public List<String> receiveCarNames() {
-        String inputText = validateReadLine();
+        String inputText = readLine();
         List<String> carNames = Arrays.asList(inputText.split(COMMA));
         validateCarNames(carNames);
 
@@ -19,7 +19,7 @@ public class MessageReceiver {
     }
 
     public int receiveAttemptCount() {
-        String inputText = validateReadLine();
+        String inputText = readLine();
         int attemptCount = parseInteger(inputText);
         validateAttemptCount(attemptCount);
 
@@ -27,7 +27,7 @@ public class MessageReceiver {
     }
 
     // validate ReadLine
-    private String validateReadLine() {
+    private String readLine() {
         try {
             return Console.readLine();
         } catch (NoSuchElementException e) {
