@@ -27,6 +27,7 @@ public class CarController {
         cars = new Cars(inputView.getPlayerNamesInput());
         getTryCountFromInput();
         race();
+        terminate();
     }
     private void getTryCountFromInput() {
         inputView.inputTryCount();
@@ -43,8 +44,14 @@ public class CarController {
         }
 
         cars.moveAll();
-        outputView.printString(cars.toString());
+        for (Car car : cars.getCars()) {
+            outputView.printCarStatus(car);
+        }
         raceRecursive(nowTryCnt + 1);
+    }
+    private void terminate() {
+        cars.getCars().forEach(outputView::printCarStatus);
+        outputView.printWinners(cars.getWinners().getWinnerNames());
     }
 
 }

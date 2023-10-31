@@ -21,11 +21,9 @@ public class Winner {
                 .orElse(Integer.MIN_VALUE);
     }
 
-    @Override
-    public String toString() {
-        List<String> names = winners.stream()
+    public List<String> getWinnerNames() {
+        return winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
-        return String.join(", ", names) + "가 최종 우승했습니다.";
     }
 }
