@@ -12,15 +12,21 @@ public class Cars {
         }
     }
 
-    public void move() {
+    public void move(int tryCountValue) {
         for (Car car : cars) {
-            car.move();
+            car.drive();
             System.out.println(car.getName() + " : " + car.getPosition());
         }
+        String winner = getWinner(tryCountValue);
+        System.out.println("최종 우승자 : " + winner);
     }
 
-    public String getWinners() {
-
-        return "최종 우승자 : ";
+    private String getWinner(int tryCountValue) {
+        for (Car car : cars) {
+            if (car.isMax == tryCountValue) {
+                return car.getName();
+            }
+        }
+        return null;
     }
 }

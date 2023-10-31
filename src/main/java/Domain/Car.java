@@ -4,14 +4,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private final StringBuilder position = new StringBuilder("-");
+    private final StringBuilder position = new StringBuilder();
+    public int isMax = 0; // 골에 도착했는지 확인하기 위한 변수
 
     public Car(String name) {
         this.name = name;
     }
 
-    public void move() {
+    public void drive() {
         if (isMove()) {
+            ++isMax;
             position.append("-");
         }
     }

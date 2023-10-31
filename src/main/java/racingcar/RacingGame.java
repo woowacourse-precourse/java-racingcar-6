@@ -1,7 +1,7 @@
 package racingcar;
 
-import Domain.TryCount;
 import Domain.Cars;
+import Domain.TryCount;
 
 
 public class RacingGame {
@@ -16,8 +16,9 @@ public class RacingGame {
     public void start() {
         System.out.println("실행 결과");
         for (int i = 0; i < tryCount.getValue(); i++) {
-            cars.move();
+            cars.move(tryCount.getValue());
         }
-        System.out.println(cars.getWinners());
     }
+
+
 }
