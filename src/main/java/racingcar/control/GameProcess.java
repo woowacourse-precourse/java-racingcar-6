@@ -63,9 +63,6 @@ public class GameProcess {
         raceCarList.add(raceCar);
     }
 
-    /**
-     * nameLineOfRaceCar을 배열로 split을 하여 nameSplitList을 만든다.
-     */
     private void makeCarNameListFromStrLine() {
         String[] nameSplitArr = null;
 
