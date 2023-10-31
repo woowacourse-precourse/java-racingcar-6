@@ -28,15 +28,15 @@ public class Car {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getStep() {
         return step;
     }
 
-    public boolean compare(int maxStep){
+    public CarDTO toCarDTO() {
+        return CarDTO.of(name, step);
+    }
+
+    public boolean compare(int maxStep) {
         return step == maxStep;
     }
 
