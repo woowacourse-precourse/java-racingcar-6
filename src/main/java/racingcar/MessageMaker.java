@@ -1,13 +1,14 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MessageMaker {
     private String returnMessage;
+
     public MessageMaker() {
         this.returnMessage = new String();
     }
+
     public String winnerMessage(List winners) {
         returnMessage = "";
         returnMessage = String.join(", ", winners);
@@ -23,6 +24,6 @@ public class MessageMaker {
             returnMessage += "-";
         }
         returnMessage += "\n";
-        return String.join("",returnMessage);
+        return String.join("", returnMessage);
     }
 }

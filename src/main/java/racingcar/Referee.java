@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Referee {
     private MessageMaker messageMaker;
-    private List messageParams;
+    private List<String> messageParams;
     private String returnMessage;
 
     public Referee() {

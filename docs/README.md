@@ -8,7 +8,8 @@
   - 4 이상은 이동을 한다. Car.move()
   - 1 게임은 모든차량에 대해 이동여부를 결정한다. Game.raceOne()
   - 매 회 자동차들의 전진 상태를 이름과 함께 출력해줘야 한다. Referee.reportNow()
-  - 게임이 종료될 때 우승자 발표한다. 중복우승 시 쉼표로 구분. Referee.announceWinner() 
+  - 게임이 종료될 때 우승자 발표한다. 중복우승 시 쉼표로 구분. Referee.announceWinner()
+  - 전달하는 메세지는 정해진 포맷에 맞게 작성되야 한다. MessageMaker
 
 ## 클래스
 - [x] Application
@@ -18,11 +19,14 @@
   - [x] compare()
 - [x] Car
   - [x] String name; int location;
-  - [x] move();
+  - [x] move()
 - [x] Game
   - [x] int playNum; Car[] players;
-  - [x] play();
-  - [x] raceOne();
+  - [x] play()
+  - [x] raceOne()
 - [x] Referee
-  - [x] announceWinner();
-  - [x] reportNow();
+  - [x] announceWinner()
+  - [x] reportNow()
+- [x] MessageMaker
+  - [x] winnerMessage()
+  - [x] playerLocationMessage()
