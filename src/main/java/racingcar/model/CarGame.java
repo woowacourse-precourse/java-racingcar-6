@@ -9,7 +9,7 @@ public class CarGame {
     private int playCount;
 
     public void setCars(String name) {
-        divideName(name);
+        saveDivideName(name);
         Validation.name(cars);
     }
 
@@ -26,7 +26,7 @@ public class CarGame {
         return playCount;
     }
 
-    private void divideName(String name) {
+    private void saveDivideName(String name) {
         StringTokenizer tokenizer = new StringTokenizer(name.trim(), ",");
 
         while (tokenizer.hasMoreTokens()) {
@@ -40,7 +40,6 @@ public class CarGame {
             car.move(RandomNum.generate());
         }
     }
-
 
     public List<String> getWinner() {
         int maxDistance = getMaxDistance();
