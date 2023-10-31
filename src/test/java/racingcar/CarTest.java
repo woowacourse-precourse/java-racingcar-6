@@ -1,10 +1,9 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.lang.reflect.Field;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 class CarTest {
 
