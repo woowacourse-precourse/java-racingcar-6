@@ -20,8 +20,8 @@ public class Application {
     }
 
     public static void makeCar(){
-        ArrayList<String> names = getName();
-        int count = getCount();
+        ArrayList<String> names = inputName();
+        int count = inputTry();
         car = new Car[names.size()];
 
         for(int i = 0; i < names.size(); i++){
@@ -30,7 +30,7 @@ public class Application {
 
     }
 
-    public static ArrayList<String> getName(){
+    public static ArrayList<String> inputName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         ArrayList<String> list = new ArrayList<>();
         String input = Console.readLine();
@@ -42,7 +42,7 @@ public class Application {
         return list;
     }
 
-    public static int getCount(){
+    public static int inputTry(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
 
