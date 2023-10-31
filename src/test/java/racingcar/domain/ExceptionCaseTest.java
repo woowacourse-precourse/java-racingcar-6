@@ -39,11 +39,5 @@ class ExceptionCaseTest {
                 .isThrownBy(() -> exceptionCase.nullStringInput(null));
     }
 
-    @DisplayName("0~9보다 큰 수를 입력시 exception")
-    @Test
-    void digitOver9() {
-        Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> exceptionCase.isNumberCorrect(99));
-    }
 
 }

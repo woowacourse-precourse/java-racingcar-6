@@ -22,11 +22,6 @@ public class ExceptionCase {
         }
         return input;
     }
-    public void isNumberCorrect(int input) {
-        if (input < 0 || input > 9) {
-            throw new IllegalArgumentException("0에서 9까지의 숫자만 입력하세요.");
-        }
-    }
 
 }
 

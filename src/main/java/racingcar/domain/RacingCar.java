@@ -2,7 +2,11 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Arrays;
 
 public class RacingCar {
 
@@ -28,7 +32,6 @@ public class RacingCar {
         return racers;
     }
 
-
     public Map<String, String> createRaceStatusMap() {
         for (String car : cars) {
             gameScore.put(car, "");
@@ -41,7 +44,6 @@ public class RacingCar {
             String attempt = Console.readLine().trim();
             exception.nullStringInput(attempt);
             int num = Integer.parseInt(attempt);
-            exception.isNumberCorrect(num);
             return num;
         } catch(NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력하세요");
