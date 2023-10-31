@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test;
 
 class CarsTest {
 
+    @DisplayName("입력한 이름 갯수만큼 자동차들이 생성된다.")
     @Test
-    @DisplayName("자동차들 정상 생성")
-    void Cars_정상_생성() {
+    void of() {
         // given
         List<String> nameList = List.of("a", "bb", "ccc", "dddd");
 
@@ -24,9 +24,9 @@ class CarsTest {
         assertThat(cars.getCars().size()).isEqualTo(nameList.size());
     }
 
+    @DisplayName("자동차들 중 최대 위치를 찾을 수 있다.")
     @Test
-    @DisplayName("최대 위치 추출")
-    void 최대_위치_추출() {
+    void findMaxPosition() {
         // given
         List<String> nameList = List.of("a", "b", "c", "d", "e");
         Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
@@ -49,9 +49,9 @@ class CarsTest {
 
     }
 
+    @DisplayName("자동차들이 없으면 최대 위치를 찾을 수 없다.")
     @Test
-    @DisplayName("빈 List는 최대 위치 추출 불가")
-    void 최대_위치_추출_예외() {
+    void findMaxPositionException() {
         // given
         List<String> nameList = List.of();
         Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
@@ -68,9 +68,9 @@ class CarsTest {
                 .hasMessage(CANT_FIND_MAX_VALUE.getMessage());
     }
 
+    @DisplayName("우승자 자동차 리스트를 찾을 수 있다.")
     @Test
-    @DisplayName("우승자 추출")
-    void 우승자_추출() {
+    void findWinnerCarList() {
         // given
         Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new MonotoneIncreasingNumberGenerator());
         int n = 10;
@@ -87,9 +87,9 @@ class CarsTest {
                 .contains("e");
     }
 
+    @DisplayName("공동 우승자도 찾을 수 있다.")
     @Test
-    @DisplayName("공동 우승자도 추출된다.")
-    void 공동_우승자_추출() {
+    void findJoinWinnerCarList() {
         // given
         Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new ZeroNumberGenerator());
         int n = 10;
@@ -107,9 +107,9 @@ class CarsTest {
                 .containsExactly("a", "b", "c", "d", "e");
     }
 
+    @DisplayName("자동차들을 외부에서 빈 리스트로 변경해도 영향이 없다.")
     @Test
-    @DisplayName("자동차들 객체를 외부 변경으로부터 보호해야한다.")
-    void 외부_변경_빈리스트_보호() {
+    void externalChangeProtectionEmpty() {
         // given
         List<String> nameList = List.of("a", "b", "c");
         Cars beforeCars = Cars.of(nameList, new RandomNumberGenerator());
@@ -123,9 +123,9 @@ class CarsTest {
         assertThat(beforeCars.getCars().size()).isEqualTo(nameList.size());
     }
 
+    @DisplayName("자동차들을 외부에서 객체 추가로부터 보호된다.")
     @Test
-    @DisplayName("자동차들 객체를 외부에서 객체 추가 보호해야한다.")
-    void 외부_추가_보호() {
+    void externalChangeProtectionAdd() {
         // given
         Cars beforeCars = Cars.of(List.of("a", "b", "c"), new RandomNumberGenerator());
 
@@ -138,9 +138,9 @@ class CarsTest {
 
     }
 
+    @DisplayName("자동차들을 내부 값을 변경할 수 없다.")
     @Test
-    @DisplayName("자동차들 객체 내부의 자동차 객체도 보호해야한다.")
-    void 외부_변경_리스트_내부_변경_보호() {
+    void externalChangeProtectionFrom() {
         // given
         Cars beforeCars = Cars.of(List.of("a", "b", "c"), new RandomNumberGenerator());
 

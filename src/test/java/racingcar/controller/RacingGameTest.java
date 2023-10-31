@@ -30,9 +30,9 @@ class RacingGameTest {
         Console.close();
     }
 
+    @DisplayName("입력값 만큼 실행이 반복되어야 한다.")
     @Test
-    @DisplayName("입력만큼 반복되어야 한다.")
-    void 반복_횟수_테스트() {
+    void rotate() {
         // given
         int n = 5;
         InputViewTest.systemIn("a,b,c\n" + n);

@@ -2,6 +2,7 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.CarConstant.CAR_NAME_SPLIT_STRING;
 import static racingcar.exception.ErrorMessage.NOT_POSITIVE_INTEGER;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -33,9 +34,9 @@ public class InputViewTest {
         Console.close();
     }
 
+    @DisplayName("자동차 이름을 " + CAR_NAME_SPLIT_STRING + "로 구분하여 입력받을 수 있다.")
     @Test
-    @DisplayName("자동차 이름 ','로 구분하여 입력받기")
-    void 자동차_이름_입력() {
+    void enterCarNames() {
         // given
         systemIn("aa,bb");
 
@@ -48,11 +49,10 @@ public class InputViewTest {
         assertThat(carNameList).hasSize(2);
     }
 
-
+    @DisplayName("시도 횟수를 입력받을 수 있다.")
     @ParameterizedTest
     @ValueSource(strings = {"0", "1", "2", "100", "1000", "10000", "99999"})
-    @DisplayName("시도 횟수 입력받기")
-    void 시도_횟수_입력(String input) {
+    void enterRotateNumber(String input) {
         // given
         systemIn(input);
 
@@ -64,10 +64,10 @@ public class InputViewTest {
         assertThat(rotateNumber).isEqualTo(Integer.parseInt(input));
     }
 
+    @DisplayName("반복 횟수는 0 또는 양의 정수만 입력받을 수 있다..")
     @ParameterizedTest
     @ValueSource(strings = {"\n", " ", "-1", "-10", "A", "A1", "1A", "1A1", "A1A"})
-    @DisplayName("반복 횟수가 0 또는 양의 정수로 입력되어야 한다.")
-    void 횟수_입력_예외(String input) {
+    void enterRotateNumberException(String input) {
         // given
         InputViewTest.systemIn(input);
 

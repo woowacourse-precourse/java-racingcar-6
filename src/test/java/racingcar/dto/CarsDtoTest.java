@@ -10,9 +10,9 @@ import racingcar.domain.RandomNumberGenerator;
 
 class CarsDtoTest {
 
+    @DisplayName("CarsDto를 Cars로 생성할 수 있다.")
     @Test
-    @DisplayName("CarsDto 생성")
-    void 생성() {
+    void from() {
         // given
         Cars cars = Cars.of(List.of("aaa","bbb","ccc"), new RandomNumberGenerator());
 

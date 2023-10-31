@@ -12,9 +12,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
 
+    @DisplayName("자동차의 초기위치는 " + CAR_START_POSITION + "이다.")
     @Test
-    @DisplayName("자동차의 초기위치는 " + CAR_START_POSITION)
-    void 초기_위치() {
+    void from() {
         // given
         String name = "1234";
 
@@ -26,10 +26,10 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
     }
 
+    @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "이상일 떄 이동할 수 있다.")
     @ParameterizedTest
     @ValueSource(ints = {4,5,6,10,100,1000,99999})
-    @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "이상일 떄 이동")
-    void 이동_가능(int number) {
+    void go(int number) {
         // given
         Car car = Car.from("car");
 
@@ -41,10 +41,10 @@ class CarTest {
         car.isHere(new Position(1));
     }
 
+    @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "미만 이동 불가능")
     @ParameterizedTest
     @ValueSource(ints = {-999,-1,0,1,2,3})
-    @DisplayName("숫자 " + CAR_CAN_GO_NUMBER + "미만 이동 불가능")
-    void 이동불가(int number) {
+    void hold(int number) {
         // given
         Car car = Car.from("1234");
 
@@ -56,8 +56,9 @@ class CarTest {
         assertThat(car.isHere(new Position(CAR_START_POSITION))).isTrue();
     }
 
+    @DisplayName("재할당으로부터 보호된다.")
     @Test
-    void 안정성_테스트_재할당() {
+    void getPositionNewPosition() {
         // given
         Car car = Car.from("a");
 
@@ -70,8 +71,9 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(new Position(CAR_START_POSITION));
     }
 
+    @DisplayName("외부에서 위치를 임의로 변경할 수 없다.")
     @Test
-    void Position_안정성_테스트_변화() {
+    void getPositionPlus() {
         // given
         Car car = Car.from("a");
 

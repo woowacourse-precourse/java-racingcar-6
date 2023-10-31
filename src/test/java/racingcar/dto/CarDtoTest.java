@@ -8,9 +8,9 @@ import racingcar.domain.Car;
 
 class CarDtoTest {
 
+    @DisplayName("CarDto를 Car로 생성할 수 있다.")
     @Test
-    @DisplayName("CarDto 생성")
-    void 생성() {
+    void from() {
         // given
         Car car = Car.from("aaa");
 

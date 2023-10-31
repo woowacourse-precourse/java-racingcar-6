@@ -30,9 +30,9 @@ class OutputViewTest {
         Console.close();
     }
 
+    @DisplayName("자동차 이름과 위치를 출력할 수 있다.")
     @Test
-    @DisplayName("자동차 위치 출력")
-    void 차들_결과_출력() {
+    void printCarsResults() {
         // given
         CarDto carDtoA = new CarDto("a", 0);
         CarDto carDtoB = new CarDto("b", 1);
@@ -53,9 +53,9 @@ class OutputViewTest {
                 """);
     }
 
+    @DisplayName("우승자 이름을 출력할 수 있다.")
     @Test
-    @DisplayName("우승자 이름 출력")
-    void 우승자_출력() {
+    void printWinners() {
         // given
         List<String> winnerName = List.of("a", "b", "c");
         WinnerNameDto winnerNameDto = new WinnerNameDto(winnerName);

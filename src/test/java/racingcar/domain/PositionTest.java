@@ -2,35 +2,40 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.CarConstant.CAR_START_POSITION;
 import static racingcar.exception.ErrorMessage.NEGATIVE_POSITION;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class PositionTest {
 
+    @DisplayName(CAR_START_POSITION + "이상이면 생성할 수 있다.")
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 10, 100, 1000, 10000, 999999})
-    void 정상_생성(int value) {
+    void newPosition(int value) {
         // given
         Position position = new Position(value);
 
         assertThat(position.getValue()).isEqualTo(value);
     }
 
+    @DisplayName(CAR_START_POSITION + "미만은 생성할 수 없다.")
     @ParameterizedTest
     @ValueSource(ints = {-1, -2, -10, -100, -1000, -10000, -999999})
-    void 음수_생성_불가능(int value) {
+    void newPositionException(int value) {
 
         assertThatThrownBy(() -> new Position(value))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NEGATIVE_POSITION.getMessage());
     }
 
+    @DisplayName("포지션은 1씩 증가한다.")
     @ParameterizedTest
     @CsvSource({"0,5", "1,10", "2,100", "10,30"})
-    void 이동(String startString, String countString) {
+    void plus(String startString, String countString) {
         // given
         int start = Integer.parseInt(startString);
         int count = Integer.parseInt(countString);
@@ -46,9 +51,10 @@ class PositionTest {
         assertThat(position).isEqualTo(new Position(start + count));
     }
 
+    @DisplayName("포지션을 대소비교할 수 있다.")
     @ParameterizedTest
     @CsvSource({"0,5", "1,10", "2,100", "10,30"})
-    void 대소비교_테스트(String smallString, String largeString) {
+    void compareTo(String smallString, String largeString) {
         // given
         int small = Integer.parseInt(smallString);
         int large = Integer.parseInt(largeString);
