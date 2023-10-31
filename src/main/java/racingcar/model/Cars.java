@@ -42,7 +42,7 @@ public class Cars {
         Set<String> seen = new HashSet<>();
         for (Car car : carList) {
             if (!seen.add(car.getName())) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("자동차 이름은 중복이 있을 수 없습니다.");
             }
         }
     }
