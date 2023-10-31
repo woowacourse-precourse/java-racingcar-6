@@ -1,11 +1,10 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Car {
-    private static final int RANDOM_NUMBER_RANGE_START = 0;
-    private static final int RANDOM_NUMBER_RANGE_END = 9;
+    public static final int RANDOM_NUMBER_RANGE_START = 0;
+    public static final int RANDOM_NUMBER_RANGE_END = 9;
     private static final int MIN_MOVEMENT_THRESHOLD = 4;
 
     private static final String CAR_MARK = "-";
@@ -28,9 +27,8 @@ public class Car {
         return position;
     }
 
-    public void move() {
-        int n = Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START, RANDOM_NUMBER_RANGE_END);
-        position += Boolean.compare(n >= MIN_MOVEMENT_THRESHOLD, Boolean.TRUE) + 1;
+    public void moveOrStop(int num) {
+        position += Boolean.compare(num >= MIN_MOVEMENT_THRESHOLD, Boolean.TRUE) + 1;
     }
 
     public String getCarTrail() {

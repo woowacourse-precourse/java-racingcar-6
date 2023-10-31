@@ -1,5 +1,9 @@
 package racingcar.model;
 
+import static racingcar.model.Car.RANDOM_NUMBER_RANGE_END;
+import static racingcar.model.Car.RANDOM_NUMBER_RANGE_START;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class RacingGame {
@@ -23,7 +27,10 @@ public class RacingGame {
     }
 
     public void moveCars() {
-        cars.forEach(Car::move);
+        cars.forEach(c -> {
+            int n = Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START, RANDOM_NUMBER_RANGE_END);
+            c.moveOrStop(n);
+        });
     }
 
     public List<String> getAllCarsTrail() {
