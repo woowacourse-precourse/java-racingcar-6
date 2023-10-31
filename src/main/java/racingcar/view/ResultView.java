@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ResultView {
     private static final String CAR_POSITION_MARKER = "-";
+    private static final String COMMA = ", ";
 
     public static void printCarPosition(Car car) {
         StringBuilder result = new StringBuilder(car.getName()).append(" : ");
@@ -27,5 +28,15 @@ public class ResultView {
         String winnerNames = String.join(",",winners);
         System.out.println("최종 우승자 : " + winnerNames);
     }
+
+    private static void appendWinners(StringBuilder result, List<String> winners) {
+        for (int i = 0; i < winners.size(); i++) {
+            if (i > 0) {
+                result.append(COMMA);
+            }
+            result.append(winners.get(i));
+        }
+    }
+
 
 }
