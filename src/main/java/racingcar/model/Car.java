@@ -5,7 +5,7 @@ public class Car {
     private static final int GOOD_TO_RUN = 4;
 
     private final Name name;
-    private Position position;
+    private final Position position;
 
     public Car(Name name) {
         this.name = name;
