@@ -1,22 +1,24 @@
 package racingcar;
 
 import racingcar.domain.RandomCar;
+import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameManager {
     private final InputView inputView;
     private final OutputView outputView;
 
+    private Referee referee;
     List<RandomCar> randomCars = new ArrayList<>();
 
-    public GameManager(InputView inputView, OutputView outputView) {
+    public GameManager(InputView inputView, OutputView outputView, Referee referee) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.referee = referee;
     }
 
     public void launch() {
@@ -26,7 +28,7 @@ public class GameManager {
         int trialCount = inputView.inputTrialCount();
         moveRandomCars(trialCount);
 
-        List<RandomCar> winnerCars = selectWinners();
+        List<RandomCar> winnerCars = referee.selectWinners(randomCars);
 
         outputView.printWinnerList(winnerCars);
     }
@@ -42,20 +44,5 @@ public class GameManager {
             }
             outputView.printCarsPosition(randomCars);
         }
-    }
-
-    private List<RandomCar> selectWinners() {
-        int maxPosition = getMaxPosition();
-
-        return randomCars.stream()
-                .filter(randomCar -> randomCar.getPosition() == maxPosition)
-                .collect(Collectors.toList());
-    }
-
-    private int getMaxPosition() {
-        return randomCars.stream()
-                .mapToInt(RandomCar::getPosition)
-                .max()
-                .getAsInt();
     }
 }
