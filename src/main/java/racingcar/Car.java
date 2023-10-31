@@ -38,13 +38,13 @@ public class Car {
     }
 
     public String toString() {
-        String distanceDash = "";
+        String distanceInDash = "";
 
         for (int i=0; i<distance; i++) {
-            distanceDash += "-";
+            distanceInDash += "-";
         }
 
-        return String.format("%s : %s", name, distanceDash);
+        return String.format("%s : %s", name, distanceInDash);
     }
 
 }
