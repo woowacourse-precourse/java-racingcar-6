@@ -15,7 +15,7 @@ public class OutputView {
     }
 
     public void printFinalWinner() {
-        System.out.println(FINAL_WINNER);
+        System.out.print(FINAL_WINNER);
     }
 
 }
