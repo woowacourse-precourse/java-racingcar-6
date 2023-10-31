@@ -16,5 +16,23 @@ public class Application {
             throw new IllegalArgumentException();
             // 메세지 나중에 입력
         }
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+}
+
+class Game{
+    private String name;
+    private int moveCount;
+    Game(String name){
+        this.name = name;
+        moveCount = 0;
+    }
+    public void randomMove(){
+        int randomNumber = Randoms.pickNumberInRange(0,9);
+        if (randomNumber >= 4) moveCount++;
+    }
+    public void gameResultPrint(){
+        System.out.println(name + " : " + "-".repeat(moveCount));
     }
 }
