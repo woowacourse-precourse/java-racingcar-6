@@ -20,7 +20,7 @@ public class Converter {
     public LinkedHashMap<String, String> splitAndAddToMap(String Name) {
         try {
             String[] parts = tokenizeByComma(Name);
-            return getCarNameHashMap(parts);
+            return convertArrayToMap(parts);
         } catch (IllegalArgumentException error) {
             throw new IllegalArgumentException(INVALID_INPUT_CASE_MESSAGE);
         }
@@ -30,7 +30,7 @@ public class Converter {
         return entireString.split(",");
     }
 
-    private LinkedHashMap<String, String> getCarNameHashMap(String[] parts) {
+    private LinkedHashMap<String, String> convertArrayToMap(String[] parts) {
         LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
         for (String part : parts) {
             UserInputValidator.validateEmptyInput(part);
