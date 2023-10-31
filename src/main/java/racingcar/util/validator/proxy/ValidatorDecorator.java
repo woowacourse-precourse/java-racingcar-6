@@ -6,7 +6,7 @@ import racingcar.util.validator.raceCount.RaceCountValidator;
 import static racingcar.container.ApplicationContainer.getNameValidator;
 import static racingcar.container.ApplicationContainer.getRaceCountValidator;
 
-public class ValidatorProxy implements InputValidator {
+public class ValidatorDecorator implements InputValidator {
     private NameValidator nameValidator = null;
     private RaceCountValidator raceCountValidator = null;
 

@@ -15,7 +15,7 @@ import racingcar.util.parser.NameParserImpl;
 import racingcar.util.validator.name.NameValidator;
 import racingcar.util.validator.name.NameValidatorImpl;
 import racingcar.util.validator.proxy.InputValidator;
-import racingcar.util.validator.proxy.ValidatorProxy;
+import racingcar.util.validator.proxy.ValidatorDecorator;
 import racingcar.util.validator.raceCount.RaceCountValidator;
 import racingcar.util.validator.raceCount.RaceCountValidatorImpl;
 
@@ -111,7 +111,7 @@ public class ApplicationContainer {
 
     public static InputValidator getInputValidator() {
         if (inputValidator == null) {
-            inputValidator = new ValidatorProxy();
+            inputValidator = new ValidatorDecorator();
             printLog(inputValidator.getClass().toString(), InputValidator.class.toString());
         }
         return inputValidator;
