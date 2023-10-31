@@ -24,7 +24,7 @@
 
 - [x] 입력 메시지 출력 (printInputMoveNumberMessage) [OutputView]
 
-  - [ ] 시도할 횟수 m입력 (readMoveNumber) [InputView]
+  - [x] 시도할 횟수 moveNumber 입력 (readMoveNumber) [InputView]
 
   - [ ] m이 숫자가 맞는지 확인 (validateMoveNumber) [InputValidater]
 
@@ -36,7 +36,7 @@
   - [ ] 전진일 경우 racerMoveCount에 1 더해주기 (increaseMoveCount) [RaceReferee]
 
 
-- [ ] 실행 횟수 m번 반복 (repeatMove) [RaceProgression]
+- [ ] 실행 횟수 moveNumber 만큼 반복 (repeatMove) [RaceProgression]
 
   - [ ] 실행 결과 출력 (printMoveResult) [OutputView]
 
