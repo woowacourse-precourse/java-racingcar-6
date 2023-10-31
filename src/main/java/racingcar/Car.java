@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 
 public class Car {
     private final String name;
@@ -9,6 +10,10 @@ public class Car {
     public Car(String name) {
         this.name = name;
         this.position = "";
+    }
+
+    public String getPosition() {
+        return position;
     }
 
     @Override
