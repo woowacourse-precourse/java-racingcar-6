@@ -33,4 +33,25 @@ class CarTest {
         Car woniCar = new Car("woni", 1);
         assertThat(woniCar.toString()).isEqualTo("woni : -");
     }
+
+    @Test
+    public void testCarForwardRandomOne() {
+        Car car = new Car("pobi", 0);
+        car.forward((lowerBound, upperBound) -> 1);
+        assertThat(car.toString()).isEqualTo("pobi : ");
+    }
+
+    @Test
+    public void testCarForwardRandomFour() {
+        Car car = new Car("pobi", 0);
+        car.forward((lowerBound, upperBound) -> 4);
+        assertThat(car.toString()).isEqualTo("pobi : -");
+    }
+
+    @Test
+    public void testCarForwardRandomNine() {
+        Car car = new Car("pobi", 0);
+        car.forward((lowerBound, upperBound) -> 9);
+        assertThat(car.toString()).isEqualTo("pobi : -");
+    }
 }
