@@ -1,15 +1,10 @@
 package racingcar.domain;
 
+import racingcar.exception.DomainExceptionCode;
+
 public record CarName(String value) {
     public CarName {
-        if (value == null) {
-            throw new IllegalArgumentException();
-        }
-        if (value.length() > 5) {
-            throw new IllegalArgumentException();
-        }
-        if (value.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
+        DomainExceptionCode.CAR_NAME_CAN_NOT_BE_EMPTY.dynamicInvoke(() -> value == null || value.isEmpty());
+        DomainExceptionCode.CAR_NAME_MUST_BE_LESS_THAN_EQUAL.dynamicInvoke(() -> value.length() > 5);
     }
 }

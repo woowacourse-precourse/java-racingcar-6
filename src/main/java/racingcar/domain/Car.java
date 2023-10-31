@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 
+import racingcar.constant.DomainConstant;
 import racingcar.strategy.RacingCarMoveStrategy;
 
 public class Car {
@@ -9,7 +10,7 @@ public class Car {
 
     public Car(String name) {
         this.name = new CarName(name);
-        this.lap = new Lap(0);
+        this.lap = new Lap(DomainConstant.LAP_MIN_SIZE.getValue());
     }
 
     private Car(CarName name, Lap lap) {

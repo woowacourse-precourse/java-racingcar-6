@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.function.Function;
+import racingcar.exception.DomainExceptionCode;
 import racingcar.strategy.RacingCarMoveStrategy;
 
 public record Participants(List<Car> cars) {
@@ -27,7 +28,7 @@ public record Participants(List<Car> cars) {
         final var maxLap = cars.stream()
                 .mapToInt(Car::getLap)
                 .max()
-                .orElseThrow(IllegalAccessError::new);
+                .orElseThrow(DomainExceptionCode.DID_NOT_EXISTS_WINNER::create);
 
         return cars()
                 .stream()
