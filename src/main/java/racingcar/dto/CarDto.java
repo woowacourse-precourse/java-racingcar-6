@@ -5,7 +5,7 @@ import racingcar.domain.Car;
 public record CarInfo(String name, int position) {
     public static final String POSITION_PROGRESS = "-";
 
-    public static CarInfo of(Car car) {
+    public static CarInfo from(Car car) {
         return new CarInfo(car.getCarName(), car.getPosition());
     }
 
