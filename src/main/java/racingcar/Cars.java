@@ -12,6 +12,11 @@ public class Cars {
         this.cars = cars;
     }
 
+    private Movement getRandomMovement() {
+        int randomNumber = Util.getRandomNumber();
+        return Movement.from(randomNumber);
+    }
+
     private void validateDuplicateCarName(List<Car> cars) {
         long uniqueCarCount = countUniqueCarName(cars);
         int originalCarCount = cars.size();

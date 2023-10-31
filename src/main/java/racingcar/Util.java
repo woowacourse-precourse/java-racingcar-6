@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,5 +20,12 @@ public class Util {
 
     public static List<String> arrayToList(String[] array) {
         return Arrays.asList(array);
+    }
+
+    public static int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private Util() {
     }
 }
