@@ -68,6 +68,7 @@ public class RacingGame {
             checkCar();
             tryNumber--;
         }
+        findWinner();
     }
     private static void checkCar(){
         for (int i=0;i<carName.length;i++){
@@ -89,7 +90,7 @@ public class RacingGame {
     }
     private static void findWinner(){
         int maxValue = findMax();
-
+        printWinner(maxValue);
     }
     private static int findMax(){
         int maxValue = distance[0];
@@ -99,5 +100,20 @@ public class RacingGame {
             }
         }
         return maxValue;
+    }
+    private static void printWinner(int maxValue) {
+        StringBuilder winner = new StringBuilder("최종 우승자 : ");
+        for (int i = 0; i < distance.length; i++) {
+            if (distance[i] == maxValue) {
+                appendCommas(winner);
+                winner.append(carName[i]);
+            }
+        }
+        System.out.println(winner);
+    }
+    private static void appendCommas(StringBuilder winner) {
+        if(winner.charAt(winner.length()-1) != ' '){
+            winner.append(", ");
+        }
     }
 }
