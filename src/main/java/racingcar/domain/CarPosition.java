@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Objects;
 import racingcar.domain.strategy.MovingStrategy;
 
 public class CarPosition {
@@ -33,7 +34,28 @@ public class CarPosition {
         return this;
     }
 
+    public boolean biggerThan(CarPosition other) {
+        return this.value > other.value;
+    }
+
     public int value() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CarPosition that = (CarPosition) o;
+        return value == that.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

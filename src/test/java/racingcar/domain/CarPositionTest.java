@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.strategy.MovingStrategy;
@@ -45,5 +46,14 @@ class CarPositionTest {
                 Arguments.of((MovingStrategy) () -> true, 1),
                 Arguments.of((MovingStrategy) () -> false, 0)
         );
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"3:0:true", "2:1:true", "0:0:false", "0:1:false"}, delimiter = ':')
+    void 자신의_값이_주어진_값보다_크면_true_아니면_false를_반환한다(int value, int otherValue, boolean expected) {
+        CarPosition carPosition = CarPosition.from(value);
+        CarPosition otherCarPosition = CarPosition.from(otherValue);
+
+        assertThat(carPosition.biggerThan(otherCarPosition)).isEqualTo(expected);
     }
 }

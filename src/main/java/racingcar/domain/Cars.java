@@ -7,7 +7,7 @@ import racingcar.dto.CarDto;
 public class Cars {
     private final List<Car> cars;
 
-    private Cars(List<Car> cars) {
+    Cars(List<Car> cars) {
         this.cars = cars;
     }
 
@@ -24,6 +24,23 @@ public class Cars {
 
     public void move(MovingStrategy movingStrategy) {
         cars.forEach(car -> car.move(movingStrategy));
+    }
+
+    public List<CarDto> maxPositionCarDtos() {
+        CarPosition maxPosition = findMaxPosition();
+
+        return cars.stream()
+                .filter(car -> car.positionEquals(maxPosition))
+                .map(CarDto::from)
+                .toList();
+    }
+
+    private CarPosition findMaxPosition() {
+        CarPosition maxPosition = CarPosition.zero();
+        for (Car car : cars) {
+            maxPosition = car.biggerPosition(maxPosition);
+        }
+        return maxPosition;
     }
 
     public List<CarDto> dtos() {

@@ -39,5 +39,19 @@ class CarsTest {
                 Arguments.of((MovingStrategy) () -> false, 0)
         );
     }
+
+    @Test
+    void 위치가_최대인_자동차들의_DTO_리스트를_반환한다() {
+        List<Car> givenCars = List.of(
+                new Car(CarName.from("apple"), CarPosition.from(2)),
+                new Car(CarName.from("melon"), CarPosition.from(3)),
+                new Car(CarName.from("lime"), CarPosition.from(3))
+        );
+        Cars cars = new Cars(givenCars);
+
+        assertThat(cars.maxPositionCarDtos())
+                .extracting(CarDto::name)
+                .containsExactlyInAnyOrder("melon", "lime");
+    }
 }
 

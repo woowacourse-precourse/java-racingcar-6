@@ -6,7 +6,7 @@ public class Car {
     private final CarName name;
     private CarPosition position;
 
-    private Car(CarName name, CarPosition position) {
+    Car(CarName name, CarPosition position) {
         this.name = name;
         this.position = position;
     }
@@ -17,6 +17,17 @@ public class Car {
 
     public void move(MovingStrategy movingStrategy) {
         position = position.move(movingStrategy);
+    }
+
+    public CarPosition biggerPosition(CarPosition otherPosition) {
+        if (position.biggerThan(otherPosition)) {
+            return position;
+        }
+        return otherPosition;
+    }
+
+    public boolean positionEquals(CarPosition otherPosition) {
+        return position.equals(otherPosition);
     }
 
     public String nameValue() {
