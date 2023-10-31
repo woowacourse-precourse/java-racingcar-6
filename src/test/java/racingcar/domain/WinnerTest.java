@@ -13,9 +13,10 @@ public class WinnerTest {
 		carList = RacingCarUtilForTest.getRacingCar(carList, List.of(3, 3, 5));
 
 		Winner winner = new Winner();
-		List<String> winnerList = winner.findWinner(carList);
+		List<Car> winnerList = winner.findWinner(carList);
 
 		assertThat(winnerList).hasSize(1)
+			.extracting("name")
 			.containsOnly("jun");
 	}
 
@@ -25,9 +26,10 @@ public class WinnerTest {
 		carList = RacingCarUtilForTest.getRacingCar(carList, List.of(3, 5, 5));
 
 		Winner winner = new Winner();
-		List<String> winnerList = winner.findWinner(carList);
+		List<Car> winnerList = winner.findWinner(carList);
 
 		assertThat(winnerList).hasSize(2)
+			.extracting("name")
 			.contains("jun", "woni");
 	}
 }

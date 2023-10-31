@@ -25,8 +25,9 @@ public class OutputView {
 		System.out.println(String.format(View.WINNER_MESSAGE,convertToString(winner.getWinner())));
 	}
 
-	private static String convertToString(List<String> winner) {
+	private static String convertToString(List<Car> winner) {
 		return winner.stream()
+			.map(Car::getName)
 			.collect(Collectors.joining(View.COMBINDER));
 	}
 
