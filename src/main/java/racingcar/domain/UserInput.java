@@ -17,8 +17,12 @@ public class UserInput {
 
     public int moveNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int input = Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        InvalidValue invalidValue = new InvalidValue();
+        if(!invalidValue.isNaturalNumber(input)){
+            throw new IllegalArgumentException();
+        }
 
-        return input;
+        return Integer.parseInt(input);
     }
 }
