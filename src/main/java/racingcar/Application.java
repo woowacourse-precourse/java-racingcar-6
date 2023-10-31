@@ -39,12 +39,18 @@ class InputView {
         return input;
     }
 
+    public String readTryNumber(TryValidation tryValidation) {
+        String number = Console.readLine();
+        runTryValidator(number, tryValidation);
+        return number;
+    }
+
     private void runNameValidator(String input) {
         NameValidation.checkWord(input);
     }
 
-    private void runTryValidator(String input, TryValidation tryNumber) {
-        tryNumber.checkTryNumber(input);
+    private void runTryValidator(String input, TryValidation tryValidation) {
+        tryValidation.checkTryNumber(input);
     }
 
 }
