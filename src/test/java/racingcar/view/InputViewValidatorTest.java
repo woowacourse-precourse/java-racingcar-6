@@ -47,4 +47,49 @@ class InputViewValidatorTest {
                         .hasMessageContaining("[ERROR] : 차 이름이 공백일 수 없습니다"));
     }
 
+    @Test
+    void 입력_받은_시도_횟수가_공백일_때_오류_발생() {
+        String tryNumber = "";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("[ERROR] : 시도 횟수가 공백일 수 없습니다"));
+    }
+
+    @Test
+    void 입력_받은_시도_횟수가_정수가_아닐_때_오류_발생_1() {
+        String tryNumber = "123ab";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("[ERROR] : 시도 횟수는 정수 타입이어야 합니다."));
+    }
+
+    @Test
+    void 입력_받은_시도_횟수가_정수가_아닐_때_오류_발생_2() {
+        String tryNumber = "12.3";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("[ERROR] : 시도 횟수는 정수 타입이어야 합니다."));
+    }
+
+    @Test
+    void 입력_받은_시도_횟수가_올바른_범위가_아닐_때_오류_발생_1() {
+        String tryNumber = "-12";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("[ERROR] : 시도 횟수는 1 이상이어야 합니다."));
+    }
+
+    @Test
+    void 입력_받은_시도_횟수가_올바른_범위가_아닐_때_오류_발생_2() {
+        String tryNumber = "02";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("[ERROR] : 시도 횟수는 1 이상이어야 합니다."));
+    }
+
 }
