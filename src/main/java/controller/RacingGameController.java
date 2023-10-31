@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.stream.IntStream;
+
 import domain.Car;
 import domain.CarNamesInput;
 import domain.RacingCar;
@@ -33,9 +35,8 @@ public class RacingGameController {
 	}
 
 	public void movePerRounds(TryCountInput tryCountInput, RacingCar racingCar) {
-		for (int count = 0; count < tryCountInput.getTryCount(); count++) {
-			moveForRound(racingCar);
-		}
+		IntStream.range(0, tryCountInput.getTryCount())
+				.forEach(count -> moveForRound(racingCar));
 	}
 
 	public void moveForRound(RacingCar racingCar) {
