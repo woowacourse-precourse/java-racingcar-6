@@ -1,6 +1,8 @@
 package racingcar.service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import racingcar.domain.Car;
 
 public class ValidateService {
@@ -21,8 +23,10 @@ public class ValidateService {
             throw new IllegalArgumentException();
     }
 
-    public static void isDuplicateName(List<Car> parkingLot, final String carName){
-
+    public static void isDuplicateName(Set<String>carNames, final String carName){ //중복된 이름이 있는지 확인
+        if(carNames.contains(carName))
+            throw new IllegalArgumentException();
+        carNames.add(carName);
     }
 
     public static void isNumber(final String count){ //숫자 아닌 경우 예외 발생
