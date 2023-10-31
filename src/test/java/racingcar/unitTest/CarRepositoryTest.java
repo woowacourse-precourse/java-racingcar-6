@@ -17,7 +17,7 @@ public class CarRepositoryTest {
     }
 
     @Test
-    void should_true_saveSuccessful() {
+    void should_true_when_saveSuccessful() {
         // given
         CarName carName = new CarName("park");
         Car car = new Car(carName);
