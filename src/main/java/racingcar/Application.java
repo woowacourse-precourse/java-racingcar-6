@@ -9,13 +9,14 @@ public class Application {
         CarGenerator generator = new CarGenerator();
         Printer printer = new Printer();
         Referee referee = new Referee();
+        InputManager inputManager = new InputManager();
 
-        String enteredNames = readNames();
+        String enteredNames = inputManager.readNames();
         List<String> nameList = generator.splitNames(enteredNames);
         if (!Validation.validLength(nameList))
             throw new IllegalArgumentException("이름은 1글자 이상 5글자 이하로 구성해주세요.");
 
-        int numberOfTimes = readNumberOfTimes();
+        int numberOfTimes = inputManager.readNumberOfTimes();
         List<Car> carList = generator.createCars(nameList);
 
         System.out.println("\n실행 결과");
@@ -26,24 +27,6 @@ public class Application {
 
         System.out.print("최종 우승자 : ");
         printer.printWinner(winnerList);
-    }
-
-    public static String readNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String enteredNames = readLine();
-        if (!Validation.validNames(enteredNames))
-            throw new IllegalArgumentException("영어와 쉼표로만 입력해주세요.");
-
-        return enteredNames;
-    }
-
-    public static int readNumberOfTimes() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String enteredNumber = readLine();
-        if (!Validation.validNumber(enteredNumber))
-            throw new IllegalArgumentException("1회 이상의 횟수를 숫자로만 입력해주세요.");
-
-        return Integer.parseInt(enteredNumber);
     }
 
     public static void runRace(Printer printer, List<Car> carList, int numberOfTimes) {
