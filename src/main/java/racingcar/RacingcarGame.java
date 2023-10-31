@@ -5,6 +5,7 @@ import racingcar.target.Moderator;
 import racingcar.target.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RacingcarGame {
     private final User user = new User();
@@ -55,7 +56,15 @@ public class RacingcarGame {
     }
 
     public void setMovePoint() {
-
+        List<Integer> computerNums = computer.getNumber(carName.size());
+        for (int i = 0; i < carName.size(); i++) {
+            if (computerNums.get(i) > 3) {
+                carName.get(i).race += "-";
+                carName.get(i).position += 1;
+                continue;
+            }
+            carName.get(i).race += "";
+        }
     }
 
     public void printResult() {
