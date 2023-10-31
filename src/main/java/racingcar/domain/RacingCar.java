@@ -13,6 +13,11 @@ public class RacingCar {
         this.name = name;
     }
 
+    public RacingCar(String name, int position) {
+        this(name);
+        this.position = position;
+    }
+
     public String getName() {
         return name;
     }
