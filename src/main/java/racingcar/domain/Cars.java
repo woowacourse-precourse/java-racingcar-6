@@ -24,14 +24,10 @@ public class Cars {
     private List<Car> mapCarNamesToCars(String[] carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            Car car = createCar(carName);
+            Car car = Car.create(carName);
             cars.add(car);
         }
         return cars;
-    }
-
-    private Car createCar(String carName) {
-        return new Car(carName);
     }
 
     public void playOneRound() {
