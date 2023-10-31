@@ -4,33 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Domain.ProgressBoard;
+import racingcar.Domain.ProgressDto;
 import racingcar.Utils.NumberGenerator;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
 public class Service {
     private final ProgressBoard progressBoard;
-    private final InputView inputView;
-    private final OutputView outputView;
     private final int GO_NUMBER = 4;
     private List<String> cars;
 
     public Service(ProgressBoard progressBoard) {
         this.progressBoard = progressBoard;
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
-    }
-
-    public String receiveCars() {
-        inputView.printCarNameMessage();
-        String input = Console.readLine();
-        return input;
-    }
-
-    public String receiveTryCount() {
-        inputView.printTryCountMessage();
-        String input = Console.readLine();
-        return input;
     }
 
     public void registerCars(List<String> cars) {
@@ -46,21 +31,12 @@ public class Service {
         }
     }
 
-    public void showProgress() {
-        List<String> progress = new ArrayList<>();
-        for(String car : cars) {
-            progress.add(progressBoard.progressOf(car));
+    public List<ProgressDto> getAllProgressOfCar() {
+        List<ProgressDto> progresses = new ArrayList<>();
+        for (String car : cars) {
+            progresses.add(new ProgressDto(car, progressBoard.progressOf(car)));
         }
-        outputView.printProgressMessage(cars, progress);
-    }
-
-    public void printResultMessage() {
-        outputView.printResultMessage();
-    }
-
-    public void showFinalWinner() {
-        List<String> winners = getWinners();
-        outputView.printFinalWinner(winners);
+        return progresses;
     }
 
     public List<String> getWinners() {
