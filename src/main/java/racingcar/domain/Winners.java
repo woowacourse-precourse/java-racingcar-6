@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 public class Winners {
 
+    private static final String COMMA_AND_BLANK = ", ";
+
     private final List<Winner> winners;
 
     public Winners(List<Winner> winnerList) {
@@ -14,6 +16,6 @@ public class Winners {
     public String makeWinnerList() {
         return winners.stream()
                 .map(Winner::toString)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(COMMA_AND_BLANK));
     }
 }

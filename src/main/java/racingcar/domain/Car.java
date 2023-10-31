@@ -2,6 +2,10 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final int MOVE_THRESHOLD= 4;
+    private static final String MOVEMENT = "-";
+    private static final String NEW_LINE = "\n";
+
     private int position = 0;
     private final CarName carName;
 
@@ -10,7 +14,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_THRESHOLD) {
             position++;
         }
     }
@@ -30,6 +34,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return carName.makeNameForPrintResult() + "-".repeat(position) + "\n";
+        return carName.makeNameForPrintResult() + MOVEMENT.repeat(position) + NEW_LINE;
     }
 }

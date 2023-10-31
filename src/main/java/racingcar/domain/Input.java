@@ -7,11 +7,16 @@ import java.util.stream.Collectors;
 
 public class Input {
 
+    private static final int MINIMUM_GAME_COUNT = 1;
+    private static final String COMMA = ",";
+    private static final String GAME_COUNT_EXCEPTION_MESSAGE = "게임 가능 횟수는 1 이상 입니다.";
+    private static final String DUPLICATION_EXCEPTION_MESSAGE = "중복된 이름이 있습니다.";
+
     private String userInput;
 
     public CarNames getCarNames() {
         userInput = Console.readLine();
-        List<CarName> carNames = Arrays.stream(userInput.split(","))
+        List<CarName> carNames = Arrays.stream(userInput.split(COMMA))
                 .map(name -> new CarName(name.trim()))
                 .collect(Collectors.toList());
         validateDuplication(carNames);
@@ -31,15 +36,15 @@ public class Input {
     }
 
     private void validateGameCountNubmer(String userInput) {
-        if (Integer.parseInt(userInput) < 1) {
-            throw new IllegalArgumentException("게임 가능 횟수는 1 이상 입니다.");
+        if (Integer.parseInt(userInput) < MINIMUM_GAME_COUNT) {
+            throw new IllegalArgumentException(GAME_COUNT_EXCEPTION_MESSAGE);
         }
     }
 
     private void validateDuplication(List<CarName> carNames) {
         Set<CarName> carNamesToSet = new HashSet<>(carNames);
         if(carNamesToSet.size()!= carNames.size()){
-            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            throw new IllegalArgumentException(DUPLICATION_EXCEPTION_MESSAGE);
         }
     }
 }
