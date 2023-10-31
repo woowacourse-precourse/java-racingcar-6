@@ -64,7 +64,8 @@ class GameSystem {
     public void showWinner(OutputView output) {
         output.showWinnerNotice();
         Winner winner = new Winner();
-
+        List<String> winnerList = winner.who(totalCar);
+        output.showWinners(winnerList);
     }
 
 }
