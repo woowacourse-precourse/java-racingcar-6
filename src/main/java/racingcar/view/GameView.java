@@ -33,7 +33,7 @@ public class GameView {
     }
 
     public static void printWinner(List<String> winnerNames) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winnerNames.size(); i++) {
             if (i > 0) {
                 System.out.print(", ");

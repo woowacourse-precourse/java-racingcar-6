@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.controller.utils.CarNameValidator;
 import racingcar.controller.utils.StringParser;
 import racingcar.model.Car;
 import racingcar.model.CarService;
@@ -11,6 +12,7 @@ public class GameController {
     private final CarService model;
     private final GameView view;
     private final StringParser stringParser = new StringParser();
+    private final CarNameValidator carNameValidator = new CarNameValidator();
 
     public GameController(CarService model, GameView view) {
         this.model = model;
@@ -18,12 +20,15 @@ public class GameController {
     }
 
     public void run() {
+        String input;
         List<String> carNames;
         List<Car> cars;
         int trialNumber;
         List<String> winnerNames;
 
-        carNames = stringParser.splitCarNames(view.inputCarName());
+        input = view.inputCarName();
+        carNameValidator.validateCarNameInput(input);
+        carNames = stringParser.splitCarNames(input);
         cars = createCarObject(carNames);
         model.saveAllCars(cars);
 
