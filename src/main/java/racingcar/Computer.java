@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Computer {
 
-    private final List<String> raceResult = new ArrayList<>();
+    private final List<String> roundResults = new ArrayList<>();
     private final List<RacingCar> carNames = new ArrayList<>();
     private int round = 0;
 
@@ -64,8 +64,7 @@ public class Computer {
             throw new IllegalArgumentException();
         }
         while (hasNextRound()) {
-            String roundResult = playRound();
-            this.raceResult.add(roundResult);
+            this.roundResults.add(playRound());
             endRound();
         }
         return raceResult();
@@ -91,11 +90,11 @@ public class Computer {
     }
 
     private String raceResult() {
-        return String.join("\n", this.raceResult);
+        return String.join("\n", this.roundResults);
     }
 
-    public String getWinner() {
-        if (isNotZero(this.round) || this.raceResult.isEmpty()) {
+    public String findWinner() {
+        if (isNotZero(this.round) || this.roundResults.isEmpty()) {
             throw new IllegalArgumentException();
         }
         final int maxPosition = this.carNames.stream()

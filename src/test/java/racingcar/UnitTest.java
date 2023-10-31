@@ -146,8 +146,7 @@ public class UnitTest {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
                         computer.startRace();
-                        String winner = computer.getWinner();
-
+                        String winner = computer.findWinner();
                         assertThat(winner).contains("green");
                     },
                     MOVE_FORWARD, STOP, MOVE_FORWARD, STOP
@@ -159,7 +158,7 @@ public class UnitTest {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
                         computer.startRace();
-                        String winner = computer.getWinner();
+                        String winner = computer.findWinner();
                         assertThat(winner).contains("green", "red");
                     },
                     MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
@@ -173,7 +172,7 @@ public class UnitTest {
             Assertions.assertRandomNumberInRangeTest(
                     () -> {
                         computer.startRace();
-                        String winner = computer.getWinner();
+                        String winner = computer.findWinner();
                         assertThat(winner).contains("red", "green");
                     },
                     MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
