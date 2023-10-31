@@ -4,9 +4,6 @@ import java.util.List;
 import racingcar.controller.subcontroller.DetermineWinnerController;
 import racingcar.controller.subcontroller.InitializeCarController;
 import racingcar.controller.subcontroller.MoveCarController;
-import racingcar.domain.Car;
-import racingcar.domain.repository.CarRepository;
-import racingcar.util.Util;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -29,9 +26,8 @@ public class MainController {
     }
 
     public void start() {
-        List<String> names = inputToNameCar();  // 자동차 이름 입력
+        initializeCar();                        // Car 객체 생성
         int tryCount = inputTryToMoveCar();     // 이동을 시도할 횟수 입력
-        initializeCar(names, tryCount);         // Car 객체 생성
         for (int i = 0; i < tryCount; i++) {
             moveCar();                          // 자동차 이동
         }
@@ -44,19 +40,11 @@ public class MainController {
     }
 
     private void moveCar() {
-        for (Car car : CarRepository.cars()) {
-            moveCarController.moveCar(car);
-        }
-        outputView.outputMoving();
-        System.out.println();
+        moveCarController.moveCar();
     }
 
-    private void initializeCar(List<String> names, int tryCount) {
-        initializeCarController.initializeCar(names, tryCount);
-    }
-
-    private List<String> inputToNameCar() {
-        return inputView.inputToNameCar();
+    private void initializeCar() {
+        initializeCarController.initializeCar();
     }
 
     private int inputTryToMoveCar() {
