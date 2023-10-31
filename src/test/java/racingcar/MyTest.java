@@ -1,6 +1,8 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,5 +18,19 @@ public class MyTest {
 
         ManageRace manageRace = new ManageRace();
         assertThat(result).isEqualTo(manageRace.stringToList(input));
+    }
+
+    @Test
+    void 중복된_이름() {
+        List<String> carNameList = new ArrayList<>();
+        carNameList.add("pobi");
+        carNameList.add("pobi");
+
+        ManageRace manageRace = new ManageRace();
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> manageRace.checkValidNames(carNameList))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 }
