@@ -48,9 +48,33 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름이_중복으로_입력될_시_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one,one", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 시행_횟수_입력값이_정수형이_아닐_경우_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("one,two,three", "abc"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시행_횟수_입력값이_0일_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one,two,three", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시행_횟수_입력값이_음수일_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one,two,three", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
