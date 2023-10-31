@@ -19,9 +19,17 @@ public class CarRepository {
     }
 
     public List<Car> findAll() {
+        checkCarDatabaseIsEmpty();
+
         return carDatabase.values()
                 .stream()
                 .toList();
+    }
+
+    private void checkCarDatabaseIsEmpty() {
+        if (carDatabase.isEmpty()) {
+            throw new IllegalArgumentException(CAR_NOT_EXIST.getErrorMessage());
+        }
     }
 
     public List<Car> findAllCarsWithMaxPosition() {

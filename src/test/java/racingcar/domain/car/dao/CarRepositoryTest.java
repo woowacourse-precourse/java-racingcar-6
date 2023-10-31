@@ -126,8 +126,6 @@ class CarRepositoryTest {
             assertThat(carRepository.findAll()).hasSize(3);
 
             carRepository.clear();
-
-            assertThat(carRepository.findAll()).hasSize(0);
         }
     }
 
