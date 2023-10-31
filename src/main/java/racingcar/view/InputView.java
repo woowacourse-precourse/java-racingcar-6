@@ -17,4 +17,9 @@ public class InputView{
         return getUserInput();
     }
 
+    public static String getRounds() {
+        System.out.println((REQUEST_RACE_ROUNDS.getMessage()));
+        return getUserInput();
+    }
+
 }
