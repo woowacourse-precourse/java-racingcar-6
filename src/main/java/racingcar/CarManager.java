@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarManager {
-    private final List<Car> cars;
+    private List<Car> cars;
 
-    public CarManager(InputManager inputManager) {
+    public void setCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
-        for (String name: inputManager.getNames()) {
+        for (String name: carNames) {
             cars.add(new Car(name));
         }
         this.cars = cars;
