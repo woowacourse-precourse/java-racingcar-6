@@ -1,8 +1,11 @@
-package racingcar.domain.game;
+package racingcar.domain.game.controller;
 
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.RandomUtil;
 import racingcar.domain.car.dto.CarsNameDto;
+import racingcar.domain.game.ExecutionResultGenerator;
+import racingcar.domain.game.RacingGame;
+import racingcar.domain.game.WinningResultGenerator;
 import racingcar.domain.game.dto.ExecutionCountDto;
 import racingcar.global.view.input.InputView;
 import racingcar.global.view.output.GameMessage;

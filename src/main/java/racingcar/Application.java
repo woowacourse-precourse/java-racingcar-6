@@ -3,8 +3,7 @@ package racingcar;
 import racingcar.domain.car.RandomMove;
 import racingcar.domain.car.RandomUtil;
 import racingcar.domain.game.ExecutionResultGenerator;
-import racingcar.domain.game.GameController;
-import racingcar.domain.game.RacingGame;
+import racingcar.domain.game.controller.GameController;
 import racingcar.domain.game.WinningResultGenerator;
 
 public class Application {
