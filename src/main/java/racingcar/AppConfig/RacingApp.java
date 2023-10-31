@@ -46,6 +46,7 @@ public class RacingApp {
     }
 
     private int requestInputRoundNumber() {
+        InputView.printRoundNumberInputRequest();
         return gameController.addRoundNumber(Console.readLine());
     }
 
