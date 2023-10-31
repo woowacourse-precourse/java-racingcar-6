@@ -24,7 +24,7 @@ public class RacingCarGameView {
     }
 
     public void gameResult() {
-        System.out.print(GAME_RESULT);
+        System.out.println(GAME_RESULT);
     }
 
     public void showNowPlayerLocation(List<Player> playerList) {
