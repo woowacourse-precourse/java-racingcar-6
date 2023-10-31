@@ -19,6 +19,7 @@ public class Game {
         setRoundLimit();
     }
 
+
     private void setCars() {
         List<String> carNames = List.of(readLine().split(","));
         this.cars = new ArrayList<>();
@@ -33,6 +34,23 @@ public class Game {
             throw new IllegalArgumentException();
         }
     }
+
+    public void run() {
+        System.out.println("\n실행 결과");
+        for (int round = 0; round < roundLimit; ++round) {
+            runEachRound();
+            printCurrentPerformance();
+        }
+        System.out.print("최종 우승자 : ");
+        printBestPerformers();
+    }
+
+    private void runEachRound() {
+        for (Car car : cars) {
+            car.goForward();
+        }
+    }
+
 
     private void printCurrentPerformance() {
         for (Car car : cars) {
@@ -66,19 +84,4 @@ public class Game {
         });
     }
 
-    public void run() {
-        System.out.println("\n실행 결과");
-        for (int round = 0; round < roundLimit; ++round) {
-            runEachRound();
-            printCurrentPerformance();
-        }
-        System.out.print("최종 우승자 : ");
-        printBestPerformers();
-    }
-
-    private void runEachRound() {
-        for (Car car : cars) {
-            car.goForward();
-        }
-    }
 }
