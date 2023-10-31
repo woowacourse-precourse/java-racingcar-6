@@ -66,4 +66,16 @@ public class UserInputExecutionCntTest {
             Assertions.assertEquals(Message.EXECUTION_INPUT_TYPE_ERROR, e.getMessage());
         }
     }
+
+    @Test
+    void 실행횟수_아무것도_없음() {
+        String user_input = "";
+
+        try {
+            Controller.convertStringToInteger(user_input);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            Assertions.assertEquals(Message.EXECUTION_INPUT_TYPE_ERROR, e.getMessage());
+        }
+    }
 }
