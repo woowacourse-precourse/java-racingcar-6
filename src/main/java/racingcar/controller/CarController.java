@@ -1,24 +1,23 @@
 package racingcar.controller;
 
-import static racingcar.enumType.message.InputMessage.GET_TRY_COUNT_MESSAGE;
-import static racingcar.enumType.message.InputMessage.SAVE_CAR_NAMES_MESSAGE;
 import static racingcar.enumType.message.OutputMessage.RESULT_MESSAGE;
 import static racingcar.enumType.message.OutputMessage.WINNER_MESSAGE;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Stream;
 import racingcar.service.CarService;
 import racingcar.validation.InputValidation;
+import racingcar.view.InputView;
 
 public class CarController {
 
+    private final InputView inputView = new InputView();
     private final CarService carService = new CarService();
     private final InputValidation inputValidation = new InputValidation();
 
+
     public void save() {
-        System.out.println(SAVE_CAR_NAMES_MESSAGE.getValue());
-        String input = Console.readLine();
+        String input = inputView.readConsole();
         inputValidation.validateCarNames(input);
         List<String> carNames = stringToCollection(input);
         carService.save(carNames);
@@ -30,10 +29,9 @@ public class CarController {
     }
 
     public int getRaceCount() {
-        System.out.println(GET_TRY_COUNT_MESSAGE.getValue());
-        String attemptInput = Console.readLine();
-        inputValidation.validateAttemptInput(attemptInput);
-        int raceCount = Integer.parseInt(attemptInput);
+        String input = inputView.readConsoleRace();
+        inputValidation.validateAttemptInput(input);
+        int raceCount = Integer.parseInt(input);
         System.out.println(RESULT_MESSAGE.getValue());
         return raceCount;
     }
