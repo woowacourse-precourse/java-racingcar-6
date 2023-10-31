@@ -2,6 +2,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import model.Player;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 public class CarRaceGame {
 

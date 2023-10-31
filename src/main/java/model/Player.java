@@ -9,7 +9,6 @@ public class Player {
     String distanceLine;
     int distance;
 
-    public Player(){}
     public Player(String name) {
         this.name = name;
         this.randomNumber = 0;
