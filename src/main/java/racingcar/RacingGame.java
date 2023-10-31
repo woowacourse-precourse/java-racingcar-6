@@ -15,7 +15,7 @@ public class RacingGame {
         return CreateRandomNumber.getNumber() >= 4;
     }
 
-    private void setCars(String[] names) {
+    private void setCars(List<String> names) {
         for (String name : names) {
             Car car = new Car(name);
             cars.add(car);
