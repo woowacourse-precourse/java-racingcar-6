@@ -1,13 +1,11 @@
 package racingcar.utils;
 
-import racingcar.enums.Common;
-
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class CommonValidator {
-    public static boolean isOverMaxLength(String input) {
-        return input.length() > Common.CAR_NAME_MAX_LENGTH.getIntValue();
+    public static boolean isStringOverLength(String input, int number) {
+        return input.length() > number;
     }
 
     public static boolean isNumeric(String input) {
