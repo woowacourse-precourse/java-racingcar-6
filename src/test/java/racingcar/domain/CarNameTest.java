@@ -13,7 +13,7 @@ class CarNameTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "woni", "jun", "cobi"})
     @DisplayName("경주할 자동차를 생성할 수 있다.")
-    void test_name_constructor_success(String input) {
+    void createRacingCarSuccess(String input) {
         // when
         CarName carName = new CarName(input);
 
@@ -24,7 +24,7 @@ class CarNameTest {
     @ParameterizedTest
     @ValueSource(strings = {"","avante", "sonata"})
     @DisplayName("경주할 자동차 이름은 유효한 범위(1이상 5이하)를 가져야한다. ")
-    void test_name_constructor_fail_over_length_name(String carName) {
+    void setRacingCarNameLengthCorrect(String carName) {
         // given
         String expectedMessage = "자동차이름은 1자리이상 5자 이하만 가능합니다.";
 
