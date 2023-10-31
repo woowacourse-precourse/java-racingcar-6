@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Game;
 import racingcar.util.StringHandler;
 
 public class OutputView {
@@ -22,7 +23,8 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public void printGameProgress(List<Car> cars) {
+    public void printGameProgress(Game game) {
+        List<Car> cars = game.getCars();
         for(Car car : cars) {
             String progress = new StringBuilder()
                     .append(car.toString())
@@ -38,5 +40,9 @@ public class OutputView {
         presentPosition.append(POSITION_STRING.repeat(position));
 
         return presentPosition.toString();
+    }
+
+    public void wrapLine() {
+        System.out.println();
     }
 }
