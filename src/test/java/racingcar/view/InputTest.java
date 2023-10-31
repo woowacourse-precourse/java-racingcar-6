@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
@@ -13,10 +14,16 @@ public class InputTest {
 
     private static final String STRING_REGEX = "^[\\w]*$";
 
+    List<Car> carList = new ArrayList<>();
+
+    @AfterEach
+    void clearCarList(){
+        carList.clear();
+    }
+
     @Test
     public void carNameDuplicateTest(){
         //given
-        List<Car> carList = new ArrayList<>();
         carList.add(new Car("crong"));
         carList.add(new Car("pobi"));
         carList.add(new Car("pobi"));
@@ -35,9 +42,8 @@ public class InputTest {
     @Test
     public void carNameTypeAndLengthTest(){
         //given
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("crong"));
-        carList.add(new Car("pobi"));
+        carList.add(new Car("poro"));
+        carList.add(new Car("lux"));
 
         //when
 
