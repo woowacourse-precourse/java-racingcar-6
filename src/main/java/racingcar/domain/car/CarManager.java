@@ -20,14 +20,16 @@ public class CarManager {
         Set<String> uniqueNames = new HashSet<>();
         List<Car> cars = Arrays.stream(input.split(","))
                 .map(String::trim)
-                .peek(name -> {
-                    if (!uniqueNames.add(name)) {
-                        throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + name);
-                    }
-                })
-                .map(name -> new Car(name, moveStrategy))
+                .map(name -> createCar(name, uniqueNames))
                 .collect(Collectors.toList());
         this.cars = cars;
+    }
+
+    private Car createCar(String name, Set<String> uniqueNames) {
+        if (!uniqueNames.add(name)) {
+            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + name);
+        }
+        return new Car(name, moveStrategy);
     }
 
     public List<Car> getCars() {
