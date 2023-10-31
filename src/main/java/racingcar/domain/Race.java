@@ -22,7 +22,7 @@ public class Race {
     }
 
     public void moveEachCar() {
-        cars.forEach(Car::move);
+        cars.forEach(car -> car.move(car.getRandomNumber()));
     }
 
     private List<Car> findWinnerCars() {

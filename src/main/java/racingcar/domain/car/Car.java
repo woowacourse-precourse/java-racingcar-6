@@ -18,17 +18,17 @@ public class Car {
         this.name = new Name(name);
     }
 
-    public void move() {
-        if (isMovable()) {
+    public void move(int randomNumber) {
+        if (isMovable(randomNumber)) {
             distance += MOVEMENT_DISTANCE.getNumber();
         }
     }
 
-    private boolean isMovable() {
-        return getRandomNumber() >= MOVEMENT_CONDITION_NUMBER.getNumber();
+    private boolean isMovable(int randomNumber) {
+        return randomNumber >= MOVEMENT_CONDITION_NUMBER.getNumber();
     }
 
-    private int getRandomNumber() {
+    public int getRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START.getNumber(), RANDOM_NUMBER_RANGE_END.getNumber());
     }
 
