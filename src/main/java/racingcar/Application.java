@@ -70,6 +70,19 @@ public class Application {
 
     }
 
+    public static void forwardPlayer(List<Car> carNameList) {
+
+        for (int i = 0; i < carNameList.size(); i++) {
+            Car car = carNameList.get(i);
+            if (isForward(makeRandomNumber())) {
+                car.forwardDash += "-";
+            }
+            System.out.println(car.name + " : " + car.forwardDash);
+        }
+        System.out.println();
+
+    }
+
     public static boolean isForward(int randomNum) {
         if (randomNum >= 4) {
             return true;
