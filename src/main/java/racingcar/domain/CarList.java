@@ -7,7 +7,7 @@ import static racingcar.service.CarListService.getCarNames;
 
 public class CarList {
 
-    public List<Car> getCarList(){
+    public static List<Car> getCarList(){
         String[] carArray = getCarNames();
 
         List<Car> carList = new ArrayList<>();
