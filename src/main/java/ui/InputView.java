@@ -24,11 +24,11 @@ public class InputView {
         return Integer.parseInt(input);
     }
 
-    private static List<String> splitByComma(String input) {
+    public static List<String> splitByComma(String input) {
         return Arrays.asList(input.split(","));
     }
 
-    private static void validateCarNames(List<String> carNames) {
+    public static void validateCarNames(List<String> carNames) {
         for (String carName : carNames) {
             validateCarNameLength(carName);
             validateCarNameNoSpace(carName);
@@ -36,19 +36,19 @@ public class InputView {
         }
     }
 
-    private static void validateCarNameLength(String carName) {
+    public static void validateCarNameLength(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
         }
     }
 
-    private static void validateCarNameNoSpace(String carName) {
+    public static void validateCarNameNoSpace(String carName) {
         if (carName.contains(" ")) {
             throw new IllegalArgumentException("자동차 이름에 공백은 불가능합니다.");
         }
     }
 
-    private static void validateCarNameDuplicate(List<String> carNames) {
+    public static void validateCarNameDuplicate(List<String> carNames) {
         Set<String> uniqueNames = new HashSet<>(carNames);
 
         if (uniqueNames.size() < carNames.size()) {
@@ -56,7 +56,7 @@ public class InputView {
         }
     }
 
-    private static void validateInputNumbers(int numberOfTries) {
+    public static void validateInputNumbers(int numberOfTries) {
         if (numberOfTries < 0) {
             throw new IllegalArgumentException("음수 라운드 입력은 불가능합니다.");
         }
