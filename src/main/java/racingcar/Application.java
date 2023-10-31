@@ -16,7 +16,8 @@ public class Application {
             if(str.length() >= 6) throw new IllegalArgumentException();
             cars.put(str, 0);
         }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int attempt = Integer.parseInt(Console.readLine());
     }
-
-
 }
