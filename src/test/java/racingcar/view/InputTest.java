@@ -13,6 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class InputTest {
 
     private static final String STRING_REGEX = "^[\\w]*$";
+    private static final int LESS_THAN_ONE = 0;
+    private static final int MORE_THAN_FIVE = 6;
 
     List<Car> carList = new ArrayList<>();
 
@@ -50,8 +52,8 @@ public class InputTest {
         //then
         for (Car car : carList) {
             assertThat(car.getCarName().length())
-                    .isLessThan(6)
-                    .isGreaterThan(0);
+                    .isLessThan(MORE_THAN_FIVE)
+                    .isGreaterThan(LESS_THAN_ONE);
             assertThat(car.getCarName())
                     .containsPattern(STRING_REGEX);
         }
