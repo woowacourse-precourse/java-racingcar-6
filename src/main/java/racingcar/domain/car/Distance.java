@@ -1,10 +1,11 @@
 package racingcar.domain.car;
 
 public class Distance {
+    public static final int INIT_DISTANCE = 0;
     private int distance;
 
     public Distance() {
-        this.distance = 0;
+        this.distance = INIT_DISTANCE;
     }
 
     public int getDistance() {
