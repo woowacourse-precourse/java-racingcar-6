@@ -3,7 +3,9 @@ package racingcar;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.InputController;
 import racingcar.util.CarNameValidator;
+import racingcar.util.Constant;
 import racingcar.util.RoundCountValidator;
+import racingcar.util.Util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -205,5 +207,12 @@ class FunctionTest {
 
     }
 
+    @Test
+    void 랜덤숫자테스트() {
+        for(int i = 0; i < 1000000; i++) {
+            int num = Util.getRandomNumber();
+            assertThat(num >= Constant.MIN_RANDOM_NUM && num <= Constant.MAX_RANDOM_NUM).isEqualTo(true);
+        }
+    }
 
 }
