@@ -16,6 +16,9 @@
 - 게임 매니저는 게임을 플레이 시킨다.
 - 게임 매니저는 게임 종료 시 게임으로부터 게임 결과를 받는다.
     - 게임 매니저는 출력 매니저에게 게임 결과 출력을 요청한다.
+- 게임 매니저는 예외가 발생하면 `IllegalArgumentException`을 발생시킨다.
+    - 만약 `IllegalArgumentException` 이 발생했다면 그대로 던진다.
+    - 만약 그 외의 예외가 발생했다면 `IllegalArgumentException`을 발생시킨다.
 
 ## 입력 매니저
 

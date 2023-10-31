@@ -12,9 +12,15 @@ public class GameManager {
     }
 
     public void run() {
-        Game game = initializeGame();
-        GameResult gameResult = game.play();
-        outputManager.printGameResult(gameResult);
+        try {
+            Game game = initializeGame();
+            GameResult gameResult = game.play();
+            outputManager.printGameResult(gameResult);
+        } catch (IllegalArgumentException ie) {
+            throw ie;
+        } catch (RuntimeException re) {
+            throw new IllegalArgumentException(re.getMessage());
+        }
     }
 
     private Game initializeGame() {
