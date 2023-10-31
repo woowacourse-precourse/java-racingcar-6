@@ -18,6 +18,8 @@ import java.util.Arrays;
 import java.util.List;
 
 class ApplicationTest_function_list extends NsTest {
+    final int MOVING_FORWARD = 4;
+    final int STOP = 3;
 
     void testPrivateMethod(Class<?> testClass, String testMethodName, List<List<Object>> testCase) {
         for (List<Object> input : testCase) {
@@ -199,8 +201,6 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_4이상_인지_검사() {
-        final int MOVING_FORWARD = 4;
-        final int STOP = 3;
 
         Object testObject = new Car();
         String testMethodName = "runningDistance";
