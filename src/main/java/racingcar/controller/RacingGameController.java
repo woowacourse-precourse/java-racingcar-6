@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.View.input.InputView;
 import racingcar.View.output.OutPutView;
-import racingcar.View.output.OutputFormatter;
 import racingcar.dto.MidGameResultDto;
 import racingcar.model.RacingGame;
 import racingcar.model.RacingCar;
