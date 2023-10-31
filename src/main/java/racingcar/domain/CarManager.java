@@ -8,6 +8,7 @@ import static racingcar.exception.ExceptionMsg.INVALID_DUPLICATE_NAME;
 
 public class CarManager {
 
+    private static final String DELIMITER = ", ";
     private final List<Car> cars;
 
 
@@ -34,7 +35,7 @@ public class CarManager {
         return cars.stream()
                 .filter(car -> car.getMove() == maxMove)
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(DELIMITER));
     }
 
     private static void validateCars(List<Car> cars) {

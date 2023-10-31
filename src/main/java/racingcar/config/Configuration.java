@@ -10,7 +10,6 @@ import racingcar.ui.OutputView;
 public class Configuration {
 
     public static RacingService racingService() {
-
         RaceRule raceRule = new RaceRuleImpl();
 
         return new RacingService(raceRule);

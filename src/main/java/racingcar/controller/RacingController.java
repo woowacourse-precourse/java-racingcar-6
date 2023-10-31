@@ -28,6 +28,7 @@ public class RacingController {
 
     private void start() {
         List<String> nameList = inputView.carNameInput();
+
         racingService.generateCar(nameList);
     }
 
@@ -35,11 +36,13 @@ public class RacingController {
         String tryInput = inputView.tryInputNumber();
 
         List<String> moveResultList = racingService.playRace(tryInput);
+
         outputView.outputStep(moveResultList);
     }
 
     private void printWinner() {
         String winner = racingService.getWinner();
+        
         outputView.outputWinner(winner);
     }
 }
