@@ -1,12 +1,11 @@
 package racingcar.game;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.game.constant.CarExceptionMessage;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.game.constant.CarExceptionMessage.*;
 
 class StringUtilTest {
 
@@ -20,10 +19,18 @@ class StringUtilTest {
 
     @Test
     void 자동차_이름_중_중복이_있으면_예외_발생() {
-        String carNames = "hwang,jung,seop,jung";
+        assertExceptionCase("hwang,jung,seop,jung", EXIST_SAME_NAMES);
+    }
+
+    @Test
+    void 자동차_이름_개수가_10이하가_아니면_예외_발생() {
+        assertExceptionCase("a,b,c,d,e,f,g,h,i,j,k", OUT_OF_COUNT_RANGE);
+    }
+
+    private void assertExceptionCase(String carNames, String errorMessage) {
         assertThatThrownBy(() -> StringUtil.separate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(CarExceptionMessage.EXIST_SAME_NAMES);
+                .hasMessageContaining(errorMessage);
     }
 
 }
