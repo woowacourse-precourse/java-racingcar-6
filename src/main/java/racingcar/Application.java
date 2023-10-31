@@ -36,6 +36,27 @@ public class Application {
 
             System.out.println();
         }
+
+        int maxForwardCount = -1;
+        for (Car car : cars) {
+            int forwardCount = car.getProgress().length();
+            if (forwardCount > maxForwardCount) {
+                maxForwardCount = forwardCount;
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (Car car : cars) {
+            int forwardCount = car.getProgress().length();
+            if (forwardCount == maxForwardCount) {
+                if (!result.isEmpty()) {
+                    result.append(", ");
+                }
+                result.append(car.getName());
+            }
+        }
+
+        System.out.printf("최종 우승자 : %s", result);
     }
 
     private static void validateAttemptInput(String attempt) {
