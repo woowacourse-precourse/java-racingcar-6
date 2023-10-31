@@ -6,7 +6,14 @@ public class UserRoundNumberInputException {
     private static final String IS_BLANK_MESSAGE = "공백을 입력하시면 안됩니다.";
     private static final String IS_NOT_ZERO_OR_MINUS = "0이나 음수값을 입력하시면 안됩니다.";
     private static final int Zero = 0;
-    public static void isNumber(String userInput) {
+
+    public UserRoundNumberInputException(String input) {
+        isNumber(input);
+        isBlank(input);
+        isZeroMinus(input);
+    }
+
+    private void isNumber(String userInput) {
         try{
             Integer.parseInt(userInput);
         } catch (NumberFormatException e){
@@ -14,13 +21,13 @@ public class UserRoundNumberInputException {
         }
     }
 
-    public static void isBlank(String userInput) {
+    private void isBlank(String userInput) {
         if(userInput.isEmpty()){
             throw new IllegalArgumentException(IS_BLANK_MESSAGE);
         }
     }
 
-    public static void isZeroMinus(String userInput) {
+    private void isZeroMinus(String userInput) {
         if(Integer.parseInt(userInput) <= Zero){
             throw new IllegalArgumentException(IS_NOT_ZERO_OR_MINUS);
         }
