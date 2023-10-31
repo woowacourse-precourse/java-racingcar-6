@@ -6,15 +6,13 @@ import java.util.List;
 public class RacingCup {
     private final int TOTAL_ROUNDS;
     private int nowRound;
-    private List<Player> playerList;
-    private List<String> winners;
+    private List<String> finalWinners;
     private int topPlayerCompletedRound;
 
     public RacingCup(int totalRounds) {
         this.TOTAL_ROUNDS = totalRounds;
         this.nowRound = 0;
-        this.playerList = new ArrayList<>();
-        this.winners = new ArrayList<>();
+        this.finalWinners = new ArrayList<>();
         this.topPlayerCompletedRound = 0;
     }
 
@@ -26,20 +24,8 @@ public class RacingCup {
         return false;
     }
 
-    public List<Player> getPlayerList() {
-        return playerList;
-    }
-
-    public void setPlayerList(List<Player> playerList) {
-        this.playerList = playerList;
-    }
-
-    public List<String> getWinners() {
-        return winners;
-    }
-
-    public void setWinners(List<String> winners) {
-        this.winners = winners;
+    public List<String> getFinalWinners() {
+        return finalWinners;
     }
 
     public int getTopPlayerCompletedRound() {
@@ -50,5 +36,9 @@ public class RacingCup {
         if (topPlayerCompletedRound < completedRoundOfPlayer) {
             this.topPlayerCompletedRound = completedRoundOfPlayer;
         }
+    }
+
+    public void addCarNameOfTheWinner(String carName) {
+        this.finalWinners.add(carName);
     }
 }

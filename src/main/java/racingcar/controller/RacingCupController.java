@@ -1,9 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Player;
 import racingcar.model.RacingCup;
 
 public class RacingCupController {
@@ -15,43 +13,28 @@ public class RacingCupController {
         this.playerController = playerController;
     }
 
-    public void addPlayers(List<Player> playerList) {
-        this.racingCup.setPlayerList(playerList);
-    }
-
     public boolean nextRound() {
         return racingCup.nextRound();
     }
 
-    public int playerSize() {
-        return racingCup.getPlayerList().size();
-    }
-
-    public int getFisrtPlayerDistance() {
-        return racingCup.getTopPlayerCompletedRound();
-    }
-
     public void gamePlay() {
-        for (int i = 0; i < playerSize(); i++) {
+        for (int i = 0; i < playerController.getSizeOfTotalPlayers(); i++) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 playerController.forward(i);
-                this.racingCup.updateTopPlayerCompletedRound(playerController.getDistacne(i));
+                racingCup.updateTopPlayerCompletedRound(playerController.getCompletedRounds(i));
             }
         }
     }
 
     public void decideFinalWinner() {
-        List<Player> playerList = racingCup.getPlayerList();
-        List<String> winners = new ArrayList<>();
-        for(int i = 0; i < playerList.size(); i++) {
-            if(getFisrtPlayerDistance() == playerController.getDistacne(i)) {
-                winners.add(playerList.get(i).getCarName());
+        for(int i = 0; i < playerController.getSizeOfTotalPlayers(); i++) {
+            if(racingCup.getTopPlayerCompletedRound() == playerController.getCompletedRounds(i)) {
+                racingCup.addCarNameOfTheWinner(playerController.getCarNameOfThePlayer(i));
             }
         }
-        this.racingCup.setWinners(winners);
     }
 
-    public List<String> getWinners() {
-        return racingCup.getWinners();
+    public List<String> getFinalWinners() {
+        return racingCup.getFinalWinners();
     }
 }

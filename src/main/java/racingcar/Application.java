@@ -12,9 +12,7 @@ public class Application {
 
         PlayerController playersController = new PlayerController();
         RacingCupController racingCupController = new RacingCupController(gameView.getTotalRounds(), playersController);
-
         playersController.addPlayer(carNames);
-        racingCupController.addPlayers(playersController.getPlayerList());
 
         gameView.printMessage("실행결과");
         while(racingCupController.nextRound()) {
@@ -23,6 +21,6 @@ public class Application {
         }
 
         racingCupController.decideFinalWinner();
-        gameView.finalResultPrint(racingCupController.getWinners());
+        gameView.finalResultPrint(racingCupController.getFinalWinners());
     }
 }
