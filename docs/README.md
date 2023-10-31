@@ -2,7 +2,7 @@
 
 ## Input : InputView 사용자로부터 입력 받기
 - print : 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-- read (car) List<String>: ex) pobi,woni,jun
+- read (carNameSplit) List<String>: ex) pobi,woni,jun
   - 쉼표 기준 슬라이싱
   - 이름 조건 : 5자 이하만 가능하다
     - 클래스 : 자동차
@@ -12,10 +12,25 @@
   - 변수 (int) n차수 = read
 - wrong Input : IllegalArgumentException 발생 -> 애플리케이션 종료
 ## InGame : Controller 자동차 경주 게임
-- 
-- 전진
-  - 조건 : 0~ 9 무작위 값 추출 -> 값이 4 이상
-
+- 전
+  - class car
+    - 멤버 변수
+      - (name) final String
+      - (randomNumList) ArrayList<int>
+      - (numberOfCar) static int
+      - (forward) int
+    - 생성자 (name)
+      - new randomNumList
+      - numberOfCar ++
+  - car 객체 생성 -> from carNameSplit
+- 중
+  - (num)회 반복
+    - (numberOfCar)회 반복
+      - 0~9 무작위 값 추출 -> add : randomNumList
+        - if 값 >= 4 
+          - 전진 : forward ++
+- 후
+  - forward 값이 가장 큰 car가 승리
 ## Output : OutputView 우승자 결과 출력
 - 각 차수별 실행 결과
   - ex)
