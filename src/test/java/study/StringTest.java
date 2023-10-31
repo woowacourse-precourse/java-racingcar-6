@@ -2,8 +2,8 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.util.validator.InputValidator.IsListDuplicate;
-import static racingcar.util.validator.InputValidator.IsStringLengthValid;
+import static racingcar.util.validator.InputValidator.isListDuplicate;
+import static racingcar.util.validator.InputValidator.isStringLengthValid;
 import static racingcar.util.validator.InputValidator.checkBlank;
 import static racingcar.util.validator.InputValidator.checkComma;
 
@@ -77,7 +77,7 @@ public class StringTest {
     void 분리된_문자열_길이가_6_이상인_경우_예외_발생() {
         String input = "123456";
 
-        assertThatThrownBy(() -> IsStringLengthValid(input))
+        assertThatThrownBy(() -> isStringLengthValid(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("문자열 길이 6자리 이상");
     }
@@ -85,7 +85,7 @@ public class StringTest {
     void 분리된_문자열_길이가_0인_경우_예외_발생() {
         String input = "";
 
-        assertThatThrownBy(() -> IsStringLengthValid(input))
+        assertThatThrownBy(() -> isStringLengthValid(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("문자열 길이 0");
     }
@@ -95,7 +95,7 @@ public class StringTest {
         String input = "test,test";
         Util util = new Util();
         List<String> list = util.splitStringToList(input);
-        assertThatThrownBy(() -> IsListDuplicate(list))
+        assertThatThrownBy(() -> isListDuplicate(list))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("문자열 중복");
     }

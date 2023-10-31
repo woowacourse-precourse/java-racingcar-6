@@ -20,7 +20,7 @@ public class InputValidator {
         }
     }
 
-    public static void IsStringLengthValid(String str)
+    public static void isStringLengthValid(String str)
     {
         if(str.length() > 5){
             throw new IllegalArgumentException("문자열 길이 6자리 이상");
@@ -31,12 +31,15 @@ public class InputValidator {
         }
     }
 
-    public static void IsListDuplicate(List<String> list)
+    public static void isListDuplicate(List<String> list)
     {
         Set<String> set = Set.copyOf(list);
         if(list.size() != set.size()) {
             throw new IllegalArgumentException("문자열 중복");
         }
     }
+
+
+
 
 }
