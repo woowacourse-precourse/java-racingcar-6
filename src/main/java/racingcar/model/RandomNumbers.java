@@ -1,10 +1,10 @@
 package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static java.util.Collections.*;
 import static racingcar.common.Config.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class RandomNumbers {
@@ -27,6 +27,6 @@ public class RandomNumbers {
     }
 
     public List<Boolean> getRandomNumberList() {
-        return Collections.unmodifiableList(this.randomNumberList);
+        return unmodifiableList(this.randomNumberList);
     }
 }
