@@ -22,4 +22,16 @@ class RacingCarGameTest {
         Assertions.assertThat(cars.get(1).getName()).isEqualTo("green");
         Assertions.assertThat(cars.get(2).getName()).isEqualTo("blue");
     }
+
+    @Test
+    public void 자동차_이름들을_입력받을때_쉼표_기준으로_틀렸을_경우_예외가_발생_해야한다() {
+        String input = "red,,green,blue";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        RacingCarGame racingCarGame = new RacingCarGame();
+        Assertions.assertThatThrownBy(() -> {
+            racingCarGame.setRacingCarsByConsole();
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
