@@ -18,4 +18,18 @@ public class OutputView {
     private String getCarMovement(int location) {
         return "-".repeat(Math.max(0, location));
     }
+
+    public void printWinners(List<String> winners) {
+        String winnersName = joinWinners(winners);
+        declareWinners(winnersName);
+    }
+
+    private String joinWinners(List<String> winners) {
+        return winners.stream()
+                .collect(Collectors.joining(", "));
+    }
+
+    private void declareWinners(String winnersName) {
+        System.out.printf("최종 우승자 : %s", winnersName);
+    }
 }
