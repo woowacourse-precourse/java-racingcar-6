@@ -1,9 +1,8 @@
-package racingcar.view.input.validator;
+package racingcar.controller.validator;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.validator.UserInputValidator;
 
 class UserInputValidatorTest {
 
