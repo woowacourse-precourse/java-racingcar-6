@@ -16,7 +16,8 @@ public class OutputView {
     }
 
     public void printRaceStatus(StringBuilder sb) {
-        System.out.println(sb.toString());
+        System.out.println("\n실행 결과");
+        System.out.print(sb.toString());
     }
 
     public void printVictoryPlayers(List<String> victoryPlayers) {
