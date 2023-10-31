@@ -9,7 +9,7 @@ public class Position {
 		this.position = 0;
 	}
 
-	protected void move() {
+	public void move() {
 		position += Rule.MOVE_SIZE;
 	}
 
