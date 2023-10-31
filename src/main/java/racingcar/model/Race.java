@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.validator.InputValidator.validateDuplicateName;
 import static racingcar.validator.InputValidator.validateLenOfCar;
 import static racingcar.validator.InputValidator.validateName;
 import static racingcar.validator.InputValidator.validateNumOfMatches;
@@ -11,12 +12,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Match {
+public class Race {
     private List<Car> carList;
     private int numOfMatches;
 
-    public Match(String carListString, String numOfMatchesString) {
+    public Race(String carListString, String numOfMatchesString) {
         validateName(carListString);
+        validateDuplicateName(carListString);
         validateLenOfCar(carListString);
         validateStringToInteger(numOfMatchesString);
         validateNumOfMatches(numOfMatchesString);
@@ -32,14 +34,13 @@ public class Match {
     public List<Map<String, Integer>> getAllMatchesResult() {
         List<Map<String, Integer>> allMatchesResult = new ArrayList<>();
         for (int i = 0; i < this.numOfMatches; i++) {
-            matchStart();
-            Map<String, Integer> perMatchResult = getPerMatchResult();
-            allMatchesResult.add(perMatchResult);
+            start();
+            allMatchesResult.add(getPerMatchResult());
         }
         return allMatchesResult;
     }
 
-    private void matchStart() {
+    private void start() {
         for (Car car : this.carList) {
             car.move(Randoms.pickNumberInRange(0, 9));
         }
