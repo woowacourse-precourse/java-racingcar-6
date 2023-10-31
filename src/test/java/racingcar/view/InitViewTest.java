@@ -37,11 +37,10 @@ class InitViewTest {
     void inputCarNames_split_기능_예외_테스트() {
         initInputStream("1,2, 356");
 
-        assertThatThrownBy(
-                () -> {
-                    assertThat(initView.inputCarNames())
-                            .isInstanceOf(AssertionError.class);
-                });
+        assertThatThrownBy(() -> {
+            assertThat(initView.inputCarNames())
+                    .isInstanceOf(AssertionError.class);
+        });
     }
 
     @Test
@@ -55,11 +54,10 @@ class InitViewTest {
     void inputTryNumber_기능_예외_테스트() {
         initInputStream("");
 
-        assertThatThrownBy(
-                () -> {
-                    assertThat(initView.inputTryNumber())
-                            .isInstanceOf(IllegalArgumentException.class);
-                });
+        assertThatThrownBy(() -> {
+            assertThat(initView.inputTryNumber())
+                    .isInstanceOf(IllegalArgumentException.class);
+        });
     }
 
     private static void initInputStream(String input) {
