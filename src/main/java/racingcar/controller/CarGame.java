@@ -41,8 +41,7 @@ public class CarGame {
             CarValidator.checkCarNameLength(carNameList);
             CarValidator.checkDuplicateCarName(carNameList);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            getCarNamesInput();
+            throw new IllegalArgumentException(e.getMessage());
         }
         return input;
     }
