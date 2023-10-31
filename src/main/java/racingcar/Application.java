@@ -19,5 +19,6 @@ public class Application {
         cars.printCarsGameResult(runningCount);
 
         OutputView.noticeFinalWinner();
+        OutputView.printWinnerNames(cars.findWinnerCars());
     }
 }
