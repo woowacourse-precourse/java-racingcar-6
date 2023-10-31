@@ -17,9 +17,10 @@ public class Cars {
         return this.cars;
     }
 
-    public List<Car> winner() {
-        List<Car> winners = cars.stream()
+    public List<String> winner() {
+        List<String> winners = cars.stream()
                 .filter(car -> car.getDistance() == maxDistance())
+                .map(Car::getName)
                 .collect(Collectors.toList());
         return winners;
     }
