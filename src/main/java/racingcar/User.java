@@ -1,7 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.LinkedHashMap;
+import java.util.Arrays;
+import java.util.List;
 
 public class User {
     static final String DELIMITER = ",";
@@ -10,8 +11,8 @@ public class User {
         return Console.readLine();
     }
 
-    public static String[] splitInput(String input) {
-        return input.split(DELIMITER);
+    public static List<String> splitInput(String input) {
+        return Arrays.asList(input.split(DELIMITER));
     }
 
     public static int stringToInteger() throws IllegalArgumentException {
