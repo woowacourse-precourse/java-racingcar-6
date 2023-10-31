@@ -22,8 +22,15 @@ public class InputHandler {
     public List<String> getValidCarNamesFromUser() throws IllegalArgumentException {
         String userInput = getUserInputForCarNames();
         List<String> carNames = splitByCommaAndTrim(userInput);
-        validateCarNames(carNames);
-        return carNames;
+        List<String> uniqueCarNames = removeDuplicate(carNames);
+        validateCarNames(uniqueCarNames);
+        return uniqueCarNames;
+    }
+
+    private List<String> removeDuplicate(List<String> carNames) {
+        return carNames.stream()
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     private String getUserInputForCarNames() {
@@ -32,8 +39,7 @@ public class InputHandler {
     }
 
     private List<String> splitByCommaAndTrim(String str) {
-        return Arrays
-                .stream(str.split(","))
+        return Arrays.stream(str.split(","))
                 .map(String::strip)
                 .filter(name -> !name.isEmpty())
                 .collect(Collectors.toList());
