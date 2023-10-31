@@ -23,29 +23,24 @@
     - 숫자인지
     - 양수인지
 
-## 구현할 클래스 및 내용 
-- (Controller) Player
-  - 게임을 하는 Class
-  - 사용자의 입력 (자동차 이름, 횟수) 입력 받음 
+## 구현할 클래스 및 내용
+- (Controller) RacingCarGame
+  - 게임의 진입점
+  - RacingCarRace, RacingCarGameView 를 관리함
 - (Model) RacingCar
   - 이동을 하는 Class
-  - `void move()` - 한 칸 이동 
-  - `int distanceTraveled` - 이동 거리 누적 
-- (Model) RacingCarGame
-  - 게임을 진행하는 로직이 있는 Class
-  - `List<int> compare(List<RacingCar>)` - 자동차 랜덤(0~9) 이동
-  - `boolean isEnd()` - 게임 종료 여부 체크 
-  - `int totalMoveCount` - 전체 이동 횟수
-  - `int accumulateMoveCount` - 누적 이동 횟수
+- (Model) RacingCarRace
+  - RacingCar 들의 레이싱을 관리하는 Class
+  - 게임을 진행하는 메소드가 있음 
 - (View) RacingCarGameView
   - Player 의 게임이 원활하도록 하는 Class
   - 게임의 진행 안내 문구를 출력하도록 함
     - 시작 문구
       - `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n`
       - `시도할 회수는 몇회인가요?\n`
-    - 게임 진행 문구 
+    - 게임 진행 문구
       - `실행 결과\n`
-    - 결과 문구 
+    - 결과 문구
       - `최종 우승자 : `
 
 
