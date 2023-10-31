@@ -49,7 +49,7 @@ public class RacingCarGameTest {
     }
 
     @Test
-    void 우승자가_1명일시_우승자_리스트_반환_정상_작동(){
+    void 우승자가_1명일시_우승자_리스트_반환_정상_작동() {
         racingCarGame = new RacingCarGame(List.of(
                 new RacingCar("yang")
         ), 1);
@@ -57,5 +57,18 @@ public class RacingCarGameTest {
         RacingCarGameOutput.printWinnersMessage(winners);
 
         assertThat(getOutputString()).isEqualTo("최종 우승자 : yang");
+    }
+
+    @Test
+    void 우승자가_2명이상일시_우승자_리스트_반환_정상_작동() {
+        racingCarGame = new RacingCarGame(List.of(
+                new RacingCar("yang"),
+                new RacingCar("min"),
+                new RacingCar("cheol")
+        ), 1);
+        List<RacingCar> winners = racingCarGame.getWinners();
+        RacingCarGameOutput.printWinnersMessage(winners);
+
+        assertThat(getOutputString()).isEqualTo("최종 우승자 : yang, min, cheol");
     }
 }
