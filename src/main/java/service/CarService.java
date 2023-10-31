@@ -13,7 +13,7 @@ public class CarService {
     Validate validate = new Validate();
 
     public List<String> getCarNames(String inputLineOfCarNames) {
-        return validate.checkCarNames(splitCarNames(inputLineOfCarNames));
+        return validate.CarNames(splitCarNames(inputLineOfCarNames));
     }
 
     public List<Car> createCars(List<String> carNames) {

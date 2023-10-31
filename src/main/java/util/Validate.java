@@ -6,18 +6,18 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Validate {
-    public String validateInputLineOfCarNames(String inputLineOfCarNames) {
+    public String inputLineOfCarNames(String inputLineOfCarNames) {
         if (inputLineOfCarNames.startsWith(",") || inputLineOfCarNames.endsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
         return inputLineOfCarNames;
     }
-    public List<String> checkCarNames(List<String> carNames) {
-        checkCarNameForm((carNames));
+    public List<String> CarNames(List<String> carNames) {
+        validateCarNameForm((carNames));
         validateDuplicateOfCarName((carNames));
         return carNames;
     }
-    private void checkCarNameForm(List<String> carNames) {
+    private void validateCarNameForm(List<String> carNames) {
         carNames.forEach(carName -> {
             validateCarNameRegex(carName);
             validateMaxLengthOfCarName(carName);
@@ -46,7 +46,7 @@ public class Validate {
         });
     }
 
-    public String checkNumberOfAttemptsForm(String numberOfAttempts) {
+    public String numberOfAttemptsForm(String numberOfAttempts) {
         validateIsNumber(numberOfAttempts);
         validateIsZero(numberOfAttempts);
         return numberOfAttempts;
