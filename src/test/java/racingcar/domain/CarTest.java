@@ -1,18 +1,22 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Test;
 
 public class CarTest {
     @Test
-    public void testCarConstructor() {
+    public void test_carConstructor() {
         Car car = new Car("poni");
 
-        assertEquals("poni", car.getName());
-        assertEquals(0, car.getDistance());
+        String expectedName = "poni";
+        String actualName = car.getName();
+        int expectedDistance = 0;
+        int actualDistance = car.getDistance();
+
+        assertEquals(expectedName, actualName);
+        assertEquals(expectedDistance, actualDistance);
     }
 
     @Test
@@ -21,15 +25,10 @@ public class CarTest {
         car.move();
         car.move();
 
-        assertEquals(2, car.getDistance());
-    }
+        int expectedDistance = 2;
+        int actualDistance = car.getDistance();
 
-    @Test
-    public void test_generatedRandomNumber() {
-        Car car = new Car("test");
-        int randomNumber = car.generatedRandomNumber();
-
-        assertTrue(randomNumber >= 0 && randomNumber <= 9);
+        assertEquals(expectedDistance, actualDistance);
     }
 }
 

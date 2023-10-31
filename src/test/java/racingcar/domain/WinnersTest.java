@@ -9,13 +9,6 @@ import org.junit.jupiter.api.Test;
 public class WinnersTest {
 
     @Test
-    public void 자동차가_없는_경우_최대이동거리() {
-        Winners winners = new Winners(Arrays.asList());
-
-        assertEquals(0, winners.getMaxDistance());
-    }
-
-    @Test
     public void test_getMaxDistance() {
         Car car1 = new Car("Car1");
         car1.move();
@@ -59,6 +52,7 @@ public class WinnersTest {
     @Test
     public void test_EmptyCarsList() {
         List<Car> cars = Arrays.asList();
+
         assertThrows(IllegalArgumentException.class, () -> new Winners(cars));
     }
 }

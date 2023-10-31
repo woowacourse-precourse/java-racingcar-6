@@ -1,24 +1,29 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
 public class NameTest {
     @Test
-    public void 인가된_이름_처리() {
+    public void test_validName() {
         String validName = "Valid";
         Name name = new Name(validName);
-        Assertions.assertEquals(validName, name.toString());
+
+        assertEquals(validName, name.toString());
     }
 
     @Test
-    void 이름의_길이에_대한_예외_처리() {
+    void test_nameLength_Exception() {
         String invalidName = "TooLongName";
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
+
+        assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
     }
     @Test
-    void null_값에_대한_예외_처리() {
+    void test_name_is_null() {
         String invalidName = null;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
+
+        assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
     }
 }

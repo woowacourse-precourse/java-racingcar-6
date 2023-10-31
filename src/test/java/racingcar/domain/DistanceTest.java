@@ -7,9 +7,13 @@ import org.junit.jupiter.api.Test;
 public class DistanceTest {
 
     @Test
-    public void 초기값_확인() {
+    public void testInitialValue() {
         Distance distance = new Distance();
-        assertEquals(0, distance.getDistance());
+
+        int expectedDistance = 0;
+        int actualDistance = distance.getDistance();
+
+        assertEquals(expectedDistance, actualDistance);
     }
 
     @Test
@@ -17,10 +21,12 @@ public class DistanceTest {
         Distance distance = new Distance();
 
         distance.move();
-        assertEquals(1, distance.getDistance());
+        distance.move();
+        distance.move();
 
-        distance.move();
-        distance.move();
-        assertEquals(3, distance.getDistance());
+        int expectedDistance = 3;
+        int actualDistance = distance.getDistance();
+
+        assertEquals(expectedDistance, actualDistance);
     }
 }

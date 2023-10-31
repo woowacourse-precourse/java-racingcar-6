@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,32 +9,11 @@ import org.junit.jupiter.api.Test;
 public class CarListTest {
 
     @Test
-    public void testSplitName() {
+    public void test_addCars() {
         CarList carList = new CarList();
         String carNames = "Car1,Car2,Car3";
-        String[] expectedNames = {"Car1", "Car2", "Car3"};
-        assertArrayEquals(expectedNames, carList.splitName(carNames));
-    }
-
-    @Test
-    public void testAddCars() {
-        CarList carList = new CarList();
-        String[] carNames = {"Car1", "Car2", "Car3"};
-        carList.addCars(carNames);
-
-        List<Car> cars = carList.getCarList();
-        assertEquals(carNames.length, cars.size());
-
-        for (int i = 0; i < carNames.length; i++) {
-            assertEquals(carNames[i], cars.get(i).getName());
-        }
-    }
-
-    @Test
-    public void testSplitCarNames(){
-        CarList carList = new CarList();
-        String carNames = "Car1,Car2,Car3";
-        carList.splitCarNames(carNames);
+        String [] carNamesArray = carNames.split(",");
+        carList.addCars(carNamesArray);
 
         List<Car> cars = carList.getCarList();
         assertEquals(3, cars.size());
@@ -46,10 +24,11 @@ public class CarListTest {
     }
 
     @Test
-    public void testGetWinners() {
+    public void test_GetWinners() {
         CarList carList = new CarList();
         String carNames = "Car1,Car2,Car3";
-        carList.splitCarNames(carNames);
+        String [] carNamesArray = carNames.split(",");
+        carList.addCars(carNamesArray);
 
         Winners winners = carList.getWinners();
         List<Car> winningCars = winners.getWinningCars();
