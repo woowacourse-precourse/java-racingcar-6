@@ -44,16 +44,4 @@ public class InputView {
     private static String userInput() {
         return Console.readLine();
     }
-
-    // 아래는 test를 위한 method
-    public void setInputNames(String input) {;
-        String[] names = input.split(",");
-        validateNames(names);
-        this.inputNames = names;
-    }
-
-    public void setNumberOfAttempts(String numberOfAttempts) {
-        validateNumber(numberOfAttempts);
-        this.numberOfAttempts = Integer.parseInt(numberOfAttempts);
-    }
 }
