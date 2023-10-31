@@ -5,7 +5,6 @@ import java.util.stream.Stream;
 import racingcar.domain.Car;
 import racingcar.event.core.EventListener;
 import racingcar.event.part.RaceGameEvent;
-import racingcar.strategy.RacingCarMoveStrategy;
 import racingcar.strategy.RandomRacingCarMoveStrategy;
 import racingcar.view.core.OutputView;
 import racingcar.view.core.ScreenComponent;
@@ -14,10 +13,12 @@ public record RaceGameComponent(OutputView outputView, EventListener eventListen
 
     @Override
     public void render() {
-        final RacingCarMoveStrategy racingCarMoveStrategy = new RandomRacingCarMoveStrategy();
+        outputView.printRaceStartMessage();
 
-        Stream.generate(() -> eventListener.listenWithParameterAndResult(RaceGameEvent::new)
-                        .apply(racingCarMoveStrategy))
+        final var racingCarMoveStrategy = new RandomRacingCarMoveStrategy();
+        final var raceGameEvent = eventListener.listenWithParameterAndResult(RaceGameEvent::new);
+
+        Stream.generate(() -> raceGameEvent.apply(racingCarMoveStrategy))
                 .takeWhile(RaceGameResult::isNotCompleted)
                 .map(RaceGameResult::trackPerResults)
                 .forEach(outputView::printTrackPerResult);
@@ -38,11 +39,15 @@ public record RaceGameComponent(OutputView outputView, EventListener eventListen
         }
 
         public record TrackPerResult(String name, int distance) {
+            private static final String DISTANCE_UNIT = "-";
 
             public static TrackPerResult from(Car car) {
                 return new TrackPerResult(car.getName(), car.getLap());
             }
 
+            public String toResult() {
+                return String.format("%s : %s", name, DISTANCE_UNIT.repeat(distance));
+            }
         }
     }
 }
