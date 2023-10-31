@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.utils.Util;
-
 public class Car implements Comparable<Car> {
     private String name;
     private int position;
@@ -30,7 +28,7 @@ public class Car implements Comparable<Car> {
         return name;
     }
 
-    public String getCurrentPosition() {
-        return name + " : " + Util.dashGenerator(position);
+    public int getPosition() {
+        return position;
     }
 }
