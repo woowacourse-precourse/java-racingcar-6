@@ -18,11 +18,9 @@ public class Round {
     }
 
     public List<CarDTO> generateResult(List<Car> cars) {
-        List<CarDTO> roundResult = cars.stream()
+        return cars.stream()
                 .map(car -> new CarDTO(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
-
-        return roundResult;
     }
 
     public static List<CarDTO> calculateFurthestCarInfo(List<List<CarDTO>> EachRoundResult) {
