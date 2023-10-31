@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -41,6 +43,19 @@ class CarTest {
 
         //then
         assertThat(car.getName()).isEqualTo(carName);
+        assertThat(car.getStraightCount()).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("자동차 객체가 생성되면 전진횟수는 0이 된다.")
+    void createCarStraightCountZero() {
+        //given
+        String carName = "test";
+
+        //when
+        Car car = Car.createForStart(carName);
+
+        //then
         assertThat(car.getStraightCount()).isEqualTo(0);
     }
 }
