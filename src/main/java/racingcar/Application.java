@@ -123,8 +123,10 @@ public class Application {
 
     private static void endRace(HashMap carMoveStatus) {
         HashMap<String, Integer> carMoveCounts;
+        List<String> winnerCarList;
 
         carMoveCounts = convertMovementToCount(carMoveStatus);
+        winnerCarList = findWinners(carMoveCounts);
     }
 
     private static HashMap convertMovementToCount(HashMap carMoveStatus) {
@@ -134,6 +136,18 @@ public class Application {
             carMoveCounts.put(carName.toString(), carMoveStatus.get(carName).toString().length());
         }
         return carMoveCounts;
+    }
+
+    private static List findWinners(HashMap<String, Integer> carMoveCount) {
+        List<String> winnerCarList = new LinkedList<>();
+        Comparable carMaxMovement = Collections.max(carMoveCount.values());
+
+        for (String carName : carMoveCount.keySet()) {
+            if (carMaxMovement.compareTo(carMoveCount.get(carName)) == 0) {
+                winnerCarList.add(carName);
+            }
+        }
+        return winnerCarList;
     }
 
     public static void main(String[] args) {
