@@ -121,6 +121,21 @@ public class Application {
         return false;
     }
 
+    private static void endRace(HashMap carMoveStatus) {
+        HashMap<String, Integer> carMoveCounts;
+
+        carMoveCounts = convertMovementToCount(carMoveStatus);
+    }
+
+    private static HashMap convertMovementToCount(HashMap carMoveStatus) {
+        HashMap<String, Integer> carMoveCounts = new HashMap<>();
+
+        for (Object carName : carMoveStatus.keySet()) {
+            carMoveCounts.put(carName.toString(), carMoveStatus.get(carName).toString().length());
+        }
+        return carMoveCounts;
+    }
+
     public static void main(String[] args) {
         inputCarNames();
     }
