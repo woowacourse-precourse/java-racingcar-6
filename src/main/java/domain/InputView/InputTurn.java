@@ -1,4 +1,4 @@
-package domain.InputValues;
+package domain.InputView;
 
 import camp.nextstep.edu.missionutils.Console;
 public class InputTurn {

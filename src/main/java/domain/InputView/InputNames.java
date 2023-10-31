@@ -1,8 +1,5 @@
-package domain.InputValues;
+package domain.InputView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import domain.InputValues.NameValidiator;
 import camp.nextstep.edu.missionutils.Console;
 public class InputNames {
 

@@ -1,4 +1,4 @@
-package domain.InputValues;
+package domain.InputView;
 
 import java.util.Arrays;
 
