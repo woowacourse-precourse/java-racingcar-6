@@ -1,7 +1,17 @@
 package racingcar;
 
+import racingcar.controller.RaceController;
+import racingcar.domain.User;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        User user = new User();
+
+        RaceController raceController = new RaceController(user);
+        raceController.run();
+
+
     }
+
 }
