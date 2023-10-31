@@ -35,4 +35,10 @@ public class ExceptionTest {
         assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkNumberOfPlayCountInput(""))
                 .isInstanceOf(IllegalArgumentException.class));
     }
+
+    @Test
+    void 시도횟수_문자입력() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkNumberOfPlayCountInput("a"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
 }
