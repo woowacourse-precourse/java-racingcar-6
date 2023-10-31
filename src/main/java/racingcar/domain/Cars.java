@@ -6,10 +6,16 @@ import java.util.List;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<String> carNames) {
-        this.cars = carNames.stream()
+    private Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public static Cars fromCarNames(List<String> carNames) {
+        List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .toList();
+
+        return new Cars(cars);
     }
 
 

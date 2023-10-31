@@ -9,9 +9,13 @@ public class Turn {
     private final static String NUMBER_PATTERN = "\\d+";
     private final static Pattern NUMBER_FORMAT = Pattern.compile(NUMBER_PATTERN);
 
-    public Turn(String count) {
+    private Turn(int count) {
+        this.count = count;
+    }
+
+    public static Turn fromTryCount(String count) {
         validateTryCount(count);
-        this.count = Integer.parseInt(count);
+        return new Turn(Integer.parseInt(count));
     }
 
 
@@ -19,17 +23,17 @@ public class Turn {
         return count;
     }
 
-    private void validateTryCount(String tryToMoveCount) {
+    private static void validateTryCount(String tryToMoveCount) {
         validateTryCountFormat(tryToMoveCount);
     }
 
-    private void validateTryCountFormat(String tryToMoveCount) {
+    private static void validateTryCountFormat(String tryToMoveCount) {
         if (!isNumberFormat(tryToMoveCount)) {
             throw new IllegalArgumentException(TRY_COUNT_NUMBER_FORMAT_ERROR_MESSAGE);
         }
     }
 
-    private boolean isNumberFormat(String text) {
+    private static boolean isNumberFormat(String text) {
         return NUMBER_FORMAT.matcher(text).matches();
     }
 }
