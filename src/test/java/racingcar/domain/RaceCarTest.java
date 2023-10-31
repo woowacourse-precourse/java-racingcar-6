@@ -22,4 +22,16 @@ class RaceCarTest {
         raceCar.forward(Arrays.asList(1, 2, 4));
         assertThat(raceCar.moveDistance).isEqualTo(Arrays.asList("", "", "-"));
     }
+
+    @Test
+    void 단독_우승() {
+        raceCar.moveDistance = Arrays.asList("-", "--", "---");
+        assertThat(raceCar.winner()).isEqualTo("Won");
+    }
+
+    @Test
+    void 공동_우승() {
+        raceCar.moveDistance = Arrays.asList("-", "---", "---");
+        assertThat(raceCar.winner()).isEqualTo("Jeong, Won");
+    }
 }
