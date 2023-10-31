@@ -6,6 +6,7 @@ import static racingcar.model.car.CarSplitConstants.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.utils.exception.CarExceptionType;
 
 public class CarManagerValidator extends CommonValidator {
 
@@ -28,7 +29,7 @@ public class CarManagerValidator extends CommonValidator {
 
     private void validateExistDuplicateCar(final List<String> carNames) {
         if (carNames.size() != carNames.stream().collect(Collectors.toUnmodifiableSet()).size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarExceptionType.DUPLICATE.getMessage());
         }
     }
 
