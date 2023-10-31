@@ -10,10 +10,7 @@ public record InitializeRacingGameComponent(InputView inputView, EventListener e
 
     @Override
     public void render() {
-        eventListener.listenWithParameter(InitializeParticipantsEvent::new)
-                .accept(inputView.readParticipantCarNames());
-        eventListener.listenWithParameter(InitializeExtractTrackEvent::new)
-                .accept(inputView.readExtractLapCount());
-
+        eventListener.listenWithParameter(InitializeParticipantsEvent::new).accept(inputView.readParticipantCarNames());
+        eventListener.listenWithParameter(InitializeExtractTrackEvent::new).accept(inputView.readExtractLapCount());
     }
 }
