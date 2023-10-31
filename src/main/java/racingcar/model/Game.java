@@ -6,27 +6,29 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game implements Rule {
+public class Game {
 
     List<Car> cars;
+    Integer roundLimit;
 
     public Game() {
-        List<String> carNames = getCarNames();
-        cars = new ArrayList<Car>();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        setCars();
+        System.out.println("시도할 회수는 몇회인가요?");
+        setRoundLimit();
+    }
+
+    private void setCars() {
+        List<String> carNames = List.of(readLine().split(","));
+        this.cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new RacingCar(carName));
         }
     }
 
-    @Override
-    public List<String> getCarNames() {
-        return List.of(readLine().split(","));
-    }
-
-    @Override
-    public Integer getNumberOfRounds() throws IllegalArgumentException {
-        int res = Integer.parseInt(readLine());
-        if (res < 0) {
+    private void setRoundLimit() throws IllegalArgumentException {
+        this.roundLimit = Integer.parseInt(readLine());
+        if (this.roundLimit < 0) {
             throw new IllegalArgumentException();
         }
         return res;
