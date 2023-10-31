@@ -8,7 +8,6 @@ import racingcar.view.UserInput;
 import racingcar.view.UserOutput;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Controller {
     public static void startRace() {
@@ -68,6 +67,9 @@ public class Controller {
     public static void checkNameValidation(String name) {
         if (name.length() > Constant.MAX_LEN_OF_CAR_NAME) {
             throw new IllegalArgumentException(Message.NAME_INPUT_LENGTH_ERROR);
+        }
+        if (name.isEmpty()){
+            throw new IllegalArgumentException(Message.NAME_INPUT_NULL_ERROR);
         }
     }
 }

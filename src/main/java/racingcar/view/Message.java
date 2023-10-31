@@ -12,4 +12,5 @@ public class Message {
     /* Strings for exceptions */
     public static final String EXECUTION_INPUT_TYPE_ERROR = "Execution cnt must be Integer type";
     public static final String NAME_INPUT_LENGTH_ERROR = "The length of name of car is too long";
+    public static final String NAME_INPUT_NULL_ERROR = "The name of car must be not null";
 }

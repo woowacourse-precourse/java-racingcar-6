@@ -24,7 +24,20 @@ public class UserInputNameTest {
         try {
             Controller.convertStringToArrayList(input_names);
         } catch (IllegalArgumentException e) {
+            System.out.println("이름 형식 5글자 이상 : " + e.getMessage());
             Assertions.assertEquals(Message.NAME_INPUT_LENGTH_ERROR, e.getMessage());
+        }
+    }
+
+    @Test
+    void 이름_형식_쉼표_두개_연속_들어간_경우() {
+        String input_names = "first,,second";
+
+        try {
+            Controller.convertStringToArrayList(input_names);
+        } catch (IllegalArgumentException e) {
+            System.out.println("이름 형식에 쉽표가 두개 연속으로 들어간 경우 : " + e.getMessage());
+            Assertions.assertEquals(Message.NAME_INPUT_NULL_ERROR, e.getMessage());
         }
     }
 }
