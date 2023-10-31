@@ -1,13 +1,12 @@
 package racingcar.view;
 
-import static racingcar.view.constants.IOType.REMOVE_WHITE_SPACE_REGEX;
-import static racingcar.view.constants.IOType.REQUEST_CAR_NAMES_SENTENCE;
-import static racingcar.view.constants.IOType.SPLIT_DELIMITER;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
+
+import static racingcar.validator.CarInputValidator.*;
+import static racingcar.view.constants.IOType.*;
 
 public class ConsoleInput {
 
@@ -16,6 +15,12 @@ public class ConsoleInput {
         String carNames = Console.readLine();
         return parseSentence(carNames);
     }
+
+    public static int attemptsNumberInput() {
+        System.out.println(REQUEST_ATTEMPTS_NUMBER_SENTENCE);
+        return validateAttemptsNumber(Console.readLine());
+    }
+
 
     private static List<Car> parseSentence(String sentence) {
         sentence = removeAllWhiteSpace(sentence);

@@ -5,8 +5,8 @@ import static racingcar.view.constants.IOType.*;
 
 public class ConsoleOutput {
 
-    public static void requestAttemptsCountPrint() {
-        System.out.println(REQUEST_ATTEMPTS_COUNT_SENTENCE);
+    public static void requestAttemptsNumberPrint() {
+        System.out.println(REQUEST_ATTEMPTS_NUMBER_SENTENCE);
     }
 
     public static void executionResultPrint(int attemptsCount) {
