@@ -2,7 +2,9 @@
 1. 자동차 여러개 입력받기
    1-1. 자동차 이름은 5자 이하만 가능
    1-2. 이름에 공백이 들어가면 안된다.
-   1-3. 잘못된 입력을 할 경우 IllegalArgumentException 발생
+   1-3. 이름에 널 값이 들어가면 안된다.
+   1-4. 이름 콤마 뒤에 아무 것도 입력 안하면 안된다.
+   1-5잘못된 입력을 할 경우 IllegalArgumentException 발생
 2. 회수 입력받기
     2-1. 잘못된 입력을 할 경우 IllegalArgumentException 발생
 
