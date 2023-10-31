@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.WinnerResult;
 
 public class WinnerTest {
 
@@ -31,7 +32,12 @@ public class WinnerTest {
 
     @Test
     void 우승자_명단_확인_테스트() {
-        String winnerNames = "pobi, jun";
-        assertThat(winner.toString()).isEqualTo(winnerNames);
+        String expectedWinnerNames = "pobi, jun";
+
+        WinnerResult winnerResult = new WinnerResult(winner);
+        String actualWinnerNames = String.join(", ",
+                winnerResult.getWinners());
+
+        assertThat(actualWinnerNames).isEqualTo(expectedWinnerNames);
     }
 }
