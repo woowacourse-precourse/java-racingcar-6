@@ -9,11 +9,7 @@ public class RaceView {
 
     public static void displayRoundResults(List<Car> cars) {
         for (Car car : cars) {
-            System.out.print(car.getName() + " : ");
-            for (int i = 0; i < car.getForwardDistance(); i++) {
-                System.out.print("-");
-            }
-            System.out.println();
+            car.displayProgress();
         }
         System.out.println();
     }

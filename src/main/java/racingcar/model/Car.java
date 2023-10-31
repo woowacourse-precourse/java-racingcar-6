@@ -11,17 +11,25 @@ public class Car {
         this.forwardDistance = 0;
     }
 
-    public void moveOnRandomCondition() {
-        if (NumberGenerator.generateRandom() >= 4) {
-            forwardDistance++;
-        }
-    }
-
     public String getName() {
         return this.name;
     }
 
     public int getForwardDistance() {
         return this.forwardDistance;
+    }
+
+    public void moveOnRandomCondition() {
+        if (NumberGenerator.generateRandom() >= 4) {
+            forwardDistance++;
+        }
+    }
+
+    public void displayProgress() {
+        System.out.print(this.name + " : ");
+        for (int i = 0; i < this.forwardDistance; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
