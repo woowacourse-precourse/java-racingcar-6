@@ -9,7 +9,7 @@ public class CarRacingResponse {
         this.position = position;
     }
 
-    public static CarRacingResponse create(String carName, int carPosition) {
+    public static CarRacingResponse of(String carName, int carPosition) {
         return new CarRacingResponse(carName, carPosition);
     }
 
