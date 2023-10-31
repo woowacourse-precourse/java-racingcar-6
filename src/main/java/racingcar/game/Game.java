@@ -53,10 +53,11 @@ public class Game {
 
         List<Player> playerList = new ArrayList<>();
 
-        for (String user : users) {
+        for (int i = 0 ; i<users.length && playerList.size()<10; i++) {
+            String user = users[i];
             String removeSpace = user.trim();
 
-            if (user.isEmpty()) {
+            if (removeSpace.isEmpty()) {
                 continue;
             }
 

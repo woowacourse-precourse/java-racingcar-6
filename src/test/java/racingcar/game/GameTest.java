@@ -103,6 +103,24 @@ public class GameTest {
         Assertions.assertThat(miniGame.checkRangeOfNumber(1000)).isEqualTo(false);
     }
 
+    @Test
+    void playerLimitTest() {
+        // given
+        List<String> userList = new ArrayList<>();
+        String[] users = {"a", "b", "c", "d", "e", "", "", "f", "g", "h", "i", "j", "k", "l", "m", "n"};
+
+        // when
+        for (int i = 0; i < users.length && userList.size()<10; i++) {
+            if(users[i].isEmpty()){
+                continue;
+            }
+            userList.add(users[i]);
+        }
+
+        // then
+        Assertions.assertThat(userList.size()).isEqualTo(10);
+    }
+
     // private 메서드 테스트 용도 내부 클래스
     static class MiniGame {
         boolean checkNameLength(String name) {
@@ -162,7 +180,7 @@ public class GameTest {
         }
 
         private boolean checkRangeOfNumber(int count) {
-            if (count > 0 && count<=100) {
+            if (count > 0 && count <= 100) {
                 return true;
             }
             return false;
