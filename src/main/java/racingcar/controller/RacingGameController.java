@@ -1,6 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.view.InputView.*;
+import static racingcar.view.InputView.inputAttemptCount;
+import static racingcar.view.InputView.inputCarNames;
 
 import racingcar.domain.Race;
 
