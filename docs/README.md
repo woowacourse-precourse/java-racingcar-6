@@ -24,6 +24,11 @@
   - [x] 레이싱 중 경기 상황 반환 여부
   - [x] 레이싱 우승자 반환 여부
 
+<br/>
+
+# UML diagram
+
+![uml](./UML-diagram.png)
 
 <br/>
 
