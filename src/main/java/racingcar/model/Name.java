@@ -1,41 +1,15 @@
 package racingcar.model;
 
-import java.util.Objects;
-
-public class Name {
+public record Name(String name) {
 
     private static final int NAME_MAX_LENGTH = 5;
     private static final String CAR_NAME_LENGTH_EXCEPTION_MESSAGE = "5자 이하의 이름만 가능합니다.";
     private static final String BLANK = " ";
     private static final String CAR_NAME_BLANK_EXCEPTION_MESSAGE = "자동차 이름에 공백이 있으면 안 됩니다.";
 
-    private final String name;
-
-    public Name(String name) {
+    public Name {
         validateCarNameLength(name);
         validateCarNameHasBlank(name);
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Name name1 = (Name) o;
-        return Objects.equals(name, name1.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
     }
 
     private void validateCarNameLength(String name) {
