@@ -9,15 +9,17 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Cars;
+import racingcar.util.InputParser;
 
 public class CarsTest {
+    String playerInput = "pobi,woni,kibum";
+    InputParser inputParser = new InputParser();
+
+    Cars cars = new Cars(inputParser.parseCarName(playerInput));
 
     @Test
     @DisplayName("자동차의 각 이름을 리턴하는 기능테스트")
     void testGetNames() {
-        String playerInput = "pobi,woni,kibum";
-        Cars cars = new Cars(playerInput);
-
         List<String> names = cars.getNames();
         List<String> expected = Arrays.asList("pobi", "woni", "kibum");
 
@@ -27,9 +29,6 @@ public class CarsTest {
     @Test
     @DisplayName("Car를 각각 Drive시키고 매 실행 결과를 알아내는 기능 테스트 ")
     void testDriveAllAndGetDistacnes() {
-        String playerInput = "pobi,woni,kibum";
-        Cars cars = new Cars(playerInput);
-
         cars.driveAll();
         List<Integer> result = cars.getTotalDistances();
 
@@ -41,9 +40,6 @@ public class CarsTest {
     @Test
     @DisplayName("우승자를 리턴하는 기능")
     void testGetWinners() {
-        String playerInput = "pobi,woni,kibum";
-        Cars cars = new Cars(playerInput);
-
         for (int i = 0; i < 5; i++) {
             cars.driveAll();
         }
