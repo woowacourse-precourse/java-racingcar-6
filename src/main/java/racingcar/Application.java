@@ -29,11 +29,18 @@ public class Application {
             carArr.add(new Car(car));
         }
     }
+
+    static int inputNumber(){
+        String numString = Console.readLine();
+        return Integer.parseInt(numString);
+    }
+
     public static void main(String[] args) {
         String[] cars = splitCarName(inputCarName());
-        List<Car> carArr = new ArrayList<Car>();
+        List<Car> carArr = new ArrayList<>();
         if(isValidate(cars)){
             createCars(cars, carArr);
         }
+        int number = inputNumber();
     }
 }
