@@ -76,9 +76,9 @@
 - 사용자는 자동차 이름을 입력할 수 있다. InputView - inputCars
   - 사용자가 잘못된 입력을 할 경우 IllegalArgumentException 예외를 발생시킨다.           CarName - validateName
   - 사용자가 중복된 값을 입력했을 경우 llegalArgumentException 예외를 발생시킨다          Cars - validateDuplicateName
-  - 사용자가 2개 미만의 자동차를 입력했을 경우 llegalArgumentException 예뢰를 발생시킨다.   Cars - validateMinimumCarCount
+  - 사용자가 2개 미만의 자동차를 입력했을 경우 llegalArgumentException 예외를 발생시킨다.   Cars - validateMinimumCarCount
 - 사용자는 시도횟수를 입력할 수 있다. Input-inputTryCount
-  - 사용자가 잘못된 입력을 할 경우 IllegalArgumentException 예외를 발생시킨다. GameController - initializeTryCount
+  - 사용자가 잘못된 입력을 할 경우 IllegalArgumentException 예외를 발생시킨다. InputValidator - isValidInteger
   - 사용자가 0보다 작은 숫자를 입력할경우 IllegalArgumentException 예뢰를 발생 시킨다. TryCount - validateTryCount
 - 시도 횟수 만큼 게임을 반복한다. TryCount - hasRepeat
   - 컴퓨터는 0에서 9 사이의 무작위 값을 생성한다. RandomNumberGenerator - generateRandomNumber 
