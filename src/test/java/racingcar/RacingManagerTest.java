@@ -2,6 +2,8 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.number_generator.NumberGenerator;
+import racingcar.records.RacingCarSnapshot;
+import racingcar.records.RacingHistory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,6 +55,23 @@ public class RacingManagerTest {
         assertThatThrownBy(() -> new RacingManager(validCarsNameInput, nonNumberCountInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도할 회수는 숫자여야 합니다.");
+    }
+
+    @Test
+    void start_race_시_차들의_forward_count가_정상적으로_증가한다() {
+        String validCarsNameInput = "pobi,woni";
+        String validRacingCountInput = "2";
+
+        int forward = RacingCar.MAX_MOVE_WEIGHT;
+        int stop = RacingCar.MIN_MOVE_WEIGHT;
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(forward, stop, forward, stop);
+
+        RacingManager racingManager = new RacingManager(validCarsNameInput, validRacingCountInput, fixedNumberGenerator);
+
+        racingManager.startRace();
+        assertThat(racingManager.getRacingCars())
+                .extracting(RacingCar::getForwardCount)
+                .containsExactly(2, 0);
     }
 }
 
