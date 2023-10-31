@@ -22,7 +22,7 @@ public class RacingCarGameConsole {
 
     private static void isCorrectTimesToTry(int timesToTry) {
         if (timesToTry <= 0) {
-            throw new IllegalArgumentException(ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH);
+            throw new IllegalArgumentException(ExceptionCase.INPUT_NUMBER_RANGE_MISMATCH.message());
         }
     }
 

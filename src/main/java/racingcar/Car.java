@@ -24,16 +24,16 @@ public class Car {
 
     private void checkCarNameHasBlank(String carNamesString) {
         if (carNamesString.contains(" ")) {
-            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_HAS_BLANK);
+            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_HAS_BLANK.message());
         }
     }
 
     private void checkCarNameHasNothing(String carNamesString) {
         if (carNamesString.contains(",,")) {
-            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_HAS_NOTHING);
+            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_HAS_NOTHING.message());
         }
         if (carNamesString.startsWith(",") || carNamesString.endsWith(",")) {
-            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_HAS_NOTHING);
+            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_HAS_NOTHING.message());
         }
     }
 
@@ -46,13 +46,13 @@ public class Car {
 
     private void checkCarNameLength(String name) {
         if (name.length() > CAR_NAME_LENGTH_MAX) {
-            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_LENGTH_OVERED);
+            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_LENGTH_OVERED.message());
         }
     }
 
     private void checkCarNameDuplication() {
         if (number != names.stream().distinct().count()) {
-            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATION);
+            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_DUPLICATION.message());
         }
     }
 

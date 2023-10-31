@@ -1,7 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.ExceptionMessage.INPUT_TYPE_MISMATCH;
+import static racingcar.ExceptionCase.INPUT_TYPE_MISMATCH;
 
 public class InputView {
     private static final String CAR_NAME_REQUEST = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -24,7 +24,7 @@ public class InputView {
 
     private static void checkInputIsInteger(String inputString) {
         if (!inputString.matches(INT_TYPE)) {
-            throw new IllegalArgumentException(INPUT_TYPE_MISMATCH);
+            throw new IllegalArgumentException(INPUT_TYPE_MISMATCH.message());
         }
     }
 }
