@@ -48,6 +48,13 @@ public class Validation {
         return false;
     }
 
+    public static boolean isEmpty(List<String> members) {
+        if (members.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean isDuplicates(List<String> members, String input, int idx) {
         for (int i = idx + 1; i < members.size(); i++) {
             if (members.get(i).equals(input)) {
