@@ -44,5 +44,18 @@ public class Game {
                 System.out.println(car);
             }
         }
+
+        int maximumForwardCount = 0;
+        for (Car car : cars) {
+            int forwardCount = car.getForwardCount();
+            maximumForwardCount = Math.max(forwardCount, maximumForwardCount);
+        }
+        for (Car car : cars) {
+            int forwardCount = car.getForwardCount();
+            if (forwardCount == maximumForwardCount) {
+                String name = car.getName();
+                System.out.println(name);
+            }
+        }
     }
 }

@@ -12,6 +12,14 @@ public class Car {
         forwardCount++;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
