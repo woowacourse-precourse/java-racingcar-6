@@ -82,4 +82,15 @@ public class RacingCarValidationTest {
         assertFalse(Validation.isEmpty(List1));
         assertTrue(Validation.isEmpty(List2));
     }
+
+    @Test
+    void 쉼표의_개수가_올바른지_판별() {
+        String input = "a,b,c";
+        List<String> list = List.of("a", "b", "c");
+        assertTrue(Validation.isCorrectComma(list, input.length()));
+
+        String input2 = "a,,,,";
+        List<String> list2 = List.of("a");
+        assertFalse(Validation.isCorrectComma(list2, input2.length()));
+    }
 }
