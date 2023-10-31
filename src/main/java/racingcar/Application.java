@@ -32,7 +32,8 @@ public class Application {
     public static void main(String[] args) {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<Car> cars = getCars();
+        String names = Console.readLine();
+        List<Car> cars = getCars(names);
 
         System.out.println("시도할 회수는 몇회인가요?");
         int times = getTimesToMove();
@@ -109,11 +110,11 @@ public class Application {
         return Integer.parseInt(input);
     }
 
-    public static List<Car> getCars() {
+    public static List<Car> getCars(String input) {
 
         List<Car> cars = new ArrayList<>();
 
-        String[] names = Console.readLine().split(",");
+        String[] names = splitString(input);
 
         for (String name : names) {
             checkNameLength(name);
@@ -121,6 +122,10 @@ public class Application {
         }
 
         return cars;
+    }
+
+    private static String[] splitString(String input) {
+        return input.split(",");
     }
 
     private static void checkNameLength(String name) {
