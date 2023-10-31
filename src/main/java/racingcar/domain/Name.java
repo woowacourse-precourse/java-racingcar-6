@@ -18,6 +18,10 @@ public class Name {
         return new Name(value);
     }
 
+    public String getValue() {
+        return value;
+    }
+
     private static class Validator {
         private static void validateName(final String name) {
             validateLength(name);

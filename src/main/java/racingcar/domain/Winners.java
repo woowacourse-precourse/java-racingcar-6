@@ -22,7 +22,7 @@ public class Winners {
         String winners = String.join(FINAL_RESULT_TOKEN.getSymbol(), names);
         return String.format(FINAL_RESULT_MESSAGE.getMessage(), winners);
     }
-    
+
     private List<Car> findWinners(Cars cars) {
         return cars.findMaxPositionCars();
     }
