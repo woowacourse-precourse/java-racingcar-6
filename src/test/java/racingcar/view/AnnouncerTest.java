@@ -25,13 +25,13 @@ class AnnouncerTest extends NsTest {
 
         // then
         assertSimpleTest(() -> {
-            announcer.announceRaceRound(List.of(pobi, woni));
+            announcer.announceRoundHistory(List.of(pobi, woni));
             assertThat(output()).contains("pobi : -", "woni : --");
         });
     }
 
     @Override
     protected void runMain() {
-        announcer.announceRaceRound(List.of(pobi, woni));
+        announcer.announceRoundHistory(List.of(pobi, woni));
     }
 }

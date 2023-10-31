@@ -21,7 +21,7 @@ public class Announcer {
         print(RESULT_COMMENT);
     }
 
-    public void announceRaceRound(List<Car> car) {
+    public void announceRoundHistory(List<Car> car) {
         for (Car c : car) {
             print(c.getName() + " : " + "-".repeat(c.getPosition()));
         }
