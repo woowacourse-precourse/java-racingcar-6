@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.car.Car;
 import racingcar.model.car.CarMoveRule;
 
+/**
+ * docs/README.md <br/><br/> 요구사항 1 <br/><br/> 1-1. 자동차 전진 또는 정지 <br/>
+ */
 public class RacingCarTest {
 
     @Test
@@ -42,7 +45,7 @@ public class RacingCarTest {
         int expected = 0;
 
         // when
-        IntStream.range(0, expected).forEach(i -> car.goOrStop());
+        IntStream.range(0, 5).forEach(i -> car.goOrStop());
 
         // then
         int actual = car.getDistance();

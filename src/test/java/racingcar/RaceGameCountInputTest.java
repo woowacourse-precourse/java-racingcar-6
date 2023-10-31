@@ -15,7 +15,7 @@ import racingcar.model.race.RaceGameCount;
 import racingcar.view.InputView;
 
 /**
- * docs/README.md <br/><br/> 기능 테스트 목록 <br/><br/> 3-1. 횟수 입력 <br/> 5-1. 횟수 입력 예외 발생 <br/>
+ * docs/README.md <br/><br/> 요구사항 3, 5 <br/><br/> 3-1. 횟수 입력 <br/> 5-1. 횟수 입력 예외 발생 <br/>
  */
 class RaceGameCountInputTest {
 

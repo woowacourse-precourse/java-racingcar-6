@@ -20,7 +20,7 @@ import racingcar.model.car.Cars;
 import racingcar.view.InputView;
 
 /**
- * docs/README.md <br/><br/> 기능 테스트 목록 <br/><br/> 2-1. 자동차 이름 입력 <br/> 5-2. 이름 입력 예외 발생 <br/>
+ * docs/README.md <br/><br/> 요구사항 2, 5 <br/><br/> 2-1. 자동차 이름 입력 <br/> 5-2. 이름 입력 예외 발생 <br/>
  */
 class CarNameInputTest {
 
