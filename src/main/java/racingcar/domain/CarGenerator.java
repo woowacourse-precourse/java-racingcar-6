@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarGenerator {
+    public CarGenerator() {
+    }
 
     public static List<Car> createCarList() {
         List<Car> carList = new ArrayList<>();
