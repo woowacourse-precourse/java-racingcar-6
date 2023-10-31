@@ -49,7 +49,7 @@ class ApplicationTest extends NsTest {
         assertThatThrownBy(() -> {
             invalidInputException.checkCarNames(inputName);
         }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 공백일 수 없습니다.");
+                .hasMessage("자동차 이름은 최소 한 글자 이상이어야 합니다.");
     }
 
     @Test
@@ -58,7 +58,7 @@ class ApplicationTest extends NsTest {
         assertThatThrownBy(() -> {
             invalidInputException.checkCarNames(inputName);
         }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 수는 2이상이여야만 경주가 가능합니다.");
+                .hasMessage("자동차가 2대 이상 있어야만 경주가 가능합니다.");
     }
 
     @Test
@@ -97,16 +97,16 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_포지션_업데이트() {
         Car car = new Car("차1");
-        car.updateCar(4);
-        assertThat(car.updateCar(3)).isEqualTo(1);
+        car.goOrStayForwardCount(4);
+        assertThat(car.goOrStayForwardCount(3)).isEqualTo(1);
     }
 
     @Test
     void 자동차_포지션_라운드_결과_출력() {
         Car car1 = new Car("차1");
         Car car2 = new Car("차2");
-        car1.updateCar(4);
-        car2.updateCar(3);
+        car1.goOrStayForwardCount(4);
+        car2.goOrStayForwardCount(3);
         assertThat(car1.getCurrentPosition()).isEqualTo("차1 : -");
         assertThat(car2.getCurrentPosition()).isEqualTo("차2 : ");
     }
@@ -115,8 +115,8 @@ class ApplicationTest extends NsTest {
     void 자동차_최종_우승자_출력() {
         Car car1 = new Car("차1");
         Car car2 = new Car("차2");
-        car1.updateCar(4);
-        car2.updateCar(3);
+        car1.goOrStayForwardCount(4);
+        car2.goOrStayForwardCount(3);
         assertThat(car1.getCarNameAtMaxPosition(1)).isEqualTo("차1");
         assertThat(car2.getCarNameAtMaxPosition(1)).isEqualTo("");
     }

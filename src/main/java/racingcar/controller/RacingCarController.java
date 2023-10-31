@@ -30,12 +30,14 @@ public class RacingCarController {
     }
 
     private void createCars(String inputCarNames) {
-        List<Car> inputCarList = Arrays.stream(inputCarNames.split(",")).map(Car::new).collect(Collectors.toList());
+        List<Car> inputCarList = Arrays.stream(inputCarNames.split(","))
+                .map(Car::new)
+                .collect(Collectors.toList());
         cars.addCars(inputCarList);
     }
 
     private void startRacing() {
-        outputView.printSingleCarResult(cars.singleRoundResult());
+        outputView.printSingleRoundResult(cars.singleRoundResult());
     }
 
     private String carNamesInput() {

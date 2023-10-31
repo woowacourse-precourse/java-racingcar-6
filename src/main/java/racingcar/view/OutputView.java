@@ -20,7 +20,7 @@ public class OutputView {
         stringBuilder.append(RESULT_MESSAGE);
     }
 
-    public void printSingleCarResult(StringBuilder SingleRoundResultBuilder) {
+    public void printSingleRoundResult(StringBuilder SingleRoundResultBuilder) {
         System.out.println(SingleRoundResultBuilder);
         clearStringBuilder();
     }
