@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 public class Input {
 
     public static List<Car> inputCarNames(String input) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
         List<Car> carList = Arrays.stream(input.split(","))
                 .filter(name -> validateCarName(name))
                 .map(name -> new Car(name))
@@ -30,8 +28,6 @@ public class Input {
     }
 
     public static int inputTryCount(String input) {
-        System.out.println("시도할 회수는 몇회인가요?");
-
         try {
             return Integer.valueOf(input);
         } catch (NumberFormatException e) {
