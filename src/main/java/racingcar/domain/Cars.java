@@ -49,11 +49,7 @@ public class Cars {
     }
 
     private void validateDuplicates(String[] names) {
-        Set<String> nonDuplicateNames = new HashSet<>();
-        Arrays.stream(names)
-                .forEach(name -> nonDuplicateNames.add(name));
-
-        if (nonDuplicateNames.size() != names.length) {
+        if(names.length != Arrays.stream(names).distinct().count()) {
             throw new IllegalArgumentException();
         }
     }
