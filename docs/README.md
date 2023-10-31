@@ -6,12 +6,12 @@
 ## 구현할 기능
 - [ ] 경기 횟수 및 이름 받기
 - [ ] 자동차 생성 및 이름 부여 (readLine() 활용)
-- [ ] 0~9 무작위 값 생성(자동차 전진 or 정지 결정을 위한) Car # (pickNumberInRange() 활용)
-  - [ ] 4를 기준으로 숫자 판단 Judgment#judgeNumber 
-  - [ ] <전진> 출력: - Car#go
-  - [ ] <정지> 출력X Car#stop  
+- [x] 0~9 무작위 값 생성(자동차 전진 or 정지 결정을 위한) Car # (pickNumberInRange() 활용)
+  - [x] 4를 기준으로 숫자 판단 Judgment#judgeNumber 
+  - [x] <전진> 출력:- Car#go
+  - [x] <정지> 출력X Car#stop  
 - [ ] 전진한 것(작대기)을 비교 Referee#compare
-  - [ ] 작대기 개수를 세기 Judgment#countBar
+  - [x] 작대기 개수를 세기 Judgment#countBar
 - [ ] 단독, 공동 우승자 판단 Referee#whoIsWinner
 - [ ] 잘못된 값을 입력할 경우 예외 발생
 

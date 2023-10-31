@@ -1,13 +1,16 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
-    int movementNumber= Randoms.pickNumberInRange(0,9);
+    private int movementNumber= Randoms.pickNumberInRange(0,9);
+    List<String> movement = new ArrayList<>();
 
-    public String decideAction() {
+    public void decideAction() {
         if (movementNumber >= 4) {
-            return "-";
-        } return null;
+            movement.add("-");
+        }
     }
 }
