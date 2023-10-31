@@ -34,6 +34,11 @@ public class Car {
         return this.location.length();
     }
 
+    @Override
+    public String toString() {
+        return this.name + " : " + this.location;
+    }
+
     private void changeLocation() {
         this.location += "-";
     }

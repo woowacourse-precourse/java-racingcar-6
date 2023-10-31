@@ -2,6 +2,8 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.List;
+
 public class RacingView {
 
     private final RacingController controller = new RacingController();
@@ -24,6 +26,16 @@ public class RacingView {
         int playCount = convertStringToInt(input);
 
         controller.setRacingPlayCount(playCount);
+    }
+
+    void printPlayResult() {
+        System.out.println("\n실행 결과");
+
+        List<String> playResults = controller.getRacingPlayResults();
+
+        for (String result : playResults) {
+            System.out.println(result);
+        }
     }
 
     private int convertStringToInt(String input) {

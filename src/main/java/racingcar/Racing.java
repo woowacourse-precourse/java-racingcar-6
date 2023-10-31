@@ -37,6 +37,37 @@ public class Racing {
         this.playCount = playCount;
     }
 
+    List<String> getPlayResults() {
+
+        List<String> playResults = new ArrayList<>();
+
+        for (int i = 0; i < this.playCount; i++) {
+            moveCars();
+
+            String nowResult = getNowLocation();
+            playResults.add(nowResult);
+        }
+
+        return playResults;
+    }
+
+    private void moveCars() {
+        for (Car car : participants) {
+            car.move();
+        }
+    }
+
+    private String getNowLocation() {
+
+        String result = "";
+
+        for (Car car : participants) {
+            result += car.toString() + "\n";
+        }
+
+        return result;
+    }
+
     private void checkCarNameLength(String carName) {
         if (1 > carName.length() || carName.length() > 5) {
             throw new IllegalArgumentException("이름 길이는 1 ~ 5자 이내 입니다.");

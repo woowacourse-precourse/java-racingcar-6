@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class RacingController {
 
     private final Racing racing = new Racing();
@@ -11,6 +13,10 @@ public class RacingController {
 
     void setRacingPlayCount(int playCount) {
         racing.initPlayCount(playCount);
+    }
+
+    List<String> getRacingPlayResults() {
+        return racing.getPlayResults();
     }
 
 }
