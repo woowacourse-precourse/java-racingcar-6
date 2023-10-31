@@ -25,14 +25,6 @@ public class Car implements Comparable<Car> {
         return position.value() - compareCar.getPosition();
     }
 
-    @Override
-    public String toString() {
-        String currentStatus = getName() + BETWEEN_NAME_AND_POSITION
-                + POSITION_UNIT.repeat(getPosition());
-
-        return currentStatus;
-    }
-
     public String getName() {
         return name.value();
     }

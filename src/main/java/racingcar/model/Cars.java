@@ -24,13 +24,6 @@ public class Cars {
         }
     }
 
-    @Override
-    public String toString() {
-        return cars.stream()
-                .map(Car::toString)
-                .collect(Collectors.joining("\n"));
-    }
-
     public List<Car> getCars() {
         return cars;
     }
