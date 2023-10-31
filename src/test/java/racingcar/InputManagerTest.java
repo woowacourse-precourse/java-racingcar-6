@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class InputManagerTest {
 
     @ParameterizedTest
-    @MethodSource("getNameInput")
+    @MethodSource("자동차_이름_입력_정상_동작_테스트를_위한_매개변수")
     void 자동차_이름_입력_정상_동작_테스트(String input, List<String> names) {
         List<String> carNames = InputManager.getCarNames(input);
         assertThat(carNames)
@@ -23,7 +23,7 @@ class InputManagerTest {
     }
 
     @ValueSource
-    private static Stream<Arguments> getNameInput() {
+    private static Stream<Arguments> 자동차_이름_입력_정상_동작_테스트를_위한_매개변수() {
         return Stream.of(
                 Arguments.of("aaa,b", Arrays.asList("aaa", "b")),
                 Arguments.of("aaa ,b", Arrays.asList("aaa ", "b")),
