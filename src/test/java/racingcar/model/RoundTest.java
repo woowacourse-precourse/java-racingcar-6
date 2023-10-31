@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RoundTest {
 
     @Test
-    void moveAllCarsOneRound_shouldMoveAllCars() {
+    void moveAllCarsOneRound는_모든_자동차를_전진_또는_정지한다() {
 
         List<Car> cars = new ArrayList<>();
         cars.add(Car.nameOf("car1"));
