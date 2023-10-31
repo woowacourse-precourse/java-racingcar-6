@@ -19,12 +19,18 @@ public class InputView {
         OutputView.printStart();
         String[] cars = Console.readLine().split(",");
 
+        validator.emptyName(cars);
+        validator.lengthValidate(cars);
+        validator.duplicatedName(cars);
+
         return new CarList(createCarList(cars));
     }
 
     public Integer inputAttempt() {
         OutputView.printAsk();
         String attempt = Console.readLine();
+
+        validator.isNumber(attempt);
 
         return Integer.parseInt(attempt);
     }
