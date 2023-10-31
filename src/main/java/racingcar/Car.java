@@ -9,6 +9,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
+    }
+
     private void move(int number) {
         if (number >= MOVE_CONDITION) {
             addDistance();
