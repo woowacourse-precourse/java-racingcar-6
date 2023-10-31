@@ -6,11 +6,16 @@ import static racingcar.message.MessageConstants.HYPHEN;
 import static racingcar.message.MessageConstants.ZERO;
 
 public class Car {
-    private final Names name;
+    private final Name name;
     private int position;
 
-    public Car(Names name) {
+    public Car(Name name) {
         this.name = name;
+    }
+
+    public Car(Name name, int position) {
+        this.name = name;
+        this.position = position;
     }
 
     public void move(int power) {

@@ -3,9 +3,9 @@ package racingcar.domain;
 import static racingcar.message.ErrorMessage.CAR_NAME_LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.message.MessageConstants.FIVE;
 
-public record Names(String value) {
+public record Name(String value) {
 
-    public Names {
+    public Name {
         String name = nameTrim(value);
         validationNameLength(name);
     }

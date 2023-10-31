@@ -29,18 +29,18 @@ public class GameMachine {
         runRaceAndPrintResult(cars, tryCount);
     }
 
-    public Cars getCars() {
-        List<String> nameList = inputView.inputCarName();
-        return new Cars(nameList);
+    private Cars getCars() {
+        List<String> names = inputView.inputCarName();
+        return new Cars(names);
     }
 
-    public int getTryCount() {
+    private int getTryCount() {
         String inputTryCount = inputView.inputTryCount();
         TryCount tryCount = new TryCount(inputTryCount);
         return tryCount.getValue();
     }
 
-    public void runRaceAndPrintResult(Cars cars, int tryCount) {
+    private void runRaceAndPrintResult(Cars cars, int tryCount) {
         outputView.runResultMessage();
 
         for (int i = ZERO; i < tryCount; i++) {
