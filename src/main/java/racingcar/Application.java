@@ -1,23 +1,26 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) {
-        InputView read = new InputView();
-        OutputView write = new OutputView();
+        InputView input = new InputView();
+        OutputView output = new OutputView();
 
         GameSystem system = new GameSystem();
-        system.start(read, write);
+        system.start(input, output);
 
     }
 }
 
 
 class GameSystem {
-    public void start(InputView read, OutputView write) {
+    public void start(InputView input, OutputView output) {
 
     }
+
 
 }
 
@@ -51,7 +54,10 @@ class TryValidation {
 }
 
 class InputManufacture {
-
+    public ArrayList<String> makeNameList(String data) {
+        String[] splitData = data.split(",");
+        return new ArrayList<>(Arrays.asList(splitData));
+    }
 }
 
 class TotalCar {
