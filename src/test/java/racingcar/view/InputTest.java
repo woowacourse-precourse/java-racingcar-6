@@ -2,8 +2,10 @@ package racingcar.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +15,11 @@ class InputTest {
     @BeforeEach
     public void beforeEach() {
         input = new Input();
+    }
+
+    @AfterEach
+    public void afterEach() {
+        Console.close();
     }
 
     @Test
