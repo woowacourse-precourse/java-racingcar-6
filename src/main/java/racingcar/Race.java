@@ -27,17 +27,22 @@ public class Race {
 
     public void racingCar(List<Car> carList) {
         for (Car car : carList) {
-            if (shouldMove()) car.move();
+            if (shouldMove(getRandomNumber())) car.move();
             System.out.println(car.getCarStatus());
         }
     }
 
-    public boolean shouldMove() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+    public boolean shouldMove(int randomNumber) {
+        getRandomNumber();
         return randomNumber >= 4;
     }
 
-    public List<String> getWinners(List<Car> cars) {
+    private int getRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
+    }
+
+    public List<String> winnerSelect(List<Car> cars) {
         int maxDistance = cars.stream()
                 .mapToInt(Car::getPositionLength)
                 .max()
