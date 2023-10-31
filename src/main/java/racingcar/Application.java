@@ -10,7 +10,7 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         List<String> carNames = carNames();
-
+        int numberOfMoves = moves();
     }
 
 
@@ -20,6 +20,14 @@ public class Application {
 
         HashMap<String, Integer> namesMap = InputValidator.validateNames(input);
         return new ArrayList<>(namesMap.keySet());
+    }
+
+    private static int moves() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String moves = Console.readLine();
+
+        int validatedNumberOfMoves = InputValidator.validateMoves(moves);
+        return validatedNumberOfMoves;
     }
 
 }
