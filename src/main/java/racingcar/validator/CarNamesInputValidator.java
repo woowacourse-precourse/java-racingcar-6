@@ -8,6 +8,7 @@ public class CarNamesInputValidator {
     public void validate(String userInput) {
         isNotEmpty(userInput);
         containsDelimiter(userInput);
+        isEndsWithDelimiter(userInput);
         isEachCarNameLengthInAppropriateRange(userInput);
     }
 
@@ -20,6 +21,12 @@ public class CarNamesInputValidator {
     private void containsDelimiter(String userInput) {
         if (!userInput.contains(InputConstant.INPUT_CAR_NAMES_DELIMITER)) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_DOES_NOT_CONTAIN_DELIMITER);
+        }
+    }
+
+    private void isEndsWithDelimiter(String userInput) {
+        if (userInput.endsWith(InputConstant.INPUT_CAR_NAMES_DELIMITER)) {
+            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
         }
     }
 
