@@ -8,13 +8,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputData {
 
-    private enum Message { // 상수 열거형
+    private enum Message {
         INPUT_CAR("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
         INPUT_TIME("시도할 횟수는 몇회인가요?"),
         EXCEPTION_CAR_NAME("1~5 길이의 영어로 된 이름을 ,로 구분하여 중복과 공백없이 입력 해 주세요."),
         EXCEPTION_EXECUTION_TIME("양의 정수를 입력 해 주세요"),
         EXCEPTION_INPUT_JUST_ONE("2개 이상 자동차를 입력해 주세요."),
-        COMMA("COMMA");
+        COMMA(",");
 
         private final String message;
 
