@@ -34,14 +34,14 @@ public class CarRepository {
         }
     }
 
-    public String getWinnerNames() {
+    public void findWinners() {
         List<String> winnerList = getWinnerList();
         StringBuilder winnerNames = new StringBuilder(winnerList.get(0));
         for (int i = 1; i < winnerList.size(); i++) {
             winnerNames.append(CarUtil.WINNER_SEPARATOR).append(winnerList.get(i));
         }
 
-        return winnerNames.toString();
+        CarOutput.printWinner(winnerNames.toString());
     }
 
     private List<String> getWinnerList() {
