@@ -23,7 +23,7 @@ public class Race {
         return Collections.unmodifiableList(cars);
     }
 
-    public void moveAllCarsForwardWithRandom() {
+    public void forwardAllCarsWithRandom() {
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(
                     RANDOM_MINIMUM_RANGE.getValue(),
