@@ -4,7 +4,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Car {
     private final String name;
-    private Integer movedDistance;
+    private int movedDistance;
     private Car(String name) {
         this.name = name;
         this.movedDistance = 0;
@@ -19,6 +19,10 @@ public class Car {
         if (carName.length() > 5) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public int getMovedDistance() {
+        return movedDistance;
     }
 
     public void tryMove() {
