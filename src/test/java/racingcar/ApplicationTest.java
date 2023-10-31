@@ -161,6 +161,27 @@ class ApplicationTest extends NsTest {
         assertThat(maxMoveCar.toString()).contains("car2", "car3");
     }
 
+    @Test
+    void 최종_우승자_출력() {
+
+        //given
+        List<Car> cars = new ArrayList<>();
+
+        Car car1 = getCar(cars, "car1");
+        Car car2 = getCar(cars, "car2");
+        Car car3 = getCar(cars, "car3");
+
+        moveForward(car1, 1);
+        moveForward(car2, 3);
+        moveForward(car3, 3);
+
+        //when
+        Application.showWinner(cars);
+
+        //then
+        assertThat(output()).isEqualTo("최종 우승자 : car2, car3");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
