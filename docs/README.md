@@ -1,4 +1,4 @@
-##                     
+##                           
 
 1. 게임을 시작한다.
     - 시작할 때 시작 메세지를 출력시킨다.
@@ -60,12 +60,32 @@
 
 ### util
 
-#### 1. ErrorException
+#### 1. ErrorException.class
 
-#### 2. Message
+- 프로그램에서 발생하는 IlligalArgumentException을 custom으로 관리하기 위한 클래스
+
+#### 2. Message.class
+
+- `printStartMessage()` : 시작메세지를 출력하는 메서드
+- `printCreateCarListMessage()` : 생성하는 자동차의 목록을 출력하는 메서드
+- `printAskCountMessage()` : 시도횟수 입력값을 출력하는 메서드
+- `printRacingResultMessage()` : 레이싱 "실행 결과"를 출력하는 메서드
+- `printRacingWinnerMessage()` : 레이싱 우승자를 출력하는 메서드
+- `printMoveResultMessage()` :  회차당 자동차들의 움직임(위치)를 출력하는 메서드
 
 ### view
 
 #### 1. InputView.class
 
+- 입력값에 대한 클래스
+- `createRacingCar()` : 자동차의 이름을 입력받아 Cars객체를 생성하는 메서드
+- `getRacingCount()` : 시도횟수를 입력받는 메서드
+- `validateMinRacingCount()` : 시도횟수가 최소 시도 횟수 이상인지 확인하는 메서드
+- `validateNumber()` : 시도횟수가 숫자인지 확인하는 메서드
+
 #### 2. OutputView.class
+
+- 출력값에 대한 클래스
+- `printRacingResult()` : 레이싱 실행결과를 출력하는 메서드
+- `printMoveResult()` : 회차당 자동차 상태(위치)를 출력하는 메서드
+- `printRacingWinner()` : 레이싱 우승자를 출력하는 메서드
