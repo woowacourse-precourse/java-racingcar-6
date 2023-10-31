@@ -12,30 +12,30 @@ public class InputView {
     private static final String NUMBER_REGEX ="^[1-9]\\d*$";
     private static final String INVALID_TRIAL_COUNT_MESSAGE = "시도 횟수는 1 이상의 자연수만 가능합니다.";
 
-    public static List<String> getNames() {
+    public List<String> getNames() {
         System.out.println(REQUEST_NAMES_MESSAGE);
         String input = Console.readLine();
         return isValidName(input);
     }
 
-    private static List<String> isValidName(String input) {
+    private List<String> isValidName(String input) {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(INVALID_NAME_ERROR_MESSAGE);
         }
         return splitNames(input);
     }
 
-    private static List<String> splitNames(String input) {
+    private List<String> splitNames(String input) {
         return List.of(input.split(NAME_DELIMITER));
     }
 
-    public static int getTrialCount() {
+    public int getTrialCount() {
         System.out.println(TRIAL_COUNT_MESSAGE);
         String input = Console.readLine();
         return isValidTrialCount(input);
     }
 
-    private static int isValidTrialCount(String input) {
+    private int isValidTrialCount(String input) {
         if(!input.matches(NUMBER_REGEX)) {
             throw new IllegalArgumentException(INVALID_TRIAL_COUNT_MESSAGE);
         }

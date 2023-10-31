@@ -1,32 +1,34 @@
 package racingcar;
 
 import racingcar.domain.Cars;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.NumberGenerator;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
 
-    private final GameService gameService;
-    private final RandomNumberGenerator numberGenerator;
+    private final NumberGenerator numberGenerator;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public GameController(GameService gameService) {
-        this.gameService = gameService;
-        this.numberGenerator = new RandomNumberGenerator();
+    public GameController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void run() {
-        Cars cars = gameService.getCars();
-        int trialCount = gameService.getTrialCount();
+        Cars cars = Cars.of(inputView.getNames());
+        int trialCount = inputView.getTrialCount();
 
         raceCars(cars, trialCount);
-        OutputView.printWinners(cars.getWinnerNames());
+        outputView.printWinners(cars.getWinnerNames());
     }
 
     private void raceCars(Cars cars, int trialCount) {
-        OutputView.printRaceStartMessage();
+        outputView.printRaceStartMessage();
         for (int i = 0; i < trialCount; i++) {
-            OutputView.printRoundResult(cars.race(numberGenerator));
+            outputView.printRoundResult(cars.race(numberGenerator));
         }
     }
-
 }
