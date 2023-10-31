@@ -10,6 +10,7 @@ public class CommandLineController implements Controller{
         this.game = game;
     }
 
+    @Override
     public void start() {
         game.startGame();
     }
