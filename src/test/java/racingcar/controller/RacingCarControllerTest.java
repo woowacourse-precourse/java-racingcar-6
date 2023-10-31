@@ -29,6 +29,17 @@ public class RacingCarControllerTest {
     }
 
     @Test
+    void inputCarNames_가장_앞자리가_쉼표일_때_예외_발생() {
+        String testInput = ",pobi,woni,jun";
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+            racingCarController.inputCarNames(testInput);
+        });
+
+        assertThat(e.getMessage()).isEqualTo("빈칸은 이름이 될 수 없습니다.");
+    }
+
+    @Test
     void inputCarNames_가장_뒷자리가_쉼표일_때_예외_발생() {
         String testInput = "pobi,woni,jun,";
 
