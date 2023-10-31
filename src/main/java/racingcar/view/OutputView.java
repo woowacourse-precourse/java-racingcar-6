@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.model.Cars;
 
@@ -15,5 +16,13 @@ public class OutputView {
             System.out.println();
         });
         System.out.println();
+    }
+
+    public static void printWinners(List<String> winners) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종 우승자 : ");
+        String winner = String.join(",", winners);
+        stringBuilder.append(winner);
+        System.out.println(stringBuilder);
     }
 }
