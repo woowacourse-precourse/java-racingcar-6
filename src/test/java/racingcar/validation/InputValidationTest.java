@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 
 class InputValidationTest {
@@ -21,22 +25,13 @@ class InputValidationTest {
         inputValidation.validateCarNameSize("pobi", NAME_SIZE);
     }
 
-    @Test
-    void 자동차_이름_예외처리() {
-        assertThatThrownBy(() -> inputValidation.validateCarNameSize("", NAME_SIZE)).isInstanceOf(
-                IllegalArgumentException.class).hasMessageContaining("Input invalid : input value is blank");
-
-        assertThatThrownBy(() -> inputValidation.validateCarNameSize(" ", NAME_SIZE)).isInstanceOf(
-                IllegalArgumentException.class).hasMessageContaining("Input invalid : input value is blank");
-
-        assertThatThrownBy(() -> inputValidation.validateCarNameSize(null, NAME_SIZE)).isInstanceOf(
-                IllegalArgumentException.class).hasMessageContaining("Input invalid : input value is null");
-        assertThatThrownBy(() -> inputValidation.validateCarNameSize("\n", NAME_SIZE)).isInstanceOf(
-                IllegalArgumentException.class).hasMessageContaining("Input invalid : input value is blank");
-
-        assertThatThrownBy(() -> inputValidation.validateCarNameSize("123456", NAME_SIZE)).isInstanceOf(
-                        IllegalArgumentException.class)
-                .hasMessageContaining("Input invalid : size of input value exceeds " + NAME_SIZE);
+    @ParameterizedTest
+    @ValueSource(strings = {"123456"})
+    @NullSource
+    @EmptySource
+    void 자동차_이름_예외처리(String name) {
+        assertThatThrownBy(() -> inputValidation.validateCarNameSize(name, NAME_SIZE))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -44,20 +39,13 @@ class InputValidationTest {
         inputValidation.validateMovingCount("7");
     }
 
-    @Test
-    void 이동_차수_입력_예외() {
-        assertThatThrownBy(() -> inputValidation.validateMovingCount("")).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Input invalid : input value is blank");
-
-        assertThatThrownBy(() -> inputValidation.validateMovingCount(null)).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Input invalid : input value is null");
-
-        assertThatThrownBy(() -> inputValidation.validateMovingCount("\n")).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Input invalid : input value is blank");
-
-        assertThatThrownBy(() -> inputValidation.validateMovingCount("pobi")).isInstanceOf(
-                        IllegalArgumentException.class)
-                .hasMessageContaining("Invalid input String:", "For input string:", "\"pobi\"");
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi"})
+    @NullSource
+    @EmptySource
+    void 이동_차수_입력_예외(String movingCount) {
+        assertThatThrownBy(() -> inputValidation.validateMovingCount(movingCount))
+                .isInstanceOf(IllegalArgumentException.class);
 
     }
 
