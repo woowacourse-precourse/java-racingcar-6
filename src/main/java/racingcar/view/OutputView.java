@@ -30,8 +30,8 @@ public class OutputView {
 
     public void printResult(List<CarDto> carDtoList) {
         carDtoList.stream().forEach(carDto -> {
-            String carName = carDto.carName().name();
-            String carPosition = POSITION_CHARACTER.repeat(carDto.carPosition().position());
+            String carName = carDto.getCarName();
+            String carPosition = POSITION_CHARACTER.repeat(carDto.getPosition());
             System.out.println(carName + SEPARATOR_COLON + carPosition);
         });
 
