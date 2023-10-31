@@ -2,7 +2,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -12,7 +11,8 @@ public class Application {
             List<Car> cars = insertCarName();
             int numberOfMoves = insertNumberOfMoves();
             playGame(cars, numberOfMoves);
-
+            List<String> winners = getWinner(cars);
+            System.out.println("최종 우승자 : " + String.join(", "+winners));
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
