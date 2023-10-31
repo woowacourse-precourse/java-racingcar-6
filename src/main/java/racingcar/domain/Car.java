@@ -4,26 +4,26 @@ import racingcar.constant.Rule;
 
 public class Car {
 	private final String name;
-	private Position position;
+	private Integer position;
 
 	public Car(String name) {
 		CarValidator.validateEachLength(name);
 		this.name = name;
-		this.position = new Position();
+		this.position = 0;
 	}
 
 	public void race() {
 		if (isMovable(getRandomNumber())) {
-			this.position.move();
+			move();
 		}
 	}
 
 	public void move() {
-		this.position.move();
+		position += Rule.MOVE_SIZE;
 	}
 
 	public int getPosition() {
-		return position.getPosition();
+		return position;
 	}
 
 	private int getRandomNumber() {
