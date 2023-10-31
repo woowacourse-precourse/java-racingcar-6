@@ -13,7 +13,7 @@ public class GameStart {
 
     public static void start() {
 
-        Participant participant = new Participant(Split.byComma(Input.name()));
+        Participant participant = new Participant(Input.name());
         Round round = new Round(Input.round());
 
         Output.startResult();
