@@ -2,14 +2,24 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
-        Game game = new Game();
+        Game game = new Game();  // 게임 객체
         readyGame(game);
+        startGame(game);
+    }
+
+    private static void startGame(Game game) {
+        // 게임 횟수
+        for(int gameCount = game.getGameCount(); gameCount >= 0; gameCount--){
+            // TODO : 차 별 랜덤 숫자 업데이트
+
+
+        }
+        // TODO : 최종 결과 출력
+
     }
 
     public static void readyGame(Game game){
@@ -25,7 +35,7 @@ public class Application {
         try{
             String[] carNames = Console.readLine().split(",");
             cars = new ArrayList<>();
-            for (String carName : carNames) {
+            for (String carName : carNames) { // TODO: "" 처리 필요
                 cars.add(new Car(carName));
             }
         } catch (Exception e){
