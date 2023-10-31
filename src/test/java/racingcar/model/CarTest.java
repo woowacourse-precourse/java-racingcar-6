@@ -29,7 +29,15 @@ class CarTest {
 
         @Test
         void 숫자가_4_미만이면_전진하지_않는다() {
+            // given
+            Integer input = 0;
+            Integer carPosition = testCar.carDistance.getDistance();
 
+            // when
+            testCar.move(input);
+
+            // then
+            assertThat(testCar.carDistance.getDistance()).isEqualTo(carPosition);
         }
     }
 }
