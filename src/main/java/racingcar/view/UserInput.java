@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.domain.DataTypeChanger;
+import racingcar.domain.Validator;
 
 public class UserInput {
 
