@@ -18,5 +18,9 @@ public class RaceCar {
         if(Randoms.pickNumberInRange(0,9)>=4) position+=1;
     }
 
+    public void currentPosition(){
+        String underBar = "_";
+        System.out.println(name+" : "+ underBar.repeat(position));
+    }
 
 }
