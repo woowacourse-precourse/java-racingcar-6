@@ -8,7 +8,14 @@ import java.util.Map;
 
 public class Racing {
     private List<Car> carList;
-    public Racing(List<Car> carList){
+
+    public Racing(List<String> nameList) {
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < nameList.size(); i++) {
+            Car car = new Car(nameList.get(i), 0);
+            carList.add(car);
+        }
+
         this.carList = carList;
     }
 

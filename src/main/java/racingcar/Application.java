@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import racingcar.view.InputView;
@@ -18,8 +17,7 @@ public class Application {
 
         int round = inputView.inputTryNumber();
 
-        List<Car> carList = mappingCar(nameList);
-        Racing racing = new Racing(carList);
+        Racing racing = new Racing(nameList);
 
         Map<String, List<Integer>> result = racing.startRacing(round);
 
@@ -27,16 +25,5 @@ public class Application {
 
         List<String> winner = racing.determineWinner();
         outputView.getWinnerMessage(winner);
-    }
-
-    private static List<Car> mappingCar(List<String> nameList) {
-        List<Car> carList = new ArrayList<>();
-
-        for(int i = 0; i< nameList.size(); i++){
-            Car car = new Car(nameList.get(i), 0);
-            carList.add(car);
-        }
-
-        return carList;
     }
 }
