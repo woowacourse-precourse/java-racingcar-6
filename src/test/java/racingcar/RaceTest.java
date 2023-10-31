@@ -12,11 +12,46 @@ public class RaceTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 출력시_자동차_이름_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("car1", "1");
+                    assertThat(output()).contains("car1 : ");
+                },
+                STOP
+        );
+    }
+
+    @Test
+    void 전진한만큼_다시_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("car1,car2", "1");
+                    assertThat(output()).contains("car1 : -", "car2 : ");
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 한명_우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("car1,car2,car3", "3");
+                    assertThat(output()).contains("최종 우승자 : car1");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
     void 여러_우승자_출력() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("car1,car2,car3", "3");
-                    assertThat(output()).contains("car1 : --", "car2 : --", "car3 : -", "최종 우승자 : car1, car2");
+                    assertThat(output()).contains("최종 우승자 : car1, car2");
                 },
                 MOVING_FORWARD, MOVING_FORWARD, STOP,
                 MOVING_FORWARD, STOP, MOVING_FORWARD,
