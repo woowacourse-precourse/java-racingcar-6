@@ -1,14 +1,14 @@
 package racingcar.view;
 
-import racingcar.domain.Winners;
 import racingcar.domain.CarGroup;
+import racingcar.domain.Winners;
 
 public class OutputView {
 
     private static final String CAR_POSITION_VIEW = "-";
     private static final String DELIMITER = ", ";
 
-    public void printResult() {
+    public void printResultHeader() {
         System.out.println("실행 결과");
     }
 
@@ -26,4 +26,5 @@ public class OutputView {
     private String printPosition(int position) {
         return CAR_POSITION_VIEW.repeat(position);
     }
+
 }

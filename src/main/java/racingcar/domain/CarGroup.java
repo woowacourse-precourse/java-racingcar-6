@@ -7,13 +7,14 @@ public class CarGroup {
 
     private final List<Car> carGroup;
 
-    public CarGroup(List<Car> carGroup) {
+    private CarGroup(List<Car> carGroup) {
         this.carGroup = carGroup;
     }
 
     public void move() {
-        for (Car car : carGroup)
+        for (Car car : carGroup) {
             car.move();
+        }
     }
 
     public List<String> getWinnerList() {
@@ -32,6 +33,10 @@ public class CarGroup {
 
     public List<Car> getCars() {
         return carGroup;
+    }
+
+    public static CarGroup from(List<Car> carGroup) {
+        return new CarGroup(carGroup);
     }
 
 }

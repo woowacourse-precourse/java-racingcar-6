@@ -1,6 +1,6 @@
 package racingcar.dto;
 
-public record InputCarRequestDto(
+public record InputCarDto(
     String carName,
     String Delimiter
 ) {

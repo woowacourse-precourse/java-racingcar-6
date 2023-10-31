@@ -10,15 +10,15 @@ public class RacingCarController {
     private final OutputView outputView = new OutputView();
     private final RacingCarService racingCarService = new RacingCarService();
 
-    public void run() {
+    public void start() {
 
         CarGroup carGroup = racingCarService.createCarGroup(InputView.printInputCarName());
         int roundNumber = racingCarService.getRoundNumber(InputView.printInputRound());
 
-        outputView.printResult();
+        outputView.printResultHeader();
 
         while (roundNumber != 0) {
-            carGroup = racingCarService.moveCarGroup(carGroup);
+            racingCarService.moveCarGroup(carGroup);
             outputView.printRoundResult(carGroup);
             roundNumber--;
         }

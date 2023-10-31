@@ -8,17 +8,21 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
 import racingcar.domain.Winners;
-import racingcar.dto.InputCarRequestDto;
+import racingcar.dto.InputCarDto;
 
 public class RacingCarService {
 
-    public CarGroup createCarGroup(InputCarRequestDto inputCarRequestDto) {
-        String[] separateCarGroup = inputCarRequestDto.carName()
-            .split(inputCarRequestDto.Delimiter());
+    public CarGroup createCarGroup(InputCarDto inputCarDto) {
+        String carNames = inputCarDto.carName();
+        String delimiter = inputCarDto.Delimiter();
 
-        List<Car> carList = Arrays.stream(separateCarGroup).map(Car::new)
+        String[] separateCarName = carNames.split(delimiter);
+
+        List<Car> carList = Arrays.stream(separateCarName)
+            .map(Car::from)
             .collect(Collectors.toList());
-        return new CarGroup(carList);
+
+        return CarGroup.from(carList);
     }
 
     public int getRoundNumber(String round) {
@@ -26,12 +30,11 @@ public class RacingCarService {
         return Integer.parseInt(round);
     }
 
-    public CarGroup moveCarGroup(CarGroup carGroup) {
+    public void moveCarGroup(CarGroup carGroup) {
         carGroup.move();
-        return carGroup;
     }
 
     public Winners getWinners(CarGroup carGroup) {
-        return new Winners(carGroup.getWinnerList());
+        return Winners.from(carGroup.getWinnerList());
     }
 }
