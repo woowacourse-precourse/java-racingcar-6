@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import racingcar.car.Car;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
 
