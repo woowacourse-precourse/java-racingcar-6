@@ -8,6 +8,8 @@ public class OutputView {
     private final static String INPUT_RACING_COUNT = "시도할 회수는 몇회인가요?";
     private final static String GAME_START = "\n게임을 시작합니다.";
 
+    private final static String WINNER = "최종 우승자 : ";
+
     public static void printInputRacingCar() {
         System.out.println(INPUT_RACING_CAR);
     }
@@ -25,6 +27,6 @@ public class OutputView {
     }
 
     public static void printGameWinner(String winners) {
-        System.out.println("최종 우승자 : " + winners);
+        System.out.println(WINNER + winners);
     }
 }
