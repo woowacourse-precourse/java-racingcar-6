@@ -18,16 +18,16 @@ public class RacingGame {
     }
 
     public void goOrStop() {
-        String input = inputView.inputCarName(); // 자동차 입력 받기
-
-        cars = new Cars(inputView.carName(input)); // Car > Cars
+        String input = inputView.inputCarName();
+        cars = new Cars(inputView.convertInput(input)); // Car > Cars
 
         int trialNumber = inputView.inputTrialNumber(); // 시도 횟수 입력 받기
+        blankLine();
 
         for (int i = 0; i < trialNumber; i++ ) {
             moveCarIfRandomOver4();
             printResult();
-            System.out.println("");
+            blankLine();
         }
         Winner winner = new Winner(cars);
         outputView.printWinner(winner.maxLocationCarName());
@@ -47,7 +47,11 @@ public class RacingGame {
             for (int i = 0; i < car.location; i++) {
                 System.out.print("-");
             }
-            System.out.println("");
+            blankLine();
         }
+    }
+
+    public void blankLine() {
+        System.out.println();
     }
 }
