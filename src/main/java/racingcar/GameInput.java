@@ -19,28 +19,27 @@ public class GameInput {
     }
 
     public int convertToMovingNumber(String input) {
-        validateNumber(input);
+        validateInputNumber(input, MOVING_NUMBER_PATTERN);
         return Integer.parseInt(input);
     }
 
     public List<String> convertToCarNameList(String input) {
         List<String> names = splitInput(input, ",");
-        validateName(names);
+        validateCarName(names);
         return names;
     }
 
-    public void validateNumber(String movingNum) {
-        if (!movingNum.matches(MOVING_NUMBER_PATTERN)) {
+    public void validateInputNumber(String inputNum, String pattern) {
+        if (!inputNum.matches(pattern)) {
             throw new IllegalArgumentException("Input number is not valid");
         }
     }
 
-    public void validateName(List<String> names) {
+    public void validateCarName(List<String> names) {
         for (String name : names) {
             if (name.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("Carname length must be <= " + MAX_CAR_NAME_LENGTH);
             }
         }
     }
-
 }
