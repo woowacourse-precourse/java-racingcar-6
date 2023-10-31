@@ -14,4 +14,17 @@ public class Car {
     public static Car CreateCar(String name) {
         return new Car(name, INIT_PROGRESS);
     }
+
+    public int getProgress() {
+        return progress;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean sameProgress(int maxProgress) {
+        return progress == maxProgress;
+    }
 }

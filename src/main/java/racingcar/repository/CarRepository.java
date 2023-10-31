@@ -11,4 +11,12 @@ public class CarRepository {
     public void saveAll(List<Car> carList) {
         carData.addAll(carList);
     }
+
+    public int countByProgressDescLimitOne() {
+        return carData.getCountMax();
+    }
+
+    public List<Car> findAllByProgress(int maxProgress) {
+        return carData.findAllByProgress(maxProgress);
+    }
 }

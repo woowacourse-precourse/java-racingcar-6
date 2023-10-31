@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.dto.namesRequestDto;
 import racingcar.dto.ProgressResponseDto;
-import racingcar.dto.WinnersResponseDto;
+import racingcar.dto.WinnerResponseDto;
 import racingcar.service.CarService;
 
 public class CarController {
@@ -17,7 +17,7 @@ public class CarController {
         return null;
     }
 
-    public WinnersResponseDto getWinners() {
-        return null;
+    public WinnerResponseDto getWinners() {
+        return carService.getWinners();
     }
 }

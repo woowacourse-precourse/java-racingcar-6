@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.dto.namesRequestDto;
 import racingcar.dto.ProgressResponseDto;
-import racingcar.dto.WinnersResponseDto;
+import racingcar.dto.WinnerResponseDto;
 import racingcar.repository.CarRepository;
 
 public class CarService {
@@ -24,8 +24,10 @@ public class CarService {
         return null;
     }
 
-    public WinnersResponseDto getWinners() {
-        return null;
+    public WinnerResponseDto getWinners() {
+        int maxProgress = carRepository.countByProgressDescLimitOne();
+        List<Car> findCars = carRepository.findAllByProgress(maxProgress);
+        return WinnerResponseDto.createWinnerResponseDto(findCars);
     }
 
 
