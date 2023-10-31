@@ -37,7 +37,7 @@ class CarTest {
 
         // when
         Car.CarResultDto carResultDto = myCar.createCarResultDto();
-        BigInteger initDistance = BigInteger.ZERO;
+        long initDistance = 0L;
 
         // then
         assertThat(carResultDto.getDistance()).isEqualTo(initDistance);
@@ -52,7 +52,7 @@ class CarTest {
                 () -> {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
-                    assertThat(carResultDto.getDistance()).isEqualTo(BigInteger.ONE);
+                    assertThat(carResultDto.getDistance()).isEqualTo(1L);
                 },
                 MOVEMENT_CRITERIA
         );
@@ -61,7 +61,7 @@ class CarTest {
                 () -> {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
-                    assertThat(carResultDto.getDistance()).isEqualTo(BigInteger.TWO);
+                    assertThat(carResultDto.getDistance()).isEqualTo(2L);
                 },
                 ANOTHER_MOVING_RESULT
         );
@@ -75,7 +75,7 @@ class CarTest {
                 () -> {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
-                    assertThat(carResultDto.getDistance()).isEqualTo(BigInteger.ZERO);
+                    assertThat(carResultDto.getDistance()).isEqualTo(0L);
                 },
                 STOPPED_RESULT
         );

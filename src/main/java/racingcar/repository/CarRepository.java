@@ -51,23 +51,22 @@ public class CarRepository {
     }
 
     public ResultDto finishFinalRound() {
-        BigInteger maxDistance = calculateMaxDistance();
+        long maxDistance = calculateMaxDistance();
         cars.stream()
                 .map(Car::createCarResultDto)
                 .filter(carResult ->
-                        carResult.getDistance()
-                        .equals(maxDistance))
+                        carResult.getDistance() == maxDistance)
                 .map(Car.CarResultDto::getName)
                 .forEach(result::addFinalWinner);
         return result;
     }
 
-    private BigInteger calculateMaxDistance() {
-        BigInteger maxDistance = BigInteger.ZERO;
+    private long calculateMaxDistance() {
+        long maxDistance = 0L;
         for (Car car : cars) {
             Car.CarResultDto carResult = car.createCarResultDto();
-            BigInteger distance = carResult.getDistance();
-            if (distance.compareTo(maxDistance) > 0) {
+            long distance = carResult.getDistance();
+            if (distance > maxDistance) {
                 maxDistance = distance;
             }
         }

@@ -38,18 +38,18 @@ public class Car {
 
     public static class CarResultDto {
         private String name;
-        private BigInteger distance;
+        private long distance;
 
         public CarResultDto(String name, BigInteger distance) {
             this.name = name;
-            this.distance = distance;
+            this.distance = distance.longValue();
         }
 
         public String getName() {
             return name;
         }
 
-        public BigInteger getDistance() {
+        public long getDistance() {
             return distance;
         }
     }

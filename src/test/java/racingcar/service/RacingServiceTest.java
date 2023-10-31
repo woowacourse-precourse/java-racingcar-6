@@ -53,11 +53,11 @@ class RacingServiceTest {
                     SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(new BigInteger(TEMP_CLIENT_ROUND));
 
                     Car.CarResultDto pobiCar = singleRoundResult.getCarResultDto(0);
-                    assertThat(pobiCar.getDistance()).isEqualTo(BigInteger.ONE);
+                    assertThat(pobiCar.getDistance()).isEqualTo(1L);
                     Car.CarResultDto woniCar = singleRoundResult.getCarResultDto(1);
-                    assertThat(woniCar.getDistance()).isEqualTo(BigInteger.ONE);
+                    assertThat(woniCar.getDistance()).isEqualTo(1L);
                     Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
-                    assertThat(junCar.getDistance()).isEqualTo(BigInteger.ONE);
+                    assertThat(junCar.getDistance()).isEqualTo(1L);
                 }, FORWARD, FORWARD, FORWARD
         );
     }
@@ -71,11 +71,11 @@ class RacingServiceTest {
                     SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(new BigInteger(TEMP_CLIENT_ROUND));
 
                     Car.CarResultDto pobiCar = singleRoundResult.getCarResultDto(0);
-                    assertThat(pobiCar.getDistance()).isEqualTo(BigInteger.ZERO);
+                    assertThat(pobiCar.getDistance()).isEqualTo(0L);
                     Car.CarResultDto woniCar = singleRoundResult.getCarResultDto(1);
-                    assertThat(woniCar.getDistance()).isEqualTo(BigInteger.ZERO);
+                    assertThat(woniCar.getDistance()).isEqualTo(0L);
                     Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
-                    assertThat(junCar.getDistance()).isEqualTo(BigInteger.ZERO);
+                    assertThat(junCar.getDistance()).isEqualTo(0L);
                 }, STOP, STOP, STOP
         );
     }

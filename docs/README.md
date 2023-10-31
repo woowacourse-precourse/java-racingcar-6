@@ -21,8 +21,8 @@
   - [ ] 첫 차수 출력하기 전에는 "\n실행 결과"도 출력한다. 
   - [ ] 전진한 양이 없으면 "[$자동차 이름] : "으로 공백으로 출력한다.
   - [ ] 한 차수의 출력이 끝나면 공백을 만들어준다.
-- [ ] 누가 우승했는지 계산 후 출력한다.
-  - [ ] 우승자는 한 명 이상일 수 있다.
+- [x] 누가 우승했는지 계산 후 출력한다.
+  - [x] 우승자는 한 명 이상일 수 있다.
   - [ ] 모두 한 칸도 전진 안 한 상태면 우승했다고 할 수 없다고 (스스로) 판단한다. => 공백으로 출력!
   - [ ] 출력 형식 : "\n최종 우승자 : [$자동차 이름][, [$자동차 이름]].."
 
@@ -82,6 +82,7 @@
 - void race() 
   - `private` List<Car.CarResultDto> generateCarResults()
 - ResultDto finishFinalRound()
+  - `private` long calculateMaxDistance()
 - boolean isFinalRound()
 
 ## 6. Car
@@ -91,7 +92,7 @@
 - BigInteger distance
 - CarResultDto
   - String name
-  - BigInteger distance
+  - long distance
 
 ### Behavior
 - Car createCar(BigInteger id, String name)
@@ -127,7 +128,8 @@
 - void addSingleRoundResult(BigInteger round, SingleRoundResultDto singleRoundResultDto)
 - int getFinalRound
 - SingleRoundResultDto getSingleRoundResult(BigInteger round)
-- List<String> finalWinners getFinalWinners()
+- void addFinalWinner(String winnerName)
+- List<String> getFinalWinners()
 
 ## 10. SingleRoundResultDto
 ### State
