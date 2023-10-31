@@ -55,12 +55,7 @@ public class GameProcess {
         }
     }
 
-    /**
-     * 새로운 자동차를 생성한다.
-     *
-     * @param nameOfRaceCar
-     * @return
-     */
+
     private RaceCar generateNewRaceCar(String nameOfRaceCar) {
         return new RaceCar(nameOfRaceCar);
     }
