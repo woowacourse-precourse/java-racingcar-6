@@ -19,7 +19,7 @@ public class Car {
         position.attemptForward();
     }
 
-    public CarResult getCarState() {
+    public CarResult getCarResult() {
         return new CarResult(getNameValue(), getForwardState());
     }
 

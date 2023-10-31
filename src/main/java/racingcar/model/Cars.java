@@ -11,14 +11,14 @@ public class Cars {
     public Cars(String inputCarNames) {
         cars = CarsGenerator.INSTANCE.generate(inputCarNames);
     }
-    
+
     public void attemptForward() {
         cars.forEach(Car::attemptForward);
     }
 
     public RoundResult getRoundResult() {
         return new RoundResult(cars.stream()
-                .map(Car::getCarState)
+                .map(Car::getCarResult)
                 .toList());
     }
 

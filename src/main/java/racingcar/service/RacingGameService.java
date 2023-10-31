@@ -32,7 +32,7 @@ public class RacingGameService {
     }
 
     public TotalResult playRounds() {
-        if (attemptCount == null) {
+        if (isNotInputAttemptCount()) {
             throw new NullPointerException(ExceptionMessage.NULL_ATTEMPT_COUNT.message());
         }
 
@@ -41,6 +41,10 @@ public class RacingGameService {
                 .toList();
 
         return new TotalResult(totalResult);
+    }
+
+    private boolean isNotInputAttemptCount() {
+        return attemptCount == null;
     }
 
     public Winners getWinners() {

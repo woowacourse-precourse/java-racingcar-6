@@ -25,10 +25,10 @@ public class Position {
     }
 
     public String getForwardState() {
-        return switchCountToSlash();
+        return switchPositionToSlash();
     }
 
-    private String switchCountToSlash() {
+    private String switchPositionToSlash() {
         return SLASH.repeat(position);
     }
 
