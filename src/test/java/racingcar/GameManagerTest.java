@@ -1,16 +1,15 @@
 package racingcar;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class GameManagerTest {
-    @Test
-    void 우승자를_알려주는_테스트() {
+    @ParameterizedTest
+    @CsvSource({"'pobi,woni,jun,hoon', 5", "'mario,hamzi,ham,otter', 5", "lutte, 5"})
+    void 우승자를_알려주는_테스트(String carName, Integer attemptNum) {
         User user = new User();
-        String inputStr = "pobi,woni,jun,hoon";
-        user.makeCars(inputStr);
-        int attemptNumber = 10;
-        user.tryDriving(attemptNumber);
-
+        user.makeCars(carName);
+        user.tryDriving(attemptNum);
         GameManager gameManager = new GameManager(user);
         System.out.println(gameManager.announceWinner());
     }
