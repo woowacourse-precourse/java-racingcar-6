@@ -1,10 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static racingcar.Constant.*;
 import static racingcar.Validation.*;
 

@@ -3,7 +3,6 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import static racingcar.Constant.*;
 public class Validation {
 
