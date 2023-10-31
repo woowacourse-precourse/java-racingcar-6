@@ -20,7 +20,8 @@ public class Car {
     }
 
     public void move() {
-        if (isMovable(getRandomNumber())) {
+        int randomNumber = getRandomNumber();
+        if (isMovable(randomNumber)) {
             this.position++;
         }
     }
