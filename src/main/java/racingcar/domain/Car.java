@@ -32,18 +32,4 @@ public class Car {
             throw new BlankCarNameException();
         }
     }
-
-    public String[] carsByStringToArray(String inputAllCars) {
-        return inputAllCars.split(",");
-    }
-
-    public void checkDuplicateCarName(String[] cars) {
-        List<String> carList = new ArrayList<>();
-        for (String car : cars) {
-            if (carList.contains(car)) {
-                throw new IllegalArgumentException("자동차 이름은 중복이 될 수 없습니다");
-            }
-            carList.add(car);
-        }
-    }
 }
