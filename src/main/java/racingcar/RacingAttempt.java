@@ -2,7 +2,7 @@ package racingcar;
 
 public class RacingAttempt {
 
-    private static final int MIN_ATTEMPTS = 5;
+    private static final int MIN_ATTEMPTS = 1;
     private static final int MAX_ATTEMPTS = 100;
 
     private final int attempts;

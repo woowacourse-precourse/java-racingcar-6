@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class RacingAttemptTest {
 
     @ParameterizedTest
-    @ValueSource(strings = {"notANumber", "3", "110"})
+    @ValueSource(strings = {"notANumber", "0", "110"})
     @DisplayName("유효하지 않은 시도 회수값이 주어진 경우 예외를 발생시킨다.")
     void create_failure_throwException(String attemptsString) {
         assertThrows(IllegalArgumentException.class, () -> new RacingAttempt(attemptsString));
