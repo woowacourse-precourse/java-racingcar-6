@@ -1,20 +1,21 @@
 package racingcar;
-
 import camp.nextstep.edu.missionutils.Randoms;
-
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Scanner sc = new Scanner(System.in);
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" );
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = getCarNames(sc.nextLine());
         int[] carPositions = new int[carNames.length];
         int numAttempts = getNumAttempts(sc.nextLine());
         Race(carNames, carPositions, numAttempts);
+        System.out.println(printWinner(carNames, carPositions));
 
     }
+
     public static String[] getCarNames(String names) {
         String[] nameSplit = names.split(",");
         for (int i = 0; i < nameSplit.length; i++) {
@@ -25,7 +26,7 @@ public class Application {
         return nameSplit;
     }
 
-    public static int getNumAttempts(String numAttempt ) {
+    public static int getNumAttempts(String numAttempt) {
         System.out.println("시도할 회수는 몇회인가요?");
         if (!numAttempt.matches("[0-9]+")) {
             throw new IllegalStateException("숫자로 입력해주세요");
@@ -50,5 +51,23 @@ public class Application {
         }
     }
 
+    public static String printWinner(String[] carNames, int[] carPositions) {
+        int maxScore = 0;
+        for (int position : carPositions) {
+            maxScore = Math.max(maxScore, position);
+        }
+        if (maxScore > 0) {
+            LinkedList<String> winner = new LinkedList<>();
+            for (int i = 0; i < carNames.length; i++) {
+                if (carPositions[i] == maxScore) {
+                    winner.add(carNames[i]);
+                }
+            }
+            return "최종 우승자 : " + String.join(", ", winner);
+        } else {
+            return "최종 우승자는 없습니다.";
+        }
+
+    }
 
 }
