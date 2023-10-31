@@ -60,10 +60,20 @@ public class InputViewTest {
     @Test
     void getTryWrongNumber_Test() {
         // given
-        System.setIn(createUserInput(" "));
+        System.setIn(createUserInput("k"));
         // when, then
         Assertions.assertThatThrownBy(() -> inputView.getTryNumber())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해주세요.");
+                .hasMessageContaining("숫자를 입력해주세요");
+    }
+
+    @Test
+    void getTryEmptyNumber_Test() {
+        // given
+        System.setIn(createUserInput("\n"));
+        // when, then
+        Assertions.assertThatThrownBy(() -> inputView.getTryNumber())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("올바르지 않은 입력이에요.");
     }
 }

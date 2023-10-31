@@ -21,6 +21,7 @@ public class InputView {
 
     public String getTryNumber() {
         String tryNumber = Console.readLine();
+        isEmpty(tryNumber);
         isNotNumber(tryNumber);
         return tryNumber;
     }

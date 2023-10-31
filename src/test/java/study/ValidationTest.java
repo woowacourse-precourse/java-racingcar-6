@@ -41,7 +41,7 @@ public class ValidationTest {
 
     @Test
     void null_name_test() {
-        String name = "";
+        String name = "\n";
         Assertions.assertThatThrownBy(() -> Validation.isEmpty(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("올바르지 않은 입력이에요.");

@@ -9,20 +9,20 @@ public class Validation {
         }
     }
 
-    public static void isNotNumber(String digit) {
-        if (!Character.isDigit(digit.charAt(0))) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
-        }
-    }
-
     public static void endsWithComma(String input) {
         if (input.endsWith(",")) {
             throw new IllegalArgumentException("올바르지 않은 입력이에요.");
         }
     }
 
+    public static void isNotNumber(String digit) {
+        if (digit != null && !Character.isDigit(digit.charAt(0))) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+    }
+
     public static void isEmpty(String input) {
-        if (input.isEmpty()) { // 입력된 문자열이 비어있을 경우
+        if (input.isBlank()) { // 입력된 문자열이 비어있을 경우
             throw new IllegalArgumentException("올바르지 않은 입력이에요.");
         }
     }
