@@ -20,11 +20,20 @@ public class GameController {
     public void runGame() {
         messageProcessor.print(MessageFactory.inputMessage);
         String input = messageProcessor.getInput();
-        List<Car> cars = gameService.createCars(input);
+        List<Car> cars = createCars(input);
 
         messageProcessor.print(MessageFactory.tryCountMessage);
         int tryCount = Integer.parseInt(messageProcessor.getInput());
 
+        playGame(cars, tryCount);
+    }
+
+    public List<Car> createCars(String input) {
+        return gameService.createCars(input);
+    }
+
+    public void playGame(List<Car> cars, int tryCount) {
         gameService.playGame(cars, tryCount);
     }
+
 }
