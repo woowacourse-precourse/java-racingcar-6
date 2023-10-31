@@ -4,7 +4,7 @@
 
 - [ ] 경주에 참여하는 자동차를 생성한다.CreateCar
   - [x] 자동차 이름을 입력 받는다. CreateCar#inputCarNames()
-    - [ ] 입력 받은 값은 빈 문자열이 아니다. CreateCar#validateCarNameEmpty()
+    - [x] 입력 받은 값은 빈 문자열이 아니다. CreateCar#validateCarNameEmpty()
     - [ ] 자동차 이름은 쉼표(,)를 기준으로 구분한다. CreateCar#splitCarName()
     - [ ] 자동차 이름은 5자 이하만 가능하다. CreateCar#validateCarNameLength() 
     - [ ] 자동차 이름은 중복될 수 없다. CreateCar#validateCarNameDuplicate()
