@@ -86,10 +86,9 @@ public class InputViewTest {
     void 시도_횟수_입력_INTEGER_검증_테스트() {
         ByteArrayInputStream fakeInput = new ByteArrayInputStream("ABCD".getBytes());
         System.setIn(fakeInput);
-        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputView.readTryNumber();
-        });
-        Assertions.assertEquals("[ERROR] 숫자가 아닌 값이 입력되었습니다.", exception.getMessage());
+        assertThatThrownBy(() -> InputView.readTryNumber())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 숫자가 아닌 값이 입력되었습니다.");
     }
 
 
