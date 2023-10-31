@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,25 +10,25 @@ public class RacingCarGameController {
     private static final String DELIMITER = ",";
 
     private RacingCarGame racingCarGame;
+    private int numOfMoves;
 
     public void gameInit() {
         String userInput = receiveCarNames();
         String[] carNames = userInput.split(DELIMITER);
         checkCarNamesLength(carNames);
-        long numOfMoves = receiveNumOfMoves();
+        this.numOfMoves = receiveNumOfMoves();
 
-        this.racingCarGame = new RacingCarGame(carNames, numOfMoves);
+        this.racingCarGame = new RacingCarGame(carNames);
     }
 
-    public void gameStart() {
-        List<Result> results = racingCarGame.run();
-
-        List<String> winners = new ArrayList<>();
-        for (Result result : results) {
-            winners.add(result.getName());
+    public void runGame() {
+        System.out.println("실행 결과");
+        List<Result> results;
+        for (int i = 0; i < numOfMoves; i++) {
+            results = racingCarGame.run();
+            printResults(results);
         }
-
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        printWinners(racingCarGame.reportWinners());
     }
 
     private static String receiveCarNames() {
@@ -35,7 +36,7 @@ public class RacingCarGameController {
         return Console.readLine();
     }
 
-    static void checkCarNamesLength(String[] carNames) {
+    protected static void checkCarNamesLength(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
@@ -43,17 +44,28 @@ public class RacingCarGameController {
         }
     }
 
-    private static long receiveNumOfMoves() {
+    private static int receiveNumOfMoves() {
         System.out.println("시도할 횟수는 몇회인가요?");
         String userInput = Console.readLine();
         return parseNumOfMoves(userInput);
     }
 
-    static long parseNumOfMoves(String userInput) {
+    protected static int parseNumOfMoves(String userInput) {
         try {
-            return Long.parseLong(userInput);
+            return Integer.parseInt(userInput);
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
+    }
+
+    private static void printResults(List<Result> results) {
+        for (Result result : results) {
+            System.out.println(result);
+        }
+        System.out.println();
+    }
+
+    private void printWinners(List<String> winners) {
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }

@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
@@ -8,29 +9,25 @@ public class RacingCarGame {
     private static final int END_NUM = 9;
 
     private RacingCars racingCars;
-    private long numOfMoves;
 
-    private moveNumGenerator moveNumGenerator;
+    private MoveNumGenerator moveNumGenerator;
 
-    public RacingCarGame(String[] carNames, long numOfMoves) {
+    public RacingCarGame(String[] carNames) {
         racingCars = new RacingCars(carNames);
-        this.numOfMoves = numOfMoves;
-        this.moveNumGenerator = new moveNumGenerator(START_NUM, END_NUM);
+        this.moveNumGenerator = new MoveNumGenerator(START_NUM, END_NUM);
     }
 
     public List<Result> run() {
-        for (int i = 0; i < numOfMoves; i++) {
-            List<Result> results = racingCars.moveCars(moveNumGenerator.generate());
-            printResults(results);
-        }
-
-        return racingCars.findWinners();
+        return racingCars.moveCars(moveNumGenerator);
     }
 
-    private static void printResults(List<Result> results) {
-        for (Result result : results) {
-            System.out.println(result);
+    public List<String> reportWinners() {
+        List<String> winners = new ArrayList<>();
+        for (Result result : racingCars.findWinners()) {
+            winners.add(result.getName());
         }
-        System.out.println();
+
+        return winners;
     }
+
 }

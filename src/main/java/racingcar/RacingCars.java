@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +15,11 @@ public class RacingCars {
         }
     }
 
-    public List<Result> moveCars(int moveNum) {
+    public List<Result> moveCars(MoveNumGenerator moveNumGenerator) {
         List<Result> results = new ArrayList<>();
 
         for (RacingCar racingCar : racingCars) {
-            racingCar.move(moveNum);
+            racingCar.move(moveNumGenerator.generate());
             results.add(racingCar.makeResult());
         }
 
