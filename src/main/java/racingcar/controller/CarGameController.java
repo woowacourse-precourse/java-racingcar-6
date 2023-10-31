@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.CarNames;
 import racingcar.model.Cars;
@@ -56,13 +57,9 @@ public class CarGameController {
 
 
     public List<Car> createCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            Car car = new Car(carName);
-            cars.add(car);
-        }
-        this.cars = new Cars(cars);
-        return cars;
+        List<Car> carList = carNames.stream().map(carName -> new Car(carName)).collect(Collectors.toList());
+        this.cars = new Cars(carList);
+        return carList;
     }
 
 

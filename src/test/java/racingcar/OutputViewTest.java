@@ -1,20 +1,12 @@
 package racingcar;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.CarGameController;
-import racingcar.model.Car;
-import racingcar.model.Cars;
-import racingcar.model.Game;
 import racingcar.view.OutputView;
 
 public class OutputViewTest {
