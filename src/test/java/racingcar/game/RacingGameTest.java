@@ -6,15 +6,16 @@ import java.util.List;
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.car.Car;
-import racingcar.result.RacingGameResult;
+import racingcar.utils.GameUtils;
 
 class RacingGameTest {
 
     @Test
     void 게임이_종료되면_결과를_반환한다() throws Exception {
         //given
-        List<Car> cars = Stream.of("foo1", "foo2", "foo3").map(Car::new).toList();
+        List<Car> cars = Stream.of("foo1", "foo2", "foo3")
+                .map(name -> Car.of(name, GameUtils.INITIAL_PROGRESS))
+                .toList();
         int attemptNumber = 5;
         int threshold = 4;
         String command = "-";
@@ -32,7 +33,9 @@ class RacingGameTest {
     @Test
     void 각_라운드에서_차가_움직인다() {
         //given
-        List<Car> cars = Stream.of("foo1", "foo2", "foo3").map(Car::new).toList();
+        List<Car> cars = Stream.of("foo1", "foo2", "foo3")
+                .map(name -> Car.of(name, GameUtils.INITIAL_PROGRESS))
+                .toList();
         int attemptNumber = 3;
         int threshold = 4;
         String command = "-";
@@ -56,7 +59,9 @@ class RacingGameTest {
     @Test
     void 각_라운드의_진행_상황이_출력된다() {
         //given
-        List<Car> cars = List.of(new Car("foo1"), new Car("foo2"), new Car("foo3"));
+        List<Car> cars = Stream.of("foo1", "foo2", "foo3")
+                .map(name -> Car.of(name, GameUtils.INITIAL_PROGRESS))
+                .toList();
         int attemptNumber = 3;
         int threshold = 4;
         String command = "-";
@@ -78,5 +83,4 @@ class RacingGameTest {
         //clean up
         System.setOut(System.out);
     }
-
 }

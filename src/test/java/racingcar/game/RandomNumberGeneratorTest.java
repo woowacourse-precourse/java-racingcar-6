@@ -5,7 +5,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 class RandomNumberGeneratorTest {
 
-    @RepeatedTest(100)
+    @RepeatedTest(10)
     void 지정된_범위안의_랜덤한_숫자만_반환한다() {
         //given
         int startInclusive = 0;

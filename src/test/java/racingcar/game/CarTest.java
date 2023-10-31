@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.car.Car;
+import racingcar.utils.GameUtils;
 
 class CarTest {
 
@@ -25,7 +25,7 @@ class CarTest {
         String carName = "good";
 
         //when
-        Car car = new Car(carName);
+        Car car = Car.of(carName, GameUtils.INITIAL_PROGRESS);
 
         //then
         assertThat(car.getName()).isEqualTo(carName);
@@ -37,7 +37,7 @@ class CarTest {
         //given
         String carName = "good";
         String command = "-";
-        Car car = new Car(carName);
+        Car car = Car.of(carName, GameUtils.INITIAL_PROGRESS);
 
         //when
         car.forward(4, 4, command);
@@ -52,7 +52,7 @@ class CarTest {
         String carName = "good";
         String command = "-";
 
-        Car car = new Car(carName);
+        Car car = Car.of(carName, GameUtils.INITIAL_PROGRESS);
 
         //when
         car.forward(4, 3, command);
@@ -67,7 +67,7 @@ class CarTest {
         String carName = "good";
         String command = "-";
 
-        Car car = new Car(carName);
+        Car car = Car.of(carName, GameUtils.INITIAL_PROGRESS);
         car.forward(4, 5, command);
 
         //when

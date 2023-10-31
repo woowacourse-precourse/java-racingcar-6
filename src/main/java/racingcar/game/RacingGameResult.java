@@ -1,8 +1,7 @@
-package racingcar.result;
+package racingcar.game;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.car.Car;
 import racingcar.io.GameConsoleOutput;
 
 public class RacingGameResult {
@@ -17,17 +16,14 @@ public class RacingGameResult {
         this.cars = cars;
     }
 
-    public void print() {
+    public String getWinner() {
         int maxForwardCount = getMaxForwardCount();
-        String result = getResult(maxForwardCount);
-        GameConsoleOutput.print(String.format("최종 우승자 : %s", result));
+        return findWinner(maxForwardCount);
     }
 
-    private String getResult(int maxForwardCount) {
-        return cars.stream()
-                .filter(car -> car.getProgress().length() == maxForwardCount)
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
+    public void print() {
+        String winner = getWinner();
+        GameConsoleOutput.print(String.format("최종 우승자 : %s", winner));
     }
 
     private int getMaxForwardCount() {
@@ -35,5 +31,12 @@ public class RacingGameResult {
                 .mapToInt(car -> car.getProgress().length())
                 .max()
                 .orElse(-1);
+    }
+
+    private String findWinner(int maxForwardCount) {
+        return cars.stream()
+                .filter(car -> car.getProgress().length() == maxForwardCount)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
     }
 }

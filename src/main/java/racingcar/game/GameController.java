@@ -1,36 +1,42 @@
 package racingcar.game;
 
 import static racingcar.utils.GameUtils.GAME_THRESHOLD;
+import static racingcar.utils.GameUtils.INITIAL_PROGRESS;
 import static racingcar.utils.GameUtils.PROGRESS_COMMAND;
 
 import java.util.List;
-import racingcar.car.Car;
-import racingcar.io.ConsoleInputReader;
 import racingcar.io.GameArgumentReader;
-import racingcar.result.RacingGameResult;
+import racingcar.io.InputReader;
 
 public class GameController {
 
     private final GameArgumentReader gameArgumentReader;
-    private List<String> carNames;
-    private String attemptInput;
+    private GameArgument gameArgument;
 
-    public GameController() {
-        gameArgumentReader = new GameArgumentReader(new ConsoleInputReader());
+    public GameController(InputReader inputReader) {
+        gameArgumentReader = new GameArgumentReader(inputReader);
     }
 
     public void setup() {
-        carNames = gameArgumentReader.readCarNames();
-        attemptInput = gameArgumentReader.readAttemptNumber();
+        List<String> carNames = gameArgumentReader.readCarNames();
+        String attemptNumber = gameArgumentReader.readAttemptNumber();
+        gameArgument = new GameArgument(carNames, attemptNumber);
     }
 
     public void start() {
-        List<Car> cars = carNames.stream().map(Car::new).toList();
-        int attemptNumber = Integer.parseInt(attemptInput);
-        NumberGenerator numberGenerator = new RandomNumberGenerator();
+        RacingGame racingGame = createRacingGame();
+        RacingGameResult result = racingGame.process();
+        result.print();
+    }
 
-        RacingGame racingGame = RacingGame.of(cars, attemptNumber, GAME_THRESHOLD, PROGRESS_COMMAND, numberGenerator);
-        RacingGameResult racingGameResult = racingGame.process();
-        racingGameResult.print();
+    private RacingGame createRacingGame() {
+        List<Car> cars = gameArgument.getCarNames().stream().map(name -> Car.of(name, INITIAL_PROGRESS)).toList();
+        int attemptNumber = Integer.parseInt(gameArgument.getAttemptInput());
+        return RacingGame.of(cars, attemptNumber, GAME_THRESHOLD, PROGRESS_COMMAND,
+                new RandomNumberGenerator());
+    }
+
+    public GameArgument getGameArgument() {
+        return gameArgument;
     }
 }

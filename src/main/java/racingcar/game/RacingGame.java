@@ -1,9 +1,7 @@
 package racingcar.game;
 
 import java.util.List;
-import racingcar.car.Car;
 import racingcar.io.GameConsoleOutput;
-import racingcar.result.RacingGameResult;
 
 public class RacingGame {
 
@@ -29,16 +27,14 @@ public class RacingGame {
 
     public RacingGameResult process() {
         GameConsoleOutput.print("실행 결과");
-        doProcess();
-        return RacingGameResult.of(cars);
-    }
 
-    private void doProcess() {
         int gameRound = 0;
         while (gameRound++ < attempt) {
             moveForward();
             showProcess();
         }
+
+        return RacingGameResult.of(cars);
     }
 
     private void moveForward() {

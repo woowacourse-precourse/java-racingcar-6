@@ -15,7 +15,7 @@ class SystemIOTest {
     private OutputStream captor;
 
     @BeforeEach
-    protected final void init() {
+    void init() {
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
     }

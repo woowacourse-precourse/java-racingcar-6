@@ -1,16 +1,19 @@
-package racingcar.car;
+package racingcar.game;
 
 import racingcar.io.GameConsoleOutput;
-import racingcar.utils.GameUtils;
 
 public class Car {
 
     private final String name;
     private String progress;
 
-    public Car(String name) {
+    public static Car of(String name, String progress) {
+        return new Car(name, progress);
+    }
+
+    private Car(String name, String progress) {
         this.name = name;
-        this.progress = GameUtils.INITIAL_PROGRESS;
+        this.progress = progress;
     }
 
     public void forward(int threshold, int number, String command) {
