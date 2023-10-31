@@ -14,6 +14,10 @@ public class GameController {
     private CarView view;
     private ReceiveController receive;
 
+    public GameController() {
+        this.receive = new ReceiveController();
+    }
+
     public void startGame() {
         /* Receive car names and number of moves */
         ArrayList<String> carNames = receive.carNames();
