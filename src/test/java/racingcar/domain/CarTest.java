@@ -19,4 +19,13 @@ class CarTest {
         car.play();
         System.out.println(car.getPosition());
     }
+
+    @Test
+    void 자동차객체의_position에_따른_전진값_출력_확인() {
+        Car car = Car.nameFrom("nara");
+        car.play();
+        car.play();
+        System.out.println(car.getPosition());
+        car.printGameProceed();
+    }
 }
