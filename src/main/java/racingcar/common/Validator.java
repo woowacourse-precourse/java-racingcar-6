@@ -24,6 +24,17 @@ public class Validator {
         }
     }
 
+    public static void validateRoundNumber(String roundNumber) {
+        try {
+            Integer rn = Integer.parseInt(roundNumber);
+            if(rn <= 0) {
+                throw new IllegalArgumentException(MessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(MessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
+        }
+    }
+
     private static boolean isDuplicated(List<String> carNameList) {
         Set<String> carNameSet = new HashSet<>();
         for(String carName : carNameList) {

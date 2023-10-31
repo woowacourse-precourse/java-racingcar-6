@@ -21,7 +21,7 @@ public class RacingController {
 
         outputView.printInputRoundNumber();
         String roundNumber = inputView.roundNumber();
-        System.out.println(roundNumber);
+        Validator.validateRoundNumber(roundNumber);
     }
 
 
