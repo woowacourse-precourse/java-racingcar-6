@@ -1,61 +1,35 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.view.OutputManager;
 
 public class RacingGame {
     private final Integer gameCycle;
-    private final List<Car> cars;
+    private final Cars cars;
 
-    public RacingGame(Integer gameCycleNumber, List<Car> cars) {
+    public RacingGame(Integer gameCycleNumber, Cars cars) {
         this.gameCycle = gameCycleNumber;
         this.cars = cars;
     }
 
     public void playGame() {
         for (int i = 0; i < this.gameCycle; i++) {
-            for (Car car : cars) {
-                goEachCar(car);
-            }
+            cars.moveByCycle();
             printEachCycleResult(cars);
         }
-        printResult(cars);
-    }
-    private static void goEachCar(Car car) {
-        int randNumber = Randoms.pickNumberInRange(0, 9);
-        car.go(randNumber);
+        printWinner(cars);
     }
 
-    private void printEachCycleResult(List<Car> cars) {
-        for (Car car : cars) {
+    private void printEachCycleResult(Cars cars) {
+        for (Car car : cars.getCarList()) {
             OutputManager.printEachCycleResult(car.getName(), car.getPosition());
         }
         System.out.println();
     }
 
-    private void printResult(List<Car> cars) {
-        List<String> winnerNames = findWinnerName(cars);
+    private void printWinner(Cars cars) {
+        List<String> winnerNames = cars.winner();
         OutputManager.printWinner(winnerNames.stream().collect(Collectors.joining(", ")));
-    }
-
-    private static List<String> findWinnerName(List<Car> cars) {
-        List<String> winnerNames = new ArrayList<>();
-        int maxPosition = 0;
-
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winnerNames.add(car.getName());
-                continue;
-            }
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-                winnerNames = new ArrayList<>();
-                winnerNames.add(car.getName());
-            }
-        }
-        return winnerNames;
     }
 }
