@@ -9,7 +9,7 @@ public class Car {
     private static final int MAX_VAL = 9;
     private static final int MOVE_THRESHOLD = 4;
     private static final int MOVE_LENGTH = 1;
-
+    private static final String CAR_FORMAT = "%s : %s";
     private final String name;
     private Integer position;
 
@@ -30,5 +30,14 @@ public class Car {
         if (randomNumber >= MOVE_THRESHOLD) {
             position += MOVE_LENGTH;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int positionCount = 1; positionCount <= position; positionCount++) {
+            stringBuilder.append("-");
+        }
+        return String.format(CAR_FORMAT, name, stringBuilder.toString());
     }
 }
