@@ -1,8 +1,6 @@
 package racingcar.domain.car;
 
 
-import racingcar.domain.generator.NumberGenerator;
-
 public class Car {
 
 	private Position position;
@@ -13,8 +11,8 @@ public class Car {
 		this.carName = carName;
 	}
 
-	public void move(MoveStrategy moveStrategy, NumberGenerator numberGenerator) {
-		this.position = new Position(position.getPosition() + moveStrategy.move(numberGenerator));
+	public void move(MoveStrategy moveStrategy) {
+		this.position = new Position(position.getPosition() + moveStrategy.move());
 	}
 
 	public Position getPosition() {

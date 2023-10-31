@@ -14,7 +14,7 @@ class CarTest {
 		Car car = new Car(new Position(), new CarName("12345"));
 
 		// when
-		car.move(new MoveStrategy(), () -> 4);
+		car.move(() -> 1);
 
 		// then
 		assertEquals(new Position(1), car.getPosition());
@@ -27,7 +27,7 @@ class CarTest {
 		Car car = new Car(new Position(), new CarName("12345"));
 
 		// when
-		car.move(new MoveStrategy(), () -> 3);
+		car.move(() -> 0);
 
 		// then
 		assertEquals(new Position(0), car.getPosition());
