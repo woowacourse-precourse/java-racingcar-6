@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static racingcar.constant.ConsoleMessage.FINALLY_WINNER_LIST;
+import static racingcar.constant.ConsoleMessage.VISUAL_CAR_POSITION_FORMAT;
 
 public class OutputView {
 
@@ -22,10 +23,9 @@ public class OutputView {
         for (RandomCar car : randomCars) {
             String visualPosition = drawPosition(car);
 
-            String output = String.format("%5s : %s", car.getName(), visualPosition);
+            String output = String.format(VISUAL_CAR_POSITION_FORMAT, car.getName(), visualPosition);
             System.out.println(output);
         }
-
         System.out.println();
     }
 
