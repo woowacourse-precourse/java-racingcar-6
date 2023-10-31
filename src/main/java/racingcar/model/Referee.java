@@ -11,24 +11,24 @@ public class Referee {
     private List<CarName> winnerNames;
 
     public void decideWinner(final List<Car> carList) {
-        CarPosition maxposition = getMaxposition(carList);
-        this.winnerNames = getCarNamesForMaxposition(carList, maxposition);
+        CarPosition maxPosition = getMaxPosition(carList);
+        this.winnerNames = getCarNamesForMaxPosition(carList, maxPosition);
     }
 
-    private List<CarName> getCarNamesForMaxposition(List<Car> carList, CarPosition maxposition) {
+    private List<CarName> getCarNamesForMaxPosition(List<Car> carList, CarPosition maxPosition) {
         return carList.stream()
-                .filter(car -> car.getCarPosition().position() == maxposition.position())
+                .filter(car -> car.getCarPosition().position() == maxPosition.position())
                 .map(car -> car.getCarName())
                 .toList();
     }
 
-    private CarPosition getMaxposition(List<Car> carList) {
-        Integer maxposition = carList.stream()
+    private CarPosition getMaxPosition(List<Car> carList) {
+        Integer maxPosition = carList.stream()
                 .mapToInt(car -> car.getCarPosition().position())
                 .max()
                 .orElse(START_POINT);
 
-        return new CarPosition(maxposition);
+        return new CarPosition(maxPosition);
     }
 
     public List<CarName> getWinnerNames() {
