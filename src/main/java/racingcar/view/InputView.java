@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.converter.InputConverter;
 import racingcar.domain.game.car.Cars;
+import racingcar.domain.game.car.TrialCount;
 import racingcar.io.reader.StdReader;
 import racingcar.io.writer.StdWriter;
 
@@ -24,9 +25,9 @@ public class InputView {
         return inputConverter.toCars(input);
     }
 
-    public int getTrialFromUserInput() {
+    public TrialCount getTrialCountFromUserInput() {
         writer.writeLine(INPUT_TRIAL_MESSAGE);
         String input = reader.readLine();
-        return inputConverter.toTrial(input);
+        return inputConverter.toTrialCount(input);
     }
 }
