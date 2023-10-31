@@ -12,17 +12,20 @@ public class Game {
         // 각 차 별 전진 거리 부여
         for(Car car: cars) {
             int mileage = Randoms.pickNumberInRange(0, 9);
-            car.plusMileage(mileage);
+            if(mileage >= 4){
+                car.plusMileage(1);
+            }
             printGameResult(car.getCarName(), mileage);
         }
+        System.out.println("\n");
     }
 
     public void printGameResult(String carName, int mileage){
         System.out.print(carName + " : ");
-        for(int mile=mileage; mile>=0; mile--){
+        for(int mile=mileage; mile>0; mile--){
             System.out.print("-");
         }
-        System.out.print("\n\n");
+        System.out.print("\n");
     }
 
     public void setGameCount(int cnt){
