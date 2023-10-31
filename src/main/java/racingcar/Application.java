@@ -29,19 +29,19 @@ public class Application {
     }
 
     private static String checkInputLineCarNames(String inputLineOfCarNames) {
-        checkStartWithInputLine(inputLineOfCarNames);
-        checkLastIndexInputLine(inputLineOfCarNames);
+        checkStartsWithInputLine(inputLineOfCarNames);
+        checkEndsWithInputLine(inputLineOfCarNames);
         return inputLineOfCarNames;
     }
 
-    private static void checkStartWithInputLine(String inputLineOfCarNames) {
+    private static void checkStartsWithInputLine(String inputLineOfCarNames) {
         if (inputLineOfCarNames.startsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
     }
 
-    private static void checkLastIndexInputLine(String inputLineOfCarNames) {
-        if (inputLineOfCarNames.lastIndexOf(",") == inputLineOfCarNames.length() - 1) {
+    private static void checkEndsWithInputLine(String inputLineOfCarNames) {
+        if (inputLineOfCarNames.endsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
     }
