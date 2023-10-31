@@ -2,10 +2,12 @@ package jalddak.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.validator.ErrorMessage.BLANK;
+import static racingcar.validator.ErrorMessage.DUPLICATE;
 import static racingcar.validator.ErrorMessage.EXCEED_MAX_LEN_OF_CAR_NAME;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_CAR;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.NOT_INTEGER;
+import static racingcar.validator.InputValidator.validateDuplicateName;
 import static racingcar.validator.InputValidator.validateLenOfCar;
 import static racingcar.validator.InputValidator.validateLenOfCarName;
 import static racingcar.validator.InputValidator.validateName;
@@ -30,6 +32,20 @@ public class InputValidatorTest {
                     .hasMessageContaining(BLANK.getMessage());
         }
 
+    }
+
+    @Test
+    void 예외테스트_validateDuplicateName() {
+        List<String> givenList = new ArrayList<>();
+        givenList.add("a,b,c,d,e,a");
+        givenList.add("a,a,a");
+//        givenList.add("a,b,c,d,e");
+
+        for (String given : givenList) {
+            assertThatThrownBy(() -> validateDuplicateName(given))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining(DUPLICATE.getMessage());
+        }
     }
 
     @Test

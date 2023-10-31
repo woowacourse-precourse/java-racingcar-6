@@ -4,10 +4,14 @@ import static racingcar.model.ConstantValue.MAX_LEN_OF_CAR_NAME;
 import static racingcar.model.ConstantValue.MIN_NUM_OF_CAR;
 import static racingcar.model.ConstantValue.MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.BLANK;
+import static racingcar.validator.ErrorMessage.DUPLICATE;
 import static racingcar.validator.ErrorMessage.EXCEED_MAX_LEN_OF_CAR_NAME;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_CAR;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.NOT_INTEGER;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class InputValidator {
     // carList 관련 유효성 검사
@@ -18,6 +22,18 @@ public class InputValidator {
             if (car.isEmpty()) {
                 throw new IllegalArgumentException(BLANK.getMessage());
             }
+        }
+    }
+
+    public static void validateDuplicateName(String carListString) {
+        String[] carList = carListString.split(",");
+        Map<String, Integer> checkMap = new HashMap<>();
+
+        for (String car : carList) {
+            if (checkMap.containsKey(car)) {
+                throw new IllegalArgumentException(DUPLICATE.getMessage());
+            }
+            checkMap.put(car, 1);
         }
     }
 
