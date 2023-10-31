@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class InputValidator {
 
     private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9]*");
+    private static final Pattern CONSECUTIVE_COMMAS_PATTERN = Pattern.compile(".*,,+.*");
 
     private InputValidator() { }
 
@@ -44,5 +45,11 @@ public class InputValidator {
             }
         }
         return false;
+    }
+
+    public static void validateConsecutiveCommas(String alignedCarNames) {
+        if (CONSECUTIVE_COMMAS_PATTERN.matcher(alignedCarNames).matches()) {
+            throw ErrorMessage.BLANK_NAME.getNameException();
+        }
     }
 }

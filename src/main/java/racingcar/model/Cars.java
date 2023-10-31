@@ -13,7 +13,7 @@ public class Cars {
     }
 
     public void setNames(String alignedCarNames) {
-
+        InputValidator.validateConsecutiveCommas(alignedCarNames);
         String[] carNames = alignedCarNames.split(",");
         InputValidator.validateName(carNames);
         InputValidator.validateNameLength(carNames);
