@@ -81,6 +81,15 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class));
     }
 
+    @Test
+    void 시합_점수_초기화() {
+        Application.InputCarName = "Car1,Car2,Car3";
+        Application.Exception_Handling();
+        
+        assertThat(Application.RacingCar).contains("Car1", "Car2", "Car3");
+        assertThat(Application.RacingScore).containsOnly(0);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
