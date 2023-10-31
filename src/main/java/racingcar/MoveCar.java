@@ -1,30 +1,39 @@
 package racingcar;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class MoveCar {
     public String CarMove(int move){
         String position = "";
         for(int i = 0; i<move; i++){
             position+="-";
-//            System.out.println(position);
         }
         return position;
     }
 
+    public Car[] CreateCar(String[] carNames){
+        Car[] cars = new Car[carNames.length];
+        MoveCar moveCar = new MoveCar();
+        for(int i = 0; i< carNames.length;i++){
+            cars[i] = new Car(carNames[i]);
+        }
+        return cars;
+    }
 
+    public void PrintPosition(Car[] cars,int trying){
+        MoveCar moveCar = new MoveCar();
+        int i = 0;
+        while(i<trying){
+            for(Car car: cars){
+                int move = Randoms.pickNumberInRange(0, 9);
+                if(move >= 4){
+                    car.MoveCar();
+                }
+                System.out.println(car.ReturnCarName() + ":" +moveCar.CarMove(car.ReturnMove()));
+            }
+            i+=1;
+        }
+    }
 
-    //자동차 이동 클래스
-//    public void PrintResult(List<HashMap<String, Integer>> carHashMapList){
-//        for(HashMap<String,Integer> hashMap : carHashMapList){
-//            for (Map.Entry<String, Integer> m : hashMap.entrySet()) {
-//                String player = m.getKey();
-//                int move = hashMap.get(player);
-//                CalculateMove();
-//            }
-//        }
-
-//    }
 }
+

@@ -12,22 +12,8 @@ public class Application {
         // TODO: 프로그램 구현
         String inputString = "a,b,c,d";
         String[] carNames = inputString.split(",");
-
-
-
-
-
-
-//        CreateCar[] cars = new CreateCar[carNames.length];
-//        for(int i = 0; i< carNames.length;i++){
-//            cars[i] = new CreateCar(carNames[i]);
-//        }
-//
-//        for(CreateCar car : cars){
-//            System.out.println(car.ReturnCarName());
-//        }
-
-//
+        MoveCar moveCar = new MoveCar();
+        moveCar.PrintPosition(moveCar.CreateCar(carNames),3);
 
     }
 }
