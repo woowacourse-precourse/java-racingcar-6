@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.util.List;
@@ -45,5 +46,20 @@ class CarsTest {
         verify(mock1, Mockito.times(1)).move(1);
         verify(mock2, Mockito.times(1)).move(2);
         verify(mock3, Mockito.times(1)).move(3);
+    }
+
+    @Test
+    public void Car의_수_만큼_printCarsNameAndPosition이_호출된다(){
+        Car mock1 = mock(Car.class);
+        Car mock2 = mock(Car.class);
+        Car mock3 = mock(Car.class);
+        Cars cars = new Cars(List.of(mock1, mock2, mock3));
+
+        cars.printCarNamesAndPositions();
+
+        verify(mock1,times(1)).printCarNameAndPosition();
+        verify(mock2,times(1)).printCarNameAndPosition();
+        verify(mock3,times(1)).printCarNameAndPosition();
+
     }
 }
