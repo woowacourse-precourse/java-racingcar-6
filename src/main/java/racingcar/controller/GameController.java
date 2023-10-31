@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.constants.ErrorMessage;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -18,16 +19,20 @@ public class GameController {
     }
 
     public void startGame() {
-        List<String> names = initNames();
-        int attempt = initAttempt();
+        try {
+            List<String> names = initNames();
+            int attempt = initAttempt();
 
-        initCars(names);
+            initCars(names);
 
-        OutputView.displayTitle();
+            OutputView.displayTitle();
 
-        racing(attempt);
+            racing(attempt);
 
-        OutputView.displayWinner(new Winners(cars));
+            OutputView.displayWinner(new Winners(cars));
+        } catch (Exception exception) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_OCCURRED.getMessage());
+        }
     }
 
     public void initCars(List<String> names) {
