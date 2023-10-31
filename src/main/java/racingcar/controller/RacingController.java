@@ -16,9 +16,13 @@ public class RacingController {
     }
 
     public void play() {
-        RacingGame racingGame = initRacingGame();
-        race(racingGame, inputGameTry());
-        OutputView.printWinners(new Winners(racingGame.getCars()));
+        try {
+            RacingGame racingGame = initRacingGame();
+            race(racingGame, inputGameTry());
+            OutputView.printWinners(new Winners(racingGame.getCars()));
+        } catch (IllegalArgumentException exception) {
+            outputView.printExceptionMessage(exception);
+        }
     }
 
     private static GameTry inputGameTry() {

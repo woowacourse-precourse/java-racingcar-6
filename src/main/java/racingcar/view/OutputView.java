@@ -14,6 +14,10 @@ public class OutputView {
         return instance;
     }
 
+    public void printExceptionMessage(IllegalArgumentException exception) {
+        System.out.println(exception.getMessage());
+    }
+
     public static void printMainMessage() {
         StringBuilder mainMessage = new StringBuilder();
         mainMessage.append("\n").append(Message.OUTPUT_MAIN_MESSAGE.message);
