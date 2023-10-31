@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RacingCar {
+public class RacingCar implements Comparable<RacingCar> {
   private final String name;
   private int position = 0;
 
@@ -24,4 +24,16 @@ public class RacingCar {
     System.out.println();
   }
 
+  public String getName() {
+    return name;
+  }
+
+  public boolean isSamePosition(RacingCar winnerRacingCar) {
+    return position == winnerRacingCar.position;
+  }
+
+  @Override
+  public int compareTo(RacingCar racingCar) {
+    return racingCar.position - position;
+  }
 }
