@@ -12,4 +12,8 @@ public class RandomNumberGenerator {
                 RANDOM_NUMBER_END_INCLUSIVE
         );
     }
+
+    public static Integer pinkInRange(Integer range1, Integer range2) {
+        return Randoms.pickNumberInRange(range1, range2);
+    }
 }
