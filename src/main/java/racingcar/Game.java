@@ -6,34 +6,27 @@ import racingcar.view.Output;
 
 public class Game {
     GameManager gameManager = new GameManager();
-    GameElements gameElements = GameElements.INSTANCE;
 
     public void startGame() {
-        gameManager.gameSetting();
         gamingWithTryCount();
         Output.printGameWinnerMessage(String.join(", ", checkWinner()));
     }
 
     private void gamingWithTryCount() {
-        int totalTryCount = gameElements.getTryCount();
+        List<Car> carList = gameManager.carSetting();
+        int totalTryCount = gameManager.tryCountSetting();
+
         Output.printResultMessage();
 
         for (int tryCount = 0; tryCount < totalTryCount; tryCount++) {
-            runGameForCar();
-            Output.printGameProgress(gameElements.getCarMap());
+            runGameForCar(carList);
+            Output.printGameProgress(carList);
         }
     }
 
-    private void runGameForCar() {
-        for (String car : gameElements.getCarNameList()) {
-            checkMoveForward(car);
-        }
-    }
-
-    private void checkMoveForward(String car) {
-        if (gameManager.createRandomNumber() >= 4) {
-            int forwardCount = gameElements.getCarMap().get(car) + 1;
-            gameElements.getCarMap().replace(car, forwardCount);
+    private void runGameForCar(List<Car> carList) {
+        for(Car car : carList){
+            car.move();
         }
     }
 
