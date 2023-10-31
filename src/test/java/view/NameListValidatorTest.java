@@ -32,4 +32,13 @@ class NameListValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.CONTAINS_REPEATING_COMMAS);
     }
+
+    @Test
+    public void 이름이_최대_길이를_넘어가면_예외발생(){
+        String input = "aaaaa,bbbbbb";
+        assertThatThrownBy(() -> nameListValidator.validate(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.EXCEEDED_NAME_LENGTH);
+    }
+
 }
