@@ -32,13 +32,13 @@ class InputValidatorTest {
         String invalidCount = "12af";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isInteger(invalidCount);
+            testInputValidator.isPositiveInteger(invalidCount);
         });
 
         String validCount = "34";
 
         assertDoesNotThrow(() -> {
-            testInputValidator.isInteger(validCount);
+            testInputValidator.isPositiveInteger(validCount);
         });
     }
 }
