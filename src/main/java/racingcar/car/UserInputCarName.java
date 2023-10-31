@@ -17,7 +17,7 @@ public class UserInputCarName {
         return Console.readLine();
     }
 
-    public static List<CarInfo> processInput(String input) {
+    private static List<CarInfo> processInput(String input) {
         String[] cars = splitByComma(input);
         List<CarInfo> carList = addCarList(cars);
         validator(carList);
