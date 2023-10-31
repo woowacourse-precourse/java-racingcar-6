@@ -21,7 +21,7 @@ public class RacingController {
     private static final CarRepository carRepository = new CarRepository();
 
     public void racingCar() {
-        saveCars(extractElementUtil.extractCarNames(getCarNamesInput()));
+        saveCars(returnElementUtil.extractCarNames(getCarNamesInput()));
         playGame(startGame());
     }
 
@@ -57,7 +57,7 @@ public class RacingController {
     }
 
     private int getTrialNumber() {
-        return extractElementUtil.extractTrialNumber(getTrialNumberInput());
+        return returnElementUtil.convertTrialNumber(getTrialNumberInput());
     }
 
     private String getTrialNumberInput() {
