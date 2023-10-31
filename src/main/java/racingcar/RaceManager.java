@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,12 +22,17 @@ public class RaceManager {
     }
 
     public void init() {
-        Util.print(MessageType.INPUT_TRY_NUMBER);
-        String[] carNameSplit = inputCarNames().split(",");
-        for (String name : carNameSplit) {
-            cars.add(new Car(name));
-        }
+        setCars();
+        setTryNumber();
+    }
 
+    public void setCars() {
+        Util.print(MessageType.INPUT_TRY_NUMBER);
+        Arrays.stream(inputCarNames().split(","))
+                .forEach(name -> cars.add(new Car(name)));
+    }
+
+    public void setTryNumber() {
         Util.print(MessageType.INPUT_TRY_NUMBER);
         tryNumber = inputTryNumber();
     }

@@ -8,4 +8,6 @@ public class Util {
     public static void print(MessageType messageType, String addition) {
         System.out.println(messageType.getDetail() + addition);
     }
+
+
 }
