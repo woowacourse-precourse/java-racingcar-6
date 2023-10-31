@@ -9,47 +9,58 @@ public class User {
     public List<String> inputCar() {
         String input = Console.readLine();
         List<String> carNames = Arrays.asList(input.split(","));
-        checkInputCar(carNames);
-        checkDuplicateName(carNames);
+
         return carNames;
     }
 
-    public void checkInputCar(List<String> carNames){
-        for(String carName : carNames){
-            if(carName.length() > 5 || carName.length() < 1){
-                throw new IllegalArgumentException();
-            }
+    public void checkInputCar(List<String> carNames) {
+        checkDuplicateName(carNames);
+        for (String carName : carNames) {
+            checkLengthName(carName);
+            checkSpaceInName(carName);
         }
     }
 
-    public void checkDuplicateName(List<String> carNames){
+    public void checkLengthName(String carName){
+        if (carName.length() > 5 || carName.length() < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void checkSpaceInName(String carName) {
+        if (carName == null || carName.contains(" ") || carName.isBlank()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void checkDuplicateName(List<String> carNames) {
         HashSet<String> duplicateName = new HashSet<>();
         duplicateName.addAll(carNames);
-        if(carNames.size() != duplicateName.size()){
+        if (carNames.size() != duplicateName.size()) {
             throw new IllegalArgumentException();
         }
     }
 
 
-    public int inputTryNumber(){
+    public int inputTryNumber() {
         String input = Console.readLine();
         int tryNumber = checkTryNumber(input);
         checkNegativeNumber(tryNumber);
         return tryNumber;
     }
 
-    public int checkTryNumber(String input){
+    public int checkTryNumber(String input) {
         int inputNumber;
-        try{
+        try {
             inputNumber = Integer.parseInt(input);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 숫자를 입력하였습니다.");
         }
         return inputNumber;
     }
 
-    public void checkNegativeNumber(int tryNumber){
-        if(tryNumber < 1){
+    public void checkNegativeNumber(int tryNumber) {
+        if (tryNumber < 1) {
             throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
         }
     }
