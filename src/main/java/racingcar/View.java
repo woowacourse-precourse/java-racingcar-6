@@ -18,4 +18,14 @@ public class View {
     System.out.println(cars);
     return cars;
   }
+
+  static public void printGameTrialCount() {
+    System.out.println("시도할 회수는 몇회인가요?");
+    
+  }
+  
+  static  public int inputGameTrialCount(){
+    String input = Console.readLine();
+    return Integer.parseInt(input);
+  }
 }
