@@ -1,4 +1,4 @@
-package racingcar.exception.business;
+package racingcar.validation.business;
 
 public class CarNameValidator {
 

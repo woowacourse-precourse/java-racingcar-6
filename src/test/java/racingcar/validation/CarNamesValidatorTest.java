@@ -1,4 +1,4 @@
-package racingcar.exception;
+package racingcar.validation;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.exception.business.CarNamesValidator;
+import racingcar.validation.business.CarNamesValidator;
 import racingcar.vo.CarName;
 
 class CarNamesValidatorTest {

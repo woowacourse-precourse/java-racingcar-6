@@ -1,6 +1,6 @@
 package racingcar.vo;
 
-import racingcar.exception.business.TryNumberValidator;
+import racingcar.validation.business.TryNumberValidator;
 
 public record TryNumber(Integer number) {
 

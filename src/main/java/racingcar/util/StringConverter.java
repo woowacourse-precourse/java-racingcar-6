@@ -2,7 +2,7 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.exception.InputValidator;
+import racingcar.validation.InputValidator;
 import racingcar.vo.CarName;
 import racingcar.vo.TryNumber;
 
@@ -24,7 +24,7 @@ public class StringConverter {
     public static TryNumber stringToTryNumber(String tryNumber) {
         InputValidator.validateInputTryNumber(tryNumber);
         Integer number = Integer.valueOf(tryNumber);
-        
+
         return new TryNumber(number);
     }
 }
