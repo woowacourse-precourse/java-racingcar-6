@@ -166,7 +166,13 @@ class Car {
 
 class CarCondition {
 
-    
+    public boolean isMove() {
+        if (makeRandom() >= 4) {
+            return true;
+        }
+        return false;
+    }
+
     public int makeRandom() {
         return Randoms.pickNumberInRange(0, 9);
     }
