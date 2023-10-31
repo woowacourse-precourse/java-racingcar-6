@@ -13,6 +13,7 @@ public class ValidException {
     private static final String NUM_REGEX = ".*[0-9].*";
     private static final Integer ONLY_ONE_NAME = 0;
     private static final String KOREAN_ENGLISH_REGEX = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*";
+    private static final String SPECIAL_CHARACTER_REGEX = ".*[!@#$%^&*().?\":{}|<>].*";
 
     public static Boolean lessFIveLen(String str) {
         int len = str.length();
@@ -70,7 +71,7 @@ public class ValidException {
     }
 
     public static void includeSpecialString(String inputStr) {
-        String regex = ".*[!@#$%^&*().?\":{}|<>].*"; // 특수 문자가 포함되어 있는지 확인하는 정규 표현식
+        String regex = SPECIAL_CHARACTER_REGEX;
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(inputStr);
