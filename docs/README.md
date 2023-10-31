@@ -72,7 +72,7 @@
 			- isCheckRange()
 				- [O] 5자 이하 이름인지 확인
 		- isDiffCarName()
-		        - [ ] 서로 다른 이름인지 확인
+		        - [O] 서로 다른 이름인지 확인
 
 4. RandomUtility
 	- generateRandomNumber()
