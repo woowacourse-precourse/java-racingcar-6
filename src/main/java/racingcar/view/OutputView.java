@@ -6,7 +6,7 @@ public class OutputView {
     private final static String RESULT_MESSAGE = "실행 결과";
     private final static String DISTANCE_MARK = "-";
     private final static String EQUAL_MARK = " : ";
-    private final static String WINNER_MESSAGE = "최종우승자 : ";
+    private final static String WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void gameResultStart(){
         System.out.println();
