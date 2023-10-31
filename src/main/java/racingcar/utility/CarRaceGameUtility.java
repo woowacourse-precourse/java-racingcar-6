@@ -1,5 +1,6 @@
 package racingcar.utility;
 
+import static racingcar.constant.GameConstants.EXECUTION_RESULT;
 import static racingcar.constant.GameConstants.MAX_NUM;
 import static racingcar.constant.GameConstants.MIN_NUM;
 
@@ -13,6 +14,15 @@ import racingcar.view.CarRaceGameView;
 
 public class CarRaceGameUtility {
     private CarRaceGameUtility(){}
+
+    public static void executeCarRaceGameForNRound(int gameRoundNumber) {
+        System.out.println(EXECUTION_RESULT);
+
+        for (int i = 0; i < gameRoundNumber; i++) {
+            CarRaceGameUtility.executeCarRaceGameOneRound();
+        }
+        CarRaceGameView.printGameResult(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
+    }
 
     public static void executeCarRaceGameOneRound() {
         for (Car car : GameManager.getCarImplList()) {

@@ -26,7 +26,7 @@ public class CarRaceGame {
         List<String> carNameList = getCarNameListAndValidate();
         setCarImpls(carNameList);
 
-        executeCarRaceGameForNRound(getGameRoundAndValidate());
+        CarRaceGameUtility.executeCarRaceGameForNRound(getGameRoundAndValidate());
     }
 
     public static List<String> getCarNameListAndValidate() {
@@ -65,15 +65,6 @@ public class CarRaceGame {
         Validator.isEmptyString(gameRound);
         Validator.isNumber(gameRound);
         Validator.isMoreThanOne(gameRound);
-    }
-
-    public static void executeCarRaceGameForNRound(int gameRoundNumber) {
-        System.out.println(EXECUTION_RESULT);
-
-        for (int i = 0; i < gameRoundNumber; i++) {
-            CarRaceGameUtility.executeCarRaceGameOneRound();
-        }
-        CarRaceGameView.printGameResult(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
     }
 }
 
