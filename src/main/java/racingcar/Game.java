@@ -34,7 +34,7 @@ public class Game {
 
     }
 
-    private void roundStart(List<Car> carList) {
+    public void roundStart(List<Car> carList) {
         for (Car car : carList) {
             int randomNumber = GameUtils.getRandomNumber();
             if (canMoveForward(randomNumber)) {
