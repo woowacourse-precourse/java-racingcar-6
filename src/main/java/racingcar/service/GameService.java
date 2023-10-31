@@ -28,7 +28,7 @@ public class GameService {
         output.printGameWinner(getWinner(cars));
     }
 
-    private List<String> getWinner(List<Car> cars) {
+    public List<String> getWinner(List<Car> cars) {
         List<String> winners = new ArrayList<>();
         int maxLocationLength = 0;
         for (Car car : cars) {
@@ -49,7 +49,7 @@ public class GameService {
         return maxLocationLength;
     }
 
-    private void proceedRacing(int attemptCount, List<Car> cars) {
+    public void proceedRacing(int attemptCount, List<Car> cars) {
         output.printResultMessage();
         for (int i = 0; i < attemptCount; i++) {
             carMove(cars);
