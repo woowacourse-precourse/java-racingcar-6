@@ -14,24 +14,28 @@ public class RacingGame {
     private TryNumber tryNumber;
 
     public void play() {
-        initialize();
-        raceStart();
+        initializeGame();
+        startRace();
         displayWinners();
     }
 
-    private void initialize() {
+    private void initializeGame() {
         cars = new Cars(InputView.readCarNames());
         tryNumber = new TryNumber(InputView.readTryNumber());
     }
 
-    private void raceStart() {
+    private void startRace() {
         int count = 0;
         OutputView.displayRoundResultHeader();
         while (tryNumber.isNotOver(count)) {
-            cars.decideToMove();
-            OutputView.displayRoundResult(cars.generateRoundResultString());
+            playSingleRound();
             count++;
         }
+    }
+
+    private void playSingleRound() {
+        cars.decideToMove();
+        OutputView.displayRoundResult(cars.generateRoundResultString());
     }
 
     private void displayWinners() {
