@@ -16,6 +16,9 @@ public class Application {
             race(cars); // 자동차 무작위 값에 따라 전진 여부를 결정(1회전)하고 업데이트
             printCurrentPositions(cars); // 차량 위치 업데이트 후 현재 자동차들의 위치를 출력
         }
+
+        List<String> winners = getWinners(cars); // 우승자를 결정하여 반환
+        announceWinner(winners); // 우승자를 알림
     }
 
     // 사용자로부터 입력받은 자동차 이름을 리스트에 추가하여 반환하는 메서드
@@ -66,6 +69,32 @@ public class Application {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println();
+    }
+
+    // 우승자를 결정하여 반환하는 메서드
+    private static List<String> getWinners(List<Car> cars) {
+        int maxPosition = 0;
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
+
+    // 우승자를 알리는 메시지를 출력하는 메서드
+    private static void announceWinner(List<String> winners) {
+        String winnerName = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + winnerName);
     }
 }
 
