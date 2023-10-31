@@ -34,7 +34,7 @@ public class OutputView {
 
     public void printProcess(Cars cars) {
         StringBuilder sb = new StringBuilder();
-        sb.append(SpecialSign.NEW_LIEN.getSign());
+        sb.append(SpecialSign.NEW_LINE.getSign());
         for (Car car : cars.getCars()) {
             sb.append(car.getName())
                     .append(" ")
@@ -47,14 +47,14 @@ public class OutputView {
 
     public void printRacingResult() {
         StringBuilder sb = new StringBuilder();
-        sb.append(SpecialSign.NEW_LIEN.getSign())
+        sb.append(SpecialSign.NEW_LINE.getSign())
                 .append(OutputMessage.RESULT.getMessage());
         System.out.print(sb);
     }
 
     public void printWinner(RacingResult racingResult) {
         StringBuilder sb = new StringBuilder();
-        sb.append(SpecialSign.NEW_LIEN.getSign())
+        sb.append(SpecialSign.NEW_LINE.getSign())
                 .append(OutputMessage.WINNER.getMessage())
                 .append(SpecialSign.SPACE.getSign())
                 .append(SpecialSign.COLON.getSign())

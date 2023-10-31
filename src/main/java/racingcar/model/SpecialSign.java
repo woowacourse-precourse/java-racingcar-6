@@ -5,7 +5,7 @@ public enum SpecialSign {
     SEPARATOR(","),
     COLON(":"),
     HYPHEN("-"),
-    NEW_LIEN("\n"),
+    NEW_LINE("\n"),
     SPACE(" ");
 
     private final String sign;
@@ -23,6 +23,6 @@ public enum SpecialSign {
         for (int i = 0; i < distance; i++) {
             drawDistance += HYPHEN.getSign();
         }
-        return drawDistance + NEW_LIEN.getSign();
+        return drawDistance + NEW_LINE.getSign();
     }
 }
