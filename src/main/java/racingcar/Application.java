@@ -19,8 +19,7 @@ public class Application {
 
             //시도 횟수 입력 받기
             System.out.println("시도할 회수는 몇회인가요?");
-            String input = br.readLine();
-            int cnt = Integer.parseInt(input);
+            int toTry = getToTry(br);
 
             //전진 횟수 기록할 리스트 생성
             List<Integer> toGo = new ArrayList<>();
@@ -31,7 +30,7 @@ public class Application {
             //반복해서 전진 및 출력
             System.out.println();
             System.out.println("실행 결과");
-            for (int i = 0; i < cnt; i++) {
+            for (int i = 0; i < toTry; i++) {
                 for (int j = 0; j < cars.size(); j++) {
                     int randomNumber = Randoms.pickNumberInRange(0, 9);
                     if (randomNumber >= 4) {
@@ -58,6 +57,12 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static int getToTry(BufferedReader br) throws IOException {
+        String input = br.readLine();
+        int toTry = Integer.parseInt(input);
+        return toTry;
     }
 
     private static void printWinnerList(List<String> winner) {
