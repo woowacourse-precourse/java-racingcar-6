@@ -33,6 +33,7 @@ public class Result {
     }
 
     public String toFinalWinner() {
-        return String.format(Message.FINAL_WINNER, String.join(Message.NAME_SEPARATOR + " ", result.keySet()));
+        return String.format(Message.FINAL_WINNER,
+                String.join(Message.NAME_SEPARATOR + " ", result.keySet()));
     }
 }
