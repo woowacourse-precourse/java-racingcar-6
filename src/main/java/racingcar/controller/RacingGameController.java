@@ -48,12 +48,12 @@ public class RacingGameController {
         return attempt;
     }
 
-    public void startGame(List<Car> cars, Attempt attempt) {
-        // go racing game!
-        for (int i = 0; i < attempt.getCount(); i++) {
-            for (Car car : cars) {
-                car.playGameOneRound();
-            }
+    public String startGame(List<Car> cars) {
+        String result = "";
+        for (Car car : cars) {
+           car.playGameOneRound();
+           result += car.toString();
         }
+        return result;
     }
 }
