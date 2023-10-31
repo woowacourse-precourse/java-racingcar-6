@@ -31,11 +31,11 @@ public class Game {
         announcer.announceResultComment();
 
         for (int i = 0; i < tryCount; i++) {
-            playRound();
+            race();
         }
     }
 
-    private void playRound() {
+    private void race() {
         carList.forEach(this::moveCar);
         announcer.announceRaceRound(carList);
     }
