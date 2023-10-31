@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Winner {
 
+    private static final String SEPERATOR = ", ";
+
     private List<Name> winner;
 
     public Winner() {
@@ -22,7 +24,7 @@ public class Winner {
             message.append(name);
 
             if (i != (winner.size() - 1)) {
-                message.append(", ");
+                message.append(SEPERATOR);
             }
         }
 

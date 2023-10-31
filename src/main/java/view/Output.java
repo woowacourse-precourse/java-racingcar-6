@@ -6,6 +6,8 @@ import model.domain.Winner;
 
 public class Output {
 
+    private static final char GO_STRAIGHT = '-';
+
     public static void startResult() {
 
         System.out.println("\n실행 결과");
@@ -21,7 +23,7 @@ public class Output {
 
             int goValue = car.getGoValue();
             for (int i = 0; i < goValue; i++) {
-                System.out.print("-");
+                System.out.print(GO_STRAIGHT);
             }
             System.out.println();
         }
