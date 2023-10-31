@@ -53,7 +53,7 @@
 ### TryCount 구현
 - [ ] TryCount 구현
     - [ ] 0과 자연수
-    - [ ] finished() 구현
+    - [ ] isFinished() 구현
     - [ ] consumeTry() 구현
 
 ### RandomNumber 구현
