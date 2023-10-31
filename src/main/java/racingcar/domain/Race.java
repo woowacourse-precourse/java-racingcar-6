@@ -3,8 +3,10 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import racingcar.util.ParserUtils;
 
 public class Race {
@@ -55,9 +57,11 @@ public class Race {
     }
 
     private void initializeCar(String carNamesInput) {
-        List<String> carNameList = ParserUtils.namesParser(carNamesInput);
+        List<String> carNames = ParserUtils.namesParser(carNamesInput);
 
-        for (String carName : carNameList) {
+        validateDuplicatedName(carNames);
+
+        for (String carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);
         }
@@ -71,6 +75,14 @@ public class Race {
                     map.getOrDefault(car.getMoveCount(), "") + ", " + car.getCarName());
         }
         return map;
+    }
+
+    private void validateDuplicatedName(List<String> carNames) {
+        Set<String> carName = new HashSet<>(carNames);
+
+        if (carName.size() != carNames.size()) {
+            throw new IllegalArgumentException("이미 사용중인 자동차 이름입니다.");
+        }
     }
 
     private void validateNullOrBlank(String input) {
