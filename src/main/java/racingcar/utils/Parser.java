@@ -12,7 +12,8 @@ public class Parser {
     public static List<String> parseCarNameInput (String input) {
         List<String> nameList = Arrays.stream(input.split(COMMA)).collect(Collectors.toList());
         for (String s : nameList) {
-            if (s.length() > MAX_LENGTH_NUMBER) {
+            String trimmed = s.trim();
+            if (s.length() > MAX_LENGTH_NUMBER || trimmed.isEmpty() || s.isEmpty() || s.equals("\n") || s.equals("\r") || s.equals("\r\n")) {
                 throw new IllegalArgumentException();
             }
         }
