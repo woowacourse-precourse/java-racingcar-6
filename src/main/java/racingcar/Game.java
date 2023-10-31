@@ -1,11 +1,7 @@
 package racingcar;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class Game {
-    private List<Car> cars;
+    private RacingCars cars;
     private int maxRoundCount;
 
     public void initialize() {
@@ -18,18 +14,12 @@ public class Game {
     }
 
     public void play() {
-        for (Car c : cars) {
-            c.move(RandomUtil.getRandomNumber());
-        }
+        cars.move();
     }
 
     public String getTotalExecuteResult() {
-        StringBuilder totalExecuteResult = new StringBuilder();
-        for (Car c : cars) {
-            totalExecuteResult.append(c.getExecuteResult()).append("\n");
-        }
 
-        return totalExecuteResult.toString();
+        return cars.getTotalExecuteResult();
     }
 
     private void settingRound() {
@@ -39,7 +29,7 @@ public class Game {
 
     private void settingCar() {
         String[] carsName = askCarsName();
-        cars = Arrays.stream(carsName).map(Car::new).collect(Collectors.toList());
+        cars = new RacingCars(carsName);
     }
 
     private String[] askCarsName() {
