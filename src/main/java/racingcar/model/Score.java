@@ -6,28 +6,28 @@ import java.util.List;
 public class Score {
     private static final String NO_CARS_ERROR = "[ERROR] 자동차가 없습니다.";
     private final int round;
-    private final List<CarDto> score;
+    private final List<ScoreDto> score;
 
-    public Score(int round, List<CarDto> score) {
+    public Score(int round, List<ScoreDto> score) {
         this.round = round;
         this.score = score;
     }
 
-    public List<CarDto> getScore() {
+    public List<ScoreDto> getScore() {
         return score;
     }
 
 
     private int findFarthestDistance() {
         return score.stream()
-                .max(Comparator.comparing(CarDto::getDistance))
-                .map(CarDto::getDistance)
+                .max(Comparator.comparing(ScoreDto::getDistance))
+                .map(ScoreDto::getDistance)
                 .orElseThrow(() -> new IllegalArgumentException(NO_CARS_ERROR));
     }
 
-    public List<CarDto> findFarthestCar() {
+    public List<ScoreDto> findFarthestCar() {
         return score.stream()
-                .filter(carDto -> carDto.isfathestDistance(findFarthestDistance()))
+                .filter(carDto -> carDto.isSameDistance(findFarthestDistance()))
                 .toList();
     }
 

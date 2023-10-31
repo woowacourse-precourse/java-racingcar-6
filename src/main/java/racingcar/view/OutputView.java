@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.model.CarDto;
+import racingcar.model.ScoreDto;
 import racingcar.model.ScoreBoard;
 
 public class OutputView {
@@ -21,7 +21,7 @@ public class OutputView {
     public static void showScoreBoard(ScoreBoard scoreBoard) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int round = 1; round <= scoreBoard.getSize(); round++) {
-            List<CarDto> score = scoreBoard.getScoreForRound(round);
+            List<ScoreDto> score = scoreBoard.getScoreForRound(round);
             score.forEach(carDto -> stringBuilder.append(carDto.getName())
                     .append(FIELD_SEPARATOR)
                     .append(DISTANCE_DASH.repeat(carDto.getDistance()))
@@ -31,7 +31,7 @@ public class OutputView {
         System.out.print(stringBuilder);
     }
 
-    public static void showWinners(List<CarDto> winners) {
+    public static void showWinners(List<ScoreDto> winners) {
         StringJoiner winnerNames = new StringJoiner(COMMA);
         winners.forEach(carDto -> winnerNames.add(carDto.getName()));
         System.out.println(FINAL_WINNER + FIELD_SEPARATOR + winnerNames);

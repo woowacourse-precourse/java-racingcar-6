@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.CarDto;
+import racingcar.model.ScoreDto;
 import racingcar.model.RacingCars;
 import racingcar.util.RandomNuberGenerator;
 
@@ -21,12 +21,12 @@ public class RacingCarService {
         racingCars.moveRacingCars(randomNumbers);
     }
 
-    public List<CarDto> convertToCarDtoList() {
-        List<CarDto> carDtoList = new ArrayList<>();
+    public List<ScoreDto> convertToScoreDtoList() {
+        List<ScoreDto> scoreDtoList = new ArrayList<>();
         for (Car car : racingCars.getRacingCars()) {
-            carDtoList.add(new CarDto(car.getName(), car.getDistance()));
+            scoreDtoList.add(new ScoreDto(car.getName(), car.getDistance()));
         }
-        return carDtoList;
+        return scoreDtoList;
     }
 
 }

@@ -10,11 +10,11 @@ public class ScoreBoard {
         this.scoreBoard = new ArrayList<>();
     }
 
-    public void recordScore(int round, List<CarDto> score) {
+    public void recordScore(int round, List<ScoreDto> score) {
         this.scoreBoard.add(new Score(round, score));
     }
 
-    public List<CarDto> getScoreForRound(int round) {
+    public List<ScoreDto> getScoreForRound(int round) {
         return scoreBoard.stream()
                 .filter(score -> score.isSameRound(round))
                 .flatMap(score -> score.getScore().stream())
@@ -25,7 +25,7 @@ public class ScoreBoard {
         return scoreBoard.size();
     }
 
-    public List<CarDto> findFinalRoundWinners() {
+    public List<ScoreDto> findFinalRoundWinners() {
         return scoreBoard.get(getFinalRound()).findFarthestCar();
     }
 

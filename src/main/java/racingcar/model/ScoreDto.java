@@ -1,10 +1,10 @@
 package racingcar.model;
 
-public class CarDto {
+public class ScoreDto {
     private final int distance;
     private final String name;
 
-    public CarDto(String name, int distance) {
+    public ScoreDto(String name, int distance) {
         this.distance = distance;
         this.name = name;
     }
@@ -17,7 +17,7 @@ public class CarDto {
         return name;
     }
 
-    public boolean isfathestDistance(int farthestDistance) {
+    public boolean isSameDistance(int farthestDistance) {
         return this.distance == farthestDistance;
     }
 
