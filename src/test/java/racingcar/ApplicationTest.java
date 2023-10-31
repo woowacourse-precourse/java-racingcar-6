@@ -25,12 +25,21 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름_5글자_이상_예외_처리() {
+    void 이름_5글자_이상_예외_처리1() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 이름_5글자_이상_예외_처리2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("po   bi,javaji", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Test
     void 시도횟수가_음수인_경우_예외_처리() {
