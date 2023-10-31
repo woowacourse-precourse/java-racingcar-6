@@ -6,7 +6,6 @@ import java.util.List;
 
 public class User {
 
-    private static final int MAX_NAME_SIZE = 5;
     private static final int MIN_CAR_NUMBER = 2;
 
     public List<Car> nameForCar(String names) {
@@ -18,7 +17,7 @@ public class User {
 
     public List<String> separateNames(String names) {
         String[] temp = names.split(",");
-        validateCarCount(names,temp);
+        validateCarCount(names, temp);
         validateGame(temp);
         List<String> cars = new ArrayList<>(Arrays.asList(temp));
         return cars;
@@ -30,15 +29,15 @@ public class User {
         }
     }
 
-    private void validateCarCount(String names,String[] cars){
-        if(cars.length<=countComas(names)){
+    private void validateCarCount(String names, String[] cars) {
+        if (cars.length <= countComas(names)) {
             throw new IllegalArgumentException("자동차의 이름은 공백이 불가능합니다.");
         }
     }
 
-    private long countComas(String names){
+    private long countComas(String names) {
         return names.chars()
-                .filter(c->c==',')
+                .filter(c -> c == ',')
                 .count();
     }
 }
