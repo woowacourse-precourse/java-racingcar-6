@@ -9,11 +9,6 @@ public class CarPosition {
         this.position = position;
     }
 
-    public static CarPosition from(int position) {
-//        validate();
-        return new CarPosition(position);
-    }
-
     public int getPosition() {
         return position;
     }
