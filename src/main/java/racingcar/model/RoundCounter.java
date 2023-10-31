@@ -1,10 +1,10 @@
 package racingcar.model;
 
-public class Round {
+public class RoundCounter {
     private final TotalNumberOfRounds totalNumberOfRounds;
     private int currentRoundNumber;
 
-    public Round(int totalNumberOfRounds) {
+    public RoundCounter(int totalNumberOfRounds) {
         this.totalNumberOfRounds = new TotalNumberOfRounds(totalNumberOfRounds);
         currentRoundNumber = 1;
     }

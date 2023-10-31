@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.Round;
+import racingcar.model.RoundCounter;
 import racingcar.utils.Parser;
 import racingcar.validator.userInput.CarNamesValidator;
 import racingcar.validator.userInput.TotalNumberOfRoundsValidator;
@@ -28,16 +28,16 @@ public class InputController {
         return new Cars(carList);
     }
 
-    public static Round scanRound() {
+    public static RoundCounter scanRoundCounter() {
         System.out.println(InputView.enterNumberOfRoundsMessage());
         String userInput = Console.readLine();
         TotalNumberOfRoundsValidator.getInstance()
                 .validate(userInput);
 
-        return createRound(userInput);
+        return createRoundCounter(userInput);
     }
 
-    private static Round createRound(String userInput) {
-        return new Round(Integer.parseInt(userInput));
+    private static RoundCounter createRoundCounter(String userInput) {
+        return new RoundCounter(Integer.parseInt(userInput));
     }
 }

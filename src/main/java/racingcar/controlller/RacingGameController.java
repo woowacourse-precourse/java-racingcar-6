@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.Round;
+import racingcar.model.RoundCounter;
 
 public class RacingGameController {
     private boolean isRunning;
     private Cars cars;
-    private Round round;
+    private RoundCounter roundCounter;
 
     public RacingGameController(boolean isRunning) {
         this.isRunning = isRunning;
@@ -24,16 +24,16 @@ public class RacingGameController {
 
     public void startGame() {
         cars = InputController.scanCars();
-        round = InputController.scanRound();
+        roundCounter = InputController.scanRoundCounter();
 
         playAllRounds();
     }
 
     private void playAllRounds() {
         OutputController.printResultHeaderMessage();
-        while (round.hasNextRound()) {
+        while (roundCounter.hasNextRound()) {
             playOneRound();
-            round.plusOne();
+            roundCounter.plusOne();
         }
         OutputController.printWinnersMessage(pickWinners());
     }
