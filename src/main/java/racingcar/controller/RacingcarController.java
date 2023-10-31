@@ -21,7 +21,7 @@ public class RacingcarController {
         try {
             validate();
         } catch (IllegalArgumentException e) {
-            return;
+            throw new IllegalArgumentException();
         }
         
         move();
