@@ -37,4 +37,17 @@ class RacingCarsTest {
                 .hasMessageContaining("[ERROR] : 두 개 이상의 자동차를 입력해주세요");
     }
 
+    @Test
+    @DisplayName("리스트 숫자에 따라 자동차가 잘 움직이는지 확인")
+    public void moveRacingCars() {
+        List<String> carNames = Arrays.asList("pobi", "dobi");
+        RacingCars racingCars = new RacingCars(carNames);
+        racingCars.moveRacingCars(Arrays.asList(1, 5));
+
+        Car pobiCar = racingCars.getRacingCars().get(0);
+        Car dobiCar = racingCars.getRacingCars().get(1);
+        assertThat(pobiCar.getDistance()).isEqualTo(0);
+        assertThat(dobiCar.getDistance()).isEqualTo(1);
+    }
+
 }
