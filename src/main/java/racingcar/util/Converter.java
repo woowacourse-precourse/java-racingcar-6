@@ -6,11 +6,11 @@ import racingcar.util.validation.InputValidator;
 import racingcar.vo.CarName;
 import racingcar.vo.TryNumber;
 
-public class StringConverter {
+public class Converter {
 
     private static final String DELIMITER = ",";
 
-    private StringConverter() {
+    private Converter() {
     }
 
     public static List<CarName> stringToCarNameListByDelimiter(String carNames) {
