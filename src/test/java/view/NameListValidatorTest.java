@@ -41,4 +41,12 @@ class NameListValidatorTest {
                 .hasMessage(ExceptionMessage.EXCEEDED_NAME_LENGTH);
     }
 
+    @Test
+    public void 중복되는_이름을_입력하면_예외발생(){
+        String input = "aa,bb,aa";
+        assertThatThrownBy(() -> nameListValidator.validate(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.DUPLICATED_NAME);
+    }
+
 }
