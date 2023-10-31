@@ -16,4 +16,12 @@ public class Attempt {
         count--;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Attempt attempt) {
+            return attempt.count.equals(count);
+        }
+        return false;
+    }
+
 }
