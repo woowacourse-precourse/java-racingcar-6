@@ -50,11 +50,11 @@ public class Cars {
     }
 
     public String winnersToString(){
-        ArrayList<String> carNames = getCarNames(getWinners());
+        ArrayList<String> carNames = carNamesToString(getWinners());
         return String.join(DELIMITER_WITH_BLANK.getValue(), carNames);
     }
 
-    public ArrayList<String> getCarNames(ArrayList<Car> cars){
+    public ArrayList<String> carNamesToString(ArrayList<Car> cars){
         ArrayList<String> carNames = new ArrayList<>();
         for (Car car : cars) {
             carNames.add(car.getCarName());
