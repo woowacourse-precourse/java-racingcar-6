@@ -15,4 +15,15 @@ public class TryCountInputTest {
 		Assertions.assertThatThrownBy(() -> tryCountInput.validatePositive(tryCount))
 				.isInstanceOf(IllegalArgumentException.class);
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"a", "12345678901", "a1"})
+	public void 시도_횟수가_정수형이_아니라면_예외발생(String input) {
+		//given
+		TryCountInput tryCountInput = new TryCountInput();
+
+		// when & then
+		Assertions.assertThatThrownBy(() -> tryCountInput.validateAndParseInteger(input))
+				.isInstanceOf(IllegalArgumentException.class);
+	}
 }
