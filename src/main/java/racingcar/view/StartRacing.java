@@ -31,7 +31,6 @@ public class StartRacing {
     private void playGame() {
         System.out.println("실행 결과");
         gameProcess.playingGame();
-        System.out.println();
     }
 
     private void endGame() {

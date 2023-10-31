@@ -82,7 +82,7 @@ public class GameProcess {
         Collections.sort(cars, new Comparator<Car>() {
             @Override
             public int compare(Car car1, Car car2) {
-                return car1.getMovingDistance()-car2.getMovingDistance();
+                return car2.getMovingDistance()-car1.getMovingDistance();
             }
         });
     }
