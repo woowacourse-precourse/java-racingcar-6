@@ -20,7 +20,7 @@ public class Car {
 
     public List<String> splitInputNames(String name) {
 
-        List<String> inputNames = Arrays.asList(name.split(","));
+        List<String> inputNames = Arrays.asList(name.split(",", -1));
         validateInputNames(inputNames);
 
         return inputNames;
