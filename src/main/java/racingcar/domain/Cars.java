@@ -20,7 +20,7 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
-    
+
     public List<String> getWinnerNameList() {
         int maxPosition = getMaxPosition();
         return getCars().stream()
