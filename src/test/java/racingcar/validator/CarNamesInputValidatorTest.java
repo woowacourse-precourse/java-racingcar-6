@@ -1,6 +1,7 @@
 package racingcar.validator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,41 +11,29 @@ class CarNamesInputValidatorTest {
 
     @Test
     void validate() {
-        Throwable isInputEmptyException = assertThrows(
-                IllegalArgumentException.class,
-                () -> carNamesInputValidator.validate("")
-        );
-        assertEquals("입력값이 없습니다.", isInputEmptyException.getMessage());
+        assertThatThrownBy(() -> carNamesInputValidator.validate(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 없습니다.");
 
-        Throwable hasCommaAtStartOrEndException = assertThrows(
-                IllegalArgumentException.class,
-                () -> carNamesInputValidator.validate(",a,b,c,")
-        );
-        assertEquals("자동차 이름은 쉼표로 시작하거나 끝날 수 없습니다.", hasCommaAtStartOrEndException.getMessage());
+        assertThatThrownBy(() -> carNamesInputValidator.validate(",a,b,c,"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 쉼표로 시작하거나 끝날 수 없습니다.");
 
-        Throwable hasLessThanTwoCarNamesException = assertThrows(
-                IllegalArgumentException.class,
-                () -> carNamesInputValidator.validate("a")
-        );
-        assertEquals("자동차 이름은 2개 이상이어야 합니다.", hasLessThanTwoCarNamesException.getMessage());
+        assertThatThrownBy(() -> carNamesInputValidator.validate("a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 2개 이상이어야 합니다.");
 
-        Throwable hasDuplicateCarNamesException = assertThrows(
-                IllegalArgumentException.class,
-                () -> carNamesInputValidator.validate("a,b,a")
-        );
-        assertEquals("자동차 이름은 중복될 수 없습니다.", hasDuplicateCarNamesException.getMessage());
+        assertThatThrownBy(() -> carNamesInputValidator.validate("a,b,a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 중복될 수 없습니다.");
 
-        Throwable hasSpecialCharactersException = assertThrows(
-                IllegalArgumentException.class,
-                () -> carNamesInputValidator.validate("a%,b@")
-        );
-        assertEquals("자동차 이름에는 특수문자가 포함될 수 없습니다.", hasSpecialCharactersException.getMessage());
+        assertThatThrownBy(() -> carNamesInputValidator.validate("a%,b@"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름에는 특수문자가 포함될 수 없습니다.");
 
-        Throwable isEachCarNameLengthValidException = assertThrows(
-                IllegalArgumentException.class,
-                () -> carNamesInputValidator.validate("abcdef,abc")
-        );
-        assertEquals("자동차 이름은 1자 이상, 5자 이하만 가능합니다.", isEachCarNameLengthValidException.getMessage());
+        assertThatThrownBy(() -> carNamesInputValidator.validate("abcdef,abc"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
 
         assertDoesNotThrow(
                 () -> carNamesInputValidator.validate("a,b,c")
