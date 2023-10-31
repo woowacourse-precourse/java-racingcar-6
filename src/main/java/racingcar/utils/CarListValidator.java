@@ -2,6 +2,7 @@ package racingcar.utils;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class CarListValidator {
@@ -17,6 +18,9 @@ public class CarListValidator {
     }
 
     private static boolean isCarDuplicated(List<Car> carList) {
-        return new HashSet<>(carList).size() != carList.size();
+
+        List<String> carNames = carList.stream().map(Car::getName).collect(Collectors.toList());
+
+        return new HashSet<>(carNames).size() != carNames.size();
     }
 }
