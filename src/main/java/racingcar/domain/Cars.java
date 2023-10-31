@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.utils.RandomNumberGenerator;
 
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(String input) {
-        this.cars = parseInput(input);
+    private Cars(List<Car> cars) {
+        this.cars = cars;
     }
 
-    private List<Car> parseInput(String input) {
+    public static Cars from(String input) {
+        return new Cars(parseInput(input));
+    }
+
+    private static List<Car> parseInput(String input) {
         String[] names = input.split(",");
         List<Car> carList = new ArrayList<>();
         Set<String> nameSet = new HashSet<>();
@@ -31,5 +36,13 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void moveCars(RandomNumberGenerator randomNumberGenerator, int threshold) {
+        for (Car car : cars) {
+            if (randomNumberGenerator.createRandomNumber() >= threshold) {
+                car.moveForward();
+            }
+        }
     }
 }
