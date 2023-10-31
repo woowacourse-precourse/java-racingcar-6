@@ -22,7 +22,7 @@ public class Exception {
     public static void isSpace(String[] carNames) {
         for (String name : carNames) {
             String word = name.trim();
-            if (word.contains(" ")) {
+            if (word.contains(" ") || word.contains(", ")) {
                 throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다");
             }
         }
