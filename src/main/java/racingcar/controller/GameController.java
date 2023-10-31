@@ -6,6 +6,7 @@ import racingcar.service.RacingCarService.RacingCarService;
 import racingcar.service.StringUtilService;
 import racingcar.service.ValidatorService;
 import racingcar.view.InputView;
+import racingcar.view.OutputGameStateView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +42,8 @@ public class GameController {
 		printGameRuleInfo();
 		requestUserInput();
 		this.saveRacingCar();
-		racingCarService.playCarRacing();
-		racingCarService.printCarRacingResult(); // @TODO: 결괏값을 View에 전달하여 출력하기
+		OutputGameStateView.getInstance().printCarRacing(racingCarService.playCarRacing());
+		OutputGameStateView.getInstance().printCarRacing(racingCarService.printCarRacingResult());
 	}
 
 	private void printGameRuleInfo() {

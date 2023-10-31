@@ -13,6 +13,8 @@ public class RacingCarService {
 
 	private Integer inputCarRaceTimes = 0;
 
+	private StringBuffer playStateStringBuffer = new StringBuffer();
+
 	private RacingCarService() {
 	}
 
@@ -42,37 +44,42 @@ public class RacingCarService {
 		return racingCarRepository.getRacingCarMap();
 	}
 
-	public void playCarRacing() {
+	public String playCarRacing() {
+		playStateStringBuffer.setLength(0); // 초기화
+
 		Map<String, RacingCar> racingCarMap = this.getRacingCarMap();
 		for (int i = 0; i < this.inputCarRaceTimes; i++) {
 			racingCarMap.forEach((key, val) -> val.movingForward());
-			printRacingStatus();
+			playRacingStatus();
 		}
+		return playStateStringBuffer.toString();
 	}
 
-	private void printRacingStatus() {
+	private void playRacingStatus() {
 		Map<String, RacingCar> racingCarMap = this.getRacingCarMap();
-		racingCarMap.forEach((key, val) -> this.printMoveForward(key, val.getCarPosition()));
-		System.out.println();
+		racingCarMap.forEach((key, val) -> this.playMoveForward(key, val.getCarPosition()));
+		playStateStringBuffer.append(System.lineSeparator()); // OS에 맞는 개행 문자 추가
 	}
 
-	private void printMoveForward(String carName, Integer carPosition) {
-		System.out.print(carName + " : ");
+	private void playMoveForward(String carName, Integer carPosition) {
+		playStateStringBuffer.append(carName + " : ");
 		for (int i = 0; i < carPosition; i++) {
-			System.out.print("-");
+			playStateStringBuffer.append("-");
 		}
-		System.out.println();
+		playStateStringBuffer.append(System.lineSeparator()); // OS에 맞는 개행 문자 추가
 	}
 
 
-	public void printCarRacingResult() {
+	public String printCarRacingResult() {
+		StringBuffer printCarRacingResult = new StringBuffer();
 		Map<String, RacingCar> racingCarMap = racingCarRepository.sortRacingCarMapByValueDesc(this.getRacingCarMap());
 		StringJoiner stringJoiner = new StringJoiner(", ");
 		Integer maxMoveForwardPosition = (racingCarMap.entrySet().iterator().next().getValue()).getCarPosition();
 		racingCarMap.forEach((key, val) -> {
 			if (val.getCarPosition() >= maxMoveForwardPosition) stringJoiner.add(key);
-			// this.printMoveForward(key, val.getCarPosition());
 		});
-		System.out.print(InterfaceMsg.GAME_RESULT.getValue() + stringJoiner);
+		printCarRacingResult.append(InterfaceMsg.GAME_RESULT.getValue() + stringJoiner);
+
+		return printCarRacingResult.toString();
 	}
 }
