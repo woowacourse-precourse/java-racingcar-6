@@ -6,12 +6,14 @@ import org.junit.jupiter.api.Test;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 class RacingCarTest extends NsTest {
-    //    @Test
-//    void 이름_공백_무효_처리(){
-//
-//    }
+
+    Computer computer = new Computer();
+    @Test
+    void 이름_공백_무효_처리() {
+
+    }
 
     @Test
     void 시도_회수_입력값_타입에_대한_예외_처리(){

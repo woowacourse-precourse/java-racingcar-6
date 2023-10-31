@@ -16,12 +16,16 @@ public class Computer {
         String[] temp = carNameString.split(",");
 
         for (int i = 0; i < temp.length; i++) {
-            temp[i] = temp[i].replaceAll(" ", "");
-            validation.carNameValidation(temp[i]);
-            carMap.put(temp[i],0);
+            String name = removeBlank(temp[i]);
+            validation.carNameValidation(name);
+            carMap.put(name,0);
         }
 
         return carMap;
+    }
+
+    String removeBlank(String name){
+        return name.replaceAll(" ", "");
     }
 
     int getIntRound(String roundString){
