@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.validator;
 
 import java.util.regex.Pattern;
 import racingcar.configuration.ConfigurationConstants;

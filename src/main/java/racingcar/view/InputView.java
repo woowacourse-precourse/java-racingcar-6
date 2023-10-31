@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.CarNamesInputValidator;
-import racingcar.utils.TotalRoundInputValidator;
+import racingcar.utils.validator.CarNamesInputValidator;
+import racingcar.utils.validator.TotalRoundInputValidator;
 
 // TODO: Console.readLine 직접 참조 제거 -> 인터페이스로
 public class InputView {

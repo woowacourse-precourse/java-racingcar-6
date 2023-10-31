@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.validator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import racingcar.configuration.ConfigurationConstants;
 
 public class CarNamesInputValidator {
-    
+
     private static final String SPLIT_REGEX = ",";
     private static final char COMMA = ',';
 
