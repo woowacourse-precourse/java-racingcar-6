@@ -2,6 +2,7 @@ package racingcar.domain.car;
 
 import static racingcar.constant.GameConstant.INITIAL_CAR_INDEX;
 import static racingcar.exception.InputException.existsNameException;
+import static racingcar.exception.InputException.notExistsNameException;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -30,6 +31,9 @@ public class CarInfo {
     }
 
     public void updateCarInfo(Car car) {
+        if (!carRepository.hasName(car.name())) {
+            notExistsNameException();
+        }
         carRepository.saveCar(car);
     }
 
