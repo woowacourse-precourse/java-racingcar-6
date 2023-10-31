@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
-    public static List<Car> createCars(List<String> names) {
+    public List<Car> createCars(List<String> names) {
         List<Car> carList = new ArrayList<>();
         for (String name : names) {
             validateName(name);
@@ -13,7 +13,7 @@ public class CarFactory {
         return carList;
     }
 
-    public static void validateName(String name) {
+    public void validateName(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }

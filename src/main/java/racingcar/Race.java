@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Race {
-    public static void start(List<Car> carList, int attemptsNumber) {
+    public void start(List<Car> carList, int attemptsNumber) {
         System.out.println();
         System.out.println("실행 결과");
         for (int i = 0; i < attemptsNumber; i++) {
@@ -18,19 +18,19 @@ public class Race {
         System.out.println("최종 우승자 : " + winners);
     }
 
-    public static void racingCar(List<Car> carList) {
+    public void racingCar(List<Car> carList) {
         for (Car car : carList) {
             if (shouldMove()) car.move();
             System.out.println(car.getCarStatus());
         }
     }
 
-    public static boolean shouldMove() {
+    public boolean shouldMove() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
 
-    public static List<String> getWinners(List<Car> cars) {
+    public List<String> getWinners(List<Car> cars) {
         int maxDistance = cars.stream()
                 .mapToInt(Car::getPositionLength)
                 .max()
