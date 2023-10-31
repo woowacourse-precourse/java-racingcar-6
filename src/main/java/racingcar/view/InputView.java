@@ -13,7 +13,8 @@ public class InputView {
         REQUEST_INPUT_CAR_NAME("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
         REQUEST_INPUT_ROUND_NUMBER("시도할 회수는 몇회인가요?"),
         EXCEED_NAME_SIZE_LIMIT("자동차 이름은 5글자 이하여야 합니다."),
-        NONE_ARABIC_NUMBER("아라비아 숫자만 입력 가능합니다.");
+        NONE_ARABIC_NUMBER("아라비아 숫자만 입력 가능합니다."),
+        EMPTY_INPUT("빈 값은 입력할 수 없습니다.");
 
         private final String message;
 
@@ -29,6 +30,7 @@ public class InputView {
     public List<String> inputName() {
         System.out.println(InputMessage.REQUEST_INPUT_CAR_NAME.message);
         String input = Console.readLine();
+        validateEmptyInput(input);
         List<String> names = Arrays.asList(input.split(SEPARATOR));
         validateFiveCharacter(names);
 
@@ -41,6 +43,7 @@ public class InputView {
         System.out.println(InputMessage.REQUEST_INPUT_ROUND_NUMBER.message);
         String number = Console.readLine();
         validateArabicNumber(number);
+        validateEmptyInput(number);
 
         return Integer.parseInt(number);
     }
@@ -54,6 +57,12 @@ public class InputView {
     public void validateArabicNumber(String input) {
         if (!ARABIC_NUMBER_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException(InputMessage.NONE_ARABIC_NUMBER.message);
+        }
+    }
+
+    public void validateEmptyInput(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException(InputMessage.EMPTY_INPUT.message);
         }
     }
 }
