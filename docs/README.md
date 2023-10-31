@@ -18,7 +18,8 @@
   - [x] 무작위 값이 4 이상일 경우 전진한다. Forward#canForward()
   - [x] 자동차가 전진하면 racingStateMap 전진 값을 증가시킨다. Forward#updatePosition()
 
-- [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. (1회 이상 10회 이하) TryCount#inputTryCount()
+- [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. (1회 이상 10회 이하) TryCount
+  - [x] 사용자로 부터 몇 번의 이동을 할 것 인지 입력 받는다. TryCount#inputTryCount()
   - [x] 예외 처리를 모두 거친 시도 횟수를 반환한다. TryCount#validateTryCount()
     - [x] 입력 받은 값은 빈 문자열이 아니다. TryCount#validateTryCountNotEmpty()
     - [x] 입력 받은 값은 숫자이다. TryCount#validateTryCountIsNumber()
