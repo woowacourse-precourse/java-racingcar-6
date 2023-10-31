@@ -24,11 +24,7 @@ public class OutPutView {
     }
 
     private String distanceVisualization(int distance) {
-        StringBuilder distanceVisualizationBuilder = new StringBuilder();
-        for (int i = 0; i < distance; i++) {
-            distanceVisualizationBuilder.append("-");
-        }
-        return distanceVisualizationBuilder.toString();
+        return "-".repeat(distance);
     }
 
     private void printMidGameResult(StringBuilder midGameResultVisualizationBuilder) {
