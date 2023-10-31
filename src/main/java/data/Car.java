@@ -36,12 +36,6 @@ public class Car implements Comparable<Car>{
     public int compareTo(Car car) {
         int thisCarLength = this.getTrackLength();
         int otherCarLength = car.getTrackLength();
-
-        if(thisCarLength > otherCarLength)
-            return 1;
-        else if(thisCarLength < otherCarLength)
-            return -1;
-        else
-            return 0;
+        return thisCarLength - otherCarLength;
     }
 }
