@@ -10,7 +10,7 @@ public class CarGenerator {
         LinkedHashMap<String, String> carList = new LinkedHashMap<>();
         String[] cars = splitStringByCommas(stringCarList);
         for (String car : cars) {
-            isCarNameDuplicate(carList,car);
+            isCarNameDuplicate(carList, car);
             carList.put(car, "");
         }
         return carList;
