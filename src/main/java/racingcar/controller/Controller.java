@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.util.Validator;
+import racingcar.util.validator.Validator;
 import racingcar.view.View;
 
 public interface Controller {

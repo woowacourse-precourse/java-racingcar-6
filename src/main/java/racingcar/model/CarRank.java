@@ -6,13 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Rank implements Model{
+public class CarRank implements Model{
     private final PriorityQueue<Car> rankQueue;
 
-    Rank(final List<Car> cars) {
-        if (cars.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
+    CarRank(final List<Car> cars) {
         rankQueue = new PriorityQueue<>(cars);
     }
 
@@ -22,11 +19,15 @@ public class Rank implements Model{
         Car winner = requireNonNull(rankQueue.poll());
         winnerList.add(winner.getName());
 
-        while (!rankQueue.isEmpty() && rankQueue.peek().getMoved() == winner.getMoved()) {
-            Car tmp = requireNonNull(rankQueue.poll());
-            winnerList.add(tmp.getName());
+        while (!rankQueue.isEmpty() && isTieRecord(winner)) {
+            Car nextCar = requireNonNull(rankQueue.poll());
+            winnerList.add(nextCar.getName());
         }
 
         return winnerList;
+    }
+
+    private boolean isTieRecord(Car winner) {
+        return winner.isDraw(rankQueue.peek());
     }
 }

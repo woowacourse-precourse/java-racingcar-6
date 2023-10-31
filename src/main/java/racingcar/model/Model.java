@@ -7,6 +7,6 @@ public interface Model {
         return new Car(name, index);
     }
     static Model generateRank(final List<Car> cars) {
-        return new Rank(cars);
+        return new CarRank(cars);
     }
 }

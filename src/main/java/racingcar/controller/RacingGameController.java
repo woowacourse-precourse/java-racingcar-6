@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Model;
-import racingcar.model.Rank;
+import racingcar.model.CarRank;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.view.View;
@@ -43,6 +43,7 @@ public class RacingGameController implements Controller {
         for (String name:participants) {
             cars.add((Car) Model.generateCar(name, index++));
         }
+
         return cars;
     }
 
@@ -55,7 +56,7 @@ public class RacingGameController implements Controller {
     }
 
     private void judgeWinner(final List<Car> cars) {
-        Rank rank = (Rank) Model.generateRank(cars);
-        outputView.recordWinner(rank.getWinnerList());
+        CarRank carRank = (CarRank) Model.generateRank(cars);
+        outputView.recordWinner(carRank.getWinnerList());
     }
 }

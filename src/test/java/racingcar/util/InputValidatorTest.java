@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.validator.InputValidator;
+import racingcar.util.validator.Validator;
 
 class InputValidatorTest {
     private final InputValidator testInputValidator = (InputValidator) Validator.generateInputValidator();
