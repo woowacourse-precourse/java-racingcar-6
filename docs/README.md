@@ -31,6 +31,7 @@
 - constant
   - NumberConstant : 숫자 관련 상수를 관리하기 위한 Enum 클래스
   - TextConstant : 문자열 관련 상수를 관리하기 위한 Enum 클래스
+  - ExceptionConstant : 예외 처리 메세지 상수를 관리하기 위한 Enum 클래스
 - domain
   - RacingCar : 자동차 정보(자동차 이름, 현재 위치, 현재 포인트)를 가지고 있고 상세 구현 로직을 담당하는 클래스
   - RacingCarRace : 경주 정보(경주에 참가한 자동차, 시도 횟수)를 가지고 있고 상세 구현 로직을 담당하는 클래스
