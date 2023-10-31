@@ -32,4 +32,8 @@ public final class Utils {
     public static String joinByComma(ArrayList<String> arrList) {
         return String.join(", ", arrList);
     }
+
+    public static int stringToInt(String string) {
+        return Integer.parseInt(string.trim());
+    }
 }
