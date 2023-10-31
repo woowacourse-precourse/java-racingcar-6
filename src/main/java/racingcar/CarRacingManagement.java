@@ -8,5 +8,9 @@ public class CarRacingManagement {
         String inputValue = Console.readLine();
         inputValue = inputValue.replaceAll(" ", "");
         StringTokenizer stringCarList = new StringTokenizer(inputValue, ",");
+        int numberOfCars = stringCarList.countTokens();
+        Car[] cars = new Car[numberOfCars];
+        for (int carIndex = 0; carIndex < numberOfCars; carIndex++)
+            cars[carIndex] = new Car(stringCarList.nextToken());
     }
 }
