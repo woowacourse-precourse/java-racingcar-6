@@ -16,6 +16,12 @@ public class RacingCar {
         this.position = 0;
     }
 
+    public RacingCar(String name, int position) {
+        validate(name);
+        this.name = name;
+        this.position = position;
+    }
+
     private void validate(String name) {
         if (name.length() > NAME_LIMIT) {
             throw new IllegalArgumentException(WRONG_NAME_LENGTH);
