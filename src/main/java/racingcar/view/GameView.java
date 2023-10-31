@@ -16,6 +16,7 @@ public class GameView {
     }
 
     public static void printResultMessage() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -31,8 +32,14 @@ public class GameView {
         System.out.println();
     }
 
-    public static void printWinner(List<String> winnerName) {
-        System.out.print("최종 우승자 :");
+    public static void printWinner(List<String> winnerNames) {
+        System.out.print("최종 우승자: ");
+        for (int i = 0; i < winnerNames.size(); i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(winnerNames.get(i));
+        }
     }
 
 }
