@@ -49,9 +49,10 @@ public class Play {
 
     public static void addLengthIfGo() {
         int carLength = cars.size();
+        int addLength = 1;
         for (int index : findEachCarRandomNum(carLength)) {
             int pre = cars.get(index).length;
-            cars.get(index).addLength(pre+1);
+            cars.get(index).addLength(pre+addLength);
         }
     }
 
@@ -71,7 +72,8 @@ public class Play {
     }
 
     public static boolean checkGoOrStop(int num) {
-        if (num < 4) {
+        int standardGoNum = 4;
+        if (num < standardGoNum) {
             return false;
         }
         return true;
