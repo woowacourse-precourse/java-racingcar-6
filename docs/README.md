@@ -78,7 +78,7 @@
 
 ---
 
-## CheckInput
+## ValidateInput
 
 - `validateCarNames()` : 입력된 자동차의 이름이 적절한지 검증한다.
     1. 공백 문자열인지 확인
