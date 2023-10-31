@@ -11,6 +11,7 @@ public class Application {
             List<Car> cars = insertCarName();
             int numberOfMoves = insertNumberOfMoves();
             playGame(cars, numberOfMoves);
+
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
@@ -55,6 +56,13 @@ public class Application {
     }
     //현재 차의 위치 print 함수
     public static void printCarPositions(List<Car> cars){
-
+        for(Car car : cars){
+            System.out.println(car.getName() + " : ");
+            for(int i = 0; i < car.getPosition(); i++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
+    //우승자 구하는 함수
 }
