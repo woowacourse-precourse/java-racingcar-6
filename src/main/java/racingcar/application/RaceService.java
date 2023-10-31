@@ -22,6 +22,10 @@ public class RaceService {
         cars.tryMoveCars();
     }
 
+    public List<String> getWinners(Cars cars) {
+        return cars.findMostMovedCarName();
+    }
+
     private Integer parseStringToInteger(String count) {
         try {
             return Integer.parseInt(count);
