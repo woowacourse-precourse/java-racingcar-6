@@ -1,12 +1,8 @@
 package racingcar.controller;
 
-import racingcar.model.Information;
-import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 import racingcar.view.InputView;
-
-import java.util.ArrayList;
-import java.util.List;
+import racingcar.view.OutputView;
 
 public class GameController {
     private static RacingController racingController;
@@ -17,25 +13,24 @@ public class GameController {
         }
     }
 
-    public void runGame() {
-        playGame();
-        outWinner();
+    public void runGame(OutputView outputView) {
+        playGame(outputView);
+        outWinner(outputView);
     }
 
-    private void playGame() {
-        //TODO : print start message;
+    private void playGame(OutputView outputView) {
         for (int i = 0; i < racingController.times; i++) {
-            playRound();
+            playRound(outputView);
         }
     }
 
-    private void playRound() {
+    private void playRound(OutputView outputView) {
         racingController.go();
-        //TODO : print result(racingCars.getResult)
+        outputView.printRoundResult(racingController.racingCars);
     }
 
-    private void outWinner() {
+    private void outWinner(OutputView outputView) {
         RacingCars winners = RacingCars.from(racingController.getMaxs());
-        //TODO : print winners
+        outputView.printWinnerResult(winners.getRacingCars());
     }
 }
