@@ -1,11 +1,12 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
-import camp.nextstep.edu.missionutils.Randoms;
-
+import racingcar.model.Car;
 import racingcar.view.messagePrinter;
 import racingcar.view.userInput;
+import java.util.ArrayList;
+
+
 
 
 public class Application {
@@ -18,13 +19,16 @@ public class Application {
         List<String> carNames = userInput.getCarNames();
         messagePrinter.askTryNumber();
         int tryNum = userInput.getTryNumber();
-        for(int i=0;i<tryNum;i++){
-            cars.add(new Car(carNames.get(i)));
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
         }
         messagePrinter.printResultTitle();
         for(int i=0;i<tryNum;i++) {
             moveAllCars(cars);
+            messagePrinter.printResults(cars);
         }
+
+
 
     }
 
@@ -34,22 +38,5 @@ public class Application {
         }
 
     }
-}
-
- class Car {
-    public String carName;
-    public int raceStatus;
-    public Car(String carNameInput){
-        this.carName = carNameInput;
-        this.raceStatus = 0;
-    }
-
-    public void move(){
-        int randResult = Randoms.pickNumberInRange(0,9);
-        if(randResult>=4){
-            raceStatus++;
-        }
-    }
-
 }
 
