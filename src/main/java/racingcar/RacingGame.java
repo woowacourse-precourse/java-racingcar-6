@@ -58,9 +58,8 @@ public class RacingGame {
     }
 
     private void printWinner() {
-        int winnerDistance = getMaxDistance();
-
         outputView.print(FINAL_WINNER_MESSAGE);
+        int winnerDistance = getMaxDistance();
         List<String> winners = cars.stream()
                 .filter(car -> car.getDistance() == winnerDistance)
                 .map(Car::getName)
@@ -71,13 +70,9 @@ public class RacingGame {
     }
 
     private int getMaxDistance() {
-        int maxDistance = -1;
-        for (Car car : cars) {
-            if (maxDistance < car.getDistance()) {
-                maxDistance = car.getDistance();
-            }
-        }
-
-        return maxDistance;
+        return cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .getAsInt();
     }
 }
