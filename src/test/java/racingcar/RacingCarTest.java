@@ -17,7 +17,7 @@ public class RacingCarTest {
         race.registerMoveCounts(0);
 
         // Act and Assert
-        assertThrows(IllegalStateException.class, race::startCarRacing);
+        assertThrows(IllegalArgumentException.class, race::startCarRacing);
     }
 
     @DisplayName("Fuel이 4 이상인 경우 이동")
