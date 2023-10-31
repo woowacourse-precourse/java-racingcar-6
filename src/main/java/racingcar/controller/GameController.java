@@ -1,6 +1,8 @@
 package racingcar.controller;
 
+import racingcar.DTO.CarDTO;
 import racingcar.model.Car;
+import racingcar.model.Round;
 import racingcar.view.InputView;
 
 import java.util.ArrayList;
@@ -32,6 +34,18 @@ public class GameController {
         }
 
         return cars;
+    }
+
+    public Round createRound() {
+        return new Round();
+    }
+
+    public List<List<CarDTO>> play() {
+        Round currentRound;
+
+        while (Round.getCurrentRoundCount() < totalRoundCount) {
+            currentRound = createRound();
+        }
     }
 
     public void setCars(List<Car> cars) {
