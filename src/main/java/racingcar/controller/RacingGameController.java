@@ -1,39 +1,26 @@
 package racingcar.controller;
 
-import racingcar.InputValidator;
 import racingcar.model.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
-
 public class RacingGameController {
-    private RacingGame racingGame;
-    private int tryCount;
+    private RacingGame racingGame = new RacingGame();
 
     public void proceed() {
         initRacingGame();
-        initTryCount();
         playGame();
         showFinalWinners();
     }
 
     private void initRacingGame() {
-        List<String> carNames = InputView.inputCarNames();
-        racingGame = new RacingGame(carNames);
+        racingGame.setCarNames(InputView.inputCarNames());
+        racingGame.setTryCount(InputView.inputTryCount());
     }
 
-    private void initTryCount() {
-        int tryCount = InputView.inputTryCount();
-        InputValidator.validateCount(tryCount);
-        this.tryCount = tryCount;
-    }
 
     private void playGame() {
-        OutputView.printResultMessage();
-        for (int i = 0; i < tryCount; ++i) {
-            OutputView.printMove(racingGame.race());
-        }
+        OutputView.printResult(racingGame.race());
     }
 
     private void showFinalWinners() {
