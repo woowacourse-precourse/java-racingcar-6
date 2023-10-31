@@ -10,8 +10,8 @@ public class Circuit {
     private static final String DELIMITER = "\n";
     private final List<RacingCar> racingCars;
 
-    public Circuit(List<String> entries) {
-        this.racingCars = entries.stream()
+    public Circuit(Entries entries) {
+        this.racingCars = entries.entries().stream()
                 .map(RacingCar::new)
                 .toList();
     }
