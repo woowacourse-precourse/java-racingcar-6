@@ -15,12 +15,12 @@ public class GameService {
     public void playGame() {
 
         // 자동차 생성
-        System.out.println(Constants.CAR_NAME_TEXT);
+        System.out.println(Constants.CAR_NAME_INPUT);
         CarService carService = new CarService();
         carList = carService.createCarList();
 
         // 시도 횟수 생성
-        System.out.println(Constants.TRY_COUNT_TEXT);
+        System.out.println(Constants.TRY_COUNT_INPUT);
         createTryCount();
 
         // 실행 결과 출력
