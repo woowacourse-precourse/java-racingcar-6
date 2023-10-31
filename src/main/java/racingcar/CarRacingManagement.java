@@ -12,5 +12,8 @@ public class CarRacingManagement {
         Car[] cars = new Car[numberOfCars];
         for (int carIndex = 0; carIndex < numberOfCars; carIndex++)
             cars[carIndex] = new Car(stringCarList.nextToken());
+
+        inputValue = Console.readLine();
+        int numberOfAttempts = Integer.parseInt(inputValue);
     }
 }
