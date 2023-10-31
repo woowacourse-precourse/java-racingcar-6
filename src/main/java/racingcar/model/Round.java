@@ -10,11 +10,11 @@ public class Round {
     private static int currentRoundCount = INITIAL_ROUND;
     private List<CarDTO> roundResult;
 
-    public void startRace(List<Car> cars) {
+    public void startRound(List<Car> cars) {
         cars.forEach(Car::startEngine);
     }
 
-    public void endRace() {
+    public void endRound() {
         currentRoundCount++;
     }
 

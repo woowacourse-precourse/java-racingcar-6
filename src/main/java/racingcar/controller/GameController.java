@@ -58,8 +58,8 @@ public class GameController {
             currentRound = createRound();
 
             // 라운드 시작 및 종료
-            currentRound.startRace(cars);
-            currentRound.endRace();
+            currentRound.startRound(cars);
+            currentRound.endRound();
 
             // 라운드 결과 생성 및 저장
             currentRoundResult = currentRound.generateResult(cars);

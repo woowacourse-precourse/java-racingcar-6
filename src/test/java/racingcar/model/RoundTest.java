@@ -45,7 +45,7 @@ class RoundTest {
 
         // when
         int beforeCarPosition = car.getPosition();
-        round.startRace(cars);
+        round.startRound(cars);
         int afterCarPosition = car.getPosition();
 
         // then
@@ -70,7 +70,7 @@ class RoundTest {
 
         // when
         Round round = new Round();
-        round.startRace(cars);
+        round.startRound(cars);
         List<CarDTO> roundResult = round.generateResult(cars);
 
         // then
@@ -92,7 +92,7 @@ class RoundTest {
         // given
         for (int i = INITIAL_RACE_COUNT; i < RACE_END_COUNT; i++) {
             Round round = new Round();
-            round.endRace();
+            round.endRound();
         }
 
         // when
