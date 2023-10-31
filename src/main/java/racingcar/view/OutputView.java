@@ -1,7 +1,8 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 import java.util.List;
-import java.util.Map;
 
 public class OutputView {
 
@@ -9,9 +10,9 @@ public class OutputView {
         System.out.println("\n실행 결과");
     }
 
-    public void printRaceStatus(Map<String, Integer> result) {
-        for (String name : result.keySet()) {
-            System.out.printf("%s : %s\n", name, "-".repeat(result.get(name)));
+    public void printRaceStatus(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.printf("%s : %s\n", car.getName(), "-".repeat(car.getMove()));
         }
         System.out.println();
     }

@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
@@ -44,15 +42,19 @@ class RacingServiceTest {
         List<Car> cars = List.of(pobi, woni, jun);
 
         // when
-        Map<String, Integer> result = racingService.playSingleRound(cars);
+        List<Car> roundResult = racingService.playSingleRound(cars);
 
         // then
-        result.values().forEach(score ->
-                assertThat(score).isBetween(0, 9)
+        roundResult.forEach(car ->
+                assertThat(car.getMove()).isBetween(0, 9)
         );
 
-        int maxScore = Collections.max(result.values());
-        cars.stream().filter(car -> result.get(car.getName()) == maxScore)
+        int maxDistance = cars.stream()
+                .mapToInt(Car::getMove)
+                .max()
+                .orElse(0);
+
+        cars.stream().filter(car -> car.getMove() == maxDistance)
                 .forEach(car -> assertThat(car.getWinCount()).isEqualTo(1));
     }
 

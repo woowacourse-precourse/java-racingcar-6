@@ -6,7 +6,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
-import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
@@ -28,9 +27,9 @@ public class Application {
     private static void playRacing(RacingController racingController, InputView inputView, OutputView outputView, List<Car> cars) {
         int tryCount = inputView.inputTryCount();
         outputView.printResultMessage();
-        while (tryCount --> 0) {
-            Map<String, Integer> result = racingController.playRacing(cars);
-            outputView.printRaceStatus(result);
+        while (tryCount-- > 0) {
+            List<Car> singleRoundResult = racingController.playRacing(cars);
+            outputView.printRaceStatus(singleRoundResult);
         }
     }
 

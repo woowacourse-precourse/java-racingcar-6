@@ -3,7 +3,10 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class RacingService {
     public List<Car> createCarList(String[] carNames) {
@@ -14,30 +17,31 @@ public class RacingService {
         return cars;
     }
 
-    public Map<String, Integer> playSingleRound(List<Car> cars) {
-        Map<String, Integer> result = new LinkedHashMap<>();
-        putRaceMove(cars, result);
-        checkRoundWinner(cars, result);
-        return result;
+    public List<Car> playSingleRound(List<Car> cars) {
+        putRaceMove(cars);
+        checkRoundWinner(cars);
+        return cars;
     }
 
-    private static void putRaceMove(List<Car> cars, Map<String, Integer> result) {
+    private static void putRaceMove(List<Car> cars) {
         for (Car car : cars) {
             int move = Randoms.pickNumberInRange(0, 9);
-            result.put(car.getName(), move);
+            car.setMove(move);
         }
     }
 
-    private static void checkRoundWinner(List<Car> cars, Map<String, Integer> result) {
-        int max = Collections.max(result.values());
+    private static void checkRoundWinner(List<Car> cars) {
+        int maxDistance = cars.stream()
+                .mapToInt(Car::getMove)
+                .max()
+                .orElse(0);
         for (Car car : cars) {
-            Integer score = result.get(car.getName());
-            plusWinnerCount(max, car, score);
+            plusWinnerCount(maxDistance, car);
         }
     }
 
-    private static void plusWinnerCount(int max, Car car, Integer score) {
-        if (max == score) {
+    private static void plusWinnerCount(int max, Car car) {
+        if (max == car.getMove()) {
             car.plusWinCount();
         }
     }

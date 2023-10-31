@@ -4,7 +4,6 @@ import racingcar.model.Car;
 import racingcar.service.RacingService;
 
 import java.util.List;
-import java.util.Map;
 
 public class RacingController {
 
@@ -14,7 +13,7 @@ public class RacingController {
         return racingService.createCarList(carNames);
     }
 
-    public Map<String, Integer> playRacing(List<Car> cars) {
+    public List<Car> playRacing(List<Car> cars) {
         return racingService.playSingleRound(cars);
     }
 
