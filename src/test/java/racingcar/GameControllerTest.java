@@ -59,7 +59,7 @@ class GameControllerTest {
 
         // playGame 메서드 실행
         // 유효하지 않은 tryCount 값으로 인해 예외가 발생해야 함
-        assertThatThrownBy(() -> gameController.playGame())
+        assertThatThrownBy(gameController::playGame)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
