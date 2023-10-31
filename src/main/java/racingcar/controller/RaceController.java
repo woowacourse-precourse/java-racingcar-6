@@ -15,13 +15,19 @@ public class RaceController {
                 GameSettingNumber.RANGE_END_NUMBER.get());
     }
 
-    private boolean isMoved() {
-        return getRandomNumber() >= GameSettingNumber.MOVE_CRITERIA.get();
+    private boolean isMoved(int randomNumber) {
+        return randomNumber >= GameSettingNumber.MOVE_CRITERIA.get();
     }
 
-    public void addRecord(Car car) {
-        if (isMoved()) {
+    public void addRecord(Car car, int randomNumber) {
+        if (isMoved(randomNumber)) {
             car.addRecord();
+        }
+    }
+
+    public void race(List<Car> racingCars) {
+        for (Car car : racingCars) {
+            addRecord(car, getRandomNumber());
         }
     }
 

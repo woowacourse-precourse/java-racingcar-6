@@ -14,19 +14,13 @@ public class GameController {
     private final OutputView outputView = new OutputView();
     private final CountInputValidator countInputValidator = new CountInputValidator();
 
-    private void race(List<Car> racingCars) {
-        for (Car car : racingCars) {
-            raceController.addRecord(car);
-        }
-    }
-
     public void proceed() {
         List<Car> racingCars = carController.getRacingCars(inputView.getCarNameInput());
         StringBuilder raceResult = new StringBuilder();
         int count = getValidatedCount(inputView.getCountInput());
 
         for (int i = 0; i < count; i++) {
-            race(racingCars);
+            raceController.race(racingCars);
             raceResult.append(raceController.getNameAndRecord(racingCars));
 
             if (i == count - 1) {
