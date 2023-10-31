@@ -23,10 +23,10 @@ public class GameController {
     }
 
     private void getRequest() {
-        OutputView.printInputMessageCarInfo();
+        OutputView.printInputMessageOfCarInfo();
         carinfo.allSaveCarInfo(InputVeiw.inputMultipleNames());
 
-        OutputView.printInputMessageTotalRound();
+        OutputView.printInputMessageOfTotalRound();
         game.saveTotalRound(InputVeiw.inputSingleNumber());
     }
 
