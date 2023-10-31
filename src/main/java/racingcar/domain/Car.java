@@ -3,6 +3,10 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final int MOVE_CONDITION = 4;
+    private static final int MIN = 0;
+    private static final int MAX = 9;
+
     private final Name name;
     private final Distance distance;
 
@@ -30,10 +34,10 @@ public class Car {
     }
 
     private boolean shouldMove() {
-        return generatedRandomNumber() >= 4;
+        return generatedRandomNumber() >= MOVE_CONDITION;
     }
 
     protected int generatedRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN, MAX);
     }
 }

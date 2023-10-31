@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Winners {
+    private static final String NULL_EXCEPTION = "참가 차량이 없습니다.";
+
     private final List<Car> winners;
     private final int maxDistance;
 
     public Winners(List<Car> cars) {
-        validateCars(cars);
+        validateCarsNotEmpty(cars);
         maxDistance = calculateMaxDistance(cars);
         winners = findWinningCars(cars, maxDistance);
     }
@@ -40,9 +42,9 @@ public class Winners {
                 .collect(Collectors.toList());
     }
 
-    private void validateCars(List<Car> cars) {
+    private void validateCarsNotEmpty(List<Car> cars) {
         if (cars.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NULL_EXCEPTION);
         }
     }
 }

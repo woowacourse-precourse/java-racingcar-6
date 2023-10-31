@@ -2,19 +2,23 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class CarList {
+    private static final String SPLIT_CONDITION = ",";
+
     private final List<Car> carList = new ArrayList<>();
 
-    public void splitCarNames(String carNames) {
-        String[] carNameArray = splitName(carNames);
-        addCars(carNameArray);
+    public List<Car> getCarList() {
+        return carList;
     }
 
-    public String[] splitName(String carNames) {
-        return carNames.split(",");
+    public String[] splitCarNames(String carNames) {
+        return splitName(carNames);
+    }
+
+    private String[] splitName(String carNames) {
+        return carNames.split(SPLIT_CONDITION);
     }
 
     public void addCars(String[] carNameArray) {
@@ -23,12 +27,7 @@ public class CarList {
                 .forEach(carList::add);
     }
 
-    public List<Car> getCarList() {
-        return carList;
-    }
-
     public Winners getWinners() {
         return new Winners(carList);
     }
-
 }
