@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -10,12 +9,10 @@ public class Application {
     	List<String> carNames = CarName.inputCarName();
     	int tryTimes = TryTimes.askTimes();
     	
-    	CarRacing[] car = new CarRacing[carNames.size()];
-    	
+    	CarRacing[] car = new CarRacing[carNames.size()]; //입력된 자동차 갯수 만큼 객체 생성
 		for (int j = 0; j < carNames.size(); j++) {
         	car[j] = new CarRacing();
 		}
-		
 		
 		System.out.println("실행 결과");
 		for (int i = 0; i < tryTimes ; i++) {
@@ -27,29 +24,12 @@ public class Application {
 		
 		List<Integer> racingResult = new ArrayList<>();
 		for (int j = 0; j < carNames.size(); j++) {
-			racingResult.add(j, car[j].resultCount);
+			racingResult.add(j, car[j].moveCount);
 		}
-		System.out.println(racingResult);
+				
+		String result = FindWinner.lastResult(FindWinner.compareCount(racingResult));
 		
 		
-		int winnerPoint = Collections.max(racingResult);
-		System.out.println(winnerPoint);
-		
-		List<Integer> winnerIndexNumber = new ArrayList<>();
-		for (int i = 0; i < racingResult.size(); i++) {
-			if (racingResult.get(i).equals(winnerPoint)) {
-				System.out.println("우승자 인덱스 넘버" + i);
-				winnerIndexNumber.add(i);
-			}
-		}
-		System.out.println(winnerIndexNumber);
-		
-		List<String> winnerList = new ArrayList<>();
-		for(int i = 0; i < winnerIndexNumber.size(); i++) {
-			winnerList.add(carNames.get(winnerIndexNumber.get(i)));
-		}
-		
-		String result = String.join(",", winnerList);
 		System.out.println("최종 우승자 : " + result);
 		
 		

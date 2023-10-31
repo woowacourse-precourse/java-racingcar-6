@@ -2,32 +2,21 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class TryTimes {
-	public static int askTimes() {
-		System.out.println("시도할 횟수는 몇 회인가요?");
-		String inputTimes = Console.readLine();
-		int tryTimes = Integer.parseInt(inputTimes);
-		
-		return tryTimes;
-	}
 
-}
 
 class CarName {
-	
+	public static List<String> carNames = new ArrayList<>();
 	public static List<String> inputCarName() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carName = Console.readLine();
 		String[] result = carName.split("[,]",0);
 		carNameCheck(result);
-		List<String> carNames = Arrays.asList(result);
-		System.out.println(carNames);
+		carNames = Arrays.asList(result);
 		return carNames;
 	}
 	
@@ -41,42 +30,53 @@ class CarName {
 	
 }
 
+class TryTimes {
+	public static int askTimes() {
+		System.out.println("시도할 횟수는 몇 회인가요?");
+		String inputTimes = Console.readLine();
+		int tryTimes = Integer.parseInt(inputTimes);
+		
+		return tryTimes;
+	}
+
+}
+
 class CarRacing {
-	public int resultCount = 0;
-	public String result = "";
+	public int moveCount = 0;
+	public String moveShow = "";
 	
 	public int carMove(String carNames) {
 			String carName = carNames + " : ";
 			int randomNumber = Randoms.pickNumberInRange(0,9);
-//			System.out.println(randomNumber);
 			if(randomNumber >= 4) {
-				resultCount++;
-				result += "-";	
+				moveCount++;
+				moveShow += "-";	
 			}
-			System.out.println(carName + result);
-			
-//			System.out.println(resultCount);
-			return resultCount;
-		
+			System.out.println(carName + moveShow);
+			return moveCount;
 	}
 }
 
-class Winner {
-	public static List<Integer> compareCount(List<Integer> resultCount) { 
-		int winnerPoint = Collections.max(resultCount);
-//		System.out.println(winnerPoint);
+class FindWinner extends CarName {
+	public static List<Integer> compareCount(List<Integer> racingResult) {
+		int winnerPoint = Collections.max(racingResult);
 		
-		List<Integer> winnerIndex = new ArrayList<Integer>();
-		for (int i = 0; i < resultCount.size(); i++) {
-			if (resultCount.get(i).equals(winnerPoint)) {
-//				System.out.println("우승자 인덱스 넘버" + i);
-				winnerIndex.add(i);
-//				System.out.println(winnerIndex);
+		List<Integer> winnerIndexNumber = new ArrayList<>();
+		for (int i = 0; i < racingResult.size(); i++) {
+			if (racingResult.get(i).equals(winnerPoint)) {
+				winnerIndexNumber.add(i);
 			}
 		}
-		return winnerIndex;
+		return winnerIndexNumber;
 	}
-
 	
-	
+	public static String lastResult(List<Integer> winnerIndexNumber) {
+		List<String> winnerList = new ArrayList<>();
+		for(int i = 0; i < winnerIndexNumber.size(); i++) {
+			winnerList.add(carNames.get((winnerIndexNumber.get(i))));
+		}
+		
+		String result = String.join(", ", winnerList);
+		return result;
+	}
 }
