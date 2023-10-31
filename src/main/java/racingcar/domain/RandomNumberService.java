@@ -12,10 +12,10 @@ public class RandomNumberService {
     public RandomNumberService(int moveNumber){
         randomNumber = new RandomNumber();
         this.moveNumber = moveNumber;
-        isMoving = new ArrayList<>();
     }
 
     public List<Boolean> makeResult(){
+        isMoving = new ArrayList<>();
         for(int i=0; i<moveNumber; i++){
             int newNumber = randomNumber.getNumber();
             isMoving.add(move(newNumber));
