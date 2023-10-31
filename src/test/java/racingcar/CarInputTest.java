@@ -3,6 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Computer.getInput;
+import static racingcar.Error.BLANK_ERROR;
+import static racingcar.Error.CAR_COUNT_ERROR;
+import static racingcar.Error.DUPLICATION_ERROR;
+import static racingcar.Error.LENGTH_ERROR;
 import static racingcar.Message.INPUT_CAR_NAMES;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -43,11 +47,11 @@ class CarInputTest {
         // when, then
         assertThatThrownBy(() -> Validator.checkCount(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
+                .hasMessage(CAR_COUNT_ERROR.getMessage());
 
         assertThatThrownBy(() -> Validator.checkCount(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
+                .hasMessage(CAR_COUNT_ERROR.getMessage());
     }
 
     @Test
@@ -61,7 +65,7 @@ class CarInputTest {
         // when, then
         assertThatThrownBy(() -> Validator.checkLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름을 5자 이하로 입력해 주세요.");
+                .hasMessage(LENGTH_ERROR.getMessage());
 
     }
 
@@ -80,15 +84,15 @@ class CarInputTest {
         // when, then
         assertThatThrownBy(() -> Validator.checkBlank(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름을 공백으로 입력하지 마세요.");
+                .hasMessage(BLANK_ERROR.getMessage());
 
         assertThatThrownBy(() -> Validator.checkBlank(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름을 공백으로 입력하지 마세요.");
+                .hasMessage(BLANK_ERROR.getMessage());
 
         assertThatThrownBy(() -> Validator.checkBlank(carNamesThree))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름을 공백으로 입력하지 마세요.");
+                .hasMessage(BLANK_ERROR.getMessage());
 
     }
 
@@ -121,11 +125,11 @@ class CarInputTest {
         // when, then
         assertThatThrownBy(() -> Validator.checkDuplication(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복되지 않은 이름을 입력해 주세요.");
+                .hasMessage(DUPLICATION_ERROR.getMessage());
 
         assertThatThrownBy(() -> Validator.checkDuplication(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복되지 않은 이름을 입력해 주세요.");
+                .hasMessage(DUPLICATION_ERROR.getMessage());
 
     }
 

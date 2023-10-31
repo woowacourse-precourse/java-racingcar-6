@@ -3,6 +3,8 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Computer.getInput;
+import static racingcar.Error.NOT_NUMBER_ERROR;
+import static racingcar.Error.ROUND_COUNT_ERROR;
 import static racingcar.Message.INPUT_RACING_ROUND;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -25,11 +27,11 @@ public class CountInputTest {
         // when, then
         assertThatThrownBy(() -> Validator.checkNumber(userInputOne))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("1이상의 숫자를 입력하세요.");
+                .hasMessage(ROUND_COUNT_ERROR.getMessage());
 
         assertThatThrownBy(() -> Validator.checkNumber(userInputTwo))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("1이상의 숫자를 입력하세요.");
+                .hasMessage(ROUND_COUNT_ERROR.getMessage());
     }
 
     @Test
@@ -42,11 +44,11 @@ public class CountInputTest {
         // when, then
         assertThatThrownBy(() -> Validator.checkNumber(userInputOne))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자만 입력하세요.");
+                .hasMessage(NOT_NUMBER_ERROR.getMessage());
 
         assertThatThrownBy(() -> Validator.checkNumber(userInputTwo))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자만 입력하세요.");
+                .hasMessage(NOT_NUMBER_ERROR.getMessage());
     }
 
     @Test
