@@ -1,8 +1,9 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.*;
+
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ class CountCarMovementTest {
         List<Integer> winnerIndex = countCarMovement.winnersIndex();
 
         //then
-        Assertions.assertThat(winnerIndex).isEqualTo(Arrays.asList(0, 2));
+        assertThat(winnerIndex).isEqualTo(Arrays.asList(0, 2));
 
     }
 }
