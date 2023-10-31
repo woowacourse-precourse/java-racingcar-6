@@ -12,4 +12,10 @@ public class Race {
     public List<Car> getCars() {
         return cars;
     }
+
+    public void runOneRound() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
