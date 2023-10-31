@@ -20,7 +20,7 @@ public class RaceManager {
         }
     }
 
-    private void inputRandomNum(int carsSize) {
+    public void inputRandomNum(int carsSize) {
         for (int i = 0; i < carsSize; i++) {
             carsRepo.plusNum(i, pickNumberInRange(0, 9));
         }
