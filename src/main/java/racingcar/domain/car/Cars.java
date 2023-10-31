@@ -12,9 +12,7 @@ public class Cars {
     }
 
     public void oneRoundProgress(Movable movable) {
-        for (Car car : carList) {
-            car.goForward(movable);
-        }
+        carList.forEach(car -> car.goForward(movable));
     }
 
     public List<Car> getCarList() {
