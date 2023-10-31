@@ -5,7 +5,7 @@ import racingcar.constants.message.ErrorMessage;
 import racingcar.exception.InputNumericException;
 import racingcar.exception.car.DivisionCarNamesException;
 
-public class InputValidator {
+public final class InputValidator {
 
     private InputValidator() {
     }
