@@ -32,4 +32,10 @@ class CarTest {
         Car car = new Car(input, new RandomGenerator());
         Assertions.assertEquals(input, car.getCarName());
     }
+
+    @Test
+    void 범위_밖_값생성_예외_발생() {
+        Car car = new Car("Tom", () -> 10);
+        assertThrows(IllegalArgumentException.class, car::moveByRandomNumber);
+    }
 }
