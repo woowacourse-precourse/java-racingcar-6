@@ -10,8 +10,8 @@ import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_CAR;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.NOT_INTEGER;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class InputValidator {
     // carList 관련 유효성 검사
@@ -27,13 +27,13 @@ public class InputValidator {
 
     public static void validateDuplicateName(String carListString) {
         String[] carList = carListString.split(",");
-        Map<String, Integer> checkMap = new HashMap<>();
+        Set<String> carSet = new HashSet<>();
 
         for (String car : carList) {
-            if (checkMap.containsKey(car)) {
+            if (carSet.contains(car)) {
                 throw new IllegalArgumentException(DUPLICATE.getMessage());
             }
-            checkMap.put(car, 1);
+            carSet.add(car);
         }
     }
 

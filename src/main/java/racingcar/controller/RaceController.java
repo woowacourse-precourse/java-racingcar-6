@@ -9,17 +9,12 @@ import racingcar.model.Race;
 
 public class RaceController {
     public static void run() {
-        String[] matchInfo = inputMatchesInfo();
-        Race race = new Race(matchInfo[0], matchInfo[1]);
+        String carListString = askCarList();
+        String numOfMatchesString = askNumOfMatches();
+        Race race = new Race(carListString, numOfMatchesString);
         List<Map<String, Integer>> allMatchesResult = race.getAllMatchesResult();
 
 
-    }
-
-    public static String[] inputMatchesInfo() {
-        String carListString = askCarList();
-        String numOfMatchesString = askNumOfMatches();
-        return new String[]{carListString, numOfMatchesString};
     }
 
 }
