@@ -28,7 +28,7 @@ public class RacingGameController {
         Cars cars = getCars();
         TryNumber tryNumber = getTryNumber();
 
-        RacingGame racingGame = gameSet(cars);
+        RacingGame racingGame = setGame(cars);
 
         startRacing(cars, tryNumber, racingGame);
         showWinner(racingGame);
@@ -45,7 +45,7 @@ public class RacingGameController {
         return stringToTryNumber(inputView.inputTryNumber());
     }
 
-    private RacingGame gameSet(Cars cars) {
+    private RacingGame setGame(Cars cars) {
         Referee referee = new Referee();
         return new RacingGame(cars, referee);
     }
