@@ -50,4 +50,20 @@ public class RacingControllerTest extends NsTest {
         );
     }
 
+    @Test
+    void testFinalWinnerWithFixedNumberGenerator() {
+        controller = new RacingController(new FixedNumberGenerator(4));
+        run("pobi,woni", "1");
+        assertThat(output()).contains("최종 우승자 : pobi");
+    }
+
+    @Test
+    void testFinalWinnerWithFixedNumberGenerator2() {
+        controller = new RacingController(new FixedNumberGenerator(0));
+        run("pobi,woni", "1");
+        assertThat(output()).contains("최종 우승자 : pobi, woni");
+    }
+
+
+
 }
