@@ -27,9 +27,11 @@ public class Application {
 	public static int[] Stage_Calc(String[] Car_Names, int[] Car_Score) {
 		System.out.println("실행 결과");
 		for (int i = 0; i < Car_Names.length; i++) {
+			
 			if (Car_Race() >= 4) {
 				Car_Score[i]++;
 			}
+			
 			// .repeat(Car_Score[i]));}
 			System.out.println(Car_Names[i] + " : " + "-".repeat(Car_Score[i]));
 		}
@@ -49,14 +51,18 @@ public class Application {
 		int max = 0;
 		List<String> Winner_index = new ArrayList<>();
 		for (int i = 0; i < Car_Names.length; i++) {
+			
 			if (Car_Score[i] > max) {
 				max = Car_Score[i];
 			}
+			
 		}
 		for (int o = 0; o < Car_Names.length; o++) {
+			
 			if (Car_Score[o] == max) {
 				Winner_index.add(Car_Names[o]);
 			}
+			
 		}
 		System.out.print("최종 우승자 : " + String.join(", ", Winner_index));
 	}
@@ -72,12 +78,11 @@ public class Application {
 
 	public static void Names_ErrCheck(String[] Car_Names) {
 		for (int i = 0; i < Car_Names.length; i++) {
-			// System.out.println(Car_Names.length);
-			// System.out.println(Car_Names[i]);
-			// System.out.println(Car_Names[i].lesngth());
+
 			if (Car_Names[i].length() > 5) {
 				throw new IllegalArgumentException("자동차 이름이 5자 이상입니다.");
 			}
+			
 		}
 	}
 
