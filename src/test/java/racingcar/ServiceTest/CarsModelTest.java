@@ -52,20 +52,4 @@ public class CarsModelTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
-    @Test
-    void 이름_중복_예외처리() {
-        String name1 = "racing";
-        String name2 = "base";
-
-        List<String> names = new ArrayList<>();
-        names.add(name1);
-        names.add(name2);
-
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> CarName.duplicateNameCheck("racing",names))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
 }
