@@ -30,6 +30,10 @@ public class Game {
         raceAward(cars);
     }
 
+    public int getMoveNumber() {
+        return moveNumber;
+    }
+
     public void raceAward(Cars cars) {
         String winners = cars.award();
         OutputUtils.printFinalWinners(winners);
