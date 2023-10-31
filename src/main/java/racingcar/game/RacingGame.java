@@ -1,44 +1,34 @@
 package racingcar.game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.model.Car;
 import racingcar.utils.RandomUtils;
-import racingcar.view.OutputView;
 
 public class RacingGame {
     private static final int RANDOM_MOVE_LIMIT = 4;
     private static final int INITIAL_DISTANCE = 0;
-    private static final int MOVE_DISTANCE = 1;
-    private final String[] carNames;
-    private final int tryCount;
-    private final int[] distance;
+    private final List<Car> carList;
 
-    public RacingGame(String[] carNames, int tryCount) {
-        this.carNames = carNames;
-        this.tryCount = tryCount;
-        this.distance = new int[carNames.length];
-        Arrays.fill(distance, INITIAL_DISTANCE);
-    }
-
-    public void run() {
-        for (int i = 0; i < tryCount; i++) {
-            proceedRound();
-            OutputView.printRoundResult(carNames, distance);
+    public RacingGame(String[] carNames) {
+        this.carList = new ArrayList<>();
+        for (String carName : carNames) {
+            carList.add(new Car(carName, INITIAL_DISTANCE));
         }
     }
 
-    private void proceedRound() {
-        for (int i = 0; i < distance.length; ++i) {
+    public List<Car> getCarList() {
+        return carList;
+    }
+
+    public void proceedRound() {
+        for (Car car : carList) {
             int number = RandomUtils.getRandomNumber();
             if (canMove(number)) {
-                move(i);
+                car.move();
             }
         }
-    }
-
-    private void move(int i) {
-        distance[i] += MOVE_DISTANCE;
     }
 
     private boolean canMove(int number) {
@@ -48,21 +38,15 @@ public class RacingGame {
         return false;
     }
 
-    public void printWinners() {
-        List<String> winners = getWinners();
-        OutputView.printWinner(winners);
-    }
+    public List<Car> getWinners() {
+        int maxDistance = carList.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(Integer.MIN_VALUE);
 
-    private List<String> getWinners() {
-        int maxDistance = Arrays.stream(distance).max().orElse(Integer.MIN_VALUE);
-        List<String> winners = new ArrayList<>();
-
-        for (int i = 0; i < carNames.length; i++) {
-            if (distance[i] == maxDistance) {
-                winners.add(carNames[i]);
-            }
-        }
-        return winners;
+        return carList.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .collect(Collectors.toList());
     }
 }
 

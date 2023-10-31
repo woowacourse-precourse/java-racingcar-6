@@ -2,10 +2,11 @@ package racingcar.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 
 public class RacingGameTest {
     private RacingGame racingGame;
@@ -13,25 +14,28 @@ public class RacingGameTest {
     @BeforeEach
     void setUp() {
         String[] cars = {"poby", "woni", "jun"};
-        int tryCount = 5;
-        racingGame = new RacingGame(cars, tryCount);
+        racingGame = new RacingGame(cars);
     }
 
     @Test
-    public void distance_객체_생성시_거리_모두_0으로_초기화() {
-        try {
-            Field initialDistance = RacingGame.class.getDeclaredField("INITIAL_DISTANCE");
-            initialDistance.setAccessible(true);
-            Field distanceField = RacingGame.class.getDeclaredField("distance");
-            distanceField.setAccessible(true);
+    void name_객체_생성시_차_이름_생성() {
+        List<Car> carList = racingGame.getCarList();
 
-            int[] distances = (int[]) distanceField.get(racingGame);
-            for (int d : distances) {
-                assertEquals(initialDistance.get(racingGame), d);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        assertAll(
+                () -> assertEquals(carList.get(0).getName(), "poby"),
+                () -> assertEquals(carList.get(1).getName(), "woni"),
+                () -> assertEquals(carList.get(2).getName(), "jun")
+        );
+    }
+
+    @Test
+    void distance_객체_생성시_거리_모두_0으로_초기화() {
+        List<Car> carList = racingGame.getCarList();
+
+        assertAll(
+                carList.stream()
+                        .map(car -> () -> assertEquals(0, car.getDistance()))
+        );
     }
 
     @Test
@@ -62,60 +66,49 @@ public class RacingGameTest {
 
     @Test
     public void move_한칸_움직임_검증() {
-        try {
-            Field moveDistance = RacingGame.class.getDeclaredField("MOVE_DISTANCE");
-            moveDistance.setAccessible(true);
-
-            Method moveMethod = RacingGame.class.getDeclaredMethod("move", int.class);
-            moveMethod.setAccessible(true);
-
-            int carIndex = 0;
-            moveMethod.invoke(racingGame, carIndex);
-
-            Field distanceField = RacingGame.class.getDeclaredField("distance");
-            distanceField.setAccessible(true);
-
-            int[] distanceArray = (int[]) distanceField.get(racingGame);
-
-            assertEquals(moveDistance.get(racingGame), distanceArray[carIndex]);
-        } catch (Exception e) {
-            e.printStackTrace();
+        List<Car> carList = racingGame.getCarList();
+        for (Car car : carList) {
+            car.move();
+            car.move();
         }
+
+        assertAll(
+                carList.stream()
+                        .map(car -> () -> assertEquals(2, car.getDistance()))
+        );
     }
 
     @Test
     void getWinners_거리가_가장_긴_최종우승자_반환() {
-        int[] specificDistances = {2, 3, 2};
-        try {
-            Field distanceField = RacingGame.class.getDeclaredField("distance");
-            distanceField.setAccessible(true);
-            distanceField.set(racingGame, specificDistances);
-
-            Method getWinnersMethod = RacingGame.class.getDeclaredMethod("getWinners");
-            getWinnersMethod.setAccessible(true);
-            String winners = getWinnersMethod.invoke(racingGame).toString();
-
-            assertEquals("[woni]", winners);
-        } catch (Exception e) {
-            e.printStackTrace();
+        List<Car> carList = racingGame.getCarList();
+        for (int i = 0; i < 3; ++i) {
+            carList.get(0).move();
         }
+
+        List<Car> winners = racingGame.getWinners();
+
+        assertEquals(winners.size(), 1);
+        assertEquals(winners.get(0).getName(), "poby");
+        assertEquals(winners.get(0).getDistance(), 3);
     }
 
     @Test
     void getWinners_최종우승자_모두_반환() {
-        int[] specificDistances = {2, 3, 3};
-        try {
-            Field distanceField = RacingGame.class.getDeclaredField("distance");
-            distanceField.setAccessible(true);
-            distanceField.set(racingGame, specificDistances);
-
-            Method getWinnersMethod = RacingGame.class.getDeclaredMethod("getWinners");
-            getWinnersMethod.setAccessible(true);
-            String winners = getWinnersMethod.invoke(racingGame).toString();
-
-            assertEquals("[woni, jun]", winners);
-        } catch (Exception e) {
-            e.printStackTrace();
+        List<Car> carList = racingGame.getCarList();
+        for (Car car : carList) {
+            car.move();
+            car.move();
         }
+
+        List<Car> winners = racingGame.getWinners();
+
+        assertEquals(winners.size(), 3);
+        assertEquals(winners.get(0).getName(), "poby");
+        assertEquals(winners.get(1).getName(), "woni");
+        assertEquals(winners.get(2).getName(), "jun");
+        assertAll(
+                carList.stream()
+                        .map(car -> () -> assertEquals(2, car.getDistance()))
+        );
     }
 }

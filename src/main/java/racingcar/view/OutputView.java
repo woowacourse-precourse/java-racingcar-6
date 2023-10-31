@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.model.Car;
 
 public class OutputView {
     private static final String RESULT_COMMAND = "\n실행 결과";
@@ -13,9 +15,9 @@ public class OutputView {
         System.out.println(RESULT_COMMAND);
     }
 
-    public static void printRoundResult(String[] carNames, int[] distance) {
-        for (int i = 0; i < carNames.length; i++) {
-            System.out.println(carNames[i] + COLON_SPACE + generateHyphen(distance[i]));
+    public static void printRoundResult(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.println(car.getName() + COLON_SPACE + generateHyphen(car.getDistance()));
         }
         System.out.println();
     }
@@ -24,7 +26,13 @@ public class OutputView {
         return HYPHEN.repeat(count);
     }
 
-    public static void printWinner(List<String> winners) {
-        System.out.print(FINAL_WINNER + String.join(COMMA, winners));
+    public static void printWinners(List<Car> winners) {
+        System.out.print(FINAL_WINNER + getCarListName(winners));
+    }
+
+    private static String getCarListName(List<Car> carList) {
+        return carList.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(COMMA));
     }
 }
