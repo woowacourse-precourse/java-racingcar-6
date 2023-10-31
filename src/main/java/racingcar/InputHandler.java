@@ -56,4 +56,9 @@ public class InputHandler {
             throw new IllegalArgumentException();
         }
     }
+
+    public boolean isBothEndPattern(String target) {
+        return (Pattern.matches(COMMA+"[^COMMA]+", target)
+                || Pattern.matches("[^COMMA]+"+COMMA, target));
+    }
 }
