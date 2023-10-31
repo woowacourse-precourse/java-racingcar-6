@@ -30,6 +30,8 @@ public class InputCarNamesTest {
                 "Jun,  , Alex",
                 ",Jun, Alex",
                 "Jun, Alex,",
+                "\n",
+                " ",
                 ",",
                 ",,",
                 ",  ,",
