@@ -17,7 +17,7 @@ public class OutputView {
 
     public static void printWinnerList(List<Car> winCars) {
         String winners = winCars.stream()
-                .map(winner -> winner.name())
+                .map(Car::name)
                 .collect(Collectors.joining(Constants.WINNER_SPLIT_FORMAT.constant));
 
         System.out.println(Constants.WINNER_RESULT.constant
