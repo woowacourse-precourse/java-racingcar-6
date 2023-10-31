@@ -9,12 +9,20 @@ public class GameController {
     public static void gameStart(){
         String[] carNames = getCarName();
         Car[] carList = makeCars(carNames);
-        int gameRound = Integer.parseInt(View.inputRound());
 
+        int gameRound = getGameRound();
         playRound(gameRound, carList);
 
         resultGame(carList);
     }
+    public static int getGameRound(){
+        String inputRound = View.inputRound();
+        InputValidator.checkRoundNumber(inputRound);
+        int gameRound = Integer.parseInt(inputRound);
+        InputValidator.checkNotNegative(gameRound);
+        return gameRound;
+    }
+
     public static void playRound(int gameRound, Car[] carList){
         for (int i = 0; i < gameRound; i++) {
             carMove(carList);
