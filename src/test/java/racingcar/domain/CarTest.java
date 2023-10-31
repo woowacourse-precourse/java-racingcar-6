@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
     private Car car1;
@@ -28,6 +30,18 @@ public class CarTest {
             car1.increaseForwardNum();
         }
         assertThat(car1.getForwardNum()).isEqualTo(forwardNum);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {2, 5, 0, 9})
+    void 자동차_랜덤_숫자_초기화_및_조회_확인_테스트(int randomNum) {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car1.initRandomNum();
+                    assertThat(car1.getRandomNum()).isEqualTo(randomNum);
+                },
+                randomNum
+        );
     }
 
     @Test
