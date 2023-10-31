@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Monitor;
 import racingcar.domain.Referee;
@@ -31,11 +32,13 @@ public class Application {
         for (int i = 0; i < gameCount; i++) {
             for (int car = 0; car < cars.size(); car++) {
                 Car currentCar = cars.get(car);
-                currentCar.move();
+                currentCar.move(Randoms.pickNumberInRange(0, 9), currentCar);
             }
 
             monitor.printCars();
         }
+
+        //
 
         Referee referee = new Referee(cars);
         System.out.println("최종 우승자 : " + referee.whoIsWinner());

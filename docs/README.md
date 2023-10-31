@@ -4,8 +4,7 @@
 
 - [x] 입력된 자동차들을 구분자로 나누고 저장한다.
 - [x] 각 자동차의 전진 여부 난수로 지정한다.
-  - [x] 난수를 생성한다. - Car#pickNumber
-  - [x] 이동 여부를 판단(4 이상인경우)한다. - Car#move
+  - [x] 이동 여부를 판단(4 이상인경우)한다. - Car#move(randomNumber, car)
 - [x] 모든 자동차의 현재 위치를 출력한다. - Monitor#printCars
 - [x] 모든 실행 후 우승자를 비교한다. - Referee#whoIsWinner
 - [x] 제일 멀리 간 거리 반환한다. - Referee#maxDistance

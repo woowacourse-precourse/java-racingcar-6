@@ -1,24 +1,20 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     public String name;
     public String status = "";
     public int distance = 0;
 
     public Car(String name) {
+        if (name.length() > 5) throw new IllegalArgumentException("이름에 대한 예외처리");
         this.name = name;
     }
 
-    public int pickNumber() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    public boolean move() {
-        int pickNum = pickNumber();
-        if (pickNum >= 4) return true;
-        return false;
+    public void move(int randomNumber, Car car) {
+        if (randomNumber >= 4) {
+            car.distance++;
+            car.status += "-";
+        }
     }
 
     @Override

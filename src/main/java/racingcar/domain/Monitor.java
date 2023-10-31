@@ -11,13 +11,6 @@ public class Monitor {
 
     public void printCars() {
         List<Car> cars = this.cars;
-        for (int i = 0; i < cars.size(); i++) {
-            Car car = cars.get(i);
-            if (car.move()) {
-                car.distance++;
-                car.status += "-";
-            }
-        }
 
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
