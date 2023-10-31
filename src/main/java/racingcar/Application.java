@@ -1,5 +1,6 @@
 package racingcar;
 
+import Service.RaceResult;
 import camp.nextstep.edu.missionutils.Console;
 import domain.Car;
 
@@ -38,6 +39,10 @@ public class Application {
             }
             state(carList);
         }
+
+        // 최종 우승자 결정
+        List<String> winners = RaceResult.determineWinners(carList);
+        RaceResult.printWinners(winners);
 
     }
 }
