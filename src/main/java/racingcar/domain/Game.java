@@ -28,5 +28,12 @@ public class Game {
         return false;
     }
 
+    public List<String> getWinner() {
+        return cars.getWinnerNameList();
+    }
+
+    public List<Car> getCars() {
+        return cars.getCars();
+    }
 
 }
