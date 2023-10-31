@@ -5,13 +5,13 @@ public class Car {
     private final Integer MAX_NAME_LENGTH = 5;
     private final String name;
     private final Engine engine;
-    private int forwardCount;
+    private String result;
 
     public Car(String name) {
         checkNameLengthValid(name);
         this.name = name;
         this.engine = new Engine();
-        this.forwardCount = 0;
+        this.result = "";
     }
 
     private void checkNameLengthValid(String name) {
@@ -28,11 +28,13 @@ public class Car {
     }
 
     private void moveForward() {
-        this.forwardCount++;
+        this.result += '-';
     }
 
     private void printResult() {
-        System.out.println(String.format("%s : %s", this.name, "-".repeat(this.forwardCount)));
+        System.out.println(String.format("%s : %s", this.name, this.result));
+    }
+
     public int getDistance() {
         return this.result.length();
     }
