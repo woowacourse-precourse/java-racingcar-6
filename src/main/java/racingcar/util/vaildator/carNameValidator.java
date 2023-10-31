@@ -22,7 +22,7 @@ public class carNameValidator {
         }
     }
 
-    public static void validateMininumCarNameCount(List<Car> carList) {
+    public static void validateMinimumCarNameCount(List<Car> carList) {
         if (carList.size() < MININUM_CARLIST_SIZE) {
             throw new IllegalArgumentException(INPUT_NAME_MINIMUM_EXCEPTION);
         }

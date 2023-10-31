@@ -25,5 +25,4 @@ public class CarNameValidatorTest {
                 .isThrownBy(() -> carNameValidator.validateInputName(""));
     }
 
-
 }
