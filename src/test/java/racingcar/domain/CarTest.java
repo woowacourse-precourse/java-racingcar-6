@@ -32,7 +32,7 @@ public class CarTest {
         //given
         Car car = new Car("pobi");
         //when
-        IntStream.rangeClosed(1, 9)
+        IntStream.rangeClosed(0, 9)
                 .forEach(car::move);
         //then
         assertThat(car.getMoveStatus()).isEqualTo(6);
