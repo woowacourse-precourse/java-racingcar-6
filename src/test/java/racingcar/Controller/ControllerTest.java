@@ -1,6 +1,9 @@
 package racingcar.Controller;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.Service.Service;
@@ -13,8 +16,9 @@ class ControllerTest {
     @Test
     void 시도할_횟수가_5이면_5번_경기를_진행한다() {
         //given
-        Mockito.when(service.receiveCars()).thenReturn("test1,test2,test3");
-        Mockito.when(service.receiveTryCount()).thenReturn("5");
+        String input = "pobi,woni,jun" + "\n" + "5";
+        InputStream in = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        System.setIn(in);
 
         //when
         controller.run();
