@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Race;
 import racingcar.view.OutputView;
+import java.util.stream.IntStream;
 
 public class GameController {
     InputController inputController;
@@ -11,7 +12,6 @@ public class GameController {
         setInputController();
         setRace();
         play();
-        printResult();
         printWinner();
     }
 
@@ -22,10 +22,8 @@ public class GameController {
         race = new Race(inputController.carValidate(), inputController.roundValidate());
     }
     public void play(){
-        race.start();
-    }
-    public void printResult(){
-        OutputView.printRace(race.getCarList());
+        IntStream.range(0, race.getRound())
+                .forEach(i -> OutputView.printRace(race.start()));
     }
     public void printWinner(){
         OutputView.printWinner(race.getWinner());

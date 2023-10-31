@@ -11,13 +11,12 @@ public class OutputView {
         for (Car car : carList) {
             System.out.println(car.getName()
                     + Constants.COLON
-                    + Constants.DASH.repeat(car.getPosition())
-                    + "\n");
+                    + Constants.DASH.repeat(car.getPosition()));
         }
     }
 
     public static void printWinner(ArrayList<String> winnerList){
-        System.out.println("최종 우승자 : " + String.join(Constants.COMMA, winnerList));
+        System.out.println("\n최종 우승자 : " + String.join(Constants.COMMA, winnerList));
     }
 
     public static void printRaceInfo(){

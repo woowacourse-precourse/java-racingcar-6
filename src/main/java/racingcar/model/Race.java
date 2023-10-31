@@ -17,10 +17,9 @@ public class Race {
         carNameList.forEach(carName -> carList.add(new Car(carName)));
     }
 
-    public void start() {
-        for (int i = 0; i < round; i++) {
-            carList.forEach(Car::go);
-        }
+    public ArrayList<Car> start() {
+        carList.forEach(Car::go);
+        return carList;
     }
 
     public ArrayList<Car> getCarList(){
@@ -43,5 +42,9 @@ public class Race {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
+    }
+
+    public int getRound() {
+        return round;
     }
 }
