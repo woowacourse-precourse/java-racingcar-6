@@ -7,11 +7,12 @@ import utils.GenerateRandomNumber;
 import utils.Utils;
 
 public class Cars {
+    final static String DUPLICATION_NAME = "자동차의 이름은 중복되지 않은 고유한 값이어야 합니다.";
     private List<Car> cars;
     Utils utils = new Utils();
 
     public Cars(String input) {
-        utils.duplicateCarName(input);
+        duplicateCarName(input);
         cars = convertStringArrayToCars(input);
     }
 
@@ -39,8 +40,17 @@ public class Cars {
 
     public List<Car> getWinner() {
         return cars.stream().filter(car ->
-                car.getNowPlace().length() == getMaxPosition())
+                        car.getNowPlace().length() == getMaxPosition())
                 .collect(Collectors.toList());
     }
 
+    public void duplicateCarName(String input) {
+
+        boolean duplicationName = Arrays.stream(input.split(","))
+                .distinct().count() != input.split(",").length;
+
+        if (duplicationName) {
+            throw new IllegalArgumentException(DUPLICATION_NAME);
+        }
+    }
 }

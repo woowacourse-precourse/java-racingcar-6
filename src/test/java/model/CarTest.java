@@ -35,4 +35,32 @@ public class CarTest {
         assertThat(car.getNowPlace()).isEqualTo("");
     }
 
+    @Test
+    public void 입력값에_공백이_포함된_경우_예외_발생() {
+        String input = " pobi";
+        Car car = new Car(input);
+        assertThatThrownBy(() -> car.hasSpace(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력은 공백이 포함될 수 없습니다.");
+    }
+
+    @Test
+    public void 입력값이_공백인_경우_예외_발생() {
+        String input="";
+        Car car = new Car(input);
+        assertThatThrownBy(() -> car.isEmpty(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력은 공백일 수 없습니다.");
+    }
+
+    @Test
+    public void 입력값이_5자를_초과하는_경우_예외_발생() {
+        String input = "#4abc3";
+        Car car = new Car(input);
+        assertThatThrownBy(() -> car.isOverLength(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력은 5자 이하여야 합니다.");
+    }
+
+
 }
