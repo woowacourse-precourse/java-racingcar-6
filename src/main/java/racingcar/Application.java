@@ -32,10 +32,13 @@ public class Application {
     }
 
     private static boolean checkLength(String[] arr) {
-        boolean flag = false;
+        boolean flag = true;
 
         for (String s : arr) {
-            flag = s.length() <= 5;
+            if (s.length() > 5) {
+                flag = false;
+                break;
+            }
         }
         return flag;
     }
