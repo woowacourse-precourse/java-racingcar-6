@@ -12,7 +12,7 @@ public class InputHandler {
 
     public static List<String> parseInputToList(String input) throws IllegalArgumentException {
         List<String> parsedList;
-        
+
         parsedList = splitInputByComma(input);
         if (!validateCarNameLength(parsedList)) {
             throw new IllegalArgumentException("잘못된 입력 값입니다 자동차 이름을 5자리 이하로 입력해주세요.");
@@ -21,14 +21,14 @@ public class InputHandler {
     }
 
     public static int parseInputToIntager(String input) throws IllegalArgumentException {
-        int parsedInt = 0;
+        int parsedInt;
 
         if (!isNumber(input)) {
             throw new IllegalArgumentException("잘못된 입력 값입니다. 숫자를 입력해주세요.");
         }
         parsedInt = Integer.parseInt(input);
 
-        if (isPositiveInteger(parsedInt)) {
+        if (!isPositiveInteger(parsedInt)) {
             throw new IllegalArgumentException("잘못된 입력 값입니다. 자연수를 입력해주세요.");
         }
         return parsedInt;
@@ -41,7 +41,7 @@ public class InputHandler {
     private static boolean validateCarNameLength(List<String> carNames) {
         int endInclusive = 5;
         for (String carName : carNames) {
-            if (carName.length() <= endInclusive) {
+            if (carName.length() > endInclusive) {
                 return false;
             }
         }
@@ -49,7 +49,7 @@ public class InputHandler {
     }
 
     private static boolean isNumber(String input) {
-        return Pattern.matches(input, NUMBER_REG);
+        return Pattern.matches(NUMBER_REG, input);
     }
 
     private static boolean isPositiveInteger(int num) {

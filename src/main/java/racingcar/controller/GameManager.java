@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.view.GameUI;
@@ -7,13 +8,16 @@ import racingcar.view.RaceView;
 
 public class GameManager {
     private int remainingRounds;
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public GameManager() {
+        this.cars = new ArrayList<>();
     }
 
     public void runGame() {
-        // 게임 전체적인 진행관리
+        setupGame();
+        playGame();
+        displayGameResult();
     }
 
     private void setupGame() {
@@ -37,7 +41,8 @@ public class GameManager {
     }
 
     private List<Car> determinWinner() {
-        int maxDistance = this.cars.stream().mapToInt(Car::getForwardDistance).max().getAsInt();
+        int maxDistance;
+        maxDistance = this.cars.stream().mapToInt(Car::getForwardDistance).max().getAsInt();
         return this.cars.stream().filter(car -> car.getForwardDistance() == maxDistance).toList();
     }
 }

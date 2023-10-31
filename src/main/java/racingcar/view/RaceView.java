@@ -13,8 +13,9 @@ public class RaceView {
             for (int i = 0; i < car.getForwardDistance(); i++) {
                 System.out.print("-");
             }
-            System.out.print("\n\n");
+            System.out.println();
         }
+        System.out.println();
     }
 
     public static void displayWinner(List<Car> cars) {
