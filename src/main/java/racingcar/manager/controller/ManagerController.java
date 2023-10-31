@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.manager.model.Car;
-import racingcar.manager.model.Manager;
 import racingcar.manager.view.ManagerView;
 
 public class ManagerController {

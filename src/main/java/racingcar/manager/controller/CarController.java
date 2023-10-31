@@ -1,8 +1,5 @@
 package racingcar.manager.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import racingcar.manager.model.Car;
 import racingcar.manager.view.CarView;
