@@ -14,6 +14,6 @@ public class CurrentResultMap {
             String moveUnits = moveUnit.repeat(moveDistance);
             currentResultMap += String.format(printMoveFormat, carName, moveUnits);
         }
-        return currentResultMap;
+        return currentResultMap+"\n";
     }
 }
