@@ -20,4 +20,12 @@ public class Car {
   public void goForward() {
     this.position += 1;
   }
+
+  @Override
+  public String toString() {
+    String status = "";
+    for(int i = 0; i < position; i++)
+      status += "-";
+    return name + " : " + status;
+  }
 }
