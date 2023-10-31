@@ -7,5 +7,8 @@ public class AnnouncerScript {
     public final static String EXCUTION_RESULT = "실행 결과\n";
     public final static String WINNER = "최종 우승자 : ";
     public final static String FINISH_ONE_ROUND = "\n";
+    public final static String CREATE_CAR_NAME = "[SUCCESS] 자동차의 이름을 배정해 드렸어요!\n";
+    public final static String DECIDE_NUMBER_OF_ATTEMPT = "[SUCCESS] %d번 시도할게요!";
+
 
 }
