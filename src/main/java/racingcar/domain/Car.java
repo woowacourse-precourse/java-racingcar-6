@@ -1,8 +1,8 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
+    private static final int MIN_MOVE_POINT_TO_MOVE = 4;
+    private static final int MAX_NAME_LENGTH = 5;
     private final String name;
     private int distance = 0;
 
@@ -20,18 +20,18 @@ public class Car {
     }
 
     public void go(int movePoint) {
-        if(isMove(movePoint)) {
+        if (isMove(movePoint)) {
             distance++;
         }
     }
 
     private void validateCarName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
 
     private boolean isMove(int movePoint) {
-        return movePoint >= 4;
+        return movePoint >= MIN_MOVE_POINT_TO_MOVE;
     }
 }

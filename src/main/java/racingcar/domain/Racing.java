@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 import racingcar.Dto.CurrentRacingStatusDto;
 
 public class Racing {
+    private static final int MAX_MOVE_POINT = 9;
+    private static final int MIN_MOVE_INT = 0;
+
     public Racing(String[] userName) {
         this.participant = Arrays.stream(userName)
                 .map(String::trim)
@@ -26,11 +29,11 @@ public class Racing {
     }
 
     private int createMovePoint() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_MOVE_INT, MAX_MOVE_POINT);
     }
 
     public CurrentRacingStatusDto play() {
-        for(Car car : participant) {
+        for (Car car : participant) {
             this.drive(car);
         }
         return new CurrentRacingStatusDto(this);

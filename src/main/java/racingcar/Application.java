@@ -9,11 +9,10 @@ public class Application {
         OutputView outputView = new OutputView();
         InputView inputView = new InputView();
 
-
         Racing racing = new Racing(inputView.inputName());
         int repeat = inputView.inputTries();
 
-        for(int i = 0; i < repeat; i++) {
+        for (int i = 0; i < repeat; i++) {
             outputView.printCurrentStatus(racing.play());
         }
         outputView.printResult(racing.computeResult());
