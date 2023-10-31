@@ -26,5 +26,7 @@ public class Game {
             }
             currentAttempt++;
         }
+
+        Generate.gameResultGenerate(map);
     }
 }

@@ -36,6 +36,20 @@ public class Generate {
 
     public static void gameResultGenerate(HashMap<String, Integer> map) {
         int winnerCount = 0;
+        String winner = "";
 
+        for(Map.Entry<String, Integer> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+
+            if(value > winnerCount) {
+                winnerCount = value;
+                winner = key;
+            } else if(value == winnerCount) {
+                winner += (", " + key);
+            }
+        }
+
+        System.out.println("최종 우승자 : " + winner);
     }
 }
