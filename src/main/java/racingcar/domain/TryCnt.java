@@ -13,4 +13,8 @@ public class TryCnt {
         int num = checkTryCount(tryCnt);
         return new TryCnt(num);
     }
+
+    public int tryValue() {
+        return tryCnt;
+    }
 }
