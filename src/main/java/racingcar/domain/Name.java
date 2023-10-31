@@ -6,8 +6,8 @@ import static racingcar.message.MessageConstants.FIVE;
 public record Name(String value) {
 
     public Name {
-        String name = nameTrim(value);
-        validationNameLength(name);
+        value = nameTrim(value);
+        validationNameLength(value);
     }
 
     private void validationNameLength(String name) {
