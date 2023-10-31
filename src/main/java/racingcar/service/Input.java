@@ -10,4 +10,7 @@ public class Input {
 
         return carName;
     }
+    private int assignChallengeNumber(int number) {
+        return number;
+    }
 }
