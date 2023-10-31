@@ -1,9 +1,7 @@
 package racingcar.Service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.Model.Car;
 import racingcar.Model.Game;
 import racingcar.View.TextInterface;
 
@@ -23,5 +21,8 @@ public class GameService {
 
     public void forward(){
         game.forward();
+    }
+    public void result(){
+        game.result();
     }
 }

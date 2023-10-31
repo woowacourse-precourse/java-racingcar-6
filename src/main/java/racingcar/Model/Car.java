@@ -17,4 +17,16 @@ public class Car {
         }
         textInterface.printDistance(name, distance);
     }
+    public int getDistance(){
+        return distance;
+    }
+
+    public void win(){
+        textInterface.printWinner(name);
+    }
+
+    public void jointWin(){
+        textInterface.printJointWinner(name);
+    }
+
 }

@@ -23,4 +23,12 @@ public class TextInterface {
         }
         System.out.println();
     }
+
+    public void printWinner(String name){
+        System.out.print("최종 우승자 : "+ name);
+    }
+
+    public void printJointWinner(String name){
+        System.out.print(", "+name);
+    }
 }

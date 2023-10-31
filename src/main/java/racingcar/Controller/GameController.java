@@ -17,6 +17,6 @@ public class GameController {
         gameService.forward();
     }
     private void end(){
-
+        gameService.result();
     }
 }
