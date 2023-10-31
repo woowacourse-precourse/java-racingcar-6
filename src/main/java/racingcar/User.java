@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
 
     private final String SEPERATE_NAME_CHAR = ",";
-    
+
     List<String> carNames = new ArrayList<>();
     private int tryCount = 0;
 
