@@ -26,9 +26,7 @@ public class GameController {
 
     private String inputCarsName() {
         OutputUtil.println(INPUT_CAR_NAME);
-        String input = InputUtil.readLine();
-        NameUtil.validateNameLength(input);
-        return input;
+        return InputUtil.readLine();
     }
 
     private int getTimes() {
@@ -39,6 +37,7 @@ public class GameController {
     }
 
     private List<Car> makeCarsList(List<String> carsNameList) {
+        carsNameList.forEach(NameUtil::validateNameLength);
         return carsNameList.stream()
                 .map(Car::from)
                 .collect(Collectors.toList());
