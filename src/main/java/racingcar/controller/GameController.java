@@ -11,8 +11,8 @@ public class GameController {
     private Cars cars;
     private Attempts attempts;
 
-    public GameController() {
-        generator = new RandomNumberGenerator();
+    public GameController(RandomNumberGenerator generator) {
+        this.generator = generator;
     }
 
     public void run() {
