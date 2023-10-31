@@ -61,4 +61,9 @@ public class InputHandler {
         return (Pattern.matches(COMMA+"[^COMMA]+", target)
                 || Pattern.matches("[^COMMA]+"+COMMA, target));
     }
+
+    public boolean hasLengthExcess(String target) {
+        return Arrays.stream(target.split(""))
+                .allMatch(each -> each.length() <= MAX_LENGTH);
+    }
 }
