@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Application {
     static List<Car> carList = new ArrayList<>();
+    static int maxPostion = 0;
     
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -51,8 +52,19 @@ public class Application {
     public static void racing() {
         for(Car car : carList) {
             car.moveForward();
+            maxPostion = Math.max(maxPostion, car.getPosition());
             String tempPosition = "-".repeat(car.getPosition());
             System.out.println(car.getName() + " : " + tempPosition);
         }
+    }
+
+    public static List<String> checkWinner() {
+        List<String> winnerList = new ArrayList<>();
+        for(Car car : carList) {
+            if(maxPostion == car.getPosition()) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
     }
 }
