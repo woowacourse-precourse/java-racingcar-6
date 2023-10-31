@@ -18,7 +18,6 @@ public class Move {
     public void printProgress(List<String> carNameList, int move){
 
         int[] position = new int[carNameList.size()];
-        System.out.println(position[0] + " " + position[1] + " " + position[2]);
         for(int i = 0; i < move; i++){
             for (int j = 0; j  < carNameList.size(); j++) {
                 System.out.print(carNameList.get(j) + " : ");
@@ -36,20 +35,24 @@ public class Move {
         for(int i = 0; i < position.length; i++){
             num.add(0);
             if(position[i] == Arrays.stream(position).max().getAsInt()){
-                if(num.contains(1)){
-                    System.out.print(", ");
-                }
-                num.set(i, 1);
-                System.out.print(carNameList.get(i));
+                winnerCar(carNameList, i);
             }
         }
     }
 
     private boolean stopAndGo() {
-        int random = Randoms.pickNumberInRange(1, 9);
+        int random = Randoms.pickNumberInRange(0, 9);
         if (random > 3) {
             return true;
         }
         return false;
+    }
+
+    private void winnerCar(List carNameList, int i){
+        if(num.contains(1)){
+            System.out.print(", ");
+        }
+        num.set(i, 1);
+        System.out.print(carNameList.get(i));
     }
 }
