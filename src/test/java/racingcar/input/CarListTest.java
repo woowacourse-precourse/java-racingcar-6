@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import racingcar.input.CarTest.Car;
 import racingcar.input.InputValidatorTest.InputValidator;
+import racingcar.output.MessageTypeTest.MessageType;
+import racingcar.output.OutputCarRaceTest.OutputCarRace;
 
 public class CarListTest {
     private static String 차이름들;
@@ -35,12 +37,16 @@ public class CarListTest {
         }
 
         private CarList(String stringCarNames) {
+            OutputCarRace.print(MessageType.INPUT_CAR_NAME_PRINT);
+
             List<String> carNameList = Arrays.asList(stringCarNames.split(","));
             cars = carNameList.stream()
                     .map(Car::inputCarname)
                     .collect(Collectors.toList());
 
             InputValidator.validateCarList(cars);
+
+            OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringCarNames);
         }
 
         public List<Car> getCarList() {
