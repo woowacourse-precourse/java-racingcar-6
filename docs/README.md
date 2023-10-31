@@ -19,6 +19,7 @@
     - [CarList.java](CarList.java)
     - [CarRegister.java](CarRegister.java)
   - [Manager](Manager)
+    - [CarMoveManager.java](CarMoveManager.java)
 - [View](view)
   - [InputView.java](InputView.java)
   - [OutputView.java](OutputView.java)
@@ -30,6 +31,16 @@
   - [RandomNumberValidator.java](RandomNumberValidator.java)
   - [CarListEditor.java](CarListEditor.java)
   - [MoveCountValidator.java](MoveCountValidator.java)
+---
+- [Test](Test)
+  - [ModelTest](ModelTest)
+    - [Car](Car)
+      - [CarTest](CarTest)
+      - [CarListTest](CarListTest)
+      - [CarRegisterTest](CarRegisterTest)
+    - [Manager](Manager)
+      - [CarMoveManagerTest](CarMoveManagerTest)
+    
 
 ---
 # Application.java
