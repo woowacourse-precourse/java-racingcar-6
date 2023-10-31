@@ -4,8 +4,6 @@ package racingcar.domain;
 import java.util.List;
 import java.util.Map;
 
-import racingcar.domain.Constants;
-
 public class SystemOutput {
     public void printMoveResult(Map<String, Integer> numMoveMap) {
         for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {

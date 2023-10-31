@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Constants;
-
 public class UserInput {
 
     public List<String> askCarList(String input) {
