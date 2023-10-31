@@ -12,11 +12,11 @@ public class RacingGameView {
         System.out.println(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getRequestRaceCountMessage());
     }
 
-    public void raceResults(String raceResult) {
-        System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getGameResultMessage(raceResult));
+    public void raceResults(final String raceResult) {
+        System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getRaceResultMessage(raceResult));
     }
 
-    public void gameWinners(String winners) {
+    public void winners(final String winners) {
         System.out.println(RacingGameMessage.WINNER_MESSAGE.getWinnerMessage(winners));
     }
 }

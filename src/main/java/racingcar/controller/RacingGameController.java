@@ -10,14 +10,14 @@ public class RacingGameController {
 
     public void readyToPlay() {
         racingGameView.raceStartMessage();
-        String carNamesInputLine = getInputLine();
+        String carNames = getInputLine();
 
-        racingGame.readyToCars(carNamesInputLine);
+        racingGame.createCars(carNames);
 
         racingGameView.raceCountMessage();
-        String raceCountInputLine = getInputLine();
+        String raceCount = getInputLine();
 
-        racingGame.readyToRace(raceCountInputLine);
+        racingGame.setRaceCount(raceCount);
     }
 
     public void play() {
@@ -25,7 +25,7 @@ public class RacingGameController {
         racingGameView.raceResults(raceResults);
 
         String winners = racingGame.getWinners();
-        racingGameView.gameWinners(winners);
+        racingGameView.winners(winners);
     }
 
     public String getInputLine() {

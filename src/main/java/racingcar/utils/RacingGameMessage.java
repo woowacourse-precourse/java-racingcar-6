@@ -27,11 +27,11 @@ public enum RacingGameMessage {
         return REQUEST_RACE_COUNT_MESSAGE.name;
     }
 
-    public String getGameResultMessage(String raceResult) {
+    public String getRaceResultMessage(final String raceResult) {
         return NEWLINE.name + GAME_RESULT_MESSAGE.name + NEWLINE.name + raceResult;
     }
 
-    public String getWinnerMessage(String winners) {
+    public String getWinnerMessage(final String winners) {
         return WINNER_MESSAGE.name + winners;
     }
 

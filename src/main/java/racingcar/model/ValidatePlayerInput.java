@@ -37,7 +37,7 @@ public class ValidatePlayerInput {
         return validateResult;
     }
 
-    public void validateContainSpace(String playerInput) {
+    public void validateContainSpace(final String playerInput) {
         if (playerInput.contains(" ")) {
             throw new IllegalArgumentException(ErrorMessage.DELIMITER_ERROR.getDelimiterError());
         }
@@ -70,13 +70,13 @@ public class ValidatePlayerInput {
         }
     }
 
-    public void validateDigitRaceCount(String raceCountInput) {
+    public void validateDigitRaceCount(final String raceCountInput) {
         if (raceCountInput.chars().anyMatch(c -> !Character.isDigit((char) c))) {
             throw new IllegalArgumentException(ErrorMessage.DIGIT_RACE_COUNT_ERROR.getDigitRaceCountError());
         }
     }
 
-    public void validateEmptyRaceCount(String raceCountInput) {
+    public void validateEmptyRaceCount(final String raceCountInput) {
         if (raceCountInput.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.EMPTY_RACE_COUNT_ERROR.getEmptyRaceCountError());
         }

@@ -16,16 +16,16 @@ public class RacingGameTest {
         //when
         RacingGame racingGame = new RacingGame();
         //given
-        String carsName = "pobi,namzi,jnam,jonhan";
+        String carsName = "pobi,namzi,jnam,jonh";
 
-        racingGame.readyToCars(carsName);
+        racingGame.createCars(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
         //then
         assertThat(racingCars.size()).isEqualTo(4);
         assertThat(racingCars.get(0).getRacingCarName()).isEqualTo("pobi");
         assertThat(racingCars.get(1).getRacingCarName()).isEqualTo("namzi");
         assertThat(racingCars.get(2).getRacingCarName()).isEqualTo("jnam");
-        assertThat(racingCars.get(3).getRacingCarName()).isEqualTo("jonhan");
+        assertThat(racingCars.get(3).getRacingCarName()).isEqualTo("jonh");
     }
 
     @DisplayName("winner가 1명일 때 판단하는 테스트")
@@ -34,14 +34,14 @@ public class RacingGameTest {
         //when
         RacingGame racingGame = new RacingGame();
         //given
-        String carsName = "pobi,namzi,jnam,jonhan";
-        racingGame.readyToCars(carsName);
+        String carsName = "pobi,namzi,jnam,jonh";
+        racingGame.createCars(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
 
         RacingCar pobi = racingCars.get(0);
         RacingCar namzi = racingCars.get(1);
         RacingCar jnam = racingCars.get(2);
-        RacingCar jonhan = racingCars.get(3);
+        RacingCar jonh = racingCars.get(3);
 
         pobi.move(1);
         pobi.move(2);
@@ -55,9 +55,9 @@ public class RacingGameTest {
         jnam.move(5);
         jnam.move(1);
 
-        jonhan.move(2);
-        jonhan.move(4);
-        jonhan.move(6);
+        jonh.move(2);
+        jonh.move(4);
+        jonh.move(6);
         //then
         List<String> winners = racingGame.findWinners();
         String joinString = racingGame.getWinners();
@@ -73,14 +73,14 @@ public class RacingGameTest {
         //when
         RacingGame racingGame = new RacingGame();
         //given
-        String carsName = "pobi,namzi,jnam,jonhan";
-        racingGame.readyToCars(carsName);
+        String carsName = "pobi,namzi,jnam,jonh";
+        racingGame.createCars(carsName);
         List<RacingCar> racingCars = racingGame.getRacingCars();
 
         RacingCar pobi = racingCars.get(0);
         RacingCar namzi = racingCars.get(1);
         RacingCar jnam = racingCars.get(2);
-        RacingCar jonhan = racingCars.get(3);
+        RacingCar jonh = racingCars.get(3);
 
         pobi.move(1);
         pobi.move(2);
@@ -94,9 +94,9 @@ public class RacingGameTest {
         jnam.move(5);
         jnam.move(8);
 
-        jonhan.move(2);
-        jonhan.move(4);
-        jonhan.move(6);
+        jonh.move(2);
+        jonh.move(4);
+        jonh.move(6);
 
         //then
         List<String> winners = racingGame.findWinners();

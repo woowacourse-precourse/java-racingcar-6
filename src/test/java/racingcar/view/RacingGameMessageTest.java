@@ -33,7 +33,7 @@ public class RacingGameMessageTest {
         String gameResultMessage = "실행 결과";
         String raceResult = "pobi --";
         //then
-        assertThat(RacingGameMessage.GAME_RESULT_MESSAGE.getGameResultMessage(raceResult))
+        assertThat(RacingGameMessage.GAME_RESULT_MESSAGE.getRaceResultMessage(raceResult))
                 .isEqualTo("\n" +gameResultMessage + "\n" + raceResult);
     }
 

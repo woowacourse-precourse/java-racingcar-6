@@ -14,13 +14,13 @@ public class RacingGame {
     private List<RacingCar> racingCars;
     private int raceCount;
 
-    public void readyToCars(final String carNamesInputLine) {
-        List<String> carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
+    public void createCars(final String carNamesInputLine) {
+        final List<String> carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
         this.racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
-    public void readyToRace(final String raceCountInputLine) {
-        int raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
+    public void setRaceCount(final String raceCountInputLine) {
+        final int raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
         this.raceCount = raceCount;
     }
 
