@@ -6,13 +6,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Race {
-    private final List<Car> cars;
-    private final int rounds;
+    private List<Car> cars;
+    private int rounds;
 
     public Race(List<Car> cars, int rounds) {
         this.cars = cars;
         this.rounds = rounds;
     }
+
+    public Race() {}
 
     public List<Car> getCars() {
         return cars;
