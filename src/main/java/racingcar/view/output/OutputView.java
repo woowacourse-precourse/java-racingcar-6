@@ -11,19 +11,14 @@ public class OutputView {
         List<CarInfo> carInfos = roundResult.getCarInfos();
 
         for (CarInfo carInfo : carInfos) {
-            String carString = carInfo.getCarName() + " : " + buildCarPositionString(carInfo);
-            System.out.println(carString);
+            System.out.println(getCarRoundResultString(carInfo));
         }
 
         System.out.println();
     }
 
-    public void printWinner(Winners winners) {
-        List<String> winnerList = winners.getWinnerList();
-
-        String winnersString = String.join(", ", winnerList);
-
-        System.out.println("최종 우승자 : " + winnersString);
+    private String getCarRoundResultString(CarInfo carInfo) {
+        return carInfo.getCarName() + " : " + buildCarPositionString(carInfo);
     }
 
     private String buildCarPositionString(CarInfo carInfo) {
@@ -35,5 +30,13 @@ public class OutputView {
         }
 
         return result.toString();
+    }
+
+    public void printWinner(Winners winners) {
+        List<String> winnerList = winners.getWinnerList();
+
+        String winnersString = String.join(", ", winnerList);
+
+        System.out.println("최종 우승자 : " + winnersString);
     }
 }
