@@ -2,7 +2,7 @@ package racingcar.util;
 
 public class InputValidator {
 
-    public static boolean isInteger(String input) {
+    public static boolean isValidInteger(String input) {
         try {
             Integer.parseInt(input);
             return true;

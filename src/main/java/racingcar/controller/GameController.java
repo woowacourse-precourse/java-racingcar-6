@@ -33,41 +33,41 @@ public class GameController {
 
     private void initializeGame() {
         outputView.requestCarNames();
-        cars = generateCars(inputView.inputCars());
+        cars = createCars(inputView.inputCars());
         initializeTryCount();
     }
 
     private void initializeTryCount() {
         outputView.requestTryCount();
         String input = inputView.inputTryCount();
-        if (isInputInvalid(input)) {
+        if (isInvalidInput(input)) {
             ExceptionMessages.INVALID_INPUT_ERROR_MESSAGE.throwException();
         }
-        tryCount = generateTryCount(input);
+        tryCount = createTryCount(input);
     }
 
-    private boolean isInputInvalid(String input) {
-        return !InputValidator.isInteger(input);
+    private boolean isInvalidInput(String input) {
+        return !InputValidator.isValidInteger(input);
     }
 
-    private Cars generateCars(String carNames) {
-        List<Car> carNameList = InputParser.carsSplit(carNames);
-        return new Cars(carNameList);
+    private Cars createCars(String carNames) {
+        List<Car> carList = InputParser.carsSplit(carNames);
+        return new Cars(carList);
     }
 
-    private TryCount generateTryCount(String tryCountInput) {
+    private TryCount createTryCount(String tryCountInput) {
         int parsedTryCount = InputParser.tryCountParser(tryCountInput);
         return new TryCount(parsedTryCount);
     }
 
     private void startRace() {
         outputView.printStartResult();
-        while (raceContinues()) {
+        while (isRaceOngoing()) {
             moveCarsAndPrintStatus();
         }
     }
 
-    private boolean raceContinues() {
+    private boolean isRaceOngoing() {
         return tryCount.hasRepeat();
     }
 
