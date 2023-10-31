@@ -1,29 +1,23 @@
 package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.BeforeAll;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import racingcar.common.consts.SystemConst;
-import racingcar.common.utils.NumberGenerator;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class RacingCarsTest {
     private RacingCars racingCars;
-
-    @BeforeAll
-    void setupStaticClass() {
-        mockStatic(NumberGenerator.class);
-    }
+    private MockRandomNumberGenerator mockNumberGenerator;
 
     @BeforeEach
     void setup() {
-        racingCars = new RacingCars();
+        mockNumberGenerator = new MockRandomNumberGenerator(List.of(3, 4, 3, 4));
+        racingCars = new RacingCars(mockNumberGenerator);
     }
 
     @Test
@@ -76,29 +70,23 @@ class RacingCarsTest {
     }
 
     @Test
-    void List안에_Car객체들을_RandomNumber가_MOVE_FORMARD보다_크면_움직인다() {
-        int randomNumber = SystemConst.MOVE_FORWARD_NUMBER;
-        when(NumberGenerator.makeRandomNumber()).thenReturn(randomNumber);
+    void List안에_Car객체들을_RandomNumber에_따라_움직인다() {
         Car car1 = new Car("test1", 5);
+        Car car2 = new Car("test2", 5);
+        Car car3 = new Car("test3", 5);
+        Car car4 = new Car("test4", 5);
 
         racingCars.add(car1);
-
-        racingCars.moveRacingCars();
-
-        assertEquals(6, car1.toDto().getAdvance());
-    }
-
-    @Test
-    void List안에_Car객체들을_RandomNumber가_MOVE_FORMARD보다_작으면_안움직인다() {
-        int randomNumber = SystemConst.MOVE_FORWARD_NUMBER - 1;
-        when(NumberGenerator.makeRandomNumber()).thenReturn(randomNumber);
-        Car car1 = new Car("test1", 5);
-
-        racingCars.add(car1);
+        racingCars.add(car2);
+        racingCars.add(car3);
+        racingCars.add(car4);
 
         racingCars.moveRacingCars();
 
         assertEquals(5, car1.toDto().getAdvance());
+        assertEquals(6, car2.toDto().getAdvance());
+        assertEquals(5, car3.toDto().getAdvance());
+        assertEquals(6, car4.toDto().getAdvance());
     }
 
     @Test

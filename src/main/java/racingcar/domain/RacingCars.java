@@ -5,10 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.common.consts.SystemConst;
 import racingcar.common.utils.NameParser;
-import racingcar.common.utils.NumberGenerator;
 
 public class RacingCars {
-    private List<Car> racingCars = new ArrayList<>();
+    private final List<Car> racingCars = new ArrayList<>();
+    private final NumberGenerator numberGenerator;
+
+    public RacingCars(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+    }
 
     public RacingCarsResult getRacingCarsResult() {
         sort();
@@ -56,13 +60,13 @@ public class RacingCars {
     }
 
     private void moveRacingCar(Car car) {
-        if (isMove(car)) {
+        if (isMove()) {
             car.move();
         }
     }
 
-    private boolean isMove(Car car) {
-        int number = NumberGenerator.makeRandomNumber();
+    private boolean isMove() {
+        int number = numberGenerator.makeRandomNumber();
         return number >= SystemConst.MOVE_FORWARD_NUMBER;
     }
 
