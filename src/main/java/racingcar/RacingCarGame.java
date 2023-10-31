@@ -18,6 +18,9 @@ public class RacingCarGame {
         inputView.printTryCountInputMsg();
         user.inputTryCount();
 
+        OutputView outputView = new OutputView();
+        outputView.printGameResultMsg();
+
         int tryCount = user.getTryCount();
         while (tryCount > 0) {
             for (Car car : cars) {
@@ -25,10 +28,12 @@ public class RacingCarGame {
                     car.move();
                 }
             }
+            outputView.printCarsPosition(cars);
             tryCount--;
         }
 
         Judge judge = new Judge(cars);
         List<Car> winners = judge.decideWinner();
+        outputView.printWinnersName(winners);
     }
 }
