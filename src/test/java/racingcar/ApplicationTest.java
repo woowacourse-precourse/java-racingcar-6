@@ -75,6 +75,18 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Nested
+    @DisplayName("Repository tests")
+    class CarRepositoryTest {
+
+        @Test
+        void save() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.save("pobi");
+            assertThat(carRepository.findByName("pobi")).isNotNull();
+        }
+
+    }
 
     @Override
     public void runMain() {
