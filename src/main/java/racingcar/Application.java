@@ -16,6 +16,8 @@ public class Application {
 			diceThrow(carList);
 			printCarCurrentState(carList);
 		}
+
+		getWinner(carList);
 	}
 
 	private static List<Car> carListInput() throws IllegalArgumentException {
@@ -52,22 +54,46 @@ public class Application {
 
 	private static void printCarCurrentState(List<Car> carList) {
 		// 자동차 현황 출력
-		for (Car car : carList) {
+		for (Car car : carList)
 			System.out.println(car.toString());
-		}
 
 		System.out.println();
 	}
 
+	private static void getWinner(List<Car> carList) {
+		List<String> winnerList = new ArrayList<String>();
+		int max = countMax(carList);
 
+		winnerList = compareMax(carList, max);
+		System.out.println("최종 우승자 : " + printWinner(winnerList));
+	}
 
-	private static void countMax(List<Car> carList) { // 최고값 계산 if (num > max)
+	private static String printWinner(List<String> winnerList) {
+		// 승자 목록 출력
+		return String.join(", ", winnerList);
+	}
+
+	private static int countMax(List<Car> carList) {
+		// 최고 점수만 가져옴
 		int max = 0;
+
+		for (Car car : carList)
+			if (car.getCarCount() > max)
+				max = car.getCarCount();
+
+		return max;
+	}
+
+	private static List<String> compareMax(List<Car> carList, int max) {
+		// 승자 목록 생성
 		List<String> winnerList = new ArrayList<String>();
 
 		for (Car car : carList) {
-
+			if (car.getCarCount() == max)
+				winnerList.add(car.getCarName());
 		}
+
+		return winnerList;
 	}
 
 }
