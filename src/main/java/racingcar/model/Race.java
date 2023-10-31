@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.view.Input;
+import racingcar.view.Output;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,10 @@ public class Race {
     }
 
     private void printRoundResult() {
+        for (Car car : carList){
+            Output.printCarResult(car.getCarName(), car.getMoveLength());
+        }
+        Output.roundFinish();
     }
 
     public List<String> getRaceResult(){
