@@ -38,8 +38,8 @@ public class RacingCarService {
     }
 
     public int readCount() {
-        int count = Integer.parseInt(readLine());
-        return racingCarValidation.illegalValidation(count);
+        String countString = readLine();
+        return checkCountValidation(countString);
     }
 
     public CarList checkCarListMove() {
@@ -65,6 +65,11 @@ public class RacingCarService {
         racingCarValidation.checkNameBlank(name);
         racingCarValidation.checkNameLength(name);
         racingCarValidation.checkDuplicateName(carList, name);
+    }
+
+    private int checkCountValidation(String countString) {
+        racingCarValidation.checkCountDigit(countString);
+        return racingCarValidation.illegalValidation(Integer.parseInt(countString));
     }
 
 }

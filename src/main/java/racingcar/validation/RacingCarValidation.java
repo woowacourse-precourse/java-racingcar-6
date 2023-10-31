@@ -25,6 +25,11 @@ public class RacingCarValidation {
         return count;
     }
 
+    public void checkCountDigit(String countString){
+        if(!Character.isDigit(countString.charAt(0)))
+            throw new IllegalArgumentException("해당 값은 숫자여야 합니다.");
+    }
+
     public void checkDuplicateName(CarList carList, String name) {
         carList.getCarList().stream()
                 .filter(car -> car.getName().equals(name))
