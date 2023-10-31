@@ -9,10 +9,10 @@ public class MainController {
     private InputView inputView;
     private Race race;
 
-    public MainController() {
-        outputView = new OutputView();
-        inputView = new InputView();
-        race = new Race();
+    public MainController(OutputView outputView, InputView inputView, Race race) {
+        this.outputView = outputView;
+        this.inputView = inputView;
+        this.race = race;
     }
 
     public void startGame() {
