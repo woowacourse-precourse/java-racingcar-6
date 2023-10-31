@@ -8,7 +8,7 @@
     - 이름 중복X
     - 각 이름당 5자 이하만 O
     - null, empty String, 공백 X
-- [ ] 레이싱 시도 횟수 입력 및 validation
+- [x] 레이싱 시도 횟수 입력 및 validation
     - null, empty String, 공백, 숫자 제외 기타 문자 X
     - 자연수
         - 음수 X

@@ -5,7 +5,7 @@ public class Car {
     private int position;
 
     public Car(String carName) {
-        Name name = new Name(carName);
+        this.name = new Name(carName);
     }
 
 }
