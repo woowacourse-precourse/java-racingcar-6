@@ -68,4 +68,8 @@ public class RacingCarGame {
             System.out.println();
         }
     }
+
+    static boolean isWinner(int sizeOfProgressPerCar, int trialNumberInt) {
+        return sizeOfProgressPerCar >= trialNumberInt;
+    }
 }
