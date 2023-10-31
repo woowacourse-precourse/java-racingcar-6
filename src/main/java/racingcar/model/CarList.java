@@ -44,4 +44,15 @@ public class CarList {
     private boolean isNumberFourOrAbove(NumberGenerator numberGenerator, int number) {
         return numberGenerator.isFourOrAbove(number);
     }
+
+    public int findMaxPosition() {
+        return cars.stream().mapToInt(Car::getPosition)
+                .max().orElse(0);
+    }
+
+    public List<String> findWinners(int maxPosition) {
+        return cars.stream().filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 }

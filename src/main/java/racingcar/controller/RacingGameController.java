@@ -5,6 +5,8 @@ import racingcar.model.CarList;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class RacingGameController {
 
     private OutputView output;
@@ -36,6 +38,8 @@ public class RacingGameController {
             cars.doRound(numberGenerator);
             output.printRoundResult(cars);
         }
+        int maxPosition = cars.findMaxPosition();
+        List<String> winnerNames = cars.findWinners(maxPosition);
 
     }
 }
