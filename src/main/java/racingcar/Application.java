@@ -55,7 +55,7 @@ public class Application {
         printWinner();
     }
 
-    public static void printWinner() {
+    private static void printWinner() {
         System.out.print("최종 우승자 : ");
         int curMax = 0;
         for (Pair<String, Integer> pair : carInfoList) {
@@ -68,7 +68,7 @@ public class Application {
         }
     }
 
-    public static void printEachCarMove() {
+    private static void printEachCarMove() {
         for (int i = 0; i < carList.size(); i++) {
             System.out.print(carList.get(i) + " : ");
             for (int j = 0; j < moveForwardlist[i]; j++) {
@@ -79,12 +79,12 @@ public class Application {
         System.out.println();
     }
 
-    public static void sortCarInfoByMoveTimes() {
+    private static void sortCarInfoByMoveTimes() {
         Collections.sort(carInfoList, (a, b) -> b.getValue().compareTo(a.getValue()));
     }
 
 
-    public static void combineCarNamesWithCarMoveTimes() {
+    private static void combineCarNamesWithCarMoveTimes() {
         carInfoList = new ArrayList<>();
         for (int i = 0; i < carList.size(); i++) {
             carInfoList.add(new Pair<>(carList.get(i), moveForwardlist[i]));
@@ -92,7 +92,7 @@ public class Application {
     }
 
 
-    public static void moveCars() {
+    private static void moveCars() {
 
         for (int i = 0; i < carList.size(); i++) {
             // 모든 입력이 정상이라면 0~9의 랜덤 숫자를 추출하여 4 이상인지 판단하기
@@ -105,26 +105,26 @@ public class Application {
     }
 
 
-    public static boolean judgeNumberMoreThanFour(int randomNumber) {
+    private static boolean judgeNumberMoreThanFour(int randomNumber) {
         return randomNumber >= 4;
     }
 
-    public static int makeRandomNumber() {
+    private static int makeRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static void makeMoveForwardlist() {
+    private static void makeMoveForwardlist() {
         moveForwardlist = new int[carList.size()];
     }
 
-    public static void makeNameSplit() {
+    private static void makeNameSplit() {
         // 입력 받은 문자열을 쉼표를 기준으로 구분하여 자동차 이름 저장하기
         String[] carNameAfterSplit = carNameBeforeSplit.split(",");
         carList = new ArrayList<>(Arrays.asList(carNameAfterSplit));
 
     }
 
-    public static void checkErrorCarname(String input) {
+    private static void checkErrorCarname(String input) {
 
         // 에러 상황 나누기
         // 1. 빈 문자를 입력한 경우
@@ -149,7 +149,7 @@ public class Application {
 
     }
 
-    public static int checkErrorNumberofmoves(String input) {
+    private static int checkErrorNumberofmoves(String input) {
 
         // 숫자를 입력하지 않은 경우 예외 처리
         for (char c : input.toCharArray()) {
