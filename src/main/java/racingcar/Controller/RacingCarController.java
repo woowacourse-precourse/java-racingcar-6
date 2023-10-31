@@ -19,11 +19,14 @@ public class RacingCarController {
         OutputView.printInputRacingCount();
         game.userInputCount(getUserInput());
         game.initGame();
+        OutputView.printGameStart();
     }
 
     private void playGame() {
-        OutputView.printGameStart();
-        game.play();
+        while (!game.isWon()) {
+            game.play();
+            OutputView.printResult(game.getCarDtoList());
+        }
     }
 
     private static String getUserInput() {

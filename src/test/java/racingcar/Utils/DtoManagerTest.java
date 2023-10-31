@@ -12,24 +12,24 @@ public class DtoManagerTest {
     @Test
     void newRacingCar_정상_테스트() {
         dtoManager = new DtoManager();
-        dtoManager.newRacingCar("A");
+        dtoManager.newRacingCar("A", 1);
         assertThat(dtoManager.getRacingCarInstanceCount()).isEqualTo(1);
     }
 
     @Test
     void newRacingCar_정상_테스트_2() {
         dtoManager = new DtoManager();
-        dtoManager.newRacingCar("A");
-        dtoManager.newRacingCar("B");
+        dtoManager.newRacingCar("A", 1);
+        dtoManager.newRacingCar("B", 1);
         assertThat(dtoManager.getRacingCarInstanceCount()).isEqualTo(2);
     }
 
     @Test
     void newRacingCar_정상_테스트_3() {
         dtoManager = new DtoManager();
-        dtoManager.newRacingCar("A");
-        dtoManager.newRacingCar("B");
-        dtoManager.newRacingCar("C");
+        dtoManager.newRacingCar("A", 1);
+        dtoManager.newRacingCar("B", 1);
+        dtoManager.newRacingCar("C", 1);
         assertThat(dtoManager.getRacingCarInstanceCount()).isEqualTo(3);
     }
 }
