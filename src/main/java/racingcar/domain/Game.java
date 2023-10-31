@@ -31,6 +31,7 @@ public class Game {
 
     public void declareWinner() {
         winners = selectWinner();
+        Output.printFinalWinner(winners);
     }
 
     private void setPlayer() {

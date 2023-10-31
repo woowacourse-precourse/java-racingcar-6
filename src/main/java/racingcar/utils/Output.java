@@ -1,5 +1,8 @@
 package racingcar.utils;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.domain.Car;
 import racingcar.validate.ValidateNumber;
 
 public class Output {
@@ -7,6 +10,8 @@ public class Output {
     private static final String ASK_GAME_COUNT = "시도할 회수는 몇회인가요?";
     private static final String RACE_RESULT_INTRO = "실행 결과";
     private static final String ONE_COUNT = "-";
+    private static final String FINAL_WINNER = "최종 우승자 : ";
+    private static final String WINNER_DELIMITER = ", ";
 
 
     public static void askCarName(){
@@ -24,6 +29,11 @@ public class Output {
         System.out.println(name + " : " + makePointMessage(forwardCount));
     }
 
+    public static void printFinalWinner(List<Car> winners) {
+        String winnersList = makeWinnerList(winners);
+        System.out.println(FINAL_WINNER + winnersList);
+    }
+
     private static String makePointMessage(Long forwardCount) {
         StringBuilder pointMessageBuilder = new StringBuilder();
         ValidateNumber.validateForwardCount(forwardCount);
@@ -32,5 +42,11 @@ public class Output {
             pointMessageBuilder.append(ONE_COUNT);
         }
         return pointMessageBuilder.toString();
+    }
+
+    private static String makeWinnerList(List<Car> winners) {
+        return winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(WINNER_DELIMITER));
     }
 }
