@@ -3,9 +3,9 @@ package racingcar.utils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.utils.AttemptCountsInputValidator.AttemptCountsInputExceptionMessage;
+import racingcar.utils.TotalRoundInputValidator.TotalRoundInputExceptionMessage;
 
-class AttemptCountsInputValidatorTest {
+class TotalRoundInputValidatorTest {
 
     @Test
     @DisplayName("[실패 테스트] 숫자가 아닌 입력 - 문자")
@@ -13,8 +13,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "r";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -23,8 +23,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "1 ";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -33,8 +33,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "00000001";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -43,8 +43,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "-0";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -53,8 +53,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -63,8 +63,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "2147483648";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_INTEGER.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_INTEGER.getError());
     }
 
     @Test
@@ -73,8 +73,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "-2147483649";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.NOT_INTEGER.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.NOT_INTEGER.getError());
     }
 
     @Test
@@ -83,8 +83,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "0";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_RANGE.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.OUT_OF_RANGE.getError());
     }
 
     @Test
@@ -93,8 +93,8 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "-1";
         // when, then
-        Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_RANGE.getError());
+        Assertions.assertThatThrownBy(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.OUT_OF_RANGE.getError());
     }
 
     @Test
@@ -103,7 +103,7 @@ class AttemptCountsInputValidatorTest {
         // given
         String input = "2147483647";
         // when, then
-        Assertions.assertThatCode(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_RANGE.getError());
+        Assertions.assertThatCode(() -> TotalRoundInputValidator.validate(input))
+                .hasMessage(TotalRoundInputExceptionMessage.OUT_OF_RANGE.getError());
     }
 }

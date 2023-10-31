@@ -32,9 +32,9 @@ public class GameController {
     }
 
     private void processCarRace(RacingCars cars) {
-        int attemptCounts = inputView.readAttemptCounts();
+        int totalRound = inputView.readTotalRound();
         outputView.printPlayResultText();
-        for (int attempCount = 0; attempCount < attemptCounts; attempCount++) {
+        for (int round = 0; round < totalRound; round++) {
             OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(cars);
             deliverToOutputViewAboutOneGameResult(resultDto);
         }

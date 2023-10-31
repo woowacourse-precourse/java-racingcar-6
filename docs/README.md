@@ -107,7 +107,7 @@
 
 ##
 
-#### 시도 횟수 입력 검증 역할 (AttemptCountsInputValidator)
+#### 시도 횟수 입력 검증 역할 (TotalRoundInputValidator)
 
 ```
 1️⃣ 추정할 수 있는 예외
