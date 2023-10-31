@@ -310,8 +310,8 @@ class ApplicationTest extends NsTest {
         List<Driver> drivers = new ArrayList<>(
                 Arrays.asList(new Driver("pobi"), new Driver("woni"))
         );
-        Method determineWinners = RaceOfficial.class.getDeclaredMethod("determineWinners", List.class);
-        determineWinners.setAccessible(true);
+        Method rankDrivers = RaceOfficial.class.getDeclaredMethod("rankDrivers", List.class);
+        rankDrivers.setAccessible(true);
 
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(RandomNumbers::generateZeroToNineDigit)
@@ -320,7 +320,7 @@ class ApplicationTest extends NsTest {
                 driver.pushPedal();
                 raceOfficial.setHighestScore(driver);
             }
-            determineWinners.invoke(raceOfficial, drivers);
+            rankDrivers.invoke(raceOfficial, drivers);
             assertThat(raceOfficial.showWinnerList()).containsExactly("pobi", "woni");
         }
     }

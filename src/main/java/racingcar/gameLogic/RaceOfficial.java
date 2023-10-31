@@ -38,15 +38,13 @@ public class RaceOfficial {
     }
 
     public void announceWinners(List<Driver> drivers) {
-        determineWinners(drivers);
+        rankDrivers(drivers);
         OutputViewer.printWinners(scoreBoard.getWinners());
     }
 
-    private void determineWinners(List<Driver> drivers) {
+    private void rankDrivers(List<Driver> drivers) {
         for (Driver driver : drivers) {
-            if (isWinner(driver)) {
-                addToWinnerList(driver);
-            }
+            rankDriver(driver);
         }
     }
 
@@ -54,8 +52,10 @@ public class RaceOfficial {
         return driver.sayMovedDistance() == scoreBoard.getHighScore();
     }
 
-    private void addToWinnerList(Driver driver) {
-        scoreBoard.addWinner(driver.sayCarName());
+    private void rankDriver(Driver driver) {
+        if (isWinner(driver)) {
+            scoreBoard.addWinner(driver.sayCarName());
+        }
     }
 
     public int showHighestScore() {
