@@ -5,11 +5,10 @@ import java.util.regex.Pattern;
 public class GameCountValidator {
 
     private static final Pattern GAME_COUNT_REGEX = Pattern.compile("[0-9]+");
-    private static final String GAME_COUNT_TYPE_EXCEPTION_MESSAGE = "게임 횟수는 자연수여야 한다.";
 
     public void validateGameCount(String userInput) {
         if (!validateCountType(userInput) || validateStartZero(userInput)) {
-            throw new IllegalArgumentException(GAME_COUNT_TYPE_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.GAME_COUNT_TYPE.getMessage());
         }
     }
 

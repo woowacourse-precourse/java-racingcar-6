@@ -10,7 +10,7 @@ public class CarList {
 
     private final NumberGenerator numberGenerator;
 
-    private static final String DIVISION_STANDARD = ",";
+    private final String DIVISION_STANDARD = ",";
 
     private List<Car> carList;
 
@@ -26,6 +26,7 @@ public class CarList {
     private List<Car> create(String userInput) {
         List<String> userInputList = convertStrToList(userInput);
         CarNameValidator.validateCarName(userInputList);
+
         return userInputList.stream()
                 .map(name -> Car.from(name))
                 .collect(Collectors.toList());

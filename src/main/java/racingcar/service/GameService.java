@@ -7,7 +7,7 @@ import racingcar.validation.GameCountValidator;
 
 public class GameService {
 
-    private static final String DIVISION_STANDARD = ",";
+    private final String DIVISION_STANDARD = ",";
 
     private final GameCountValidator gameCountValidator;
 
