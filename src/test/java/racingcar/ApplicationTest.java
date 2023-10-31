@@ -53,6 +53,23 @@ class ApplicationTest extends NsTest {
         assertThat(car.getName()).isEqualTo(carName);
     }
 
+    @Test
+    void 자동차_현재_상황_반환() {
+        String carName = "pobi";
+        Integer attempts = 10;
+        Car car = new Car(carName);
+
+        assertThat(car.toString()).isEqualTo(carName + " : ");
+        String status = "";
+        for (int i = 1; i <= attempts; i++) {
+            car.goForward();
+            status += "-";
+            assertThat(car.toString()).isEqualTo(carName + " : " + status);
+        }
+
+        assertThat(true).isEqualTo(true);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
