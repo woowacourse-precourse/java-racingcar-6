@@ -17,8 +17,7 @@ public class RacingCarGameController {
     }
 
     public void run() {
-        String[] playerNames = racingCarGameView.requestCarName().split(",");
-        List<Player> playerList = generatePlayer(Arrays.stream(playerNames).toList());
+        List<Player> playerList = generatePlayer(Arrays.stream(racingCarGameView.requestCarName()).toList());
 
         int tryNum = racingCarGameView.requestTryNumber();
 
