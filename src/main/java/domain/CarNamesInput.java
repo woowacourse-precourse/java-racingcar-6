@@ -1,14 +1,28 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class CarNamesInput {
-	private final List<String> names;
+	private final List<String> names = new ArrayList<>();
+
 	public CarNamesInput(String inputNames) {
-		this.names = splitByCommaToList(inputNames);
+		List<String> nameList = splitByCommaToList(inputNames);
+		validateNamesDuplicate(nameList);
+		validateAndAddNames(nameList);
+	}
+
+	private void validateAndAddNames(List<String> nameList) {
+		for (String name : nameList) {
+			name = trimName(name);
+			validateNameEmpty(name);
+			validateNameBlank(name);
+			validateNameLength(name);
+			this.names.add(name);
+		}
 	}
 
 	public List<String> getNames() {
