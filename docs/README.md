@@ -51,11 +51,13 @@
           - int getProcess()
           - void trial()
           - int compareFunction(car) //return this.process - car.process
-      - map
-          - List<car>
+      - RacingMap
+          - List<car> carList
+          - List<String> winner
           - map() // constructor
           - void getCarList(List<Car>)
-          - trial() // execute one attempt
+          - void trial() // execute one attempt
+          - void calWinner()
     - view
       - View Interface
         - void printGetCarString()

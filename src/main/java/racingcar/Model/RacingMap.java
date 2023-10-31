@@ -18,4 +18,6 @@ public class RacingMap {
         for(Car car: carList)
             car.trial();
     }
+
+    public List<Car> getCarList
 }
