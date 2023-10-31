@@ -30,5 +30,14 @@ public class ConfirmationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 중복될 수 없습니다.");
     }
+
+    @Test
+    void 자동차이름_공백_예외_처리() {
+        String nameList = "";
+
+        assertThatThrownBy(() -> userInputHandler.validateUserInput(nameList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름을 입력해주세요.");
+    }
 }
 
