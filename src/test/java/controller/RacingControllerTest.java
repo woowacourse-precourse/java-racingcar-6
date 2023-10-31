@@ -10,7 +10,7 @@ public class RacingControllerTest extends NsTest {
 
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-    RacingController racingController = new RacingController();
+    final RacingController racingController = new RacingController();
 
     @Test
     void 컨트롤러_게임_진행_테스트() {

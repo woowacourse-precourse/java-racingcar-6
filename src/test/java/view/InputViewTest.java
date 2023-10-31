@@ -26,7 +26,7 @@ public class InputViewTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi,lisa", "json,jiny"})
     @DisplayName("자동차 이름 입력 정상 동작하는지 테스트")
-    public void 이름_입력_테스트(String input) {
+    void 이름_입력_테스트(String input) {
         //given
         List<String> expectedName = Arrays.asList(input.split(","));
 
@@ -41,7 +41,7 @@ public class InputViewTest {
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3"})
     @DisplayName("시도 횟수 입력 테스트")
-    public void 시도_횟수_입력_테스트(String input) {
+    void 시도_횟수_입력_테스트(String input) {
         //given
         String exceptedInput = input;
 

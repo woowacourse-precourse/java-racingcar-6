@@ -10,7 +10,7 @@ public class NameTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "lisa", "jiny"})
     @DisplayName("정상 이름 입력 테스트")
-    public void 이름_정상_입력_테스트(String input) {
+    void 이름_정상_입력_테스트(String input) {
         //given
         String name = input;
 
@@ -25,7 +25,7 @@ public class NameTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobipobi", "lisalisa", "jinyjiny"})
     @DisplayName("5글자 이상 이름 입력시 예외 발생 테스트")
-    public void 이름_입력_예외_테스트(String input) {
+    void 이름_입력_예외_테스트(String input) {
         //given
         String name = input;
 
@@ -38,7 +38,7 @@ public class NameTest {
     @ParameterizedTest
     @ValueSource(strings = {"", " "})
     @DisplayName("공백 입력시 예외 발생 테스트")
-    public void 이름_입력_예외_테스트_공백(String input) {
+    void 이름_입력_예외_테스트_공백(String input) {
         //given
         String name = input;
 

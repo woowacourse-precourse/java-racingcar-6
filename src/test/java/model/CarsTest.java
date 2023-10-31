@@ -10,7 +10,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("List<Cars> 생성 잘 되는지 테스트")
-    public void Cars_생성자_테스트() {
+    void Cars_생성자_테스트() {
         //given
         List<Car> carList = List.of(
                 new Car("pobi"),
@@ -26,7 +26,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("가장 큰 movingCount를 가진 Car객체의 이름 반환 테스트")
-    public void 가장_큰_movingCount_Car_객체_테스트() {
+    void 가장_큰_movingCount_Car_객체_테스트() {
         //given
         Car pobiCar = new Car("pobi");
         Car lisaCar = new Car("lisa");
@@ -48,7 +48,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("갖고 있는 모든 Car객체에 임의의 수 기준으로 업데이트 테스트")
-    public void movingCount_업데이트_테스트() {
+    void movingCount_업데이트_테스트() {
         //given
         List<Car> carList = new ArrayList<>();
         Car pobiCar = new Car("pobi");
@@ -70,7 +70,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("갖고 있는 모든 Car객체의 상태 반환")
-    public void 모든_Car_객체_상태_반환_테스트() {
+    void 모든_Car_객체_상태_반환_테스트() {
         //given
         List<Car> carList = new ArrayList<>();
         Car pobiCar = new Car("pobi");

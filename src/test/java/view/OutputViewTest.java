@@ -29,7 +29,7 @@ public class OutputViewTest {
 
     @Test
     @DisplayName("최종 우승자 출력 테스트")
-    public void 최종_우승자_출력_테스트() {
+    void 최종_우승자_출력_테스트() {
         //given
         List<Car> carList = new ArrayList<>();
         Car pobiCar = new Car("pobi");
