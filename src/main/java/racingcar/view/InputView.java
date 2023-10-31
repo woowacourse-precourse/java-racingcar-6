@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.regex.Pattern;
 import racingcar.util.Validator;
 
 public class InputView {

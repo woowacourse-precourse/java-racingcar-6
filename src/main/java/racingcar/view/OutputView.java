@@ -2,27 +2,27 @@ package racingcar.view;
 
 public class OutputView {
 
-    public static void printCarNamesInputMessage() {
+    public void printCarNamesInputMessage() {
         System.out.println(Message.CAR_NAMES_INPUT_MESSAGE.message);
     }
 
-    public static void printExecutionNumberInputMessage() {
+    public void printExecutionNumberInputMessage() {
         System.out.println(Message.EXECUTION_NUMBER_INPUT_MESSAGE.message);
     }
 
-    public static void printExecutionResultMessage() {
+    public void printExecutionResultMessage() {
         System.out.println(Message.EXECUTION_RESULT_MESSAGE.message);
     }
 
-    public static void printNameAndResultMessage(String name, int position) {
+    public void printNameAndResultMessage(String name, int position) {
         System.out.println(name + " : " + "-".repeat(position));
     }
 
-    public static void printWinnersMessage(String winner) {
+    public void printWinnersMessage(String winner) {
         System.out.println(Message.WINNER_MESSAGE.message + winner);
     }
 
-    public static void printSpaceLine() {
+    public void printSpaceLine() {
         System.out.println();
     }
 
