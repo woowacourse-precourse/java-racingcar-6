@@ -31,18 +31,20 @@ public class Cars implements Iterable<Car> {
 
     // 사용자가 입력한 자동차 이름을 쉼표(,)로 구분하여 리스트에 저장
     private void splitUserInputCarName(String userInput) {
-        userInput = userInput.trim();
         String[] names = userInput.split(",");
-        validateDuplicate(names);
 
-        for (String name : names) {
+        List<String> namesNoBlank = new ArrayList<>();
+        Arrays.stream(names).forEach(name -> namesNoBlank.add(name.trim())); // 문자열 양 끝 공백 제거
+        validateDuplicate(namesNoBlank);
+
+        for (String name : namesNoBlank) {
             cars.add(new Car(name));
         }
     }
 
-    private void validateDuplicate(String[] names) {
-        // 중복된 자동차 이름 있으면 예외 발생
-        if (names.length != Arrays.stream(names).distinct().count()) {
+    // 중복된 자동차 이름 있으면 예외 발생
+    private void validateDuplicate(List<String> names) {
+        if (names.size() != names.stream().distinct().count()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATE);
         }
     }
