@@ -14,6 +14,10 @@ import static java.lang.Integer.*;
 
 public class GameController {
 
+    private static void printRaceWinner(Race race) {
+        OutputView.printMessage("최종 우승자 : " + race.getWinnerString());
+    }
+
     private static void printRaceStatus(int tryCount, Race race) {
         OutputView.printMessage("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
