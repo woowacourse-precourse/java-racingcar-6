@@ -63,7 +63,7 @@ public class CarController {
             }
         }
 
-        return String.join(",", winner);
+        return String.join(", ", winner);
     }
 
     private int findWinnerPosition() {
