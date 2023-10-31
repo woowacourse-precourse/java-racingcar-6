@@ -19,6 +19,7 @@ public class ValidException {
     private static final String BLANK = " ";
     private static final Integer ZERO_NUM = 0;
     private static final Character COMMA_CHAR = ',';
+    private static final String COMMA_REGEX = ",";
 
     public static Boolean lessFIveLen(String strLine) {
         int len = strLine.length();
@@ -113,7 +114,7 @@ public class ValidException {
      * @return
      */
     public static boolean nameOfEachFIveLessString(String nameLine) {
-        String[] nameArr = Utill.makeArrFromString(nameLine, ",");
+        String[] nameArr = Utill.makeArrFromString(nameLine, COMMA_REGEX);
         List<String> nameList = Utill.makeListFromArr(nameArr);
 
         for (String name : nameList) {
