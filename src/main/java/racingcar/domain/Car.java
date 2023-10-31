@@ -1,43 +1,50 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+
+import racingcar.policy.MovingPolicy;
+import racingcar.policy.NumberGeneratePolicy;
+
+import java.util.Objects;
 
 public class Car {
-    private static final int BASIC = 4;
-    private static final int RANDOM_MIN = 0;
-    private static final int RANDOM_MAX = 9;
-    private final String name;
-    private int position = 0;
+    private final CarName carName;
+    private final Position position;
 
-    public Car(String name){
-        this.name = name;
+    public Car(CarName carName, Position position) {
+        this.carName = carName;
+        this.position = position;
     }
 
-
-    public String getName(){
-        return this.name;
-    }
-
-    public int getPosition(){
-        return this.position;
-    }
-
-    public void choice(){
-        if(Go()) position++;
-    }
-
-    private boolean Go(){
-        if(Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX) >= BASIC){
-            return true;
+    public Car move(MovingPolicy movingPolicy, NumberGeneratePolicy numberGeneratePolicy) {
+        if (movingPolicy.canMove(numberGeneratePolicy.generate())) {
+            return new Car(this.carName, position.increase());
         }
-        return false;
+        return this;
     }
 
-    public boolean isSamePosition(int position){
-        if(this.position == position){
-            return true;
-        }
-
-        return false;
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Car car = (Car) object;
+        return Objects.equals(carName, car.carName) && Objects.equals(position, car.position);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carName, position);
+    }
+
+    public String getCarName() {
+        return this.carName.getName();
+    }
+
+    public int getPosition() {
+        return this.position.getPosition();
+    }
+
+    public boolean isWinner(int maxPosition) {
+        return this.position.equals(new Position(maxPosition));
+    }
+
 }

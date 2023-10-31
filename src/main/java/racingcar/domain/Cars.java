@@ -1,36 +1,42 @@
 package racingcar.domain;
 
-import racingcar.model.exception;
-import racingcar.view.InputView;
+import racingcar.controller.dto.Result;
+import racingcar.policy.MovingPolicy;
+import racingcar.policy.NumberGeneratePolicy;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
-    static List<Car> cars;
 
-    public Cars(){
-        this.cars = new ArrayList<>();
+    private final List<Car> cars;
+
+    public Cars(List<Car> cars) {
+        this.cars = new ArrayList<>(cars);
     }
 
-    public void join(String carNames){
-        try{
-            String[] DoneCarNames = exception.isValidCarNames(carNames);
-            for(String carName : DoneCarNames){
-                cars.add(new Car(carName));
-            }
-        } catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
-            join(InputView.getInputCar());
-        }
+    public Cars playGame(MovingPolicy movingPolicy, NumberGeneratePolicy numberGeneratePolicy) {
+        return new Cars(cars.stream().map(car -> car.move(movingPolicy, numberGeneratePolicy))
+                .toList());
     }
 
-    public List<Car> getCars(){
-        return cars;
+    public List<Result> getResults() {
+        return cars.stream()
+                .map(car -> new Result(car.getCarName(), car.getPosition()))
+                .toList();
     }
 
-    public Car getMaxPosition(){
-        return cars.stream().max(Comparator.comparingInt(Car::getPosition)).get();
+    public List<Result> calculateWinners() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isWinner(maxPosition))
+                .map(car -> new Result(car.getCarName(), car.getPosition()))
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow();
     }
 }
