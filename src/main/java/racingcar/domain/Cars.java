@@ -5,11 +5,12 @@ import racingcar.view.OutputView;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars =  cars;
@@ -39,7 +40,7 @@ public class Cars {
     private int getMaxMovement() {
         return cars.stream()
                 .max(Comparator.comparingInt(Car::getMovement))
-                .get()
+                .orElseThrow(NoSuchElementException::new)
                 .getMovement();
     }
 
