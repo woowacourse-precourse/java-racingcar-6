@@ -1,8 +1,5 @@
 package racingcar.model;
 
-import static racingcar.validator.InputValidator.validateNumOfMatches;
-import static racingcar.validator.InputValidator.validateStringToInteger;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,15 +11,20 @@ public class Race {
     private final int numOfMatches;
 
     public Race(String carListString, String numOfMatchesString) {
-        validateStringToInteger(numOfMatchesString);
-        validateNumOfMatches(numOfMatchesString);
-
         this.carList = new ArrayList<>();
         for (String carString : carListString.split(",")) {
             this.carList.add(new Car(carString));
         }
-
         this.numOfMatches = Integer.parseInt(numOfMatchesString);
+    }
+
+    // 테스트 코드용 생성자
+    public Race(String[] carNameList, int[] carDistanceList, int carListLen) {
+        this.numOfMatches = 0;
+        this.carList = new ArrayList<>();
+        for (int i = 0; i < carListLen; i++) {
+            this.carList.add(new Car(carNameList[i], carDistanceList[i]));
+        }
     }
 
     public void match() {

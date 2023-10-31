@@ -8,6 +8,12 @@ public class Car {
         this.name = name;
         this.distance = 0;
     }
+    
+    // 테스트 코드용 생성자
+    public Car(String name, int distance) {
+        this.name = name;
+        this.distance = distance;
+    }
 
     public void move(int randomNum) {
         if (randomNum >= 4) {
