@@ -22,6 +22,10 @@ class GameSystem {
 class InputView {
 
 
+    private void runNameValidator(String input) {
+        NameValidation.checkWord(input);
+    }
+
 }
 
 class OutputView {
@@ -29,7 +33,7 @@ class OutputView {
 }
 
 class NameValidation {
-    public void checkWord(String input) {
+    public static void checkWord(String input) {
         if (!input.matches("^([a-zA-Z]{1,5})(,[a-zA-Z]{1,5})*$")) {
             throw new IllegalArgumentException();
         }
