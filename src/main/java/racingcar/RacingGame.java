@@ -15,14 +15,23 @@ public class RacingGame {
     this.rounds = rounds;
   }
   public void race() {
+    System.out.println("\n실행 결과");
     for(int i=0; i<rounds; i++) {
       moveCars();
+      printCarsStatus();
+      System.out.println();
     }
   }
   
   private void moveCars() {
-for(Car car : cars) {
+    for(Car car : cars) {
       car.move();
+    }
+  }
+  
+  public void printCarsStatus() {
+    for(Car car : cars) {
+      car.printStatus();
     }
   }
   
