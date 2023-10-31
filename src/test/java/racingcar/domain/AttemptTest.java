@@ -19,10 +19,15 @@ class AttemptTest {
     }
 
     @Test
-    void decrease_1에서_decrease했을_때_거짓_반환() {
+    void decrease_1에서_decrease했을_때_0이_되는지_확인() {
+
         Attempt attempt = new Attempt(1);
+
         attempt.decrease();
-        assertFalse(attempt.isExist());
+        Attempt expect = new Attempt(0);
+
+        assertEquals(attempt, expect);
+
     }
 
 }
