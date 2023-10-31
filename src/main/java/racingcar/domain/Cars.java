@@ -26,7 +26,7 @@ public class Cars {
     public int maxMovement() {
         int maxValue = 0;
         for (Car car : cars) {
-            maxValue = Math.max(maxValue, car.movement);
+            maxValue = Math.max(maxValue, car.getMovement());
         }
         return maxValue;
     }

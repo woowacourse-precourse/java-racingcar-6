@@ -18,6 +18,17 @@ public class Validator {
         }
     }
 
+    public void trial(String trial) {
+        try {
+            blank(trial);
+            positive(trial);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            Console.close();
+            throw e;
+        }
+    }
+
     private void size(List<String> nameList) {
         for (String name : nameList) {
             if (name.length() > 5) {
@@ -34,27 +45,16 @@ public class Validator {
         }
     }
 
+    private void blank(String trial) {
+        if (trial.equals("")) {
+            throw new IllegalArgumentException("양의 정수를 입력하십시오.");
+        }
+    }
+
     private void duplicate(List<String> nameList) {
         HashSet<String> nonDuplicate = new HashSet<>(nameList);
         if (nonDuplicate.size() != nameList.size()) {
             throw new IllegalArgumentException("중복된 이름은 불가합니다.");
-        }
-    }
-
-    public void trial(String trial) {
-        try {
-            blank(trial);
-            positive(trial);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            Console.close();
-            throw e;
-        }
-    }
-
-    private void blank(String trial) {
-        if (trial.equals("")) {
-            throw new IllegalArgumentException("양의 정수를 입력하십시오.");
         }
     }
 

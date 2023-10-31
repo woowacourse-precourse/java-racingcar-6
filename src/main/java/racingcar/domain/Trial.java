@@ -14,5 +14,4 @@ public class Trial {
     public int toNum() {
         return Integer.valueOf(trial);
     }
-
 }
