@@ -6,11 +6,11 @@ import java.util.Optional;
 import racingcar.service.dto.GameResult;
 import racingcar.view.dto.CarNameList;
 
-public class CarList {
+public class RacingManager {
 
     private final List<Car> cars;
 
-    public CarList(CarNameList carNameList) {
+    public RacingManager(CarNameList carNameList) {
         this.cars = carNameList.stream()
                 .map(Car::new)
                 .toList();

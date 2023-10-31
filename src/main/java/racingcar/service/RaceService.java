@@ -2,7 +2,7 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.CarList;
+import racingcar.domain.RacingManager;
 import racingcar.view.dto.CarNameList;
 import racingcar.service.dto.GameResult;
 import racingcar.domain.RandomNumberGenerator;
@@ -17,23 +17,23 @@ public class RaceService {
     }
 
     public TotalGameResult doGame(CarNameList carNames, String attemptNumberString) {
-        CarList carList = new CarList(carNames);
+        RacingManager racingManager = new RacingManager(carNames);
         int attemptNumber = convertToInt(attemptNumberString);
 
-        List<GameResult> results = doMainContent(carList, attemptNumber);
+        List<GameResult> results = doMainContent(racingManager, attemptNumber);
 
-        return new TotalGameResult(results, carList.calculateWinner());
+        return new TotalGameResult(results, racingManager.calculateWinner());
     }
 
-    private List<GameResult> doMainContent(CarList carList, int attemptNumber) {
+    private List<GameResult> doMainContent(RacingManager racingManager, int attemptNumber) {
         List<GameResult> results = new ArrayList<>();
         for (int i = 0; i < attemptNumber; i++) {
-            carList.moveEach(
+            racingManager.moveEach(
                     randomNumberGenerator.generateNumbers(
-                            carList.size()
+                            racingManager.size()
                     )
             );
-            results.add(carList.createResult());
+            results.add(racingManager.createResult());
         }
         return results;
     }
