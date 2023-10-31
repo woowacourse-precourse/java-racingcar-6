@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,41 +11,50 @@ import java.util.List;
 
 
 class RacingCarTest {
+
     RacingCar racingCar = new RacingCar();
 
-    @DisplayName("null 입력이면 exception 발생")
     @Test
-    void nullInput() {
+    void exception_null_입력() {
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> racingCar.naming(null));
+                .isThrownBy(() -> racingCar.setCarName(null));
     }
 
-    @DisplayName("빈값 입력이면 exception 발생")
     @Test
-    void emptyInput() {
+    void exception_입력값_없음() {
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> racingCar.naming(""));
+                .isThrownBy(() -> racingCar.setCarName(""));
 
     }
 
-    @DisplayName("','를 기준으로 값을 구분")
     @Test
-    void splitComma() {
+    void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
-        List<String> actual = racingCar.naming(input);
+        List<String> actual = racingCar.setCarName(input);
 
         assertThat(actual).contains("1", "2");
         assertThat(actual).containsExactly("1", "2");
     }
 
-    @DisplayName("','를 기준으로 값을 구분")
     @Test
-    void isNotNumber() {
-        String input = "1,2";
-        List<String> actual = racingCar.naming(input);
+    void exception_이름_하나만_입력1() {
+        String input = "안녕,";
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> racingCar.setCarName(input));
 
-        assertThat(actual).contains("1", "2");
-        assertThat(actual).containsExactly("1", "2");
+    }
+    @Test
+    void exception_이름_하나만_입력2() {
+        String input = "안녕";
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> racingCar.setCarName(input));
+
     }
 
+    @Test
+    void exception_6자_이상의_이름_입력() {
+        String input = "pobi,javaji";
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> racingCar.setCarName(input));
+    }
 }

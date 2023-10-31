@@ -15,7 +15,7 @@ class ExceptionCaseTest {
     @Test
     void nameLengthCheck() {
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> exceptionCase.carNameLength(List.of("pobi,javaji")));
+                .isThrownBy(() -> exceptionCase.carNameLength("pobi,javaji"));
     }
 
     @DisplayName("입력값 없으면 exception 발생")
