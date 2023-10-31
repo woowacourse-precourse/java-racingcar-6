@@ -1,5 +1,7 @@
 package racingcar.validation;
 
+import utils.Console;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -43,13 +45,13 @@ public class InputValidator {
     }
 
     public static void validatePositiveNumber(int _roundNumber) {
-        if (_roundNumber > 0) {
+        if (_roundNumber < 0) {
             throw new IllegalArgumentException(String.valueOf(INPUT_ONLY_POSITIVE_NUMBER));
         }
     }
 
     public static void validateTypeOfRoundNumber(String _roundNumber) {
-        if (!_roundNumber.matches("[0-9]]+")) {
+        if (!_roundNumber.matches("[0-9]+")) {
             throw new IllegalArgumentException(String.valueOf(INPUT_ONLY_NUMBER));
         }
     }
