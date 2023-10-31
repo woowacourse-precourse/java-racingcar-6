@@ -18,4 +18,15 @@ class GameResultTest {
         assertEquals("lee", result.toString());
     }
 
+    @Test
+    void 공동_우승일_경우(){
+        Participant test = new Participant("lee,na,yeon");
+        test.getParticipant().get(0).addGo();
+        test.getParticipant().get(2).addGo();
+
+        Winner result = GameResult.winner(test);
+
+        assertEquals("lee, yeon", result.toString());
+    }
+
 }
