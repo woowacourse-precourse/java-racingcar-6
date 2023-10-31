@@ -43,4 +43,4 @@
 - [x] InputValidator : 14번 기능
 - [x] DisplayBoard : 16번 기능
 - [x] InputView : 2번 기능, 13번 기능
-- [ ] OutputView : 9번 기능, 10번 기능
+- [x] OutputView : 9번 기능, 10번 기능
