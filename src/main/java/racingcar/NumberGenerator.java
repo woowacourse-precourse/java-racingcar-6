@@ -10,10 +10,10 @@ public class NumberGenerator {
     }
 
     public boolean compareBigger(int tagetNum, int compareNum) {
-        //목표 수(tagetNum)보다 비교할 수(compareNum)이 크면 true
+        //목표 수(tagetNum)보다 비교할 수(compareNum)이 크거나 같으면 true
         numberChecker(tagetNum);
         numberChecker(compareNum);
-        if (tagetNum < compareNum) {
+        if (tagetNum <= compareNum) {
             return true;
         }
         return false;
