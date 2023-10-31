@@ -8,10 +8,12 @@ import java.util.List;
 public class Game {
 
     private List<Car> cars;
+    private Integer totalMove;
 
     public void run() {
 
         cars = getCars();
+        totalMove = getTotalMove();
     }
 
     private List<Car> getCars() {
@@ -25,5 +27,12 @@ public class Game {
         }
 
         return cars;
+    }
+
+    private Integer getTotalMove() {
+
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        return Integer.parseInt(readLine());
     }
 }
