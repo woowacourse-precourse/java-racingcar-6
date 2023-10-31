@@ -26,20 +26,17 @@ public class Racing {
         }
     }
 
-    public int getTurn() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        final int turn = transformStringToInt(Console.readLine());
+    public int getTurn(String text) {
+        final int turn = transformStringToInt(text);
         if(isPositive(turn)){
             return turn;
         }
         throw new IllegalArgumentException("1 이상의 숫자를 입력해주세요.");
     }
 
-    public List<Car> getCarList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        final String carNameString = Console.readLine();
+    public List<Car> getCarList(String text) {
         List<Car> carList = new ArrayList<>();
-        for (String carName : Arrays.stream(carNameString.split(",")).toList()) {
+        for (String carName : Arrays.stream(text.split(",")).toList()) {
             checkNameException(carName);
             final Car car = new Car(carName);
             carList.add(car);
@@ -69,8 +66,10 @@ public class Racing {
     }
 
     public void ready() {
-        final List<Car> cars = getCarList();
-        int turn = getTurn();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        final List<Car> cars = getCarList(Console.readLine());
+        System.out.println("시도할 회수는 몇회인가요?");
+        int turn = getTurn(Console.readLine());
         start(cars, turn);
     }
 }
