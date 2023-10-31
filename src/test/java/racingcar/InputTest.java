@@ -60,6 +60,14 @@ class InputTest extends NsTest {
         assertThat(integrityCheck.intIntegrityCheck("00000123456789")).isEqualTo(false);
         assertThat(integrityCheck.intIntegrityCheck("123!456A7890")).isEqualTo(true);
     }
+
+    @Test
+    void 경기_횟수_입력_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("123,abc,ABC", "!123456"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
