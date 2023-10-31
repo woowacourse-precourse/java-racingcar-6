@@ -30,7 +30,8 @@ public class RacingService {
     private void play() {
         for(int i=0; i<tryNum; i++) {
             for (Car car : cars) {
-                car.move();
+                boolean isMoveCondition = car.isMoveCondition();
+                car.move(isMoveCondition);
             }
         }
     }

@@ -11,14 +11,14 @@ public class Car {
     private String name;
     private String status;
 
-    public void move() {
-        if (isMoveCondition()) {
+    public void move(boolean isMoveCondition) {
+        if (isMoveCondition) {
             status += '-';
         }
         printStatus();
     }
 
-    private boolean isMoveCondition() {
+    public boolean isMoveCondition() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
