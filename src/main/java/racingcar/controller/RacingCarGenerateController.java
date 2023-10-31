@@ -16,13 +16,13 @@ public class RacingCarGenerateController {
         setCarList(nameArr);
     }
 
-    String[] splitNames(String t) {
+    public String[] splitNames(String t) {
         return t.split(",");
     }
 
-    void setCarList(String[] nameArr) {
+    public void setCarList(String[] nameArr) {
         for (String s : nameArr)
-            carRepository.insertCar(new Car(s, 0));
+            carRepository.insertCar(new Car(s));
     }
 
     public int setRacingCount(String inputCount) {
@@ -31,16 +31,16 @@ public class RacingCarGenerateController {
         return Integer.parseInt(inputCount);
     }
 
-    void checkNull(String s) {
+    public void checkNull(String s) {
         if (s.equals("\n")) throw new IllegalArgumentException();
     }
 
-    void checkLength(String[] nameArr) {
+    public void checkLength(String[] nameArr) {
         for (String name : nameArr)
             if (name.length() > NAME_LENGTH) throw new IllegalArgumentException();
     }
 
-    void checkDigit(String s) {
+    public void checkDigit(String s) {
         int i = 0;
         while (i < s.length()) {
             if (!Character.isDigit(s.charAt(i))) throw new IllegalArgumentException();

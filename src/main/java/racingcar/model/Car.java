@@ -7,6 +7,11 @@ public class Car {
     public Car() {
     }
 
+    public Car(String name) {
+        this.name = name;
+        this.move = 0;
+    }
+
     public Car(String name, int move) {
         this.name = name;
         this.move = move;
