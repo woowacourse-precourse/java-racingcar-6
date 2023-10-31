@@ -8,4 +8,5 @@
     <li>RaceSimulator, RaceSimulatorTest 추가</li>
     <li>Judge 추가</li>
     <li>OpportunityValidator, OpportunityValidatorTest 추가</li>
+    <li>JudgeTest 추가</li>
 </ol>
