@@ -23,8 +23,9 @@ public class OutputView {
             driveCountVisual = driveCountToString(carDriveCount);
 
             System.out.println(carName + COLON + driveCountVisual);
-
         }
+
+        System.out.println();
     }
 
     public void printOneWinner(String winnerName) {
