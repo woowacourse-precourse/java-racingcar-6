@@ -15,6 +15,7 @@ public class RacingGame {
 
     public void start() {
         registerCars();
+        inputAttemptCount();
     }
 
     public void registerCars() {
@@ -33,4 +34,14 @@ public class RacingGame {
         carList.add(car);
     }
 
+    public void inputAttemptCount() {
+        String count = InputView.attemptCount();
+        Exception.checkNumber(count);
+
+        setAttemptCount(Integer.parseInt(count));
+    }
+
+    private void setAttemptCount(int attemptCount) {
+        this.attemptCount = attemptCount;
+    }
 }
