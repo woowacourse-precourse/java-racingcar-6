@@ -1,8 +1,8 @@
 package racingcar.service;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.utils.InputValidator;
 import racingcar.utils.Message;
@@ -44,20 +44,14 @@ public class RacingCarService {
     }
 
     public String findWinners() {
-        carList.sort(Comparator.comparingInt(Car::getMoveCount).reversed());
         int maxMoveCount = carList.get(0).getMoveCount();
 
-        List<String> maxMoveCountCarNames = new ArrayList<>();
+        List<String> winners = carList.stream()
+                .filter(car -> car.getMoveCount() == maxMoveCount)
+                .map(Car::getName)
+                .collect(Collectors.toList());
 
-        for (Car car : carList) {
-            if (carList.get(0).getMoveCount() != maxMoveCount) {
-                break;
-            }
-            if (car.getMoveCount() == maxMoveCount) {
-                maxMoveCountCarNames.add(car.getName());
-            }
-        }
-        return classifyWinners(maxMoveCountCarNames);
+        return classifyWinners(winners);
     }
 
     private String classifyWinners(List<String> winners) {

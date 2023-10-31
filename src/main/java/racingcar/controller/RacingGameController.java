@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.service.RacingCarService;
 import racingcar.utils.InputValidator;
 import racingcar.utils.Message;
@@ -19,7 +18,7 @@ public class RacingGameController {
     public void racingGameStart() {
         String input = InputView.inputCarsName();
         List<String> cars = Arrays.asList(input.split(","));
-        List<Car> carList = racingGameService.registerCars(cars);
+        racingGameService.registerCars(cars);
 
         String moveCountStr = InputView.inputMovesCount();
         InputValidator.validateEmptyInput(moveCountStr);
