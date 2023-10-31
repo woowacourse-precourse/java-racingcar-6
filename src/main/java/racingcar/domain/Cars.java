@@ -15,7 +15,9 @@ public class Cars {
         validateBlank(splitNames);
 
         String[] trimNames = trimNames(splitNames);
+        validateCarCount(trimNames);
         validateDuplicates(trimNames);
+
 
         cars = Arrays.stream(trimNames)
                 .map(name -> new Car(name))
@@ -38,6 +40,12 @@ public class Cars {
         return Arrays.stream(names)
                 .map(String::trim)
                 .toArray(String[]::new);
+    }
+
+    private void validateCarCount(String[] names) {
+        if (names.length <= 1) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void validateDuplicates(String[] names) {
