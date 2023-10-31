@@ -9,15 +9,15 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-    public static void commandsLengthInRange(List<String> commands, int minSize, int maxSize) {
-        for (String command : commands) {
-            commandLengthInRange(command, minSize, maxSize);
-        }
-    }
-
     public static void commandLengthInRange(String command, int minSize, int maxSize) {
         if (command.length() < minSize || command.length() > maxSize) {
             throw new IllegalArgumentException("문자열의 길이가 범위 내에 속하지 않습니다");
+        }
+    }
+
+    public static void commandsSizeZero(List<String> commands) {
+        if (commands.size() == 0) {
+            throw new IllegalArgumentException("이름이 지정되지 않았습니다.");
         }
     }
 
@@ -32,21 +32,9 @@ public class Validator {
         }
     }
 
-    public static void commandsFollowRegex(List<String> commands, String regex) {
-        for (String command : commands) {
-            commandFollowRegex(command, regex);
-        }
-    }
-
     public static void commandFollowRegex(String command, String regex) {
         if (!Pattern.matches(regex, command)) {
             throw new IllegalArgumentException("정해진 정규식을 벗어났습니다.");
-        }
-    }
-
-    public static void commandsSizeBiggerThan(int size, List<String> commands) {
-        if (commands.size() <= size) {
-            throw new IllegalArgumentException("리스트가 정해진 크기에 맞지않습니다.");
         }
     }
 
