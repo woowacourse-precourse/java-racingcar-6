@@ -37,4 +37,7 @@ public class Racing {
         racingPrinter.updateRacingResult(randomMoves);
     }
 
+    public String getTotalRacingResult() {
+        return racingPrinter.getRacingResult();
+    }
 }
