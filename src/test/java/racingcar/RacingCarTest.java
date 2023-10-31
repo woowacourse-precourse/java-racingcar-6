@@ -19,7 +19,7 @@ public class RacingCarTest {
 
     @Test
     void 자동차_생성_기능() {
-        Car car = new Car("john");
+        Car car = Car.fromName("john");
         assertThat("john").isEqualTo(car.getName());
         assertThat(0).isEqualTo(car.getPosition());
     }
@@ -29,7 +29,7 @@ public class RacingCarTest {
         List<String> fiveLengthOverName = List.of("abcdef", "aifhiawkgha", "awhdfaighkwuhgakhgka", "asdfakhfkah",
                 "adwlafla");
         for (String name : fiveLengthOverName) {
-            assertThatThrownBy(() -> new Car(name))
+            assertThatThrownBy(() -> Car.fromName(name))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("자동차 이름은 5자를 초과할 수 없습니다.");
         }
@@ -98,9 +98,9 @@ public class RacingCarTest {
     @Test
     void 우승자_도출() {
 
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        Car car3 = new Car("car3");
+        Car car1 = Car.fromName("car1");
+        Car car2 = Car.fromName("car2");
+        Car car3 = Car.fromName("car3");
         car2.move();
         car3.move();
         List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
@@ -119,9 +119,9 @@ public class RacingCarTest {
             System.setOut(new PrintStream(outputStream));
             RacingCarOutputManager outputManager = new RacingCarOutputManager();
 
-            Car car1 = new Car("car1");
-            Car car2 = new Car("car2");
-            Car car3 = new Car("car3");
+            Car car1 = Car.fromName("car1");
+            Car car2 = Car.fromName("car2");
+            Car car3 = Car.fromName("car3");
             car1.move();
             car2.move();
             List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
