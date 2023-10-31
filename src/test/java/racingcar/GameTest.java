@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class GameTest {
 
     @Test
-    void inputCarNameSplit() {
+    void 배열로_잘_쪼개지는지() {
         String carName = "pobi,MJ,tjwls";
         String[] racerNameArrayExpected = {"pobi", "MJ", "tjwls"}; // 원하는 결과 배열
         String[] racerNameArraySplit = carName.split(",");
@@ -19,6 +19,6 @@ class GameTest {
         }
 
         assertArrayEquals(racerNameArrayExpected, racerNameArraySplit);
-
     }
+    
 }
