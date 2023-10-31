@@ -1,9 +1,7 @@
 package racingcar.io;
 
-public class Randoms {
+public interface Randoms {
 
-    public static int getSingleNumber() {
-        return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
-    }
+    int getSingleNumber();
 
 }

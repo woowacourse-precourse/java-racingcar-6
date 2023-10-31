@@ -5,6 +5,7 @@ import racingcar.collaborator.race.Racer;
 import racingcar.io.Input;
 import racingcar.io.Output;
 import racingcar.io.enums.RaceViewMessage;
+import racingcar.io.racing.RaceRandoms;
 
 public class RaceView {
 
@@ -19,7 +20,7 @@ public class RaceView {
 
     private static Racer toRacer(String name) {
         validateWrongLength(name);
-        return new Racer(name);
+        return new Racer(name, new RaceRandoms());
     }
 
     private static void validateWrongLength(String name) {
