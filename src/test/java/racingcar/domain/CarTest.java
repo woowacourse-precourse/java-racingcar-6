@@ -58,4 +58,16 @@ class CarTest {
         //then
         assertThat(car.getStraightCount()).isEqualTo(0);
     }
+    @Test
+    @DisplayName("랜덤한 값이 4 이상이면 전진한다.")
+    void executeStraightRandomValueIsGreaterThanFour() {
+        //given
+        Car car = Car.createForStart("테스트1");
+
+        //when
+        car.moveStraight(4);
+
+        //then
+        assertThat(car.getStraightCount()).isEqualTo(1);
+    }
 }
