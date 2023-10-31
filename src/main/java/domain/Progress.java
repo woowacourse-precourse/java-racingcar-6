@@ -7,7 +7,7 @@ public class Progress {
         this.value = 0;
     }
 
-    public Progress(int value) {
+    private Progress(int value) {
         this.value = value;
     }
 
