@@ -1,6 +1,5 @@
 package racingcar.utils;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.dto.RacingCar;
 
@@ -15,22 +14,21 @@ public class RacingCarGame {
         farthestDistance = 0;
     }
 
-    public void run() {
+    public void run(RandomUtil util) {
         while (moveCount > 0) {
-            moveCarsForward();
+            moveCarsForward(util);
             moveCount--;
             RacingCarGameOutput.printGameProgress(racingCarList);
         }
     }
 
-    private boolean isRandomForwardMove() {
-        int randomValue = Randoms.pickNumberInRange(0, 9);
-        return randomValue >= 4;
+    private boolean isRandomForwardMove(RandomUtil util) {
+        return util.getRandomValue() >= 4;
     }
 
-    public void moveCarsForward() {
+    public void moveCarsForward(RandomUtil util) {
         racingCarList.forEach(car -> {
-            if (isRandomForwardMove()) {
+            if (isRandomForwardMove(util)) {
                 car.moveForword();
                 updateFarthestDistance(car.getDistance());
             }

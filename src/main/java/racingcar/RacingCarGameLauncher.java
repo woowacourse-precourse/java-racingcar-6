@@ -17,6 +17,7 @@ public class RacingCarGameLauncher {
         racingCarGame = new RacingCarGame(racingCarList, moveCount);
         RacingCarGameOutput.printBeforeGameProgress(RacingCarGameOutput.BEFORE_GAME_MESSAGE);
         racingCarGame.run();
+        racingCarGame.run(() -> Randoms.pickNumberInRange(0, 9));
         RacingCarGameOutput.printWinnersMessage(racingCarGame.getWinners());
     }
 }
