@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import racingcar.Constants;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class JudgeView {
 
     public static void printWinners(List<Car> winners) {
 
-        System.out.println("최종 우승자 : " + formatWinners(winners));
+        System.out.println(Constants.WINNER_OUTPUT + formatWinners(winners));
     }
 
     private static String formatWinners(List<Car> winners) {

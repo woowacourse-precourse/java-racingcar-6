@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Judge;
 import racingcar.model.Round;
+import racingcar.view.JudgeView;
 import racingcar.view.SystemView;
 
 public class GameController {
@@ -42,7 +43,8 @@ public class GameController {
 
     public void judge() {
 
-        Judge.determineWinners(cars);
+        List<Car> winners = Judge.determineWinners(cars);
+        JudgeView.printWinners(winners);
     }
 
 }

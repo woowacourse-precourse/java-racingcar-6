@@ -14,4 +14,6 @@ public class Constants {
     public static final String NAME_DUPLICATE_ERROR ="중복된 자동차 이름이 있습니다.";
     public static final String INVALID_ROUND_INPUT_ERROR = "유효하지 않은 입력입니다. 유효한 숫자를 입력해 주세요.";
     public static final String INVALID_NAME_INPUT_ERROR = "유효하지 않은 입력입니다. 유효한 자동차 이름 목록을 입력해주세요.";
+    public static final String WINNER_OUTPUT = "최종 우승자 : ";
+
 }

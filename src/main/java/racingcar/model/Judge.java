@@ -1,13 +1,11 @@
 package racingcar.model;
 
-import racingcar.view.JudgeView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Judge {
 
-    public static void determineWinners(List<Car> cars) {
+    public static List<Car> determineWinners(List<Car> cars) {
         List<Car> winners = new ArrayList<>();
 
         for (Car car : cars) {
@@ -15,7 +13,7 @@ public class Judge {
                 winners.add(car);
             }
         }
-        JudgeView.printWinners(winners);
+        return winners;
     }
 
     private static int getMaxPosition(List<Car> cars) {
