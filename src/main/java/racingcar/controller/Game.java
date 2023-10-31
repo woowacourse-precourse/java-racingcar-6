@@ -25,7 +25,7 @@ public class Game {
         for (String name : carName){
             CarNameException.carNameLengthException(name);
         }
-
+        CarNameException.carNameSameException(carName);
         Output.roundMessage();
         round = Input.gameRound();
 
