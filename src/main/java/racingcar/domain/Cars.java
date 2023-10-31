@@ -12,8 +12,8 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void move(){
-        for(Car car : cars){
+    public void move() {
+        for (Car car : cars) {
             car.moveByRandomNumber();
         }
     }
@@ -25,9 +25,13 @@ public class Cars {
     public List<String> getWinnersName() {
         int maxPosition = getMaxPosition();
 
-        if (noMovementCheck(maxPosition))
+        if (noMovementCheck(maxPosition)) {
             return new ArrayList<>();
+        }
+        return findWinners(maxPosition);
+    }
 
+    private List<String> findWinners(int maxPosition) {
         return getCars().stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getCarName)
@@ -46,8 +50,6 @@ public class Cars {
         }
         return maxPosition;
     }
-
-
 
 
 }
