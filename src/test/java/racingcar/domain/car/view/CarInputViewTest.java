@@ -89,6 +89,21 @@ class CarInputViewTest {
 
             consoleMockedStatic.close();
         }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"pobi,", "", "pobi,woni,"})
+        @DisplayName("시도 횟수 입력이 0인 경우 예외를 발생시켜야 한다")
+        public void 시도_횟수_입력이_0인_경우_예외를_발생시켜야_한다(String carName) {
+            CarInputView carInputView = new CarInputView();
+            MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+            when(Console.readLine()).thenReturn(carName);
+
+            assertThrows(IllegalArgumentException.class,
+                    carInputView::getCarNames,
+                    CAR_NAME_LENGTH_OVER.getErrorMessage());
+
+            consoleMockedStatic.close();
+        }
     }
 
     @Nested

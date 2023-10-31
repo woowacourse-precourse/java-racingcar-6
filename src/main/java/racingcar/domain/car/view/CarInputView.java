@@ -16,7 +16,7 @@ public class CarInputView {
     public List<String> getCarNames() {
         printGameStart();
         String carNames = Console.readLine();
-        return Arrays.stream(carNames.split(","))
+        return Arrays.stream(carNames.split(",", -1))
                 .filter(this::checkValidCarNameLength)
                 .toList();
     }
@@ -29,6 +29,10 @@ public class CarInputView {
     private boolean checkValidCarNameLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER.getErrorMessage());
+        }
+
+        if (carName.length() == 0) {
+            throw new IllegalArgumentException(CAR_NAME_IS_EMPTY.getErrorMessage());
         }
 
         return true;
