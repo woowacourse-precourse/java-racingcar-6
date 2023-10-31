@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.model.vo.CarName;
 
 public class CarNameMapper {
+
     public List<CarName> toCarName(String carName) {
         List<String> carNameStringGroup = Arrays.stream(carName.split(",")).toList();
 
