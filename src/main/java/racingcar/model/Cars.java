@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 public class Cars {
     private static final String DUPLICATE_CAR_NAME = "중복된 자동차가 존재합니다.";
@@ -15,6 +16,12 @@ public class Cars {
         List<Car> createdCars = createCars(inputCarNames);
         validateCarDuplicated(createdCars);
         this.cars = createdCars;
+    }
+    
+    public void updateDistance(List<Integer> createdPickNumbers) {
+        IntStream.range(0, createdPickNumbers.size())
+                .filter(index -> MovingStatus.canMove(createdPickNumbers.get(index)))
+                .forEach(this::forwardCar);
     }
 
     public int maxDistance() {
@@ -31,6 +38,15 @@ public class Cars {
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
+    }
+
+
+    private void forwardCar(int index) {
+        findCarByIndex(index).forward();
+    }
+
+    private Car findCarByIndex(int index) {
+        return cars.get(index);
     }
 
 
