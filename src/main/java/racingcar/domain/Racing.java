@@ -22,6 +22,9 @@ public class Racing {
         } catch (NumberFormatException e){
             throw new IllegalArgumentException();
         }
+        if(count<=0){
+            throw new IllegalArgumentException();
+        }
         System.out.println();
         return count;
     }
