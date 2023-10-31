@@ -1,11 +1,11 @@
-package racingcar;
+package racingcar.car.model;
 
-public class Car {
+public class RacingCar implements Car {
 
     private final CarName name;
     private int position = 0;
 
-    public Car(CarName name) {
+    public RacingCar(CarName name) {
         this.name = name;
     }
 

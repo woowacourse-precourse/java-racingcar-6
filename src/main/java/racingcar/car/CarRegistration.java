@@ -1,7 +1,11 @@
-package racingcar;
+package racingcar.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.car.model.Car;
+import racingcar.car.model.CarName;
+import racingcar.car.model.RacingCar;
+import racingcar.utils.ErrorMessage;
 import racingcar.utils.StringValidator;
 
 public class CarRegistration {
@@ -43,7 +47,7 @@ public class CarRegistration {
 
         participantList = new ArrayList<>();
         for (CarName carName : carNameList) {
-            participantList.add(new Car(carName));
+            participantList.add(new RacingCar(carName));
         }
     }
 
