@@ -1,6 +1,7 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,9 +16,10 @@ class InputManagerTest {
 
     @ParameterizedTest
     @MethodSource("getNameInput")
-    void 정상_동작_테스트(String input, List<String> names) {
-        List<String> carNames = InputManager.getCarNames("aaa,bbb");
-        assertThat(carNames).contains("aaa", "bbb");
+    void 자동차_이름_입력_정상_동작_테스트(String input, List<String> names) {
+        List<String> carNames = InputManager.getCarNames(input);
+        assertThat(carNames)
+                .containsExactlyElementsOf(names);
     }
 
     @ValueSource
