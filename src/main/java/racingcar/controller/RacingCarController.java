@@ -15,24 +15,26 @@ public class RacingCarController {
     private final RacingCarService racingCarService = new RacingCarService();
 
     public void gameTask() {
-
         CarGroup carGroup = createCarGroup(InputView.printInputCarName());
         int roundNumber = getRoundNumber(InputView.printInputRound());
 
         outputView.printResultHeader();
 
-        while (roundNumber != 0) {
-            CarGroupDto carGroupDto = moveCarGroup(carGroup);
-            outputView.printRoundResult(carGroupDto);
-            roundNumber--;
-        }
+        runRounds(carGroup, roundNumber);
 
         WinnersDto winnersDto = getWinners(carGroup);
         outputView.printWinner(winnersDto);
     }
 
-    public CarGroup createCarGroup(InputCarDto inputCarDto) {
+    private void runRounds(CarGroup carGroup, int roundNumber) {
+        while (roundNumber != 0) {
+            CarGroupDto carGroupDto = moveCarGroup(carGroup);
+            outputView.printRoundResult(carGroupDto);
+            roundNumber--;
+        }
+    }
 
+    public CarGroup createCarGroup(InputCarDto inputCarDto) {
         String carNames = inputCarDto.carName();
         String delimiter = inputCarDto.delimiter();
 

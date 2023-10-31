@@ -18,11 +18,12 @@ public class Car {
         this.position = 0;
     }
 
+    public static Car from(String name) {
+        return new Car(name);
+    }
+
     public void move() {
-        int pickNumberInRange = Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
-        if (pickNumberInRange >= MIN_VALUE) {
-            position++;
-        }
+        position++;
     }
 
     public String getName() {
@@ -31,10 +32,6 @@ public class Car {
 
     public int getPosition() {
         return position;
-    }
-
-    public static Car from(String name) {
-        return new Car(name);
     }
 
 }

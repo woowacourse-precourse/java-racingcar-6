@@ -1,9 +1,13 @@
 package racingcar.service;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 import racingcar.domain.CarGroup;
 
 class RacingCarServiceTest {
@@ -13,14 +17,14 @@ class RacingCarServiceTest {
     @Test
     void createCarGroup() {
         //given
-        String carNames = "pobi,crong,honux";
+        String carNames = "test1,test2,test3";
         String delimiter = ",";
         //when
         CarGroup carGroup = racingCarService.createCarGroup(carNames, delimiter);
         //then
         assertEquals(carGroup.getCars().size(), 3);
-        assertThat(carGroup.getCars().get(0).getName()).isEqualTo("pobi");
-        assertThat(carGroup.getCars().get(1).getName()).isEqualTo("crong");
+        assertThat(carGroup.getCars().get(0).getName()).isEqualTo("test1");
+        assertThat(carGroup.getCars().get(1).getName()).isEqualTo("test2");
         assertThat(carGroup.getCars().get(2).getPosition()).isEqualTo(0);
     }
 
@@ -35,16 +39,15 @@ class RacingCarServiceTest {
     }
 
     @Test
-    void moveCarGroup() {
+    void getWinners() {
         // given
-        CarGroup carGroup = racingCarService.createCarGroup("test", ",");
+        CarGroup carGroup = racingCarService.createCarGroup("test1,test2", ",");
+        carGroup.getCars().get(0).move();
         // when
-        boolean isMoved = racingCarService.moveCarGroup(carGroup);
+        List<String> winners = racingCarService.getWinners(carGroup);
         // then
-        assertTrue(isMoved);
+        assertEquals(winners.size(), 1);
+        assertEquals(winners.get(0), "test1");
     }
 
-    @Test
-    void getWinners() {
-    }
 }

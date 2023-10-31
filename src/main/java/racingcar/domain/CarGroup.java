@@ -11,21 +11,13 @@ public class CarGroup {
         this.carGroup = carGroup;
     }
 
-    public boolean move() {
-        for (Car car : carGroup) {
-            car.move();
-        }
-        return true;
+    public static CarGroup from(List<Car> carGroup) {
+        return new CarGroup(carGroup);
     }
 
-    public List<String> getWinnerList() {
-        return carGroup.stream()
-            .filter(car -> car.getPosition() == getMaxPosition())
-            .map(Car::getName)
-            .collect(Collectors.toList());
-    }
 
-    private int getMaxPosition() {
+
+    public int getMaxPosition() {
         return carGroup.stream()
             .mapToInt(Car::getPosition)
             .max()
@@ -35,9 +27,4 @@ public class CarGroup {
     public List<Car> getCars() {
         return carGroup;
     }
-
-    public static CarGroup from(List<Car> carGroup) {
-        return new CarGroup(carGroup);
-    }
-
 }
