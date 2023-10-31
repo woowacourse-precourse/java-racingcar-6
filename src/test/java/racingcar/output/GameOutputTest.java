@@ -1,8 +1,5 @@
 package racingcar.output;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
@@ -10,6 +7,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class GameOutputTest {
     private GameOutput gameOutput;
@@ -34,5 +33,17 @@ class GameOutputTest {
         gameOutput.currentStatus(List.of(car1, car2));
 
         assertThat(outContent.toString()).contains("pobi : -", "woni : ");
+    }
+
+    @Test
+    void 단일_우승자_출력_기능_확인() {
+        gameOutput.winners(List.of("pobi"));
+        assertThat(outContent.toString()).contains("최종 우승자 : pobi");
+    }
+
+    @Test
+    void 공동_우승자_출력_기능_확인() {
+        gameOutput.winners(List.of("pobi", "woni"));
+        assertThat(outContent.toString()).contains("최종 우승자 : pobi, woni");
     }
 }
