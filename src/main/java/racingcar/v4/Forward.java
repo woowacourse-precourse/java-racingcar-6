@@ -6,4 +6,9 @@ public class Forward {
     public int randomNums() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public boolean canForward(int randomsNum) {
+        return randomsNum >= 4;
+    }
+
 }
