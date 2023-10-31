@@ -21,7 +21,7 @@ public class Snapshot {
         ioHelper = Config.getSystemIOHelper();
     }
 
-    public String printSnapshot(int order) {
+    public void printSnapshot(int order) {
         if (order < 1 || order > snapshots.size()) {
             throw new IllegalArgumentException("존재하지 않는 순서의 스냅샷입니다.");
         }
@@ -31,22 +31,22 @@ public class Snapshot {
         if (snapshot.keySet().size() == 0) {
             sb.append("no snapshot\n");
             ioHelper.output(sb.toString());
-            return sb.toString();
+            return;
         }
         for (String carName : snapshot.keySet()) {
             sb.append(String.format("%s : %s\n", carName, numberToHyphen(snapshot.get(carName))));
         }
         sb.append("\n");
-        return ioHelper.output(sb.toString());
+        ioHelper.output(sb.toString());
     }
 
     private String numberToHyphen(int number){
         return "-".repeat(number);
     }
 
-    public String printWinner(int order){
+    public void printWinner(int order){
         String winnerResult = "최종 우승자 : " + findWinner(order);
-        return ioHelper.output(winnerResult);
+        ioHelper.output(winnerResult);
     }
 
     private String findWinner(int order){
