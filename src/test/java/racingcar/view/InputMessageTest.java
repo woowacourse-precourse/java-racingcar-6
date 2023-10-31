@@ -21,6 +21,15 @@ class InputMessageTest extends NsTest {
         );
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"AAAAAAAAAAAAA", "AAAAAA", "AAAAAAA"})
+    void 자동차_이름_길이_초과_입력_예외_테스트(String input) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
