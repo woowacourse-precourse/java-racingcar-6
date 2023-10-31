@@ -9,7 +9,7 @@ class RandomNumberSupplierTest {
 
     @RepeatedTest(20)
     void 숫자_0에서_9사이의_무작위_값을_제공할_수_있다() {
-        RandomNumberSupplier randomNumberSupplier = RandomNumberSupplier.getInstance();
+        RandomNumberSupplier randomNumberSupplier = new RandomNumberSupplier();
 
         int actual = randomNumberSupplier.getAsInt();
 

@@ -11,7 +11,7 @@ import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        CarFactory carFactory = new CarFactory(RandomNumberSupplier.getInstance(), new CarNameValidator());
+        CarFactory carFactory = new CarFactory(new RandomNumberSupplier(), new CarNameValidator());
         ParticipantsFactory participantsFactory = new ParticipantsFactory(carFactory, new CarsValidator());
 
         RacingCarController racingCarController =

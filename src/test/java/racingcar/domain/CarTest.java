@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 @SuppressWarnings("NonAsciiCharacters")
 class CarTest {
 
-    private static final CarFactory carFactory = new CarFactory(RandomNumberSupplier.getInstance(), new CarNameValidator());
+    private static final CarFactory carFactory = new CarFactory(new RandomNumberSupplier(), new CarNameValidator());
 
     @ParameterizedTest
     @CsvSource(textBlock = """

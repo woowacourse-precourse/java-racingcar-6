@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 class ParticipantsTest {
 
     private static final CarFactory carFactory =
-            new CarFactory(RandomNumberSupplier.getInstance(), new CarNameValidator());
+            new CarFactory(new RandomNumberSupplier(), new CarNameValidator());
 
     private static final ParticipantsFactory participantsFactory =
             new ParticipantsFactory(carFactory, new CarsValidator());
