@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(final List<Car> cars) {
+    public Cars(List<Car> cars) {
         validation_Empty(cars);
         validation_Duplicate(cars);
         this.cars = cars;
