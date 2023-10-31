@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.util.validator.InputValidator.IsListDuplicate;
 import static racingcar.util.validator.InputValidator.checkComma;
 import static racingcar.util.validator.InputValidator.isStringBlank;
 
@@ -25,6 +26,9 @@ public class RacingController {
         isStringBlank(cars);
         checkComma(cars);
 
+        List<String> list = util.splitStringToList(cars);
+        IsListDuplicate(list);
+        list.forEach(car -> carList.add(new Car(car)));
 
     }
     public void startGame() {

@@ -1,5 +1,8 @@
 package racingcar.util.validator;
 
+import java.util.List;
+import java.util.Set;
+
 public class InputValidator {
     public static void isStringBlank(String str) {
         if(str == null || str.isBlank()){
@@ -25,6 +28,14 @@ public class InputValidator {
         if(str.length() == 0)
         {
             throw new IllegalArgumentException("문자열 길이 0");
+        }
+    }
+
+    public static void IsListDuplicate(List<String> list)
+    {
+        Set<String> set = Set.copyOf(list);
+        if(list.size() != set.size()) {
+            throw new IllegalArgumentException("문자열 중복");
         }
     }
 
