@@ -7,8 +7,6 @@ import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class RacingCarGameMachine {
-    private final String GAME_RESULT = "최종 우승자 : %s";
-
     private final RacingCarGameMachineValidator racingCarGameMachineValidator;
     private final RacingCarValidator racingCarValidator;
     private final RandomNumberGenerator randomNumberGenerator;
@@ -95,7 +93,7 @@ public class RacingCarGameMachine {
                 .map(RacingCar::getName)
                 .toList();
         String joinedWinRacingCarName = String.join(", ", winRacingCarNames);
-        return String.format(GAME_RESULT, joinedWinRacingCarName);
+        return String.format(OutputMessage.GAME_RESULT.getMessage(), joinedWinRacingCarName);
     }
 
     private List<RacingCar> findWinRacingCars() {
