@@ -69,10 +69,15 @@ public class Application {
 
     public static int getRandomNumber(){
         int randomNumber;
+
+        /*
         do {
             randomNumber = Randoms.pickNumberInRange(0, 9);
         } while (randomNumber < 4);
-            
+         */
+        
+        randomNumber = Randoms.pickNumberInRange(4, 9);
+
         return randomNumber;
     }
 
