@@ -9,8 +9,11 @@ import racingcar.view.OutputView;
 
 public class RacingController {
 
-    private OutputView outputView = new OutputView();
+    public static final int CONDITION_RANGE_MIN = 0;
+    public static final int CONDITION_RANGE_MAX = 9;
+    public static final int MOVE_LIMIT = 4;
     public static final String COMMA = ", ";
+    private OutputView outputView = new OutputView();
 
     public String proceedRace(List<String> carNameList, Integer roundNumber) {
         printMessage();
@@ -43,8 +46,8 @@ public class RacingController {
     }
 
     private void move(Car car) {
-        int condition = Randoms.pickNumberInRange(0, 9);
-        if (condition >= 4) {    //전진
+        int condition = Randoms.pickNumberInRange(CONDITION_RANGE_MIN, CONDITION_RANGE_MAX);
+        if (condition >= MOVE_LIMIT) {    //전진
             car.go();
         }
     }
