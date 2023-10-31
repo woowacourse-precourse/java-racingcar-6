@@ -10,7 +10,7 @@ public class RacingCar {
         this.name = name;
         this.position = position;
     }
-    public RacingCar createRacingCar(String name) {
+    public static RacingCar createRacingCar(String name) {
         return new RacingCar(name, 0);
     }
 
