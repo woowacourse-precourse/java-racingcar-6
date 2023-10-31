@@ -1,13 +1,10 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 
 import java.util.*;
 
 public class GameService {
-    private final int MAX_NAME_SIZE=5;
-
     private static GameService INSTANCE;
 
     private GameService() {
@@ -19,32 +16,6 @@ public class GameService {
         }
 
         return INSTANCE;
-    }
-
-    public List<Car> getCars() {
-        String[] names = Console.readLine().split(",");
-
-        List<Car> cars = new LinkedList<Car>();
-        for (String name : names) {
-            nameSizeValidation(name);
-
-            cars.add(new Car(name));
-        }
-
-        return cars;
-    }
-
-    public int getTries() {
-        String triesInput = Console.readLine();
-
-        int tries;
-        try {
-            tries = Integer.parseInt(triesInput);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Tries input is not number!");
-        }
-
-        return tries;
     }
 
     public String doTurns(List<Car> cars, final int tries) {
@@ -64,7 +35,7 @@ public class GameService {
         for (Car winner : winners) {
             sb.append(winner.getName()).append(", ");
         }
-        sb.substring(0, sb.length()-3);
+        sb.substring(0, sb.length() - 3);
 
         return sb.toString();
     }
@@ -98,15 +69,4 @@ public class GameService {
 
         return winners;
     }
-
-    private void nameSizeValidation(final String name) {
-        if (name.length() == 0) {
-            throw new IllegalArgumentException("Car name is not entered!");
-        }
-
-        if (name.length() > MAX_NAME_SIZE) {
-            throw new IllegalArgumentException("Car name is longer than 5!");
-        }
-    }
-
 }

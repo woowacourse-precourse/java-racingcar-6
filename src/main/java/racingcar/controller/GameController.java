@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.service.GameService;
+import racingcar.service.UserService;
 import racingcar.view.GameView;
 
 import java.util.List;
@@ -9,10 +10,12 @@ import java.util.List;
 public class GameController {
     private static GameController INSTANCE;
     private final GameService gameService;
+    private final UserService userService;
     private final GameView gameView;
 
     private GameController() {
         gameService = GameService.getInstance();
+        userService = UserService.getInstance();
         gameView = GameView.getInstance();
     }
 
@@ -26,10 +29,10 @@ public class GameController {
 
     public void race() {
         gameView.printCarInputMessage();
-        List<Car> cars = gameService.getCars();
+        List<Car> cars = userService.getCars();
 
         gameView.printTryInputMessage();
-        int tries = gameService.getTries();
+        int tries = userService.getTries();
 
         String gameResult = gameService.doTurns(cars, tries);
         gameView.printResultMessage(gameResult);
