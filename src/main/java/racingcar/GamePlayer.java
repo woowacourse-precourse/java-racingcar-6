@@ -21,6 +21,7 @@ public class GamePlayer {
             for (int j = 0; j < cars.size(); j++) {
                 int number = randomNumber.generate();
                 cars.get(j).move(randomNumber.judge(number));
+
                 OutputView.printGameResult(cars.get(j), cars.get(j).getDistance());
             }
         }
@@ -31,6 +32,7 @@ public class GamePlayer {
         Car furthestMovedCar = null;
         for (int i = 0; i < cars.size() - 1; i++) {
             int firstPlace = cars.get(i).compare(cars.get(i), cars.get(i + 1));
+
             if (firstPlace > 0) {
                 furthestMovedCar = cars.get(i);
             }
