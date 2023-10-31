@@ -28,12 +28,6 @@ public class CarValidator {
         if(isDuplicate){
             throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR);
         }
-/*
-        HashSet<Car> carHashSet = new HashSet<>(carList);
-        if(carHashSet.size() != carList.size()){
-            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR);
-        }
-*/
     }
 
     public static void checkCarNameLength(String carName) {
