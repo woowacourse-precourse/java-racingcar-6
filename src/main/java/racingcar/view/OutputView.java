@@ -35,8 +35,8 @@ public final class OutputView {
         List<CarDto> roundResults = carsDto.roundResults();
         for (CarDto roundResult : roundResults) {
             String carName = roundResult.name();
-            String currentPosition = replaceToHyphens(roundResult.position());
-            System.out.println(String.join(COLON_DELIMITER, carName, currentPosition));
+            String carPositionByHyphens = replaceToHyphens(roundResult.position());
+            System.out.println(String.join(COLON_DELIMITER, carName, carPositionByHyphens));
         }
         System.out.println();
     }
