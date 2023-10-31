@@ -1,6 +1,8 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Car;
 
 public class OutputView {
     private static final String START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -25,14 +27,24 @@ public class OutputView {
         }
         return stringPosition;
     }
+
     public void printAfterAskNumber() {
         System.out.println('\n' + "실행결과");
     }
-    public void printWinners(List<String> winners) {
-        String winCars = "";
+
+    public void printWinners(List<Car> winners) {
+        List<String> winCars = new ArrayList<>();
         System.out.print("최종 우승자 : ");
-        winCars = String.join(",", winners);
-        System.out.println(winCars);
+        winCars = convertStringList(winners);
+        System.out.println(String.join(",", winCars));
+    }
+
+    public List<String> convertStringList(List<Car> carList) {
+        List<String> stringCarList = new ArrayList<>();
+        for (Car car : carList) {
+            stringCarList.add(car.getName());
+        }
+        return stringCarList;
     }
 
 }
