@@ -6,4 +6,8 @@ public class OutputView {
     public static void noticeRunningResult() {
         System.out.println(RUNNING_RESULT);
     }
+
+    public static void printPerMoveResult(String winner) {
+        System.out.println(winner);
+    }
 }

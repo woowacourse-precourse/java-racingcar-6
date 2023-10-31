@@ -28,4 +28,9 @@ public class Car {
     private boolean isLargerThanStandard(int randomNumber) {
         return STANDARD_VALUE.getValue() <= randomNumber;
     }
+
+    @Override
+    public String toString() {
+        return name + " : " + "-".repeat(distance);
+    }
 }
