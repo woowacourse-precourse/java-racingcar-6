@@ -113,4 +113,18 @@ public class CarTest {
             T.checkCarNameFirstLetterIsSpace();
         });
     }
+
+    @Test
+    void checkCarNameLastLetterIsSpace_이름마지막글자_스페이스_테스트() {
+        //given
+        final String cars = "마지막글자 공백 ,마지막글자 공백2 ";
+        final LinkedHashMap<String, String> carList = T2.createCarList(cars);
+        T.setCarList(carList);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkCarNameLastLetterIsSpace();
+        });
+    }
 }
