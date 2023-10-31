@@ -21,6 +21,7 @@ public class CarRacing {
 
     private String carNames;
     private List<String> carNamesArray;
+    private List<Car> carArray;
     private int userCount;
 
 
@@ -30,11 +31,10 @@ public class CarRacing {
     public void start() {
         System.out.println(PROMPT_ENTER_CAR_NAME);
         requestCarNames();
-        getCarNamesArray(carNames);
+        getCarArray();
 
         System.out.println(PROMPT_ENTER_COUNT);
         requestUserCount();
-
 
 
     }
@@ -77,7 +77,7 @@ public class CarRacing {
         }
     }
 
-    public void getCarNamesArray(String carNames) {
+    public void getCarNamesArray() {
         String[] carNamesStringArray = carNames.split(",");
         carNamesArray = new ArrayList<>(Arrays.asList(carNamesStringArray));
         validateCarNamesArray(carNamesArray);
@@ -122,5 +122,12 @@ public class CarRacing {
         }
     }
 
+    public void getCarArray() {
+        getCarNamesArray();
+        for (String carName : carNamesArray) {
+            Car car = new Car(carName);
+            carArray.add(car);
+        }
+    }
 
 }
