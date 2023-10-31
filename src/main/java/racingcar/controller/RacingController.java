@@ -59,4 +59,18 @@ public class RacingController {
             racingViewer.showNewLine();
         }
     }
+
+    private void tmpRace(Map<String, Integer> carList) {
+        for (String name : carList.keySet()) {
+            doesCarMove(carList, name);
+        }
+    }
+
+    private void doesCarMove(Map<String, Integer> carList, String name) {
+        int random = randomNumber.createRandomNumber();
+
+        if (computer.judgeCarMovement(random)) {
+            car.move(carList.get(name));
+        };
+    }
 }
