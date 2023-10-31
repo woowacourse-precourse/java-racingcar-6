@@ -8,9 +8,9 @@ public class Car {
     private final String name;
     private Integer distance;
 
-    public Car(String name, Integer distance){
+    public Car(String name){
         this.name = name;
-        this.distance = distance;
+        this.distance = 0;
     }
 
     public String getName(){
