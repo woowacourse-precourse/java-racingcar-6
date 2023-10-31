@@ -9,18 +9,12 @@ import racingcar.view.Output;
 
 public class GameController {
 
-    private final CarFactory carFactory;
-
     private final CarController carController;
-
-    private final Referee referee;
 
     private Cars cars;
 
     public GameController() {
-        carFactory = new CarFactory();
         carController = new CarController();
-        referee = new Referee();
     }
 
     public void play() {
@@ -30,7 +24,7 @@ public class GameController {
     }
 
     public void setConfiguration() {
-        cars = carFactory.produceCars(Input.inputCarName());
+        cars = CarFactory.produceCars(Input.inputCarName());
         carController.setStatus(cars, Input.inputMoveChance());
     }
 
@@ -45,6 +39,6 @@ public class GameController {
     }
 
     public void showWinner() {
-        Output.winnerMessage(referee.findWinner(cars));
+        Output.winnerMessage(Referee.findWinner(cars));
     }
 }

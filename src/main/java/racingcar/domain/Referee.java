@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class Referee {
-    public String findWinner(Cars cars) {
+    public static String findWinner(Cars cars) {
         List<Car> winner = cars.getCarList().stream()
                 .collect(Collectors.groupingBy(Car::getMoveStatus))
                 .entrySet()
