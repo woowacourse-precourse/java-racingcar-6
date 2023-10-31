@@ -1,7 +1,8 @@
 package racingcar;
 
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.race.RaceController;
+import racingcar.race.RaceViewer;
 
 public class Application {
     private static final RaceViewer raceViewer = new RaceViewer();

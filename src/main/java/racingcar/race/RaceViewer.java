@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.race;
 
 import camp.nextstep.edu.missionutils.Console;
 

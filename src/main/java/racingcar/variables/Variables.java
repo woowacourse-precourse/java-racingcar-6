@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.variables;
 
 public enum Variables {
     RAND_NUM_EXPECT("Is Generated number bigger than", 4);
 
-    Variables(String name, int value) {
+    private Variables(String name, int value) {
         this.name = name;
         this.value = value;
     }
