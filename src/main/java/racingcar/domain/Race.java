@@ -12,12 +12,16 @@ public class Race {
         this.round = round;
     }
 
-    public void start() {
+    public void run() {
+        begin();
+        result();
+    }
+
+    public void begin() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < round; i++) {
             for (Car car : cars) {
-                Integer randomNumber = RandomNumberGenerator.generate();
-                if (randomNumber >= 4) {
+                if (RandomNumberGenerator.generate() >= 4) {
                     car.forward();
                 }
                 System.out.println(car.toString());
@@ -27,15 +31,21 @@ public class Race {
     }
 
     public void result() {
+        System.out.println("최종 우승자 : " +
+                String.join(", ", getWinners().stream()
+                        .map(Car::getName)
+                        .toList())
+        );
+    }
+
+    private List<Car> getWinners() {
         int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
 
-        List<Car> winners = cars.stream()
+        return cars.stream()
                 .filter(car -> maxPosition == car.getPosition())
                 .toList();
-
-        System.out.println("최종 우승자 : " + String.join(", ", winners.stream().map(Car::getName).toList()));
     }
 }

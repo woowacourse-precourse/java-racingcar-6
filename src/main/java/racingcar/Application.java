@@ -17,8 +17,7 @@ public class Application {
         List<Car> cars = makeCar(carNames);
 
         Race race = new Race(cars, attemptNumber);
-        race.start();
-        race.result();
+        race.run();
     }
 
     public static List<String> askCarNames() {
