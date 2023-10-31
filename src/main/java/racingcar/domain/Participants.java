@@ -45,7 +45,14 @@ public class Participants {
 
     public List<Car> race() {
         cars.forEach(Car::moveForward);
-        return Collections.unmodifiableList(cars);
+
+        return deepCopyFrom(cars);
+    }
+
+    private List<Car> deepCopyFrom(List<Car> from) {
+        return from.stream()
+                .map(car -> new Car(car.getName(), car.getPosition()))
+                .toList();
     }
 
     public List<String> getWinners() {
