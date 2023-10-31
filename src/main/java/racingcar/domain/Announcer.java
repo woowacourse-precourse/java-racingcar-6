@@ -1,4 +1,4 @@
-package racingcar.domain.Announcer;
+package racingcar.domain;
 
 public class Announcer {
     public String whoWin() {

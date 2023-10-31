@@ -1,4 +1,4 @@
-package racingcar.domain.checker;
+package racingcar.domain;
 
 public class checker {
     public boolean advance () {

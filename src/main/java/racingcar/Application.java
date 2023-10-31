@@ -1,7 +1,11 @@
 package racingcar;
 
+import racingcar.domain.Input;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Input input = new Input();
+        System.out.println(input.carsName());
+        System.out.println(input.numberOfAttempts());
     }
 }
