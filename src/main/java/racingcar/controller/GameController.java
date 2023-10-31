@@ -8,28 +8,25 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 public class GameController {
-    GameService service = new GameService();
-    private final Integer tryCount;
-    private final List<Car> cars;
-    public GameController(){
-        InputView inputView = new InputView();
-
+    private final GameService service = new GameService();
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+    public void playGame(){
         List<String> carNames = inputView.startGame();
-
-        tryCount = inputView.inputTryCount();
-        cars = service.makeCars(carNames);
-    }
-    public void game(){
-        OutputView outputView = new OutputView();
+        Integer tryCount = inputView.inputTryCount();
+        List<Car> cars = service.makeCars(carNames);
 
         for(int i=0; i<tryCount; i++){
-            for(Car car: cars){
-                car.forward();
-                outputView.printEachFoward(car.getName(), car.getPlace());
-            }
+            forwardCars(cars);
             System.out.println();
         }
         List<String> winnerNames = service.findEqualsMaxPlace(cars);
         outputView.printWinner(winnerNames);
+    }
+    private void forwardCars(List<Car> cars){
+        for(Car car: cars){
+            car.forward();
+            outputView.printEachFoward(car.getName(), car.getPlace());
+        }
     }
 }
