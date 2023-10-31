@@ -32,6 +32,7 @@ public class PrintResult {
 		List<String> winner = gameList(carRecord, carName, maxScore);
 		
 		System.out.print("최종 우승자 : "+String.join(", ", winner));
+		return ;
 	}
 	
 	public int maxScore(List<Integer> carRecord) {
