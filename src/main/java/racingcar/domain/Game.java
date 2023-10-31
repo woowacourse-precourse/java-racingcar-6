@@ -18,9 +18,17 @@ public class Game {
         setGameCount();
     }
 
-    private void setPlayer(){
+    public void race() {
+        while (leftGameCount()) {
+            gameCount--;
+            raceOneTime();
+        }
+    }
+
+    private void setPlayer() {
         player = new Player();
     }
+
     private void setCarList() {
         player.inputCarNames();
         List<String> carNames = player.getCarNames();
@@ -30,6 +38,14 @@ public class Game {
     private void setGameCount() {
         player.inputGameCount();
         gameCount = player.getGameCount();
+    }
+
+    private boolean leftGameCount() {
+        return gameCount != 0;
+    }
+
+    private void raceOneTime() {
+        carList.forEach(Car::tryMove);
     }
 
 }
