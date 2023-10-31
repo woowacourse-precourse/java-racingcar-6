@@ -26,7 +26,7 @@ public class Round {
         return roundResult;
     }
 
-    public List<CarDTO> calculateFurthestCarInfo(List<List<CarDTO>> EachRoundResult) {
+    public static List<CarDTO> calculateFurthestCarInfo(List<List<CarDTO>> EachRoundResult) {
         // 가장 마지막 라운드의 결과 추출
         List<CarDTO> lastRoundResult = EachRoundResult.get(EachRoundResult.size() - 1);
 
