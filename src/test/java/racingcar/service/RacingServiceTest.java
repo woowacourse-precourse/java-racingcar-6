@@ -83,8 +83,22 @@ class RacingServiceTest extends NsTest{
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"ex1, 0, ex2, 1, 1", "ex1, 1, ex2, 1, 2", "ex1, 0, ex2, 0, 2"})
-    void 우승자_저장_테스트(String firstName, int firstDistance, String secondName, int secondDistance, int expected) {
+    @CsvSource(value = {"ex1, 0, ex2, 1, 1", "ex1, 1, ex2, 0, 1"})
+    void 단일_우승자_저장_테스트(String firstName, int firstDistance, String secondName, int secondDistance, int expected) {
+        //given
+        carRepository.add(new Car(firstName, firstDistance));
+        carRepository.add(new Car(secondName, secondDistance));
+
+        // when
+        List<Car> resultList = racingService.chooseWinner();
+
+        // then
+        assertThat(resultList.size()).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"ex1, 1, ex2, 1, 2", "ex1, 0, ex2, 0, 2"})
+    void 다중_우승자_저장_테스트(String firstName, int firstDistance, String secondName, int secondDistance, int expected) {
         //given
         carRepository.add(new Car(firstName, firstDistance));
         carRepository.add(new Car(secondName, secondDistance));
