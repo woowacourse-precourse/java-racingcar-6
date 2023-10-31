@@ -2,7 +2,6 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.constant.Messages;
 import racingcar.constant.Symbols;
 import racingcar.model.ScoreBoard;
 import racingcar.model.ScoreDto;
@@ -10,7 +9,7 @@ import racingcar.model.ScoreDto;
 public class OutputView {
     public static void beforeRaceMessage() {
         printEmptyLine();
-        System.out.println(Messages.BEFORE_RACE_MESSAGE);
+        System.out.println("실행 결과");
     }
 
     public static void showScoreBoard(ScoreBoard scoreBoard) {
@@ -30,7 +29,7 @@ public class OutputView {
         StringJoiner winnerNamesJoiner = new StringJoiner(Symbols.COMMA + Symbols.SPACE);
         winners.forEach(carDto -> winnerNamesJoiner.add(carDto.getName()));
         System.out.println(
-                Messages.FINAL_WINNER + Symbols.SPACE + Symbols.FIELD_SEPARATOR + Symbols.SPACE + winnerNamesJoiner);
+                "최종 우승자" + Symbols.SPACE + Symbols.FIELD_SEPARATOR + Symbols.SPACE + winnerNamesJoiner);
     }
 
     private static void printEmptyLine() {
