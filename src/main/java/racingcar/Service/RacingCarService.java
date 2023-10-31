@@ -3,6 +3,7 @@ package racingcar.Service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Dto.CarDto;
+import racingcar.Model.EndGameDetector;
 import racingcar.Model.InputCarNameValidator;
 import racingcar.Model.InputCountValidator;
 import racingcar.Model.MidPrint;
@@ -109,11 +110,11 @@ public class RacingCarService {
     }
 
     private void setWon(boolean won) {
-        dtoManager.setWon(won);
+        EndGameDetector.setWon(won);
     }
 
     public boolean isWon() {
-        return dtoManager.isWon();
+        return EndGameDetector.isWon();
     }
 
     public List<CarDto> getCarDtoList() {
