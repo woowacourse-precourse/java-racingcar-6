@@ -24,7 +24,7 @@ public class OutputView {
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
 
-        System.out.println("최종 우승자 : " + winnerNames);
+        System.out.println(RacingGuideMessage.FINAL_WINNER.getMessage() + " : " + winnerNames);
     }
 
     public void seperateLine() {
