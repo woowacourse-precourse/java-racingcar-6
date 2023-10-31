@@ -4,7 +4,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputNumOfAttempts {
     public static int getNumOfAttempts() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 회수는 몇 회인가요?");
 
         try {
             int numOfAttempts = Integer.parseInt(readLine());
