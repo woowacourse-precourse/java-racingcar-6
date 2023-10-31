@@ -80,6 +80,10 @@ class Car {
         this.distance = distance;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
 
 }
 
