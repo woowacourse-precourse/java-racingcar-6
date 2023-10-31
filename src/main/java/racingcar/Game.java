@@ -7,6 +7,22 @@ public class Game {
     Inputs inputs;
     boolean hasWinners; // 우승자가 여러명인지 판별하는 변수 : true이면 우승자가 여러명
 
+    //게임을 시작
+    public void startGame() {
+        inputs = new Inputs();
+        inputs.splitCarNames(inputs.askCarNames());
+        inputs.askRaceNumbers();
+        List<Car> cars = new ArrayList<>();
+        int index = 0;
+        for (String carName : inputs.carNamesList) {
+            cars.add(new Car(carName, inputs.raceNumbers));
+            doRace(cars, index);
+            index++;
+        }
+        List<Car> winners = this.selectWinner(cars);
+        hasWinners = areWinners(winners);
+        printResult(cars, winners);
+    }
 
     // 자동차 경주를 실행
     private void doRace(List<Car> cars, int index) {
