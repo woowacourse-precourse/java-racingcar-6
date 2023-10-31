@@ -12,6 +12,16 @@ public class Car {
         this.forwardMovementState = "";
     }
 
+    /**
+     * 랜덤 숫자를 뽑고 랜덤 숫자가 4 이상이라면 전진
+     */
+    public void playRound() {
+        pickRandomNumber();
+        if(checkRandomNumber()) {
+            forward();
+        }
+    }
+
     public void pickRandomNumber() {
         this.randomNumber = Randoms.pickNumberInRange(0, 9);
     }
