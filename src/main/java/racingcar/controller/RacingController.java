@@ -10,6 +10,7 @@ import racingcar.view.CarNameInput;
 import racingcar.view.RacingViewer;
 import racingcar.view.TryCountInput;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,11 +41,13 @@ public class RacingController {
     }
 
     private void setCarList(Map<String, Integer> list) {
-        for (String name : carNameInput.returnCarName()) {
+        List<String> nameList = new ArrayList<>(List.of(carNameInput.returnCarName()));
+
+        carNameValidator.checkDuplicatedCarName(nameList);
+        for (String name : nameList) {
             carNameValidator.checkCarNameLength(name);
             list.put(name, 0);
         }
-        carNameValidator.checkDuplicatedCarName(list);
     }
 
     private int getTryCount() {

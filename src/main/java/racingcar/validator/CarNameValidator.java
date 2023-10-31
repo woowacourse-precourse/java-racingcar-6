@@ -1,7 +1,7 @@
 package racingcar.validator;
 
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 
 public class CarNameValidator {
 
@@ -11,8 +11,8 @@ public class CarNameValidator {
         }
     }
 
-    public void checkDuplicatedCarName(Map<String, Integer> list) {
-        HashSet<String> nameSet = new HashSet<>(list.keySet());
+    public void checkDuplicatedCarName(List<String> list) {
+        HashSet<String> nameSet = new HashSet<>(list);
         if (list.size() != nameSet.size()) {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다");
         }
