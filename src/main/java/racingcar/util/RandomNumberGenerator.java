@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import racingcar.constant.RaceConstant;
 public class RandomNumberGenerator {
     public List<Integer> generateRandomNumbers(int numberCount){
         List<Integer> randomNumbers = new ArrayList<>();
-        for (int tempCount = RaceConstant.START_INDEX; tempCount < numberCount; tempCount ++) {
+        for (int tempCount = 0; tempCount < numberCount; tempCount ++) {
             int randomNumber = generateRandomNumber();
             randomNumbers.add(randomNumber);
         }
