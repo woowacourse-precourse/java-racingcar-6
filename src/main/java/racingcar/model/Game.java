@@ -15,8 +15,18 @@ public class Game {
         this.winners = new ArrayList<>();
     }
 
-    public void addCar(String nameOfCar) {
+    private void addCar(String nameOfCar) {
         cars.add(new Car(nameOfCar));
+    }
+
+    /**
+     * userInput 을 받아 name을 분리하고 cars 리스트에 car 를 추가하는 함수
+     */
+    public void addCars(String userInput) {
+        String[] nameList = userInput.split(",");
+        for (String name : nameList) {
+            addCar(name);
+        }
     }
 
     /**
