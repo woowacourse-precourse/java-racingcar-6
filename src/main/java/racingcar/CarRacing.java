@@ -65,6 +65,8 @@ public class CarRacing {
         for (int i = 0; i < carNames.length(); i++) {
             if (carNames.charAt(i) >= 'a' && carNames.charAt(i) <= 'z') {
                 continue;
+            } else if (carNames.charAt(i) >= 'A' && carNames.charAt(i) <= 'Z') {
+                continue;
             } else if (carNames.charAt(i) >= '0' && carNames.charAt(i) <= '9') {
                 continue;
             } else if (carNames.charAt(i) == ',') {
