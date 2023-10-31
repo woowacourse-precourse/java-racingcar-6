@@ -29,4 +29,10 @@ public class InputValidatorTest {
 
         assertThat(validator.isNaturalNumber(number)).isFalse();
     }
+
+    @Test
+    void 중복_자동차_이름_테스트() {
+        String[] names = {"car1", "car1", "car2"};
+        assertThat(validator.isDuplicate(names)).isTrue();
+    }
 }
