@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class InputUtil {
     private final int NAME_LENGTH_MIN_SIZE = 1;
     private final int NAME_LENGTH_MAX_SIZE = 5;
+
     public InputUtil() {
     }
 
@@ -23,7 +24,7 @@ public class InputUtil {
         return checkDuplicationName(names);
     }
 
-    public int getCount() {
+    public int getRound() {
         String input = input();
         int number = stringToInt(input);
         checkNumber(number);

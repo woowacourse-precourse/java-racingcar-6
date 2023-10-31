@@ -36,9 +36,9 @@ public class RacingCarService {
         cars = createCars(input);
     }
 
-    public int initCount() {
+    public int initRound() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return inputUtil.getCount();
+        return inputUtil.getRound();
     }
 
     public Cars createCars(List<String> names) {
