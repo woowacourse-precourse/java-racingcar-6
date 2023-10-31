@@ -26,4 +26,8 @@ public class GameService {
 
         return cars;
     }
+
+    public Boolean canMove(int value) {
+        return value >= Constant.MIN_CAN_MOVE_VALUE;
+    }
 }

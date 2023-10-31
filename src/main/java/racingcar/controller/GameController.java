@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.service.GameService;
 import racingcar.util.Message;
+import racingcar.util.RandomValue;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -34,10 +35,6 @@ public class GameController {
         getRounds();
     }
 
-    private void end() {
-        outputView.printMessage(Message.TEXT_WINNER);
-    }
-
     private void getCars() {
         outputView.printMessage(Message.GET_CARS);
         cars = gameService.toCarList(inputView.getCarNames());
@@ -46,5 +43,9 @@ public class GameController {
     private void getRounds() {
         outputView.printMessage(Message.GET_ROUNDS);
         rounds = inputView.getRounds();
+    }
+
+    private Boolean canMove() {
+        return gameService.canMove(RandomValue.getRandomValue());
     }
 }
