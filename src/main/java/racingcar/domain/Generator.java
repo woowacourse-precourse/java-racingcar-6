@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Generator {
-
     public List<Integer> createRandomNumbers(int carNumber) {
         List<Integer> randomNumbers = new ArrayList<>();
         for (int i = 0; i < carNumber; i++) {

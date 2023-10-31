@@ -9,7 +9,7 @@ public class UserInput {
         String input = Console.readLine();
         List<String> carName = List.of(input.split(","));
         InvalidValue invalidValue = new InvalidValue();
-        if(invalidValue.isExceedFiveLetters(carName)) {
+        if (invalidValue.isExceedFiveLetters(carName)) {
             throw new IllegalArgumentException();
         }
         return carName;
@@ -19,10 +19,9 @@ public class UserInput {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         InvalidValue invalidValue = new InvalidValue();
-        if(!invalidValue.isNaturalNumber(input)){
+        if (!invalidValue.isNaturalNumber(input)) {
             throw new IllegalArgumentException();
         }
-
         return Integer.parseInt(input);
     }
 }
