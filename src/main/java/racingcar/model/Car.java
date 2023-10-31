@@ -62,8 +62,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(name);
     }
-
-    public boolean isSameDistance(int distance) {
-        return this.distance == distance;
-    }
+    
 }
