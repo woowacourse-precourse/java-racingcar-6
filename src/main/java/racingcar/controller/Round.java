@@ -7,12 +7,12 @@ import racingcar.view.OutputView;
 
 public class Round {
 
-    public void play(List<Car> carList) {
+    public static void play(List<Car> carList) {
         createRandom(carList);
         OutputView.resultGame(carList);
     }
 
-    public void createRandom(List<Car> carList) {
+    public static void createRandom(List<Car> carList) {
         for (Car car : carList) {
             RandomNumber.make();
             if (RandomNumber.isForward()) {
@@ -20,5 +20,5 @@ public class Round {
             }
         }
     }
-    
+
 }
