@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputView {
-
     public static List<String> inputCarName() {
         String[] carNamesSplit;
         try {
@@ -18,15 +17,11 @@ public class InputView {
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
-
-        List<String> collect = stream(carNamesSplit).collect(Collectors.toList());
-        return collect;
-
+        return stream(carNamesSplit).collect(Collectors.toList());
     }
 
     public static int inputNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-
         int num;
         try {
             String number = Console.readLine();
@@ -34,8 +29,6 @@ public class InputView {
         } catch (Exception e1) {
             throw new IllegalArgumentException();
         }
-
         return num;
-
     }
 }
