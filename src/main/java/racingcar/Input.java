@@ -20,4 +20,16 @@ public class Input {
         }
         return parkingLot;
     }
+
+    public int runtime() {
+        String time_string = readLine();
+        int time_int = 0;
+        try {
+            time_int = Integer.parseInt(time_string);
+        } catch (Exception e) {
+            throw new IllegalStateException();
+        } finally {
+            return time_int;
+        }
+    }
 }
