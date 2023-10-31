@@ -24,13 +24,13 @@ public class validationTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"kim, lee, son","kim,,,lee, son"})
+    @ValueSource(strings = {"kim, lee, son", "kim,,,lee, son"})
     void 올바른_이름_테스트(String player) {
 
         List<String> players = nameValidation(player);
         List<String> validPlayers = new ArrayList<>(Arrays.asList(new String[]{"kim", "lee", "son"}));
 
-        Assertions.assertEquals(players,validPlayers);
+        Assertions.assertEquals(players, validPlayers);
 
     }
 

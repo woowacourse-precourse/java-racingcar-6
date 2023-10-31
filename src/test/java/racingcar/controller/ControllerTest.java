@@ -25,8 +25,8 @@ public class ControllerTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"4,4,3,kimlee", "1,2,3,son", "1,1,1,kimleeson"}) // 우승자에 따른 결과 출력이 올바른지 확인하는 테스트코드
-    void 결과_출력_테스트(int distance1, int distance2, int distance3, String winner) {
+    @CsvSource({"4,4,3,kimlee", "1,2,3,son", "1,1,1,kimleeson"})
+    void 결과_출력_테스트(int distance1, int distance2, int distance3, String winner) { // 우승자에 따른 결과 출력이 올바른지 확인하는 테스트코드
 
         int[] movingDistance = {distance1, distance2, distance3};
         List<String> players = new ArrayList<>(Arrays.asList(new String[]{"kim", "lee", "son"}));

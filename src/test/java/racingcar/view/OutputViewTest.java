@@ -33,12 +33,12 @@ public class OutputViewTest {
 
     @ParameterizedTest
     @CsvSource({"kim,5,-----", "son,1,-", "lee,10,----------"})
-    void 선수_이동거리_출력(String player1, int distance, String dash){
+    void 선수_이동거리_출력(String player1, int distance, String dash) {
 
         List<String> player = new ArrayList<>(Arrays.asList(new String[]{player1}));
         int[] arrDistance = {distance};
         outputView.printRacing(player, arrDistance);
-        assertThat(player1 + " : " + dash+"\r\n\r\n").isEqualTo(out.toString());
+        assertThat(player1 + " : " + dash + "\r\n\r\n").isEqualTo(out.toString());
 
     }
 
