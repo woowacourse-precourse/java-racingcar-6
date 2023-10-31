@@ -21,17 +21,21 @@ class RaceTest {
     @Test
     void 자동차는_4이상의_숫자일때_이동() {
         int randomNumber = 4;
+
         race.moveCarRandomly(car, randomNumber);
 
         assertThat(car.getPositionLength()).isEqualTo(1);
+        assertThat(car.nameAndPosition()).isEqualTo("chan : -");
     }
 
     @Test
     void 자동차는_4미만의_숫자일때_정지() {
         int randomNumber = 3;
+
         race.moveCarRandomly(car, randomNumber);
 
         assertThat(car.getPositionLength()).isEqualTo(0);
+        assertThat(car.nameAndPosition()).isEqualTo("chan : ");
     }
 
     @Test
