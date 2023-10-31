@@ -17,6 +17,7 @@ public class Application {
         List<Car> cars = createCars(racingController, inputView);
 
         playRacing(racingController, inputView, outputView, cars);
+        resultRacing(racingController, outputView, cars);
     }
 
     private static List<Car> createCars(RacingController racingController, InputView inputView) {
@@ -33,4 +34,8 @@ public class Application {
         }
     }
 
+    private static void resultRacing(RacingController racingController, OutputView outputView, List<Car> cars) {
+        List<String> victoryPlayers = racingController.readVictoryPlayers(cars);
+        outputView.printVictoryPlayers(victoryPlayers);
+    }
 }
