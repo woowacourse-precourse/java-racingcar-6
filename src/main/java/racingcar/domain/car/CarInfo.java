@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import static racingcar.constant.GameConstant.INITIAL_CAR_INDEX;
 import static racingcar.exception.InputException.existsNameException;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class CarInfo {
 
     public void allSaveCarInfo(List<String> carList) {
         IntStream.range(0, carList.size())
-                .mapToObj(id -> new Car(carList.get(id), 0))
+                .mapToObj(id -> new Car(carList.get(id), INITIAL_CAR_INDEX))
                 .forEach(this::saveCarInfo);
     }
 

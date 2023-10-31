@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import static racingcar.constant.GameConstant.UNIT_OF_MOVEMENT;
+
 import racingcar.domain.game.GameCondition;
 import racingcar.dto.Car;
 
@@ -20,7 +22,7 @@ public class CarMovement {
     }
 
     private Car drive(Car currentCar) {
-        return new Car(currentCar.name(), currentCar.position() + 1);
+        return new Car(currentCar.name(), currentCar.position() + UNIT_OF_MOVEMENT);
     }
 
     private Car Stop(Car currentCar) {

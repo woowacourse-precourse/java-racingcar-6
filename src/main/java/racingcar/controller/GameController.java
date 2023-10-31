@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.constant.CommonConstant.ONE_BLANK_LINE;
+
 import java.util.List;
 import racingcar.domain.car.CarInfo;
 import racingcar.domain.game.Game;
@@ -29,7 +31,7 @@ public class GameController {
     }
 
     private void forwardAndResponse() {
-        OutputView.printBlankLine(1);
+        OutputView.printBlankLine(ONE_BLANK_LINE);
         OutputView.printOutputMessageResult();
 
         List<Car> gameWinners = game.playGame();
