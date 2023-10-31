@@ -39,6 +39,7 @@ public class Controller {
             validator.checkLength(name);
             list.add(new Car(name));
         }
+        validator.checkDuplicateName(list);
         return list;
     }
 
