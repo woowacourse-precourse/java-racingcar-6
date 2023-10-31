@@ -108,6 +108,18 @@ class RefereeTest extends NsTest {
 		);
 	}
 
+	@Test
+	@DisplayName("레이싱 경기 시작 문구 출력 확인")
+	void 레이싱_경기_시작() {
+		assertSimpleTest(() -> {
+			// when
+			referee.announceRacingStart();
+			// then
+			assertThat(output())
+					.contains("실행 결과");
+		});
+	}
+
 	@Override
 	protected void runMain() {
 	}
