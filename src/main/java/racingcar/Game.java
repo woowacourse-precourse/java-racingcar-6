@@ -17,7 +17,9 @@ public class Game {
             movingCar(parkinglot, car_name);
             output.totalPrint(parkinglot, car_name);
         }
-        if(runtime==0) System.out.println();
+        if (runtime == 0) {
+            System.out.println();
+        }
         System.out.println(output.winner(parkinglot, car_name));
     }
     public void movingCar(Map<String, Integer> parkinglot, String[] car_name) {
