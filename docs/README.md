@@ -55,7 +55,7 @@
 ### 각 함수의 기능목록
 | 클래스             | 접근자 | 함수 | 책임                                                                                       |
 |-----------------| --- | --- |------------------------------------------------------------------------------------------|
- | GameExecutor    | public | run | Game의 초기화에 필요한 입력을 받는다<br/> Game을 생성시킨다 Game.run()을 호출한다                                 |
+ | GameExecutor    | public | run | Game의 초기화에 필요한 입력을 받는다<br/> Game을 생성시킨다 game.run()을 호출한다                                 |
  | RacingCarGame   | public | run | runStage()를 trial횟수 만큼 호출한다 최종 횟수를 출력한다                                                  |
  | RacingCarGame   | public | toString | 각 자동차들의 toString()을 출력한다                                                                 |
  | RacingCarGame   | private | getWinners | 자동차들 중에서 가장 높은 Position을 갖는 값(p)을 찾는다<br/> 자동차들 중에서  p와 같은 Poisiton을 갖는 자동차의 이름들을 출력한다   |

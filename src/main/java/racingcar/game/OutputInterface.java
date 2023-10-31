@@ -1,12 +1,14 @@
-package racingcar;
+package racingcar.game;
 
+import game.Game;
+import game.Output;
 import java.util.List;
 
 public class OutputInterface implements Output {
     private Output out;
     private RacingCarGameRenderer renderer;
 
-    OutputInterface(Output out, RacingCarGameRenderer renderer) {
+    public OutputInterface(Output out, RacingCarGameRenderer renderer) {
         this.out = out;
         this.renderer = renderer;
     }

@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import game.GameRandom;
 
 public class MissionUtilsGameRandom implements GameRandom {
 

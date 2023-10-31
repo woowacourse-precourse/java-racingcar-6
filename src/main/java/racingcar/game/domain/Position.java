@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.game.domain;
 
 public class Position implements Comparable<Position> {
     private final int x;

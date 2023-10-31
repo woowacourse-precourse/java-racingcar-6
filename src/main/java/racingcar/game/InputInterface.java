@@ -1,12 +1,13 @@
-package racingcar;
+package racingcar.game;
 
-import camp.nextstep.edu.missionutils.Console;
+import game.Input;
+import game.Output;
 
 public class InputInterface implements Input {
     Input in;
     Output out;
 
-    InputInterface(Input in, Output out) {
+    public InputInterface(Input in, Output out) {
         this.in = in;
         this.out = out;
     }

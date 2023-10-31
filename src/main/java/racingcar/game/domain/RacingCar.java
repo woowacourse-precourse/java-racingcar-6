@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.game.domain;
 
 import java.util.Comparator;
+import racingcar.game.RacingCarGameRenderer;
 
 public class RacingCar {
     private final String name;

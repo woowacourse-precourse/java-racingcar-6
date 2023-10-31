@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.List;
+import racingcar.game.domain.Position;
+import racingcar.game.domain.RacingCar;
 
 public interface RacingCarGameRenderer {
     String renderCars(List<RacingCar> cars);

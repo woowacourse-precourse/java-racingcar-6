@@ -1,12 +1,15 @@
-package racingcar;
+package racingcar.game;
 
 import static java.util.stream.Collectors.toList;
 
+import game.Game;
+import game.GameRandom;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import racingcar.game.domain.RacingCar;
 
 public class RacingCarGame implements Game {
     private final InputInterface in;

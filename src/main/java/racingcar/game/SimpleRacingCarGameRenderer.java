@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.game;
 
 import static java.util.stream.Collectors.joining;
 
 import java.util.List;
+import racingcar.game.domain.Position;
+import racingcar.game.domain.RacingCar;
 
 public class SimpleRacingCarGameRenderer implements RacingCarGameRenderer {
 
