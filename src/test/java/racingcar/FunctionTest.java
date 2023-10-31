@@ -35,7 +35,7 @@ public class FunctionTest {
     void 이동_여부를_결정하는_숫자가_4_이상일_때만_전진하는가() {
 
         ForwardCarCondition forwardCarCondition = new ForwardCarCondition();
-        List<Integer> forwardRandomNumber = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        List<Integer> forwardRandomNumber = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
 
         forwardRandomNumber.forEach(randomValue -> {
             if (randomValue >= 4) {
