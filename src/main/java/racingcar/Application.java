@@ -25,13 +25,23 @@ public class Application {
         String Input = Console.readLine();
         String[] carNames = Input.split(","); // 쉼표로 자르기
 
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+            }
+        }
+
         // 시도 횟수 입력 받기
         System.out.println("시도할 회수는 몇회인가요?");
         int tries = Integer.parseInt(Console.readLine());
 
+        if (tries < 0) {
+            throw new IllegalArgumentException("시도 횟수는 음수일 수 없습니다.");
+        }
+
         //자동차 객체 생성
         Car[] cars = new Car[carNames.length];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < carNames.length; i++) {
             cars[i] = new Car(carNames[i] + " : ");
             //System.out.println(cars[i].getName());
         }
