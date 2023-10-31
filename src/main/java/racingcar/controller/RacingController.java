@@ -13,6 +13,7 @@ public class RacingController {
         RacingCars racingCars = getParticipationCars();
         int tryCount = getTryCount();
         racing(racingCars, tryCount);
+        finishRacing(racingCars);
     }
 
     private RacingCars getParticipationCars() {
@@ -28,17 +29,19 @@ public class RacingController {
 
     private void racing(RacingCars racingCars, int tryCount) {
         OutputView.printExecutionResultMessage();
-        RacingResult racingResult = new RacingResult(racingCars.submitCarStatuses());
         while (isNotRacingFinished(tryCount)) {
             racingCars.move();
-            racingResult.update(racingCars.submitCarStatuses());
-            OutputView.printResult(racingResult.getCarStatuses());
+            OutputView.printResult(racingCars.submitCarStatuses());
             tryCount--;
         }
-        OutputView.printWinner(racingResult.findWinner());
     }
 
     private boolean isNotRacingFinished(int tryCount) {
         return tryCount > 0;
+    }
+
+    private void finishRacing(RacingCars racingCars) {
+        RacingResult racingResult = new RacingResult(racingCars.submitCarStatuses());
+        OutputView.printWinner(racingResult.findWinner());
     }
 }
