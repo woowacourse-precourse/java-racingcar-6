@@ -40,7 +40,35 @@ class RacingServiceTest extends NsTest{
         assertEquals(2, carRepository.getCarList().size());
     }
 
+    @Test
+    void 게임_정상_진행_테스트() {
+        // given
+        racingService.initializeGame(List.of("ex1", "ex2", "ex3"));
 
+        // when & then
+        assertRandomNumberInRangeTest(
+                () -> {
+                    List<Car> carList = racingService.progressRacing();
+                    assertTrue(carList.stream().anyMatch(car -> car.getDistance() > 0));
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 전진_값_전체_0_테스트() {
+        // given
+        racingService.initializeGame(List.of("ex1", "ex2", "ex3"));
+
+        // when & then
+        assertRandomNumberInRangeTest(
+                () -> {
+                    List<Car> carList = racingService.progressRacing();
+                    assertFalse(carList.stream().anyMatch(car -> car.getDistance() > 0));
+                },
+                STOP, STOP, STOP
+        );
+    }
 
 
     @Override
