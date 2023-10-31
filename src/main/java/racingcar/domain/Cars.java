@@ -32,7 +32,6 @@ public class Cars {
     }
 
     private int getMaxPosition() {
-
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
