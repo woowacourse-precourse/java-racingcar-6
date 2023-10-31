@@ -3,7 +3,7 @@ package basis;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
-import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
+import static constant.ErrorMessage.NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE;
 import static constant.ErrorMessage.UNCOMPETITIVE_CASE_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -91,12 +91,12 @@ class ConverterTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,crong", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining(NOT_NUMBER_INPUT_CASE_MESSAGE)
+                        .hasMessageContaining(NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE)
         );
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,crong", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining(NOT_NUMBER_INPUT_CASE_MESSAGE)
+                        .hasMessageContaining(NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE)
         );
     }
 }
