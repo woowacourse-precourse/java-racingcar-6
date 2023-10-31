@@ -6,6 +6,7 @@ public enum PrintMesssages {
     ROUNDS_RESULT_TOP_MESSAGE("실행 결과");
 
     private final String message;
+
     PrintMesssages(String message) {
         this.message = message;
     }
