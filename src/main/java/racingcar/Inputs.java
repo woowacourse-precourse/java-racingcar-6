@@ -18,7 +18,10 @@ public class Inputs {
         // 쉼표로 이름들이 구분되어 있는 경우: 각 요소를 자동차 이름 리스트에 추가
         if (carNamesArray.length > 0) {
             for (String carName : carNamesArray) {
-                this.carNamesList.add(carName.trim()); // 공백 제거
+                carName = carName.trim(); // 공백 제거
+                // 자동차 이름이 5글자가 넘으면 에러를 발생시키고 종료
+                if(carName.length() > 5) throw new IllegalArgumentException("비정상적인 값을 입력하셨습니다. 경주를 자동으로 종료합니다.");
+                this.carNamesList.add(carName);
             }
         } else { // 쉼표가 없는 경우: 문자열을 자동차 이름 리스트에 추가
             this.carNamesList.add(carNames.trim());
