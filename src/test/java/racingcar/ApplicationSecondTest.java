@@ -156,6 +156,22 @@ class ApplicationSecondTest extends NsTest {
         );
     }
 
+    @Test
+    void 양의_정수가_아닌_전진_시도_횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("aa,bb", "-2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 양의_정수가_아닌_전진_시도_횟수에_대한_예외_처리_2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("aa,bb", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
