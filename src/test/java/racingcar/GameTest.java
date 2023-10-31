@@ -33,6 +33,14 @@ class GameTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_미입력_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
