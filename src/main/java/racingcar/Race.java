@@ -13,9 +13,16 @@ public class Race {
             racingCar(carList);
             System.out.println();
         }
-        List<String> result = getWinners(carList);
-        String winners = String.join(",", result);
-        System.out.println("최종 우승자 : " + winners);
+        List<String> winners = getWinners(carList);
+        winnerPrintout(winners);
+    }
+
+    private List<String> getWinners(List<Car> carList) {
+         return winnerSelect(carList);
+    }
+
+    private void winnerPrintout(List<String> result) {
+        System.out.println("최종 우승자 : " + String.join(",", result));
     }
 
     public void racingCar(List<Car> carList) {
