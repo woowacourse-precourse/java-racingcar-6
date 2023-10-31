@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
@@ -43,5 +44,18 @@ class CarTest {
         car.move(randomNum);
 
         assertThat(car.getProgressCount()).isEqualTo(1);
+    }
+
+    @DisplayName("자동차 전진 위치 비교")
+    @Test
+    void isSameProgress() {
+        Car carA = new Car("A");
+        Car carB = new Car("B");
+        Car carC = new Car("C");
+
+        carC.move(5);
+
+        assertThat(carA.isSameProgress(carB)).isTrue();
+        assertThat(carA.isSameProgress(carC)).isFalse();
     }
 }
