@@ -16,7 +16,7 @@ class InputViewTest {
 
         // When
         InputView inputView = new InputView();
-        String carNames = inputView.readCarName();
+        String carNames = inputView.readRacersName();
 
         // Then
         assertThat(input).isEqualTo(carNames);

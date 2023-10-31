@@ -1,21 +1,23 @@
 ## 구현 기능 목록 작성
 
-- [x] 입력 메시지 출력 (printInputCarNameMessage) [OutputView]
+- [x] 입력 메시지 출력 (printInputRacersNameMessage) [OutputView]
 
 
-- [x] n대의 자동차를 입력 (readCarName) [InputView]
+- [x] n대의 자동차를 입력 (readRacersName) [InputView]
 
   - [x] 쉼표(,) 기준으로 이름 분리 후 List로 반환(seperateCarName) [RacerManager]
 
-  - [x] 5자 이하의 이름들을 가졌는지 확인 (validateCarName) [InputValidator]
+  - [x] 5자 이하의 이름들을 가졌는지 확인 (validateRacersName) [InputValidator]
 
 
-- [ ] 자동차 객체 [Racer]
+- [x] 자동차 객체 [Racer]
 
   - [ ] name, moveCount, state 지정 (setName, setMoveCount, setSate)
 
   - [ ] name, moveCount, state 확인 (getName, getMoveCount, getState)
 
+
+- [ ] 전체 게임 진행 (play) [RaceController]
 
 - [ ] List를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
 

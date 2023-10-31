@@ -14,7 +14,7 @@ class RacerManagerTest {
 
         // When
         RacerManager racerManager = new RacerManager();
-        List<String> result = racerManager.seperateCarName(input);
+        List<String> result = racerManager.seperateRacersName(input);
 
         // Then
         assertThat(result).isEqualTo(List.of("pobi", "woni", "jun"));

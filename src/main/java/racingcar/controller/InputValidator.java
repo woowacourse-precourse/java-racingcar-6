@@ -8,7 +8,7 @@ public class InputValidator {
 
     private final static int NAME_MAX_LENGTH = 5;
 
-    public static void isValid(List<String> values) {
+    public static void validateRacersName(List<String> values) {
         if (!isDistinct(values) || !isMaxLength(values)) {
             throw new IllegalArgumentException();
         }

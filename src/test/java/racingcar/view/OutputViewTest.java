@@ -18,7 +18,7 @@ class OutputViewTest {
         OutputView outputView = new OutputView();
 
         // When
-        outputView.printInputCarNameMessage();
+        outputView.printInputRacersNameMessage();
 
         // Then
         assertThat(out.toString().trim()).isEqualTo(INPUT_CAR_NAME_MESSAGE);
