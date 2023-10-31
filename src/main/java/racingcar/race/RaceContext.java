@@ -11,25 +11,25 @@ import racingcar.race.totalRound.TotalRoundRecord;
 
 public class RaceContext {
 
-  public RaceEndedEvent start(RaceStartCommand command) {
+  public static RaceEndedEvent start(RaceStartCommand command) {
     List<CarRaceRecord> carRaceRecords = race(command);
     TotalRoundRecord totalRoundRecord = getTotalRoundRecord(carRaceRecords);
     return RaceEndedEvent.of(totalRoundRecord);
   }
 
-  private TotalRoundRecord getTotalRoundRecord(List<CarRaceRecord> carRaceRecords) {
+  private static TotalRoundRecord getTotalRoundRecord(List<CarRaceRecord> carRaceRecords) {
     TotalRoundContext totalRoundContext = new TotalRoundContext();
     return totalRoundContext.generateTotalRound(carRaceRecords);
   }
 
-  private List<CarRaceRecord> race(RaceStartCommand command) {
+  private static List<CarRaceRecord> race(RaceStartCommand command) {
     MoveContext moveContext = new MoveContext();
     return moveContext.generateRaceRecords(
         command.getRoundCount().getRacingCount(),
-        command.getRacingCars(), this::moveRuleFunction);
+        command.getRacingCars(), RaceContext::moveRuleFunction);
   }
 
-  private Movement moveRuleFunction(int number) {
+  private static Movement moveRuleFunction(int number) {
     int random = Randoms.pickNumberInRange(0, 9);
     if (random >= 4) {
       return new Go(1);

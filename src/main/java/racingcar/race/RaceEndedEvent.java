@@ -12,4 +12,8 @@ public class RaceEndedEvent {
   public static RaceEndedEvent of(TotalRoundRecord totalRoundRecord) {
     return new RaceEndedEvent(totalRoundRecord);
   }
+
+  public TotalRoundRecord getTotalRoundRecord() {
+    return totalRoundRecord;
+  }
 }
