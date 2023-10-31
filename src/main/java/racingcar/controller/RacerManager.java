@@ -1,5 +1,8 @@
 package racingcar.controller;
 
+import racingcar.model.Racer;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
@@ -10,7 +13,14 @@ public class RacerManager {
         return Arrays.asList(cars);
     }
 
-    public List<String> createRacer(List<String> values) {
-        return Arrays.asList();
+    public static List<Racer> createRacers(List<String> racerNames) {
+        List<Racer> racers = new ArrayList<>();
+        for (String racerName : racerNames) {
+            Racer car = new Racer(racerName);
+            racers.add(car);
+        }
+        return racers;
     }
+
+
 }

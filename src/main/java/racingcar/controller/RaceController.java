@@ -16,6 +16,7 @@ public class RaceController {
         OutputView.printInputRacersNameMessage();
         carNames = InputView.readRacersName();
         racersNames = RacerManager.seperateRacersName(carNames);
+        racers = RacerManager.createRacers(racersNames);
 
 
 
