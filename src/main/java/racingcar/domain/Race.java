@@ -13,14 +13,6 @@ public class Race {
         this.tries = tries;
     }
 
-    public void start() {
-        for (int i = 0; i < tries; i++) {
-            for (Car car : cars) {
-                car.move(RandomGenerator.generateRandomNumber());
-            }
-        }
-    }
-
     public void startOneRound() {
         for (Car car : cars) {
             car.move(RandomGenerator.generateRandomNumber());
