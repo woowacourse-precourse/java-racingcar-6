@@ -6,7 +6,6 @@ import racingcar.domain.CarNameManager;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.util.BlankValidator;
-import racingcar.util.RacingNumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,10 +16,13 @@ public class RacingController {
     private final BlankValidator blankValidator = new BlankValidator();
     private final CarNameManager carNameManager = new CarNameManager(blankValidator);
     private final AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
-    private final RandomNumberGenerator randomNumberGenerator = new RacingNumberGenerator();
+    private final RandomNumberGenerator randomNumberGenerator;
     private final Cars cars = new Cars();
     private int attemptCount;
     private Racing racing;
+    public RacingController(RandomNumberGenerator randomNumberGenerator){
+        this.randomNumberGenerator = randomNumberGenerator;
+    }
 
     public void raceStart() {
         setUpRace();
