@@ -1,13 +1,28 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.model.Race;
 
 public class Game {
-    private Car car;
     private Race race;
     public Game() {
-        car = new Car();
         race = new Race();
+    }
+
+    public void gameStart(){ //게임 시작
+        setRace();
+        runRace();
+        printRaceResult();
+    }
+
+    private void setRace() { //레이스 세팅
+
+    }
+
+    private void runRace(int rounds){ //각 라운드 시작
+
+    }
+
+    private void printRaceResult() { //레이스 결과 출력
+
     }
 }
