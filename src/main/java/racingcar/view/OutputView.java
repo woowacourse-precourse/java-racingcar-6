@@ -2,7 +2,6 @@ package racingcar.view;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -44,10 +43,7 @@ public class OutputView {
     }
 
     public void printWinners(List<String> winners) {
-        StringBuilder winnersMessageBuilder = new StringBuilder();
-        winnersMessageBuilder.append("최종 우승자 : ")
-                .append(winners.stream()
-                        .collect(Collectors.joining(", ")));
-        System.out.print(winnersMessageBuilder);
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", winners));
     }
 }
