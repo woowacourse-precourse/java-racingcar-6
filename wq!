@@ -1,0 +1,125 @@
+[33mcommit 361599e6f35b0d56c311fedcc12892a70c0a3024[m[33m ([m[1;36mHEAD -> [m[1;32mwooqqq[m[33m)[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 02:40:08 2023 +0900
+
+    docs: 구현 기능 세부사항 중간점검
+
+[33mcommit e5b76929a63c476f1548d6653b4ed0498e264387[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 02:35:21 2023 +0900
+
+    style: 출력 확인 코드 제거
+
+[33mcommit b985a832e6ff2ffb57cb87e8b044e8b2bb4d99e4[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 02:34:33 2023 +0900
+
+    feat: 우승자 출력 기능 구현
+
+[33mcommit 23895a55f30de9c0dc4fe505244603e6d05eeaa2[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 02:24:12 2023 +0900
+
+    feat: 각 자동차의 위치 비교하여 우승자를 찾는 기능 구현
+
+[33mcommit 40e7613322bd282b0887f4eb273a823aebc83556[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 02:05:34 2023 +0900
+
+    refactor: 실행 결과 출력 메서드 분리
+
+[33mcommit 7bdcc6b5dfca0ae1a4fc9aad987eee0881d32ca6[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 01:55:59 2023 +0900
+
+    feat: 각 차수별 실행 결과 출력 기능 구현
+
+[33mcommit 8b466912aeb9065460fd2b6d97c4e0bd19b330d1[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Tue Oct 31 01:46:26 2023 +0900
+
+    feat: 시행 횟수만큼 게임을 반복하는 기능 구현
+
+[33mcommit 784ce41330976921229e60afd21273053c6ed3e8[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 23:21:44 2023 +0900
+
+    refactor: 자동차와 시행 횟수 반환하도록 메서드 수정
+
+[33mcommit da9658a0754f940b9cc1155867731aa027f3bae3[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 22:45:46 2023 +0900
+
+    refactor: 입력받는 메서드 분리
+
+[33mcommit 267e26b9b1eb2ce6b7d8f7f3e079caca87961626[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 22:32:36 2023 +0900
+
+    style: 메서드명 변경
+
+[33mcommit 5bdcb024e48ee869c3c868cfa0b95510fd9c35f4[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 16:36:55 2023 +0900
+
+    feat: 사용자가 입력한 시행 횟수를 Game에 저장
+
+[33mcommit 88269d4fbecd5c4d5764fb01a93cd8879974f5cd[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 16:21:46 2023 +0900
+
+    feat: 시행 횟수만큼 진행시키기 위해 Game 클래스 생성 및 메서드 구현
+
+[33mcommit 89f11778379e997676bfa7fafb152aee8db77105[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 16:04:05 2023 +0900
+
+    refactor: 패키지 수정 및 Car 클래스 위치 이동
+
+[33mcommit 75bc046a7990d1591b6c42f85e2b56cae3b921fa[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 15:45:42 2023 +0900
+
+    feat: 사용자가 입력한 이름을 자동차 객체로 저장하는 기능 구현
+
+[33mcommit a462eb4bd1121b89ed69ae1242ae5fbb55ca640f[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 15:01:26 2023 +0900
+
+    refactor: GameProcess를 GameController, GameService로 분리
+
+[33mcommit 2afbd17477625d9cf953d1da14eab822fa5dc03f[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 14:37:51 2023 +0900
+
+    feat: 무작위 값 선택 후 4 이상일 시 한칸 전진 구현
+
+[33mcommit 2b091843916ea09d8f6ddbd8c566c6afac3a5fce[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 13:40:51 2023 +0900
+
+    feat: 사용자에게 시행 횟수 입력받는 기능 구현
+
+[33mcommit 9f99aecb0e20d280b2eaffb58ce1266390fdf824[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 02:29:10 2023 +0900
+
+    docs: 구현할 기능 목록 세부사항 추가
+
+[33mcommit df94adb9b2a7e4782959282db866f313c43c5a44[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Mon Oct 30 02:09:43 2023 +0900
+
+    feat: 경주할 자동차 이름 입력 기능 구현
+
+[33mcommit b3767b3a81b4d0f08297f551a9a50cf88015f108[m
+Author: 깃wooqqq <깃허sge0225@naver.com>
+Date:   Sun Oct 29 02:37:06 2023 +0900
+
+    docs: 구현할 기능 목록 작성
+
+[33mcommit 931bba62d238b65475754b63fd82d7082315a5a6[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: seokhongkim <seokhong.kim@woowahan.com>
+Date:   Wed Oct 18 15:05:24 2023 +0900
+
+    feat: setup precourse racingcar project
