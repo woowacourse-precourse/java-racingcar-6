@@ -13,7 +13,7 @@ public class Game {
     private Cars cars;
 
     public void run(){
-        OutputView.startGame();
+        OutputView.askCarNames();
         cars = new Cars(InputView.readCarNames());
         askGameRounds();
         racing();

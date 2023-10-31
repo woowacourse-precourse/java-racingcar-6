@@ -5,8 +5,8 @@ import static racingcar.view.constants.OutputMessage.*;
 import static racingcar.view.constants.IntegerViewConstants.*;
 
 public class OutputView {
-    public static void startGame(){
-        System.out.println(START_MESSAGE.getMessage());
+    public static void askCarNames(){
+        System.out.println(ASK_CAR_NAMES.getMessage());
     }
 
     public static void askGameRounds() {
