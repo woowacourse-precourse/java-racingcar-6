@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Name {
 
-    public static final int CAR_NAME_LENGTH = 5;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
 
-    public void isValid(List<String> playerNames) {
-        for (String playerName : playerNames) {
-            if (playerName.length() > CAR_NAME_LENGTH) {
+    public void isValid(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
         }

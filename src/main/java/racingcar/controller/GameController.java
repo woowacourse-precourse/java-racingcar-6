@@ -15,7 +15,7 @@ public class GameController {
     private final Name name = new Name();
     private final Move move = new Move();
     private final AttemptNum attemptNum = new AttemptNum();
-    private final Map<String, String> distance = new HashMap<>();
+    private final Map<String, String> distances = new HashMap<>();
 
     public void start() {
         List<String> players = Arrays.asList(inputView.name().split(","));
@@ -25,12 +25,12 @@ public class GameController {
         outputView.initial();
         initializeDistanceMap(players);
         playGameRepeat(players, Integer.parseInt(attemptsNum));
-        showWinner(findMaxEntry());
+        showWinner(findMaxDistanceEntry());
     }
 
     private void initializeDistanceMap(List<String> players) {
         for (String playerName : players) {
-            distance.put(playerName, "");
+            distances.put(playerName, "");
         }
     }
 
@@ -42,27 +42,27 @@ public class GameController {
 
     private void playGame(List<String> players) {
         for (String playerName : players) {
-            int randomNum = move.generateRandom();
+            int randomNum = move.generateRandomNumber();
             Game game = new Game(randomNum);
-            if (game.move()) {
-                String currentDistance = distance.get(playerName);
+            if (game.shouldMove()) {
+                String currentDistance = distances.get(playerName);
                 currentDistance += "-";
-                distance.put(playerName, currentDistance);
+                distances.put(playerName, currentDistance);
             }
         }
         showResult();
     }
 
     private void showResult() {
-        for (Map.Entry<String, String> entry : distance.entrySet()) {
+        for (Map.Entry<String, String> entry : distances.entrySet()) {
             outputView.result(entry.getKey(), entry.getValue());
         }
         System.out.println();
     }
 
-    private int findMaxEntry() {
+    private int findMaxDistanceEntry() {
         int maxEntry = 0;
-        for (String distanceValue : distance.values()) {
+        for (String distanceValue : distances.values()) {
             maxEntry = Math.max(maxEntry, distanceValue.length());
         }
         return maxEntry;
@@ -70,7 +70,7 @@ public class GameController {
 
     private void showWinner(int maxEntry) {
         List<String> winners = new ArrayList<>();
-        for (Map.Entry<String, String> entry : distance.entrySet()) {
+        for (Map.Entry<String, String> entry : distances.entrySet()) {
             if (entry.getValue().length() == maxEntry) {
                 winners.add(entry.getKey());
             }
@@ -79,3 +79,4 @@ public class GameController {
         outputView.winner(winnerNames);
     }
 }
+
