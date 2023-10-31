@@ -14,7 +14,7 @@ public class Car {
         location += 1;
     }
 
-    public RoundResultDto getCarInfo() {
+    public RoundResultDto nameAndLocation() {
         return new RoundResultDto(name, location);
     }
 
@@ -22,11 +22,11 @@ public class Car {
         return this.location == otherLocation;
     }
 
-    public String getName() {
+    public String name() {
         return this.name;
     }
 
-    public int getLocation() {
+    public int location() {
         return this.location;
     }
 }

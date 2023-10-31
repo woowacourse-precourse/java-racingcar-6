@@ -38,7 +38,7 @@ public class Cars {
 
     private void printCarInfo(Car car) {
         OutputView outputView = new OutputView();
-        outputView.printRoundResult(car.getCarInfo());
+        outputView.printRoundResult(car.nameAndLocation());
     }
 
     public GameResultDto getWinner() {
@@ -49,7 +49,7 @@ public class Cars {
 
     private int getMaxLocation() {
         return carList.stream()
-                .mapToInt(Car::getLocation)
+                .mapToInt(Car::location)
                 .max()
                 .orElseThrow(ExceptionHandler::throwIfCarNotFound);
     }
@@ -57,7 +57,7 @@ public class Cars {
     private List<String> getWinners(int maxLocation) {
         return carList.stream()
                 .filter(car -> car.isSameLocation(maxLocation))
-                .map(Car::getName)
+                .map(Car::name)
                 .collect(Collectors.toList());
     }
 }
