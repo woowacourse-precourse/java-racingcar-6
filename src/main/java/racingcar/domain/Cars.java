@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.resource.CarGameValue;
+import racingcar.util.RandomUtil;
 import racingcar.validation.CarNameValidator;
 import racingcar.validation.StringValidator;
 
@@ -23,7 +25,13 @@ public class Cars {
     }
 
     public void carsMove() {
-        this.cars.forEach(Car::move);
+        this.cars.forEach(car -> {
+            int randomNumber = RandomUtil.getRandomNumberRange(
+                    CarGameValue.CAR_MOVE_MIN_NUMBER.getValue(),
+                    CarGameValue.CAR_MOVE_MAX_NUMBER.getValue()
+            );
+            car.move(randomNumber);
+        });
     }
 
     public List<String> carsResult() {

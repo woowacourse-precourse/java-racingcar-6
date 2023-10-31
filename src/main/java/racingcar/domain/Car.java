@@ -14,6 +14,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int position) {
+        this.name = name;
+        this.position =position;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -22,8 +27,8 @@ public class Car {
         return this.position;
     }
 
-    public void move() {
-        if (moveCheck()) {
+    public void move(final int randomNumber) {
+        if (moveCheck(randomNumber)) {
             this.position += CarGameValue.POWER.getValue();
         }
     }
@@ -36,11 +41,7 @@ public class Car {
         return this.position == winnerPosition;
     }
 
-    private boolean moveCheck() {
-        int randomNumber = RandomUtil.getRandomNumberRange(
-                CarGameValue.CAR_MOVE_MIN_NUMBER.getValue(),
-                CarGameValue.CAR_MOVE_MAX_NUMBER.getValue()
-        );
+    private boolean moveCheck(final int randomNumber) {
         return randomNumber >= CarGameValue.CAR_MOVE_MORE_THAN_NUMBER.getValue();
     }
 }
