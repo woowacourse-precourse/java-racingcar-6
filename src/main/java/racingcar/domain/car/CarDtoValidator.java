@@ -22,7 +22,7 @@ public final class CarDtoValidator {
     }
 
     static String[] getStrings(CarDto carDto) {
-        String carNamesWithCommas = carDto.carNamesWithCommas();
+        String carNamesWithCommas = carDto.carNames();
         String[] splittedCarNames = StringParser.trimAndSplit(carNamesWithCommas);
         return splittedCarNames;
     }

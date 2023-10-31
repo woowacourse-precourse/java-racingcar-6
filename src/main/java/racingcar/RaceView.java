@@ -1,8 +1,8 @@
 package racingcar;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.domain.car.CarDto;
 
 public final class RaceView {
     public static String printGuideRaceCarInput() {
@@ -25,12 +25,9 @@ public final class RaceView {
         return "실행 결과";
     }
 
-    public static String printWinners(List<Car> winners) {
+    public static String printWinners(CarDto winners) {
         StringBuilder winnerGuide = new StringBuilder("최종 우승자 : ");
-        String winnerResult = winners.stream()
-                .map(car -> car.getName())
-                .collect(Collectors.joining(", "));
-        winnerGuide.append(winnerResult);
+        winnerGuide.append(winners.carNames());
         return winnerGuide.toString();
     }
 }
