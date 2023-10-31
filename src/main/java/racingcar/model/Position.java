@@ -3,13 +3,13 @@ package racingcar.model;
 import java.util.Objects;
 
 public class Position {
-    private static final int ZERO_POSITION = 0;
+    private static final int BASE_POSITION = 0;
     private static final int MOVE_SIZE = 1;
     private static final String DISPLAY_STRING = "-";
     private int position;
 
     public Position() {
-        position = ZERO_POSITION;
+        position = BASE_POSITION;
     }
 
     //테스트 코드용 생성자
