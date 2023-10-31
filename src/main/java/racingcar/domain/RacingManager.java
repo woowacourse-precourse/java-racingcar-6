@@ -31,10 +31,11 @@ public class RacingManager {
     }
 
     public List<String> calculateWinner() {
+        int maxDistance = getMaxDistance();
         return cars
                 .stream()
                 .filter(c ->
-                        c.getDistance() == getMaxDistance()
+                        c.getDistance() == maxDistance
                 )
                 .map(Car::getName)
                 .toList();
