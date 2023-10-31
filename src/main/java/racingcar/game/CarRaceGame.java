@@ -40,7 +40,6 @@ public class CarRaceGame implements Game {
     }
 
     private void printResult() {
-        System.out.println("실행 결과");
         List<String> names = service.getCarsName();
         List<Integer> locations = service.getCarsLocation();
         for (int i = 0; i < names.size(); i++) {
