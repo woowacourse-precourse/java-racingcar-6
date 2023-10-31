@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class WinnerPickerTest {
 
     private WinnerPicker winnerPicker;
-    private RacingCars racingCars;
+    private Cars cars;
     private List<String> carNames;
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
@@ -23,16 +23,16 @@ class WinnerPickerTest {
     void setUp() {
         winnerPicker = new WinnerPicker();
         carNames = new ArrayList<>(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME));
-        racingCars = new RacingCars(carNames);
+        cars = new Cars(carNames);
 
     }
 
     @Test
     void 우승자가_한명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
 
-        RacingCar car1 = racingCars.getRacingCars().get(0);
-        RacingCar car2 = racingCars.getRacingCars().get(1);
-        RacingCar car3 = racingCars.getRacingCars().get(2);
+        Car car1 = cars.getCars().get(0);
+        Car car2 = cars.getCars().get(1);
+        Car car3 = cars.getCars().get(2);
 
         for (int forward = 0; forward < 5; forward++) {
             car1.forward();
@@ -46,7 +46,7 @@ class WinnerPickerTest {
             car3.forward();
         }
 
-        Winners winners = winnerPicker.pickWinner(racingCars);
+        Winners winners = winnerPicker.pickWinner(cars);
         assertThat(winners.getWinnersName().size()).isEqualTo(1);
         assertThat(winners.getWinnersName()).contains(CAR2_NAME);
     }
@@ -54,12 +54,12 @@ class WinnerPickerTest {
     @Test
     void 우승자가_두명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
         carNames.add(CAR4_NAME);
-        racingCars = new RacingCars(carNames);
+        cars = new Cars(carNames);
 
-        RacingCar car1 = racingCars.getRacingCars().get(0);
-        RacingCar car2 = racingCars.getRacingCars().get(1);
-        RacingCar car3 = racingCars.getRacingCars().get(2);
-        RacingCar car4 = racingCars.getRacingCars().get(3);
+        Car car1 = cars.getCars().get(0);
+        Car car2 = cars.getCars().get(1);
+        Car car3 = cars.getCars().get(2);
+        Car car4 = cars.getCars().get(3);
 
         for (int forward = 0; forward < 5; forward++) {
             car1.forward();
@@ -77,7 +77,7 @@ class WinnerPickerTest {
             car4.forward();
         }
 
-        Winners winners = winnerPicker.pickWinner(racingCars);
+        Winners winners = winnerPicker.pickWinner(cars);
 
         assertThat(winners.getWinnersName().size()).isEqualTo(2);
         assertThat(winners.getWinnersName()).contains(CAR2_NAME, CAR4_NAME);

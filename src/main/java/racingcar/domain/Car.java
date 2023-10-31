@@ -1,11 +1,11 @@
 package racingcar.domain;
 
-public class RacingCar implements Comparable<RacingCar> {
+public class Car implements Comparable<Car> {
 
     private final String name;
     private Integer forwardDistance = 0;
 
-    public RacingCar(String name) {
+    public Car(String name) {
         this.name = name;
     }
 
@@ -21,9 +21,8 @@ public class RacingCar implements Comparable<RacingCar> {
         return forwardDistance;
     }
 
-
     @Override
-    public int compareTo(RacingCar other) {
+    public int compareTo(Car other) {
         return Integer.compare(this.forwardDistance, other.forwardDistance);
     }
 
