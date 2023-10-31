@@ -9,14 +9,14 @@ public class Car {
     private RacingNumber racingNumber;
     private Integer location;
 
-    public Car(CarName carName, RacingNumber racingNumber) {
-        this.racingNumber = racingNumber;
+    public Car(CarName carName) {
+        this.racingNumber = new RacingNumber();
         this.name = carName;
         this.location = 0;
     }
 
-    public static Car makeCar(CarName carName, RacingNumber racingNumber) {
-        return new Car(carName, racingNumber);
+    public static Car make(CarName carName) {
+        return new Car(carName);
     }
 
     public void generateRandomNumber() {
