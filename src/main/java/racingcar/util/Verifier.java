@@ -7,6 +7,7 @@ import java.util.List;
  * 입력값 검증
  */
 public class Verifier {
+    private static final int MAXIMUM_CAR_NAME_LENGTH = 5;
     /**
      * 차량 이름들 검증
      *
@@ -51,7 +52,7 @@ public class Verifier {
         if (carName.contains(" ")) {
             throw new IllegalArgumentException("자동차 이름에 공백이 포함될 수 없습니다.");
         }
-        if (carName.length() > 5) {
+        if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
