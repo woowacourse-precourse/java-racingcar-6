@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import java.util.Objects;
 import racingcar.domain.car.boxed.CarName;
-import racingcar.domain.coordinate.Coordinate;
+import racingcar.domain.coordinate.boxed.Coordinate;
 
 public abstract class Car {
     protected final CarName carName;

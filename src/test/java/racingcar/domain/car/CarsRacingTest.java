@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.dto.input.CreateCarsRacing;
-import racingcar.exception.DuplicateCarNameException;
-import racingcar.exception.NoCarsException;
+import racingcar.exception.car.DuplicateCarNameException;
+import racingcar.exception.car.NoCarsException;
 
 final class CarsRacingTest {
 

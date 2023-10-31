@@ -6,14 +6,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.boxed.CarName;
-import racingcar.exception.CarNameContainsBannedCharacterException;
-import racingcar.exception.InvalidCarNameLengthException;
+import racingcar.exception.car.CarNameContainsBannedCharacterException;
+import racingcar.exception.car.InvalidCarNameLengthException;
 
 final class CarNameTest {
 
     @DisplayName("이름이 1~5자인 자동차 이름 생성 가능")
     @Test
-    void createCarNameSuccess() {
+    void CarName_withNameLengthInRangeOfOneToFive_shouldCreateInstance() {
         // given
         final String input1 = "1";
         final String input2 = "12345";
@@ -31,7 +31,7 @@ final class CarNameTest {
 
     @DisplayName("이름이 null이거나 1~5자가 아닌 자동차 이름 생성 시 예외 발생")
     @Test
-    void createCarNameFailureIfLengthIsMoreThanFiveOrNullOrEmpty() {
+    void CarName_withNullOrNameOutOfRange_shouldThrowException() {
         // given
         final String input1 = null;
         final String input2 = "";
@@ -58,7 +58,7 @@ final class CarNameTest {
 
     @DisplayName("차 이름에 공백, \\t, \\r, \\n 등의 금지된 문자 포함될 경우 예외 발생")
     @Test
-    void createCarNameFailureIfInputContainsBannedCharacters() {
+    void CarName_withWhiteSpace_shouldThrowException() {
         // given
         final String input1 = " ";
         final String input2 = "\t";

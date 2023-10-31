@@ -1,8 +1,8 @@
 package racingcar.domain.car.validator;
 
 import java.util.List;
-import racingcar.exception.DuplicateCarNameException;
-import racingcar.exception.NoCarsException;
+import racingcar.exception.car.DuplicateCarNameException;
+import racingcar.exception.car.NoCarsException;
 
 public final class CarsValidator {
 

@@ -1,8 +1,8 @@
 package racingcar.domain.car.boxed;
 
 import java.util.List;
-import racingcar.exception.CarNameContainsBannedCharacterException;
-import racingcar.exception.InvalidCarNameLengthException;
+import racingcar.exception.car.CarNameContainsBannedCharacterException;
+import racingcar.exception.car.InvalidCarNameLengthException;
 
 public record CarName(String carName) {
 

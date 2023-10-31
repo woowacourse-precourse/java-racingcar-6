@@ -5,8 +5,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.coordinate.Coordinate;
-import racingcar.exception.InvalidCoordinateException;
+import racingcar.domain.coordinate.boxed.Coordinate;
+import racingcar.exception.coordinate.InvalidCoordinateException;
 
 final class CoordinateTest {
     @DisplayName("Coordinate는 0 이상의 값을 가져야 한다")
@@ -64,8 +64,8 @@ final class CoordinateTest {
         final Coordinate coordinate3 = new Coordinate(2);
 
         // when
-        final boolean result1 = coordinate1.isSameAs(coordinate2);
-        final boolean result2 = coordinate1.isSameAs(coordinate3);
+        final boolean result1 = coordinate1.equals(coordinate2);
+        final boolean result2 = coordinate1.equals(coordinate3);
 
         // then
         assertThat(result1).isTrue();

@@ -1,7 +1,7 @@
-package racingcar.domain.coordinate;
+package racingcar.domain.coordinate.boxed;
 
 import java.util.Objects;
-import racingcar.exception.InvalidCoordinateException;
+import racingcar.exception.coordinate.InvalidCoordinateException;
 
 public final class Coordinate {
     private static final int MIN_COORDINATE = 0;
@@ -30,14 +30,6 @@ public final class Coordinate {
         return value;
     }
 
-    public boolean isSameAs(final Coordinate other) {
-        return value == other.value();
-    }
-
-    public int subtract(final Coordinate other) {
-        return value - other.value();
-    }
-
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -48,6 +40,10 @@ public final class Coordinate {
         }
         Coordinate that = (Coordinate) o;
         return value == that.value;
+    }
+
+    public int subtract(final Coordinate other) {
+        return value - other.value();
     }
 
     @Override

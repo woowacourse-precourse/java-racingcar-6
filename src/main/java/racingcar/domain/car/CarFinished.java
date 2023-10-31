@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import racingcar.domain.car.boxed.CarName;
 import racingcar.domain.car.dto.output.WinnerDto;
-import racingcar.domain.coordinate.Coordinate;
+import racingcar.domain.coordinate.boxed.Coordinate;
 
 public final class CarFinished extends Car implements Comparable<CarFinished> {
 
@@ -15,7 +15,7 @@ public final class CarFinished extends Car implements Comparable<CarFinished> {
 
 
     public boolean isAtSameCoordinate(final Car other) {
-        return coordinate.isSameAs(other.coordinate);
+        return coordinate.equals(other.coordinate);
     }
 
     public WinnerDto toWinnerDto() {
