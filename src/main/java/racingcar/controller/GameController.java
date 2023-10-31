@@ -52,9 +52,9 @@ public class GameController {
         return inputHandler.parseToInt(attemptsInput);
     }
 
-    private void playGame(int attempts, Cars cars) {
+    private void playGame(int maxAttempts, Cars cars) {
         showRaceResult();
-        for (int currentAttempts = 0; currentAttempts < attempts; currentAttempts++) {
+        for (int currentAttempts = 0; currentAttempts < maxAttempts; currentAttempts++) {
             executeRound(cars);
             showRoundResult(cars);
         }
