@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,8 +14,8 @@ public class Cars {
         cars = new ArrayList<>();
     }
 
-    public void settingNames() {
-        ArrayList<String> nameList = validateAndSendNames();
+    public void settingNames(String names) {
+        ArrayList<String> nameList = validateAndSendNames(names);
         for(String name : nameList) {
             cars.add(new Car(name));
         }
@@ -48,8 +47,7 @@ public class Cars {
             .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private ArrayList<String> validateAndSendNames() {
-        String names = Console.readLine();
+    private ArrayList<String> validateAndSendNames(String names) {
         hasComma(names);
 
         String[] split = names.split(",");
