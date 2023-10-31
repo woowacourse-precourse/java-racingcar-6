@@ -1,8 +1,6 @@
 package racingcar.controller;
 
 import racingcar.service.GameService;
-import racingcar.validation.CarNameValidator;
-import racingcar.validation.GameCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

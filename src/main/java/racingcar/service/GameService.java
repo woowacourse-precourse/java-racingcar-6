@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.domain.CarList;
 import racingcar.domain.GameCount;
 import racingcar.util.UserUtil;
-import racingcar.validation.GameCountValidator;
 
 public class GameService {
 
