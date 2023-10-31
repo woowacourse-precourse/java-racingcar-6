@@ -13,8 +13,6 @@ public class RankingService {
             .map(CarDto::position)
             .toList();
         int maxPosition = Collections.max(positionList);
-//        List<Integer> winnerNumber = new ArrayList<>(); getMaxPosition -> stream으로 변경
-//        int maxPosition = getMaxPosition(carDtoList, winnerNumber);
         for (CarDto carDto : carDtoList) {
             if (carDto.position() == maxPosition) {
                 winner.add(carDto.carName());
@@ -22,10 +20,4 @@ public class RankingService {
         }
         return winner;
     }
-//    private static int getMaxPosition(List<CarDto> carDtoList, List<Integer> winnerNumber) {
-//        for (CarDto carDto : carDtoList) {
-//            winnerNumber.add(carDto.getPosition());
-//        }
-//        return Collections.max(winnerNumber);
-//    }
 }

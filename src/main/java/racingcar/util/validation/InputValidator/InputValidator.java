@@ -2,11 +2,10 @@ package racingcar.util.validation.InputValidator;
 
 import java.util.List;
 import java.util.stream.Stream;
+import racingcar.util.message.ErrorMessage;
 
 public class InputValidator {
 
-    private static final String ERROR_MESSAGE = "[ERROR] ";
-    private static final String REQUEST_DELIMITER_MESSAGE = "쉼표(,)를 이용하여 이름을 구분해주세요";
     private static final int TRY_NUM_STANDARD = 0;
     private static final int NAME_LIMIT = 5;
 
@@ -16,8 +15,7 @@ public class InputValidator {
 
     private static void isSplit(String userInput) {
         if (!userInput.contains(",")) {
-            System.out.println(ERROR_MESSAGE + REQUEST_DELIMITER_MESSAGE);
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.REQUEST_DELIMITER.getErrorMessage());
         }
     }
 
@@ -30,16 +28,17 @@ public class InputValidator {
     private static void isEmpty(List<String> userInputList) {
         for (String carName : userInputList) {
             if (carName.isBlank()) {
-
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(
+                    ErrorMessage.REQUEST_NOT_EMPTY.getErrorMessage());
             }
         }
     }
 
-    public static void isLongerThanNameLimit(List<String> userInputList) {
+    private static void isLongerThanNameLimit(List<String> userInputList) {
         for (String carName : userInputList) {
             if (carName.length() > NAME_LIMIT) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(
+                    ErrorMessage.REQUEST_NAME_LIMIT.getErrorMessage());
             }
         }
     }
@@ -49,7 +48,8 @@ public class InputValidator {
         Stream<String> distinctList = streamList.distinct();
         long distinctListSize = distinctList.count();
         if (userInputList.size() != distinctListSize) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                ErrorMessage.REQUEST_NOT_DUPLICATED.getErrorMessage());
         }
     }
 
@@ -63,13 +63,15 @@ public class InputValidator {
         try {
             return Integer.parseInt(inputRacingRound);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                ErrorMessage.REQUEST_ONLY_POSITIVE_NUMBER.getErrorMessage());
         }
     }
 
     private static void isPositiveNum(int racingRound) {
         if (racingRound <= TRY_NUM_STANDARD) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                ErrorMessage.REQUEST_ONLY_POSITIVE_NUMBER.getErrorMessage());
         }
     }
 }

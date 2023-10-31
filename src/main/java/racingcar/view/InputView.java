@@ -21,14 +21,14 @@ public class InputView {
 
     public List<String> getUserInputCarNames() {
         String userInput = Console.readLine();
+        userInput = userInput.trim();
         InputValidator.validateUserInput(userInput);
         List<String> userInputList = Arrays.asList(userInput.split(SPLIT_DELIMITER));
         InputValidator.validateUserInputList(userInputList);
         return userInputList;
     }
 
-    public int getUserInputRacingRound() {
-        String inputRacingRound = Console.readLine();
+    public int getUserInputRacingRound(String inputRacingRound) {
         return InputValidator.validateRacingRound(inputRacingRound);
     }
 

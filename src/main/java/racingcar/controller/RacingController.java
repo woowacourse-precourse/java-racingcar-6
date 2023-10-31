@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.CarList.CarDto;
@@ -17,10 +18,13 @@ public class RacingController {
 
 
     public void initRacingGame() {
+        String inputRacingRound;
+
         inputView.printRequestCarName();
         List<String> userInput = inputView.getUserInputCarNames();
         inputView.printRequestRound();
-        int racingRound = inputView.getUserInputRacingRound();
+        inputRacingRound = Console.readLine();
+        int racingRound = inputView.getUserInputRacingRound(inputRacingRound);
         racingService.setCars(userInput);
         outputView.printResult();
         playRacingGame(racingRound);

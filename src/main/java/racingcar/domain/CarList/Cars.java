@@ -12,5 +12,4 @@ public class Cars {
             carList.add(new Car(carName));
         }
     }
-
 }
