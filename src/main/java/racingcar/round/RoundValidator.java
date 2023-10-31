@@ -4,15 +4,9 @@ import racingcar.Constant;
 
 public class RoundValidator {
 
-    public static boolean roundValidation(String round) {
-        try {
-            isNumber(round);
-            isPositiveNumber(round);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-        return true;
+    public static void roundValidation(String round) {
+        isNumber(round);
+        isPositiveNumber(round);
     }
 
     private static void isNumber(String round) {

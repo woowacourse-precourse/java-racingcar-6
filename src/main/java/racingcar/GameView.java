@@ -28,12 +28,9 @@ public class GameView {
 
     //사용자에게 시도활 횟수 입력 받기
     public String roundInput() {
-        String round;
-        do {
-            System.out.println(Constant.START_NUMBER_MESSAGE);
-            round = Console.readLine();
-        } while (!RoundValidator.roundValidation(round));
-
+        System.out.println(Constant.START_NUMBER_MESSAGE);
+        String round = Console.readLine();
+        RoundValidator.roundValidation(round);
         return round;
     }
 
