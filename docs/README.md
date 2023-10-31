@@ -10,7 +10,7 @@
     - 아래 구현할 기능에서 checkNamelength()에 대하여 설명
 ```java
 System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-String racerNames = scanner.nextLine();     // 경주 할 자동차 이름 입력
+String racerNames = Console.readLine();    // 경주 할 자동차 이름 입력
 // ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
 String[] racerArray = racerNames.split(",");
 checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
@@ -19,7 +19,7 @@ checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
 ```java
 // 시도할 횟수 입력
 System.out.println("시도할 회수는 몇회인가요?");
-int tryCount = scanner.nextInt();   // 경주 시도 횟수 입력
+int tryCount = Integer.parseInt(Console.readLine());   // 경주 시도 횟수 입력
 ```
 
 
@@ -92,24 +92,21 @@ class Car {
 - racing() : 프로그램의 전체적인 기능 수행
 ```java
 public void racing() {
-    scanner = new Scanner(System.in);
-    // Implement input
     // 경주 할 자동차 이름 입력
     System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String racerNames = scanner.nextLine();
+    String racerNames = Console.readLine();
     // ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
     String[] racerArray = racerNames.split(",");
     checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
     // 시도할 횟수 입력
     System.out.println("시도할 회수는 몇회인가요?");
-    int tryCount = scanner.nextInt();
+    int tryCount = Integer.parseInt(Console.readLine());
 
     System.out.println("실행 결과");
     tryRace(tryCount);
 
     // 제일 멀리 간 position 확인
     int maxPosition = findMaxPosition();
-    // 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
     List<String> winners = findWinners(maxPosition);
     printWinner(winners);   // 최종 우승자 출력
 }
