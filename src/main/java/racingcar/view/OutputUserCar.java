@@ -1,7 +1,8 @@
 package racingcar.view;
 
-import java.util.Iterator;
-import java.util.Map;
+import racingcar.model.CarSetting;
+
+import java.util.*;
 
 public class OutputUserCar {
     private static final String CYCLE_RESULT_COMMENT = "실행결과";
@@ -33,6 +34,19 @@ public class OutputUserCar {
     }
 
     public static void printGameResultComment(){
-        System.out.println(GAME_RESULT_COMMENT);
+        System.out.print(GAME_RESULT_COMMENT);
+    }
+
+    public static String winnerString(List<String> userList){
+        return String.join(",", userList);
+    }
+
+    public static void printWinnerResultComment(){
+        System.out.println(winnerString(CarSetting.findFinalWinner()));
+    }
+
+    public static void printFinalResultComment(){
+        printGameResultComment();
+        printWinnerResultComment();
     }
 }

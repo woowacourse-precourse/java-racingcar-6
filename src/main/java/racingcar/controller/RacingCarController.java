@@ -22,6 +22,6 @@ public class RacingCarController {
             OutputUserCar.printResultComment();
             OutputUserCar.racingCurrent(situation);
         }
-        OutputUserCar.printGameResultComment();
+        OutputUserCar.printFinalResultComment();
     }
 }

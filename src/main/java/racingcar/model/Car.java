@@ -4,8 +4,7 @@ import racingcar.view.InputUserCar;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Car {
     private CarSetting carSetting;
@@ -24,17 +23,27 @@ public class Car {
     }
 
     public Map<String, Integer> goFront(){
-        int num = carSetting.getTrialNumber();
         Map<String, Integer> carsSituation = carSetting.getCarsSituation();
         Iterator<String> iterator = carsSituation.keySet().iterator();
+        int maxScore = 0;
         while(iterator.hasNext()){
             String key = iterator.next();
             int randomNumber = RandomPlay.randomNumberGenerator();
-            carsSituation.replace(key, carsSituation.get(key)+randomNumber);
+            if(randomNumber>=4) {
+                carsSituation.replace(key, carsSituation.get(key) + randomNumber);
+                if(maxScore < carsSituation.get(key)){
+                    maxScore = carsSituation.get(key);
+                }
+            }
         }
 
         carSetting.setCarsSituation(carsSituation);
+        carSetting.setMaxScore(maxScore);
         return carsSituation;
+    }
+
+    public List<String> resultWinner(){
+        return carSetting.findFinalWinner();
     }
 
 
