@@ -28,7 +28,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("Car를 각각 Drive시키고 매 실행 결과를 알아내는 기능 테스트 ")
-    void testDriveAllAndGetDistacnes() {
+    void testDriveAllAndGetDistances() {
         cars.driveAll();
         List<Integer> result = cars.getTotalDistances();
 
@@ -53,7 +53,7 @@ public class CarsTest {
                 expected.add(names.get(i));
             }
         }
-
         assertThat(expected).containsAll(winners);
     }
+
 }

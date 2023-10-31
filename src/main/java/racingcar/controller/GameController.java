@@ -1,8 +1,5 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.consts.ViewConstant;
 import racingcar.domain.Cars;
 import racingcar.util.InputParser;
 import racingcar.view.InputView;
@@ -35,24 +32,11 @@ public class GameController {
         OUTPUT_VIEW.printResultMessage();
         for (int i = 0; i < numberOfAttempt; i++) {
             cars.driveAll();
-            OUTPUT_VIEW.printResultRound(makeRoundResult());
+            OUTPUT_VIEW.printResultRound(cars.getRoundResult());
         }
     }
 
     private void endGame() {
         OUTPUT_VIEW.printWinner(cars.getWinners());
-    }
-
-    private List<String> makeRoundResult() {
-        List<String> roundResult = new ArrayList<>();
-        List<String> carNames = cars.getNames();
-        List<Integer> carDistances = cars.getTotalDistances();
-        for (int i = 0; i < cars.getNumberOfCar(); i++) {
-            String result = carNames.get(i);
-            result += " : ";
-            result += ViewConstant.DISTANCE_MESSAGE.get().repeat(carDistances.get(i));
-            roundResult.add(result);
-        }
-        return roundResult;
     }
 }

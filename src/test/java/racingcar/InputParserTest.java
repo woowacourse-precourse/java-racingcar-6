@@ -16,7 +16,7 @@ public class InputParserTest {
     private List<String> getNames(List<Car> cars) {
         List<String> names = new ArrayList<>();
         for (Car car : cars) {
-            names.add(car.toString());
+            names.add(car.getName());
         }
         return names;
     }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -19,7 +19,7 @@ public class Cars {
         List<String> winners = new ArrayList<>();
         for (Car car : this.cars) {
             if (car.getTotalDistance() == this.getMaxDistance()) {
-                winners.add(car.toString());
+                winners.add(car.getName());
             }
         }
         return winners;
@@ -34,20 +34,16 @@ public class Cars {
     }
 
     public List<Integer> getTotalDistances() {
-        List<Integer> totalDistances = cars.stream()
-                .map(Car::getTotalDistance)
-                .collect(Collectors.toList());
-        return totalDistances;
+        return cars.stream().map(Car::getTotalDistance).collect(Collectors.toList());
     }
 
     public List<String> getNames() {
-        List<String> names = cars.stream()
-                .map(Car::toString)
-                .collect(Collectors.toList());
-        return names;
+        return cars.stream().map(Car::getName).collect(Collectors.toList());
     }
 
-    public int getNumberOfCar() {
-        return cars.size();
+    public List<String> getRoundResult() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.toList());
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.consts.GameConstant;
+import racingcar.consts.ViewConstant;
 import racingcar.util.RandomGenerator;
 
 public class Car {
@@ -20,6 +21,10 @@ public class Car {
         return totalDistance;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void drive() {
         if (RandomGenerator.generate() >= GameConstant.MIN_FORWARD_THRESHOLD.get()) {
             this.addDistance();
@@ -28,6 +33,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.name;
+        return this.name + ViewConstant.DIVISION_MESSAGE.get() + ViewConstant.DISTANCE_MESSAGE.get()
+                .repeat(totalDistance);
     }
 }

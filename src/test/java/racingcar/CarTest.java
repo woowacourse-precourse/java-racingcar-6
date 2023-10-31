@@ -14,9 +14,9 @@ public class CarTest {
         Car car1 = new Car("페라리");
         Car car2 = new Car("우테코");
 
-        String result1_Name = car1.toString();
+        String result1_Name = car1.getName();
         int result1_TotalDistance = car1.getTotalDistance();
-        String result2_Name = car2.toString();
+        String result2_Name = car2.getName();
         int result2_TotalDistance = car2.getTotalDistance();
 
         assertThat(result1_Name).isEqualTo("페라리");
@@ -37,4 +37,5 @@ public class CarTest {
 
         assertThat(car.getTotalDistance()).isEqualTo(expectedDistance);
     }
+
 }
