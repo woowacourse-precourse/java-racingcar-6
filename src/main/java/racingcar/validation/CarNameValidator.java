@@ -15,15 +15,10 @@ public class CarNameValidator {
     }
 
     public List<String> validate() {
-        validateNull();
         validateBlank();
         validateLength();
         validateDuplicate();
         return this.CAR_NAMES;
-    }
-
-    public void validateNull() {
-        this.CAR_NAMES.forEach(StringValidator::stringIsNull);
     }
 
     public void validateBlank() {
