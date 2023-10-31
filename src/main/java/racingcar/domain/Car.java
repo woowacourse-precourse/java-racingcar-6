@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Car {
 
     private int position = 0;
@@ -32,11 +30,6 @@ public class Car {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(carName.makeNameForPrintResult());
-        for (int i = 0; i < position; i++) {
-            sb.append("-");
-        }
-        sb.append("\n");
-        return sb.toString();
+        return carName.makeNameForPrintResult() + "-".repeat(position) + "\n";
     }
 }
