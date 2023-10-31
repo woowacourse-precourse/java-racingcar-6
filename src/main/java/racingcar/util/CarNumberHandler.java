@@ -21,7 +21,7 @@ public class CarNumberHandler {
     public static void moveCars(List<Car> CarArray) {
         for (Car car : CarArray) {
             int number = generateRandomNumber();
-            if (number >= 4) {
+            if (number >= STANDARD_NUMBER) {
                 car.upMoveCount();
             }
         }

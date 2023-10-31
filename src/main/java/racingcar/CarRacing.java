@@ -23,8 +23,8 @@ public class CarRacing {
 
 
     private String carNames;
-    private List<String> carNamesArray;
-    private List<Car> carArray;
+    private List<String> carNamesArray = new ArrayList<>();
+    private List<Car> carArray = new ArrayList<>();
     private int userCount;
 
 
@@ -40,6 +40,7 @@ public class CarRacing {
         requestUserCount();
 
         System.out.println(RESULT_MESSAGE);
+        getRacingResult();
 
     }
 
@@ -83,7 +84,7 @@ public class CarRacing {
 
     public void getCarNamesArray() {
         String[] carNamesStringArray = carNames.split(",");
-        carNamesArray = new ArrayList<>(Arrays.asList(carNamesStringArray));
+        carNamesArray = Arrays.asList(carNamesStringArray);
         validateCarNamesArray(carNamesArray);
     }
 
@@ -111,6 +112,7 @@ public class CarRacing {
 
     public void requestUserCount() {
         String stringCount = Console.readLine();
+        isInputEmpty(stringCount);
         validateUserCount(stringCount);
         userCount = Integer.parseInt(stringCount);
     }
@@ -134,7 +136,13 @@ public class CarRacing {
         }
     }
 
-    
+    public void getRacingResult() {
+        for (int i = 0; i < userCount; i++) {
+            CarNumberHandler.moveCars(carArray);
+            printOutResult();
+        }
+    }
+
 
     public void printOutResult() {
         for (Car car : carArray) {
