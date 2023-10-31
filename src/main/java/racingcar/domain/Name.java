@@ -34,12 +34,20 @@ public class Name {
     }
 
     private void validateContainBlank(final String name) {
-        if (name.length() != name.strip().length()) {
+        if (hasBlankInLeadingOrTrailing(name)) {
             throw new IllegalArgumentException(NAME_CONTAIN_BLANK_ERROR_MESSAGE);
         }
-        if (name.contains(WHITESPACE)) {
+        if (hasBlankInMiddle(name)) {
             throw new IllegalArgumentException(NAME_CONTAIN_BLANK_ERROR_MESSAGE);
         }
+    }
+
+    private boolean hasBlankInLeadingOrTrailing(final String name) {
+        return name.length() != name.strip().length();
+    }
+
+    private boolean hasBlankInMiddle(final String name) {
+        return name.contains(WHITESPACE);
     }
 
     public String getName() {
