@@ -16,8 +16,5 @@ public class Validator {
         if (carName.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.carNameValidationError);
         }
-        if (carName.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.nullInputError);
-        }
     }
 }
