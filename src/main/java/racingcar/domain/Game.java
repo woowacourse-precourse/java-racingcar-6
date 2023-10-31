@@ -19,6 +19,7 @@ public class Game {
     }
 
     public void race() {
+        Output.printRaceResultIntro();
         while (leftGameCount()) {
             gameCount--;
             raceOneTime();
