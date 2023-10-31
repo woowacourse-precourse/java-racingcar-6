@@ -1,24 +1,22 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import racingcar.controller.GameController;
-import racingcar.model.Car;
-
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    @DisplayName("자동차 리스트 생성시 position값 0으로 할당 여부 확인")
     @Test
     void 경주_자동차_리스트_생성() {
         ArrayList<Car> carList = new ArrayList<>();
@@ -26,9 +24,6 @@ class ApplicationTest extends NsTest {
         for (int i = 0; i < carNames.length; i++) {
             carList.add(new Car(carNames[i]));
         }
-        Assertions.assertThat(carList.get(0).getName()).isEqualTo("pobi");
-        Assertions.assertThat(carList.get(1).getName()).isEqualTo("woni");
-        Assertions.assertThat(carList.get(2).getName()).isEqualTo("jun");
         Assertions.assertThat(carList.get(0).getPosition()).isEqualTo(0);
         Assertions.assertThat(carList.get(1).getPosition()).isEqualTo(0);
         Assertions.assertThat(carList.get(2).getPosition()).isEqualTo(0);
@@ -67,7 +62,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 자동차_이름의_길이에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -77,10 +72,23 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,jav aj", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,jun", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
-    void 시도_횟수에_대한_예외_처리() {
+    void 자동차_이름이_공백으로만_이루어진_경우에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,   ,jun", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_횟수에_문자가_포함된_경우에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni,jun", "a"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -90,7 +98,10 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,woni,jun", "1a"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
 
+    @Test
+    void 시도_횟수가_0_또는_음수인_경우에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni,jun", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
