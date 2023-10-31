@@ -18,7 +18,7 @@ public class Car {
         return this.distance;
     }
 
-    public void moveCar() {
+    protected void moveCar() {
         distance++;
     }
 
