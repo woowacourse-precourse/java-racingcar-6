@@ -22,7 +22,7 @@ class InputValidatorTest {
     @DisplayName("횟수 입력 검증_음수_에러 발생")
     void validateNegativeTimes() {
 
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateTimes(-1));
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNumRound(-1));
 
     }
 }

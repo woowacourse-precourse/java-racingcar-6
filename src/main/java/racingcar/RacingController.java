@@ -15,10 +15,10 @@ public class RacingController {
     public void run() {
 
         Cars cars = new Cars(createCarList());
-        int times = readTimes();
+        int numRound = readNumRound();
 
         outputView.printResultMessage();
-        for (int i = 0; i < times; i++) {
+        for (int round = 0; round < numRound; round++) {
             cars.roundLevelMove();
             outputView.printResult(cars.getCarList());
         }
@@ -38,12 +38,12 @@ public class RacingController {
                 .collect(Collectors.toList());
     }
 
-    public int readTimes() {
-        int times = inputView.readTimes();
+    public int readNumRound() {
+        int numRound = inputView.readNumRound();
 
-        InputValidator.validateTimes(times);
+        InputValidator.validateNumRound(numRound);
 
-        return times;
+        return numRound;
     }
 
 
