@@ -14,17 +14,13 @@ public class RacingCar {
         this.position = 0;
     }
 
+    public void move() {
+        this.position++;
+    }
     public String getName() {
         return this.name;
     }
-
-    public void setPosition(Integer position) {
-        this.position = position;
-    }
-
-    public Integer getPosition() {
-        return this.position;
-    }
+    public Integer getPosition() { return this.position; }
 
     private void verify(String name) {
 
