@@ -34,7 +34,7 @@ public class NameTest {
 
     private static Stream<Arguments> generateUnvalidNames() {
         return Stream.of(
-                Arguments.of("sunghun,sunghun,hyerim"),
+                Arguments.of("sung,sung,hyeri"),
                 Arguments.of("sungki,pobili"),
                 Arguments.of("abcdef,ghiklmnop,qrstuv")
         );

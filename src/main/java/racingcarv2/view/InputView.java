@@ -49,6 +49,7 @@ public class InputView {
     }
 
     private static void validateNumber(String readLine) {
+        isNullOrEmpty(readLine);
         isNotNumber(readLine);
         startsWithZero(readLine);
     }
