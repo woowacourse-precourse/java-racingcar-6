@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import racingcar.constant.InformationResponse;
 import racingcar.model.GameScore;
 
 public class OutputView {
@@ -9,6 +10,6 @@ public class OutputView {
     }
 
     public void printWinner(String winner){
-        System.out.println("최종 우승자 : " + winner);
+        System.out.println(InformationResponse.WINNER.getMessage() + winner);
     }
 }

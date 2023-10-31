@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import racingcar.constant.CarStatus;
+import racingcar.constant.ExceptionResponse;
+
 import java.util.Objects;
 
 public class RacingCar {
@@ -15,7 +18,7 @@ public class RacingCar {
     private void validateName(String name){
         name = name.trim();
         if(name.isEmpty() || name.length() > MAX_NAME_LENGTH ){
-            throw new IllegalArgumentException("이름은 5자 이하의 구분 가능한 문자로 이루어져야 합니다.");
+            throw new IllegalArgumentException(ExceptionResponse.RACING_CAR_NAME.getMessage());
         }
     }
 

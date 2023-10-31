@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import racingcar.constant.CarStatus;
+import racingcar.constant.ExceptionResponse;
+
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,7 +22,7 @@ public class GameScore {
                 .distinct()
                 .count();
         if (nonDuplicateSize != racingCars.size()) {
-            throw new IllegalArgumentException("중복된 이름을 가진 자동차는 없어야 합니다.");
+            throw new IllegalArgumentException(ExceptionResponse.DUPLICATE_RACING_CAR.getMessage());
         }
     }
 

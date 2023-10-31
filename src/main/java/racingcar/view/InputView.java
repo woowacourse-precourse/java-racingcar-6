@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.constant.ExceptionResponse;
+import racingcar.constant.InformationResponse;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,24 +12,24 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final String SEPARATOR = ",";
 
-    private void validateNullAndBlank(String input){
+    private void validateNullAndBlank(String input, ExceptionResponse exceptionResponse){
         if(input == null || input.isBlank()){
-            throw new IllegalArgumentException("자동차 이름을 입력해야 합니다.");
+            throw new IllegalArgumentException(exceptionResponse.getMessage());
         }
     }
 
     public List<String> inputCarNames(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(InformationResponse.INPUT_CAR_NAMES.getMessage());
         String carNames = Console.readLine();
-        validateNullAndBlank(carNames);
+        validateNullAndBlank(carNames, ExceptionResponse.INPUT_CAR_NAMES);
         return Arrays.stream(carNames.split(SEPARATOR))
                 .toList();
     }
 
     public String inputGameCount(){
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(InformationResponse.INPUT_TRIAL_COUNT.getMessage());
         String gameCount = Console.readLine();
-        validateNullAndBlank(gameCount);
+        validateNullAndBlank(gameCount, ExceptionResponse.INPUT_TRIAL_COUNT);
         return gameCount;
     }
 

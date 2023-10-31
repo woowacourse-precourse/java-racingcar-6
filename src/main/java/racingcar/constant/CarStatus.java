@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.constant;
 
 public enum CarStatus {
     FORWARD("-"),
