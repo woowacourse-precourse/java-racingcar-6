@@ -31,6 +31,11 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    void 복수의_우승자_처리() {
+
+    }
+
+    void
     @Override
     public void runMain() {
         Application.main(new String[]{});
