@@ -1,5 +1,9 @@
 package model;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -44,6 +48,27 @@ public class CarsTest {
 
         //then
         Assertions.assertThat(maxMovingCountName).isEqualTo(List.of(lisaCar));
+    }
+
+    @Test
+    @DisplayName("갖고 있는 모든 Car객체에 임의의 수 기준으로 업데이트 테스트")
+    void movingCount_업데이트_테스트() {
+        //given
+        MovingCount mockedMovingCount = mock(MovingCount.class);
+        List<Car> carList = new ArrayList<>();
+        Car pobiCar = new Car(new Name("pobi"), mockedMovingCount);
+        Car lisaCar = new Car(new Name("lisa"), mockedMovingCount);
+        Car jinyCar = new Car(new Name("jiny"), mockedMovingCount);
+        carList.add(pobiCar);
+        carList.add(lisaCar);
+        carList.add(jinyCar);
+        Cars cars = new Cars(carList);
+
+        //when
+        cars.updateMovingCount(0);
+
+        //then
+        verify(mockedMovingCount, times(3)).increase();
     }
 
     @Test
