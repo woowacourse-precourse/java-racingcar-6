@@ -10,8 +10,8 @@ public class Game {
         this.cars = cars;
         this.round = round;
     }
-
     public void play() {
+
     }
 
     public String getWinner() {
@@ -24,11 +24,5 @@ public class Game {
 
     private String findWinner() {
         return null;
-    }
-    public List<Car> getCars() {
-        return this.cars;
-    }
-    public int setRound(int round) {
-        this.round = round;
     }
 }

@@ -15,4 +15,9 @@ public class Car {
     public int getPosition() {
         return this.position;
     }
+    public void move() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            this.position++;
+        }
+    }
 }
