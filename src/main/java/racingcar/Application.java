@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
     private static void checkCarNames(String[] inputNames){
@@ -67,7 +68,19 @@ public class Application {
             }
         }
 
-        System.out.println(gameState);
-        System.out.println(forwardState);
+//        System.out.println(gameState);
+//        System.out.println(forwardState);
+
+        // 4. 경기 진행 과정 출력
+        System.out.println("\n실행 결과");
+        for(int i = 0; i < turns; i++) {
+            for(Map.Entry<String, List<Integer>> entry:forwardState.entrySet() ){
+                String name = entry.getKey();
+                List<Integer> temp = entry.getValue();
+                String t = "-".repeat(temp.get(i+1));
+                System.out.printf("%s : %s\n", name, t);
+            }
+            System.out.println();
+        }
     }
 }
