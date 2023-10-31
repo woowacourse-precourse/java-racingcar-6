@@ -1,5 +1,5 @@
 package racingcar.utils;
 
 public interface JudgementGenerator {
-    boolean isIncreseDistance();
+    boolean isIncreaseDistance();
 }

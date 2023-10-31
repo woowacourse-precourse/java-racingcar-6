@@ -8,7 +8,7 @@ public class JudgementRandomGenerator implements JudgementGenerator {
     private static final int MAX_RANGE = 9;
     private static final int STANDARD_OF_JUDGMENT = 4;
 
-    public boolean isIncreseDistance() {
+    public boolean isIncreaseDistance() {
         int pick = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
         return pick >= STANDARD_OF_JUDGMENT;
     }
