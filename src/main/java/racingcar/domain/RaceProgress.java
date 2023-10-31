@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constants.RaceRule.MOVE_DISTANCE;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,9 +26,9 @@ public class RaceProgress {
         return this.progress.keySet();
     }
 
-    public void moveSingleCar(String carName) {
+    public void addMovedDistance(String carName) {
         Integer curDistance = progress.get(carName);
-        progress.replace(carName, curDistance + 1);
+        progress.replace(carName, curDistance + MOVE_DISTANCE.getValue());
     }
 
     public int getMovedDistance(String carName) {

@@ -21,10 +21,14 @@ public class RaceService {
     public List<Progress> moveCars() {
         for (String carName : raceProgress.getCarList()) {
             if (canMoveForward()) {
-                raceProgress.moveSingleCar(carName);
+                moveSingleCar(carName);
             }
         }
         return getCarProgressList();
+    }
+
+    private void moveSingleCar(String carName) {
+        raceProgress.addMovedDistance(carName);
     }
 
     public List<String> getWinner() {
