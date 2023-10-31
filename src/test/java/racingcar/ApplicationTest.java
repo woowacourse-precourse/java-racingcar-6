@@ -93,13 +93,11 @@ class ApplicationTest extends NsTest {
 
     @Test
     @DisplayName("시도할 회수만큼 반복하여 결과 출력 후 각 자동차별 전진거리를 누적한 배열 반환하기")
-    void moveCarForNumberOfAttempt(){
-        int[] distanceCount = car.moveCarsAndPrintMovingForNumberOfAttempt(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")),3);
+    void moveCarForNumberOfAttempt() {
+        int[] distanceCount = car.moveCarsAndPrintMovingForNumberOfAttempt(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")), 3);
         assertThat(distanceCount.length).isEqualTo(3);
     }
 
-    @Test
-    @DisplayName("")
 
     @Override
     public void runMain() {
