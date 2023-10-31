@@ -1,38 +1,34 @@
 package racingcar.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import racingcar.domain.AttemptCounts;
 import racingcar.domain.CarEngine;
 import racingcar.domain.Cars;
-import racingcar.domain.RacingResult;
-import racingcar.domain.RacingRoundResult;
-import racingcar.dto.CarInfo;
+import racingcar.domain.RacingGame;
+import racingcar.dto.RacingResultDto;
+import racingcar.dto.RacingRoundResultDto;
 
 public class RacingCarService {
     private final CarEngine carEngine;
+    private RacingGame racingGame;
 
     public RacingCarService(CarEngine carEngine) {
         this.carEngine = carEngine;
     }
 
-    public RacingResult race(List<String> carNames, int attemptCounts) {
-        Cars cars = Cars.assemble(carNames, this.carEngine);
-        RacingResult racingResult = new RacingResult();
-        for (int i = 0; i < attemptCounts; i++) {
-            cars.move();
-            List<CarInfo> carInfoList = getCarInfoList(cars);
-            racingResult.addResult(new RacingRoundResult(carInfoList));
-        }
-        return racingResult;
+    public void initializeRacingGame(List<String> carNames, String attemptCounts) {
+        this.racingGame = RacingGame.of(Cars.from(carNames, this.carEngine), AttemptCounts.from(attemptCounts));
     }
 
-    private static List<CarInfo> getCarInfoList(Cars cars) {
-        return cars.getReadOnlyCarList().stream()
-                .map(CarInfo::of)
-                .collect(Collectors.toUnmodifiableList());
+    public RacingRoundResultDto race() {
+        return RacingRoundResultDto.from(racingGame.play());
     }
 
-    public List<String> determineWinner(RacingResult racingResult) {
-        return racingResult.getFinalWinners();
+    public boolean isRemainAttemptCounts() {
+        return this.racingGame.isRemainAttemptCounts();
+    }
+
+    public RacingResultDto determineWinner() {
+        return RacingResultDto.from(racingGame.getWinners());
     }
 }
