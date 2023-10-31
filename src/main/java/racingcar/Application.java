@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,11 +29,8 @@ public class Application {
 
         if (!isInputValid(names)) throw new IllegalArgumentException();
 
-        LinkedHashMap<String, StringBuilder> racers = new LinkedHashMap<>();
-        for (String name : names) {
-            racers.put(name, new StringBuilder());
-        }
-        return racers;
+        return Stream.of(names).collect(
+                Collectors.toMap(name -> name, value -> new StringBuilder(), (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     public static boolean isInputValid(String[] names) {
