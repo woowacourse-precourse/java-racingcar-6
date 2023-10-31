@@ -27,21 +27,21 @@
 
 ## 🧑🏻‍🏫 클래스 분리
 
-## game
-- `gamedata`
-- `gameexecution`
+## Game
+- `GameData`
+- `GameExecution`
 
-## gamedata
+## GameData
+- `RacingCars` : List<Car>
 - `AttemptData` : List<Attempt>
 
 ## Car
 - `CarName` : String
-- `CarPosition` : Integer
+- `CarPosition` : int
 
 ## Attempt
-- `RacingCars` : List<Car>
-- `InputNumber` : Integer
+- `InputNumber` : int
 
-## gameexecution
+## GameExecution
 - `GameInput`
 - `GameOutput`
