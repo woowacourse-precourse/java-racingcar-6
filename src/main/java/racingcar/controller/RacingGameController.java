@@ -31,18 +31,10 @@ public class RacingGameController {
         OutputView.printExecutionResultMessage();
 
         IntStream.range(0, racingRound.getRound()).forEach(i -> {
-            moveCars();
+            cars.moveCars();
             displayCars();
             OutputView.printBlankLine();
         });
-    }
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(Constants.MIN_INPUT_RANGE, Constants.MAX_INPUT_RANGE);
-    }
-
-    private void moveCars() {
-        cars.getCarList().forEach(car -> car.moveForward(generateRandomNumber()));
     }
 
     private void displayCars() {

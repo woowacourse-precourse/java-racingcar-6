@@ -37,6 +37,7 @@
 - [x] 자동차 목록 생성
 - [x] 자동차 목록에 자동차 추가
 - [x] 우승자 목록 알려주는 함수 - findWinners()
+- [x] 자동차 전진 함수 - moveCars()
 #### 자동차 목록 변환에 대한 예외처리(CarsValidator)
 - [x] 같은 이름이 있는 경우 - validateDuplicateName()
 - [x] 자동차 목록이 비어있을 경우 - findMaxPosition()

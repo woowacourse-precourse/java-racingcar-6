@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import racingcar.util.CarsValidator;
 import racingcar.util.Constants;
+import racingcar.util.RandomNumber;
 
 public class Cars {
     private static final String NO_CARS_IN_LIST_ERROR = "자동차 목록이 비어있습니다.";
@@ -36,6 +37,10 @@ public class Cars {
 
     public List<Car> getCarList() {
         return Collections.unmodifiableList(carList);
+    }
+
+    public void moveCars() {
+        carList.forEach(car -> car.moveForward(RandomNumber.generateRandomNumber()));
     }
 
     private static List<String> filterEmptyNames(List<String> carNames) {
