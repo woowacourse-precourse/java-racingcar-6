@@ -12,14 +12,16 @@ import racingcar.util.RandomManipulator;
 public class Game {
     public void start() {
         PrintHandler.inputCarNamesPrompt();
-        List<String> carNames = InputHandler.carNames();
+        String carNamesWithSeparator = InputHandler.readLine();
+        List<String> carNames = InputHandler.convertCarNames(carNamesWithSeparator);
         List<Car> cars = CarFactory.createCars(carNames);
 
         PrintHandler.inputTrialNumberPrompt();
-        int trialNum = InputHandler.tryNumber();
+        String trialNum = InputHandler.readLine();
+        int convertedTypeTrialNum = InputHandler.convertTrialNumber(trialNum);
 
         PrintHandler.resultRunningSentence();
-        moveCarsIterator(cars, trialNum);
+        moveCarsIterator(cars, convertedTypeTrialNum);
 
         PrintHandler.finalWinnerSentence();
         List<String> winnerNames = findFinalWinner(cars);
