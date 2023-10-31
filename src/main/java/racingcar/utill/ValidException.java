@@ -16,6 +16,7 @@ public class ValidException {
     private static final String SPECIAL_CHARACTER_REGEX = ".*[!@#$%^&*().?\":{}|<>].*";
     private static final String NOTING_STRING = "";
     private static final Integer POSITIVE_CONDITION_ZERO = 0;
+    private static final String BLANK = " ";
 
     public static Boolean lessFIveLen(String strLine) {
         int len = strLine.length();
@@ -80,7 +81,7 @@ public class ValidException {
     }
 
     public static void includeBlank(String strLine) {
-        if (strLine.contains(" ")) {
+        if (strLine.contains(BLANK)) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_BLANK_STRING());
         }
     }
