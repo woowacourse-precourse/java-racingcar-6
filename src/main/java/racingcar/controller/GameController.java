@@ -25,6 +25,19 @@ public class GameController {
         private static final GameController INSTANCE = new GameController();
     }
 
+    public void run() {
+        init();
+    }
+
+    private void init() {
+        getCars();
+        getRounds();
+    }
+
+    private void end() {
+        outputView.printMessage(Message.TEXT_WINNER);
+    }
+
     private void getCars() {
         outputView.printMessage(Message.GET_CARS);
         cars = gameService.toCarList(inputView.getCarNames());
