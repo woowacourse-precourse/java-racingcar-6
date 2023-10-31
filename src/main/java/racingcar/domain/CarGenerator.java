@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -12,6 +13,9 @@ public class CarGenerator {
         List<String> carName = Arrays.asList(Console.readLine().split(","));
         for(String name : carName){
             if(name.length()>5){
+                throw new IllegalArgumentException();
+            }
+            if(Collections.frequency(carName,name)>1){
                 throw new IllegalArgumentException();
             }
         }
