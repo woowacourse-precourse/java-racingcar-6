@@ -154,3 +154,14 @@
 - validateNumberRange()
 - validate()
 - enum 정리
+
+
+---
+# Test
+## Car
+### CarTest.java
+- 초기 위치 검사
+- move() 정상 작동 검사
+
+
+### CarListTest.java
