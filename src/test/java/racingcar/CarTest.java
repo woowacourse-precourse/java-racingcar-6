@@ -21,14 +21,14 @@ class CarTest {
 
 
     @Test
-    void distanceTest() {
+    void 전진이_잘_되는지() {
         car.setDistance("-");
         car.setDistance("+");
         assertEquals("-+", car.getDistance());
     }
 
     @Test
-    void countTest() {
+    void 전진_횟수가_잘_올라가는지() {
         car.setCount();
         car.setCount();
         assertEquals(2, car.getCount());
