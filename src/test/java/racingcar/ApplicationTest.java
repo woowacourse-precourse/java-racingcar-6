@@ -31,6 +31,30 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_정상_분리() {
+        String name = "Kim,Park,Lee";
+        RacingGame rg = new RacingGame(name);
+
+        assertThat(rg.racingCars).extracting("name").contains("Kim", "Park", "Lee");
+    }
+
+    @Test
+    void 이름_공백_예외() {
+        String name = "Kim, ,Lee";
+        assertThatThrownBy(() -> {RacingGame rg = new RacingGame(name);})
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionString.BLANK_NAME);
+    }
+
+    @Test
+    void 이름_공백_처리() {
+        String name = "   Kim  ,  Park  ,  Lee";
+        RacingGame rg = new RacingGame(name);
+        assertThat(rg.racingCars).extracting("name").contains("Kim", "Park", "Lee");
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
