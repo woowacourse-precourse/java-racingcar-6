@@ -106,6 +106,7 @@
 
 ### 1️⃣ Non-Functional Requirement
 
+<br>
 
 + [X] 자동차 경주 프로그램은 [MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC")에 따라 설계한다.
 + [X] [YAGNI]("https://ko.wikipedia.org/wiki/YAGNI") 원칙에 의거해, 필요 구현 요소를 밀도있게 구현하는 것을 목표로 한다.
@@ -319,6 +320,7 @@
 #### 🌱 0x08 `예외 복구, 예외 회피, 예외 전환의 역할을 잘 알고 활용하자.`
 
 자바에서 예외처리는 예외 복구, 예외 회피, 예외전환을 방식이 각각 있습니다.
+
 | 종류 | 역할 |
 |:-----:|:------------------------------------------------:|
 | 예외 복구 | try catch -> 예외를 처리하고 정상 로직 처리 |
@@ -340,11 +342,9 @@ Exception 에 대한 처리는 정확하게 처리해야 서버의 죽음을 막
 #### 🌱 0x09. `Protected 생성자 vs Private 생성자`
 
 - 기존에 상속과 다형성을 목표로 작성했던 **protected 생성자에 대해 리뷰**를 받았습니다.
-- 상속과 다형성으로 최종 개발되지 않은 클래스는 **private 생성자를 사용**했습니다.
+- 이번 과제에서 상속과 다형성으로 최종 개발되지 않은 클래스는 **private 생성자를 사용**했습니다.
 - private 생성자를 기반으로, public Static Factory 메소드로 객체를 생성합니다.
-
-- 기존에 버릇처럼 사용하던 protected 생성자는 Spring Data JPA에서 Entity Reflection을 활용해 객체 인스턴스를 만들기 위해서 입니다.
-- 예전에 쓰던 코드라는 이유로, 무의식적으로 사용했던 자신을 반성하게 되었습니다 :)
+- JPA에서 사용했던 경험을 바탕으로, 무의식적으로 사용했던 행동을 반성하게 되었습니다 :)
 
 출처 : [[JPA] JPA에서 Entity에 protected 생성자를 만드는 이유](https://velog.io/@jyyoun1022/JPA-JPA%EC%97%90%EC%84%9C-Entity%EC%97%90-protected-%EC%83%9D%EC%84%B1%EC%9E%90%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%9D%B4%EC%9C%A0) - Velog
 
