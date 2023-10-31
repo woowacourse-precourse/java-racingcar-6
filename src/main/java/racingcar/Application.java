@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -19,14 +18,14 @@ public static void main(String[] args) {
     System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     String input = Console.readLine();
     System.out.println("시도할 회수는 몇회인가요?");
-    String trynumber = Console.readLine();
+    String tryNumber = Console.readLine();
 
     inputFormatValidation(input);
-    trynumberFormatValidation(trynumber);
+    tryNumberFormatValidation(tryNumber);
 
     Map map = splitCars(input);
     System.out.println("실행 결과");
-    for (int i = 0; i < Integer.valueOf(trynumber); i++) {
+    for (int i = 0; i < Integer.valueOf(tryNumber); i++) {
         resultEachOrder(racingCar(map));
         System.out.println();
     }
@@ -45,21 +44,18 @@ static void inputFormatValidation(String input) {
 //    System.out.println(cars);
     for (String car : cars) {
         if (car.trim().length() > 5) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("String index out of range: 5");
 //            System.out.println(car.length() + ":" + car);
         }
     }
 
 }
 
-static void trynumberFormatValidation(String trynumber) {
-    // 숫자가 아닌값은 예외발생
+static void tryNumberFormatValidation(String tryNumber) {
     try {
-        Integer.parseInt(trynumber);
+        Integer.parseInt(tryNumber);
     } catch (NumberFormatException e) {
-        throw new IllegalArgumentException();
-    } catch (RuntimeException re){
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("숫자를 입력하시오");
     }
 
 
@@ -79,7 +75,6 @@ static Map splitCars(String input) {
 
 
 static Map racingCar(Map map) {
-    // for문이든, it
     Set set = map.entrySet();
     Iterator it = set.iterator();
     while (it.hasNext()) {
