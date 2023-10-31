@@ -5,28 +5,19 @@ import app.service.RaceService;
 
 public class RaceController {
 
-    private final RaceService raceService = new RaceService();
+    private static final RaceService raceService = new RaceService();
 
-    public Race getRace() {
-        return raceService.getCarName();
-    }
-    public int getRaceCount() {
-        return raceService.getRaceCount();
-    }
+    public static void run() {
+        // 경주할 자동차를 입력받음
+        Race raceList = raceService.getCarName();
 
-    public void game(Race raceList, int raceCount) {
-        System.out.println("\n실행 결과");
+        // 경기횟수를 입력받음
+        int raceCount = raceService.getRaceCount();
 
-        for (int i = 0; i < raceCount; i++) {
-            raceList.play();
-            raceList.printPlay();
-        }
-    }
+        // 게임시작
+        raceService.game(raceList, raceCount);
 
-    public void getResult(Race raceList) {
-        int max = raceList.getMaxNum();
-        String[] winner = raceList.getWinner(max);
-
-        System.out.println("최종 우승자 : " + String.join(", ", winner));
+        // 게임결과 출력
+        raceService.getResult(raceList);
     }
 }
