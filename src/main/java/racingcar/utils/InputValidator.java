@@ -13,7 +13,7 @@ public class InputValidator {
 
     private static final Pattern NOT_INTEGER_REG_EXP = Pattern.compile("^[1-9][\\d]*$");
     private static final Pattern INVALID_SEPARATOR_REG_EXP = Pattern.compile(",+");
-    private static final Pattern DELETE_STRING_AND_SPACE_REG_EXP = Pattern.compile("[\\s\\w]");
+    private static final Pattern DELETE_STRING_AND_SPACE_REG_EXP = Pattern.compile("[\\s\\w가-힣]");
 
     private static final int MAX_LENGTH = 5;
 
