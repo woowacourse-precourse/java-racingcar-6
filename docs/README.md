@@ -29,17 +29,22 @@
         - if 값 >= 4 
           - 전진 : forward ++
 - 후
-  - forward 값이 가장 큰 car가 승리
+  - (Car.forward) 값을 비교
+    - 보다 크거나 같은 값이 나올 경우 업데이트
+      - (max) int
+      - (winnerList) List<String>
 ## Output : OutputView 우승자 결과 출력
-- 각 차수별 실행 결과
+- (carList) ArryayList<Car> : 각 차수별 실행 결과
   - ex)
     - pobi : --
       woni : ----
       jun : ---
     
-- 우승자 안내 문구
-  - case 1) 단독 우승자 안내 문구
-    - ex) 최종 우승자 : pobi
-  - case 2) 공동 우승자 안내 문구
-    - 우승자가 여러 명일 경우 쉼표(,)로구분
-    - ex) 최종 우승자 : pobi, jun
+- (winnerList) List<String> : 우승자 안내 문구
+  - if length = 1
+    - case 1) 단독 우승자 안내 문구
+      - ex) 최종 우승자 : pobi
+  - else
+    - case 2) 공동 우승자 안내 문구
+      - 우승자가 여러 명일 경우 쉼표(,)로구분
+      - ex) 최종 우승자 : pobi, jun
