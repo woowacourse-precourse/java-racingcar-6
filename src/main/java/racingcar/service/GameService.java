@@ -4,6 +4,7 @@ import racingcar.dto.CarStatus;
 import racingcar.dto.RaceResult;
 import racingcar.model.Car;
 import racingcar.model.CarFactory;
+import racingcar.repository.CarRepository;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,10 +12,14 @@ import java.util.List;
 
 public class GameService {
 
-    private final List<Car> cars = new ArrayList<>();
+    private final CarRepository carRepository;
+
+    public GameService(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     public void initCars(List<String> carNames) {
-        cars.addAll(CarFactory.initCars(carNames));
+        carRepository.saveAll(CarFactory.initCars(carNames));
     }
 
     public List<RaceResult> race(int raceCount) {
@@ -29,11 +34,12 @@ public class GameService {
     }
 
     private RaceResult play(int roundCount) {
-        List<CarStatus> carStatuses = move(cars);
+        List<CarStatus> carStatuses = movingCars();
         return new RaceResult(roundCount, carStatuses);
     }
 
-    private List<CarStatus> move(List<Car> cars) {
+    private List<CarStatus> movingCars() {
+        List<Car> cars = carRepository.getAll();
         return cars.stream()
                 .map(car -> {
                     car.forward();
@@ -43,7 +49,9 @@ public class GameService {
     }
 
     public List<String> getWinners() {
+        List<Car> cars = carRepository.getAll();
         int maximumDistance = getMaximumDistance();
+
         return cars.stream()
                 .filter(car -> car.isWinner(maximumDistance))
                 .map(car -> car.getStatus().carName())
@@ -51,9 +59,11 @@ public class GameService {
     }
 
     private int getMaximumDistance() {
+        List<Car> cars = carRepository.getAll();
         List<Integer> carPositions = cars.stream()
                 .map(car -> car.getStatus().position())
                 .toList();
+
         return Collections.max(carPositions);
     }
 }
