@@ -2,9 +2,11 @@ package racingcar.domain;
 
 import static racingcar.domain.enums.Constants.RANDOM_END_RANGE;
 import static racingcar.domain.enums.Constants.RANDOM_START_RANGE;
+import static racingcar.domain.enums.Error.DUPLICATE_NAME;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.util.ErrorException;
 
 public class Cars {
     private List<Car> carList;
@@ -20,7 +22,7 @@ public class Cars {
                 .count();
 
         if (distinctCarCount != carList.size()) {
-            throw new IllegalArgumentException();
+            throw new ErrorException(DUPLICATE_NAME);
         }
     }
 

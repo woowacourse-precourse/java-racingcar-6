@@ -2,8 +2,11 @@ package racingcar.domain;
 
 import static racingcar.domain.enums.Constants.MAX_NAME_LENGTH;
 import static racingcar.domain.enums.Constants.MIN_MOVE_THRESHOLD;
+import static racingcar.domain.enums.Error.INVALID_NAME_BLANK;
+import static racingcar.domain.enums.Error.INVALID_NAME_LENGTH;
 
 import java.util.Objects;
+import racingcar.util.ErrorException;
 
 public class Car {
     private static final String BLANK = "";
@@ -23,13 +26,13 @@ public class Car {
 
     private void validataeNameBlank(String name) {
         if (BLANK.equals(name) || name.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new ErrorException(INVALID_NAME_BLANK);
         }
     }
 
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new ErrorException(INVALID_NAME_LENGTH);
         }
     }
 
