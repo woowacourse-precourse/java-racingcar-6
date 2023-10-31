@@ -2,7 +2,9 @@ package racingcar.domain;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,26 +17,26 @@ class CarsTest {
         cars = new Cars();
     }
 
-    /*@Test
+    @Test
     void 읽기전용_결과반환() {
         cars.add("a");
         List<Car> original = cars.getCars();
-        List<Car> test = cars.giveCopiedResult();
-        test.get(0).race(4);
+        List<Unchangeable> test = cars.giveCopiedResult();
 
-        assertThat(original.get(0).getMovement()).isNotEqualTo(test.get(0).getMovement());
-    }*/
+        assertThatThrownBy(() -> test.set(0, new Car("error", 30)))
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
 
-   /* @Test
+    @Test
     void 자동차추가_확인() {
         cars.add("a");
         cars.add("b");
         cars.add("new");
 
-        List<Car> test = cars.giveCopiedResult();
+        List<Unchangeable> test = cars.giveCopiedResult();
         List<Car> expected = Arrays.asList(new Car("a"), new Car("b"), new Car("new"));
         assertThat(test).usingRecursiveComparison().isEqualTo(expected);
-    }*/
+    }
 
     @Test
     void 우수성적_확인() {
