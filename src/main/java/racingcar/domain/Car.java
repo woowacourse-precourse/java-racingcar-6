@@ -13,4 +13,12 @@ public class Car {
     public void goStraight() {
         this.straightCount++;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getStraightCount() {
+        return straightCount;
+    }
 }
