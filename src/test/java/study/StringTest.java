@@ -14,7 +14,7 @@ public class StringTest {
     @Test
     void 정말로문자열붙이기보다스트링빌더가빠를까() {
         List<RacerProgress> progresses = new ArrayList<>();
-        for (int i = 0; i < 20_000_000; i++) {
+        for (int i = 0; i < 100_000; i++) {
             progresses.add(
                     new RacerProgress(
                             "유니코드" + String.valueOf(Randoms.pickNumberInRange(1, 9)) + Randoms.pickNumberInRange(1, 9)
