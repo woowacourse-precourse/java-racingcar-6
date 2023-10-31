@@ -80,7 +80,7 @@ public class RacingCarGameController {
         System.out.println("최종 우승자 : " + result);
     }
 
-    public void validationCarNameLength(String carName) {
+    private void validationCarNameLength(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 입력 가능합니다.");
         }
