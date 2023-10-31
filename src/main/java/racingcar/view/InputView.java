@@ -11,6 +11,9 @@ public class InputView {
 
     public String playCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Console.readLine();
+        String input = Console.readLine();
+        System.out.println();
+        
+        return input;
     }
 }

@@ -22,14 +22,26 @@ public class CarGame {
         this.playCount = Integer.parseInt(playCount);
     }
 
-
+    public int getPlayCount() {
+        return playCount;
+    }
 
     private void divideName(String name) {
-        StringTokenizer tokenizer = new StringTokenizer(name.trim(),",");
+        StringTokenizer tokenizer = new StringTokenizer(name.trim(), ",");
 
         while (tokenizer.hasMoreTokens()) {
             String result = tokenizer.nextToken().trim();
             cars.add(new Cars(result, 0));
         }
+    }
+
+    public void moveOrStop() {
+        for (Cars car : cars) {
+            int moving = RandomNum.generate();
+            if (moving >= 4) {
+                car.move();
+            }
+        }
+
     }
 }
