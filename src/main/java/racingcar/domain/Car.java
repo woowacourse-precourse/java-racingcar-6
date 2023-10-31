@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.domain.strategy.MoveStrategy;
+
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
     private static final String ERROR_MESSAGE_NAME_LENGTH = "자동차 이름은 " + MAX_NAME_LENGTH + "자 이하만 가능합니다.";
@@ -15,6 +17,12 @@ public class Car {
     private void validateName(final String name) {
         if (name == null || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_MESSAGE_NAME_LENGTH);
+        }
+    }
+
+    public void move(final MoveStrategy moveStrategy) {
+        if (moveStrategy.canMove()) {
+            position++;
         }
     }
 
