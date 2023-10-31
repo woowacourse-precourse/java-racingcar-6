@@ -23,6 +23,7 @@ Constants - 스트링 상수들 저장된 클래스
         입력 문자열이 쉼표로 시작하거나 끝나는 지         ValidInput#startsOrEndsWithComma()   
     자동차 이름들을 쉼표(,)를 기준으로 나누기         
         각 이름들이 5자 이하인지                       ValidInput#isNameLengthLessThanOrEqual5()  
+        이름들에 중복이 있는 지                        ValidInput#hasDuplicateNames()
         
 이름 개수 만큼 자동차 생성                              SimpleCar#createCar()
     각 자동차에 이름 부여                              SimpleCar#SimpleCar()
