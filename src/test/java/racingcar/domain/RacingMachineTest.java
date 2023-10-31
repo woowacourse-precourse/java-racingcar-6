@@ -2,9 +2,11 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -31,6 +33,19 @@ class RacingMachineTest {
         RacingMachine racingMachine = new RacingMachine(cars, number);
 
         assertThat(racingMachine).isInstanceOf(RacingMachine.class);
+    }
+
+    @Test
+    void gamePlay_메서드는_자동차의_위치가_1이_증가하고_시도_횟수는_1이_감소한다() {
+        RacingMachine racingMachine = new RacingMachine(cars, 5);
+        NumberGenerator numberGenerator = new IncreasePositionNumber();
+
+        Car firstCar = cars.getCars().get(0);
+
+        racingMachine.gamePlay(numberGenerator);
+
+        assertEquals(firstCar.getPosition(), 1);
+        assertEquals(racingMachine.getTryCount(), 4);
     }
 }
 
