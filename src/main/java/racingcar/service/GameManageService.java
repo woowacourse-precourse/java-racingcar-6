@@ -11,6 +11,7 @@ import static racingcar.constant.NumberConstant.*;
 
 public class GameManageService {
     private final CarService carService;
+    private static final String COMMAS = ",";
 
     public GameManageService() {
         carService = new CarService();
@@ -38,11 +39,11 @@ public class GameManageService {
 
     public String winnerToString() {
         List<String> winner = getWinner();
-        return String.join(",", winner);
+        return String.join(COMMAS, winner);
     }
 
     public static List<Car> convertToCarList(String cars) {
-        return Arrays.stream(cars.split(","))
+        return Arrays.stream(cars.split(COMMAS))
                 .map(Car::of)
                 .collect(Collectors.toList());
     }
