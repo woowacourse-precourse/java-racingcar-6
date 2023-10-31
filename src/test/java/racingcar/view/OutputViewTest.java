@@ -32,4 +32,11 @@ class OutputViewTest {
         Assertions.assertThat(outputStream.toString().trim()).isEqualTo(CAR_NAME_REQUEST_MESSAGE);
     }
 
+
+    @Test
+    void 시도횟수_입력요청_메시지_출력_테스트() {
+        OutputView.printAttemptCountRequest();
+        Assertions.assertThat(outputStream.toString().trim()).contains(ATTEMPT_COUNT_REQUEST_MESSAGE);
+    }
+
 }
