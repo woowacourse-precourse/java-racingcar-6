@@ -94,6 +94,37 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_이름_문자열_리스트가_주어졌을때_자동차_객체_리스트를_생성(){
+        List<String> carNames = List.of("car1", "car2", "car3", "car4");
+
+        try{
+            Method createCarList = GameService.class.getDeclaredMethod("createCarList", List.class);
+            createCarList.setAccessible(true);
+
+            List<Car> carList = (List<Car>) createCarList.invoke(gameService, carNames);
+
+            assertThat(carList.get(0).getName()).isEqualTo("car1");
+            assertThat(carList.get(0).getPos()).isEqualTo(0);
+
+            assertThat(carList.get(1).getName()).isEqualTo("car2");
+            assertThat(carList.get(1).getPos()).isEqualTo(0);
+
+            assertThat(carList.get(2).getName()).isEqualTo("car3");
+            assertThat(carList.get(2).getPos()).isEqualTo(0);
+
+            assertThat(carList.get(3).getName()).isEqualTo("car4");
+            assertThat(carList.get(3).getPos()).isEqualTo(0);
+
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
     void 자동차_현재_상태_출력_테스트() {
         Car car = new Car("youjae", 4);
 
