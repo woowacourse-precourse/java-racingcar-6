@@ -9,16 +9,13 @@ public class Car {
     public Integer point;
 
     public Car(String name, Integer point){
-
+        this.name = name;
+        this.point = point;
     }
 
     public String getName() {
         return name;
     }
-
-//    private void setName(String name) {
-//        this.name = name;
-//    }
 
     public Integer getPoint() {
         return point;

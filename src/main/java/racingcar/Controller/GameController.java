@@ -24,7 +24,7 @@ public class GameController {
         String carsName = inputView.getCarsName();
         this.tryCount = inputView.getTryCount();
 
-        System.out.println(this.tryCount);
+        this.game = new RacingGame(carsName);
 
     }
 
