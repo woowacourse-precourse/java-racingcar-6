@@ -14,16 +14,18 @@ public class CarsTest {
         Cars cars = new Cars(List.of(car));
         cars.move();
 
-        Car newCar = new Car("자동차");
-
-        assertThat(car.equals(newCar)).isFalse();
+        assertThat(car.indicate()).isEqualTo("자동차 : -");
     }
+
     @Test
     void 객체_결과_출력() {
-        Car car = new Car("자동차");
-        Cars cars = new Cars(List.of(car));
+        List<String> names = DataTypeChanger.stringToList("123,234,345,456");
+        List<Car> carNames = DataTypeChanger.stringToCar(names);
+        Cars cars = new Cars(carNames);
         cars.move();
 
-        assertThatCode(cars::indicate).doesNotThrowAnyException();
+        cars.move();
+
+        assertThatCode(() -> SystemOutput.printResult(cars.indicate())).doesNotThrowAnyException();
     }
 }
