@@ -20,9 +20,7 @@ public class RacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String stringCarList = carGenerator.inputCarList();
         car.setStringCarList(stringCarList);
-        car.checkContainsConsecutiveCommas();
-        car.checkInputStringFirstLetterContainsCommas();
-        car.checkInputStringLastLetterContainsCommas();
+        validateInputString();
         car.setCarList(carGenerator.createCarList(stringCarList));
         car.checkCarNameLength();
         car.checkCarNameFirstLetterIsSpace();
@@ -30,9 +28,9 @@ public class RacingGame {
         LinkedHashMap<String, String> carList = car.getCarList();
 
         System.out.println("시도할 회수는 몇회인가요?");
-
         int numberOfAttempts = Integer.parseInt(Console.readLine());
         System.out.println();
+
         int currentTryValue = 0;
 
         System.out.println("실행 결과");
@@ -45,5 +43,11 @@ public class RacingGame {
             currentTryValue++;
         }
         System.out.println("최종 우승자 : " + car.getFinalWinner());
+    }
+
+    public void validateInputString() {
+        car.checkInputStringContainsConsecutiveCommas();
+        car.checkInputStringFirstLetterContainsCommas();
+        car.checkInputStringLastLetterContainsCommas();
     }
 }
