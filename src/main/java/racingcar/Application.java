@@ -45,6 +45,14 @@ public class Application {
                 int num = getRandomNum();
                 forwardOrStop(car, num);
             }
+            showResult(cars);
+        }
+    }
+
+    public static void showResult(List<Car> cars) {
+        String dash = "-";
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + dash.repeat(car.getMove()));
         }
     }
 
