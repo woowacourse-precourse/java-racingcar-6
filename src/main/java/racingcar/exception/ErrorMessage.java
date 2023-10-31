@@ -7,7 +7,7 @@ public enum ErrorMessage {
     ENDS_WITH_NEW_LINE("The input cannot ends with new line"),
     CONTAIN_IMPROPER_LETTER("The input cannot contain improper letters."),
     TOO_LONG_NAME("The name length cannot be over from length configured by the game."),
-    DUPLICATED("The name length cannot be over from length configured by the game."),
+    DUPLICATED("The input cannot duplicated."),
     SYSTEM_ERROR("The game system has crashed");
 
     private final String message;
