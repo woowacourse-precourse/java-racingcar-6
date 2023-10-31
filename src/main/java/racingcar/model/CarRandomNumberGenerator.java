@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 /**
  * CarRandomNumberGenerator 클래스는 정적 팩토리 메서드를 이용해 구현하여 하나의 인스턴스만 사용되게 했다.
  * RandomNumberGenerator의 구현체다.
+ * 인스턴스를 사용하기 위해서는 public static CarRandomNumberGenerator getInstance()를 호출해야한다.
  */
 public class CarRandomNumberGenerator implements RandomNumberGenerator {
     private static final int RANDOM_START_INCLUSIVE = 1;
