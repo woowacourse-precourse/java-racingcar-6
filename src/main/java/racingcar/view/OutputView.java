@@ -5,6 +5,6 @@ import static racingcar.view.Constants.RESULT;
 public class OutputView {
 
     public static void printResultMessage() {
-        System.out.println(RESULT.getMessage());
+        System.out.println(RESULT.getValue());
     }
 }

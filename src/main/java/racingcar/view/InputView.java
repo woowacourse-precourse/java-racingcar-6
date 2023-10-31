@@ -7,12 +7,12 @@ import static racingcar.view.Constants.*;
 public class InputView {
 
     public static String inputName() {
-        System.out.println(INPUT_CAR_NAME.getMessage());
+        System.out.println(INPUT_CAR_NAME.getValue());
         return Console.readLine();
     }
 
     public static String inputAttempt() {
-        System.out.println(INPUT_ATTEMPTS.getMessage());
+        System.out.println(INPUT_ATTEMPTS.getValue());
         return Console.readLine();
     }
 }
