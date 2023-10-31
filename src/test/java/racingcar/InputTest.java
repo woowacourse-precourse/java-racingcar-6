@@ -63,7 +63,7 @@ class InputTest {
 
     @Test
     void inputNumberOfGame_메소드로_공백이_포함된_횟수_입력시_공백_제거() {
-        String input = "1 1";
+        String input = "1 2";
 
         int result = Input.inputNumberOfGame(input);
 
