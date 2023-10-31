@@ -11,6 +11,7 @@ public class CarNameValidator {
     private static final String BLANK_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 공백일 수 없습니다.";
     private static final String ALPHABET_CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 영문자만 입력할 수 있습니다.";
     private static final String CAR_NAME_LENGTH_ERROR_MESSAGE = "자동차의 이름은 5자 이하로 작성해야 합니다.";
+    private static final String CAR_NAME_DUPLICATE_ERROR_MESSAGE = "같은 자동차 이름이 중복으로 들어올 수 없습니다.";
 
     private CarNameValidator() {
     }
@@ -42,6 +43,15 @@ public class CarNameValidator {
     private static void isLessThanOrEqualMaxLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH){
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
+        }
+    }
+
+    public static void validateDuplicateCarName(List<String> carNames){
+        int carCount = carNames.size();
+        HashSet<String> distinctCarNames = new HashSet<>(carNames);
+
+        if(carCount != distinctCarNames.size()){
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR_MESSAGE);
         }
     }
 }
