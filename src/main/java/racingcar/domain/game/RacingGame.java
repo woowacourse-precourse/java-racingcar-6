@@ -2,15 +2,11 @@ package racingcar.domain.game;
 
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.RandomUtil;
-import racingcar.domain.car.dto.CarsNameDto;
-import racingcar.domain.game.dto.ExecutionCountDto;
-import racingcar.global.view.input.InputView;
-import racingcar.global.view.output.GameMessage;
-import racingcar.global.view.output.OutputView;
 
 public class RacingGame {
     private RandomUtil randomUtil;
     private Cars cars;
+    private GameStatus gameStatus;
     private ExecutionResultGenerator executionResultGenerator;
     private WinningResultGenerator winningResultGenerator;
 
@@ -24,9 +20,13 @@ public class RacingGame {
         cars = new Cars(randomUtil, carNames);
     }
 
-    public void runRace() {
-        cars.runRace();
-        executionResultGenerator.generateOneTurnExecutionResults(cars.getCars());
+    public void runRace(int executionCnt) {
+        gameStatus = new GameStatus(executionCnt);
+
+        while (gameStatus.isRunning()) {
+            cars.runRace();
+            executionResultGenerator.generateOneTurnExecutionResults(cars.getCars());
+        }
     }
 
     public String generateExecutionResult() {

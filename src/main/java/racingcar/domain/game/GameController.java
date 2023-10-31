@@ -37,15 +37,8 @@ public class GameController {
     }
 
     private void runRace() {
-        GameStatus gameStatus = GameStatus.RUN;
-
         int executionCount = setExecutionCount();
-        RacingGameStop racingGameStop= RacingGameStop.init(executionCount);
-
-        while(gameStatus.isRunning()) {
-            racingGame.runRace();
-            gameStatus = racingGameStop.isRunning();
-        }
+        racingGame.runRace(executionCount);
     }
 
     private int setExecutionCount() {
