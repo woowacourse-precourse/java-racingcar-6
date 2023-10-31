@@ -87,20 +87,20 @@ public class CarRacingGame {
         }
     }
 
-    private static void isDistinct(List<String> stringList) {
-        List<String> emptyStringList = new ArrayList<>();
+    private static void isDistinct(List<String> strings) {
+        List<String> emptyStrings = new ArrayList<>();
 
-        for (String string: stringList) {
-            if (emptyStringList.contains(string)) {
+        for (String string: strings) {
+            if (emptyStrings.contains(string)) {
                 throw new IllegalArgumentException();
             }
 
-            emptyStringList.add(string);
+            emptyStrings.add(string);
         }
     }
 
-    private static void isElementLengthAbove5(List<String> stringList) {
-        for (String string: stringList) {
+    private static void isElementLengthAbove5(List<String> strings) {
+        for (String string: strings) {
             if (string.length() > 5) {
                 throw new IllegalArgumentException();
             }
