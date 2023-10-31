@@ -22,6 +22,10 @@ public class RacingMachine {
         tryCount--;
     }
 
+    public boolean canPlay() {
+        return tryCount > 0;
+    }
+
     private static void validateTryCount(int tryCount) {
         if (tryCount < MIN_TRY_COUNT) {
             throw new IllegalArgumentException("시도 횟수는 1보다 작으면 안됩니다.");
