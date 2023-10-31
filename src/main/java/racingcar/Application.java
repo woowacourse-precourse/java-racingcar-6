@@ -28,7 +28,7 @@ public class Application {
         int tryCount = inputView.inputTryCount();
         outputView.printResultMessage();
         while (tryCount-- > 0) {
-            List<Car> singleRoundResult = racingController.playRacing(cars);
+            List<Car> singleRoundResult = racingController.playSingleRound(cars);
             outputView.printRaceStatus(singleRoundResult);
         }
     }

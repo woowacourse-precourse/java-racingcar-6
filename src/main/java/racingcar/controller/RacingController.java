@@ -13,7 +13,7 @@ public class RacingController {
         return racingService.createCarList(carNames);
     }
 
-    public List<Car> playRacing(List<Car> cars) {
+    public List<Car> playSingleRound(List<Car> cars) {
         return racingService.playSingleRound(cars);
     }
 
