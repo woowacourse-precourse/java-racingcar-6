@@ -6,7 +6,7 @@ public class Car {
 
     Car(String name) {
         this.name = name;
-        position = 0;
+        this.position = 0;
     }
 
     public String getName() {
@@ -16,5 +16,8 @@ public class Car {
     public int getPosition() {
         return position;
     }
-    
+
+    public void forward() {
+        this.position += 1;
+    }
 }
