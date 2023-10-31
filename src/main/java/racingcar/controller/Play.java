@@ -20,8 +20,8 @@ public class Play {
     private static int num;
     public static void start() {
         inputNameMessage();
-        List<String> names = inputCarName();
-        List<Car> cars = new ArrayList<>();
+       // List<String> names = inputCarName();
+        cars = new ArrayList<>();
         for (String name : inputCarName()) {
             cars.add(new Car(name, 0));
         }
@@ -51,7 +51,7 @@ public class Play {
         List<Integer> randomNum = new ArrayList<>();
         for (int index=0; index<carLength; index++) {
             int tmpRandNum = makeRandomNum();
-            if(checkIFGoOrStop(tmpRandNum)) {
+            if(checkGoOrStop(tmpRandNum)) {
                 randomNum.add(index);
             }
         }
@@ -62,7 +62,7 @@ public class Play {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static boolean checkIFGoOrStop(int num) {
+    public static boolean checkGoOrStop(int num) {
         if (num < 4) {
             return false;
         }
