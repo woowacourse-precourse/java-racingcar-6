@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.view.Input;
-
 import java.util.ArrayList;
 import java.util.List;
 
