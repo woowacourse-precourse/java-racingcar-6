@@ -25,7 +25,7 @@ class CreateCarTest {
     }
 
     @Test
-    void 자동차_이름이_공백_만_있는_경우_예외가_발생한다() {
+    void 자동차_이름이_공백만_있는_경우_예외가_발생한다() {
         CreateCar createCar = new CreateCar();
         assertThatThrownBy(() -> createCar.validateCarNameNotEmpty("    "))
                 .isInstanceOf(IllegalArgumentException.class)

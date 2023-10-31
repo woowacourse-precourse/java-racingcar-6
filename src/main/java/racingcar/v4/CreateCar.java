@@ -16,8 +16,12 @@ public class CreateCar {
         }
     }
     public List<String> splitCarNames(String carNames) {
+        if (!carNames.contains(",")) {
+            throw new IllegalArgumentException("자동차 이름을 쉼표로 구분해주세요.");
+        }
         return new ArrayList<>(Arrays.asList(carNames.split(",")));
     }
+
 
     public List<String> trimCarNames(List<String> carNames) {
         List<String> trimmedCarNames = new ArrayList<>();
