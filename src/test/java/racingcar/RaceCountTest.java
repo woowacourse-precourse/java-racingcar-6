@@ -35,9 +35,14 @@ public class RaceCountTest {
 
     @Test
     void increase는_시도횟수를_1씩_증가시킨다() {
+        // given
         RaceCount raceCount = RaceCount.from(1);
+
+        // when
         raceCount.increase();
         raceCount.increase();
+
+        // then
         assertEquals(RaceCount.from(3), raceCount);
     }
 }

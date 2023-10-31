@@ -21,6 +21,7 @@ public class PlayersTest {
         Player win2 = Player.of("win2", true);
         Player fail1 = Player.of("fail1", false);
         Players players = Players.from(List.of(win1, win2, fail1));
+        
         assertThat(players.getWinnerList()).containsExactly("win1", "win2");
     }
 }

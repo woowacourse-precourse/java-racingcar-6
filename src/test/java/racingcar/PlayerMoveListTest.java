@@ -24,7 +24,9 @@ public class PlayerMoveListTest {
     @Test
     void of는_모든_플레이어의_이동현황을_받아_객체를_생성한다() {
         PlayerMove playerMove = PlayerMove.from(Player.from("test"), Distance.from(1));
+
         List<PlayerMove> playerMoves = List.of(playerMove, playerMove);
+
         assertThat(PlayerMoveList.of(playerMoves, moveFactory)).isInstanceOf(PlayerMoveList.class);
     }
 

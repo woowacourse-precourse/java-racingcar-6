@@ -25,6 +25,7 @@ public class RacingGameTest {
     @Test
     void init은_플레이어_이동현황_리스트를_받아_시도횟수를_초기화한_객체를_생성한다() {
         PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
+
         RacingGame racingGame = RacingGame.init(playerMoveList);
 
         assertEquals(RacingGame.from(playerMoveList, RaceCount.init()), racingGame);

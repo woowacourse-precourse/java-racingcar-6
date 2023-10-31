@@ -14,6 +14,7 @@ public class MoveFactoryTest {
     void isMove는_4이상의_숫자면_true를_반환한다(int number, boolean isMove) {
         NumberGenerator numberGenerator = () -> number;
         MoveFactory moveFactory = new MoveFactory(numberGenerator);
+        
         assertThat(moveFactory.isMove()).isEqualTo(isMove);
     }
 }
