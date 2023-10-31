@@ -69,7 +69,7 @@ public class Racer {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : racer) {
-            stringBuilder.append(car.toString()).append("\n");
+            stringBuilder.append(car.toString()).append(System.lineSeparator());
         }
         return stringBuilder.toString();
     }
