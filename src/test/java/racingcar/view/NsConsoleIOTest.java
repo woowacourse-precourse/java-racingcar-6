@@ -51,24 +51,18 @@ public abstract class NsConsoleIOTest {
 
     /**
      * camp.nextstep.edu.missionutils.Console::readLine() 메소드 내부에서 사용하는 scanner 를 지우기 위한 작업
-     * <p>
+     * </p>
      * setConsoleInput() 에서 새로 생성한 ByteArrayInputStream 은 해당 테스트 이후로 더이상 사용되지 않기 때문에 위와 같은 작업이 필요함.
      */
     private void clearConsoleScanner() {
         Console.close();
     }
 
-    /**
-     * Console in 으로 주어진 문자열을 입력한다.
-     */
     protected final void setConsoleInput(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
     }
 
-    /**
-     * Console out 으로 출력되는 문자열을 반환한다.
-     */
     protected final String getConsoleOutput() {
         return outputStream.toString();
     }
