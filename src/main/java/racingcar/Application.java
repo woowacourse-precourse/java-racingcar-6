@@ -81,6 +81,10 @@ public class Application {
         HashMap<String, String> carMoveStatus;
 
         carMoveStatus = initCarMoveStatus(carNames);
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < raceCount; i++) {
+            moveCars(carMoveStatus);
+        }
     }
 
     private static HashMap initCarMoveStatus(String[] carNames) {
@@ -90,6 +94,18 @@ public class Application {
             carMoveStatus.put(carName, "");
         }
         return carMoveStatus;
+    }
+
+    private static void moveCars(HashMap carMoveStatus) {
+        for (Object carName : carMoveStatus.keySet()) {
+            Integer randomNumber = createRandomNumber();
+            boolean isCarMove = canMoveCar(randomNumber);
+            if (isCarMove) {
+                carMoveStatus.compute(carName, (k, v) -> v += "-");
+            }
+            System.out.println(carName + " : "+ carMoveStatus.get(carName));
+        }
+        System.out.print("\n");
     }
 
     private static Integer createRandomNumber() {
