@@ -6,7 +6,7 @@ import racingcar.iosystem.OutputView;
 
 public class RunGame {
 
-    public void run(InputView inputView) {
+    public static void run(InputView inputView) {
         for (int i = 0; i < inputView.getTryCnt(); i++) {
             runMoveCar(inputView.getCars(), inputView.getCarMove());
             OutputView.printExecutionResult(inputView.getCars(), inputView.getCarMove());
@@ -14,20 +14,24 @@ public class RunGame {
         }
     }
 
-    public void runMoveCar(String[] cars, int[] carMove) {
+    public static void runMoveCar(String[] cars, int[] carMove) {
         for (int i = 0; i < cars.length; i++) {
-            if (randomMove()) {
-                carMove[i] ++;
+            int randomInt = choiceRandomInt();
+            if (randomMove(randomInt)) {
+                carMove[i]++;
             }
         }
     }
 
-    public boolean randomMove() {
-        int randomInt = Randoms.pickNumberInRange(0,9);
-        if (randomInt >= 4 ) {
+    public static boolean randomMove(int randomInt) {
+        if (randomInt >= 4) {
             return true;
         }
         return false;
+    }
+
+    public static int choiceRandomInt() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
 
