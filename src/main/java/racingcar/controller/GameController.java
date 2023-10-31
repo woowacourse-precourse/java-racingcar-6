@@ -28,4 +28,8 @@ public class GameController {
     public Map<Integer, List<String>> startRacingGame(List<Car> carList, int roundNumber) {
         return controlTowerService.startRacingGame(new ControlTowerDto(carList, roundNumber));
     }
+
+    public List<String> addResultRecord(List<Car> carList) {
+        return controlTowerService.judgmentWinner(carList);
+    }
 }

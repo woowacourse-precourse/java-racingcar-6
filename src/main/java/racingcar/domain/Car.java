@@ -1,8 +1,9 @@
 package racingcar.domain;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int FRONT_MOVE = 4;
 
     private String name;
@@ -24,7 +25,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "[" + this.name + ", " + this.position + "]";
+        return this.name;
     }
 
     public void move(int randomVal) {
@@ -43,5 +44,15 @@ public class Car {
         sb.append("-".repeat(Math.max(0, position)));
 
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        if(this.position > car.position)
+            return 1;
+        else if (this.position == car.position)
+            return 0;
+
+        return -1;
     }
 }

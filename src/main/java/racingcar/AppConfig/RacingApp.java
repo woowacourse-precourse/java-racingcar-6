@@ -6,6 +6,7 @@ import java.util.Map;
 import racingcar.controller.GameController;
 import racingcar.domain.Car;
 import racingcar.domain.ControlTower;
+import racingcar.domain.GameRecord;
 import racingcar.domain.Referee;
 import racingcar.service.ControlTowerService;
 import racingcar.service.RefereeService;
@@ -25,11 +26,15 @@ public class RacingApp {
     }
 
     public ControlTowerService controlTowerService() {
-        return new ControlTowerService(controlTower());
+        return new ControlTowerService(controlTower(), gameRecord());
     }
 
     public ControlTower controlTower() {
         return new ControlTower();
+    }
+
+    public GameRecord gameRecord() {
+        return new GameRecord();
     }
 
     public void run() {
@@ -39,6 +44,8 @@ public class RacingApp {
         int roundNumber = requestInputRoundNumber();
         Map<Integer, List<String>> recordMap = startRacingGame(carList, roundNumber);
         printRecord(recordMap);
+        List<String> winnerList = requestFindWinner(carList);
+        OutputView.printWinner(winnerList);
     }
 
     private List<Car> requestInputCarNames() {
@@ -57,5 +64,9 @@ public class RacingApp {
 
     private void printRecord(Map<Integer, List<String>> record) {
         OutputView.printRecord(record);
+    }
+
+    private List<String> requestFindWinner(List<Car> carList) {
+        return gameController.addResultRecord(carList);
     }
 }

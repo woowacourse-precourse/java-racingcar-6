@@ -15,6 +15,10 @@ public class OutputView {
             sb.append("\n");
         }
 
-        System.out.println(sb);
+        System.out.print(sb);
+    }
+
+    public static void printWinner(List<String> carList) {
+        System.out.println("최종 우승자 : " + String.join(", ", carList));
     }
 }
