@@ -55,6 +55,13 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining("시도할 횟수의 입력이 잘못 되었습니다.");
     }
 
+    @Test
+    void 자동차_이름을_작성할_떄_쉼표_바로_뒤의_띄어쓰기를_제거(){
+        String input = "Ryze, Lux, Leona, Lulu";
+        ArrayList<String> nameList = Application.carNameSplit(input);
+        assertThat(nameList).contains("Ryze", "Lux", "Leona", "Lulu");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
