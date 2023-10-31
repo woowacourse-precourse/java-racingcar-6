@@ -15,9 +15,8 @@ public class Application {
         }
     }
 
-    public static List<Car> sortCarDistance(List<Car> carList){
-        Collections.sort(carList, (c1, c2) -> c2.distance - c1.distance);
-        return carList;
+    public static void sortCarDistance(List<Car> carList){
+        carList.sort((c1, c2) -> c2.distance - c1.distance);
     }
 
     public static List<String> winnerListGenerator(List<Car> carList){
@@ -67,7 +66,7 @@ public class Application {
             System.out.println();
         }
 
-        carList = sortCarDistance(carList);
+        sortCarDistance(carList);
 
         List<String> winners = winnerListGenerator(carList);
 
