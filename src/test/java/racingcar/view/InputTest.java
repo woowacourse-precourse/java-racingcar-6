@@ -74,7 +74,7 @@ class InputTest {
     }
 
     @Test
-    void Input_자동차의_시도할_횟수에서_예외_발생(){
+    void Input_자동차의_시도할_횟수에서_예외(){
         String text = "5sfsfsf7";
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
