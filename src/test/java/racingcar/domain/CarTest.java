@@ -49,4 +49,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름에는 빈 문자열은 불가능합니다.");
     }
+
+    @Test
+    void toString_position_6일때_대시는_6개가_표시() {
+        Car car = Car.of("test", 6);
+
+        assertThat(car.toString()).isEqualTo("test : ------");
+    }
 }
