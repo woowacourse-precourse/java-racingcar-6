@@ -32,6 +32,12 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 자동차_입력받기() {
+        String name = "test car";
+        assertThat(name).isNotNull();
+    }
+
+    @Test
     void 구분자에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi@jun", "2"))
@@ -52,6 +58,7 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobijunpoly", "2"))
                         .isInstanceOf(IllegalArgumentException.class));
     }
+
 
     @Test
     void 시도_횟수_예외_처리() {

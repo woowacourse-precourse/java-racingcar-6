@@ -15,4 +15,4 @@
 11. 난수가 4~9사이면 한칸 전진
 12. 전진한 자동차만 Linkedlist RacingScore에 RacingCar랑 index 맞춰서 1씩 더해줌
 13. 경기 반복할때마다 자동차 이름 : 전진 횟수 (-로 표시) 출력
-14. value값 가장 큰 key 추출해서 최종 우승자 출력
+14. Racingscore가 가장 높은 값의 인덱스를 뽑아 RacingCar출력

@@ -56,6 +56,10 @@ public class Application {
         TryNumber = Integer.parseInt(Input_TryNumber);
     }
 
+    public static void Error() {
+        throw new IllegalArgumentException();
+    }
+
     public static boolean isInteger(String Input_TryNumber) {
         try {
             Integer.parseInt(Input_TryNumber);
