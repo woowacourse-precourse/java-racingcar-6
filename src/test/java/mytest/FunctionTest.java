@@ -131,7 +131,7 @@ public class FunctionTest  extends NsTest {
     void 다회차_전진_후진_결과확인() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,woni,pobi", "3");
+                    run("pobi,woni", "3");
                     assertThat(output()).contains("pobi : --", "woni : ", "최종 우승자 : pobi");
                 },
                 MOVING_FORWARD, STOP,MOVING_FORWARD, STOP,STOP, STOP
