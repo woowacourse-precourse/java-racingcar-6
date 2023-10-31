@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
@@ -17,11 +18,8 @@ public class Cars {
     }
 
     public Map<String, Integer> getCarsStatus() {
-        Map<String, Integer> status = new HashMap<>();
-        for (Car car : cars) {
-            status.put(car.getName(), car.getPosition());
-        }
-        return status;
+        return cars.stream()
+                .collect(Collectors.toMap(Car::getName, Car::getPosition));
     }
 
     public int findMaxPosition() {
