@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.firstClassCollection;
 
 public class RoundTryCount {
     

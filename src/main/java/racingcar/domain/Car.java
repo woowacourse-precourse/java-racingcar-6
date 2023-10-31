@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain;
+
+import racingcar.firstClassCollection.CarName;
 
 public class Car {
     CarName name;

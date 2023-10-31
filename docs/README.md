@@ -6,9 +6,9 @@
 - [ ]  시도할 횟수를 입력 받습니다. - receiveRoundTryCount()
 - [ ]  라운드를 진행합니다. - proceedRound()
 ### CarFactory
-- [ ]  경주 자동차를 N개 생성합니다. - createCar()
+- [x]  경주 자동차를 N개 생성합니다. - createCar()
     - [x]  자동차 이름 문자열을 리스트로 변환합니다. - stringToListByComma()
-    - [ ]  예외) 같은 이름이 있는지 확인합니다. - hasDuplicatedName()
+    - [x]  예외) 같은 이름이 있는지 확인합니다. - hasDuplicatedName()
 ### Car
 - [ ]  자동차 본인의 라운드 한번을 진행합니다 - proceedOwnRound()
 - [ ]  4이상이면 전진합니다 - moveForward()
