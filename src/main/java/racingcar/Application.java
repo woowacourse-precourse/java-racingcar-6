@@ -64,6 +64,7 @@ public class Application {
     }
 
     public static Integer inputRaceCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String raceCount = Console.readLine();
 
         validateIsNumber(raceCount);
