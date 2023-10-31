@@ -10,6 +10,7 @@ import racingcar.domain.Referee;
 import racingcar.service.ControlTowerService;
 import racingcar.service.RefereeService;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingApp {
 
@@ -37,7 +38,7 @@ public class RacingApp {
         List<Car> carList = requestInputCarNames();
         int roundNumber = requestInputRoundNumber();
         Map<Integer, List<String>> recordMap = startRacingGame(carList, roundNumber);
-
+        printRecord(recordMap);
     }
 
     private List<Car> requestInputCarNames() {
@@ -52,5 +53,9 @@ public class RacingApp {
 
     private Map<Integer, List<String>> startRacingGame(List<Car> car, int roundNumber) {
         return gameController.startRacingGame(car, roundNumber);
+    }
+
+    private void printRecord(Map<Integer, List<String>> record) {
+        OutputView.printRecord(record);
     }
 }
