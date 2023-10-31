@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.repository.GameRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 import static racingcar.constant.SystemConstant.*;
 
 public class GameService {
+
+    private static final GameRepository gameRepository = new GameRepository();
 
     public void play(Game game) {
         moveForwardByRandomNumber(game);
@@ -53,4 +56,11 @@ public class GameService {
         return Randoms.pickNumberInRange(RANGE_OF_START, RANGE_OF_END);
     }
 
+    public void save(Game game) {
+        gameRepository.save(game);
+    }
+
+    public boolean isEnd(Game game) {
+        return gameRepository.isEnd(game);
+    }
 }
