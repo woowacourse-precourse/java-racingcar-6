@@ -22,7 +22,7 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<String> getWinnerNameList() {
+    public List<String> getWinnersName() {
         int maxPosition = getMaxPosition();
 
         if (noMovementCheck(maxPosition))

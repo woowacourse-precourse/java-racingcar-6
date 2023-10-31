@@ -35,11 +35,11 @@ public class OutputView {
         return currentPositionMark.toString();
     }
 
-    public static void printWinnerName(List<String> winnerList) {
-        if(winnerList.isEmpty()) {
+    public static void printWinnerName(List<String> winners) {
+        if(winners.isEmpty()) {
             System.out.println(NO_WINNER_MESSAGE);
             return;
         }
-        System.out.print("최종 우승자 : " + String.join(",", winnerList));
+        System.out.print("최종 우승자 : " + String.join(",", winners));
     }
 }

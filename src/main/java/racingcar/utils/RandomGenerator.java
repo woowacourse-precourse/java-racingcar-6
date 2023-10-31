@@ -10,7 +10,6 @@ public class RandomGenerator implements NumberGenerator {
 
     @Override
     public int generate() {
-
         int randomNumber =  Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         if(randomNumber >= START_INCLUSIVE && randomNumber <= END_INCLUSIVE){
             return randomNumber;

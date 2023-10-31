@@ -26,17 +26,17 @@ public class Controller {
             OutputView.printRaceStatus(game.getCars());
         }
 
-        OutputView.printWinnerName(game.getWinner());
+        OutputView.printWinnerName(game.getWinners());
     }
 
     private List<Car> getCars() {
         OutputView.printCarNameRequest();
-        return getCarNameList().stream()
+        return getCarsName().stream()
                 .map(carName -> new Car(carName, new RandomGenerator()))
                 .collect(Collectors.toList());
     }
 
-    private List<String> getCarNameList() {
+    private List<String> getCarsName() {
         return parseCarNameInput(checkValidationCarNameInput(InputView.takeUserInput()));
     }
 

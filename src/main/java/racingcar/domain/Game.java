@@ -28,8 +28,8 @@ public class Game {
         return false;
     }
 
-    public List<String> getWinner() {
-        return cars.getWinnerNameList();
+    public List<String> getWinners() {
+        return cars.getWinnersName();
     }
 
     public List<Car> getCars() {

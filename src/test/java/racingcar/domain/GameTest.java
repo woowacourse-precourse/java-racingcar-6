@@ -48,6 +48,6 @@ class GameTest {
         for (int i = 0; i < givenAttemptCount; i++) {
             game.carRaceOnce();
         }
-        Assertions.assertEquals(Arrays.asList("win1", "win2"), game.getWinner());
+        Assertions.assertEquals(Arrays.asList("win1", "win2"), game.getWinners());
     }
 }

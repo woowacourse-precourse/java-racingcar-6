@@ -60,7 +60,7 @@ class CarsTest {
         for (int i = 0; i < raceRound; i++) {
             cars.move();
         }
-        Assertions.assertEquals(Arrays.asList("ABC", "DEF"), cars.getWinnerNameList());
+        Assertions.assertEquals(Arrays.asList("ABC", "DEF"), cars.getWinnersName());
     }
 
 }

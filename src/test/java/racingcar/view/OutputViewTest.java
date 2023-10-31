@@ -69,7 +69,7 @@ class OutputViewTest {
                 while (!game.isGameOver()) {
                     game.carRaceOnce();
                 }
-                OutputView.printWinnerName(game.getWinner());
+                OutputView.printWinnerName(game.getWinners());
                 Assertions.assertThat(outputStream.toString()).contains("Tom","Jin").doesNotContain("Ive");
             }
 
@@ -93,7 +93,7 @@ class OutputViewTest {
                 while (!game.isGameOver()) {
                     game.carRaceOnce();
                 }
-                OutputView.printWinnerName(game.getWinner());
+                OutputView.printWinnerName(game.getWinners());
                 Assertions.assertThat(outputStream.toString().trim()).isEqualTo(NO_WINNER_MESSAGE);
             }
 
