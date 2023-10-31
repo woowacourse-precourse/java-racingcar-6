@@ -5,6 +5,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -15,7 +16,11 @@ public class Application {
     public void start() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesInput = Console.readLine();
-        String[] carNames = carNamesInput.split(",");
+        String[] carNamesArray = carNamesInput.split(",");
+        List<String> carNames = new ArrayList<>();
+        for (String name : carNamesArray) {
+            carNames.add(name);
+        }
 
         System.out.println("시도할 회수는 몇회인가요?");
         int rounds = Integer.parseInt(Console.readLine());
@@ -23,6 +28,7 @@ public class Application {
         List<Car> cars = initializeCars(carNames);
 
         System.out.println("\n실행 결과");
+        
         for (int i = 0; i < rounds; i++) {
             moveCars(cars);
             printCarPositions(cars);
@@ -32,7 +38,7 @@ public class Application {
         System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 
-    private List<Car> initializeCars(String[] carNames) {
+    private List<Car> initializeCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
             cars.add(new Car(name));
