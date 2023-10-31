@@ -31,4 +31,14 @@ public class CarsTest {
 
         assertEquals(cars.getCars().size(), 2);
     }
+
+    @Test
+    void findWinnerNames_메소드는_가장_많이_전진한_자동차_이름_리스트를_반환한다() {
+        Cars cars = new Cars("이하늘,늘하이,이하늘하이");
+
+        Car winnerCar = cars.getCars().get(1);
+        winnerCar.move(MOVING_FORWARD);
+
+        assertEquals(cars.findWinnerNames().size(), 1);
+    }
 }
