@@ -4,18 +4,15 @@ import racingcar.util.RandomNumberGenerator;
 
 public class RacingMovement {
     private static final int MOVING_FORWARD = 4;
-
-    private String name;
     private int number;
 
-    public RacingMovement(String name) {
-        this.name = name;
-        this.number = RandomNumberGenerator.pick();
+    public RacingMovement(Integer number) {
+        this.number = number;
     }
 
-    public RacingMovement(String name, Integer number) {
-        this.name = name;
-        this.number = number;
+    public static RacingMovement random() {
+        int randomNumber = RandomNumberGenerator.pick();
+        return new RacingMovement(randomNumber);
     }
 
     public boolean isMovingForward() {

@@ -19,7 +19,7 @@ class RacingMovementTest {
 
         // Arrange
         Integer randomNumber = RandomNumberGenerator.pinkInRange(MOVING_FORWARD, RANDOM_NUMBER_END);
-        RacingMovement racingMovement = new RacingMovement("pobi", randomNumber);
+        RacingMovement racingMovement = new RacingMovement(randomNumber);
 
         // Act & Assert
         Assertions.assertTrue(racingMovement.isMovingForward());
@@ -32,7 +32,7 @@ class RacingMovementTest {
 
         // Arrange
         Integer randomNumber = RandomNumberGenerator.pinkInRange(RANDOM_NUMBER_START, STOP );
-        RacingMovement racingMovement = new RacingMovement("pobi", randomNumber);
+        RacingMovement racingMovement = new RacingMovement(randomNumber);
 
         // Act & Assert
         Assertions.assertTrue(racingMovement.isStop());
