@@ -12,15 +12,15 @@ public class ScoreBoard {
         return carPosition;
     }
 
-    public void showCarsScore(List<Car> carList, int tryNum) {
-        System.out.println();
-        System.out.println("실행 결과");
+    public String showCarsScore(List<Car> carList, int tryNum) {
+        String carsScore = "실행 결과\n";
         for (int i = 0; i < tryNum; i++) {
             for (int j = 0; j < carList.size(); j++) {
                 carList.get(j).tryMoveCar();
-                System.out.println(carList.get(j).carName + " : " + getCarPosition(carList.get(j)));
+                carsScore += carList.get(j).carName + " : " + getCarPosition(carList.get(j)) + "\n";
             }
-            System.out.println();
+            carsScore += "\n";
         }
+        return carsScore;
     }
 }
