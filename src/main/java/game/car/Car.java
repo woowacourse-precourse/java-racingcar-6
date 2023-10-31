@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void moveForward() {
-
+        position++;
     }
 
     public void printPosition(){

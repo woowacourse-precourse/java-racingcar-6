@@ -10,7 +10,6 @@ public class RacingGame {
     private CarList carList;
     private NumOfAttempt numOfAttempt;
 
-
     public RacingGame() {
         status = GameStatus.READY;
     }
@@ -33,7 +32,27 @@ public class RacingGame {
     }
 
     private void proceed() {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < numOfAttempt.getNum(); i++) {
+            this.move();
+        }
+        this.status = GameStatus.END;
+    }
 
+    private void move() {
+        for (Car car : carList.getCarList()) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                car.moveForward();
+            }
+        }
+        printProgress();
+        System.out.print("\n");
+    }
+
+    private void printProgress() {
+        for (Car car : carList.getCarList()) {
+            car.printPosition();
+        }
     }
 
     private void end() {
