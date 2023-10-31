@@ -15,8 +15,7 @@ import org.junit.jupiter.api.Test;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-
-    public ByteArrayOutputStream output = new ByteArrayOutputStream();
+    private static ByteArrayOutputStream output = new ByteArrayOutputStream();
 
     @Test
     void 전진_정지() {
@@ -94,6 +93,17 @@ class ApplicationTest extends NsTest {
 
         assertThat(Application.RacingCar).contains("Car1", "Car2", "Car3");
         assertThat(Application.RacingScore).containsOnly(0);
+    }
+
+    @Test
+    void 난수에_따른_전진_테스트() {
+        Application.RacingCar = new LinkedList<>(Arrays.asList("Car1", "Car2"));
+        Application.RacingScore = new LinkedList<>(Arrays.asList(0, 0));
+
+        Application.Match_game();
+
+        assertThat(Application.RacingScore)
+                .allSatisfy(score -> assertThat(score).isGreaterThan(-1).isLessThan(2));
     }
 
     @Test

@@ -3,7 +3,9 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class Application {
     static String InputCarName = "";
@@ -30,6 +32,7 @@ public class Application {
     public static void InputCarName() {
         InputCarName = readLine();
         Exception_Handling();
+        Over_Lap_Exception();
     }
 
     public static void Exception_Handling() {
@@ -38,8 +41,16 @@ public class Application {
             if (carArray[i].length() >= 5) {
                 Error();
             }
+
             RacingCar.add(carArray[i]);
             RacingScore.add(0);
+        }
+    }
+
+    public static void Over_Lap_Exception() {
+        Set<String> OverLap = new HashSet<>(RacingCar);
+        if (OverLap.size() != RacingCar.size()) {
+            Error();
         }
     }
 
