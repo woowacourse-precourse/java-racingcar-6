@@ -75,15 +75,15 @@ public class Game {
     public String finalWinners(){
         int maxScore = Collections.max(carNameScores.values());
         List<String> winners = new ArrayList<String>();
-        for(String player : carNames) {
-            winners = addWinner(winners, player, maxScore);
+        for(String carName : carNames) {
+            winners = addWinner(winners, carName, maxScore);
         }
         return String.join(", ", winners);
     }
 
-    public List<String> addWinner(List<String> winners, String player, int maxScore){
-        if(carNameScores.get(player) == maxScore){
-            winners.add(player);
+    public List<String> addWinner(List<String> winners, String carName, int maxScore){
+        if(carNameScores.get(carName) == maxScore){
+            winners.add(carName);
         }
         return winners;
     }
