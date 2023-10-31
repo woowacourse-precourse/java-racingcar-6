@@ -11,6 +11,14 @@ public class Car {
     private String name;
     private String status;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
     public void move(boolean isMoveCondition) {
         if (isMoveCondition) {
             status += '-';
