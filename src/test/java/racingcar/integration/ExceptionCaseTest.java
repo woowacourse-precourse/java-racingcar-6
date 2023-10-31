@@ -38,7 +38,7 @@ class ExceptionCaseTest extends IntegrationTest {
         @Test
         void Fail_OverMaxInputLength() {
             //given
-            char[] ch = new char[RacingCarRule.MAX_RACING_CAR_NAME_INPUT_LENGTH + 1];
+            char[] ch = new char[RacingCarRule.MAX_RACER_NAME_INPUT_LENGTH + 1];
             Arrays.fill(ch, 'a');
             String racingCarName = String.valueOf(ch);
             String turnsCount = "1";
@@ -83,7 +83,7 @@ class ExceptionCaseTest extends IntegrationTest {
         void Fail_OverMaxRacingCarSize() {
             //given
             List<String> racingCarList = new ArrayList<>();
-            for (int i = 0; i < RacingCarRule.MAX_RACING_CAR_SIZE + 1; i++) {
+            for (int i = 0; i < RacingCarRule.MAX_RACER_SIZE + 1; i++) {
                 racingCarList.add(String.valueOf(i));
             }
             String racingCarName = String.join(",", racingCarList);
@@ -96,11 +96,11 @@ class ExceptionCaseTest extends IntegrationTest {
             );
         }
 
-        @DisplayName(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + "자가 넘는다면 예외를 발생시킨다.")
+        @DisplayName(RacingCarRule.MAX_RACER_NAME_LENGTH + "자가 넘는다면 예외를 발생시킨다.")
         @Test
         void Fail_OverRacingCarNameMaxLength() {
             //given
-            String racingCarName = "a".repeat(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + 1);
+            String racingCarName = "a".repeat(RacingCarRule.MAX_RACER_NAME_LENGTH + 1);
             String turnsCount = "1";
 
             // when then
@@ -134,7 +134,7 @@ class ExceptionCaseTest extends IntegrationTest {
         void Fail_OverMaxInputLength() {
             //given
             String racingCarName = "1,3";
-            String turnsCount = String.valueOf(RacingCarRule.MAX_TURN_COUNT + 1);
+            String turnsCount = String.valueOf(RacingCarRule.MAX_TOTAL_TURN + 1);
 
             // when then
             assertSimpleTest(() ->

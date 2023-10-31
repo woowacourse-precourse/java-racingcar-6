@@ -16,7 +16,7 @@ public final class RacingCarValidator {
     }
 
     public static void validateNameLength(String name) {
-        if (name.length() > RacingCarRule.MAX_RACING_CAR_NAME_LENGTH || name.isEmpty()) {
+        if (name.length() > RacingCarRule.MAX_RACER_NAME_LENGTH || name.isEmpty()) {
             throw ErrorMessage.INVALID_RACING_CAR_NAME_LENGTH.getException();
         }
     }
@@ -28,7 +28,7 @@ public final class RacingCarValidator {
     }
 
     public static <T extends Racer> void validateUnderThanMaxRacingCarNumber(List<T> racers) {
-        if (racers.size() > RacingCarRule.MAX_RACING_CAR_SIZE) {
+        if (racers.size() > RacingCarRule.MAX_RACER_SIZE) {
             throw ErrorMessage.INVALID_NUMBER_OF_RACING_CAR.getException();
         }
     }

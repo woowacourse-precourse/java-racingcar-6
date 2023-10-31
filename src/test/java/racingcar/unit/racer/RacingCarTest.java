@@ -59,11 +59,11 @@ class RacingCarTest {
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
-        @DisplayName("이름의 길이가 " + RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + " 초과라면 예외를 발생시킨다.")
+        @DisplayName("이름의 길이가 " + RacingCarRule.MAX_RACER_NAME_LENGTH + " 초과라면 예외를 발생시킨다.")
         @Test
         void fail_InvalidNameLength() {
             //given
-            String name = "1".repeat(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + 1);
+            String name = "1".repeat(RacingCarRule.MAX_RACER_NAME_LENGTH + 1);
             //when then
             assertThatThrownBy(() -> RacingCar.from(name))
                     .isInstanceOf(IllegalArgumentException.class);

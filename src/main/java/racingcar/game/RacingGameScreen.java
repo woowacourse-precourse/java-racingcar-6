@@ -61,7 +61,7 @@ public class RacingGameScreen {
     }
 
     public void showFinalWinner(List<String> winnerNames) {
-        String winnerName = String.join(RacingCarRule.INPUT_DELIMITER, winnerNames);
+        String winnerName = String.join(RacingCarRule.DELIMITER, winnerNames);
 
         writer.writeLine(String.format(FINAL_WINNER, winnerName));
     }

@@ -9,12 +9,12 @@ import racingcar.validator.Validator;
 public record RacingCarNamesInput(String input) {
 
     public RacingCarNamesInput {
-        Validator.validateLength(input, RacingCarRule.MAX_RACING_CAR_NAME_INPUT_LENGTH);
+        Validator.validateLength(input, RacingCarRule.MAX_RACER_NAME_INPUT_LENGTH);
         Validator.validateHasText(input);
     }
 
     public List<RacingCar> toRacingCarList() {
-        return Arrays.stream(input.split(RacingCarRule.INPUT_DELIMITER))
+        return Arrays.stream(input.split(RacingCarRule.DELIMITER))
                 .map(RacingCar::from)
                 .toList();
     }

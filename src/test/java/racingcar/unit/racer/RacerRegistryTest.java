@@ -52,7 +52,7 @@ class RacerRegistryTest {
 
         static Stream<List<RacingCar>> fail_OverRacingCarMaxNumberArgument() {
             return Stream.of(
-                    getRacingCarList(RacingCarRule.MAX_RACING_CAR_SIZE + 1)
+                    getRacingCarList(RacingCarRule.MAX_RACER_SIZE + 1)
             );
         }
 

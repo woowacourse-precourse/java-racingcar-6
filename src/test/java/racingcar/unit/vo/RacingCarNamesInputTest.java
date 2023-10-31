@@ -21,8 +21,8 @@ class RacingCarNamesInputTest {
         @Test
         void success() {
             //given
-            String name = "a".repeat(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH);
-            String input = name + name.repeat(RacingCarRule.MAX_RACING_CAR_SIZE - 1);
+            String name = "a".repeat(RacingCarRule.MAX_RACER_NAME_LENGTH);
+            String input = name + name.repeat(RacingCarRule.MAX_RACER_SIZE - 1);
 
             //when
             RacingCarNamesInput racingCarNamesInput = new RacingCarNamesInput(input);
@@ -36,7 +36,7 @@ class RacingCarNamesInputTest {
         @Test
         void fail_InvalidLength() {
             //given
-            String input = "a".repeat(RacingCarRule.MAX_RACING_CAR_NAME_INPUT_LENGTH + 1);
+            String input = "a".repeat(RacingCarRule.MAX_RACER_NAME_INPUT_LENGTH + 1);
 
             //when then
             assertThatThrownBy(() -> new RacingCarNamesInput(input))
