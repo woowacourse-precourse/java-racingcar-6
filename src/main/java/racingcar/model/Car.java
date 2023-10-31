@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Car {
 
+    private static final int MORE_THAN_NUMBER = 4;
     private static final int CAR_MOVE_STEP = 1;
     private static final int CAR_INIT_POSITION = 0;
 
@@ -23,7 +24,7 @@ public class Car {
 
     public void move() {
         carData.forEach((key, value) -> {
-            if (CarUtil.isCanMove()) {
+            if (isCanMove()) {
                 carData.replace(key, value + CAR_MOVE_STEP);
             }
         });
@@ -42,5 +43,9 @@ public class Car {
                 .filter(car -> car.getValue() == findMaxPosition())
                 .forEach(car -> result.add(car.getKey()));
         return result;
+    }
+
+    private boolean isCanMove() {
+        return CarUtil.getRandomValue() >= MORE_THAN_NUMBER;
     }
 }
