@@ -22,7 +22,7 @@ public class Race {
             displayCarMoving();
         }
 
-        displayWinner(decideWinner());
+        displayWinner();
     }
 
     private String[] inputCarNames() {
@@ -63,17 +63,18 @@ public class Race {
         System.out.print("\n");
     }
 
-    public List<String> decideWinner() {
+    public void displayWinner() {
+        List<String> winners = findWinners();
+        String result = String.join(", ", winners);
+        System.out.print("최종 우승자 : " + result);
+    }
+
+    public List<String> findWinners() {
+        int maxPosition = findMaxPosition();
+
         List<String> winners = new ArrayList<>();
-        List<Integer> positions = new ArrayList<>();
-
-        for(Car car : cars){
-            positions.add(car.getPosition());
-        }
-        int max = Collections.max(positions);
-
-        for(Car car : cars) {
-            if(car.getPosition() == max){
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
                 winners.add(car.getName());
             }
         }
@@ -81,8 +82,12 @@ public class Race {
         return winners;
     }
 
-    public void displayWinner(List<String> winners) {
-        String result = String.join(", ", winners);
-        System.out.print("최종 우승자 : " + result);
+    public int findMaxPosition() {
+        List<Integer> positions = new ArrayList<>();
+        for (Car car : cars) {
+            positions.add(car.getPosition());
+        }
+
+        return Collections.max(positions);
     }
 }
