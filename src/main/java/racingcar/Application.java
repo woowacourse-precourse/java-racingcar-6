@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -14,6 +15,7 @@ public class Application {
         for(int i=0;i<n;i++){
             Game(car_list);
         }
+        findWinner(car_list);
     }
 
     public static void Game(List<Car> c_list){
@@ -33,7 +35,6 @@ public class Application {
         }
         return res_list;
     }
-
 
     public static String[] getCarName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -58,6 +59,20 @@ public class Application {
             res_checkinput =  false;
         }
         return res_checkinput;
+    }
+
+    public static void findWinner(List<Car> c_list){
+        Collections.sort( c_list, (o1,o2) -> o2.go - o1.go );
+        int max_score = c_list.get(0).getGo();
+        String res_winner = c_list.get(0).getName()+",";
+        for(int i=1;i<c_list.size();i++){
+            if(c_list.get(i).getGo() == max_score){
+                res_winner += c_list.get(i).getName()+",";
+            }else{
+                break;
+            }
+        }
+        System.out.println(res_winner);
     }
 
 
