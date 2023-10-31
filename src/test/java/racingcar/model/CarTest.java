@@ -3,14 +3,12 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
 import racingcar.Application;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class CarTest extends NsTest {
     private Car testCar;

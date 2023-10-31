@@ -1,19 +1,14 @@
 package racingcar.model;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 import camp.nextstep.edu.missionutils.test.NsTest;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import racingcar.Application;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class ResultTest extends NsTest {
 
     private Result result;
