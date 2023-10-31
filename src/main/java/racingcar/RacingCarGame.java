@@ -5,8 +5,13 @@ public class RacingCarGame {
         InputView inputView = new InputView();
         inputView.pirntStartMsg();
 
+        User user = new User();
+
         inputView.printCarNameInputMsg();
+        user.inputCarName();
 
         inputView.printTryCountInputMsg();
+        user.inputTryCount();
+
     }
 }
