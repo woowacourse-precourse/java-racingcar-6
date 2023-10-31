@@ -127,6 +127,7 @@ public class Application {
 
         carMoveCounts = convertMovementToCount(carMoveStatus);
         winnerCarList = findWinners(carMoveCounts);
+        printWinner(winnerCarList);
     }
 
     private static HashMap convertMovementToCount(HashMap carMoveStatus) {
@@ -148,6 +149,18 @@ public class Application {
             }
         }
         return winnerCarList;
+    }
+
+    private static void printWinner(List winnerCarList) {
+        Iterator<String> iterator = winnerCarList.iterator();
+
+        System.out.print("최종 우승자 : ");
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next());
+            if (iterator.hasNext()) {
+                System.out.print(",");
+            }
+        }
     }
 
     public static void main(String[] args) {
