@@ -1,14 +1,11 @@
 package racingcar.domain;
 
+import constants.DomainConstant;
 import racingcar.AppConfig;
 import racingcar.validator.Validator;
 
 public class Car {
     AppConfig appConfig = new AppConfig();
-    private final int INITIAL_POSITION = 0;
-    private final int SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE = 4;
-    private final int WHEN_SUCCESS_MOVE_DISTANCE = 1;
-    private final int WHEN_FAIL_MOVE_DISTANCE = 0;
     private final String name;
     private int position;
 
@@ -16,7 +13,7 @@ public class Car {
         Validator carValidator = appConfig.carValidator();
         carValidator.validate(name);
         this.name = name;
-        this.position = INITIAL_POSITION;
+        this.position = DomainConstant.INITIAL_POSITION;
     }
 
     public String getName() {
@@ -33,12 +30,12 @@ public class Car {
 
     private int calculateMoveDistance(int drivingSkill) {
         if (isSkillSufficient(drivingSkill)) {
-            return WHEN_SUCCESS_MOVE_DISTANCE;
+            return DomainConstant.WHEN_SUCCESS_MOVE_DISTANCE;
         }
-        return WHEN_FAIL_MOVE_DISTANCE;
+        return DomainConstant.WHEN_FAIL_MOVE_DISTANCE;
     }
 
     private boolean isSkillSufficient(int drivingSkill) {
-        return drivingSkill >= SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE;
+        return drivingSkill >= DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE;
     }
 }

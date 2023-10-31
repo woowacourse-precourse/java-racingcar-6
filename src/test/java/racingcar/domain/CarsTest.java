@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import constants.DomainConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,8 +26,8 @@ public class CarsTest {
     }
 
     @Test
-    @DisplayName("자동차 이름 중 6글자 이상의 이름 포함 시 에러 발생 테스트")
-    void testCarNamesContainsNameLengthOverThanOrEqualSix() {
+    @DisplayName("자동차 이름 중 최대길이 이상의 이름 포함 시 에러 발생 테스트")
+    void testCarNamesContainsNameLengthOverThanMaxLength() {
         assertThrows(IllegalArgumentException.class, () -> new Cars("tiger,eagle,leopard"));
     }
 
@@ -35,12 +36,12 @@ public class CarsTest {
     void testMostMovedCarIsSoloWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        int drivingSkill = 3;
+        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
 
-        drivingSkill = 2;
+        drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 2;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
@@ -53,12 +54,12 @@ public class CarsTest {
     void testMostMovedCarIsCoWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
-        int drivingSkill = 3;
+        int drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE - 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }
 
-        drivingSkill = 5;
+        drivingSkill = DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE + 1;
         for (Car car : cars) {
             car.move(drivingSkill++);
         }

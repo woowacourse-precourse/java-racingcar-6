@@ -1,8 +1,8 @@
 package racingcar.validator;
 
-public class CarValidator implements Validator {
-    private final int MAX_CAR_NAME_LENGTH = 5;
+import constants.ValidatorConstant;
 
+public class CarValidator implements Validator {
     @Override
     public void validate(String name) {
         if (isBlank(name) || isValidCarNameLength(name)) {
@@ -15,6 +15,6 @@ public class CarValidator implements Validator {
     }
 
     private boolean isValidCarNameLength(String name) {
-        return name.length() > MAX_CAR_NAME_LENGTH;
+        return name.length() > ValidatorConstant.MAX_CAR_NAME_LENGTH;
     }
 }

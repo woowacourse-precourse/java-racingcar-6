@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import constants.DomainConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -8,7 +9,6 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Cars implements Iterable<Car> {
-    private static final String CAR_NAME_SEPARATOR = ",";
     private final List<Car> cars = new ArrayList<>();
 
     public Cars(String inputValue) {
@@ -40,7 +40,7 @@ public class Cars implements Iterable<Car> {
     }
 
     private String[] splitCarsName(String inputValue) {
-        return inputValue.split(CAR_NAME_SEPARATOR);
+        return inputValue.split(DomainConstant.CAR_NAME_SEPARATOR);
     }
 
     private List<String> stringArrayToStringList(String[] strings) {
