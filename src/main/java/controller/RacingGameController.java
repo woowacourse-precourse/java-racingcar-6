@@ -1,4 +1,4 @@
-package domain.controller;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
