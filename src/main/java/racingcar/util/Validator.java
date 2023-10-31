@@ -10,21 +10,21 @@ public class Validator {
     }
 
     public void validateCarName(List<String> inputs) {
-        checkNameCount(inputs);
+        checkCarCount(inputs);
         checkNameLength(inputs);
     }
 
     private void checkNameLength(List<String> inputs) {
         for (String input : inputs) {
             if (input.length() > 5) {
-                throw new IllegalArgumentException("이름은 5자 이하만 입력할 수 있습니다.");
+                throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME_LENGTH.getMessage());
             }
         }
     }
 
-    private void checkNameCount(List<String> inputs) {
+    private void checkCarCount(List<String> inputs) {
         if (inputs.size() < 2) {
-            throw new IllegalArgumentException("경주를 위해서 2개 이상의 이름을 입력해주세요.");
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_COUNT.getMessage());
         }
     }
 
@@ -34,7 +34,7 @@ public class Validator {
 
     private void checkCountRange(int input) {
         if (input < 0) {
-            throw new IllegalArgumentException("시도할 회수는 1이상의 자연수만 입력할 수 있습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ATTEMPT_COUNT_RANGE.getMessage());
         }
     }
 }

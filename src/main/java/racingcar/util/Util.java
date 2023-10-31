@@ -19,7 +19,7 @@ public class Util {
             int convert = Integer.parseInt(count);
             return convert;
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException("시도할 회수는 숫자로만 입력할 수 있습니다.");
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_ATTEMPT_COUNT_FORMAT.getMessage());
         }
     }
 
