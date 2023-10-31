@@ -10,6 +10,7 @@ public class GameSimulator {
         UserInputHandler userInputHandler = new UserInputHandler();
         List<String> carNames = userInputHandler.getUserCarNames();
         long userCount = userInputHandler.getUserCount();
+        System.out.println();
 
         // Car 객체 생성
         List<Car> cars = new ArrayList<>();
