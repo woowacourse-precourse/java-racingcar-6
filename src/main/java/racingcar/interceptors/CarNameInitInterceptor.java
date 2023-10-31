@@ -20,6 +20,7 @@ public class CarNameInitInterceptor implements Interceptor<String, List<String>>
             throw new IllegalArgumentException();
         }
 
+        // ','를 기준으로 문자열 스플릿
         return List.of(targetObject.split(","));
     }
 }

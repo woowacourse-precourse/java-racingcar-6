@@ -34,6 +34,7 @@ public class Car {
         if (distance > 20) {
             return "-".repeat(20) + "+" + (distance - 20);
         }
+        
         return "-".repeat((int) distance);
     }
 
