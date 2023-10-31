@@ -32,7 +32,7 @@ public class RacingManager {
     public void processRacing() {
         cars.forEach(Car::move);
 
-        moveChanceCount--;
+        reduceMoveChance();
     }
 
     public List<Car> cars() {
@@ -46,11 +46,19 @@ public class RacingManager {
                 .collect(Collectors.toList());
     }
 
+    protected int moveChanceCount() {
+        return moveChanceCount;
+    }
+
     private int getMaxPosition() {
         return this.cars.stream()
                 .map(Car::position)
                 .max(Integer::compare)
                 .orElseThrow(() -> new IllegalArgumentException("자동차 리스트가 비어 있습니다."));
+    }
+
+    private void reduceMoveChance() {
+        moveChanceCount--;
     }
 
 }

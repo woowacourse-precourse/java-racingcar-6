@@ -10,8 +10,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RandomNumberRacingRule implements RacingRule {
 
     @Override
-    public boolean isMovable() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+    public boolean isMovable(int number) {
+        return number >= 4;
     }
 
 }

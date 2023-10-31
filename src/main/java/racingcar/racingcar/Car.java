@@ -1,5 +1,6 @@
 package racingcar.racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.playrule.RacingRule;
 
 /**
@@ -20,9 +21,13 @@ public class Car {
     }
 
     public void move() {
-        if (racingRule.isMovable()) {
+        if (racingRule.isMovable(tryDrive())) {
             position += 1;
         }
+    }
+
+    private int tryDrive() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public String name() {
@@ -32,4 +37,5 @@ public class Car {
     public Integer position() {
         return position;
     }
+
 }
