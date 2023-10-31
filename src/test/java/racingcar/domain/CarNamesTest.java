@@ -21,6 +21,5 @@ public class CarNamesTest {
 
         //then
         Assertions.assertThat(cars.size()).isEqualTo(3);
-
     }
 }

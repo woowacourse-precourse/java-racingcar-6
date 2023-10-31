@@ -24,7 +24,6 @@ public class CarNameTest {
     @Test
     @DisplayName("carName에 \" : \" 를 추가하여 반환")
     void makeNameForPrintResultTest() {
-
         //given
 
         //when
