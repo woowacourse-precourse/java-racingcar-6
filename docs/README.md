@@ -37,9 +37,16 @@ poni :
 koni : 
 jun : -
 ```
+
 - tryCount 만큼 반복 후 최고로 멀리 간 winner 출력
+  - printWinner() : 앞서 최종 우승자를 찾아낸 뒤, 해당 정보를 바탕으로 우승자 출력
+```java
+// 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
+List<String> winners = findWinners(maxPosition);
+printWinner(winners);   // 최종 우승자 출력
 ```
-// 에시
+```
+// 출력 결과 에시
 최종 우승자 : jun
 ```
 
