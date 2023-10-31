@@ -1,8 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
-
 public class Race {
     private final CarRegistration raceParticipants;
     private final MoveCount moveCount;
@@ -15,8 +12,9 @@ public class Race {
     public void start() {
         while (moveCount.isRemained()) {
             RaceRule.phase(raceParticipants);
-//            Printer.GameResultPrinter(raceParticipants);
+            Printer.gameResultPrinter(raceParticipants.getRaceParticipants());
             moveCount.decreaseCount();
         }
+        Printer.winnerPrinter(RaceRule.getWinner(raceParticipants));
     }
 }
