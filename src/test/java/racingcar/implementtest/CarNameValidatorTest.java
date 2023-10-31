@@ -80,5 +80,11 @@ public class CarNameValidatorTest {
                 .hasMessageContaining("이름이 공백으로 끝나면 안됩니다.");
     }
 
-
+    @Test
+    void 중복된_이름이_있는_경우() {
+        carNameValidator.checkNameDuplicate("name");
+        Assertions.assertThatThrownBy(() -> carNameValidator.checkNameDuplicate("name"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 이름이 입력되었습니다.");
+    }
 }

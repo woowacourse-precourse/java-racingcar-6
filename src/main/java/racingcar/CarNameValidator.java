@@ -1,6 +1,11 @@
 package racingcar;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class CarNameValidator {
+
+    private static final Set<String> checkNameDuplicateList = new HashSet<>();
     private static final char NAME_SEPARATOR = ',';
     private static final String DOUBLE_USE_SEPARATOR = ",,";
     private static final int NAME_MAX_LENGTH = 5;
@@ -39,6 +44,12 @@ public class CarNameValidator {
     public void checkNameBlankEnd(String carName) {
         if (carName.charAt(carName.length() - 1) == BLANK) {
             throw new IllegalArgumentException("이름이 공백으로 끝나면 안됩니다.");
+        }
+    }
+
+    public void checkNameDuplicate(String carName) {
+        if (!checkNameDuplicateList.add(carName)) {
+            throw new IllegalArgumentException("중복된 이름이 입력되었습니다.");
         }
     }
 }
