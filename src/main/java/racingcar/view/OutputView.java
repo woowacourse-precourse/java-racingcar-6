@@ -13,12 +13,23 @@ public class OutputView {
     }
 
     public void printCars(List<Car> participatingCars) {
-        String carsOutput = participatingCars.stream()
-                .map(car -> String.format(Constants.CAR_NAME_AND_POSITION_FORMAT, car.getName(),
-                        getCarMovement(car.getLocation())))
-                .collect(Collectors.joining());
+        String carsOutput = buildCarsOutput(participatingCars);
+        printOutput(carsOutput);
+    }
 
-        System.out.println(carsOutput);
+    private String buildCarsOutput(List<Car> participatingCars) {
+        return participatingCars.stream()
+                .map(this::formatCarOutput)
+                .collect(Collectors.joining());
+    }
+
+    private String formatCarOutput(Car car) {
+        return String.format(Constants.CAR_NAME_AND_POSITION_FORMAT, car.getName(),
+                getCarMovement(car.getLocation()));
+    }
+
+    private void printOutput(String output) {
+        System.out.println(output);
     }
 
     private String getCarMovement(int location) {
