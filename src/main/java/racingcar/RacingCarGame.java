@@ -24,6 +24,22 @@ public class RacingCarGame {
         moveCnt = Integer.parseInt(line);
     }
 
+    public void printCarRacingProcess() {
+        for (int i = 0; i < moveCnt; i++) {
+            for (RacingCar car : cars) {
+                moveTry(car);
+                car.printLocation();
+            }
+            System.out.println();
+        }
+    }
+
+    private void moveTry(RacingCar car) {
+        if (car.isAvailableMove()) {
+            car.moveForward();
+        }
+    }
+
     public void printWinner() {
         List<String> winnerNames = new ArrayList<>();
         if (cars.size() == 0) {
