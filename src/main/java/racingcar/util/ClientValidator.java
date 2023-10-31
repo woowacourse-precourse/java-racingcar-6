@@ -23,7 +23,7 @@ public class ClientValidator extends Validator {
     }
 
     private static void validateNaturalNumber(BigInteger value) {
-        if (value.compareTo(new BigInteger(String.valueOf(LEAST_NATURAL_NUMBER))) < 0) {
+        if (value.compareTo(BigInteger.valueOf(LEAST_NATURAL_NUMBER)) < 0) {
             throwIllegalArgumentException(Error.NOT_NATURAL_NUMBER.getMessage());
         }
     }
