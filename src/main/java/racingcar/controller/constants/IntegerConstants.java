@@ -8,8 +8,7 @@ public enum IntegerConstants {
     STARTING_POINT(0),
     ONE_STEP(1),
 
-    EMPTY(0)
-    ;
+    EMPTY(0);
 
     private final Integer value;
 
