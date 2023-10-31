@@ -20,10 +20,7 @@ public class RoundCount {
     }
 
     public boolean hasNextRound() {
-        if (value == 0) {
-            return false;
-        }
-        return true;
+        return value > 0;
     }
 
     private void validateType(String target) {
