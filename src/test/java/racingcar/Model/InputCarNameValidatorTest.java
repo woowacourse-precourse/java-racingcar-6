@@ -122,4 +122,12 @@ public class InputCarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 쉼표(,)로 시작할 수 없습니다.");
     }
+
+    @Test
+    void 구분자로_중복2() {
+        String input = "pobi,,woni,jun";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 쉼표(,)를 기준으로 구분해야 합니다.");
+    }
 }
