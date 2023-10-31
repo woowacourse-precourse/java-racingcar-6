@@ -16,7 +16,6 @@ public class Game {
             play(carList);
             showResult(carList);
         }
-
         showWinner(carList);
     }
 
@@ -30,7 +29,6 @@ public class Game {
             Car car = new Car(carNameList.get(idx));
             carList.add(car);
         }
-
         return carList;
     }
 
@@ -46,29 +44,22 @@ public class Game {
         for (Car car : carList) {
             car.move(Randoms.pickNumberInRange(0, 9));
         }
-
     }
 
     private void showResult(List<Car> carList) {
         for (Car car : carList) {
             Message.printInputCarName(car.getName());
-//            System.out.print(car.getName() + " : ");
             Message.printCarPosition(car.getPositionString());
-//            System.out.println(car.getPosition());
         }
         Message.printLineBreak();
-//        System.out.println();
     }
 
     private void showWinner(List<Car> carList) {
         int farthestCarPosition = Winner.findFarthestCarPosition(carList);
 
         List<String> winnerList = Winner.winnerList(carList, farthestCarPosition);
-//        System.out.print("최종 우승자 : ");
         Message.printWinnerGuidance();
         String winnerStr = String.join(", ", winnerList);
-//        System.out.println(winnerStr);
         Message.printWinnerNames(winnerStr);
     }
-
 }

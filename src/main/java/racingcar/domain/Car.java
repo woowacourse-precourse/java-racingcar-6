@@ -1,9 +1,7 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
-    private final String name;  //refactor final
+    private final String name;
     private String positionString;
     private int positionInt;
 
@@ -11,7 +9,6 @@ public class Car {
         this.name = name;
         positionString = "";
         positionInt = 0;
-
     }
 
     public void move(int randomNum) {

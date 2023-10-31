@@ -6,11 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Validation {
-
-    public static void validateBlankInInput() {
-
-    }
-
     public static void validateEmptyInput(String strInput) {
         if (strInput.isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 빈칸입니다.");
@@ -46,8 +41,7 @@ public class Validation {
 
     public static void validateRange(int numInt) {
         if (numInt <= 0) {
-            throw new IllegalArgumentException("[ERROR] 0보다 큰 수를 입력해 주세요.")
+            throw new IllegalArgumentException("[ERROR] 0보다 큰 수를 입력해 주세요.");
         }
     }
-
 }
