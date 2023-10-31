@@ -55,9 +55,8 @@ public class GameProcess {
         }
     }
 
-
-    private RaceCar generateRaceCar(String nameOfRaceCar) {
-        return new RaceCar(nameOfRaceCar);
+    private RaceCar generateRaceCar(String name) {
+        return new RaceCar(name);
     }
 
     /**
