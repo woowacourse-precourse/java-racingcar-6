@@ -19,10 +19,12 @@ public enum SpecialSign {
     }
 
     public static String drawHyphen(int distance) {
-        String drawDistance = "";
+        StringBuilder drawDistance = new StringBuilder();
         for (int i = 0; i < distance; i++) {
-            drawDistance += HYPHEN.getSign();
+            drawDistance.append(HYPHEN.getSign());
         }
-        return drawDistance + NEW_LINE.getSign();
+        return drawDistance
+                .append(NEW_LINE.getSign())
+                .toString();
     }
 }

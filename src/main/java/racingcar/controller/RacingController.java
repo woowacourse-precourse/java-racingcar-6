@@ -36,7 +36,6 @@ public class RacingController {
     }
 
     private TryCount initTryCount() {
-        System.out.println();
         outputView.printTryCountMessage();
         return new TryCount(inputView.inputTryCount());
     }
