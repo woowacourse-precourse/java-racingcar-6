@@ -5,28 +5,25 @@ import racingcar.domain.Car;
 import racingcar.validation.Validation;
 import racingcar.view.InputView;
 import racingcar.view.OutPutView;
+import racingcar.constant.Constant;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class GameService {
-    private final int MIN_NUM = 0;
-    private final int MAX_NUM = 9;
-    private final int POSSIBLE_MOVE_NUM = 4;
     private final InputView inputView = new InputView();
     private final OutPutView outPutView = new OutPutView();
     private final Validation validation = new Validation();
     private final List<Car> cars = new ArrayList<>();
-    private StringBuilder sb;
 
     public int randomNum() {
-        return Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
+        return Randoms.pickNumberInRange(Constant.MIN_NUM, Constant.MAX_NUM);
     }
 
     public void carMove() {
         for (Car car : cars) {
-            if (randomNum() >= POSSIBLE_MOVE_NUM) {
-                car.setMove(car.getMove() + 1);
+            if (randomNum() >= Constant.POSSIBLE_MOVE_NUM) {
+                car.setMove(car.getMove() + Constant.CAR_MOVE);
             }
         }
     }
@@ -34,7 +31,7 @@ public class GameService {
     public void enterCar() {
         String name = inputView.inputCar();
         for (String n : validation.nameCheck(name)) {
-            cars.add(new Car(n));
+            cars.add(new Car(n, Constant.DEFAULT_MOVE));
         }
     }
 
@@ -44,9 +41,9 @@ public class GameService {
         return Integer.parseInt(chance);
     }
 
-    public StringBuilder printStick(int k) {
-        sb = new StringBuilder();
-        sb.append("-".repeat(Math.max(0, cars.get(k).getMove())));
+    public StringBuilder printStick(int index) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("-".repeat(Math.max(Constant.DEFAULT_MOVE, cars.get(index).getMove())));
         return sb;
     }
 
@@ -54,27 +51,25 @@ public class GameService {
         outPutView.outputResult();
         for (int i = 0; i < chance; i++) {
             carMove();
-            for (int k = 0; k < cars.size(); k++) {
-                System.out.println(cars.get(k).getName() + " : " + printStick(k));
+            for (int index = 0; index < cars.size(); index++) {
+                if(index == cars.size() - 1){
+                    outPutView.outputCar(cars.get(index).getName() + " : " + printStick(index)+ '\n');  //한 라운드가 종료 되었을 경우 줄 바꿈
+                }else {
+                    outPutView.outputCar(cars.get(index).getName() + " : " + printStick(index));
+                }
             }
-            System.out.println();
         }
     }
 
     public void winnerList() {
-        List<Car> winners = cars.stream().collect(Collectors.groupingBy(Car::getMove, Collectors.toList()))
-                .entrySet()
-                .stream()
-                .max(Comparator.comparing(Map.Entry::getKey))
-                .map(Map.Entry::getValue)
-                .orElse(Collections.emptyList())
-                .stream()
-                .toList();
+        List<Car> winners = cars.stream().filter(car -> car.getMove() == searchMaxValue()).toList();
 
-        String printWinners = winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
+        String printWinners = winners.stream().map(Car::getName).collect(Collectors.joining(", "));
 
         outPutView.outputWinner(printWinners);
+    }
+
+    public int searchMaxValue() {
+        return cars.stream().mapToInt(Car::getMove).max().orElse(0);
     }
 }

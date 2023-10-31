@@ -2,10 +2,11 @@ package racingcar.domain;
 
 public class Car {
     private String name;
-    private int move = 0;   //현재 이동한 크기
+    private int move;
 
-    public Car(String name) {
+    public Car(String name, int move) {
         this.name = name;
+        this.move = move;
     }
 
     public String getName() {

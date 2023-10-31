@@ -1,6 +1,10 @@
 package racingcar.view;
 
 public class OutPutView {
+
+    public void outputCar(String car){
+        System.out.println(car);
+    }
     public void outputResult() {
         System.out.println("실행 결과");
     }

@@ -4,12 +4,12 @@ import racingcar.service.GameService;
 public class GameController {
     private GameService gameService = new GameService();
 
-    public void play() {
-        int runChance = run();
+    public void run() {
+        int runChance = start();
         finish(runChance);
     }
 
-    public int run(){
+    public int start(){
         gameService.enterCar();
         int runChance = gameService.enterChance();
         return runChance;

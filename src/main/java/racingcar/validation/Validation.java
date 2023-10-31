@@ -1,5 +1,6 @@
 package racingcar.validation;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,17 +10,14 @@ public class Validation {
     public void lengthCheck(String [] names){
         for(String name : names){
             if (name.length() > MAX_LENGTH)
-                throw new IllegalArgumentException("문자 열의 크기가 5를 초과 합니다.");     //문자열 크기
+                throw new IllegalArgumentException("문자 열의 크기가 5를 초과 합니다.");
         }
     }
 
     public void duplicateCheck(String [] names){
-        Set<String> dup = new HashSet<>();
-        for(String name : names){
-            dup.add(name);
-        }
+        Set<String> dup = new HashSet<>(Arrays.asList(names));
         if (dup.size() != names.length)
-            throw new IllegalArgumentException("입력한 이름 중에 중복된 값이 존재 합니다.");      //이름 중복
+            throw new IllegalArgumentException("입력한 이름 중에 중복된 값이 존재 합니다.");
     }
 
     public void blankCheck(String name, String [] names){
@@ -45,7 +43,7 @@ public class Validation {
         return names;
     }
 
-    public void chanceCheck(String c) {      //시도 횟수 잘 못 입력 하였을 경우
+    public void chanceCheck(String c) {
         try {
             Integer.parseInt(c);
         } catch (NumberFormatException e) {
