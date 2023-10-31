@@ -9,12 +9,12 @@ public class DataStore {
     private Participants participants;
 
 
-    public ExtractTrack saveExtractTrack(ExtractTrack extractTrack) {
-        return this.extractTrack = extractTrack;
+    public void saveExtractTrack(ExtractTrack extractTrack) {
+        this.extractTrack = extractTrack;
     }
 
-    public Participants saveParticipants(Participants participants) {
-        return this.participants = participants;
+    public void saveParticipants(Participants participants) {
+        this.participants = participants;
     }
 
 
@@ -25,4 +25,5 @@ public class DataStore {
     public Participants findParticipants() {
         return participants;
     }
+
 }
