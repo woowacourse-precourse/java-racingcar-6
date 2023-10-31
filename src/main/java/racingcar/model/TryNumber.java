@@ -12,8 +12,8 @@ public class TryNumber {
     }
 
 
-    public boolean isNotOver(int count) {
-        if (tryNumber == count) {
+    public boolean isNotOver(int tryCount) {
+        if (tryNumber == tryCount) {
             return false;
         }
         return true;

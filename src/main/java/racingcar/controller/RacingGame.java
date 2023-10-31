@@ -25,11 +25,11 @@ public class RacingGame {
     }
 
     private void startRace() {
-        int count = 0;
+        int tryCount = 0;
         OutputView.displayRoundResultHeader();
-        while (tryNumber.isNotOver(count)) {
+        while (tryNumber.isNotOver(tryCount)) {
             playSingleRound();
-            count++;
+            tryCount++;
         }
     }
 
