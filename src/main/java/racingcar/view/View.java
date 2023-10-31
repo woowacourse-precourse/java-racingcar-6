@@ -46,15 +46,22 @@ public class View implements ViewInterface{
 
     @Override
     public void finalResult() {
-
-
+        List<Car> maxDistanceCars = carService.finalResult();
+        System.out.print("최종 우승자 :");
+        for(int index =0; index<maxDistanceCars.size(); index++){
+            if(index != maxDistanceCars.size()-1){
+                System.out.print(" " + maxDistanceCars.get(index).getName()+",");
+            }else{
+                System.out.println(" " + maxDistanceCars.get(index).getName());
+            }
+        }
 
     }
 
     private void numberOfResult(List<Car> cars){
         for(Car car : cars){
             String str = "-";
-            System.out.print(car.getName() + " : " +str.repeat(car.getDistance()));
+            System.out.print(car.getName() + " : " + str.repeat(car.getDistance()));
             System.out.println();
         }
     }

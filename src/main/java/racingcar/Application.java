@@ -15,6 +15,7 @@ public class Application {
         View view = new View(carService);
         view.inputCarName();
         view.moveCar();
+        view.finalResult();
 
     }
 }
