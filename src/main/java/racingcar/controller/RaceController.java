@@ -45,7 +45,7 @@ public class RaceController {
             cars.play();
             printResult();
         }
-        printFinalWinner();
+        printFinalWinners();
     }
 
     private void printResult() {
@@ -59,10 +59,14 @@ public class RaceController {
                 .collect(Collectors.toList());
     }
 
-    private void printFinalWinner() {
-        Winners winners = new Winners(cars.getCars());
-        List<String> winnersName = winners.getWinners().stream().map(car -> car.getName()).toList();
+    private void printFinalWinners() {
+        List<String> winnersNames = getWinnersNames();
+        outputView.printFinalWinners(winnersNames);
+    }
 
-        outputView.printFinalWinners(winnersName);
+    private List<String> getWinnersNames() {
+        Winners winners = new Winners(cars.getCars());
+        return winners.getWinners().stream()
+                .map(car -> car.getName()).toList();
     }
 }
