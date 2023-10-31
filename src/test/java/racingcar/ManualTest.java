@@ -103,7 +103,10 @@ public class ManualTest extends NsTest {
     @Test
     void maga_try(){
         String input = "a,b,c,d,e,f,g,h,i,j,k,l,m";
-        assertTimeout(Duration.ofSeconds(1), () -> run(input, "1000"));
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(input, "700"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Override
