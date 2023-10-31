@@ -1,7 +1,6 @@
 package racingcar.util;
 
 public class Validator {
-
   private static final int MAX_CAR_NAME_LENGTH = 5;
 
   public static String parseToNames(String input) {
