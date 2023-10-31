@@ -18,28 +18,18 @@ public class RacingCarGame {
         return racingCarGame;
     }
 
-    public void run() {
-        String carsName = getCarsName();
-        String[] carName = extractCarName(carsName);
-        CustomArrayList<Car> carList = generateCars(carName);
-        int numberOfRace = getNumberOfRace();
-        repeatCarRace(carList, numberOfRace);
-        List<Car> winner = decideWinner(carList);
-        printOutWinner(winner);
-    }
-
-    private String getCarsName() {
+    public String getCarsName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carsName = Console.readLine();
         return carsName;
     }
 
-    private String[] extractCarName(String carsName) {
+    public String[] extractCarName(String carsName) {
         String[] carName = carsName.split(",");
         return carName;
     }
 
-    private CustomArrayList<Car> generateCars(String[] carName) {
+    public CustomArrayList<Car> generateCars(String[] carName) {
         CustomArrayList<Car> carList = new CustomArrayList<>();
         int repeatNumber = carName.length;
         int nameOrder = 0;
@@ -51,13 +41,13 @@ public class RacingCarGame {
         return carList;
     }
 
-    private int getNumberOfRace() {
+    public int getNumberOfRace() {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfRace = Integer.parseInt(Console.readLine());
         return numberOfRace;
     }
 
-    private void repeatCarRace(List<Car> carList, int numberOfRace) {
+    public void repeatCarRace(List<Car> carList, int numberOfRace) {
         while (numberOfRace != 0) {
             carRace(carList);
             System.out.println(carList);
@@ -71,7 +61,7 @@ public class RacingCarGame {
         }
     }
 
-    private List<Car> decideWinner(List<Car> carList) {
+    public List<Car> decideWinner(List<Car> carList) {
         List<Car> winner = new ArrayList<>();
         winner.add(carList.get(0));
         repeatCompareDistance(carList, winner);
@@ -96,7 +86,7 @@ public class RacingCarGame {
         return i;
     }
 
-    private void printOutWinner(List<Car> winner) {
+    public void printOutWinner(List<Car> winner) {
         StringBuilder sb = new StringBuilder();
         Iterator<Car> it = winner.iterator();
         while (it.hasNext()) {
