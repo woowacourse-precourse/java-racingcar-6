@@ -17,9 +17,11 @@ public class RacingCar {
 
             // Check for a trailing comma
             if (carName.endsWith(",")) {
-                throw new IllegalArgumentException("유효하지 않은 데이터입니다.");
+                throw new IllegalArgumentException("입력의 마지막 값을 확인해 주세요.");
             }
-
+            if(tryNumber.equals("")){
+                throw new IllegalArgumentException("플레이 횟수를 기입하지 않았습니다.");
+            }
             List<String> resultList = new ArrayList<>();
             resultList.add(tryNumber);
 

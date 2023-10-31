@@ -22,7 +22,7 @@ public class GameController {
 
     public void GameStart() throws IOException {
         List<String> resultList = racingCar.gameStart();
-        List<Cars> carsList = new ArrayList<>(); // Initialize the list
+        this.carsList = new ArrayList<>(); // Initialize the list
 
         int index=0;
         for(String car: resultList){
@@ -35,11 +35,6 @@ public class GameController {
             }
             index++;
         }
-
-//        for (Cars car : carsList) {
-//            System.out.println(car.getName());
-//        }
-        play();
     }
 
     public boolean isLargeThen(int num){
@@ -50,23 +45,38 @@ public class GameController {
             return false;
         }
     }
-    public void playLoad(){
-        System.out.println("here is play load");
+    public void playLoad(List<Cars> carsList){
         for (Cars car : carsList) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            System.out.println(randomNumber);
             if (isLargeThen(randomNumber)){
                 car.upLoadState();
             }
-            System.out.println(car.getLoadState());
         }
+        System.out.println();
+    }
+
+    public String getResult(List<Cars> carsList){
+        String winnerName="";
+        int lagestLocation=0;
+        int currentLocation;
+
+        for (Cars car: carsList){
+            currentLocation = car.getLength();
+            if(currentLocation == lagestLocation){
+                winnerName=winnerName.concat(", "+car.getName());
+            }
+            if(currentLocation>lagestLocation){
+                lagestLocation=currentLocation;
+                winnerName=car.getName();
+            }
+        }
+        return winnerName;
     }
 
     public void play(){
         for(int i=0 ; i<tryNum ; i++){
-            playLoad();
+            playLoad(this.carsList);
 
-            System.out.println("here is controller's play code");
             List<String>names = new ArrayList<>();
             List<String>locations = new ArrayList<>();
 
@@ -76,6 +86,8 @@ public class GameController {
             }
             racingCar.showLoad(names,locations,3);
         }
+        String result = getResult(this.carsList);
+        System.out.println("최종 우승자 : "+result);
     }
 
 }

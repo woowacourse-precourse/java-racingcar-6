@@ -18,10 +18,15 @@ public class Cars {
     }
 
     public String upLoadState() {
-        return this.loadState.concat("-");
+        return this.loadState= this.loadState.concat("-");
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getLength(){
+        int length=loadState.length();
+        return length;
     }
 }
