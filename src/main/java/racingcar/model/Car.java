@@ -2,13 +2,17 @@ package racingcar.model;
 
 import racingcar.util.RandomUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Collections;
+import java.util.HashMap;
+
+import java.util.Map;
 
 public class Car {
     private static final int STANDARD_VALUE = 4;
     private static final int START_POSITION = 0;
 
+    private static final  HashMap<CarName, Integer> carMap = new HashMap<>();
     private final CarName carName;
     private int position ;
 
@@ -20,7 +24,14 @@ public class Car {
         int random = RandomUtil.createRandomNumber();
         if(random>=STANDARD_VALUE){
             position++;
+            winner();
         }
+    }
+    private void winner(){
+        carMap.put(getCarName(),position);
+    }
+    public static Map<CarName, Integer> getCarMap() {
+        return Collections.unmodifiableMap(carMap);
     }
 
     public CarName getCarName() {

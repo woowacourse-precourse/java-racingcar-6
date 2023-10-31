@@ -1,7 +1,6 @@
 package racingcar.Controller;
 
-import racingcar.model.Cars;
-import racingcar.model.TryCount;
+import racingcar.model.*;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,6 +13,7 @@ public class RacingController {
         TryCount tryCount =  new TryCount(InputView.inputCnt());
         int cnt =Integer.parseInt(tryCount.getTryCount());
         race(cars,cnt);
+        winners();
 
     }
 
@@ -23,7 +23,9 @@ public class RacingController {
             OutputView.carsStatus(cars.getCars());
         }
 
-
+    }
+    public void winners(){
+        OutputView.winner(Winner.findWinners(Car.getCarMap()));
     }
 
 }
