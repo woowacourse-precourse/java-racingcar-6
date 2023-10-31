@@ -26,20 +26,16 @@ public class RacingGame {
         RoundCount roundCount = readRaceRoundCount();
         outputView.showExecutedMessage();
         executeWholeRounds(participants, roundCount);
-        outputView.showRoundResult(participants);
         GameResultDto gameResult = referee.publishGameResult(participants);
         outputView.showGameResult(gameResult);
     }
 
     private void executeWholeRounds(List<Car> participants, RoundCount roundCount) {
         while (roundCount.hasNextRound()) {
-            executeRound(participants);
+            referee.executeRound(participants);
+            outputView.showRoundResult(participants);
             roundCount.consumeRound();
         }
-    }
-
-    private void executeRound(List<Car> cars) {
-        cars.forEach(Car::tryDrive);
     }
 
     private RoundCount readRaceRoundCount() {

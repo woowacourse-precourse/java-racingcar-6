@@ -13,6 +13,10 @@ public class Referee {
         return new GameResultDto(selectWinners(cars));
     }
 
+    public void executeRound(List<Car> cars) {
+        cars.forEach(Car::tryDrive);
+    }
+
     private List<Car> selectWinners(List<Car> cars) {
         Position furthestPosition = getFurthestPosition(cars);
         return cars.stream()
