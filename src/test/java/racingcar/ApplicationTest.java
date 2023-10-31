@@ -24,6 +24,12 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 숫자_체크(){
+        assertThatThrownBy(()-> run("aaa,bbb", "a"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))

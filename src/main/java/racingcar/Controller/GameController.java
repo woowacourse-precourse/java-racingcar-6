@@ -20,20 +20,20 @@ public class GameController {
 
     public void checkCarNameLength(String carName){
         if(carName.length() > 5 || carName.isEmpty())
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("carName length is not in 1~5");
     }
 
     public void checkIntOverZero(int n){
         if(n <= 0)
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("int is minus");
     }
 
-    public int convertStringInteger(String intStr){
+    public int convertStringInt(String intStr){
         try{
             return Integer.parseInt(intStr);
         }
         catch (Exception e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("can't convert String to int");
         }
     }
 
@@ -50,7 +50,7 @@ public class GameController {
 
     public void setNumOfAttemp(){
         view.printSetNumOfAttempt();
-        int n = convertStringInteger(Console.readLine());
+        int n = convertStringInt(Console.readLine());
         checkIntOverZero(n);
         attemptNum = n;
     }
