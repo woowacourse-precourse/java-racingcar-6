@@ -23,6 +23,10 @@ public class Car implements Comparable<Car> {
         return Integer.compare(this.distance, car.distance);
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     private boolean checkLength(String name) {
         if (name.length() > 5 || name.length() == 0) {
             throw new IllegalArgumentException("이름의 길이는 5글자 이하입니다");
