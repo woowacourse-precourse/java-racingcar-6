@@ -23,6 +23,7 @@ public class Game {
         while (leftGameCount()) {
             gameCount--;
             raceOneTime();
+            printEachLocation();
         }
     }
 
@@ -47,7 +48,11 @@ public class Game {
 
     private void raceOneTime() {
         carList.forEach(Car::tryMove);
+    }
+
+    private void printEachLocation() {
         carList.forEach(Car::printCurrentLocation);
+        System.out.println();
     }
 
 }
