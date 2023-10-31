@@ -12,6 +12,7 @@ import racingcar.model.randomnumber.RandomNumber;
 public class CarTest {
 
     @Nested
+    @DisplayName("자동차 이동 테스트")
     class CarMoveTest {
 
         @Test
