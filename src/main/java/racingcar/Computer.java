@@ -25,7 +25,8 @@ public class Computer {
     }
 
     int getIntRound(String roundString){
-        validation.roundValidation(roundString);
+        validation.roundTypeValidation(roundString);
+        validation.roundValueValidation(Integer.parseInt(roundString));
         return Integer.parseInt(roundString);
     }
 
