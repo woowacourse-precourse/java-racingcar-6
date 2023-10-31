@@ -41,12 +41,11 @@ class ValidatorTest {
         assertEquals(CAR_NAME_BLANK_ERROR_MESSAGE, e.getMessage());
     }
 
-    public String validateAttemptCountInput(String userInput) {
-        try {
-            parser.parseAttemptCountInput(userInput);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NOT_NUMBER_STRING_ERROE_MESSAGE);
-        }
-        return userInput;
+    @Test
+    void 숫자_아닌_입력_예외테스트() {
+        IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validator.validateAttemptCountInput("abc");
+        });
+        assertEquals(NOT_NUMBER_STRING_ERROE_MESSAGE,e.getMessage());
     }
 }
