@@ -31,6 +31,7 @@ public class Racing {
 
     public void registCount(String count) {
 
+        ivc.isValidRacingCount(count);
         ivc.isDigit(count);
         this.count = Integer.parseInt(count);
         System.out.println();
@@ -42,6 +43,7 @@ public class Racing {
 
             for( Car car : cars ) {
                 car.move();
+                car.printInfo();
 
                 int length = car.distance.length();
 

@@ -41,4 +41,15 @@ public class InputValidCheck {
         }
     }
 
+    public void isValidRacingCount(String input) {
+
+        if ( input.isEmpty() ) {
+            throw new IllegalArgumentException();
+        }
+
+        if ( input.isBlank() ) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
