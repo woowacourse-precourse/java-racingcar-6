@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.RandomNumberGenerator;
 
 public class RacingCars {
     private final List<Car> cars;
@@ -13,7 +14,7 @@ public class RacingCars {
     }
 
     public void moveOrStop() {
-        cars.forEach(Car::move);
+        cars.forEach(car -> car.move(RandomNumberGenerator.generate()));
     }
 
     public List<Car> getCars() {
