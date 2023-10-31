@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class TryCount {
-    private static final String INPUT_TRYCOUNT = "숫자만 입력 가능합니다.";
+    public static final String INPUT_TRYCOUNT = "숫자만 입력 가능합니다.";
 
     private static final String INPUT_NUMBER_TYPE = "^\\d+$";
 
