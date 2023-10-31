@@ -10,11 +10,18 @@ class NameListValidatorTest {
     static final NameListValidator nameListValidator = new NameListValidator();
 
     @Test
-    public void 빈_값을_입력했는지_검증(){
+    public void 빈_값을_입력하면_예외발생(){
         String input = "";
         assertThatThrownBy(() -> nameListValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.EMPTY_INPUT);
     }
 
+    @Test
+    public void 쉼표로_끝나면_예외발생(){
+        String input = "aa,bb,";
+        assertThatThrownBy(() -> nameListValidator.validate(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.ENDS_WITH_COMMA);
+    }
 }
