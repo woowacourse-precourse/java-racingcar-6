@@ -44,7 +44,7 @@ public class RacingGame {
 		return carArray;
 	}
 
-	private void makeCarStepList(int length) {
+	public void makeCarStepList(int length) {
 		for (int i = 0; i < length; i++) {
 			steps.add(new StringBuilder());
 		}
