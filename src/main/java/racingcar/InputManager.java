@@ -1,13 +1,15 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
     public static String[] getCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)로 구분)");
         String input = Console.readLine();
         validateCarNames(input);
         return input.split(",");
@@ -20,7 +22,7 @@ public class InputManager {
         return numberOfAttempts;
     }
 
-     public static List<Car> initializeCars(String[] carNames) {
+    public static List<Car> initializeCars(String[] carNames) {
         List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
             cars.add(new Car(name));
@@ -30,10 +32,13 @@ public class InputManager {
 
     private static void validateCarNames(String input) {
         String[] carNames = input.split(",");
+        Set<String> nameSet = new HashSet<>();
+
         for (String carName : carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+            if (carName.isEmpty() || carName.contains(" ") || carName.length() < 1 || carName.length() > 5 || nameSet.contains(carName)) {
+                throw new IllegalArgumentException("자동차 이름을 확인하세요.");
             }
+            nameSet.add(carName);
         }
     }
 
