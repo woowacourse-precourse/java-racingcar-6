@@ -1,21 +1,26 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-    private final List<Car> carList = new ArrayList<>();
+    private final List<Car> carList;
 
     Cars(List<String> names) {
+        List<Car> newCarList = new ArrayList<>();
         for (String name : names) {
-            carList.add(new Car(name));
+            newCarList.add(new Car(name));
         }
+        carList = Collections.unmodifiableList(newCarList);
     }
 
     Cars(List<String> names, List<Integer> position) {
+        List<Car> newCarList = new ArrayList<>();
         for (int i = 0; i < names.size(); i++) {
-            carList.add(new Car(names.get(i), position.get(i)));
+            newCarList.add(new Car(names.get(i), position.get(i)));
         }
+        carList = Collections.unmodifiableList(newCarList);
     }
 
     public int size() {
