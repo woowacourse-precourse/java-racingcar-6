@@ -42,6 +42,6 @@ public class CarGame {
                 car.move();
             }
         }
-
     }
+
 }

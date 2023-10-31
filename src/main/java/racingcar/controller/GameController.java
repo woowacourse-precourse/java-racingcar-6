@@ -13,16 +13,17 @@ public class GameController {
     public void play() {
         car.setCarsName(inputView.carName());
         car.setPlayCount(inputView.playCount());
+        outputView.printMessage();
 
         playGame();
     }
 
     private void playGame() {
-        outputView.printMessage();
-        
         int playCount = car.getPlayCount();
+
         while (playCount-- > 0) {
             car.moveOrStop();
+            outputView.printPlayResult(car.getCarsName());
         }
     }
 }
