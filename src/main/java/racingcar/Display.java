@@ -24,5 +24,10 @@ public class Display {
         for(Car car : cars) {
             System.out.println(car.getName() + " : " + makeLane(car.getPosition()));
         }
+        System.out.println();
+    }
+
+    static void printFinalWinners(List<String> winners) {
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }

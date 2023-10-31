@@ -18,6 +18,7 @@ public class RacingGame {
         }
 
         List<String> winners = findWinners(cars);
+        Display.printFinalWinners(winners);
     }
 
     private List<String> findWinners(List<Car> cars) {
