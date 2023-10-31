@@ -2,8 +2,6 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.service.RacingService;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +15,7 @@ public class RacingController {
     }
 
     public Map<String, Integer> playRacing(List<Car> cars) {
-        return racingService.playRacingCar(cars);
+        return racingService.playSingleRound(cars);
     }
 
     public List<String> readVictoryPlayers(List<Car> cars) {

@@ -14,7 +14,7 @@ public class RacingService {
         return cars;
     }
 
-    public Map<String, Integer> playRacingCar(List<Car> cars) {
+    public Map<String, Integer> playSingleRound(List<Car> cars) {
         Map<String, Integer> result = new LinkedHashMap<>();
         putRaceMove(cars, result);
         checkRoundWinner(cars, result);

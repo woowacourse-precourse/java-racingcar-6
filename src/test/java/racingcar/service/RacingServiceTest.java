@@ -44,7 +44,7 @@ class RacingServiceTest {
         List<Car> cars = List.of(pobi, woni, jun);
 
         // when
-        Map<String, Integer> result = racingService.playRacingCar(cars);
+        Map<String, Integer> result = racingService.playSingleRound(cars);
 
         // then
         result.values().forEach(score ->
