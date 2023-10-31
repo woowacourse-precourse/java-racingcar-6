@@ -40,4 +40,18 @@ public class CarGame {
     System.out.println();
   }
 
+  private List<Car> getWinner() {
+    Integer winnersPosition = 0;
+    List<Car> winners = new ArrayList<Car>();
+    for(Car car : cars) {
+      if(winnersPosition == car.getPosition())
+        winners.add(car);
+      else if(winnersPosition < car.getPosition()) {
+        winnersPosition = car.getPosition();
+        winners.clear();
+        winners.add(car);
+      }
+    }
+    return winners;
+  }
 }
