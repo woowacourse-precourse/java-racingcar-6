@@ -31,11 +31,17 @@ public class RacingGameView {
         System.out.println(Constant.INPUT_TRY_COUNT);
     }
 
-    public static int inputTryCount() {
+    public static String inputTryCount() {
         inputTryCountMessage();
         String tryCount = readLine();
+
         ExceptionController.tryCountNotIntException(tryCount);
         ExceptionController.tryCountLengthException(tryCount);
+
+        return tryCount;
+    }
+
+    public static int stringTryCountToInteger(String tryCount) {
         return Integer.parseInt(tryCount);
     }
 
