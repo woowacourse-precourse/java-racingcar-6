@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.output;
 
 import static java.lang.String.format;
 

@@ -4,8 +4,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static java.lang.String.format;
 
 import org.junit.jupiter.api.Test;
+import racingcar.output.PrintTest;
 
-public class OutputCarRaceTest extends PrintTest{
+public class OutputCarRaceTest extends PrintTest {
     private static final String 차이름 = "차이름";
     private static final String 차이름들 = "pobi1,pobi2,pobi3,pobi4";
 
