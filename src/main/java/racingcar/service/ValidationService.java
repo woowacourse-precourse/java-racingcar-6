@@ -43,4 +43,10 @@ public class ValidationService {
         }
     }
 
+    public void validateRoundRange(int round) {
+        if (round < ROUND_MIN.getValue() || round > ROUND_MAX.getValue()) {
+            throw new RacingCarException(INVALID_ROUND_RANGE_ERROR);
+        }
+    }
+
 }
