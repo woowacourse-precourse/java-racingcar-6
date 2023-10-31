@@ -28,4 +28,10 @@ public class ValidateInput {
             throw new InvalidInputException(ErrorText.ERROR_INVALID_POSITIVE_NUMBER_INPUT);
         }
     }
+
+    public static void validateIntegerRange(Integer start, Integer end) {
+        if(start > end){
+            throw new InvalidInputException(ErrorText.ERROR_INVALID_RANGE);
+        }
+    }
 }
