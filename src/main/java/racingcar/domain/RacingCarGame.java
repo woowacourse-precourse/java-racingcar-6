@@ -5,9 +5,9 @@ public class RacingCarGame {
     private final Cars cars;
     private final TryCount tryCount;
 
-    public RacingCarGame(Names names) {
+    public RacingCarGame(Names names, TryCount tryCount) {
         this.cars = new Cars(names);
-        this.tryCount = new TryCount();
+        this.tryCount = tryCount;
     }
 
     public void race() {
@@ -23,7 +23,7 @@ public class RacingCarGame {
         return cars.getWinner();
     }
 
-    public boolean isProgress(int count) {
-        return tryCount.isProgress(count);
+    public boolean isProgress() {
+        return tryCount.isProgress();
     }
 }

@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Names;
 import racingcar.domain.RacingCarGame;
+import racingcar.domain.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,14 +13,14 @@ public class CarController {
     private RacingCarGame racingCarGame;
 
     public void run() {
-        racingCarGame = new RacingCarGame(readNames());
-        startRacing(readTryCount());
+        racingCarGame = new RacingCarGame(readNames(), readTryCount());
+        startRacing();
         outputView.printWinner(racingCarGame.getWinner());
     }
 
-    private void startRacing(int count) {
+    private void startRacing() {
         outputView.printResultMessage();
-        while (racingCarGame.isProgress(count)) {
+        while (racingCarGame.isProgress()) {
             racingCarGame.race();
             outputView.printRacingResult(racingCarGame.getRacingResult());
         }
@@ -30,7 +31,7 @@ public class CarController {
         return inputView.readNames();
     }
 
-    private int readTryCount() {
+    private TryCount readTryCount() {
         outputView.printTryCountMessage();
         return inputView.readTryCount();
     }

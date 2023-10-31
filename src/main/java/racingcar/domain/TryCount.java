@@ -2,13 +2,18 @@ package racingcar.domain;
 
 public class TryCount {
 
-    private int value = 0;
+    private final int maxCount;
+    private int currentCount = 0;
 
-    public void increaseCount() {
-        value++;
+    public TryCount(int maxCount) {
+        this.maxCount = maxCount;
     }
 
-    public boolean isProgress(int number) {
-        return value != number;
+    public void increaseCount() {
+        currentCount++;
+    }
+
+    public boolean isProgress() {
+        return currentCount < maxCount;
     }
 }
