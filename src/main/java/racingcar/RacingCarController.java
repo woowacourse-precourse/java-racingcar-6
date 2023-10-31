@@ -8,11 +8,12 @@ import java.util.List;
 public class RacingCarController {
     static final int INPUT_RACING_CAR_LENGTH_LIMIT = 5;
     static final int TOTAL_TURN_MIN = 0;
+    static final int FIRST_MOVE_COUNT = 0;
     RacingCarService racingCarService = new RacingCarService();
 
     public void run(){
         try{
-            List<String> racingCars = inputRacingCarName();
+            List<RacingCar> racingCars = inputRacingCarName();
             int totalTurn = inputTotalTurn();
         } catch(IllegalArgumentException e){
             throw new IllegalArgumentException();
@@ -21,10 +22,10 @@ public class RacingCarController {
         racingCarService.play();
     }
 
-    public List<String> inputRacingCarName() throws IllegalArgumentException{
+    public List<RacingCar> inputRacingCarName() throws IllegalArgumentException{
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        List<String> inputRacingCars = new ArrayList<>();
+        List<RacingCar> inputRacingCars = new ArrayList<>();
 
         String[] racingCarInput = Console.readLine().split(",");
 
@@ -33,11 +34,15 @@ public class RacingCarController {
                 throw new IllegalArgumentException();
             }
 
-            inputRacingCars.add(racingCar);
+            RacingCar temporalRacingCar = new RacingCar();
+
+            temporalRacingCar.setName(racingCar);
+
+            temporalRacingCar.setMoveCount(FIRST_MOVE_COUNT);
+
+            inputRacingCars.add(temporalRacingCar);
         }
-        for(int i = 0; i < racingCarInput.length; i++){
-            System.out.println(racingCarInput[i]);
-        }
+
         return inputRacingCars;
     }
 
