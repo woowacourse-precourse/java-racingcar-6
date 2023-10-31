@@ -36,12 +36,35 @@ class ScoreBoardTest {
     }
 
     @Test
-    void showCarsScoreTest() {
+    void showCarsScoreTest1() {
         ScoreBoard scoreBoard = new ScoreBoard();
         List<Car> carList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             carList.add(new Car("" + i));
         }
-        scoreBoard.showCarsScore(carList, 3);
+        String result = scoreBoard.showCarsScore(carList, 3);
+        System.out.print(result);
+    }
+
+    @Test
+    void showCarsScoreTest2() {
+        ScoreBoard scoreBoard = new ScoreBoard();
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            carList.add(new Car("" + i));
+        }
+        String result = scoreBoard.showCarsScore(carList, 4);
+        System.out.print(result);
+    }
+
+    @Test
+    void showCarsScoreTest3() {
+        ScoreBoard scoreBoard = new ScoreBoard();
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            carList.add(new Car("" + i));
+        }
+        String result = scoreBoard.showCarsScore(carList, 1);
+        System.out.print(result);
     }
 }
