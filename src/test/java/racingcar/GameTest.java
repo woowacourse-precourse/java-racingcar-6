@@ -41,6 +41,14 @@ class GameTest extends NsTest {
         );
     }
 
+    @Test
+    void 횟수_0_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("moi,rei", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
