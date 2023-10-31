@@ -15,6 +15,7 @@ public class InputViewValidator {
     private static final String ERROR_TRY_NUMBER_EMPTY_MESSAGE = "시도 횟수가 공백일 수 없습니다";
     private static final String ERROR_TRY_NUMBER_NOT_INTEGER_MESSAGE = "시도 횟수는 정수 타입이어야 합니다.";
     private static final String ERROR_TRY_NUMBER_NOT_CORRECT_RANGE_MESSAGE = "시도 횟수는 1 이상이어야 합니다.";
+    private static final String ERROR_TRY_NUMBER_OVER_INTEGER_RANGE = "시도 횟수가 정수 범위를 넘을 수 없습니다.";
     private static final String EMPTY_STRING = "";
     private static final String CAR_NAME_SPLIT_REGEX = ",";
     private static final String INTEGER_REGEX = "-?\\d+";
@@ -56,6 +57,13 @@ public class InputViewValidator {
         if (isNotCorrectRange(tryNumber)) {
             throw new IllegalArgumentException(ERROR_PREFIX_MESSAGE + ERROR_TRY_NUMBER_NOT_CORRECT_RANGE_MESSAGE);
         }
+        if(isOverIntegerRange(tryNumber)){
+            throw new IllegalArgumentException(ERROR_PREFIX_MESSAGE + ERROR_TRY_NUMBER_OVER_INTEGER_RANGE);
+        }
+    }
+
+    public boolean isOverIntegerRange(String tryNumber) {
+        return Long.parseLong(tryNumber) > Integer.MAX_VALUE;
     }
 
     public boolean isNotCorrectRange(String tryNumber) {
