@@ -24,7 +24,7 @@ public class Racing {
         result.finalWinner();
     }
 
-    public void raceStart(String[] racerNameArray, int round) { // 전진 하라
+    public void raceStart(String[] racerNameArray, int round) {
         for (int i = 0; i < round; i++) {
             goRace(racerNameArray);
             System.out.println();
