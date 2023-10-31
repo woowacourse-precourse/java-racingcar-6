@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class RoundCount {
 
-    private static final String INVALID_ROUND_NUMBER_ERROR = "시도할 회수는 0이상의 정수여야 합니다.";
+    private static final String INVALID_ROUND_NUMBER_ERROR = "시도할 회수는 0 이상의 정수여야 합니다.";
 
     private int value;
 

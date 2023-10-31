@@ -4,7 +4,7 @@ public class CarName {
 
     private static final int MAX_LENGTH = 5;
     private static final int MIN_LENGTH = 1;
-    private static final String INVALID_LENGTH_ERROR_MESSAGE = "각 자동차 이름의 길이는 1-5사이여야 합니다.";
+    private static final String INVALID_LENGTH_ERROR_MESSAGE = "각 자동차 이름의 길이는 1-5 사이여야 합니다.";
 
     private final String value;
 
