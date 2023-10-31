@@ -16,8 +16,17 @@ public class DetermineWinnerController {
         this.outputView = outputView;
     }
 
-    public List<String> determineWinner() {
+    public void determineWinner() {
         int maxCount = getMaxCount();
+        List<String> winners = getWinners(maxCount);
+        outputWinner(winners);
+    }
+
+    private void outputWinner(List<String> winners) {
+        outputView.outputWinner(winners);
+    }
+
+    private List<String> getWinners(int maxCount) {
         return CarRepository.cars()
                 .stream()
                 .filter(car -> Util.isEqual(maxCount, car.getMoveCount()))

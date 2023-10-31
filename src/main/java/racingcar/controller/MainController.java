@@ -32,8 +32,7 @@ public class MainController {
     }
 
     private void determineWinner() {
-        List<String> winners = determineWinnerController.determineWinner();
-        outputView.outputWinner(winners);
+        determineWinnerController.determineWinner();
     }
 
     private void moveCar() {
