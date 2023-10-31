@@ -12,7 +12,12 @@ public class RacingMachine {
         this.cars = cars;
         this.tryCount = tryCount;
     }
-    
+
+    public void gamePlay(NumberGenerator numberGenerator) {
+        cars.moveCars(numberGenerator);
+        decreasedTryCount();
+    }
+
     private void decreasedTryCount() {
         tryCount--;
     }
