@@ -1,4 +1,4 @@
-package view;
+package validator;
 
 import constants.Constants;
 import constants.ExceptionMessage;
