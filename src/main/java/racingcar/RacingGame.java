@@ -6,9 +6,10 @@ import java.util.List;
 
 public class RacingGame {
     private List<Racer> racers;
-    private int timesOfTurn;
+    private final int timesOfTurn;
 
     public RacingGame() {
+        System.out.println(Messages.PLEASE_INPUT_RACERS);
         String racerNames = Console.readLine();
         if (racerNames == null) {
             throw new IllegalArgumentException("Null Input (initial racer names)");
@@ -18,6 +19,7 @@ public class RacingGame {
 
         this.racers = racerNameList.stream().map(Racer::new).toList();
 
+        System.out.println(Messages.PLEASE_INPUT_TURNS);
         String turnInput = Console.readLine();
 
         try {
@@ -27,6 +29,14 @@ public class RacingGame {
         }
 
         Console.close();
+    }
+
+    public void play() {
+        System.out.println(Messages.RACING_RESULT);
+        for (int i = 0; i < timesOfTurn; i++) {
+            racers.forEach(Racer::proceedTurn);
+            System.out.println();
+        }
     }
 
     private static List<String> sanitizeRacerNames(String racerNames) {
