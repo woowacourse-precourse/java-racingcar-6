@@ -4,24 +4,21 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
 
 public class User {
-    private static String input() {
+    static final String DELIMITER = ",";
+
+    public static String input() {
         return Console.readLine();
     }
 
-    private static String[] splitInput(String input) {
-        return input.split(",");
+    public static String[] splitInput(String input) {
+        return input.split(DELIMITER);
     }
 
-    public static int stringToInteger() {
-        return Integer.parseInt(input());
-    }
-
-    public static LinkedHashMap<String, Integer> carReset() {
-        LinkedHashMap<String, Integer> racingCar = new LinkedHashMap<>();
-        String[] input = splitInput(input());
-        for (String car : input) {
-            racingCar.put(car, 0);
+    public static int stringToInteger() throws IllegalArgumentException {
+        try {
+            return Integer.parseInt(input());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("문자가 아닌 숫자를 입력해 주세요.");
         }
-        return racingCar;
     }
 }
