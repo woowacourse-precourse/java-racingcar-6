@@ -47,8 +47,12 @@ class Race {
     private  int attempts;
 
     public Race(List<String> carNames, int attempts){
-        this.carList=carNames.stream().map(Car::new).toList();
+        this.carList= createCarsFromNames(carNames);
         this.attempts=attempts;
+    }
+
+    private List<Car> createCarsFromNames(List<String> carNames){
+        return carNames.stream().map(Car::new).toList();
     }
 
     public void startRace(){
