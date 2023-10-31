@@ -29,9 +29,17 @@ public class RacerTest {
                 int pastPos = racer.getCurrentPos();
                 racer.runRaceEachStep();
                 int currentPos = racer.getCurrentPos();
-
-                Assertions.assertEquals
-                    (pastPos + Config.FORWARD_DISTANCE, currentPos);
+                Assertions.assertEquals(pastPos + Config.FORWARD_DISTANCE, currentPos);
+            });
+    }
+    @Test
+    void 자동차_전진여부에_따라_현재_위치에서_전진할_수_없다(){
+        RandomsMocking.fixPickNumberInRangeUnderThreshold(
+            () -> {
+                int pastPos = racer.getCurrentPos();
+                racer.runRaceEachStep();
+                int currentPos = racer.getCurrentPos();
+                Assertions.assertEquals(pastPos, currentPos);
             });
     }
 }
