@@ -15,4 +15,9 @@ public class Output {
     public void printExecutionResult(){
         System.out.println(executionResult);
     }
+
+    public void printDashBoard(int distance){
+        String move= "-";
+        System.out.println(move.repeat(distance));
+    }
 }
