@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.controller.dto.ResponseDto;
 import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.Car;
@@ -48,12 +49,12 @@ public class RacingGameController {
         return attempt;
     }
 
-    public String startGame(List<Car> cars) {
-        String result = "";
+    public ResponseDto startGame(List<Car> cars) {
+        List<String> results = new ArrayList<>();
         for (Car car : cars) {
            car.playGameOneRound();
-           result += car.toString();
+           results.add(car.toString());
         }
-        return result;
+        return ResponseDto.toDto(results);
     }
 }
