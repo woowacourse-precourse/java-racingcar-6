@@ -23,9 +23,8 @@ public class CarGenerator {
         return carList;
     }
 
-    public String inputCarList() {
-        String carList = Console.readLine();
-        return carList;
+    public void inputCarList() {
+        car.setStringCarList(Console.readLine());
     }
 
     public void checkContainsConsecutiveCommas(String inputCarList) {
