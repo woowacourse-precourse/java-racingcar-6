@@ -14,7 +14,7 @@ public class Participant {
 
     public Participant(String input) {
 
-        List<String> nameList = splitByComma(input);
+        List<String> nameList = removeBlank(splitByComma(input));
 
         checkDuplication(nameList);
 
@@ -39,6 +39,16 @@ public class Participant {
 
     private List<String> splitByComma(String input) {
         return Arrays.asList(input.split(SEPERATOR));
+    }
+
+    private List<String> removeBlank(List<String> nameList) {
+
+        for (int i = 0; i < nameList.size(); i++) {
+            String trimmedString = nameList.get(i).trim();
+            nameList.set(i, trimmedString);
+        }
+
+        return nameList;
     }
 
 }
