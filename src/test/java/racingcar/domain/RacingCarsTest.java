@@ -1,13 +1,25 @@
 package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.when;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import racingcar.common.consts.SystemConst;
+import racingcar.common.utils.NumberGenerator;
 
+@TestInstance(Lifecycle.PER_CLASS)
 class RacingCarsTest {
     private RacingCars racingCars;
+
+    @BeforeAll
+    void setupStaticClass() {
+        mockStatic(NumberGenerator.class);
+    }
 
     @BeforeEach
     void setup() {
@@ -52,14 +64,29 @@ class RacingCarsTest {
     }
 
     @Test
-    void List안에_Car객체들을_이동시킨다() {
+    void List안에_Car객체들을_RandomNumber가_MOVE_FORMARD보다_크면_움직인다() {
+        int randomNumber = SystemConst.MOVE_FORWARD_NUMBER;
+        when(NumberGenerator.makeRandomNumber()).thenReturn(randomNumber);
         Car car1 = new Car("test1", 5);
 
         racingCars.add(car1);
 
-        racingCars.moveCar();
+        racingCars.moveRacingCars();
 
         assertEquals(6, car1.toDto().getAdvance());
+    }
+
+    @Test
+    void List안에_Car객체들을_RandomNumber가_MOVE_FORMARD보다_작으면_안움직인다() {
+        int randomNumber = SystemConst.MOVE_FORWARD_NUMBER - 1;
+        when(NumberGenerator.makeRandomNumber()).thenReturn(randomNumber);
+        Car car1 = new Car("test1", 5);
+
+        racingCars.add(car1);
+
+        racingCars.moveRacingCars();
+
+        assertEquals(5, car1.toDto().getAdvance());
     }
 
     @Test

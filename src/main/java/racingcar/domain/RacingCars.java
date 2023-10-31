@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.common.consts.SystemConst;
+import racingcar.common.utils.NumberGenerator;
 
 public class RacingCars {
     private List<Car> racingCars = new ArrayList<>();
@@ -33,10 +34,22 @@ public class RacingCars {
         racingCars.add(car);
     }
 
-    public void moveCar() {
+    public RacingCars moveRacingCars() {
         for (Car car : racingCars) {
+            moveRacingCar(car);
+        }
+        return this;
+    }
+
+    private void moveRacingCar(Car car) {
+        if (isMove(car)) {
             car.move();
         }
+    }
+
+    private boolean isMove(Car car) {
+        int number = NumberGenerator.makeRandomNumber();
+        return number >= SystemConst.MOVE_FORWARD_NUMBER;
     }
 
     public void sort() {

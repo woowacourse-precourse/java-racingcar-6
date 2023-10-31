@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.common.consts.SystemConst;
-import racingcar.common.utils.NumberGenerator;
 
 public class Car implements Comparable<Car> {
     private String name;
@@ -23,13 +22,6 @@ public class Car implements Comparable<Car> {
     }
 
     public void move() {
-        int number = NumberGenerator.makeRandomNumber();
-        if (number >= SystemConst.MOVE_FORWARD_NUMBER) {
-            moveForward();
-        }
-    }
-
-    private void moveForward() {
         this.advance += SystemConst.ADVANCE_STEP;
     }
 
