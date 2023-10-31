@@ -29,8 +29,8 @@ public class Car {
 
     public void forward() { // 자동차마다 어떻게 나누지? -> list안에 클래스를 넣자!
         calRandomNum();
-        if(randomNum > 3) {
-            position+=1;
+        if (randomNum > 3) {
+            position += 1;
         }
     }
 
