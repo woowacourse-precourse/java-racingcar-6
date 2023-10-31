@@ -51,15 +51,35 @@ public class GameController {
     }
 
     private void executeGame() {
-        outputView.printExecutionStartSign();
+        printExecutionStartSign();
         for (long i = 0; i < numberOfGames.getNumberOfGames(); i++) {
-            racingCarManager.playRacingGame();
-            outputView.printCarStatus(racingCarManager.getCarList());
+            playRacingGame();
+            printEachCarStatus();
         }
     }
 
+    private void printExecutionStartSign() {
+        outputView.printExecutionStartSign();
+    }
+
+    private void playRacingGame() {
+        racingCarManager.playRacingGame();
+    }
+
+    private void printEachCarStatus() {
+        outputView.printCarStatus(racingCarManager.getCarList());
+    }
+
     private void showGameResult() {
-        CarList mostDistanceCarList = racingCarManager.getMostDistanceCarList();
+        CarList mostDistanceCarList = getMostDistanceCarList();
+        printFinalWinner(mostDistanceCarList);
+    }
+
+    private CarList getMostDistanceCarList() {
+        return racingCarManager.getMostDistanceCarList();
+    }
+
+    private void printFinalWinner(CarList mostDistanceCarList) {
         outputView.printFinalWinner(mostDistanceCarList);
     }
 }
