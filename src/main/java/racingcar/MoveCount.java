@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class MoveCount {
     private int moveCount;
 
@@ -13,7 +11,7 @@ public class MoveCount {
     private void validateMoveCount(String moveCount) throws IllegalArgumentException {
         try {
             int inputNumber = Integer.parseInt(moveCount);
-            if (inputNumber < 0) {
+            if (inputNumber < 1) {
                 throw new IllegalArgumentException(ErrorMessage.MINIMUM_TRY_NEEDED);
             }
         } catch (NumberFormatException e) {
