@@ -17,6 +17,7 @@ public class Computer {
         if (isInvalidCarNames(carNames)) {
             throw new IllegalArgumentException();
         }
+        this.carNames.clear();
         this.carNames.addAll(carNames.stream().map(RacingCar::new).toList());
     }
 
@@ -65,6 +66,7 @@ public class Computer {
         while (hasNextRound()) {
             String roundResult = playRound();
             this.raceResult.add(roundResult);
+            endRound();
         }
         return raceResult();
     }
@@ -75,7 +77,6 @@ public class Computer {
 
     private String playRound() {
         this.carNames.stream().filter(RacingCar::isMovable).forEach(RacingCar::move);
-        endRound();
         return roundResult();
     }
 
@@ -91,5 +92,24 @@ public class Computer {
 
     private String raceResult() {
         return String.join("\n", this.raceResult);
+    }
+
+    public String getWinner() {
+        if (isNotZero(this.round) || this.raceResult.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        final int maxPosition = this.carNames.stream()
+                .mapToInt(RacingCar::getPosition)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
+        return this.carNames.stream()
+                .filter(car ->
+                        car.getPosition() == maxPosition)
+                .map(RacingCar::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private boolean isNotZero(int round) {
+        return round != 0;
     }
 }

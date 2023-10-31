@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import camp.nextstep.edu.missionutils.test.Assertions;
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -14,6 +13,8 @@ import org.junit.jupiter.api.Test;
 public class UnitTest {
 
     private final Computer computer = new Computer();
+    private static final int MOVE_FORWARD = 4;
+    private static final int STOP = 3;
 
     @Nested
     @DisplayName("사용자는 경주에 참여할 자동차 이름을 입력한다.")
@@ -82,10 +83,7 @@ public class UnitTest {
 
     @Nested
     @DisplayName("컴퓨터는 이동 횟수에 대한 결과를 표시한다.")
-    class RoundTest extends NsTest {
-
-        private final int MOVE_FORWARD = 4;
-        private final int STOP = 3;
+    class RoundTest {
 
         @BeforeEach
         void setup() {
@@ -131,9 +129,55 @@ public class UnitTest {
                     MOVE_FORWARD
             );
         }
+    }
 
-        @Override
-        protected void runMain() {
+    @Nested
+    @DisplayName("컴퓨터는 자동차 경주 게임을 완료한 후 누가 우승했는지를 표시한다.")
+    class RaceWinnerTest {
+
+        @BeforeEach
+        void setup() {
+            computer.readCarNames("green, red");
+            computer.readRound("2");
+        }
+
+        @Test
+        void 가장_많은_이동_횟수를_가진_자동차가_우승() {
+            Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        computer.startRace();
+                        String winner = computer.getWinner();
+
+                        assertThat(winner).contains("green");
+                    },
+                    MOVE_FORWARD, STOP, MOVE_FORWARD, STOP
+            );
+        }
+
+        @Test
+        void 이동_횟수가_동일할경우_모두_우승() {
+            Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        computer.startRace();
+                        String winner = computer.getWinner();
+                        assertThat(winner).contains("green", "red");
+                    },
+                    MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
+            );
+        }
+
+        @Test
+        void 이동_횟수가_동일할경우_이름_입력_순서대로_표시() {
+            computer.readCarNames("red, green");
+
+            Assertions.assertRandomNumberInRangeTest(
+                    () -> {
+                        computer.startRace();
+                        String winner = computer.getWinner();
+                        assertThat(winner).contains("red", "green");
+                    },
+                    MOVE_FORWARD, MOVE_FORWARD, STOP, STOP
+            );
         }
     }
 }
