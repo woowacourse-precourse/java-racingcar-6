@@ -1,4 +1,4 @@
-package racingcar.move;
+package racingcar.race.move;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
