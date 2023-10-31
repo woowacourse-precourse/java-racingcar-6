@@ -9,4 +9,8 @@ public class InputView {
         return Console.readLine();
     }
 
+    public String insertTrialCount() {
+        System.out.println(Message.ASK_TRY_COUNT);
+        return Console.readLine();
+    }
 }
