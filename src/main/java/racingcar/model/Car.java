@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static racingcar.validation.InputValidator.validateInputName;
 
+import racingcar.constant.GameConfig;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -24,6 +26,6 @@ public class Car {
     }
 
     private void validateName(String name) {
-        validateInputName(name);
+        validateInputName(name, GameConfig.MAXIMUM_CAR_NAME_LENGTH.getValue());
     }
 }

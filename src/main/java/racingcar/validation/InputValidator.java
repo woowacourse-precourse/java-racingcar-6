@@ -1,14 +1,12 @@
 package racingcar.validation;
 
-import racingcar.constant.GameConfig;
-
 public class InputValidator {
 
     public InputValidator() {
     }
 
-    public static void validateInputName(String name) {
-        validateInputNameLength(name);
+    public static void validateInputName(String name, int maxLength) {
+        validateInputNameLength(name, maxLength);
         validateNoBlank(name);
     }
 
@@ -27,8 +25,8 @@ public class InputValidator {
         }
     }
 
-    private static void validateInputNameLength(String name) {
-        if (name.isEmpty() || name.length() > GameConfig.MAXIMUM_CAR_NAME_LENGTH) {
+    private static void validateInputNameLength(String name, int maxLength) {
+        if (name.isEmpty() || name.length() > maxLength) {
             throw new IllegalArgumentException();
         }
     }
