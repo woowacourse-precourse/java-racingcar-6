@@ -1,5 +1,7 @@
 package controller;
 
+import configuration.GameSetter;
+
 public class GameController {
     private final GameSetter racingGame;
     private final GameRule gameRule;

@@ -1,6 +1,8 @@
 package model;
 
 public class Car {
+    static final char ADD_BY = '-';
+
     private String name;
     private int distance = 0;
 
@@ -25,7 +27,7 @@ public class Car {
         String carState = (this.name + " : ");
 
         for (int i = 0; i < this.distance; i++) {
-            carState += '-';
+            carState += ADD_BY;
         }
 
         return carState;

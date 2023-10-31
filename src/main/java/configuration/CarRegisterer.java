@@ -1,10 +1,12 @@
-package controller;
+package configuration;
 
 import model.Car;
 import model.CarList;
 import view.UserView;
 
 public class CarRegisterer {
+    static final int NAME_LENGTH_LIMIT = 5;
+
     private final CarList carList;
     private final UserView userView;
 
@@ -40,6 +42,6 @@ public class CarRegisterer {
     }
 
     public void validateNameLength(String carName) {
-        if (carName.length() > 5) throw new IllegalArgumentException("이름은 5글자 이하로 입력해 주십시오.");
+        if (carName.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException("이름은 5글자 이하로 입력해 주십시오.");
     }
 }

@@ -1,4 +1,4 @@
-package controller;
+package configuration;
 
 import model.CarList;
 import view.UserView;
@@ -22,7 +22,7 @@ public class GameSetter {
         carRegisterer.registerCars();
     }
 
-    int getCoin() {
+    public int getCoin() {
         return this.coinValue;
     }
 }
