@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.lang.IllegalArgumentException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Application {
     public static void main(String[] args) {
@@ -19,20 +21,7 @@ public class Application {
         int racingNum = Integer.parseInt(racingStr);
 
         //레이싱 시작
-        //StartRacing(CarArray, racingNum);
-
-
-
-
-
-
-
-
-
-
-
-
-
+        StartRacing(CarArray, racingNum);
 
     }
     public static void CheckCarArray(String[] CarArray) {
@@ -43,8 +32,33 @@ public class Application {
         }
     }
 
+    public static void StartRacing(String[] CarArray, int racingNum) {
+        ArrayList<Integer> forwardDistance = new ArrayList<>();
 
-    //public static int StartRacing(String[] CarArray, int racingNum) {
+        //차의 개수만큼 진행도 배열에 개수 추가
+        for(String s: CarArray) {
+            forwardDistance.add(0);
+        }
 
-    //}
+        for(int i=0; i< racingNum; i++) {
+            //각 사람마다 랜덤함수 돌리고 조건에 따라 전진
+            GoOrStop(forwardDistance);
+
+            //차수별 실행 결과 출력
+        }
+        //다 돌았으니까 우승자 파악
+    }
+
+    public static void GoOrStop(ArrayList<Integer> distanceArray) {
+        //각 진척도를 순회하며 랜덤 값이 4 이상이면 전진
+        for(int j=0; j< distanceArray.size(); j++) {
+            if(Randoms.pickNumberInRange(0,9) >= 4) {
+                int distanceValue = distanceArray.get(j);
+                distanceValue +=1;
+                distanceArray.set(j,distanceValue);
+            }
+        }
+    }
+
+
 }
