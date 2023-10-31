@@ -28,7 +28,7 @@ public final class OutputView {
         System.out.println(GAME_RESULT_PREFIX_MESSAGE);
     }
 
-    public static void printCurrentProgress(final Cars cars) {
+    public static void printCurrentRaceResult(final Cars cars) {
         for (int i = 0; i < cars.getSize(); i++) {
             final String name = cars.getNameFromIndex(i);
             final String currentDistanceValue = getCurrentDistanceValue(cars, i);

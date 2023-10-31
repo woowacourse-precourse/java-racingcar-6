@@ -37,7 +37,7 @@ public class GameManagerController {
         OutputView.printGameStartMessage();
         for (int i = 0; i < totalRoundNumberRequest.getTotalCount(); i++) {
             cars.move();
-            OutputView.printCurrentProgress(cars);
+            OutputView.printCurrentRaceResult(cars);
         }
     }
 }
