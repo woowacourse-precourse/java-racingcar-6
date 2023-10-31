@@ -16,6 +16,10 @@ public class Car {
         return car.keySet();
     }
 
+    public Collection<Integer> getCarMoving() {
+        return car.values();
+    }
+
     public void setMovingCount(String carName) {
         car.put(carName, getMovingCount(carName) + 1);
     }

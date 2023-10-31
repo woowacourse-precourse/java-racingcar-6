@@ -30,6 +30,9 @@ public class Racing {
             raceCar(carNames);
             output.printMessage(AnnouncerScript.FINISH_ONE_ROUND);
         }
+
+        output.printMessage(AnnouncerScript.WINNER);
+        output.printMessage(judgement.findWinner(cars));
     }
 
     private void raceCar(Iterator<String> carNames) {
@@ -63,5 +66,8 @@ public class Racing {
         output.printMessage(result);
     }
 
+    private void decideWinner() {
+
+    }
 
 }
