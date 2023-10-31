@@ -33,8 +33,9 @@ public class UserInput {
     }
 
     private void readRacingCount(){
-        racingCount = Integer.parseInt(readLine()); // int형으로 변환
-        inputException.isVaildRacingCount(racingCount);
+        String racingCountInput = readLine();
+        inputException.isVaildRacingCount(racingCountInput);
+        racingCount = Integer.parseInt(racingCountInput); // int형으로 변환
     }
 
     private void splitCarNameStringToList(String carsName){
