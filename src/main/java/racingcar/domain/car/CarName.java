@@ -1,12 +1,12 @@
 package racingcar.domain.car;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import racingcar.util.Err;
+import racingcar.util.StringUtils;
 
 public class CarName {
     private static final int CAR_NAME_MAX_LENGTH = 5;
-    private static final String COMMA = ",";
     private final String name;
 
     private CarName(String name) {
@@ -31,10 +31,10 @@ public class CarName {
     }
 
     private void validateUniqueCarCount(String name) {
-        String[] carNames = name.split(COMMA);
-        int uniqueCarNameCount = (int) Arrays.stream(carNames).distinct().count();
+        List<String> carNames = StringUtils.splitStringToList(name);
+        int uniqueCarNameCount = (int) carNames.stream().distinct().count();
 
-        if (uniqueCarNameCount != carNames.length) {
+        if (uniqueCarNameCount != carNames.size()) {
             throw new IllegalArgumentException(Err.INSUFFICIENT_CAR_COUNT.getMessage());
         }
     }
