@@ -33,7 +33,13 @@ public class RacingcarGame {
     }
 
     public void makeCarNameList() {
-
+        moderator.printNameInputMsg();
+        String userNameInput = user.getUserInput();
+        String[] splitStr = userNameInput.split(",");
+        for (int i = 0; i < splitStr.length; i++) {
+            moderator.validateCarName(splitStr[i]);
+            carName.add(new RacingcarGame(splitStr[i]));
+        }
     }
 
     public void getTryNumber() {
