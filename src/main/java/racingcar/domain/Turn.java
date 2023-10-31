@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.constant.RacingCarErrorMessage.TRY_COUNT_NUMBER_FORMAT_ERROR_MESSAGE;
+import static racingcar.constant.CarRacingErrorMessage.TRY_COUNT_NUMBER_FORMAT_ERROR_MESSAGE;
 
 import java.util.regex.Pattern;
 

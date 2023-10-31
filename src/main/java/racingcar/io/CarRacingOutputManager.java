@@ -1,14 +1,15 @@
-package racingcar.domain;
+package racingcar.io;
 
-import static racingcar.constant.RacingCarConstant.CAR_POSITION_MARKER;
-import static racingcar.constant.RacingCarConstant.WINNER_INFO_DELIMITER;
-import static racingcar.constant.RacingCarMessage.CAR_POSITION_OUTPUT_MESSAGE;
-import static racingcar.constant.RacingCarMessage.WINNERS_INFO_MESSAGE;
+import static racingcar.constant.CarRacingConstant.CAR_POSITION_MARKER;
+import static racingcar.constant.CarRacingConstant.WINNER_INFO_DELIMITER;
+import static racingcar.constant.CarRacingMessage.CAR_POSITION_OUTPUT_MESSAGE;
+import static racingcar.constant.CarRacingMessage.WINNERS_INFO_MESSAGE;
 
 import java.util.List;
 import java.util.StringJoiner;
+import racingcar.domain.Car;
 
-public class RacingCarOutputManager {
+public class CarRacingOutputManager {
 
     public void printCarPosition(String carName, int position) {
         StringBuilder positionText = new StringBuilder();

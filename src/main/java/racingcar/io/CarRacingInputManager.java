@@ -1,18 +1,18 @@
-package racingcar.domain;
+package racingcar.io;
 
-import static racingcar.constant.RacingCarConstant.CAR_NAME_SEPARATOR;
-import static racingcar.constant.RacingCarMessage.INPUT_CAR_NAMES_MESSAGE;
-import static racingcar.constant.RacingCarMessage.INPUT_TRY_COUNT_MESSAGE;
+import static racingcar.constant.CarRacingConstant.CAR_NAME_SEPARATOR;
+import static racingcar.constant.CarRacingMessage.INPUT_CAR_NAMES_MESSAGE;
+import static racingcar.constant.CarRacingMessage.INPUT_TRY_COUNT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class RacingCarInputManager {
-    private final RacingCarOutputManager outputManager;
+public class CarRacingInputManager {
+    private final CarRacingOutputManager outputManager;
 
-    public RacingCarInputManager(RacingCarOutputManager outputManager) {
+    public CarRacingInputManager(CarRacingOutputManager outputManager) {
         this.outputManager = outputManager;
     }
 

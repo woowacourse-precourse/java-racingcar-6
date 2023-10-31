@@ -1,6 +1,6 @@
 package racingcar.constant;
 
-public class RacingCarConstant {
+public class CarRacingConstant {
 
     public static final int CAR_NAME_MAX_LENGTH = 5;
     public final static int START_POSITION = 0;

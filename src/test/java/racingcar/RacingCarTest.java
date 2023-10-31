@@ -10,10 +10,10 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.RacingCarOutputManager;
 import racingcar.domain.Referee;
 import racingcar.domain.Turn;
 import racingcar.domain.Winners;
+import racingcar.io.CarRacingOutputManager;
 
 public class RacingCarTest {
 
@@ -79,7 +79,7 @@ public class RacingCarTest {
             List<String> carNames = List.of("jamy", "risa", "jun");
             Cars cars = Cars.fromCarNames(carNames);
 
-            RacingCarOutputManager outputManager = new RacingCarOutputManager();
+            CarRacingOutputManager outputManager = new CarRacingOutputManager();
             for (Car car : cars.tryToMove()) {
                 outputManager.printCarPosition(car.getName(), car.getPosition());
             }
@@ -117,7 +117,7 @@ public class RacingCarTest {
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             System.setOut(new PrintStream(outputStream));
-            RacingCarOutputManager outputManager = new RacingCarOutputManager();
+            CarRacingOutputManager outputManager = new CarRacingOutputManager();
 
             Car car1 = Car.fromName("car1");
             Car car2 = Car.fromName("car2");

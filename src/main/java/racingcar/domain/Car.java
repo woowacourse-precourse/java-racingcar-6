@@ -1,11 +1,11 @@
 package racingcar.domain;
 
-import static racingcar.constant.RacingCarConstant.CAR_MAX_MOVE_POWER;
-import static racingcar.constant.RacingCarConstant.CAR_MIN_MOVE_POWER;
-import static racingcar.constant.RacingCarConstant.CAR_MOVABLE_POWER;
-import static racingcar.constant.RacingCarConstant.CAR_NAME_MAX_LENGTH;
-import static racingcar.constant.RacingCarConstant.START_POSITION;
-import static racingcar.constant.RacingCarErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
+import static racingcar.constant.CarRacingConstant.CAR_MAX_MOVE_POWER;
+import static racingcar.constant.CarRacingConstant.CAR_MIN_MOVE_POWER;
+import static racingcar.constant.CarRacingConstant.CAR_MOVABLE_POWER;
+import static racingcar.constant.CarRacingConstant.CAR_NAME_MAX_LENGTH;
+import static racingcar.constant.CarRacingConstant.START_POSITION;
+import static racingcar.constant.CarRacingErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

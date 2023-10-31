@@ -2,23 +2,23 @@ package racingcar;
 
 import racingcar.domain.CarRacing;
 import racingcar.domain.Cars;
-import racingcar.domain.RacingCarInputManager;
-import racingcar.domain.RacingCarOutputManager;
 import racingcar.domain.Referee;
 import racingcar.domain.Turn;
+import racingcar.io.CarRacingInputManager;
+import racingcar.io.CarRacingOutputManager;
 
 public class Application {
     public static void main(String[] args) {
-        RacingCarOutputManager outputManager = new RacingCarOutputManager();
-        RacingCarInputManager inputManager = new RacingCarInputManager(outputManager);
+        CarRacingOutputManager outputManager = new CarRacingOutputManager();
+        CarRacingInputManager inputManager = new CarRacingInputManager(outputManager);
 
         CarRacing carRacing = createCarRacing(inputManager, outputManager);
         carRacing.start();
     }
 
 
-    private static CarRacing createCarRacing(RacingCarInputManager inputManager,
-                                             RacingCarOutputManager outputManager) {
+    private static CarRacing createCarRacing(CarRacingInputManager inputManager,
+                                             CarRacingOutputManager outputManager) {
         Cars cars = readCarsInfo(inputManager);
         Turn turn = readTurn(inputManager);
         Referee referee = new Referee();
@@ -26,11 +26,11 @@ public class Application {
         return new CarRacing(cars, turn, referee, outputManager);
     }
 
-    private static Turn readTurn(RacingCarInputManager inputManager) {
+    private static Turn readTurn(CarRacingInputManager inputManager) {
         return Turn.fromTryCount(inputManager.readTryToMoveTurnCount());
     }
 
-    private static Cars readCarsInfo(RacingCarInputManager inputManager) {
+    private static Cars readCarsInfo(CarRacingInputManager inputManager) {
         return Cars.fromCarNames(inputManager.readCarNames());
     }
 }
