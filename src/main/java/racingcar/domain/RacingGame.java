@@ -52,7 +52,7 @@ public class RacingGame {
     private void playRound(final List<Car> cars, final int playTimes) {
         messagePrinter.roundResultMessage();
 
-        for (int i=0; i<playTimes; i++) {
+        for (int i = 0; i < playTimes; i++) {
             cars.forEach(car -> car
                     .move(generateRandomNumber()));
             messagePrinter.roundResult(cars);

@@ -4,7 +4,7 @@ public class Car {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int POSITION_INIT_VALUE = 0;
     private static final int MOVE_CONDITION = 4;
-    private static final int POSITION_INCREMENT_VALUE  = 1;
+    private static final int POSITION_INCREMENT_VALUE = 1;
 
     private final String name;
     private int position;
