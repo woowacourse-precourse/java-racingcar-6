@@ -15,6 +15,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class GameScoreTest {
@@ -47,6 +48,14 @@ class GameScoreTest {
     void create(){
         String expected = "pobi : \n" + "woni : \n" + "jun : \n";
         assertThat(gameScore.toString()).isEqualTo(expected);
+    }
+
+    @DisplayName("중복된 이름을 가진 자동차가 있을 시 예외가 발생한다")
+    @Test
+    void validateDuplicate(){
+        List<RacingCar> duplicateCars = Arrays.asList(new RacingCar("pobi"), new RacingCar("pobi"));
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> GameScore.createByRacingCars(duplicateCars));
     }
 
 

@@ -14,7 +14,17 @@ public class GameScore {
         this.participants = participants;
     }
 
+    private static void validateDuplicate(List<RacingCar> racingCars){
+        long nonDuplicateSize = racingCars.stream()
+                .distinct()
+                .count();
+        if (nonDuplicateSize != racingCars.size()) {
+            throw new IllegalArgumentException("중복된 이름을 가진 자동차는 없어야 합니다.");
+        }
+    }
+
     public static GameScore createByRacingCars(List<RacingCar> racingCars){
+        validateDuplicate(racingCars);
         Map<RacingCar, String> gameScore = new LinkedHashMap<>();
         for (RacingCar racingCar : racingCars) {
             gameScore.put(racingCar, CarStatus.STOP.getOutput());
