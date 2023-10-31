@@ -7,7 +7,7 @@ import static racingcar.constants.RacingCarConstants.RANDOM_MIN;
 
 public class RandomNumberService {
 
-    public int generateRandomNumber() {
+    public static int generateRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_MIN.getValue(), RANDOM_MAX.getValue());
     }
 
