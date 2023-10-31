@@ -70,10 +70,7 @@ public class GameProcess {
         nameSplitList = Utill.makeListFromArr(nameSplitArr);
     }
 
-    /**
-     * 게임을 시도할 회수를 입력하는 메서드
-     */
-    public void inputNumberGameAttempts() {
+    public void inputNumOfGameAttempts() {
         // 게임을 시도할 회수를 입력하는 메서드
         cntTryRace = Utill.inputNum();
     }

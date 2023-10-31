@@ -37,7 +37,7 @@ public class InputNumberGameAttemp {
 
         // then
         assertThatThrownBy(() -> {
-            gameProcess.inputNumberGameAttempts();
+            gameProcess.inputNumOfGameAttempts();
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }

@@ -80,7 +80,7 @@ public class GameStart {
      */
     public void printInputNumOfTryCnt() {
         Utill.print(MyConstans.MSG_INPUT_COUNT_TRY_GAME());
-        gameProcess.inputNumberGameAttempts();
+        gameProcess.inputNumOfGameAttempts();
     }
 
     /**
