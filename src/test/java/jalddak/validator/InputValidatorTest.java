@@ -23,7 +23,7 @@ public class InputValidatorTest {
     void 에외테스트_validateName(String given) {
         assertThatThrownBy(() -> validateName(given))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(BLANK.getMessage());
+                .hasMessageContaining(BLANK);
     }
 
     @ParameterizedTest
@@ -31,7 +31,7 @@ public class InputValidatorTest {
     void 예외테스트_validateDuplicateName(String given) {
         assertThatThrownBy(() -> validateDuplicateName(given))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DUPLICATE.getMessage());
+                .hasMessageContaining(DUPLICATE);
     }
 
     @ParameterizedTest
@@ -39,7 +39,7 @@ public class InputValidatorTest {
     void 예외테스트_validateLenOfCar(String given) {
         assertThatThrownBy(() -> validateLenOfCar(given))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(LESS_THAN_MIN_NUM_OF_CAR.getMessage());
+                .hasMessageContaining(LESS_THAN_MIN_NUM_OF_CAR);
     }
 
     @ParameterizedTest
@@ -47,7 +47,7 @@ public class InputValidatorTest {
     void 예외테스트_validateLenOfCarName(String given) {
         assertThatThrownBy(() -> validateLenOfCarName(given))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(EXCEED_MAX_LEN_OF_CAR_NAME.getMessage());
+                .hasMessageContaining(EXCEED_MAX_LEN_OF_CAR_NAME);
     }
 
     @ParameterizedTest
@@ -55,7 +55,7 @@ public class InputValidatorTest {
     void 예외테스트_validateStringToInteger(String given) {
         assertThatThrownBy(() -> validateStringToInteger(given))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NOT_INTEGER.getMessage());
+                .hasMessageContaining(NOT_INTEGER);
     }
 
     @ParameterizedTest
@@ -63,6 +63,6 @@ public class InputValidatorTest {
     void 예외테스트_validateRangeOfMatches(String given) {
         assertThatThrownBy(() -> validateRangeOfMatches(given))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());
+                .hasMessageContaining(LESS_THAN_MIN_NUM_OF_MATCHES);
     }
 }

@@ -1,8 +1,8 @@
 package racingcar.validator;
 
-import static racingcar.model.ConstantValue.MAX_LEN_OF_CAR_NAME;
-import static racingcar.model.ConstantValue.MIN_NUM_OF_CAR;
-import static racingcar.model.ConstantValue.MIN_NUM_OF_MATCHES;
+import static racingcar.ConstantValue.MAX_LEN_OF_CAR_NAME;
+import static racingcar.ConstantValue.MIN_NUM_OF_CAR;
+import static racingcar.ConstantValue.MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.BLANK;
 import static racingcar.validator.ErrorMessage.DUPLICATE;
 import static racingcar.validator.ErrorMessage.EXCEED_MAX_LEN_OF_CAR_NAME;
@@ -26,13 +26,13 @@ public class InputValidator {
 
     public static void validateName(String carListString) {
         if (carListString.contains(",,") || carListString.charAt(carListString.length() - 1) == ',') {
-            throw new IllegalArgumentException(BLANK.getMessage());
+            throw new IllegalArgumentException(BLANK);
         }
         String[] carList = carListString.split(",");
         for (String car : carList) {
             car = car.replaceAll("\\s", "");
             if (car.isEmpty()) {
-                throw new IllegalArgumentException(BLANK.getMessage());
+                throw new IllegalArgumentException(BLANK);
             }
         }
     }
@@ -43,7 +43,7 @@ public class InputValidator {
 
         for (String car : carList) {
             if (carSet.contains(car)) {
-                throw new IllegalArgumentException(DUPLICATE.getMessage());
+                throw new IllegalArgumentException(DUPLICATE);
             }
             carSet.add(car);
         }
@@ -51,14 +51,14 @@ public class InputValidator {
 
     public static void validateLenOfCar(String carListString) {
         String[] carList = carListString.split(",");
-        if (carList.length < MIN_NUM_OF_CAR.getValue()) {
-            throw new IllegalArgumentException(LESS_THAN_MIN_NUM_OF_CAR.getMessage());
+        if (carList.length < MIN_NUM_OF_CAR) {
+            throw new IllegalArgumentException(LESS_THAN_MIN_NUM_OF_CAR);
         }
     }
 
     public static void validateLenOfCarName(String car) {
-        if (car.length() > MAX_LEN_OF_CAR_NAME.getValue()) {
-            throw new IllegalArgumentException(EXCEED_MAX_LEN_OF_CAR_NAME.getMessage());
+        if (car.length() > MAX_LEN_OF_CAR_NAME) {
+            throw new IllegalArgumentException(EXCEED_MAX_LEN_OF_CAR_NAME);
         }
     }
 
@@ -72,14 +72,14 @@ public class InputValidator {
         try {
             Integer.parseInt(number);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NOT_INTEGER.getMessage());
+            throw new IllegalArgumentException(NOT_INTEGER);
         }
     }
 
     public static void validateRangeOfMatches(String number) {
         int numOfMatches = Integer.parseInt(number);
-        if (numOfMatches < MIN_NUM_OF_MATCHES.getValue()) {
-            throw new IllegalArgumentException(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());
+        if (numOfMatches < MIN_NUM_OF_MATCHES) {
+            throw new IllegalArgumentException(LESS_THAN_MIN_NUM_OF_MATCHES);
         }
     }
 }
