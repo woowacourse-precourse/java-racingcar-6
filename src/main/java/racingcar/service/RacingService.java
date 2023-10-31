@@ -45,5 +45,21 @@ public class RacingService {
         }
     }
 
+    public void getWinner() {
+        String winner = String.join(", ", calculateRaceResults());
+        Message.printRacingResultMessage(winner);
+    }
+
+    private List<String> calculateRaceResults() {
+        int maxMoveCount = carList.stream()
+                .mapToInt(Car::getMoveCount)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
+
+        return carList.stream()
+                .filter(x -> x.getMoveCount() == maxMoveCount)
+                .map(x -> new String(x.getName()))
+                .toList();
+    }
 
 }
