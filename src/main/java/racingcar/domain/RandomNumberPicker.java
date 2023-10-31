@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class RandomNumberPicker implements NumberPicker{
     private static final int RACING_NUMBER_START = 0;
     private static final int RACING_NUMBER_END = 9;
