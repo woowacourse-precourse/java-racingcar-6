@@ -6,9 +6,9 @@ import java.util.Set;
 import racingcar.constant.IllegalArgumentExceptionType;
 
 public final class GameCars implements Cars {
-    private final List<? extends Car> cars;
+    private final List<Car> cars;
 
-    public GameCars(List<? extends Car> cars) {
+    public GameCars(List<Car> cars) {
         this.cars = cars;
         validateCarsAmount();
         validateDuplicatedCarNames();

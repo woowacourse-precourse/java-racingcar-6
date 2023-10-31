@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.GameCar;
 import racingcar.domain.GameCars;
@@ -12,17 +13,21 @@ public class RacingGameController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
-    private Cars createCarsByCarNames(List<String> carNames) {
-        List<GameCar> gameCars = carNames.stream()
-                .map(GameCar::new)
+    private Car createGameCar(String carName) {
+        return new GameCar(carName);
+    }
+
+    private Cars createGameCarsByCarNames(List<String> carNames) {
+        List<Car> gameCars = carNames.stream()
+                .map(this::createGameCar)
                 .toList();
 
         return new GameCars(gameCars);
     }
 
-    private RacingGame initGame() {
+    private RacingGame initRacingGame() {
         List<String> carNames = inputView.readCarNames();
-        Cars cars = createCarsByCarNames(carNames);
+        Cars cars = createGameCarsByCarNames(carNames);
         int attemptCount = inputView.readAttemptCount();
 
         return new RacingGame(cars, attemptCount);
@@ -38,7 +43,7 @@ public class RacingGameController {
     }
 
     public void run() {
-        RacingGame racingGame = initGame();
+        RacingGame racingGame = initRacingGame();
         play(racingGame);
     }
 }

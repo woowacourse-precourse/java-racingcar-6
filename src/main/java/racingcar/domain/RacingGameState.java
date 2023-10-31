@@ -7,7 +7,7 @@ public class RacingGameState {
     private static final int MIN_DISTANCE = 0;
 
     private final boolean isEnd;
-    private final List<? extends Car> cars;
+    private final List<Car> cars;
 
     public RacingGameState(boolean isEnd, List<Car> cars) {
         this.isEnd = isEnd;
