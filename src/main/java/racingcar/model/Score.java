@@ -25,7 +25,7 @@ public class Score {
                 .orElseThrow(() -> new IllegalArgumentException(NO_CARS_ERROR));
     }
 
-    public List<ScoreDto> findFarthestCar() {
+    public List<ScoreDto> findFarthestScores() {
         return score.stream()
                 .filter(carDto -> carDto.isSameDistance(findFarthestDistance()))
                 .toList();

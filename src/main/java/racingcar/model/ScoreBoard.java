@@ -26,7 +26,7 @@ public class ScoreBoard {
     }
 
     public List<ScoreDto> findFinalRoundWinners() {
-        return scoreBoard.get(getFinalRound()).findFarthestCar();
+        return scoreBoard.get(getFinalRound()).findFarthestScores();
     }
 
     public int getFinalRound() {
