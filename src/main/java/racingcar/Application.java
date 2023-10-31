@@ -55,6 +55,11 @@ class GameSystem {
         return manufacture.changeIntegerNumber(attempt);
     }
 
+    public void runGame() {
+        CarGameResult game = new CarGameResult();
+        game.saveResult(attempt, totalCar);
+    }
+
 
 }
 
@@ -129,12 +134,29 @@ class InputManufacture {
     }
 }
 
+class CarGameResult {
+    public void saveResult(int attempt, TotalCar totalCar) {
+        for (int move = 0; move < attempt; move++) {
+
+        }
+    }
+}
+
 class TotalCar {
     private List<Car> carList = new ArrayList<>();
 
     public void saveNewCar(String name) {
         Car car = new Car(name);
         carList.add(car);
+    }
+
+    public void moveDistance() {
+        CarCondition condition = new CarCondition();
+        for (Car c : carList) {
+            if (condition.isMove()) {
+
+            }
+        }
     }
 
 
@@ -153,8 +175,8 @@ class Car {
         return name;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
+    public void updateDistance(int addMoving) {
+        this.distance = distance + addMoving;
     }
 
     public int getDistance() {
