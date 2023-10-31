@@ -19,25 +19,39 @@ public class Application {
         String[] carNameArr;
         carNameArr = cars.correctCarName(inputCarsName);
         //각 자동차 이름과
-        //각 자동차 전진횟수를 리스트로 선언
+        //각 자동차 전진횟수를 리스트로 선언 -> "-"를 담는 리스트와 회수 count 리스트를 별도로 생성
         List<String> carNameList = new ArrayList<>(Arrays.asList(carNameArr));
-        List<Integer> forwardCount = new ArrayList<>();
+        List<String> forwardCountStr = new ArrayList<>();
+        List<Integer> forwardCountInt = new ArrayList<>();
+        //전진횟수를 모두 ""으로 초기화
+        for (int i = 0; i < carNameArr.length; i++) {
+            forwardCountStr.add("");
+        }
         //전진횟수를 모두 0으로 초기화
         for (int i = 0; i < carNameArr.length; i++) {
-            forwardCount.add(0);
+            forwardCountInt.add(0);
         }
 
         String attempt;
         System.out.println("시도할 회수는 몇회인가요?");
         attempt = Console.readLine();
 
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (int i = 0; i < Integer.parseInt(attempt); i++) {
-            /*
-            pobi : -
-            woni : -
-            jun : -
-             */
+            //n회 시도 - 자동차 수 만큼 반복
+            for (int j = 0; j < carNameList.size(); j++) {
+                //전진
+                if (Randoms.pickNumberInRange(0, 9) > 3) {
+                    forwardCountStr.set(j, forwardCountStr.get(j) + "-");
+                    forwardCountInt.set(j, forwardCountInt.get(j) + 1);
+                }
+            }
+            for (int k = 0; k < carNameList.size(); k++) {
+                System.out.println(String.format("%s : %s", carNameList.get(k), forwardCountStr.get(k)));
+            }
+            System.out.print("\n");
         }
+
+        System.out.println("최종 우승자 : ");
     }
 }
