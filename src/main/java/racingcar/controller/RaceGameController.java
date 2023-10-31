@@ -1,34 +1,39 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
+import racingcar.domain.Referee;
 import racingcar.service.RaceGameService;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceGameController {
 
-  private final InputView inputView = new InputView();
-  private final RaceGameService raceGameService = new RaceGameService();
-  private final OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private final RaceGameService raceGameService = new RaceGameService(randomNumberGenerator);
+    private final OutputView outputView = new OutputView();
+    private final Referee referee = new Referee();
 
-  public void StartRaceGame() {
-    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String[] carNames = inputView.readCarName().split(",");
-    raceGameService.initializeCars(carNames);
-
-    System.out.println("시도할 횟수는 몇회인가요?");
-    int round = inputView.readProgressCount();
-    System.out.println(round);
-
-    for (int i = 0; i <round ; i++) {
-        raceGameService.race();
-        outputView.printRaceResult();
+    public void startRaceGame() {
+        String[] carNames = getCarNamesFromUser();
+        raceGameService.initializeCars(carNames);
+        int maxRound = getProgressCountFromUser();
+        raceGameService.startRace(maxRound, outputView);
+        displayWinners();
     }
-    String winners = raceGameService.getWinners();
-    outputView.printGameWon(winners);
-  }
 
-  public void EndRaceGame() {
-    System.out.println("게임을 종료합니다.");
-  }
+    private String[] getCarNamesFromUser() {
+        outputView.printCarNameInputPrompt();
+        return inputView.readCarName();
+    }
+
+    private int getProgressCountFromUser() {
+        outputView.printCarProgressCountInputPrompt();
+        return inputView.readProgressCount();
+    }
+
+    private void displayWinners() {
+        String winners = raceGameService.getWinners(referee);
+        outputView.printGameWon(winners);
+    }
 }
