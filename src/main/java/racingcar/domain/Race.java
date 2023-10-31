@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.domain.car.Car;
+import racingcar.validator.CarNameValidator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +15,7 @@ public class Race {
     }
 
     public Race(List<Car> cars) {
+        CarNameValidator.validateDuplicateForList(cars);
         this.cars = cars;
     }
 
