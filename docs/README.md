@@ -9,8 +9,15 @@
   - [x] 각 자동차는 처음은 이동 거리가 0으로 세팅돼야한다. Car$createCar(String name)
 - [x] 사용자로부터 몇 번의 이동을 할 것인지 입력받는다. - InputView$inputTryNumber()
   - [x] 숫자로 입력받아야 한다. -> 아니면 `IllegalArgumentException` - ClientValidator$getValidatedBigIntegerValue(String inputtedStringTryNumber)
-- [x] 입력받은 시도 횟수만큼 0~9 사이의 무작위 값을 구한 후 4 이상인 경우 전진한다. - Car$raceOneRoundAndGetDistance()
-  - [x] 4 이상의 결과가 나온 수만큼 이동 거리가 1씩 증가된다.
+- [x] 입력받은 시도 횟수만큼 0~9 사이의 무작위 값을 구한 후 4 이상인 경우 전진한다. - Car$raceOneRound()
+  - [x] 4 이상의 결과가 나온 수만큼 이동 거리가 1씩 증가된다. - Car$raceOneRound()
+  - [x] 자동차 결과는 DTO로 포장해서 반환한다. - Car$createCarResultDto()
+- [ ] 자동차들은 리포지토리에 의해 관리된다.
+  - [ ] 자동차 이름이 중복되더라도 id 식별자에 의해 관리된다.
+- [ ] 리포지토리는 결과를 DTO 형식으로 반환한다.
+  - [ ] 결과 DTO는 내부에 각 라운드 별 DTO를 담고 있다.
+  - [ ] 라운드 별 DTO는 자동차별 이름과 현재 거리를 담고 있다.
+  - [ ] 자동차별 이름과 현재 거리를 담고 있는 DTO는 자동차 객체 내부에 존재한다.
 - [ ] 각 차수별로 전진한 양을 출력한다.
   - [ ] 첫 차수 출력하기 전에는 "\n실행 결과"도 출력한다. 
   - [ ] 전진한 양이 없으면 "[$자동차 이름] : "으로 공백으로 출력한다.
@@ -63,26 +70,33 @@
 - `private` void printRacingDistanceResults(ResultDto)
 - `private` void printFinalWinners(ResultDto)
 
-## 5. RacingCars
+## 5. CarRepository
 ### State
-- List<Car> cars
-- int currentRacingRound
 - ResultDto result
+- List<Car> cars
+- BigInteger currentRacingRound
+- BigInteger idProvider
 
 ### Behavior
-- `construct`(CarsDto)
+- `construct`(CarsDto, Client)
+  - `private` void idGenerate()
 - void race() 
-- ResultDto endFinalRound()
+- ResultDto finishFinalRound()
 - boolean isFinalRound()
 
 ## 6. Car
 ### State
+- BigInteger id
 - String name
 - BigInteger distance
+- CarResultDto
+  - String name
+  - BigInteger distance
 
 ### Behavior
-- Car createCar(String name)
-- BigInteger raceOneRoundAndGetDistance()
+- Car createCar(BigInteger id, String name)
+- void raceOneRound()
+- CarResultDto createCarResultDto()
 
 ## 7. Client
 ### State
@@ -104,26 +118,24 @@
 
 ## 9. ResultDto
 ### State
-- List<SingleRoundResultDto> roundResults
-- int finalRound
+- Map<BigInteger, SingleRoundResultDto> resultDtoByRound
+- BigInteger finalRound
 - List<String> finalWinners
 
 ### Behavior
+- `construct`(BigInteger finalRound)
+- void addSingleRoundResult(BigInteger round, SingleRoundResultDto singleRoundResultDto)
 - int getFinalRound
-- SingleRoundResultDto getSingleRoundResult()
+- SingleRoundResultDto getSingleRoundResult(BigInteger round)
 - List<String> finalWinners getFinalWinners()
 
 ## 10. SingleRoundResultDto
 ### State
-- int round
-- LinkedHashMap<String, Integer> distanceMap
+- List<Car.CarResultDto> carResultDtoList
 
 ### Behavior
-- construct(int round)
-- void putDistanceByCarName(String carName, int distance)
-- int getRound()
-- int getDistanceByCarName(String carName)
-- List<String> calculateWinners()
+- void addCarResultDto(Car.CarResultDto carResultDto)
+- Car.CarResultDto getCarResultDto(int index)
 
 ## 11. Validator
 ### Behavior
