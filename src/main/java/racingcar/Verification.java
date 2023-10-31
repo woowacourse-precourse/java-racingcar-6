@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Verification {
+
+    //입력 이름이 5자 이상인지 확인
     public void verifyArg(List<String> strings){
         for (String string : strings) {
             if (string.length() > 5){
@@ -12,6 +14,7 @@ public class Verification {
         }
     }
 
+    //입력 이름중에 중복이 있는지 확인
     public void verifyDuplication(List<String> names) {
         String removed;
         List<String> check = new ArrayList<>(names);
@@ -25,6 +28,7 @@ public class Verification {
         }
     }
 
+    //입력한 시도회수가 자연수인지 확인
     public void verifyNumberOfTry(String number){
         if (Integer.valueOf(number) <= 0) {
             throw new IllegalArgumentException();

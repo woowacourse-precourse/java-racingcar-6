@@ -3,6 +3,8 @@ package racingcar;
 import java.util.*;
 
 public class SystemOutput {
+
+    //플레이 중 진행 상황 출력
     public void showStatus(String name, int location) {
         System.out.printf(name + " : ");
         for (int i = 0; i < location; i++) {
@@ -11,6 +13,8 @@ public class SystemOutput {
         System.out.println();
     }
 
+
+    //게임 진행 후 결과 출력
     public void showResult(Map<String, Car> playedRacingPlayer) {
         Map<String, Integer> result = new HashMap<>();
         List<String> winnerList = new ArrayList<>();

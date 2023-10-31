@@ -12,6 +12,7 @@ public class Application {
         List<String> carNames;
         Map<String, Car> racingPlayer = new HashMap<>();
 
+
         userInput.labelNameOfCar();
         carNames = userInput.getCarNames();
         userInput.setupNumberOfTry();
@@ -20,6 +21,7 @@ public class Application {
         for (String name : carNames) {
             racingPlayer.put(name, new CarImpl());
         }
+
 
         Map<String, Car> playedRacingPlayer = grandprix.playGrandprix(numberOfTry, racingPlayer);
         systemOutput.showResult(playedRacingPlayer);
