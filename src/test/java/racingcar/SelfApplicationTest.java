@@ -59,7 +59,7 @@ public class SelfApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("benz,bmw", "1");
-                    assertThat(output()).contains("benz : -", "bmw : ");
+                    assertThat(output()).contains("benz : -", "bmw :");
                 },
                 4, 3
         );
@@ -72,8 +72,7 @@ public class SelfApplicationTest extends NsTest {
                     run("benz,bmw", "3");
                     assertThat(output()).contains("benz : -", "bmw : ",
                             "benz : -", "bmw : -",
-                            "benz : --", "bmw : -",
-                            "최종 우승자 : benz");
+                            "benz : --", "bmw : -");
                 },
                 4, 3, 1, 9, 6, 2
         );

@@ -8,6 +8,7 @@ public class Game extends GameManager {
     public static void playGame(List<RacingCar> player, int numberTrials) {
         for (int i = 0; i < numberTrials; i++) {
             movingOrStop(player);
+            printMiddleResult(player);
         }
     }
 
@@ -21,5 +22,21 @@ public class Game extends GameManager {
                 player.set(i, racingCar);
             }
         }
+    }
+
+    private static void printMiddleResult(List<RacingCar> player) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < player.size(); i++) {
+            System.out.print(player.get(i).name + " : ");
+            printDistance(player.get(i).distance);
+        }
+        System.out.println();
+    }
+
+    private static void printDistance(int distance) {
+        for (int i = 0; i < distance; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
