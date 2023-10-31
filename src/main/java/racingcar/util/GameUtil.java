@@ -26,8 +26,8 @@ public class GameUtil {
 
     }
 
-    public void checkGameOver() {
-
+    public boolean checkGameOver() {
+        return false;
     }
 
     public void startRound() {
