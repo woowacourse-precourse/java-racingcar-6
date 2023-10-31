@@ -26,6 +26,7 @@
 - [] 예외사항 - Exception
   - [] 이름이 5자를 초과한다. - checkExceedNameLength()
   - [] 자동차 이름이 쉼표를 기준으로 구분되지 않는다. - checkCarNamesSeparatedByCommas()
+  - [] 시도 횟수가 숫자가 아닌 다른 값이 입력된다. - checkCountNumber()
   - [] 여러 명의 우승자를 쉼표를 이용해 구분하지 않는다. - checkWinnersSeparatedByCommas()
 
 ## 기능 요구 사항
