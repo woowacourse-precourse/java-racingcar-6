@@ -15,7 +15,7 @@ public class TryCountValidate {
         }
     }
     private static void isInputNumber(String tryCount) {
-        if (tryCount.matches(".*[^0-9].*")) {
+        if (tryCount.matches("[^-\\d]+")) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
         }
     }
