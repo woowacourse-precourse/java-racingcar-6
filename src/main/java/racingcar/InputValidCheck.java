@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+
 public class InputValidCheck {
 
     public void isNameRepeat(ArrayList<Car> cars) {
@@ -51,5 +52,4 @@ public class InputValidCheck {
             throw new IllegalArgumentException();
         }
     }
-
 }
