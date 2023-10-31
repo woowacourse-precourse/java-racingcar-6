@@ -8,7 +8,7 @@ import racingcar.view.Announcer;
 import racingcar.view.InputView;
 
 public class Game {
-    private final int MOVING_FORWARD = 4;
+    private final int MOVING_FORWARD_CRITERIA = 4;
     private List<Car> carList;
     private final Announcer announcer;
     private final CarFactory carFactory;
@@ -61,6 +61,6 @@ public class Game {
     }
 
     private boolean isMoveForward() {
-        return randomNumberGenerator.generate() >= MOVING_FORWARD;
+        return randomNumberGenerator.generate() >= MOVING_FORWARD_CRITERIA;
     }
 }
