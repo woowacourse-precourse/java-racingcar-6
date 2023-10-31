@@ -35,4 +35,11 @@ public class Car {
         return this.distance++;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
 }
