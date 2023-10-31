@@ -1,16 +1,18 @@
-package racingcar;
+package racingcar.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.domain.Car;
+import racingcar.view.ResultView;
 
 public class GameService {
 
-
+    private List<Car> cars = new ArrayList<>();
     private ResultView view = new ResultView();
 
-    GameService() {
-        setUpGame();
-        addRacingCar();
-        startGame();
+    public List<Car> getCars() {
+        return this.cars;
     }
-
 
     private void addRacingCar() {
         for (int i = 0; i < carNames.size(); i++) {
