@@ -39,7 +39,7 @@ public class CarNameTest {
         }
 
         GameService gameService = new GameService();
-        List<Car> carList = gameService.stringToCarList(testString);
+        List<Car> carList = gameService.setCarList(testString);
 
         for (int i = 0; i < carNameArray.length; i++) {
             assertEquals(carList.get(i).getName(), carNameArray[i]);
