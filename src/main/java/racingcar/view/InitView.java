@@ -15,8 +15,9 @@ public class InitView {
         inputCarNameMessagePrint();
 
         String[] names = Console.readLine().split(",");
-        if (validator.isCarNamesUnderLength(names)) {
-            throw new IllegalArgumentException("최소 한 개 이상의 자동차 이름이 필요합니다.");
+
+        if (validator.hasEmptyCarName(names)) {
+            throw new IllegalArgumentException("이름은 공백으로만 이루어질 수 없습니다.");
         }
 
         return names;
@@ -28,7 +29,7 @@ public class InitView {
         String number = Console.readLine();
 
         if (!validator.isNaturalNumber(number)) {
-            throw new IllegalArgumentException("자연수가 아닙니다.\n자연수를 입력해주세요");
+            throw new IllegalArgumentException("자연수가 아니므로 프로그램을 종료합니다.");
         }
 
         return Integer.parseInt(number);
