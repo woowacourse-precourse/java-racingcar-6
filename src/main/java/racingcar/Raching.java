@@ -13,7 +13,7 @@ public class Raching {
 
     public void generateRandomNumber(ArrayList<Car> cars) {
         for (Car car : cars) {
-            int pickNum = Randoms.pickNumberInRange(0,9);
+            int pickNum = Randoms.pickNumberInRange(0, 9);
             car.pickNumber = pickNum;
         }
     }
@@ -29,7 +29,7 @@ public class Raching {
     public void RoundResultPrint(ArrayList<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.carName + " : ");
-            for (int i = 0; i<car.moveCount; i++) {
+            for (int i = 0; i < car.moveCount; i++) {
                 System.out.print("-");
             }
             System.out.println();
@@ -39,8 +39,14 @@ public class Raching {
 
     public void ChampionPrint(ArrayList<Car> cars) {
         ArrayList<String> championList = new ArrayList<>();
+        int maxMoveCount = 0;
         for (Car car : cars) {
-            if (car.moveCount == maximomMove) {
+            if (car.moveCount > maxMoveCount) {
+                maxMoveCount = car.moveCount;
+            }
+        }
+        for (Car car : cars) {
+            if (car.moveCount == maxMoveCount) {
                 championList.add(car.carName);
             }
         }
