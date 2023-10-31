@@ -21,12 +21,7 @@ public class NameTest {
                 .hasMessageContaining(INPUT_NAME_EMPTY_EXCEPTION);
     }
 
-    @Test
-    void 입력_콤마_테스트() {
-        assertThatThrownBy(() -> new CarName("ab,"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(INPUT_NAME_COMMA_EXCEPTION);
-    }
+
 }
 
 

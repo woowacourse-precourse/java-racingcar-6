@@ -1,6 +1,7 @@
 package racingcar.Controller;
 
 import racingcar.model.Cars;
+import racingcar.model.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -10,8 +11,9 @@ public class RacingController {
 
     public void start(){
         Cars cars = new Cars(InputView.inputName());
-        int tryCount =Integer.parseInt(InputView.inputCnt());
-        race(cars,tryCount);
+        TryCount tryCount =  new TryCount(InputView.inputCnt());
+        int cnt =Integer.parseInt(tryCount.getTryCount());
+        race(cars,cnt);
 
     }
 
