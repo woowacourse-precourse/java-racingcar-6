@@ -2,7 +2,6 @@ package racingcar.utill;
 
 import racingcar.string.ValidConstants;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,6 +11,7 @@ public class ValidException {
     private static final Integer START_NUM_ZERO = 0;
     private static final Integer END_NUM_FIVE = 5;
     private static final String NUM_REGEX = ".*[0-9].*";
+    private static final Integer ONLY_ONE_NAME = 0;
 
     public static Boolean lessFIveLen(String str) {
         int len = str.length();
@@ -50,14 +50,12 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_BLANK_STRING());
     }
 
-
     public static void negative(String inputStr) {
         Integer inputNum = Integer.valueOf(inputStr);
         if (inputNum < 0) {
             throw new IllegalArgumentException(ValidConstants.MSG_NOT_POSITIVE_NUM());
         }
     }
-
 
     public static void includeString(String inputStr) {
         String regex = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*"; // 영어와 한글이 포함되어 있는지 확인하는 정규 표현식
@@ -125,15 +123,18 @@ public class ValidException {
     /**
      * 자동차의 이름을 입력할때 자동차 하나만 입력하면 안된다.
      *
-     * @param inputStr
+     * @param nameLine
      * @return
      */
-    public static boolean isValidOneNameOfRaceCarCheck(String inputStr) {
-        List<String> nameOfCarList = Arrays.stream(inputStr.split(",")).toList();
-        Integer sizeNameOfCarList = nameOfCarList.size();
-        if (sizeNameOfCarList <= 1) {
+    public static boolean onlyOneNameOfRaceCar(String nameLine) {
+        String[] nameArr = Utill.makeArrFromString(nameLine, ",");
+        List<String> nameList = Utill.makeListFromArr(nameArr);
+        Integer sizeNameList = nameList.size();
+
+        if (Utill.isSameNum(sizeNameList, ONLY_ONE_NAME)) {
             throw new IllegalArgumentException(ValidConstants.MSG_COUNT_CAR_NAME_ONE());
         }
+
         return true;
     }
 }

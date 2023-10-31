@@ -139,7 +139,7 @@ class ValidExceptionTest {
 
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidOneNameOfRaceCarCheck(input))
+                        () -> ValidException.onlyOneNameOfRaceCar(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
