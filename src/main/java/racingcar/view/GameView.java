@@ -20,15 +20,15 @@ public class GameView {
         System.out.println("실행 결과");
     }
 
-    public static void printCurrentStatus(String name, int currentLocation) {
-        System.out.print(name+" : ");
-        for(int i=0;i<currentLocation; i++){
+    public static void printCarCurrentStatus(String name, int currentLocation) {
+        System.out.print(name + " : ");
+        for (int i = 0; i < currentLocation; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
 
-    public static void printEnter(){
+    public static void printEnter() {
         System.out.println();
     }
 

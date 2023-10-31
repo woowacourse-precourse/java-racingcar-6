@@ -41,7 +41,7 @@ public class GameController {
 
         gameStart(trialNumber);
 
-        winnerNames = model.getCarNameWithLongestDistance();
+        winnerNames = model.getCarNameHasLongestDistance();
         view.printWinner(winnerNames);
     }
 
@@ -56,12 +56,11 @@ public class GameController {
 
         view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
-            model.fowardCars();
+            model.moveCars();
             for (Car car : cars) {
-                view.printCurrentStatus(car.getName(), car.getCurrentLocation());
+                view.printCarCurrentStatus(car.getName(), car.getCurrentLocation());
             }
             view.printEnter();
         }
-
     }
 }
