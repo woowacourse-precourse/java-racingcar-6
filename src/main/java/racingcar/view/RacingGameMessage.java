@@ -27,8 +27,8 @@ public enum RacingGameMessage {
         return REQUEST_TRY_MESSAGE.name;
     }
 
-    public String getGameResultMessage() {
-        return NEWLINE.name + GAME_RESULT_MESSAGE.name;
+    public String getGameResultMessage(String raceResult) {
+        return NEWLINE.name + GAME_RESULT_MESSAGE.name + NEWLINE.name + raceResult;
     }
 
     public String getWinnerMessage(String winners) {

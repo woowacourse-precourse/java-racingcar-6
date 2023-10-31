@@ -11,7 +11,6 @@ public class RacingGame {
     private final int MIN_NUMBER = 0;
     private final int MAX_NUMBER = 9;
     private ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
-
     private List<RacingCar> racingCars;
     private int raceCount;
 

@@ -2,19 +2,11 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingGame;
-import racingcar.model.ValidatePlayerInput;
 import racingcar.view.RacingGameView;
 
 public class RacingGameController {
-    private RacingGameView racingGameView;
-    private ValidatePlayerInput validatePlayerInput;
-    private RacingGame racingGame;
-
-    public RacingGameController() {
-        this.racingGameView = new RacingGameView();
-        this.validatePlayerInput = new ValidatePlayerInput();
-        this.racingGame = new RacingGame();
-    }
+    private RacingGame racingGame = new RacingGame();
+    private RacingGameView racingGameView = new RacingGameView();
 
     public void readyToPlay() {
         racingGameView.raceStartMessage();
@@ -29,9 +21,6 @@ public class RacingGameController {
     }
 
     public void play() {
-
-        racingGameView.raceResultMessage();
-
         String raceResult = racingGame.allRacePlay();
         racingGameView.raceResults(raceResult);
 

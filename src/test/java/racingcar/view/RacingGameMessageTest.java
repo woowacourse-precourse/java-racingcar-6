@@ -30,8 +30,10 @@ public class RacingGameMessageTest {
     void getGameResultMessage() {
         //given
         String gameResultMessage = "실행 결과";
+        String raceResult = "pobi --";
         //then
-        assertThat(RacingGameMessage.GAME_RESULT_MESSAGE.getGameResultMessage()).isEqualTo(gameResultMessage);
+        assertThat(RacingGameMessage.GAME_RESULT_MESSAGE.getGameResultMessage(raceResult))
+                .isEqualTo("\n" +gameResultMessage + "\n" + raceResult);
     }
 
     @DisplayName("게임 최종 우승자 메시지에 대한 테스트")

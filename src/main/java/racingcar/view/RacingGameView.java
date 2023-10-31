@@ -10,12 +10,8 @@ public class RacingGameView {
         System.out.println(RacingGameMessage.REQUEST_TRY_MESSAGE.getRequestTryMessage());
     }
 
-    public void raceResultMessage() {
-        System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
-    }
-
-    public void raceResults(String gameResult) {
-        System.out.println(gameResult);
+    public void raceResults(String raceResult) {
+        System.out.println(RacingGameMessage.GAME_RESULT_MESSAGE.getGameResultMessage(raceResult));
     }
 
     public void gameWinners(String winners) {
