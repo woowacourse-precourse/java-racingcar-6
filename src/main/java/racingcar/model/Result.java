@@ -3,15 +3,15 @@ package racingcar.model;
 import java.util.HashMap;
 
 public class Result {
-    private HashMap<String, Integer> participant;
+    private HashMap<String, Integer> cars;
     private int count;
 
     public Result() {
-        participant = new HashMap<>();
+        cars = new HashMap<>();
     }
 
-    public HashMap<String, Integer> getParticipant() {
-        return participant;
+    public HashMap<String, Integer> getCars() {
+        return cars;
     }
 
     public int getCount() {
@@ -23,14 +23,14 @@ public class Result {
     }
 
     public void putName(String name) {
-        participant.put(name, 0);
+        cars.put(name, 0);
     }
 
     public void putScore(String name, int i) {
-        participant.put(name, participant.get(name) + i);
+        cars.put(name, cars.get(name) + i);
     }
 
     public Integer getScore(String name) {
-        return participant.get(name);
+        return cars.get(name);
     }
 }

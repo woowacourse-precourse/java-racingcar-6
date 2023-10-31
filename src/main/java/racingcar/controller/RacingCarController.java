@@ -20,16 +20,16 @@ public class RacingCarController {
         Result result = new Result();
 
         String[] name = inputView.getCarNames();
-        createParticipant(result, name);
+        createCar(result, name);
 
         int num = inputView.getCount();
         result.setCount(num);
 
         outputView.race(result, name);
-        outputView.getWinner(result.getParticipant());
+        outputView.getWinner(result.getCars());
     }
 
-    private static void createParticipant(Result result, String[] name) {
+    private static void createCar(Result result, String[] name) {
         for (String n : name) {
             validateNameLength(n);
             result.putName(n);
