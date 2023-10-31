@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static racingcar.global.constants.NumberType.MIN_CAR_SIZE;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,6 +32,28 @@ public class Cars {
             result += car.toString() + "\n";
         }
         return result;
+    }
+
+    public List<String> findMostMovedCarName() {
+        Integer maxPosition = findMaxPosition();
+        return findSamePositionCars(maxPosition);
+    }
+
+    private List<String> findSamePositionCars(Integer maxPosition) {
+        return carList.stream()
+                .filter(car -> car.isSamePosition(maxPosition))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private Integer findMaxPosition() {
+        return findCarWithMaxPosition().getPosition();
+    }
+
+    private Car findCarWithMaxPosition() {
+        return carList.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .get();
     }
 
     private List<Car> convertNameListToCarList(List<String> nameList) {
