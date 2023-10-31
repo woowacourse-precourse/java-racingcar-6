@@ -2,6 +2,7 @@ package racingcar;
 
 public class Car {
     int randomNumber;
+    int turn; // 현재 턴 숫자(0부터 시작)
     String[] result; // 각 회차의 결과를 저장하는 배열
 
 
@@ -13,6 +14,13 @@ public class Car {
     void goOrStop() {
         // 무작위 값이 4 이상이면 전진
         if (randomNumber >= 4) go();
+        // 무작위 값이 4 미만이면 현재 턴의 값을 공백으로 저장
+        else this.result[turn] = " ";
+        this.turn++;
     }
 
+    void go() {
+        // 현재 턴의 값을 "-"로 저장
+        this.result[turn] = "-";
+    }
 }
