@@ -97,7 +97,18 @@ class ApplicationTest extends NsTest {
     }
 
 
-
+    @Test
+    void insertTryNumTest(){
+        String s = "s";
+        assertThatThrownBy(() -> inputValidator.toValidateTryNum(s))
+                .isInstanceOf(IllegalArgumentException.class);
+        String k="";
+        assertThatThrownBy(() -> inputValidator.toValidateTryNum(k))
+                .isInstanceOf(IllegalArgumentException.class);
+        String n=" ";
+        assertThatThrownBy(() -> inputValidator.toValidateTryNum(n))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Override
     public void runMain() {
