@@ -20,7 +20,7 @@ public class Car {
         progress += moving;
     }
 
-    private boolean compare(Car car) {
+    public boolean compare(Car car) {
         if (this.equals(car)) {
             return true;
         }
