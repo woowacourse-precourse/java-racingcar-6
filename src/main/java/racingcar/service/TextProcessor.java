@@ -19,6 +19,8 @@ public class TextProcessor {
 
     public int parseTryNumber(String str) {
         try {
+            validateInputTryCount(str);
+
             return Integer.parseInt(str);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_INTEGER_FORMAT
@@ -47,4 +49,10 @@ public class TextProcessor {
         return String.join(DELIMITER, winnerNames);
     }
 
+    private void validateInputTryCount(String str) {
+        if(str.isEmpty()) {
+            throw new IllegalArgumentException(ExceptionMessage.EMPTY_TRY_COUNT
+                    .getErrorMessage());
+        }
+    }
 }
