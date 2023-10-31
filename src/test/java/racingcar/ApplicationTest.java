@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.Arrays;
+import java.util.LinkedList;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
@@ -85,9 +87,19 @@ class ApplicationTest extends NsTest {
     void 시합_점수_초기화() {
         Application.InputCarName = "Car1,Car2,Car3";
         Application.Exception_Handling();
-        
+
         assertThat(Application.RacingCar).contains("Car1", "Car2", "Car3");
         assertThat(Application.RacingScore).containsOnly(0);
+    }
+
+    @Test
+    void 이긴_자동차_고르기() {
+        Application.RacingCar = new LinkedList<>(Arrays.asList("Car1", "Car2"));
+        Application.RacingScore = new LinkedList<>(Arrays.asList(2, 5));
+
+        Application.Racing_winner();
+
+        assertThat(Application.Winner).contains("Car2");
     }
 
     @Override
