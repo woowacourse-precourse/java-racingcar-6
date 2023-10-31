@@ -96,6 +96,21 @@
 - description
   - 각 `Racer`의 score를 비교해 우승자 판별하고 공동 우승의 경우 우승자들을 반환한다.
 
+##### 한 차수를 진행하는 메소드
+- signature : `public void proceedOneRound()`
+- description
+  - 각 자동차마다 `gameUtil.getRandomNumber()`의 결과를 `gameUtil.canMove()`에 인자로 전달한다.
+  - 움직일 수 있을 경우 `Racer.move()`메소드를 사용해 `-`를 추가한다.
+  - 모든 자동차를 다 확인했다면 `gameUtil.printEachResult()`메소드를 사용해 결과를 출력한다.
+
+##### 한 게임을 돌리는 메소드
+- signature : `public void gameStart()`
+- description
+  - 입력받았던 차수만큼 `proceedOneRound()`메소드를 실행한다.
+  - 차수만큼 실행했다면 `getWinner()`메소드를 실행해 우승자 리스트를 생성한다.
+  - 우승자 리스트를 `gameUtil.printWinner()`메소드에 전달하고 실행한다.
+  
+
 ### GameUtil 클래스
 
 ---
