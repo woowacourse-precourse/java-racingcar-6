@@ -30,7 +30,7 @@ public class InputView {
         System.out.println(TRY_INPUT_MESSAGE);
         String input = Console.readLine();
         NumberValidator.validateIsNumberic(input);
-        NumberValidator.validateIsInRange(input);
+        NumberValidator.validateIsNumberInRange(input);
         return Integer.parseInt(input);
     }
 }

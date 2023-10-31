@@ -14,7 +14,7 @@ public class NumberValidator {
         }
     }
 
-    public static void validateIsInRange(String input){
+    public static void validateIsNumberInRange(String input){
         if(Integer.parseInt(input) < MIN_INPUT_VALUE)
         {
             throw new IllegalArgumentException(INVALID_RANGE_NUMBER_MESSAGE);

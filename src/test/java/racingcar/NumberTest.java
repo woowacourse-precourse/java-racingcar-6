@@ -33,7 +33,7 @@ public class NumberTest {
         // BUILD
         String negativeNumberInput = "-5";
         // OPERATION , CHECK
-        assertThatThrownBy(() -> NumberValidator.validateIsInRange(negativeNumberInput))
+        assertThatThrownBy(() -> NumberValidator.validateIsNumberInRange(negativeNumberInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -42,7 +42,7 @@ public class NumberTest {
         // BUILD
         String zeroInput = "0";
         // OPERATION, CHECK
-        assertThatThrownBy(() -> NumberValidator.validateIsInRange(zeroInput))
+        assertThatThrownBy(() -> NumberValidator.validateIsNumberInRange(zeroInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
