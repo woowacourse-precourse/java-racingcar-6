@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class InputHandlerTest {
 
+    // parseInputToList에 대한 테스트
     @Test
     void 입력값이_하나일_때() {
         String input = "haein";
@@ -21,6 +22,13 @@ class InputHandlerTest {
         String input = "haein,dobi,fine,";
         List<String> result = InputHandler.parseInputToList(input);
         assertThat(result).isEqualTo(Arrays.asList("haein", "dobi", "fine"));
+    }
+
+    @Test
+    void 영어_외_다른_글자도_정상동작하는지_확인() {
+        String input = "해바라기씨,rober,%#@$!,12345";
+        List<String> result = InputHandler.parseInputToList(input);
+        assertThat(result).isEqualTo(Arrays.asList("해바라기씨", "rober", "%#@$!", "12345"));
     }
 
     @Test
@@ -41,19 +49,31 @@ class InputHandlerTest {
     }
 
     @Test
-    void 영어_외_다른_글자도_정상동작하는지_확인() {
-        String input = "해바라기씨,rober,%#@$!,12345";
-        List<String> result = InputHandler.parseInputToList(input);
-        assertThat(result).isEqualTo(Arrays.asList("해바라기씨", "rober", "%#@$!", "12345"));
-    }
-
-    @Test
     void 빈값이_들어갔을_때() {
         String input = "";
-//        List<String> result = InputHandler.parseInputToList(input);
-//        assertThat(result).isEqualTo(Arrays.asList(""));
+
         assertThatThrownBy(() -> InputHandler.parseInputToList(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("잘못된 입력 값입니다. 최소 하나의 이상의 이름을 입력해주세요.");
+    }
+
+    // parseInputToIntager에 대한 테스트
+
+    @Test
+    void 숫자_0_입력() {
+        String input = "0";
+
+        assertThatThrownBy(() -> InputHandler.parseInputToIntager(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("잘못된 입력 값입니다. 자연수를 입력해주세요.");
+    }
+
+    @Test
+    void 숫자_음수의_값_입력() {
+        String input = "-21421";
+
+        assertThatThrownBy(() -> InputHandler.parseInputToIntager(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("잘못된 입력 값입니다. 숫자를 입력해주세요.");
     }
 }
