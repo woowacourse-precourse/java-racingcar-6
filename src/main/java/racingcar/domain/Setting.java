@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 public class Setting {
-    Names names;
-    Trial trial;
+    private Names names;
+    private Trial trial;
 
     public void setNames(String names) {
         this.names = new Names(names);
