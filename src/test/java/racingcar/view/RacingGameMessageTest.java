@@ -22,7 +22,7 @@ public class RacingGameMessageTest {
         //given
         String requestTryMessage = "시도할 회수는 몇회인가요?";
         //then
-        assertThat(RacingGameMessage.REQUEST_TRY_MESSAGE.getRequestTryMessage()).isEqualTo(requestTryMessage);
+        assertThat(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getRequestRaceCountMessage()).isEqualTo(requestTryMessage);
     }
 
     @DisplayName("게임 실행 결과 메시지에 대한 테스트")

@@ -24,10 +24,10 @@ public class RacingCar {
     }
 
     public String getRaceResult() {
-        StringBuilder dash = new StringBuilder();
-        IntStream.range(0, moveCount).forEach(i -> dash.append(RacingGameMessage.MOVE.getMoveMessage()));
+        StringBuilder raceResult = new StringBuilder();
+        IntStream.range(0, moveCount).forEach(i -> raceResult.append(RacingGameMessage.MOVE.getMoveMessage()));
 
-        return dash.toString();
+        return raceResult.toString();
     }
 
     public String getRacingCarName() {

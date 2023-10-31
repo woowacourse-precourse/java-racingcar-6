@@ -7,7 +7,7 @@ public class RacingGameView {
     }
 
     public void raceCountMessage() {
-        System.out.println(RacingGameMessage.REQUEST_TRY_MESSAGE.getRequestTryMessage());
+        System.out.println(RacingGameMessage.REQUEST_RACE_COUNT_MESSAGE.getRequestRaceCountMessage());
     }
 
     public void raceResults(String raceResult) {
