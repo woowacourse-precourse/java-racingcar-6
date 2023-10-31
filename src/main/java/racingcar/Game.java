@@ -3,8 +3,9 @@ package racingcar;
 import java.util.List;
 
 public interface Game {
-    List<String> getWinners();
     void runStage();
+    void printStage();
+    void printResult();
     boolean isFinished();
     String render();
 }

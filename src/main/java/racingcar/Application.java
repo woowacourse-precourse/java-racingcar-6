@@ -20,8 +20,8 @@ public class Application {
         RacingCarGameRenderer renderer = new SimpleRacingCarGameRenderer();
         InputInterface in = new InputInterface(Console::readLine, System.out::println);
         OutputInterface out = new OutputInterface(System.out::println, renderer);
-        RacingCarGame game = new RacingCarGame(in.getNames(), in.getTrial(), getRandom(), renderer);
-        GameExecutor gameExecutor = new GameExecutor(game, out);
+        RacingCarGame game = new RacingCarGame(in, out, getRandom(), renderer);
+        GameExecutor gameExecutor = new GameExecutor(game);
         gameExecutor.run();
     }
 }

@@ -2,18 +2,16 @@ package racingcar;
 
 public class GameExecutor {
     private Game game;
-    private OutputInterface out;
 
-    public GameExecutor(Game game,  OutputInterface out) {
-        this.game= game;
-        this.out = out;
+    public GameExecutor(Game game) {
+        this.game = game;
     }
 
     public void run() {
-        while(!game.isFinished()){
+        while (!game.isFinished()) {
             game.runStage();
-            out.printStage(game);
+            game.printStage();
         }
-        out.printWinners(game.getWinners());
+        game.printResult();
     }
 }

@@ -8,22 +8,26 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class RacingCarGame implements Game{
+public class RacingCarGame implements Game {
+    private final InputInterface in;
+    private final OutputInterface out;
     private final int maxTrial;
     private final List<RacingCar> cars;
     private final GameRandom random;
     private final RacingCarGameRenderer renderer;
     private int currentTrial = 0;
 
-    public RacingCarGame(String[] names, int maxTrial, GameRandom random, RacingCarGameRenderer renderer) {
-        checkTrial(maxTrial);
-        this.maxTrial = maxTrial;
+    public RacingCarGame(InputInterface in, OutputInterface out, GameRandom random, RacingCarGameRenderer renderer) {
+        this.in = in;
+        this.out = out;
+        cars = createCars(in.getNames());
+        this.maxTrial = in.getTrial();
         this.random = random;
         this.renderer = renderer;
-        cars = createCars(names);
+        checkTrial(maxTrial);
     }
-    
-    public List<String> getWinners() {
+
+    private List<String> getWinners() {
         RacingCar highest = getCarWithHighestPosition();
 
         return cars.stream()
@@ -60,6 +64,16 @@ public class RacingCarGame implements Game{
                     car.tryForward(random.randomNumberRange(0, 10));
                 });
         currentTrial++;
+    }
+
+    @Override
+    public void printStage() {
+        out.printStage(this);
+    }
+
+    @Override
+    public void printResult() {
+        out.printWinners(getWinners());
     }
 
     private static void checkTrial(int trial) {
