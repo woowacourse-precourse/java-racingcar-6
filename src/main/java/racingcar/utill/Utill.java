@@ -9,10 +9,10 @@ public class Utill {
     public static String inputString() {
         String inputStr = readLine();
 
-        ValidException.isValidIncludeNum(inputStr);
-        ValidException.isValidBlankCheck(inputStr);
-        ValidException.isValidIncludeBlank(inputStr);
-        ValidException.isValidIncludeSpecialString(inputStr);
+        ValidException.includeNum(inputStr);
+        ValidException.blankCheck(inputStr);
+        ValidException.includeBlank(inputStr);
+        ValidException.includeSpecialString(inputStr);
 
         return inputStr;
     }
@@ -20,12 +20,12 @@ public class Utill {
     public static Integer inputNum() {
         String inputStr = readLine();
 
-        ValidException.isValidBlankCheck(inputStr);
-        ValidException.isValidIncludeBlank(inputStr);
-        ValidException.isValidIncludeString(inputStr);
-        ValidException.isValidIncludeSpecialString(inputStr);
-        ValidException.isValidZeroCheck(inputStr);
-        ValidException.isValidPositiveCheck(inputStr);
+        ValidException.blankCheck(inputStr);
+        ValidException.includeBlank(inputStr);
+        ValidException.includeString(inputStr);
+        ValidException.includeSpecialString(inputStr);
+        ValidException.zeroNum(inputStr);
+        ValidException.negative(inputStr);
 
         Integer inputNum = parseInt(inputStr);
         return inputNum;

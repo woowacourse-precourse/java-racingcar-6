@@ -22,7 +22,7 @@ class ValidExceptionTest {
     void isValidFIveLessString(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidLessFIveLen(input))
+                        () -> ValidException.lessFIveLen(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -32,7 +32,7 @@ class ValidExceptionTest {
     void isValidIncludeKoreanCheck(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidIncludeKorean(input))
+                        () -> ValidException.includeKorean(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -42,7 +42,7 @@ class ValidExceptionTest {
     void isValidIncludeNum(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidIncludeNum(input))
+                        () -> ValidException.includeNum(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -53,7 +53,7 @@ class ValidExceptionTest {
         String input = "";
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidBlankCheck(input))
+                        () -> ValidException.blankCheck(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -63,7 +63,7 @@ class ValidExceptionTest {
     void isValidPositiveCheck(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidPositiveCheck(input))
+                        () -> ValidException.negative(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -73,7 +73,7 @@ class ValidExceptionTest {
     void isValidIncludeString(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidIncludeString(input))
+                        () -> ValidException.includeString(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -83,7 +83,7 @@ class ValidExceptionTest {
     void isValidIncludeSpecialString(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidIncludeSpecialString(input))
+                        () -> ValidException.includeSpecialString(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -93,7 +93,7 @@ class ValidExceptionTest {
     void isValidIncludeBlank(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidIncludeBlank(input))
+                        () -> ValidException.includeBlank(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -105,7 +105,7 @@ class ValidExceptionTest {
 
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidZeroCheck(input))
+                        () -> ValidException.zeroNum(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -117,7 +117,7 @@ class ValidExceptionTest {
 
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidCommaNextBlankCheck(input))
+                        () -> ValidException.commaNextBlank(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -127,7 +127,7 @@ class ValidExceptionTest {
     void isValidCarEachNameFIveLessStringCheck(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidCarEachNameFIveLessStringCheck(input))
+                        () -> ValidException.NameOfEachFIveLessString(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

@@ -13,7 +13,7 @@ public class ValidException {
     private static final Integer END_NUM_FIVE = 5;
     private static final String NUM_REGEX = ".*[0-9].*";
 
-    public static Boolean isValidLessFIveLen(String str) {
+    public static Boolean lessFIveLen(String str) {
         int len = str.length();
 
         if (len > START_NUM_ZERO && len <= END_NUM_FIVE) {
@@ -23,7 +23,7 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
 
-    public static Boolean isValidIncludeKorean(String str) {
+    public static Boolean includeKorean(String str) {
         Pattern pattern = Pattern.compile(KOREAN_REGEX);
         Matcher matcher = pattern.matcher(str);
 
@@ -34,7 +34,7 @@ public class ValidException {
         return false;
     }
 
-    public static void isValidIncludeNum(String str) {
+    public static void includeNum(String str) {
         Pattern pattern = Pattern.compile(NUM_REGEX);
         Matcher matcher = pattern.matcher(str);
 
@@ -43,7 +43,7 @@ public class ValidException {
         }
     }
 
-    public static Boolean isValidBlankCheck(String str) {
+    public static Boolean blankCheck(String str) {
         if (!str.equals("")) {
             return true;
         }
@@ -51,7 +51,7 @@ public class ValidException {
     }
 
 
-    public static void isValidPositiveCheck(String inputStr) {
+    public static void negative(String inputStr) {
         Integer inputNum = Integer.valueOf(inputStr);
         if (inputNum < 0) {
             throw new IllegalArgumentException(ValidConstants.MSG_NOT_POSITIVE_NUM());
@@ -59,7 +59,7 @@ public class ValidException {
     }
 
 
-    public static void isValidIncludeString(String inputStr) {
+    public static void includeString(String inputStr) {
         String regex = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*"; // 영어와 한글이 포함되어 있는지 확인하는 정규 표현식
 
         Pattern pattern = Pattern.compile(regex);
@@ -70,7 +70,7 @@ public class ValidException {
         }
     }
 
-    public static void isValidIncludeSpecialString(String inputStr) {
+    public static void includeSpecialString(String inputStr) {
         String regex = ".*[!@#$%^&*().?\":{}|<>].*"; // 특수 문자가 포함되어 있는지 확인하는 정규 표현식
 
         Pattern pattern = Pattern.compile(regex);
@@ -81,21 +81,23 @@ public class ValidException {
         }
     }
 
-    public static void isValidIncludeBlank(String inputStr) {
+    public static void includeBlank(String inputStr) {
         if (inputStr.contains(" ")) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_BLANK_STRING());
         }
     }
 
-    public static void isValidZeroCheck(String inputStr) {
+    public static void zeroNum(String inputStr) {
         Integer inputNum = Integer.valueOf(inputStr);
+
         if (inputNum == 0) {
             throw new IllegalArgumentException(ValidConstants.MSG_ZERO_NUM());
         }
     }
 
-    public static boolean isValidCommaNextBlankCheck(String inputStr) {
+    public static boolean commaNextBlank(String inputStr) {
         int length = inputStr.length();
+
         if (inputStr.charAt(length - 1) != ',') {
             return true;
         }
@@ -108,10 +110,12 @@ public class ValidException {
      * @param inputStr
      * @return
      */
-    public static boolean isValidCarEachNameFIveLessStringCheck(String inputStr) {
-        List<String> nameEachOfList = Arrays.stream(inputStr.split(",")).toList();
+    public static boolean NameOfEachFIveLessString(String inputStr) {
+        String[] strArr = Utill.makeArrFromString(inputStr, ",");
+        List<String> nameEachOfList = Arrays.stream(strArr).toList();
+
         for (String name : nameEachOfList) {
-            isValidLessFIveLen(name);
+            lessFIveLen(name);
         }
         return true;
     }
