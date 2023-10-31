@@ -1,8 +1,8 @@
 package racingcar.game;
 
-import static racingcar.utils.GameUtils.GAME_THRESHOLD;
-import static racingcar.utils.GameUtils.INITIAL_PROGRESS;
-import static racingcar.utils.GameUtils.PROGRESS_COMMAND;
+import static racingcar.game.GameUtils.GAME_THRESHOLD;
+import static racingcar.game.GameUtils.INITIAL_PROGRESS;
+import static racingcar.game.GameUtils.PROGRESS_COMMAND;
 
 import java.util.List;
 import racingcar.io.GameArgumentReader;
