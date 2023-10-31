@@ -2,7 +2,9 @@ package racingcar.repository;
 
 import racingcar.domain.Game;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GameRepository {
@@ -18,5 +20,9 @@ public class GameRepository {
 
     public Game findById(Long id) {
         return games.get(id);
+    }
+
+    public List<Game> findAll() {
+        return new ArrayList<>(games.values());
     }
 }
