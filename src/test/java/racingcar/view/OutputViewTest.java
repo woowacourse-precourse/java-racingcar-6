@@ -18,16 +18,18 @@ public class OutputViewTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"pobi,woni,jun/5", "자동차1,자동차20/5"}, delimiter = '/')
-    public void 결과_출력(String namesFromUser, int count) {
-        String[] names = InputView.validateNames(namesFromUser);
-        cars.addCarsFromNames(names);
+    @CsvSource(value = {"하이브리드,2,전기차,3", "자동차1,1,자동차2,1"})
+    public void 실행결과_출력(String name1, int distance1, String name2, int distance2) {
+        cars = new Cars(Arrays.asList(new Car(name1, distance1),
+                new Car(name2, distance2)));
+        String actual = cars.updateResult();
 
-        OutputView.printTryResult();
-        while (count != 0) {
-            cars.tryMovements();
-            count--;
-        }
+        String expected1 = name1 + " : "
+                + "-".repeat(Math.max(0, distance1));
+        String expected2 = name2 + " : "
+                + "-".repeat(Math.max(0, distance2));
+
+        assertThat(actual).contains(expected1, expected2);
     }
 
     @ParameterizedTest
