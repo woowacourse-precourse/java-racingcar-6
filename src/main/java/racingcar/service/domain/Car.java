@@ -1,7 +1,11 @@
 package racingcar.service.domain;
 
-public class Car {
+import java.util.Objects;
 
+// TODO: Car가 검증해야할 부분 방어 코드 작성
+// TODO: public 메서드 단위 테스트
+// TODO: getter 없애도록 고민해볼 것
+public class Car {
     public final String name;
     private final Engine engine;
     private int totalMoveCount;
@@ -40,5 +44,22 @@ public class Car {
                 "name='" + name + '\'' +
                 ", totalMoveCount=" + totalMoveCount +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Car car = (Car) o;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
