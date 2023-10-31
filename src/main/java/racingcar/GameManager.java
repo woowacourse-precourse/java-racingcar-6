@@ -15,10 +15,13 @@ public class GameManager {
         eh.isCarNamePlainTextException(input);
 
         List<String> members = Arrays.asList(input.split(","));
+        eh.isMembersException(members, input.length());
         eh.isMembersException(members);
 
         HashMap<String, String> membersHM = new HashMap<>();
-        CarMovement.putHM(membersHM, members, "");
+        for (int i = 0; i < members.size(); i++) {
+            membersHM.put(members.get(i), "");
+        }
 
         System.out.println("시도할 회수는 몇회인가요?");
         String attempt = readLine();
@@ -28,10 +31,7 @@ public class GameManager {
         System.out.println("실행 결과");
 
         for (int i = 0; i < attemptNum; i++) {
-            int num = PickNum.pickNum();
-            if (CarMovement.isMove(num)) {
-                CarMovement.putHM(membersHM, members, "-");
-            }
+            CarMovement.putHM(membersHM, members, "-");
             System.out.println(Print.progress(members, membersHM));
         }
 
