@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.service.CarService;
 
+import java.util.List;
 
 
 public class View implements ViewInterface{
@@ -26,15 +27,19 @@ public class View implements ViewInterface{
     }
 
     @Override
-    public void MoveCar() {
+    public void moveCar() {
         System.out.println("시도할 회수는 몇회인가요?");
         int attemptsNumber = Integer.parseInt(Console.readLine());
 
         while(attemptsNumber == 0){
             attemptsNumber--;
             carService.movieCar();
-
         }
 
+
     }
+
+
+
+
 }

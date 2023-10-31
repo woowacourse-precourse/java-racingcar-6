@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.carRepository.CarRepositoryInterface;
 import racingcar.model.Car;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class CarService {
@@ -25,23 +26,24 @@ public class CarService {
 
     public void movieCar(){
         List<Car> cars = carRepository.getCars();
-        for(Car car : cars){
+        for(int index=0; index<cars.size(); index++){
+            Car car = cars.get(index);
             int randomNumber= getRandomNumber();
-            movingCar(randomNumber,car);
+            Car movingCar = movingCar(randomNumber,car);
+            carRepository.updateCar(movingCar,index);
         }
-
-
-
     }
+
 
     private int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
     }
 
-    private  void movingCar(int randomNumber,Car car){
+    private  Car movingCar(int randomNumber,Car car){
         if(randomNumber>=4){
             car.setDistance(car.getDistance()+1);
         }
+        return car;
 
     }
 }
