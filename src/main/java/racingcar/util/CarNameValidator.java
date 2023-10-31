@@ -42,7 +42,6 @@ public class CarNameValidator {
     }
     public void isRightNameSize(){
         for(String name : NAMES){
-            System.out.println(name.length());
             if(name.length() > NAME_SIZE){
                 throw new IllegalArgumentException(OUT_OF_CAR_NAME_LENGTH.getMessage());
             }
