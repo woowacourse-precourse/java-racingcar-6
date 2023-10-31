@@ -21,7 +21,6 @@ public class Result {
                 .filter(entry -> entry.getValue() == max)
                 .map(Map.Entry::getKey)
                 .toList();
-
         System.out.println("최종 우승자 : " + String.join(",", winners));
     }
 }
