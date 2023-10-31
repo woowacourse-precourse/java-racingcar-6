@@ -1,6 +1,6 @@
 package racingcar.domain.game.car;
 
-import racingcar.util.MoveStrategy;
+import racingcar.move.MoveStrategy;
 
 class FixedMoveStrategy implements MoveStrategy {
     private final boolean isPlaying;
