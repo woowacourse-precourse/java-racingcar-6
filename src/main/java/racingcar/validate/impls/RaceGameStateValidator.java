@@ -11,6 +11,10 @@ public class RaceGameStateValidator implements Validator {
 
     }
 
+    private boolean checkValidateConditions(List<String> names) {
+        return !isUniqueNames(names) || !isAllValidLength(names);
+    }
+
     private boolean isValidNameLength(String name){
         return name.length() < 6 && name.length() != 0;
     }
