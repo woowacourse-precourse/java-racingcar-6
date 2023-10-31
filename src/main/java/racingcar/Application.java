@@ -27,14 +27,21 @@ class GameSystem {
     public void makeCars(InputView input) {
         InputManufacture manufacture = new InputManufacture();
         List<String> nameList = makeCarNames(input, manufacture);
-        TotalCar totalCar = new TotalCar();
-        
+
 
     }
 
     public ArrayList<String> makeCarNames(InputView input, InputManufacture manufacture) {
         String names = input.readCarNames();
         return manufacture.makeNameList(names);
+    }
+
+    public void saveCarList(List<String> nameList) {
+        TotalCar totalCar = new TotalCar();
+
+        for (String name : nameList) {
+            totalCar.saveNewCar(name);
+        }
     }
 
 }
