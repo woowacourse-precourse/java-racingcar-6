@@ -21,12 +21,12 @@ public class UserTest {
 
     @AfterEach
     public void restoreSystemIn() {
-        // 테스트 후에 원래의 System.in을 복원합니다.
+        // 테스트 후에 원래의 System.in을 복원
         System.setIn(originalSystemIn);
     }
 
     @Test
-    public void testInputCarName() {
+    public void 경주할_자동차를_입력하라() {
         User user = new User();
         String carName = user.inputCarName();
         assertEquals("pobi,MJ,tjwls", carName);
