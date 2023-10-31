@@ -26,9 +26,18 @@ public class GameView {
     }
 
     public void printExecutionTitle() {
+        System.out.println(Message.EXECUTION_RESULT_TITLE.getMessage());
     }
 
     public void printExecutionResult(List<Car> cars) {
+        for (Car car: cars) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getStep(); i++) {
+                System.out.print("-");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
 
     public void printWinners(List<String> winners) {
