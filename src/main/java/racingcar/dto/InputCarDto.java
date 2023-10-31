@@ -2,7 +2,7 @@ package racingcar.dto;
 
 public record InputCarDto(
     String carName,
-    String Delimiter
+    String delimiter
 ) {
 
 }

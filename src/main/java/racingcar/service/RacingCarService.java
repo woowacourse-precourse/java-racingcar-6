@@ -7,14 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
-import racingcar.domain.Winners;
-import racingcar.dto.InputCarDto;
 
 public class RacingCarService {
 
-    public CarGroup createCarGroup(InputCarDto inputCarDto) {
-        String carNames = inputCarDto.carName();
-        String delimiter = inputCarDto.Delimiter();
+    public CarGroup createCarGroup(String carNames, String delimiter) {
 
         String[] separateCarName = carNames.split(delimiter);
 
@@ -34,7 +30,7 @@ public class RacingCarService {
         carGroup.move();
     }
 
-    public Winners getWinners(CarGroup carGroup) {
-        return Winners.from(carGroup.getWinnerList());
+    public List<String> getWinners(CarGroup carGroup) {
+        return carGroup.getWinnerList();
     }
 }
