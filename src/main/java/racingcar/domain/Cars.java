@@ -35,9 +35,8 @@ public class Cars {
     }
 
     private List<Car> sortedCarByDistance() {
-        List<Car> sortedCars = cars.stream()
+        return cars.stream()
                 .sorted(Comparator.comparingInt(Car::getDistance).reversed())
                 .toList();
-        return sortedCars;
     }
 }
