@@ -5,17 +5,19 @@ public class Error {
         if (userInput.isEmpty())
             throw new IllegalArgumentException("Empty Error is occurred");
     }
-    static void isLengthError(String userInput){
+
+    static void isLengthError(String userInput) {
         if (userInput.length() > 5)
             throw new IllegalArgumentException("Invalid Length: " + userInput.length());
         isEmptyError(userInput);
     }
-    static void isDigitError(String userInput){
+
+    static void isDigitError(String userInput) {
         int userNumber;
 
         if (userInput.isEmpty())
             throw new IllegalArgumentException("Empty Error is occurred");
-        for (int i = 0; i < userInput.length(); i++){
+        for (int i = 0; i < userInput.length(); i++) {
             char digit = userInput.charAt(i);
             if (!Character.isDigit(digit))
                 throw new IllegalArgumentException("Invalid digit: " + digit);

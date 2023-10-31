@@ -35,22 +35,23 @@ public class Game {
         return Integer.parseInt(userNumber);
     }
 
-    void callCarGoForward(){
+    void callCarGoForward() {
         for (Car car : cars) {
             car.goForward();
         }
         System.out.printf("%n");
     }
+
     Game() {
         Message.getStartMessage();
         getCarsNames();
         Message.getAttemptNumberMessage();
         int userNumber = getNumber();
         Message.getProcessMessage();
-        for (int i = 0; i < userNumber; i++){
+        for (int i = 0; i < userNumber; i++) {
             callCarGoForward();
         }
-        for (Car car : cars){
+        for (Car car : cars) {
             whoIsWinner(car);
         }
         Message.getResultMessage(winnerName);
