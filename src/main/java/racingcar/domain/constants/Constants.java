@@ -8,9 +8,7 @@ public class Constants {
     public static final String INITIAL_POSITION = "%s : ";
     public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 9;
-
     public static final int STANDARD_VALUE = 4;
-
     public static final int MOVING_DISTANCE = 1;
     public static final String MOVING_POSITION = "-";
     public static final String RACE_RESULT_START = "실행 결과";

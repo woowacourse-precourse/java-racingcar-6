@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 class PositionTest {
 
     private Car car;
+
     @BeforeEach
     void beforeEach() {
         car = Car.createCar("BMW");
