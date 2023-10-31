@@ -20,6 +20,7 @@ public class RacingGame {
 
     private void validateCarName(String carName) {
         validateLength(carName);
+        validateBlank(carName);
     }
 
     private void validateLength(String carName) {
@@ -30,6 +31,12 @@ public class RacingGame {
 
     private boolean isValidLength(String carName) {
         return carName.length() >= 1 && carName.length() <= 5;
+    }
+
+    private void validateBlank(String carName) {
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void inputRound() {
