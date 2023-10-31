@@ -1,17 +1,25 @@
 package racingcar.controller;
 
+import racingcar.Dto.GameInputDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.List;
 
 public class InputController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
-    public void start(){
+    public GameInputDto gameStart(){
         outputView.printCarName();
-        inputView.getName();
+        List<String> carNames = inputView.getName();
 
         outputView.printHowManyRound();
-        inputView.getNumberOfRound();
+        int numberRound =inputView.getNumberOfRound();
+
+        outputView.printGameStart();
+
+        GameInputDto gameInputDto = new GameInputDto(carNames, numberRound);
+        return gameInputDto;
     }
 }
