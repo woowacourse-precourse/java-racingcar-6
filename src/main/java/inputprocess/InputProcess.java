@@ -14,7 +14,7 @@ public class InputProcess {
         InspectName(carnames);
     }
 
-    // 검사 메소드
+    // 검사 실행 메소드
     private void InspectName(String[] carnames) {
         ValidInputSting(carnames);
         CheckNameState(carnames);
@@ -24,19 +24,27 @@ public class InputProcess {
     // 차 이름 들어왔나 확인
     private void ValidInputSting(String[] carnames) throws IllegalArgumentException {
         if (carnames.length == 0) {
-            throw new IllegalArgumentException("잘못된 값을 입력하셨습니다.(',' 을 기준으로 이름을 입력해주세요)");
+            throw new IllegalArgumentException("잘못된 값을 입력하셨습니다.(',' 을 기준으로 구분하는 5자 이하의 이름을 입력해주세요)");
         }
     }
 
     // 차 이름이 들어왔을 경우, 각 이름에 대한 조건(5자 이하) 메소드 호출
     private void CheckNameState(String[] carnames) {
         for (int i = 0; i < carnames.length; i++) {
+            CheckNameItemlength(carnames[i]);
             CheckNameItem(carnames[i]);
         }
     }
 
-    // 5자 이하인지 확인
+    // 공백의 이름인지 확인
     private void CheckNameItem(String carnameItem) throws IllegalArgumentException {
+        if( carnameItem.isBlank() ) {
+            throw new IllegalArgumentException("잘못된 값을 입력하셨습니다.(공백이 아닌 이름을 입력해주세요.)");
+        }
+    }
+
+    // 5자 이하인지 확인
+    private void CheckNameItemlength(String carnameItem) throws IllegalArgumentException {
             if (carnameItem.length() > 5) {
                 throw new IllegalArgumentException("잘못된 값을 입력하셨습니다.(각 이름은 5자 이하로 입력해주세요)");
             }
