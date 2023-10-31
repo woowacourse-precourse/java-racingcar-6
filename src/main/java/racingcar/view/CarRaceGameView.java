@@ -14,23 +14,12 @@ public class CarRaceGameView {
         System.out.println(START_GAME);
     }
 
-    public static String receiveCarNames() {
-        String carNames = readLine();
-        Validator.checkCarNamesForm(carNames);
-        return carNames;
+    public static String getInput() {
+        return readLine();
     }
 
     public static void printAttemptNumber() {
         System.out.println(ATTEMPT_NUMBER);
-    }
-
-    public static int receiveAttemptNumber() {
-        String attemptNumberString = readLine();
-        Validator.isEmptyString(attemptNumberString);
-        Validator.isNumber(attemptNumberString);
-        Validator.isMoreThanOne(attemptNumberString);
-
-        return Integer.parseInt(attemptNumberString);
     }
 
     public static void printOneRoundResult(String carName, int advanceNumber) {

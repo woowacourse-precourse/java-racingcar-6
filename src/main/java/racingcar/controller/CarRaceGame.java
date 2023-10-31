@@ -23,30 +23,35 @@ public class CarRaceGame {
     }
 
     public static void startGame() {
+        List<String> carNameList = getCarNameListAndValidate();
+        setCarImpls(carNameList);
+
+        executeCarRaceGameForNRound(getGameRoundAndValidate());
+    }
+
+    public static List<String> getCarNameListAndValidate() {
         CarRaceGameView.printStartGame();
-        dealWithCarNames(CarRaceGameView.receiveCarNames());
+        String carNames = CarRaceGameView.getInput();
+        Validator.checkCarNamesForm(carNames);
 
+        List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
+        validateCarName(carNameList);
+        return carNameList;
+    }
+
+    public static int getGameRoundAndValidate() {
         CarRaceGameView.printAttemptNumber();
-        executeCarRaceGame(CarRaceGameView.receiveAttemptNumber());
+        String attemptNumberString = CarRaceGameView.getInput();
+        validateGameRoundNumber(attemptNumberString);
+        return Integer.parseInt(attemptNumberString);
     }
 
-    public static void dealWithCarNames(String carNames) {
-        setUpCar(makeCarNamesToList(carNames));
-    }
-
-
-    private static void setUpCar(List<String> carNameList) {
+    private static void setCarImpls(List<String> carNameList) {
         for (String carName : carNameList) {
             GameManager.addCarImpl(new Car(carName));
         }
     }
 
-    public static List<String> makeCarNamesToList(String carNames) {
-        List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
-        validateCarName(carNameList);
-
-        return carNameList;
-    }
 
     public static void validateCarName(List<String> carNameList) {
         Validator.checkCarNameDuplication(carNameList);
@@ -56,10 +61,16 @@ public class CarRaceGame {
         }
     }
 
-    public static void executeCarRaceGame(int roundNumber) {
+    public static void validateGameRoundNumber(String gameRound) {
+        Validator.isEmptyString(gameRound);
+        Validator.isNumber(gameRound);
+        Validator.isMoreThanOne(gameRound);
+    }
+
+    public static void executeCarRaceGameForNRound(int gameRoundNumber) {
         System.out.println(EXECUTION_RESULT);
 
-        for (int i = 0; i < roundNumber; i++) {
+        for (int i = 0; i < gameRoundNumber; i++) {
             CarRaceGameUtility.executeCarRaceGameOneRound();
         }
         CarRaceGameView.printGameResult(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
