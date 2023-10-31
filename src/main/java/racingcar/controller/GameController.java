@@ -7,7 +7,7 @@ import racingcar.domain.car.Cars;
 import racingcar.service.CarService;
 import racingcar.view.output.OutputMessage;
 
-public class CarController {
+public class GameController {
 
     private static final String CAR = "자동차";
 

@@ -18,14 +18,14 @@ public class Cars {
     private final List<Car> cars = new ArrayList<>();
 
     public Cars(List<String> carNames) {
-        validateNameEmpty(carNames);
+        validateCanRace(carNames);
         for (String name : carNames) {
             cars.add(new Car(name));
         }
     }
 
-    private void validateNameEmpty(List<String> names) {
-        if (names.size() <= 1) {
+    private void validateCanRace(List<String> names) {
+        if (names.size() < 2) {
             throw new InputIllegalArgumentException(InputError.NOT_EXCEED_MINIMUM_AMOUNT);
         }
     }
