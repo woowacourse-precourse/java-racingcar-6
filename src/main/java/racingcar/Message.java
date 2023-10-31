@@ -20,7 +20,7 @@ public class Message {
         System.out.println("\n실행 결과");
         for(int i=0;i < movingNumber;i++) {
             Application.updateCarRacingRecord(carList,carRacingRecord);
-            Application.printCarRacingRecord(carList, carRacingRecord);
+            printCarRacingRecord(carList, carRacingRecord);
             System.out.println();
         }
     }
@@ -49,7 +49,7 @@ public class Message {
             String racingRecord = getRacingRecord(carRacingRecord.get(carName));
             maxRecord = Math.max(maxRecord,racingRecord.length());
         }
-        List<String> winners = Application.getWinner(carRacingRecord,maxRecord);
+        List<String> winners = RacingCar.getWinner(carRacingRecord,maxRecord);
         StringBuilder winnerName= new StringBuilder();
         for(int i=0;i<winners.size()-1;i++) {
             winnerName.append(winners.get(i)+", ");
