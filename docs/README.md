@@ -24,7 +24,7 @@
 
 ## 리팩토링 작업에 고려할 주요 요구 사항
 
-- [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들기.
+- 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들기.
   - 리팩토링 작업 내용 및 결과
     - [x] decideWinner() 함수에서 winner의 index를 구하는 기능을 별도 함수 extractWinnerIndex()로 분리.
     - [x] inputCarNames()에서 readLine() 분리.
@@ -38,16 +38,21 @@
 
 ## 함수(또는 메서드)별 기능 테스트 작성
 
-- [ ] 함수 테스트는 ~~혹시 모를 테스트 코드 실패를 대비하여~~ ApplicationTest와 분리된 별도의 MethodsTest에서 테스트하기.
+- 함수 테스트는 ~~혹시 모를 테스트 코드 실패를 대비하여~~ ApplicationTest와 분리된 별도의 MethodsTest에서 테스트하기.
   - ~~ApplicationTest에서 테스트 실패시 0점 처리되기 때문.~~
   - 어차피 gradlew.bat clean test를 하면 ApplicationTest 뿐만 아니라 모든 테스트를 실행한다는 것을 알게됨!
   - 즉, MethodsTest를 분리해도 거기서 fail이 나타나면 어차피 0점 처리될 수 있음.
-- [x] splitCarNamesTest : splitCarNames()가 입력한 문자열을 콤마(,) 단위로 나누어 List 형태로 반환하는지 테스트.
-- [x] checkNamingErrorTest : checkNamingError()가 5자 초과의 이름이 있을 때 예외 처리하는지 테스트.
-- [x] convertStringToIntTest : convertStringToInt()가 시도 횟수를 int로 변환하고 입력 오류는 예외 처리하는지 테스트.
-- [x] generateActionTest : generateAction()가 0(멈춤) 또는 1(전진)을 반환하는지 테스트.
-- [x] recordCarActionTest : recordCarAction()가 반환한 List에 0과 1만 구성돼있고, 자동차 이름 List와 크기가 같은지 테스트.
-- [x] printCarRaceTest : printCarRace()가 자동차 이름과 전진 횟수를 반영하여 "이름 : -" 형태로 출력하는지 테스트.
-- [x] extractWinnerIndexTest : extractWinnerIndex()가 가장 멀리 간 자동차의 index로 구성된 List를 반환하는지 테스트.
-- [x] decideWinnerTest : decideWinner()가 우승자 이름으로 구성된 List를 반환하는지 테스트.
-- [ ] printWinnerTest :
+  - 테스트를 꼼꼼하게 하자!
+- MethodsTest.java 테스트 목록
+  - [x] splitCarNamesTest : splitCarNames()가 입력한 문자열을 콤마(,) 단위로 나누어 List 형태로 반환하는지 테스트.
+  - [x] checkNamingErrorTest : checkNamingError()가 5자 초과의 이름이 있을 때 예외 처리하는지 테스트.
+  - [x] convertStringToIntTest : convertStringToInt()가 시도 횟수를 int로 변환하고 입력 오류는 예외 처리하는지 테스트.
+
+  - [x] playCarRaceTest : playCarRace()가 시도 횟수만큼 반복하여 각 자동차의 최종 실행 결과를 반환하는지 테스트.
+  - [x] recordCarActionTest : recordCarAction()가 전진, 멈춤에 따라 이전 기록을 갱신하는지 테스트.
+  - [x] generateActionTest : generateAction()가 난수에 따라 0(멈춤) 또는 1(전진)을 반환하는지 테스트.
+  - [x] printCarRaceTest : printCarRace()가 자동차 이름과 전진 횟수를 반영하여 "이름 : -" 형태로 출력하는지 테스트.
+
+  - [x] extractWinnerIndexTest : extractWinnerIndex()가 가장 멀리 간 자동차의 index로 구성된 List를 반환하는지 테스트.
+  - [x] decideWinnerTest : decideWinner()가 우승자 이름으로 구성된 List를 반환하는지 테스트.
+  - [x] printWinnerTest : printWinner()가 단독 우승자와 공동 우승자를 형식에 맞게 출력하는지 테스트.

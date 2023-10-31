@@ -5,12 +5,14 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MethodsTest extends NsTest {
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
 
     @Test
     void splitCarNamesTest() {
@@ -38,20 +40,55 @@ class MethodsTest extends NsTest {
     }
 
     @Test
-    void generateActionTest() {
-        int action = Application.generateAction();
-        assertTrue(action == 0 || action == 1);
+    void playCarRaceTest() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    List<Integer> result = Application.playCarRace(
+                            2, Arrays.asList("pobi", "woni", "BE")
+                    );
+                    assertThat(result).isEqualTo(Arrays.asList(1, 0, 2));
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, STOP, MOVING_FORWARD
+        );
     }
 
     @Test
     void recordCarActionTest() {
-        List<Integer> actionRecords = Application.recordCarAction(
-                Arrays.asList("pobi", "woni", "javaji"), Arrays.asList(0, 0, 0)
+        assertRandomNumberInRangeTest(
+                () -> {
+                    List<Integer> recordStorage = Application.recordCarAction(
+                            Arrays.asList("pobi", "woni", "BE"), Arrays.asList(0, 0, 0)
+                    );
+                    assertThat(recordStorage).isEqualTo(Arrays.asList(1, 0, 1));
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
-        assertThat(actionRecords.size()).isEqualTo(3);
-        for (int action : actionRecords) {
-            assertTrue(action == 0 || action == 1);
-        }
+    }
+
+    @Test
+    void generateActionTest_난수_4이상_전진() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 4; i < 10; i++) {
+                        int action = Application.generateAction();
+                        assertThat(action).isEqualTo(1);
+                    }
+                },
+                4, 5, 6, 7, 8, 9
+        );
+    }
+
+    @Test
+    void generateActionTest_난수_4미만_멈춤() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < 4; i++) {
+                        int action = Application.generateAction();
+                        assertThat(action).isEqualTo(0);
+                    }
+                },
+                0, 1, 2, 3
+        );
     }
 
     @Test
@@ -80,7 +117,23 @@ class MethodsTest extends NsTest {
     }
 
     @Test
-    void printWinnerTest() {
+    void printWinnerTest_단독_우승자() {
+        assertSimpleTest(
+                () -> {
+                    Application.printWinner(Arrays.asList("woni"));
+                    assertThat(output()).isEqualTo("최종 우승자 : woni");
+                }
+        );
+    }
+
+    @Test
+    void printWinnerTest_공동_우승자() {
+        assertSimpleTest(
+                () -> {
+                    Application.printWinner(Arrays.asList("woni", "kiki"));
+                    assertThat(output()).isEqualTo("최종 우승자 : woni, kiki");
+                }
+        );
     }
 
     @Override

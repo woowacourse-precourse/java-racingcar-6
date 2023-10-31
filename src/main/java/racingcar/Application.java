@@ -50,22 +50,19 @@ public class Application {
         List<Integer> recordStorage = new ArrayList<>(Collections.nCopies(carNamesList.size(), 0));
 
         for (int i = 0; i < numberOfRaces; i++) {
-            List<Integer> actionRecords = recordCarAction(carNamesList, recordStorage);
-            printCarRace(carNamesList, actionRecords);
-            recordStorage = actionRecords;
+            recordStorage = recordCarAction(carNamesList, recordStorage);
+            printCarRace(carNamesList, recordStorage);
         }
-        List<Integer> raceResult = recordStorage;
-        return raceResult;
+        return recordStorage;
     }
 
     public static List<Integer> recordCarAction(List<String> carNamesList, List<Integer> recordStorage) {
-        List<Integer> actionRecords = recordStorage;
         for (String car : carNamesList) {
             int i = carNamesList.indexOf(car);
-            int action = actionRecords.get(i) + generateAction();
-            actionRecords.set(i, action);
+            int action = recordStorage.get(i) + generateAction();
+            recordStorage.set(i, action);
         }
-        return actionRecords;
+        return recordStorage;
     }
 
     public static int generateAction() {
@@ -77,10 +74,10 @@ public class Application {
         return action;
     }
 
-    public static void printCarRace(List<String> carNamesList, List<Integer> actionRecords) {
+    public static void printCarRace(List<String> carNamesList, List<Integer> recordStorage) {
         for (String car : carNamesList) {
             int i = carNamesList.indexOf(car);
-            int action = actionRecords.get(i);
+            int action = recordStorage.get(i);
             String dashes = "-".repeat(action);
             System.out.println(car + " : " + dashes);
         }
