@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.service.Rule;
@@ -10,11 +9,9 @@ public class CarTest {
 
     private Car car;
 
-
     @DisplayName("자동차 이름을 반환한다.")
     @Test
     void getCarName() {
-
         car = new Car("pobi");
 
         Assertions.assertAll(
@@ -26,8 +23,8 @@ public class CarTest {
     @DisplayName("자동차 포지션을 반환한다.")
     @Test
     void getPosition() {
-
         car = new Car("pobi");
+
         Position position = new Position(0);
         Assertions.assertAll(
                 () -> Assertions.assertEquals(0, car.getCarPosition()),
@@ -51,8 +48,6 @@ public class CarTest {
     @Test
     void getCarPosition(){
         Car car = new Car("pobi");
-
         Assertions.assertEquals(0,car.getCarPosition());
     }
-
 }

@@ -8,7 +8,6 @@ import racingcar.service.Referee;
 
 public class OutputView {
 
-
     private static final String CAR_POSITION = "-";
     private static final int MIN_VALUE = 0;
     private static final String DELIMITER = " : ";

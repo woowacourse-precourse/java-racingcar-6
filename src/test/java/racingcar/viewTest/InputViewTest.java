@@ -35,7 +35,6 @@ public class InputViewTest {
     @Test
     void showTrialMessage() {
         String expected = "시도할 회수는 몇회인가요?";
-
         System.setOut(new PrintStream(outputStream));
 
         inputView.showTrialNumberInputMessage();

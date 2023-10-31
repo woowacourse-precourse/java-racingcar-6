@@ -9,7 +9,8 @@ import racingcar.exception.CarNameInvalidException;
 import racingcar.exception.TrialNumberInvalidException;
 
 public class DataValidatorTest {
-    DataValidator dataValidator;
+
+    private DataValidator dataValidator;
 
     @BeforeEach
     void setUp() {

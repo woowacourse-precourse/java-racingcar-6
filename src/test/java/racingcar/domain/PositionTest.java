@@ -9,14 +9,10 @@ public class PositionTest {
 
     private Position position;
 
-    @BeforeEach()
-    void setUp() {
-        position = new Position(0);
-    }
-
     @DisplayName("Car Position을 1만큼 증가시킨다.")
     @Test
     void increasePosition() {
+        position = new Position(0);
         position.increase();
         Assertions.assertEquals(1, position.getCarPosition());
     }

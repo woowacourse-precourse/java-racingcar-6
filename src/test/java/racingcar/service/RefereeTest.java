@@ -33,5 +33,4 @@ public class RefereeTest {
                 () -> Assertions.assertEquals("pobi, jun, seok", actual)
         );
     }
-
 }
