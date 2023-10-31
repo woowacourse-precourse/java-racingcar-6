@@ -12,10 +12,9 @@ public class Input {
         return parkingList;
     }
 
-    public Map<String,Integer> carDistance(Map<String,Integer> parkingLot,String carlist) {
-        String[] car_list = carlist.split(",");
-        for (int i = 0; i < car_list.length; i++) {
-            parkingLot.put(car_list[i], 0);
+    public Map<String,Integer> carDistance(Map<String,Integer> parkingLot,String[] carlist) {
+        for (int i = 0; i < carlist.length; i++) {
+            parkingLot.put(carlist[i], 0);
         }
         return parkingLot;
     }
