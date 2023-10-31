@@ -35,5 +35,26 @@ public class UserInputHandler {
             throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
         }
     }
+
+    public static int getAttemptCountFromUser() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String countInput = Console.readLine();
+        return validateAttemptCount(countInput);
+    }
+
+    private static int validateAttemptCount(String countInput) {
+        if (countInput == null || countInput.isEmpty()) {
+            throw new IllegalArgumentException("시도 횟수를 입력해주세요.");
+        }
+        try {
+            int attemptCount = Integer.parseInt(countInput);
+            if (attemptCount <= 0) {
+                throw new IllegalArgumentException("시도 횟수는 0보다 커야 합니다.");
+            }
+            return attemptCount;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자만 입력할 수 있습니다.");
+        }
+    }
 }
 
