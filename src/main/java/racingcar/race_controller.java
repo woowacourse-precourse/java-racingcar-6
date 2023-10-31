@@ -23,7 +23,7 @@ public class race_controller {
     }
 
     public void game() {
-        OutputView.printresultMessage();
+        OutputView.printResultMessage();
         int round = 0;
         while(isEnd(round)){
             runGame();

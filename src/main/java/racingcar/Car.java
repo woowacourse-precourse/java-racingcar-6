@@ -13,13 +13,13 @@ public class Car {
 
     private void validate_length(String car) {
         if (car.length() > Constant.MAX_CAR_NAME_COUNT) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하로 작성해주세요.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_CAR_NAME_LENGTH);
         }
     }
 
     private void validate_leading_space(String car){
         if(car.charAt(0) == ' '){
-            throw new IllegalArgumentException("이름 앞에 공백이 있습니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_CAR_NAME_LEADING_SPACE);
         }
     }
 

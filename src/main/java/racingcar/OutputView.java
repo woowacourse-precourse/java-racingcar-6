@@ -23,7 +23,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printresultMessage(){
+    public static void printResultMessage(){
         System.out.println(Constant.EXECUTION_RESULT);
     }
 

@@ -24,13 +24,13 @@ public class Cars {
         Set<String> carNameWithoutDuplication = new HashSet<>(carNames);
 
         if (carNameWithoutDuplication.size() != cars.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복되지 않아야합니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_CAR_NAME_DUPLICATE);
         }
     }
 
     private void validation_Empty(List<Car> cars){
         if(cars.isEmpty()){
-            throw new IllegalArgumentException("자동차가 없습니다.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_EMPTY_CAR_LIST);
         }
     }
 

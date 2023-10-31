@@ -11,7 +11,7 @@ public class RoundNumber {
 
     private void validate_min_max_round_number(int round_Num) {
         if (round_Num < Constant.MIN_ROUND_NUM || round_Num > Constant.MAX_ROUND_NUM) {
-            throw new IllegalArgumentException("1 이상, 10 이하의 수를 입력해주세요.");
+            throw new IllegalArgumentException(ErrorMessage.ERROR_MIN_MAX_ROUND_NUM);
         }
     }
 
