@@ -39,10 +39,6 @@ public class GameException {
     }
 
     private boolean isNumber(String carName) {
-        for (char carNameWord : carName.toCharArray()) {
-            if (Character.isDigit(carNameWord))
-                return true;
-        }
-        return false;
+        return carName.chars().anyMatch(Character::isDigit);
     }
 }
