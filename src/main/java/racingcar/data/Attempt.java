@@ -1,13 +1,13 @@
 package racingcar.data;
 
 public class Attempt {
-    private final RandomNumber randomNumber;
+    private final RandomNumbers randomNumbers;
 
-    public Attempt() {
-        this.randomNumber = new RandomNumber();
+    public Attempt(int pickTotal) {
+        this.randomNumbers = new RandomNumbers(pickTotal);
     }
 
     public void initRandomNumber() {
-        randomNumber.init();
+        randomNumbers.init();
     }
 }

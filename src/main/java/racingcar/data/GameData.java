@@ -24,6 +24,6 @@ public class GameData {
     }
 
     public void proceedOneRace() {
-        attemptData.pickNewNumber();
+        attemptData.pickNewNumber(racingCars.isTotal());
     }
 }

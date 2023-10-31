@@ -15,4 +15,8 @@ public class RacingCars {
         Car newCar = new Car(name, INIT_POS);
         cars.add(newCar);
     }
+
+    public int isTotal() {
+        return cars.size();
+    }
 }

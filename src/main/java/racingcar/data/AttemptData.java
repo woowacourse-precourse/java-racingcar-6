@@ -11,8 +11,8 @@ public class AttemptData {
         this.attemptIndex = new AttemptIndex();
     }
 
-    public void pickNewNumber() {
-        gameAttempts.createAttempt();
+    public void pickNewNumber(int pickTotal) {
+        gameAttempts.createAttempt(pickTotal);
         gameAttempts.pickNewNumberByIndex(attemptIndex.toInt());
     }
 

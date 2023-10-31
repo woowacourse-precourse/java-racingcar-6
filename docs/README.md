@@ -44,7 +44,7 @@
 - `AttemptIndex` : int
 
 ## Attempt
-- `RandomNumber` : int
+- `RandomNumbers` : List\<int>
 
 ## GameExecution
 - `GameInput`

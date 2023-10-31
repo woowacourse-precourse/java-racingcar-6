@@ -6,7 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class RandomNumberTest {
+public class RandomNumbersTest {
     @DisplayName("랜덤 정수값 0보다 작은 경우 테스트")
     @Test
     void validateInputNumber_smallerThan0_IAE() {
@@ -14,7 +14,7 @@ public class RandomNumberTest {
         int number = -1;
 
         // when, then
-        assertThatThrownBy(() -> RandomNumber.validateInputNumber(number))
+        assertThatThrownBy(() -> RandomNumbers.validateRandomNumber(number))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("InputNumber should be between 0 and 9.");
     }
@@ -26,7 +26,7 @@ public class RandomNumberTest {
         int number = 10;
 
         // when, then
-        assertThatThrownBy(() -> RandomNumber.validateInputNumber(number))
+        assertThatThrownBy(() -> RandomNumbers.validateRandomNumber(number))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("InputNumber should be between 0 and 9.");
     }
@@ -38,7 +38,7 @@ public class RandomNumberTest {
         int number = 5;
 
         // when, then
-        assertThatCode(() -> RandomNumber.validateInputNumber(number))
+        assertThatCode(() -> RandomNumbers.validateRandomNumber(number))
                 .doesNotThrowAnyException();
     }
 }

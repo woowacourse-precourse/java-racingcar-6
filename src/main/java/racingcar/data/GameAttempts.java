@@ -10,8 +10,8 @@ public class GameAttempts {
         this.attempts = new ArrayList<>(attemptNumber);
     }
 
-    public void createAttempt() {
-        Attempt newAttempt = new Attempt();
+    public void createAttempt(int pickTotal) {
+        Attempt newAttempt = new Attempt(pickTotal);
         attempts.add(newAttempt);
     }
 
