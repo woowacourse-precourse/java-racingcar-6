@@ -5,7 +5,7 @@ import racingcar.constant.CarNamesInputErrorMessage;
 import racingcar.constant.Constant;
 
 public class Car {
-    private String name;
+    private final String name;
     private Long distance;
 
     public Car(String name) {
