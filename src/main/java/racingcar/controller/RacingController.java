@@ -29,6 +29,12 @@ public class RacingController {
 
         // 4. 시도 횟수만큼 레이싱 진행
         tryRacing(trialCount);
+
+        // 5. 우승 차량 확인
+        List<Car> winningCarList;
+        winningCarList = racingCars.calculateWinningCars();
+
+
     }
 
     private void tryRacing(int trialCount) {
