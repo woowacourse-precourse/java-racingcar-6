@@ -21,6 +21,8 @@ public class GameUtilTest {
                 .isInstanceOf(IllegalArgumentException.class);
         assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[]{" Heej"}))
                 .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> GameUtil.isIllegalPlayerInfo(new String[]{""}))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
