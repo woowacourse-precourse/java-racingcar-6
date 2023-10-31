@@ -4,8 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputManager {
+    private static boolean isFirstRound = true;
+
     public static void printRoundResult(int round, List<Car> cars) {
-        System.out.println("실행 결과");
+        if (isFirstRound) {
+            System.out.println("\n실행 결과");
+            isFirstRound = false;
+        }
         cars.forEach(car -> System.out.println(car.getName() + " : " + createPositionString(car.getPosition())));
         System.out.println();
     }
@@ -15,7 +20,7 @@ public class OutputManager {
     }
 
     public static void printWinners(List<Car> winners) {
-        System.out.print("우승자: ");
-        System.out.print(winners.stream().map(Car::getName).collect(Collectors.joining(", ")));
+        System.out.print("최종 우승자: ");
+        System.out.println(winners.stream().map(Car::getName).collect(Collectors.joining(", ")));
     }
 }
