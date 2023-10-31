@@ -12,16 +12,16 @@ public class CarResult {
         this.cars = cars;
     }
 
-    private int getMaxLength(){
+    private String getMaxPosition(){
         return cars.stream()
-                .map(car -> car.getPosition().length())
-                .max(Integer::compareTo)
-                .orElse(0);
+                .map(car -> car.getPosition())
+                .max(String::compareTo)
+                .orElse("");
     }
 
     public List<String> getMaxPlayer() {
         List<String> maxPlayer = cars.stream()
-                .filter(car -> car.getPosition().length() == getMaxLength())
+                .filter(car -> car.getPosition() == getMaxPosition())
                 .map(Car::getName)
                 .collect(Collectors.toList());
         return maxPlayer;
