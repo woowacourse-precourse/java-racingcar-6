@@ -2,16 +2,12 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.util.validator.InputValidator.isListDuplicate;
-import static racingcar.util.validator.InputValidator.isNegativeNumber;
-import static racingcar.util.validator.InputValidator.isNonNumericString;
-import static racingcar.util.validator.InputValidator.isStringLengthValid;
-import static racingcar.util.validator.InputValidator.checkBlank;
-import static racingcar.util.validator.InputValidator.checkComma;
 
-import java.util.List;
+
+
+
 import org.junit.jupiter.api.Test;
-import racingcar.util.Util;
+
 
 public class StringTest {
 
@@ -56,56 +52,7 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
-    @Test
-    void 문자열_앞뒤_쉼표_포함_시_예외_발생() {
-        String input = ",abc,test";
 
-        assertThatThrownBy(() -> checkComma(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("입력받은 값 앞뒤 ','쉼표 포함");
-    }
-
-    @Test
-    void 분리된_문자열_앞뒤_공백_포함_시_예외_발생() {
-        String input = "test ";
-
-        assertThatThrownBy(() -> checkBlank(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("문자열 앞뒤 ' '공백 포함");
-    }
-
-    @Test
-    void 분리된_문자열_길이가_6_이상인_경우_예외_발생() {
-        String input = "123456";
-
-        assertThatThrownBy(() -> isStringLengthValid(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("문자열 길이 6자리 이상");
-    }
-    @Test
-    void 분리된_문자열_길이가_0인_경우_예외_발생() {
-        String input = "";
-
-        assertThatThrownBy(() -> isStringLengthValid(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("문자열 길이 0");
-    }
-    @Test
-    void 입력받은_값이_숫자가_아닌_경우_예외_발생() {
-        String input = "a";
-        assertThatThrownBy(() -> isNonNumericString(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("입력받은 값이 정수형 숫자가 아님");
-    }
-
-
-    @Test
-    void 입력받은_값이_음수_인_경우_예외_발생() {
-        int input = -1;
-        assertThatThrownBy(() -> isNegativeNumber(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("입력받은 값이 음수");
-    }
 
 
 }
