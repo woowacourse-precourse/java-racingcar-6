@@ -21,15 +21,15 @@ public class CarRaceManager {
     }
 
     private List<String> inputCarName() {
-        String input = Console.readLine().replaceAll(" ","");
+        String input = Console.readLine().replaceAll(" ", "");
         String[] carNameArray = input.split(",");
         return Arrays.asList(carNameArray);
     }
 
     public void createCarList() {
-        // carNameArray? List로 수정
-        List<String> carNameArray = inputCarName();
-        for (String carName : carNameArray) {
+        List<String> carNameList = inputCarName();
+        validateCarName(carNameList);
+        for (String carName : carNameList) {
             Car newCar = new Car(carName);
             racingCars.add(newCar);
             carCount++;
