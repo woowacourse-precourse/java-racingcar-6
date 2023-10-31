@@ -25,16 +25,24 @@ public class OutputView {
      * @param messageType
      * @return gameMessage
      */
-    public String getGameMessage(MessageType messageType){
-        String gameMessage = "";
+    public void printGameMessage(MessageType messageType){
         switch (messageType){
-            case GAME_START -> gameMessage = MessageType.GAME_START.getMessage();
-            case TRY_COUNT -> gameMessage = MessageType.TRY_COUNT.getMessage();
-            case PROGRESS_RESULT -> gameMessage = MessageType.PROGRESS_RESULT.getMessage();
-            case CAR_STEP_PROGRESS -> gameMessage = MessageType.CAR_STEP_PROGRESS.getMessage();
-            case FINAL_RESULT -> gameMessage = MessageType.FINAL_RESULT.getMessage();
+            case GAME_START:
+                print(MessageType.GAME_START.getMessage());
+                break;
+            case TRY_COUNT:
+                print(MessageType.TRY_COUNT.getMessage());
+                break;
+            case PROGRESS_RESULT:
+                print(MessageType.PROGRESS_RESULT.getMessage());
+                break;
+            case CAR_STEP_PROGRESS:
+                print(MessageType.CAR_STEP_PROGRESS.getMessage());
+                break;
+            case FINAL_RESULT:
+                print(MessageType.FINAL_RESULT.getMessage());
+                break;
         }
-        return gameMessage;
     }
 
 }
