@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.Game;
 import racingcar.utils.Parser;
 import racingcar.utils.RandomGenerator;
@@ -9,6 +10,7 @@ import racingcar.utils.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,9 +33,15 @@ public class Controller {
 
     private List<Car> getCars() {
         OutputView.printCarNameRequest();
-        return getCarsName().stream()
-                .map(carName -> new Car(carName, new RandomGenerator()))
-                .collect(Collectors.toList());
+        return createCars();
+    }
+
+    private List<Car> createCars() {
+        List<Car> cars = new ArrayList<>();
+        for(String carName : getCarsName()){
+            cars.add(new Car(carName, new RandomGenerator()));
+        }
+        return cars;
     }
 
     private List<String> getCarsName() {
