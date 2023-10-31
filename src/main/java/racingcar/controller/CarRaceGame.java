@@ -47,7 +47,7 @@ public class CarRaceGame {
     private AllRaceRecords race(Cars cars, MoveCnt moveCnt) {
         outputView.printResultMsg(); // '실행 결과' 메세지 출력
 
-        AllRaceRecords allRecords = carMove.race(cars, moveCnt);
+        AllRaceRecords allRecords = carMove.getRaceResult(cars, moveCnt);
         outputView.printRaceResult(allRecords, moveCnt); // 레이스 결과 출력
 
         return allRecords;

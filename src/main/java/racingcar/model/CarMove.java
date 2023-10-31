@@ -8,18 +8,18 @@ import java.util.*;
 
 public class CarMove {
     // 자동차별 레이스 결과를 모두 담은 리스트를 반환하는 메서드
-    public AllRaceRecords race(Cars cars, MoveCnt moveCnt) {
+    public AllRaceRecords getRaceResult(Cars cars, MoveCnt moveCnt) {
         List<RaceRecord> allRecords = new ArrayList<>();
 
         for (Car car : cars) {
-            allRecords.add(eachRace(car, moveCnt));
+            allRecords.add(getEachCarRaceResult(car, moveCnt));
         }
 
         return new AllRaceRecords(allRecords);
     }
 
     // 각 자동차별 전체 레이스의 위치 변화 반환하는 메서드
-    private RaceRecord eachRace(Car car, MoveCnt moveCnt) {
+    private RaceRecord getEachCarRaceResult(Car car, MoveCnt moveCnt) {
         List<Integer> raceResult = new ArrayList<>();
 
         int dist = 0;
