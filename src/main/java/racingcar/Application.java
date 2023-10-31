@@ -41,4 +41,20 @@ public class Application {
         System.out.println();
     }
 
+    public static void findWinners(String[] carNames, int[] carPositions) {
+        int maxPosition = -1;
+        String winners = "";
+
+        for(int i = 0; i < carNames.length; i++) {
+            if (carPositions[i] > maxPosition) {
+                maxPosition = carPositions[i];
+                winners = carNames[i];
+            } else if (carPositions[i] == maxPosition) {
+                winners += ", " + carNames[i];
+            }
+        }
+        System.out.println();
+        System.out.println("최종 우승자 : " + winners);
+    }
+
 }
