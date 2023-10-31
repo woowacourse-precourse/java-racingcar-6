@@ -20,7 +20,6 @@ public class RacingGame implements Game {
         this.randomNumberProvider = randomNumberProvider;
     }
 
-
     @Override
     public void start(GameInfo gameInfo) {
         setGameInfo(gameInfo);
@@ -31,7 +30,10 @@ public class RacingGame implements Game {
         }
     }
 
-
+    @Override
+    public boolean support(GameType gameType) {
+        return gameType == GameType.Racing;
+    }
 
     private void startOneTurn() {
         for(Participant participant : gameInfo.getParticipants()) {
@@ -41,6 +43,10 @@ public class RacingGame implements Game {
             }
         }
 
+    }
+
+    private boolean isForward() {
+        return randomNumberProvider.getRandomNumber() >= 4;
     }
 
     private void printCurrentResults() {
@@ -54,8 +60,10 @@ public class RacingGame implements Game {
         System.out.println();
     }
 
-    private boolean isForward() {
-        return randomNumberProvider.getRandomNumber() >= 4;
+    private List<Participant> getWinner() {
+        return gameInfo.getParticipants().stream()
+                .filter(v -> v.getForward() == Collections.max(gameInfo.getParticipants()).getForward())
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -71,19 +79,9 @@ public class RacingGame implements Game {
         }
     }
 
-    @Override
-    public boolean support(GameType gameType) {
-        return gameType == GameType.Racing;
-    }
-
     public void setGameInfo(GameInfo gameInfo) {
         this.gameInfo = gameInfo;
     }
 
 
-    private List<Participant> getWinner() {
-        return gameInfo.getParticipants().stream()
-                .filter(v -> v.getForward() == Collections.max(gameInfo.getParticipants()).getForward())
-                .collect(Collectors.toList());
-    }
 }
