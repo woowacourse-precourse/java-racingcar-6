@@ -5,14 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Judgment {
-    List<Integer> forwardNumber = new ArrayList<>();
-    static int maxBar = 0;
+    // 차 이름, 전진 모양, 횟수
+    List<Car> cars = new ArrayList<>();
+    Car maxMovement = Collections.max(cars);
 
-    public void countBar(Car car) {
-        forwardNumber.add(car.movement.size());
-    }
-
-    public void compareMovement(List<Integer> forwardNumber) {
-        maxBar = Collections.max(forwardNumber);
-    }
 }
