@@ -1,11 +1,11 @@
 package racingcar;
 
-import racingcar.domain.ImplementGame;
+import racingcar.domain.GameService;
 
 public class Application {
     public static void main(String[] args) {
-        ImplementGame implementGame = new ImplementGame();
-        implementGame.playGame();
+        GameService gameService = new GameService();
+        gameService.playGame();
     }
 
 }

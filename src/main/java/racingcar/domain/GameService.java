@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static racingcar.domain.Constants.*;
+import racingcar.domain.Constants;
 
 public class GameService {
     UserInput userInput = new UserInput();
@@ -14,13 +14,13 @@ public class GameService {
     SystemOutput systemOutput = new SystemOutput();
 
     public void playGame() {
-        System.out.println(CAR_NAME_INPUT_MESSAGE);
+        System.out.println(Constants.CAR_NAME_INPUT_MESSAGE);
         List<String> carList = userInput.askCarList();
 
-        System.out.println(ATTEMP_INPUT_MESSAGE);
+        System.out.println(Constants.ATTEMP_INPUT_MESSAGE);
         int gameNumber = userInput.askNumberGame();
 
-        System.out.println(RESULT_OF_GAME);
+        System.out.println(Constants.RESULT_OF_GAME);
         Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
 
         for (int i = 0; i < gameNumber; i++) {
