@@ -1,23 +1,24 @@
 package racingcar.controller;
 
-import racingcar.model.Cars;
+import racingcar.model.CarList;
 import racingcar.model.RoundNumber;
 import racingcar.view.InputView;
 
 public class GameController {
-    Cars racingCars;
+    CarList carList;
     RoundNumber roundNumber;
 
     public GameController() {
         initializeGame();
+        startGame();
     }
 
     public void initializeGame() {
-        racingCars = new Cars(InputView.requestRacingCarNames());
+        carList = new CarList(InputView.requestRacingCarNames());
         roundNumber = new RoundNumber(InputView.requestRepetitionNumber());
     }
 
     public void startGame() {
-
+        carList.raceOneRound(carList);
     }
 }

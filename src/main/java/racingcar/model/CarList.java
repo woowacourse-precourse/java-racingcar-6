@@ -5,15 +5,15 @@ import racingcar.validator.CarNameValidator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
+public class CarList {
     private final List<Car> cars = new ArrayList<>();
 
-    public Cars(String carNames) {
+    public CarList(String carNames) {
         CarNameValidator validator = new CarNameValidator(carNames);
         validator.carNameList.stream().forEach(name -> cars.add(new Car(name)));
     }
 
-    public void raceOneRound(List<Car> cars) {
-        cars.stream().forEach(car -> car.printRoundResult());
+    public void raceOneRound(CarList carList) {
+        carList.cars.stream().forEach(car -> car.printRoundResult());
     }
 }
