@@ -70,6 +70,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 라운드_문자_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("do,fo", "d"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
 
     @Override
