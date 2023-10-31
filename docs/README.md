@@ -39,6 +39,10 @@
     1-3. 같은 이름 2개 이상 입력 시
         ex) pobi, pobi
         ⇒ IllegalArgumentException 발생 후 애플리케이션 종료 
+    1-4. 여러대의 자동차 이름 "," 미구분 시 
+        ex) pobi? pobi
+        ⇒ IllegalArgumentException 발생 후 애플리케이션 종료 
+        
         
 2. 시도 횟수 입력 기능 예외 처리: 사용자가 잘못된 값 입력 시
     2-1. 정수가 아닌 값 입력 시 
