@@ -31,11 +31,11 @@ class CarRepositoryTest {
         @DisplayName("Car 객체가 성공적으로 저장되어야 한다.")
         public void Car_객체가_성공적으로_저장되어야_한다() {
             CarRepository carRepository = new CarRepository();
-            Car frirstCar = new Car("FirstCarName");
+            Car firstCar = new Car("FirstCarName");
             Car secondCar = new Car("SecondCarName");
 
             carRepository.clear();
-            carRepository.save(frirstCar);
+            carRepository.save(firstCar);
             carRepository.save(secondCar);
 
             List<Car> cars = carRepository.findAll();
