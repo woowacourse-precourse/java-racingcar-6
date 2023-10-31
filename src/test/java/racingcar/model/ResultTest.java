@@ -31,7 +31,7 @@ public class ResultTest extends NsTest {
      * moveIfRandomSuccess는 확률로 움직이기에 Test에서 적합하지 않다고 판단했습니다.
      */
     @Test
-    void 결과_단일_우승자_테스트_시나리오1() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_단일_우승자_테스트_시나리오1() throws Exception {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
 
@@ -47,7 +47,7 @@ public class ResultTest extends NsTest {
     }
 
     @Test
-    void 결과_단일_우승자_테스트_시나리오2() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_단일_우승자_테스트_시나리오2() throws Exception {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
@@ -65,7 +65,7 @@ public class ResultTest extends NsTest {
     }
 
     @Test
-    void 결과_단일_우승자_테스트_시나리오3() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_단일_우승자_테스트_시나리오3() throws Exception {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
@@ -85,7 +85,7 @@ public class ResultTest extends NsTest {
     }
 
     @Test
-    void 결과_여러_우승자_테스트_시나리오1() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_여러_우승자_테스트_시나리오1() throws Exception {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
@@ -107,7 +107,7 @@ public class ResultTest extends NsTest {
     }
 
     @Test
-    void 결과_여러_우승자_테스트_시나리오2() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_여러_우승자_테스트_시나리오2() throws Exception {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);

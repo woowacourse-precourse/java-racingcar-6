@@ -32,7 +32,7 @@ public class Car {
         }
     }
 
-    private int createRandomNumber() {
+    protected int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 }
