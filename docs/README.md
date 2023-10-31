@@ -5,7 +5,7 @@
 - [x] 자동차의 이름을 입력받는다. - InputView: readCarNames
   - [x] 예외 사항 : 이름이 5자를 초과하면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateName
 - [x] 시도할 횟수를 입력받는다. - InputView: readTimes
-  - [x] 예외 사항 : 횟수가 0 ~ 2,147,483,647 를 벗어나면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateTimes
+  - [x] 예외 사항 : 횟수가 0 이하이면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateTimes
 ### 게임 진행 
 - [x] 각 차수 마다 자동차를 정지 또는 전진 시킨다. - Cars : roundLevelMove
   - [x] 0에서 9 사이에서 무작위 값을 생성한다. - RandomNumberGenerator: createRandomNumber
