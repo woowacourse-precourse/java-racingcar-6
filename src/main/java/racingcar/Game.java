@@ -13,7 +13,7 @@ public class Game {
         validator.hasSpace(inputCarNames);
 
         List<String> carNames = car.splitByComma(inputCarNames);
-        validator.isLengthOverFive(carNames);
+        validator.isLengthZeroOrOverFive(carNames);
         validator.hasSameCarName(carNames);
 
         String inputNumber = input.tryNumber();

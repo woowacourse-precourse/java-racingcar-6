@@ -1,11 +1,10 @@
 package racingcar;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
     public void isEmpty(String carNames) {
-        if (carNames.isEmpty()) {
+        if (carNames.isEmpty() || carNames.isBlank()) {
             throw new IllegalArgumentException("값을 입력해주세요.");
         }
     }
@@ -16,10 +15,10 @@ public class Validator {
         }
     }
 
-    public void isLengthOverFive(List<String> carNames) {
+    public void isLengthZeroOrOverFive(List<String> carNames) {
         for (String str : carNames) {
-            if (str.length() > 5) {
-                throw new IllegalArgumentException("각 자동차 이름은 5자 이하로 입력해주세요.");
+            if (str.isEmpty() || str.length() > 5) {
+                throw new IllegalArgumentException("각 자동차 이름은 1~5자 사이로 입력해주세요.");
             }
         }
     }

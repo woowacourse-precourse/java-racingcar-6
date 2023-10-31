@@ -9,7 +9,8 @@
   - [x] 단독 우승
   - [x] 여러 명 우승: 쉼표로 구분
 - [ ] 입력 값이 잘못된 경우 `IllegalArgumentException` 발생시킴
-  - [x] 자동차 이름이 6자 이상일 경우 (isLengthOverFive)
+  - [x] 자동차 이름이 6자 이상일 경우 (isLengthZeroOrOverFive)
+  - [ ] 자동차 이름 입력에 쉼표가 연속으로 들어갈 경우 (isLengthZeroOrOverFive)
   - [x] 시도할 회수가 숫자가 아닐 경우 (toNumber) 
   - [x] 시도할 회수에 int 최대값보다 큰 값을 입력할 경우 -> toNumber에서 처리됨
   - [x] 띄어쓰기가 포함될 경우 (hasSpace)
