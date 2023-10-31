@@ -19,7 +19,6 @@ public class GameController {
 
     public void startGame() {
         UserInput userInput = readValue();
-
         String gameResult = gameService.processGame(userInput);
 
         System.out.println(gameResult);
@@ -52,5 +51,4 @@ public class GameController {
 
         return Integer.parseInt(frequency);
     }
-
 }

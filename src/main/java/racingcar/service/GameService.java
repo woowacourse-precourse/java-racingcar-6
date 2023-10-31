@@ -23,7 +23,6 @@ public class GameService {
         }
 
         int maxValue = getMaxValue(carList);
-
         String winnerName = getWinnerName(carList, maxValue);
 
         sb.append(MESSAGE_GAME_WINNER).append(winnerName).append("\n");
@@ -34,7 +33,6 @@ public class GameService {
     // 사용자가 입력한 값을 토대로 Car Entity List를 생성
     private List<Car> getCarList(UserInput userInput) {
         List<Car> carList = new ArrayList<>(userInput.frequency());
-
         String[] carNameArr = userInput.nameArr();
 
         for(String carName : carNameArr) {
