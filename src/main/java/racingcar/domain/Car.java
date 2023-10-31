@@ -20,13 +20,13 @@ public class Car {
     }
 
     public Car move(int number) {
-        if (isGreaterThanLeastNumber(number)) {
+        if (isGreaterThanOrEqualToLeastNumber(number)) {
             return new Car(this.carName, this.carPosition.next());
         }
         return this;
     }
 
-    private boolean isGreaterThanLeastNumber(int number) {
+    private boolean isGreaterThanOrEqualToLeastNumber(int number) {
         return number >= LEAST_NUMBER;
     }
 
