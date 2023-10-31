@@ -5,10 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Parser {
+
+    public static final String COMMA = ",";
+    public static final int MAX_LENGTH_NUMBER = 5;
+
     public static List<String> parseCarNameInput (String input) {
-        List<String> nameList = Arrays.stream(input.split(",")).collect(Collectors.toList());
+        List<String> nameList = Arrays.stream(input.split(COMMA)).collect(Collectors.toList());
         for (String s : nameList) {
-            if (s.length() > 5) {
+            if (s.length() > MAX_LENGTH_NUMBER) {
                 throw new IllegalArgumentException();
             }
         }

@@ -16,6 +16,9 @@ import java.util.stream.Collectors;
 
 public class RacingService {
 
+    public static final int MAX_BIGGER_NUMBER = 4;
+    public static final int PICK_MIN_NUMBER = 0;
+    public static final int PICK_MAX_NUMBER = 9;
     private CarRepository carRepository = new CarRepository();
     private ResultRepository resultRepository = new ResultRepository();
 
@@ -57,11 +60,11 @@ public class RacingService {
     }
 
     private int getRandomValue() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(PICK_MIN_NUMBER, PICK_MAX_NUMBER);
     }
     
     private boolean isBiggerThanFour(int number) {
-        return number >= 4;
+        return number >= MAX_BIGGER_NUMBER;
     }
 
     private TryTime inputTryTimes() {
