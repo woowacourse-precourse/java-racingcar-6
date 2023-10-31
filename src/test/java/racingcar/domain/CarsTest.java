@@ -4,6 +4,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import generator.NumberGenerator;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,18 @@ public class CarsTest {
             new Cars(List.of(
                     new Car(new CarName(",,,,,,,,,,,,,,,,,"), new CarPosition(0))
             ));
+        });
+    }
+
+    @Test
+    @DisplayName("참여자가 1000명을 초과할 경우 예외를 발생시킨다.")
+    void should_ThrowIllegalArgumentException_When_TooManyParticipants() {
+        List<Car> manyCars = new ArrayList<>();
+        for (int i = 0; i < 1001; i++) {
+            manyCars.add(new Car(new CarName("C" + i), new CarPosition(0)));
+        }
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(manyCars);
         });
     }
 

@@ -23,6 +23,14 @@ public class Cars {
         if (hasDuplicatedNames(cars)) {
             throw new IllegalArgumentException("중복된 이름은 사용할 수 없습니다.");
         }
+        if (hasTooManyParticipants(cars)) {
+            throw new IllegalArgumentException("참여자가 너무 많습니다.");
+        }
+    }
+
+    private boolean hasTooManyParticipants(List<Car> cars) {
+        final int MAXIMUM_PARTICIPANTS = 1000;
+        return MAXIMUM_PARTICIPANTS < cars.size();
     }
 
     private boolean isEmptyOrNoCompetitors(List<Car> cars) {
