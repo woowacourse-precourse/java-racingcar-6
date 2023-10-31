@@ -43,13 +43,13 @@ public class RaceController {
     private Count initializeCount() {
         outputView.countOutput();
         String countInput = inputView.getCountInput();
-        return raceService.initializeCount(countInput);
+        return new Count(countInput);
     }
 
     private Cars initializeCars() {
         outputView.carNamesOutput();
         List<String> carNamesInput = inputView.getCarNamesInput();
-        return raceService.initializeCars(carNamesInput);
+        return new Cars(carNamesInput);
     }
 
     private void runRace(Race race) {
