@@ -9,10 +9,12 @@ import domain.RandomNumberGenerator;
 import domain.TryCountInput;
 import view.InputView;
 import view.MessageView;
+import view.OutputView;
 
 public class RacingGameController {
 	private final MessageView messageView = new MessageView();
 	private final InputView inputView = new InputView();
+	private final OutputView outputView = new OutputView();
 	private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
 	public void startGame() {
@@ -25,7 +27,32 @@ public class RacingGameController {
 
 	private void awardWinners(RacingCar raceOutcome) {
 		List<Car> winners = getWinners(raceOutcome);
+		receiveAward(winners);
 
+	}
+
+	private void receiveAward(List<Car> winners) {
+		messageView.printAwardMessage();
+
+		awardSingleWinner(winners);
+
+		if (isTiedWinners(winners)) {
+			awardTiedWinners(winners);
+		}
+	}
+
+	private static boolean isTiedWinners(List<Car> winners) {
+		return winners.size() > 1;
+	}
+
+	private void awardSingleWinner(List<Car> winners) {
+		outputView.printAwardSingleWinner(winners.get(0));
+	}
+
+	private void awardTiedWinners(List<Car> winners) {
+		for (int i = 1; i < winners.size(); i++) {
+			outputView.printAwardTiedWinner(winners.get(i));
+		}
 	}
 
 	private List<Car> getWinners(RacingCar raceOutcome) {
