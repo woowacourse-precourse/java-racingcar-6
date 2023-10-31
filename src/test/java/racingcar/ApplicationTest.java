@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -42,6 +43,26 @@ class ApplicationTest extends NsTest {
         );
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("coh,,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 숫자에_대한_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("coh,pobi", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("coh,pobi", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("coh,pobi", "\n"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("coh,pobi", null))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
