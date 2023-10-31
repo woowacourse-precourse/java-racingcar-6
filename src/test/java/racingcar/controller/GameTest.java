@@ -28,6 +28,16 @@ class GameTest {
     }
 
     @Test
+    void 챠량이름이_빈값(){
+        // given
+        String names = "";
+
+        // then
+        Assertions.assertThatThrownBy(() -> new RacingcarGame(new InitDTO(names, RIGHT_INPUT_ABOUT_ROUNDS)))
+                .isInstanceOf(IllegalArgumentException.class).hasMessage("입력값이 없습니다.");
+    }
+
+    @Test
     void 실행횟수_0이하() {
         // given
         String rounds = "-1";
@@ -46,6 +56,17 @@ class GameTest {
         Assertions.assertThatThrownBy(() -> new RacingcarGame(new InitDTO(RIGHT_INPUT_ABOUT_NAMES, rounds)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자가 아닌 다른 문자를 입력하셨습니다. 실행 횟수를 양수로 입력해 주세요.");
+    }
+
+    @Test
+    void 실행횟수_빈값(){
+        // given
+        String rounds = "";
+
+        // then
+        Assertions.assertThatThrownBy(() -> new RacingcarGame(new InitDTO(RIGHT_INPUT_ABOUT_NAMES, rounds)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 없습니다.");
     }
 
 }
