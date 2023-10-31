@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.List;
 import java.util.stream.IntStream;
+import racingcar.constants.ExceptionMessage;
 import racingcar.dto.AttemptCount;
 import racingcar.dto.RoundResult;
 import racingcar.dto.TotalResult;
@@ -32,7 +33,7 @@ public class GamePlayingService {
 
     public TotalResult playRounds() {
         if (attemptCount == null) {
-            throw new NullPointerException("시도 횟수를 먼저 입력해야합니다.");
+            throw new NullPointerException(ExceptionMessage.NULL_ATTEMPT_COUNT.message());
         }
 
         List<RoundResult> totalResult = IntStream.range(0, attemptCount.count())

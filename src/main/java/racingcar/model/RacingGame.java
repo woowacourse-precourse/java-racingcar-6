@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import racingcar.constants.ExceptionMessage;
 import racingcar.dto.RoundResult;
 
 public class RacingGame {
@@ -19,7 +20,7 @@ public class RacingGame {
 
     private void checkGameIsStarted() {
         if (isNotStarted()) {
-            throw new NullPointerException("게임 시작 전에 게임수행 로직에 접근하였습니다.");
+            throw new NullPointerException(ExceptionMessage.NULL_GAME_ACCESS.message());
         }
     }
 
