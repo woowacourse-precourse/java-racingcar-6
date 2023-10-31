@@ -13,4 +13,9 @@ public class OutputView {
         System.out.println(cars);
     }
 
+    // 시도 횟수 입력 값 출력 --> String 으로 받아도 상관 없긴 함.
+    public void printTrialNumber(int number) {
+        System.out.println(number);
+    }
+
 }
