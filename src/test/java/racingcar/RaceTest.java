@@ -21,7 +21,7 @@ public class RaceTest extends NsTest{
     }
 
     @Test
-    void 공동_우승_확인() {
+    void 공동_우승() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
@@ -32,7 +32,7 @@ public class RaceTest extends NsTest{
     }
 
     @Test
-    void 입력된_회수에_맞게_진행되는지_확인() {
+    void 입력된_회수에_맞게_진행() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi", "4");
