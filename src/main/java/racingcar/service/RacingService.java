@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.RacingCar;
+import racingcar.io.IOHandler;
 
 public class RacingService {
     private final List<RacingCar> racingCars;
