@@ -9,6 +9,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int distance){
+        this.name = name;
+        this.distance = distance;
+    }
+
     @Override
     public String toString() {
         return name + " : "
@@ -31,5 +36,9 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    public boolean isEqualDistance(int compareDistance) {
+        return distance == compareDistance;
     }
 }
