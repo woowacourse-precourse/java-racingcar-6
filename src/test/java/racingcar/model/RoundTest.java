@@ -7,6 +7,7 @@ import racingcar.DTO.CarDTO;
 import racingcar.system.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -18,6 +19,8 @@ class RoundTest {
     private final static int TEST_CAR_COUNT = 3;
     private final static int INITIAL_RACE_COUNT = 0;
     private final static int RACE_END_COUNT = 5;
+    private final static int SOLE_WINNER_COUNT = 1;
+    private final static int SHARED_WINNER_COUNT = 2;
 
     // RandomNumberGenerator의 대체 인터페이스 구현
     RandomNumberGenerator mockedGenerator = new RandomNumberGenerator() {
@@ -97,5 +100,74 @@ class RoundTest {
 
         // then
         assertThat(lastRoundCount).isEqualTo(RACE_END_COUNT);
+    }
+
+    @Test
+    @DisplayName("단독 우승자의 자동차 이름과 위치 정보 확인")
+    public void 단독_우승자의_자동차_정보_확인() {
+        // given
+        // 각 라운드의 결과를 저장할 리스트
+        List<List<CarDTO>> EachRoundResult = new ArrayList<>();
+
+        // 각 라운드의 결과 저장
+        for (int i = INITIAL_RACE_COUNT; i < RACE_END_COUNT; i++) {
+            List<CarDTO> roundResult = Arrays.asList(
+                    new CarDTO("kim", 0),
+                    new CarDTO("lee", 0),
+                    new CarDTO("son", 1 + i)
+            );
+            EachRoundResult.add(roundResult);
+        }
+
+        // 마지막 라운드 생성
+        Round round = new Round();
+
+        // when
+        List<CarDTO> winner = round.calculateFurthestCarInfo(EachRoundResult);
+
+        // then
+        Assertions.assertAll(
+                () -> assertThat(winner).size().isEqualTo(SOLE_WINNER_COUNT),
+                () -> assertThat(winner)
+                        .extracting("name", "position")
+                        .containsExactly(
+                                tuple("son", RACE_END_COUNT)
+                        )
+        );
+    }
+
+    @Test
+    @DisplayName("공동 우승자들의 자동차 이름과 위치 정보 확인")
+    public void 공동_우승자의_자동차_정보_확인() {
+        // given
+        // 각 라운드의 결과를 저장할 리스트
+        List<List<CarDTO>> EachRoundResult = new ArrayList<>();
+
+        // 각 라운드의 결과 저장
+        for (int i = INITIAL_RACE_COUNT; i < RACE_END_COUNT; i++) {
+            List<CarDTO> roundResult = Arrays.asList(
+                    new CarDTO("kim", 0),
+                    new CarDTO("lee", 1 + i),
+                    new CarDTO("son", 1 + i)
+            );
+            EachRoundResult.add(roundResult);
+        }
+
+        // 마지막 라운드 생성
+        Round round = new Round();
+
+        // when
+        List<CarDTO> winner = round.calculateFurthestCarInfo(EachRoundResult);
+
+        // then
+        Assertions.assertAll(
+                () -> assertThat(winner).size().isEqualTo(SHARED_WINNER_COUNT),
+                () -> assertThat(winner)
+                        .extracting("name", "position")
+                        .containsExactly(
+                                tuple("lee", RACE_END_COUNT),
+                                tuple("son", RACE_END_COUNT)
+                        )
+        );
     }
 }
