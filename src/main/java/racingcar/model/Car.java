@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.util.GameUtil;
-
 public class Car {
 
     private final String carName;
@@ -24,5 +22,9 @@ public class Car {
 
     public int getCarPosition(){
         return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }
