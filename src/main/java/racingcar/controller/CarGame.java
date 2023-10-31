@@ -25,6 +25,7 @@ public class CarGame {
         List<Car> carList = getCarList(splitCarNames(inputCarName));
         String inputTryNumber = getTryNumberInput();
         OutputView.printNewLine();
+        OutputView.printResultMessage();
         getCarsScoreResult(inputTryNumber, carList);
         showWinnerResult(carList);
     }
