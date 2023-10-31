@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.exception.ArgumentRangeOutOfBoundsException;
+import racingcar.exception.DuplicateNameException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +59,7 @@ public class RacingCarList {
                 .distinct()
                 .count();
         if (distinctNameCount < names.size()) {
-            throw new IllegalArgumentException();
+            throw new DuplicateNameException();
         }
     }
 
@@ -68,13 +70,13 @@ public class RacingCarList {
 
     private void validateNameCountLargerThanMinimumValue(List<String> names) {
         if (names.size() < MIN_LIST_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new ArgumentRangeOutOfBoundsException();
         }
     }
 
     private void validateNameCountSmallerThanMaximumValue(List<String> names) {
         if (names.size() > MAX_LIST_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new ArgumentRangeOutOfBoundsException();
         }
     }
 }

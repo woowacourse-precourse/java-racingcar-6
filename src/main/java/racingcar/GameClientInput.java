@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.exception.ArgumentRangeOutOfBoundsException;
+import racingcar.exception.NotANumberException;
 import java.util.List;
 
 public class GameClientInput {
@@ -33,19 +35,19 @@ public class GameClientInput {
 
     private void validateLowerRange(int moves) {
         if (moves < MIN_TOTAL_MOVES) {
-            throw new IllegalArgumentException();
+            throw new ArgumentRangeOutOfBoundsException();
         }
     }
 
     private void validateUpperRange(int moves) {
         if (moves > MAX_TOTAL_MOVES) {
-            throw new IllegalArgumentException();
+            throw new ArgumentRangeOutOfBoundsException();
         }
     }
 
     private void validateContainingDigits(String input) {
         if (!input.chars().allMatch(Character::isDigit)) {
-            throw new IllegalArgumentException();
+            throw new NotANumberException();
         }
     }
 }

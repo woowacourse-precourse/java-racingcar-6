@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.exception.ArgumentRangeOutOfBoundsException;
+
 public class RacingCar {
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
@@ -44,13 +46,13 @@ public class RacingCar {
 
     private void validateNameLengthShorterThanMaximumValue(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new ArgumentRangeOutOfBoundsException();
         }
     }
 
     private void validateNameLengthLongerThanMinimumValue(String name) {
         if (name.length() < MIN_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new ArgumentRangeOutOfBoundsException();
         }
     }
 }
