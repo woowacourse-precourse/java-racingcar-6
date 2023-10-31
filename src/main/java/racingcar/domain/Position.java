@@ -18,6 +18,10 @@ public class Position {
         }
     }
 
+    public int findLargerNum(int max) {
+        return Math.max(num, max);
+    }
+
     public int getNum() {
         return num;
     }

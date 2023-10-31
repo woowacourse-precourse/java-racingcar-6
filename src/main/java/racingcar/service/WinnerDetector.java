@@ -5,18 +5,19 @@ import racingcar.repository.WinnerRepository;
 
 public class WinnerDetector {
     private final PrintService print = new PrintService();
-    private final CarsRepository carsRepository = new CarsRepository();
-    private final WinnerRepository winnerRepository = new WinnerRepository();
+    private final CarsRepository carsRepo = new CarsRepository();
+    private final WinnerRepository winnerRepo = new WinnerRepository();
 
     public void find() {
-        add(carsRepository.findMaxPosition());
-        print.winner(winnerRepository.convertListToString());
+        winnerRepo.saveNum(carsRepo.findMaxPosition());
+        add();
+        print.winner(winnerRepo.convertListToString());
     }
 
-    private void add(int max) {
-        for (int i = 0; i < carsRepository.size(); i++) {
-            if (max == carsRepository.getGameNum(i)) {
-                winnerRepository.add(carsRepository.getName(i));
+    private void add() {
+        for (int i = 0; i < carsRepo.size(); i++) {
+            if (winnerRepo.isWinner(carsRepo.getGameNum(i))) {
+                winnerRepo.add(carsRepo.getName(i));
             }
         }
     }

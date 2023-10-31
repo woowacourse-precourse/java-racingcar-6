@@ -5,7 +5,7 @@ import racingcar.domain.GameNum;
 import racingcar.repository.CarsRepository;
 
 public class InputService {
-    private final CarsRepository carsRepository = new CarsRepository();
+    private final CarsRepository carsRepo = new CarsRepository();
     private final CheckService checkService = new CheckService();
     private final static String SEPARATOR = ",";
 
@@ -18,7 +18,7 @@ public class InputService {
     public void carsName() {
         String[] carArr = splitBySeparator(input());
         if (checkService.cars(carArr)) {
-            carsRepository.initCars(carArr);
+            carsRepo.initCars(carArr);
         }
     }
 
@@ -36,5 +36,4 @@ public class InputService {
     public int StringToInt(String s) {
         return Integer.parseInt(s);
     }
-
 }

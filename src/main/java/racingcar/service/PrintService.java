@@ -4,7 +4,7 @@ import racingcar.repository.CarsRepository;
 
 public class PrintService {
 
-    private final CarsRepository carsRepository = new CarsRepository();
+    private final CarsRepository carsRepo = new CarsRepository();
 
     // 공통처리
     public void questionCarName() {
@@ -22,8 +22,8 @@ public class PrintService {
     // 값마다 다른것
     public void racing(int size) {
         for (int i = 0; i < size; i++) {
-            name(carsRepository.getName(i));
-            position(carsRepository.getGameNum(i));
+            name(carsRepo.getName(i));
+            position(carsRepo.getGameNum(i));
             spaceSkip();
         }
         spaceSkip();

@@ -24,4 +24,8 @@ public class Car {
     public int getPosition() {
         return position.getNum();
     }
+
+    public int findMaxPosition(int max) {
+        return position.findLargerNum(max);
+    }
 }
