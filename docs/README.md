@@ -13,7 +13,7 @@
     * [x] : 대역을 사용해 테스트하기 쉬운 코드로 바꾼다.
 
 * `RacingGame` : 경주차 게임을 진행한다.
-    * [] : RacingGameRq를 활용해 게임을 1회 진행한 후 RacingGameRs를 반환한다.
+    * [x] : RacingGameRq를 활용해 게임을 1회 진행한 후 RacingGameRs를 반환한다.
 
 * `InputView` : 사용자의 입력을 받는다.
     * [x] : 경주할 차 이름을 입력 받는다.
