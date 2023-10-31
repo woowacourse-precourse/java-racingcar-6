@@ -18,7 +18,7 @@ public class GameController {
 
     public void run() {
         Cars cars = createCarsByNames(getNames());
-        int trialCount = getTrialCount();
+        int trialCount = createTrialCount(getTrialCount());
 
         playRounds(trialCount, cars);
         printWinnersName(cars);
@@ -33,9 +33,13 @@ public class GameController {
         return gameService.createCars(names);
     }
 
-    private int getTrialCount() {
+    private String getTrialCount() {
         OutputView.printTrialGuide();
-        return gameService.createTrialCount(InputView.readInput());
+        return InputView.readInput();
+    }
+
+    private int createTrialCount(final String trialCount) {
+        return gameService.createTrialCount(trialCount);
     }
 
     private void playRounds(final int trialCount, final Cars cars) {
