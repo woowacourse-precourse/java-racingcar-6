@@ -20,9 +20,9 @@ public class RacingGame {
         View.startRace();
         for (int i = 0; i < this.count; i++) {
             moveForward();
-            View.printResult(carName.getCarName(), carDistance.getPlayerDistance());
+            View.printResult(carName.getCarName(), carDistance.getCarDistance());
         }
-        View.printWinner(carName.getCarName(), carDistance.getPlayerDistance(), winnerDistance);
+        View.printWinner(carName.getCarName(), carDistance.getCarDistance(), winnerDistance);
     }
 
 

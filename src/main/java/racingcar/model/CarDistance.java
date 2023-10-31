@@ -25,12 +25,8 @@ public class CarDistance {
         return carDistance.get(index);
     }
 
-    public List<Integer> getPlayerDistance() {
+    public List<Integer> getCarDistance() {
         return carDistance;
-    }
-
-    public int getSize() {
-        return carDistance.size();
     }
 
     public void setDistance(int index) {
