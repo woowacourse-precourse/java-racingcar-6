@@ -7,6 +7,8 @@
 
 ## 유의사항
 - 잘못된 입력에 대해 `IllegalArgumentException`를 출력하고 그 자리에서 프로그램은 종료한다.
+  - (ex)
+  - 입력한 이름이 5자를 넘어갈 때
 - 입력할 때, 차량의 이름은 `,`로 구분한다.
 - 공동 우승자가 나올 경우, 이 역시도 `,`로 구분한다.
 
@@ -20,3 +22,9 @@
     - `getForwardCount`: 해당 차량의 전진횟수
     - `randomNumber`: 전진의 여부를 결정짓는 난수
     - `currentLocation`: 현재 위치를 반환
+- `Game` 클래스 : 경주 관리
+  - 멤버변수: cars(경주차량), numberOfAttempts(시행횟수)
+  - 멤버함수:
+    - `initializeCars`: 입력된 이름들을 `List`에 저장
+    - `startGame`: 매 시행마다 차량의 전진 현황을 출력
+    - `printWinners`: 우승자를 가리고 출력
