@@ -11,6 +11,8 @@ public class Constant {
     public static final int MIN_RANDOM_NUM = 0;
     public static final int MAX_RANDOM_NUM = 9;
     public static final int MOVE_FORWARD_NUM = 4;
+    public static final String ENTER_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public static final String ENTER_ATTEMPT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String DUPLICATE_CAR_NAME_MESSAGE = "자동차들의 이름 중 중복된 이름이 존재합니다. 게임이 종료됩니다.";
     public static final String BLANK_CAR_NAME_MESSAGE = "자동차 이름에 공백이 포함되어 있습니다. 게임이 종료됩니다.";
     public static final String OVER_MAX_LENGTH_MESSAGE = "자동차 이름이 5자 이상입니다. 게임이 종료됩니다.";
