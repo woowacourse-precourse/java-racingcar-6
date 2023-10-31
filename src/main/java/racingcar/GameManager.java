@@ -15,7 +15,7 @@ public class GameManager {
         List<String> carNameList = input.getCarNameList();
         List<Car> carList = new ArrayList<>();
 
-        IntStream.range(0, carNameList.size()).forEach(i -> carList.add(new Car(carNameList.get(i))));
+        IntStream.range(0, carNameList.size()).forEach(i -> carList.add(new Car(carNameList.get(i), 0)));
 
         return carList;
     }
