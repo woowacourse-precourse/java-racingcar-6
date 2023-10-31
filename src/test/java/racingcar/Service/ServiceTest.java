@@ -2,6 +2,8 @@ package racingcar.Service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Model.Car;
 
 import java.util.ArrayList;
@@ -9,8 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.Service.InputValidation.*;
-
 
 class ServiceTest {
     private RaceService raceService;
@@ -46,39 +46,18 @@ class ServiceTest {
         assertThat(inputValidation.SpellingCountValidation(Arrays.asList("jungyeon", "yuju", "dong"))).isFalse();
     }
 
-    @Test
-    void 예외_이름입력시_최대_이름_글자수_이상일때() {
-        assertThatThrownBy(() -> inputValidation.checkCarNamesValidation("jungyeon,yuju,dong"))
+    @ParameterizedTest
+    @CsvSource(value = {
+              "jungyeon,yuju,dong:  최대 이름 글자수를 초과하였습니다."
+            , "jung,yuju,jung    :  중복된 이름을 입력하셨습니다."
+            , "''                :  입력된 이름이 없습니다."
+            , ",                 :  이름을 쉼표(,)로 구분할 수 없습니다."
+            , "jung yuju dong    :  이름을 쉼표(,)로 구분할 수 없습니다."}
+            , delimiter = ':')
+    void 입력값_검증(String input, String message){
+        assertThatThrownBy(() -> inputValidation.checkCarNamesValidation(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(EXCEED_ERROR_MESSAGE);
-    }
-
-    @Test
-    void 예외_이름입력시_중복된_이름이_들어왔을때() {
-        assertThatThrownBy(() -> inputValidation.checkCarNamesValidation("jung,yuju,jung"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DUPLICATE_NAME_ERROR_MESSAGE);
-    }
-
-    @Test
-    void 예외_이름입력시_빈칸일때() {
-        assertThatThrownBy(() -> inputValidation.checkCarNamesValidation(""))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(EMPTY_ERROR_MESSAGE);
-    }
-
-    @Test
-    void 예외_이름입력시_쉼표만_들어왔을때() {
-        assertThatThrownBy(() -> inputValidation.checkCarNamesValidation(","))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DISTINGUISH_ERROR_MESSAGE);
-    }
-
-    @Test
-    void 예외_이름입력시_쉼표로_구분할_수_없을때() {
-        assertThatThrownBy(() -> inputValidation.checkCarNamesValidation("jung yuju dong"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DISTINGUISH_ERROR_MESSAGE);
+                .hasMessageContaining(message);
     }
 
 }
