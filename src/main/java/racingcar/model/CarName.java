@@ -6,7 +6,7 @@ public class CarName {
 
     public CarName(String name) {
         validateName(name);
-        this.name = name;
+        this.name = name.trim();
     }
 
     public String get() {
