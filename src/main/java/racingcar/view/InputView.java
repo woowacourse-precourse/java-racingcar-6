@@ -3,6 +3,7 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.List;
+import racingcar.model.Round;
 import racingcar.util.TypeConverter;
 
 public class InputView {
@@ -15,8 +16,9 @@ public class InputView {
         return TypeConverter.toList(readLine());
     }
 
-    public int readRound() {
+    public Round readRound() {
         System.out.println(INPUT_ROUND_MSG);
-        return TypeConverter.toInt(readLine());
+        int round = TypeConverter.toInt(readLine());
+        return new Round(round);
     }
 }
