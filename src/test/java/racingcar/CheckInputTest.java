@@ -1,7 +1,6 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
-import racingcar.controller.Input;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.controller.CheckInput.*;
 
-public class InputTest {
+public class CheckInputTest {
 
     @Test
     void 중복된_이름_입력() {
