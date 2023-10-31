@@ -28,12 +28,12 @@ public class Car {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START.getNumber(), RANDOM_NUMBER_RANGE_END.getNumber());
     }
 
-    public boolean isEqualOrGreaterThan(Car otherCar) {
-        return distance.isEqualOrGreaterThan(otherCar);
+    public boolean isEqualOrGreaterThan(int otherCarDistance) {
+        return distance >= otherCarDistance;
     }
 
-    public boolean isCarWithMaxDistance(Car carWithMaxDistance) {
-        return distance.isCarWithMaxDistance(carWithMaxDistance);
+    public int getDistance() {
+        return distance;
     }
 
     public String getMovementString() {
