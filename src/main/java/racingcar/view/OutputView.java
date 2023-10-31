@@ -1,17 +1,16 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.Map;
 import racingcar.response.RaceResultResponse;
 
 public class OutputView {
 
     private static final String RACE_START_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉽표(,) 기준으로 구분)";
     private static final String RACE_TRY_COUNT_MESSAGE = "시도할 횟수는 몇회인가요?";
-    private static final String RACE_RESULT_MESSAGE = "\n 실행 결과";
+    private static final String RACE_RESULT_MESSAGE = "\n실행 결과";
     private static final String RACE_MESSAGE = "%s : %s\n";
     private static final String ROAD = "-";
-    private static final String RACE_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String RACE_WINNER_MESSAGE = "\n최종 우승자 : ";
 
     public static void printRaceStart() {
         System.out.println(RACE_START_MESSAGE);
@@ -36,7 +35,7 @@ public class OutputView {
         return ROAD.repeat(position);
     }
 
-    private static void printWinners(List<String> winners) {
+    public static void printWinners(List<String> winners) {
         StringBuilder winnersName = new StringBuilder();
         winners.forEach(winner -> winnersName.append(winner + ", "));
         winnersName.delete(winnersName.length() - 2, winnersName.length());
