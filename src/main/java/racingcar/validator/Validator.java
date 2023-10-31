@@ -10,18 +10,31 @@ public class Validator {
         List<String> nameList = Arrays.asList(nameArray);
 
         isValidInput(input);
+        isValidType(nameArray);
         isValidLength(nameArray);
         isDuplicate(nameList);
     }
+
     public static void validateRoundValue(String input) {
         isNumeric(input);
         isPositive(input);
     }
+
     private static void isValidInput(String input) {
         if (input.startsWith(",") || input.endsWith(",")) {
             throw new IllegalArgumentException("잘못된 입력값입니다.");
         }
     }
+
+    private static void isValidType(String[] nameArray) {
+        String regex = "^[a-zA-Z0-9]+$";
+        for (String name : nameArray) {
+            if (name.matches(regex)) {
+                throw new IllegalArgumentException("자동차의 이름은 영문과 숫자로만 이루어져야 합니다.");
+            }
+        }
+    }
+
     private static void isValidLength(String[] nameArray) {
         for (String name : nameArray) {
             if (name.length() > 5) {
@@ -32,11 +45,13 @@ public class Validator {
             }
         }
     }
+
     private static void isDuplicate(List<String> nameList) {
         if (nameList.size() != nameList.stream().distinct().count()) {
             throw new IllegalArgumentException("자동차의 이름은 중복된 값이 있을 수 없습니다.");
         }
     }
+
     private static void isNumeric(String input) {
         try {
             Integer.parseInt(input);
@@ -44,8 +59,9 @@ public class Validator {
             throw new IllegalArgumentException("시도할 회수는 숫자이어야 합니다.");
         }
     }
+
     private static void isPositive(String input) {
-        if (Integer.parseInt(input)<=0) {
+        if (Integer.parseInt(input) <= 0) {
             throw new IllegalArgumentException("시도할 회수는 1회 이상을 입력해주세요.");
         }
     }
