@@ -60,8 +60,13 @@ public class Game {
         }
 
         return winners;
-
     }
 
+    public void printResult(List<Car> cars) {
+        int maxValue = getMaxValue(cars);
+        List<String> winners = getWinners(cars, maxValue);
+        String result = String.join(",", winners);
 
+        System.out.println("최종 우승자 : " + result);
+    }
 }
