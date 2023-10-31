@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.util.ExceptionMessage.INVALID_GAME_TRY_INPUT;
+import static racingcar.util.ExceptionMessage.INVALID_NUMERIC_GAME_TRY;
+
 public class GameTry {
     private int gameTry;
 
@@ -9,7 +12,7 @@ public class GameTry {
 
     private int validateTry(int targetGameTry) {
         if (targetGameTry < 0) {
-            throw new IllegalArgumentException("시도할 횟수는 1 이상을 입력해야 합니다.");
+            throw new IllegalArgumentException(INVALID_GAME_TRY_INPUT.getMessage());
         }
         return targetGameTry;
     }
@@ -19,7 +22,7 @@ public class GameTry {
         try {
             return Integer.parseInt(inputTry);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도할 횟수는 숫자를 입력해야 합니다.");
+            throw new IllegalArgumentException(INVALID_NUMERIC_GAME_TRY.getMessage());
         }
     }
 

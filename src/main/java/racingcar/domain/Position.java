@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.util.ExceptionMessage.INVALID_POSITION;
+
 import java.util.Objects;
 
 public class Position {
@@ -7,7 +9,7 @@ public class Position {
 
     public Position(int position) {
         if (position < 0) {
-            throw new IllegalArgumentException("position은 음수값을 가질 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_POSITION.getMessage());
         }
         this.position = position;
     }

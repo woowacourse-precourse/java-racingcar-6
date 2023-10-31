@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.util.ExceptionMessage.INVALID_NICKNAME;
+import static racingcar.util.ExceptionMessage.INVALID_NUMBER_OF_CARS;
+import static racingcar.util.ExceptionMessage.INVALID_UNIQUE_NICKNAME;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -17,20 +21,23 @@ public class RacingGame {
 
     public static List<Car> initCars(String carNames) {
         validateCarNames(carNames);
-        String[] names = carNames.split(",");
-        checkDuplicates(names);
-        return createCars(names);
+        String[] splitCarNames = StringUtils.splitByDelimiter(carNames);
+        checkDuplicates(splitCarNames);
+        return createCars(splitCarNames);
     }
 
     private static void validateCarNames(String carNames) {
         if (StringUtils.isBlank(carNames)) {
-            throw new IllegalArgumentException("자동차 이름에 공백은 입력할 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_NICKNAME.getMessage());
         }
     }
 
     private static void checkDuplicates(String[] names) {
         if (hasDuplicates(names)) {
-            throw new IllegalArgumentException("중복된 자동차 이름은 허용되지 않습니다.");
+            throw new IllegalArgumentException(INVALID_UNIQUE_NICKNAME.getMessage());
+        }
+        if (names.length == 1) {
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_CARS.getMessage());
         }
     }
 

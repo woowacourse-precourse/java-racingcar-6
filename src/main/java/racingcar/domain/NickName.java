@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.util.ExceptionMessage.INVALID_NICKNAME;
+import static racingcar.util.ExceptionMessage.INVALID_NICKNAME_RANGE;
+
 import java.util.Objects;
 import racingcar.util.StringUtils;
 
@@ -13,10 +16,10 @@ public class NickName {
 
     private String validateName(String nickName) {
         if (StringUtils.isBlank(nickName)) {
-            throw new IllegalArgumentException("자동차 이름에 공백은 입력할 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_NICKNAME.getMessage());
         }
         if (nickName.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 최대 5글자까지 가능합니다.");
+            throw new IllegalArgumentException(INVALID_NICKNAME_RANGE.getMessage());
         }
         return nickName;
     }
