@@ -11,7 +11,6 @@ class Cars {
     public final List<String> carNames;
     public final List<Integer> carNumbers;
 
-    public static final int
 
     public Cars() {
         carNames = new ArrayList<>();
