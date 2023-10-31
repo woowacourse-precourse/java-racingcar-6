@@ -14,7 +14,7 @@ public class Car {
         this.name = name;
     }
 
-    public static Car of(String name) {
+    public static Car createCar(String name) {
         checkOver5Letters(name);
         checkCarWithBlank(name);
         return new Car(name);

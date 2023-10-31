@@ -16,7 +16,7 @@ class CarTest {
         // given
         String testCar = "phobi";
         // when
-        Car car = Car.of(testCar);
+        Car car = Car.createCar(testCar);
         // then
         assertThat(car).isNotNull();
         assertThat(car).isInstanceOf(Car.class);
