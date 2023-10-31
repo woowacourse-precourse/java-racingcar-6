@@ -3,6 +3,7 @@ package racingcar.domain.car;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.generator.NumberGenerator;
 import racingcar.domain.generator.RacingRandomNumberGenerator;
 
 public class Cars {
@@ -10,22 +11,22 @@ public class Cars {
     private static final int CAR_MIN_POSITION = 0;
     private static final int POSSIBLE_MOVE_NUMBER_INCLUSION = 4;
     private final List<Car> cars;
-    private final RacingRandomNumberGenerator racingRandomNumberGenerator;
-    public static Cars createCars(List<String> carNames, RacingRandomNumberGenerator racingRandomNumberGenerator) {
+    private final NumberGenerator numberGenerator;
+    public static Cars createCars(List<String> carNames, NumberGenerator numberGenerator) {
         List<Car> cars = carNames.stream()
                 .map(name -> Car.createCar(new CarName(name), CAR_MIN_POSITION))
                 .collect(Collectors.toList());
-        return new Cars(cars, racingRandomNumberGenerator);
+        return new Cars(cars, numberGenerator);
     }
 
-    private Cars(List<Car> cars, RacingRandomNumberGenerator racingRandomNumberGenerator) {
+    private Cars(List<Car> cars, NumberGenerator numberGenerator) {
         this.cars = cars;
-        this.racingRandomNumberGenerator = racingRandomNumberGenerator;
+        this.numberGenerator = numberGenerator;
     }
 
     public void move() {
         for (Car car : cars) {
-            int randomNumber = racingRandomNumberGenerator.createInRange();
+            int randomNumber = numberGenerator.createInRange();
             if (isPossibleMove(randomNumber)) {
                 car.move();
             }
