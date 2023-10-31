@@ -31,6 +31,78 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,,", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리3() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("-"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리4() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,pobi"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리5() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("/n"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리6() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("a,b,c,,d"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리7() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException(",a,b"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 숫자에_대한_예외_처리() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("a,b", "0"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 숫자에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("a,b", "01"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+
+
+    @Test
+    void 랜덤_변수_생성_테스트() {
+        int result = Application.makeRandomNumber();
+        assertThat(result).isBetween(0,9);
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
