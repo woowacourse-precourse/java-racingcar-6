@@ -12,4 +12,12 @@ public class Check {
         return;
     }
 
+    public void checkNumber(String input){
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        }
+        return;
+    }
 }
