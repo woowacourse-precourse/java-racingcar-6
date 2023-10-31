@@ -3,6 +3,7 @@ package racingcar;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -22,7 +23,13 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = br.readLine();
         int cnt = Integer.parseInt(input);
+        
+        //전진 횟수 기록할 리스트 생성
+        List<Integer> toGo = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            toGo.add(0);
+        }
+
+
     }
-
-
 }
