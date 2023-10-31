@@ -18,7 +18,7 @@ public class CarInputValidation {
     }
 
     private void validateDuplicateNames(String input) {
-        String[] inputCars = input.split(",");
+        String[] inputCars = input.split(Util.CAR_NAME_DELIMITER);
         Set<String> names = new HashSet<>(Arrays.asList(inputCars));
         if (names.size() < inputCars.length) {
             throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");

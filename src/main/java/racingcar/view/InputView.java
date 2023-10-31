@@ -3,8 +3,8 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.utils.Constants;
 import racingcar.utils.GameMessage;
+import racingcar.utils.Util;
 import racingcar.validation.CarInputValidation;
 import racingcar.validation.MoveCountsValidation;
 
@@ -34,7 +34,7 @@ public class InputView {
     }
 
     private List<String> splitCarInput(String carInput) {
-        String[] carsList = carInput.split(Constants.CAR_NAME_DELIMITER);
+        String[] carsList = carInput.split(Util.CAR_NAME_DELIMITER);
         return Arrays.asList(carsList);
     }
 
