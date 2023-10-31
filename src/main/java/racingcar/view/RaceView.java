@@ -22,7 +22,7 @@ public class RaceView {
     public static final String ATTEMPT_NUMBER_FORMAT = "시도할 회수는 몇회인가요?";
     private final Model model;
 
-    public RaceView(Model model) {
+    public RaceView(final Model model) {
         this.model = model;
     }
 
@@ -58,13 +58,7 @@ public class RaceView {
     }
 
     public void printResult() {
-        TotalGameResult totalGameResult = (TotalGameResult) model.getAttribute(
-                ModelConst.TOTAL_GAME_RESULT
-                )
-                .orElseThrow(() -> new BusinessException(
-                        ExceptionCode.NO_RESULT,
-                        this.getClass()
-                ));
+        TotalGameResult totalGameResult = getTotalGameResult();
 
         printAnnouncementOfResult();
 
@@ -74,11 +68,21 @@ public class RaceView {
         printWinner(totalGameResult);
     }
 
+    private TotalGameResult getTotalGameResult() {
+        return (TotalGameResult) model.getAttribute(
+                        ModelConst.TOTAL_GAME_RESULT
+                )
+                .orElseThrow(() -> new BusinessException(
+                        ExceptionCode.NO_RESULT,
+                        this.getClass()
+                ));
+    }
+
     private void printAnnouncementOfResult() {
         System.out.println(RESULT_FORMAT);
     }
 
-    private void printWinner(TotalGameResult totalGameResult) {
+    private void printWinner(final TotalGameResult totalGameResult) {
         String winners = String.join(
                 WINNER_JOINING_DELIMITER,
                 totalGameResult.winners()
@@ -86,14 +90,14 @@ public class RaceView {
         System.out.println(WINNER_FORMAT + winners);
     }
 
-    private void printResultEachMove(GameResult gameResult) {
-        Set<String> names = gameResult.getKeySet();
-        names.forEach(n ->
+    private void printResultEachMove(final GameResult gameResult) {
+        gameResult.getKeySet()
+                .forEach(n ->
             printResultEachMoveOfCar(gameResult, n)
         );
     }
 
-    private void printResultEachMoveOfCar(GameResult gameResult, String name) {
+    private void printResultEachMoveOfCar(final GameResult gameResult, final String name) {
         System.out.println(name
                 + COLON
                 + MOVE_MARK.repeat(
