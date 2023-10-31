@@ -21,6 +21,7 @@ public class RaceController {
         String numOfMatchesString = askNumOfMatches();
         validateNumOfMatches(numOfMatchesString);
 
+        // 3. 경기 과정 및 결과 출력
         Race race = new Race(carListString, numOfMatchesString);
         printSystemMessage(TESTING);
         for (int i = 0; i < race.getNumOfMatches(); i++) {
