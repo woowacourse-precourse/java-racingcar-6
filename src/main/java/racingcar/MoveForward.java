@@ -12,6 +12,12 @@ public class MoveForward {
         }
     }
 
+    void printCars(Car[] carArr) {      // 각 차의 실황 출력
+        for (Car car: carArr) {
+            String tempScore = "-".repeat(car.score);
+            System.out.printf("%s : %s", car.name, tempScore);
+        }
+    }
 
     boolean getRandomNumber() {     // 전진 여부 구하기
         int num = Randoms.pickNumberInRange(0, 9);
