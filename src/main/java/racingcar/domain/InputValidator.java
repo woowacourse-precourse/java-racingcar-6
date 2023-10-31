@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class InputValidator {
-    public static HashMap<String, Integer> validateNames(String input) {
+    public static HashMap<String, String> validateNames(String input) {
         // 1. 자동차 이름 입력 받기
-        HashMap<String, Integer> namesMap = new HashMap<>();
+        HashMap<String, String> namesMap = new HashMap<>();
         Set<String> nameSet = new HashSet<>();
 
         String[] names = input.split(",");
@@ -29,7 +29,7 @@ public class InputValidator {
                 throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
             }
 
-            namesMap.put(trimmedName, 0);
+            namesMap.put(trimmedName, "");
         }
 
         return namesMap;
