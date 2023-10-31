@@ -32,7 +32,7 @@ public class Cars {
                 continue;
             }
 
-            if (maxValue == moveCount) {
+            if (maxValue.equals(moveCount)) {
                 maxMoveCars.add(car);
             }
         }
