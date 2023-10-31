@@ -60,7 +60,9 @@ public class RacingGame {
                 if(RacingCarController.isMoveForward()) {
                     countsByName[t]++;
                 }
+                System.out.println(key + " : " + "-".repeat(countsByName[t]));
             }
+            System.out.println();
         }
     }
 }
