@@ -39,6 +39,6 @@ public class CarsTest {
         Car winnerCar = cars.getCars().get(1);
         winnerCar.move(MOVING_FORWARD);
 
-        assertEquals(cars.findWinnerNames().size(), 1);
+        assertEquals(cars.findWinners().size(), 1);
     }
 }

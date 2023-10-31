@@ -5,7 +5,6 @@ import static racingcar.utils.ErrorMessages.NO_SUCH_WINNER;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.utils.NumberGenerator;
 
 public class Cars {
@@ -41,12 +40,11 @@ public class Cars {
         cars.forEach(car -> car.move(numberGenerator.generate()));
     }
 
-    public List<Name> findWinnerNames() {
+    public List<Car> findWinners() {
         Car winner = findWinner();
         return cars.stream()
                 .filter(car -> car.isWinner(winner))
-                .map(Car::getName)
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
     }
 
     private Car findWinner() {
