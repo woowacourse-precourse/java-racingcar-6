@@ -4,7 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.Participations;
+import racingcar.domain.Racing;
+import racingcar.domain.Winners;
+import racingcar.repository.CarRepository;
+import racingcar.repository.RacingRepository;
 import racingcar.util.ExceptionUtil;
+import racingcar.util.StringUtil;
+import racingcar.validation.IntegerValidator;
 
 public class RacingServiceImpl implements RacingService {
 
@@ -59,5 +66,11 @@ public class RacingServiceImpl implements RacingService {
         }
     }
 
+    private int processTryCountInput(String input) {
+        input = StringUtil.deleteAllSpaces(input);
+        IntegerValidator.validateInteger(input);
+
+        return Integer.parseInt(input);
+    }
 
 }
