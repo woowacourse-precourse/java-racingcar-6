@@ -15,7 +15,6 @@ public class Game {
             if (name.isBlank() || name.length() > 5) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
             }
-            System.out.println(name);
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -29,7 +28,6 @@ public class Game {
         if (attemptCount <= 0) {
             throw new IllegalArgumentException("시도할 횟수는 0회 이상만 가능합니다.");
         }
-        System.out.println(attemptCount);
 
         List<Car> cars = new ArrayList<>();
         for (String name : names) {
@@ -56,12 +54,14 @@ public class Game {
             int forwardCount = car.getForwardCount();
             maximumForwardCount = Math.max(forwardCount, maximumForwardCount);
         }
+        List<String> winners = new ArrayList<>();
         for (Car car : cars) {
             int forwardCount = car.getForwardCount();
             if (forwardCount == maximumForwardCount) {
                 String name = car.getName();
-                System.out.println(name);
+                winners.add(name);
             }
         }
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
