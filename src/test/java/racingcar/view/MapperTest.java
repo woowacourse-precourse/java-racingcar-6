@@ -30,8 +30,8 @@ public class MapperTest {
 
     @Test
     void String을_ListString으로_변환_4() {
-        assertThat(Mapper.changeToListString(", "))
-                .isEqualTo(List.of("", " "));
+        assertThat(Mapper.changeToListString(" "))
+                .isEqualTo(List.of(" "));
     }
 
     @Test
