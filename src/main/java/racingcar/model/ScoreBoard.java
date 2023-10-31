@@ -28,8 +28,11 @@ public class ScoreBoard {
         int highScore = 0;
 
         for (Car car : this.carList) {
-            int carScore = car.getMoveDistance();
-            String carName = car.getCarName();
+            CarData carData = car.getData();
+            
+            Integer carScore = carData.getMoveDistance();
+            String carName = carData.getName();
+
             if (highScore < carScore) {
                 carNameList.clear();
                 carNameList.add(carName);
