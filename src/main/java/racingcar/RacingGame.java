@@ -15,10 +15,12 @@ public class RacingGame {
 
         int tryCount = Integer.parseInt(Console.readLine());
 
+        for (int i = 0; i < tryCount; i++) {
+            referee.startTurn();
+        }
     }
 
     private void addCarsToReferee(String carsInput) {
-        Arrays.stream(carsInput.split(","))
-                .forEach(referee::addCar);
+        Arrays.stream(carsInput.split(",")).forEach(referee::addCar);
     }
 }
