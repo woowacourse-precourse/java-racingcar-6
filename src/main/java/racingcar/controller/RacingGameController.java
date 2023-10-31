@@ -1,7 +1,8 @@
 package racingcar.controller;
 
-import racingcar.View.InputView;
-import racingcar.View.OutPutView;
+import racingcar.View.input.InputView;
+import racingcar.View.output.OutPutView;
+import racingcar.View.output.OutputFormatter;
 import racingcar.dto.MidGameResultDto;
 import racingcar.model.CarRacingGame;
 import racingcar.model.RacingCar;
@@ -39,6 +40,6 @@ public class RacingGameController {
 
     private void finishRacingGame() {
         ArrayList<RacingCar> winnerNameList = racingGameService.findWinnerByMaxDistance();
-        outPutView.winnerAnnouncementMessage(winnerNameList);
+        outPutView.FinalWinnerAnnouncementMessage(winnerNameList);
     }
 }
