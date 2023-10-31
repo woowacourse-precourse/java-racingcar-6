@@ -5,18 +5,15 @@ import java.util.List;
 
 public class Racing {
 
-    public static void playRacing() {
+    public void trySeveral(List<Car> carList, int tryCount) {
     }
 
-    private void trySeveral(List<Car> carList, int tryCount) {
+    public void tryOnce(List<Car> carList) {
     }
 
-    private void tryOnce(List<Car> carList) {
+    public void printResult(List<Car> carList) {
     }
 
-    private void printResult(List<Car> carList) {
-    }
-
-    private void printWinner(List<Car> winnerList) {
+    public void printWinner(List<Car> winnerList) {
     }
 }
