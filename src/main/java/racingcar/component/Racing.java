@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.component;
+
+import racingcar.IO.NameInput;
+import racingcar.IO.TrialInput;
 
 import java.util.ArrayList;
 import java.util.List;

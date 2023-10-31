@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.IO;
+
+import racingcar.component.Car;
+import racingcar.validation.NameValidation;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.IO;
+
+import racingcar.validation.TrialValidation;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
