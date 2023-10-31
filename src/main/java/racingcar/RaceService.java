@@ -31,7 +31,7 @@ public class RaceService {
         CarDto carDto = new CarDto(raceCarNames);
         CarDtoValidator.validateCarDto(carDto);
         // CarDto => Car리스트 매핑
-        return CarDtoMapper.mapToCar(carDto);
+        return CarDtoMapper.fromCarDto(carDto);
     }
 
     public int getRoundFromInput(String roundInput) {
@@ -69,10 +69,13 @@ public class RaceService {
     }
 
     public List<Car> getWinners(List<Car> cars) {
-        // 정렬된 차 리스트
-        List<Car> sortedCars = cars.stream().sorted().toList();
+        // 위치 기준 내림차순 정렬된 차 리스트
+        List<Car> sortedCars = cars.stream()
+                .sorted(Comparator.comparingInt(Car::getCurrentLocation).reversed())
+                .toList();
 
-        // 동순위(1등과 같은 위치의 차들)에 대한 이름 오름차순 우승자 반환
+        // 동순위(1등과 같은 위치의 차들)들을 filtering 이후,
+        // 이름 기준 오름차순 정렬하여 우승자들을 반환
         return sortedCars.stream()
                 .filter(car -> car.getCurrentLocation()
                         == sortedCars.get(0).getCurrentLocation())

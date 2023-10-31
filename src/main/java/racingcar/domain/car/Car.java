@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-public class Car implements Comparable<Car> {
+public class Car {
     private String name;
     private int currentLocation;
 
@@ -23,7 +23,7 @@ public class Car implements Comparable<Car> {
     // 실행결과 별 선수상태를 반환
     @Override
     public String toString() {
-        StringBuilder status = new StringBuilder("");
+        StringBuilder status = new StringBuilder();
         for (int i = 0; i < currentLocation; i++) {
             status.append("-");
         }
@@ -36,11 +36,6 @@ public class Car implements Comparable<Car> {
 
     public int getCurrentLocation() {
         return currentLocation;
-    }
-
-    @Override
-    public int compareTo(Car o) {
-        return Integer.compare(o.getCurrentLocation(), this.currentLocation); // 오름차순 정렬
     }
 
     @Override
