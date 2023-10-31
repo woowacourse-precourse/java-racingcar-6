@@ -99,7 +99,7 @@ public class CarNameInputTest {
         System.setIn(input);
         assertThatThrownBy(() -> racingSetting.getName())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Error : 자동차 이름이 중복되었습니다 중복되지않게 적어주세요");
+                .hasMessageContaining("Error : 중복된 자동차 이름이 있습니다 중복되지않게 입력해 주세요");
     }
 
     @Test
