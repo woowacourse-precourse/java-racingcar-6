@@ -11,13 +11,13 @@ public class OutputView {
     private static final String PRINT_WINNERS_MESSAGE = "최종 우승자 : ";
     private static final String WINNER_LIST_DELIMITER = ", ";
 
-    public static void printRaceResult(List<RaceResult> raceResults) {
+    public void printRaceResult(List<RaceResult> raceResults) {
         System.out.println();
         System.out.println(PRINT_RACE_RESULT_MESSAGE);
-        raceResults.forEach(OutputView::printRaceStatus);
+        raceResults.forEach(this::printRaceStatus);
     }
 
-    private static void printRaceStatus(RaceResult raceResult) {
+    private void printRaceStatus(RaceResult raceResult) {
         raceResult.carStatuses().forEach(carStatus -> {
             String carMovementVisualString = createCarMovementVisualString(carStatus.position());
             System.out.println(carStatus.carName() + " : " + carMovementVisualString);
@@ -25,11 +25,11 @@ public class OutputView {
         System.out.println();
     }
 
-    private static String createCarMovementVisualString(int carPosition) {
+    private String createCarMovementVisualString(int carPosition) {
         return ONE_STEP.repeat(carPosition);
     }
 
-    public static void printWinners(List<String> winners) {
+    public void printWinners(List<String> winners) {
         String winnerList = String.join(WINNER_LIST_DELIMITER, winners);
         System.out.println(PRINT_WINNERS_MESSAGE + winnerList);
     }
