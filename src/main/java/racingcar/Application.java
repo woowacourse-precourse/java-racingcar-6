@@ -8,7 +8,7 @@ public class Application {
     public static void main(String[] args) {
         CarNames carNames = new CarNames();
         Message.startMessage();
-        List<String> playerList = carNames.inputCarnames();
+        List<String> playerList = carNames.inputCarNames();
         System.out.println(playerList);
     }
 }

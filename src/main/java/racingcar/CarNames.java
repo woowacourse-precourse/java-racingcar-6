@@ -6,39 +6,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarNames {
-    public List<String> inputCarnames() {
-        String rawCarnames = Console.readLine();
-        return splitCarnames(rawCarnames);
+    public List<String> inputCarNames() {
+        String rawCarNames = Console.readLine();
+        return splitCarNames(rawCarNames);
     }
 
-    private List<String> splitCarnames(String rawCarnames) {
-        List<String> splitCarnames = new ArrayList<>();
-        String nowCarnames = rawCarnames;
+    private List<String> splitCarNames(String rawCarNames) {
+        List<String> splitCarNames = new ArrayList<>();
+        String nowCarNames = rawCarNames;
 
-        if (rawCarnames.contains(",")) {
+        if (rawCarNames.contains(",")) {
 
 
-            while (nowCarnames.contains(",")) {
-                int index = nowCarnames.indexOf(",");
-                String tempCarnames = nowCarnames.substring(0, index).trim();
-                checkCarnameSize(tempCarnames);
-                splitCarnames.add(tempCarnames);
-                nowCarnames = nowCarnames.substring(index + 1);
+            while (nowCarNames.contains(",")) {
+                int index = nowCarNames.indexOf(",");
+                String tempCarNames = nowCarNames.substring(0, index);
+                checkAndthenAdd(tempCarNames, splitCarNames);
+                nowCarNames = nowCarNames.substring(index + 1);
             }
         }
-        if(!nowCarnames.isEmpty()) {
-            checkCarnameSize((nowCarnames));
-            splitCarnames.add(nowCarnames);
+        if(!nowCarNames.isEmpty()) {
+            checkAndthenAdd(nowCarNames, splitCarNames);
+
         }
-        if(nowCarnames.isEmpty()) {
-            checkCarnameSize(rawCarnames);
-            splitCarnames.add(rawCarnames);
+        if(nowCarNames.isEmpty()) {
+            checkAndthenAdd(rawCarNames, splitCarNames);
         }
-        return splitCarnames;
+        return splitCarNames;
     }
-    private void checkCarnameSize(String Carname) {
-        if (Carname.length() > 5) {
+
+    private void checkCarNameSize(String carName) {
+        if (carName.length() > 5 || (carName.length() == 0)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private void checkSameCarName(List<String> splitCarName, String compareCarName) {
+        if (splitCarName.contains(compareCarName)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkAndthenAdd(String carName, List<String> splitCarNames) {
+        checkCarNameSize(carName);
+        checkSameCarName(splitCarNames, carName);
+        splitCarNames.add(carName);
     }
 }

@@ -2,15 +2,15 @@
 
 ## ❓기능 목록
 
-- [] 자동차 이름 입력 쉼표를 기준으로 5자 이하인지 확인 - CarNames()
+- [x] 자동차 이름을 입력하는 클래스 - CarNames()
 
-    - [] 사용자 입력을 받음 - #InputCarnames()
-    - [] 입력한 이름을 쉼표를 기준으로 나눔 - #SplitCarnames()
+    - [x] 사용자 입력을 받음 - #InputCarnames()
+    - [x] 입력한 이름을 쉼표를 기준으로 나눔 - #SplitCarnames()
 - [] 이동 횟수 입력을 확인 - #InputMovingcount()
 
     - [] 사용자 입력을 받음 - #InputMovingcount()
     - [] 입력한 값이 정수인지 확인 - #CheckMovingcount()
-- [] 자동차 경주 게임 실행 - #Controller()
+- [] 자동차 경주 게임 실행하는 클래스 - #Controller()
   - [x] 무작위 숫자 생성 - Generator#NumberGenerator()
   - [X] 값이 4이상인지 판별 - #JudgeNumber
   - [] 4이상인 경우 전진 - #Moving
