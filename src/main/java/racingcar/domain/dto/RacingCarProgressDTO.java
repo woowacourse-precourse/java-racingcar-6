@@ -2,5 +2,5 @@ package racingcar.domain.dto;
 
 import java.util.List;
 
-public record CarProgressDTO(List<String> cars) {
+public record RacingCarProgressDTO(List<String> cars) {
 }

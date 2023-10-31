@@ -1,7 +1,7 @@
 package racingcar.domain.service;
 
 import java.util.List;
-import racingcar.domain.dto.CarProgressDTO;
+import racingcar.domain.dto.RacingCarProgressDTO;
 import racingcar.domain.dto.RacingCarWinnerDTO;
 import racingcar.domain.model.Cars;
 
@@ -24,9 +24,9 @@ public class RacingGame {
         return new RacingCarWinnerDTO(winners.formatNames());
     }
 
-    public CarProgressDTO getProgressStatus() {
+    public RacingCarProgressDTO getProgressStatus() {
         List<String> carsProgress = cars.progressStatusFormmat();
-        return new CarProgressDTO(carsProgress);
+        return new RacingCarProgressDTO(carsProgress);
     }
 
 }

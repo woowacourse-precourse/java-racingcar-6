@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.dto.CarProgressDTO;
+import racingcar.domain.dto.RacingCarProgressDTO;
 import racingcar.domain.dto.RacingCarWinnerDTO;
 import racingcar.domain.model.AttemptsNumber;
 import racingcar.domain.model.Cars;
@@ -32,7 +32,7 @@ public class RacingGameController {
         outputView.outputResultHeader();
         for (int i = 0; i < attemptsNumber.attempts(); i++) {
             racingGame.advance();
-            CarProgressDTO progress = racingGame.getProgressStatus();
+            RacingCarProgressDTO progress = racingGame.getProgressStatus();
             outputView.printProgress(progress);
         }
         RacingCarWinnerDTO winner = racingGame.determineWinner();
