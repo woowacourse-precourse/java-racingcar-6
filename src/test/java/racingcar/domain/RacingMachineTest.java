@@ -66,5 +66,18 @@ class RacingMachineTest {
 
         assertFalse(racingMachine.canPlay());
     }
+
+    @Test
+    void selectWinner_메서드는_우승자를_판별한다() {
+        RacingMachine racingMachine = new RacingMachine(cars, 1);
+
+        Car firstCar = cars.getCars().get(0);
+        Car secondCar = cars.getCars().get(1);
+
+        firstCar.movePosition(4);    // firstCar만 우승
+        secondCar.movePosition(1);
+
+        assertEquals(racingMachine.selectWinner().size(), 1);
+    }
 }
 
