@@ -20,7 +20,7 @@ public class GameController {
         this.randomMove = randomMove;
     }
 
-    private void start() {
+    public void start() {
         setCarList();
         moveCars();
     }
