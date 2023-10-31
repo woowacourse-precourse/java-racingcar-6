@@ -40,8 +40,8 @@
       - view member
       - Map map
       - int attemptNum
-      - void getCarString()
-      - void getNumOfAttemp()
+      - void setCarString()
+      - void setNumOfAttemp()
       - void executeGame()
     - model(car <-(composition)- map <- main)
       - car
