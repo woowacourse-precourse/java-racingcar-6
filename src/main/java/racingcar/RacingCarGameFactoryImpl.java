@@ -32,4 +32,9 @@ public class RacingCarGameFactoryImpl implements RacingCarGameFactory {
     public RandomNumberGenerator randomNumberGenerator() {
         return new RandomNumberGeneratorImpl();
     }
+
+    @Override
+    public TimeSleepStrategy timeSleepStrategy() {
+        return OneSecondSleepStrategy.getInstance();
+    }
 }

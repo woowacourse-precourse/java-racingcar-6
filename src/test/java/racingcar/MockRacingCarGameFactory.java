@@ -30,4 +30,9 @@ public class MockRacingCarGameFactory implements RacingCarGameFactory {
     public RandomNumberGenerator randomNumberGenerator() {
         return MockRandomNumberGenerator.getInstance();
     }
+
+    @Override
+    public TimeSleepStrategy timeSleepStrategy() {
+        return OneSecondSleepStrategy.getInstance();
+    }
 }

@@ -29,4 +29,6 @@ public interface RacingCarGameFactory {
     RacingCarValidator racingCarValidator();
 
     RandomNumberGenerator randomNumberGenerator();
+
+    TimeSleepStrategy timeSleepStrategy();
 }
