@@ -12,8 +12,8 @@
 ## 패턴 적용
 
 - [x] `Controller`와 `Viewer`클래스를 분리
-- [ ] `Controller` -> `Model` (기능 코드) 로 분리
-- [ ] 수행하는 기능에 따라 MVC, model의 package 분리
+- [x] `Controller` -> `Model` (기능 코드) 로 분리
+- [x] 수행하는 기능에 따라 MVC, model의 package 분리
 
 
 ## 단위 테스트 코드 구현
