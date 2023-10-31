@@ -19,11 +19,13 @@ public class View {
     }
 
     public void raceResult(List<String> carResults){
+
         for(String carResult : carResults){
             System.out.println(carResult);
         }
         System.out.println();
     }
+
     public void winnerCar(String winner){
         System.out.println("최종 우승자 : " + winner);
     }

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.Race;
 
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,6 +34,27 @@ class RunningTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 이름에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_객체_초기화_테스트(){
+        String[] carNames = {"pobi", "woni", "jun"};
+
+        Race race = new Race(carNames);
+
+        List<Car> cars = race.getCars();
+        assertThat(cars).hasSize(3);
+        assertThat(cars.get(0).getName()).isEqualTo("pobi");
+        assertThat(cars.get(1).getName()).isEqualTo("woni");
+        assertThat(cars.get(2).getName()).isEqualTo("jun");
+
+    }
 
     @Test
     void 랜덤값4이상_전진() {
@@ -42,7 +65,20 @@ class RunningTest extends NsTest {
         car.move(4);
         assertThat(car.getMove()).isEqualTo(1);
     }
-
+    @Test
+    void 시도횟수에_대한_예외_처리_음수() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 시도횟수에_대한_예외_처리_문자() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "ㅁ"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {

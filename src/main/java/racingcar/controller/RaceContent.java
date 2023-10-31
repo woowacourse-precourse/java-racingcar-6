@@ -16,6 +16,7 @@ public class RaceContent {
     }
 
     public void runRace(int countNumber){
+
         for (int i=0; i<countNumber; i++) {
             movingCar();
             List<String> carResults = convertList(race.getCars());
@@ -24,7 +25,9 @@ public class RaceContent {
     }
 
     private List<String> convertList(List<Car> cars){
+
         List<String> carResult = new ArrayList<>();
+
         for(Car car : cars){
             carResult.add(car.toString());
         }
@@ -32,6 +35,7 @@ public class RaceContent {
     }
 
     private void movingCar(){
+
         for (Car car : race.getCars()) {
             race.moveCars(car.getName());
         }

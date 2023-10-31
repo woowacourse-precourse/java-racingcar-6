@@ -12,12 +12,14 @@ public class Controller {
     private RaceResult raceResult;
 
     public void startRace() {
+
         carInput();
         moveRace();
         winner();
     }
 
     private void carInput(){
+
         String carInput = raceView.startMeg();
         List<String> carNames = input.carInput(carInput);
 
@@ -27,6 +29,7 @@ public class Controller {
     }
 
     private int checkCount(int countInput) {
+
         try {
             int countNumber = countInput;
 
@@ -41,6 +44,7 @@ public class Controller {
     }
 
     private void moveRace(){
+
         int countNumber = checkCount(raceView.countMeg());
 
         raceView.resultMeg();
@@ -48,6 +52,7 @@ public class Controller {
     }
 
     private void winner(){
+
         String winnerCar = raceResult.checkWinner();
         raceView.winnerCar(winnerCar);
     }
