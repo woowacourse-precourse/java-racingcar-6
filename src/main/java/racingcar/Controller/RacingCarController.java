@@ -27,6 +27,7 @@ public class RacingCarController {
             game.play();
             OutputView.printResult(game.getCarDtoList());
         }
+        OutputView.printGameWinner(game.getGameWinner());
     }
 
     private static String getUserInput() {

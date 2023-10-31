@@ -31,6 +31,20 @@ public class RacingCarService {
         }
     }
 
+    public List<String> getGameWinner() {
+        List<String> winner = new ArrayList<>();
+        for (int i = 1; i <= getRacingCarCount(); i++) {
+            isWinner(getCarDtoByIndex(i), winner);
+        }
+        return winner;
+    }
+
+    private void isWinner(CarDto carDto, List<String> winner) {
+        if (carDto.isWon()) {
+            winner.add(carDto.getCarName());
+        }
+    }
+
     public void play() {
         // cars playing (random number)
         List<Integer> plusCars = carPlaying();
