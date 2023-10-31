@@ -21,4 +21,12 @@ public class NameTest {
         Name name = Name.of(" hyunjin ");
         Assertions.assertEquals("hyunjin", name.getName());
     }
+
+    @Test
+    public void 이름_중복_테스트() {
+        Name name = Name.of("hyunjin");
+        Name duplicatedName = Name.of("hyunjin");
+
+        Assertions.assertEquals(name, duplicatedName);
+    }
 }
