@@ -18,12 +18,12 @@ public final class OutputDevice {
     }
 
     public static void printResultMessage(String resultMessage) {
-        System.out.println(RESULT_MESSAGE);
+        System.out.println("\n" + RESULT_MESSAGE);
         System.out.println(resultMessage);
     }
 
     public static void printWinnerMessage(String winnerMessage){
-        System.out.println(WINNER_MESSAGE + winnerMessage);
+        System.out.println("\n" + WINNER_MESSAGE + winnerMessage);
     }
 
 }
