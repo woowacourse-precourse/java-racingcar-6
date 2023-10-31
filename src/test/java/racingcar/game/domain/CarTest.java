@@ -1,7 +1,6 @@
 package racingcar.game.domain;
 
 import org.junit.jupiter.api.Test;
-import racingcar.game.constant.CarExceptionMessage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -16,7 +15,7 @@ class CarTest {
 
     @Test
     void 이름이_6자_이상이면_자동차_생성X() {
-        assertExceptionCase("avante", OUT_OF_RANGE);
+        assertExceptionCase("avante", OUT_OF_LENGTH_RANGE);
     }
 
     @Test
@@ -49,7 +48,7 @@ class CarTest {
 
     @Test
     void 자동차_이름이_빈_문자열이면_자동차_생성X() {
-        assertExceptionCase("", OUT_OF_RANGE);
+        assertExceptionCase("", OUT_OF_LENGTH_RANGE);
     }
 
     private void assertSuccessfullyCreate(String carName) {

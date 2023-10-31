@@ -1,7 +1,5 @@
 package racingcar.game.validation;
 
-import racingcar.game.constant.CarExceptionMessage;
-
 import static racingcar.game.constant.CarExceptionMessage.*;
 
 public class CarValidator implements Validator{
@@ -21,7 +19,7 @@ public class CarValidator implements Validator{
 
     private void validateNameLength(String name) {
         if (name.length() < 1 || name.length() > 5) {
-            throw new IllegalArgumentException(OUT_OF_RANGE);
+            throw new IllegalArgumentException(OUT_OF_LENGTH_RANGE);
         }
     }
 
