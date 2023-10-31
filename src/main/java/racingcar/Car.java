@@ -7,8 +7,15 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
-    public void Moving() {
+    public void forward() {
         position++;
+    }
+    public String viewProgress() {
+        String result = "";
+        for (int i = 0; i < position; i++) {
+            result += "-";
+        }
+        return result;
     }
     public String getName() {
         return name;
