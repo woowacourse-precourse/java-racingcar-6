@@ -14,4 +14,14 @@ public class MessageUtil {
     public void runGame() {
         System.out.println("실행 결과");
     }
+
+    public String transformDashes(Integer carRunCnt) {
+        StringBuilder dashes = new StringBuilder();
+
+        if (carRunCnt != null && carRunCnt > 0) {
+            dashes.append("-".repeat(carRunCnt));
+        }
+
+        return dashes.toString();
+    }
 }
