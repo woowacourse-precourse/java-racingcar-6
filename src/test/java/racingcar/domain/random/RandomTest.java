@@ -8,10 +8,7 @@ class RandomTest {
     @Test
     void 랜덤_숫자_생성() {
         Random random = new Random();
-        random.generateRandomNumber();
-
-
-        int number = random.getRandomNumber();
+        int number = random.generateRandomNumber();
 
         for(int i=0; i<100; i++){
             Assertions.assertThat(number).isBetween(0, 9);
