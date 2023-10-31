@@ -15,7 +15,7 @@
 
 ### 게임 진행
 - [ ] 입력된 횟수만큼 턴 진행한다. -Race#playRounds
-- [ ] 각 자동차에게 0~9 사이에 발생하는 무작위 수가 할당된다. NumberGeneraor#createRandomNumber()
+- [ ] 각 자동차에게 0~9 사이에 발생하는 무작위 수가 할당된다. NumberGenerator#createRandomNumber()
 - [ ] 4 이상일 경우에는 전진한다. -Race#moveIfAble
 - [ ] 턴 진행 후 각 레이싱카의 실행 결과 출력한다. -Race#displayRoundResults
 
