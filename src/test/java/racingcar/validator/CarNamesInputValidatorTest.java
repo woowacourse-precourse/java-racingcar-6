@@ -10,7 +10,7 @@ class CarNamesInputValidatorTest {
     private final BasicValidator<String> carNamesInputValidator = new CarNamesInputValidator();
 
     @Test
-    void validate() {
+    void 자동차_이름에_대한_사용자_입력값_검증() {
         assertThatThrownBy(() -> carNamesInputValidator.validate(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력값이 없습니다.");
