@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-public class Car {
+import static racingcar.constant.CarConstant.CAR_CAN_GO_NUMBER;
+import static racingcar.constant.CarConstant.CAR_START_POSITION;
 
-    private static final int CAR_START_POSITION = 0;
-    private static final int CAR_CAN_GO_NUMBER = 4;
+public class Car {
 
     private final Name name;
     private final Position position;
@@ -16,7 +16,6 @@ public class Car {
     public static Car from(final String name) {
         return new Car(name);
     }
-
 
     public void go(final int number) {
         if (isAbleToGo(number)) {

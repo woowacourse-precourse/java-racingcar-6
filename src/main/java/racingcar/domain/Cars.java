@@ -3,11 +3,11 @@ package racingcar.domain;
 
 import static racingcar.exception.ErrorMessage.CANT_FIND_MAX_VALUE;
 
-import java.util.Comparator;
 import java.util.List;
 import racingcar.exception.RacingGameException;
 
 public class Cars {
+
     private final NumberGenerator numberGenerator;
     private final List<Car> cars;
 
@@ -27,19 +27,18 @@ public class Cars {
         cars.forEach(car -> car.go(numberGenerator.generate()));
     }
 
-    public List<String> findWinnerNameList() {
+    public List<Car> findWinnerCarList() {
         Position maxPosition = findMaxPosition();
 
         return cars.stream()
                 .filter(car -> car.isHere(maxPosition))
-                .map(Car::getNameString)
                 .toList();
     }
 
     private Position findMaxPosition() {
         return cars.stream()
                 .map(Car::getPosition)
-                .max(Comparator.comparing(Position::getValue))
+                .max(Position::compareTo)
                 .orElseThrow(() -> RacingGameException.of(CANT_FIND_MAX_VALUE));
     }
 

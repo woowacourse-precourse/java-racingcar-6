@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.constant.CarConstant.CAR_NAME_SPLIT_STRING;
 import static racingcar.exception.ErrorMessage.NOT_INTEGER;
 
 import java.util.Arrays;
@@ -11,20 +12,19 @@ import racingcar.exception.RacingGameException;
 
 public class InputView {
 
-    private static final String CARS_SPLIT_STRING = ",";
     private static final Pattern NUMBER = Pattern.compile("^[0-9]+$");
     private static final String ENTER_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)\n";
 
     private static final String ASK_ROTATE_NUMBER = "시도할 회수는 몇회인가요?";
 
     public List<String> enterCarNames() {
-        System.out.printf(ENTER_CAR_NAMES, CARS_SPLIT_STRING);
+        System.out.printf(ENTER_CAR_NAMES, CAR_NAME_SPLIT_STRING);
 
         return toStringList(readLine());
     }
 
     private List<String> toStringList(final String input) {
-        return Arrays.stream(input.split(CARS_SPLIT_STRING))
+        return Arrays.stream(input.split(CAR_NAME_SPLIT_STRING))
                 .toList();
     }
 
