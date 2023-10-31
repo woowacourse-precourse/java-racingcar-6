@@ -3,7 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,7 +14,7 @@ public class InputValidatorTest {
 
     private InputValidator inputValidator;
 
-    @BeforeAll
+    @BeforeEach
     void initInputValidator() {
         Util util = new Util();
         inputValidator = new InputValidator(util);
@@ -51,7 +51,7 @@ public class InputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"홍길동,test,a맨", "aa,bb", "Ad,zxc,수훈"})
+    @ValueSource(strings = {"홍길동,test,z플립", "aa,bb", "Ad,zxc,수훈"})
     void 자동자_전체_이름_검증_정상처리(String carNames) {
         assertThatCode(() -> inputValidator.validateCarNames(carNames))
                 .doesNotThrowAnyException();
