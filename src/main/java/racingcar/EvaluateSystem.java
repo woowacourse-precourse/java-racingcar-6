@@ -6,12 +6,11 @@ import java.util.ArrayList;
 
 public class EvaluateSystem {
     public static ArrayList<Integer> racingCondition(int inputCount) {
-        ArrayList<Integer> temp = new ArrayList<>();
-        int carStatus;
+        ArrayList<Integer> racingInProcess = new ArrayList<>();
         for (int i = 0; i < inputCount; i++) {
-            temp.add(Randoms.pickNumberInRange(0,9));
+            racingInProcess.add(Randoms.pickNumberInRange(0,9));
         }
-        return temp;
+        return racingInProcess;
     }
     public void winnerDisplay() {
 
