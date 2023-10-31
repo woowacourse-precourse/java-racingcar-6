@@ -12,7 +12,7 @@ public class RacingCarGameService {
 
     private static final int MOVING_FORWARD_STANDARD = 4;
 
-    public LinkedHashMap<String, Integer> racingProgressStatusInitialize(List<String> carNames) {
+    public LinkedHashMap<String, Integer> initializeRacingProgressStatus(List<String> carNames) {
         LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
         new RacingCarNames(carNames);
         for (String carName : carNames) {
@@ -29,11 +29,7 @@ public class RacingCarGameService {
         }
     }
 
-    private void processMoveDecision(
-            int randomNumber,
-            LinkedHashMap<String, Integer> racingProgressStatus,
-            String carName
-    ) {
+    private void processMoveDecision(int randomNumber, LinkedHashMap<String, Integer> racingProgressStatus, String carName) {
         if (isMoveForward(randomNumber)) {
             moveForward(racingProgressStatus, carName);
         }
@@ -69,11 +65,7 @@ public class RacingCarGameService {
         return maxMovingValue;
     }
 
-    private void addWinner(
-            Map.Entry<String, Integer> finalResultEntry,
-            int maxMovingValue,
-            List<String> winners
-    ) {
+    private void addWinner(Map.Entry<String, Integer> finalResultEntry, int maxMovingValue, List<String> winners) {
         if (finalResultEntry.getValue() == maxMovingValue) {
             winners.add(finalResultEntry.getKey());
         }
