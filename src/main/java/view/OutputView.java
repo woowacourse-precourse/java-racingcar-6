@@ -23,9 +23,7 @@ public class OutputView {
         System.out.print("\n");
     }
 
-    public void printWinner(ArrayList<String> winnerlist){
-        String winner = winnerlist.stream()
-                .collect(Collectors.joining(", "));
+    public void printWinner(String winner){
         System.out.printf("최종 우승자 : %s", winner);
     }
 }

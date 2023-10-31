@@ -27,9 +27,9 @@ public class Race {
         carArrayList.forEach(Car::drive);
     }
 
-    public ArrayList<String> CheckWinner(){
+    public String CheckWinner(){
         int max = RacingService.findMax(carArrayList);
-        ArrayList<String> winner = RacingService.findWinner(carArrayList, max);
+        String winner = RacingService.findWinner(carArrayList, max);
 
         return winner;
     }

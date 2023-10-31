@@ -30,10 +30,11 @@ public class RacingService {
                 .getPosition();
     }
 
-    public static ArrayList<String> findWinner(ArrayList<Car> carArrayList, int max){
-        return carArrayList.stream()
+    public static String findWinner(ArrayList<Car> carArrayList, int max){
+        String winner = carArrayList.stream()
                 .filter(car -> car.getPosition() == max)
                 .map(car -> car.getName())
-                .collect(Collectors.toCollection(()->new ArrayList<>()));
+                .collect(Collectors.joining(", "));
+        return winner;
     }
 }

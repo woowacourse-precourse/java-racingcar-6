@@ -40,7 +40,7 @@ public class RacingController {
     }
 
     public static void endRace(Race race){
-        ArrayList<String> winner = race.CheckWinner();
+        String winner = race.CheckWinner();
         outputView.printWinner(winner);
     }
 }
