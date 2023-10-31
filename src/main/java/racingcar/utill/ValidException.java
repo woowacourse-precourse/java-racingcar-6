@@ -43,12 +43,6 @@ public class ValidException {
         }
     }
 
-    /**
-     * 공백 입력 검사
-     *
-     * @param str
-     * @return
-     */
     public static Boolean isValidBlankCheck(String str) {
         if (!str.equals("")) {
             return true;
@@ -57,11 +51,6 @@ public class ValidException {
     }
 
 
-    /**
-     * 양수 입력 검사.
-     *
-     * @param inputStr
-     */
     public static void isValidPositiveCheck(String inputStr) {
         Integer inputNum = Integer.valueOf(inputStr);
         if (inputNum < 0) {
@@ -70,11 +59,6 @@ public class ValidException {
     }
 
 
-    /**
-     * 입력된 문자열에 한글, 영어가 포함되어있는가.
-     *
-     * @param inputStr
-     */
     public static void isValidIncludeString(String inputStr) {
         String regex = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*"; // 영어와 한글이 포함되어 있는지 확인하는 정규 표현식
 
@@ -86,11 +70,6 @@ public class ValidException {
         }
     }
 
-    /**
-     * 특수문자 포함 검사
-     *
-     * @param inputStr
-     */
     public static void isValidIncludeSpecialString(String inputStr) {
         String regex = ".*[!@#$%^&*().?\":{}|<>].*"; // 특수 문자가 포함되어 있는지 확인하는 정규 표현식
 
@@ -102,22 +81,12 @@ public class ValidException {
         }
     }
 
-    /**
-     * 입력문자에 공백이 포함되어있는가.
-     *
-     * @param inputStr
-     */
     public static void isValidIncludeBlank(String inputStr) {
         if (inputStr.contains(" ")) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_BLANK_STRING());
         }
     }
 
-    /**
-     * 0 입력 확인
-     *
-     * @param inputStr
-     */
     public static void isValidZeroCheck(String inputStr) {
         Integer inputNum = Integer.valueOf(inputStr);
         if (inputNum == 0) {
@@ -125,13 +94,6 @@ public class ValidException {
         }
     }
 
-    /**
-     * 문자열 이름 , 다음에는 문자가 나와야한다.
-     * "woo," , 다음에 문자열이 입력되는가.
-     *
-     * @param inputStr
-     * @return
-     */
     public static boolean isValidCommaNextBlankCheck(String inputStr) {
         int length = inputStr.length();
         if (inputStr.charAt(length - 1) != ',') {
@@ -141,7 +103,7 @@ public class ValidException {
     }
 
     /**
-     * 자동차의 각각의 이름이 5글자 이하인가 확인
+     * 문자열은 , 기준으로 split 한후 각각의 문자열의 길이가 5이하인가.
      *
      * @param inputStr
      * @return
