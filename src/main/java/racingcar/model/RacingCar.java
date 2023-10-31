@@ -5,11 +5,11 @@ package racingcar.model;
  *
  * @author haiseong
  */
-public class RacingCar{
+public class RacingCar {
     private static final int START_DISTANCE = 0;
     private static final int MINIMUM_RANDOM_NUMBER_TO_MOVE = 4;
 
-    private String name;
+    private final String name;
     private int distance;
     private final RandomNumberGenerator randomNumberGenerator;
 
