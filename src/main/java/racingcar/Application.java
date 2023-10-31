@@ -10,11 +10,8 @@ import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        RandomNumberGenerater randomNumberGenerater = new RandomNumberGenerater();
-        InputView inputView = new InputView();
-        OutputView outputView = new OutputView();
-        InputValidator validator = new InputValidator();
-        RacingController racingController = new RacingController(new Cars(), new Race(), randomNumberGenerater,inputView,outputView, validator);
+        RacingController racingController = new RacingController(new Cars(), new Race(), new RandomNumberGenerater(),
+                new InputView(), new OutputView(), new InputValidator());
         racingController.start();
     }
 }
