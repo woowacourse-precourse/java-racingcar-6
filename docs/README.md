@@ -33,7 +33,9 @@
     * [x] : 시도한 횟수가 0 이면 모두 우승자가 된다.
 
 * `Application`
-    * [] : 레이싱 카 경주를 시작한다.
+    * [x] : 레이싱 카 경주를 시작한다.
 
 * `ApplicationContext`
-    * [] : Application이 실행되면, 객체들을 조립한다.
+    * [x] : Application이 실행되면, 객체들을 조립한다.
+      * [x] : RandomService의 기본 구현체 생성
+      * [x] : ConsoleService의 기본 구현체 생성
