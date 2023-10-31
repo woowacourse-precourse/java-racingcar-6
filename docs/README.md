@@ -3,7 +3,7 @@
 
 구현할 프로그램의 flowchart를 그려보면 다음과 같다.
 
-<img src="flowchart.png" width="700" height="650"/>
+<img src="flowchart.png" width="700" height="600"/>
 
 
 # 기능 목록
@@ -81,7 +81,7 @@ public static boolean isInputValid(String[] names) {
 @Test
     void 이름에_대한_예외_처리_쉼표가_없는_경우() {
             assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobijavaji", "1"))
+            assertThatThrownBy(() -> runException("meyou", "1"))
             .isInstanceOf(IllegalArgumentException.class));
     }
 ```
