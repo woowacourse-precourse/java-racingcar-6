@@ -23,7 +23,6 @@ public class CarRacingStarts {
         for (String carName : carNames) {
             int pickRandomNumber = this.pickRandomNumber.Generation();
             StringBuilder distanceCheck = new StringBuilder(carsDistanceData.getOrDefault(carName, ""));
-//            String distanceCheck = carsDistanceData.getOrDefault(carName, "");
 
             if (pickRandomNumber >= 4) {
                 distanceCheck.append("-");
