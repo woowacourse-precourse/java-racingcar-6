@@ -1,5 +1,7 @@
 # 자동차 경주 기능 구현 목록
 
+가장 큰 범위의 패키지를 mvc패턴으로 나누었다.
+
 ## main Package
 
 ### Application

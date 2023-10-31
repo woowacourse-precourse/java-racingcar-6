@@ -1,7 +1,6 @@
-package racingcar.validate;
+package racingcar.model.validate;
 
-import javax.imageio.IIOException;
-import racingcar.constant.CarRaceConstant;
+import racingcar.model.constant.CarRaceConstant;
 
 public class Validate {
 

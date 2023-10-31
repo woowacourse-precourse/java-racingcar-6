@@ -1,7 +1,7 @@
-package racingcar.domain;
+package racingcar.model.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constant.CarRaceConstant;
+import racingcar.model.constant.CarRaceConstant;
 
 public class RandomGenerator {
 

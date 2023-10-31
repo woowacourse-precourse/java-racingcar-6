@@ -1,12 +1,10 @@
-package racingcar.game;
+package racingcar.view.game;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.constant.CarRaceMessage;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-import racingcar.service.CarRaceService;
-import racingcar.validate.Validate;
+import racingcar.model.constant.CarRaceMessage;
+import racingcar.model.service.CarRaceService;
+import racingcar.model.validate.Validate;
 
 public class CarRaceGame implements Game {
     private CarRaceService service;

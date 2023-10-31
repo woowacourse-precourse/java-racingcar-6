@@ -1,11 +1,11 @@
-package racingcar.service;
+package racingcar.model.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.constant.CarRaceConstant;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-import racingcar.domain.RandomGenerator;
+import racingcar.model.constant.CarRaceConstant;
+import racingcar.model.domain.Car;
+import racingcar.model.domain.Cars;
+import racingcar.model.domain.RandomGenerator;
 
 /**
  * 애플리케이션 로직을 담당하는 클래스

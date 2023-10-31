@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.game.Game;
+import racingcar.view.game.Game;
 
 public class CommandLineController implements Controller{
 

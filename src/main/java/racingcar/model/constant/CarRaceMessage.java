@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.model.constant;
 
 public enum CarRaceMessage {
 
