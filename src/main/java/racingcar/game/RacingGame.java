@@ -11,10 +11,16 @@ public class RacingGame {
 
     public void start() {
         Cars cars = setupCarsName();
+        TryCount tryCount = setupTryCount();
     }
 
     private Cars setupCarsName() {
         output.printMessageLine(Messages.INPUT_CARS_NAME.getMessage());
         return input.readCarsName();
+    }
+
+    private TryCount setupTryCount() {
+        output.printMessageLine(Messages.INPUT_TRY_COUNT.getMessage());
+        return input.readTryCount();
     }
 }
