@@ -35,11 +35,11 @@ public class IndividualCarNameValidator implements Validator<List<String>> {
         if(splitCarName.size() != splitCarName.stream().distinct().count()) {
             throw new IllegalArgumentException(carUniqueErrorMessage);
         }
-        lengthTest(splitCarName);
+        validateCarNameLength(splitCarName);
         return splitCarName;
     }
 
-    void lengthTest(List<String> splitCarName) {
+    private void validateCarNameLength(List<String> splitCarName) {
         List<String> invalidNames = splitCarName
                 .stream()
                 .filter(name -> !SPLIT_CAR_NAME_LENGTH_PATTERN.matcher(name).matches())
