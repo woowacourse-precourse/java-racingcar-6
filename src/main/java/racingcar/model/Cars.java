@@ -9,10 +9,6 @@ public class Cars {
     List<Car> cars;
     RandomGenerator randomGenerator = new RandomGenerator();
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public Cars(String carNames) {
         cars = Arrays.stream(carNames.split(MessageConst.DELIMITER))
                 .map(carName -> new Car(carName))
@@ -24,4 +20,9 @@ public class Cars {
             car.forward(randomGenerator.createNumber());
         }
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
 }
