@@ -8,14 +8,10 @@ public class Car {
 
     private final String name;
 
-    private Car(String name) {
+    public Car(String name) {
+        validateLengthOfName(name);
         this.location = 0;
         this.name = name;
-    }
-
-    public static Car getInstance(final String name) {
-        validateLengthOfName(name);
-        return new Car(name);
     }
 
     private static void validateLengthOfName(final String name) {

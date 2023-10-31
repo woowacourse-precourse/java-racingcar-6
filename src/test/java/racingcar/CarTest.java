@@ -17,7 +17,7 @@ public class CarTest {
         stringBuilder.append("A".repeat(MAX_NAME_LEGNTH + 1));
 
         String invalidName = stringBuilder.toString();
-        assertThrows(IllegalArgumentException.class, () -> Car.getInstance(invalidName));
+        assertThrows(IllegalArgumentException.class, () -> new Car(invalidName));
     }
 
     @Test
@@ -27,6 +27,6 @@ public class CarTest {
         stringBuilder.append("A".repeat(MAX_NAME_LEGNTH));
 
         String validName = stringBuilder.toString();
-        assertDoesNotThrow(() -> Car.getInstance(validName));
+        assertDoesNotThrow(() -> new Car(validName));
     }
 }

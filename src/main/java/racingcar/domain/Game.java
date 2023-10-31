@@ -88,7 +88,7 @@ public class Game {
         List<String> namesOfCars = Parser.stringToStringList(InputView.readValue(), ",");
 
         for (String name : namesOfCars) {
-            cars.add(Car.getInstance(name));
+            cars.add(new Car(name));
         }
     }
 
