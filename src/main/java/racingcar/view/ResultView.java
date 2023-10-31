@@ -2,6 +2,8 @@ package racingcar.view;
 
 import racingcar.model.Car;
 
+import java.util.List;
+
 public class ResultView {
     private static final String CAR_POSITION_MARKER = "-";
 
@@ -20,4 +22,10 @@ public class ResultView {
     public static void printNewLine() {
         System.out.println();
     }
+
+    public static void printWinners(List<String> winners) {
+        String winnerNames = String.join(",",winners);
+        System.out.println("최종 우승자 : " + winnerNames);
+    }
+
 }
