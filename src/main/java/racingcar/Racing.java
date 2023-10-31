@@ -11,6 +11,7 @@ public class Racing {
 
     public Racing(List<String> nameList) {
         List<Car> carList = new ArrayList<>();
+
         for (int i = 0; i < nameList.size(); i++) {
             Car car = new Car(nameList.get(i), 0);
             carList.add(car);
