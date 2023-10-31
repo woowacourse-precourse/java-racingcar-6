@@ -57,7 +57,7 @@ public class GameController {
     }
 
     public void setCarList(String carNamesInputString) {
-        for (String carName : carNamesInputString.split(",",-1)) {
+        for (String carName : carNamesInputString.split(",", -1)) {
             Validator.checkCarNameValidation(carName);
             game.updateCar(new Car(carName));
         }

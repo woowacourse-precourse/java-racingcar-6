@@ -7,7 +7,7 @@ public class Car {
     public int score;
 
     public Car(String name) {
-        if(!name.isEmpty()) {
+        if (!name.isEmpty()) {
             this.name = name;
         }
     }
