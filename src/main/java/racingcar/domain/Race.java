@@ -14,7 +14,7 @@ public class Race {
     }
 
     public void printRaceResult() {
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         runRace();
         printWinners(getWinners());
     }
