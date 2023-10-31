@@ -34,5 +34,11 @@ public class Car {
         return distance + step;
     }
 
-    public void printPosition(){}
+    public void printPosition(){
+        String distanceString = "";
+        for (int i=0; i<distance; i++){
+            distanceString += "-";
+        }
+        System.out.print(carName + " : " + distanceString);
+    }
 }
