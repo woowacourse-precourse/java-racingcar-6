@@ -9,7 +9,6 @@ import racingcar.view.OutputView;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class RacingCarController {
     private static final int FORWARD_RULE = 4;
@@ -25,16 +24,28 @@ public class RacingCarController {
     }
 
     public void racingCar() {
-        List<Car> cars = createCarList();
-        String inputNumberOfTimes = inputView.inputNumberOfTimes();
-        validateInputIsNumber(inputNumberOfTimes);
-        int numberOfTimes = Integer.parseInt(inputNumberOfTimes);
-        IntStream.range(0, numberOfTimes)
-                .forEach(i -> repeatRaceNumberOfTimes(cars));
+        String inputCarNames = inputCarNames(inputView.inputCarNames());
+        List<String> carNames = splitCarNamesByComma(inputCarNames);
+        List<Car> cars = createCarList(carNames);
+        int inputNumberOfTimes = inputNumberOfTimes(inputView.inputNumberOfTimes());
+        while (inputNumberOfTimes-- > 0) {
+            checkEachCarForward(cars);
+            outputView.printEachRaceResult(cars);
+        }
         outputView.printWinnerOrWinners(findWinner(cars));
     }
 
-    private String findWinner(List<Car> cars) {
+    public String inputCarNames(String input) {
+        validateLastCharComma(input);
+        return input;
+    }
+
+    public int inputNumberOfTimes(String input) {
+        validateInputIsNumber(input);
+        return Integer.parseInt(input);
+    }
+
+    public String findWinner(List<Car> cars) {
         return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance(cars))
                 .map(Car::getName)
@@ -45,20 +56,15 @@ public class RacingCarController {
         return cars.stream()
                 .mapToInt(Car::getDistance)
                 .max()
-                .orElseThrow(() -> new IllegalArgumentException("자동차 목록이 존재하지 않습니다."));
+                .orElse(0);
     }
 
-    private void repeatRaceNumberOfTimes(List<Car> cars) {
-        checkEachCarForward(cars);
-        outputView.printEachRaceResult(cars);
+    public void checkEachCarForward(List<Car> cars) {
+        cars.forEach(car -> checkAtLeastFour(car, randomNumber()));
     }
 
-    private void checkEachCarForward(List<Car> cars) {
-        cars.forEach(this::checkAtLeastFour);
-    }
-
-    private void checkAtLeastFour(Car car) {
-        if (randomNumber() >= FORWARD_RULE) {
+    public void checkAtLeastFour(Car car, int randomNumber) {
+        if (randomNumber >= FORWARD_RULE) {
             car.forward();
         }
     }
@@ -67,29 +73,27 @@ public class RacingCarController {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private List<Car> createCarList() {
-        String input = inputView.inputCarNames();
-        validateLastCharComma(input);
-        Cars cars = new Cars(splitCarNamesByComma(input));
+    public List<Car> createCarList(List<String> carNames) {
+        Cars cars = new Cars(carNames);
         return cars.getCars();
     }
 
-    private List<String> splitCarNamesByComma(String input) {
+    public List<String> splitCarNamesByComma(String input) {
         List<String> carNames = Arrays.stream(input.split(String.valueOf(COMMA)))
                 .toList();
         validateEmptyName(carNames);
         return carNames;
     }
 
-    private void validateEmptyName(List<String> carNames){
-        if(carNames.contains(EMPTY_NAME)){
+    private void validateEmptyName(List<String> carNames) {
+        if (carNames.contains(EMPTY_NAME)) {
             throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
         }
     }
 
-    private void validateLastCharComma(String input){
+    private void validateLastCharComma(String input) {
         int lastIndex = input.length() - 1;
-        if(input.charAt(lastIndex) == COMMA){
+        if (input.charAt(lastIndex) == COMMA) {
             throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
         }
     }
