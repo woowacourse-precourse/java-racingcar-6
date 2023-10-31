@@ -3,6 +3,7 @@ package jalddak.view;
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.view.OutputView.printPerMatchResult;
 import static racingcar.view.OutputView.printSystemMessage;
+import static racingcar.view.OutputView.printWinner;
 import static racingcar.view.SystemMessage.ASK_CAR_LIST;
 import static racingcar.view.SystemMessage.ASK_NUM_OF_MATCHES;
 
@@ -42,5 +43,21 @@ public class OutputViewTest {
     void drawDistance() {
         String expect = "----";
         assertThat(expect).isEqualTo(OutputView.drawDistance(4));
+    }
+
+    @Test
+    void 우승자_한명_printWinner() {
+        List<String> one = new ArrayList<>();
+        one.add("HJ");
+        printWinner(one);
+    }
+
+    @Test
+    void 우승자_여러명_printWinner() {
+        List<String> several = new ArrayList<>();
+        several.add("HJ");
+        several.add("HS");
+        several.add("RK");
+        printWinner(several);
     }
 }
