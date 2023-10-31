@@ -3,6 +3,8 @@ package racingcar.View;
 import racingcar.Model.Car;
 import racingcar.Model.RacingMap;
 
+import java.util.List;
+
 public class TextView implements View{
     @Override
     public void printGetCarString() {
@@ -16,15 +18,18 @@ public class TextView implements View{
 
     @Override
     public void printMapProcess(RacingMap map) {
-
+        for(Car car: map.getCarList()){
+            printCarProcess(car.getName(), car.getProcess());
+        }
+        System.out.println();
     }
 
-    public void printCarProcess(Car car){
-
+    public void printCarProcess(String name, int process){
+        System.out.println(name + ":" + "-".repeat(process));
     }
 
     @Override
-    public void printWinner(RacingMap map) {
-
+    public void printWinner(List<String> winner) {
+        System.out.println("최종 우승자: " + String.join(", ", winner));
     }
 }
