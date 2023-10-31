@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.*;
 import racingcar.domain.Car;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
