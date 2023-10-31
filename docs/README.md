@@ -40,3 +40,20 @@
   - [ ] checkDuplicate
   - [ ] checkLength
 
+### Attempt 클래스
+- [ ] getCount
+- [ ] validateAttemptCount
+  - [ ] checkInt
+  - [ ] checkNatural
+
+### MovingCondition 클래스
+- [ ] isMoveForward
+
+### RacingGame 클래스
+- [ ] race
+- [ ] printProgressResult
+
+### Winner 클래스
+- [ ] findWinners
+- [ ] findMaxProgress
+- [ ] printResult
