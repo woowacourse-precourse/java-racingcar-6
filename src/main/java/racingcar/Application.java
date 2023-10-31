@@ -134,12 +134,11 @@ class InputManager {
         try{
             attempts = Integer.parseInt(Console.readLine());
             InputValidator.checkAttempts(attempts);
+            return attempts;
         }catch (IllegalArgumentException e){
             System.out.println("유효한 숫자를 입력하세요.");
             return getAttempts();
         }
-
-        return attempts;
     }
 
 }
