@@ -77,7 +77,7 @@ class RacingGameScreenTest {
         mockReader.setInput(input);
 
         //when
-        String racerInput = racingGameScreen.inputNumberOfTurns();
+        String racerInput = racingGameScreen.inputTotalTurn();
 
         //then
         String output = mockWriter.getOutput();

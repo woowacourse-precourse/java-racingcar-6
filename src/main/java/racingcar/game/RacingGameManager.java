@@ -20,7 +20,7 @@ public class RacingGameManager {
 
     public void run() {
         RacingCarRegistry racingCarRegistry = registerRacingCar();
-        int turnCount = inputNumberOfTurns();
+        int turnCount = inputTotalTurn();
         startRace(racingCarRegistry, turnCount);
         announceWinner(racingCarRegistry);
     }
@@ -40,12 +40,12 @@ public class RacingGameManager {
         return racingCarRegistry;
     }
 
-    private int inputNumberOfTurns() {
-        String numberOfTurns = racingGameScreen.inputNumberOfTurns();
-        Validator.validateLength(numberOfTurns, RacingCarRule.TURN_COUNT_INPUT_LENGTH);
-        Validator.validateHasText(numberOfTurns);
-        Validator.validateNumeric(numberOfTurns);
-        return Integer.parseInt(numberOfTurns);
+    private int inputTotalTurn() {
+        String totalTurn = racingGameScreen.inputTotalTurn();
+        Validator.validateLength(totalTurn, RacingCarRule.TOTAL_TURN_INPUT_LENGTH);
+        Validator.validateHasText(totalTurn);
+        Validator.validateNumeric(totalTurn);
+        return Integer.parseInt(totalTurn);
     }
 
     private void startRace(RacingCarRegistry racingCarRegistry, int turnCount) {
