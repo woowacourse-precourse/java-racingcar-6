@@ -140,6 +140,21 @@ class ApplicationTest extends NsTest {
             OutputView.outputForward(carRepository.findByName("pobi"));
             assertThat(output()).isEqualTo("pobi : -----");
         }
+
+        @Test
+        void outputWinner() {
+            CarRepository carRepository = new CarRepository();
+            GameService gameService = new GameService(carRepository);
+            carRepository.save("pobi");
+            carRepository.save("woni");
+            carRepository.save("faker");
+            carRepository.save("bdd");
+            carRepository.save("chovy");
+            carRepository.findByName("pobi").setForward(5);
+            carRepository.findByName("woni").setForward(5);
+            OutputView.outputWinner(gameService.resultGame());
+            assertThat(output()).isEqualTo("최종 우승자 : pobi, woni");
+        }
     }
 
     @Override
