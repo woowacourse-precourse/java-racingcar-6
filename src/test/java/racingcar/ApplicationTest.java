@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -35,4 +36,12 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
-}
+
+//    @Test
+//    @DisplayName("자동차가 움직이는지 확인한다.")
+//    void 자동차_움직임(){
+//        int location = 0;
+//        move(location);
+//        assertThat(location).isEqualTo(3);
+//    }
+//}
