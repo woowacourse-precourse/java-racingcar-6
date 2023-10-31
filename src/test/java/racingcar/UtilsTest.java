@@ -1,11 +1,11 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.catchThrowable;
 
 import racingcar.utils.Utils;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class UtilsTest {
@@ -43,5 +43,21 @@ public class UtilsTest {
         assertThat(result1 == 5);
         assertThat(result2 == 5);
         assertThat(result3 == 0);
+    }
+
+    @Test
+    void 콤마를_기준으로_문자열을_나누어_배열에_저장하면_통과() {
+        final String[] rightResult = {"one","two","three"};
+        //given
+        String case1 = "one,two,three";
+        String case2 = "one, two,three";
+
+        //when
+        String[] result1 = Utils.splitByComma(case1);
+        String[] result2 = Utils.splitByComma(case2);
+
+        //then
+        assertThat(Arrays.equals(result1,rightResult));
+        assertThat(!Arrays.equals(result2,rightResult));
     }
 }
