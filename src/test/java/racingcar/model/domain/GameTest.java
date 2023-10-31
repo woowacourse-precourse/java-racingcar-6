@@ -29,7 +29,7 @@ public class GameTest {
     @Test
     @DisplayName("게임 객체 시도 횟수 증가에 따른 게임 종료를 테스트 합니다.")
     void 게임_종료() {
-        game.increaseCount();
+        game.increaseTrial();
 
         assertThat(game).isNotNull();
         assertThat(game).extracting(Game::getCars).isEqualTo(cars);

@@ -1,6 +1,6 @@
 package racingcar.model.service;
 
-import static racingcar.model.constants.Rule.MOVE_VALUE;
+import static racingcar.model.constants.Rule.MOVE_FORWARD;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,10 +36,10 @@ public class RacingCarServiceImp implements RacingCarService {
     }
 
     private static boolean isCarMove() {
-        return Generator.generateRandomNumber() >= MOVE_VALUE.getValue();
+        return Generator.generateRandomNumber() >= MOVE_FORWARD.getValue();
     }
 
     private static void increaseTrial(Game game) {
-        game.increaseCount();
+        game.increaseTrial();
     }
 }

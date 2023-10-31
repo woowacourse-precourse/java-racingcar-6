@@ -9,7 +9,7 @@ public enum Rule {
     RANDOM_MIN_SIZE(0),
     RANDOM_MAX_SIZE(9),
 
-    MOVE_VALUE(4);
+    MOVE_FORWARD(4);
 
     private final int value;
 

@@ -28,7 +28,7 @@ public class Game {
         return currentTrial;
     }
 
-    public void increaseCount() {
+    public void increaseTrial() {
         currentTrial += 1;
     }
 
