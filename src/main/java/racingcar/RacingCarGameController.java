@@ -29,7 +29,7 @@ public class RacingCarGameController {
                 .collect(Collectors.toList());
 
 
-        // 4. 이동회수 입력 (숫자만 가능)
+        // 3. 이동회수 입력 (숫자만 가능)
         int moveCnt;
         try {
             moveCnt = Integer.parseInt(Console.readLine());
@@ -40,7 +40,7 @@ public class RacingCarGameController {
         }
 
 
-        // 5. 자동차 전진
+        // 4. 자동차 전진
         for (int i = 0; i < moveCnt; i++) {
             for (String car : racingCar.keySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -50,7 +50,7 @@ public class RacingCarGameController {
             }
 
 
-            // 5-1. 자동차 이동 중 출력
+            // 4-1. 자동차 이동 중 출력
             for (String car : racingCar.keySet()) {
                 System.out.print(car + " : ");
                 for (int j = 0; j < racingCar.get(car); j++) {
@@ -61,7 +61,7 @@ public class RacingCarGameController {
             System.out.println();
         }
 
-        // 6. 최대 움직인 자동차 찾기 (result)
+        // 5. 최대 움직인 자동차 찾기 (result)
         int maxValue = racingCar.values().stream()
                 .mapToInt(Integer::intValue)
                 .max()
@@ -75,7 +75,7 @@ public class RacingCarGameController {
             }
         }
 
-        // 7. 우승자 출력
+        // 6. 우승자 출력
         String result = resultList.stream().map(String::valueOf).collect(Collectors.joining(", "));
         System.out.println("최종 우승자 : " + result);
     }
