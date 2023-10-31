@@ -7,13 +7,15 @@ import racingcar.domain.Cars;
 
 public class GameService {
     private static final int POSSIBLE = 4;
+    private static final int ZERO = 0;
+    private static final int NINE = 0;
     Cars cars = new Cars();
 
     public ArrayList<List<String>> moveCar(ArrayList<String> carNames, ArrayList<List<String>> currentCarProgress) {
 
         for (int j = 0; j < carNames.size(); j++) {
 
-            int currentCarMove = Randoms.pickNumberInRange(0, 9);
+            int currentCarMove = Randoms.pickNumberInRange(ZERO, NINE);
 
             if (currentCarMove >= POSSIBLE) {
                 String currentMove = currentCarProgress.get(j).get(0);
