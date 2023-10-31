@@ -91,12 +91,6 @@ public class GameProcess {
     }
 
 
-    /**
-     * 승자들만있는 배열들을 중간에 ", "을 넣어서 문자열을 만든다.
-     *
-     * @param raceCarOfWinnerArr
-     * @return
-     */
     private String getNameOfWinnerFromWinnerArr(String[] raceCarOfWinnerArr) {
         return String.join(", ", raceCarOfWinnerArr);
     }
