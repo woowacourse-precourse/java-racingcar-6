@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.model.RacingCars;
 import racingcar.model.Racing;
+import racingcar.model.RacingCars;
 import racingcar.model.number.RandomNumberGenerator;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
@@ -11,10 +11,9 @@ public class RacingController {
     private final Racing racing;
 
     public RacingController() {
-        String[] validateCars = Validator.carNameValidator(InputView.carNamesInput());
-        RacingCars racingCars = RacingCars.createCars(validateCars);
+        RacingCars cars = getRacingCars();
         String count = InputView.roundCountInput();
-        this.racing = new Racing(racingCars, count);
+        this.racing = new Racing(cars, count);
     }
 
     public void start() {
@@ -28,5 +27,10 @@ public class RacingController {
             racing.playRound(new RandomNumberGenerator());
             OutputView.printRoundResult(racing.getStatus());
         }
+    }
+
+    private static RacingCars getRacingCars() {
+        String[] validateCars = Validator.carNameValidator(InputView.carNamesInput());
+        return RacingCars.createCars(validateCars);
     }
 }
