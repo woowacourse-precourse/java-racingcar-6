@@ -11,5 +11,10 @@ public class Input {
         return Console.readLine();
     }
 
+    public int getRound(){
+        System.out.println(ASK_ROUND);
+
+        return Integer.parseInt(Console.readLine());
+    }
 
 }
