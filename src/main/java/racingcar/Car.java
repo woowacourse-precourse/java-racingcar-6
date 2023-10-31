@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 
 public class Car implements Comparable<Car> {
@@ -19,4 +20,13 @@ public class Car implements Comparable<Car> {
     public int compareTo(Car car) {
         return Integer.compare(this.distance, car.distance);
     }
+
+    private boolean checkLength(String name) {
+        if (name.length() > 5 || name.length() == 0) {
+            throw new IllegalArgumentException("이름의 길이는 5글자 이하입니다");
+        }
+        return true;
+    }
+
+
 }
