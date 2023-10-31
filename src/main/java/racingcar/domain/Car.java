@@ -25,4 +25,10 @@ public class Car {
         return new String(name.show());
     }
 
+    public void checkMoveForward(boolean isCarMove) {
+        if (isCarMove) {
+            this.moveForward();
+        }
+    }
+
 }

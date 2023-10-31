@@ -2,16 +2,21 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
-public class RacingCars {
+public class RacingCars implements Iterable<Car> {
 
     private List<Car> cars;
 
     public RacingCars(List<Car> cars) {
         this.cars = new ArrayList<>(cars);
     }
-
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
+    }
 
     public List<Car> showRacingCars() {
         return Collections.unmodifiableList(cars);
