@@ -21,6 +21,7 @@ public class Game {
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             InputException.validateNameSize(carName);
+            InputException.validateNameBlank(carName);
             carList.add(new Car(carName));
         }
         return new Cars(carList);

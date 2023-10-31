@@ -17,6 +17,11 @@ public class InputException {
             throw new IllegalArgumentException(PrintMessage.FIVE_OR_LESS);
     }
 
+    public static void validateNameBlank(String name) {
+        if (name.isBlank())
+            throw new IllegalArgumentException((PrintMessage.NOT_BLANK_NAME));
+    }
+
     public static void validateNameDuplication(List<String> carList) {
         Set<String> set = new HashSet<>(carList);
         if (carList.size() != set.size())
