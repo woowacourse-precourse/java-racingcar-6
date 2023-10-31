@@ -12,7 +12,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.domain.FixedCarEngine;
-import racingcar.domain.RacingResult;
+import racingcar.dto.CarDto;
+import racingcar.dto.RacingResultDto;
+import racingcar.dto.RacingRoundResultDto;
 
 public class RacingCarServiceTest {
 
@@ -23,20 +25,59 @@ public class RacingCarServiceTest {
                 .doesNotThrowAnyException();
     }
 
-    @DisplayName("레이싱을 시작해 최종 우승자를 반환한다.")
+    @DisplayName("사용자의 입력으로 레이싱 게임을 초기화한다.")
+    @ParameterizedTest
+    @MethodSource("provideInitializeRacingGameTest")
+    void initializeRacingGameTest(List<String> carNames, String attemptCounts) {
+        RacingCarService racingCarService = new RacingCarService(new FixedCarEngine(true));
+        assertThatCode(() -> racingCarService.initializeRacingGame(carNames, attemptCounts))
+                .doesNotThrowAnyException();
+    }
+
+    static Stream<Arguments> provideInitializeRacingGameTest() {
+        return Stream.of(
+                arguments(List.of("pobi", "woni", "jun"), "3"),
+                arguments(List.of("pobi", "woni"), "2"),
+                arguments(List.of("pobi"), "1")
+        );
+    }
+
+    @DisplayName("레이싱을 한 회차 시작하여 움직였는지 확인한다.")
     @ParameterizedTest
     @MethodSource("provideRaceTestArguments")
-    void raceTest(List<String> carNames, int attemptCounts, List<String> expectedWinners) {
+    void raceTest(List<String> carNames, String attemptCounts) {
         RacingCarService racingCarService = new RacingCarService(new FixedCarEngine(true));
-        RacingResult racingResult = racingCarService.race(carNames, attemptCounts);
-        List<String> finalWinners = racingCarService.determineWinner(racingResult);
-        assertThat(finalWinners).isEqualTo(expectedWinners);
+        racingCarService.initializeRacingGame(carNames, attemptCounts);
+        RacingRoundResultDto racingRoundResultDto = racingCarService.race();
+        List<CarDto> carDtos = racingRoundResultDto.carDtos();
+        for (int i = 0; i < carNames.size(); i++) {
+            assertThat(carDtos.get(i).name()).isEqualTo(carNames.get(i));
+            assertThat(carDtos.get(i).position()).isEqualTo(1);
+        }
     }
 
     static Stream<Arguments> provideRaceTestArguments() {
         return Stream.of(
-                arguments(List.of("pobi", "woni", "jun"), 3, List.of("pobi", "woni", "jun")),
-                arguments(List.of("pobi", "woni", "jun"), 10, List.of("pobi", "woni", "jun"))
+                arguments(List.of("pobi", "woni", "jun"), "3"),
+                arguments(List.of("pobi", "woni", "jun"), "10")
+        );
+    }
+
+    @DisplayName("레이싱을 시작해 최종 우승자를 반환한다.")
+    @ParameterizedTest
+    @MethodSource("provideDetermineWinnersTestArguments")
+    void determineWinnersTest(List<String> carNames, String attemptCounts, List<String> expectedWinners) {
+        RacingCarService racingCarService = new RacingCarService(new FixedCarEngine(true));
+        racingCarService.initializeRacingGame(carNames, attemptCounts);
+        racingCarService.race();
+        RacingResultDto racingResultDto = racingCarService.determineWinner();
+        assertThat(racingResultDto.carNames()).isEqualTo(expectedWinners);
+    }
+
+    static Stream<Arguments> provideDetermineWinnersTestArguments() {
+        return Stream.of(
+                arguments(List.of("pobi", "woni", "jun"), "3", List.of("pobi", "woni", "jun")),
+                arguments(List.of("pobi", "woni", "jun"), "10", List.of("pobi", "woni", "jun"))
         );
     }
 }
