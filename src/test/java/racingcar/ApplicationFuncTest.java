@@ -49,6 +49,15 @@ public class ApplicationFuncTest {
         Assertions.assertThat(result).isEqualTo("최종 우승자는 없습니다.");
     }
 
+    @DisplayName("최종 우승이 있는 경우")
+    @Test
+    public void printWinnerTest2() {
+        String[] carNames = {"pobi", "woni", "jun"};
+        int[] carPositions = {0, 2, 2};
+        String result = Application.printWinner(carNames, carPositions);
+        Assertions.assertThat(result).isEqualTo("최종 우승자 : woni, jun");
+    }
+
 
 
 
