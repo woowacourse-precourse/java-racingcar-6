@@ -6,7 +6,7 @@
 
 
 ## 경주할 자동차들의 이름을 입력받는다.
-- [ ] 쉼표로 구분된 이름을 분리한다. - Registration#getCarName()
+- [X] 입력된 이름들을 쉼표(,)를 기준으로 분리한다. - Registration#getCarNames()
 - [ ] 각 자동차의 이름과 위치값을 가진 클래스의 배열을 생성한다. - Registration#createCarList()
 - [ ] 잘못된 값을 입력할 경우 `IllegalArgumentException`을 던진다.
   - [ ] 이름을 1개만 입력할 경우(쉼표 구분이 없는 경우) - Validator#validateCompetitor()
