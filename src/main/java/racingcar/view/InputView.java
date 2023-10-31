@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.common.factory.DTOFactory;
 import racingcar.common.type.Names;
 import racingcar.common.type.TrialCount;
 import racingcar.dto.input.InputDTO;
@@ -19,7 +18,7 @@ public class InputView {
         Names names = readCarNames();
         TrialCount trialCount = readTrialCount();
 
-        return DTOFactory.createInputDTO(trialCount, names);
+        return InputDTO.of(trialCount, names);
     }
 
     private static Names readCarNames() {

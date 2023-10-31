@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.common.factory.DTOFactory;
 import racingcar.common.type.TrialCount;
 import racingcar.domain.RacingCars;
 import racingcar.dto.output.AllRoundDTO;
@@ -35,6 +34,6 @@ public class Game {
     }
 
     private AllRoundDTO fetchRoundResult() {
-        return DTOFactory.createAllRoundDTO(racingCars.cars());
+        return AllRoundDTO.of(racingCars.cars());
     }
 }

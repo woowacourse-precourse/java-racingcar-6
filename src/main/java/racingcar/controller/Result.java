@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.common.factory.DTOFactory;
 import racingcar.domain.RacingWinners;
 import racingcar.dto.output.WinnerDTO;
 
@@ -22,6 +21,6 @@ public class Result {
     }
 
     private WinnerDTO createWinnerDTO(List<String> winnerNames) {
-        return DTOFactory.createWinnerDTO(winnerNames);
+        return WinnerDTO.of(winnerNames);
     }
 }
