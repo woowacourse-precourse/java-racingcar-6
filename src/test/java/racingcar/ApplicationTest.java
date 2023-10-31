@@ -27,7 +27,7 @@ class ApplicationTest extends NsTest {
     void 임시_테스팅() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,woni", "1");
+                    run("pobi,woni", "4");
                     String result = output();
                     System.out.println(result);
                     assertThat(output()).contains("pobi : -", "woni : ");
@@ -40,6 +40,14 @@ class ApplicationTest extends NsTest {
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시행_횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaj", "abc"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
