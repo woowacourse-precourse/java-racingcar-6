@@ -1,5 +1,8 @@
 package racingcar.utils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Validator {
 
     public static String validateNames(String names) {
@@ -30,8 +33,8 @@ public class Validator {
     }
 
     public static String validateNumber(String number) {
-        final String REGEX = "^(0|[-]?[1-9]\\d*)$";
-        if (!number.matches(REGEX)) {
+        Matcher matcher = GameRuleNumbers.NUMBER_FORMAT.matcher(number);
+        if (!matcher.matches()) {
             throw new IllegalArgumentException(Messages.ERROR_INCLUSION_STRING);
         }
         if (Integer.parseInt(number) < 1) {
