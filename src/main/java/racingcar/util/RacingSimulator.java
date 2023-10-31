@@ -20,7 +20,7 @@ public class RacingSimulator {
         this.number = number;
     }
 
-    private void minusNumber(){
+    public void minusNumber(){
         --number;
     }
 

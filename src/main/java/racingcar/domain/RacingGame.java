@@ -21,6 +21,7 @@ public class RacingGame {
         while (simulator.checkZero()) {
             simulator.playSimulator(cars);
             printSimulationResult(cars);
+            simulator.minusNumber();
         }
 
         System.out.println();

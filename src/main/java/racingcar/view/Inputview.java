@@ -8,5 +8,4 @@ public class Inputview {
         return Console.readLine();
     }
 
-
 }
