@@ -22,4 +22,8 @@ public class GameView {
     public static void printTryNumPhrase() {
         System.out.println(TRY_NUM_PHRASE);
     }
+
+    public static void printResultPhrase() {
+        System.out.println(RESULT_PHRASE);
+    }
 }
