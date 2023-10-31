@@ -14,6 +14,7 @@ public class Racing {
         }
         return 0;
     }
+
     public void Start(int attemptNumber, List<String> racingCarName) {
         List<Integer> advancementResult = new ArrayList<>(Collections.nCopies(racingCarName.size(), 0));
         PrintResult printer = new PrintResult();
@@ -28,13 +29,13 @@ public class Racing {
         printer.PrintWinnerCarName(FindWinner(advancementResult), racingCarName);
     }
 
-    private List<Integer> FindWinner(List<Integer> advancementResult){
+    private List<Integer> FindWinner(List<Integer> advancementResult) {
         List<Integer> winnerIndex = new ArrayList<>();
 
         int maxAdvancement = Collections.max(advancementResult);
 
-        for(int i=0; i<advancementResult.size(); i++){
-            if (advancementResult.get(i)==maxAdvancement){
+        for (int i = 0; i < advancementResult.size(); i++) {
+            if (advancementResult.get(i) == maxAdvancement) {
                 winnerIndex.add(i);
             }
         }
