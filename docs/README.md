@@ -26,7 +26,7 @@
 
   - [x] 시도할 횟수 moveNumber 입력 (readMoveNumber) [InputView]
 
-  - [ ] m이 숫자가 맞는지 확인 (validateMoveNumber) [InputValidater]
+  - [x] moveNumber이 숫자가 맞는지 비어있지 않은지 확인 (validateMoveNumber) [InputValidater]
 
 
 - [ ] 자동차들의 전진 또는 정지 판단 (getGoOrStop) [RaceMaker]

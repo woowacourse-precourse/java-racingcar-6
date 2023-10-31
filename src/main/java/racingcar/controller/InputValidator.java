@@ -22,4 +22,16 @@ public class InputValidator {
     private static boolean isMaxLength(List<String> values) {
         return values.stream().allMatch(value -> value.length() <= NAME_MAX_LENGTH);
     }
+
+    public static void validateMoveNumber(String values) {
+        if (values == null || values.isEmpty()) {
+                throw new IllegalArgumentException();
+        }
+
+        try {
+            Integer.parseInt(values);
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
 }
