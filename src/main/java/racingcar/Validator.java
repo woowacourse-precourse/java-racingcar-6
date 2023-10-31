@@ -4,6 +4,7 @@ package racingcar;
 public class Validator {
 	private static final int MAXINUM_LENGTH = 5;
 	private static final int MININUM_NUMBER = 1;
+
 	public Validator() {
 
 	}
