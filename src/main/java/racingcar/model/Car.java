@@ -18,7 +18,7 @@ public class Car {
 
     public void moveForward(){
         int check = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
-        if (check > 4)
+        if (check >= 4)
             moveLength++;
     }
 }
