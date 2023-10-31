@@ -23,14 +23,6 @@ public class Util {
         throwIfInputCannotParsableAsInt(tryNumber);
     }
 
-    public static String inputCarNames() {
-        return Console.readLine();
-    }
-
-    public static String inputTryNumber() {
-        return Console.readLine();
-    }
-
     public static Stream<String> splitNamesAsStream(String input, String delimiter) {
         return Arrays.stream(input.split(delimiter));
     }
@@ -48,8 +40,12 @@ public class Util {
             Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(
-                "횟수가 정수 값이 아닙니다."
+                "시도 횟수가 정수 값이 아닙니다."
             );
         }
+    }
+
+    public static String getUserInput() {
+        return Console.readLine();
     }
 }

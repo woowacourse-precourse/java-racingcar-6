@@ -29,19 +29,19 @@ public class RaceManager {
 
     public void setCars() {
         Util.print(MessageType.INPUT_CAR_NAMES);
-        String carNames = Util.inputCarNames();
-        Util.handleCarNamesException(carNames);
+        String input = Util.getUserInput();
+        Util.handleCarNamesException(input);
 
-        Util.splitNamesAsStream(carNames, Constant.NAME_DELIMITER)
+        Util.splitNamesAsStream(input, Constant.NAME_DELIMITER)
             .forEach(name -> cars.add(new Car(name)));
     }
 
     public void setTryNumber() {
         Util.print(MessageType.INPUT_TRY_NUMBER);
-        String tryNumberString = Util.inputTryNumber();
-        Util.handleTryNumberException(tryNumberString);
+        String input = Util.getUserInput();
+        Util.handleTryNumberException(input);
 
-        tryNumber = Integer.parseInt(tryNumberString);
+        tryNumber = Integer.parseInt(input);
     }
 
     public void start() {
