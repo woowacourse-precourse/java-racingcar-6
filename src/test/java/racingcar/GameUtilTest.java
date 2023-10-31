@@ -11,7 +11,7 @@ class GameUtilTest {
 
     @BeforeEach
     void setUp() {
-        gameUtil = new GameUtil(Constants.MIN_RANDOM_VALUE, Constants.MAX_RANDOM_VALUE);
+        gameUtil = new GameUtil();
     }
 
     @Test
@@ -33,31 +33,28 @@ class GameUtilTest {
     @Test
     @DisplayName("전진 테스트")
     void randomProgressTest() {
-        GameUtil tmpGameUtil = new GameUtil(Constants.PROGRESS_LIMIT_NUMBER, Constants.PROGRESS_LIMIT_NUMBER);
-        tmpGameUtil.setCarsName("car1,car2");
-        tmpGameUtil.setRepeatNumber("1");
+        gameUtil.setCarsName("car1,car2");
+        gameUtil.setRepeatNumber("1");
 
-        assertThat(tmpGameUtil.randomProgress()).isEqualTo("car1 : -\ncar2 : -\n");
+        assertThat(gameUtil.randomProgress(Constants.PROGRESS_LIMIT_NUMBER, Constants.MAX_RANDOM_VALUE)).isEqualTo("car1 : -\ncar2 : -\n");
     }
 
     @Test
     @DisplayName("정지 테스트")
     void randomNoProgressTest() {
-        GameUtil tmpGameUtil = new GameUtil(Constants.PROGRESS_LIMIT_NUMBER-1, Constants.PROGRESS_LIMIT_NUMBER-1);
-        tmpGameUtil.setCarsName("car1,car2");
-        tmpGameUtil.setRepeatNumber("1");
+        gameUtil.setCarsName("car1,car2");
+        gameUtil.setRepeatNumber("1");
 
-        assertThat(tmpGameUtil.randomProgress()).isEqualTo("car1 : \ncar2 : \n");
+        assertThat(gameUtil.randomProgress(Constants.MIN_RANDOM_VALUE, Constants.PROGRESS_LIMIT_NUMBER-1)).isEqualTo("car1 : \ncar2 : \n");
     }
 
     @Test
     @DisplayName("우승자 출력 테스트")
     void findWinnersTest() {
-        GameUtil tmpGameUtil = new GameUtil(Constants.PROGRESS_LIMIT_NUMBER, Constants.PROGRESS_LIMIT_NUMBER);
-        tmpGameUtil.setCarsName("car1,car2");
-        tmpGameUtil.setRepeatNumber("1");
-        tmpGameUtil.randomProgress();
+        gameUtil.setCarsName("car1,car2");
+        gameUtil.setRepeatNumber("1");
+        gameUtil.randomProgress(Constants.PROGRESS_LIMIT_NUMBER, Constants.MAX_RANDOM_VALUE);
 
-        assertThat(tmpGameUtil.findWinners()).contains("최종 우승자 : car1, car2 ");
+        assertThat(gameUtil.findWinners()).contains("최종 우승자 : car1, car2 ");
     }
 }
