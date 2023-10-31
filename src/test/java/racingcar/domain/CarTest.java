@@ -99,4 +99,18 @@ public class CarTest {
             T.checkCarNameLength();
         });
     }
+
+    @Test
+    void checkCarNameFirstLetterIsSpace_이름첫글자_스페이스_테스트() {
+        //given
+        final String cars = " 첫글자 공백, 첫글자 공백2";
+        final LinkedHashMap<String, String> carList = T2.createCarList(cars);
+        T.setCarList(carList);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkCarNameFirstLetterIsSpace();
+        });
+    }
 }
