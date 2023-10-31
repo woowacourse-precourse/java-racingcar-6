@@ -32,7 +32,7 @@ public class RacingMap {
                     max = car;
             for(Car car: carList)
                 if(max.compareTo(car) == 0)
-                    winner.add(winner.getName());
+                    winner.add(car.getName());
         }
     }
 }
