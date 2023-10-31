@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Game {
 
@@ -25,5 +26,13 @@ public class Game {
             cars.moveAllCars(randomNumbers);
             cars.printCarNamesAndPositions();
         }
+    }
+
+    public void getWinners() {
+        OutputView.printWinnersMessage();
+        List<Car> winners = cars.findWinners();
+        OutputView.printWinners(winners.stream()
+            .map(Car::getCarName)
+            .collect(Collectors.toList()));
     }
 }
