@@ -29,7 +29,7 @@ public final class RacingBoard {
                 .collect(Collectors.joining(", "));
     }
 
-    private int getMaxDistance() {
+    public int getMaxDistance() {
         return racingBoard.stream()
                 .mapToInt(car -> car.getDistance().size())
                 .max()

@@ -12,13 +12,13 @@ public final class RacingGameLauncher {
         this.userInput = UserInput.racingCarsName();
     }
 
-    private void addRacingCar() {
+    public void addRacingCar() {
         for (String carName : userInput) {
             racingBoard.addRacingCar(new RacingCar(carName));
         }
     }
 
-    private void winner() {
+    public void winner() {
         System.out.print(Phrases.winner);
         System.out.println(this.racingBoard.carsWithMaxDistance());
     }
@@ -31,7 +31,7 @@ public final class RacingGameLauncher {
         System.out.println("\n" + Phrases.racing);
 
         IntStream.range(0, racingTimes)
-                 .forEach(car -> racingBoard.racingCarsMove());
+                .forEach(car -> racingBoard.racingCarsMove());
 
         winner();
     }
