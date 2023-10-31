@@ -12,8 +12,8 @@ import racingcar.io.PrintHandler;
 public class Game {
     public void start() {
         PrintHandler.inputCarNamesPrompt();
-        List<String> carNamesWithoutSeparator = InputHandler.carNames();
-        List<Car> cars = CarFactory.createCars(carNamesWithoutSeparator);
+        List<String> carNames = InputHandler.carNames();
+        List<Car> cars = CarFactory.createCars(carNames);
 
         PrintHandler.inputTrialNumberPrompt();
         int trialNum = InputHandler.tryNumber();
@@ -26,8 +26,6 @@ public class Game {
         PrintHandler.finalWinner(winnerNames);
     }
 
-
-
     private List<String> findFinalWinner(List<Car> cars) {
         List<String> winnerNames = new ArrayList<>();
         int maxLocation = findMaxLocation(cars);
@@ -37,6 +35,7 @@ public class Game {
                 winnerNames.add(car.getName());
             }
         }
+
         return winnerNames;
     }
 

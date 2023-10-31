@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
-    public static List<Car> createCars(List<String> carNamesWithoutSeparator) {
+    public static List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
 
-        for (String s : carNamesWithoutSeparator) {
-            cars.add(new Car(s));
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
         }
         return cars;
     }

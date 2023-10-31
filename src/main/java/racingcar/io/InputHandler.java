@@ -11,10 +11,11 @@ import racingcar.util.StringManipulator;
 public class InputHandler {
     public static List<String> carNames() {
         String carNamesWithSeparator = Console.readLine();
-        String[] tokens = StringManipulator.splitSeparator(carNamesWithSeparator, SEPARATOR);
-        checkValidCarNames(tokens);
-        List<String> carNamesWithoutSeparator = StringManipulator.toList(tokens);
-        return carNamesWithoutSeparator;
+        String[] carNameGroup = StringManipulator.splitSeparator(carNamesWithSeparator, SEPARATOR);
+        checkValidCarNames(carNameGroup);
+        List<String> carNames = StringManipulator.toList(carNameGroup);
+
+        return carNames;
     }
 
     public static int tryNumber() {
