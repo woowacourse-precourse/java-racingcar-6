@@ -30,7 +30,7 @@ public class Car {
     }
 
     private void move() {
-        position += 1; // 'this' 생략
+        position += 1;
     }
 
     public int getPosition() {
