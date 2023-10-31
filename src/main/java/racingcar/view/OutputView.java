@@ -29,6 +29,7 @@ public class OutputView {
         for (Car car : cars) {
             System.out.printf(OUTPUT_RESULT_FORMAT, car.getName(), printCarPositionResult(car));
         }
+        System.out.println();
     }
 
     public void printWinners(List<String> winnerList) {
