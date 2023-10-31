@@ -11,7 +11,25 @@ import static racingcar.service.InputService.*;
 import static racingcar.service.OutputService.*;
 
 public class GameService {
-    public static List<RacingCar> createRacingCars() {
+    public static void runGame() {
+        // 자동차 이름 입력
+        printRacingCarNameInputForm();
+        List<RacingCar> racingCars = createRacingCars();
+
+        // 횟수 입력
+        printTimesInputForm();
+        long times = readTimes();
+
+        // 게임 진행 및 회차 별 결과 출력
+        printGameOutcomeMessage();
+        playGameForTimes(times, racingCars);
+
+        // 최종 우승자 출력
+        List<RacingCar> winners = findWinners(racingCars);
+        printWinners(winners);
+    }
+
+    static List<RacingCar> createRacingCars() {
         List<RacingCar> racingCars = new ArrayList<>();
         String[] carNames = convertToStringArray(readInput());
 
@@ -21,18 +39,24 @@ public class GameService {
         return racingCars;
     }
 
-
-    public static Long readTimes() {
+    static Long readTimes() {
         return convertToLong(readInput());
     }
 
-
-    public static void playGameForTimes(Long times, List<RacingCar> racingCars) {
+    static void playGameForTimes(Long times, List<RacingCar> racingCars) {
         for (int i = 0; i < times; i++) {
-            addLocationForRandomNumber(racingCars);
+            GameService.addLocationForRandomNumber(racingCars);
 
             printOneGameOutcome(racingCars);
         }
+    }
+
+    static List<RacingCar> findWinners(List<RacingCar> racingCars) {
+        long maxLocation = GameService.findMaxLocation(racingCars);
+
+        return racingCars.stream()
+                .collect(Collectors.groupingBy(RacingCar::getLocation))
+                .get(maxLocation);
     }
 
     private static void addLocationForRandomNumber(List<RacingCar> racingCars) {
@@ -44,14 +68,6 @@ public class GameService {
         }
     }
 
-
-    public static List<RacingCar> findWinners(List<RacingCar> racingCars) {
-        long maxLocation = findMaxLocation(racingCars);
-
-        return racingCars.stream()
-                .collect(Collectors.groupingBy(RacingCar::getLocation))
-                .get(maxLocation);
-    }
 
     private static Long findMaxLocation(List<RacingCar> racingCars) {
         return racingCars.stream()
