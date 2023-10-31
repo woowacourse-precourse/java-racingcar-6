@@ -7,6 +7,7 @@ import racingcar.domain.CarsGenerator;
 import racingcar.domain.Race;
 
 public class Application {
+
     public static void main(String[] args) {
         String carNames = requestCarNames();
         List<Car> cars = CarsGenerator.generateCars(carNames);
@@ -19,6 +20,7 @@ public class Application {
             System.out.println();
         }
         race.printWinner();
+        Console.close();
     }
 
     private static String requestCarNames() {
