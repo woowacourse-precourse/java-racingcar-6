@@ -1,7 +1,7 @@
 package racingcar.collaborator.race;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.generic.RacerProgress;
+import racingcar.io.Randoms;
 
 public class Racer {
 
@@ -14,7 +14,7 @@ public class Racer {
     }
 
     public void drive() {
-        if (4 <= Randoms.pickNumberInRange(0, 9)) {
+        if (4 <= Randoms.getSingleNumber()) {
             mileage++;
         }
     }
