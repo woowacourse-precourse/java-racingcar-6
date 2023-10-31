@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static racingcar.util.MagicNumber.MIN_NUMBER_SIZE;
 import static racingcar.util.OutputMessage.*;
 import static racingcar.util.Utils.formatListToString;
 
@@ -19,12 +20,10 @@ public class OutputView {
     }
 
     private void printCarDistance(Car car) {
-        IntStream.range(0, car.getDistance())
+        IntStream.range(MIN_NUMBER_SIZE.getNumber(), car.getDistance())
                 .forEach(i -> System.out.print(CAR_MOVE.getMessage()));
         System.out.println();
     }
-
-    //formatListToString(winners)
 
     public void printWinner(List<String> winners) {
         System.out.print(FINAL_WINNER.getMessage(formatListToString(winners)));

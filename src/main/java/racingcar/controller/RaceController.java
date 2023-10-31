@@ -7,6 +7,8 @@ import racingcar.view.OutputView;
 
 import java.util.stream.IntStream;
 
+import static racingcar.util.MagicNumber.MIN_NUMBER_SIZE;
+
 
 public class RaceController {
 
@@ -34,7 +36,7 @@ public class RaceController {
 
     private void startMove(Cars cars, int tryNumber) {
         outputView.printExecutionResult();
-        IntStream.range(0, tryNumber)
+        IntStream.range(MIN_NUMBER_SIZE.getNumber(), tryNumber)
                 .forEach(i -> {
                     cars.moveCars();
                     outputView.printCarDistanceAll(cars.getCars());

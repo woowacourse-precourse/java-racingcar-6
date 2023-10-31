@@ -1,8 +1,12 @@
 package racingcar.validator;
 
 
+
 import java.util.Arrays;
 import java.util.stream.Stream;
+
+import static racingcar.util.MagicNumber.MAX_NAME_LENGTH;
+import static racingcar.util.MagicNumber.MIN_NAME_LENGTH;
 
 public class InputValidator {
 
@@ -21,7 +25,7 @@ public class InputValidator {
         Stream<String> nameStream = Arrays.stream(names.split(",")).map(String::trim);
 
         nameStream.forEach(name -> {
-            if (name.length() < 1 || name.length() > 5) {
+            if (name.length() < MIN_NAME_LENGTH.getNumber() || name.length() > MAX_NAME_LENGTH.getNumber()) {
                 throw new IllegalArgumentException("자동차 이름의 길이는 1에서 5 사이여야 합니다.");
             }
         });

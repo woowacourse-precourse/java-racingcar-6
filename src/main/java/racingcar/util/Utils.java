@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.util.MagicNumber.MAX_NUMBER_SIZE;
+import static racingcar.util.MagicNumber.MIN_NUMBER_SIZE;
+
 public class Utils {
 
     private final InputValidator inputValidator;
@@ -32,6 +35,6 @@ public class Utils {
     }
 
     public static int makeRandomNumber() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(MIN_NUMBER_SIZE.getNumber(), MAX_NUMBER_SIZE.getNumber());
     }
 }
