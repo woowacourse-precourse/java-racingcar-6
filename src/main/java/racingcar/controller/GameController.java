@@ -41,10 +41,10 @@ public class GameController {
         List<String> names = Arrays.asList(inputView.input().split(",", -1));
         validator.checkLengthName(names);
 
-        gameService.createRaceCarObject(names);
+        raceCars = gameService.createRaceCarObject(raceCars, names);
     }
 
-    private void runTryNumber(){
+    private void runTryNumber() {
         outputView.printTryNumberMessage();
 
         tryNumber = validator.checkRegExpTryNumber(inputView.input());
@@ -53,21 +53,23 @@ public class GameController {
     private void runGame() {
         outputView.printRunResultMessage();
 
-        for(int runCount = 0; runCount < tryNumber; runCount++) {
-            raceCars = gameService.MoveForward();
-            runResult();
-        }
+        do {
+            for(RaceCar raceCar : raceCars) {
+                gameService.MoveForward(raceCar, gameService.randomNumPick());
+                runResult(raceCar);
+            }
+            tryNumber--;
+
+            outputView.printChangeLine();
+        } while(tryNumber > 0);
     }
 
-    private void runResult() {
-        for(RaceCar raceCar : raceCars) {
-            outputView.printRunResult(raceCar.getName(), raceCar.getMoveForwardCount());
-        }
-        outputView.printChangeLine();
+    private void runResult(RaceCar raceCar) {
+        outputView.printRunResult(raceCar.getName(), raceCar.getMoveForwardCount());
     }
 
     private void runWinner() {
-        outputView.printWinner(gameService.gameWinner());
+        outputView.printWinner(gameService.gameWinner(raceCars));
     }
 
     private boolean restartOrExit() {
