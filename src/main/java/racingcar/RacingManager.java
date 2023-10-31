@@ -35,6 +35,8 @@ public class RacingManager {
             race();
             racingPrinter.printLine();
         }
+        decideWinner();
+        racingPrinter.noticeWinner(winners);
 
     }
 
@@ -43,10 +45,6 @@ public class RacingManager {
             racingCar.moveOrStop();
             racingPrinter.printResultDetail(racingCar);
         }
-
-        decideWinner();
-
-        racingPrinter.noticeWinner(winners);
     }
 
     private String[] splitByComma(String names) {
