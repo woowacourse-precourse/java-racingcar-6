@@ -36,4 +36,22 @@ public class RacingCarService {
             .map(car -> new CarResultResponse(car.getName(), car.getMovingCount()))
             .toList();
     }
+
+    public List<String> getWinnerNames() {
+        List<Car> cars = racingCarRepository.findAll();
+
+        int maxMovingCount = getMaxMovingCount(cars);
+
+        return cars.stream()
+            .filter(car -> car.getMovingCount() == maxMovingCount)
+            .map(Car::getName)
+            .toList();
+    }
+
+    private int getMaxMovingCount(List<Car> cars) {
+        return cars.stream()
+            .mapToInt(Car::getMovingCount)
+            .max()
+            .getAsInt();
+    }
 }
