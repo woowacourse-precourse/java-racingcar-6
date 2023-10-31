@@ -13,19 +13,18 @@
 - wrong Input : IllegalArgumentException 발생 -> 애플리케이션 종료
 ## InGame : Controller 자동차 경주 게임
 - 전
-  - class car
+  - class Car
     - 멤버 변수
       - (name) final String
       - (randomNumList) ArrayList<int>
-      - (numberOfCar) static int
       - (forward) int
     - 생성자 (name)
       - new randomNumList
       - numberOfCar ++
-  - car 객체 생성 -> from carNameSplit
+  - (carList) ArrayList<Car> : car 객체 리스트 생성 -> from carNameSplit
 - 중
   - (num)회 반복
-    - (numberOfCar)회 반복
+    - (carList.length)회 반복
       - 0~9 무작위 값 추출 -> add : randomNumList
         - if 값 >= 4 
           - 전진 : forward ++
