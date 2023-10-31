@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,13 +24,31 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = br.readLine();
         int cnt = Integer.parseInt(input);
-        
+
         //전진 횟수 기록할 리스트 생성
         List<Integer> toGo = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             toGo.add(0);
         }
 
+        //반복해서 전진 및 출력
+        for (int i = 0; i < cnt; i++) {
+            for (int j = 0; j < cars.size(); j++) {
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                if (randomNumber >= 4) {
+                    toGo.set(j, toGo.get(j) + 1);
+                }
+            }
+
+            for (int k = 0; k < cars.size(); k++) {
+                System.out.print(cars.get(k) + " : ");
+                for (int l = 0; l < toGo.get(k); l++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
 
     }
 }
