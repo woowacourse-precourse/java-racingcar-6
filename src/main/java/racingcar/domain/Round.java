@@ -8,7 +8,7 @@ public class Round {
         this.round = round;
     }
 
-    public static Round getRound(int round) {
+    public static Round from(int round) {
         roundValidation(round);
         return new Round(round);
     }
