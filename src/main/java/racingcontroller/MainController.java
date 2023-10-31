@@ -37,7 +37,7 @@ public class MainController {
         model = new CarRacingGame(carName);
     }
 
-    private String getUserInput() {
+    private String getUserInput() throws IllegalArgumentException{
         String times = InputReader.inputTimes();
         if (!ValidationMan.checkException(times)) {
             throw new IllegalArgumentException();

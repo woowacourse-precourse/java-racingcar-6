@@ -7,8 +7,7 @@ public class CarMapGenerator {
         return userCarName.split(",");
     }
 
-    public static LinkedHashMap<String, StringBuilder> makeLinkedHashMap
-            (String[] userCarName) {
+    public static LinkedHashMap<String, StringBuilder> makeLinkedHashMap(String[] userCarName) {
         LinkedHashMap<String, StringBuilder> carName = new LinkedHashMap<>();
         for (String i : userCarName) {
             carName.put(i, new StringBuilder(""));
