@@ -1,6 +1,5 @@
 package racingcar.Service;
 
-import static racingcar.Domain.RaceNumberGenerator.generateRandomNumber;
 import static racingcar.Message.OutputMessage.CAR_DELIMITER;
 import static racingcar.Message.OutputMessage.RACE_MARK;
 
@@ -9,15 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Domain.Car;
-import racingcar.Domain.Race;
-import racingcar.Domain.RaceNumberGenerator;
 import racingcar.Domain.RacingCars;
 
 public class CarService {
-    RaceNumberGenerator generateRandomNumber = new RaceNumberGenerator();
 
     public RacingCars inputCarNames(final String carNames) {
-        return RacingCars.create(carNames, this.generateRandomNumber);
+        return RacingCars.create(carNames);
     }
 
     public List<String> runRacing(RacingCars racingCars, RaceService raceService) {
@@ -36,7 +32,8 @@ public class CarService {
 
         for (Car car : cars) {
 
-            raceResult.append(car.getName()).append(CAR_DELIMITER).append(RACE_MARK.repeat(car.getPosition())).append("\n");
+            raceResult.append(car.getName()).append(CAR_DELIMITER).append(RACE_MARK.repeat(car.getPosition()))
+                    .append("\n");
         }
         return raceResult.toString();
     }

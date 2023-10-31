@@ -1,12 +1,7 @@
 package racingcar.Domain;
 
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 public class Car {
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {

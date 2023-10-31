@@ -1,30 +1,27 @@
 package racingcar.Domain;
 
+import static racingcar.Message.ExceptionMessage.NULL_ERROR;
 import static racingcar.Service.CarService.stringToList;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingCars {
     private final List<Car> cars;
-    private final RaceNumberGenerator generateRandomNumber;
 
-    private RacingCars(final String carNames, RaceNumberGenerator generateRandomNumber) {
+    private RacingCars(final String carNames) {
         this.cars = stringToList(carNames);
-        this.generateRandomNumber = generateRandomNumber;
     }
 
-    public static RacingCars create(final String carNames, RaceNumberGenerator generateRandomNumber) {
+    public static RacingCars create(final String carNames) {
         if (carNames == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NULL_ERROR);
         }
-        return new RacingCars(carNames, generateRandomNumber);
+        return new RacingCars(carNames);
     }
 
     public void race() {
         for (Car car : cars) {
-            int num = generateRandomNumber.generateRandomNumber();
+            int num = RaceNumberGenerator.generateRandomNumber();
             car.CarMove(num);
         }
     }
@@ -32,6 +29,5 @@ public class RacingCars {
     public List<Car> getCars() {
         return cars;
     }
-
 
 }

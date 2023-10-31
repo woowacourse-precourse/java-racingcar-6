@@ -1,7 +1,7 @@
 package racingcar.Controller;
+
 import java.util.List;
 import racingcar.Domain.Car;
-import racingcar.Domain.Race;
 import racingcar.Domain.RacingCars;
 import racingcar.Service.RaceService;
 import racingcar.Service.WinnerService;
@@ -23,6 +23,7 @@ public class RacingCarController {
         raceService = new RaceService();
         winnerService = new WinnerService();
     }
+
     public void carRacing() {
         // 자동차 이름 입력
         String carNames = inputView.inputCar();
@@ -33,7 +34,7 @@ public class RacingCarController {
         raceService.inputRaceCount(raceCount);
 
         // 경주 시작
-        List<String> raceResults = carService.runRacing(racingCars,raceService);
+        List<String> raceResults = carService.runRacing(racingCars, raceService);
         outputView.printResult(raceResults);
 
         // 우승자 결정

@@ -1,4 +1,5 @@
 package racingcar.Domain;
+
 import java.util.*;
 
 public class Winner {
@@ -25,4 +26,5 @@ public class Winner {
 
         return maxPosition;
     }
+
 }

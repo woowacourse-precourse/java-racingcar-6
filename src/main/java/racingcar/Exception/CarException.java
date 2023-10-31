@@ -5,7 +5,7 @@ import racingcar.Message.ExceptionMessage;
 
 public class CarException {
     private Set<String> nameSet;
-    private StringBuilder carNames = new StringBuilder();
+    private final StringBuilder carNames = new StringBuilder();
 
     public String checkExceptionCar(String names) {
         nameSet = new HashSet<>();
@@ -53,4 +53,5 @@ public class CarException {
             throw new IllegalArgumentException(ExceptionMessage.SAME_NAME_ERROR);
         }
     }
+
 }
