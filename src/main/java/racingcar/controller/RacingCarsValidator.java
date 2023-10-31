@@ -9,9 +9,13 @@ public class RacingCarsValidator {
     private static int MAX_LENGTH_OF_NAME = 5;
 
     public List<String> validateNames(final String names) {
-        hasEmptyName(names);
         List<String> namesSplit = splitNames(names);
-        hasLongName(namesSplit);
+
+        if (hasEmptyName(names)) {
+            throw new IllegalArgumentException(EMPTY_NAME_ERROR_MESSAGE);
+        } else if (hasLongName(namesSplit)) {
+            throw new IllegalArgumentException(LONG_NAME_ERROR_MESSAGE);
+        }
         return namesSplit;
     }
 
@@ -19,27 +23,29 @@ public class RacingCarsValidator {
         return Arrays.asList(names.split(","));
     }
 
-    private static void hasEmptyName(final String names) {
+    private static boolean hasEmptyName(final String names) {
         if (names.isEmpty()) {
-            throw new IllegalArgumentException(EMPTY_NAME_ERROR_MESSAGE);
+            return true;
         } else if (names.charAt(0) == ',') {
-            throw new IllegalArgumentException(EMPTY_NAME_ERROR_MESSAGE);
+            return true;
         } else if (names.charAt(names.length() - 1) == ',') {
-            throw new IllegalArgumentException(EMPTY_NAME_ERROR_MESSAGE);
+            return true;
         }
 
         for (int i = 1; i < names.length(); i++) {
             if (names.charAt(i - 1) == ',' && names.charAt(i) == ',') {
-                throw new IllegalArgumentException(EMPTY_NAME_ERROR_MESSAGE);
+                return true;
             }
         }
+        return false;
     }
 
-    private static void hasLongName(final List<String> names) {
+    private static boolean hasLongName(final List<String> names) {
         for (String name : names) {
             if (name.length() > MAX_LENGTH_OF_NAME) {
-                throw new IllegalArgumentException(LONG_NAME_ERROR_MESSAGE);
+                return true;
             }
         }
+        return false;
     }
 }
