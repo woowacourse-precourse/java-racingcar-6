@@ -4,10 +4,10 @@
   -[x] 0~9 랜덤 숫자 생성기 RandomNumberGenerator 클래스 구현
 
 
--[ ] 입력값을 검증하는 InputValidator 인터페이스 구현
-  -[ ] 자동차 이름을 검증하는 CarNameInputValidator 구현
+-[x] 입력값을 검증하는 InputValidator 인터페이스 구현
+  -[x] 자동차 이름을 검증하는 CarNameInputValidator 구현
     - 자동차 이름은 5자 이하여야한다. 실패시 IllegalArgumentException 반환
-  -[ ] 경주게임을 시도할 숫자를 검증하는 GameCoinInputValidator 클래스 구현
+  -[x] 경주게임을 시도할 숫자를 검증하는 GameCoinInputValidator 클래스 구현
     - 경주게임을 시도할 숫자는 Int여야 한다. Int로 변환 실패시 IllegalArgumentException 반환
 
 
