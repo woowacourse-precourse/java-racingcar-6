@@ -24,4 +24,9 @@ public class CarTest {
     public void 자동차_생성_실패(String name) {
         assertThatThrownBy(() -> new Car(name)).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 전진_정지() {
+
+    }
 }
