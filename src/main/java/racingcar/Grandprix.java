@@ -9,8 +9,8 @@ public class Grandprix {
     private int numberOfCars;       //테스트에서 사용할 변수
 
     public Map<String,Car> playGrandprix(int numberOfTry, Map<String,Car> racingPlayer) {
+        System.out.println("실행 결과");
         for (int i = 0; i < numberOfTry; i++) {
-            System.out.println("실행 결과");
             for (String player : racingPlayer.keySet()) {
                 racingPlayer.get(player).goOrStop(0, 9);
                 systemOutput.showStatus(player, racingPlayer.get(player).getLocation());
