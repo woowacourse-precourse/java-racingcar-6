@@ -27,7 +27,7 @@ public class RacingGameController {
     public void run() {
         Cars cars = getCars();
         TryNumber tryNumber = getTryNumber();
-        
+
         RacingGame racingGame = gameSet(cars);
 
         startRacing(cars, tryNumber, racingGame);
@@ -53,7 +53,7 @@ public class RacingGameController {
     private void startRacing(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
         outputView.printResultMessage();
         IntStream.range(0, tryNumber.number()).forEach(i -> {
-            racingGame.playOneStep();
+            racingGame.proceedOneRound();
             outputView.printResult(CarDto.toDtoList(cars));
         });
     }

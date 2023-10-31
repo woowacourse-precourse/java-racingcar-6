@@ -34,7 +34,7 @@ class RacingGameTest {
 
         for (int i = 0; i < 1000; i++) {
             // when
-            racingGame.playOneStep();
+            racingGame.proceedOneRound();
             Integer distanceOfCar1 = carList.get(0).getCarPosition().position();
             Integer distanceOfCar2 = carList.get(1).getCarPosition().position();
 

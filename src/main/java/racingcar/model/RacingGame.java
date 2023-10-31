@@ -13,7 +13,7 @@ public class RacingGame {
         this.referee = referee;
     }
 
-    public void playOneStep() {
+    public void proceedOneRound() {
         cars.updatePosition();
     }
 
