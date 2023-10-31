@@ -13,9 +13,7 @@ public class Race {
 
     public void raceOnce() {
         for (Car car : cars) {
-            if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                car.move();
-            }
+            car.tryMove(Randoms.pickNumberInRange(0, 9));
         }
     }
 

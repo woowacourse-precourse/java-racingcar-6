@@ -28,4 +28,10 @@ public class Car {
     public void move() {
         this.position++;
     }
+
+    public void tryMove(int randomNumber) {
+        if (randomNumber >= 4) {
+            move();
+        }
+    }
 }
