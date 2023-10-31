@@ -1,6 +1,5 @@
 package racingcar.model.repository;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,10 +16,10 @@ public class CarRepository {
         cars.add(new Car(name));
     }
 
-    public Car carForward(int idx) {
+    public Car carForward(int idx, int randomNumber) {
         final int FORWARD_CONDITION = 4;
         Car currentCar = cars.get(idx);
-        if (Randoms.pickNumberInRange(0, 9) >= FORWARD_CONDITION) {
+        if (randomNumber>= FORWARD_CONDITION) {
             currentCar.setForward(currentCar.getForward() + 1);
         }
         return currentCar;

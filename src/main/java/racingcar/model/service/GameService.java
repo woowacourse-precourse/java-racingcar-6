@@ -1,5 +1,6 @@
 package racingcar.model.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.model.domain.Car;
 import racingcar.model.repository.CarRepository;
@@ -25,7 +26,7 @@ public class GameService {
     }
 
     public Car playGame(int idx) {
-        return carRepository.carForward(idx);
+        return carRepository.carForward(idx, Randoms.pickNumberInRange(0, 9));
     }
 
     public List<String> resultGame() {
