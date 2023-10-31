@@ -29,6 +29,6 @@ public class Car {
 
     public Car(String carName, int turnLength) {
         this.carName = carName;
-        String[] result = new String[turnLength];
+        this.result = new String[turnLength];
     }
 }
