@@ -14,12 +14,10 @@ public class GameService {
         for (int j = 0; j < carNames.size(); j++) {
 
             int currentCarMove = Randoms.pickNumberInRange(0, 9);
-            //ArrayList<List<String>> currentCarProgress = cars.getCarProgress();
 
             if (currentCarMove >= POSSIBLE) {
                 String currentMove = currentCarProgress.get(j).get(0);
                 currentCarProgress.get(j).set(0, currentMove + "-");
-
 
             }
 
