@@ -18,9 +18,9 @@ public class Application {
     private static void raceBefore(){
         conductRace(racerNameForm(),raceCountForm());
     }
-    private static void conductRace(List<String> racerNameList,RaceCount raceCount){
+    private static void conductRace(List<String> racerNames,RaceCount raceCount){
         for (int i = 0; i<raceCount.inputRaceCount(); i++){
-            race(racerNameList);
+            race(racerNames);
         }
         raceDone();
     }
@@ -29,9 +29,9 @@ public class Application {
         generateHighScoreRacer();
     }
 
-    private static void race(List<String> racerNameList){
-        generateRacer(racerNameList);
-        for (String racerName:racerNameList){
+    private static void race(List<String> racerNames){
+        generateRacer(racerNames);
+        for (String racerName:racerNames){
             Racer currentRacer = Racer.getInstance(racerName);
             Racing racing = new Racing(currentRacer);
             racing.racingByRacer();
@@ -45,10 +45,10 @@ public class Application {
     }
 
     private static List<String> racerNameForm(){
-        String inputRacerNameList = InputTool.readLineByConsole();
-        RacerNameList racerValidate = new RacerNameList(inputRacerNameList);
+        String inputRacerNames = InputTool.readLineByConsole();
+        RacerNames racerValidate = new RacerNames(inputRacerNames);
         racerValidate.validateRacerNameList();
-        return Arrays.asList(inputRacerNameList.split(","));
+        return Arrays.asList(inputRacerNames.split(","));
     }
 
     private static RaceCount raceCountForm(){
@@ -59,8 +59,8 @@ public class Application {
         return new RaceCount(Integer.parseInt(raceCountInput));
     }
 
-    private static void generateRacer(List<String> racerNameList){
-        racerNameList
+    private static void generateRacer(List<String> racerNames){
+        racerNames
                 .forEach(racerName->{
                     generateRacerByInputValue().generateRacerByInputValue(racerName);
                 });
