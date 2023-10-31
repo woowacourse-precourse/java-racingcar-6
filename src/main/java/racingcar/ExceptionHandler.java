@@ -41,6 +41,10 @@ public class ExceptionHandler {
     }
 
     public void isMembersException(List<String> members) {
+        if (Validation.isEmpty(members)) {
+            throw new IllegalArgumentException("자동차 이름이 빈 문자열입니다.");
+        }
+
         for (int i = 0; i < members.size(); i++) {
             if (Validation.isEmpty(members.get(i))) {
                 throw new IllegalArgumentException("자동차 이름이 빈 문자열입니다.");
