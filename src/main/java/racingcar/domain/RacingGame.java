@@ -27,4 +27,15 @@ public class RacingGame {
         return cars;
     }
 
+    public List<Car> findWinners() {
+        int farthestDistance = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == farthestDistance)
+                .collect(Collectors.toList());
+    }
+
 }
