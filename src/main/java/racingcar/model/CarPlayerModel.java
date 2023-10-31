@@ -29,7 +29,7 @@ public class CarPlayerModel {
         }
     }
 
-    private boolean isMoveAllowed(){
+    public boolean isMoveAllowed(){
         return CarRandoms.getRandomNumber() >= MOVE_CONDITION;
     }
 }
