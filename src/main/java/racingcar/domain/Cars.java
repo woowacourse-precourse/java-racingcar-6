@@ -11,8 +11,8 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(String carNames) {
-        List<String> carList = StringUtils.split(carNames);
-        InputValidation.validateNameDuplicated(carList);
+        List<String> carList = new StringUtils().split(carNames);
+        new InputValidation().validateNameDuplicated(carList);
         this.cars = createCars(carList);
 
     }
@@ -24,7 +24,7 @@ public class Cars {
     }
 
     public void move() {
-        cars.forEach(c -> c.move(RandomUtils.pickRandomNumber()));
+        cars.forEach(c -> c.move(new RandomUtils().pickRandomNumber()));
     }
 
     public int getMaxCount() {

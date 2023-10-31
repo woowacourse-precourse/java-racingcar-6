@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.utils.constant.Constant;
 import racingcar.utils.validation.InputValidation;
 
@@ -9,12 +8,12 @@ public class Car {
     private int moveCount = 0;
 
     public Car(String name) {
-        InputValidation.validateNameLength(name);
+        new InputValidation().validateNameLength(name);
         this.name = name;
     }
 
     public void move(int randomNumber) {
-        InputValidation.validateRandomNumberRange(randomNumber);
+        new InputValidation().validateRandomNumberRange(randomNumber);
         if (randomNumber >= Constant.MOVE_NUMBER) {
             this.moveCount++;
         }

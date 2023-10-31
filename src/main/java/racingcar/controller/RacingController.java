@@ -7,17 +7,19 @@ import racingcar.view.OutputView;
 
 public class RacingController {
     private Race race;
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
 
     public void run() {
-        String carNames = InputView.getInputCarName();
-        String count = InputView.getInputCount();
+        String carNames = inputView.getInputCarName();
+        String count = inputView.getInputCount();
         this.race = new Race(carNames, count);
         printResults();
     }
 
     public void race() {
         race.moveCars();
-        OutputView.printResult(race.getCars());
+        outputView.printResult(race.getCars());
     }
 
     private void printRaceResult() {
@@ -26,8 +28,8 @@ public class RacingController {
     }
 
     public void printResults() {
-        OutputView.printOutputMessage();
+        outputView.printOutputMessage();
         printRaceResult();
-        OutputView.printWinners(race.getWinnerNames());
+        outputView.printWinners(race.getWinnerNames());
     }
 }

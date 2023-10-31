@@ -1,9 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.utils.StringUtils;
-import racingcar.utils.constant.Constant;
 import racingcar.utils.validation.InputValidation;
 
 public class Race {
@@ -12,8 +10,8 @@ public class Race {
 
     public Race(String carNames, String count) {
         this.cars = new Cars(carNames);
-        this.moveCount = StringUtils.convertStringToInt(count);
-        InputValidation.validateCountRange(moveCount);
+        this.moveCount = new StringUtils().convertStringToInt(count);
+        new InputValidation().validateCountRange(moveCount);
     }
 
     public void moveCars() {
