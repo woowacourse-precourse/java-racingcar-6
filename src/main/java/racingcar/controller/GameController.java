@@ -30,13 +30,13 @@ public class GameController {
         OutputView.displayWinner(new Winners(cars));
     }
 
-    private void initCars(List<String> names) {
+    public void initCars(List<String> names) {
         for (String name : names) {
             cars.addCar(new Car(name));
         }
     }
 
-    private void racing(int attempt) {
+    public void racing(int attempt) {
         for (int i = 0; i < attempt; i++) {
             cars.forward();
             OutputView.displayRacingSituation(cars);
