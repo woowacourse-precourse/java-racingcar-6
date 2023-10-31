@@ -18,9 +18,9 @@ public class Cars {
         }
     }
 
-    public void everyCarMoveForward() {
+    public void everyCarMoveForwardByRandom() {
         for (Car car : carList) {
-            car.moveForward();
+            car.moveForwardByRandom();
         }
     }
 
