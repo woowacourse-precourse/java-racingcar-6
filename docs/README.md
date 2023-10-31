@@ -1,14 +1,17 @@
 # 🚗 자동차 경주
 
 ## 기능 목록
-- [ ] n대의 자동차 이름 입력을 받는다. (쉼표 기준으로 구분, 5자 이하) 
-- [ ] 시도할 횟수 입력을 받는다
-- [ ] 각 자동차마다 랜덤값(0-9)을 생성한다. - NumberGenerator#createRandomNumber()
-  - [ ] 랜덤값이 4이상일 경우 전진한다. - Car#moveForward()
-- [ ] 전진 횟수가 가장 많은 사람이 우승한다. 
-- [ ] 각 차수별 실행 결과를 출력한다. - Referee#noticeRacingResult()
-- [ ] 누가 우승했는지 출력 - Referee#noticeWinner()
-  - [ ] 우승자는 한 명 이상
+- [x] n대의 자동차 이름 입력을 받는다. (쉼표 기준으로 구분, 5자 이하) 
+- [x] 시도할 횟수 입력을 받는다
+- [x] 각 자동차마다 랜덤값(0-9)을 생성한다. - NumberGenerator#createRandomNumber()
+  - [x] 랜덤값이 4이상일 경우 전진한다. - Car#moveForward()
+- [x] 전진 횟수가 가장 많은 사람이 우승한다. 
+  - [x] 가장 많이 전진한 자동차의 인덱스를 구한다. - WinnerManager#getIndexOfMaxForwardCount()
+  - [x] 동점인 우승자가 있는지 구한다. - WinnerManager#findValuesEqualToMax()
+  - [x] 최종 우승자 명단 List를 반환한다. - WinnerManager#getWinnersByForwardCount()
+- [x] 각 차수별 실행 결과를 출력한다. - RaceGameManager#noticeRacingResult()
+- [x] 누가 우승했는지 출력 - RaceGameManager#noticeWinner()
+ 
 
 
 
