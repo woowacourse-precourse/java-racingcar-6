@@ -8,6 +8,15 @@ import org.junit.jupiter.api.Test;
 public class StringTest {
 
     @Test
+    void isEmpty_isBlank() {
+        System.out.println(" 조민서".isEmpty() + " " + " 조민서".isBlank()); // false, false
+        System.out.println("조민서 ".isEmpty() + " " + "조민서 ".isBlank()); // false, false
+        System.out.println(" 조민서 ".isEmpty() + " " + " 조민서 ".isBlank()); // false, false
+        System.out.println("".isEmpty() + " " + "".isBlank()); // true, true
+        System.out.println(" ".isEmpty() + " " + " ".isBlank()); // false, true
+    }
+
+    @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
         String[] result = input.split(",");
