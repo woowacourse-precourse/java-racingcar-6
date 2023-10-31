@@ -17,6 +17,15 @@ public class Car {
         this.position = 0;
     }
 
+    public Car(String carName, int position) {
+        isCarNameNull(carName);
+        isCarNameBlank(carName);
+        isCarNameLengthOver(carName);
+        isNotAlphaBetAndComma(carName);
+        this.carName = carName;
+        this.position = position;
+    }
+
     public void move() {
         this.position++;
     }
