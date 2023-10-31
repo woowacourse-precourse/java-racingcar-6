@@ -31,11 +31,7 @@ public class Game {
     public void play() {
         int tryCount = inputView.inputTryCount();
         announcer.announceResultComment();
-
-        for (int i = 0; i < tryCount; i++) {
-            race();
-        }
-
+        race(tryCount);
         end();
     }
 
@@ -44,9 +40,11 @@ public class Game {
         announcer.announceWinner(winnerList);
     }
 
-    private void race() {
-        carList.forEach(this::moveCar);
-        announcer.announceRaceRound(carList);
+    private void race(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            carList.forEach(this::moveCar);
+            announcer.announceRoundHistory(carList);
+        }
     }
 
     private void moveCar(Car car) {
