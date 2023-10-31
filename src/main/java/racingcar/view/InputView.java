@@ -3,6 +3,8 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.utils.Constants;
+import racingcar.utils.GameMessage;
 import racingcar.validation.CarInputValidation;
 import racingcar.validation.MoveCountsValidation;
 
@@ -23,7 +25,7 @@ public class InputView {
     }
 
     private String receiveCarInput() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(GameMessage.CAR_NAME_INPUT_REQUEST_MESSAGE);
         return Console.readLine();
     }
 
@@ -32,7 +34,7 @@ public class InputView {
     }
 
     private List<String> splitCarInput(String carInput) {
-        String[] carsList = carInput.split(",");
+        String[] carsList = carInput.split(Constants.CAR_NAME_DELIMITER);
         return Arrays.asList(carsList);
     }
 
@@ -43,7 +45,7 @@ public class InputView {
     }
 
     private String receiveMoveCountsInput() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(GameMessage.MOVE_COUNTS_INPUT_REQUEST_MESSAGE);
         return Console.readLine();
     }
 
@@ -54,5 +56,4 @@ public class InputView {
     private int convertToInteger(String moveCountsInput) {
         return Integer.parseInt(moveCountsInput);
     }
-
 }
