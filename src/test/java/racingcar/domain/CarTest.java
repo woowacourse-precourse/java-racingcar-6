@@ -17,7 +17,7 @@ class CarTest {
         @DisplayName("차가 앞으로 갈 때, 앞으로 한 칸 움직인다")
         void moveTest_whenCarMoved() {
             BooleanSupplier alwaysGoStrategy = () -> true;
-            Car car = Car.from("pobi", alwaysGoStrategy);
+            Car car = new Car(CarName.from("pobi"), CarPosition.create(), alwaysGoStrategy);
             int expectedPosition = 1;
 
             car.move();
@@ -29,7 +29,7 @@ class CarTest {
         @DisplayName("차가 정지할 때, 제자리에 있는다")
         void moveTest_whenCarStopped() {
             BooleanSupplier alwaysStopStrategy = () -> false;
-            Car car = Car.from("pobi", alwaysStopStrategy);
+            Car car = new Car(CarName.from("pobi"), CarPosition.create(), alwaysStopStrategy);
             int expectedPosition = 0;
 
             car.move();
