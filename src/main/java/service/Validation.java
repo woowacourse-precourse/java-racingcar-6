@@ -1,5 +1,9 @@
 package service;
 
+import static util.Constant.MAX_NAME_SIZE;
+import static util.Constant.commaPattern;
+import static util.Constant.spacePattern;
+import static util.Constant.timesPattern;
 import static util.ErrorMessage.CAR_COUNT_ERROR;
 import static util.ErrorMessage.CAR_NAME_COMMA_ERROR;
 import static util.ErrorMessage.CAR_NAME_DUPLICATE_ERROR;
@@ -7,13 +11,9 @@ import static util.ErrorMessage.CAR_NAME_SIZE_ERROR;
 import static util.ErrorMessage.CAR_NAME_SPACE_ERROR;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class Validation {
-    private static final int MAX_NAME_SIZE = 5;
-    private static final Pattern timesPattern = Pattern.compile("^[1-9][0-9]*$");
-    private static final Pattern spacePattern = Pattern.compile("^\\s*$");
-    private static final Pattern commaPattern = Pattern.compile(".*,.*");
+
     public static void CheckCarNames(List<String> carNames){
         CheckDuplicate(carNames);
         CheckNameCount(carNames);

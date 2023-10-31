@@ -1,10 +1,9 @@
 package service;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static util.Constant.GO_NUMBER;
 
 public class Car{
 
-    private static final int GO_NUMBER = 4;
     private final String name;
     private int distance = 0;
 
