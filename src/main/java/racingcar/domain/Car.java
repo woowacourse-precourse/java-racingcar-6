@@ -19,4 +19,17 @@ public class Car {
         }
     }
 
+    public void move(int randomNumber) {
+        if (randomNumber >= MOVE_CONDITION) {
+            position++;
+        }
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
