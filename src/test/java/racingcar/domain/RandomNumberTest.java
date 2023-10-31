@@ -5,9 +5,7 @@ import racingcar.service.RandomNumberService;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-
 class RandomNumberTest {
-
     @Test
     void 랜덤수생성(){
         RandomNumber randomNumber = new RandomNumber();

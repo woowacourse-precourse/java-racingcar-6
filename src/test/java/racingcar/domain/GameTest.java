@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
-
     @Test
     void 경주차의_이동거리에_알맞은_우승자선정() {
         ArrayList<Car> carList = new ArrayList<>();
@@ -26,7 +24,7 @@ class GameTest {
         // c,2
 
         Game game = new Game(carList, 3);
-        StringBuilder result = game.decideWinner();
+        StringBuilder result = game.decideWinner(); // 테스트할 메서드
 
         assertThat(String.valueOf(result)).isEqualTo("c");
     }
