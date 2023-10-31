@@ -6,15 +6,15 @@ import racingcar.util.ExceptionMessages;
 
 public class RacingCar {
 
-    private static int distance;
-    private static String name;
+    private int distance;
+    private String name;
 
-    public static int getDistance() {
-        return distance;
+    public int getDistance() {
+        return this.distance;
     }
 
-    public static String getName() {
-        return name;
+    public String getName() {
+        return this.name;
     }
 
     private RacingCar(String name) {
