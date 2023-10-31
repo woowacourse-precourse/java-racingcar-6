@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import java.util.Objects;
+
 public class Car implements Comparable<Car> {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
@@ -51,5 +53,18 @@ public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car other) {
         return this.position - other.position;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return position == car.position && Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
     }
 }
