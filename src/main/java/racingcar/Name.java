@@ -1,7 +1,7 @@
 package racingcar;
 
-import static racingcar.Exception.BLANK_CAR_NAME;
-import static racingcar.Exception.OUT_OF_CAR_NAME_LENGTH;
+import static racingcar.ExceptionMessage.BLANK_CAR_NAME;
+import static racingcar.ExceptionMessage.OUT_OF_CAR_NAME_LENGTH;
 public class Name {
     private final String name;
     private static final int MAX_NAME_LENGTH = 6;
