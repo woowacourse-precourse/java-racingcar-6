@@ -1,7 +1,5 @@
 package racingcar.ui;
 
-import static racingcar.Converter.DELIMITER;
-
 import java.util.List;
 import racingcar.Car;
 import racingcar.Converter;
@@ -17,8 +15,10 @@ public class OutputView {
     }
 
     public static void printWinners(List<Car> winners) {
+        List<String> convertedWinners = Converter.convertWinners(winners);
+        String winnersConvention = Converter.matchWinnersConvention(convertedWinners);
+
         System.out.print(ENTER);
-        String winnersConvention = String.join(DELIMITER, Converter.convertWinners(winners));
         System.out.println(WINNER_MESSAGE + COLON + winnersConvention);
     }
 }

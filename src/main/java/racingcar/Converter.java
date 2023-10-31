@@ -34,4 +34,8 @@ public class Converter {
         }
         return convertedWinners;
     }
+
+    public static String matchWinnersConvention(List<String> convertedWinners) {
+        return String.join(DELIMITER, convertedWinners);
+    }
 }
