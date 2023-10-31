@@ -1,17 +1,33 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.domain.RoundCount;
+import racingcar.dto.GameResultDto;
 import racingcar.service.RacingGameService;
-import racingcar.service.RefereeService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
 
-    public void runRacingGame() {
-        RacingGameService racingGameService = new RacingGameService(new InputView(), new OutputView(),
-                new RefereeService());
-        racingGameService.run();
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final RacingGameService racingGameService;
+
+    public RacingGameController(InputView inputView, OutputView outputView, RacingGameService racingGameService) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.racingGameService = racingGameService;
     }
 
+    public void runRacingGame() {
+
+        List<String> carNames = inputView.readCarNames();
+        RoundCount roundCount = inputView.readNumberOfRounds();
+
+        GameResultDto result = racingGameService.run(carNames, roundCount);
+
+        outputView.showExecutedMessage();
+        outputView.showGameResult(result);
+    }
 
 }

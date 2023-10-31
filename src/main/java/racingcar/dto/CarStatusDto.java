@@ -14,7 +14,9 @@ public class CarStatusDto {
     }
 
     public static CarStatusDto createFrom(Car car) {
-        return new CarStatusDto(new CarName(car.getCarName()), car.getPosition());
+        CarName clonedCarName = new CarName(car.getCarName().getValue());
+        Position clonedPosition = new Position(car.getPosition().getValue());
+        return new CarStatusDto(clonedCarName, clonedPosition);
     }
 
     public CarName getCarName() {

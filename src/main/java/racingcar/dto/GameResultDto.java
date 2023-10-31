@@ -4,18 +4,25 @@ import java.util.List;
 
 public class GameResultDto {
 
-    private List<CarStatusDto> winners;
+    private final List<RoundResultDto> roundHistories;
+    private final List<CarStatusDto> winners;
 
-    private GameResultDto(List<CarStatusDto> winners) {
+    private GameResultDto(List<RoundResultDto> roundHistories, List<CarStatusDto> winners) {
+        this.roundHistories = roundHistories;
         this.winners = winners;
     }
 
-    public static GameResultDto createFrom(List<CarStatusDto> winners) {
-        return new GameResultDto(winners);
+    public static GameResultDto of(List<CarStatusDto> winners, List<RoundResultDto> roundHistories) {
+        return new GameResultDto(roundHistories, winners);
     }
 
     public List<CarStatusDto> getWinners() {
         return winners;
     }
+
+    public List<RoundResultDto> getRoundHistories() {
+        return roundHistories;
+    }
+
 
 }

@@ -30,8 +30,8 @@ public class Car {
         position.move(MOVE_WEIGHT);
     }
 
-    public String getCarName() {
-        return carName.getValue();
+    public CarName getCarName() {
+        return carName;
     }
 
     public Position getPosition() {

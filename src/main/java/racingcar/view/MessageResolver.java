@@ -20,4 +20,5 @@ public class MessageResolver {
                 .map(dto -> dto.getCarName().getValue() + " : " + dto.getCarPosition().draw())
                 .collect(Collectors.joining("\n")) + "\n";
     }
+
 }

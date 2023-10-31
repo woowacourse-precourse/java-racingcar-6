@@ -11,8 +11,8 @@ import racingcar.dto.RoundResultDto;
 
 public class RefereeService {
 
-    public GameResultDto publishGameResult(List<Car> cars) {
-        return GameResultDto.createFrom(selectWinners(cars));
+    public GameResultDto publishGameResult(List<RoundResultDto> roundHistories, List<CarStatusDto> cars) {
+        return GameResultDto.of(selectWinners(cars), roundHistories);
     }
 
     public RoundResultDto executeRound(List<Car> cars) {
@@ -20,17 +20,16 @@ public class RefereeService {
         return RoundResultDto.createFrom(cars);
     }
 
-    private List<CarStatusDto> selectWinners(List<Car> cars) {
+    private List<CarStatusDto> selectWinners(List<CarStatusDto> cars) {
         Position furthestPosition = getFurthestPosition(cars);
         return cars.stream()
-                .filter(car -> car.getPosition().equals(furthestPosition))
-                .map(CarStatusDto::createFrom)
+                .filter(carStatusDto -> carStatusDto.getCarPosition().equals(furthestPosition))
                 .collect(Collectors.toList());
     }
 
-    private Position getFurthestPosition(List<Car> cars) {
+    private Position getFurthestPosition(List<CarStatusDto> cars) {
         return cars.stream()
-                .map(Car::getPosition)
+                .map(CarStatusDto::getCarPosition)
                 .max(Position::compareTo)
                 .orElseThrow(NoSuchElementException::new);
     }
