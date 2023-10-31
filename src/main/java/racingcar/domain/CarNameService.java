@@ -12,7 +12,7 @@ public class CarNameService {
     private ArrayList<Car> carList;
 
 
-    public void input(){
+    public void input() {
         InputName inputName = new InputName();
         String input = inputName.getInput();
 
@@ -20,35 +20,34 @@ public class CarNameService {
         makeCarList(nameList);
     }
 
-    public List<String> convertStrToList(String str){
+    public List<String> convertStrToList(String str) {
         List<String> nameList = new ArrayList<>();
 
         String[] splited = str.split(partition);
-        for(String s: splited){
-            if(checkException(s)) nameList.add(s);
+        for (String s : splited) {
+            if (checkException(s)) nameList.add(s);
         }
 
         return nameList;
     }
 
-    public boolean checkException(String s){
-        if(s==null) throw new IllegalArgumentException(exceptionMessageOfNull);
-        if(s.contains(" ")) throw new IllegalArgumentException(exceptionMessageOfBlank);
-        if(s.length()>5) throw new IllegalArgumentException(exceptionMessageOfLength);
+    public boolean checkException(String s) {
+        if (s == null) throw new IllegalArgumentException(exceptionMessageOfNull);
+        if (s.contains(" ")) throw new IllegalArgumentException(exceptionMessageOfBlank);
+        if (s.length() > 5) throw new IllegalArgumentException(exceptionMessageOfLength);
 
         return true;
     }
 
-    public void makeCarList(List<String> nameList){
+    public void makeCarList(List<String> nameList) {
         ArrayList<Car> carList = new ArrayList<>();
-        for(String carName: nameList){
+        for (String carName : nameList) {
             carList.add(new Car(carName));
         }
         this.carList = carList;
     }
 
-    public ArrayList<Car> getCarList(){
+    public ArrayList<Car> getCarList() {
         return this.carList;
     }
-
 }

@@ -5,15 +5,15 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Input {
     String input;
 
-    public void print(String message){
+    public void print(String message) {
         System.out.println(message);
     }
 
-    public void input(){
+    public void input() {
         this.input = readLine();
     }
 
-    public String getInput(){
+    public String getInput() {
         return input;
     }
 }
