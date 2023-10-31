@@ -10,7 +10,7 @@ public class OutputView {
         System.out.println(START_INTRO);
     }
 
-    public void askForNumberOfAttempts() {
+    public void printNumberOfAttempts() {
         System.out.println(ASK_NUMBER_OF_ATTEMPTS);
     }
 
