@@ -12,14 +12,10 @@ public class GameExecutor {
     }
 
     public void run() {
-        try {
-            while(!game.isFinished()){
-                game.runStage();
-                out.printStage(game);
-            }
-            out.printWinners(game.getWinners());
-        } finally {
-            in.close();
+        while(!game.isFinished()){
+            game.runStage();
+            out.printStage(game);
         }
+        out.printWinners(game.getWinners());
     }
 }

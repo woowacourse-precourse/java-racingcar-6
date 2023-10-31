@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Application {
     private static GameRandom random;
 
@@ -16,10 +18,8 @@ public class Application {
 
     public static void main(String[] args) {
         RacingCarGameRenderer renderer = new SimpleRacingCarGameRenderer();
-        InputInterface in = new InputInterface();
-        OutputInterface out = new OutputInterface((str) -> {
-            System.out.println(str);
-        }, renderer);
+        InputInterface in = new InputInterface(Console::readLine, System.out::println);
+        OutputInterface out = new OutputInterface(System.out::println, renderer);
         RacingCarGame game = new RacingCarGame(in.getNames(), in.getTrial(), getRandom());
         GameExecutor gameExecutor = new GameExecutor(game, in, out);
         gameExecutor.run();
