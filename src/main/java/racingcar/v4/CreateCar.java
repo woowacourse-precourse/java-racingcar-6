@@ -1,9 +1,7 @@
 package racingcar.v4;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CreateCar {
     public String inputCarNames() {
@@ -37,8 +35,11 @@ public class CreateCar {
         }
     }
 
-
-
-
+    public void validateCarNameDuplicate(List<String> carNames) {
+        Set<String> uniqueCarNames = new HashSet<>(carNames);
+        if (uniqueCarNames.size() < carNames.size()) {
+            throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+        }
+    }
 
 }
