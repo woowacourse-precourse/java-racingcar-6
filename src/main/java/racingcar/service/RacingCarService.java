@@ -11,11 +11,7 @@ public class RacingCarService {
     private static final int MIN_MOVE_PROBABILITY = 4;
 
     public List<Car> convertCarNames(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            Car car = Car.createZeroProgressCar(carName);
-            cars.add(car);
-        }
+        List<Car> cars = carNames.stream().map(Car::createZeroProgressCar).toList();
         return cars;
     }
 
