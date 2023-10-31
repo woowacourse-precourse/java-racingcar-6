@@ -8,6 +8,7 @@ import java.util.*;
 public class Race {
     private static MoveCar mc = new MoveCar();
     private List<String> cars;
+
     private List<Integer> distance;
 
     private int round;
@@ -26,6 +27,7 @@ public class Race {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void setCars(String carsStr){
@@ -47,8 +49,20 @@ public class Race {
         this.round = round;
     }
 
+    public List<String> getCars() {
+        return cars;
+    }
+
+    public String getCar(int i) {
+        return cars.get(i);
+    }
+
     public int getRound() {
         return round;
+    }
+
+    public List<Integer> getDistance() {
+        return distance;
     }
 
 }
