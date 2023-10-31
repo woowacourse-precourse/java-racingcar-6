@@ -1,4 +1,5 @@
 HELP.md
+*.class
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -30,3 +31,21 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Log file
+*.log
