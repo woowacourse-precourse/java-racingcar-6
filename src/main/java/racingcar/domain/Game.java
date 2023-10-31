@@ -12,4 +12,15 @@ public class Game {
         this.cars = new Cars(cars);
         this.givenAttemptCount = givenAttemptCount;
     }
+
+    public void carRaceOnce() {
+        cars.move();
+        increaseCurrentAttemptCount();
+    }
+
+    private void increaseCurrentAttemptCount() {
+        currentAttemptCount++;
+    }
+
+    
 }
