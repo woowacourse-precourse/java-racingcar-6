@@ -54,15 +54,11 @@ public class RacingGame {
     }
 
     private List<String> getWinners() {
-        int maxDistance = -1;
+        int maxDistance = Arrays.stream(distance).max().orElse(Integer.MIN_VALUE);
         List<String> winners = new ArrayList<>();
 
         for (int i = 0; i < carNames.length; i++) {
-            if (distance[i] > maxDistance) {
-                maxDistance = distance[i];
-                winners.clear();
-                winners.add(carNames[i]);
-            } else if (distance[i] == maxDistance) {
+            if (distance[i] == maxDistance) {
                 winners.add(carNames[i]);
             }
         }
