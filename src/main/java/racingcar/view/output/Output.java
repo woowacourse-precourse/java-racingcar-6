@@ -1,8 +1,8 @@
 package racingcar.view.output;
 
-public class Output {
+import java.util.Map;
 
-    public static final String DISTANT_MARK = "-";
+public class Output {
 
     public static void printMessage(OutputMessage outputMessage) {
         System.out.println(outputMessage.message);
@@ -12,15 +12,13 @@ public class Output {
         System.out.printf((outputMessage.message) + "%n", messageValue);
     }
 
-    public static void printResultMessage(OutputMessage outputMessage, String name, int distance) {
-        System.out.printf(outputMessage.message + "%n", name, joinCarsDistances(distance));
+    public static void printStatusMessage(OutputMessage outputMessage, Map<String, String> statusMap) {
+        statusMap.forEach((name, distance) ->
+                System.out.printf(outputMessage.message + "%n", name, distance));
     }
 
     public static void printNewLine() {
         System.out.println();
     }
 
-    private static String joinCarsDistances(int distance) {
-        return DISTANT_MARK.repeat(distance);
-    }
 }
