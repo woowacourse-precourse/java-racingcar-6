@@ -9,31 +9,35 @@ import org.junit.jupiter.api.Test;
 class CarTest {
 
     private Car car1;
+    private Car car2;
+    private Car car3;
 
     @BeforeEach
     void init() {
         car1 = new Car("ccc");
+        car2 = new Car("Car2");
+        car3 = new Car("Car3");
     }
 
     @Test
-    void forward() {
+    void test_validateNameLength() {
+        assertThatThrownBy(() -> new Car("fiveName"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void test_currentLocation() {
+        assertThat(car1.currentLocation()).isEqualTo("ccc : ");
+    }
+
+    @Test
+    void test_forward() {
         car1.forward();
         assertThat(car1.currentLocation()).isEqualTo("ccc : -");
     }
 
     @Test
-    void currentLocation() {
-        car1.forward();
-        car1.forward();
-        car1.forward();
-        assertThat(car1.currentLocation()).isEqualTo("ccc : ---");
-    }
-
-    @Test
-    public void testIsEqualDistance_One_winner() {
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car3");
-
+    public void test_IsEqualDistance_One_winner() {
         List<Car> carList = List.of(car1, car2, car3);
         car1.forward();
 
@@ -42,10 +46,7 @@ class CarTest {
     }
 
     @Test
-    public void testIsEqualDistance_Two_winner() {
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car3");
-
+    public void test_IsEqualDistance_Two_winner() {
         List<Car> carList = List.of(car1, car2, car3);
         car1.forward();
         car2.forward();
@@ -55,10 +56,7 @@ class CarTest {
     }
 
     @Test
-    public void testIsEqualDistance_Three_winner() {
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car3");
-
+    public void test_IsEqualDistance_Three_winner() {
         List<Car> carList = List.of(car1, car2, car3);
         car1.forward();
         car2.forward();
