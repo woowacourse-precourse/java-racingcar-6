@@ -16,7 +16,7 @@ public class Car {
         showPosition();
     }
 
-    public void showPosition(){
+    private void showPosition(){
         System.out.print(name + " : ");
         for(int i=0;i<position;i++){
             System.out.print("-");
