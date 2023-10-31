@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private static final int BASIC = 4;
     private static final int RANDOM_MIN = 0;
-    private static final int RANDOM_MAX = 0;
+    private static final int RANDOM_MAX = 9;
     private final String name;
     private int position = 0;
 
