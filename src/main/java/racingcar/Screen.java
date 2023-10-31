@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Screen {
@@ -38,21 +39,21 @@ public class Screen {
         System.out.println();
     }
 
-    static public void displayWinners(List<String> winners) {
+    static public void displayWinners(final List<Car> cars) {
         System.out.print("최종 우승자 : ");
-        System.out.println(makeWinnerListMessage(winners));
+        System.out.println(getWinners(cars));
     }
 
-    static private String makeWinnerListMessage(List<String> winners) {
-        StringBuilder message = new StringBuilder(winners.get(0));
+    static private String getWinners(final List<Car> cars) {
+        StringBuilder winners = new StringBuilder();
+        int maximumMove = Collections.max(cars).getNumberOfMove();
 
-        if (winners.size() == 1) {
-            return message.toString();
+        for (Car car : cars) {
+            if (car.getNumberOfMove() == maximumMove) {
+                winners.append(", ");
+                winners.append(car.getName());
+            }
         }
-        for (int idx = 1; idx < winners.size(); idx++) {
-            message.append(", ");
-            message.append(winners.get(idx));
-        }
-        return message.toString();
+        return winners.toString().replaceFirst(", ", "");
     }
 }

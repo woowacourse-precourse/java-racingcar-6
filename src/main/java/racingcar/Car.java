@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     final private String name;
     private int numberOfMove;
 
@@ -31,5 +31,9 @@ public class Car {
 
     final public String getName() {
         return this.name;
+    }
+
+    public int compareTo(Car obj) {
+        return this.numberOfMove - obj.numberOfMove;
     }
 }

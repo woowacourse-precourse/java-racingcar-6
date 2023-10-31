@@ -96,23 +96,29 @@ public class ScreenTest {
 
     @Test
     void 단독_우승자_출력() {
-        List<String> winners = new ArrayList<>();
-        winners.add("yen");
+        String[] names = {"pobi", "yen"};
+        List<Car> cars = new ArrayList<>();
+        int idx = 1;
+        for (String name : names) {
+            cars.add(new Car(name, idx++));
+        }
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        Screen.displayWinners(winners);
+        Screen.displayWinners(cars);
         assertThat(out.toString()).isEqualTo("최종 우승자 : yen\n");
 
     }
 
     @Test
     void 공동_우승자_출력() {
-        List<String> winners = new ArrayList<>();
-        winners.add("yen");
-        winners.add("pobi");
+        String[] names = {"pobi", "yen"};
+        List<Car> cars = new ArrayList<>();
+        for (String name : names) {
+            cars.add(new Car(name, 1));
+        }
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        Screen.displayWinners(winners);
-        assertThat(out.toString()).isEqualTo("최종 우승자 : yen, pobi\n");
+        Screen.displayWinners(cars);
+        assertThat(out.toString()).isEqualTo("최종 우승자 : pobi, yen\n");
     }
 }
