@@ -27,7 +27,16 @@ public class RacingController {
     }
 
     private int initializeCountOfMoving() {
-        return inputView.inputCountOfTry();
+        int countOfMoving = inputView.inputCountOfTry();
+        validateCountOfMoving(countOfMoving);
+
+        return countOfMoving;
+    }
+
+    private void validateCountOfMoving(int countOfMoving) {
+        if (countOfMoving <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1이상 이어야 합니다");
+        }
     }
 
     private void printResultTitle() {
