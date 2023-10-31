@@ -24,9 +24,33 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 이름이_5글자_이상일_시_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름이_1글자_미만일_시_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one,,three", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_입력값에_공백이_포함될_시_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one, two ,three", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시행_횟수_입력값이_정수형이_아닐_경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("one,two,three", "abc"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
