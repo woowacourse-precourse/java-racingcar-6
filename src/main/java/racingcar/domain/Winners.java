@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Winners {
     private final CarNames winnersName;
@@ -16,6 +16,10 @@ public class Winners {
 
     @Override
     public String toString() {
-        return "최종 우승자 : " + String.join(", ", winnersName.toString());
+        List<String> winnerNames = winnersName.getCarNames().stream()
+                .map(CarName::toString)
+                .collect(Collectors.toList());
+
+        return "최종 우승자 : " + String.join(", ", winnerNames);
     }
 }
