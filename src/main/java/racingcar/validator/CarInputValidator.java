@@ -19,12 +19,4 @@ public class CarInputValidator {
             throw new IllegalArgumentException("자동차 이름을 입력하지 않으셨습니다.");
         }
     }
-
-    public static int validateAttemptsNumber(String attemptsNumberString) {
-        try {
-            return Integer.parseInt(attemptsNumberString);
-        } catch (NumberFormatException ex) {
-            throw new IllegalArgumentException("입력 값이 유효하지 않습니다.");
-        }
-    }
 }

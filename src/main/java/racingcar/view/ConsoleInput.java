@@ -5,19 +5,19 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
 
-import static racingcar.validator.CarInputValidator.*;
+import static racingcar.validator.AttemptInputValidator.*;
 import static racingcar.view.constants.IOType.*;
 
 public class ConsoleInput {
 
     public static List<Car> carNamesInput() {
-        System.out.println(REQUEST_CAR_NAMES_SENTENCE);
+        System.out.println(REQUEST_CAR_NAMES_SENTENCE.getSentence());
         String carNames = Console.readLine();
         return parseSentence(carNames);
     }
 
     public static int attemptsNumberInput() {
-        System.out.println(REQUEST_ATTEMPTS_NUMBER_SENTENCE);
+        System.out.println(REQUEST_ATTEMPTS_NUMBER_SENTENCE.getSentence());
         return validateAttemptsNumber(Console.readLine());
     }
 

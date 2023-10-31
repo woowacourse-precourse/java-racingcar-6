@@ -1,13 +1,6 @@
 package racingcar.view;
 
-
-import static racingcar.view.constants.IOType.*;
-
 public class ConsoleOutput {
-
-    public static void requestAttemptsNumberPrint() {
-        System.out.println(REQUEST_ATTEMPTS_NUMBER_SENTENCE);
-    }
 
     public static void executionResultPrint(int attemptsCount) {
         System.out.println("실행 결과");
