@@ -12,7 +12,7 @@
 - [x] 값이 4 이상일 경우 전진. Car#goStright
 - [x] 승리한 사람을 체크해야 함.(여러명 가능) Checker#checkWinners
 - [x] 전진하는 자동차를 출력 시 자동차 이름을 같이 출력 Application#printTurnInfo
-- [ ] 승리한 사람을 알려줘야 함. Application#printWinners
+- [x] 승리한 사람을 알려줘야 함. Application#printWinners
 
 
 ## 지켜야 할 사항

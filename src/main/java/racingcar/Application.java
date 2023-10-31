@@ -29,4 +29,11 @@ public class Application {
 
         return sb.toString();
     }
+
+    public static void printWinners(List<Car> winners) {
+        StringBuilder sb = new StringBuilder();
+
+        String result = winners.stream().map(Car::getName).collect(Collectors.joining(", "));
+        System.out.println("최종 우승자 : " + result);
+    }
 }
