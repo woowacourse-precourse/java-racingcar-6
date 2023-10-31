@@ -24,4 +24,12 @@ public class GameManager {
         return new Game(cars, raceCount);
     }
 
+    private List<Car> initializeCars() {
+        outputManager.printCarNameRequestMessage();
+        return inputManager.getCarNames()
+                .stream()
+                .map(Car::new)
+                .toList();
+    }
+
 }
