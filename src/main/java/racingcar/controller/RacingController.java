@@ -16,7 +16,7 @@ public class RacingController {
         return racingService.createCarList(carNames);
     }
 
-    public Map<String, Integer> playRacing(List<Car> cars, int tryCount) {
+    public Map<String, Integer> playRacing(List<Car> cars) {
         return racingService.playRacingCar(cars);
     }
 
