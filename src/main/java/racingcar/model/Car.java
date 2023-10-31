@@ -15,6 +15,10 @@ public class Car {
         this.name = name;
     }
 
+    public static Car createCar(String carName) {
+        return new Car(carName);
+    }
+
     public static List<Car> createCars(List<String> carNames) {
         return carNames.stream().map(Car::new).toList();
     }
