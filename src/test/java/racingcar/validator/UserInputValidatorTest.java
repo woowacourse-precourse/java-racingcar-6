@@ -21,15 +21,23 @@ public class UserInputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"1,2,", ",2,3", "1,,3", "more_than_five,1,2", "1,2,abcdef", "1,2,123456", "1,2,아에이오우으"})
-    void 자동차_이름_1자_이상_5자_이하가_아닌_경우(String carNames) {
+    @ValueSource(strings = {",2,3", "1,,3", "1,2,"})
+    void 자동차_이름_빈_문자열_테스트(String carNames) {
         assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LENGTH_EXCEPTION_MESSAGE);
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"succ,ess,ful,ess", "ba,na,na"})
+    @ValueSource(strings = {"1,2,more_than_five", "1,2,abcdef", "1,2,123456", "1,2,아에이오우으", "1,2,!@#$%^"})
+    void 자동차_이름_5자_이상인_경우(String carNames) {
+        assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(LENGTH_EXCEPTION_MESSAGE);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a,b,a", "succ,ess,fuln,ess"})
     void 자동차_이름_중복이_있는_경우(String carNames) {
         assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -37,8 +45,8 @@ public class UserInputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"공 백,b,c", "태\t앱,b,c"})
-    void 자동차_이름_공백이_있는_경우(String carNames) {
+    @ValueSource(strings = {"a,b,공 백", "a,b,태\t앱"})
+    void 자동차_이름_공백문자_있는_경우(String carNames) {
         assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(HAS_BLANK_EXCEPTION_MESSAGE);
