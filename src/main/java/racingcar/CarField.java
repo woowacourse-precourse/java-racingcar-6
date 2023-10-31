@@ -32,7 +32,7 @@ public class CarField {
             OutputView.newLinePrint();
         }
 
-        System.out.println(whoIsWinner());
+        OutputView.winnersPrint(whoIsWinner());
     }
 
     private List<String> whoIsWinner(){
