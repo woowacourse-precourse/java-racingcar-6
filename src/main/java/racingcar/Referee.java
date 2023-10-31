@@ -24,7 +24,7 @@ public class Referee {
             }
         }
 
-        String result = MessageFormat.format("{0} : {1}", Messages.WINNER_IS, String.join(",", winners));
+        String result = MessageFormat.format("{0} : {1}", Messages.WINNER_IS, String.join(", ", winners));
         System.out.println(result);
     }
 }
