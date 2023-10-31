@@ -4,8 +4,8 @@ import java.util.stream.IntStream;
 
 public class Car {
 
-	private CarName carName;
-	private CarLocation carLocation;
+	private final CarName carName;
+	private final CarLocation carLocation;
 
 	public Car(String carName) {
 		this.carName = new CarName(carName);

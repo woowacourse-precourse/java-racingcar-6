@@ -6,7 +6,7 @@ import racingcar.util.message.ErrorMessage;
 
 public class CarName {
 	
-	private static final int LIMIT_LENGTH = 5;
+	private static final int LENGTH_LIMIT = 5;
 	private static final Pattern CONTAIN_NUMBER_PATTERN = Pattern.compile(".*[0-9].*");
 	
 	private final String name;
@@ -22,7 +22,7 @@ public class CarName {
 	}
 	
 	private static void validateOutOfLength(String name) {
-		if (name.length() > LIMIT_LENGTH) {
+		if (name.length() > LENGTH_LIMIT) {
 			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 		}
 	}

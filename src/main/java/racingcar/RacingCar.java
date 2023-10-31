@@ -35,9 +35,8 @@ public class RacingCar {
 		outputView.printInputCarName();
 		
 		String carNames = inputView.inputCarNames();
-		Cars cars = createCarsService.createCars(carNames);
 		
-		return cars;
+		return createCarsService.createCars(carNames);
 	}
 	
 	private void progress(Cars cars) {
