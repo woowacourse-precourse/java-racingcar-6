@@ -2,7 +2,7 @@ package racingcar.util.Validator;
 
 import java.util.List;
 import racingcar.view.input.error.InputError;
-import racingcar.view.input.error.InputException;
+import racingcar.view.input.error.InputIllegalArgumentException;
 
 public class Validator {
 
@@ -15,7 +15,7 @@ public class Validator {
                 .count();
 
         if (countNames != names.size()) {
-            throw new InputException(InputError.EXCEEDED_MAXIMUM_ERROR);
+            throw new InputIllegalArgumentException(InputError.EXCEEDED_MAXIMUM_ERROR);
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import racingcar.util.Validator.Validator;
 import racingcar.view.input.error.InputError;
-import racingcar.view.input.error.InputException;
+import racingcar.view.input.error.InputIllegalArgumentException;
 
 public final class Input {
 
@@ -22,8 +22,8 @@ public final class Input {
         String trialAmount = Console.readLine();
         try {
             return Integer.parseInt(trialAmount);
-        } catch (InputException e) {
-            throw new InputException(InputError.MUST_BE_NUMBER);
+        } catch (InputIllegalArgumentException e) {
+            throw new InputIllegalArgumentException(InputError.MUST_BE_NUMBER);
         }
     }
 

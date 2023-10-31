@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.input.error.InputError;
-import racingcar.view.input.error.InputException;
+import racingcar.view.input.error.InputIllegalArgumentException;
 import racingcar.view.output.OutputMessage;
 
 public class Cars {
@@ -29,7 +29,7 @@ public class Cars {
 
     private void validateNameEmpty(List<String> names) {
         if (names.size() <= 1) {
-            throw new InputException(InputError.NOT_EXCEED_MINIMUM_AMOUNT);
+            throw new InputIllegalArgumentException(InputError.NOT_EXCEED_MINIMUM_AMOUNT);
         }
     }
 
