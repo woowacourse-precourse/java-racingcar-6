@@ -64,10 +64,10 @@ public class Application {
     public static void findWinner(List<Car> c_list){
         Collections.sort( c_list, (o1,o2) -> o2.go - o1.go );
         int max_score = c_list.get(0).getGo();
-        String res_winner = c_list.get(0).getName()+",";
+        String res_winner = "최종 우승자 : "+c_list.get(0).getName();
         for(int i=1;i<c_list.size();i++){
             if(c_list.get(i).getGo() == max_score){
-                res_winner += c_list.get(i).getName()+",";
+                res_winner += ", "+c_list.get(i).getName();
             }else{
                 break;
             }
