@@ -2,9 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.security.Key;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -16,11 +15,8 @@ public class Application {
         String cars = readLine();
         List<String> carList = List.of(cars.split(","));
 
-        Map<String, String> carMap = carList.stream()
-                .collect(Collectors.toMap(key -> key, value -> ""));
-
-        System.out.println(carMap);
-        System.out.println(carMap.size());
+        Map<String, Integer> carMap = carList.stream()
+                .collect(Collectors.toMap(key -> key, value -> 0));
 
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNumber = Integer.parseInt(readLine());
@@ -29,16 +25,32 @@ public class Application {
             printRacingState(carMap);
         }
 
+
+        Integer maxvalue = carMap.get(Collections.max(carMap.entrySet(), Comparator.comparingInt(Map.Entry :: getValue)).getKey());
+
+        List<String> winnerList = carMap.entrySet()
+                .stream()
+                .filter(entry -> Objects.equals(entry.getValue(), maxvalue))
+                .map(Map.Entry::getKey)
+                .toList();
+
+        String winners = String.join(", ", winnerList);
+        System.out.print("최종 우승자 : "+ winners);
+
+
     }
 
-    static void printRacingState(Map<String, String> carMap){
+    static void printRacingState(Map<String, Integer> carMap){
 
         for(String key : carMap.keySet()){
             System.out.print(key + " : ");
             if(Randoms.pickNumberInRange(0,9)>=4){
-                carMap.put(key, carMap.get(key)+"-");
+                carMap.put(key, carMap.get(key)+1);
             }
-            System.out.println(carMap.get(key));
+            for(int i=0;i< carMap.get(key);i++){
+                System.out.print("-");
+            }
+            System.out.println();
         }
         System.out.println();
     }
