@@ -14,6 +14,33 @@ public class Round {
 
     public void startRound() {
         moveForward();
+        printMovement();
+    }
+
+    private void printMovement() {
+        for (Car car : cars) {
+            printPerMovement(car.getCarName(), car.getCarDistance());
+        }
+        System.out.println();
+    }
+
+    private void printPerMovement(String name, int distance) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name);
+        sb.append(" : ");
+        sb.append(getFar(distance));
+
+        System.out.println(sb);
+    }
+
+    private String getFar(int distance) {
+        StringBuilder far = new StringBuilder();
+
+        while (distance --> 0) {
+            far.append("-");
+        }
+
+        return far.toString();
     }
 
     private void moveForward() {

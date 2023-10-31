@@ -18,6 +18,10 @@ public class Car {
         return this.name;
     }
 
+    public int getCarDistance() {
+        return this.distance;
+    }
+
     private boolean checkValidCarName(String carName) {
         if (checkLengthOfName(carName)) return false;
 
