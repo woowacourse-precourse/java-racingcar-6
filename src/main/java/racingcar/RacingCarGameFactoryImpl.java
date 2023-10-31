@@ -30,7 +30,7 @@ public class RacingCarGameFactoryImpl implements RacingCarGameFactory {
 
     @Override
     public RandomNumberGenerator randomNumberGenerator() {
-        return new RandomNumberGeneratorImpl();
+        return RandomNumberGeneratorImpl.getInstance();
     }
 
     @Override
