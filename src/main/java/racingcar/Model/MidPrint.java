@@ -10,6 +10,10 @@ public class MidPrint {
         for (int i = 0; i < carDtoList.size(); i++) {
             printNameAndDash(carDtoList.get(i));
         }
+        return returnSB();
+    }
+
+    private static String returnSB() {
         return sb.append("\n").toString();
     }
 
