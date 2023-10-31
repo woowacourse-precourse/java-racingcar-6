@@ -3,13 +3,12 @@ package racingcar;
 import racingcar.domain.InputHandler;
 import racingcar.domain.TrialRepeat;
 import racingcar.domain.Winner;
-
-import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Application {
     public static List<String> names;
-    public static Hashtable<String, Integer> scoreboard;
+    public static LinkedHashMap<String, Integer> scoreboard;
     public static int trialToDo;
     public static int trialCurrent;
     public static void main(String[] args) {

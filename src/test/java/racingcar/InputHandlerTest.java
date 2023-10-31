@@ -3,7 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.InputHandler;
 
-import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,7 +25,7 @@ public class InputHandlerTest {
     @Test
     void qqqwwweee_sb() {
         InputHandler input = new InputHandler();
-        Hashtable<String, Integer> sb =
+        LinkedHashMap<String, Integer> sb =
                 input.generateScoreboard(List.of("qqq", "www", "eee"));
         assertThat(sb.get("qqq")).isEqualTo(0);
         assertThat(sb.get("www")).isEqualTo(0);

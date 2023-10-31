@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -27,8 +27,8 @@ public class InputHandler {
         return Console.readLine();
     }
 
-    public Hashtable<String, Integer> generateScoreboard(List<String> names) {
-        Hashtable<String, Integer> scoreboard = new Hashtable<>();
+    public LinkedHashMap<String, Integer> generateScoreboard(List<String> names) {
+        LinkedHashMap<String, Integer> scoreboard = new LinkedHashMap<>();
         for (String name : names) {
             scoreboard.put(name, 0);
         }

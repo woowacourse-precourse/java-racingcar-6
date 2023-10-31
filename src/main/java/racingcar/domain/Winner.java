@@ -1,16 +1,13 @@
 package racingcar.domain;
 
-import java.util.Collections;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Winner {
     static List<String> candidates;
     static int maxScore = 0;
 
-    public static String findWinner(Hashtable<String, Integer> sb) {
-        candidates = Collections.list(sb.keys());   // 공동 0점 시 전원 우승
+    public static String findWinner(LinkedHashMap<String, Integer> sb) {
+        candidates = new ArrayList<>(sb.keySet());   // 공동 0점 시 전원 우승
 
         for(Map.Entry<String, Integer> entry : sb.entrySet()) {
             if(entry.getValue() > maxScore) {
