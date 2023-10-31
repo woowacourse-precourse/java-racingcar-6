@@ -32,4 +32,12 @@ public class CarGame {
       car.goForward();
     }
   }
+
+  private void printCurrentStatus() {
+    for(Car car : cars) {
+      System.out.println(car);
+    }
+    System.out.println();
+  }
+
 }
