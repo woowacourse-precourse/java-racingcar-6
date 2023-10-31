@@ -22,6 +22,17 @@ class NumberOfParticipantValidatorTest {
      }
 
      @Test
+     @DisplayName("숫자가 아닌 입력에 대하 테스트")
+     void illegalInputTest() throws Exception{
+         //given
+         String sample = "abcde";
+         //then
+         Assertions.assertThatThrownBy(() -> validator.validate(sample))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining("0 이상의 정수만 입력해주세요.");
+      }
+
+     @Test
      @DisplayName("정상적인 검증 시")
      void legalProcessTest() throws Exception{
          //given
