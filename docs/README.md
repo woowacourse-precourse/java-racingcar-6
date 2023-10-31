@@ -9,7 +9,7 @@
 ### 게임 진행 
 - [x] 0에서 9 사이에서 무작위 값을 생성한다. - RandomNumberGenerator: createRandomNumber
 - [x] 무작위 값이 4 이상일 경우 전진한다. - Car: move
-- [ ] 각 차수마다 자동차의 이름과 전진 결과를 문자열로 출력한다. - OutputView: printResult
+- [x] 각 차수마다 자동차의 이름과 전진 결과를 문자열로 출력한다. - OutputView: printResult
 ### 우승자
 - [ ] 최종 우승자를 구한다. - RacingController: findWinner
 - [ ] 모든 시도가 끝나면 최종 우승자를 출력한다. - OutputView: printWinner
