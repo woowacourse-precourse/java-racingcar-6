@@ -20,7 +20,7 @@ Car
 
 ## numberGenerator
 - NumberGenerator
-- [ ] 0~9사이의 무작위 값을 구한다. -> Referee
+- [x] 0~9사이의 무작위 값을 구한다. -> Referee
 
 ### user
 - UserInput
