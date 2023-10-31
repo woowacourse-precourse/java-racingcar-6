@@ -26,4 +26,8 @@ public class RacingGame {
         attemptCount = getAttemptCount();
     }
 
+    public boolean isEnd() {
+        return attemptCount == END_COUNT;
+    }
+
 }
