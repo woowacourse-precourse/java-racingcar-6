@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -23,6 +24,12 @@ class InputConverterTest {
     @ValueSource(strings = {"p1", "1s", "s"})
     void covertTimes에_올바르지않은_문자열주면_예외반환(String unTimes) {
         assertThatThrownBy(() -> inputConverter.covertTimes(unTimes))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void checkMin_0추면_예외반환(){
+        assertThatThrownBy(() -> inputConverter.covertTimes("0"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
