@@ -26,7 +26,6 @@ public class GameController {
 
     private WinnersDto playAllRounds(Cars cars) {
         int tryTimes = inputView.getTrytimes();
-        outputView.printGameResultMsg();
         for (int i = 0; i < tryTimes; i++) {
             playRound(cars);
         }

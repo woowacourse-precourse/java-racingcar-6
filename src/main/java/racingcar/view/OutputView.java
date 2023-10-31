@@ -10,16 +10,15 @@ import java.util.List;
 public class OutputView {
     private static final String DASH = "-";
     private final OutputWriter writer;
+    private boolean isFirstRound = true;
 
     public OutputView(OutputWriter writer) {
         this.writer = writer;
     }
 
-    public void printGameResultMsg() {
-        writer.writeGameResultMsg();
-    }
 
     public void printGameResult(CarsDto carsDto) {
+        printGameResultMsgOnlyIfFirstRound();
         List<CarDto> carDtoList = carsDto.carDtoList();
         for (CarDto carDto : carDtoList) {
             String carGameResult = String.format("%s : %s",
@@ -28,6 +27,13 @@ public class OutputView {
             System.out.println(carGameResult);
         }
         System.out.println();
+    }
+
+    private void printGameResultMsgOnlyIfFirstRound() {
+        if (isFirstRound) {
+            writer.writeGameResultMsg();
+            isFirstRound = false;
+        }
     }
 
     private String convertToDashes(int position) {
