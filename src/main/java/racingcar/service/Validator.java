@@ -16,10 +16,24 @@ public class Validator {
     }
 
     public int stringToInt(String numberOfAttempts) {
-        try {
-            return Integer.parseInt(numberOfAttempts);
-        } catch (NumberFormatException e) {
+        validateNullOrBlank(numberOfAttempts);
+        validateNumeric(numberOfAttempts);
+        return validatePositiveNumber(numberOfAttempts);
+    }
+
+    private int validatePositiveNumber(String numberOfAttempts) {
+        int attemptCount = Integer.parseInt(numberOfAttempts);
+        if (attemptCount <= 0) {
             throw new IllegalArgumentException();
+        }
+        return attemptCount;
+    }
+
+    private void validateNumeric(String numberOfAttempts) {
+        for (char numberOfAttemptsChar : numberOfAttempts.toCharArray()) {
+            if (!Character.isDigit(numberOfAttemptsChar)) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
@@ -55,13 +69,13 @@ public class Validator {
     private void ignoreSpacing(String[] carNames) {
         for (int i = 0; i < carNames.length; i++) {
             String replacedCarName = carNames[i].replaceAll(" ", "");
-            validateBlankCarName(replacedCarName);
+            validateNullOrBlank(replacedCarName);
             carNames[i] = replacedCarName;
         }
     }
 
-    private void validateBlankCarName(String carName) {
-        if (carName.isBlank()) {
+    private void validateNullOrBlank(String input) {
+        if (input == null || input.isBlank()) {
             throw new IllegalArgumentException();
         }
     }
