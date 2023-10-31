@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
-import racingcar.RandomNumberImpl;
-import racingcar.RoundService;
+import racingcar.domain.Car;
+import racingcar.service.RoundService;
+import racingcar.util.RandomNumberImpl;
 
 public class RoundServiceTest {
     private static final int MOVING_FORWARD = 4;

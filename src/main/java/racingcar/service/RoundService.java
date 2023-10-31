@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.util.RandomNumber;
 
 public class RoundService {
     private static final int START_RANDOM_NUMBER = 0;
