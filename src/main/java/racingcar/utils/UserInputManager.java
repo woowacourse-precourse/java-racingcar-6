@@ -8,16 +8,24 @@ import java.util.stream.Collectors;
 
 public class UserInputManager {
     private static final int MAX_LENGTH = 5;
+    List<String> carNames;
+    int attempt;
 
-    public List<String> inputCarNames() {
+    private void setCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        return parseCarNames(input);
+        carNames = parseCarNames(Console.readLine());
     }
 
-    public int inputAttempts() {
+    private void setAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        attempt = Integer.parseInt(Console.readLine());
+    }
+
+    public List<String> getCarNames() {
+        return carNames;
+    }
+    public int getAttempts() {
+        return attempt;
     }
 
     private List<String> parseCarNames(String input) {
@@ -38,6 +46,8 @@ public class UserInputManager {
             throw new IllegalArgumentException("[ERROR] 자동차의 이름은 5자 이하만 가능합니다.");
         }
     }
+
+
 }
 
 

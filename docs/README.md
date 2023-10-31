@@ -7,6 +7,7 @@
 - 게임의 전체적인 흐름을 통제한다.
 - [ ] 게임을 시작한다. GameController#startGame()
 - [ ] 게임을 완료한 후 우승자를 결정한다. - GameController #determineWinner()
+
 #### Judgement
 - [ ] 무작위 값이 4이상인지 판별한다. - Judgement #isNumberMoreThan4()
 
