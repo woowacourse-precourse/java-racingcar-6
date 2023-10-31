@@ -29,17 +29,6 @@ public class OutputView {
         }
     }
 
-//    public static void showWinners(List<String> carNames) {
-//        System.out.print("최종 우승자 : " + carNames.get(0));
-//        if (isSoloWin(carNames)) {
-//            System.out.println();
-//            return;
-//        }
-//        for (int i = 1; i < carNames.size(); i++) {
-//            System.out.print(", " + carNames.get(i));
-//        }
-//        System.out.println();
-//    }
     public static void showWinners(List<String> carNames) {
         if (isSoloWin(carNames)) {
             System.out.print("최종 우승자 : " + carNames.get(0));
