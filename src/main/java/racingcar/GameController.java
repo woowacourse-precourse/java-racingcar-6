@@ -16,4 +16,13 @@ public class GameController {
         game.setNumberOfAttempts(gameView.inputNumberOfAttempts());
     }
 
+    public void play() {
+        int numberOfAttempts = game.getNumberOfAttempts();
+        // 시도 횟수만큼 돌면서
+        for (int i = 0; i < numberOfAttempts; i++) {
+            game.startRound();                  // 한 라운드 수행
+            gameView.printResultOfRound(game);  // 결과 출력
+        }
+    }
+
 }
