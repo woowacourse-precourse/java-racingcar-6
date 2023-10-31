@@ -14,4 +14,8 @@ public class Car {
             addDistance();
         }
     }
+
+    private void addDistance() {
+        this.distance++;
+    }
 }
