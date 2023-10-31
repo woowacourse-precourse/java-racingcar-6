@@ -17,6 +17,14 @@ class GameTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_5자_제한_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("abcdef", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
