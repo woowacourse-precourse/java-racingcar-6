@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Game {
     //    private int stageTimes;
-    private HashMap<String, Integer> cars;
+    private HashMap<String, Integer> cars = new HashMap<>();
 
 //    public int getStageTimes() {
 //        return stageTimes;
