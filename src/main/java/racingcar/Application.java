@@ -10,8 +10,10 @@ public class Application {
         // TODO: 프로그램 구현
         List<String> nameList = UserInputHandler.getNamesFromUser();
         String names = String.join(", ", nameList);
+        int rounds = UserInputHandler.getAttemptCountFromUser();
 
         GameController gameController = new GameController();
         gameController.setUp(names);
+        gameController.run(rounds);
     }
 }
