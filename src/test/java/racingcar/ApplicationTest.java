@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -89,6 +90,32 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,woni", " "))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    @DisplayName("단일_전진_테스트")
+    void carMoveTest() {
+        //given
+        Car car = new Car("yun");
+
+        //when
+        car.move(MOVING_FORWARD);
+
+        //then
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("단일_정지_테스트")
+    void carStopTest() {
+        //given
+        Car car = new Car("yun");
+
+        //when
+        car.move(STOP);
+
+        //then
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Override
