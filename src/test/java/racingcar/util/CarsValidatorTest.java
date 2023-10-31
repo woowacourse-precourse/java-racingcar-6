@@ -44,6 +44,19 @@ public class CarsValidatorTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("validateNotEmpty 함수 기능 테스트")
+    void 빈_값_입력_시_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
