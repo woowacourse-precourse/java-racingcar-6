@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import static racingcar.constant.Constants.DISTANCE;
+import static racingcar.constant.Constants.MOVING_DISTANCE;
 
 public class Car {
     private String name;
@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void move() {
-        location += DISTANCE;
+        location += MOVING_DISTANCE;
     }
 
     public int getLocation() {

@@ -1,17 +1,17 @@
 package racingcar.io;
 
-import static racingcar.constant.Constants.MAX_CAR_NAME_LEN;
-import static racingcar.constant.Constants.MIN_CAR_NAME_LEN;
-import static racingcar.constant.Constants.SEPARATOR;
-
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.StringManipulator;
 
+import static racingcar.constant.Constants.INPUT_SEPARATOR;
+import static racingcar.constant.Constants.MAX_CAR_NAME_LEN;
+import static racingcar.constant.Constants.MIN_CAR_NAME_LEN;
+
 public class InputHandler {
     public static List<String> carNames() {
         String carNamesWithSeparator = Console.readLine();
-        String[] carNameGroup = StringManipulator.splitSeparator(carNamesWithSeparator, SEPARATOR);
+        String[] carNameGroup = StringManipulator.splitSeparator(carNamesWithSeparator, INPUT_SEPARATOR);
         checkValidCarNames(carNameGroup);
         List<String> carNames = StringManipulator.toList(carNameGroup);
 
