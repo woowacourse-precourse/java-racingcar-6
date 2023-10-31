@@ -50,7 +50,11 @@ public class Car {
         boolean isWinner = cars.stream()
                 .noneMatch(c -> this.position < c.position);
 
-        return isWinner ? this.name : "";
+        if (isWinner) {
+            return this.name;
+        }
+
+        return "";
     }
 
     @Override
