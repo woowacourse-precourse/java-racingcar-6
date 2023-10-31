@@ -6,6 +6,7 @@ import model.Car;
 import model.InputCheck;
 import model.Round;
 import view.Input;
+import view.Output;
 
 public class GameStart {
 
@@ -26,6 +27,7 @@ public class GameStart {
 
         for (int i = 0; i < round; i++) {
             Round.play(carList);
+            Output.roundResult(carList);
         }
     }
 }
