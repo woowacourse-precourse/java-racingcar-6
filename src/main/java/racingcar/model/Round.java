@@ -44,4 +44,8 @@ public class Round {
     public static int getCurrentRoundCount() {
         return currentRoundCount;
     }
+
+    public static void resetCurrentRoundCount() {
+        currentRoundCount = INITIAL_ROUND;
+    }
 }
