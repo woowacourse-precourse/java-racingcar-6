@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.getWinners.GetWinnersImpl;
+import racingcar.race.RaceImpl;
 
 public class Application {
     public static void main(String[] args) {
@@ -9,10 +11,11 @@ public class Application {
         int rounds = Integer.parseInt(Console.readLine());
 
         try {
-            Race race = new Race(carNames);
+            RaceImpl race = new RaceImpl(carNames);
+            GetWinnersImpl getWinners = new GetWinnersImpl(race);
             race.start(rounds);
 
-            System.out.println("최종 우승자 : " + String.join(", ", race.getWinners()));
+            System.out.println("최종 우승자 : " + String.join(", ", getWinners.getWinners()));
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }

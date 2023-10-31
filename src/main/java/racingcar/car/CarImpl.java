@@ -1,22 +1,18 @@
-package racingcar;
+package racingcar.car;
 
-public class Car {
+import racingcar.validateName.ValidateNameImpl;
+
+public class CarImpl implements Car {
     private String name;
     private int position = 0;
 
-    public Car(String name) {
-        validateName(name);
+    public CarImpl(String name) {
+        new ValidateNameImpl().validateName(name);
         this.name = name;
     }
 
     public String getName() {
         return this.name;
-    }
-
-    private void validateName(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException();
-        }
     }
 
     public void move(int randomNumber) {

@@ -5,16 +5,17 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.race.RaceImpl;
 
 public class RaceTest {
 
-    private Race race;
+    private RaceImpl race;
     private String[] carNames;
 
     @BeforeEach
     void setUp() {
         carNames = new String[]{"car1", "car2", "car3"};
-        race = new Race(carNames);
+        race = new RaceImpl(carNames);
     }
 
     @Test
@@ -37,16 +38,9 @@ public class RaceTest {
     }
 
     @Test
-    void raceWinnerTest() {
-        race.start(5);
-        List<String> winners = race.getWinners();
-        assertThat(winners).isNotEmpty();
-    }
-
-    @Test
     void raceInvalidInputTest() {
         String[] invalidNames = {"", " ", "carWithVeryLongName"};
-        assertThatThrownBy(() -> new Race(invalidNames))
+        assertThatThrownBy(() -> new RaceImpl(invalidNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
