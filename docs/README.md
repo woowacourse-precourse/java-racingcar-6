@@ -31,7 +31,7 @@
 
 ## 기능을 할당받는 클래스 설계
 
-- [ ] RacingStadium : 1번 기능, 11번 기능
+- [x] RacingStadium : 1번 기능, 11번 기능
 - [x] CarFactory : 3번 기능
 - [x] Car : 6번 기능, 12번 기능
 - [x] CarNameDto : 15번 기능
