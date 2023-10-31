@@ -100,7 +100,7 @@
     * 입력 검증, 실패 시 `IllegalArgumentException`
         * 쉼표 기준 나눔, 각 이름 5자 이하
 
-#### RaceArgumentsValidator
+#### NumberAttemptsValidator
 
 * 책임
     * 시도 횟수 검증
@@ -120,7 +120,7 @@
 * 기능
     * 파싱 후 record로 wrapping
 
-#### RaceArgumentsParser
+#### NumberAttemptsParser
 
 * 책임
     * 시도 횟수 파싱, wrapping
