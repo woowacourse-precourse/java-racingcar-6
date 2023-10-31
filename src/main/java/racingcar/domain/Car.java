@@ -27,4 +27,11 @@ public class Car {
     public void moveForward() {
         this.location += 1;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder(name + " : ");
+        stringBuilder.append("-".repeat(location));
+        return stringBuilder.toString();
+    }
 }
