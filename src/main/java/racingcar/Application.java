@@ -28,7 +28,7 @@ class GameSystem {
         totalCar = makeCars(input, manufacture);
         output.askTry();
         attempt = makeTryNumber(input, manufacture);
-
+        runGame(output);
     }
 
     public TotalCar makeCars(InputView input, InputManufacture manufacture) {
