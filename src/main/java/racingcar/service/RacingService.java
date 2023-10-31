@@ -24,7 +24,7 @@ public class RacingService {
         System.out.println("실행 결과");
 
         play();
-        
+
         System.out.println("최종 우승자 : " + getResult());
     }
 
@@ -58,11 +58,32 @@ public class RacingService {
         System.out.println("시도할 회수는 몇회인가요?");
         String tryNum = Console.readLine();
 
+        checkIllegalInput(carNames, tryNum);
+
         List<String> carNameList = List.of(carNames.split(","));
         for (String carName : carNameList) {
             cars.add(new Car(carName));
         }
 
         this.tryNum = Integer.parseInt(tryNum);
+    }
+
+    private void checkIllegalInput(String carNames, String tryNumStr) {
+        try {
+            int tryNum = Integer.parseInt(tryNumStr);
+            if (tryNum < 1) {
+                throw new IllegalArgumentException();
+            }
+        } catch (RuntimeException e) {
+            throw new IllegalArgumentException();
+        }
+
+        List<String> carNameList = List.of(carNames.split(","));
+        if(carNameList.isEmpty())   throw new IllegalArgumentException();
+        for (String carName : carNameList) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
