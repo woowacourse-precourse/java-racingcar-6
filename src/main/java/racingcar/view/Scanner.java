@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.view;
 
 import static racingcar.configurations.InputConfigurations.*;
 
@@ -11,12 +11,12 @@ public class Scanner {
     private String delimiter;
     private int maximumNameLength;
 
-    Scanner() {
+    public Scanner() {
         delimiter = getDelimiter();
         maximumNameLength = getMaximumNameLength();
     }
 
-    List<String> inputCarNames() {
+    public List<String> inputCarNames() {
         List<String> carNames = new ArrayList<>();
         String inputString = Console.readLine();
         validate(isNoInput(inputString));
@@ -29,7 +29,7 @@ public class Scanner {
         return carNames;
     }
 
-    Integer inputNumberOfRound() {
+    public Integer inputNumberOfRound() {
         String inputString = Console.readLine();
         validate(isInvalidNumber(inputString));
         return Integer.parseInt(inputString);

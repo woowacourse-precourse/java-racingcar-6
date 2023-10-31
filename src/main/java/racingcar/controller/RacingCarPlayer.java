@@ -4,6 +4,8 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.service.CarsGenerator;
 import racingcar.service.JudgeMachine;
+import racingcar.view.Printer;
+import racingcar.view.Scanner;
 
 public class RacingCarPlayer implements GamePlayer {
     JudgeMachine judgeMachine;
@@ -11,6 +13,12 @@ public class RacingCarPlayer implements GamePlayer {
     Scanner scanner;
     Printer printer;
 
+    public RacingCarPlayer() {
+        scanner = new Scanner();
+        printer = new Printer();
+        judgeMachine = new JudgeMachine();
+        carsGenerator = new CarsGenerator();
+    }
     @Override
     public void run() {
         List<Car> carList = generateCars(inputCarNames());
@@ -18,13 +26,6 @@ public class RacingCarPlayer implements GamePlayer {
         race(numberOfRounds,carList);
         List<Car> winningCars = judgeMachine.getWinningCars(carList);
         printer.printResult(winningCars);
-    }
-
-    public RacingCarPlayer() {
-        scanner = new Scanner();
-        printer = new Printer();
-        judgeMachine = new JudgeMachine();
-        carsGenerator = new CarsGenerator();
     }
     private List<Car> generateCars(List<String> carNames) {
         List<Car> carList;
