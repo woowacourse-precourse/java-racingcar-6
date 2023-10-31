@@ -19,4 +19,8 @@ public class GameStatus {
         }
         return stringBuilder.toString();
     }
+
+    public List<CarStatus> getCarStatuses() {
+        return carStatuses;
+    }
 }

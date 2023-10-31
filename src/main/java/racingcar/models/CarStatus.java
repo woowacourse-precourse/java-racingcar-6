@@ -17,4 +17,12 @@ public class CarStatus {
     public String toString() {
         return name + " : " + "-".repeat(moveDistance);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveDistance() {
+        return moveDistance;
+    }
 }
