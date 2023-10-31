@@ -17,6 +17,7 @@ public class Cars {
 
     public void saveCars(String input) {
         Validate.carNameLength(input);
+        Validate.isNotNumber(input);
         String[] parts = input.split(",");
         for (String part : parts) {
             cars.add(new Car(part));

@@ -18,8 +18,10 @@ public class Validate {
 
     public static void carNameLength(String input) {
         String[] parts = input.split(",");
-        if (parts.length > CarRaceConstant.MAX_NAME_LENGTH.getConstant()) {
-            throw new IllegalArgumentException();
+        for (String part : parts) {
+            if (part.length() > CarRaceConstant.MAX_NAME_LENGTH.getConstant()) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
