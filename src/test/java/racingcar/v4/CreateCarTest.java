@@ -3,6 +3,7 @@ package racingcar.v4;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
@@ -48,6 +49,21 @@ class CreateCarTest {
         CreateCar createCar = new CreateCar();
         List<String> carNames = createCar.splitCarNames("벤츠,페라리,레드불");
         assertThat(carNames).containsExactly("벤츠", "페라리", "레드불");
+    }
+
+    @Test
+    void 자동차_이름을_공백으로_구분하여_리스트로_변환한다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList(" 벤츠 ", " 페라리 ", " 레드불 ");
+        List<String> trimmedCarNames = createCar.trimCarNames(carNames);
+        assertThat(trimmedCarNames).containsExactly("벤츠", "페라리", "레드불");
+    }
+
+    @Test
+    void 자동차_이름이_5자_이하인_경우_예외가_발생하지_않는다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("pobi", "crong", "honux");
+        createCar.validateCarNameLength(carNames);
     }
 
 }
