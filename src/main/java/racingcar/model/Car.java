@@ -12,10 +12,12 @@ public class Car {
     private static final Integer THRESHOLD = 4;
 
     private final CarName carName;
+    private final RandomNumberGenerator numberGenerator;
     private CarPosition carPosition;
 
     protected Car(final CarName carName) {
         this.carName = carName;
+        this.numberGenerator = new RandomNumberGenerator();
         this.carPosition = new CarPosition(START_POINT);
     }
 
@@ -27,7 +29,7 @@ public class Car {
     }
 
     private boolean isMovingRequired() {
-        Integer randomNumber = RandomNumberGenerator.pickNumber();
+        Integer randomNumber = numberGenerator.pickNumber();
         if (randomNumber >= THRESHOLD) {
             return true;
         }
