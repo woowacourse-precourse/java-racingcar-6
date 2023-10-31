@@ -10,7 +10,6 @@ public class ManagerController {
 
     private static int START_NUMBER_RANGE = 0;
     private static int END_NUMBER_RANGE = 9;
-    private static int MOVE_CONDITION = 4;
     private static int ZERO_MOVE = 0;
     private final ManagerView managerView = new ManagerView();
     private final CarController carController = new CarController();
@@ -26,8 +25,8 @@ public class ManagerController {
         judgeWinnerCar(cars);
 
     }
-    public boolean isPossibleToMove(){
-        return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE) >= MOVE_CONDITION;
+    public int createRandomNumber(){
+        return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE);
     }
 
     public void executeRacing(List<Car> cars, Integer tryCount){
@@ -39,9 +38,7 @@ public class ManagerController {
     }
     public void executeOneTry(List<Car> cars){
         for(Car car: cars){
-            if(isPossibleToMove()){
-                car.setMoveCount(car.getMoveCount()+1);
-            }
+            car.moveOrStop(createRandomNumber());
         }
     }
     public void resultExecutionMessage(){
