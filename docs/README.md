@@ -22,7 +22,7 @@
 - [x] List를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
 
 
-- [ ] 입력 메시지 출력 (printInputMoveNumberMessage) [OutputView]
+- [x] 입력 메시지 출력 (printInputMoveNumberMessage) [OutputView]
 
   - [ ] 시도할 횟수 m입력 (readMoveNumber) [InputView]
 
