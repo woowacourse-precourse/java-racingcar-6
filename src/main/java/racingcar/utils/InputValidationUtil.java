@@ -34,4 +34,21 @@ public class InputValidationUtil {
     private static boolean isValidLength(String str) {
         return str.length() <= AppConstants.NAME_LENGTH_LIMIT;
     }
+
+    public static int validateAndParseRound(String str) {
+        if (! hasValue(str)) {
+            throw new IllegalArgumentException(AppConstants.ERR_ROUND_CANNOT_BE_BLANK);
+        }
+
+        try {
+            int val = Integer.parseInt(str);
+            if (val < 1) {
+                throw new IllegalArgumentException(AppConstants.ERR_INVALID_ROUND_LOWER);
+            }
+            return val;
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException(AppConstants.ERR_INVALID_ROUND_NUMBER);
+        }
+    }
+
 }

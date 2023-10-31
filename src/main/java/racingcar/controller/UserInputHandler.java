@@ -8,11 +8,11 @@ import java.util.List;
 
 public class UserInputHandler {
     public List<String> getCarNameList() {
-        String names = getUserCarName();
+        String names = getInputCarName();
         return separateNames(names);
     }
 
-    private String getUserCarName() {
+    private String getInputCarName() {
         GameOutput.printInputCarName();
         return UserInput.getUserInputForCarNames();
     }
@@ -25,4 +25,15 @@ public class UserInputHandler {
         InputValidationUtil.validateCarNameList(nameList);
         return nameList;
     }
+    public int getGameRound() {
+        String round = getInputGameRound();
+        return InputValidationUtil.validateAndParseRound(round);
+    }
+
+    private String getInputGameRound() {
+        GameOutput.printInputGameRound();
+        return UserInput.getUserInputForGameRound();
+    }
+
+
 }
