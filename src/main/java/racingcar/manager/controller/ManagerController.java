@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.manager.model.Car;
+import racingcar.manager.model.Manager;
 import racingcar.manager.view.ManagerView;
 
 public class ManagerController {
 
     private static int START_NUMBER_RANGE = 0;
     private static int END_NUMBER_RANGE = 9;
-    private static int ZERO_MOVE = 0;
     private final ManagerView managerView = new ManagerView();
     private final CarController carController = new CarController();
     private final UserController userController = new UserController();
@@ -22,9 +22,10 @@ public class ManagerController {
 
         resultExecutionMessage();
         executeRacing(cars,tryCount);
-        List<String> winnerCars = judgeWinnerCar(cars);
-        finalWinner(winnerCars);
+        Manager manager = judgeWinnerCar(cars);
+        finalWinner(manager);
     }
+
     public int createRandomNumber(){
         return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE);
     }
@@ -58,29 +59,17 @@ public class ManagerController {
         }
     }
 
-    public List<String> judgeWinnerCar(List<Car> cars){
-        int maxMove = ZERO_MOVE;
-        List<String> winnerCars = new ArrayList<>();
-        for(Car car:cars){
-            if(car.getMoveCount()>maxMove){
-                maxMove = car.getMoveCount();
-                winnerCars.clear();
-                winnerCars.add(car.getCarName());
-            }
-            else if(car.getMoveCount()==maxMove){
-                winnerCars.add(car.getCarName());
-            }
+    public Manager judgeWinnerCar(List<Car> cars){
+        Manager manager = new Manager();
+        for(Car car:cars) {
+            int moveCount = car.getMoveCount();
+            String carName = car.getCarName();
+            manager.judgeWinnerCar(carName, moveCount);
         }
-        return winnerCars;
+        return manager;
     }
 
-    public void finalWinner(List<String> winnerCars){
-        managerView.printFinalWinners(winnerCars);
+    public void finalWinner(Manager manager){
+        managerView.printFinalWinners(manager.getWinnerCars());
     }
-
-
-
-
-
-
 }
