@@ -73,5 +73,9 @@
     - RaceUtil : 게임의 각종 기능을 담는 유틸리티 클래스
 
 - ### view
-    - InputView : 입력과 그에 대한 검증을 담당하는 클래스
-    - OutputView : 출력을 담당하는 클래스
+  - InputView : 입력과 그에 대한 검증을 담당하는 클래스
+  - OutputView : 출력을 담당하는 클래스
+
+- ### service
+  - CarService : Car 에 대한 정보의 처리를 담당하는 서비스 클래스
+  - RaceService : Race 에 대한 정보의 처리를 담당하는 서비스 클래스
