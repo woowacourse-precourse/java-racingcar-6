@@ -1,17 +1,22 @@
 package racingcar.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.dto.CarStatus;
 import racingcar.dto.WinnerResult;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TryCount;
 import racingcar.model.Winner;
+import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+
+    private final GameService gameService;
+
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
 
     public void start() {
         String names = getCarNames();
@@ -26,19 +31,17 @@ public class GameController {
     }
 
     private void raceOn(Cars cars, TryCount tryCount) {
-        OutputView.newLine();
         OutputView.printResultMessage();
 
         for (int i = 0; i < tryCount.value(); i++) {
-            cars.tryRun();
-            OutputView.printCurrentCarStatus(getCurrentCarsStatus(cars.getCars()));
+            gameService.tryRunCars(cars);
+            printCarStatusOfRace(cars);
         }
     }
 
-    private List<CarStatus> getCurrentCarsStatus(List<Car> cars) {
-        return cars.stream()
-                .map(CarStatus::new)
-                .collect(Collectors.toList());
+    private void printCarStatusOfRace(Cars cars) {
+        List<CarStatus> carStatusOfRace = gameService.getCarStatusOfRace(cars);
+        OutputView.printCarStatusOfRace(carStatusOfRace);
     }
 
     private WinnerResult getWinnerResult(Winner winner) {
@@ -51,8 +54,7 @@ public class GameController {
     }
 
     private Cars createCars(String names) {
-        Cars cars = new Cars(names);
-        return cars;
+        return new Cars(names);
     }
 
     private String getTryCount() {
