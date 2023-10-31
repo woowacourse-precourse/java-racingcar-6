@@ -3,9 +3,9 @@ package racingcar.domain.game;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.CarsFixture;
-import racingcar.application.RandomDriveRule;
+import racingcar.application.RandomMoveRule;
 import racingcar.controller.ConsoleInputOutput;
-import racingcar.domain.policy.DriveRule;
+import racingcar.domain.policy.MoveRule;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -18,15 +18,15 @@ class GameTest {
     @Test
     @DisplayName("게임은 정상적으로 실행되어야 한다.")
     void 게임은_정상적으로_실행() {
-        DriveRule driveRule = mock(RandomDriveRule.class);
+        MoveRule moveRule = mock(RandomMoveRule.class);
         GameOperator gameOperator = mock(ConsoleInputOutput.class);
 
-        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2, 5);
+        when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2, 5);
         when(gameOperator.generateCars()).thenReturn(CarsFixture.fixture().build());
         when(gameOperator.setTrial()).thenReturn(1);
 
-        Game game = new Game(driveRule, gameOperator);
-        String result = game.run();
+        Game game = new Game(moveRule, gameOperator);
+        String result = game.play();
 
         assertEquals(
                 """

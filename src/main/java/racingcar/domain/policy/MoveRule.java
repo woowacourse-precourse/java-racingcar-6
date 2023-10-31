@@ -1,5 +1,5 @@
 package racingcar.domain.policy;
 
-public interface DriveRule {
+public interface MoveRule {
     int generateValue(int minRange, int maxRange);
 }

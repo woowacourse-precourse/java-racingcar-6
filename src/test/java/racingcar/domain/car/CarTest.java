@@ -5,8 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.policy.DriveRule;
-import racingcar.application.RandomDriveRule;
+import racingcar.domain.policy.MoveRule;
+import racingcar.application.RandomMoveRule;
 
 import java.util.List;
 
@@ -37,11 +37,11 @@ class CarTest {
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     @DisplayName("Car은 5 이상의 값이 나오면 전진 할 수 있어야 한다.")
     void Car은_정상적으로_전진한다(int value) {
-        DriveRule driveRule = mock(RandomDriveRule.class);
-        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(value);
+        MoveRule moveRule = mock(RandomMoveRule.class);
+        when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(value);
 
         Car car = new Car("test");
-        car.move(driveRule);
+        car.move(moveRule);
         String position = car.printPosition();
 
         assertEquals("test : -\n", position);
@@ -51,12 +51,12 @@ class CarTest {
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     @DisplayName("Car은 2회 전진할 수 있어야 한다.")
     void Car은_정상적으로_전진한다_2회() {
-        DriveRule driveRule = mock(RandomDriveRule.class);
-        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5);
+        MoveRule moveRule = mock(RandomMoveRule.class);
+        when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5);
 
         Car car = new Car("test");
-        car.move(driveRule);
-        car.move(driveRule);
+        car.move(moveRule);
+        car.move(moveRule);
         String position = car.printPosition();
 
         assertEquals("test : --\n", position);
@@ -65,11 +65,11 @@ class CarTest {
     @Test
     @DisplayName("Car은 4 미만의 값이 나오면 전진 할 수 없다.")
     void Car은_전진하지_못한다() {
-        DriveRule driveRule = mock(RandomDriveRule.class);
-        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(3);
+        MoveRule moveRule = mock(RandomMoveRule.class);
+        when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(3);
 
         Car car = new Car("test");
-        car.move(driveRule);
+        car.move(moveRule);
         String position = car.printPosition();
 
         assertEquals("test : \n", position);
@@ -78,13 +78,13 @@ class CarTest {
     @Test
     @DisplayName("Car이 승자일 경우 이름을 반환해줘야 한다.")
     void Car가_승자일_경우_이름을_반환() {
-        DriveRule driveRule = mock(RandomDriveRule.class);
-        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2);
+        MoveRule moveRule = mock(RandomMoveRule.class);
+        when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2);
 
         Car first = new Car("First");
         Car secon = new Car("Secon");
-        first.move(driveRule);
-        secon.move(driveRule);
+        first.move(moveRule);
+        secon.move(moveRule);
 
         String winner = first.getWinner(List.of(first, secon));
 
@@ -94,13 +94,13 @@ class CarTest {
     @Test
     @DisplayName("Car이 승자가 아닐 경우 이름을 반환하면 안된다.")
     void Car가_승자일_경우_빈문자열_반환() {
-        DriveRule driveRule = mock(RandomDriveRule.class);
-        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(2, 5);
+        MoveRule moveRule = mock(RandomMoveRule.class);
+        when(moveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(2, 5);
 
         Car first = new Car("First");
         Car secon = new Car("Secon");
-        first.move(driveRule);
-        secon.move(driveRule);
+        first.move(moveRule);
+        secon.move(moveRule);
 
         String winner = first.getWinner(List.of(first, secon));
 

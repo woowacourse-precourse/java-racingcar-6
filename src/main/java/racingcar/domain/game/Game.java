@@ -1,25 +1,24 @@
 package racingcar.domain.game;
 
 import racingcar.domain.car.Cars;
-import racingcar.domain.policy.DriveRule;
+import racingcar.domain.policy.MoveRule;
 import racingcar.domain.race.Race;
 
 public class Game {
     private final Race race;
     private final GameOperator gameOperator;
 
-    public Game(DriveRule driveRule, GameOperator gameOperator) {
-        this.race = new Race(driveRule);
+    public Game(MoveRule moveRule, GameOperator gameOperator) {
+        this.race = new Race(moveRule);
         this.gameOperator = gameOperator;
     }
 
-    public String run() {
+    public String play() {
         StringBuilder result = new StringBuilder();
 
         Cars cars = generateCars();
-        int trial = getTrial();
 
-        result.append(race(cars, trial));
+        result.append(race(cars));
         result.append(printWinner(cars));
 
         return result.toString();
@@ -29,12 +28,9 @@ public class Game {
         return gameOperator.generateCars();
     }
 
-    private int getTrial() {
-        return gameOperator.setTrial();
-    }
-
-    private StringBuilder race(Cars cars, int trial) {
+    private StringBuilder race(Cars cars) {
         StringBuilder result = new StringBuilder();
+        int trial = getTrial();
 
         for (int i = 0; i < trial; i++) {
             race.run(cars);
@@ -42,6 +38,10 @@ public class Game {
         }
 
         return result;
+    }
+
+    private int getTrial() {
+        return gameOperator.setTrial();
     }
 
     private String printWinner(Cars cars) {

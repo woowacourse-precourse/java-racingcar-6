@@ -1,16 +1,16 @@
 package racingcar.domain.race;
 
 import racingcar.domain.car.Cars;
-import racingcar.domain.policy.DriveRule;
+import racingcar.domain.policy.MoveRule;
 
 public class Race {
-    private final DriveRule driveRule;
+    private final MoveRule moveRule;
 
-    public Race(DriveRule driveRule) {
-        this.driveRule = driveRule;
+    public Race(MoveRule moveRule) {
+        this.moveRule = moveRule;
     }
 
     public void run(Cars cars) {
-        cars.move(driveRule);
+        cars.move(moveRule);
     }
 }

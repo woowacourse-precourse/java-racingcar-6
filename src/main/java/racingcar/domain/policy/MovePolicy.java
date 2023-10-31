@@ -9,7 +9,7 @@ public class MovePolicy {
     private MovePolicy() {
     }
 
-    public static boolean canMove(DriveRule driveRule) {
-        return driveRule.generateValue(MIN_RANGE, MAX_RANGE) >= MOVE_THRESHOLD;
+    public static boolean canMove(MoveRule moveRule) {
+        return moveRule.generateValue(MIN_RANGE, MAX_RANGE) >= MOVE_THRESHOLD;
     }
 }

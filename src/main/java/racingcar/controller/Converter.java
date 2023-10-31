@@ -37,6 +37,5 @@ public class Converter {
         } catch (NumberFormatException e) {
             throw new WrongInputException("숫자만 입력해주세요.");
         }
-
     }
 }

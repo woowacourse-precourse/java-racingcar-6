@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-import racingcar.domain.policy.DriveRule;
+import racingcar.domain.policy.MoveRule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +13,8 @@ public class Cars {
         this.values = new ArrayList<>(values);
     }
 
-    public void move(DriveRule driveRule) {
-        values.forEach(car -> car.move(driveRule));
+    public void move(MoveRule moveRule) {
+        values.forEach(car -> car.move(moveRule));
     }
 
     public String printPosition() {
