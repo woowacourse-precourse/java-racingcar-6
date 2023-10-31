@@ -11,4 +11,9 @@ public class OutputView {
         System.out.println(updatedResult);
         System.out.println();
     }
+
+    public static void printWinners(String winners) {
+        System.out.print(Message.FINAL_WINNERS.getMessage());
+        System.out.print(winners);
+    }
 }
