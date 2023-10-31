@@ -18,7 +18,9 @@ public class View {
         System.out.println(CYCLE_INPUT_MESSAGE.getMessage());
     }
 
-    public static void printRacingResultMessage() { System.out.println("\n" + RACING_RESULT.getMessage()); }
+    public static void printRacingResultMessage() {
+        System.out.println("\n" + RACING_RESULT.getMessage());
+    }
 
     public static void printRacingResult(List<List<RacingStatusDTO>> allRacingStatus) {
         for (List<RacingStatusDTO> statusPerRacing : allRacingStatus) {

@@ -27,6 +27,8 @@ public class RacingCar {
         return this.location;
     }
 
-    public String getName() { return this.name; }
+    public String getName() {
+        return this.name;
+    }
 
 }

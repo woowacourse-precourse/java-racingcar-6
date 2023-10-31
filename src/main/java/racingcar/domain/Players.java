@@ -32,15 +32,15 @@ public class Players {
 
     public List<String> findWinners() {
         int maxDistance = players.stream()
-                                    .map(RacingCar::getLocation)
-                                    .map(String::length)
-                                    .max(Integer::compare)
-                                    .orElse(0);
+                .map(RacingCar::getLocation)
+                .map(String::length)
+                .max(Integer::compare)
+                .orElse(0);
 
         return players.stream()
-                        .filter(racingCar -> racingCar.getLocation().length() == maxDistance)
-                        .map(RacingCar::getName)
-                        .collect(Collectors.toList());
+                .filter(racingCar -> racingCar.getLocation().length() == maxDistance)
+                .map(RacingCar::getName)
+                .collect(Collectors.toList());
     }
 
     public int size() {

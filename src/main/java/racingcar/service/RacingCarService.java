@@ -19,7 +19,7 @@ public class RacingCarService {
 
     private static List<RacingCar> generate(Set<String> carNameSet) {
         return carNameSet.stream().map(carName -> new RacingCar(carName))
-                                  .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
 
     public List<List<RacingStatusDTO>> racing(int cycle) {
