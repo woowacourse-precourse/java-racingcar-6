@@ -35,6 +35,7 @@ public class OutputProcessor {
                 result.append(", ");
             }
         }
+
         return result.toString();
     }
 

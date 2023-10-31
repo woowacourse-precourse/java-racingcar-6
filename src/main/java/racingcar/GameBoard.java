@@ -15,7 +15,7 @@ public class GameBoard {
 
     private static void validateDuplication(List<Player> players) {
         long numberOfDistinctPlayer = players.stream().distinct().count();
-        if(players.size() != numberOfDistinctPlayer){
+        if (players.size() != numberOfDistinctPlayer) {
             throw new IllegalArgumentException();
         }
     }
@@ -42,6 +42,6 @@ public class GameBoard {
     }
 
     private boolean canMove() {
-        return Randoms.pickNumberInRange(0,9) >= 4;
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }

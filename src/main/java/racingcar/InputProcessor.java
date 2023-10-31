@@ -14,6 +14,7 @@ public class InputProcessor {
 
     public List<Player> manipulateCarNameInput(String input) {
         validateCarNameInput(input);
+
         return parseCarNameInputToList(input);
     }
 

@@ -13,12 +13,14 @@ public class Player {
 
     public static Player of(String name) {
         validateCarName(name);
+
         return new Player(name, 0);
     }
 
     public static Player of(String name, Integer position) {
         validateCarName(name);
         validatePositionRange(position);
+
         return new Player(name, position);
     }
 
@@ -51,6 +53,7 @@ public class Player {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Player player = (Player) o;
+
         return Objects.equals(name, player.name) && Objects.equals(position, player.position);
     }
 
