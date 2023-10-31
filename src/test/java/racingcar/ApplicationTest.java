@@ -3,9 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarInputProcess;
+import racingcar.domain.RacingRecord;
 import racingcar.domain.RepeatInputProcess;
 
-import java.util.List;
+import java.util.*;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -60,6 +61,41 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> repeatInputProcess.process(input))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 무작위_값이_4_이상일_경우_전진() {
+        RacingRecord racingRecord = new RacingRecord();
+        List<String> cars = Arrays.asList("pobi");
+        Map<String, Integer> records = new HashMap<>();
+        records = racingRecord.initRecord(cars);
+
+        int randomValue = 4;
+
+        for (String car : cars) {
+            records = racingRecord.forwardMovement(car, records, randomValue);
+        }
+
+        assertThat(records).containsKey("pobi");
+        assertThat(records).containsValue(1);
+    }
+
+    @Test
+    void 사용자의_전진만큼_바_형태로_출력() {
+        RacingRecord racingRecord = new RacingRecord();
+        List<String> cars = Arrays.asList("pobi", "java");
+        Map<String, Integer> records = new HashMap<>();
+        records = racingRecord.initRecord(cars);
+
+        int randomValue = 4;
+
+        for (String car : cars) {
+            records = racingRecord.forwardMovement(car, records, randomValue);
+        }
+
+        racingRecord.printRacingRecord(cars, records);
+
+        assertThat(output()).contains("pobi : -", "java : -");
     }
 
     @Override

@@ -2,14 +2,18 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarInputProcess;
+import racingcar.domain.RacingRecord;
 import racingcar.domain.RepeatInputProcess;
 
 import java.util.List;
+import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
         List<String> cars = carsInput();
         int repeat = repeatInput();
+
+        racingGame(cars, repeat);
     }
 
     private static List<String> carsInput() {
@@ -26,7 +30,21 @@ public class Application {
         RepeatInputProcess repeatInputProcess = new RepeatInputProcess();
         String input = Console.readLine();
         int repeat = repeatInputProcess.process(input);
-
         return repeat;
     }
+
+    private static void racingGame(List<String> cars, int repeat) {
+        System.out.println("\n실행 결과");
+
+        RacingRecord racingRecord = new RacingRecord();
+        Map<String, Integer> records = racingRecord.initRecord(cars);
+
+        while(repeat-- > 0) {
+            records = racingRecord.record(cars, records);
+            racingRecord.printRacingRecord(cars, records);
+            System.out.println("");
+        }
+    }
+
+
 }
