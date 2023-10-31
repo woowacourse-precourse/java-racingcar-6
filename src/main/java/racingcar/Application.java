@@ -25,6 +25,8 @@ public class Application {
     }
 
     private static int getAttemptNumber() {
-        return Integer.valueOf(Console.readLine().replaceAll(" ",""));
+        String attemptNumber =Console.readLine().replaceAll(" ","");
+        Validation.validateAttemptNumber(attemptNumber);
+        return Integer.parseInt(attemptNumber);
     }
 }
