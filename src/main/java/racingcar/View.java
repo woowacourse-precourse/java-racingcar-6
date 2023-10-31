@@ -22,9 +22,9 @@ public class View {
     }
 
     public void printWinner(List<Car> winners) {
-        String winnerNames = String.join(",", winners.stream()
+        String winnerNames = winners.stream()
             .map(Car::getName)
-            .collect(Collectors.toList()));
+            .collect(Collectors.joining(","));
         System.out.println(WINNER_RESULT + winnerNames);
     }
 
