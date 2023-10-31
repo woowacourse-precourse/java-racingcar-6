@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.stream.IntStream;
 import racingcar.model.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,11 +22,10 @@ public class RacingGameController {
 
     private void play() {
         OutputView.printStartMessage();
-        IntStream.range(0, moveCount)
-                .forEach(i -> {
-                    racingCars.moveOrStop();
-                    OutputView.printCarsPosition(racingCars);
-                });
+        for (int i = 0; i < moveCount; i++) {
+            racingCars.moveOrStop();
+            OutputView.printCarsPosition(racingCars);
+        }
     }
 
     private void showWinner() {
