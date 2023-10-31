@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Game;
@@ -13,6 +15,7 @@ import racingcar.view.UserInputMessage;
 
 public class RaceService {
     Cars cars = new Cars();
+    Game game = new Game();
 
     // [readyRace]--------------------------------
     public void ParticipateRace(){
@@ -72,12 +75,9 @@ public class RaceService {
         int raceCount = cars.getRaceCount();
         ArrayList carNameList = cars.getCarNames();
         HashMap raceLog = createEmptyRaceLog(carNameList);
-        System.out.println("raceLog를 만들었습니다."+raceLog);
 
         while(raceCount > 0){
             HashMap<String,Integer> tryOne = rollRandomNumbers(carNameList);
-            System.out.println("tryOne: "+tryOne);
-
             updateRaceLog(carNameList, tryOne, raceLog, raceCount);
             showRaceLog(carNameList,raceLog);
             raceCount -= 1;
@@ -109,9 +109,9 @@ public class RaceService {
                 addEachRaceLog(i, raceLog,carNameList);
             }
         }
-//        if(raceCount == 1){
-//            game.setRaceResult(raceLog);
-//        }
+        if(raceCount == 1){
+            game.setRaceResult(raceLog);
+        }
     }
 
     public boolean isCarAdvance(int randomNumber){
@@ -124,7 +124,6 @@ public class RaceService {
     public void addEachRaceLog(int i, HashMap<String, String> raceLog,ArrayList<String> carNameList){
         String eachLog = raceLog.get(carNameList.get(i));
         raceLog.replace(carNameList.get(i),eachLog + "-");
-        System.out.println();
     }
 
     public void showRaceLog(ArrayList<String> carNameList, HashMap raceLog){
@@ -133,6 +132,42 @@ public class RaceService {
             System.out.println(carNameList.get(i)+" : "+raceLog.get(carNameList.get(i)));
         }
     }
+    // [prizeWinner] ----------------------------------------------
+    public void showWinner(){
+        SystemOutMessage.RaceResultMessage();
+        ArrayList<String> winnerNames = calculateWinner();
+
+        String winnersJoin = String.join(", ", winnerNames);
+        System.out.println(winnersJoin);
+    }
+
+    public ArrayList<String> calculateWinner(){
+        HashMap<String, String> finalResult = game.getRaceResult();
+        ArrayList<String> carNames = cars.getCarNames();
+
+        HashMap<String,Integer> pathLength = calculatePathLength(finalResult,carNames);
+        ArrayList<String> winnerNames = new ArrayList<>();
+        int maxLength = Collections.max(calculatePathLength(finalResult,carNames).values());
+
+        for(int i = 0;i < pathLength.size();i++){
+            if(pathLength.get(carNames.get(i)) == maxLength){
+                winnerNames.add(carNames.get(i));
+            }
+        }
+        return winnerNames;
+    }
+
+    public HashMap<String,Integer> calculatePathLength(HashMap<String, String> finalResult,ArrayList<String> carNames){
+        HashMap<String, Integer> winnersPath = new HashMap<>();
+
+        for(int i = 0; i < finalResult.size(); i++){
+            String eachCarName = carNames.get(i);
+            winnersPath.put(eachCarName,finalResult.get(eachCarName).length());
+        }
+        return winnersPath;
+    }
+
+
 }
 
 
