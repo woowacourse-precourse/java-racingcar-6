@@ -2,6 +2,7 @@ package game.car;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class CarList {
     private final ArrayList<Car> carList;
@@ -17,7 +18,7 @@ public class CarList {
         carList.add(car);
     }
 
-    public ArrayList<Car> getCarList() {
-        return (ArrayList<Car>) Collections.unmodifiableList(this.carList);
+    public List<Car> getCarList() {
+        return Collections.unmodifiableList(this.carList);
     }
 }
