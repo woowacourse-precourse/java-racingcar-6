@@ -1,19 +1,16 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class NameTest {
 
     @Test
-    void 이름_유효성_검사() {
-        List<String> list = List.of("abcdef");
+    void validateName() {
+        List<String> validNames = List.of("abcdef");
         Name name = new Name();
-        assertThatThrownBy(() -> name.isValid(list))
+        assertThatThrownBy(() -> name.isValid(validNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
