@@ -7,7 +7,7 @@ public class OutputView {
     private static final String gameResultOutputMessage = "실행 결과";
     private static final String WinngerOutputMessage = "최종 우승자 : ";
 
-    public static void gameResultMessageOutput() {
+    public void gameResultMessageOutput() {
         System.out.println(gameResultOutputMessage);
     }
 
