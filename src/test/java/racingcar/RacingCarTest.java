@@ -4,10 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
+
 public class RacingCarTest {
 
     @Test
-    void 생성시_이름_예외처리(){
+    void 생성시_이름_예외처리() {
         // 성공 case : 5자 이하의 이름
         RacingCar successRacingCar = new RacingCar("abcde");
         assertThat(successRacingCar).isInstanceOf(RacingCar.class);
@@ -18,8 +19,9 @@ public class RacingCarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 5자 이하여야합니다.");
     }
+
     @Test
-    void 전진하기(){
+    void 전진하기() {
         // tryForward가 4 이상이면 전진한다.
         RacingCar racingCar0 = new RacingCar("test1");
         RacingCar racingCar1 = new RacingCar("test2");
@@ -30,7 +32,7 @@ public class RacingCarTest {
     }
 
     @Test
-    void toString_이름과_진행도를_출력(){
+    void toString_이름과_진행도를_출력() {
         RacingCar racingCar = new RacingCar("test");
         racingCar.tryForward(4);
         racingCar.tryForward(4);

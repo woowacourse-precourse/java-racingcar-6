@@ -3,11 +3,11 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RacingCar {
-    int position;
-    String carName;
+    private int position;
+    private final String carName;
 
-    RacingCar(String carName) throws IllegalArgumentException{
-        if(carName.length() > 5) {
+    RacingCar(String carName) throws IllegalArgumentException {
+        if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하여야합니다.");
         }
         this.position = 0;
@@ -19,13 +19,17 @@ public class RacingCar {
     }
 
     public void tryForward(int randomNumber) {
-        if(randomNumber >= 4) {
+        if (randomNumber >= 4) {
             this.position++;
         }
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public String getCarName() {
+        return carName;
     }
 
     @Override
