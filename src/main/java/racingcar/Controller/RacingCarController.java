@@ -25,7 +25,7 @@ public class RacingCarController {
     private void playGame() {
         while (!game.isWon()) {
             game.play();
-            OutputView.printResult(game.getCarDtoList());
+            OutputView.printResult(game.makeMidPrint());
         }
         OutputView.printGameWinner(game.getGameWinner());
     }

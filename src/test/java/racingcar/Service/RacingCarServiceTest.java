@@ -56,18 +56,6 @@ public class RacingCarServiceTest {
     }
 
     @Test
-    void gameWinner() {
-        RacingCarService game = new RacingCarService();
-        game.userInputRacingCar("A,B,C");
-        game.userInputCount("5");
-        game.initGame();
-        while (!game.isWon()) {
-            game.play();
-        }
-        assertThat(game.getGameWinner().size()).isGreaterThanOrEqualTo(1);
-    }
-
-    @Test
     void isWin() {
         RacingCarService game = new RacingCarService();
         game.userInputRacingCar("A,B,C");

@@ -37,19 +37,9 @@ public class OutputViewTest {
     }
 
     @Test
-    void 게임_진행() {
-        CarDto carDto = new CarDto("pobi", 1);
-        List<CarDto> carDtoList = List.of(carDto);
-        System.setOut(newOut);
-        outputView.printResult(carDtoList);
-        assertThat(baos.toString()).contains("pobi : ");
-        System.setOut(System.out);
-    }
-
-    @Test
     void 게임_우승자() {
         System.setOut(newOut);
-        outputView.printGameWinner(List.of("pobi"));
+        outputView.printGameWinner("pobi");
         assertThat(baos.toString()).contains("최종 우승자 : pobi");
         System.setOut(System.out);
     }

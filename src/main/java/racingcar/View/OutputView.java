@@ -20,24 +20,11 @@ public class OutputView {
         System.out.println(GAME_START);
     }
 
-    public static void printResult(List<CarDto> carDtoList) {
-        for (int i = 0; i < carDtoList.size(); i++) {
-            System.out.print(
-                    carDtoList.get(i).getCarName() + " : ");
-            printDashWithPosition(carDtoList.get(i).getPosition());
-            System.out.println();
-        }
-        System.out.println();
+    public static void printResult(String midResult) {
+        System.out.println(midResult);
     }
 
-    private static void printDashWithPosition(int position) {
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-    }
-
-    public static void printGameWinner(List<String> winner) {
-        String winners = String.join(", ", winner);
+    public static void printGameWinner(String winners) {
         System.out.println("최종 우승자 : " + winners);
     }
 }

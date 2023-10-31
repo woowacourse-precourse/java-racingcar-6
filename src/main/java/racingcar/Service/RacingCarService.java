@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.Dto.CarDto;
 import racingcar.Model.InputCarNameValidator;
 import racingcar.Model.InputCountValidator;
+import racingcar.Model.MidPrint;
 import racingcar.Model.RandomPickNumber;
 import racingcar.Utils.DtoManager;
 
@@ -31,12 +32,16 @@ public class RacingCarService {
         }
     }
 
-    public List<String> getGameWinner() {
+    public String getGameWinner() {
         List<String> winner = new ArrayList<>();
         for (int i = 1; i <= getRacingCarCount(); i++) {
             isWinner(getCarDtoByIndex(i), winner);
         }
-        return winner;
+        return winners(winner);
+    }
+
+    private String winners(List<String> winner) {
+        return String.join(", ", winner);
     }
 
     private void isWinner(CarDto carDto, List<String> winner) {
@@ -121,5 +126,9 @@ public class RacingCarService {
 
     public static int getRandomNumber() {
         return RandomPickNumber.getRandomPickNumber();
+    }
+
+    public String makeMidPrint() {
+        return MidPrint.make(getCarDtoList());
     }
 }
