@@ -42,7 +42,7 @@ public class NameTest {
     @Test
     void 중복되는_이름_있는지() {
         assertThatThrownBy(() -> {
-            Cars cars = new Cars("a,b");
+            Cars cars = new Cars("a,a");
         })
                 .isInstanceOf(IllegalArgumentException.class);
     }
