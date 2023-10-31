@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.generator.InputGenerator;
+import racingcar.generator.TestInputGenerator;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -11,6 +13,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    private InputGenerator inputGenerator() {
+        return new TestInputGenerator();
+    }
 
     @Test
     void 전진_정지() {
@@ -31,8 +37,23 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_글자수_예외_처리() {
+        assertThatThrownBy(() ->
+                Application.getValidCarNames(inputGenerator()))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도횟수_음수_예외_처리() {
+        assertThatThrownBy(() ->
+                Application.getPositiveRoundNumber(inputGenerator()))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
+
 }
