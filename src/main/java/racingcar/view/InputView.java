@@ -23,6 +23,12 @@ public class InputView {
         return Integer.parseInt(trialNum);
     }
 
+    public void validateNum(String trialNum) {
+        if (!trialNum.matches("-?\\d+")) {
+            throw new IllegalArgumentException(InputException.NOT_INTEGER.getExceptionMessage());
+        }
+    }
+
     private void validateNameLength(List<String> carNameList) {
         boolean invalidNameLength = carNameList.stream()
                 .anyMatch(carName -> carName.length() > 5);
