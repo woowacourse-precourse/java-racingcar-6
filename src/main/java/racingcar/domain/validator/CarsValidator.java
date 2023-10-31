@@ -1,8 +1,9 @@
-package racingcar.domain;
+package racingcar.domain.validator;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.function.Consumer;
+import racingcar.domain.Car;
 
 public class CarsValidator implements Consumer<List<Car>> {
     private static final String DUPLICATED_NAME = "경주에 참가하는 자동차 이름은 중복될 수 없습니다";

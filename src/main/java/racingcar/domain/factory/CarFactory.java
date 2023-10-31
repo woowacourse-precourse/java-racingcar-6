@@ -1,7 +1,8 @@
-package racingcar.domain;
+package racingcar.domain.factory;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
+import racingcar.domain.Car;
 
 public class CarFactory {
     public static final int DEFAULT_CAR_POSITION = 0;

@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.domain.validator.CarNameValidator;
+import racingcar.domain.factory.CarFactory;
 
 @SuppressWarnings("NonAsciiCharacters")
 class CarFactoryTest {

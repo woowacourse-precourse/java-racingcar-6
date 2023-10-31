@@ -1,10 +1,10 @@
 package racingcar;
 
 import racingcar.controller.RacingCarController;
-import racingcar.domain.CarFactory;
-import racingcar.domain.CarNameValidator;
-import racingcar.domain.CarsValidator;
-import racingcar.domain.ParticipantsFactory;
+import racingcar.domain.factory.CarFactory;
+import racingcar.domain.validator.CarNameValidator;
+import racingcar.domain.validator.CarsValidator;
+import racingcar.domain.factory.ParticipantsFactory;
 import racingcar.domain.RandomMoveEngine;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

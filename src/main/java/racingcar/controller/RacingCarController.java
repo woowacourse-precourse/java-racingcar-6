@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Participants;
-import racingcar.domain.ParticipantsFactory;
+import racingcar.domain.factory.ParticipantsFactory;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

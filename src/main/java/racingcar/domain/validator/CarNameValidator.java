@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.validator;
 
 import java.util.function.Consumer;
 import java.util.regex.Pattern;

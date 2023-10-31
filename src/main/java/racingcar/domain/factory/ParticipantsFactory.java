@@ -1,7 +1,9 @@
-package racingcar.domain;
+package racingcar.domain.factory;
 
 import java.util.List;
 import java.util.function.Consumer;
+import racingcar.domain.Car;
+import racingcar.domain.Participants;
 
 public class ParticipantsFactory {
     private final CarFactory carFactory;
