@@ -1,18 +1,17 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
-import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
-    final byte[] buf = "KO, Ko,kO, K0 , k0\n 10\n".getBytes();
 
     @Test
     void getInputName_함수_체크() {
+        String args = "KO, Ko,kO, K0 , k0\n 1\n";
+        final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
         InputView inputView = new InputView();
@@ -23,9 +22,14 @@ public class InputViewTest {
 
     @Test
     void getGameTurns_함수_체크() {
-        InputView inputView = new InputView();
-        int validTest = inputView.getGameTurns();
+        String args = "1\n";
+        final byte[] buf = String.join("\n", args).getBytes();
+        System.setIn(new ByteArrayInputStream(buf));
 
-        assertThat(validTest).isEqualTo(10);
+        InputView inputView = new InputView();
+        inputView.getInputTurns();
+
+        assertThat(inputView.checkTurnOver()).isTrue();
+        assertThat(inputView.checkTurnOver()).isFalse();
     }
 }
