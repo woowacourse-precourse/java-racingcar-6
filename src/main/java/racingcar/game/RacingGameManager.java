@@ -14,10 +14,11 @@ public class RacingGameManager {
     }
 
     public void run() {
-        registerRacingCar();
+        RacingCarRegistry racingCarRegistry = registerRacingCar();
+        int turnCount = inputNumberOfTurns();
     }
 
-    private void registerRacingCar() {
+    private RacingCarRegistry registerRacingCar() {
         String racerInput = racingGameScreen.inputRacer();
         Validator.validateLength(racerInput, 0, 599); //maxLength = 이름 최대 길이 * 이름 최대 개수 + (이름 최대 개수 -1)*구분자 길이
         Validator.validateHasText(racerInput);
@@ -29,5 +30,14 @@ public class RacingGameManager {
 
         RacingCarRegistry racingCarRegistry = new RacingCarRegistry();
         racingCarRegistry.addAll(list1);
+        return racingCarRegistry;
+    }
+
+    private int inputNumberOfTurns() {
+        String numberOfTurns = racingGameScreen.inputNumberOfTurns();
+        Validator.validateLength(numberOfTurns, 0, 5);
+        Validator.validateHasText(numberOfTurns);
+        Validator.validateNumeric(numberOfTurns);
+        return Integer.parseInt(numberOfTurns);
     }
 }

@@ -64,7 +64,8 @@ jun : -----
 **입출력**
 
 ✅ CLI로 입력을 읽어들인다.
-- camp.nextstep.edu.missionutils.Console.readLine()`을 활용한다.
+
+- ✅ camp.nextstep.edu.missionutils.Console.readLine()`을 활용한다.
 
 ✅ CLI로 메시지를 출력한다.
 
@@ -82,15 +83,15 @@ jun : -----
   - ✅ 주어진 자동차 이름 개수가 최대 자동차 이름 개수 이하여야 한다.
   - ✅ 검증 실패 시 `IllegalArgumentException`을 발생시킨다.
 
-- 시도 횟수 입력값의 유효성을 검증한다.
-    - 숫자여야 하고
-    - 최대 시도 횟수 이하여야 한다.
-    - 검증 실패 시 `IllegalArgumentException`을 발생시킨다.
+- ✅ 시도 횟수 입력값의 유효성을 검증한다.
+  - ✅ 숫자여야 하고
+  - ✅ 최대 시도 횟수 이하여야 한다.
+  - ✅ 검증 실패 시 `IllegalArgumentException`을 발생시킨다.
 
 **자동차 경주 게임**
 
 - ✅ 경주할 자동차들을 등록한다.
-- 시도 횟수를 입력 받는다.
+- ✅ 시도 횟수를 입력 받는다.
 - 시도 횟수만큼 자동차들을 전진시키거나 움직이지 않는다.
     - 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상인 경우 전진, 3 이하인 경우 움직이지 않는다.
     - `camp.nextstep.edu.missionutils.Randoms.pickNumberInRange()`를 활용한다.
