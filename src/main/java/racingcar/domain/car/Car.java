@@ -59,8 +59,8 @@ public class Car implements Comparable<Car> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return position == car.position && Objects.equals(name, car.name);
+        Car other = (Car) o;
+        return position == other.position && Objects.equals(name, other.name);
     }
 
     @Override
