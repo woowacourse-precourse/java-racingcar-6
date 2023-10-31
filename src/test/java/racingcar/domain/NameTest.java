@@ -17,4 +17,15 @@ class NameTest {
         assertThatThrownBy(() -> new Name(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("자동차 이름으로 1~5 사이가 아닌 문자열이 들어오면 예외가 발생한다.")
+    @Test
+    void validateCarNameLength() {
+        // given
+        String name = "Program";
+
+        // when, then
+        assertThatThrownBy(() -> new Name(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
