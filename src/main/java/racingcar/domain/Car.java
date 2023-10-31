@@ -80,7 +80,7 @@ public class Car {
         }
     }
 
-    public void checkContainsConsecutiveCommas() {
+    public void checkInputStringContainsConsecutiveCommas() {
         Pattern pattern = Pattern.compile(",,+");
         Matcher matcher = pattern.matcher(getStringCarList());
 
