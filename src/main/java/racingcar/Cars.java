@@ -13,6 +13,20 @@ public class Cars {
         cars.add(new Car(name));
     }
 
+    public void racing() {
+        for(int i=0;i<cars.size();i++) {
+            int randomNum = NumberGenerator.createRandomNumber();
+
+            if(randomNum >= Constants.CAR_FORWARD_MIN_VALUE) {
+                cars.get(i).forward();
+            }
+        }
+    }
+
+    public void printRoundRacingResult() {
+
+    }
+
     public void printRacingResult() {
 
     }
