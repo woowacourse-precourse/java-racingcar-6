@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.vo;
+
+import racingcar.exception.Error;
 
 public class Car {
 
@@ -6,19 +8,25 @@ public class Car {
     private final StringBuilder position = new StringBuilder();
 
     public Car(String name) {
-
+        validCarName(name);
         this.name = name;
 
     }
 
-    public String moveForward() {
+    private void validCarName(String name){
+        if ( name.isEmpty() || name.isBlank() || name.length() < 6){
+            new IllegalArgumentException(Error.NOT_VALID_NAME.getMsg());
+        }
+    }
+
+    private String moveForward() {
 
         this.position.append("-");
 
         return this.position.toString();
     }
 
-    public String stop() {
+    private String stop() {
 
         return this.position.toString();
 
