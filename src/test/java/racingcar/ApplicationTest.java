@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.util.GameUtil;
+
+import java.util.ArrayList;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -21,6 +25,17 @@ class ApplicationTest extends NsTest {
                 },
                 MOVING_FORWARD, STOP
         );
+    }
+    @Test
+    void 자동차_이름_입력_후_ArrayList초기화_확인(){
+        String carName = "pobi,woni";
+
+        ArrayList<Car> carArrayList = new GameUtil().splitNameArrayList(carName);
+
+        assertThat(carArrayList.get(0).getName()).isEqualTo("pobi");
+        assertThat(carArrayList.get(0).getLocation()).isEqualTo(0);
+        assertThat(carArrayList.get(1).getName()).isEqualTo("woni");
+        assertThat(carArrayList.get(1).getLocation()).isEqualTo(0);
     }
 
     @Test
