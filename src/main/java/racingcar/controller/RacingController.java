@@ -1,8 +1,14 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
 import racingcar.repository.ResultRepository;
 import racingcar.service.RacingService;
+import racingcar.view.InputMessage;
+import racingcar.view.OutputMessage;
+import racingcar.vo.TryTime;
+
+import java.util.List;
 
 public class RacingController {
     private RacingService racingService = new RacingService(CarRepository.getInstance(), ResultRepository.getInstance());
@@ -14,14 +20,20 @@ public class RacingController {
     }
 
     private void endGame() {
-        racingService.chooseWinner();
+        OutputMessage.printResultOutputMessage(racingService.chooseWinner());
     }
 
     private void playGame() {
-        racingService.play();
+        TryTime tryTime = InputMessage.printTryTimesInputMessage();
+        OutputMessage.printPlayOutputMessage();
+
+        for (int i = 0; i < tryTime.getTime(); i++) {
+            OutputMessage.printRacingProgressOutputMessage(racingService.progressRacing());
+        }
     }
 
     private void setGame() {
-        racingService.initializeGame();
+        List<String> carNames = InputMessage.printCarNameInputMessage();
+        racingService.initializeGame(carNames);
     }
 }
