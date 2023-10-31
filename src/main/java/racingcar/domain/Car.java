@@ -46,6 +46,10 @@ public class Car {
     }
 
     private static void validateName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름에는 빈 문자열은 불가능합니다.");
+        }
+
         if (name.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
