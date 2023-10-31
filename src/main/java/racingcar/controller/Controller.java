@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.util.Parser;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public class Controller {
 
+    private final GameService gameService = new GameService();
     private final Parser parser = new Parser();
     private final Exception exception = new Exception();
     private final CarRepository carRepository = new CarRepository();
