@@ -2,6 +2,8 @@ package racingcar.utility;
 
 import racingcar.constant.Error;
 
+import java.util.List;
+
 public class ExceptionHandler {
 
     private static ExceptionHandler exceptionHandler = new ExceptionHandler();
@@ -36,8 +38,16 @@ public class ExceptionHandler {
     }
 
     public void isNaturalNumber(int inputValue) {
-        if(inputValue == 0){
+        if (inputValue == 0) {
             throw new IllegalArgumentException(Error.IS_NOT_NATURAL_NUMBER);
+        }
+    }
+
+    public void isDuplicationName(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carNames.contains(carName)) {
+                throw new IllegalArgumentException(Error.DUPLICATED_NAME);
+            }
         }
     }
 
