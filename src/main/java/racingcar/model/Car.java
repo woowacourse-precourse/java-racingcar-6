@@ -6,13 +6,15 @@ import racingcar.Util;
 public class Car {
 	private final String name;
 	private int position = 0;
+	int random = 0;
 
 	public Car(String name) {
 		this.name = name;
 	}
 
 	public void go() {
-		if (Util.getRandomNum() >= Constants.GO_NUM) {
+		random = Util.getRandomNum();
+		if (random >= Constants.GO_NUM) {
 			position++;
 		}
 	}
@@ -23,5 +25,9 @@ public class Car {
 
 	public String getName() {
 		return name;
+	}
+
+	public int getRandom() {
+		return random;
 	}
 }
