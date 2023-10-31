@@ -31,7 +31,7 @@ public class Validation {
 
     private boolean validateCarName(String[] carArray) {
         for (String carName : carArray) {
-            if (carName.length() > 5) {
+            if (carName.length() > Constant.CAR_NAME_LIMIT) {
                 return false;
             }
         }
