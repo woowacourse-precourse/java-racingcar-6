@@ -94,6 +94,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 경주횟수에_대한_예외_처리_숫자가_아닌_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,dori", "많이"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
