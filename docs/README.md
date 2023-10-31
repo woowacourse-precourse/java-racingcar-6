@@ -18,14 +18,13 @@
 ## UserInput
 
 - method
-  - carName : 입력 받은 차량의 이름을 조건에 맞나 검증합니다.
-  - attemptsNumber : 입력 받은 시도할 횟수를 조건에 맞나 검증합니다.
+  - carName : 차량의 이름을 입력받습니다.
+  - attemptsNumber : 시도할 횟수를 입력받고 정수형으로 변환합니다.
 
 ## InputValidator
 
 - method
-    - carName : 차량의 이름을 입력받습니다.
-    - attemptsNumber : 시도 횟수를 입력받습니다.
+    - carName : 입력 받은 차량의 이름을 조건에 맞나 검증합니다.
 
 ## Application
 
