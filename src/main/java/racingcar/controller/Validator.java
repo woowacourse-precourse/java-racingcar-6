@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.model.CarNameLength;
 import racingcar.model.ErrorMessage;
 
 public class Validator {
