@@ -25,7 +25,7 @@ public class GameController {
         attemptNum.isValid(attemptsNum);
         outputView.initial();
         initializeDistanceMap(players);
-        playGames(players, Integer.parseInt(attemptsNum));
+        playGameRepeat(players, Integer.parseInt(attemptsNum));
         findMaxEntry();
         showWinner();
     }
@@ -36,7 +36,7 @@ public class GameController {
         }
     }
 
-    private void playGames(List<String> players, int attempts) {
+    private void playGameRepeat(List<String> players, int attempts) {
         for (int i = 0; i < attempts; i++) {
             playGame(players);
         }
