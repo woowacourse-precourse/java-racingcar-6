@@ -1,14 +1,32 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Race;
+import racingcar.domain.Referee;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-    }
+        List<String> carNames = new ArrayList<String>(askCarNames());
+        int moveCount = askMoveCount();
+
+        System.out.println("실행 결과");
+        Race race = new Race();
+        Referee referee = new Referee();
+
+        Map<String, Integer> raceResult = new HashMap<String, Integer>();
+        raceResult = race.racing(carNames, moveCount);
+
+        List<String> winnerNames = new ArrayList<String>();
+        winnerNames = referee.winner(raceResult);
+
+        System.out.print("최종 우승자 : ");
+        String winner = String.join(", ", winnerNames);
+        System.out.print(winner);    }
 
     public static List<String> askCarNames() {
         List<String> carNames = new ArrayList<String>();
