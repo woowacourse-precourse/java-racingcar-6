@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.Dto.CarDto;
 import racingcar.Model.InputCarNameValidator;
 import racingcar.Model.InputCountValidator;
+import racingcar.Model.RandomPickNumber;
 import racingcar.Utils.DtoManager;
 
 public class RacingCarService {
@@ -31,6 +32,7 @@ public class RacingCarService {
     }
 
     public void play() {
-
+        // dto 마다 다르게
+        int randomNumber = RandomPickNumber.getRandomPickNumber();
     }
 }
