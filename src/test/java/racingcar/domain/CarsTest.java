@@ -4,6 +4,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,9 +31,11 @@ class CarsTest {
         cars.add("a");
         cars.add("b");
         cars.add("new");
-        List<Car> test = cars.getCars();
-
-        assertThat(test.get(2).getName()).isEqualTo("new");
+        //List<Car> test = cars.getCars();
+        List<Car> test = cars.giveResult();
+        List<Car> expected = Arrays.asList(new Car("a"), new Car("b"), new Car("new"));
+        //assertThat(test.get(2).getName()).isEqualTo("new");
+        assertThat(test).usingRecursiveComparison().isEqualTo(expected);
     }
 
     @Test
