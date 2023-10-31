@@ -8,6 +8,7 @@ public class Error {
     static void isLengthError(String userInput){
         if (userInput.length() > 5)
             throw new IllegalArgumentException("Invalid Length: " + userInput.length());
+        isEmptyError(userInput);
     }
     static void isDigitError(String userInput){
         int userNumber;
