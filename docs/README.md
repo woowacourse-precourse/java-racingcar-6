@@ -29,8 +29,10 @@
 # 테스트 구현 목표
 1. 이름 유효성 체크
    - 형식이 잘못되었을 경우 IllegalArgumentException을 반환한다.
-   - 각각의 이름이 5글자 초과일 경우 IllegalArgumentException을 반환한다.
+   - 각각의 이름이 기준 글자 초과일 경우 IllegalArgumentException을 반환한다.
    - 서로 같은 이름을 가졌을 경우 IllegalArgumentException을 반환한다.
 2. 총 이동 횟수 유효성 체크
    - int가 아닐 경우 IllegalArgumentException을 반환한다.
    - 0이상인지 확인한다.
+3. 랜덤 value
+   - 범위 내인지 확인한다.
