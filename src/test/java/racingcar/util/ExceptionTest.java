@@ -13,5 +13,9 @@ public class ExceptionTest {
         assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput("a,b,asdvacx"))
                 .isInstanceOf(IllegalArgumentException.class));
     }
-
+    @Test
+    void 자동차이름_0글자_입력() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput(""))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
 }
