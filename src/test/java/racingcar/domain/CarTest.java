@@ -3,6 +3,9 @@ package racingcar.domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.utils.RandomGenerator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,5 +24,12 @@ class CarTest {
         Car car = new Car("abc", () -> 4);
         car.moveByRandomNumber();
         Assertions.assertEquals(1, car.getPosition());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "def", "ghi"})
+    void 차이름_테스트(String input) {
+        Car car = new Car(input, new RandomGenerator());
+        Assertions.assertEquals(input, car.getCarName());
     }
 }
