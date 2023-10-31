@@ -175,3 +175,4 @@
 
 
 ### CarMoveManagerTest.java
+- 값에 따른 전진 판단 검사
