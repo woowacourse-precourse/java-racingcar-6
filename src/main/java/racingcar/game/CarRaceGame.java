@@ -19,10 +19,10 @@ public class CarRaceGame implements Game {
 
     @Override
     public void startGame() {
-        System.out.println(CarRaceMessage.PROMPT_NAME);
+        System.out.println(CarRaceMessage.PROMPT_NAME.getMessage());
         String input = Console.readLine();
         service.addCars(input);
-        System.out.println(CarRaceMessage.PROMPT_COUNT);
+        System.out.println(CarRaceMessage.PROMPT_COUNT.getMessage());
         input = Console.readLine();
         saveRaceRound(input);
         System.out.println("\n실행 결과");
