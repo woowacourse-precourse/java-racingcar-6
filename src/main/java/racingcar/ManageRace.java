@@ -28,7 +28,7 @@ public class ManageRace {
         return Console.readLine();
     }
 
-    private List<String> stringToList(String carNames) {
+    public List<String> stringToList(String carNames) {
         List<String> carNameList = new ArrayList<>();
         for (String carName : carNames.split(",")) {
             carNameList.add(carName);
@@ -36,7 +36,7 @@ public class ManageRace {
         return carNameList;
     }
 
-    private void checkValidNames(List<String> carNameList) {
+    public void checkValidNames(List<String> carNameList) {
         Set<String> set = new HashSet(carNameList);
         if (carNameList.size() != set.size()) {
             throw new IllegalArgumentException();
@@ -55,7 +55,7 @@ public class ManageRace {
         return Integer.parseInt(tryCount);
     }
 
-    private void checkValidCount(String tryCount) {
+    public void checkValidCount(String tryCount) {
         for (char c : tryCount.toCharArray()) {
             if (!Character.isDigit(c)) {
                 throw new IllegalArgumentException();
