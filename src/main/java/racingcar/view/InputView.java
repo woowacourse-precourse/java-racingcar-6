@@ -1,9 +1,9 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.gameInfo.InputManager;
 import racingcar.domain.gameInfo.InputCars;
-import racingcar.domain.gameInfo.InputTryCount;
+import racingcar.domain.gameInfo.InputManager;
+import racingcar.domain.gameInfo.InputProgressCount;
 
 public class InputView {
     private final static String GAME_START_COMMENT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -11,12 +11,12 @@ public class InputView {
 
     public static InputManager startGameInput() {
         InputCars inputCars = new InputCars(inputCarList());
-        InputTryCount inputTryCount = new InputTryCount(inputGameProcessCount());
+        InputProgressCount inputProgressCount = new InputProgressCount(inputGameProcessCount());
         System.out.println();
-        return new InputManager(inputTryCount.getInputTryCount(), inputCars.getParsedCarList());
+        return new InputManager(inputProgressCount.getProgressCount(), inputCars.getParsedCarList());
     }
 
-    private static String inputCarList(){
+    private static String inputCarList() {
         System.out.println(GAME_START_COMMENT);
         return Console.readLine();
     }
