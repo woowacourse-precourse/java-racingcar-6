@@ -31,6 +31,20 @@ class CarsTest {
         );
     }
 
+    @Test
+    void 우승자들을_문자열로_반환한다() {
+        String[] carNames = {"love", "hate", "you"};
+        String expected = "love, hate";
+        Cars cars = 자동차들_생성(carNames);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    cars.attempt();
+                    Assertions.assertThat(cars.winners()).isEqualTo(expected);
+                }
+                , MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
+
     private Cars 자동차들_생성(String name) {
         String[] carNames = {name};
         return new Cars(carNames);
