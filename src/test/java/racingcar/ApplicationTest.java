@@ -1,12 +1,14 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -30,6 +32,20 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    
+    @Test @DisplayName("띄어쓰기로_이름_구분한_경우")
+    void testCarName1() {
+        
+        InputManager inputManager = new InputManager();
+        String testInput = "car1 car2 car3";
+        
+        List<Car> cars = inputManager.makeCars(testInput);
+        cars.forEach(car -> {
+            assertThat(car.getName()).contains("car1 ");
+        });
+        
+    }
+    
 
     @Override
     public void runMain() {

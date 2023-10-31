@@ -5,17 +5,21 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
+        
         // TODO: 프로그램 구현
         Executor executor = new Executor();
         InputManager inputManager = new InputManager();
+        
         List<String> winner;
         
         // 1-1. 입력: 자동차 이름 초기화
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<Car> cars = inputManager.makeCars();
+        String inputCars = Console.readLine();
+        List<Car> cars = inputManager.makeCars(inputCars);
         // 1-2. 입력: 게임 횟수
         System.out.println("시도할 회수는 몇 회인가요?");
-        int num = inputManager.howMany();
+        String inputNum= Console.readLine();
+        int num = inputManager.howMany(inputNum);
         
         System.out.println();
         
