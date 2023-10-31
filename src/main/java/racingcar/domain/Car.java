@@ -4,7 +4,7 @@ public class Car {
 
     private static final int MAX_NAME_LEGNTH = 5;
 
-    private final int location;
+    private int location;
 
     private final String name;
 
@@ -22,5 +22,9 @@ public class Car {
         if (name.length() > MAX_NAME_LEGNTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void moveForward() {
+        this.location += 1;
     }
 }

@@ -14,4 +14,15 @@ public class InputView {
                 .map(String::trim)
                 .toList();
     }
+
+    public int readTrialNumber() {
+        String inputValue = Console.readLine();
+
+        try {
+            return Integer.parseInt(inputValue);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
