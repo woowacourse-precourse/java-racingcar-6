@@ -7,8 +7,9 @@ import java.util.regex.Pattern;
 public class Car extends IndexModel {
 
     private String name;
-    private int currentPosition = 0;
     private List<Integer> pickedNumbers = new ArrayList<>();
+    private int lastPosition = 0;
+    private List<Integer> positions = new ArrayList<>();
 
     private Car(String name) {
         this.name = name;
@@ -28,5 +29,25 @@ public class Car extends IndexModel {
 
     public boolean matchNamePattern(String regEx) {
         return Pattern.matches(regEx, name);
+    }
+
+    public int calcPickedNumberSize() {
+        return pickedNumbers.size();
+    }
+
+    public void insertPickedNumber(int num) {
+        pickedNumbers.add(num);
+    }
+
+    public int getLastPosition() {
+        return lastPosition;
+    }
+
+    public boolean isPositionSameOrOver(int maxPosition) {
+        return lastPosition >= maxPosition;
+    }
+
+    public void moveForward() {
+        lastPosition++;
     }
 }

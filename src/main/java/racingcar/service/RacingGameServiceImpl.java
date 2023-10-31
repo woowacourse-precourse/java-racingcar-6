@@ -1,12 +1,17 @@
 package racingcar.service;
 
+import static racingcar.domain.Constants.MAX_RANDOM_NUMBER;
+import static racingcar.domain.Constants.MIN_MOVE_NUMBER;
+import static racingcar.domain.Constants.MIN_RANDOM_NUMBER;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Participations;
 import racingcar.domain.RacingGame;
-import racingcar.repository.CarRepository;
+import racingcar.domain.Winners;
 import racingcar.repository.RacingGameRepository;
 import racingcar.util.ExceptionUtil;
 import racingcar.util.StringUtil;
@@ -15,57 +20,51 @@ import racingcar.validation.IntegerValidator;
 public class RacingGameServiceImpl implements RacingGameService {
 
     private final String EMPTY_INPUT_MESSAGE = "자동차 이름을 하나 이상 입력하세요.";
-    private final CarRepository carRepository;
+    private final CarService carService;
     private final RacingGameRepository racingGameRepository;
 
-    public RacingGameServiceImpl(CarRepository carRepository, RacingGameRepository racingGameRepository) {
-        this.carRepository = carRepository;
+    public RacingGameServiceImpl(CarService carService, RacingGameRepository racingGameRepository) {
+        this.carService = carService;
         this.racingGameRepository = racingGameRepository;
     }
 
     @Override
     public RacingGame generateRacing(String carNames, String strTryCount) {
         List<Car> carList = processCarNamesInput(carNames); //TODO: 기능분리 리팩터링하기
-        Participations participations = new Participations(carList);
+        Participations participations = Participations.create(carList);
         int tryCount = processTryCountInput(strTryCount);
 
-        return RacingGame.create(participations, tryCount);
+        return RacingGame.create(participations, tryCount, winners);
     }
 
     @Override
     public RacingGame save(RacingGame racingGame) {
-        //carList.forEach(car -> carRepository.save(car));
         return (RacingGame) racingGameRepository.save(racingGame);
     }
 
     @Override
-    public void racing(RacingGame racingGame) {
-        Long id = racingGame.getId();
-
-        /*//tryCount횟수만큼 반복
-        for (int i = 0; i < racingGame.getTryCount(); i++) {
-            //랜덤 점수 뽑아 넣기 //TODO: 메서드 분리
-            Participations participations = racingGame.getParticipations();
-            for (Car car : participations.getParticipations()) {
-                int randomNum = Randoms.pickNumberInRange(0,9);
-                carRepository.addPickedNumbers(id, randomNum);
+    public void decideRandomMoveCondition(RacingGame racingGame) {
+        racingGame.allParticipationsList()
+                .forEach(car -> pickRandomNumberAndUpdateStatus(car, racingGame.getTryCount()));
+    }
 
                 if (randomNum >= 4) {
                     carRepository.addPositions(car.getLastPosition()+1);
                 }
             }
         }
-
-        //Winner 구해서 담기
-        Winners winners = new Winners();
-        int maxPosition = participations.maxPosition();
-        for (Car car : participations.getParticipations()) {
-            if (car.isPositionSameOrOver(maxPosition)) {
-                winners.addWinner(car);
-            }
+    private void pickRandomNumberAndUpdateStatus(Car car, int numCount) {
+        for (int i = 0; i < numCount; i++) {
+            int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            car.insertPickedNumber(randomNum);
+            moveForwardIfNumberisSameOrOverCriteria(car, randomNum);
         }
+    }
 
-        racingGameRepository.updateWinners(id, winners);*/
+    private void moveForwardIfNumberisSameOrOverCriteria(Car car, int number) {
+        if (number >= MIN_MOVE_NUMBER) {
+            car.moveForward();
+        }
     }
 
     private List<Car> processCarNamesInput(String input) {
@@ -94,5 +93,4 @@ public class RacingGameServiceImpl implements RacingGameService {
 
         return Integer.parseInt(input);
     }
-
 }

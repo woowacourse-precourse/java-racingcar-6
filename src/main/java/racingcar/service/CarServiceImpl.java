@@ -8,7 +8,6 @@ import racingcar.repository.CarRepository;
 import racingcar.util.ExceptionUtil;
 
 public class CarServiceImpl implements CarService {
-    private final String DUPLICATE_NAME_MESSAGE = "중복된 이름은 입력할 수 없습니다.";
     private final String NAME_LENGTH_OVER_MESSAGE = "이름의 길이가 초과되었습니다.";
     private final String ALPHA_NUMERIC_NAME_MESSAGE = "이름은 알파벳, 숫자만 가능합니다.";
     private final CarRepository carRepository;
