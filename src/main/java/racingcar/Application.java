@@ -70,4 +70,13 @@ public class Application {
 
     }
 
+    public static boolean isForward(int randomNum) {
+        if (randomNum >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+
+
 }
