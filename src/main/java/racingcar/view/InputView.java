@@ -32,7 +32,7 @@ public class InputView {
     }
 
     private LinkedHashMap<String, String> changeNamesToMap(String[] carNames) {
-        LinkedHashMap<String, String> carList = null;
+        LinkedHashMap<String, String> carList = new LinkedHashMap<>();
 
         for (String carName:carNames) {
             inputValidation.checkNameRight(carName, carList);
