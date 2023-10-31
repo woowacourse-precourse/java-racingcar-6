@@ -1,7 +1,6 @@
 package racingcar;
 
 public class Validation {
-
     public static final String invalid = "Invalid Argument";
     public Validation(){
 
@@ -12,8 +11,8 @@ public class Validation {
         for(int i=0;i<member.getSize();i++){
             lengthCheck(member.getName(i));
         }
-
     }
+
     public void lengthCheck(String name){
         if(name.length()>5){
             throw new IllegalArgumentException(invalid);

@@ -11,10 +11,10 @@ public class RacingCar {
 
     public Player players;
     public Validation test;
-    public int games;
     public Score scoreBoard;
 
     public List<String> winner;
+    public int games;
 
     public RacingCar(){
         test = new Validation();
@@ -79,9 +79,6 @@ public class RacingCar {
     private void printResult(){
         System.out.println();
         System.out.print(win);
-//        for (String player : winner){
-//            System.out.print(player);
-//        }
         System.out.print(String.join(", ", winner));
     }
 }

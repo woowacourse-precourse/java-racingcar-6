@@ -8,6 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Score {
     public List<Integer> score;
     private int max;
+
     public Score(int playerNum){
         max = 0;
         score = new ArrayList<>(playerNum);

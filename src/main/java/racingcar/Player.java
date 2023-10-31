@@ -25,11 +25,4 @@ public class Player {
     public String getName(int memberNum){
         return member.get(memberNum);
     }
-
-    public void printMembers(){
-        for (String player : member){
-            System.out.println(player);
-        }
-    }
-
 }
