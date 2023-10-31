@@ -7,7 +7,7 @@ import racingcar.domain.Car;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ResultRepositoryTest {
-    private final ResultRepository resultRepository = new ResultRepository();
+    private final ResultRepository resultRepository = ResultRepository.getInstance();
 
     @Test
     public void 저장소_삽입_성공_테스트() {

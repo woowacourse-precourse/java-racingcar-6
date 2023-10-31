@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarRepositoryTest {
-    private final CarRepository carRepository = new CarRepository();
+    private final CarRepository carRepository = CarRepository.getInstance();
 
     @Test
     public void 저장소_삽입_성공_테스트() {
