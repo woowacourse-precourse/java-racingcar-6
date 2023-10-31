@@ -81,4 +81,44 @@ class ValidatorTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    public void 시도_횟수_정상_입력_테스트() {
+        String input = "5";
+        int expectedAttempt = 5;
+        int resultAttempt = validator.stringToInt(input);
+        assertThat(resultAttempt).isEqualTo(expectedAttempt);
+    }
+
+    @Test
+    public void 시도_횟수_문자_입력_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> validator.stringToInt("abc"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    public void 시도_횟수_빈칸_입력_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> validator.stringToInt(" "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    public void 시도_횟수_0입력_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> validator.stringToInt("0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    public void 시도_횟수_0이하_입력_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> validator.stringToInt("-10"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
