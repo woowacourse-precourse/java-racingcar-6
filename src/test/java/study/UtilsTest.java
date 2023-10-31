@@ -5,7 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.Utils;
 
-public class StringTest {
+public class UtilsTest {
 
     @Test
     void split_메서드로_주어진_값을_구분() {
