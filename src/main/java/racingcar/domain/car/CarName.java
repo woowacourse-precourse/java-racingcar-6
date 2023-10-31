@@ -22,7 +22,7 @@ public class CarName {
         }
     }
 
-    private static boolean inRange(String name) {
+    private boolean inRange(String name) {
         return name.length() > NAME_MAX_LENGTH;
     }
 
@@ -32,17 +32,17 @@ public class CarName {
         }
     }
 
-    private static boolean isEmpty(String name) {
+    private boolean isEmpty(String name) {
         return name.isEmpty();
     }
 
-    private static void validateNull(String name){
+    private void validateNull(String name){
         if(isNull(name)){
             throw new IllegalArgumentException("이름을 입력해주세요");
         }
     }
 
-    private static boolean isNull(String name) {
+    private boolean isNull(String name) {
         return name == null;
     }
 }

@@ -34,7 +34,7 @@ public class Navigation {
         }
     }
 
-    private static boolean hasSameName(List<Car> cars) {
+    private boolean hasSameName(List<Car> cars) {
         long count = cars.stream().map(Car::getName).distinct().count();
         return count != cars.size();
     }

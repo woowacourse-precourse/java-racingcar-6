@@ -25,11 +25,11 @@ public class RacingGameRequest {
         return count;
     }
 
-    private static int toInt(String count) {
+    private int toInt(String count) {
         return Integer.parseInt(count);
     }
 
-    private static List<Car> toList(String names) {
+    private List<Car> toList(String names) {
         return Arrays.stream(names.split(","))
                 .map(String::trim)
                 .map(name -> new Car(name, new RandomNumberGenerator()))
