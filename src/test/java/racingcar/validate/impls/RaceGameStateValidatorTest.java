@@ -29,5 +29,17 @@ class RaceGameStateValidatorTest {
         assertTrue(true);
      }
 
+     @Test
+    @DisplayName("유일성 실패할 케이스")
+    void participantsDuplicatedTest(){
+        //given
+         List<String> samples = Arrays.asList("pobi","woni", "jun", "pobi");
+
+         //then
+         Assertions.assertThatThrownBy(() -> validator.validate(samples))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining("차의 이름은 중복되거나 5글자 이하 여야합니다.");
+     }
+
 
 }
