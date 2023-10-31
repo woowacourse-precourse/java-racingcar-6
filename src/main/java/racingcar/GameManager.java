@@ -23,10 +23,17 @@ public class GameManager {
   public void start() {
     System.out.println("시작");
 
-
+    while (!isGameEnd()){
+      this.progressRound(cars);
+    }
   }
 
   public boolean isGameEnd() {
     return currentCount >= trialCount;
+  }
+  public void progressRound(List<Car> cars){
+    currentCount++;
+    System.out.println(currentCount+"라운드 진행");
+    
   }
 }
