@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class CarRacingGame {
-    private List<Car> car = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
     private int trial;
 
     void execute() {
@@ -23,7 +23,7 @@ public class CarRacingGame {
 
     private void proceedRacing() {
         for(int i=0; i<trial; i++) {
-            for (Car car: car) {
+            for (Car car: cars) {
                 car.decideMoveForwardOrStop();
             }
 
@@ -33,7 +33,7 @@ public class CarRacingGame {
     }
 
     private void printCurrentCarStatus() {
-        for (Car car: car) {
+        for (Car car: cars) {
             System.out.println(car);
         }
     }
@@ -41,7 +41,7 @@ public class CarRacingGame {
     void rankWinner() {
         List<Car> winner = new ArrayList<>();
 
-        Optional<Car> carWithMaximumDistance = car
+        Optional<Car> carWithMaximumDistance = cars
                 .stream()
                 .max(Comparator.comparing(Car::getDistance));
 
@@ -50,7 +50,7 @@ public class CarRacingGame {
         int maximumDistance = carWithMaximumDistance.get().getDistance();
         String maximumDistanceCarName = carWithMaximumDistance.get().getName();
 
-        for (Car car: car) {
+        for (Car car: cars) {
             if ((car.getDistance() == maximumDistance) && !(car.getName().equals(maximumDistanceCarName))) {
                 winner.add(car);
             }
@@ -76,7 +76,7 @@ public class CarRacingGame {
         isElementLengthAbove5(carName);
 
         for (String element: carName) {
-            car.add(new Car(element));
+            cars.add(new Car(element));
         }
 
     }
