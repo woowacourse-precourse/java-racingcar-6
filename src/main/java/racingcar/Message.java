@@ -25,11 +25,28 @@ public class Message {
         }
     }
 
+    //전진 횟수 (-)으로 표시하기
+    public static String getRacingRecord(int recordNumber) {
+        StringBuilder racingRecord = new StringBuilder();
+        for(int i=0;i<recordNumber;i++) {
+            racingRecord.append("-");
+        }
+        return racingRecord.toString();
+    }
+
+    //전진이 된 차 기록 출력하기
+    public static void printCarRacingRecord(List<String> carList, Map<String,Integer> carRacingRecord) {
+        for(String carName : carList) {
+            String racingRecord = getRacingRecord(carRacingRecord.get(carName));
+            System.out.println(carName+" : "+racingRecord);
+        }
+    }
+
     //결과 출력
     public static void printGameResult(List<String> carList, Map<String, Integer> carRacingRecord) {
         int maxRecord = 0;
         for(String carName : carList) {
-            String racingRecord=Application.getRacingRecord(carRacingRecord.get(carName));
+            String racingRecord = getRacingRecord(carRacingRecord.get(carName));
             maxRecord = Math.max(maxRecord,racingRecord.length());
         }
         List<String> winners = Application.getWinner(carRacingRecord,maxRecord);

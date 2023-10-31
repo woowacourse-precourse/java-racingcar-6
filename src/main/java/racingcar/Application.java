@@ -46,24 +46,7 @@ public class Application {
 		}
     	return carRacingRecord;
     }
-    
-    //전진 횟수 (-)으로 표시하기
-    public static String getRacingRecord(int recordNumber) {
-    	StringBuilder racingRecord = new StringBuilder();
-    	for(int i=0;i<recordNumber;i++) {
-    		racingRecord.append("-");
-    	}
-    	return racingRecord.toString();
-    }
-    
-    //전진이 된 차 기록 출력하기 
-    public static void printCarRacingRecord(List<String> carList, Map<String,Integer> carRacingRecord) {
-    	for(String carName : carList) {
-    		String racingRecord=getRacingRecord(carRacingRecord.get(carName));
-    		System.out.println(carName+" : "+racingRecord);
-    	}
-    }
-    
+
     //저장된 Map에서 최댓값을 가지는 차 이름 가져오기
     public static List<String> getWinner(Map<String, Integer> carRacingRecord, int maxRecord){
     	List<String> winners = new ArrayList<>();
