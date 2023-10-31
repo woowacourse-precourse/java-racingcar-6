@@ -17,7 +17,7 @@ public class User {
     public void checkLastComma(String input){
         boolean endsWithComma = input.endsWith(",");
         if(endsWithComma){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
         }
     }
 
@@ -31,13 +31,13 @@ public class User {
 
     public void checkLengthName(String carName){
         if (carName.length() > 5 || carName.length() < 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
         }
     }
 
     public void checkSpaceInName(String carName) {
         if (carName == null || carName.contains(" ") || carName.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
         }
     }
 
@@ -45,7 +45,7 @@ public class User {
         HashSet<String> duplicateName = new HashSet<>();
         duplicateName.addAll(carNames);
         if (carNames.size() != duplicateName.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
         }
     }
 
