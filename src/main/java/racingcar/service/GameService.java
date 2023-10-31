@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.IntStream;
 import racingcar.constant.GameCondition;
 import racingcar.domain.Car;
 import racingcar.view.GameConsoleIO;
@@ -28,6 +29,23 @@ public class GameService {
 
     private int getMovingCount() {
         return gameConsoleIO.getMovingCount();
+    }
+
+
+    public void playGame() {
+
+        setCars();
+        int movingCount = getMovingCount();
+
+        gameConsoleIO.printExecuteResultMessage();
+
+        IntStream.rangeClosed(1, movingCount).forEach(i -> {
+            executeEachMovingCount();
+            System.out.println();
+        });
+
+        //winner 출력
+        gameConsoleIO.printWinners(getWinners());
     }
 
 
