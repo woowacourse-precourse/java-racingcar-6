@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class RacingReferee {
 
+    private static final int threshold = 4;
     private final Players players;
     private final Map<Player, Integer> result;
     private final Dice dice;
@@ -50,6 +51,6 @@ public class RacingReferee {
     }
 
     private boolean isMove(int value) {
-        return value >= 4;
+        return value >= threshold;
     }
 }
