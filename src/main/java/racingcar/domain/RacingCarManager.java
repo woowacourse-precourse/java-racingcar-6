@@ -18,4 +18,8 @@ public class RacingCarManager {
         return this.carList;
     }
 
+    public CarList getMostDistanceCarList() {
+        return this.carList.getMostDistanceCarList();
+    }
+
 }

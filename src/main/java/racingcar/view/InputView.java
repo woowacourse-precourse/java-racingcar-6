@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constant.Constant;
 import racingcar.domain.CarNameList;
+import racingcar.domain.NumberOfGames;
 import racingcar.validator.CarNamesInputValidator;
 import racingcar.validator.NumberOfGamesInputValidator;
 
@@ -24,9 +25,9 @@ public class InputView {
         return new CarNameList(carNames);
     }
 
-    public Long getNumberOfGamesFromUser() {
+    public NumberOfGames getNumberOfGamesFromUser() {
         String userInput = Console.readLine();
         numberOfGamesInputValidator.validate(userInput);
-        return Long.parseLong(userInput);
+        return new NumberOfGames(Long.parseLong(userInput));
     }
 }

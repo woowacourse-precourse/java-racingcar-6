@@ -16,6 +16,7 @@ public class OutputView {
     }
 
     public void printExecutionStartSign() {
+        System.out.println();
         System.out.println(Constant.EXECUTION_START_SIGN);
     }
 

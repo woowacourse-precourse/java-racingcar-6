@@ -20,12 +20,11 @@ public class CarList {
         carList = List.copyOf(compCarList);
     }
 
-
     public List<Car> getCarList() {
         return this.carList;
     }
 
-    public CarList getMostDistanceCars() {
+    public CarList getMostDistanceCarList() {
         long maxDistanceValueInCarList = findMaxDistanceValueInCarList();
         List<Car> maxDistanceCars = carList.stream()
                 .filter(car -> car.getDistance() == maxDistanceValueInCarList)
