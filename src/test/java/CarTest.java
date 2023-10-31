@@ -35,7 +35,7 @@ public class CarTest {
     @Test
     void isNotAlphaBetAndComma_자동차_이름_공백으로_이루어짐() {
 
-        String input = "          ";
+        String input = "  ";
 
         assertThatThrownBy(() -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class);
