@@ -17,8 +17,11 @@ public class Application {
         int tryCount = Integer.parseInt(Console.readLine());
 
         // 자동차 경주 게임 시작
+        System.out.println("실행 결과");
+
         RacingGame racingGame = new RacingGame(carNames);
         racingGame.start(tryCount);
+
     }
 }
 
@@ -32,6 +35,11 @@ class RacingGame {
     public void start(int tryCount) {
         for (int i = 0; i < tryCount; i++) {
             move();
+            for (Car car : cars) {
+                System.out.println(car.getName() + " : " + car.getMove());
+            }
+            System.out.println();
+
         }
     }
     private void move() {
@@ -41,6 +49,7 @@ class RacingGame {
             }
         }
     }
+
     private void validateCarNames(String[] carNames) {
         for (String carName : carNames) {
             if (carName.length() > 5) {
@@ -64,6 +73,7 @@ class RacingGame {
 class Car {
     private final String name;
     private int position;
+    private String moveprocess = "";
 
     public Car(String name) {
         this.name = name;
@@ -71,5 +81,17 @@ class Car {
     }
     public void plus(){
         this.position ++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMove() {
+        moveprocess = "";
+        for(int i=0;i<position;i++){
+            moveprocess += '-';
+        }
+        return moveprocess;
     }
 }
