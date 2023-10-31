@@ -32,6 +32,16 @@ class ValidatorTest {
 
     @Test
     void checkCarNameDuplication() {
+        List<String> carNamesNoDuplication = List.of("Ferrari", "Lamborghini", "Ford");
+        Validator.checkCarNameDuplication(carNamesNoDuplication);
+
+        List<String> carNamesWithDuplication = List.of("Ferrari", "Ford", "Lamborghini", "Ferrari");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkCarNameDuplication(carNamesWithDuplication);
+        });
+
+        List<String> emptyCarNames = List.of();
+        Validator.checkCarNameDuplication(emptyCarNames); // Should not throw an exception
     }
 
     @Test
