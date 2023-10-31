@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class CarMotionController {
+public class CarMotionMaker {
 
     public static boolean isCarMoved() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);

@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.domain.Car;
 
 import java.util.List;
 
-public class GameResultView {
+public class OutputView {
 
     public void printConsole() {
         System.out.println("실행 결과");
