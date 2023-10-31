@@ -16,7 +16,7 @@ public class InputView {
         String carNamesInput = Console.readLine();
 
         List<String> carNames = List.of(carNamesInput.split(","));
-        carNames.forEach(CarNameValidator::validate);
+        CarNameValidator.validate(carNames);
 
         return carNames;
     }
@@ -24,15 +24,9 @@ public class InputView {
     public static int readTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
 
-        int tryCountInput;
-        try {
-            tryCountInput = Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자만 가능합니다.");
-        }
-
+        String tryCountInput = Console.readLine();
         TryCountValidator.validate(tryCountInput);
 
-        return tryCountInput;
+        return Integer.parseInt(tryCountInput);
     }
 }
