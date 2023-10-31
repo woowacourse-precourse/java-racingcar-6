@@ -12,7 +12,7 @@ public class Cars {
     private final List<Car> carList;
 
     private Cars(List<Car> carList) {
-        this.carList = carList;
+        this.carList = new ArrayList<>(carList);
     }
 
     public static Cars of(List<String> carNames) {
