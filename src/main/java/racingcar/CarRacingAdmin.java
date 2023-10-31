@@ -11,7 +11,8 @@ public class CarRacingAdmin {
     private final InputValidator inputValidator;
 
     public CarRacingAdmin() {
-        inputValidator = new InputValidator();
+        Util util = new Util();
+        inputValidator = new InputValidator(util);
     }
 
     public void startRace() {

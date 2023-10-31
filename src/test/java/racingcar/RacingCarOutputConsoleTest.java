@@ -65,8 +65,8 @@ public class RacingCarOutputConsoleTest {
                         random.ints(97, 123)
                                 .limit(5)
                                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                                .toString()
-                ).toList();
+                                .toString())
+                .toList();
 
         StringBuilder expectedStringBuilder = new StringBuilder();
         expectedStringBuilder.append(nameList.get(0));

@@ -8,8 +8,8 @@ import racingcar.util.Util;
 public class InputValidator {
     private final Util util;
 
-    public InputValidator() {
-        this.util = new Util();
+    public InputValidator(Util util) {
+        this.util = util;
     }
 
     public void validateCarNames(String carNames) {
