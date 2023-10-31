@@ -17,6 +17,5 @@ public class CarMover {
                 car.move();
             }
         }
-        PrintHandler.resultRunning(cars);
     }
 }
