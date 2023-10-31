@@ -1,5 +1,8 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.AfterEach;
@@ -23,8 +26,7 @@ public class InputViewTest {
 
         String input = InputView.readTryNumber();
 
-        Assertions.assertTrue(input != null);
-
+        assertThat(input).isNotNull();
     }
 
 
@@ -94,9 +96,6 @@ public class InputViewTest {
         });
         Assertions.assertEquals("[ERROR] 숫자가 아닌 값이 입력되었습니다.", exception.getMessage());
     }
-
-
-
 
 
 }
