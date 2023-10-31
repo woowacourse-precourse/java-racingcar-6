@@ -11,7 +11,6 @@ import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_POSITIVE_NUM;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.RacingCarGameInput;
 import utils.InputUtil;
 
 public class RacingCarGameInputTest {

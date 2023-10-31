@@ -6,15 +6,15 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
-import racingcar.domain.RacingCarGameOutput;
 import utils.OutputUtil;
 
 
 public class RacingCarGameOutputTest {
     @BeforeEach
-    private void setUp(){
+    private void setUp() {
         OutputUtil.setUp();
     }
+
     @Test
     void printResultMessage_메소드를_사용시_실행_결과들이_출력() {
         List<RacingCar> carList = List.of(
