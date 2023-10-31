@@ -35,13 +35,14 @@ public class Validator {
     }
 
     public void validateMovingNumber(String userInputMovingNumber) {
+        int movingNumber = 0;
         try {
-            int movingNumber = Integer.parseInt(userInputMovingNumber);
-            checkMinMovingNumber(movingNumber);
-            checkMaxMovingNumber(movingNumber);
+            movingNumber = Integer.parseInt(userInputMovingNumber);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NOT_NUMBER_ERROR);
         }
+        checkMinMovingNumber(movingNumber);
+        checkMaxMovingNumber(movingNumber);
     }
 
     private void consistOfEnglishKoreanComma(String input) {
