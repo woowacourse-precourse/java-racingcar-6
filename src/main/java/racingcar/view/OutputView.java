@@ -16,10 +16,17 @@ public class OutputView {
     /**
      * 단일 차수 실행 결과 출력
      *
-     * @param car 자동차 객체
+     * @param cars 자동차 객체 리스트
      */
-    public static void printGameResult(CarModel car) {
-        System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+    public static void printGameResult(CarModel[] cars) {
+        for (CarModel car : cars) {
+            System.out.println(printCar(car));
+        }
+        System.out.println();
+    }
+
+    private static String printCar(CarModel car) {
+        return car.getName() + " : " + "-".repeat(car.getPosition());
     }
 
     /**
