@@ -1,7 +1,7 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -19,10 +19,12 @@ class InputCarValidatorTest {
     public void carsByStringToArray() {
         // given
         String input = "pobi,woni";
-        String[] test = new String[]{"pobi", "woni"};
+        String[] expectedCars = new String[]{"pobi", "woni"}; // expected
         // when
-        String[] carsByStringToArray = InputCarValidator.carsByStringToArray(input);
-        assertArrayEquals(carsByStringToArray, test);
+        String[] actualCars = InputCarValidator.carsByStringToArray(input); // actual
+        assertThat(actualCars)
+                .isNotNull()
+                .isEqualTo(expectedCars);
     }
 
     @Test
@@ -45,7 +47,9 @@ class InputCarValidatorTest {
         // when
         Set<String> checkedCars = InputCarValidator.checkDuplicateCarName(cars);
         // then
-        assertEquals(expectedCars, checkedCars);
+        assertThat(checkedCars)
+                .isNotNull()
+                .isEqualTo(expectedCars);
     }
 
     @Test
