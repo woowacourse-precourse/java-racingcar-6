@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.validator.CarValidator;
 import racingcar.validator.InputValidator;
@@ -24,6 +26,7 @@ public class CarGame {
         String inputTryNumber = getTryNumberInput();
         OutputView.printNewLine();
         getCarsScoreResult(inputTryNumber, carList);
+        showWinnerResult(carList);
     }
 
     private String getCarNamesInput() {
@@ -87,7 +90,6 @@ public class CarGame {
 
     private void getCarsScoreResult(String inputTryNumber, List<Car> carList) {
         for (int i = 0; i < Integer.parseInt(inputTryNumber); i++) {
-            OutputView.printResultMessage();
             for (Car car: carList) {
                 pickNumberAndMove(car);
                 OutputView.printCarName(car.getName());
@@ -104,5 +106,30 @@ public class CarGame {
             moveCount += 1;
             car.setMoveCount(moveCount);
         }
+    }
+
+    private void showWinnerResult(List<Car> carList) {
+        OutputView.printWinnerMessage();
+        List<String> winnerList = chooseWinner(carList);
+        String result = String.join(", ", winnerList);
+        OutputView.printWinner(result);
+    }
+
+    private List<String> chooseWinner(List<Car> carList) {
+        int moveCountMax = getMaxMoveCount(carList);
+
+        List<String> winnerList = carList.stream()
+                .filter(car -> car.getMoveCount() == moveCountMax)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        return winnerList;
+    }
+
+    private int getMaxMoveCount(List<Car> carList) {
+        List<Integer> moveCountList = carList.stream()
+                .map(Car::getMoveCount)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        return moveCountList.get(0);
     }
 }

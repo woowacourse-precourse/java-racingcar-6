@@ -16,4 +16,12 @@ public class OutputView {
     public static void printNewLine() {
         System.out.println();
     }
+
+    public static void printWinnerMessage() {
+        System.out.print("최종 우승자 : ");
+    }
+
+    public static void printWinner(String result) {
+        System.out.print(result);
+    }
 }
