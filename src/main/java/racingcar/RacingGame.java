@@ -50,8 +50,13 @@ public class RacingGame {
         int moves;
         System.out.println(ENTER_NUMBER_OF_MOVES_MESSAGE);
         movesString = camp.nextstep.edu.missionutils.Console.readLine();
-        //  throw IllegalArgumentException
-        moves = Integer.parseInt(movesString);
+        try{
+            moves = Integer.parseInt(movesString);
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
         System.out.println();
         return moves;
     }
