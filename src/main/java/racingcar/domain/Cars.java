@@ -11,6 +11,10 @@ public class Cars {
         this.cars = list;
     }
 
+    public int getSize(){
+        return cars.size();
+    }
+
     public List<Car> findWinners() {
         Car maxPositionedCar = findMaxPositionedCar();
         Position maxPosition = maxPositionedCar.getPosition();
