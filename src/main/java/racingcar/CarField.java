@@ -1,11 +1,11 @@
 package racingcar;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarField {
     private static final StringConverter stringConverter = new StringConverter();
+
     CarField() {
         OutputView.printInitCars();
         List<String> carNames = stringConverter.stringToCarNames(",");
@@ -23,7 +23,7 @@ public class CarField {
 
     public void run() {
         OutputView.gameStartPrint();
-        while(round-- > 0){
+        while (round-- > 0) {
             cars.stream()
                     .forEach(Car::roundStart);
 
@@ -35,7 +35,7 @@ public class CarField {
         OutputView.winnersPrint(whoIsWinner());
     }
 
-    private List<String> whoIsWinner(){
+    private List<String> whoIsWinner() {
         List<String> winnerNames;
         int winnerScore = maxScore();
 
@@ -47,7 +47,7 @@ public class CarField {
         return winners;
     }
 
-    private int maxScore(){
+    private int maxScore() {
         int winnerScore = cars.stream()
                 .mapToInt(Car::nowScore)
                 .max().orElseThrow();

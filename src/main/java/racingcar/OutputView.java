@@ -12,24 +12,24 @@ public class OutputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    static void printCarField(Car car){
+    static void printCarField(Car car) {
         System.out.println(car.myCurrentStatus());
     }
 
-    static void newLinePrint(){
+    static void newLinePrint() {
         System.out.println();
     }
 
-    static void gameStartPrint(){
+    static void gameStartPrint() {
         System.out.println("\n실행 결과");
     }
 
-    static void winnersPrint(List<String> winners){
+    static void winnersPrint(List<String> winners) {
         StringBuilder winnersStringBuilder = new StringBuilder();
         winnersStringBuilder.append("최종 우승자 : ");
         winners.stream()
                 .forEach((String winner) -> winnersStringBuilder.append(winner).append(", "));
-        winnersStringBuilder.setLength(winnersStringBuilder.length()-2);
+        winnersStringBuilder.setLength(winnersStringBuilder.length() - 2);
         System.out.println(winnersStringBuilder);
     }
 

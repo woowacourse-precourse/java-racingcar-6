@@ -6,10 +6,8 @@ public enum ConvertType {
 
     private String type;
 
-    ConvertType(String type){
+    ConvertType(String type) {
         this.type = type;
     }
-
-
 
 }
