@@ -53,14 +53,14 @@ public class RacingController {
     }
 
     public static void moveOrNot(List<Car> carList) {
-        for (int i = 0; i < carList.size(); ++i) {
-            determineRandomNumber(carList, i);
+        for (Car car : carList) {
+            determineRandomNumber(car);
         }
     }
 
-    public static void determineRandomNumber(List<Car> carList, int index) {
+    public static void determineRandomNumber(Car car) {
         if (Randoms.pickNumberInRange(0, 9) >= MINIMUM_MOVE_CONDITION) {
-            carList.get(index).move();
+            car.move();
         }
     }
 }
