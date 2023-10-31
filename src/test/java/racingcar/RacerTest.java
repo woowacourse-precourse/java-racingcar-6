@@ -4,12 +4,19 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RacerTest extends NsTest {
     private static final String RACER_NAME = "ZZ3n";
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    private Racer racer;
+
+    @BeforeEach
+    protected void racerInit() {
+        racer = new Racer(RACER_NAME);
+    }
 
     @Test
     void 경주_전진_테스트() {
@@ -34,9 +41,20 @@ class RacerTest extends NsTest {
         );
     }
 
+    @Test
+    void 경주_길이_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run();
+                    run();
+                    assertThat(racer.getCurrentPosition()).isEqualTo(2);
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     protected void runMain() {
-        Racer racer = new Racer(RACER_NAME);
         racer.proceedTurn();
     }
 }
