@@ -32,4 +32,7 @@ public class GameManager {
                 .toList();
     }
 
+    private int initializeRaceCount() {
+        return inputManager.getRaceCount();
+    }
 }
