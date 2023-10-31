@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    Inputs inputs;
 
     List<Car> selectWinner(List<Car> cars) {
         List<Car> winners = new ArrayList<>();
@@ -24,6 +25,14 @@ public class Game {
             winners.add(car); // 우승자 목록에 현재 자동차 추가
         }
         return maxGoNumber;
+    }
+
+
+    private void printResultByRound(List<Car> cars, int turn) {
+        for (Car car : cars) {
+            System.out.printf("%s : ", car.carName);
+            System.out.print(car.result[turn]);
+        }
     }
 
 }
