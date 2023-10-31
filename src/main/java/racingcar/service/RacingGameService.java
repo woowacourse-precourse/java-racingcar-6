@@ -8,6 +8,7 @@ public class RacingGameService {
     private final PlayerRepository playerRepository = new PlayerRepository();
     private final int MAXNAMELENGTH = 5;
     private final int MINNAMELENGTH = 1;
+    private final int forwardCondition = 4;
     // 게임 초기화 함수
     public void initGame(String playerInput){
         //parsing name
@@ -19,6 +20,17 @@ public class RacingGameService {
         }
     }
 
+    public void playTurn(){
+        // 각 차량에대해
+        for (Player player :playerRepository.getPlayers()){
+            // 랜덤 넘버 생성
+            if (getRandomOneDigitNum() >= forwardCondition){
+                // 전진 로직
+            }
+
+        }
+
+    }
 
     //input에서 사용자 이름 파싱
     private String[] inputParser(String inputString) throws IllegalArgumentException{
@@ -31,10 +43,12 @@ public class RacingGameService {
         }
         return tokens;
     }
+
     // Player 생성 메서드
     private Player createPlayer(String playerName){
         return new Player(playerName);
     }
+
     // 시도회수 형 변환
     public int attemptParseToInt(String attempts) throws IllegalArgumentException{
         int parsedInt = Integer.parseInt(attempts);
@@ -46,6 +60,9 @@ public class RacingGameService {
 
     }
 
+    private int getRandomOneDigitNum(){
+        return Randoms.pickNumberInRange(0,9);
+    }
 
 
     // 전진 구현
