@@ -68,6 +68,7 @@ public class Application {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.joining(", "));
 
-        System.out.println("최종 우승자 : " + winners.toString());
+        if (maxLength > 0) System.out.println("최종 우승자 : " + winners.toString());
+        else System.out.println("우승자가 없습니다.");
     }
 }
