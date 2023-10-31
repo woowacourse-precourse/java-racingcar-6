@@ -27,10 +27,27 @@ public class Winner {
             }
         }
 
-        if (winners.size() == 1){
+        if (winners.size() == 1) {
             return new Winner(winners, WinnerType.SINGLE);
         } else {
             return new Winner(winners, WinnerType.JOINT);
         }
+    }
+    public void viewWinner() {
+        String finalWinner;
+        if (this.winnerType == WinnerType.SINGLE) {
+            finalWinner = viewSingleWinner();
+        } else {
+            finalWinner = viewJointWinner();
+        }
+        System.out.println("최종 우승자 : "+finalWinner);
+    }
+
+    private String viewSingleWinner() {
+        return winner.get(0);
+    }
+
+    private String viewJointWinner() {
+        return String.join(",",winner);
     }
 }
