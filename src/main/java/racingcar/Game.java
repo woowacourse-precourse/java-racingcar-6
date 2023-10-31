@@ -15,9 +15,7 @@ public class Game {
     }
 
     public void playRound() {
-        for (Car car : cars.toList()) {
-            car.moveForward();
-        }
+        cars.toList().forEach(Car::moveForward);
     }
 
     public List<String> findWinners() {
