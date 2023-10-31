@@ -11,20 +11,16 @@ public class Application {
         Racing racing = new Racing();
         UserInput userInput = new UserInput();
         List<String> racingCarName = userInput.inputRacingCarName();
-        //전진한 결과를 담을 리스트
-        List<Integer> advancement = new ArrayList<>();
         int attemptNumber = userInput.inputAttemptNumber();
-        for(int i=0; i<racingCarName.size();i++){
-            advancement.add(racing.Race(attemptNumber));
-        }
-        int maxAdvancement = Collections.max(advancement);
+        //전진한 결과를 담을 리스트
+        List<Integer> advancementResult = racing.Start(attemptNumber, racingCarName.size());
+        int maxAdvancement = Collections.max(advancementResult);
         List<Integer> winnerIndex = new ArrayList<>();
-        for(int i=0; i<advancement.size(); i++){
-            if (advancement.get(i)==maxAdvancement){
+        for(int i=0; i<advancementResult.size(); i++){
+            if (advancementResult.get(i)==maxAdvancement){
                 winnerIndex.add(i);
             }
         }
-        System.out.println(advancement);
         System.out.println(winnerIndex);
     }
 }
