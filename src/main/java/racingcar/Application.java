@@ -16,5 +16,8 @@ public class Application {
         printStream.println();
         printStream.println("실행 결과");
         game.start();
+        
+        printStream.print("최종 우승자 : ");
+        printStream.println(String.join(", ", game.getWinnerNames()));
     }
 }
