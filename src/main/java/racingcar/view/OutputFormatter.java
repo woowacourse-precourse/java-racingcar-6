@@ -17,10 +17,12 @@ public class OutputFormatter {
 
     public List<String> printCarDistanceStatus(final Cars cars) {
         final List<String> carStatus = new ArrayList<>();
+
         for (Car car : cars.getCars()) {
             String viewDistance = appendStatus(car.getDistance());
             carStatus.add(car.getName() + SPACE + COLON + SPACE + viewDistance);
         }
+
         return carStatus;
     }
 

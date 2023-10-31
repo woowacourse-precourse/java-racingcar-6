@@ -13,14 +13,14 @@ public class InputValidator {
         }
     }
 
+    private static boolean isOneCar(String input) {
+        return !input.contains(DELIMITER);
+    }
+
     public void validateNumber(final String input) {
         if (isNotInputNumber(input)) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_AVAILABLE_STRING.getMessage());
         }
-    }
-
-    private static boolean isOneCar(String input) {
-        return !input.contains(DELIMITER);
     }
 
     private static boolean isNotInputNumber(String input) {
