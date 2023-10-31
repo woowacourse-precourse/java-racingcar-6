@@ -2,6 +2,8 @@ package racingcar.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import racingcar.model.Car;
 import racingcar.model.Race;
@@ -14,22 +16,26 @@ import static org.mockito.Mockito.*;
 
 class RaceServiceTest {
 
+    @Mock
+    private RandomNumberService randomNumberService;
+
+    @InjectMocks
     private RaceService raceService;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        raceService = new RaceService();
     }
 
     @Test
-    public void executeRaceTest() {
+    void executeRaceTest() {
         // Given
         Car car1 = mock(Car.class);
         Car car2 = mock(Car.class);
         List<Car> cars = Arrays.asList(car1, car2);
         Race race = new Race(cars, 5);
-        RaceService raceService = new RaceService();
+
+        when(randomNumberService.generateRandomNumber()).thenReturn(4);
 
         // When
         raceService.executeRace(race);
