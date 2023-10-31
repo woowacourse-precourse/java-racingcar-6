@@ -27,13 +27,14 @@ public class Game {
             playRound();
         }
 
-        System.out.println("끝");
+        printResult();
+
     }
 
     public void userInputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userInputCarNameString = Console.readLine();
-        String[] userInputCarNameArray = stringToArrayByComma(userInputCarNameString);
+        String[] userInputCarNameArray = stringToArrayByComma(userInputCarNameString); // 쉼표로 구분하여 String 배열 만들기
 
         carList = new ArrayList<>();
 
@@ -54,7 +55,7 @@ public class Game {
     public void playRound() {
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
-            judgeMovingForward(car); // 차가 앞으로 갈지 판단
+            judgeMovingForward(car); // 차가 앞으로 갈지 숫자를 생성해 판단하고 앞으로감
             printCarNameAndCurrentLocation(car); // 차의 이름과 현재 위치 출력
             setHighestLocation(car); // highestLocation을 갱신함
         }
@@ -73,8 +74,19 @@ public class Game {
         car.printCurrentLocation();
     }
 
+    private void printResult() {
+        List<Car> winners = getWinners(carList);
+        List<String> winnersName = new ArrayList<>();
+
+        for (Car car : winners) {
+            winnersName.add(car.getName());
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
+    }
+
     private List<Car> getWinners(List<Car> cars) {
-        List<Car> winnerCarList;
+        List<Car> winnerCarList = new ArrayList<>();
 
         for (Car car : cars) {
             if (car.getCurrentLocation().equals(highestLocation)) {
@@ -82,10 +94,6 @@ public class Game {
             }
         }
         return winnerCarList;
-    }
-
-    private void printResult() {
-        
     }
 
     // 게임 라운드를 진행할 때 마다 모든 car값의 위치를 넣어 높으면 highestLocation를 갱신한다
