@@ -49,5 +49,18 @@ class ForwardTest {
         assertThat(racingStateMap.get("페라리")).isEqualTo(1);
     }
 
+    @Test
+    void updatePosition은_randomNums가_3이하일_때_차량의_위치를_변경하지_않는다() {
+        Forward forward = new Forward();
+        forward.canForward(3);
+
+        Map<String, Integer> racingStateMap = new HashMap<>();
+        racingStateMap.put("벤츠", 0);
+
+        forward.updatePosition(racingStateMap, "벤츠");
+
+        assertThat(racingStateMap.get("벤츠")).isEqualTo(0);
+    }
+
 
 }
