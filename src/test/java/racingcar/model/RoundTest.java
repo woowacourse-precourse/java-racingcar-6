@@ -90,6 +90,8 @@ class RoundTest {
     @DisplayName("라운드가 종료된 횟수만큼 현재 라운드 수 증가 확인")
     public void 라운드가_종료되면_라운드_수_증가() {
         // given
+        int firstRoundCount = Round.getCurrentRoundCount();
+
         for (int i = INITIAL_RACE_COUNT; i < RACE_END_COUNT; i++) {
             Round round = new Round();
             round.endRound();
@@ -99,7 +101,10 @@ class RoundTest {
         int lastRoundCount = Round.getCurrentRoundCount();
 
         // then
-        assertThat(lastRoundCount).isEqualTo(RACE_END_COUNT);
+        Assertions.assertAll(
+                () -> assertThat(firstRoundCount).isEqualTo(INITIAL_RACE_COUNT),
+                () -> assertThat(lastRoundCount).isEqualTo(RACE_END_COUNT)
+        );
     }
 
     @Test
