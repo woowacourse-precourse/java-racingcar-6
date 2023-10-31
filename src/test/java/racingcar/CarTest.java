@@ -28,8 +28,7 @@ public class CarTest {
     @Test
     void Car_이름이_올바를_경우_객체_생성() {
         Car car = new Car("dubib");
-
-        assertThat(car).extracting("carName").hasFieldOrPropertyWithValue("carName", "dubib");
+        assertThat(car.getCarName()).isEqualTo("dubib");
         assertThat(car).hasFieldOrPropertyWithValue("position", 0);
     }
 
