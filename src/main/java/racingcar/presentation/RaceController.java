@@ -17,7 +17,7 @@ public class RaceController {
     }
 
     public void startRace() {
-        Cars cars = raceService.generateCars(View.requestCarNames());
+        Cars cars = Cars.of(View.requestCarNames());
         Integer count = raceService.generateCount(View.requestCount());
         play(cars, count);
         finish(cars);

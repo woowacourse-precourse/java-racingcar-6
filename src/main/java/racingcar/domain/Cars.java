@@ -5,22 +5,22 @@ import static racingcar.global.exception.ErrorMessage.DUPLICATE_NAME;
 import static racingcar.global.exception.ErrorMessage.INVALID_NAME_LIST_SIZE;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import racingcar.global.exception.ErrorMessage;
+import java.util.stream.Collectors;
 import racingcar.global.exception.RaceException;
+import racingcar.utils.Parser;
 
 public class Cars {
     private List<Car> carList;
 
-    private Cars(List<String> nameList) {
-        validateNameList(nameList);
-        this.carList = convertNameListToCarList(nameList);
+    private Cars(final String userInput) {
+        List<Car> cars = Parser.parseStringToCarList(userInput);
+        Validator.validateCars(cars);
+        this.carList = cars;
     }
 
-    public static Cars of(List<String> nameList) {
-        return new Cars(nameList);
+    public static Cars of(final String userInput) {
+        return new Cars(userInput);
     }
 
     public void tryMoveCars() {
@@ -60,35 +60,38 @@ public class Cars {
                 .get();
     }
 
-    private List<Car> convertNameListToCarList(List<String> nameList) {
-        return nameList.stream()
-                .map(Car::of)
-                .toList();
-    }
-
-    private void validateNameList(List<String> nameList) {
-        validateListSize(nameList);
-        validateDuplicateNames(nameList);
-    }
-
-    private void validateListSize(List<String> nameList) {
-        if (hasSingleCar(nameList)) {
-            throw RaceException.of(INVALID_NAME_LIST_SIZE);
+    private static class Validator {
+        private static void validateCars(final List<Car> cars) {
+            validateListSize(cars);
+            validateDuplicateNames(cars);
         }
-    }
 
-    private boolean hasSingleCar(List<String> nameList) {
-        return nameList.size() < MIN_CAR_SIZE.getValue();
-    }
-
-    private void validateDuplicateNames(List<String> nameList) {
-        if (hasDuplicateNames(nameList)) {
-            throw RaceException.of(DUPLICATE_NAME);
+        private static void validateListSize(final List<Car> cars) {
+            if (hasLessThanMinCars(cars)) {
+                throw RaceException.of(INVALID_NAME_LIST_SIZE);
+            }
         }
-    }
 
-    private boolean hasDuplicateNames(List<String> nameList) {
-        Set<String> unique = new HashSet<>(nameList);
-        return unique.size() != nameList.size();
+        private static boolean hasLessThanMinCars(final List<Car> cars) {
+            return cars.size() < MIN_CAR_SIZE.getValue();
+        }
+
+        private static void validateDuplicateNames(final List<Car> cars) {
+            if (hasDuplicateNames(cars)) {
+                throw RaceException.of(DUPLICATE_NAME);
+            }
+        }
+
+        private static boolean hasDuplicateNames(final List<Car> cars) {
+            Integer uniqueSize = countUniqueCarNames(cars);
+            return uniqueSize != cars.size();
+        }
+
+        private static Integer countUniqueCarNames(final List<Car> cars) {
+            return cars.stream()
+                    .map(Car::getName)
+                    .collect(Collectors.toSet())
+                    .size();
+        }
     }
 }
