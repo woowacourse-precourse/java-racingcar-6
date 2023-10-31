@@ -6,5 +6,6 @@ public class NumberLimits {
     public static final int MIN_RACINGCARS_SIZE = 2;
     public static final int MIN_RANDOM_NUM = 0;
     public static final int MAX_RANDOM_NUM = 9;
+    public static final int MIN_ATTEMPTCOUNT_NUM = 1;
 
 }
