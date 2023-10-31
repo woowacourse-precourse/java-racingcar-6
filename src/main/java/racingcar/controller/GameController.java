@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,35 +23,43 @@ public class GameController {
     }
 
     public void play() {
-        List<String> carName = inputCarNames();
-        List<Car> cars = new ArrayList<>();
-
-        for (String name : carName) {
-            Car car = new Car(name);
-            cars.add(car);
-        }
+        List<String> carNames = inputCarNames();
+        Cars cars = new Cars(carNames);
 
         int tryNumber = inputView.askTryNumber();
 
+        List<Car> carList = new ArrayList<>();
         int count = 0;
         while (count < tryNumber) {
-            for (Car car : cars) {
-                int randomDistance = Randoms.pickNumberInRange(0, 9);
-                if(randomDistance >= 4) {
-                    car.updateCarLocation(randomDistance);
-                }
-                outputView.outputCarMoveDistance(car.getCarName(), randomDistance);
-            }
+//            for (Car car : cars) {
+//                int randomDistance = Randoms.pickNumberInRange(0, 9);
+//                if(randomDistance >= 4) {
+//                    car.updateCarLocation(randomDistance);
+//                }
+//                outputView.outputCarMoveDistance(car.getCarName(), randomDistance);
+//            }
+            carList = cars.getCars();
+            moveCars(carList);
 
             count += 1;
             System.out.println();
         }
 
-        List<Car> sortedCars = getSortedCars(cars);
+        List<Car> sortedCars = getSortedCars(carList);
         List<Car> farthestCars = getFarthestCars(sortedCars);
         List<String> winnerCarNames = getWinnerCarNames(farthestCars);
 
         outputView.informFinalWinner(winnerCarNames);
+    }
+
+    private void moveCars(List<Car> carList) {
+        carList.forEach(car -> {
+            int randomDistance = Randoms.pickNumberInRange(0,9);
+                    if(randomDistance >= 4) {
+                car.updateCarLocation(randomDistance);
+            }
+            outputView.outputCarMoveDistance(car.getCarName(), randomDistance);
+        });
     }
 
     private List<String> getWinnerCarNames(List<Car> farthestCars) {
