@@ -4,6 +4,8 @@ import racingcar.domain.car.Cars;
 import racingcar.domain.game.GameResultDto;
 import racingcar.domain.game.RacingGame;
 import racingcar.domain.game.Rounds;
+import racingcar.domain.random.GameRandomNumberGenerator;
+import racingcar.domain.random.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -22,7 +24,8 @@ public class RacingGameController {
 
     private RacingGame generateNewRacingGame() {
         List<String> names = InputView.inputCarNames();
-        Cars cars = Cars.createFromNames(names);
+        RandomNumberGenerator randomNumberGenerator = new GameRandomNumberGenerator();
+        Cars cars = Cars.createBy(names, randomNumberGenerator);
 
         int inputRounds = InputView.inputRounds();
         Rounds rounds = new Rounds(inputRounds);
