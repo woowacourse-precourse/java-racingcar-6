@@ -1,13 +1,11 @@
 package racingcar.domain.car;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class NameTest {
+class CarNameTest {
 
 
     @DisplayName("이름이 5글자 이하라면 예외없이 Name이 성공적으로 생성됩니다")
@@ -15,7 +13,7 @@ class NameTest {
     @ValueSource(strings = {"a", "ab", "abc", "abcd", "abcde"})
     void 이름_생성_테스트(String name) {
         Assertions.assertDoesNotThrow(() -> {
-            new Name(name);
+            new CarName(name);
         });
     }
 
@@ -24,7 +22,7 @@ class NameTest {
     @ValueSource(strings = {"", "abcdef", "abcaaaaaa"})
     void 이름_생성_예외_테스트(String name) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new Name(name);
+            new CarName(name);
         });
     }
 
