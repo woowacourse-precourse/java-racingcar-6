@@ -1,7 +1,6 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,7 +14,7 @@ public class Game {
     }
 
     public void play() {
-        List<Car> cars = inputView.inputCarName();
+        Cars cars = inputView.inputCarName();
         int count = inputView.inputCount();
         outputView.play(cars, count);
         outputView.printWinner(cars);
