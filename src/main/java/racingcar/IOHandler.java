@@ -32,10 +32,7 @@ public class IOHandler {
     }
 
     public void printAttemptResult(List<Car> cars) {
-        for (Car car : cars) {
-            String forwardLine = "-".repeat(car.getForwardCount());
-            System.out.println(car);
-        }
+        cars.forEach(System.out::println);
         System.out.println();
     }
 
