@@ -25,7 +25,7 @@ public class Application {
         }
 
         String winner = getWinner(carNames, carForward);
-        System.out.println("최종 우승자: " + winner);
+        System.out.print("최종 우승자 : " + winner);
     }
 
     // 자동차 이름을 입력 받는 함수
@@ -43,13 +43,13 @@ public class Application {
 
     // 입력된 자동차 이름이 유효한지 검사하는 함수
     private static void validCarNames(String[] carNames) {
-        for (int i = 0; i < carNames.length; i++) {
+        for (String carName : carNames) {
             // 자동차 이름은 5자 이하만 가능
-            if (carNames[i].trim().length() > 5) {
+            if (carName.trim().length() > 5) {
                 throw new IllegalArgumentException();
             }
             // (,)를 기준 이름이 비어 있으면 안된다.
-            if (carNames[i].trim().isEmpty()) {
+            if (carName.trim().isEmpty()) {
                 throw new IllegalArgumentException();
             }
         }
@@ -101,15 +101,15 @@ public class Application {
                 winnerDistance = carForward[i];
             }
         }
-        String winner = "";
+        StringBuilder winner = new StringBuilder();
         for (int i = 0; i < carNames.length; i++) {
             if (carForward[i] == winnerDistance) {
                 if (!winner.isEmpty()) {
-                    winner += ", ";
+                    winner.append(", ");
                 }
-                winner += carNames[i];
+                winner.append(carNames[i]);
             }
         }
-        return winner;
+        return winner.toString();
     }
 }
