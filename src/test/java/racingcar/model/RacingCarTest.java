@@ -32,7 +32,7 @@ class RacingCarTest {
     @ValueSource(strings = {"tested","testName","      "})
     void validateName(String name){
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new RacingCar(name.trim()));
+                .isThrownBy(() -> new RacingCar(name));
     }
 
     @DisplayName("자동차는 전진 또는 멈출 수 있다.")
