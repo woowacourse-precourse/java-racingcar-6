@@ -14,11 +14,14 @@ public class GameController {
     public void startGame() {
         raceGame.setInputCarName(inputView.enterCarName());
         saveCarNames();
+        System.out.println(raceGame.getCarNames());
     }
 
     public void saveCarNames() {
         List<String> carNames = convertStringToIntList(raceGame.getInputCarName());
         carNameValidator.toValidateCarName(carNames);
+
+        raceGame.setCarNames(carNames);
     }
 
     private List<String> convertStringToIntList(String carName) {
