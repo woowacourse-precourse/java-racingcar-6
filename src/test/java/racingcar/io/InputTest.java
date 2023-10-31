@@ -70,7 +70,7 @@ class InputTest {
 
         Assertions.assertThatThrownBy(() -> InputValidate.participantCount(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 게임에 참여할 수 있는 인원은 최소 1명 최대 10명입니다.");
+                .hasMessageContaining("자동차 게임에 참여할 수 있는 인원은 최대 10명입니다.");
     }
 
     @Test
