@@ -1,9 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingGame;
 import racingcar.util.RacingGameUtil;

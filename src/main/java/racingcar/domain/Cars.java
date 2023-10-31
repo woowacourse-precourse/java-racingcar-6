@@ -24,6 +24,7 @@ public class Cars {
         }
 
     }
+
     private void goEachCar(Car car) {
         int randNumber = Randoms.pickNumberInRange(0, 9);
         car.go(randNumber);
@@ -38,7 +39,7 @@ public class Cars {
         List<String> winnerNames = new ArrayList<>();
         int maxPosition = 0;
 
-        for (Car car :carList) {
+        for (Car car : carList) {
             if (car.getPosition() == maxPosition) {
                 winnerNames.add(car.getName());
                 continue;
