@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.assertThatNoException;
+import static racingcar.util.GameConstants.CAR_NAME_DELIMITER;
 import static racingcar.util.GameConstants.COUNT_OF_CAR;
 import static racingcar.util.GameConstants.MAXIMUM_CAR_NAME_LENGTH;
 
@@ -22,45 +23,25 @@ public class CarNameInputTest {
     }
 
     @Test
-    @DisplayName("세 개의 이름을 입력받을 경우 테스트를 통과한다.")
-    public void 세_개의_이름을_입력받을_경우_테스트를_통과한다() {
+    @DisplayName("입력 형식이 맞을 경우 테스트를 통과한다.")
+    public void 입력_형식이_맞을_경우_테스트를_통과한다() {
         // given
-        List<String> strings = new ArrayList<>();
-        for (int i = 0; i < COUNT_OF_CAR; i++) {
-            char name = (char) ('a' + i);
-            strings.add(Character.toString(name));
-        }
-        final String[] input = strings.toArray(new String[strings.size()]);
+        String input = "a,b,c";
+        final String[] splitInput = input.split(CAR_NAME_DELIMITER, -1);
 
         // when & then
-        assertThatNoException().isThrownBy(() -> carNameValidator.validateCount(input));
+        assertThatNoException().isThrownBy(() -> carNameValidator.validateSyntax(splitInput));
     }
 
     @Test
-    @DisplayName("네 개의 이름을 입력받을 경우 예외를 반환한다.")
-    public void 네_개의_이름을_입력받을_경우_예외를_반환한다() {
+    @DisplayName("입력 형식이 틀릴 경우 예외를 반환한다.")
+    public void 입력_형식이_틀릴_경우_예외를_반환한다() {
         // given
-        List<String> strings = new ArrayList<>();
-        for (int i = 0; i <= COUNT_OF_CAR; i++) {
-            char name = (char) ('a' + i);
-            strings.add(Character.toString(name));
-        }
-        final String[] input = strings.toArray(new String[strings.size()]);
+        final String input = "a,,b,c";
+        final String[] splitInput = input.split(CAR_NAME_DELIMITER, -1);
 
         // when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateCount(input));
-    }
-
-    @Test
-    @DisplayName("공백을 입력받을 경우 예외를 반환한다.")
-    public void 공백을_입력받을_경우_예외를_반환한다() {
-        // given
-        List<String> strings = new ArrayList<>();
-        strings.add("");
-        final String[] input = strings.toArray(new String[strings.size()]);
-
-        // when & then
-        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateCount(input));
+        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateSyntax(splitInput));
     }
 
     @Test

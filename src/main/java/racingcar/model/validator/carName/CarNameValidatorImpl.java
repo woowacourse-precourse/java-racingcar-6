@@ -10,9 +10,15 @@ import java.util.Set;
 public class CarNameValidatorImpl implements CarNameValidator{
 
     @Override
-    public void validateCount(String[] inputs) {
-        if (inputs.length != COUNT_OF_CAR) {
-            throw new IllegalArgumentException(COUNT_OF_CAR + "개의 이름을 입력해주세요.");
+    public void validateSyntax(String[] inputs) {
+        for (String input : inputs) {
+            validateEachSyntax(input);
+        }
+    }
+
+    private void validateEachSyntax(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("빈 문자열을 입력하지 마세요.");
         }
     }
 
@@ -50,7 +56,7 @@ public class CarNameValidatorImpl implements CarNameValidator{
 
     @Override
     public void validateAll(String[] inputs) {
-        validateCount(inputs);
+        validateSyntax(inputs);
         validateLength(inputs);
         validateDuplicate(inputs);
     }
