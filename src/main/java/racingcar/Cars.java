@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
@@ -18,16 +19,18 @@ public class Cars {
         return NumberGenerator.generateNumber();
     }
 
-    public void indicate() {
-        cars.forEach(car -> System.out.println(car.indicate()));
+    public List<String> indicate() {
+        List<String> indicator = new ArrayList<>();
+        cars.forEach(car -> indicator.add(car.indicate()));
+        return indicator;
     }
 
-    public List<Boolean> compare(Car car) {
+    public int compare(Car car) {
         List<Boolean> collect = cars.stream()
                 .map(carObject -> carObject.isLesser(car))
                 .filter(result -> !result)
                 .toList();
-        return collect;
+        return collect.size();
     }
 
 }
