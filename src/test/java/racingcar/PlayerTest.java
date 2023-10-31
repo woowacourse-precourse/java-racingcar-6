@@ -2,41 +2,39 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class PlayerTest {
 
     private Player player;
 
     @BeforeEach
-    void setUp() {
+    void init() {
         player = new Player();
+    }
+
+    @AfterEach
+    void clear() {
+        Console.close();
     }
 
     @Test
     void 입력한_자동차_이름_길이_예외처리() {
         setInput("namename3");
-        assertThatThrownBy(() -> {
-            player.inputCarNames();
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(player::inputCarNames).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    void 입력한_경주_횟수가_숫자가_아닌_경우_예외처리() {
-        setInput("one");
-        assertThatThrownBy(() -> {
-            player.inputRaceCount();
-        }).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 입력한_경주_횟수가_1이상이_아닌_경우_예외처리() {
-        setInput("0");
-        assertThatThrownBy(() -> {
-            player.inputRaceCount();
-        }).isInstanceOf(IllegalArgumentException.class);
+    @ParameterizedTest
+    @CsvSource({"one", "0"})
+    void 입력한_경주_횟수_예외처리(String input) {
+        setInput(input);
+        assertThatThrownBy(player::inputRaceCount).isInstanceOf(IllegalArgumentException.class);
     }
 
     void setInput(String input) {
