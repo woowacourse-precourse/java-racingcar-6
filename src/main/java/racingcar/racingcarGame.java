@@ -24,7 +24,7 @@ public class racingcarGame {
         createListOfCars(names);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        exception.checkNumberException(readLine());
+        times=exception.checkNumberException(readLine());
     }
 
     public void createListOfCars(List<String> names){
