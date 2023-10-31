@@ -1,7 +1,5 @@
 package racingcar;
 
-import org.mockito.internal.util.StringUtil;
-
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
@@ -34,7 +32,7 @@ public class Output {
     void printWinner(ArrayList<String> winner){
         StringBuilder sb = new StringBuilder();
         sb.append(WINNER_IS);
-        sb.append(StringUtil.join(winner, ", "));
+        sb.append(String.join(",",winner));
         System.out.println(sb);
     }
 }

@@ -20,6 +20,7 @@ public class Application {
             output.printResultOfRound(carMap);
         }
 
+        output.printWinner(computer.findWinner(carMap));
     }
 
 
