@@ -7,6 +7,7 @@ import racingcar.dto.ResultDto;
 public class OutputView {
     private static final String HYPHEN = "-";
     private static final String RESULT_FORM = "%s : %s%n";
+    private static final String FINAL_WINNER_FORM = "최종 우승자 : %s";
 
     public void printPlayResultText() {
         System.out.println("\n실행 결과");
@@ -20,19 +21,6 @@ public class OutputView {
     }
 
     public void printFinalWinners(List<String> winners) {
-        String finalWinnerResultForm = convertToFinalWinnerResultForm(winners);
-        System.out.println(finalWinnerResultForm);
-    }
-
-    private static String convertToFinalWinnerResultForm(List<String> winners) {
-        StringBuilder finalWinnerResultForm = new StringBuilder("최종 우승자 : ");
-        for (int idx = 0; idx < winners.size(); idx++) {
-            finalWinnerResultForm.append(winners.get(idx));
-            if (idx == winners.size() - 1) {
-                break;
-            }
-            finalWinnerResultForm.append(", ");
-        }
-        return finalWinnerResultForm.toString();
+        System.out.printf(FINAL_WINNER_FORM, String.join(", ", winners));
     }
 }
