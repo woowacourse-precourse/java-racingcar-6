@@ -24,6 +24,17 @@ public class ExceptionTest {
     }
 
     @Test
+    void 입력값_쉼표로_끝나지_않는다() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            exception.validateInputNotEndWithComma("abcd,");
+        });
+
+        Assertions.assertDoesNotThrow(() -> {
+            exception.validateInputNotEndWithComma("abcd");
+        });
+    }
+
+    @Test
     void 입력값_쉼표_중복_X() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             exception.validateInputContainsConsecutiveCommas("ab,,cd");
