@@ -35,4 +35,27 @@ public class Race {
         }
     }
 
+    private void carsTryMove(){
+        for(RaceCar car : raceCarList){
+            car.raceForward();
+        }
+    }
+
+    private void reportingLive(){
+        for(RaceCar car : raceCarList){
+            car.currentPosition();
+        }
+    }
+
+    public void raceGame(){
+        int rounds;
+        System.out.println("시도할 회수는 몇회인가요?");
+        rounds = Integer.parseInt(Console.readLine());
+        System.out.println("실행 결과");
+        for(int i =0; i<rounds;i++){
+            carsTryMove();
+            reportingLive();
+            System.out.println();
+        }
+    }
 }
