@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class OutputViewTest {
     @Test
-    void 포지션을_작대기로_변환하여_출력하라 () throws Exception {
+    void 포지션을_작대기로_변환하여_출력하라 () {
         //given
         String name = "pobi";
         int position = 5;

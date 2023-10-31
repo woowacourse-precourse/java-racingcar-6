@@ -13,14 +13,14 @@ import org.junit.jupiter.api.Test;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class RacingCarsTest {
     @Test
-    void Car_리스트를_생성하라() throws Exception {
+    void Car_리스트를_생성하라() {
         List<String> carNames = Arrays.asList("pobi", "jun", "rao");
         RacingCars racingCars = new RacingCars(carNames);
         assertThat(racingCars.getCars().get(0).getName()).isEqualTo(carNames.get(0));
     }
 
     @Test
-    void 자동차_이름이_알파벳이_아닌_경우_예외를_발생하라 () throws Exception {
+    void 자동차_이름이_알파벳이_아닌_경우_예외를_발생하라 () {
         //given
         List<String> carNames = Arrays.asList("구구", "jun", "rao");
         //when, then
@@ -30,7 +30,7 @@ class RacingCarsTest {
     }
 
     @Test
-    void 자동차_이름에_공백이_포함된_경우_예외를_발생하라 () throws Exception {
+    void 자동차_이름에_공백이_포함된_경우_예외를_발생하라 () {
         //given
         List<String> carNames1 = Arrays.asList("a a", "jun", "rao");
         List<String> carNames2 = Arrays.asList("   ", "jun", "rao");
@@ -38,16 +38,16 @@ class RacingCarsTest {
         List<String> carNames4 = Arrays.asList("ab ", "jun", "rao");
         //when, then
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCars racingCars = new RacingCars(carNames1);;
+            RacingCars racingCars = new RacingCars(carNames1);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCars racingCars = new RacingCars(carNames2);;
+            RacingCars racingCars = new RacingCars(carNames2);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCars racingCars = new RacingCars(carNames3);;
+            RacingCars racingCars = new RacingCars(carNames3);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            RacingCars racingCars = new RacingCars(carNames4);;
+            RacingCars racingCars = new RacingCars(carNames4);
         });
     }
 }
