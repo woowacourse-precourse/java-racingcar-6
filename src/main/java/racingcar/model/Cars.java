@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import racingcar.view.OutputView;
 
 public class Cars {
     private final List<Car> carList = new ArrayList<>();
@@ -16,28 +15,24 @@ public class Cars {
                 .forEach(carList::add);
     }
 
-    public void doRound(List<String> carNames, int round) {
-        initCars(carNames);
-        for (int i = 0; i<round; i++) {
-            go();
-            roundResult();
-        }
+    public List<String> doRound() {
+        go();
+        return roundResult();
     }
 
     public void go() {
         carList.forEach(Car::go);
     }
 
-    public void roundResult() {
-        OutputView.printCarResult(carList.stream()
+    public List<String> roundResult() {
+       return carList.stream()
                 .map(Car::positionToString)
-                .collect(Collectors.toList()));
-        System.out.println();
+                .collect(Collectors.toList());
     }
 
     public int maxDistance() {
         Optional<Integer> maxPositionOptional = carList.stream()
-                .map(car -> car.position())
+                .map(Car::position)
                 .max(Comparator.naturalOrder());
 
         return maxPositionOptional.orElse(0);
