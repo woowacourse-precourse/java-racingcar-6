@@ -1,7 +1,12 @@
 package racingcar.controller;
 
 import racingcar.model.Information;
+import racingcar.model.RacingCar;
+import racingcar.model.RacingCars;
 import racingcar.view.InputView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameController {
     private static RacingController racingController;
@@ -12,23 +17,25 @@ public class GameController {
         }
     }
 
-    public static void runGame() {
+    public void runGame() {
         playGame();
         outWinner();
     }
 
-    private static void playGame() {
+    private void playGame() {
         //TODO : print start message;
         for (int i = 0; i < racingController.times; i++) {
             playRound();
         }
     }
 
-    private static void playRound() {
+    private void playRound() {
         racingController.go();
         //TODO : print result(racingCars.getResult)
     }
 
-    private static void outWinner() {
+    private void outWinner() {
+        RacingCars winners = RacingCars.from(racingController.getMaxs());
+        //TODO : print winners
     }
 }

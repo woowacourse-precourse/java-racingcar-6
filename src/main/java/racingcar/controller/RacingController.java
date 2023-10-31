@@ -1,30 +1,52 @@
 package racingcar.controller;
 
 import racingcar.model.*;
+import racingcar.util.Constants;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class RacingController {
     public final RacingCars racingCars;
     public final int times;
 
-    public RacingController(Information information){
+    public RacingController(Information information) {
         racingCars = init(information.getNames());
         this.times = information.getTimes();
     }
 
     private RacingCars init(List<String> names) {
         List<RacingCar> racingCars = new ArrayList<>();
-        for(String name : names){
+        for (String name : names) {
             racingCars.add(RacingCar.from(name));
         }
         return RacingCars.from(racingCars);
     }
 
     public void go() {
-        for(RacingCar car : racingCars.getRacingCars()) {
+        for (RacingCar car : racingCars.getRacingCars()) {
             car.move(new RandomNumberGenerator());
         }
+    }
+
+    public List<RacingCar> getMaxs() {
+        int max= Constants.RANDOM_NUM_START;
+        HashMap<Integer, List<RacingCar>> map = new HashMap<>();
+
+        for (RacingCar car : racingCars.getRacingCars()) {
+            max = Math.max(car.getDistance(), max);
+            if(map.containsKey(max)){
+                List<RacingCar> values = map.get(max);
+                values.add(car);
+                map.put(max, values);
+                continue;
+            }
+            List<RacingCar> values = new ArrayList<>();
+            values.add(car);
+            map.put(max, values);
+        }
+        return map.get(max);
     }
 }

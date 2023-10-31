@@ -3,8 +3,6 @@ package racingcar.model;
 import java.util.List;
 
 public class RacingCars {
-
-
     private List<RacingCar> racingCars;
 
     private RacingCars(List<RacingCar> list) {
