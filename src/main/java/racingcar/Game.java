@@ -5,6 +5,15 @@ import java.util.List;
 
 public class Game {
 
+    List<Car> selectWinner(List<Car> cars) {
+        List<Car> winners = new ArrayList<>();
+        int maxGoNumber = 0;
+        for (Car car : cars) {
+            // 경주 자동차들의 최대 전진 회수를 체크
+            maxGoNumber = checkMaxGoNumber(car, maxGoNumber, winners);
+        }
+        return winners;
+    }
 
     private int checkMaxGoNumber(Car car, int maxGoNumber, List<Car> winners) {
         if (car.totalGoNumber > maxGoNumber) { // 현재 자동차의 전진 회수 > 기존 최고 전진 회수
