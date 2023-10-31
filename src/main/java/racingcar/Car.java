@@ -7,6 +7,10 @@ public class Car {
         this.name = name;
         this.driveNum = driveNum;
     }
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
