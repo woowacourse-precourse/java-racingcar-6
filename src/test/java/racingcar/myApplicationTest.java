@@ -34,7 +34,7 @@ public class myApplicationTest {
         @DisplayName("자동차 전체이름을 예외처리를 테스트한다.")
         void 자동차전체이름예외처리테스트(String carNames) {
             Assertions.assertThatThrownBy(
-                    () -> Validator.carNamesComma(carNames)
+                    () -> Validator.checkCarNamesForm(carNames)
             ).isInstanceOf(IllegalArgumentException.class);
         }
         @ParameterizedTest
@@ -42,7 +42,7 @@ public class myApplicationTest {
         @DisplayName("자동차 이름들이 5글자 이상인지 테스트한다.")
         void 자동차이름분리후_5글자_이하인지_테스트(String carNames) {
             Assertions.assertThatThrownBy(
-                    () -> CarRaceGame.CarNamesToList(carNames)
+                    () -> CarRaceGame.makeCarNamesToList(carNames)
             ).isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -51,7 +51,7 @@ public class myApplicationTest {
         @DisplayName("자동차 이름의 공백 예외처리를 테스트한다.")
         void 자동차_이름_공백_테스트(String carNames) {
             Assertions.assertThatThrownBy(
-                    () -> CarRaceGame.CarNamesToList(carNames)
+                    () -> CarRaceGame.makeCarNamesToList(carNames)
             ).isInstanceOf(IllegalArgumentException.class);
         }
     }
@@ -75,7 +75,7 @@ public class myApplicationTest {
         @DisplayName("게임시도횟수가 1이상인지 테스트한다.")
         void 시도횟수_범위_테스트(String roundNumber) {
             Assertions.assertThatThrownBy(
-                    () -> Validator.attemptNumberRange(roundNumber)
+                    () -> Validator.isMoreThanOne(roundNumber)
             ).isInstanceOf(IllegalArgumentException.class);
         }
     }

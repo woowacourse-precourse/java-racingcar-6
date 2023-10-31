@@ -13,7 +13,7 @@ public class CarRaceGameView {
     public static String startGameView() {
         System.out.println(START_GAME);
         String carNames = readLine();
-        Validator.carNamesComma(carNames);
+        Validator.checkCarNamesForm(carNames);
 
         return carNames;
     }
@@ -21,9 +21,9 @@ public class CarRaceGameView {
     public static String attemptNumberView() {
         System.out.println(ATTEMPT_NUMBER);
         String attemptNumberString = readLine();
-        Validator.isStringEmpty(attemptNumberString);
+        Validator.isEmptyString(attemptNumberString);
         Validator.isNumber(attemptNumberString);
-        Validator.attemptNumberRange(attemptNumberString);
+        Validator.isMoreThanOne(attemptNumberString);
 
         return attemptNumberString;
     }

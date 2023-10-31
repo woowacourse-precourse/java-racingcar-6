@@ -3,31 +3,21 @@ package racingcar.validator;
 import racingcar.constant.GameConstants;
 
 public class Validator {
-    public static void carNameStringLength(String carName) {
+    public static void isLessThanFiveLetter(String carName) {
         if (carName.length() <= 5) {
             return;
         }
         throw new IllegalArgumentException("[ERROR] 이름 길이 5초과");
     }
 
-    public static void isStringEmpty(String input) {
+    public static void isEmptyString(String input) {
         if (input == null || input.isBlank() || input.isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 입력이 존재하지  않습니다.");
         }
     }
 
 
-    //콤마 개수랑 이름 개수가 안 맞으면 throw
-    public static void carNamesComma(String carNames) {
-//        int commaCount = (int) carNames.chars()
-//                .filter(c -> c == ',')
-//                .count();
-//        int nameCount = carNames.split(",").length;
-//        System.out.println("콤마개수: " + commaCount + ", 이름개수: "+ nameCount);
-//        if (commaCount + 1 != nameCount) {
-//            throw new IllegalArgumentException("[ERROR] 콤마의 사용이 부적절합니다.");
-//        }
-
+    public static void checkCarNamesForm(String carNames) {
         String regularExpForInput = "[^,]+,(?:[^,]+,)*[^,]+";
         if (!carNames.matches(regularExpForInput)) {
             throw new IllegalArgumentException("[ERROR] 자동자이름들 형식이 잘못 됐습니다.");
@@ -42,7 +32,7 @@ public class Validator {
         }
     }
 
-    public static void attemptNumberRange(String attemptNumberString) {
+    public static void isMoreThanOne(String attemptNumberString) {
         int attemptNumber = Integer.parseInt(attemptNumberString);
         if (attemptNumber >= 1) {
             return;

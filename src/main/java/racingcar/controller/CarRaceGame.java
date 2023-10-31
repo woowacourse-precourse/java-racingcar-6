@@ -30,7 +30,7 @@ public class CarRaceGame {
     }
 
     public static void dealWithCarNames(String carNames) {
-        setUpCar(CarNamesToList(carNames));
+        setUpCar(makeCarNamesToList(carNames));
     }
 
 
@@ -40,7 +40,7 @@ public class CarRaceGame {
         }
     }
 
-    public static List<String> CarNamesToList(String carNames) {
+    public static List<String> makeCarNamesToList(String carNames) {
         List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
         validateCarName(carNameList);
 
@@ -49,8 +49,8 @@ public class CarRaceGame {
 
     public static void validateCarName(List<String> carNameList) {
         for (String carName : carNameList) {
-            Validator.carNameStringLength(carName);
-            Validator.isStringEmpty(carName);
+            Validator.isLessThanFiveLetter(carName);
+            Validator.isEmptyString(carName);
         }
     }
 
