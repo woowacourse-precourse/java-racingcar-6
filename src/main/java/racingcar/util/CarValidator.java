@@ -13,13 +13,14 @@ public class CarValidator {
     }
 
     private static void validateInputNotEmpty(String name) {
-        if (name.isEmpty()) {
+        if (name.trim().isEmpty()) {
             throw new IllegalArgumentException(INVALID_INPUT_IS_EMPTY);
         }
     }
 
     private static void validateInputSize(String name) {
-        if (Constants.MAX_INPUT_SIZE < name.length())
+        if (Constants.MAX_INPUT_SIZE < name.length()) {
             throw new IllegalArgumentException(INVALID_INPUT_SIZE);
+        }
     }
 }
