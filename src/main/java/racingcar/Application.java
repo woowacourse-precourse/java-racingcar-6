@@ -61,6 +61,9 @@ class GameSystem {
         game.run(attempt, totalCar);
     }
 
+    public void showWinner(OutputView output, int attempt) {
+
+    }
 
 }
 
@@ -265,6 +268,22 @@ class CarCondition {
 }
 
 class Winner {
+    private int maxDistance = 0;
 
+    public void who(TotalCar totalCar) {
+
+    }
+
+    public int carCompare(List<Integer> carDistance) {
+
+        return 0;
+    }
+
+    public boolean distanceCompare(int distance) {
+        if (maxDistance <= distance) {
+            return true;
+        }
+        return false;
+    }
 }
 
