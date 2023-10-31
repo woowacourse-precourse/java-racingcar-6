@@ -1,15 +1,19 @@
 package racingcar.model;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarList {
-    private final List<Car> carList;
+    private final List<Car> carList = new ArrayList<>();
 
-    public CarList(String[] carNames) {
-        this.carList = generateCars(carNames);
+    public List<Car> carList() {
+        return Collections.unmodifiableList(carList);
+    }
+
+    public void addCar(Car car) {
+        carList.add(car);
     }
 
     public int getMaxPosition() {
@@ -26,9 +30,4 @@ public class CarList {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> generateCars(String[] carNames) {
-        return Arrays.stream(carNames)
-                .map(Car::new)
-                .collect(Collectors.toList());
-    }
 }
