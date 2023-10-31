@@ -76,8 +76,10 @@ public class Race {
         OutputView.gameSetView();
         List<String> winnerList = findWinner(roundResultList.get(round - 1));
         for (int i = 0; i < round; i++) {
-            OutputView.roundConditionView(roundResultList.get(i));
+            OutputView.outputRounds(roundResultList.get(i));
         }
+
+        OutputView.outputResult(winnerList);
     }
 
     public List<String> findWinner(List<Result> resultList) {

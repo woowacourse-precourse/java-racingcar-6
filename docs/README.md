@@ -17,11 +17,11 @@
   - [X] 경주는 한번의 라운드가 끝날 때마다 진행상황을 저장한다. 
     - [X] 자동차는 자기의 이름과 상태를 경주에게 제공한다. Car#resultOutput
     - [X] 경주는 자동차 상태 목록을 저장한다.
-- [] 경주는 모든 라운드가 끝나면 진행결과를 출력한다. Race#gameSet
-  - [] 경주는 진행상황을 출력기에 전송한다. OutputView#outputRounds
+- [X] 경주는 모든 라운드가 끝나면 진행결과를 출력한다. Race#gameSet
+  - [X] 경주는 진행상황을 출력기에 전송한다. OutputView#outputRounds
   - [X] 경주는 가장 멀리 간 자동차(들)을 우승자로 지정한다. Race#findWinner
     - [X] 우승후보와 같은거리면 추가하고 더 나은 우승후보면 이 차를 우승후보로 교체한다. Race#addWinner
-  - [] 우승자를 출력한다. OutputView#outputResult
+  - [X] 우승자를 출력한다. OutputView#outputResult
 
 
 
