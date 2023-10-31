@@ -1,7 +1,8 @@
 package racingcar.domain;
 
-import static racingcar.domain.InputCarValidator.checkCarWithBlank;
-import static racingcar.domain.InputCarValidator.checkOver5Letters;
+import java.util.List;
+
+import static racingcar.domain.InputCarValidator.*;
 
 
 public class Car {

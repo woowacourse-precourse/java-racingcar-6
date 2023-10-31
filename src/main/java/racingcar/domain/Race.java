@@ -1,16 +1,17 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.InputView;
 
 import java.util.List;
+import java.util.Set;
+
+import static racingcar.domain.Position.createPositions;
 
 public class Race {
-    private static final int MIN = 0;
-    private static final int MAX = 9;
+    private static final String RACE_RESULT_START = "실행 결과";
+    private static final String LINE_BLANK = "\n";
     private List<Position> position;
     private TryCnt tryCnt;
-
-    int number = Randoms.pickNumberInRange(MIN,MAX);
 
     private Race(List<Position> position, TryCnt tryCnt) {
         this.position = position;
@@ -27,5 +28,13 @@ public class Race {
 
     public int tryValue() {
         return tryCnt.tryValue();
+    }
+
+    public static Race createRaceFromInput() {
+        Set<String> carNames = InputView.inputCarNames();
+        List<Position> positions = createPositions(carNames);
+        TryCnt tryCnt = TryCnt.createTryCnt(InputView.inputTryCnt());
+        System.out.println(LINE_BLANK + RACE_RESULT_START);
+        return Race.createRace(positions, tryCnt);
     }
 }

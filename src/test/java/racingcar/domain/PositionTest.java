@@ -35,11 +35,11 @@ class PositionTest {
     public void move() {
         // given
         Position position = Position.createPosition(car);
-        StringBuilder expectedPositionString = new StringBuilder("BMW : -----");
+        StringBuilder expectedPositionString = new StringBuilder("BMW : -");
         // when
         position.move(5);
         //then
-        assertThat(position.distanceValue()).isEqualTo(5);
+        assertThat(position.distanceValue()).isEqualTo(1);
         assertThat(position.positionValue()).isEqualTo(expectedPositionString.toString());
     }
 }
