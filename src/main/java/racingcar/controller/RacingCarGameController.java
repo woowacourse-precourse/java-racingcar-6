@@ -25,7 +25,7 @@ public class RacingCarGameController {
         int tryNum = racingCarGameView.requestTryNumber();
 
         racingCarGameView.gameResult();
-        for (int i=0; i< tryNum; i++) {
+        for (int i = 0; i < tryNum; i++) {
             moveOrNot(playerList);
             racingCarGameView.showNowPlayerLocation(playerList);
         }
