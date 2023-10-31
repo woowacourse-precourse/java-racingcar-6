@@ -38,7 +38,7 @@ public class RacingService {
         return cars;
     }
 
-    public int trtCountExceptionAndParsing(String tryCountInput) {
+    public int tryCountExceptionAndParsing(String tryCountInput) {
         exception.isInteger(tryCountInput);
         int tryCount = parsing.stringToInt(tryCountInput);
         exception.isGreaterThanZero(tryCount);

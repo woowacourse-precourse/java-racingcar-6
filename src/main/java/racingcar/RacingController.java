@@ -23,7 +23,7 @@ public class RacingController {
 
         consolePrint.requestTryCountInput();
         String tryCountInput = Console.readLine();  // 시도 회수 입력
-        tryCount = racingService.trtCountExceptionAndParsing(tryCountInput);    // 에러 미발생 시 tryCount에 값 할당
+        tryCount = racingService.tryCountExceptionAndParsing(tryCountInput);    // 에러 미발생 시 tryCount에 값 할당
 
         consolePrint.informRacingResult();
 
