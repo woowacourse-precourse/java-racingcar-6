@@ -18,7 +18,7 @@ public class GameController {
     public void run() {
         InputView.printStart();
         parseInputToCars(InputView.getUserInput());
-        InputView.printAsking();
+        InputView.printAskingAttempts();
         parseInputToAttempts(InputView.getUserInput());
         play(attempts);
         showResult();
