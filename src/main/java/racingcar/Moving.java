@@ -2,22 +2,24 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputMovingcount {
-    public int inputMovingCount() {
+public class Moving {
+    public int inputMovingNumber() {
         String rawMoveNumber = Console.readLine();
-
-        return convertNumber(rawMoveNumber);
+        checkMovingNumber(rawMoveNumber);
+        return Integer.parseInt(rawMoveNumber);
     }
 
-    private int convertNumber(String rawMoveNumber) {
+    private void checkMovingNumber(String rawMoveNumber) {
+
         try {
             if (Integer.parseInt(rawMoveNumber)<=0) {
                 throw new IllegalArgumentException();
                 }
-            return Integer.parseInt(rawMoveNumber);
         }
         catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }
+
+
 }

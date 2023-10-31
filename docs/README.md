@@ -6,10 +6,11 @@
 
     - [x] 사용자 입력을 받음 - #InputCarnames()
     - [x] 입력한 이름을 쉼표를 기준으로 나눔 - #SplitCarnames()
-- [] 이동 횟수 입력을 확인 - #InputMovingcount()
+- [x] 이동 관련 - #Moving()
 
-    - [] 사용자 입력을 받음 - #InputMovingcount()
-    - [] 입력한 값이 정수인지 확인 - #CheckMovingcount()
+    - [x] 이동횟수를 입력받음 - #InputMovingcount()
+    - [x] 이동횟수가 양의정수인지 확인 - #CheckMovingcount()
+    - []
 - [] 자동차 경주 게임 실행하는 클래스 - #Controller()
   - [x] 무작위 숫자 생성 - Generator#NumberGenerator()
   - [X] 값이 4이상인지 판별 - #JudgeNumber

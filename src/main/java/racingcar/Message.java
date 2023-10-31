@@ -11,11 +11,21 @@ public class Message {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void movingMessage(List<String> player) {
-
-        for (int i = 0; i < player.size(); i++){
-            System.out.println();
+    public static void racingMessage(int carListSize ,List<Integer> winCount, List<String> carList) {
+        for (int i =0; i < carListSize; i++) {
+            System.out.print(carList.get(i)+" : ");
+            System.out.println("-".repeat(winCount.get(i)));
         }
+        System.out.println();
+    }
 
+    public static void winnerMessage(List<String> carList, List<Integer> winnerIndex) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerIndex.size(); i++){
+            System.out.print(carList.get(winnerIndex.get(i)));
+            if (!(i == winnerIndex.size()-1)) {
+                System.out.print(", ");
+            }
+        }
     }
 }
