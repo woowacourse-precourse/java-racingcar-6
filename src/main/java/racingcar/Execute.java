@@ -17,6 +17,7 @@ public class Execute {
     public static List<Car> carRace = new ArrayList<>();
     public static Long maxDistance = 0L;
     public static void startGame(){
+
         inputCarName();
         inputRaceTime();
         playGame();

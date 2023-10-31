@@ -2,6 +2,8 @@ package racingcar.console;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 
+import java.util.ArrayList;
+
 import static racingcar.Execute.carNames;
 import static racingcar.Execute.carRace;
 import static racingcar.Execute.raceTime;
@@ -10,8 +12,11 @@ import static racingcar.util.Utils.*;
 
 public class Input {
     public static void inputCarName() {
+        carRace = new ArrayList<>();
+
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String input = Console.readLine();
+
         input = setFormat(input);
         carNames = parseCarName(input);
         for (String carName : carNames) {
