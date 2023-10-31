@@ -5,6 +5,8 @@ import java.util.LinkedList;
 public class RacingCars {
     private final LinkedList<Car> cars;
 
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+
     public RacingCars(LinkedList<Car> cars){
         validateCarNames(cars);
         this.cars = cars;
@@ -12,7 +14,7 @@ public class RacingCars {
 
     private void validateCarNames(LinkedList<Car> cars){
         cars.forEach(car -> {
-            if (car.getName().length() > 5) {
+            if (car.getName().length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("차의 이름은 5글자를 넘을 수 없습니다.");
             }
         });

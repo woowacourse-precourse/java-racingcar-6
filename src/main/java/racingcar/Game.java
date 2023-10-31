@@ -12,6 +12,7 @@ public class Game {
     protected void run() {
         racingCars = new RacingCars(assignCars());
         turns = getTurnsInput();
+        Console.close();
         System.out.println("실행 결과");
         for (int i = 0; i < turns; i++) {
             racingCars.moveCars(dice);
