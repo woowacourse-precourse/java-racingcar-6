@@ -37,6 +37,13 @@ public class Application {
 
         race(cars, times);
 
+        showWinner(cars);
+
+    }
+
+    public static void showWinner(List<Car> cars) {
+        List<String> winnersName = getMaxMoveCar(cars);
+        System.out.println("최종 우승자 : " + String.join(", ", winnersName));
     }
 
     public static List<String> getMaxMoveCar(List<Car> cars) {
