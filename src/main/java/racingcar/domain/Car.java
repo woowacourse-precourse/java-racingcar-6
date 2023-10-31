@@ -4,11 +4,15 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Car {
 
-    private int randomNumber;
+    private String name;
     private String score;
 
     public Car() {
-        this.randomNumber = 0;
+        this.score = "";
+    }
+
+    public Car(String name) {
+        this.name = name;
         this.score = "";
     }
 
@@ -23,4 +27,9 @@ public class Car {
     public int extract() {
         return pickNumberInRange(0, 9);
     }
+
+    public String getName() {
+        return name;
+    }
+
 }
