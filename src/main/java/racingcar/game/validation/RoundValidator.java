@@ -6,14 +6,14 @@ import static racingcar.game.constant.RoundExceptionMessage.OUT_OF_RANGE;
 public class RoundValidator implements Validator {
 
     @Override
-    public void execute(String name) {
-        int movingCount = validateInteger(name);
+    public void execute(String stringMovingCount) {
+        int movingCount = validateInteger(stringMovingCount);
         validateRange(movingCount);
     }
 
-    private int validateInteger(String name) {
+    private int validateInteger(String stringMovingCount) {
         try {
-            return Integer.parseInt(name);
+            return Integer.parseInt(stringMovingCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NOT_INTEGER, e);
         }
