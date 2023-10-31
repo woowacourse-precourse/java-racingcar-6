@@ -18,6 +18,14 @@ public class RacingGame {
         this.cars = init();
     }
 
+    private List<Car> init() {
+        messagePrinter.initMessage();
+
+        final String carNames = Console.readLine();
+        validator.carNames(carNames);
+        return createCarMembers(carNames);
+    }
+
     public void play() {
         messagePrinter.requestPlayTimesMessage();
 
@@ -29,16 +37,9 @@ public class RacingGame {
         messagePrinter.winners(winners);
     }
 
-    private List<Car> init() {
-        messagePrinter.initMessage();
-
-        final String carNames = Console.readLine();
-        validator.carNames(carNames);
-        return createCarMembers(carNames);
-    }
-
     private List<Car> createCarMembers(final String carNames) {
         final List<String> members = Arrays.asList(carNames.split(","));
+        validator.duplicateCarName(members, carNames);
         validator.singleComma(members);
         return members.stream()
                 .map(Car::new)
@@ -71,6 +72,6 @@ public class RacingGame {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .getAsInt();
+                .orElseThrow(() -> new IllegalArgumentException("자동차의 위치는 정수이어야 합니다."));
     }
 }
