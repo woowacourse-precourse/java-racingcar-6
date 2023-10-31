@@ -1,8 +1,6 @@
 package domain;
 
 public class TryCountInput {
-	public TryCountInput() {
-	}
 
 	public void validatePositive(int tryCount) {
 		if (tryCount <= 0) {
