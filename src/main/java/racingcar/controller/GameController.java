@@ -21,19 +21,20 @@ public class GameController {
         carName(carNames, numberOfAttempts);
     }
 
-    public void carName(List<String> carNames, int numberOfAttempts) {
+    public void printWinner(List<Car> cars, int numberOfAttempts) {
+        List<String> winners = determineWinners(cars);
+        OutputView.printGameResult(cars, numberOfAttempts);
+        OutputView.printWinners(winners);
+    }
+
+
+    private void carName(List<String> carNames, int numberOfAttempts) {
         String carNamesInput = String.join(",", carNames);
         List<Car> cars = createCars(carNamesInput);
         for (int attempt = 0; attempt < numberOfAttempts; attempt++) {
             moveCars(cars);
             printWinner(cars, numberOfAttempts);
         }
-    }
-
-    public void printWinner(List<Car> cars, int numberOfAttempts) {
-        List<String> winners = determineWinners(cars);
-        OutputView.printGameResult(cars, numberOfAttempts);
-        OutputView.printWinners(winners);
     }
 
     private List<Car> createCars(String carNamesInput) {
