@@ -7,8 +7,8 @@ public class CountInput {
     static private int count;
 
     static String getCountInput() { // 회차 입력 받는 메서드
+        System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-        Console.close();
         return input;
     }
 

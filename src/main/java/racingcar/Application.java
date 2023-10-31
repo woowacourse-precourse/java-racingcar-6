@@ -2,6 +2,13 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        // 이름 입력 받기
+        NameInput.getNameInput();
+        NameInput.checkNameInput();
+        Car[] carArr = NameInput.setNameInput();
+        // 회수 입력 받기
+        String input = CountInput.getCountInput();
+        CountInput.checkCountInput(input);
+
     }
 }
