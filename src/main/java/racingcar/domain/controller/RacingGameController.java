@@ -3,11 +3,13 @@ package racingcar.domain.controller;
 import java.util.List;
 import racingcar.domain.RacingCar;
 import racingcar.service.RacingGameService;
+import racingcar.view.SystemMessage;
 
 public class RacingGameController {
 
     RacingGameService racingGameService = new RacingGameService();
 
+    SystemMessage systemMessage = new SystemMessage();
     public void playRacingGame() {
         List<RacingCar> racingCars = racingGameService.carNameInput();
         int round = racingGameService.racingRoundInput();
@@ -16,6 +18,7 @@ public class RacingGameController {
             racingGameService.race(racingCars);
         }
 
-        List<String> winner = racingGameService.getWinner(racingCars);
+        systemMessage.printRacingResult(racingCars);
+        systemMessage.printWinnerMessage(racingGameService.getWinner(racingCars));
     }
 }
