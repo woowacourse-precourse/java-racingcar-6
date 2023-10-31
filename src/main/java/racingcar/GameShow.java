@@ -9,6 +9,8 @@ public class GameShow {
     public final String executeMessage = "실행 결과";
     public final String finalWinnerMessage = "최종 우승자";
 
+    private final GameUtil gameUtil = new GameUtil();
+
     public void show(String message) {
         System.out.println(message);
     }
@@ -19,8 +21,8 @@ public class GameShow {
         }
     }
 
-    public void showWithResult(String resul) {
-
+    public void gameResult(List<Car> cars) {
+        System.out.println(finalWinnerMessage + " : " + gameUtil.getWinner(cars));
     }
 
 }
