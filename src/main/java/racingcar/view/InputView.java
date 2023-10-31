@@ -21,7 +21,7 @@ public class InputView {
             validateTrialsNumber(parsedUserInput);
             return parsedUserInput;
         } catch (NumberFormatException numberFormatException) {
-            throw new IllegalArgumentException("시도 횟수는 양의 정수여야 합니다");
+            throw new IllegalArgumentException("시도 횟수에 문자가 포함될 수 없습니다");
         }
     }
 
@@ -39,7 +39,7 @@ public class InputView {
 
     private void validateTrialsNumber(int userInput) {
         if (userInput < MINIMUM_TRIAL) {
-            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다");
+            throw new IllegalArgumentException("시도 횟수는 양의 정수여야 합니다");
         }
     }
 }
