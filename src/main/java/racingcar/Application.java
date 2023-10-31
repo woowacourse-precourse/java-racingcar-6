@@ -1,15 +1,36 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         String[] inputs = inputCarName();
+        Map<String, Integer> map = new LinkedHashMap<>();
+        // 순서대로 key값 넣기
+        for(String i : inputs){
+            map.put(i, map.getOrDefault(i, 0));
+        }
+
+        // 횟수 입력
         int count = inputCount();
+
+        int i=0;
+
+        while (i < count){
+            for (String input : inputs) {
+                int num = createRandom();;
+
+                if (num >= 4) {
+                    map.put(input, map.getOrDefault(input,0)+1);
+                }
+            }
+            output(map);
+            i++;
+        }
     }
 
     public static String[] inputCarName() {
@@ -115,4 +136,19 @@ public class Application {
 
         return flag;
     }
+
+    public static int createRandom(){
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public static void output(Map<String, Integer> map) {
+        for(Map.Entry<String, Integer> entry : map.entrySet()){
+            String key = entry.getKey();
+            int value = entry.getValue();
+
+            System.out.println(key + " : " + "-".repeat(Math.max(0, value)));
+        }
+        System.out.println();
+    }
+
 }
