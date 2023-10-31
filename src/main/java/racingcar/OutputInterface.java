@@ -6,7 +6,7 @@ import java.util.List;
 public class OutputInterface {
 
     PrintStream outputStream;
-    RacingCarGameRenderer renderer = new RacingCarGameRenderer();
+    RacingCarGameRenderer renderer = new SimpleRacingCarGameRenderer();
 
     OutputInterface() {
         this.outputStream = System.out;
