@@ -37,6 +37,24 @@ class RacingControllerTest extends NsTest {
     }
 
     @Test
+    @DisplayName("이름 공백 포함 시 예외 발생 확인")
+    void testExceptionCarNameNotAlphabet() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("----,java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("이름 공백 시 예외 발생 확인")
+    void testExceptionCarNameEmpty() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     @DisplayName("count 값 숫자 아닐 경우 예외 발생 확인")
     void testExceptionCountIsNotInteger() {
         assertSimpleTest(() ->
