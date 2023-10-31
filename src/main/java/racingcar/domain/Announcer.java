@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 
-public class Outputs {
+public class Announcer {
 
     public void resultMessage() {
         System.out.println();

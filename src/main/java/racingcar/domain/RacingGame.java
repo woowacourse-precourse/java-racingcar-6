@@ -10,13 +10,15 @@ public class RacingGame {
 
     private List<String> resultList = new ArrayList<>();
     private List<String> winner = new ArrayList<>();
+    private InputDesk inputDesk = new InputDesk();
+    private Announcer outputs = new Announcer();
 
     public RacingGame() {
 
     }
 
     public void initResultList(List resultList) {
-        List<String> cars = InputDesk.getCars();
+        List<String> cars = inputDesk.getCars();
         for (int i = 0 ; i < cars.size() ; i++) {
             resultList.add("");
         }
@@ -35,7 +37,7 @@ public class RacingGame {
 
     public void chooseWinners(List<String> resultList) {
 
-        List<String> cars = InputDesk.getCars();
+        List<String> cars = inputDesk.getCars();
         int maxLen = 0;
         for (int i=0; i<resultList.size(); i++) {
             if( resultList.get(i).length() > maxLen) {
@@ -53,17 +55,18 @@ public class RacingGame {
     }
 
     public void start() {
+
         try {
-            InputDesk.inputCars();
-            InputDesk.inputCounts();
+            inputDesk.inputCars();
+            inputDesk.inputCounts();
             initResultList(resultList);
-            for (int i = 0; i< InputDesk.getCount(); i++) {
-                move(InputDesk.getCars());
-                Outputs.resultMessage();
-                Outputs.result(resultList);
+            for (int i = 0; i< inputDesk.getCount(); i++) {
+                move(inputDesk.getCars());
+                outputs.resultMessage();
+                outputs.result(resultList,inputDesk.getCars());
             }
             chooseWinners(resultList);
-            Outputs.winner(winner);
+            outputs.winner(winner);
         } catch (IllegalArgumentException e) {
             throw e;
         }

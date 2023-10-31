@@ -8,11 +8,11 @@ public class InputDesk {
     private List<String> cars = new ArrayList<>();
     private int count;
 
-    public List<String> getCars(){
+    public List<String> getCars() {
         return cars;
     }
 
-    public int getCount(){
+    public int getCount() {
         return count;
     }
 
