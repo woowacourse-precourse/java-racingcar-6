@@ -1,13 +1,14 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> cars;
 
-    public Referee(List<Car> cars) {
-        this.cars = ;
+    public Cars(final List<Car> cars) {
+        this.cars = new ArrayList<>(cars);
     }
 
     public List<Car> findWinners() {
