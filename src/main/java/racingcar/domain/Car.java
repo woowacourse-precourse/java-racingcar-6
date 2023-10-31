@@ -16,6 +16,11 @@ public class Car implements Comparable<Car> {
         this.advance = advance;
     }
 
+    public Car(CarDto carDto) {
+        this.name = carDto.getName();
+        this.advance = carDto.getAdvance();
+    }
+
 
     public CarDto toDto() {
         return new CarDto(this.name, this.advance);

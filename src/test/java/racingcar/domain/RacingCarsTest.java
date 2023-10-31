@@ -27,6 +27,18 @@ class RacingCarsTest {
     }
 
     @Test
+    void Car_객체를_생성합니다() {
+        racingCars.generateCar("test");
+        assertEquals(1, racingCars.size());
+    }
+
+    @Test
+    void String_배열을_통해_Car를_여러개_생성합니다() {
+        racingCars.generateCars("test1,test2,test3");
+        assertEquals(3, racingCars.size());
+    }
+
+    @Test
     void 공동_우승자_생성한다() {
         Car car1 = new Car("test1", 5);
         Car car2 = new Car("test2", 5);

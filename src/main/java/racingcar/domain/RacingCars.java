@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.common.consts.SystemConst;
+import racingcar.common.utils.NameParser;
 import racingcar.common.utils.NumberGenerator;
 
 public class RacingCars {
@@ -12,6 +13,19 @@ public class RacingCars {
     public RacingCarsResult getRacingCarsResult() {
         sort();
         return findWinners();
+    }
+
+    public void generateCar(String name) {
+        CarDto carDto = new CarDto(name, SystemConst.INITIAL_ADVANCE);
+        Car car = new Car(carDto);
+        racingCars.add(car);
+    }
+
+    public void generateCars(String inputCarValue) {
+        String[] names = NameParser.parseName(inputCarValue);
+        for (String name : names) {
+            generateCar(name);
+        }
     }
 
     private RacingCarsResult findWinners() {
