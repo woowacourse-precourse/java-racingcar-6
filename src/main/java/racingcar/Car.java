@@ -81,4 +81,12 @@ public class Car implements Comparable<Car> {
         winnerList = new StringBuilder(winnerList.substring(0, winnerList.length() - 2));
         System.out.println("최종 우승자 : " + winnerList);
     }
+
+    public void runGame() {
+        makeCar();
+        inputRound();
+        System.out.println("\n실행결과");
+        race();
+        printWinner();
+    }
 }
