@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AttemptNumTest {
 
     @Test
-    void isValid() {
+    void 게임_실행_횟수_유효성_검사() {
         AttemptNum attemptNum = new AttemptNum();
         assertThatThrownBy(() -> attemptNum.isValid("a"))
                 .isInstanceOf(IllegalArgumentException.class);
