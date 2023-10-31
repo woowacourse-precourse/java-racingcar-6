@@ -6,34 +6,22 @@ import java.util.List;
 import racingcar.model.dto.RoundResult;
 import racingcar.model.dto.Winners;
 import racingcar.model.gameinfo.CarInfo;
-import racingcar.model.gameinfo.RacingInfo;
+import racingcar.model.gameinfo.RoundInfo;
 
 public class GameService {
 
-    private RacingInfo racingInfo;
-    private List<CarInfo> carInfos;
-
-    public void initializeGame(List<String> carNames, Integer maxRound) {
-        this.carInfos = carNames
-                .stream()
-                .map(CarInfo::new)
-                .toList();
-
-        this.racingInfo = new RacingInfo(maxRound);
-    }
-
-    public RoundResult executeRound() {
+    public RoundResult executeRound(RoundInfo roundInfo, List<CarInfo> carInfos) {
         for (CarInfo carInfo : carInfos) {
             proceedCarRandomly(carInfo);
         }
 
-        racingInfo.finishRound();
+        roundInfo.finishRound();
 
         return new RoundResult(carInfos);
     }
 
-    public Winners findWinners() {
-        int maxPosition = getMaxPosition();
+    public Winners findWinners(List<CarInfo> carInfos) {
+        int maxPosition = getMaxPosition(carInfos);
 
         List<String> winnerNames = new ArrayList<>();
         for (CarInfo carInfo : carInfos) {
@@ -43,8 +31,8 @@ public class GameService {
         return new Winners(winnerNames);
     }
 
-    public boolean isGameOver() {
-        return racingInfo.getCurrentRound() > racingInfo.getMaxRound();
+    public boolean isGameOver(RoundInfo roundInfo) {
+        return roundInfo.getCurrentRound() > roundInfo.getMaxRound();
     }
 
     private void proceedCarRandomly(CarInfo carInfo) {
@@ -59,7 +47,7 @@ public class GameService {
         }
     }
 
-    private int getMaxPosition() {
+    private int getMaxPosition(List<CarInfo> carInfos) {
         int maxPosition = 0;
         for (CarInfo carInfo : carInfos) {
             maxPosition = Math.max(maxPosition, carInfo.getCurrentPosition());
