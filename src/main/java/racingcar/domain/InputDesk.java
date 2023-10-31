@@ -21,7 +21,7 @@ public class InputDesk {
     }
 
     public boolean checkIsNull(String inputStr) {
-        if (inputStr == null) {
+        if (inputStr == null || inputStr.length() == 0) {
             throw new IllegalArgumentException("사용자 입력값 null");
         }
         return true;
@@ -71,7 +71,7 @@ public class InputDesk {
         }
     }
 
-    public void inputCars() {
+    public List inputCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         try {
             String inputStr = Console.readLine();
@@ -82,7 +82,7 @@ public class InputDesk {
                 checkIllegalArgumentException(strArr[i]);
                 cars.add(strArr[i]);
             }
-
+            return cars;
         } catch (IllegalArgumentException e) {
             throw e;
         }
