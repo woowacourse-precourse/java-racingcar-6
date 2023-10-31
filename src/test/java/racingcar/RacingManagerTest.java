@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.tuple;
 
 public class RacingManagerTest {
     @Test
@@ -72,6 +73,33 @@ public class RacingManagerTest {
         assertThat(racingManager.getRacingCars())
                 .extracting(RacingCar::getForwardCount)
                 .containsExactly(2, 0);
+    }
+
+    @Test
+    void start_race_시_racing의_history가_저장된다() {
+        String validCarsNameInput = "pobi,woni";
+        String validRacingCountInput = "2";
+
+        int forward = RacingCar.MAX_MOVE_WEIGHT;
+        int stop = RacingCar.MIN_MOVE_WEIGHT;
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(forward, forward, forward, stop);
+
+        RacingManager racingManager = new RacingManager(validCarsNameInput, validRacingCountInput, fixedNumberGenerator);
+
+        racingManager.startRace();
+        List<RacingHistory> racingResult = racingManager.getRacingResult();
+
+        assertThat(racingResult).hasSize(2);
+
+        RacingHistory firstHistory = racingResult.get(0);
+        assertThat(firstHistory.snapshots())
+                .extracting(RacingCarSnapshot::name, RacingCarSnapshot::forwardCount)
+                .containsExactly(tuple("pobi", 1), tuple("woni", 1));
+
+        RacingHistory secondHistory = racingResult.get(1);
+        assertThat(secondHistory.snapshots())
+                .extracting(RacingCarSnapshot::name, RacingCarSnapshot::forwardCount)
+                .containsExactly(tuple("pobi", 2), tuple("woni", 1));
     }
 }
 
