@@ -19,6 +19,11 @@ public class Controller {
         return checkValidateCarName(input);
     }
 
+    private String getPlayCountByUserInput() {
+        InputView.requestNumberOfPlayCountMessage();
+        return checkValidationNumberOfPlayCount(Console.readLine());
+    }
+
     private String checkValidateCarName(String input) {
         try {
             exception.checkCarNamesInput(input);
@@ -26,6 +31,16 @@ public class Controller {
         } catch (IllegalArgumentException e) {
             OutputView.printException(e.getMessage());
             return getCarNameByUserInput();
+        }
+    }
+
+    private String checkValidationNumberOfPlayCount(String input) {
+        try {
+            exception.checkNumberOfPlayCountInput(input);
+            return input;
+        } catch (IllegalArgumentException e) {
+            OutputView.printException(e.getMessage());
+            return getPlayCountByUserInput();
         }
     }
 }
