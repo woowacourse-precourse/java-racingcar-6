@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RacingResult {
 
-	public void racingGame(List<String> carNames, Integer tryCount) {
+	public boolean racingGame(List<String> carNames, Integer tryCount) {
 
 		int count = 0;
 		String[] gameResult = new String[carNames.size()];
@@ -38,6 +38,8 @@ public class RacingResult {
 			System.out.print(", ");
 			i++;
 		}
+
+		return false;
 	}
 
 
@@ -55,7 +57,8 @@ public class RacingResult {
 		System.out.println(carName + " : " + stepResult);
 	}
 
-	public List<String> checkFinalWinner(List<String> carNames, String[] gameResult) {
+	public List<String> checkFinalWinner(List<String> carNames,
+	                                     String[] gameResult) {
 		int[] count = new int[gameResult.length];
 		for (int i = 0; i < count.length; i++) {
 			count[i] = gameResult[i].split("").length;
