@@ -69,12 +69,10 @@ class RacingServiceTest {
         cars.get(2).plusWinCount();
 
         // when
-        List<Car> victoryPlayers =
+        List<String> victoryCars =
                 racingService.findByVictoryPlayers(cars);
 
         // then
-        assertThat(victoryPlayers)
-                .extracting("name")
-                .contains("pobi", "jun");
+        assertThat(victoryCars).contains("pobi", "jun");
     }
 }
