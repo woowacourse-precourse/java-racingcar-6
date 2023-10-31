@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -49,6 +50,7 @@ class RaceTest {
     }
 
     @Test
+    @DisplayName("경주 결과, 최대 이동 횟수 구하기")
     public void getMaxCount() {
         // given
         String name = "car";
@@ -62,5 +64,41 @@ class RaceTest {
 
         // then
         assertThat(race.getMaxCount()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("최종 우승자 1명인 경우")
+    public void getWinner() {
+        // given
+        String name = "car";
+        String count = "5";
+        Race race = new Race(name, count);
+
+        // when
+        Car car = race.getCars().get(0);
+        car.move(5);
+
+        // then
+        assertThat(race.getWinnerNames().size()).isEqualTo(1);
+        assertThat(race.getWinnerNames()).contains(name);
+    }
+
+    @Test
+    @DisplayName("최종 우승자 여러 명인 경우")
+    public void getWinners() {
+        // given
+        String name = "car,race,win";
+        String count = "5";
+        Race race = new Race(name, count);
+
+        // when
+        List<Car> cars = race.getCars();
+        cars.get(0).move(5);
+        cars.get(2).move(6);
+
+        // then
+        assertThat(race.getWinnerNames().size()).isEqualTo(2);
+        assertThat(race.getWinnerNames()).contains("car");
+        assertThat(race.getWinnerNames()).contains("win");
     }
 }
