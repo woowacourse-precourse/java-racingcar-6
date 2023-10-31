@@ -15,7 +15,7 @@
 ### view
 1. InputView
 	- enterCarName()
-		- [ ] 경주 할 자동차 이름 입력
+		- [O] 경주 할 자동차 이름 입력
 	- enterRaceNumber()
 		- [ ] 경주 시도 횟수 입력
 
