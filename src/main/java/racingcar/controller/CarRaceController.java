@@ -8,7 +8,9 @@ import racingcar.view.CarRaceView;
 import java.util.List;
 
 public class CarRaceController {
+
     private CarRaceModel model;
+
     private CarRaceView view;
 
     public CarRaceController(CarRaceModel model, CarRaceView view) {
@@ -17,18 +19,18 @@ public class CarRaceController {
     }
 
     public void runGame() {
-        view.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        view.printWelcome();
         List<String> carNames = view.splitCarNames(Console.readLine());
-        view.print("시도할 회수는 몇회인가요?");
+
+        view.printNumber();
         int numAttempts = Integer.parseInt(Console.readLine());
 
         model.initialize(carNames);
 
-        view.print("\n실행결과");
+        view.printGame();
         moveCars(model.getResults(), numAttempts);
 
         List<String> winners = model.calculateWinners();
-
         view.printWinners(winners);
     }
 

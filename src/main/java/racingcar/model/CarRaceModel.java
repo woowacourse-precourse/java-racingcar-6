@@ -16,20 +16,6 @@ public class CarRaceModel {
         return results;
     }
 
-    public void moveCars(List<String> results) {
-        for (int i = 0; i < results.size(); i++) {
-            if (shouldCarMove()) {
-                String currentResult = results.get(i);
-                results.set(i, currentResult + "-");
-            }
-        }
-    }
-
-    private boolean shouldCarMove() {
-        int move = Randoms.pickNumberInRange(0, 9);
-        return move >= 4;
-    }
-
     private List<String> CarNameColon(List<String> carNames) {
         List<String> results = new ArrayList<>();
         for (String carName : carNames) {

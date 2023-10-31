@@ -1,6 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.CarRaceModel;
 import racingcar.view.CarRaceView;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class CarRaceTest {
 
     @Test
-    void splitCarNames() {
+    void splitCarNames_문자열_구분_순서() {
         String input = "car1,car2";
         CarRaceView view = new CarRaceView();
         List<String> carNames = view.splitCarNames(input);
@@ -20,7 +21,7 @@ public class CarRaceTest {
     }
 
     @Test
-    void validateCarNames() {
+    void validateCarNames_문자열_에러() {
         String input = "car12345";
         CarRaceView view = new CarRaceView();
         assertThatThrownBy(() -> view.splitCarNames(input))
@@ -29,20 +30,20 @@ public class CarRaceTest {
     }
 
     @Test
-    void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
-        String input = "1";
-        String[] result = input.split(",");
-
-        assertThat(result).contains("1");
+    void splitCarNames_문자_구분자_반환() {
+        String input = "car1";
+        CarRaceView view = new CarRaceView();
+        List<String> carNames = view.splitCarNames(input);
+        assertThat(carNames).contains("car1");
     }
 
-    @Test
-    void substring_메서드로_특정_구간_값을_반환() {
-        String input = "(1,2)";
-        String result = input.substring(1, 4);
-
-        assertThat(result).isEqualTo("1,2");
-    }
+//    @Test
+//    void shouldCarMove() {
+//        String input = "(1,2)";
+//        CarRaceModel model = new CarRaceModel();
+//        model.
+//        assertThat(result).isEqualTo("1,2");
+//    }
 
     @Test
     void charAt_메서드로_특정_위치의_문자_찾기() {
