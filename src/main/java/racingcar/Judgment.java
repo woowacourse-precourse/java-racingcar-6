@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.Set;
 
 public class Judgment {
-    List<Car> cars = new ArrayList<>();
-    List<Car> winnerCars = new ArrayList<>();
+    List<Car> cars = new ArrayList<Car>();
+    List<Car> winnerCars = new ArrayList<Car>();
     Car maxMovementCar = cars.stream().max(Comparator.comparing(Car::getForwardMovementNumber)).get();
     Integer maxMovement = maxMovementCar.forwardMovementNumber;
 
     public List<Integer> getMovement(List<Car> cars) {
         this.cars = cars;
-        List<Integer> movementNumbers = new ArrayList<>();
+        List<Integer> movementNumbers = new ArrayList<Integer>();
 
         for (Car car: cars) {
             movementNumbers.add(car.forwardMovementNumber);
@@ -41,7 +41,7 @@ public class Judgment {
 
     public List<String> getWinnerCarName() {
         List<Integer> getWinnerIndex = extractWinnerCarIndex();
-        List<String> getWinnerCarName = new ArrayList<>();
+        List<String> getWinnerCarName = new ArrayList<String>();
 
         for (Integer index: getWinnerIndex) {
             getWinnerCarName.add(cars.get(index).carName);

@@ -13,6 +13,7 @@
 - [x] 전진한 것(작대기)을 비교 Referee#compare
   - [x] 작대기 개수를 세기 Judgment#countBar
 - [x] 단독, 공동 우승자 판단 Judgment#checkJointWinner
+- [x] 레이싱한 로드 출력
 - [ ] 잘못된 값을 입력할 경우 예외 발생
 
 

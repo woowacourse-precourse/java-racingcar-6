@@ -10,12 +10,18 @@ public class Car {
         this.carName = carName;
     }
 
-    List<String> movement = new ArrayList<>();
+    List<String> movement = new ArrayList<String>();
     int forwardMovementNumber = movement.size();
     private int movementRandomNumber = Randoms.pickNumberInRange(0, 9);
 
     public String getCarName() {
         return carName;
+    }
+
+    public void drawCarRaceRoad(List<String> movement) {
+        for (int i = 0; i < forwardMovementNumber; i++) {
+            System.out.print('-');
+        }
     }
 
     public int getForwardMovementNumber() {
