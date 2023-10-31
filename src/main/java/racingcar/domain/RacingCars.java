@@ -14,8 +14,8 @@ public class RacingCars {
                 .collect(Collectors.toList());
     }
 
-    private void validate(List<String> carNames) {
-        if(carNames.isEmpty()) {
+    public void validate(List<String> carNames) {
+        if (carNames == null || carNames.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_CAR_EXCEPTION);
         }
     }
