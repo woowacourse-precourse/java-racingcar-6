@@ -2,6 +2,8 @@ package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static racingcar.config.GameConfig.*;
+
 public class Car {
 
     protected Name name;
@@ -18,13 +20,13 @@ public class Car {
     }
 
     public void move() {
-        if (getRandomNumber() >= 4) {
-            distance.add(1);
+        if (getRandomNumber() >= MOVEMENT_CONDITION_NUMBER.getNumber()) {
+            distance.add(MOVEMENT_DISTANCE.getNumber());
         }
     }
 
     public int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_START.getNumber(), RANDOM_NUMBER_RANGE_END.getNumber());
     }
 
     public boolean isEqualOrGreaterThan(Car otherCar) {
@@ -42,4 +44,4 @@ public class Car {
     public String getNameString() {
         return name.toString();
     }
- }
+}
