@@ -1,15 +1,13 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Game {
 
-    private static final int START_POSITION = 0;
-
     private final List<Car> cars;
 
     public Game(List<Car> cars) {
+        validateDuplicateCarName(cars);
         this.cars = cars;
     }
 
@@ -29,5 +27,17 @@ public class Game {
         return cars.stream()
                 .filter(car -> car.isSamePosition(findMaxPositionCar()))
                 .toList();
+    }
+
+    public void validateDuplicateCarName(List<Car> cars) {
+        int nonDuplicateCarNumber = (int) cars.stream()
+                .map(Car::toString)
+                .distinct()
+                .count();
+        boolean isSameNameExists = nonDuplicateCarNumber < cars.size();
+
+        if(isSameNameExists) {
+            throw new IllegalArgumentException("같은 이름의 자동차가 있습니다");
+        }
     }
 }
