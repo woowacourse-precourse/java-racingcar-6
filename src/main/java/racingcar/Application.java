@@ -41,9 +41,7 @@ public class Application {
 
                 for (int k = 0; k < cars.size(); k++) {
                     System.out.print(cars.get(k) + " : ");
-                    for (int l = 0; l < toGo.get(k); l++) {
-                        System.out.print("-");
-                    }
+                    howMuchToGo(toGo, k);
                     System.out.println();
                 }
                 System.out.println();
@@ -70,6 +68,12 @@ public class Application {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void howMuchToGo(List<Integer> toGo, int k) {
+        for (int l = 0; l < toGo.get(k); l++) {
+            System.out.print("-");
         }
     }
 
