@@ -8,7 +8,7 @@ import racingcar.view.ResultView;
 import racingcar.view.SettingView;
 
 public class GameController {
-    private static final Game game = new Game();
+    private final Game game = new Game();
     private static final GameController INSTANCE = new GameController();
 
     private GameController() {
@@ -32,17 +32,17 @@ public class GameController {
     }
 
     public void printWinner() {
-        setWinners();
+        computeWinners();
         ResultView.printWinner(game.getWinners());
     }
 
-    public static void setCars() {
+    public void setCars() {
         SettingView.printInputCarNameMsg();
         String carNames = Console.readLine();
         setCarList(carNames);
     }
 
-    public static void setRoundNumber() {
+    public void setRoundNumber() {
         SettingView.printInputRoundNumberMsg();
         String roundNumber = Console.readLine();
         game.round = Integer.parseInt(roundNumber);
@@ -56,20 +56,20 @@ public class GameController {
         System.out.println();
     }
 
-    public void setWinners() {
+    public void computeWinners() {
         for (Car car : game.carList) {
             game.updateWinners(car);
         }
     }
 
-    public static void setCarList(String carNames) {
+    public void setCarList(String carNames) {
         for (String carName : carNames.split(",",-1)) {
             checkCarNameValidation(carName);
             game.updateCar(new Car(carName));
         }
     }
 
-    public static void checkCarNameValidation(String carName) {
+    public void checkCarNameValidation(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이내만 가능합니다.");
         }
