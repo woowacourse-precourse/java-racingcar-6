@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarStatus;
+import racingcar.message.ErrorMessage;
 
 public class CarsTest {
 
@@ -29,6 +30,13 @@ public class CarsTest {
         assertSimpleTest(() -> assertThatThrownBy(() -> new Cars("pobi,woni,pobi"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 이름을 입력하셨습니다."));
+    }
+
+    @Test
+    void 최소_2개_이상_자동차_이름_테스트() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> new Cars("pobi"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.ERROR_MORE_THAN_ONE_CAR));
     }
 
     @Test
