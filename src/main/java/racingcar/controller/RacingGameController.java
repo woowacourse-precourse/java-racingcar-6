@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.util.Converter.stringToCarNameListByDelimiter;
-import static racingcar.util.Converter.stringToTryNumber;
+import static racingcar.util.StringConverter.stringToCarNameListByDelimiter;
+import static racingcar.util.StringConverter.stringToTryNumber;
 
 import java.util.List;
 import java.util.stream.IntStream;

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.vo.CarName;
 import racingcar.vo.TryNumber;
 
-class ConverterTest {
+class StringConverterTest {
 
     private static final String EMPTY_INPUT_ERROR_MESSAGE = "입력값이 비어있습니다.";
     private static final String CHARACTERS_IN_INPUT_ERROR_MESSAGE = "입력값에 문자가 포함되어 있습니다";
@@ -23,7 +23,7 @@ class ConverterTest {
         List<CarName> expectedList = Arrays.asList(new CarName("Car1"), new CarName("Car2"), new CarName("Car3"));
 
         // when
-        List<CarName> result = Converter.stringToCarNameListByDelimiter(input);
+        List<CarName> result = StringConverter.stringToCarNameListByDelimiter(input);
 
         // then
         assertEquals(expectedList, result);
@@ -35,7 +35,7 @@ class ConverterTest {
         String invalidInput = "";
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> Converter.stringToCarNameListByDelimiter(invalidInput));
+                () -> StringConverter.stringToCarNameListByDelimiter(invalidInput));
         assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
     }
 
@@ -44,7 +44,7 @@ class ConverterTest {
     void valid_StringToTryNumber_test() {
         // given
         String input = "123";
-        TryNumber result = Converter.stringToTryNumber(input);
+        TryNumber result = StringConverter.stringToTryNumber(input);
 
         // when
         Integer expectedResult = 123;
@@ -59,7 +59,7 @@ class ConverterTest {
         String invalidInput = "a";
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> Converter.stringToTryNumber(invalidInput));
+                () -> StringConverter.stringToTryNumber(invalidInput));
         assertEquals(CHARACTERS_IN_INPUT_ERROR_MESSAGE, e.getMessage());
     }
 }
