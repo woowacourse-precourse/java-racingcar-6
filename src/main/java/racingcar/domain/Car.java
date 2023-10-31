@@ -14,13 +14,13 @@ public class Car {
     private String name;
     private Integer position;
 
-    private Car(String name) {
+    private Car(final String name) {
         validateName(name);
         this.name = name;
         this.position = 0;
     }
 
-    public static Car of(String name) {
+    public static Car of(final String name) {
         return new Car(name);
     }
 
@@ -39,45 +39,45 @@ public class Car {
         }
     }
 
-    @Override
-    public String toString() {
-        return name + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
-    }
-
-    public boolean isSamePosition(Integer position) {
-        return this.position == position;
+    private boolean isQualified(final Integer randomNumber) {
+        return randomNumber >= MIN_FORWARD_THRESHOLD.getValue();
     }
 
     private void move() {
         this.position++;
     }
 
-    private boolean isQualified(Integer randomNumber) {
-        return randomNumber >= MIN_FORWARD_THRESHOLD.getValue();
+    public boolean isSamePosition(final Integer position) {
+        return this.position == position;
     }
 
-    private void validateName(String name) {
+    @Override
+    public String toString() {
+        return name + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
+    }
+
+    private void validateName(final String name) {
         validateLength(name);
         validateCharacters(name);
     }
 
-    private void validateLength(String name) {
+    private void validateLength(final String name) {
         if (isLengthExceeded(name)) {
             throw RaceException.of(INVALID_NAME_LENGTH);
         }
     }
 
-    private boolean isLengthExceeded(String name) {
+    private boolean isLengthExceeded(final String name) {
         return name.length() > MAX_LENGTH_OF_NUMBER.getValue();
     }
 
-    private void validateCharacters(String name) {
+    private void validateCharacters(final String name) {
         if (containsInvalidCharacters(name)) {
             throw RaceException.of(INVALID_NAME_CHARACTERS);
         }
     }
 
-    private boolean containsInvalidCharacters(String name) {
+    private boolean containsInvalidCharacters(final String name) {
         return !name.matches("[a-zA-Z]+");
     }
 }
