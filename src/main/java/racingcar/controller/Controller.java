@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
-import racingcar.model.Cars;
 import racingcar.model.Winners;
 import racingcar.service.GamePlayingService;
 import racingcar.view.View;
@@ -17,14 +16,14 @@ public class Controller {
     }
 
     public void start() {
-        Cars cars = generateCars();
-        attemptForward(cars, setAttemptCount());
-        printWinners(cars);
+        generateCars();
+        attemptForward(setAttemptCount());
+        printWinners();
     }
 
-    private Cars generateCars() {
+    private void generateCars() {
         view.printNameInputMessage();
-        return gamePlayingService.generateCars(readFromConsole());
+        gamePlayingService.generateCars(readFromConsole());
     }
 
     private String readFromConsole() {
@@ -40,24 +39,24 @@ public class Controller {
         return attemptCount.count();
     }
 
-    private void attemptForward(Cars cars, int count) {
+    private void attemptForward(int count) {
         view.printAttemptResultMessage();
 
         for (int current = 0; current < count; current++) {
-            gamePlayingService.tryForward(cars);
-            view.printCurrentCarsState(getCarsState(cars));
+            gamePlayingService.tryForward();
+            view.printCurrentCarsState(getCarsState());
         }
     }
 
-    private CarsState getCarsState(Cars cars) {
-        return gamePlayingService.getCarsState(cars);
+    private CarsState getCarsState() {
+        return gamePlayingService.getCarsState();
     }
 
-    private void printWinners(Cars cars) {
-        view.printFinalWinnerMessage(getWinners(cars));
+    private void printWinners() {
+        view.printFinalWinnerMessage(getWinners());
     }
 
-    private Winners getWinners(Cars cars) {
-        return gamePlayingService.getWinners(cars);
+    private Winners getWinners() {
+        return gamePlayingService.getWinners();
     }
 }
