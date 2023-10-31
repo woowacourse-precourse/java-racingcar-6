@@ -2,6 +2,7 @@ package racingcar;
 
 public class Game {
 
+    public static final String RESULT_MESSAGE = "실행 결과";
     private String inputRacerName;
     private String[] racerNameArray;
     private int round;
@@ -26,7 +27,7 @@ public class Game {
 
     public void startRacingGame() {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(RESULT_MESSAGE);
         racing.CarRacingGameStart();
     }
 }
