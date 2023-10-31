@@ -25,5 +25,6 @@ public class CarNameValidator {
         if (NAMES.stream().anyMatch(name -> name.isEmpty() || name.length() > NAME_SIZE)) {
             throw new IllegalArgumentException();
         }
+
     }
 }
