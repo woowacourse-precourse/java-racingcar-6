@@ -10,6 +10,7 @@ public class RacingCar {
     private String racingCarName;
     private List<Boolean> racingCarMove;
     private int moveCount;
+    private final int MOVE_LIMITS = 3;
 
     public RacingCar(final String racingCarName) {
         this.racingCarName = racingCarName;
@@ -18,7 +19,7 @@ public class RacingCar {
     }
 
     public void isRacingCarMove(final int randomNumber) {
-        if (randomNumber > 3) {
+        if (randomNumber > MOVE_LIMITS) {
             this.racingCarMove.add(true);
             moveCount += 1;
         }
