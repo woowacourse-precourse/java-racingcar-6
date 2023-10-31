@@ -2,9 +2,10 @@ package racingcar.domain;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
 
-    String name;
-    Distance distance;
+    protected String name;
+    protected Distance distance;
 
+    public abstract void printName();
     public abstract void advance();
 
     @Override

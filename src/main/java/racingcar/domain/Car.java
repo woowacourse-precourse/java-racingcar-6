@@ -10,6 +10,15 @@ public class Car extends Vehicle {
         this.INPUT_RANK = INPUT_RANK;
     }
 
+    public void printName() {
+        String nameString = this.name + " : ";
+        System.out.print(nameString);
+    }
+
+    public void printDistance() {
+        this.distance.printDistance();
+    }
+
     @Override
     public void advance() {
         this.distance.increaseDistance();

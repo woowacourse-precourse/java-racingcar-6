@@ -15,6 +15,10 @@ public class Distance {
         this.distance = initDistance;
     }
 
+    public void printDistance() {
+        System.out.println(this.distanceString);
+    }
+
     public void increaseDistance() {
         this.distanceString += moveIndicator;
         this.distance += moveDistance;

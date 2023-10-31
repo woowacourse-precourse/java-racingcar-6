@@ -8,6 +8,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Vehicle;
 import racingcar.util.RandomNumber;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGameController {
 
@@ -28,9 +29,13 @@ public class RacingGameController {
     }
 
     public void startGame() {
+        OutputView.outputExecuteResult();
         do {
             doAdvanceOrStop();
+            OutputView.outputDistanceResult(registeredCars);
+            attemptNumber--;
         } while (attemptNumber > ATTEMPT_END_NUMBER);
+
     }
 
     private void makeCarList() {
