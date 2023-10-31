@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
-public class viewTest extends NsTest {
+public class ViewTest extends NsTest {
 
     @DisplayName("단독 우승자를 출력하는 테스트")
     @Test
