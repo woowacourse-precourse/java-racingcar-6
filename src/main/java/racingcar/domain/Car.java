@@ -12,4 +12,10 @@ public class Car {
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public void move() {
+        if (getRandomNumber() >= 4) {
+            nowNum++;
+        }
+    }
 }
