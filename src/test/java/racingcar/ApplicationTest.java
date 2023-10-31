@@ -48,6 +48,17 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 레이스_횟수_입력_예외_사항_처리() {
+        String carName = "abc,def"; // there is no exception
+        String raceTime = "5a"; // expect to occur exception
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(carName, raceTime))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
