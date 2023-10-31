@@ -65,10 +65,10 @@ public class Utill {
     /**
      * 값이 1이상 확인.
      *
-     * @param sizeOfWinnerList
+     * @param num
      * @return
      */
-    public static boolean valueGreaterThanAndEqualOne(int sizeOfWinnerList) {
-        return sizeOfWinnerList >= 1;
+    public static boolean isGreaterThanAndEqualOne(int num) {
+        return num >= 1;
     }
 }

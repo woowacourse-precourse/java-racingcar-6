@@ -82,7 +82,7 @@ public class GameProcess {
         winnerList = gameHost.giveWinnerList(raceCarList);
         sizeOfWinnerList = winnerList.size();
 
-        if (Utill.valueGreaterThanAndEqualOne(sizeOfWinnerList)) {
+        if (Utill.isGreaterThanAndEqualOne(sizeOfWinnerList)) {
             winnerArr = makeNameArrFromWinnerList();
             nameOfWinner = getNameOfWinnerFromWinnerArr(winnerArr);
         }
