@@ -2,6 +2,7 @@ package view;
 
 import java.util.List;
 import model.domain.Car;
+import model.domain.Name;
 import model.domain.Participant;
 
 public class Output {
@@ -15,7 +16,9 @@ public class Output {
     public static void roundResult(Participant participant) {
 
         for (Car car : participant.getParticipant()) {
-            System.out.print(car.getName() + " : ");
+
+            Name name = car.getName();
+            System.out.print(name.getName() + " : ");
 
             for (int i = 0; i < car.getGo(); i++) {
                 System.out.print("-");
@@ -26,9 +29,19 @@ public class Output {
 
     }
 
-    public static void finalResult(List<String> winner) {
+    public static void finalResult(List<Name> winner) {
 
-        System.out.println("최종 우승자 : " + String.join(", ", winner));
+        System.out.print("최종 우승자 : ");
+
+        for(int i = 0; i < winner.size(); i++){
+
+            Name name = winner.get(i);
+            System.out.print(name.getName());
+
+            if(i != (winner.size() - 1)){
+                System.out.print(", ");
+            }
+        }
 
     }
 

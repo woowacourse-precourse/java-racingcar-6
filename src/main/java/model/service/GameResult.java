@@ -3,13 +3,14 @@ package model.service;
 import java.util.ArrayList;
 import java.util.List;
 import model.domain.Car;
+import model.domain.Name;
 import model.domain.Participant;
 
 public class GameResult {
 
-    public static List<String> winner(Participant participant) {
+    public static List<Name> winner(Participant participant) {
 
-        List<String> winner = new ArrayList<>();
+        List<Name> winner = new ArrayList<>();
         int winnerGoValue = 0;
 
         for (Car car : participant.getParticipant()) {

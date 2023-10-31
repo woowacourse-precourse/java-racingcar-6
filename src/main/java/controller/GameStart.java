@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import model.domain.Name;
 import model.domain.Round;
 import model.service.GameResult;
 import model.service.InputCheck;
@@ -27,7 +28,7 @@ public class GameStart {
             Output.roundResult(participant);
         }
 
-        List<String> winner = GameResult.winner(participant);
+        List<Name> winner = GameResult.winner(participant);
         Output.finalResult(winner);
     }
 }

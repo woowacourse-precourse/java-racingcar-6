@@ -2,17 +2,17 @@ package model.domain;
 
 public class Car {
 
-    private String name;
+    private Name name;
     private int go;
 
     public Car(String name) {
 
-        this.name = name;
+        this.name = new Name(name);
         this.go = 0;
 
     }
 
-    public String getName() {
+    public Name getName(){
         return name;
     }
 
