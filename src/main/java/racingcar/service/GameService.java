@@ -7,5 +7,6 @@ public class GameService {
     public void run() {
         raceManager.racing();
         winnerDetector.find();
+        winnerDetector.displayResult();
     }
 }

@@ -11,7 +11,6 @@ public class WinnerDetector {
     public void find() {
         winnerRepo.saveNum(carsRepo.findMaxPosition());
         add();
-        print.winner(winnerRepo.convertListToString());
     }
 
     private void add() {
@@ -20,5 +19,9 @@ public class WinnerDetector {
                 winnerRepo.add(carsRepo.getName(i));
             }
         }
+    }
+
+    public void displayResult() {
+        print.winner(winnerRepo.convertListToString());
     }
 }
