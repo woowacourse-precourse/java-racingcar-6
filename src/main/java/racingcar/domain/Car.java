@@ -10,8 +10,8 @@ public class Car {
     private String mileage = "";
 
     public Car(String name) {
-        this.name = name;
         validationNameLength(name);
+        this.name = name;
     }
 
     // 자동차 이름은 5글자 이하만 가능합니다.
