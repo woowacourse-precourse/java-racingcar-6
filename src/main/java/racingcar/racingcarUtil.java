@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -43,7 +45,7 @@ class CarRacing {
 	public int resultCount = 0;
 	public String result = "";
 	
-	public void carMove(String carNames) {
+	public int carMove(String carNames) {
 			String carName = carNames + " : ";
 			int randomNumber = Randoms.pickNumberInRange(0,9);
 //			System.out.println(randomNumber);
@@ -52,21 +54,32 @@ class CarRacing {
 				result += "-";	
 			}
 			System.out.println(carName + result);
+			
 //			System.out.println(resultCount);
+			return resultCount;
 		
 	}
 }
 
 class Winner {
-	public void compareCount(List<String> list) { //객체들의 resultCount를 비교하여 가장 큰 값을 반환
-		List<String> resultCount = list;
-		String winner = Collections.max(list);
-		winnerPrint(winner);
+	public static void compareCount() { 
+		List<Integer> resultCount = Arrays.asList(990,2000,2000,4000,9999,9999);
+		int winnerPoint = Collections.max(resultCount);
+		System.out.println(winnerPoint);
+		
+		List<Integer> winnerIndex = new ArrayList<Integer>();
+		for (int i = 0; i < resultCount.size(); i++) {
+			if (resultCount.get(i).equals(winnerPoint)) {
+				System.out.println("우승자 인덱스 넘버" + i);
+				winnerIndex.add(i);
+				System.out.println(winnerIndex);
+			}
+		}		
 	}
 	
-	public void winnerPrint(String str) {
-		List<String> winners = Arrays.asList(str);
-		String result = String.join(",", winners);
-		System.out.println("최종 우승자 : " + result);
-	}
+//	public void winnerPrint(String winners) {
+//		List<String> winners = Arrays.asList(str);
+//		String result = String.join(",", winners);
+//		System.out.println("최종 우승자 : " + result);
+//	}
 }
