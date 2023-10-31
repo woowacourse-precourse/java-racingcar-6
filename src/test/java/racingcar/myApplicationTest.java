@@ -13,11 +13,28 @@ public class myApplicationTest extends NsTest {
     @DisplayName("자동차 이름 테스트")
     class CarNameTest {
         @ParameterizedTest
-        @ValueSource(strings = {"Alice,Bob,Catarina", ",","Alice,Bob,,Carol", "Alice,Bob,Carol,", "Alice, ,Bob"})
-        @DisplayName("자동차 이름을 테스트한다.")
-        void 자동차이름테스트(String carNames) {
+        @ValueSource(strings = {",","Alice,Bob,,Carol", "Alice,Bob,Carol,"})
+        @DisplayName("자동차 전체이름을 예외처리를 테스트한다.")
+        void 자동차전체이름예외처리테스트(String carNames) {
             Assertions.assertThatThrownBy(
-                    () -> runException(carNames)
+                    () -> Validator.carNamesComma(carNames)
+            ).isInstanceOf(IllegalArgumentException.class);
+        }
+        @ParameterizedTest
+        @ValueSource(strings = {"Alice,Bob,Catarina"})
+        @DisplayName("자동차 이름들이 5글자 이상인지 테스트한다.")
+        void 자동차이름분리후_5글자_이하인지_테스트(String carNames) {
+            Assertions.assertThatThrownBy(
+                    () -> CarRaceGame.CarNamesToList(carNames)
+            ).isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"Alice,Bob,,Carol"})
+        @DisplayName("자동차 이름의 공백 예외처리를 테스트한다.")
+        void 자동차_이름_공백_테스트(String carNames) {
+            Assertions.assertThatThrownBy(
+                    () -> CarRaceGame.CarNamesToList(carNames)
             ).isInstanceOf(IllegalArgumentException.class);
         }
     }
