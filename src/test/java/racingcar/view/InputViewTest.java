@@ -11,4 +11,11 @@ class InputViewTest {
         String input = InputView.carInput();
         Assertions.assertThat(input).isEqualTo("Car1,Car2,Car3");
     }
+
+    @Test
+    public void testRoundInput() {
+        System.setIn(new ByteArrayInputStream("5".getBytes()));
+        String input = InputView.roundInput();
+        Assertions.assertThat(input).isEqualTo("5");
+    }
 }
