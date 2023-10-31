@@ -1,10 +1,6 @@
 package racingcar.car;
 
-
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 import static racingcar.constant.Constants.DISTANCE;
 
 import org.junit.jupiter.api.Test;
@@ -21,6 +17,6 @@ class CarTest {
         car.move();
 
         //then
-        Assertions.assertThat(result).isEqualTo(car.getLocation());
+        assertThat(result).isEqualTo(car.getLocation());
     }
 }
