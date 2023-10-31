@@ -19,5 +19,11 @@ class CarTest {
         car = new Car("TestCar");
     }
 
+    @Test
+    void 기본적인_getter_setter_테스트() {
+        car.setName("NewName");
+        assertThat(car.getName()).isEqualTo("NewName");
+    }
+
 
 }
