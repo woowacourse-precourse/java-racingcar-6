@@ -12,9 +12,11 @@ public class ConsoleView {
         return List.of(carNamesArray);
     }
 
-    public int getInputNumberOfAttempts() {
+    public int readValidNumberOfAttempts() {
         printMessage("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        validateNumberOfAttempts(input);
+        return Integer.parseInt(input);
     }
 
     public void printMessage(String message) {
@@ -34,5 +36,11 @@ public class ConsoleView {
         List<String> winnerNames = winners.stream().map(Car::getName).toList();
         String result = String.join(", ", winnerNames);
         printMessage("최종 우승자 : " + result);
+    }
+
+    private void validateNumberOfAttempts(String input) {
+        if (!input.matches("\\d+") || Integer.parseInt(input) <= 0) {
+            throw new IllegalArgumentException("정수를 입력해주세요.");
+        }
     }
 }
