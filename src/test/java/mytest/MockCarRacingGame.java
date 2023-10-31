@@ -11,10 +11,10 @@ public class MockCarRacingGame extends CarRacingGame
         super(carName);
     }
 
-    @Override
-    public void changeStatus() {
-        List<Integer> testlist = new ArrayList<>();
-        testlist.add(4);
-        GameChanger.changeGame(super.getCarName(), testlist);
-    }
+//    @Override
+//    public void changeStatus() {
+//        List<Integer> testlist = new ArrayList<>();
+//        testlist.add(4);
+//        GameChanger.changeGame(super.getCarName(), testlist);
+//    }
 }

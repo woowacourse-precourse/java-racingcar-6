@@ -9,6 +9,7 @@ import util.NumberGenerator;
 
 public class CarRacingGame {
     private LinkedHashMap<String, StringBuilder> carName = null;
+    static int GO_NUMBER = 4;
 
     public CarRacingGame(LinkedHashMap<String, StringBuilder> carName) {
         this.carName = carName;
@@ -18,43 +19,26 @@ public class CarRacingGame {
         return new LinkedHashMap<>(carName);
     }
 
-    public void changeStatus() {
-        GameChanger.changeGame(carName, NumberGenerator.numberGenerate(carName.size()));
+    public void changeGame() {
+        Iterator<Integer> temp = NumberGenerator.numberGenerate(carName.size()).iterator();
+        carName.forEach((key, value) -> {
+            if (changeStatus(getNumber(temp)) == GoOrNot.GO) {
+            carName.put(key, value.append("-"));
+        }});
     }
 
-    /**
-     * 게임의 상황을 바꾸는 책임을 가지고 있는 클래스입니다.
-     */
-    protected class GameChanger {
-        private final static int GO_NUMBER = 4;
-
-        private GameChanger() {
+    private int getNumber(Iterator<Integer> temp) {
+        if (temp.hasNext()) {
+            return temp.next();
         }
+        return -1;
+    }
 
-        public static void changeGame(LinkedHashMap<String, StringBuilder> car,
-                               List<Integer> generatedNumbers) {
-            Iterator temp = generatedNumbers.iterator();
-
-            for (Map.Entry<String, StringBuilder> entry : car.entrySet()) {
-                if (changeStatus(getNumber(temp)) == GoOrNot.GO) {
-                    car.put(entry.getKey(), entry.getValue().append("-"));
-
-                }
-            }
+    private GoOrNot changeStatus(int generatedNumber) {
+        if (generatedNumber >= GO_NUMBER) {
+            return GoOrNot.GO;
         }
-
-        private static int getNumber(Iterator<Integer> temp) {
-            if (temp.hasNext()) {
-                return temp.next();
-            }
-            return -1;
-        }
-
-        private static GoOrNot changeStatus(int generatedNumber) {
-            if (generatedNumber >= GO_NUMBER) {
-                return GoOrNot.GO;
-            }
-            return GoOrNot.NOTGO;
-        }
+        return GoOrNot.NOTGO;
     }
 }
+

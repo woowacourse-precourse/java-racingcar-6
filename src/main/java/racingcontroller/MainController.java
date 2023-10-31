@@ -49,7 +49,7 @@ public class MainController {
 
     private void processWithResults(String times) {
         for (int i = 0; i < Integer.parseInt(times); i++) {
-            model.changeStatus();
+            model.changeGame();
             view.speakResult(model.getCarName());
         }
     }
