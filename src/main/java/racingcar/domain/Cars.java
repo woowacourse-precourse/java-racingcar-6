@@ -21,15 +21,13 @@ public class Cars {
         }
     }
 
-    public List<Car> findWinner() {
-        List<Car> winnerList = new ArrayList<>();
+    public WinnerDto findWinner() {
 
-        getMaxPosition(winnerList);
-
-        return winnerList;
+        return getWinnerFromMaxPosition();
     }
 
-    private void getMaxPosition(final List<Car> winnerList) {
+    private WinnerDto getWinnerFromMaxPosition() {
+        List<Car> winners = new ArrayList<>();
         int maxPosition = 0;
 
         for (Car car : carList) {
@@ -40,9 +38,11 @@ public class Cars {
 
         for (Car car : carList) {
             if (car.getPosition() == maxPosition) {
-                winnerList.add(car);
+                winners.add(car);
             }
         }
+
+        return new WinnerDto(winners);
     }
 
     public CarsDto toCarsDto() {
