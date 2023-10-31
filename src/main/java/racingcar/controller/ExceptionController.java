@@ -25,9 +25,15 @@ public class ExceptionController {
         }
     }
 
-    public static int tryCountNotIntException(String tryCount) {
+    public static void tryCountLengthException(String tryCount) {
+        if (tryCount.length() >= 2) {
+            throw new IllegalArgumentException("한 자리의 숫자만 입력 바랍니다.");
+        }
+    }
+
+    public static void tryCountNotIntException(String tryCount) {
         try {
-            return Integer.parseInt(tryCount);
+            Integer.parseInt(tryCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자 외에 다른 문자는 사용할 수 없습니다.");
         }
