@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class InputValidator {
     public static HashMap<String, Integer> validateNames(String input) {
+        // 1. 자동차 이름 입력 받기
         HashMap<String, Integer> namesMap = new HashMap<>();
         Set<String> nameSet = new HashSet<>();
 
@@ -35,6 +36,7 @@ public class InputValidator {
     }
 
     public static int validateMoves(String moves) {
+        // 2. 시도 횟수 입력 받기
         int parsedMoves;
         try {
             parsedMoves = Integer.parseInt(moves);
