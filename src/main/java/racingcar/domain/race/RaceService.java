@@ -43,23 +43,28 @@ public class RaceService {
     }
 
     public void raceForRounds(List<Car> cars, int round) {
-        // 시도 횟수만큼 전진 혹은 멈춤
+        // round 만큼
         for (int i = 0; i < round; i++) {
-            // 조건에 따른 이동
-            moveByStrategy(cars);
+            // 전진 시도
+            raceForRound(cars);
+
             // 현재 상태 출력
             System.out.println(RaceView.printCarsStatus(cars));
         }
     }
 
-    public void moveByStrategy(List<Car> cars) {
-        // 차 별로
+    public void raceForRound(List<Car> cars) {
+        // 차 별로 전진 시도
         for (Car car : cars) {
-            // 전진 정책에 따른 전진 수행
             int randNum = Randoms.pickNumberInRange(0, 9);
-            if (MoveStrategy.isMovable(randNum)) {
-                car.moveForward();
-            }
+            tryMoveForward(car, randNum);
+        }
+    }
+
+    // 전진조건에 따라 , 전진을 시도합니다.
+    public void tryMoveForward(Car car, int randNum) {
+        if (MoveStrategy.isMovable(randNum)) {
+            car.moveForward();
         }
     }
 
