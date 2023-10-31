@@ -1,7 +1,11 @@
 package view;
 
+import domain.Car;
 import domain.RaceResult;
 import domain.Winners;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -37,6 +41,19 @@ public class OutputView {
         if (winnerCount == 1) {
             printSingleWinner(winners);
         }
+
+        if (winnerCount > 1) {
+            printMultipleWinner(winners);
+        }
+    }
+
+    private static void printMultipleWinner(Winners winners) {
+        List<String> multipleWinnerName = winners.winners().stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
+        String result = String.join(",", multipleWinnerName);
+        System.out.print(result);
     }
 
     private static void printSingleWinner(Winners winners) {
