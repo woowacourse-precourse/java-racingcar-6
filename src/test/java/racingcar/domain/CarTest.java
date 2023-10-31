@@ -26,6 +26,15 @@ public class CarTest extends NsTest {
         assertEquals(car1.compareTo(car2), 1);
     }
 
+    @Test
+    @DisplayName("getName 함수 기능 테스트")
+    void 자동차_이름_반환_기능_테스트(){
+        //given
+        Car car = new Car(CAR_NAME);
+        //then
+        assertEquals(car.getName(), CAR_NAME);
+    }
+
     @Override
     protected void runMain() {
         Car car = new Car(CAR_NAME);
