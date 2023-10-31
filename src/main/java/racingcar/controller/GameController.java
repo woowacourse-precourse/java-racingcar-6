@@ -30,25 +30,20 @@ public class GameController {
         this.movingStrategy = movingStrategy;
     }
 
-    // 프로그램 전체 흐름을 파악할 수 있는 형식으로 작성하기
     public void play() {
-        // Cars 생성
         createCars();
-        // 게임 라운드 받기
         createRaceRound();
-        // 게임 라운드 만큼 실행
         playEachRaceRound();
-        // 결과 찾기 및 출력
         showWinner();
     }
 
     private void createCars() {
-        List<String> names = inputView.inputNames();
-        List<Car> carList = createCarList(names);
+        final List<String> names = inputView.inputNames();
+        final List<Car> carList = createCarList(names);
         cars = new Cars(carList);
     }
 
-    private List<Car> createCarList(List<String> names) {
+    private List<Car> createCarList(final List<String> names) {
         List<Car> carList = new ArrayList<>();
         for (String name : names) {
             carList.add(new Car(movingStrategy, name));
@@ -58,7 +53,7 @@ public class GameController {
     }
 
     private void createRaceRound() {
-        Integer countOfRaceRound = inputView.inputCountOfGameRound();
+        final Integer countOfRaceRound = inputView.inputCountOfGameRound();
         raceRound = new RaceRound(countOfRaceRound, 0);
     }
 
@@ -70,8 +65,8 @@ public class GameController {
     }
 
     private void showWinner() {
-        Integer winnerPosition = cars.findWinnerPosition();
-        List<Car> winner = cars.findWinner(winnerPosition);
+        final Integer winnerPosition = cars.findWinnerPosition();
+        final List<Car> winner = cars.findWinner(winnerPosition);
         outputView.outputWinner(winner);
     }
 
