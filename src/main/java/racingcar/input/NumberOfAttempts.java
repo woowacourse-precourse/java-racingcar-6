@@ -11,6 +11,7 @@ public class NumberOfAttempts {
     public static int input() {
         String numberOfAttempts = Console.readLine();
         int numberOfAttemptsToInt = validateNumber(numberOfAttempts);
+
             return numberOfAttemptsToInt;
     }
 
@@ -23,6 +24,8 @@ public class NumberOfAttempts {
             throw new IllegalArgumentException();
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
+        } finally {
+            Console.close();
         }
     }
 }
