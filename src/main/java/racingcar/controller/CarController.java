@@ -9,10 +9,17 @@ import racingcar.view.OutputView;
 
 public class CarController {
 
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
-    private final CarService carService = new CarService();
-    private final InputValidation inputValidation = new InputValidation();
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final CarService carService;
+    private final InputValidation inputValidation;
+
+    public CarController() {
+        inputView = new InputView();
+        outputView = new OutputView();
+        carService = new CarService();
+        inputValidation = new InputValidation();
+    }
 
 
     public void save() {

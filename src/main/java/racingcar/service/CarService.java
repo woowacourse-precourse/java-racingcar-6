@@ -12,7 +12,11 @@ import racingcar.repository.CarRepository;
 
 public class CarService {
 
-    private final CarRepository carRepository = new CarRepository();
+    private final CarRepository carRepository;
+
+    public CarService() {
+        carRepository = new CarRepository();
+    }
 
     public void save(List<String> carNames) {
         carNames.stream()

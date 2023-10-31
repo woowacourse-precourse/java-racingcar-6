@@ -4,7 +4,11 @@ import racingcar.controller.CarController;
 
 public class User {
 
-    private final CarController carController = new CarController();
+    private final CarController carController;
+
+    public User() {
+        carController = new CarController();
+    }
 
     public void play() {
         save();
