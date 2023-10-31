@@ -62,7 +62,7 @@ public class PlayerMoveListTest {
         int max = 0;
 
         // when
-        playerMoveList.checkWinner(max);
+        playerMoveList.checkWinner();
 
         // then
         verify(playerMove, times(playerMoveList.getPlayerMoveList().size())).checkWinner(max);

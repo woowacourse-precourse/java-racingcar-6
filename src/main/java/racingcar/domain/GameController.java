@@ -1,12 +1,11 @@
 package racingcar.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.view.InputView;
 import racingcar.dto.MoveResultDto;
-import racingcar.view.OutputView;
 import racingcar.dto.PlayerNamesDto;
 import racingcar.dto.PlayersDto;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
     private final MoveFactory moveFactory;
@@ -16,55 +15,47 @@ public class GameController {
     }
 
     public void start() {
-        PlayerNamesDto playerNamesDto = InputView.InputPlayerNames();
-        PlayersDto playersDto = generatePlayers(playerNamesDto);
+        PlayersDto playersDto = generatePlayers();
         PlayerMoveList playerMoveList = generatePlayerMoveList(playersDto);
         RaceCount raceCount = InputView.InputRaceCount();
 
-        play(playerMoveList, raceCount);
-        getWinner(playerMoveList, playersDto);
+        playRace(playerMoveList, raceCount);
+        printWinner(playerMoveList, playersDto);
     }
 
-    private void getWinner(PlayerMoveList playerMoveList, PlayersDto playersDto) {
-        int maxDistacne = playerMoveList.getMaxDistance();
-        playerMoveList.checkWinner(maxDistacne);
-        List<String> winnerList = playersDto.getWinnerList();
-        OutputView.printWinner(winnerList);
+    private void printWinner(final PlayerMoveList playerMoveList, final PlayersDto playersDto) {
+        playerMoveList.checkWinner();
+        OutputView.printWinner(playersDto.getWinnerList());
     }
 
-    private void play(PlayerMoveList playerMoveList, RaceCount raceCount) {
-        OutputView.printMoveResultMessage();
+    private void playRace(final PlayerMoveList playerMoveList, final RaceCount raceCount) {
         RacingGame racingGame = RacingGame.init(playerMoveList);
-        int tryCount = 0;
-        // 여기 리팩토링 필요 @
+        OutputView.printMoveResultMessage();
         do {
             racingGame.move();
-            tryCount++;
-            List<MoveResultDto> moveResultDtoList = getMoveResultList(playerMoveList);
-            OutputView.printMoveResult(moveResultDtoList);
-        } while (!raceCount.isSameCount(tryCount));
+            printMove(playerMoveList);
+        } while (!racingGame.isSameCount(raceCount));
     }
 
-    private List<MoveResultDto> getMoveResultList(PlayerMoveList playerMoveList) {
-        return playerMoveList.getPlayerMoveList().stream()
+    private void printMove(final PlayerMoveList playerMoveList) {
+        List<MoveResultDto> moveResultDtoList = playerMoveList.getPlayerMoveList().stream()
                 .map(MoveResultDto::from)
-                .collect(Collectors.toList());
+                .toList();
+        OutputView.printMoveResult(moveResultDtoList);
     }
 
-
-    private PlayerMoveList generatePlayerMoveList(PlayersDto playersDto) {
+    private PlayerMoveList generatePlayerMoveList(final PlayersDto playersDto) {
         List<PlayerMove> playerMoveList = playersDto.getPlayers().stream()
                 .map(PlayerMove::init)
-                .collect(Collectors.toList());
-
+                .toList();
         return PlayerMoveList.of(playerMoveList, moveFactory);
     }
 
-    private PlayersDto generatePlayers(PlayerNamesDto playerNamesDto) {
+    private PlayersDto generatePlayers() {
+        PlayerNamesDto playerNamesDto = InputView.InputPlayerNames();
         List<Player> players = playerNamesDto.getPlayerNames().stream()
                 .map(Player::from)
-                .collect(Collectors.toList());
+                .toList();
         return PlayersDto.from(players);
     }
-
 }

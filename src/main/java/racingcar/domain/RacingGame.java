@@ -1,25 +1,28 @@
 package racingcar.domain;
 
-import static racingcar.domain.GameStatus.PLAYING;
-
 import java.util.Objects;
 
 public class RacingGame {
 
     private final PlayerMoveList playerMoveList;
-    private final GameStatus gameStatus;
+    private final RaceCount raceCount;
 
-    public RacingGame(final PlayerMoveList playerMoveList, final GameStatus gameStatus) {
+    public RacingGame(final PlayerMoveList playerMoveList, final RaceCount raceCount) {
         this.playerMoveList = playerMoveList;
-        this.gameStatus = gameStatus;
+        this.raceCount = raceCount;
     }
 
     public static RacingGame init(PlayerMoveList playerMoveList) {
-        return new RacingGame(playerMoveList, PLAYING);
+        return new RacingGame(playerMoveList, RaceCount.init());
     }
 
     public void move() {
         playerMoveList.move();
+        raceCount.increase();
+    }
+
+    public boolean isSameCount(RaceCount endCount) {
+        return raceCount.equals(endCount);
     }
 
     @Override
@@ -31,11 +34,12 @@ public class RacingGame {
             return false;
         }
         RacingGame that = (RacingGame) o;
-        return Objects.equals(playerMoveList, that.playerMoveList) && gameStatus == that.gameStatus;
+        return Objects.equals(playerMoveList, that.playerMoveList) && Objects.equals(raceCount,
+                that.raceCount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(playerMoveList, gameStatus);
+        return Objects.hash(playerMoveList, raceCount);
     }
 }

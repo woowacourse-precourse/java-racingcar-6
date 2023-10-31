@@ -30,9 +30,10 @@ public class PlayerMoveList {
         return max;
     }
 
-    public void checkWinner(int max) {
+    public void checkWinner() {
+        int maxDistacne = getMaxDistance();
         for (PlayerMove playerMove : playerMoveList) {
-            playerMove.checkWinner(max);
+            playerMove.checkWinner(maxDistacne);
         }
     }
 

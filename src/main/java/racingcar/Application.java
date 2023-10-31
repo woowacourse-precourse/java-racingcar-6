@@ -11,7 +11,6 @@ public class Application {
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         MoveFactory moveFactory = new MoveFactory(numberGenerator);
         GameController gameController = new GameController(moveFactory);
-
         gameController.start();
     }
 }

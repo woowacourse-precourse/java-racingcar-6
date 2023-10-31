@@ -3,9 +3,11 @@ package racingcar.domain;
 import static racingcar.domain.Constant.MINIMUM_RACE_COUNT;
 import static racingcar.domain.ErrorMessage.RACE_COUNT_IS_NOT_IN_RANGE;
 
+import java.util.Objects;
+
 public class RaceCount {
 
-    private final int value;
+    private int value;
 
     public RaceCount(final int count) {
         this.value = count;
@@ -14,6 +16,10 @@ public class RaceCount {
     public static RaceCount from(int rawCount) {
         validateRange(rawCount);
         return new RaceCount(rawCount);
+    }
+
+    public static RaceCount init() {
+        return new RaceCount(0);
     }
 
     private static void validateRange(int count) {
@@ -26,7 +32,24 @@ public class RaceCount {
         return count >= MINIMUM_RACE_COUNT;
     }
 
-    public boolean isSameCount(int tryCount) {
-        return value == tryCount;
+    public void increase() {
+        value++;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RaceCount raceCount = (RaceCount) o;
+        return value == raceCount.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
