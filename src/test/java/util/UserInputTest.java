@@ -53,4 +53,14 @@ class UserInputTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5글자 이하여야 합니다: " + "엄청나게긴이름의자동차의이름");
     }
+
+    @Test
+    void 사용자_입력_nullable_테스트_inputCarNames() {
+        String input = "\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThatThrownBy(UserInput::inputCarNames)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력 값이 비어 있습니다.");
+    }
 }
