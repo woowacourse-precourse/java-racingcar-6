@@ -23,6 +23,8 @@ public class RacingController {
             }
             Message.insertSpace();
         }
+        List<String> winners = cars.findWinners();
+        OutputView.racingWinners(winners);
     }
 
     public String[] generateRacersFromNames(String input) {
