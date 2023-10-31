@@ -81,7 +81,7 @@ class CarPositionTest {
     }
 
     @Test
-    void 자동차_위치_값이_서로_같으면_동일한_hashcode를_가진다() {
+    void 자동차_위치_값이_서로_같으면_동일한_해시코드를_가진다() {
         CarPosition actualCarPosition = new CarPosition(1);
         CarPosition expectedCarPosition = new CarPosition(1);
 

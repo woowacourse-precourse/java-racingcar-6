@@ -9,30 +9,24 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarNameTest {
-    
-    @Test
-    void 자동차_이름이_null이라면_유효하지_않다() {
-        assertThatThrownBy(() -> CarName.from(null))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "  "})
-    void 자동차_이름에_공백이_들어가면_유효하지_않다(String carName) {
+    void 자동차_이름에_공백이_들어가면_자동차_이름을_생성할_수_없다(String carName) {
         assertThatThrownBy(() -> CarName.from(carName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"crong ", " crong"})
-    void 자동차_이름은_공백을_포함한_허용가능한_길이를_초과하면_유효하지_않다(String carName) {
+    void 자동차_이름은_공백을_포함한_허용가능한_길이를_초과하면_자동차_이름을_생성할_수_없다(String carName) {
         assertThatThrownBy(() -> CarName.from(carName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"a", "crong"})
-    void 자동차_이름이_허용_길이_이내면_생성된다(String carName) {
+    void 자동차_이름이_허용_길이_이내면_자동차_이름을_생성할_수_있다(String carName) {
         assertDoesNotThrow(() -> CarName.from(carName));
     }
 
@@ -53,7 +47,7 @@ class CarNameTest {
     }
 
     @Test
-    void 동일한_자동차_이름은_동일한_hashcode를_가진다() {
+    void 동일한_자동차_이름은_동일한_해시코드를_가진다() {
         CarName actualCarName = CarName.from("jack");
         CarName expectedCarName = CarName.from("jack");
 

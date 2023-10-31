@@ -12,8 +12,8 @@ class RandomNumberGeneratorTest {
         int min = 0;
         int max = 9;
 
-        int actual = numberGenerator.generateBetween(min, max);
+        int randomNumber = numberGenerator.generateBetween(min, max);
 
-        assertThat(actual).isBetween(min, max);
+        assertThat(randomNumber).isBetween(min, max);
     }
 }
