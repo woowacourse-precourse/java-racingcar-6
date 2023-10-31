@@ -24,15 +24,14 @@ public class CarNameException {
             before = name[i];
         }
 
-
-
     }
 
-    public static void lotsOfCommaException(){
-
-    }
-
-    public static void blankException(){
-
+    public static void blankException(String name){
+        for (int i = 0; i < name.length(); i++) {
+            char check = name.charAt(i);
+            if (check == ' '){
+                throw new IllegalArgumentException("자동차 이름에는 공백이 들어갈 수 없습니다.");
+            }
+        }
     }
 }

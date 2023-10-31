@@ -18,8 +18,6 @@
 
 [-] 자동차의 이름은 서로 중복 될 수 없다. -carNameSameException()
 
-[-] 이름 구분은 이름 사이 한개의 ','로만 이루어 진다. -lotsOfCommaException()
-
 [-] 이름을 구분할때 띄어쓰기가 들어갈 수 없다. -blankException()
 
 [-] 라운드는 정수로만 입력할 수 있다. -noIntRoundException()
