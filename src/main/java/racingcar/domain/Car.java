@@ -8,7 +8,7 @@ public class Car {
     private int position = Constants.INITIAL_POSITION;
 
     public Car(String name) {
-        String trimmedName = getTrimmedName(name);
+        String trimmedName = name.trim();
 
         CarValidator.validateCarName(trimmedName);
 
@@ -37,12 +37,7 @@ public class Car {
         }
     }
 
-    private String getTrimmedName(String name) {
-        return name.trim();
-    }
-
     private void increasePosition() {
         this.position++;
     }
-
 }
