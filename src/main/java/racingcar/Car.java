@@ -8,9 +8,6 @@ public class Car {
         this.name = name;
     }
 
-    public void increaseCarDistance() {
-        this.carDistance++;
-    }
 
     public String getName() {
         return name;
@@ -18,5 +15,9 @@ public class Car {
 
     public int getCarDistance() {
         return carDistance;
+    }
+
+    public void increaseCarDistance() {
+        this.carDistance++;
     }
 }

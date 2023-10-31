@@ -17,18 +17,26 @@ public class CarMove {
         int i = 1;
         while (i <= raceInfo.getAttemptCount()) {
             for (Car car : raceInfo.getCarList()) {
-                if (decideCarMovement()){
+                if (decideCarMovement()) {
                     car.increaseCarDistance();
                 }
-                RaceResultView.raceResultDisplay(car);
+                raceResultDisplay(car);
             }
             System.out.println();
             i++;
         }
     }
 
-    public static boolean decideCarMovement() {
+    public boolean decideCarMovement() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         return randomNum >= 4;
+    }
+
+    public void raceResultDisplay(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getCarDistance(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
