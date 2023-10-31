@@ -9,6 +9,9 @@ CommandLineController 객체의 start 메서드를 실행한다.
 
 ## controller Package
 
+### controller (interface)
+- start() 프로그램을 시작하는 메서드
+
 ### CommandLineController
 - 멤버변수
   - Game

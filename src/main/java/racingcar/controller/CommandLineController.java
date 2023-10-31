@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.game.Game;
 
-public class CommandLineController {
+public class CommandLineController implements Controller{
 
     private Game game;
 
