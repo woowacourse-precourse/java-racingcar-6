@@ -1,24 +1,27 @@
 package racingcar.domain.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.random.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cars {
 
     private final List<Car> cars;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    private Cars(List<Car> cars) {
+    private Cars(List<Car> cars, RandomNumberGenerator randomNumberGenerator) {
         this.validateRaceCars(cars);
+        this.randomNumberGenerator = randomNumberGenerator;
         this.cars = cars;
     }
 
-    public static Cars createFromNames(List<String> names) {
+    public static Cars createBy(List<String> names, RandomNumberGenerator randomNumberGenerator) {
         List<Car> cars = new ArrayList<>();
         names.forEach(name -> cars.add(new Car(name)));
 
-        return new Cars(cars);
+        return new Cars(cars, randomNumberGenerator);
     }
 
     private void validateRaceCars(List<Car> cars) {
@@ -42,13 +45,9 @@ public class Cars {
 
     public void race() {
         cars.forEach(car -> {
-            int number = this.getRandomNumber();
+            int number = randomNumberGenerator.getRandomNumber();
             car.tryToMove(number);
         });
-    }
-
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(1, 9);
     }
 
     public List<CarDto> getStatus() {
@@ -57,17 +56,30 @@ public class Cars {
         return status;
     }
 
-    public List<String> findTopCars() {
-        Car topPositionCar = this.findTopPositionCar();
+    public List<String> findTopCarNames() {
+        Car topCar = this.findTopCar();
         return cars.stream()
-                .filter(topPositionCar::isSamePosition)
+                .filter(topCar::isSamePosition)
                 .map(Car::getName)
                 .toList();
     }
 
-    private Car findTopPositionCar() {
+    private Car findTopCar() {
         return cars.stream()
                 .max(Car::compareTo)
                 .orElseThrow(() -> new IllegalArgumentException("Car 리스트가 비어있음."));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cars other = (Cars) o;
+        return Objects.equals(cars, other.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars);
     }
 }

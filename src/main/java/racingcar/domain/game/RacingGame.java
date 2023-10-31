@@ -34,7 +34,7 @@ public class RacingGame {
     }
 
     public GameResultDto getResult() {
-        List<String> winners = this.cars.findTopCars();
+        List<String> winners = this.cars.findTopCarNames();
         return new GameResultDto(this.logs, winners);
     }
 }
