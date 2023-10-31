@@ -14,7 +14,6 @@ public class GameOutput {
     }
 
     public void printWinners(List<Car> winnerList) {
-
         String winners = winnerList.stream()
                 .map(Car::toString)
                 .collect(Collectors.joining(", "));

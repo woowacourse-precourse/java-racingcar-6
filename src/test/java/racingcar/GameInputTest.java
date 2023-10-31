@@ -73,7 +73,7 @@ class GameInputTest {
         String input = "pobi12,woni1,jun1";
         assertThatThrownBy(() -> gameInput.convertToCarNameList(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Carname length must be <= " + 5);
+                .hasMessageContaining("Car name length must be <= " + 5);
     }
 
 
