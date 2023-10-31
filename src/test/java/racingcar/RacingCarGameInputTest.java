@@ -2,6 +2,12 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Message.ErrorMessage.CAR_NAME_HAVE_WHITE_CHAR;
+import static racingcar.Message.ErrorMessage.CAR_NAME_IS_BIGGER_THAN_5CHAR;
+import static racingcar.Message.ErrorMessage.CAR_NAME_IS_DUPLICATED;
+import static racingcar.Message.ErrorMessage.CAR_NAME_IS_EMPTY;
+import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_NUM;
+import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_POSITIVE_NUM;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +34,7 @@ public class RacingCarGameInputTest {
 
         assertThatThrownBy(() -> RacingCarGameInput.readCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_BIGGER_THAN_5CHAR);
+                .hasMessageContaining(CAR_NAME_IS_BIGGER_THAN_5CHAR.getMessage());
     }
 
     @Test
@@ -37,7 +43,7 @@ public class RacingCarGameInputTest {
 
         assertThatThrownBy(() -> RacingCarGameInput.readCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_HAVE_WHITE_CHAR);
+                .hasMessageContaining(CAR_NAME_HAVE_WHITE_CHAR.getMessage());
     }
 
     @Test
@@ -46,7 +52,7 @@ public class RacingCarGameInputTest {
 
         assertThatThrownBy(() -> RacingCarGameInput.readCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_DUPLICATION);
+                .hasMessageContaining(CAR_NAME_IS_DUPLICATED.getMessage());
     }
 
     @Test
@@ -55,7 +61,7 @@ public class RacingCarGameInputTest {
 
         assertThatThrownBy(() -> RacingCarGameInput.readCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_EMPTY);
+                .hasMessageContaining(CAR_NAME_IS_EMPTY.getMessage());
     }
 
     @Test
@@ -72,7 +78,7 @@ public class RacingCarGameInputTest {
 
         assertThatThrownBy(() -> RacingCarGameInput.readMoveCount())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_NOT_NUMBER);
+                .hasMessageContaining(MOVE_COUNT_IS_NOT_NUM.getMessage());
     }
 
     @Test
@@ -81,6 +87,6 @@ public class RacingCarGameInputTest {
 
         assertThatThrownBy(() -> RacingCarGameInput.readMoveCount())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_NOT_POSITIVE);
+                .hasMessageContaining(MOVE_COUNT_IS_NOT_POSITIVE_NUM.getMessage());
     }
 }

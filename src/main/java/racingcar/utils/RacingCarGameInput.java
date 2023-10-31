@@ -1,5 +1,12 @@
 package racingcar.utils;
 
+import static racingcar.Message.ErrorMessage.CAR_NAME_HAVE_WHITE_CHAR;
+import static racingcar.Message.ErrorMessage.CAR_NAME_IS_BIGGER_THAN_5CHAR;
+import static racingcar.Message.ErrorMessage.CAR_NAME_IS_DUPLICATED;
+import static racingcar.Message.ErrorMessage.CAR_NAME_IS_EMPTY;
+import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_NUM;
+import static racingcar.Message.ErrorMessage.MOVE_COUNT_IS_NOT_POSITIVE_NUM;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,13 +14,6 @@ import java.util.List;
 import racingcar.dto.RacingCar;
 
 public class RacingCarGameInput {
-    //todo enum class 사용하여 메세지들 모아주기
-    public static final String ERROR_MESSAGE_BIGGER_THAN_5CHAR = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
-    public static final String ERROR_MESSAGE_NOT_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
-    public static final String ERROR_MESSAGE_NOT_POSITIVE = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
-    public static final String ERROR_MESSAGE_HAVE_WHITE_CHAR = "[ERROR] 자동차 이름에 공백이 있을 수 없습니다.";
-    public static final String ERROR_MESSAGE_DUPLICATION = "[ERROR] 자동차 이름이 중복되면 안됩니다.";
-    public static final String ERROR_MESSAGE_EMPTY = "[ERROR] 자동차 이름이 비어 있을 수 없습니다.";
 
     public static List<RacingCar> readCarNames() {
         String input = Console.readLine();
@@ -30,7 +30,7 @@ public class RacingCarGameInput {
     private static boolean validateCarNamesInput(String input) {
         String noWhiteSpaceInput = input.replace(" ", "");
         if (noWhiteSpaceInput.length() != input.length()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_HAVE_WHITE_CHAR);
+            throw new IllegalArgumentException(CAR_NAME_HAVE_WHITE_CHAR.getMessage());
         }
         return true;
     }
@@ -39,7 +39,7 @@ public class RacingCarGameInput {
         List<String> tempArr = new ArrayList<>();
         for (String e : arr) {
             if (tempArr.contains(e)) {
-                throw new IllegalArgumentException(ERROR_MESSAGE_DUPLICATION);
+                throw new IllegalArgumentException(CAR_NAME_IS_DUPLICATED.getMessage());
             }
             tempArr.add(e);
         }
@@ -49,10 +49,10 @@ public class RacingCarGameInput {
     private static boolean validateCarList(List<RacingCar> carList) {
         for (RacingCar car : carList) {
             if (car.getName().length() > 5) {
-                throw new IllegalArgumentException(ERROR_MESSAGE_BIGGER_THAN_5CHAR);
+                throw new IllegalArgumentException(CAR_NAME_IS_BIGGER_THAN_5CHAR.getMessage());
             }
             if (car.getName().isEmpty()) {
-                throw new IllegalArgumentException(ERROR_MESSAGE_EMPTY);
+                throw new IllegalArgumentException(CAR_NAME_IS_EMPTY.getMessage());
             }
         }
         return true;
@@ -70,14 +70,14 @@ public class RacingCarGameInput {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NOT_NUMBER);
+            throw new IllegalArgumentException(MOVE_COUNT_IS_NOT_NUM.getMessage());
         }
         return true;
     }
 
     private static boolean validateMoveCount(int moveCount) {
         if (moveCount < 1) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NOT_POSITIVE);
+            throw new IllegalArgumentException(MOVE_COUNT_IS_NOT_POSITIVE_NUM.getMessage());
         }
         return true;
     }
