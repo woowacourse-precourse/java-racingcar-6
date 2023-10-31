@@ -39,13 +39,14 @@ class GamePlay {
     public static void startGame(int mn, String[] car_name){
         String[] MoveCount = new String[car_name.length];
         Arrays.fill(MoveCount, "");
+        System.out.println();
         System.out.println("실행 결과");
         for (int num = 0; num < mn; num++){
-            System.out.println();
             for (int i = 0; i < car_name.length; i++){
                 MoveCount[i] = GoOrStop(MoveCount[i]);
                 System.out.println(car_name[i] + " : "+ MoveCount[i]);
             }
+            System.out.println();
         }
         Winner.WhoIsWinner(MoveCount, car_name);
     }
@@ -77,7 +78,6 @@ class Winner {
     }
 
     public static void PrintWinner(ArrayList<String> name){
-        System.out.println();
         String result = String.join(",", name);
         System.out.println("최종 우승자 : "+result);
     }
