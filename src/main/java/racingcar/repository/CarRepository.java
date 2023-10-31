@@ -1,9 +1,6 @@
 package racingcar.repository;
 
-import racingcar.domain.Car;
-import racingcar.domain.CarsDto;
-import racingcar.domain.Client;
-import racingcar.domain.ResultDto;
+import racingcar.domain.*;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -20,7 +17,6 @@ public class CarRepository {
         result = new ResultDto(client.getTotalRounds());
 
         cars = new ArrayList<>(carsDto.getNumberOfCars());
-
         for (int i = 0; i < carsDto.getNumberOfCars(); i++) {
             String singleCarName = carsDto.getSingleCarName(i);
             cars.add(Car.createCar(idProvider, singleCarName));
@@ -34,4 +30,27 @@ public class CarRepository {
         idProvider = idProvider.add(BigInteger.ONE);
     }
 
+    public void race(BigInteger round) {
+        if (round.compareTo(currentRacingRound) > 0) {
+            currentRacingRound = currentRacingRound.add(BigInteger.ONE);
+            cars.forEach(Car::raceOneRound);
+            SingleRoundResultDto singleRoundResult = new SingleRoundResultDto(generateCarResults());
+            result.addSingleRoundResult(round, singleRoundResult);
+        }
+    }
+
+    private List<Car.CarResultDto> generateCarResults() {
+        return cars
+                .stream()
+                .map(Car::createCarResultDto)
+                .toList();
+    }
+
+    public ResultDto finishFinalRound() {
+        return result;
+    }
+
+    public boolean isFinalRound() {
+        return currentRacingRound.longValue() == result.getFinalRound().longValue();
+    }
 }
