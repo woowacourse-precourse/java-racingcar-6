@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.util.RandomUtil;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,10 +18,9 @@ public class Cars {
         return cars.size();
     }
 
-    public void moveCars() {
+    public void moveCars(int random) {
         List<Car> carList = this.getCars();
         carList.forEach(car -> {
-            int random = RandomUtil.createRandom();
             if (isMove(random)) {
                 car.accountDistance();
             }
