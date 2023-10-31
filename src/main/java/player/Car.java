@@ -4,6 +4,7 @@ import utils.Factory;
 
 class Car {
     private int distance = 0;
+    private static final int threshold = 4;
 
     Car(){}
 
@@ -12,7 +13,7 @@ class Car {
     }
 
     void tryMove() {
-        if (Factory.createRandomDigit() >= 4) {
+        if (Factory.createRandomDigit() >= threshold) {
             distance++;
         }
     }
