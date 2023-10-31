@@ -87,4 +87,14 @@ public class RacingCarTest {
         List<String> winner = List.of("woni", "crong");
         assertThat(Print.winner(winner)).isEqualTo("최종 우승자 : woni, crong");
     }
+
+    @Test
+    void 게임_진행상황을_출력하는_기능() {
+        List<String> members = List.of("pobi", "woni", "crong");
+        HashMap<String, String> hm = new HashMap<>();
+        hm.put("pobi", "---");
+        hm.put("woni", "--");
+        hm.put("crong", "-----");
+        assertThat(Print.progress(members, hm)).isEqualTo("pobi : ---\nwoni : --\ncrong : -----\n");
+    }
 }
