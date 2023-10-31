@@ -21,6 +21,20 @@ public class GameController {
         int trialNum = inputView.getTrialNum();
         race = new Race(trialNum, carNameList);
 
+        play();
+
+    }
+
+    private void play() {
+        List<Integer> driveCountList;
+        List<String> carNameList = race.makeCarNameList();
+
+        outputView.printResult();
+        while (!race.isFinish()) {
+            race.runRace();
+            driveCountList = race.makeCarDriveCountList();
+            outputView.printDrive(carNameList, driveCountList);
+        }
     }
 
 }
