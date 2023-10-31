@@ -8,7 +8,7 @@
     - [] 이름으로 차를 생성한다. Car#Car
   - [] (검사) 5자 이하만 가능하다. Validation#carNameSizeCheck
 - [] 시도할 횟수를 입력받는다. InputView#inputTryNumber
-  - [] (검사) 자연수만 가능하다. Validation#isNature
+  - [] (검사) 자연수만 가능하다. Validation#
 - [] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다. Car#handle
   - [] 랜덤값 생성기 Random
     - [] 0 - 9 사이의 정수를 생성한다. Random#pickNumberInRange
