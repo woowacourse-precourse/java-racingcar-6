@@ -20,6 +20,7 @@ public class ValidateTest {
     @Test
     @DisplayName("이름 길이가 0이면 에러")
     void 이름이_0이면_에러() {
+        // given
         List<String> input = Arrays.asList("", "aaa");
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             validate.validateOverorZero(input);
