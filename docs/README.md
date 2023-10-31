@@ -4,10 +4,11 @@
 1. 자동차 이름 입력 프롬프트를 출력한다.
 2. 쉼표로 구분된 자동차 이름을 입력받는다.
    - 입력 값을 검증하고 실패 시 `IllegalArgumentException`을 반환 후 종료한다.
+     - 입력 길이(임의로 10,000자 이하로 제한)
      - 이름이 5자 이하인지
-     - 한 명 이상인지(쉼표 한 개 이상 포함)
+     - 두 명 이상인지(쉼표 한 개 이상 포함)
      - 이름들이 빈 값이 아닌지
-     - 입력 길이 
+     - 이름이 중복되지 않았는지
 3. 시도 횟수 입력 프롬프트를 출력한다.
 4. 시도할 횟수를 입력받는다. 
    - 입력 값을 검증하고 실패 시 `IllegalArgumentException`을 반환 후 종료한다.
@@ -24,41 +25,43 @@
 
 프로그램 동작 순서를 바탕으로 구현하여야 할 기능들을 정리하였다.
 
-* ☑️ 입력
-  * ☑️ 자동차 이름 입력받기
-  * ☑️ 시도 횟수 입력 받기
-* ☑️출력
-  * ☑️ 자동차 이름 입력 프롬프트 출력
-  * ☑️ 시도 횟수 입력 프롬프트 출력
-  * ☑️ 자동차별 위치 출력
-  * ☑️ 우승자 출력
-* ☑️ 검증
-  * ☑️ 자동차 이름 입력 값 검증
-  * ☑️ 시도 횟수 입력 값 검증
-* ☑️ 게임 관련
-  * ☑️ 전진 여부를 결정
-  * ☑️ 자동차의 위치 증가
-  * ☑️ 다음 차수가 남았는지 판단
+* ✅ 입력
+  * ✅ 자동차 이름 입력받기
+  * ✅ 시도 횟수 입력 받기
+* ✅ 출력
+  * ✅ 자동차 이름 입력 프롬프트 출력
+  * ✅ 시도 횟수 입력 프롬프트 출력
+  * ✅ 자동차별 위치 출력
+  * ✅ 우승자 출력
+* ✅ 검증
+  * ✅ 자동차 이름 입력 값 검증
+  * ✅ 시도 횟수 입력 값 검증
+* ✅ 게임 관련
+  * ✅ 전진 여부를 결정 - decideWhetherToMoveForward()
+  * ✅ 자동차의 위치 증가 - moveForward()
+  * ✅ 다음 차수가 남았는지 판단 - isNotFinished()
+  * ✅ 우숭자를 결정 - decideWinners()
 
 ## 🗺️ 객체 구성
 
 본 애플리케이션을 구성하는 객체 목록 및 클래스 다이어그램이다. 하기 목록은 구현 시 필요에 따라 변경될 수 있다.
 * 애플리케이션
-  * 컨트롤러(CarRacingGameController)
+  * 컨트롤러(carRacingGameController)
 * 입력 뷰(InputView)
 * 출력 뷰(OutputView)
 * 컨트롤러(CarRacingGameController)
   * 입력 뷰(InputView)
   * 출력 뷰(OutputView)
-* 경주게임(RacingGame)
-  * 자동차들(RacingCars)
+  * 경주 게임(RacingGame)
+* 경주 게임(RacingGame)
+  * 자동차들(racingCars)
   * 게임 차수(totalRound)
   * 현재 차수(currentRound)
-  * 우승자(winner)
+  * 우승자(winners)
 * 자동차들(RacingCars)
   * 자동차 리스트(List<RacingCar>)
 * 자동차(RacingCar)
-  * 자동차 이름(name)
+  * 이름(name)
   * 위치(position)
 
 ```mermaid
@@ -66,15 +69,16 @@ classDiagram
     class RacingCars {
         - racingCars: List~RacingCar~
         + getRacingCars(): List~RacingCar~
-        + from(String inputCarNames): RacingCars$
-        + from(List<RacingCar> racingCars): RacingCars$
+        + from(String inputCarNames)$: RacingCars
+        + from(List<RacingCar> racingCars)$: RacingCars
         + getRacingCars(): List~RacingCar~
-        + toNames(): String
+        + toNameString(): String
     }
 
     class RacingCar {
         - name: String
         - position: int
+        + from(String name)$: RacingCar
         + getName(): String
         + getPosition(): int
         + getPositionMarkers(): String
@@ -85,27 +89,29 @@ classDiagram
         - racingCars: RacingCars
         - totalRound: int
         - currentRound: int
-        - winner: RacingCars
-        + of(String inputCarNames, String inputTotalRound): RacingGame$
+        - winners: RacingCars
+        + of(String inputCarNames, String inputTotalRound)$: RacingGame
         + isNotFinished(): boolean
         + increaseCurrentRound(): void
-        + getRunResultMessage(): String
-        + getWinnerMessage(): String
         + runRound(): void
-        - decideWhetherToMoveForward: void
-        + decideWinner(): void
+        - decideWhetherToMoveForward(RacingCar racingCar): void
+        + getRunResultMessage(): String
+        + decideWinners(): void
         - getRacingCarsWithMaximumPosition(): RacingCars
         - getMaximumPosition(): int
+        + getFinalWinnerMessage(): String
     }
 
     class InputView {
         + getInputCarName(): String
-        + getInputTrialCount(): int
+        + getInputTrialCount(): String
         + close()
     }
 
     class OutputView {
-        + printMessage(): void
+        + printRunResult(String runResultMessage): void
+        + printRoundResult(String runResultMessage): void
+        + printFinalWinner(String finalWinnerMessage): void
     }
 
     class CarRacingGameController {
@@ -113,9 +119,11 @@ classDiagram
         - outputView: OutputView
         - racingGame: RacingGame
         - postConstruct(): void
-        + of(InputView inputView, OutputView outputView): CarRacingGameController$
+        + of(InputView inputView, OutputView outputView)$: CarRacingGameController
         + playGame()$: void
-        - repeatRounds(): void
+        - printRunResult(): void
+        - repeatRound(): void
+        - printFinalWinner(): void
     }
 
     class Application {
@@ -123,15 +131,16 @@ classDiagram
     }
 
     class PrintUtils {
-        + println()$: void
+        + println(String string)$: void
         + printMessage(Message message)$: void
     }
     class ValidationUtils {
         + validateCarNames(String input)$: void
-        + hasNameOver5Letters(String input)$: boolean
-        + notContainsComma(String input)$: boolean
-        + hasBlankName(String input)$: boolean
         + isOver10000Letters(String input)$: boolean
+        + hasNameOver5Letters(String input)$: boolean
+        + hasBlankName(String input)$: boolean
+        + hasEmptyName(String input)$: boolean
+        + hasNotUniqueNames(String input)
         + validateTrialCount(String input)$: void
         + isNotNumber(String input)$: boolean
     }
