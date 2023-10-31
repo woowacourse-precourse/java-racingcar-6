@@ -26,7 +26,7 @@
     - [x] 입력 받은 값은 1이상 10이하 이다. TryCount#validateTryCountInRange()
 
 - [ ] 자동차 경주의 라운드별 과정과 최종 결과(우승)을 표현한다. RacingGameResultReport
-  - [ ] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. RacingGameResultReport#printCarPositionWithName()
+  - [x] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. RacingGameResultReport#printCarPositionWithName()
   - [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. RacingGameResultReport#announceWinners()
     - [ ] 우승자는 한 명 이상일 수 있다. 
     - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. 
