@@ -12,8 +12,10 @@ public class Game {
     }
 
     public void start() {
-        List<String> carNames = user.createCarNames(user.input());
-        int movingNumber = user.createMovingNumber(user.input());
+        String inputCarName = user.inputCarName();
+        String inputMoving = user.inputNumber();
+        List<String> carNames = user.createCarNames(inputCarName);
+        int movingNumber = user.createMovingNumber(inputMoving);
         car.move(carNames, movingNumber);
     }
 }
