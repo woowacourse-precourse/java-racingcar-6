@@ -1,21 +1,22 @@
 # 🚘 자동차 경주
 
 ### USER
-1. [X] USER가 입력하는 함수 : input
-2. [X] USER가 입력한 CarName을 split해주는 함수 : splitInput
-3. [X] 시도 횟수 parseInt해주는 함수 : stringToInteger
-4. [X] 초기값으로 car와 0을 LinkedHashMap에 저장하는 함수 : carReset
+1. [X] USER가 입력하는 함수 : input()
+2. [X] USER가 입력한 CarName을 split해주는 함수 : splitInput(String)
+3. [X] 시도 횟수 parseInt해주는 함수 : stringToInteger()
+4. [X] 초기값으로 car와 0을 LinkedHashMap에 저장하는 함수 : carReset()
 
 ### GAME
-2. [ ] 전진 혹은 멈추는 함수.
-3. [ ] 각각 자동차의 value에 count + 1 을 해주는 함수.
-4. [ ] 각 횟수마다 결과를 출력해주는 함수.
-5. [ ] 우승자를 찾는 함수.
-6. [ ] 우승자를 출력해주는 함수.
-7. [X] 랜덤 값이 4 이상인지 체크 해주는 함수 (boolean)
+1. [X] 0부터 9까지 랜덤으로 뽑아주는 함수 : randomNumber()
+2. [X] 전진 혹은 멈추는 함수(각각 자동차의 value에 count + 1 : 전진) : updateCarStats(LinkedHashMap)
+3. [X] 각 횟수마다 결과를 출력해주는 함수 : printRacing(LinkedHashMap)
+4. [X] 우승자를 찾는 함수 : findWinner(LinkedHashMap)
+5. [X] 우승자를 출력해주는 함수 : printWinner(List<String>)
+6. [X] 랜덤 값이 4 이상인지 체크 해주는 함수 : checkRandomNumber(Integer)
+7. [X] racingGame을 진행하는 함수(모두 합친 내용) : racingGame()
 
 ### EXCEPTION
-1. [ ] 자동차 이름이 중복되면 안된다.
+1. [ ] 자동차 이름이 중복되면 안된다. 
 2. [ ] 자동차의 이름은 5글자 이하여야 한다.
 3. [ ] 몇 번 이동할 지에 0번을 입력하면 안된다.
 4. [ ] 자동차 경주는 2개 이상의 자동차를 입력해야한다.(1개 이하는 허용하지 않는다.)
