@@ -21,8 +21,8 @@ public class OutputViewTest {
     }
 
     @Test
-    @DisplayName("자동차 입력 문구 출력 테스트")
-    public void testInputCarsMessage() {
+    @DisplayName("자동차 입력 메세지 출력 테스트")
+    void testPrintInputCarsMessage() {
         outputView.printInputCarsNameMessage();
         String output = byteArrayOutputStream.toString();
 
@@ -30,8 +30,8 @@ public class OutputViewTest {
     }
 
     @Test
-    @DisplayName("시도 횟수 입력 문구 출력 테스트")
-    public void testInputAttemptCountMessage() {
+    @DisplayName("시도 횟수 입력 메세지 출력 테스트")
+    void testPrintInputAttemptCountMessage() {
         outputView.printInputTotalRoundMessage();
         String output = byteArrayOutputStream.toString();
 
@@ -39,8 +39,17 @@ public class OutputViewTest {
     }
 
     @Test
+    @DisplayName("결과 안내 메세지 출력 테스트")
+    void testPrintResultGuideMessage() {
+        outputView.printInputTotalRoundMessage();
+        String output = byteArrayOutputStream.toString();
+
+        Assertions.assertThat(output.trim()).isEqualTo("\n실행 결과");
+    }
+
+    @Test
     @DisplayName("한 라운드 전진 결과 출력 테스트")
-    public void testMoveResult() {
+    void testOneRoundMoveResult() {
         Cars cars = new Cars("tiger,bear,eagle");
         int drivingSkill = 3;
 
@@ -54,8 +63,39 @@ public class OutputViewTest {
     }
 
     @Test
+    @DisplayName("전체 라운드 전진 결과 출력 테스트")
+    void testTotalRoundMoveResult() {
+        Cars cars = new Cars("tiger,bear,eagle");
+        int totalRound = 3;
+        int drivingSkill = 0;
+
+        while (totalRound != 0) {
+            totalRound = totalRound - 1;
+            for (Car car : cars) {
+                car.move(drivingSkill++);
+                outputView.printMoveRecord(car.getName(), car.getPosition());
+            }
+            outputView.printRoundSeparator();
+        }
+
+        String output = byteArrayOutputStream.toString();
+        Assertions.assertThat(output.trim()).isEqualTo("""
+                tiger :\s
+                bear :\s
+                eagle :\s
+                                
+                tiger :\s
+                bear : -
+                eagle : -
+                                
+                tiger : -
+                bear : --
+                eagle : --""");
+    }
+
+    @Test
     @DisplayName("최종 결과 가장 많이 이동한 단독 우승자 출력")
-    public void testPrintSoloWinner() {
+    void testPrintSoloWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
         int drivingSkill = 3;
@@ -75,7 +115,7 @@ public class OutputViewTest {
 
     @Test
     @DisplayName("최종 결과 가장 많이 이동한 공동 우승자 쉼표(,)로 구분하여 출력")
-    public void testPrintCoWinner() {
+    void testPrintCoWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
         int drivingSkill = 3;
