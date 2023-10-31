@@ -1,8 +1,8 @@
 package racingcar.util;
 
 import racingcar.UserInput;
-import racingcar.entity.GameInfo;
-import racingcar.entity.Participant;
+import racingcar.domain.GameInfo;
+import racingcar.domain.Participant;
 import racingcar.exception.Validator;
 
 import java.util.List;

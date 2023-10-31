@@ -1,6 +1,4 @@
-package racingcar.entity;
-
-import java.util.Comparator;
+package racingcar.domain;
 
 public class Participant {
     private String name;

@@ -2,11 +2,9 @@ package racingcar.impl;
 
 import racingcar.Game;
 import racingcar.Type.GameType;
-import racingcar.entity.GameInfo;
-import racingcar.util.Parser;
+import racingcar.domain.GameInfo;
 import racingcar.RandomNumberProvider;
-import racingcar.UserInput;
-import racingcar.entity.Participant;
+import racingcar.domain.Participant;
 
 import java.util.ArrayList;
 import java.util.List;

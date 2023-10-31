@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.Type.GameType;
-import racingcar.entity.GameInfo;
+import racingcar.domain.GameInfo;
 
 public interface Game {
     void start(GameInfo gameInfo);
