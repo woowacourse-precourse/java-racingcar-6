@@ -6,14 +6,19 @@ import racingcar.util.Validator;
 
 public class Names {
 
-    List<String> nameList;
+    private List<String> nameList;
 
     public Names(String names) {
+        nameList = makeNameList(names);
+        new Validator().names(nameList);
+    }
+
+    public List<String> makeNameList(String names) {
         nameList = Arrays.asList(names.split(",", -1));
         for (int i = 0; i < nameList.size(); i++) {
             nameList.set(i, nameList.get(i).trim());
         }
-        new Validator().names(nameList);
+        return nameList;
 
     }
 

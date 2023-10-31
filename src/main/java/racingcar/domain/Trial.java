@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.util.Validator;
 
 public class Trial {
-    String trial;
+    private String trial;
 
     public Trial(String trial) {
         String test = trial.trim();
