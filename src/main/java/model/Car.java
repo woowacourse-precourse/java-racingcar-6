@@ -1,17 +1,20 @@
-package racingcar;
+package model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String name;
     private String position = "";
-    public Car(String name) {
+
+    public Car(String name){
         this.name = name;
     }
     public String getPosition(){
         return position;
     }
-
+    public String getName(){
+        return name;
+    }
     public void moveForward() {
         int move = isMovable();
         if (move >= 4) {

@@ -1,12 +1,12 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import model.Car;
 
 public class Race {
     String position = "";
 
-    public String raceCar(List<String> cars, int times){
+    public String raceCar(List<Car> cars, int times){
         while(times > 0){
             System.out.print("\n");
 
@@ -18,5 +18,4 @@ public class Race {
         }
         return "게임종료";
     }
-
 }

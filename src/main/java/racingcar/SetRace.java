@@ -1,16 +1,21 @@
 package racingcar;
 
+import model.Car;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SetRace {
-    public List<String> createCar() {
-        List<String> carsList = new ArrayList<>();
+    private final List<Car> carsList = new ArrayList<>();
+    public List<Car> createCar() {
         System.out.println("경주 할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
         String input = Console.readLine();
-        String[] cars = input.split(",");
-        for (String car : cars){
+        String[] carNames = input.split(",");
+
+        // 각 자동차 이름에 대해 Car 객체 생성
+        for (String carName : carNames) {
+            Car car = new Car(carName);
             carsList.add(car);
         }
         return carsList;
