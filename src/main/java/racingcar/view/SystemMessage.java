@@ -25,11 +25,13 @@ public class SystemMessage {
             String result = stringBuilder.append(carName).append(" : ").append(forward).toString();
 
             System.out.println(result);
+
+            stringBuilder.setLength(0);
         }
     }
 
     public void printWinnerMessage(List<String> winners) {
-        String winnerMessage = String.join(",", winners);
+        String winnerMessage = String.join(", ", winners);
 
         System.out.println("최종 우승자 : " + winnerMessage);
     }
