@@ -41,4 +41,14 @@ public class CarNamesInputTest {
 		}).isInstanceOf(IllegalArgumentException.class);
 	}
 
+	@Test
+	public void 이름이_빈_값이면_예외_발생() {
+		//given
+		String name = "";
+		CarNamesInput carNamesInput = new CarNamesInput();
+		// when & then
+		Assertions.assertThatThrownBy(() -> {
+			carNamesInput.validateNameEmpty(name);
+		}).isInstanceOf(IllegalArgumentException.class);
+	}
 }

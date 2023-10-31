@@ -23,4 +23,10 @@ public class CarNamesInput {
 			throw new IllegalArgumentException();
 		}
 	}
+
+	public void validateNameEmpty(String name) {
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException();
+		}
+	}
 }
