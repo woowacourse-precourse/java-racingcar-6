@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import racingcar.converter.InputConverter;
-import racingcar.domain.game.car.Cars;
-import racingcar.domain.game.car.TrialCount;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.TrialCount;
 import racingcar.io.reader.StdReader;
 import racingcar.io.writer.StdWriter;
 

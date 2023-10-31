@@ -1,4 +1,4 @@
-package racingcar.domain.game.car;
+package racingcar.domain.car;
 
 import racingcar.domain.dto.CarMovementDto;
 

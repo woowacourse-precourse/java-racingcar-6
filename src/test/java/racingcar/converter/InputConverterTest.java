@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.game.car.Cars;
-import racingcar.domain.game.car.TrialCount;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.TrialCount;
 import racingcar.validator.InputValidator;
 
 class InputConverterTest {
