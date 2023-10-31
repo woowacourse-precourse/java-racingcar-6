@@ -43,26 +43,40 @@ public class GameController {
     }
 
     private void createCars() {
+        String validatedReadLine = getSplitValidatedString();
+        List<Car> carList = splitReadLinIntoList(validatedReadLine);
+        cars = new Cars(carList);
+    }
+
+    private String getSplitValidatedString() {
         output.printCarNamesInputMessage();
         String readLine = input.getReadLine();
         CarNameSplitValidator.validate(readLine);
+        return readLine;
+    }
 
-        String[] carNames = readLine.split(NAME_SEPARATOR_STRING);
+    private List<Car> splitReadLinIntoList(String validatedReadLine) {
+        String[] carNames = validatedReadLine.split(NAME_SEPARATOR_STRING);
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
             carList.add(new Car(name));
         }
-        cars = new Cars(carList);
+        return carList;
     }
 
     private void createRoundNumber() {
-        output.printRoundNumberInputMessage();
-        String readLine = input.getReadLine();
-        RoundNumberValidator.validate(readLine);
+        String validatedRoundNumber = getValidatedRoundNumber();
         try {
-            inputRound = Integer.parseInt(readLine);
+            inputRound = Integer.parseInt(validatedRoundNumber);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(EXCEPTION_INT_RANGE);
         }
+    }
+
+    private String getValidatedRoundNumber() {
+        output.printRoundNumberInputMessage();
+        String readLine = input.getReadLine();
+        RoundNumberValidator.validate(readLine);
+        return readLine;
     }
 }
