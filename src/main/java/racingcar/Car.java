@@ -4,7 +4,7 @@ public class Car {
 
     private static final int NAME_LENGTH_LIMIT = 5;
 
-    private String name;
+    private final String name;
     private Integer position;
 
     public Car(String name) {
