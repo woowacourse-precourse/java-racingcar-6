@@ -99,7 +99,7 @@ jun : -----
 
 ### RaceRuleImpl
 
-- [ ] 생성된 숫자로 이동 유무를 결정한다.
+- [x] 생성된 숫자로 이동 유무를 결정한다.
 
 ### RacingService
 
