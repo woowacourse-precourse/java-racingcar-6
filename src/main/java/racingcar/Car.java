@@ -2,6 +2,8 @@ package racingcar;
 
 public class Car {
 
+    private static final int MIN_FORWARD_SPEED = 4;
+
     private final CarName name;
 
     private int position;
@@ -15,8 +17,8 @@ public class Car {
         return new Car(CarName.valueOf(name), 0);
     }
 
-    public void move(final int speed) {
-        if (speed >= 4) {
+    public void moveForward(final int speed) {
+        if (speed >= MIN_FORWARD_SPEED) {
             position += 1;
         }
     }
