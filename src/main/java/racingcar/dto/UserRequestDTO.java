@@ -18,5 +18,4 @@ public class UserRequestDTO {
     public String getTryNum() {
         return tryNum;
     }
-
 }

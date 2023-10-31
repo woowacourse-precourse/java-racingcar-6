@@ -9,6 +9,7 @@ public class RacingGameService {
     }
 
     public void race(String carNames, String tryNum) {
+        
         System.out.println();
         System.out.println("실행 결과");
 

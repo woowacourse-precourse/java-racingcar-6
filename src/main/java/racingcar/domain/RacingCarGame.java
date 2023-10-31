@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 public class RacingCarGame {
 
     private final List<Car> cars;
-
     private final Referee referee = new Referee();
     private final int tryNum;
 
@@ -31,17 +30,16 @@ public class RacingCarGame {
         }
     }
 
-    public String getResult() {
-        return referee.selectWinner(cars);
-    }
-
     private void carsTryMove() {
 
         for (Car car : cars) {
-            boolean isMoveCondition = car.isMoveCondition();
-            car.move(isMoveCondition);
+            boolean moveCondition = car.isMoveCondition();
+            car.move(moveCondition);
         }
-
         System.out.println();
+    }
+
+    public String getResult() {
+        return referee.selectWinner(cars);
     }
 }
