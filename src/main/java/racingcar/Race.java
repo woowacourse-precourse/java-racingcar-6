@@ -3,19 +3,18 @@ package racingcar;
 public class Race {
     // 자동차 경주 플레이하는 함수
     public void race(){
-        RacingInfo racingInfo = new RacingInfo();
         PlayResult playResult = new PlayResult();
 
-        racingInfo.setNamesAndNum();
-        int num = racingInfo.getNum();
-        String[] names = racingInfo.getNames();
+        RacingInfo.setNamesAndNum();
+        int num = RacingInfo.getNum();
+        String[] names = RacingInfo.getNames();
 
         // 실행 결과 출력을 위한 "차량이름 : "이 담긴 배열 생성
         String[] results = getNameListofResults(names);
 
         // 실행 횟수 만큼 실행 결과 출력
         for (int i = 0; i < num; i++) {
-            playResult.getResult(racingInfo.getNames(), results);
+            playResult.getResult(RacingInfo.getNames(), results);
         }
     }
 

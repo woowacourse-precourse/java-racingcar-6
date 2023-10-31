@@ -2,14 +2,15 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 public class RacingInfo {
-    private String[] names;
-    private int num;
+    private static String[] names;
+    private static int num;
 
-    public String[] getNames() {
+    private RacingInfo(){}
+    public static String[] getNames() {
         return names;
     }
 
-    public void setNamesAndNum() {
+    public static void setNamesAndNum() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         names = Console.readLine().split(",");
         // 이름이 5자를 초과할 때 예외처리
@@ -34,11 +35,11 @@ public class RacingInfo {
         System.out.println();
     }
 
-    public int getNum() {
+    public static int getNum() {
         return num;
     }
 
-    public boolean isInteger(String strValue) {
+    public static boolean isInteger(String strValue) {
         try {
             Integer.parseInt(strValue);
             return true;
