@@ -33,6 +33,8 @@ public class CarController {
 
     private TryCount readTryCount() {
         outputView.printTryCountMessage();
-        return inputView.readTryCount();
+        TryCount tryCount = inputView.readTryCount();
+        outputView.printNewLine();
+        return tryCount;
     }
 }

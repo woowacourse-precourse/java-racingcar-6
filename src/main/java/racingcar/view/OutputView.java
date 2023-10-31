@@ -27,4 +27,8 @@ public class OutputView {
         System.out.printf(winnerMessage.getMessage(), winner.getElements());
         System.out.println();
     }
+
+    public void printNewLine() {
+        System.out.println();
+    }
 }
