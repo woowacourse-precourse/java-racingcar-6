@@ -2,12 +2,12 @@ package racingcar.domain.car;
 
 public class Car implements Comparable<Car> {
 
-    public static final int CAR_MIN_POSITION = 0;
-    private Name name;
+
+    private CarName carName;
     private int position;
 
-    private Car(Name name, int position) {
-        this.name = name;
+    private Car(CarName carName, int position) {
+        this.carName = carName;
         this.position = position;
     }
 
@@ -30,10 +30,10 @@ public class Car implements Comparable<Car> {
     }
 
     public String getName() {
-        return name.getName();
+        return carName.getName();
     }
 
-    public static Car createCar(Name name) {
-        return new Car(name, CAR_MIN_POSITION);
+    public static Car createCar(CarName carName, int position) {
+        return new Car(carName, position);
     }
 }
