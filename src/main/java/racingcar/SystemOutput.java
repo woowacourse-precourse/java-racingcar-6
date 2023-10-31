@@ -17,8 +17,8 @@ public class SystemOutput {
     }
 
 
-    public static void printResult(List<Car> cars) {
-        cars.forEach(car -> System.out.println(car.indicate()));
+    public static void printResult(List<String> indicator) {
+        indicator.forEach(System.out::println);
         System.out.println();
     }
 
