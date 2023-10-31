@@ -16,10 +16,10 @@
 
 
 ## 지켜야 할 사항
-- [ ] indent depth 3을 넘기지 않도록 구현한다.
-- [ ] 3항 연산자 사용 금지
-- [ ] 함수가 한 가지 일만 하도록 최대한 작게 구성
-- [ ] JUnit 5와 AssertJ를 사용한 기능 목록 정상 동작 테스트 코드 작성
-- [ ] camp.nextstep.edu.missionutils.Console의 readLine() 활용
-- [ ] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange() 활용
-- [ ] 잘못된 입력을 사용하면 IllegalArgumentException 발생 후 종료
+- [x] indent depth 3을 넘기지 않도록 구현한다.
+- [x] 3항 연산자 사용 금지
+- [x] 함수가 한 가지 일만 하도록 최대한 작게 구성
+- [x] JUnit 5와 AssertJ를 사용한 기능 목록 정상 동작 테스트 코드 작성
+- [x] camp.nextstep.edu.missionutils.Console의 readLine() 활용
+- [x] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange() 활용
+- [x] 잘못된 입력을 사용하면 IllegalArgumentException 발생 후 종료

@@ -9,7 +9,36 @@ import racingcar.domain.UserInputManager;
 
 public class Application {
     public static void main(String[] args) {
+        List<String> names = UserInputManager.inputCarName();
+        List<Car> cars = makeCars(names);
 
+        int turn = UserInputManager.inputNumberOfAttempts();
+
+        System.out.println("\n실행 결과");
+
+        for (int i = 0; i < turn; i++) {
+            playTurn(cars);
+            printTurnInfo(cars);
+        }
+
+        List<Car> winners = Checker.checkWinners(cars);
+        printWinners(winners);
+    }
+
+    public static List<Car> makeCars(List<String> carNames) {
+        return carNames.stream().map(Car::new).collect(Collectors.toList());
+    }
+
+    public static void playTurn(List<Car> cars) {
+        List<Integer> randomNumbers = NumberGenerator.createRandomNumber(cars.size());
+        int index = 0;
+        for (Car car : cars) {
+            int randomNumber = randomNumbers.get(index);
+            if (Checker.checkAtLest4(randomNumber)) {
+                car.goStraight();
+            }
+            index++;
+        }
     }
 
     public static void printTurnInfo(List<Car> cars) {
