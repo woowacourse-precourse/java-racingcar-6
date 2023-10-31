@@ -9,7 +9,7 @@ class CarListTest {
 
     @Test
     void of() {
-        CarList carList = CarList.of("sk,fk");
+        CarList carList = CarList.from("sk,fk");
         System.out.println(carList);
     }
 }

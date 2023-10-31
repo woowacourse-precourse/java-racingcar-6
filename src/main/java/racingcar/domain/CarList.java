@@ -19,7 +19,7 @@ public class CarList {
         this.numberGenerator = numberGenerator;
     }
 
-    public static CarList of(String userInput) {
+    public static CarList from(String userInput) {
         return new CarList(userInput, new NumberGenerator());
     }
 

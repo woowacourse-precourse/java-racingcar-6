@@ -14,7 +14,7 @@ public class GameService {
 
     public void createCarList() {
         String userInput = UserUtil.getUserInput();
-        carList = CarList.of(userInput);
+        carList = CarList.from(userInput);
     }
 
     public void createGameCount() {
