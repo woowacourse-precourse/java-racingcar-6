@@ -30,7 +30,7 @@ public class RaceTest {
     void raceShouldRunSpecifiedRounds() {
         Assertions.assertRandomNumberInRangeTest(
                 () -> {
-                    race.racing();
+                    race.run();
                     assertThatCarsMovedCorrectly();
                 },
                 MOVING_FORWARD, STOP
