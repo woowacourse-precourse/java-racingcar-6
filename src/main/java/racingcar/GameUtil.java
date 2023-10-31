@@ -19,4 +19,18 @@ public class GameUtil {
         return carsList;
     }
 
+    public static Map<String, Integer> makeRandumNumber(Map<String, Integer> carsList, String[] cars) {
+
+        // 랜덤 숫자를 뽑아서 값을 조정하고 Map에 저장
+        for (String car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9); // 0부터 9까지의 랜덤 숫자
+            int currentValue = carsList.get(car);
+
+            if (randomNumber >= 4) {
+                carsList.put(car, currentValue + 1); // 랜덤 숫자가 4 이상일 경우 +1을 해서 저장
+            }
+        }
+        return carsList;
+    }
+
 }
