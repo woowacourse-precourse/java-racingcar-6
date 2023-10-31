@@ -32,5 +32,17 @@ class TryCount {
     public void consumeTry() {
         this.count.decrease();
     }
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        TryCount other = (TryCount) obj;
+        return this.getCount().equals(other.getCount());
+    }
+
 }

@@ -58,6 +58,7 @@
     - [x] 0과 자연수
     - [x] isFinished() 구현
     - [x] consumeTry() 구현
+    - [x] (추가) TryCount가 같은지 구분하는 equals 추가
 
 ### RandomNumber 구현
 - [x] RandomNumber 구현
