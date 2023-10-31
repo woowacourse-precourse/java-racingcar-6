@@ -77,6 +77,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("레이스의 참여한 자동차의 이름은 중복되면 안된다.")
+    public void validateDuplicateCarNames() {
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi,jun"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
