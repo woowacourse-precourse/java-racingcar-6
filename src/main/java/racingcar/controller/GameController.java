@@ -1,14 +1,12 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import racingcar.common.StringToListConverter;
 import racingcar.common.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingController {
+public class GameController {
     OutputView outputView = new OutputView();
     InputView inputView = new InputView();
     StringToListConverter converter = new StringToListConverter();
@@ -23,6 +21,4 @@ public class RacingController {
         String roundNumber = inputView.roundNumber();
         Validator.validateRoundNumber(roundNumber);
     }
-
-
 }
