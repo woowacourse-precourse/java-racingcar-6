@@ -12,8 +12,11 @@ public class GameRound {
         currentRound = round;
     }
 
-    public Integer passAndGetCurrentRound() {
+    public void passCurrentRound() {
         this.currentRound = new Round(currentRound.round() + 1);
+    }
+
+    public Integer getCurrentRound() {
         return currentRound.round();
     }
 

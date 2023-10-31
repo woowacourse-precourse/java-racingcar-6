@@ -19,7 +19,8 @@ public class GameManager {
     public List<Car> startGame() {
         GameRound gameRound = new GameRound(new Round(INITIAL_START_ROUND));
 
-        while (gameRound.passAndGetCurrentRound() < totalRounds) {
+        while (gameRound.getCurrentRound() < totalRounds) {
+            gameRound.passCurrentRound();
             gameEngine.processTurn();
             OutputView.printBlankLine(ONE_BLANK_LINE);
         }
