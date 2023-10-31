@@ -7,6 +7,7 @@ public class Application {
         CarManager carManager = new CarManager(inputManager);
 
         int times = inputManager.getTimes();
+        System.out.println("\n실행 결과");
         for (int i = 0; i < times; i++) {
             carManager.runCars();
             carManager.printResult();

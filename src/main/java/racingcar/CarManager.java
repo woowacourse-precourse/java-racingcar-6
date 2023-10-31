@@ -33,7 +33,7 @@ public class CarManager {
                  .map(Car::getName)
                  .collect(Collectors.toList());
 
-         System.out.println(String.join(", ", winner));
+         System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 
     public void printResult() {
