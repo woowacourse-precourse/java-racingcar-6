@@ -1,16 +1,21 @@
 package racingcar.model;
 
+import static racingcar.enums.Symbol.POSITION_MARKER;
+
 import java.util.Objects;
-import java.util.stream.IntStream;
-import racingcar.enums.Symbol;
 
 public class RacingCar {
     private final String name;
     private int position;
 
-    public RacingCar(String name) {
+    private RacingCar(String name) {
         Objects.requireNonNull(name);
         this.name = name;
+    }
+
+    public static RacingCar from(String name) {
+        Objects.requireNonNull(name);
+        return new RacingCar(name);
     }
 
     public String getName() {
@@ -22,10 +27,8 @@ public class RacingCar {
     }
 
     public String getPositionMarkers() {
-        StringBuilder stringBuilder = new StringBuilder();
-        IntStream.range(0, this.position)
-                .forEach(i -> stringBuilder.append(Symbol.POSITION_MARKER.getValue()));
-        return stringBuilder.toString();
+        return POSITION_MARKER.getValue()
+                .repeat(this.position);
     }
 
     public void moveForward() {
