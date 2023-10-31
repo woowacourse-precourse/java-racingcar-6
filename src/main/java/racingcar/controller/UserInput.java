@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.GameSettingsDto;
+import racingcar.view.InputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +27,7 @@ public class UserInput {
     private String readCarsName(){
         String carsName;
 
+        InputView.getInstance().printCarNameInputPromptMessage();
         carsName = readLine();
         inputException.carsNameException(carsName);
 
@@ -33,6 +35,8 @@ public class UserInput {
     }
 
     private void readRacingCount(){
+        InputView.getInstance().printRacingCountInputPromptMessage();
+
         String racingCountInput = readLine();
         inputException.isVaildRacingCount(racingCountInput);
         racingCount = Integer.parseInt(racingCountInput); // int형으로 변환
