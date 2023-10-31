@@ -11,4 +11,9 @@ public class GameController {
         this.gameView = gameView;
     }
 
+    public void init() {
+        game.addCars(gameView.inputNameOfCars());
+        game.setNumberOfAttempts(gameView.inputNumberOfAttempts());
+    }
+
 }
