@@ -74,10 +74,10 @@ public class GameUtil {
             }
         }
 
-        return makeResult();
+        return makeProgressResult();
     }
 
-    private String makeResult() {
+    private String makeProgressResult() {
         StringBuilder result = new StringBuilder();
 
         for (Car car : cars) {
