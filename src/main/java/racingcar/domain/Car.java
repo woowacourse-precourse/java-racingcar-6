@@ -32,10 +32,6 @@ public class Car {
         return dist;
     }
 
-    public void setDist(int dist) {
-        this.dist = dist;
-    }
-
     private void validateCarName(String name) {
         // 자동차 이름이 길이 제한을 초과했을 경우 예외 발생
         if (name.length() > GameMessage.CAR_NAME_LENGTH_MAX_SIZE) {
