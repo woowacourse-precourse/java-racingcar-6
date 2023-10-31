@@ -1,10 +1,8 @@
 package racingcar.model;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.message.ErrorMessage;
 
