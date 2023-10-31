@@ -35,6 +35,7 @@ public class RacingCarGameController {
         outputView.print(OutputMessage.EXECUTION_RESULT);
 
         while (racingCarGameMachine.isGameInProgress()) {
+            timeSleepStrategy.timeSleep();
             String roundResult = racingCarGameMachine.getRoundResult();
             outputView.print(roundResult);
         }
