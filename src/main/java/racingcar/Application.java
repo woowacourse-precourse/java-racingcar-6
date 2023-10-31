@@ -14,6 +14,7 @@ public class Application {
 
         for(int i = 0; i < round; i++){
             carMap = computer.executeRound(carMap);
+
         }
 
     }
