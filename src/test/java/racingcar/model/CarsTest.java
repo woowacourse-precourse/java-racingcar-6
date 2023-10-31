@@ -83,4 +83,23 @@ public class CarsTest {
                     .isEqualTo((Integer)carsStatus.get(i).get(1) + 1);
         }
     }
+
+    @DisplayName("우승 자동차 복수 판별 테스트 - 단수 데이터 - 성공")
+    @Test
+    void isCoFastestCarTest() {
+        racingCars.isCoFastestCars();
+
+        assertThat(racingCars.isCoFastestCars()).isEqualTo(false);
+    }
+
+    @DisplayName("우승 자동차 복수 판별 테스트 - 복수 데이터 - 성공")
+    @Test
+    void isCoFastestCarsTest() {
+        switchCarStatus(coFastestCarsStatus);
+        resetCars();
+        switchCarStatus(oneFastestCarStatus);
+        racingCars.isCoFastestCars();
+
+        assertThat(racingCars.isCoFastestCars()).isEqualTo(true);
+    }
 }
