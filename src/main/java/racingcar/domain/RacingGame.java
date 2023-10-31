@@ -12,4 +12,11 @@ public class RacingGame {
         this.referee = referee;
         this.round = round;
     }
+
+    public void processRound() {
+        for(int i=0;i<this.round;i++) {
+            this.cars.stream().forEach(Car::processTurn);
+        }
+        System.out.println();
+    }
 }

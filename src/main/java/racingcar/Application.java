@@ -19,6 +19,6 @@ public class Application {
         Referee referee = new Referee();
 
         RacingGame racingGame = new RacingGame(cars, referee, round);
-
+        racingGame.processRound();
     }
 }
