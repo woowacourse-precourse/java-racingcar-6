@@ -1,5 +1,9 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -39,6 +43,31 @@ public class Application {
 				System.out.printf("%s : %s \n", members[j].name, members[j].GoCount);
 			}
 			System.out.println(""); //출력값 공백 만들기
+		}	
+		
+		ArrayList<Integer> GoCountLength = new ArrayList<Integer>();
+		ArrayList<Integer> GoCountLength2 = new ArrayList<Integer>();
+		
+		for(int k = 0 ; k<members.length ; k++ ) {
+			GoCountLength.add(members[k].GoCount.length());
+			GoCountLength2.add(members[k].GoCount.length());
 		}
+		
+		GoCountLength.sort(Comparator.reverseOrder());
+		ArrayList<Integer> maxindex = new ArrayList<Integer>();
+		
+		for(int m = 0 ; m < GoCountLength.size() ; m++) {
+			if(GoCountLength2.get(m)==GoCountLength.get(0)) {
+				maxindex.add(m) ;
+			}
+		}
+		
+		List<String> result = new ArrayList<String>() ;
+		for(int n = 0 ; n < maxindex.size(); n++) {
+			result.add(arr_Name[maxindex.get(n)]) ;
+		}
+
+		System.out.println(result);
+				
     }
 }
