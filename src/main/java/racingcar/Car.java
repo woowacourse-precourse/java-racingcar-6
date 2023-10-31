@@ -1,8 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Car {
 
@@ -11,16 +9,18 @@ public class Car {
     private final int MOVE_MIN_NUMBER = 4;
 
     int position = 0;
+    String name;
 
     public Car(String name) {
+        this.name = name;
     }
-    
+
     public boolean canMove() {
         return generateRandomNumber() > MOVE_MIN_NUMBER;
     }
 
     private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
+        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
     public void move() {
@@ -29,5 +29,9 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public String getName() {
+        return name;
     }
 }
