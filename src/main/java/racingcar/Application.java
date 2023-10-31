@@ -4,7 +4,7 @@ import racingcar.controller.GameController;
 
 public class Application {
     public static void main(String[] args) {
-        GameController gameController = GameController.getInstance();
+        GameController gameController = new GameController();
         gameController.setGame();
         gameController.printResults();
         gameController.printWinner();

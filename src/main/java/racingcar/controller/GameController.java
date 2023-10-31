@@ -10,14 +10,6 @@ import racingcar.utils.Validator;
 
 public class GameController {
     private final Game game = new Game();
-    private static final GameController INSTANCE = new GameController();
-
-    private GameController() {
-    }
-
-    public static GameController getInstance() {
-        return INSTANCE;
-    }
 
     public void setGame() {
         setCars();
