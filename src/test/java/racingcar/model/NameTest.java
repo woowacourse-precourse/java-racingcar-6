@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
-import racingcar.exception.car_name.NotValidNameLengthException;
+import racingcar.exception.car_name.InValidNameLengthException;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")
@@ -19,7 +19,7 @@ class NameTest {
 
         // when & then
         assertThatThrownBy(() -> new Name(inValidName))
-                .isInstanceOf(NotValidNameLengthException.class);
+                .isInstanceOf(InValidNameLengthException.class);
     }
 
     @Test
