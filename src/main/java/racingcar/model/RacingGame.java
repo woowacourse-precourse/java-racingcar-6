@@ -16,7 +16,7 @@ public class RacingGame {
         return new RacingGame(carList, raceCount);
     }
 
-    public void playRaceGame() {
+    public void playGame() {
         for (Car car : cars.getCarList()) {
             RandomSingleNumber number = RandomSingleNumber.create();
 

@@ -21,12 +21,12 @@ public class GameController {
 
     public void run() {
         RacingGame racingGame = initializeGame();
-        GameResult gameResult = playGame(racingGame);
+        GameResult gameResult = inGame(racingGame);
         afterGame(gameResult);
     }
 
-    private GameResult playGame(RacingGame racingGame) {
-        repeatPlayRace(racingGame);
+    private GameResult inGame(RacingGame racingGame) {
+        repeatPlayGame(racingGame);
 
         return racingGame.getGameResult();
     }
@@ -41,11 +41,11 @@ public class GameController {
         return RacingGame.init(cars, raceCount);
     }
 
-    private void repeatPlayRace(RacingGame racingGame) {
+    private void repeatPlayGame(RacingGame racingGame) {
         outputView.printExecutionResultMessage();
 
         for (int i = 1; i <= racingGame.getRaceCount(); i++) {
-            racingGame.playRaceGame();
+            racingGame.playGame();
 
             outputView.printRaceResult(new RaceResultDto(racingGame.getCarList()));
         }
