@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RoundCount;
+import racingcar.domain.car.CarName;
 
 @DisplayName("입력 테스트")
 class InputViewTest {
@@ -32,8 +33,10 @@ class InputViewTest {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
-        List<String> carNames = inputView.readCarNames();
-        assertThat(carNames).containsExactly("pobi", "jun", "woni");
+        List<CarName> carNames = inputView.readCarNames();
+        assertEquals("pobi", carNames.get(0).getValue());
+        assertEquals("jun", carNames.get(1).getValue());
+        assertEquals("woni", carNames.get(2).getValue());
     }
 
     @DisplayName("라운드 횟수 입력을 올바르게 처리한다")

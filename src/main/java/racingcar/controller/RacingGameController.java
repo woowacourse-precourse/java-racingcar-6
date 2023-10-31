@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.RoundCount;
+import racingcar.domain.car.CarName;
 import racingcar.dto.GameResultDto;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
@@ -20,7 +21,7 @@ public class RacingGameController {
     }
 
     public void runRacingGame() {
-        List<String> carNames = inputView.readCarNames();
+        List<CarName> carNames = inputView.readCarNames();
         RoundCount roundCount = inputView.readNumberOfRounds();
         GameResultDto result = racingGameService.run(carNames, roundCount);
         outputView.showGameResult(result);

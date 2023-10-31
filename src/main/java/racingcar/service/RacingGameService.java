@@ -20,7 +20,7 @@ public class RacingGameService {
         this.refereeService = refereeService;
     }
 
-    public GameResultDto run(List<String> carNames, RoundCount roundCount) {
+    public GameResultDto run(List<CarName> carNames, RoundCount roundCount) {
         List<Car> participants = prepareRacingCars(carNames);
         List<RoundResultDto> roundHistories = executeAllRounds(participants, roundCount);
         List<CarStatusDto> carsStatusAtRaceEnd = getRaceEndStatus(participants);
@@ -43,9 +43,9 @@ public class RacingGameService {
         return roundHistories;
     }
 
-    private List<Car> prepareRacingCars(List<String> carNames) {
+    private List<Car> prepareRacingCars(List<CarName> carNames) {
         return carNames.stream()
-                .map(carName -> new Car(new CarName(carName), new Position(0), new DefaultPowerGenerator()))
+                .map(carName -> new Car(carName, new Position(0), new DefaultPowerGenerator()))
                 .collect(Collectors.toList());
     }
 
