@@ -26,6 +26,8 @@ public class GameConsoleIO {
         inputValidation = new InputValidation();
     }
 
+
+
     public List<String> getCarNames() {
         System.out.println(ASK_CAR_NAMES_MESSAGE);
         String carNames = Console.readLine().replaceAll("\\s", "");
