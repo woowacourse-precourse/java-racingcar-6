@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 class car {
 	String name;
@@ -24,5 +25,20 @@ public class Application {
 		int TryNum = Integer.parseInt(Input_Trynum);
 		car[] members = new car[arr_Name.length];
 		System.out.println("실행 결과");
+		
+		for (int i = 0; i < arr_Name.length; i++) {
+			members[i] = new car();
+			members[i].name = arr_Name[i];
+		}
+
+		for (int i = 0; i < TryNum; i++) {
+			for (int j = 0; j < members.length; j++) {
+				int randomNumber = Randoms.pickNumberInRange(1, 9);
+				members[j].RanNum = randomNumber;
+				members[j].move();
+				System.out.printf("%s : %s \n", members[j].name, members[j].GoCount);
+			}
+			System.out.println(""); //출력값 공백 만들기
+		}
     }
 }
