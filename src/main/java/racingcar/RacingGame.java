@@ -15,7 +15,7 @@ public class RacingGame {
         attemptForwardByCount(cars, attemptCount);
 
         List<String> winners = getWinners(cars);
-        // TODO: ioHandler.printWinners(winners);
+        ioHandler.printWinners(winners);
     }
 
     private void attemptForwardByCount(List<Car> cars, int attemptCount) {

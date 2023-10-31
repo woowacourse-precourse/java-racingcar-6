@@ -26,4 +26,9 @@ public class IOHandler {
         return Integer.parseInt(input);
     }
 
+    public void printWinners(List<String> winners) {
+        String names = String.join(", ", winners);
+        System.out.println("최종 우승 : " + names);
+    }
+
 }
