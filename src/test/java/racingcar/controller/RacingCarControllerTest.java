@@ -133,4 +133,22 @@ public class RacingCarControllerTest {
 
         assertThat(e.getMessage()).isEqualTo("시도 횟수 입력이 숫자가 아닙니다.");
     }
+
+    @Test
+    void checkAtLeastFour_랜덤_숫자가_4_이상일_때_증가() {
+        Car testCar = new Car("pobi", 0);
+
+        racingCarController.checkAtLeastFour(testCar, 4);
+
+        assertThat(testCar.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void checkAtLeastFour_랜덤_숫자가_4_미만일_때_그대로() {
+        Car testCar = new Car("pobi", 0);
+
+        racingCarController.checkAtLeastFour(testCar, 3);
+
+        assertThat(testCar.getDistance()).isEqualTo(0);
+    }
 }
