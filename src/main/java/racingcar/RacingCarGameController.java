@@ -2,9 +2,12 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RacingCarGameController {
 
-    private static String DELIMITER = ",";
+    private static final String DELIMITER = ",";
 
     private RacingCarGame racingCarGame;
 
@@ -12,6 +15,13 @@ public class RacingCarGameController {
         String userInput = receiveCarNames();
         String[] carNames = userInput.split(DELIMITER);
         checkCarNamesLength(carNames);
+        long numOfMoves = receiveNumOfMoves();
+
+        this.racingCarGame = new RacingCarGame(carNames, numOfMoves);
+    }
+
+    public void gameStart() {
+        List<Result> results = racingCarGame.run();
     }
 
     private static String receiveCarNames() {
@@ -24,6 +34,20 @@ public class RacingCarGameController {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
             }
+        }
+    }
+
+    private static long receiveNumOfMoves() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String userInput = Console.readLine();
+        return parseNumOfMoves(userInput);
+    }
+
+    static long parseNumOfMoves(String userInput) {
+        try {
+            return Long.parseLong(userInput);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
     }
 }
