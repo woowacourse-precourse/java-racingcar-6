@@ -40,9 +40,7 @@ public class CarRacing {
         requestUserCount();
 
         System.out.println(RESULT_MESSAGE);
-        for (int i = 0; i < userCount; i++) {
 
-        }
     }
 
     public void requestCarNames() {
@@ -136,5 +134,22 @@ public class CarRacing {
         }
     }
 
+    
+
+    public void printOutResult() {
+        for (Car car : carArray) {
+            String carName = car.getCarName();
+            System.out.println(carName + " : " + carMoveState(car));
+        }
+    }
+
+    public String carMoveState(Car car) {
+        StringBuilder carState = new StringBuilder();
+        int carMoveCount = car.getMoveCount();
+        for (int i = 0; i < carMoveCount; i++) {
+            carState.append("-");
+        }
+        return carState.toString();
+    }
 
 }
