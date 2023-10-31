@@ -2,10 +2,16 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.controller.InputController;
+import racingcar.model.Car;
 import racingcar.util.CarNameValidator;
 import racingcar.util.Constant;
 import racingcar.util.RoundCountValidator;
 import racingcar.util.Util;
+import racingcar.view.OutputView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -215,4 +221,18 @@ class FunctionTest {
         }
     }
 
+    @Test
+    void 이동거리출력테스트() {
+        Car car = new Car("123");
+        for(int i = 0; i < 10; i++) {
+            car.move();
+            OutputView.printRoundResult(car);
+        }
+    }
+
+    @Test
+    void 우승자출력테스트() {
+        OutputView.printWinner(List.of("123,456,789".split(",")));
+        OutputView.printWinner(List.of("가나다,ABC,abc,123".split(",")));
+    }
 }
