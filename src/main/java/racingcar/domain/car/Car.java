@@ -6,9 +6,9 @@ import static racingcar.config.GameConfig.*;
 
 public class Car {
 
-    protected Name name;
+    private Name name;
 
-    protected Distance distance;
+    private int distance = 0;
 
     private Car() {
 
@@ -16,12 +16,11 @@ public class Car {
 
     public Car(String name) {
         this.name = new Name(name);
-        this.distance = new Distance();
     }
 
     public void move() {
         if (getRandomNumber() >= MOVEMENT_CONDITION_NUMBER.getNumber()) {
-            distance.add(MOVEMENT_DISTANCE.getNumber());
+            distance += MOVEMENT_DISTANCE.getNumber();
         }
     }
 
