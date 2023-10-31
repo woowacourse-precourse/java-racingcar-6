@@ -18,6 +18,15 @@ class RacingCarTest extends NsTest {
     }
 
     @Test
+    void 자동차가_한_대_일_경우(){
+        assertSimpleTest(() ->{
+            run("pobi","1");
+            assertThat(output()).contains("pobi : ", "최종 우승자 : pobi");
+            }
+        );
+    }
+
+    @Test
     void 시도_회수_입력값_타입에_대한_예외_처리(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "a"))
@@ -31,15 +40,13 @@ class RacingCarTest extends NsTest {
 
     }
 
-    //    @Test
-//    void 최종_우승자가_여러_명일_경우(){
-//        String input = ""
-//    }
-//
 //    @Test
-//    void 자동차가_한_대_일_경우(){
+//    void 최종_우승자가_여러_명일_경우(){
+//        assertSimpleTest(() ->
+//                run("pobi,woni,jini", "3")
 //
-//    }
+//                assertThat());
+// }
 
     @Override
     public void runMain() {
