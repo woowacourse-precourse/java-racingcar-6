@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CarNamesSeperator {
-    private static final int NAME_LIMIT_LENGTH = 5;
     private static final String DELIMITER = ",";
 
     public static List<String> separate(String userInputNames) {

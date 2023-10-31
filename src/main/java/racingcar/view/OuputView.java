@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.model.GameResult;
+import racingcar.model.dto.GameResult;
 
 public class OuputView {
     private static final String DISTANCE_FORMATTER = "-";
