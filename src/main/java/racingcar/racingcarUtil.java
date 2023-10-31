@@ -45,6 +45,28 @@ class CarRacing {
 	public int moveCount = 0;
 	public String moveShow = "";
 	
+	public List<Integer> playRace(List<String> carNames, int tryTimes) {
+		
+		CarRacing[] car = new CarRacing[carNames.size()]; //입력된 자동차 갯수 만큼 객체 생성
+		for (int j = 0; j < carNames.size(); j++) {
+        	car[j] = new CarRacing();
+		}
+		
+		for (int i = 0; i < tryTimes ; i++) {
+			for (int j = 0; j < carNames.size(); j++) {
+				car[j].carMove(carNames.get(j));
+			}
+			System.out.println("");
+		}
+		
+		List<Integer> raceResult = new ArrayList<>();
+		for (int j = 0; j < carNames.size(); j++) {
+			raceResult.add(j, car[j].moveCount);
+		}
+		
+		return raceResult;
+	}
+	
 	public int carMove(String carNames) {
 			String carName = carNames + " : ";
 			int randomNumber = Randoms.pickNumberInRange(0,9);
@@ -57,8 +79,8 @@ class CarRacing {
 	}
 }
 
-class FindWinner extends CarName {
-	public static List<Integer> compareCount(List<Integer> racingResult) {
+class Winner extends CarName {
+	public String compareCount(List<Integer> racingResult) {
 		int winnerPoint = Collections.max(racingResult);
 		
 		List<Integer> winnerIndexNumber = new ArrayList<>();
@@ -67,7 +89,7 @@ class FindWinner extends CarName {
 				winnerIndexNumber.add(i);
 			}
 		}
-		return winnerIndexNumber;
+		return lastResult(winnerIndexNumber);
 	}
 	
 	public static String lastResult(List<Integer> winnerIndexNumber) {
