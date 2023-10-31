@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.RacingCar;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -22,6 +24,8 @@ public class Application {
             }
             System.out.println();
         }
+
+        System.out.println("최종 우승자 : " + getWinnerNames(cars));
     }
 
     private static List<String> parseCarNames() {
@@ -43,5 +47,23 @@ public class Application {
 
     private static int pickRandom() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private static String getWinnerNames(List<RacingCar> cars) {
+        int maxPosition = getMaxPosition(cars);
+        List<RacingCar> winners = findWinner(cars, maxPosition);
+        return collectWinnerNames(winners);
+    }
+
+    private static Integer getMaxPosition(List<RacingCar> cars) {
+        return Collections.max(cars.stream().map(RacingCar::getPosition).toList());
+    }
+
+    private static List<RacingCar> findWinner(List<RacingCar> cars, int maxPosition) {
+        return cars.stream().filter(car -> car.getPosition() == maxPosition).toList();
+    }
+
+    private static String collectWinnerNames(List<RacingCar> winners) {
+        return winners.stream().map(RacingCar::getName).collect(Collectors.joining(", "));
     }
 }
