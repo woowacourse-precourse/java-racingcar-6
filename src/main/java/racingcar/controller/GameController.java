@@ -20,18 +20,22 @@ public class GameController {
 
     public void start() {
         Cars cars = inputView.getCars();
-        int tryTimes = inputView.getTrytimes();
-        WinnersDto winnersDto = printGameResult(cars, tryTimes);
+        WinnersDto winnersDto = playAllRounds(cars);
         outputView.printWinner(winnersDto);
     }
 
-    private WinnersDto printGameResult(Cars cars, int tryTimes) {
+    private WinnersDto playAllRounds(Cars cars) {
+        int tryTimes = inputView.getTrytimes();
         outputView.printGameResultMsg();
         for (int i = 0; i < tryTimes; i++) {
-            cars.moveCarsBy(movePossibilityChecker);
-            CarsDto carsDto = cars.toCarsDto();
-            outputView.printGameResult(carsDto);
+            playRound(cars);
         }
         return cars.toCarsDto().getWinners();
+    }
+
+    private void playRound(Cars cars) {
+        cars.moveCarsBy(movePossibilityChecker);
+        CarsDto carsDto = cars.toCarsDto();
+        outputView.printGameResult(carsDto);
     }
 }
