@@ -31,11 +31,11 @@
 ### 🛠 util
 
 - 🛡️ validator
-    - [x] **CarNameLengthValidator**: 자동차 이름 글자 수 검증 클래스
-    - [x] **CarNameRegexValidator**: 자동차 이름 입력시 ,와 문자 숫자로 되어있는지 검증하는 클래스
+    - [x] **StringLengthValidator**: 자동차 이름 글자 수 검증 클래스
+    - [x] **RegexValidator**: 자동차 이름 입력시 ,와 문자 숫자로 되어있는지 검증하는 클래스
 
 - 🎉 converter
-    - [ ] **StringToNumberConverter**: 입력받은 숫자를 숫자로 변환하는 클래스
+    - [x] **StringToNumberConverter**: 입력받은 숫자를 숫자로 변환하는 클래스
     - [x] **StringToStringListConverter**: 입력받은 문자열을 쉼표를 기준으로 나눠서 리스트로 변환하는 클래스
     - [x] **StringListToCarListConverter**: 문자열 리스트를 자동차 리스트로 변환하는 클래스
 
@@ -58,8 +58,8 @@
 
 ### 🚥 racing
 
-- [ ] **CarRacing**: Racing을 구현한 클래스
-- [ ] **Racing** (Racing 인터페이스): 여러 레이싱을 위한 인터페이스
+- [x] **CarRacing**: Racing을 구현한 클래스
+- [x] **Racing** (Racing 인터페이스): 여러 레이싱을 위한 인터페이스
 
 ### 👀 view
 
