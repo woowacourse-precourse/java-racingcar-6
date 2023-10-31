@@ -17,6 +17,8 @@ public class InputValueValidator {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_LENGTH.getMessage());
         } else if (inputCarNames.contains(" ")) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_NO_SPACES.getMessage());
+        } else if (inputCarNames.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_IS_NOT_NULL.getMessage());
         } else if (!isMinimumTwoCarNames(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_MINIMUM_NAMES.getMessage());
         }
@@ -37,6 +39,9 @@ public class InputValueValidator {
         try {
             return convertStringToInt(tryCount);
         } catch (NumberFormatException ex) {
+            if (tryCount.isEmpty()) {
+                throw new IllegalArgumentException(ErrorMessage.ERROR_TRY_COUNT_IS_NOT_NULL.getMessage());
+            }
             throw new IllegalArgumentException(ErrorMessage.ERROR_NUMBER_FORMAT_TRY_COUNT.getMessage());
         }
     }
