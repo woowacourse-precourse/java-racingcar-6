@@ -1,6 +1,6 @@
 package racingcar.domain.round.boxed;
 
-import racingcar.exception.InvalidRoundException;
+import racingcar.exception.round.InvalidRoundException;
 
 public abstract class Round {
     public static final int MIN_ROUND = 1;

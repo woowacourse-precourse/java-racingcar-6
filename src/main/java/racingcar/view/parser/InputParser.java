@@ -1,6 +1,6 @@
 package racingcar.view.parser;
 
-import static strings.Strings.COMMAS;
+import static strings.util.Strings.COMMAS;
 
 import java.util.Arrays;
 import java.util.List;

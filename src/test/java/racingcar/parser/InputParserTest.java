@@ -6,7 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.round.boxed.MaxRound;
-import racingcar.exception.InvalidMaxRoundInputException;
+import racingcar.exception.round.InvalidMaxRoundInputException;
 import racingcar.view.parser.InputParser;
 import racingcar.view.validator.InputValidator;
 

@@ -1,4 +1,4 @@
-package racingcar.exception;
+package racingcar.exception.coordinate;
 
 public final class InvalidCoordinateException extends IllegalArgumentException {
     public static final String INVALID_COORDINATE_EXCEPTION = "최소 위치는 0 이상입니다.";

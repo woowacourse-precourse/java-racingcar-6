@@ -4,7 +4,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.exception.InvalidMaxRoundInputException;
+import racingcar.exception.round.InvalidMaxRoundInputException;
 import racingcar.view.validator.InputValidator;
 
 final class InputValidatorTest {

@@ -1,8 +1,8 @@
 package racingcar.view.validator;
 
 import java.util.regex.Pattern;
-import racingcar.exception.InvalidCarNamesInputException;
-import racingcar.exception.InvalidMaxRoundInputException;
+import racingcar.exception.car.InvalidCarNamesInputException;
+import racingcar.exception.round.InvalidMaxRoundInputException;
 
 public final class InputValidator {
 
