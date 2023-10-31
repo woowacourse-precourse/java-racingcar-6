@@ -11,19 +11,19 @@ public class Car {
     private Car() {
     }
 
-    private Car(String name) {
+    private Car(String name, int position) {
         this.name = name;
+        this.position = position;
     }
 
     public static Car of(String name) {
         validateName(name);
-        return new Car(name);
+        return new Car(name, 0);
     }
 
     public static Car of(String name, int position) {
-        Car car = Car.of(name);
-        car.position = position;
-        return car;
+        validateName(name);
+        return new Car(name, position);
     }
 
     public void move() {
