@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class User {
     private static final Integer CARNAME_MAXSIZE = 5;
@@ -12,6 +14,7 @@ public class User {
     public void setCarNames(){
         carNameSplit(InputMessage.carName());
         carNameVaildation(carNames);
+        duplicationValidation(carNames);
     }
 
     private void carNameSplit(String userInput){
@@ -34,4 +37,10 @@ public class User {
         }
     }
 
+    private void duplicationValidation(List<String> carNames) {
+        Set<String> carnameSet = new HashSet<>(carNames);
+        if(carnameSet.size() != carNames.size()){
+            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+        }
+    }
 }
