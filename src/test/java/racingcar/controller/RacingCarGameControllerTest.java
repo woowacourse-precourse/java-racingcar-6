@@ -44,6 +44,13 @@ class RacingCarGameControllerTest {
     void moveOrNot() {
         List<Player> playerList = racingCarGameController.generatePlayer(playerNameList);
 
+        racingCarGameController.moveOrNot(playerList.get(0), 0);
+        racingCarGameController.moveOrNot(playerList.get(1), 1);
+        racingCarGameController.moveOrNot(playerList.get(2), 5);
+
+        assertEquals(0, playerList.get(0).getLocation());
+        assertEquals(0, playerList.get(1).getLocation());
+        assertEquals(1, playerList.get(2).getLocation());
     }
 
     @Test
