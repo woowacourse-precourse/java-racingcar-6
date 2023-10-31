@@ -15,6 +15,12 @@ public class MessageUtil {
         System.out.println("실행 결과");
     }
 
+    public void resultGame(Map<String, Integer> carResult) {
+        for (String carName : carResult.keySet()) {
+            System.out.println(carName + " : " + transformDashes(carResult.get(carName)));
+        }
+    }
+
     public String transformDashes(Integer carRunCnt) {
         StringBuilder dashes = new StringBuilder();
 
