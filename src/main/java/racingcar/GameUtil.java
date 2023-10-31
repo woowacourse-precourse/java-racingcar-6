@@ -33,4 +33,22 @@ public class GameUtil {
         return carsList;
     }
 
+    public static List<String> compareDashes(List<String> mostDashesCar, Map<String, Integer> carsList) {
+
+        int maxDashes = 0;
+
+        // "-" 개수 비교하여 우승자 저장하기
+        for (Map.Entry<String, Integer> entry : carsList.entrySet()) {
+            int dashes = entry.getValue();
+            if (dashes > maxDashes) {
+                maxDashes = dashes;
+                mostDashesCar.clear(); // 최대값이 변경되면 리스트 초기화
+                mostDashesCar.add(entry.getKey()); // 새로운 최대값의 키 추가
+            } else if (dashes == maxDashes) {
+                mostDashesCar.add(entry.getKey()); // 같은 최대값을 가진 키 추가
+            }
+        }
+        return mostDashesCar;
+    }
+
 }
