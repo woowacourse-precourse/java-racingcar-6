@@ -8,7 +8,6 @@ import racingcar.system.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -17,6 +16,8 @@ class RoundTest {
     private final static int INITIAL_POSITION = 0;
     private final static int ONE_MOVEMENT = 1;
     private final static int TEST_CAR_COUNT = 3;
+    private final static int INITIAL_RACE_COUNT = 0;
+    private final static int RACE_END_COUNT = 5;
 
     // RandomNumberGenerator의 대체 인터페이스 구현
     RandomNumberGenerator mockedGenerator = new RandomNumberGenerator() {
@@ -80,5 +81,21 @@ class RoundTest {
                                 tuple("Test2", 1)
                         )
         );
+    }
+
+    @Test
+    @DisplayName("라운드가 종료된 횟수만큼 현재 라운드 수 증가 확인")
+    public void 라운드가_종료되면_라운드_수_증가() {
+        // given
+        for (int i = INITIAL_RACE_COUNT; i < RACE_END_COUNT; i++) {
+            Round round = new Round();
+            round.endRace();
+        }
+
+        // when
+        int lastRoundCount = Round.getCurrentRoundCount();
+
+        // then
+        assertThat(lastRoundCount).isEqualTo(RACE_END_COUNT);
     }
 }
