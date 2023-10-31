@@ -5,13 +5,13 @@
 ## Car
 
 - [x] Car :: 자동차 인스턴스
-- [x] CarDto :: Car에 대한 사용자 입력
+- [x] CarDto :: Car에 대한 DTO
 - [x] CarDtoValidator :: CarDto 검증
 - [x] CarDtoMapper :: CarDto -> Car에 매핑
 
 ## Round
 
-- [x] RoundDto :: 시도횟수에 대한 사용자 입력
+- [x] RoundDto :: 시도횟수에 대한 DTO
 - [x] RoundDtoValidator :: RoundDto 검증
 - [x] RoundDtoMapper :: RoundDto를 Long 타입의 round(시도횟수)에 매핑
 
@@ -69,13 +69,14 @@
 
 ### 자동차 입력
 
-- [x] 이름이 5자를 초과하면 예외를 발생한다.
+- [x] 각 이름값이 5자를 초과하거나 1미만인 경우 예외를 발생한다.
 - [x] 이름에 ","를 제외한 숫자나 입력되면 예외를 발생한다.
 - [x] 이름에 ","를 제외한 특수문자가 입력되면 예외를 발생한다.
 - [x] 이름에 ","를 제외한 이모지가 입력되면 예외를 발생한다.
 
 ### 시도 횟수 입력
 
+- [x] 횟수 입력에 +가 붙은 정수만을 허용한다.
 - [x] 횟수 입력에 숫자가 아닌 문자가 입력되면 예외를 발생한다.
 - [x] 횟수 입력은 정수가 아닌 숫자가 입력되면 예외를 발생한다.
 
