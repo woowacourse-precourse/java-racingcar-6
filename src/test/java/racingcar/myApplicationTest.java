@@ -54,6 +54,20 @@ public class myApplicationTest {
                     () -> CarRaceGame.makeCarNamesToList(carNames)
             ).isInstanceOf(IllegalArgumentException.class);
         }
+
+        static Stream<Arguments> generateData() {
+            return Stream.of(
+                    Arguments.of(Arrays.asList("Alice","Alice","Bob")));
+        }
+
+        @ParameterizedTest
+        @MethodSource("generateData")
+        @DisplayName("자동차 이름의 중복 예외처리를 테스트한다.")
+        void 자동차_이름_중복_테스트(List<String> carNameList) {
+            Assertions.assertThatThrownBy(
+                    () -> Validator.checkCarNameDuplication(carNameList)
+            ).isInstanceOf(IllegalArgumentException.class);
+        }
     }
 
 
