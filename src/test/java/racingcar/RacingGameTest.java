@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,7 +19,7 @@ public class RacingGameTest {
         String[] answer = {"car1", "car2", "car3"};
         String[] result = new String[3];
         racingGame.createCars(answer);
-        Field cars = racingGame.getClass().getDeclaredField("Cars");
+        Field cars = racingGame.getClass().getDeclaredField("cars");
         cars.setAccessible(true);
         ArrayList<Car> carNames= (ArrayList<Car>)cars.get(racingGame);
         for (int carNumber = 0; carNumber < 3; carNumber++) {
@@ -70,5 +71,26 @@ public class RacingGameTest {
             racingGame.moveCar((Car) carSet.get(2), 9);
         }
         assertEquals(answer, racingGame.getCurrentStatus());
+    }
+
+    @Test
+    void canGetWinners() throws NoSuchFieldException, IllegalAccessException {
+        RacingGame racingGame = new RacingGame();
+        ArrayList<String> answer = new ArrayList<>(List.of("car2"));
+        String[] carNames = {"car1", "car2", "car3"};
+        racingGame.createCars(carNames);
+        Field cars = racingGame.getClass().getDeclaredField("cars");
+        cars.setAccessible(true);
+        ArrayList<Car> carSet = (ArrayList<Car>) cars.get(racingGame);
+        for(int moveTimes = 0; moveTimes < 3; moveTimes++) {
+            racingGame.moveCar(carSet.get(0), 9);
+        }
+        for(int moveTimes = 0; moveTimes < 5; moveTimes++) {
+            racingGame.moveCar((Car) carSet.get(1), 9);
+        }
+        for(int moveTimes = 0; moveTimes < 2; moveTimes++) {
+            racingGame.moveCar((Car) carSet.get(2), 9);
+        }
+        assertEquals(answer,racingGame.getWinner());
     }
 }

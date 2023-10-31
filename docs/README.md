@@ -21,5 +21,5 @@
 #### 2. 랜덤 수 생성 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 3. 만들어진 랜덤 수에 따라 자동차가 전진하는 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 4. 차수별 실행 결과를 만드는 기능 [O] [<span style="color:green">TEST_OK</span>]
-#### 5. 우승자를 판별하는 기능 [O]
+#### 5. 우승자를 판별하는 기능 [O] [<span style="color:green">TEST_OK</span>]
 #### 6. 자동차 레이싱 한 단위를 실행하는 기능 [O]
