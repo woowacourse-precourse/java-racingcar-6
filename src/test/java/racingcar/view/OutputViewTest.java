@@ -13,13 +13,13 @@ public class OutputViewTest extends NsTest {
 
 	@DisplayName("현재 자동차들의 위치 상황의 메세지 출력을 확인한다.")
 	@Test
-	void checkPrintCarLocationCurrentSituation() {
+	void checkPrintCurrentSituationOfCarLocation() {
 		OutputView outputView = new OutputView();
 		CreateCarsService createService = new CreateCarsService();
 
 		Cars cars = createService.createCars("one,two,three");
 		
-		outputView.printCarLocationCurrentSituation(cars.printCarsStatus());
+		outputView.printCurrentSituationOfCarLocation(cars.printCarsStatus());
 
 		assertThat(output()).contains("one :", "two :", "three :");
 	}

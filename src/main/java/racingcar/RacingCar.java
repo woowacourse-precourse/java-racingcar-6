@@ -49,7 +49,7 @@ public class RacingCar {
 		
 		for(int i = 0; i < tryNumber; i++) {
 			moveCarsService.moveCars(cars);
-			outputView.printCarLocationCurrentSituation(cars.printCarsStatus());
+			outputView.printCurrentSituationOfCarLocation(cars.printCarsStatus());
 		}
 	}
 	

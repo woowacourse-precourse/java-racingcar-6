@@ -11,7 +11,7 @@ public class CarsTest {
 	
 	@DisplayName("printCarsStatus메소드 출력 형태를 확인한다.")
 	@Test
-	void checkPrintCarStatusMethodPrintMessage() {
+	void checkPrintCarsStatusMethodPrintMessage() {
 		Car car1 = new Car("one");
 		Car car2 = new Car("two");
 		Car car3 = new Car("three");
