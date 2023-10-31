@@ -15,4 +15,8 @@ public final class Utils {
     public static int measureMaxNumInHashMapValues(HashMap<String,String> hashMap) {
         return Collections.max(hashMap.values()).length();
     }
+
+    public static String[] splitByComma(String string) {
+        return string.split(",");
+    }
 }
