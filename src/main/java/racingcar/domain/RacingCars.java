@@ -17,17 +17,17 @@ public class RacingCars {
         this.cars = convertStringToCar(carNames);
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private List<Car> convertStringToCar(final List<String> carNames) {
         return carNames.stream()
                 .map(Car::new)
                 .toList();
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public static void validateMinCars(List<String> carNames) {
+    private static void validateMinCars(List<String> carNames) {
         int minCars = GameCondition.MIN_CARS.getValue();
         message = ErrorMessage.INVALID_MIN_CARS.getMessage();
         if (carNames.size() < minCars) {
@@ -35,7 +35,7 @@ public class RacingCars {
         }
     }
 
-    public static void validateCarNames(List<String> carNames) {
+    private static void validateCarNames(List<String> carNames) {
         for (String carName : carNames) {
             validateCarName(carName);
             validateCarNameSize(carName);
@@ -43,12 +43,13 @@ public class RacingCars {
     }
 
     private static void validateCarName(String carName) {
-        if (!CAR_NAME_REGEX.matcher(carName).matches()) {
-            throw new IllegalArgumentException();
+        message = ErrorMessage.INVALID_CAR_NAME.getMessage();
+        if (!CAR_NAME_REGEX.matcher(carName).matches() || carName.contains(" ") || carName.isEmpty()) {
+            throw new IllegalArgumentException(message);
         }
     }
 
-    public static void validateCarNameSize(String carName) {
+    private static void validateCarNameSize(String carName) {
         int maxCarNameSize = GameCondition.MAX_CAR_NAME_SIZE.getValue();
         message = ErrorMessage.INVALID_CAR_NAME_SIZE.getMessage();
         if (carName.length() > maxCarNameSize) {
