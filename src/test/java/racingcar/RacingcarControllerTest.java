@@ -3,6 +3,8 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingcarControllerTest {
@@ -21,6 +23,9 @@ class RacingcarControllerTest {
 
     @Test
     void 자동차_리스트_저장() {
-
+        String[] carsName = {"kim", "yeon", "su"};
+        racingcarController.addCars(carsName);
+        List<Car> carsList = racingcarController.cars.cars;
+        assertThat(carsList.size()).isEqualTo(carsName.length);
     }
 }
