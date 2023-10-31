@@ -12,7 +12,6 @@ import java.util.List;
 
 public class CarController {
     private final List<Car> racingCars = new ArrayList<>();
-    private final InputView inputView = new InputView();
 
     private List<String> inputToCarNameList(String playerInput) {
         List<String> carNames = Arrays.asList(playerInput.split(GameSettingCharacter.SEPARATOR_CHARACTER.get()));
@@ -32,4 +31,4 @@ public class CarController {
         }
         return racingCars;
     }
-}
+}›
