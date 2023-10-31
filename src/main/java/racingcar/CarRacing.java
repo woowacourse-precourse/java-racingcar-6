@@ -45,7 +45,7 @@ public class CarRacing {
         for(int i = 0; i < count; i++) {
             for (Car car : this.cars) {
                 car.go();
-                car.location();
+                Printer.carLocation(car);
             }
 
             System.out.println();

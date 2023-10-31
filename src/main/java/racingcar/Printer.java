@@ -16,6 +16,9 @@ public class Printer {
         System.out.println("실행 결과");
     }
 
+    public static void carLocation(Car car) {
+        System.out.println(car.getName() + " : " + "-".repeat(car.getDistance()));
+    }
     public static void raceResult(List<String> results) {
         System.out.println("최종 우승자 : " + String.join(", ", results));
     }

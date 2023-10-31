@@ -19,10 +19,6 @@ public class Car implements Comparable<Car>{
         }
     }
 
-    public void location() {
-        System.out.println(this.name + " : " + "-".repeat(this.distance));
-    }
-
     @Override
     public int compareTo(Car o) {
         return Integer.compare(o.distance, this.distance);
