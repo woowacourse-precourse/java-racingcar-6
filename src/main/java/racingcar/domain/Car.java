@@ -8,6 +8,7 @@ public class Car implements Comparable<Car> {
 
     private static final int GAME_PROCEED_STANDARD = 4;
     private static final String GAME_PROCEED_CHAR = "-";
+
     private final String name;
     private int position;
 
@@ -19,10 +20,6 @@ public class Car implements Comparable<Car> {
 
     public static Car from(String name) {
         return new Car(name, 0, new NumberGenerator());
-    }
-
-    public int getPosition() {
-        return this.position;
     }
 
     public String getName() {
