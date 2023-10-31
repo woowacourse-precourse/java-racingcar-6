@@ -265,6 +265,10 @@
 
 - "최종 우승자”
 
+**📃 public static final Integer MAX_LENGTH**
+
+- 5
+
 **📃 public static final String ONLYINT**
 
 - "\\d+” (정규식 표현)
