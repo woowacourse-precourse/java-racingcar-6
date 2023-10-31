@@ -23,7 +23,7 @@ public class RacingGame {
         List<Car> cars = prepareRacingCars();
         RoundCount roundCount = setRoundNumber();
 
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
 
         while (roundCount.hasNextRound()) {
             executeRound(cars);
