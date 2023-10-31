@@ -6,12 +6,14 @@ import racingcar.model.CarList;
 import racingcar.service.RacingService;
 import racingcar.service.ValidationService;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingController {
 
     ValidationService validationService = new ValidationService();
     RacingService racingService = new RacingService();
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
 
     private final CarList racingCars = new CarList();
 
@@ -32,6 +34,15 @@ public class RacingController {
     private void tryRacing(int trialCount) {
         for (int i = 0; i < trialCount; i++) {
             racingService.racingByTheNumberOfTrialCount(racingCars);
+            printRacingResults();
+        }
+    }
+
+    private void printRacingResults() {
+        for (Car racingCar : racingCars.provideRacingCars()) {
+            String carName = (String) racingCar.provideCarStatus().get("name");
+            int carPosition = (int) racingCar.provideCarStatus().get("position");
+            outputView.printRacingResult(carName, carPosition);
         }
     }
 
