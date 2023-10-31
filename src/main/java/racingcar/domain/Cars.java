@@ -1,6 +1,9 @@
 package racingcar.domain;
 
+import org.mockito.internal.matchers.CompareTo;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -19,5 +22,13 @@ public class Cars {
 
     public List<Car> getCars() {
         return new ArrayList<>(cars);
+    }
+
+    public int calculrateMaxProcess(){
+        return cars.stream()
+                .sorted()
+                .findFirst()
+                .get()
+                .getProcess();
     }
 }
