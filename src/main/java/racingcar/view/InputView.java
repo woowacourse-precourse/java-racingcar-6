@@ -10,6 +10,7 @@ public class InputView {
     private static final String USER_INPUT_ATTEMPT = "시도할 회수는 몇 회 인가요?";
     private static final String LINE_BREAK = "";
     private static final int MAXIMUM_CAR_NAME = 5;
+    private static final int ATTEMPT_LIMIT = 0;
 
 
     public RacingPreference startInfo() {
@@ -24,9 +25,10 @@ public class InputView {
 
     private RacingPreference startInfo(String[] cars, String attempt) {
         validateCarName(cars);
-        validateAttempt(attempt);
+        int AttemptNumber = validateAttemptOnlyNumber(attempt);
+        validateAttemptNormalInput(AttemptNumber);
 
-        return new RacingPreference(cars, Integer.parseInt(attempt));
+        return new RacingPreference(cars, AttemptNumber);
     }
 
     public void validateCarName(String[] cars) {
@@ -37,10 +39,18 @@ public class InputView {
         }
     }
 
-    public void validateAttempt(String attempt) {
+    public int validateAttemptOnlyNumber(String attempt) {
+        int attemptNumber;
         try {
-            Integer.parseInt(attempt);
+            attemptNumber = Integer.parseInt(attempt);
         } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
+        return attemptNumber;
+    }
+
+    private void validateAttemptNormalInput(int AttemptNumber) {
+        if (AttemptNumber <= ATTEMPT_LIMIT) {
             throw new IllegalArgumentException();
         }
     }

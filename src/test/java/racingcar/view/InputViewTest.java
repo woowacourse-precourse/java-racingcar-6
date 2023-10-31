@@ -22,7 +22,7 @@ class InputViewTest {
         Assertions.assertThatIllegalArgumentException().isThrownBy(() -> {
             String attempt = "qwe";
             InputView inputView = new InputView();
-            inputView.validateAttempt(attempt);
+            inputView.validateAttemptOnlyNumber(attempt);
         });
     }
 
