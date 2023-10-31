@@ -14,4 +14,12 @@ public class OutputView {
         System.out.println(car.myCurrentStatus());
     }
 
+    static void newLinePrint(){
+        System.out.println();
+    }
+
+    static void gameStartPrint(){
+        System.out.println("\n실행 결과");
+    }
+
 }

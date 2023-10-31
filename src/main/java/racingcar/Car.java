@@ -40,4 +40,12 @@ public class Car {
         score++;
     }
 
+    public int nowScore(){
+        return score;
+    }
+
+    public String myName(){
+        return carName;
+    }
+
 }
