@@ -1,7 +1,7 @@
 package usercontroller;
 
 import controller.UserController;
-import dto.Car;
+import car.Car;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
