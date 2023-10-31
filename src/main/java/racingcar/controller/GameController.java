@@ -19,7 +19,7 @@ public class GameController {
         int tryCount = readTryCount();
         Race race = new Race(generateCars(carNames));
 
-        printRaceStatus(tryCount, race);
+        printRaceStatus(race, tryCount);
         printRaceWinner(race);
     }
 
@@ -27,7 +27,7 @@ public class GameController {
         OutputView.printMessage("최종 우승자 : " + race.getWinnerString());
     }
 
-    private void printRaceStatus(int tryCount, Race race) {
+    private void printRaceStatus(Race race, int tryCount) {
         OutputView.printMessage("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
             race.moveEachCar();
