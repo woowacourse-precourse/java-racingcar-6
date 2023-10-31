@@ -4,8 +4,8 @@
 
 
 ## 구현할 기능
-- [ ] 경기 횟수 및 이름 받기
-- [ ] 자동차 생성 및 이름 부여 (readLine() 활용)
+- [x] 경기 횟수 및 이름 받기
+- [x] 자동차 생성 및 이름 부여 (readLine() 활용)
 - [x] 0~9 무작위 값 생성(자동차 전진 or 정지 결정을 위한) Car # (pickNumberInRange() 활용)
   - [x] 4를 기준으로 숫자 판단 Judgment#judgeNumber 
   - [x] <전진> 출력:- Car#go

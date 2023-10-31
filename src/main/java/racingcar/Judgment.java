@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Judgment {
-    // 차 이름, 전진 모양, 횟수
     List<Car> cars = new ArrayList<>();
     List<Car> winnerCars = new ArrayList<>();
     Car maxMovementCar = cars.stream().max(Comparator.comparing(Car::getForwardMovementNumber)).get();
