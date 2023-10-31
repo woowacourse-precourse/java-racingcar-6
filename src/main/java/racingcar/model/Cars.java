@@ -8,8 +8,6 @@ import java.util.List;
 public class Cars {
     private static final int RANDOM_START_NUMBER = 0;
     private static final int RANDOM_LAST_NUMBER = 9;
-    private static final int STRING_BUILDER_RESET_LENGTH = 0;
-    private static final RandomUtils randomUtils = new RandomUtils();
     private static final StringBuilder stringBuilder = new StringBuilder();
     private static final List<Car> carList = new ArrayList<>();
     private static int maxPosition = 0;
@@ -19,7 +17,7 @@ public class Cars {
     }
 
     public StringBuilder singleRoundResult() {
-        stringBuilder.setLength(STRING_BUILDER_RESET_LENGTH);
+        stringBuilder.setLength(0);
         for (Car car : carList) {
             stringBuilder.append("\n").append(singleCarResult(car));
         }
@@ -40,7 +38,7 @@ public class Cars {
     }
 
     private String singleCarResult(Car car) {
-        int position = car.goOrStayForwardCount(randomUtils.getRandomNumber(RANDOM_START_NUMBER, RANDOM_LAST_NUMBER));
+        int position = car.goOrStayForwardCount(RandomUtils.getRandomNumber(RANDOM_START_NUMBER, RANDOM_LAST_NUMBER));
         updateMaxPosition(position);
         return car.getCurrentPosition();
     }
