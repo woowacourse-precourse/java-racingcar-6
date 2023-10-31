@@ -3,11 +3,9 @@ package racingcar.domain;
 import java.util.*;
 
 public class Winner {
-    static List<String> candidates;
-    static int maxScore = 0;
-
     public static String findWinner(LinkedHashMap<String, Integer> sb) {
-        candidates = new ArrayList<>(sb.keySet());   // 공동 0점 시 전원 우승
+        List<String> candidates = new ArrayList<>();
+        int maxScore = 0;
 
         for(Map.Entry<String, Integer> entry : sb.entrySet()) {
             if(entry.getValue() > maxScore) {
