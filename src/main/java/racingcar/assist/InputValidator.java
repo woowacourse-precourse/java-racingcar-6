@@ -14,6 +14,13 @@ public class InputValidator {
             validateCarNameOutOfRange(carName);
         }
         validateCarNameDuplicate(carNameList);
+        validateIsCompetitorExist(carNameList);
+    }
+
+    private void validateIsCompetitorExist(List<String> carNameList) {
+        if (carNameList.size() == 1){
+            throw new IllegalArgumentException(COMPETITOR_NOT_EXIST.getMessage());
+        }
     }
 
     private void validateCarNameDuplicate(List<String> carNameList) {
