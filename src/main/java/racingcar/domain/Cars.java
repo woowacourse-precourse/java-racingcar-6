@@ -35,7 +35,7 @@ public class Cars {
         Set<String> carName = new HashSet<>(carNames);
 
         if (carName.size() != carNames.size()) {
-            throw new IllegalArgumentException("이미 사용중인 자동차 이름입니다.");
+            throw new IllegalArgumentException("자동차 이름은 중복해서 사용할 수 없습니다.");
         }
     }
 }
