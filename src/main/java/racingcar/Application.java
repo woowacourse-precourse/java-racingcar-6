@@ -1,9 +1,9 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
+import racingcar.controller.validator.UserInputValidator;
 import racingcar.model.GameService;
 import racingcar.view.input.InputView;
-import racingcar.controller.validator.UserInputValidator;
 import racingcar.view.output.OutputView;
 
 public class Application {
@@ -13,12 +13,8 @@ public class Application {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
         GameService gameService = new GameService();
-        RacingController racingGame = new RacingController(inputView, outputView, gameService, userInputValidator);
 
-        try {
-            racingGame.playGame();
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
-        }
+        RacingController racingGame = new RacingController(inputView, outputView, gameService, userInputValidator);
+        racingGame.playGame();
     }
 }
