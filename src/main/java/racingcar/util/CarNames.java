@@ -16,7 +16,15 @@ public class CarNames {
     }
 
     public List<String> extractCarNames() {
-        String[] names = value.split(COMMA_DELIMITER);
+        String[] names = splitCarNames();
+        return trimCarNames(names);
+    }
+
+    private String[] splitCarNames() {
+        return value.split(COMMA_DELIMITER);
+    }
+
+    private List<String> trimCarNames(final String[] names) {
         return Arrays.stream(names)
                 .map(String::trim)
                 .collect(Collectors.toList());
