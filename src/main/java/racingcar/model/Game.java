@@ -41,9 +41,18 @@ public class Game {
         System.out.println();
     }
 
-    @Override
-    public void printCurrentPerformance() {
+    private void printBestPerformers() {
+        descSortCarsByMileage();
+        int max = cars.get(0).getMileage();
 
+        String res = cars.get(0).getName();
+        for (int i = 1; i < cars.size(); ++i) {
+            Car car = cars.get(i);
+            if (car.getMileage() >= max) {
+                res = res.concat(", " + car.getName());
+            }
+        }
+        System.out.println(res);
     }
 
     private void descSortCarsByMileage() {
