@@ -25,7 +25,7 @@ public class RacingGame {
     }
 
     public RacingCarProgressDTO getProgressStatus() {
-        List<String> carsProgress = cars.progressStatusFormmat();
+        List<String> carsProgress = cars.progressStatusFormat();
         return new RacingCarProgressDTO(carsProgress);
     }
 

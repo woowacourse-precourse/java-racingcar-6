@@ -35,7 +35,7 @@ public record Cars(List<Car> cars) {
         cars.stream().filter(car -> moveJudge.canMove()).forEach(Car::move);
     }
 
-    public List<String> progressStatusFormmat() {
+    public List<String> progressStatusFormat() {
         return cars.stream().map(Car::formattedProgress).collect(Collectors.toList());
     }
 
