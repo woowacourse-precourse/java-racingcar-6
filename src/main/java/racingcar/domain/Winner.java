@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 
 public class Winner {
 
-    private List<Car> cars = new ArrayList<>();
+    private List<Car> winners = new ArrayList<>();
 
     public Winner(List<Car> cars) {
-        this.cars = getWinners(cars);
+        this.winners = getWinners(cars);
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<Car> getWinners() {
+        return winners;
     }
 
     private List<Car> getWinners(List<Car> cars) {
