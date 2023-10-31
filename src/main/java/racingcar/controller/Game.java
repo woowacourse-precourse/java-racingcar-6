@@ -13,11 +13,15 @@ public class Game {
     private Cars cars;
 
     public void run(){
-        OutputView.askCarNames();
-        cars = new Cars(InputView.readCarNames());
+        askCarNames();
         askGameRounds();
         racing();
         getWinners();
+    }
+
+    private void askCarNames(){
+        OutputView.askCarNames();
+        cars = new Cars(InputView.readCarNames());
     }
 
     private void askGameRounds(){
