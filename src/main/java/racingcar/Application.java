@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.config.CarRacingManager;
+import racingcar.manager.CarRacingManager;
 
 public class Application {
     public static void main(String[] args) {
