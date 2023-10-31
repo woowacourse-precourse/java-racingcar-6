@@ -24,6 +24,10 @@ public class RacingCar {
         return position;
     }
 
+    public String getName() {
+        return name;
+    }
+
     // 테스트를 위해 추가
     @Override
     public String toString() {
