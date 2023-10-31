@@ -85,4 +85,20 @@ public class game {
             max_stacks[++top] = par;
         }
     }
+
+    void print_max(){ //최종 우승자 출력
+        max_stacks = new car[participate.length];
+        top = -1;
+
+        for(int i = 0; i < participate.length; i++){
+            find_max(participate[i]);
+        }
+
+        System.out.print("최종 우승자 : ");
+
+        for(int i = 0; i < top; i++){
+            System.out.print(max_stacks[i].name + ", ");
+        }
+        System.out.println(max_stacks[top].name);
+    }
 }
