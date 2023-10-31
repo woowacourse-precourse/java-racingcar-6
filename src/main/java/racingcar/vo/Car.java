@@ -13,6 +13,10 @@ public final class Car {
         return name;
     }
 
+    public Integer getScore() {
+        return score;
+    }
+
     public String getScoreBoard() {
         String repeatScore = "-".repeat(score);
         return name + " : " + repeatScore;
@@ -20,5 +24,14 @@ public final class Car {
 
     public Car makeNewCar() {
         return new Car(this.name, this.score + 1);
+    }
+
+    public String isScoreBiggerThanMaxScore(Integer maxScore) {
+        if (maxScore < score) {
+            return "Bigger";
+        } else if (maxScore.equals(score)) {
+            return "Equal";
+        }
+        return "Less";
     }
 }

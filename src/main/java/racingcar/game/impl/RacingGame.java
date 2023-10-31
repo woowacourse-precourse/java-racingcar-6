@@ -17,6 +17,10 @@ public class RacingGame implements Game {
 
     public void playGame(CarPark carPark) {
         List<Car> carList = carPark.getPark();
+        updateCarParkState(carPark, carList);
+    }
+
+    private void updateCarParkState(CarPark carPark, List<Car> carList) {
         List<Car> newCarList = carList.stream()
                 .map(factory::makeTuningCar)
                 .collect(Collectors.toList());

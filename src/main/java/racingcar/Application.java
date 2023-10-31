@@ -23,7 +23,14 @@ public class Application {
         ioAdapter.printMessage(GameMessage.ASK_ATTEMPT_MESSAGE.getMessage());
         String inputAttempt = ioAdapter.inputStream();
         RoundCount roundCount = inputConvertService.inputConvertRoundCount(inputAttempt);
-        racingGame.playGame(carPark);
-        carPark.printCarScores();
+        int i = 0;
+        ioAdapter.printMessage(GameMessage.RESULT_MESSAGE.getMessage());
+        while (!roundCount.isRoundFinishState(i)) {
+            racingGame.playGame(carPark);
+            ioAdapter.outputResult(carPark.getCarScores());
+            ioAdapter.printNewLine();
+            i++;
+        }
+        ioAdapter.printMessage(carPark.getWinnerList());
     }
 }
