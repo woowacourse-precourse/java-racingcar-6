@@ -85,6 +85,44 @@ class PrintCurrentCondition {
             System.out.println(carList.get(i).getName() + " : " + carList.get(i).getDistance());
         System.out.println("");
     }
+
+    static void printWinner(ArrayList<String> winnerList) {
+        System.out.print("최종 우승자 :");
+        for (int i = 0; i < winnerList.size(); i++) {
+            System.out.println(" " + winnerList.get(i));
+            if (i != winnerList.size() - 1)
+                System.out.print(",");
+        }
+    }
+}
+
+class SelectWinner {
+    private int compareAndUpdateMaxDistance(Car car, int max) {
+        if (car.getDistance().length() >= max)
+            return car.getDistance().length();
+        else
+            return max;
+    }
+
+    private int chooseMaxDistance(ArrayList<Car> carList) {
+        int max = 0;
+        for (int i = 0; i < carList.size(); i++)
+            max = compareAndUpdateMaxDistance(carList.get(i), max);
+        return max;
+    }
+
+    private void insertionWinnerList(ArrayList<String> winnerList, Car car, int max){
+        if (car.getDistance().length() == max)
+            winnerList.add(car.getName());
+    }
+    ArrayList<String> chooseWinner(ArrayList<Car> carList){
+        ArrayList<String> winnerList = new ArrayList<String>();
+        int max = chooseMaxDistance(carList);
+        for(int i = 0; i < carList.size(); i++)
+            insertionWinnerList(winnerList, carList.get(i), max);
+        return winnerList;
+    }
+
 }
 
 class RacingCar {
@@ -111,6 +149,9 @@ class RacingCar {
             roundCount++;
         }
 
+        SelectWinner selectWinner = new SelectWinner();
+        ArrayList<String> winnerList = selectWinner.chooseWinner(carList);
+        PrintCurrentCondition.printWinner(winnerList);
     }
 }
 
