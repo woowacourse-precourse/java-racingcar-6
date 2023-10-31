@@ -29,12 +29,12 @@ public class Car {
     public void setForward(String forward) {
         this.forward = forward;
     }
+
     public void addForwardCount() {
         forwardCount++;
     }
 
     public boolean shouldCarMove() {
-
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }
