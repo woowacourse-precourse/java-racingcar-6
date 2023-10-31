@@ -1,17 +1,21 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserTest {
+class UserTest extends NsTest {
 
     User user=new User();
     @Test
@@ -62,6 +66,12 @@ class UserTest {
 
         //then
         Assertions.assertThat(pass).isEqualTo(true);
+    }
+
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 
 
