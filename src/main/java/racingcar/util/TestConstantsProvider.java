@@ -95,6 +95,7 @@ public class TestConstantsProvider {
 
     public static Stream<Arguments> provideValidSystemTestConstants() {
         return Stream.of(
+                // test for one car and playing one time
                 arguments(named(ONE_CAR, ONE_CAR_NAME), // the number of cars
                         PLAY_ONE_TIME, // test play number
                         // expected output string
@@ -102,18 +103,21 @@ public class TestConstantsProvider {
                         MOVING_FOUR, // first random number
                         new Integer[]{} // subsequent random numbers
                 ),
+                // test for one car and playing five times
                 arguments(named(ONE_CAR, ONE_CAR_NAME),
                         PLAY_FIVE_TIMES,
                         named(FIRST_PLAYER, List.of(EXECUTION_RESULT, FINAL_WINNER, FIRST_PLAYER)),
                         MOVING_FOUR,
                         new Integer[]{STOP_THREE, MOVING_FIVE, MOVING_NINE, STOP_TWO}
                 ),
+                // test for three cars and playing one time
                 arguments(named(THREE_CARS, THREE_CAR_NAMES),
                         PLAY_ONE_TIME,
                         named(TWO_WINNERS_WHEN_PLAY_ONE_TIME, List.of(TWO_WINNERS_WHEN_PLAY_ONE_TIME)),
                         MOVING_FOUR,
                         new Integer[]{MOVING_FIVE, STOP_TWO}
                 ),
+                // test for three cars and playing five times
                 arguments(named(THREE_CARS, THREE_CAR_NAMES),
                         PLAY_FIVE_TIMES,
                         named(TWO_WINNERS_WHEN_PLAY_FIVE_TIMES, List.of(TWO_WINNERS_WHEN_PLAY_FIVE_TIMES)),
