@@ -7,8 +7,8 @@ import racingcar.domain.Player;
 public class PlayerGenerator {
     public static List<Player> generatePlayerList(List<String> playerList) {
         List<Player> participantList = new ArrayList<>();
-        for (String player : playerList) {
-            participantList.add(new Player(player));
+        for (String eachPlayer : playerList) {
+            participantList.add(Player.create(eachPlayer));
         }
         return participantList;
     }
