@@ -62,8 +62,9 @@ class GameSystem {
     }
 
     public void showWinner(OutputView output) {
+        output.showWinnerNotice();
         Winner winner = new Winner();
-        winner.who(totalCar);
+
     }
 
 }
@@ -99,6 +100,7 @@ class OutputView {
     private final static String WINNER_MESSAGE = "최종 우승자";
     private final static String COLON = " : ";
     private final static String MOVE_DISTANCE = "-";
+    private final static String COMMA = ",";
 
     public void askName() {
         System.out.println(NAME_MESSAGE);
@@ -132,6 +134,15 @@ class OutputView {
 
     public void showLine() {
         System.out.println();
+    }
+
+    public void showWinners(List<String> winnerList) {
+        for (int name = 0; name < winnerList.size(); name++) {
+            System.out.print(winnerList.get(name));
+            if (winnerList.size() > name + 1) {
+                System.out.print(COMMA);
+            }
+        }
     }
 
 }
