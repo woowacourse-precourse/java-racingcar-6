@@ -120,7 +120,7 @@ public class CarRacing {
 
     public void validateUserCount(String stringCount) {
         isInputEmpty(stringCount);
-        if (stringCount.charAt(0) == '0') {
+        if (stringCount.charAt(0) == '0' || !(stringCount.charAt(0) >= '0' && stringCount.charAt(0) <= '9')) {
             throw new IllegalArgumentException(ERROR_WRONG_COUNT);
         }
         for (int i = 1; i < stringCount.length(); i++) {
