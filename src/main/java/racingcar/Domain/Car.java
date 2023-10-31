@@ -33,7 +33,9 @@ public class Car {
 
         boolean randomValueValidation = checkRandomValueValidation(randomValue);
 
-
+        if(randomValueValidation){
+            this.point += randomValue;
+        }
 
     }
 
