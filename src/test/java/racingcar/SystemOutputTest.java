@@ -67,7 +67,7 @@ class SystemOutputTest {
 
         //테스트에서 추출한 우승자가 메서드를 이용해 얻은 우승자와 같은지 확인.
         String winnerStr;
-        winnerStr = String.join(",", winner);
+        winnerStr = String.join(", ", winner);
         systemOutput.showResult(players);
         Assertions.assertThat(outputStreamCaptor.toString().trim()).contains("최종 우승자 : " + winnerStr);
     }
