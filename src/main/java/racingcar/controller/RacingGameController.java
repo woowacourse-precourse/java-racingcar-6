@@ -6,38 +6,61 @@ import racingcar.controller.dto.ResponseDto;
 import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.Car;
+import racingcar.model.RacingGame;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
 import racingcar.validation.AttemptValidator;
 import racingcar.validation.NameValidator;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGameController {
 
-    private CarNameMapper carNameMapper;
     private NameValidator nameValidator;
+    private CarNameMapper carNameMapper;
     private AttemptValidator attemptValidator;
     private AttemptMapper attemptMapper;
+    private InputView inputView;
+    private OutputView outputView;
 
     public RacingGameController() {
-        this.carNameMapper = new CarNameMapper();
         this.nameValidator = new NameValidator();
+        this.carNameMapper = new CarNameMapper();
         this.attemptValidator = new AttemptValidator();
         this.attemptMapper = new AttemptMapper();
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
-    public List<Car> makeCar(String carNames) {
+    public void run() {
+        // input car name event
+        String carNames = inputView.inputCarNames();
+        RacingGame game = makeCar(carNames);
+
+        // input attempt event
+        String attempts = inputView.inputAttempts();
+        Attempt attempt = setAttempts(attempts);
+
+        // start event
+        outputView.printResultMessage();
+        String result = game.playGame(attempt);
+        outputView.printGameResult(result);
+
+        // print winner
+        // determineWinner(cars);
+    }
+
+    public RacingGame makeCar(String carNames) {
         // validate has comma
         nameValidator.validate(carNames);
         // convert String to CarName
         List<CarName> carNameGroup = carNameMapper.toCarName(carNames);
-        // validate & make Car
-        List<Car> carGroup = new ArrayList<>();
-        for (CarName name : carNameGroup) {
-            nameValidator.validate(name);
-            Car car = Car.make(name);
-            carGroup.add(car);
-        }
-        return carGroup;
+        // validate
+        nameValidator.validate(carNameGroup);
+        // init game (make cars)
+        RacingGame game = new RacingGame();
+        game.init(carNameGroup);
+        return game;
     }
 
     public Attempt setAttempts(String attemptStr) {
@@ -49,12 +72,8 @@ public class RacingGameController {
         return attempt;
     }
 
-    public ResponseDto startGame(List<Car> cars) {
-        List<String> results = new ArrayList<>();
-        for (Car car : cars) {
-           car.playGameOneRound();
-           results.add(car.toString());
-        }
-        return ResponseDto.toDto(results);
+    public String determineWinner(List<Car> cars) {
+        // determine winner
+        return "";
     }
 }
