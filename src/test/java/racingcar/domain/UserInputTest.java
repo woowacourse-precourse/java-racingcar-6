@@ -41,6 +41,20 @@ class UserInputTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 이동_횟수_입력() {
+        System.setIn(new ByteArrayInputStream("5".getBytes()));
+        int result = userInput.moveNumber();
+        assertThat(result).isEqualTo(5);
+    }
+
+    @Test
+    void 이동_횟수_예외() {
+        System.setIn(new ByteArrayInputStream("five".getBytes()));
+        assertThatThrownBy(() -> userInput.moveNumber())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @AfterEach
     void tearDown() {
         Console.close();
