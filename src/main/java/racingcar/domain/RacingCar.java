@@ -12,6 +12,10 @@ public class RacingCar {
         this.players = players;
     }
 
+    public int getMaxCount() {
+        return this.maxCount;
+    }
+
     public void run() {
         // 모든 player에 대해 racingcar 게임을 진행해준다.
         for (Player player : this.players) {
