@@ -24,7 +24,7 @@ class RacingCarMoveTest {
     void update_attempt_count() {
         //given
         //when
-        int attemptCount = RacingCarMove.updateAttemptCount(5);
+        int attemptCount = RacingCarMove.decreaseAttemptCount(5);
         //then
         assertThat(attemptCount).isEqualTo(4);
     }

@@ -33,7 +33,7 @@ public class RacingCarController {
         while (RacingCarMove.isProcessing(attemptCount)) {
             racingCarService.startRacing(cars);
             outputView.printGameResult(cars.statusCarsPosition());
-            attemptCount = RacingCarMove.updateAttemptCount(attemptCount);
+            attemptCount = RacingCarMove.decreaseAttemptCount(attemptCount);
         }
         outputView.printFinalWinners(cars.getFinalWinners());
     }

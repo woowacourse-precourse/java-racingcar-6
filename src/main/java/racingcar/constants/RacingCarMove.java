@@ -15,7 +15,7 @@ public enum RacingCarMove {
         return attemptCount > END_ATTEMPT_NUMBER.value;
     }
 
-    public static int updateAttemptCount(int attemptCount) {
+    public static int decreaseAttemptCount(int attemptCount) {
         attemptCount -= NEXT_POSITION.value;
         return attemptCount;
     }
