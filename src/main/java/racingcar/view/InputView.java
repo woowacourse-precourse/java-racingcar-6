@@ -20,6 +20,7 @@ public class InputView {
 
     public void startGame() {
         List<String> carNames = getCarNames();
+        int tryCount = getTryCount();
     }
 
     private List<String> getCarNames() {
@@ -29,9 +30,21 @@ public class InputView {
         return carNames;
     }
 
+    private int getTryCount() {
+        String input = inputTryCount();
+        // TODO: 비어있지 않고, 숫자로 구성된 input 인지 검증
+        // TODO: 0보다 큰 자연수인지 검증
+        return Integer.parseInt(input);
+    }
+
     private String inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Console.readLine();
+    }
+
+    private String inputTryCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return Console.readLine().trim();
     }
 
     private List<String> parseCarNames(String input) {
