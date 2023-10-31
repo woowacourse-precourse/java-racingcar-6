@@ -1,6 +1,8 @@
 package racingcar.util;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarNames {
     private static final String COMMA_DELIMITER = ",";
@@ -14,7 +16,10 @@ public class CarNames {
     }
 
     public List<String> extractCarNames() {
-        return List.of(value.split(COMMA_DELIMITER));
+        String[] names = value.split(COMMA_DELIMITER);
+        return Arrays.stream(names)
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
     private void hasNotNUllEmpty(String value) {
