@@ -1,24 +1,17 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarManager {
 
-    private final List<Car> carList = new ArrayList<>();
+    private final CarList carList;
 
     public RacingCarManager(List<String> carNames) {
-        generateCarListWithCarNames(carNames);
-    }
-
-    private void generateCarListWithCarNames(List<String> carNames) {
-        for (String carName : carNames) {
-            carList.add(new Car(carName));
-        }
+        carList = new CarList(carNames);
     }
 
     public void playRacingGame() {
-        for (Car car : carList) {
+        for (Car car : carList.getCarList()) {
             car.moveOrStop();
         }
     }
