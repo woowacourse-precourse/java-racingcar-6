@@ -34,12 +34,24 @@ public class CarSetting {
 
     public void setCarName() {
         carName = Console.readLine().split(",");
+        if (check_name(carName)) {
+            throw new IllegalArgumentException();
+        }
         for (String name : carName) {
             if (name.length() >= 5) {
                 throw new IllegalArgumentException();
             }
         }
         setCar();
+    }
+
+    boolean check_name(String[] name) {
+        for (var s : name) {
+            if (s.equals("")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void setCar() {
