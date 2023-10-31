@@ -2,7 +2,7 @@ package racingcar.server;
 
 import racingcar.racer.Racer;
 import racingcar.utils.Printer;
-import racingcar.utils.Util;
+import racingcar.utils.Parser;
 import racingcar.utils.Validator;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class Server {
 
     public void confirmRacerList(String racerListString){
         Validator.validateUserInputIsCorrectFormat(racerListString);
-        List<String> racerNameList = Util.parseStringToListSplitComma(racerListString);
+        List<String> racerNameList = Parser.parseStringToListSplitComma(racerListString);
         addRacerToList(racerNameList);
     }
     private void addRacerToList(List<String> racerNameList){

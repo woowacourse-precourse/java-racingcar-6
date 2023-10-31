@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Validator {
     public static void validateUserInputIsCorrectFormat(String userInput){
-        List<String> toValidateRacerNameList = Util.parseStringToListSplitComma(userInput);
+        List<String> toValidateRacerNameList = Parser.parseStringToListSplitComma(userInput);
         for (String validateRacerName : toValidateRacerNameList){
             validateRacerNameIsContainSpecificSymbol(validateRacerName);
             validateRacerNameWithinMaxLength(validateRacerName);
