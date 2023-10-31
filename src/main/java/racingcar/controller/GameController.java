@@ -48,12 +48,15 @@ public class GameController {
         List<CarDTO> currentRoundResult;
         List<List<CarDTO>> EachRoundResult = new ArrayList<>();
 
+        OUTPUT_VIEW.printPlayStart();
+
         while (Round.getCurrentRoundCount() < totalRoundCount) {
             currentRound = createRound();
             currentRound.startRace(cars);
             currentRound.endRace();
             currentRoundResult = currentRound.generateResult(cars);
             EachRoundResult.add(currentRoundResult);
+            OUTPUT_VIEW.printRoundResult(currentRoundResult);
         }
 
         return EachRoundResult;
