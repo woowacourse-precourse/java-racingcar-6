@@ -3,7 +3,9 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.global.Constants;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -57,6 +59,7 @@ public class InputView {
             validateNotEmpty(carName);
             validateNameLength(carName);
         }
+        validateDuplicateName(carNames);
     }
 
     private void validateNotEmpty(String carName) {
@@ -68,6 +71,13 @@ public class InputView {
     private void validateNameLength(String carName) {
         if (carName.length() > Constants.MAX_CARNAME_LENGTH) {
             throw new IllegalArgumentException(InputViewException.INVALID_NAME_LENGTH);
+        }
+    }
+
+    private void validateDuplicateName(List<String> carNames) {
+        Set<String> carNamesSet = new HashSet<>(carNames);
+        if (carNamesSet.size() != carNames.size()) {
+            throw new IllegalArgumentException(InputViewException.DUPLICATED_NAME);
         }
     }
 
