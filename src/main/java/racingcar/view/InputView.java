@@ -1,12 +1,14 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.MoveCount;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static racingcar.view.OutputView.printInputCarName;
+import static racingcar.view.OutputView.printInputTry;
 
 public class InputView {
 
@@ -19,8 +21,14 @@ public class InputView {
         return parseNames(input);
     }
 
-    protected List<String> parseNames(String input) {
+    public List<String> parseNames(String input) {
         String[] names = input.split(SPLIT_REGEX, SPLIT_LIMIT);
         return new ArrayList<>(Arrays.asList(names));
+    }
+
+    public MoveCount getTryCount() {
+        printInputTry();
+        String input = Console.readLine();
+        return new MoveCount(input);
     }
 }
