@@ -13,7 +13,7 @@ class WinnerPickerTest {
 
     private WinnerPicker winnerPicker;
     private Cars cars;
-    private List<String> carNames;
+    private CarNames carNames;
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
     private static final String CAR3_NAME = "jun";
@@ -22,13 +22,13 @@ class WinnerPickerTest {
     @BeforeEach
     void setUp() {
         winnerPicker = new WinnerPicker();
-        carNames = new ArrayList<>(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME));
-        cars = new Cars(carNames);
 
     }
 
     @Test
     void 우승자가_한명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
+        carNames = new CarNames(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME));
+        cars = new Cars(carNames);
 
         Car car1 = cars.getCars().get(0);
         Car car2 = cars.getCars().get(1);
@@ -47,13 +47,13 @@ class WinnerPickerTest {
         }
 
         Winners winners = winnerPicker.pickWinner(cars);
-        assertThat(winners.getWinnersName().size()).isEqualTo(1);
-        assertThat(winners.getWinnersName()).contains(CAR2_NAME);
+        assertThat(winners.getWinnersName().getCarNames().size()).isEqualTo(1);
+        assertThat(winners.getWinnersName().getCarNames()).contains(new CarName(CAR2_NAME));
     }
 
     @Test
     void 우승자가_두명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
-        carNames.add(CAR4_NAME);
+        carNames = new CarNames(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME, CAR4_NAME));
         cars = new Cars(carNames);
 
         Car car1 = cars.getCars().get(0);
@@ -79,7 +79,7 @@ class WinnerPickerTest {
 
         Winners winners = winnerPicker.pickWinner(cars);
 
-        assertThat(winners.getWinnersName().size()).isEqualTo(2);
-        assertThat(winners.getWinnersName()).contains(CAR2_NAME, CAR4_NAME);
+        assertThat(winners.getWinnersName().getCarNames().size()).isEqualTo(2);
+        assertThat(winners.getWinnersName().getCarNames()).contains(new CarName(CAR2_NAME), new CarName(CAR4_NAME));
     }
 }
