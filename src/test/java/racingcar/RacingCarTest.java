@@ -9,12 +9,22 @@ import racingcar.CheckMoveAndStopTest.CheckMoveAndStop;
 import racingcar.output.WinnerTest.Winner;
 
 public class RacingCarTest {
-    private final static String 차량이름들 = "pobi1,pobi2,pobi3,pobi4";
-    private final static String 사용자_이동_횟수 = "10";
+    private static String 차이름들 = "";
+    private final static String 사용자_이동_횟수 = "1000";
+
+    private void 차이름_n개_입력하라(int count) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < count; i++) {
+            sb.append(i).append(",");
+        }
+
+        차이름들 = sb.toString();
+    }
 
     static class RacingCar{
         public static void play(){
-            List<Car> cars = CarList.inputCarList(차량이름들).getCarList();
+            List<Car> cars = CarList.inputCarList(차이름들).getCarList();
             int raceCount = RacingCount.inputRaceCount(사용자_이동_횟수).getRaceCount();
 
             CheckMoveAndStop checkMoveAndStop = CheckMoveAndStop.run(cars, raceCount);
@@ -26,7 +36,9 @@ public class RacingCarTest {
     }
 
     @Test
-    void startGame(){
+    void 테스트_최대_범위(){
+        차이름_n개_입력하라(100);
+
         RacingCar.play();
     }
 }
