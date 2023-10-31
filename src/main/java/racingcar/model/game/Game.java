@@ -1,8 +1,10 @@
-package racingcar.model;
+package racingcar.model.game;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.model.dto.GameResult;
+import racingcar.model.car.Car;
+import racingcar.model.car.Cars;
+import racingcar.model.car.dto.GameResult;
 import racingcar.util.CarNameValidator;
 
 public class Game {

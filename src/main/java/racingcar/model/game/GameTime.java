@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.game;
 
 public class GameTime {
     private static final int MINIMUM = 1;
