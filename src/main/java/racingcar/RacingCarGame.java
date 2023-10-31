@@ -16,7 +16,7 @@ public class RacingCarGame {
     private final OutputInterface out;
     private final GameRandom random;
 
-    public RacingCarGame(int trial, String[] names, OutputInterface out, GameRandom random) {
+    public RacingCarGame(String[] names, int trial, OutputInterface out, GameRandom random) {
         checkTrial(trial);
         this.trial = trial;
         this.out = out;
@@ -25,6 +25,7 @@ public class RacingCarGame {
     }
 
     public void run() {
+        out.println("실행 결과");
         IntStream.range(0, trial)
                 .forEach(i -> runStage());
         out.printWinners(getWinners());
