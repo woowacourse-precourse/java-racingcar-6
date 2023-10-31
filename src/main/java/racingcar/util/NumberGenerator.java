@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constants.RandomNumber;
 
 public class NumberGenerator {
-    public Integer createRandomSingleNumber() {
+    public static Integer createRandomSingleNumber() {
         Integer rangeMin = RandomNumber.MIN.getValue();
         Integer rangeMax = RandomNumber.MAX.getValue();
 
