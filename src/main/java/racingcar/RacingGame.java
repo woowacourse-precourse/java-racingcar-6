@@ -22,6 +22,12 @@ public class RacingGame {
         System.out.println(tryNum);
     }
 
+    public void tryToMove() {
+        for (Car c : cars) {
+            c.move();
+        }
+    }
+
     public void printCarsName() {
         for (Car c : cars) {
             System.out.println(c.getName());
