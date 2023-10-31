@@ -8,7 +8,7 @@ public class Racing {
     private static final int CARFORWARD_NUMBER = 4;
     public List<String> raceSituation = new ArrayList<>();
     public List<Integer> forwardCountNumbers = new ArrayList<>();
-    public List<Integer> maxindexs = new ArrayList<>();
+    public List<Integer> maxIndexs = new ArrayList<>();
 
     public void racing(List<String> carNames){
         List<Integer> randomNumbersList = raceRandomNumberList(carNames);
@@ -60,7 +60,7 @@ public class Racing {
             int current = forwardCountNumbers.get(i);
 
             if(current == max){
-                maxindexs.add(i);
+                maxIndexs.add(i);
             }
         }
     }

@@ -18,7 +18,7 @@ public class Controller {
         }
 
         racing.findWinner();
-        OutputMessage outputMessage = new OutputMessage(racing.maxindexs, user.carNames);
+        OutputMessage outputMessage = new OutputMessage(racing.maxIndexs, user.carNames);
         outputMessage.winnerPrint();
     }
 }
