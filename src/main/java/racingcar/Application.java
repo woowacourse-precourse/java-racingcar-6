@@ -7,6 +7,6 @@ public class Application {
 
     public static void main(String[] args) {
         gameController = new GameController();
-
+        gameController.startGame();
     }
 }
