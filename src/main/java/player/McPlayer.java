@@ -14,13 +14,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class McPlayer implements Player{
+    // 입출력을 위한 display 객체
     ConsoleDisplay display = new ConsoleDisplay();
 
-    // 전체 경주자 리스트 변수
-    public ArrayList<String> racingPlayerArr;
+    // 전체 레이싱플레이어(자동차)이름 리스트 변수
+    private ArrayList<String> racingPlayerNameArr;
+    // 전체 레이싱플레이어(자동차)객체 리스트 변수
+    public static ArrayList<RacingPlayer> racingPlayerArr;
 
     // 시도 횟수 변수
     public int tryingNum;
+
+    // 정적 McPlayer innstance 변수
+    private static McPlayer innstance;
+    // private 생성자
+    private McPlayer() {}
+    // 단독 McPlayer(싱글톤)
+    public static McPlayer getInstance() {
+        if (innstance == null) {
+            synchronized(McPlayer.class) {
+                innstance = new McPlayer();
+            }
+        }
+        return innstance;
+    }
 
     /**
      * Description : McPlayer의 게임 플레이
@@ -30,7 +47,8 @@ public class McPlayer implements Player{
     @Override
     public void play() {
         sayingRacingPlayerStartCommment();
-        gettingRacingPlayerArr();
+        gettingRacingPlayerNameArr();
+        settingRacingPlayerArr();
         sayingTryingNumStartCommment();
         gettingTryingNum();
     }
@@ -47,12 +65,25 @@ public class McPlayer implements Player{
     /**
      * Description :  레이싱플레이어(자동차) 이름을 입력받기
      *
-     * @Method : gettingRacingPlayerArr()
+     * @Method : gettingRacingPlayerNameArr()
      */
-    public void gettingRacingPlayerArr() {
+    public void gettingRacingPlayerNameArr() {
         String RacingPlayers = display.input();
         String[] RacingPlayersList = RacingPlayers.split(",");
-        racingPlayerArr = new ArrayList<String>(Arrays.asList(RacingPlayersList));
+        racingPlayerNameArr = new ArrayList<String>(Arrays.asList(RacingPlayersList));
+    }
+
+    /**
+     * Description :  레이싱플레이어(자동차) 객체를 생성하기
+     *
+     * @Method : gettingRacingPlayerArr()
+     */
+    public void settingRacingPlayerArr() {
+        racingPlayerArr = new ArrayList<RacingPlayer>();
+        for (String racingPlayerName : racingPlayerNameArr ){
+            RacingPlayer newRacingPlayer = new RacingPlayer(racingPlayerName);
+            racingPlayerArr.add(newRacingPlayer);
+        }
     }
 
     /**
