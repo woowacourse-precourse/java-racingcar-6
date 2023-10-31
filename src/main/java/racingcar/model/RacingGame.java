@@ -7,7 +7,14 @@ public class RacingGame {
     private final List<Car> cars;
 
     public RacingGame(List<Car> cars) {
+        validateCarList(cars);
         this.cars = new ArrayList<>(cars);
+    }
+
+    private void validateCarList(List<Car> cars) {
+        if (cars == null || cars.isEmpty()) {
+            throw new IllegalArgumentException("게임에 참여한 자동차가 없습니다.");
+        }
     }
 
     public void moveCars() {
