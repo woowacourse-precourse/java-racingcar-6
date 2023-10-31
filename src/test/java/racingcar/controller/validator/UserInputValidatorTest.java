@@ -78,7 +78,15 @@ class UserInputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("자동차이름: 빈 문자열")
+    public void wrongInput6() {
+        String rawInput = "";
 
+        Assertions.assertThatThrownBy(() -> userInputValidator.validateCarNames(rawInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    
     @Test
     @DisplayName("이동 횟수: 정상 입력")
     public void moveCountCorrectInput() {
@@ -108,6 +116,24 @@ class UserInputValidatorTest {
     @DisplayName("이동 횟수: 음수")
     public void moveCountWrongInput2() {
         String number = "-5";
+
+        Assertions.assertThatThrownBy(() -> userInputValidator.validateRoundCount(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("이동 횟수: 공백")
+    public void moveCountWrongInput3() {
+        String number = " ";
+
+        Assertions.assertThatThrownBy(() -> userInputValidator.validateRoundCount(number))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("이동 횟수: 빈 문자열")
+    public void moveCountWrongInput4() {
+        String number = "";
 
         Assertions.assertThatThrownBy(() -> userInputValidator.validateRoundCount(number))
                 .isInstanceOf(IllegalArgumentException.class);
