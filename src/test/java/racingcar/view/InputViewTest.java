@@ -51,12 +51,12 @@ class InputViewTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi,woni,jun", "gim,lee,park", "lee,jun,ho"})
     void CarNames객체의_내부_CarName_객체들이_예상대로_저장되는지_테스트(String input) {
-        Cars carNames = new Cars(input);
+        Cars cars = new Cars(input);
         List<Car> expectedCarNames = Arrays.stream(input.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
 
-        List<Car> actualCarNames = carNames.cars();
+        List<Car> actualCarNames = cars.cars();
 
         assertEquals(expectedCarNames, actualCarNames);
     }
