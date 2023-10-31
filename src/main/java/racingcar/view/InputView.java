@@ -8,6 +8,8 @@ import racingcar.validator.Validator;
 public class InputView {
     public static int inputAttemptCount() {
         String attemptCount = Console.readLine();
+        Validator.validateIsNumeric(attemptCount);
+
         return Integer.parseInt(attemptCount);
     }
 

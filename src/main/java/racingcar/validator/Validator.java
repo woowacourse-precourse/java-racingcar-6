@@ -16,4 +16,12 @@ public class Validator {
             }
         }
     }
+
+    public static void validateIsNumeric(String attempt) {
+        for (char separatedAttempt : attempt.toCharArray()) {
+            if (!Character.isDigit(separatedAttempt)) {
+                throw new IllegalArgumentException("숫자만 입력해주세요.");
+            }
+        }
+    }
 }
