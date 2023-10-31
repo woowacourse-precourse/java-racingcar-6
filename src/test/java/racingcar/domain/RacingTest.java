@@ -2,12 +2,19 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class RacingTest {
     private static final int MOVING_FORWARD = 4;
@@ -35,6 +42,30 @@ public class RacingTest {
         for (int i = 0; i < carList.size(); i++) {
             assertThat(carList.get(i).getName()).isEqualTo(carNameList.get(i));
         }
+    }
+
+    @ParameterizedTest
+    @MethodSource("stringIntAndBooleanProvider")
+    void 전진_가능_여부_확인_테스트(int randomNum, boolean result) throws NoSuchMethodException  {
+        Method method = racing.getClass().getDeclaredMethod("isMove", Car.class);
+        method.setAccessible(true);
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Car car = new Car("hil");
+                    car.initRandomNum();
+                    assertEquals((boolean)method.invoke(racing, car), result);
+
+                },
+                randomNum
+        );
+    }
+
+    static Stream<Arguments> stringIntAndBooleanProvider() {
+        return Stream.of(
+                arguments(STOP, false),
+                arguments(MOVING_FORWARD, true)
+        );
     }
 
     @Test
