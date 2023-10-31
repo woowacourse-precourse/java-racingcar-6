@@ -7,17 +7,19 @@ import java.util.stream.Collectors;
 import camp.nextstep.edu.missionutils.Console;
 
 public class PlayerInput {
-	public List<String> PreCarNameInput() {
-		String CarName =  Console.readLine();
-		List<String> CarName2 = Arrays.stream(CarName.split(", ")).collect(Collectors.toList());
+	private String PreCarNameInput() {
 		
-		return CarName2;
+		return Console.readLine();
 	}
-	
-	public Integer PreMovingCount() {
-		String MovingCountStr = Console.readLine();
-		int MovingCountInt = Integer.parseInt(MovingCountStr);
-		
-		return MovingCountInt;
+
+	public List<String> PreCarName() {
+		List<String> CarName = Arrays.stream(PreCarNameInput().split(",")).collect(Collectors.toList());
+
+		return CarName;
 	}
+
+	public String PreMovingCountInput() {
+		return Console.readLine();
+	}
+
 }
