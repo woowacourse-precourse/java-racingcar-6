@@ -10,6 +10,7 @@ public class StringToListConverter implements Converter<String, List<String>> {
         String[] names = from.split(",");
         List<String> namesList = new ArrayList<>();
         for (String name : names) {
+            if(name.equals("")) continue;
             if(name.trim().equals("")) {
                 return null;
             }

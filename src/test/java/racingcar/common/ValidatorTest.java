@@ -21,8 +21,11 @@ class ValidatorTest {
         public void empty(String carNames) {
             StringToListConverter converter = new StringToListConverter();
             List<String> carNameList = converter.convert(carNames);
-            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
-                    .getMessage().equals(MessageConstants.CAR_NAME_BLANK_MESSAGE);
+
+            //then
+            Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(MessageConstants.CAR_NAME_BLANK_MESSAGE);
         }
 
         @DisplayName("이름 입력 안할 시 예외 발생")
@@ -31,8 +34,10 @@ class ValidatorTest {
         public void nullTest(String carNames) {
             StringToListConverter converter = new StringToListConverter();
             List<String> carNameList = converter.convert(carNames);
-            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
-                    .getMessage().equals(MessageConstants.CAR_NAMES_NULL_MESSAGE);
+
+            Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(MessageConstants.CAR_NAMES_NULL_MESSAGE);
         }
 
         @DisplayName("중복된 이름 입력 시 예외 발생")
@@ -44,8 +49,9 @@ class ValidatorTest {
             List<String> carNameList = converter.convert(carNames);
 
             //then
-            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
-                    .getMessage().equals(MessageConstants.CAR_NAME_DUPLICATED_MESSAGE);
+            Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(MessageConstants.CAR_NAME_DUPLICATED_MESSAGE);
         }
 
         @DisplayName("길이가 6이상일 경우 예외 발생")
@@ -57,8 +63,9 @@ class ValidatorTest {
             List<String> carNameList = converter.convert(carNames);
 
             //then
-            assertThrows(IllegalArgumentException.class, () -> Validator.validateCarNames(carNameList))
-                    .getMessage().equals(MessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
+            Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(MessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
         }
     }
 
