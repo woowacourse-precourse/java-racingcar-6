@@ -23,6 +23,7 @@ public class OutputView {
     }
 
     public void printWinner(List<String> winners) {
-        System.out.println(ViewConstant.WINNER_PRINT_MESSAGE + String.join(ViewConstant.DELIMITER.get(), winners));
+        System.out.println(
+                ViewConstant.WINNER_PRINT_MESSAGE.get() + String.join(ViewConstant.DELIMITER.get() + " ", winners));
     }
 }
