@@ -1,6 +1,6 @@
 package racingcar.View;
 
-import java.util.Queue;
+import java.util.List;
 
 import racingcar.Model.Car;
 
@@ -18,7 +18,7 @@ public class OutputView {
         System.out.println(carName + " : " + carProgress);
     }
 
-    public void printFinalWinners(Queue<String> finalWinners) {
+    public void printFinalWinners(List<String> finalWinners) {
         String result = String.join(", ", finalWinners);
         System.out.println(MSG_WINNER + result);
     }

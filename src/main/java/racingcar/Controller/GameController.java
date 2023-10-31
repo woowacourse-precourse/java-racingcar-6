@@ -6,7 +6,9 @@ import racingcar.View.OutputView;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GameController {
     private InputView inputView;
@@ -35,7 +37,7 @@ public class GameController {
         this.outputView.printResultInit();
         runRace(validCountNum);
         // 우승자 선정
-        this.outputView.printFinalWinners(checkWinner());
+        this.outputView.printFinalWinners(determineWinners());
 
     }
 
@@ -68,9 +70,9 @@ public class GameController {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private Queue<String> checkWinner(){
+    private List<String> determineWinners(){
         int max = 0;
-        Queue<String> winners = new LinkedList<>();
+        List<String> winners = new ArrayList<>();
         for (Car car : this.carList){
             int progressCounter = car.getProgressCounter();
             if (max < progressCounter){
