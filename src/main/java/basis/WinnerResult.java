@@ -52,9 +52,13 @@ public class WinnerResult {
     }
 
     private static int findMovementCriteria(int moveLength, int currentCriteria) {
+        if (moveLength < currentCriteria) {
+            return currentCriteria;
+        }
         if (moveLength > currentCriteria) {
             currentCriteria = moveLength;
+            return currentCriteria;
         }
-        return currentCriteria;
+        return 0;
     }
 }
