@@ -1,5 +1,6 @@
 package racingcar.repository;
 
+import camp.nextstep.edu.missionutils.test.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,9 @@ class CarRepositoryTest {
     private static final String TEMP_CLIENT_ROUND = "3";
     private static final int TOTAL_ROUND = 3;
     private static final int ONE_ROUND = 1;
+    private static final int STOP = 1;
+    private static final int FORWARD = 5;
+
     private CarRepository carRepository;
 
     @BeforeEach
@@ -52,5 +56,18 @@ class CarRepositoryTest {
             carRepository.race(BigInteger.valueOf(i));
         }
         assertThat(carRepository.isFinalRound()).isTrue();
+    }
+
+    @Test
+    @DisplayName("리포지토리에서 최종 라운드 결과를 반환하기 전에 최종 우승자들도 계산해서 ResultDto를 반환한다.")
+    void calculateWinners() {
+        Assertions.assertRandomNumberInRangeTest(
+                () -> {
+                    carRepository.race(BigInteger.ONE);
+                    ResultDto result = carRepository.finishFinalRound();
+                    assertThat(result.getFinalWinners())
+                            .containsExactly("pobi", "jun");
+                }, FORWARD, STOP, FORWARD
+        );
     }
 }
