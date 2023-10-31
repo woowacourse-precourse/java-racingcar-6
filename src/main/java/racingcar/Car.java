@@ -23,4 +23,9 @@ class Car implements Comparable{
     public int getDistance() {
         return distance;
     }
+
+    public int compareTo(Object obj) {
+        Car car2 = (Car)obj;
+        return car2.distance - this.distance;
+    }
 }
