@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,10 +39,9 @@ class ApplicationTest extends NsTest {
 
         //given
         String carsName = "pobi,woni,jun";
-        System.setIn(new ByteArrayInputStream(carsName.getBytes()));
 
         //when
-        List<Car> cars = Application.getCars();
+        List<Car> cars = Application.getCars(carsName);
 
         //then
         assertThat(cars.size()).isEqualTo(3);
