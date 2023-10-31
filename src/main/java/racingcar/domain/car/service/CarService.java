@@ -3,10 +3,7 @@ package racingcar.domain.car.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.dao.CarRepository;
-import racingcar.domain.car.view.CarOutputView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CarService {
