@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import static racingcar.util.Validator.Validator.validateNameLength;
 import static racingcar.view.output.Output.printResultMessage;
 
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ public class Cars {
 
     public Cars(List<String> carNames) {
         validateNameEmpty(carNames);
-        validateNameLength(carNames);
         for (String name : carNames) {
             cars.add(new Car(name));
         }
