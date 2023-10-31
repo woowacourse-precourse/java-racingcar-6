@@ -78,11 +78,7 @@ class Winner {
 
     public static void PrintWinner(ArrayList<String> name){
         System.out.println();
-        System.out.print("최종 우승자 : "+name.get(0));
-        if (name.size() > 1){
-            for (int i=1; i<name.size(); i++){
-                System.out.print(", "+name.get(i));
-            }
-        }
+        String result = String.join(",", name);
+        System.out.println("최종 우승자 : "+result);
     }
 }
