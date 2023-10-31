@@ -22,10 +22,13 @@ public class Game {
             System.out.println();
         }
 
-        System.out.println(getWinnerString(race.getWinners()));
+        OutputView.printString(getWinnerString(race.getWinners()));
     }
 
     private static String getWinnerString(List<String> winnerNames) {
+        if (winnerNames.size() <1) {
+            return "최종 우승자가 없습니다!";
+        }
         StringBuilder sb = new StringBuilder();
         sb.append(FINAL_WINNER_STRING);
         String result = String.join(", ", winnerNames);
