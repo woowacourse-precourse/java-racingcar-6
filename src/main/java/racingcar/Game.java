@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.List;
 
 public class Game {
     private Cars cars;
@@ -24,6 +23,14 @@ public class Game {
         Writer.askAttempts();
         Integer attempts = Reader.attempts();
         return new Game(carNames, attempts);
+    }
+
+    public void start() {
+        Writer.results();
+        for (int currentAttempt = 1; currentAttempt <= attempts; currentAttempt++) {
+            cars.attempt();
+            Writer.cars(cars);
+        }
     }
 
 }
