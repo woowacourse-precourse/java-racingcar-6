@@ -32,28 +32,6 @@ public class RacingGame {
             System.out.println();
         }
         winnerList = judgement.checkWinner(cars);
-        printWinner();
+        scriptHandler.printWinner(winnerList);
     }
-
-    public void printWinner() {
-        if (winnerList.size() == 1) {
-            printSoloWinner();
-        }
-        if (winnerList.size() > 1) {
-            printJointWinner();
-        }
-    }
-
-    public void printSoloWinner() {
-        System.out.printf("최종 우승자 : %s", winnerList.get(0));
-    }
-
-    public void printJointWinner() {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winnerList.size() - 1; i++) {
-            System.out.print(winnerList.get(i) + ", ");
-        }
-        System.out.println(winnerList.get(winnerList.size() - 1));
-    }
-
 }

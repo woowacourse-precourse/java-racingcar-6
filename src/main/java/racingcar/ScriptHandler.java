@@ -30,11 +30,24 @@ public class ScriptHandler {
         System.out.println();
     }
 
-    public void printSoloWinner(){
-
+    public void printWinner(ArrayList<String> winnerList) {
+        if (winnerList.size() == 1) {
+            printSoloWinner(winnerList);
+        }
+        if (winnerList.size() > 1) {
+            printJointWinner(winnerList);
+        }
     }
 
-    public void printJointWinner(){
+    public void printSoloWinner(ArrayList<String> winnerList){
+        System.out.printf("최종 우승자 : %s", winnerList.get(0));
+    }
 
+    public void printJointWinner(ArrayList<String> winnerList){
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winnerList.size() - 1; i++) {
+            System.out.print(winnerList.get(i) + ", ");
+        }
+        System.out.println(winnerList.get(winnerList.size() - 1));
     }
 }

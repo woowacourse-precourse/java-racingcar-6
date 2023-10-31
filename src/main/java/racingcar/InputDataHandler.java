@@ -1,13 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.HashMap;
 
 public class InputDataHandler {
 
     public InputValidator inputValidator = new InputValidator();
     public String[] carNames;
-    private HashMap<String, Integer> cars = new HashMap<>();
     private String input;
     private String attemptNumber;
 
