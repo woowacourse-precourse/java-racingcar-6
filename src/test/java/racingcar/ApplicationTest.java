@@ -59,6 +59,29 @@ class ApplicationTest extends NsTest {
 
     }
 
+    @Test
+    void 자동차_전진() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("abc,def", "3");
+                    assertThat(output()).contains("abc : -", "abc : --", "abc : ---", "def : -",
+                            "def : --", "def : ---");
+                },
+                MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 자동차_정지() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("abc,def", "3");
+                    assertThat(output()).contains("abc : ", "def : ");
+                },
+                STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
