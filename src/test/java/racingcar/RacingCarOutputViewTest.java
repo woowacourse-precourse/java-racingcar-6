@@ -33,9 +33,7 @@ public class RacingCarOutputViewTest {
     @DisplayName("이동 결과에 따라 게임 진행 현황 출력")
     void 이동한_결과에_따라_형식에_맞게_결과를_출력한다() {
         // given
-        List<Car> cars = new ArrayList<>();
-        cars.add(new Car("dayo"));
-        cars.add(new Car("dami"));
+        Cars cars = new Cars("dayo,dami");
 
         assertRandomNumberInRangeTest(() -> {
             // when
