@@ -1,5 +1,6 @@
 package racingcar.application;
 
+import static racingcar.global.constants.NumberType.*;
 import static racingcar.global.constants.SymbolType.DELIMITER;
 
 import java.util.Arrays;
@@ -11,13 +12,26 @@ public class RaceService {
         return Cars.of(parseStringToList(rawNames));
     }
 
-    private static List<String> parseStringToList(String names) {
+    public Integer generateCount(String countInput) {
+        Integer count = parseStringToInteger(countInput);
+        return count;
+    }
+
+    private Integer parseStringToInteger(String count) {
+        try {
+            return Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자 형식으로 입력해주세요");
+        }
+    }
+
+    private List<String> parseStringToList(String names) {
         return Arrays.stream(splitNames(names))
                 .map(String::new)
                 .toList();
     }
 
-    private static String[] splitNames(String names) {
+    private String[] splitNames(String names) {
         return names.split(DELIMITER.getSymbol());
     }
 }
