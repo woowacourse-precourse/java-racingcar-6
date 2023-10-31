@@ -18,6 +18,10 @@ public class Car {
         return location;
     }
 
+    protected void addLocation(){
+        this.location++;
+    }
+
     public void move(){
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         this.moveByGivenCondition(randomNumber);
@@ -25,10 +29,6 @@ public class Car {
 
     protected void moveByGivenCondition(int randomValue){
         this.moveByStrategy(() -> randomValue >= MOVING_STANDARD);
-    }
-
-    protected void addLocation(){
-        this.location++;
     }
 
     protected void moveByStrategy(MovingStrategy movingStrategy){

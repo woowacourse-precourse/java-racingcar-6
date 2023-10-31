@@ -17,6 +17,32 @@ public class Cars {
         this.carList = this.initByStringInput(userInput);
     }
 
+    private List<Car> initByStringInput(String userInput) {
+        String[] carNames = userInput.split(SPLIT_DELIMITER);
+        return Arrays.stream(carNames)
+                .map(String::trim)
+                .map(carName -> {
+                    validateInput(carName);
+                    return new Car(carName);
+                })
+                .toList();
+    }
+
+    private void validateInput(String userInput){
+        this.validateNotBlank(userInput);
+        this.validateLength(userInput);
+    }
+    private void validateNotBlank(String userInput){
+        if (StringUtils.isBlank(userInput)) {
+            throw new IllegalArgumentException(MUST_NOT_BLANK);
+        }
+    }
+    private void validateLength(String userInput) {
+        if (userInput.length() > CAR_NAME_LIMIT) {
+            throw new IllegalArgumentException(NAME_LENGTH_INVALID);
+        }
+    }
+
     public List<Car> getCarList() {
         return new ArrayList<>(carList);
     }
@@ -35,33 +61,7 @@ public class Cars {
                 .map(Car::getName)
                 .toList();
     }
-
     public void move() {
         this.carList.forEach(Car::move);
-    }
-
-    private List<Car> initByStringInput(String userInput) {
-        String[] carNames = userInput.split(SPLIT_DELIMITER);
-        return Arrays.stream(carNames)
-                .map(String::trim)
-                .map(carName -> {
-                    validateInput(carName);
-                    return new Car(carName);
-                })
-                .toList();
-    }
-    private void validateInput(String userInput){
-        this.validateNotBlank(userInput);
-        this.validateLength(userInput);
-    }
-    private void validateNotBlank(String userInput){
-        if (StringUtils.isBlank(userInput)) {
-            throw new IllegalArgumentException(MUST_NOT_BLANK);
-        }
-    }
-    private void validateLength(String userInput) {
-        if (userInput.length() > CAR_NAME_LIMIT) {
-            throw new IllegalArgumentException(NAME_LENGTH_INVALID);
-        }
     }
 }
