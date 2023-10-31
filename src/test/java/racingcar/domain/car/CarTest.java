@@ -56,6 +56,19 @@ public class CarTest {
           .isInstanceOf(IllegalArgumentException.class)
           .hasMessage("이름은 1자 이상 5자 이하만 가능합니다.");
     }
+
+    @Test
+    @DisplayName("위치가 0 미만이면 예외를 반환한다.")
+    void 위치가_0_미만이면_예외를_반환한다() {
+      // given
+      var name = "pobi";
+      var position = -1;
+
+      // when & then
+      assertThatThrownBy(() -> new Car(name, position))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessage("위치는 0 이상만 가능합니다.");
+    }
   }
 
   @Nested
