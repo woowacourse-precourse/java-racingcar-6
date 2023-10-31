@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Application {
+
     private static String[] RacerInput(){ //사용자의 입력을 받는 함수
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String RacerNameInput = Console.readLine();
@@ -45,11 +46,11 @@ public class Application {
 
             }
         }
-
-
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        RacingCount();
+        Racer racer = new Racer(RacerInput());
+        Racing racing = new Racing(RacingCount());
+        racing.Race(racer);
     }
 }
