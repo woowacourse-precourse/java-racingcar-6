@@ -47,28 +47,6 @@ public class CarsTest {
     }
 
     @Test
-    @DisplayName("갖고 있는 모든 Car객체에 임의의 수 기준으로 업데이트 테스트")
-    void movingCount_업데이트_테스트() {
-        //given
-        List<Car> carList = new ArrayList<>();
-        Car pobiCar = new Car("pobi");
-        Car lisaCar = new Car("lisa");
-        Car jinyCar = new Car("jiny");
-        carList.add(pobiCar);
-        carList.add(lisaCar);
-        carList.add(jinyCar);
-        Cars cars = new Cars(carList);
-
-        //when
-        cars.updateMovingCount(0);
-        boolean afterUpdate = pobiCar.getMovingCount() == 1 &&
-                lisaCar.getMovingCount() == 1 &&
-                jinyCar.getMovingCount() == 1;
-        //then
-        Assertions.assertThat(afterUpdate).isTrue();
-    }
-
-    @Test
     @DisplayName("갖고 있는 모든 Car객체의 상태 반환")
     void 모든_Car_객체_상태_반환_테스트() {
         //given

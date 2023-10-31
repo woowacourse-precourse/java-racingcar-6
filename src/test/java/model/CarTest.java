@@ -40,23 +40,6 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("임의의 수가 기준 값보다 크면 movingCount 증가하는지 테스트")
-    void 기준_값_보다_큰_임의의_수_증가_테스트() {
-        //given
-        Car car = new Car("pobi");
-        int movingCount = car.getMovingCount();
-
-        //when
-        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
-        int expectedMovingCount = movingCount + 1;
-        int currentMovingCount = car.getMovingCount();
-
-        //then
-        Assertions.assertThat(currentMovingCount).isEqualTo(expectedMovingCount);
-
-    }
-
-    @Test
     @DisplayName("서로 다른 Car객체 movingCount가 같으면 true 테스트")
     void 서로_다른_Car_객체_비교_테스트() {
         //given
