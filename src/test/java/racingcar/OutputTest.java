@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +41,24 @@ public class OutputTest {
         racingCarGameConsole.race();
 
         assertThat(out.toString()).contains("실행 결과", "a : ", "b : ");
+    }
+
+    @Test
+    void 전진한_횟수_출력을_입력_횟수만큼_반복() {
+        Car car = new Car("a,b");
+        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, "2");
+        String target = "실행 결과";
+
+        racingCarGameConsole.race();
+        String output = out.toString();
+        int firstIndex = output.indexOf(target);
+        int secondIndex = output.indexOf(target, firstIndex + 1);
+
+        Assertions.assertAll(
+                () -> assertThat(firstIndex).isNotEqualTo(-1),
+                () -> assertThat(secondIndex).isNotEqualTo(-1),
+                () -> assertThat(out.toString().indexOf(target, secondIndex + 1)).isEqualTo(-1)
+        );
     }
 
     @Test
