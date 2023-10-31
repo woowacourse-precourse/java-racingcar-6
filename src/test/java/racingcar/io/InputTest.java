@@ -38,7 +38,7 @@ class InputTest {
 
     @Test
     void 이름이_없는_경우_에러가_발생한다() {
-        String input = "abc,,def,ghi";
+        String input = "abc,def,ghi,,";
         List<String> carNames = List.of(input.split(","));
 
         Assertions.assertThatThrownBy(() -> InputValidate.carNames(carNames))

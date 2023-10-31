@@ -11,7 +11,8 @@ import racingcar.domain.RacingGame;
 class GameServiceTest {
     @Test
     void 라운드_횟수가_초과되면_현재_라운드수가_증가하지_않는다() {
-        RacingGame racingGame = new RacingGame(2, new Car("a"), new Car("b"), new Car("c"));
+        List<String> name = List.of("a", "b", "c");
+        RacingGame racingGame = new RacingGame(2, name);
 
         GameService.playSingleRound(racingGame);
         assertThat(racingGame.getCurrentRound()).isEqualTo(1);
