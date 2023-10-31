@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Application {
 
     static List<Car> cars = new ArrayList<>();
+    static ArrayList<String> winners = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         createCars(Console.readLine().trim());
@@ -18,6 +19,7 @@ public class Application {
         Integer trialNumber = saveTrialNumber(Console.readLine().trim());
         System.out.println("\n실행결과");
         drive(trialNumber);
+        showWinner(decideWinner(getMaxScore()));
     }
 
     private static Integer createDriveCarNum () {
@@ -72,6 +74,43 @@ public class Application {
             System.out.println(car.getName()+" : "+makeResultSign(car.getDriveNum()));
         }
     }
+
+    private static int getMaxScore() {
+        int max = 0;
+        int countPerson = 0;
+        for (Car car : cars) {
+            max = setMaxScore(max,car.getDriveNum());
+        }
+        return max;
+    }
+    private static int setMaxScore(int max, int driveNum) {
+        if (max < driveNum)
+            max = driveNum;
+        return max;
+    }
+    private static boolean decideWinner(int max) {
+        boolean isSolo = true;
+        int countPerson = 0;
+        for (Car car : cars) {
+            if (max == car.getDriveNum()) {
+                winners.add(car.getName());
+                countPerson++;
+            }
+        }
+        if (countPerson > 1) isSolo = false;
+        return isSolo;
+    }
+
+    private static void showWinner(boolean decideWinner) {
+        if (decideWinner) {
+            System.out.println("최종우승자 : "+ winners.get(0));
+        } else {
+            String winnerList = String.join(", ",winners);
+            System.out.print("최종 우승자 : "+winnerList);
+        }
+    }
+
+
 
 
     private static Integer saveTrialNumber(String trialNumberInput) {
