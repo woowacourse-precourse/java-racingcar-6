@@ -36,7 +36,9 @@ public class RacingCarGameMachine {
 
         racingCarGameMachineValidator.validateNameList(nameList);
 
-        nameList.forEach(name -> racingCarList.add(new RacingCar(racingCarValidator, randomNumberGenerator, name)));
+        nameList.forEach(
+                name -> racingCarList.add(new RacingCar(racingCarValidator, randomNumberGenerator, name))
+        );
     }
 
     private List<String> parseNameInput(String nameInput) {
