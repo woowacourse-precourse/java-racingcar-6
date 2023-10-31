@@ -23,7 +23,7 @@ public class GameController {
 
     public void play() {
         List<String> carName = inputCarNames();
-        validator.validateCarNameLength(carName);
+
 
         List<Car> cars = new ArrayList<>();
 
@@ -64,7 +64,9 @@ public class GameController {
 
     private List<String> inputCarNames() {
         String carNames = inputView.askCarNames();
-        return splitCarNames(carNames);
+        List<String> carName = splitCarNames(carNames);
+        validator.validateCarNameLength(carName);
+        return carName;
     }
 
     private static List<String> splitCarNames(String carNames) {
