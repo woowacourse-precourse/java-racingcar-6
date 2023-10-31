@@ -52,4 +52,8 @@ public class Cars {
                 .max()
                 .orElseThrow(IllegalStateException::new);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
