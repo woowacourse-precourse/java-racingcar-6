@@ -18,23 +18,21 @@ public class Application {
 
 
 class GameSystem {
+    private TotalCar totalCar;
+    private int attempt;
+
     public void start(InputView input, OutputView output) {
-        saveData(input, output);
-
-    }
-
-    public void saveData(InputView input, OutputView output) {
         InputManufacture manufacture = new InputManufacture();
         output.askName();
-        makeCars(input, manufacture);
+        totalCar = makeCars(input, manufacture);
         output.askTry();
+        attempt = makeTryNumber(input, manufacture);
 
     }
 
-
-    public void makeCars(InputView input, InputManufacture manufacture) {
+    public TotalCar makeCars(InputView input, InputManufacture manufacture) {
         List<String> nameList = makeCarNames(input, manufacture);
-        saveCarList(nameList);
+        return saveCarList(nameList);
     }
 
     public ArrayList<String> makeCarNames(InputView input, InputManufacture manufacture) {
@@ -42,12 +40,13 @@ class GameSystem {
         return manufacture.makeNameList(names);
     }
 
-    public void saveCarList(List<String> nameList) {
+    public TotalCar saveCarList(List<String> nameList) {
         TotalCar totalCar = new TotalCar();
 
         for (String name : nameList) {
             totalCar.saveNewCar(name);
         }
+        return totalCar;
     }
 
     public int makeTryNumber(InputView input, InputManufacture manufacture) {
