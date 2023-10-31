@@ -3,9 +3,7 @@ package racingcar.Controller;
 import racingcar.model.CarInfo;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.util.validation;
-
-import java.util.List;
+import racingcar.util.Validation;
 
 public class RacingGame {
     private final CarInfo carInfo = new CarInfo();
@@ -24,7 +22,7 @@ public class RacingGame {
         OutputView.printWinner(carInfo.getWinnerName());
     }
     public int convertStringToInt(String num) {
-        validation.checkTryNumber(num);
+        Validation.checkTryNumber(num);
         return Integer.parseInt(num);
     }
 

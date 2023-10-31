@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.util.validation;
+import racingcar.util.Validation;
 
 public class CarInfo {
     private final List<String> carName = new ArrayList<>();
@@ -13,7 +13,7 @@ public class CarInfo {
         String[] splitStr = carName.split(",");
         Collections.addAll(this.carName, splitStr);
         for (String s : this.carName) {
-            validation.checkCarName(s);
+            Validation.checkCarName(s);
         }
     }
     public boolean isMove() {
