@@ -18,6 +18,19 @@ public class RacingGame {
         this.attemptCount = 0;
     }
 
+    public void run() {
+        initRacingGame();
+        startPrintResultMessage();
+
+        while (!isEnd()) {
+            cars.progressAllCars();
+            printAllProgress();
+            attemptCount -= 1;
+        }
+
+        OutputView.printWinners(getWinners());
+    }
+
     public void initRacingGame() {
         String[] carNames = getCarNames();
 
