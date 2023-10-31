@@ -2,19 +2,24 @@ package racingcar.util;
 
 import static org.junit.jupiter.api.Named.named;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
+import static racingcar.constant.ConsoleOutputConstants.EXECUTION_RESULT;
+import static racingcar.constant.ConsoleOutputConstants.FINAL_WINNER;
 import static racingcar.constant.TestConstants.BLANK_STRING;
 import static racingcar.constant.TestConstants.EMPTY_STRING;
 import static racingcar.constant.TestConstants.EXPECTED_ONE_CAR_NAME;
 import static racingcar.constant.TestConstants.EXPECTED_PLAY_FIVE_TIMES;
 import static racingcar.constant.TestConstants.EXPECTED_PLAY_ONE_TIME;
 import static racingcar.constant.TestConstants.EXPECTED_THREE_CAR_NAMES;
+import static racingcar.constant.TestConstants.FIRST_PLAYER;
 import static racingcar.constant.TestConstants.LONGER_THAN_FIVE_STRING;
+import static racingcar.constant.TestConstants.MOVING_FIVE;
 import static racingcar.constant.TestConstants.MOVING_FOUR;
 import static racingcar.constant.TestConstants.MOVING_NEGATIVE;
 import static racingcar.constant.TestConstants.MOVING_NINE;
 import static racingcar.constant.TestConstants.MOVING_TEN;
 import static racingcar.constant.TestConstants.NOT_NUMBER_STRING;
 import static racingcar.constant.TestConstants.NULL_STRING;
+import static racingcar.constant.TestConstants.ONE_CAR;
 import static racingcar.constant.TestConstants.ONE_CAR_NAME;
 import static racingcar.constant.TestConstants.PLAY_FIVE_TIMES;
 import static racingcar.constant.TestConstants.PLAY_NEGATIVE_TIME;
@@ -22,10 +27,16 @@ import static racingcar.constant.TestConstants.PLAY_NO_TIME;
 import static racingcar.constant.TestConstants.PLAY_ONE_TIME;
 import static racingcar.constant.TestConstants.POSITION_ONE;
 import static racingcar.constant.TestConstants.POSITION_ZERO;
+import static racingcar.constant.TestConstants.STOP_ONE;
 import static racingcar.constant.TestConstants.STOP_THREE;
+import static racingcar.constant.TestConstants.STOP_TWO;
 import static racingcar.constant.TestConstants.STOP_ZERO;
+import static racingcar.constant.TestConstants.THREE_CARS;
 import static racingcar.constant.TestConstants.THREE_CAR_NAMES;
+import static racingcar.constant.TestConstants.TWO_WINNERS_WHEN_PLAY_FIVE_TIMES;
+import static racingcar.constant.TestConstants.TWO_WINNERS_WHEN_PLAY_ONE_TIME;
 
+import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.provider.Arguments;
 
@@ -79,6 +90,41 @@ public class TestConstantsProvider {
         return Stream.of(
                 arguments(MOVING_NEGATIVE),
                 arguments(MOVING_TEN)
+        );
+    }
+
+    public static Stream<Arguments> provideValidSystemTestConstants() {
+        return Stream.of(
+                arguments(named(ONE_CAR, ONE_CAR_NAME), // the number of cars
+                        PLAY_ONE_TIME, // test play number
+                        // expected output string
+                        named(FIRST_PLAYER, List.of(EXECUTION_RESULT, FINAL_WINNER, FIRST_PLAYER)),
+                        MOVING_FOUR, // first random number
+                        new Integer[]{} // subsequent random numbers
+                ),
+                arguments(named(ONE_CAR, ONE_CAR_NAME),
+                        PLAY_FIVE_TIMES,
+                        named(FIRST_PLAYER, List.of(EXECUTION_RESULT, FINAL_WINNER, FIRST_PLAYER)),
+                        MOVING_FOUR,
+                        new Integer[]{STOP_THREE, MOVING_FIVE, MOVING_NINE, STOP_TWO}
+                ),
+                arguments(named(THREE_CARS, THREE_CAR_NAMES),
+                        PLAY_ONE_TIME,
+                        named(TWO_WINNERS_WHEN_PLAY_ONE_TIME, List.of(TWO_WINNERS_WHEN_PLAY_ONE_TIME)),
+                        MOVING_FOUR,
+                        new Integer[]{MOVING_FIVE, STOP_TWO}
+                ),
+                arguments(named(THREE_CARS, THREE_CAR_NAMES),
+                        PLAY_FIVE_TIMES,
+                        named(TWO_WINNERS_WHEN_PLAY_FIVE_TIMES, List.of(TWO_WINNERS_WHEN_PLAY_FIVE_TIMES)),
+                        MOVING_FOUR,
+                        new Integer[]{MOVING_FIVE, STOP_TWO,
+                                MOVING_FIVE, STOP_ZERO, MOVING_NINE,
+                                STOP_ONE, STOP_TWO, MOVING_FIVE,
+                                MOVING_FOUR, MOVING_NINE, MOVING_FIVE,
+                                STOP_ZERO, STOP_TWO, STOP_THREE}
+                )
+
         );
     }
 
