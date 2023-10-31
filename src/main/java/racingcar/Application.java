@@ -9,9 +9,9 @@ public class Application {
 
     public static void main(String[] args) {
         CarNameParser carNameParser = new CarNameParser();
-        new CarMovementDecider(new SingleDigitRandomValueGenerator());
+        CarMovementDecider carMovementDecider = new CarMovementDecider(new SingleDigitRandomValueGenerator());
 
-        RacingCarGame racingCarGame = new RacingCarGame(carNameParser, carNameParser);
+        RacingCarGame racingCarGame = new RacingCarGame(carNameParser, carMovementDecider);
 
         UserIo userIo = new UserIo();
         racingCarGame.run(userIo);
