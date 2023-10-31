@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Input {
 
-    public void InputCarName(List<Car> cars){
+    public void InputCarName(List<Car> cars) {
         String input;
 
         input = Console.readLine();
@@ -15,14 +15,14 @@ public class Input {
 
         CheckCarNameException(result);
 
-        for(String a : result){
+        for (String a : result) {
             cars.add(new Car(a));
         }
 
 
     }
 
-    public int InputGameNum(){
+    public int InputGameNum() {
         String input;
 
         input = Console.readLine();
@@ -34,7 +34,7 @@ public class Input {
         return result;
     }
 
-    private void CheckCarNameException(String[] target){
+    private void CheckCarNameException(String[] target) {
 
         CheckCarNum(target);
         CheckLength(target);
@@ -42,34 +42,34 @@ public class Input {
 
     }
 
-    private void CheckSame(String[] target){
+    private void CheckSame(String[] target) {
         List<String> exist = new ArrayList<>();
 
-        for(String a : target){
-            if(exist.contains(a)){
+        for (String a : target) {
+            if (exist.contains(a)) {
                 throw new IllegalArgumentException("이름이 중복되면 안됩니다.");
             }
             exist.add(a);
         }
     }
 
-    private void CheckCarNum(String[] target){
-        if(target.length < 2){
+    private void CheckCarNum(String[] target) {
+        if (target.length < 2) {
             throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
         }
     }
 
-    private void CheckLength(String[] target){
+    private void CheckLength(String[] target) {
 
-        for(String a : target){
-            if(a.length() > 5){
+        for (String a : target) {
+            if (a.length() > 5) {
                 throw new IllegalArgumentException("5글자를 넘기면 안됩니다.");
             }
         }
     }
 
-    private void CheckGameNumException(int num){
-        if(num < 1){
+    private void CheckGameNumException(int num) {
+        if (num < 1) {
             throw new IllegalArgumentException("1이상의 횟수가 입력되야 합니다.");
         }
     }
