@@ -6,9 +6,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.util.Validation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RacingGame {
     private final CarInfo carInfo = new CarInfo();
 
@@ -39,7 +36,4 @@ public class RacingGame {
         }
         OutputView.printWinner(carInfo.getWinnerName());
     }
-
-
-
 }
