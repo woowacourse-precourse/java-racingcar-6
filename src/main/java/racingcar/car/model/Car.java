@@ -13,4 +13,7 @@ public class Car {
     public Car(String name, int moveCount){
         cars.put(name,moveCount);
     }
+    public HashMap<String,Integer> getCars(){
+        return this.cars;
+    }
 }

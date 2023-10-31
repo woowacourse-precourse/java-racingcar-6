@@ -11,8 +11,7 @@ public class CarController {
     public CarController(){
         List<String> carNames = carView.inputCarNames();
         for (String carName : carNames) {
-            Car car = new Car(carName, 0);
+            new Car(carName, 0);
         }
-
     }
 }
