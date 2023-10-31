@@ -12,10 +12,11 @@ public class InputView {
     String[] carNames = inputName.split(",");
     Set<String> uniqueNames = new HashSet<>();
     for(String name: carNames){
-      if(name.trim().isEmpty() || name.trim().length()>5){
+      String trimmedName = name.trim();
+      if(trimmedName.isEmpty() || trimmedName.length()>5){
         throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 이하여야 한다.");
       }
-      if(!uniqueNames.add(name.trim())){
+      if(!uniqueNames.add(trimmedName)){
         throw new IllegalArgumentException("중복된 자동차 이름이 있으면 안 된다.");
       }
     }
