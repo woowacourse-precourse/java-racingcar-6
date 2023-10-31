@@ -33,7 +33,7 @@ class CarsTest {
 
     @Test
     @DisplayName("각 자동차 이동 확인")
-    void givenCars_whenMove_thenMoveOrStop() {
+    void givenCars_whenMoveEachCar_thenMoveOrStop() {
         // given
         Cars cars = new Cars("pobi,woni");
 
@@ -49,7 +49,7 @@ class CarsTest {
 
     @Test
     @DisplayName("최종 우승자 이름 구하기")
-    void givenCars_whenFindWinners_thenReturnWinnersName() {
+    void givenCars_whenFindWinnersName_thenReturnWinnersName() {
         Cars cars = new Cars("pobi,woni");
         cars.moveEachCar();
 
