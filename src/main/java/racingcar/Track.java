@@ -1,18 +1,17 @@
 package racingcar;
 
 import java.util.List;
+import java.util.Map;
 
 public class Track {
-
-    private final int raceCount;
     private final List<RacingCar> acingCars;
 
-    public Track(int raceCount, List<RacingCar> acingCars) {
-        this.raceCount = raceCount;
+    public Track(List<RacingCar> acingCars) {
         this.acingCars = acingCars;
     }
 
-    public void race() {
+    public List<Map<String, Integer>> race() {
 
+        return null;
     }
 }
