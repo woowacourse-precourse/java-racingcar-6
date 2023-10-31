@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Input {
@@ -14,6 +15,7 @@ public class Input {
         String[] parkingList = carlist.split(",");
         return parkingList;
     }
+
     public Map<String, Integer> carDistance(String[] carlist) {
         Map<String, Integer> parkingLot = new HashMap<>();
         for (int i = 0; i < carlist.length; i++) {
@@ -21,6 +23,7 @@ public class Input {
         }
         return parkingLot;
     }
+
     public int runtime() {
         System.out.println("시도할 회수는 몇회인가요?");
         String time_string = readLine();

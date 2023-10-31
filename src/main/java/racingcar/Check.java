@@ -19,6 +19,7 @@ public class Check {
         }
         return result;
     }
+
     public static boolean measureNameLength(String[] car_list) {
         boolean result = true;
         for (int i = 0; i < car_list.length; i++) {
@@ -29,6 +30,7 @@ public class Check {
         }
         return result;
     }
+
     public static int countComma(String carlist) {
         int result = 0;
         for (int i = 0; i < carlist.length(); i++) {
@@ -38,6 +40,7 @@ public class Check {
         }
         return result;
     }
+
     public static boolean checkForward(int randomNumber) {
         boolean result = true;
         if (randomNumber < 4) {
@@ -45,6 +48,7 @@ public class Check {
         }
         return result;
     }
+
     public static boolean checkRunTime(String time_string) {
         boolean result = true;
         try {

@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Map;
+
 public class Game {
     public void opening() {
         Input input = new Input();
@@ -10,6 +11,7 @@ public class Game {
         System.out.println();
         gameStart(parkinglot, car_name, runtime);
     }
+
     public void gameStart(Map<String, Integer> parkinglot, String[] car_name, int runtime) {
         Output output = new Output();
         System.out.println("실행 결과");
@@ -22,6 +24,7 @@ public class Game {
         }
         System.out.println(output.winner(parkinglot, car_name));
     }
+
     public void movingCar(Map<String, Integer> parkinglot, String[] car_name) {
         Output output = new Output();
         for (int i = 0; i < car_name.length; i++) {
