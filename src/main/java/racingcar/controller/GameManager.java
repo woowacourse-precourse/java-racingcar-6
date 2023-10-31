@@ -25,17 +25,19 @@ public class GameManager {
     }
 
     private void playGame() {
-        for (; remainingRounds > 0; remainingRounds--) {
-            cars.forEach(Car::moveOnRandomCondition);
+        for (; this.remainingRounds > 0; this.remainingRounds--) {
+            this.cars.forEach(Car::moveOnRandomCondition);
             RaceView.displayRoundResults(cars);
         }
     }
 
-    private void endGame() {
-        // 게임이 끝난후 우승자 선정 및, 보여주기
+    private void displayGameResult() {
+        List<Car> winner = determinWinner();
+        RaceView.displayWinner(winner);
     }
 
-    private void determinWinner() {
-        // 자동차 객체 리스트중 가장 많이 간 우승자를 선발한다
+    private List<Car> determinWinner() {
+        int maxDistance = this.cars.stream().mapToInt(Car::getForwardDistance).max().getAsInt();
+        return this.cars.stream().filter(car -> car.getForwardDistance() == maxDistance).toList();
     }
 }
