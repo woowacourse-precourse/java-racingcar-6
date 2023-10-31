@@ -37,7 +37,7 @@ public class CarService {
             winnerNames.append(CarUtil.WINNER_SEPARATOR).append(winnerList.get(i));
         }
 
-        CarUtil.printVictory(winnerNames.toString());
+        CarUtil.printWinner(winnerNames.toString());
     }
 
     private List<Car> getCarList() {
