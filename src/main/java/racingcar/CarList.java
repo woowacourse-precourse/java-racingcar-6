@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class CarList {
@@ -8,7 +9,7 @@ public class CarList {
 
     public CarList(String carsName) throws IllegalArgumentException {
         String[] names = splitNamesByComma(carsName);
-        if (!isBlankSpace(carsName) || !isValidNameLength(names)) {
+        if (!isBlankSpace(carsName) || !isValidNameLength(names) || isDuplicatedName(names)) {
             throw new IllegalArgumentException();
         }
         this.carList = new ArrayList<>();
@@ -33,6 +34,17 @@ public class CarList {
             return false;
         }
         return true;
+    }
+
+    private boolean isDuplicatedName(String[] names) {
+        HashSet<String> nameSet = new HashSet<>();
+        for (String name : names) {
+            if (nameSet.contains(name)) {
+                return true;
+            }
+            nameSet.add(name);
+        }
+        return false;
     }
 
     private void setCarIntoCarList(String[] names) {
