@@ -15,7 +15,6 @@ public class RacingGameStart {
         //레이싱 대회에 참가할 자동차 객체 배열을 생성합니다.
         RacingCar[] racingCars = createRacingCars(carNames);
 
-
         System.out.println("시도할 횟수는 몇회인가요?");
         int num = Integer.parseInt(Console.readLine());
 
@@ -28,20 +27,25 @@ public class RacingGameStart {
     }
 
     private static RacingCar[] createRacingCars(String carNames) {
+
         String[] carNamesList = carNames.split(",");
         RacingCar[] racingCars = new RacingCar[carNamesList.length];
+
         for (int i = 0; i < carNamesList.length; i++) {
             racingCars[i] = createRacingCar(carNamesList[i]);
         }
+
         return racingCars;
     }
 
     private static RacingCar createRacingCar(String carName) {
+
         checkNameLength(carName);
         return new RacingCar(carName.trim(), 0);
     }
 
     private static void runRace(RacingCar[] racingCars, int num) {
+
         for (int i = 0; i < num; i++) {
             for (RacingCar car : racingCars) {
                 RapsResult rR = new RapsResult(car);
@@ -52,11 +56,14 @@ public class RacingGameStart {
     }
 
     private static void printWinners(RacingCar[] racingCars) {
+
         PrintWinner printWinner = new PrintWinner(racingCars);
+
         System.out.print(printWinner.winnerListPrint());
     }
 
     public static void checkNameLength(String name) {
+
         if (name.length() > NAME_LENGTH) {
             throw new IllegalArgumentException(ENUM_ERROR_MESSAGE);
         }
