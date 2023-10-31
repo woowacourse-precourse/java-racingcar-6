@@ -2,15 +2,20 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class InputView {
     private static final String LENGTH_ERROR = "이름은 5자 이하만 가능합니다.";
     private static final String IS_NOT_NUMBER = "숫자를 입력해 주세요.";
     private static final String IS_NOT_NATURAL_NUMBER = "전진횟수는 자연수여야 합니다.";
     private static final String IS_SPACE = "공백 혹은 빈 문자열은 등록할 수 없습니다.";
+    private static final String DUPLICATE_ERROR = "이름은 중복될 수 없습니다.";
     private static final String SPLIT = ",";
     private static final Character ZERO = '0';
     private static final Character NINE = '9';
+    private static final HashMap<String, Integer> check = new HashMap<>();
     public String[] inputPlayers() {
         String players = Console.readLine();
         return splitCommaAndValidate(players);
@@ -41,6 +46,14 @@ public class InputView {
 
     private void validateNames(String[] players) {
         nameLengthValidation(players);
+        nameDuplicateCheck(players);
+    }
+
+    private void nameDuplicateCheck(String[] players) {
+        Set<String> distinctPlayers = Arrays.stream(players).collect(Collectors.toSet());
+        if (distinctPlayers.size() != players.length) {
+            throw new IllegalArgumentException(DUPLICATE_ERROR);
+        }
     }
 
     private String[] splitCommaAndValidate(String players) {
