@@ -10,7 +10,7 @@ public class PositionTest {
     void goForwardTest() {
         Position position = new Position();
         assertThat(position.getValue()).isEqualTo(0);
-        Position position1 = position.goForward();
-        assertThat(position1.getValue()).isEqualTo(1);
+        position.goForward();
+        assertThat(position.getValue()).isEqualTo(1);
     }
 }
