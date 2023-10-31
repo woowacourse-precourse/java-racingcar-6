@@ -7,27 +7,38 @@ import racingcar.view.Input.InputView;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import racingcar.view.Output.OutputView;
 
 import static racingcar.domain.Cars.cars;
 
 public class RacingGame {
     private InputView inputView;
+    private OutputView outputView;
     private Cars cars;
     private RandomGenerator randomGenerator;
 
-    public RacingGame(InputView inputView, RandomGenerator randomGenerator) {
+    public RacingGame(InputView inputView, OutputView outputView, RandomGenerator randomGenerator) {
         this.inputView = inputView;
+        this.outputView = outputView;
         this.randomGenerator = randomGenerator;
     }
 
     public void goOrStop() {
-        cars = new Cars(inputView.inputCarName());
-        int trialNumber = inputView.inputTrialNumber();
+        String input = inputView.inputCarName(); // 자동차 입력 받기
+        outputView.printCars(input);            // 자동차 출력
+
+        cars = new Cars(inputView.carName(input)); // Car > Cars
+
+        int trialNumber = inputView.inputTrialNumber(); // 시도 횟수 입력 받기
+        outputView.printTrialNumber(trialNumber); // 시도횟수 출력
 
         for (int i = 0; i < trialNumber; i++ ) {
             moveCarIfRandomOver4();
             printResult();
+            System.out.println("");
         }
+        Winner winner = new Winner(cars);
+        outputView.printWinner(winner.maxLocationCarName());
     }
 
     public void moveCarIfRandomOver4() {
