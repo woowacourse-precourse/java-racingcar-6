@@ -5,17 +5,26 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Exception;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
     private int attemptCount;
 
-    RacingGame() {
-    }
-
     public void start() {
         registerCars();
         inputAttemptCount();
+
+        play();
+    }
+
+    public void play() {
+        OutputView.exeutionResult();
+
+        for (int i = 0; i < attemptCount; i++) {
+            Round.play(carList);
+        }
+        
     }
 
     public void registerCars() {
