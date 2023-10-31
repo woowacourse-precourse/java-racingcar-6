@@ -12,14 +12,12 @@ import static org.assertj.core.api.Assertions.*;
 
 class CarNameVerifierTest extends NsTest {
 
-    private final Verifier carNameVerifier = new CarNameVerifier();
-
     @Nested
     class ValidInputTest {
         @Test
         void 정상입력이_주어진경우() {
             Assertions.assertSimpleTest(() ->
-                    assertThatCode(() -> carNameVerifier.check("pobi,woni,jun"))
+                    assertThatCode(() -> run("pobi,woni,jun", "3"))
                             .doesNotThrowAnyException()
             );
         }
@@ -30,7 +28,7 @@ class CarNameVerifierTest extends NsTest {
         @Test
         void 자동차이름이_5자이하가_아닌경우() {
             Assertions.assertSimpleTest(() ->
-                    assertThatThrownBy(() -> runException("pobi,woni,123456,ifj"))
+                    assertThatThrownBy(() -> runException("pobi,woni,123456,ifj", "3"))
                             .isInstanceOf(IllegalArgumentException.class)
                             .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME)
             );
