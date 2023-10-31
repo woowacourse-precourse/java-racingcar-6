@@ -24,16 +24,16 @@ public class RaceController {
     }
 
     private void play(Cars cars, Integer totalCount) {
-        OutputView.printlnMessage(RESULT_MESSAGE.getMessage());
+        View.printlnMessage(RESULT_MESSAGE);
         for (int count = 0; count < totalCount; count++) {
             raceService.playRace(cars);
-            OutputView.printlnMessage(cars.toString());
+            View.printlnString(cars.toString());
         }
     }
 
     private void finish(Cars cars) {
         List<String> winners = raceService.getWinners(cars);
-        OutputView.printlnMessage(generateFinalResultMessage(winners));
+        View.printlnString(generateFinalResultMessage(winners));
     }
 
     private String generateFinalResultMessage(List<String> winners) {

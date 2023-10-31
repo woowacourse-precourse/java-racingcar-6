@@ -26,8 +26,12 @@ public final class View {
         return userInput;
     }
 
-    private static void printlnMessage(final MessageType messageType) {
+    public static void printlnMessage(final MessageType messageType) {
         System.out.println(messageType.getMessage());
+    }
+
+    public static void printlnString(final String string) {
+        System.out.println(string);
     }
 
     private static String readLine() {
