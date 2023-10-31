@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -21,15 +20,10 @@ public class PickWinnerService {
 	
 	private List<Car> pickWinner(Cars cars) {
 		int maxCarLocation = getMaxCarLocation(cars);
-		List<Car> winnerList = new ArrayList<>();
-		
-		for(Car car : cars.getCars()) {
-			if(car.getCarLocation() == maxCarLocation) {
-				winnerList.add(car);
-			}
-		}
-		
-		return winnerList;
+
+		return cars.getCars().stream()
+						.filter(car -> car.getCarLocation() == maxCarLocation)
+						.toList();
 	}
 	
 	private int getMaxCarLocation(Cars cars) {
