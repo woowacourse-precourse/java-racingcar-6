@@ -15,10 +15,9 @@ public class race_controller {
     private int total_round;
     public race_controller() {
         InputRacingInformation inputRacingInformation = new InputRacingInformation();
-
         List<String> carNames = inputRacingInformation.InputCarNames();
-        total_round = inputRacingInformation.round_number();
         cars = createCars(carNames);
+        total_round = inputRacingInformation.round_number();
         storage = new int[cars.size()];
         carGoCountMap = Car_Go_Count_Map(cars, storage);
     }
