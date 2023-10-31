@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Vector;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerRepository;
 
@@ -20,7 +21,7 @@ public class RacingGameService {
         }
     }
 
-    public void playTurn(){
+    public Vector<Player> playTurn(){
         // 각 차량에대해
         for (Player player :playerRepository.getPlayers()){
             // 랜덤 넘버 생성
@@ -29,6 +30,7 @@ public class RacingGameService {
                 movingForward(player);
             }
         }
+        return playerRepository.getPlayers();
     }
 
     //input에서 사용자 이름 파싱

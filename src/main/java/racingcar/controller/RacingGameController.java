@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Vector;
+import racingcar.domain.Player;
 import racingcar.service.RacingGameService;
 import racingcar.view.RacingGameView;
 
@@ -24,8 +26,9 @@ public class RacingGameController {
     }
     public void gameStart(){
         // game attempt 만큼 진행
+        racingGameView.printInitResultMsg();
         for (int attempt =0; attempt <gameAttempts; attempt++){
-            racingGameService.playTurn();
+            racingGameView.printTurnResultMsg(racingGameService.playTurn());
         }
 
     }
