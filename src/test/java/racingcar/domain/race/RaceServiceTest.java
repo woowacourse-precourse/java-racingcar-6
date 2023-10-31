@@ -66,7 +66,7 @@ class RaceServiceTest {
         cars.add(Car.createCar("jun", 0));
 
         // WHEN
-        raceService.moveByStrategy(cars);
+        raceService.raceForRound(cars);
 
         // THEN
         int movesSum = cars.get(0).getCurrentLocation() + cars.get(1).getCurrentLocation()
@@ -98,7 +98,7 @@ class RaceServiceTest {
 
     @Test
     @DisplayName("우승자들을 구합니다.")
-    public void getSingularWinners() throws Exception {
+    public void getSingularWinners() {
         // GIVEN
         List<Car> cars = new ArrayList<>();
         Car pobi = Car.createCar("pobi", 4);
@@ -119,7 +119,7 @@ class RaceServiceTest {
 
     @Test
     @DisplayName("동순위를 포함한 이름 오름차순 우승자들을 구합니다.")
-    public void getMultipleWinners() throws Exception {
+    public void getMultipleWinners() {
         // GIVEN
         List<Car> cars = new ArrayList<>();
         Car coni = Car.createCar("coni", 4);
@@ -140,5 +140,39 @@ class RaceServiceTest {
 
         // THEN
         assertEquals(expectedWinners, actualWinners);
+    }
+
+    @Test
+    @DisplayName("전진 조건에 참인 경우, 차가 전진합니다.")
+    void tryMoveForward_happy() {
+        // GIVEN
+        Car jiho = Car.createCar("jiho", 0);
+        int givenFirstRandomNumber = 4;
+        int givenSecondRandomNumber = 4;
+
+        // WHEN
+        raceService.tryMoveForward(jiho, givenFirstRandomNumber);
+        raceService.tryMoveForward(jiho, givenSecondRandomNumber);
+
+        // THEN
+        int expectedLocation = 2;
+        assertEquals(expectedLocation, jiho.getCurrentLocation());
+    }
+
+    @Test
+    @DisplayName("전진 조건에 거짓인 경우, 차가 멈춥니다.")
+    void tryMoveForward_unhappy() {
+        // GIVEN
+        Car jiho = Car.createCar("jiho", 0);
+        int givenFirstRandomNumber = 3;
+        int givenSecondRandomNumber = 3;
+
+        // WHEN
+        raceService.tryMoveForward(jiho, givenFirstRandomNumber);
+        raceService.tryMoveForward(jiho, givenSecondRandomNumber);
+
+        // THEN
+        int expectedLocation = 0;
+        assertEquals(expectedLocation, jiho.getCurrentLocation());
     }
 }
