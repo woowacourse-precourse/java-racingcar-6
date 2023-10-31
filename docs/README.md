@@ -11,7 +11,7 @@
     - 경주게임을 시도할 숫자는 Int여야 한다. Int로 변환 실패시 IllegalArgumentException 반환
 
 
--[ ] 자동차의 이름(name)과 위치(position)를 담고있는 Car 클래스 구현
+-[x] 자동차의 이름(name)과 위치(position)를 담고있는 Car 클래스 구현
   - 생성자에서 CarNameInputValidator 로 검증
   - RandomNumberGenerator를 통해 나온값으로 전진 가능을 반환하는 boolean 반환 메소드 구현
   - 포지션값을 1 증가시키는 메소드 구현
