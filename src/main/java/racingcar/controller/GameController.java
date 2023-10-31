@@ -38,9 +38,13 @@ public class GameController {
     }
 
     private void createCars() {
-        final List<String> names = inputView.inputNames();
-        final List<Car> carList = createCarList(names);
-        cars = new Cars(carList);
+        try {
+            final List<String> names = inputView.inputNames();
+            final List<Car> carList = createCarList(names);
+            cars = new Cars(carList);
+        } catch (Exception e) {
+            outputView.outputErrorMessage(e.getMessage());
+        }
     }
 
     private List<Car> createCarList(final List<String> names) {
@@ -53,13 +57,19 @@ public class GameController {
     }
 
     private void createRaceRound() {
-        final Integer countOfRaceRound = inputView.inputCountOfGameRound();
-        raceRound = new RaceRound(countOfRaceRound, 0);
+        try {
+            final Integer countOfRaceRound = inputView.inputCountOfGameRound();
+            raceRound = new RaceRound(countOfRaceRound, 0);
+        } catch (Exception e) {
+            outputView.outputErrorMessage(e.getMessage());
+        }
     }
 
     private void playEachRaceRound() {
+        outputView.outputGameResultMessage();
         while (raceRound.isLeftRound()) {
             cars.raceAllCars();
+            outputView.outputCarsPosition(cars.getCars());
             raceRound.increaseCurrentRound();
         }
     }

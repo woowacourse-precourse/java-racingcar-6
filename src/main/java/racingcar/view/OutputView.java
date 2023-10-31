@@ -17,6 +17,7 @@ public class OutputView {
     }
 
     public void outputGameResultMessage() {
+        System.out.print(ENTER.getUnit());
         System.out.print(OUTPUT_GAME_RESULT_MESSAGE.getMessage());
         System.out.print(ENTER.getUnit());
     }
