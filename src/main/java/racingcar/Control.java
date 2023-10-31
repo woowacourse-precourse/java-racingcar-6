@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class Control {
     private int iterate;
-    private static int[] carMove;
+    private static int[] carMoveList;
 
     public Control(String iterateNumber, ArrayList<String> nameList){
         this.iterate = convertToInt(iterateNumber);
-        carMove = new int[nameList.size()];
+        carMoveList = new int[nameList.size()];
     }
 
     private int convertToInt(String iterateNumber) {
@@ -30,17 +30,17 @@ public class Control {
     }
 
     private void carMoveCheck(){
-        for(int i=0;i<carMove.length;i++){
+        for(int i=0;i<carMoveList.length;i++){
             int random = Randoms.pickNumberInRange(0, 9);
             if (random >= 4){
-                carMove[i]++;
+                carMoveList[i]++;
             }
         }
     }
     private void carMovePrint(ArrayList<String> nameList){
-        for(int i=0;i<carMove.length;i++){
+        for(int i=0;i<carMoveList.length;i++){
             System.out.print(nameList.get(i)+" : ");
-            for(int j=0;j<carMove[i];j++){
+            for(int j=0;j<carMoveList[i];j++){
                 System.out.print("-");
             }
             System.out.println();
@@ -51,12 +51,12 @@ public class Control {
     private static void winnerNamesPrint(ArrayList<String> nameList){
         ArrayList<String> winnerNames = new ArrayList<>();
         int max = Integer.MIN_VALUE;
-        for(int moveNumber : carMove){
+        for(int moveNumber : carMoveList){
             max = Math.max(max, moveNumber);
         }
         System.out.print("최종 우승자 : ");
         for(int i=0;i<nameList.size();i++){
-            if (max == carMove[i]){
+            if (max == carMoveList[i]){
                 winnerNames.add(nameList.get(i));
             }
         }
