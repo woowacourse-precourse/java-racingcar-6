@@ -11,6 +11,12 @@ public class Car {
 
     private final StringBuilder position = new StringBuilder();
 
+    public Car(String name){
+
+        validCarName(name);
+        this.name = name;
+
+    }
     public Integer getPositionLength() {
         return position.length();
     }
