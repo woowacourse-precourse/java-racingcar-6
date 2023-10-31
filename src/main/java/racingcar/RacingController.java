@@ -1,10 +1,10 @@
 package racingcar;
 
-import java.util.List;
+import racingcar.domain.Cars;
 
 public class RacingController {
 
-    List<String> findWinner() {
-        return null;
-    }
+    private Cars cars;
+
+
 }
