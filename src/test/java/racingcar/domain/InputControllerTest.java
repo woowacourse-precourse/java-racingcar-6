@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class InputControllerTest {
 
     @Test
-    void setCar_자동차를_생성하며_이름을_부여() {
+    void setCar_입력받은_이름으로_자동차를_생성하는_기능() {
         InputController inputController = new InputController();
         String input = "pobi,woni,jun";
 

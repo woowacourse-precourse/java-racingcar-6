@@ -15,8 +15,16 @@ public class InputController {
     public List<String> setCar(String carNames) {
         List<String> carList = new ArrayList<>();
         for (String car : carNames.split(",")) {
+            nameLengthCheck(car);
             carList.add(car);
         }
         return carList;
     }
+
+    private void nameLengthCheck(String car) {
+        if (car.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자이하이고 여러개라면 쉽표(,)로 구분해야 합니다.");
+        }
+    }
+
 }
