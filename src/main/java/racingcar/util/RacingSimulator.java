@@ -50,7 +50,7 @@ public class RacingSimulator {
         });
     }
 
-    public List<Integer> extractMaxValue() {
+    public List<Integer> checkWinner() {
         int max = result.values().stream()
                 .max(Integer::compare)
                 .orElse(0);

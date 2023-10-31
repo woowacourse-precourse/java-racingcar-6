@@ -14,6 +14,10 @@ public class Car {
         result += "-";
     }
 
+    public void printName(){
+        System.out.println(name);
+    }
+
     public void printResult(){
         System.out.println(result);
     }
