@@ -11,14 +11,8 @@ public class Racing {
         Map<String,String> result=new HashMap<>();
         Output output=new Output();
         for(int i=0; i<repeatTime; i++){
-//            for(String car: carLists){
-//                //addAccumulateGame(result,player);
-//                String forwardValue = output.saveForward(output.canForward());
-//                result.put(car, result.getOrDefault(car, "") + forwardValue);
-//            }
             result=playGame(result,carLists);
             output.printRaceRound(result);
-
         }
         return result;
     }
@@ -29,14 +23,5 @@ public class Racing {
             result.put(car,result.getOrDefault(car,"")+forwardValue);
         }
         return result;
-    }
-
-    public void addAccumulateGame(Map<String,String> result, String car){
-        Output output=new Output();
-        if (result.containsKey(car)) {
-            result.put(car, result.get(car) + output.saveForward(output.canForward()));
-        } else {
-            result.put(car, output.saveForward(output.canForward()));
-        }
     }
 }
