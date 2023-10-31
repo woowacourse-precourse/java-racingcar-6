@@ -108,14 +108,14 @@ public class ValidException {
     /**
      * 문자열은 , 기준으로 split 한후 각각의 문자열의 길이가 5이하인가.
      *
-     * @param inputStr
+     * @param nameLine
      * @return
      */
-    public static boolean NameOfEachFIveLessString(String inputStr) {
-        String[] strArr = Utill.makeArrFromString(inputStr, ",");
-        List<String> nameEachOfList = Utill.makeListFromArr(strArr);
+    public static boolean NameOfEachFIveLessString(String nameLine) {
+        String[] nameArr = Utill.makeArrFromString(nameLine, ",");
+        List<String> nameList = Utill.makeListFromArr(nameArr);
 
-        for (String name : nameEachOfList) {
+        for (String name : nameList) {
             lessFIveLen(name);
         }
 
