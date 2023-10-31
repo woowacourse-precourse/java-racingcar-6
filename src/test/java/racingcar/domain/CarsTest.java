@@ -40,7 +40,7 @@ class CarsTest {
         cars.moveEachCar();
 
         CarsDto carsDto = cars.toCarsDto();
-        List<CarDto> results = carsDto.carDtos();
+        List<CarDto> results = carsDto.roundResults();
         assertThat(results.get(0).position()).isBetween(0, 1);
         assertThat(results.get(1).position()).isBetween(0, 1);
     }
@@ -73,7 +73,7 @@ class CarsTest {
 
         CarsDto carsDto = cars.toCarsDto();
 
-        List<CarDto> result = carsDto.carDtos();
+        List<CarDto> result = carsDto.roundResults();
         assertThat(result.get(0)).extracting("name").isEqualTo("pobi");
         assertThat(result.get(0)).extracting("position").isEqualTo(0);
         assertThat(result.get(1)).extracting("name").isEqualTo("woni");

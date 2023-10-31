@@ -15,7 +15,7 @@ class CarsDtoTest {
         CarsDto carsDto =
                 new CarsDto(List.of(new CarDto("pobi", 3), new CarDto("woni", 4)));
 
-        List<CarDto> results = carsDto.carDtos();
+        List<CarDto> results = carsDto.roundResults();
 
         assertThat(results.get(0)).extracting("name").isEqualTo("pobi");
         assertThat(results.get(0)).extracting("position").isEqualTo(3);

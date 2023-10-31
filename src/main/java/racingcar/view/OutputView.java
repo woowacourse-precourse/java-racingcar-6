@@ -32,10 +32,10 @@ public final class OutputView {
     }
 
     public static void printRoundResult(final CarsDto carsDto) {
-        List<CarDto> carDtos = carsDto.carDtos();
-        for (CarDto carDto : carDtos) {
-            String carName = carDto.name();
-            String currentPosition = replaceToHyphens(carDto.position());
+        List<CarDto> roundResults = carsDto.roundResults();
+        for (CarDto roundResult : roundResults) {
+            String carName = roundResult.name();
+            String currentPosition = replaceToHyphens(roundResult.position());
             System.out.println(String.join(COLON_DELIMITER, carName, currentPosition));
         }
         System.out.println();

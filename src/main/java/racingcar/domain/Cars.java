@@ -87,10 +87,10 @@ public class Cars {
     }
 
     public CarsDto toCarsDto() {
-        return new CarsDto(getCarDtos());
+        return new CarsDto(getRoundResults());
     }
 
-    private List<CarDto> getCarDtos() {
+    private List<CarDto> getRoundResults() {
         return cars.stream()
                 .map(Car::toCarDto)
                 .toList();

@@ -46,9 +46,9 @@ class GameServiceTest {
         gameService.moveCars(cars);
         CarsDto result = gameService.getRoundResult(cars);
 
-        assertThat(result.carDtos().size()).isEqualTo(2);
-        assertThat(result.carDtos().get(0)).extracting("name").isEqualTo("pobi");
-        assertThat(result.carDtos().get(1)).extracting("name").isEqualTo("woni");
+        assertThat(result.roundResults().size()).isEqualTo(2);
+        assertThat(result.roundResults().get(0)).extracting("name").isEqualTo("pobi");
+        assertThat(result.roundResults().get(1)).extracting("name").isEqualTo("woni");
     }
 
 }
