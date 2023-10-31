@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.RandomNumberGenerator;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
@@ -19,17 +18,7 @@ public class RacingGameController {
 
     public void startGame() {
         setting();
-
-        gameStartMessage();
-        for (int i = 0; i < gameCount; i++) {
-            for (Car car : cars.getCars()) {
-                int randomNumber = RandomNumberGenerator.makeNumber();
-                if (randomNumber >= 4) {
-                    car.go();
-                }
-            }
-            OutputView.printOneGameResult(cars);
-        }
+        playGame();
         OutputView.printWinners(cars.winner());
     }
 
@@ -52,4 +41,11 @@ public class RacingGameController {
         return Integer.parseInt(gameTryNumber);
     }
 
+    private void playGame() {
+        gameStartMessage();
+        for (int i = 0; i < gameCount; i++) {
+            cars.playOneGame();
+            OutputView.printOneGameResult(cars);
+        }
+    }
 }
