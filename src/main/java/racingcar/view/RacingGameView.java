@@ -14,7 +14,7 @@ public class RacingGameView {
     }
 
     public void gameResultMessage() {
-        System.out.println("\n" + GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
+        System.out.println(GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
     }
 
     public void gameResults(String gameResult) {

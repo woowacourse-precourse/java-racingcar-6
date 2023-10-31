@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.GameMessage;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,11 +33,12 @@ public class RacingGameService {
     }
 
     public String getAllRaceResult(final int raceCount) {
-        StringBuilder result = new StringBuilder("\n");
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < raceCount; i++) {
             this.race();
-            result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining())).append("\n");
+            result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining()))
+                    .append(GameMessage.NEWLINE.getNewLine());
         }
 
         result.setLength(result.length() - 1);

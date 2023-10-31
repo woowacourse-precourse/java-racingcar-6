@@ -33,7 +33,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("우승자가 1명 이상일 경우 테스트")
+    @DisplayName("우승자가 3명일 경우 테스트")
     @Test
     void winnerListTest() {
         assertRandomNumberInRangeTest(
