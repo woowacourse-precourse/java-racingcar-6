@@ -18,6 +18,5 @@ public class InputView {
         Validator.checkCarNameDuplication(parseCarNames);
         Validator.checkCarNameIsEnglish(parseCarNames);
         return parseCarNames;
-
     }
 }
