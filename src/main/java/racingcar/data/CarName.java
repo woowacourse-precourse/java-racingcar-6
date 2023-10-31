@@ -6,8 +6,8 @@ public class CarName {
     private static final String LONGER_THAN_LIMIT = "CarName should be no longer than ";
 
     public CarName(String name) {
-        this.name = name;
         validateCarName(name, LIMIT);
+        this.name = name;
     }
 
     public static void validateCarName(String name, int limit) {

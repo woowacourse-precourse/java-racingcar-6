@@ -9,8 +9,9 @@ public class InputNumber {
     private static final String OUT_OF_RANGE = "InputNumber should be between ";
 
     public void initRandomNumber() {
-        randomNumber = Randoms.pickNumberInRange(RANGE_MIN, RANGE_MAX);
-        validateInputNumber(randomNumber);
+        int number = Randoms.pickNumberInRange(RANGE_MIN, RANGE_MAX);
+        validateInputNumber(number);
+        randomNumber = number;
     }
 
     public static void validateInputNumber(int number) {

@@ -5,8 +5,8 @@ public class CarPosition {
     private static final String NEGATIVE_INTEGER = "CarPosition cannot be a negative integer.";
 
     public CarPosition(int pos) {
-        this.pos = pos;
         validateCarPosition(pos);
+        this.pos = pos;
     }
 
     public static void validateCarPosition(int pos) {
