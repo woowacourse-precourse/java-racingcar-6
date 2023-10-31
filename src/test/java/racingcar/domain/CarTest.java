@@ -40,4 +40,13 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
     }
+
+    @Test
+    void 빈문자열으로_자동차_생성시_예외발생() {
+        String input = "";
+
+        assertThatThrownBy(() -> Car.of(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름에는 빈 문자열은 불가능합니다.");
+    }
 }
