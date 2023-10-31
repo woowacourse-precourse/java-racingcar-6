@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.AttemptCount;
 import racingcar.model.RacingCarNames;
 import racingcar.service.RacingCarGameService;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -47,7 +48,7 @@ public class RacingCarGameController {
         System.out.println();
         outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
-            racingCarGameService.playSingleGame(carNames, racingProgressStatus);
+            racingCarGameService.playSingleGame(new RandomNumberGenerator(), carNames, racingProgressStatus);
             outputView.printExecutionResult(racingProgressStatus);
         }
     }
