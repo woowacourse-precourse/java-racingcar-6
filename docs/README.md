@@ -50,6 +50,10 @@
     - 자동차 이름이 5자 이하인지 검사한다.
     - 자동차 이름이 공백이 아닌지 검사한다.
 
+## AttemptCount
+
+- 시도 횟수에 대한 유효성 검사를 한다.
+
 ## RacingCarGameService
 
 - 자동차의 전진 여부를 판단한다.<br>(3 이하는 정지상태를 유지하고 4 이상은 전진한다.)
@@ -83,6 +87,10 @@
 
 - 자동차 이름의 예외 발생을 테스트한다.
     - 자동차 이름이 5자를 넘어가거나 공백이면 IllegalArgumentException이 발생한다.
+
+## AttemptCount
+
+- 시도 횟수의 예외 발생을 테스트한다.
 
 ## RacingCarGameService
 
