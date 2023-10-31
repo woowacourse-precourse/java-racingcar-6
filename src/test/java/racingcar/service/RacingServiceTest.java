@@ -49,13 +49,16 @@ class RacingServiceTest {
                 assertThat(car.getMove()).isBetween(0, 9)
         );
 
-        int maxDistance = cars.stream()
+        int maxDistance = getMaxDistance(cars);
+        cars.stream().filter(car -> car.getMove() == maxDistance)
+                .forEach(car -> assertThat(car.getWinCount()).isEqualTo(1));
+    }
+
+    private static int getMaxDistance(List<Car> cars) {
+        return cars.stream()
                 .mapToInt(Car::getMove)
                 .max()
                 .orElse(0);
-
-        cars.stream().filter(car -> car.getMove() == maxDistance)
-                .forEach(car -> assertThat(car.getWinCount()).isEqualTo(1));
     }
 
     @DisplayName("자동차의 우승 횟수를 판단해 최종 우승자 List를 생성한다.")
