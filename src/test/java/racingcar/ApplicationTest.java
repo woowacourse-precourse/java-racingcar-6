@@ -86,6 +86,13 @@ class ApplicationTest extends NsTest {
             assertThat(carRepository.findByName("pobi")).isNotNull();
         }
 
+        @Test
+        void carForward() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.save("pobi");
+            carRepository.carForward(0, 5);
+            assertThat(carRepository.findByName("pobi").getForward()).isEqualTo(1);
+        }
     }
 
     @Override
