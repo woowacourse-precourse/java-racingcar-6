@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.CarNames;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.Referee;
 import racingcar.util.InputValidator;
@@ -21,7 +22,7 @@ public class RaceController {
     }
 
     public void run() {
-        List<String> carNames = inputView.askCarNames();
+        CarNames carNames = inputView.askCarNames();
         List<Car> cars = createCars(carNames);
 
         int moveCount = inputView.askMoveCount();
@@ -53,8 +54,8 @@ public class RaceController {
         }
     }
 
-    public List<Car> createCars(List<String> carNames) {
-        return carNames.stream()
+    public List<Car> createCars(CarNames carNames) {
+        return carNames.getCarNames().stream()
                 .map(carName -> new Car(carName.trim()))
                 .collect(Collectors.toList());
     }

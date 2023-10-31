@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.CarNames;
 import racingcar.util.InputValidator;
 
 public class InputView {
@@ -10,17 +11,19 @@ public class InputView {
     private static final String MOVE_COUNT_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String DELIMITER = ",";
 
-    public List<String> askCarNames() {
+    public CarNames askCarNames() {
         System.out.println(CAR_NAMES_INPUT_MESSAGE);
         String inputNames = Console.readLine();
 
         return divideCarNames(inputNames);
     }
 
-    public List<String> divideCarNames(String inputNames) {
-        List<String> carNames = Arrays.asList(inputNames.split(DELIMITER));
-        InputValidator.validateCarNamesSize(carNames);
-        InputValidator.validateCarNameLength(carNames);
+    public CarNames divideCarNames(String inputNames) {
+        List<String> names = Arrays.asList(inputNames.split(DELIMITER));
+        InputValidator.validateCarNamesSize(names);
+        InputValidator.validateCarNameLength(names);
+
+        CarNames carNames = new CarNames(names);
 
         return carNames;
     }
