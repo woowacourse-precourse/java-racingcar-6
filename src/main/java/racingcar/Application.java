@@ -45,21 +45,16 @@ class RacingCenter{
     }
 
     Queue<RacingCar> compare(){
+        int large_n = -1;
+
         Queue<RacingCar> winners = new LinkedList<>();
-        for(RacingCar car : Cars){
-            RacingCar temp;
-            if ( winners.isEmpty()) {winners.add(car);}
-            else{
-                temp = winners.poll();
-                if (temp.getLoc() < car.getLoc()){
-                    winners.clear();
-                    winners.add(car);
-                }
-                else if(temp.getLoc() == car.getLoc()){
-                    winners.add(temp);
-                    winners.add(car);
-                }
-            }
+        for(RacingCar car : Cars) {
+            if (car.getLoc() > large_n)
+                large_n = car.getLoc();
+        }
+        for(RacingCar car : Cars) {
+            if (car.getLoc() == large_n)
+                winners.add(car);
         }
         return winners;
     }
