@@ -7,7 +7,7 @@
 
   - [x] 쉼표(,) 기준으로 이름 분리 후 List로 반환(seperateCarName) [RacerManager]
 
-  - [ ] 5자 이하의 이름들을 가졌는지 확인 (validateCarName) [InputValidater]
+  - [x] 5자 이하의 이름들을 가졌는지 확인 (validateCarName) [InputValidator]
 
 
 - [ ] 자동차 객체 [Racer]
