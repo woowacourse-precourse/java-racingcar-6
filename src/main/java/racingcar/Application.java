@@ -8,6 +8,20 @@ import racingcar.domain.Judgment;
 
 public class Application {
     public static void main(String[] args) {
+        List<Car> carList = registerEntry();
+        int lapCount = askRaceLaps();
+
+        Judgment judgment = new Judgment();
+        System.out.println("실행 결과");
+        for(int i = 0; i < lapCount; i++) {
+            judgment.decideMovement(carList);
+            printLapDetails(carList);
+        }
+
+        announceWinner(carList);
+    }
+
+    public static List<Car> registerEntry() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
         String[] array = carNames.split(",");
@@ -15,21 +29,19 @@ public class Application {
         for (String name : array) {
             carList.add(new Car(name));
         }
+        return carList;
+    }
 
+    public static int askRaceLaps() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int trialCount = Integer.parseInt(Console.readLine());
-        Judgment judgment = new Judgment();
-        for(int i = 0; i < trialCount; i++) {
-            // 경기 한 턴 진행
-            judgment.decideMovement(carList);
-            // 출력
-            for(Car car : carList) {
-                car.printDistance();
-            }
-            System.out.println();
+        return Integer.parseInt(Console.readLine());
+    }
+
+    public static void printLapDetails(List<Car> carList) {
+        for(Car car : carList) {
+            car.printDistance();
         }
-        // 우승자
-        announceWinner(carList);
+        System.out.println();
     }
 
     public static void announceWinner(List<Car> carList) {
