@@ -41,4 +41,18 @@ public class CarTest {
         assertThat(car.toString()).contains("cys : -");
     }
 
+    @Test
+    void 어떤_Car가_멀리_갔는지(){
+        String winner ="win";
+        String loser = "lose";
+        Car winnerCar = new Car(winner);
+        Car loserCar = new Car(loser);
+
+        winnerCar.add();
+        winnerCar.add();
+        loserCar.add();
+
+        int result = winnerCar.compareTo(loserCar);
+        assertThat(result).isPositive();
+    }
 }
