@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.domain.car.Car;
 import racingcar.validator.CarNameValidator;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,5 +47,9 @@ public class Race {
         return findWinnerCars().stream()
                 .map(Car::getNameString)
                 .collect(Collectors.joining(", "));
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }
