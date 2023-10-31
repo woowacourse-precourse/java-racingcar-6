@@ -16,7 +16,6 @@ public class RacingCarGameLauncher {
         int moveCount = RacingCarGameInput.readMoveCount();
         racingCarGame = new RacingCarGame(racingCarList, moveCount);
         RacingCarGameOutput.printBeforeGameProgress(RacingCarGameOutput.BEFORE_GAME_MESSAGE);
-        racingCarGame.run();
         racingCarGame.run(() -> Randoms.pickNumberInRange(0, 9));
         RacingCarGameOutput.printWinnersMessage(racingCarGame.getWinners());
     }
