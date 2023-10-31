@@ -24,7 +24,7 @@ public class RacingResult {
         int maxDistance = cars.maxDistance();
         return cars.getCars().stream()
                 .filter(car -> car.getDistance() == maxDistance)
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .toList();
     }
 }
