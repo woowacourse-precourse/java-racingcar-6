@@ -10,9 +10,9 @@
     - [x] 자동차 이름은 5자 이하만 가능하다. CreateCar#validateCarNameLength() 
     - [x] 자동차 이름은 중복될 수 없다. CreateCar#validateCarNameDuplicate()
     - [x] 자동차의 수는 2대 이상 10대 이하여야 한다. CreateCar#validateCarCount()
-  - [x] 자동차의 이름과 전진 값을 담아두는 stateMap을 만든다. CreateCar#racingStateMap()
+  - [x] 자동차의 이름과 전진 값을 담아두는 racingStateMap 만든다. CreateCar#racingStateMap()
  
-  
+
 
 ## 기능 요구 사항
 
