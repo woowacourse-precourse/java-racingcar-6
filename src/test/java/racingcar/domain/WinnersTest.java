@@ -16,6 +16,7 @@ public class WinnersTest {
         //given
         List<String> nameList = List.of("pobi", "java", "jigi");
         Cars cars = Cars.of(nameList);
+
         List<Car> carList = cars.getCarList();
 
         carList.get(0).accumulate(NUMBER_OF_ADVANCE);
@@ -29,5 +30,23 @@ public class WinnersTest {
 
         //then
         assertThat(winnerList).contains("pobi", "java");
+    }
+
+    @Test
+    @DisplayName("마지막 요소가 맞는지 확인하는 테스트")
+    void checkLastElementTest() {
+        //given
+        List<String> nameList = List.of("pobi", "java", "jigi");
+        Cars cars = Cars.of(nameList);
+
+        Winners winners = Winners.of(cars);
+
+        Car car = cars.getCarList().get(2);
+
+        //when
+        final boolean lastElement = winners.isLastCar(car);
+
+        //then
+        assertThat(lastElement).isTrue();
     }
 }
