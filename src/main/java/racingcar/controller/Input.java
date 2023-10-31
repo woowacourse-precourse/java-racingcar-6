@@ -10,13 +10,13 @@ public class Input {
 
     public static List<String> inputCarName() {
         String s = Console.readLine();
-        List<String> names = splitNames(s);
+        List<String> names = splitCarName(s);
         checkNameLength(names);
         checkDuplicateName(names);
         return names;
     }
 
-    public static List<String> splitNames(String s) {
+    public static List<String> splitCarName(String s) {
         List<String> names = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(s, ",");
         while (st.hasMoreElements()) {
