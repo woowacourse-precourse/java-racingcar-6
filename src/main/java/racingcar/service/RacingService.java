@@ -24,7 +24,9 @@ public class RacingService {
     }
 
     private int InputTryCount() {
-        return Integer.parseInt(Console.readLine());
+        int count = Integer.parseInt(Console.readLine());
+        if(count == 0) throw new IllegalArgumentException();
+        return count;
     }
 
     // 자동차 이름 입력
@@ -37,7 +39,7 @@ public class RacingService {
 
     private void IsValidName(String[] cars) {
         for (String car : cars) {
-            if (car.length() > Constants.MAXIMUM_CAR_NAME_LENGTH || car.length()==0) {
+            if (car.length() > Constants.MAXIMUM_CAR_NAME_LENGTH || car.length() == 0) {
                 throw new IllegalArgumentException();
             }
         }
