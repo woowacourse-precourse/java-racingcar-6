@@ -6,12 +6,19 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        List<Car> carNames = InputFactory.getCars(Console.readLine());
-        int racingRound = InputFactory.getRacingRound(Console.readLine());
+        ResultView.printEnterNameGuide();
+        InputFactory inputFactory = new InputFactory();
+        String names = Console.readLine();
+        List<Car> carNames = inputFactory.getCars(names);
+
+        ResultView.printRoundQuestion();
+        String round = Console.readLine();
+        int racingRound = inputFactory.getRacingRound(round);
 
         Race race = new Race(carNames, racingRound);
         race.start();
 
-        ResultView.printWinners(race.getCars());
+        ResultView resultView = new ResultView();
+        resultView.printWinners(race.getCars());
     }
 }
