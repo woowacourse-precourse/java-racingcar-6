@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.view.OutputView;
 
 public class Race {
     private final List<Car> cars;
@@ -13,5 +14,16 @@ public class Race {
         this.trialCnt = 0;
     }
 
+    public void playRaceGame () {
+        OutputView.printGameResultInfo();
+        while (trialCnt < trialNum) {
+            playUnitRaceGame();
+            trialCnt++;
+        }
+    }
 
+    private void playUnitRaceGame() {
+        cars.forEach(Car::move);
+        OutputView.printUnitGameResult(this.cars);
+    }
 }

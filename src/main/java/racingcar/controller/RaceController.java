@@ -24,6 +24,7 @@ public class RaceController {
         List<Car> cars = getCars();
         int trialNum = getTrialNum();
         Race race = new Race(cars, trialNum);
+        race.playRaceGame();
     }
 
     private List<Car> getCars() {
