@@ -1,8 +1,11 @@
 package racingcar.game.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.game.RandomUtil;
 import racingcar.game.validation.CarValidator;
 import racingcar.game.validation.Validator;
+
+import static racingcar.game.RandomUtil.*;
 
 public class Car {
 
@@ -23,8 +26,9 @@ public class Car {
     }
 
     public void tryForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) forwardState.append('-');
+        if (isRandomBiggerThanEqual(4)) {
+            forwardState.append('-');
+        }
     }
 
     public String getCarState() {
