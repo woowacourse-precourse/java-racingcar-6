@@ -29,14 +29,9 @@ public class Racing {
     }
 
     public static List<String> getWinner() {
-        getMaxPosition();
         List<String> winnerList = new ArrayList<>();
-        for (var car : cars) {
-            int carPosition = car.getPosition().length();
-            if (carPosition == maxPosition)
-                winnerList.add(car.getName());
-        }
-        return winnerList;
+        getMaxPosition();
+        return getWinnerList(winnerList);
     }
 
     private static boolean isMove() {
@@ -52,5 +47,14 @@ public class Racing {
             if(carPosition > maxPosition)
                 maxPosition = carPosition;
         }
+    }
+
+    private static List<String> getWinnerList(List<String> winnerList) {
+        for (var car : cars) {
+            int carPosition = car.getPosition().length();
+            if (carPosition == maxPosition)
+                winnerList.add(car.getName());
+        }
+        return winnerList;
     }
 }

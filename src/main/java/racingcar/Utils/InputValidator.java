@@ -2,7 +2,6 @@ package racingcar.Utils;
 
 import java.util.List;
 
-
 public class InputValidator {
     public static List<String> checkCarNameList(String carNameList) {
         List<String> carList = List.of(carNameList.split(","));
@@ -15,7 +14,7 @@ public class InputValidator {
     }
 
     public static int checkNumberOfAttempts(String numberOfAttempts) {
-        String regExp = "^[0-9]+$";
+        String regExp = "[1-9]+";
         if (!numberOfAttempts.matches(regExp)) {
             throw new IllegalArgumentException();
         }
