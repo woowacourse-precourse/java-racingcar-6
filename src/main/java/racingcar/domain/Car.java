@@ -28,7 +28,7 @@ public class Car {
         return false;
     }
 
-    public int getProgress() {
+    private int getProgress() {
         return progress.getProgress();
     }
 
