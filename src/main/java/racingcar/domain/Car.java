@@ -16,6 +16,14 @@ public class Car {
         this.distance += 1;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return this.name + SEPARATOR.message() + PROGRESS.message().repeat(distance);
