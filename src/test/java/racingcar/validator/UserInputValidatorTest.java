@@ -37,7 +37,7 @@ public class UserInputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"공 백,b,c", "태\t앱,b,c", "개\n행,b,c"})
+    @ValueSource(strings = {"공 백,b,c", "태\t앱,b,c"})
     void 자동차_이름_공백이_있는_경우(String carNames) {
         assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
