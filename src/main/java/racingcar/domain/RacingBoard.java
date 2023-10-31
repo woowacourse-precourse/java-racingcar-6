@@ -36,4 +36,20 @@ public class RacingBoard {
         result = temp.toString();
         return result;
     }
+
+    public String viewExecution() {
+        String result;
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < board.size(); i++) {
+            Car car = board.get(i);
+            temp.append(car.getName());
+            temp.append(" : ");
+            for (int j = 0; j < car.getLocation(); j++) {
+                temp.append("-");
+            }
+            temp.append("\n");
+        }
+        result = temp.toString();
+        return result;
+    }
 }
