@@ -5,14 +5,16 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarGameController {
-    private final RacingCarGameMachine racingCarGameMachine;
-    private final InputView inputView;
-    private final OutputView outputView;
+    private RacingCarGameMachine racingCarGameMachine;
+    private InputView inputView;
+    private OutputView outputView;
+    private TimeSleepStrategy timeSleepStrategy;
 
-    public RacingCarGameController(RacingCarGameMachine racingCarGameMachine, InputView inputView, OutputView outputView) {
-        this.racingCarGameMachine = racingCarGameMachine;
-        this.inputView = inputView;
-        this.outputView = outputView;
+    private RacingCarGameController(Builder builder) {
+        this.racingCarGameMachine = builder.racingCarGameMachine;
+        this.inputView = builder.inputView;
+        this.outputView = builder.outputView;
+        this.timeSleepStrategy = builder.timeSleepStrategy;
     }
 
     public void play() {
@@ -41,5 +43,39 @@ public class RacingCarGameController {
     private void generateResult() {
         String gameResult = racingCarGameMachine.getGameResult();
         outputView.print(gameResult);
+    }
+
+    public static class Builder {
+        private RacingCarGameMachine racingCarGameMachine;
+        private InputView inputView;
+        private OutputView outputView;
+        private TimeSleepStrategy timeSleepStrategy;
+
+        public Builder() {
+        }
+
+        public Builder racingCarGameMachine(RacingCarGameMachine racingCarGameMachine) {
+            this.racingCarGameMachine = racingCarGameMachine;
+            return this;
+        }
+
+        public Builder inputView(InputView inputView) {
+            this.inputView = inputView;
+            return this;
+        }
+
+        public Builder outputView(OutputView outputView) {
+            this.outputView = outputView;
+            return this;
+        }
+
+        public Builder timeSleepStrategy(TimeSleepStrategy timeSleepStrategy) {
+            this.timeSleepStrategy = timeSleepStrategy;
+            return this;
+        }
+
+        public RacingCarGameController build() {
+            return new RacingCarGameController(this);
+        }
     }
 }

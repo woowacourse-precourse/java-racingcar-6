@@ -7,10 +7,12 @@ import racingcar.view.OutputView;
 
 public interface RacingCarGameFactory {
     default RacingCarGameController racingCarController() {
-        return new RacingCarGameController(
-                racingCarGameMachine(),
-                inputView(),
-                outputView());
+        return new RacingCarGameController.Builder()
+                .racingCarGameMachine(racingCarGameMachine())
+                .inputView(inputView())
+                .outputView(outputView())
+                .timeSleepStrategy(timeSleepStrategy())
+                .build();
     }
 
     default RacingCarGameMachine racingCarGameMachine() {
