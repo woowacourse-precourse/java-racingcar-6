@@ -7,11 +7,11 @@ public class Application {
         Sorting sort = new Sorting();
         IO io = new IO(checkForm);
 
-        SettingGame settingGame = new SettingGame(io, checkForm);
-        RunningGame runningGame = new RunningGame(io, sort, settingGame);
+        Setting setting = new SettingGame(io, checkForm);
+        Running running = new RunningGame(io, sort, setting);
 
-        settingGame.setGame();
-        runningGame.runGame();
-        runningGame.createResult();
+        setting.setGame();
+        running.runGame();
+        running.createResult();
     }
 }
