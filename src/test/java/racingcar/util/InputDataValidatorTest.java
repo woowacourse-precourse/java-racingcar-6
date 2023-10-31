@@ -20,6 +20,17 @@ class InputDataValidatorTest {
     }
 
     @Test
+    @DisplayName("이름 공백 일 경우 예외 발생")
+    void testNameEmpty() {
+        List<String> stringList = new ArrayList<>();
+        stringList.add("");
+        stringList.add("blur");
+
+        assertThatThrownBy(() -> validateInputSize(stringList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     @DisplayName("이름 공백 포함 시 예외 발생")
     void testNameHasSpace() {
         assertThatThrownBy(() -> validateHasSpace("asd fgh"))

@@ -10,15 +10,24 @@ public class InputDataValidator {
     public static void validateInputSize(List<String> inputList) throws IllegalArgumentException {
 
         for (String input : inputList) {
-            validateEachInputSize(input);
+            validateEachInputSizeOver(input);
+            validateEachInputSizeZero(input);
         }
 
     }
 
-    private static void validateEachInputSize(String input) throws IllegalArgumentException {
+    private static void validateEachInputSizeOver(String input) throws IllegalArgumentException {
 
         if (input.length() > Config.MAX_NAME_SIZE) {
             throw new IllegalArgumentException(SIZE_OVER);
+        }
+
+    }
+
+    private static void validateEachInputSizeZero(String input) throws IllegalArgumentException {
+
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException(EMPTY);
         }
 
     }
