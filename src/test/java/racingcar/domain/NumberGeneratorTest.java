@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.util.NumberGenerator;
 
 class NumberGeneratorTest {
     @DisplayName("0 ~ 9까지 무작위 생성 테스트")

@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarNames;
 import racingcar.domain.Cars;
-import racingcar.domain.NumberGenerator;
+import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,15 +19,15 @@ public class RaceController {
     }
 
     public void run() {
-        CarNames carNames = inputView.askCarNames();
-        Cars cars = createCars(carNames);
+        final CarNames carNames = inputView.askCarNames();
+        final Cars cars = createCars(carNames);
 
         int moveCount = inputView.askMoveCount();
 
         System.out.println("\n실행 결과");
         repeatMoveCars(moveCount, cars.getCars());
 
-        List<Car> winners = cars.findWinners();
+        final List<Car> winners = cars.findWinners();
 
         outputView.showWinners(winners);
     }
