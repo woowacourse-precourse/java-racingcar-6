@@ -18,7 +18,7 @@ public class Car {
         String trimName = trimName(name);
         checkNameLength(trimName);
 
-        this.name = name;
+        this.name = trimName;
     }
 
     public String getName() {
