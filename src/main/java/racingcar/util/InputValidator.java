@@ -6,9 +6,9 @@ import static racingcar.constant.NumberConstant.MAX_NAME_LENGTH;
 import static racingcar.constant.NumberConstant.MIN_ATTEMPT_NUMBER;
 import static racingcar.constant.NumberConstant.MIN_NAME_LENGTH;
 import static racingcar.constant.StringConstant.DIGIT;
-import static racingcar.constant.StringConstant.INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE;
-import static racingcar.constant.StringConstant.INVALID_NAME_LENGTH_EXCEPTION_MESSAGE;
-import static racingcar.constant.StringConstant.INVALID_NUMBER_EXCEPTION_MESSAGE;
+import static racingcar.enums.ExceptionMessage.INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE;
+import static racingcar.enums.ExceptionMessage.INVALID_NAME_LENGTH_EXCEPTION_MESSAGE;
+import static racingcar.enums.ExceptionMessage.INVALID_NUMBER_EXCEPTION_MESSAGE;
 
 public class InputValidator {
     public static void validateCarNames(List<String> carNames) {
@@ -20,16 +20,16 @@ public class InputValidator {
                 .anyMatch(name -> name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH);
 
         if (invalidLength) {
-            throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE.getMessage());
         }
     }
 
     public static void validateAttemptNumber(String input) {
         if (isNotNumber(input)) {
-            throw new IllegalArgumentException(INVALID_NUMBER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(INVALID_NUMBER_EXCEPTION_MESSAGE.getMessage());
         }
         if (isInvalidRange(input)) {
-            throw new IllegalArgumentException(INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE.getMessage());
         }
     }
 
