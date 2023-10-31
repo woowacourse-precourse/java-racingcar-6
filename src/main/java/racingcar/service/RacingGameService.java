@@ -8,6 +8,7 @@ import racingcar.validation.ValidateInput;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGameService {
@@ -78,14 +79,14 @@ public class RacingGameService {
     }
 
     private int findMaxDistance(ArrayList<RacingCar> participationConfirmedCarList) {
-        int[] distanceSortArray = new int[participationConfirmedCarList.size()];
+        List<Integer> distanceList = participationConfirmedCarList.stream()
+                .map(RacingCar::getDistance)
+                .toList();
 
-        int i = 0;
-        for (RacingCar racingCar : participationConfirmedCarList) {
-            distanceSortArray[i] = racingCar.getDistance();
-            i ++;
-        }
-        return Arrays.stream(distanceSortArray).max().getAsInt();
+        return distanceList.stream()
+                .max(Integer::compare)
+                .orElse(0);
+
     }
 
     private ArrayList<RacingCar> findWinnerName(ArrayList<RacingCar> participationConfirmedCarList, int maxDistance) {
