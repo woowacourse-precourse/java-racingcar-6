@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import racingcar.utils.Parser;
+import racingcar.move.MoveStrategy;
+import racingcar.utils.Validator;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,31 +9,25 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private final List<Car> cars;
+    private List<Car> cars;
 
-    public Cars(String string) {
-        List<String> names = Parser.stringToList(string);
+    public Cars(List<String> names) {
+        Validator.validate(names);
         this.cars = createCars(names);
     }
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
-    }
-
     private List<Car> createCars(List<String> names) {
-        List<Car> cars = names.stream()
-                .map(name -> new Car(name))
+        return names.stream()
+                .map(Car::new)
                 .collect(Collectors.toList());
-
-        return cars;
     }
 
-    public Cars run() {
-        List<Car> newCars = cars.stream()
-                .map(car -> car.move())
+    public void run() {
+        List<Car> movedCars = cars.stream()
+                .map(Car::move)
                 .collect(Collectors.toList());
 
-        return new Cars(newCars);
+        setCars(movedCars);
     }
 
     public List<String> findWinners() {
@@ -43,7 +38,7 @@ public class Cars {
     private Car findMaxDistanceCar() {
         return cars.stream()
                 .max(Car::compareTo)
-                .orElseThrow(() -> new NoSuchElementException());
+                .orElseThrow(NoSuchElementException::new);
     }
 
     private List<String> findSameDistanceCars(Car maxDistanceCar) {
@@ -55,5 +50,9 @@ public class Cars {
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
+    }
+
+    private void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }
