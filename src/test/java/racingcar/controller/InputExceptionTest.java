@@ -43,4 +43,12 @@ public class InputExceptionTest {
         assertThatThrownBy(() -> inputException.carsNameException(carsName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_이름의_길이가_5초과_일때_IllegalArgumentException() {
+        String carsName = "junnn,sanggg";
+
+        assertThatThrownBy(() -> inputException.carsNameException(carsName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
