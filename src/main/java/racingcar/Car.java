@@ -2,7 +2,7 @@ package racingcar;
 
 import static racingcar.Moving.isMovable;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private static final int NAME_MAX_LENGTH = 5;
     private static final int START_POSITION = 0;
 
@@ -27,6 +27,11 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.position - position;
     }
 
 }
