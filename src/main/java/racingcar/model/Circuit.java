@@ -23,7 +23,17 @@ public class Circuit {
                 .toList();
     }
 
-    public String race() {
+    public String race(Round round) {
+        StringBuilder roundResult = new StringBuilder();
+
+        for (int i = 0; i < round.round(); i++) {
+            roundResult.append(race());
+        }
+
+        return roundResult.toString();
+    }
+
+    private String race() {
         StringJoiner roundResult = new StringJoiner(DELIMITER);
 
         for (RacingCar racingCar : racingCars) {

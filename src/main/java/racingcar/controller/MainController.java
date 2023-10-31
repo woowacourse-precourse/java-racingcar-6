@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Circuit;
-import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -23,12 +22,8 @@ public class MainController {
     public void start() {
         init();
 
-        Round round = inputView.readRound();
-        StringBuilder roundResult = new StringBuilder();
-        for (int i = 0; i < round.round(); i++) {
-            roundResult.append(circuit.race());
-        }
-        outputView.printRoundResult(roundResult.toString());
+        String roundResult = circuit.race(inputView.readRound());
+        outputView.printRoundResult(roundResult);
 
         end();
     }
