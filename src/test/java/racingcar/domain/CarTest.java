@@ -13,6 +13,7 @@ public class CarTest extends NsTest {
     private static final String CAR_NAME = "car";
     private static final String CAR1_NAME = "car1";
     private static final String CAR2_NAME = "car2";
+
     @Test
     @DisplayName("compareTo 함수 기능 테스트")
     void 두_개의_값을_비교하는_기능_테스트() {
@@ -28,11 +29,20 @@ public class CarTest extends NsTest {
 
     @Test
     @DisplayName("getName 함수 기능 테스트")
-    void 자동차_이름_반환_기능_테스트(){
+    void 자동차_이름_반환_기능_테스트() {
         //given
         Car car = new Car(CAR_NAME);
         //then
         assertEquals(car.getName(), CAR_NAME);
+    }
+
+    @Test
+    @DisplayName("getPosition 함수 기능 테스트")
+    void 자동차_이동거리_반환_기능_테스트() {
+        //given
+        Car car = new Car(CAR_NAME);
+        //then
+        assertEquals(car.getPosition(), 0);
     }
 
     @Override
