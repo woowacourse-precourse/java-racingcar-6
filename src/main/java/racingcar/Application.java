@@ -32,7 +32,7 @@ public class Application {
             System.out.println("실행 결과");
             for (int i = 0; i < toTry; i++) {
                 for (int j = 0; j < cars.size(); j++) {
-                    int randomNumber = Randoms.pickNumberInRange(0, 9);
+                    int randomNumber = getRandomNumber();
                     if (randomNumber >= 4) {
                         toGo.set(j, toGo.get(j) + 1);
                     }
@@ -57,6 +57,11 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static int getRandomNumber() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber;
     }
 
     private static int getToTry(BufferedReader br) throws IOException {
