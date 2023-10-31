@@ -3,8 +3,6 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EmptySource;
-import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
@@ -25,5 +23,25 @@ class CarTest {
     void createCarWithWrongInput(String name) {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("자동차 이동 - 전진X")
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    void notMoveForward(int randomNum) {
+        Car car = new Car("pobi");
+        car.move(randomNum);
+
+        assertThat(car.getProgressCount()).isEqualTo(0);
+    }
+
+    @DisplayName("자동차 이동 - 전진")
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    void moveForward(int randomNum) {
+        Car car = new Car("pobi");
+        car.move(randomNum);
+
+        assertThat(car.getProgressCount()).isEqualTo(1);
     }
 }
