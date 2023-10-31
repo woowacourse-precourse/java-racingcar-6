@@ -35,10 +35,11 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<Car> winningCars() {
+    public List<String> winningCarNames() {
         int maxPosition = getMaxPosition();
         return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .filter(car -> car.isSamePosition(maxPosition))
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
@@ -46,7 +47,7 @@ public class Cars {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(0);
+                .orElse(Car.INIT_POSITION);
     }
 
     private static int createRandomNumber() {
