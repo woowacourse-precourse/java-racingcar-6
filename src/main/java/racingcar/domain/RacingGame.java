@@ -25,12 +25,10 @@ public class RacingGame {
 
     public void goOrStop() {
         String input = inputView.inputCarName(); // 자동차 입력 받기
-        outputView.printCars(input);            // 자동차 출력
 
         cars = new Cars(inputView.carName(input)); // Car > Cars
 
         int trialNumber = inputView.inputTrialNumber(); // 시도 횟수 입력 받기
-        outputView.printTrialNumber(trialNumber); // 시도횟수 출력
 
         for (int i = 0; i < trialNumber; i++ ) {
             moveCarIfRandomOver4();

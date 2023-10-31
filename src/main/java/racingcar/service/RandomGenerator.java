@@ -6,9 +6,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 *  0 ~ 9*/
 public class RandomGenerator {
     private boolean result;
-    public RandomGenerator() {
-        this.result = generateRandom();
-    }
 
     // random 생성
     public boolean generateRandom() {
