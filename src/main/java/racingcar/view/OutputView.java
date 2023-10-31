@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.ResultDto;
 import racingcar.domain.SingleRoundResultDto;
+import racingcar.util.Consts;
 import racingcar.util.Sentence;
 
 import java.math.BigInteger;
@@ -25,11 +26,12 @@ public class OutputView {
         System.out.print(Sentence.ALIGN_LINE.getMessage());
         System.out.println(Sentence.RESULT_START_MENTION.getMessage());
 
-        long round = 1L;
+        long round = Consts.FIRST_ROUND;
         long finalRound = resultDto
                 .getFinalRound()
                 .longValue();
-        while (round != finalRound) {
+
+        while (round <= finalRound) {
             SingleRoundResultDto singleRoundResultDto = resultDto
                     .getSingleRoundResultDto(BigInteger.valueOf(round));
             long carNumbers = singleRoundResultDto.getCarNumbers();
