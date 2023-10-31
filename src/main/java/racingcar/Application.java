@@ -1,6 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;import java.util.*;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.*;
 
 // 효율적인 구현을 위한 Class 정의
 class Car {
@@ -21,7 +23,8 @@ class Car {
 
     // move 조건 설정
     public void move() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);;
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        ;
         if (randomNumber >= 4) {
             position++;
         }
@@ -32,7 +35,7 @@ public class Application {
     private Scanner scanner;
     List<Car> racerList = new ArrayList<>();
 
-    public void checkNamelength(String[] racerArray){
+    public void checkNamelength(String[] racerArray) {
         for (int i = 0; i < racerArray.length; i++) {
             // name의 길이가 5를 넘어가는 경우 -> 예외 발생
             if (racerArray[i].length() > 5) {
@@ -42,7 +45,7 @@ public class Application {
         }
     }
 
-    public int findMaxPosition(){
+    public int findMaxPosition() {
         int maxPosition = 0;
         for (Car car : racerList) {
             maxPosition = Math.max(maxPosition, car.getPosition());
@@ -50,7 +53,7 @@ public class Application {
         return maxPosition;
     }
 
-    public List<String> findWinners(int maxPosition){
+    public List<String> findWinners(int maxPosition) {
         List<String> winners = new ArrayList<>();
         for (Car car : racerList) {
             if (car.getPosition() == maxPosition) {
@@ -58,6 +61,31 @@ public class Application {
             }
         }
         return winners;
+    }
+
+    public void tryRace(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            for (Car car : racerList) {
+                car.move();
+                System.out.printf("%s : ", car.getName());
+                for (int j = 0; j < car.getPosition(); j++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+    }
+
+    public void printWinner(List<String> winners) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            // 2명 이상이 되는 경우 ", "를 포함하여 출력하도록 설정
+            if (i < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 
 
@@ -75,33 +103,15 @@ public class Application {
         int tryCount = scanner.nextInt();
 
         System.out.println("실행 결과");
-        for (int i=0; i < tryCount; i++){
-            for (Car car : racerList) {
-                car.move();
-                System.out.printf("%s : ", car.getName());
-                for (int j = 0; j < car.getPosition(); j++) {
-                    System.out.print("-");
-                }
-                System.out.println();
-            }
-            System.out.println();
-        }
+        tryRace(tryCount);
 
         // 제일 멀리 간 position 확인
         int maxPosition = findMaxPosition();
         // 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
         List<String> winners = findWinners(maxPosition);
-
-        // 최종 우승자 출력
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            // 2명 이상이 되는 경우 ", "를 포함하여 출력하도록 설정
-            if (i < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        printWinner(winners);   // 최종 우승자 출력
     }
+
     public static void main(String[] args) {
         Application race = new Application();
         race.racing();
