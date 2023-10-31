@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.model;
 
+import racingcar.utils.RandomNumberGenerator;
 public class Car {
 
         private String name;
@@ -9,7 +10,8 @@ public class Car {
             this.name=name;
         }
 
-        public void updatePosition(int randomNumber){
+        public void updatePosition(){
+            int randomNumber=RandomNumberGenerator.generateRandomNumber();
             if(randomNumber>=4){
                 ++position;
             }

@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.utils;
 
-import java.sql.Array;
+import racingcar.model.Car;
+
 import java.util.*;
 public class Winner {
     public static List<Car> getWinners(List<Car> cars){
