@@ -9,16 +9,24 @@ import java.util.List;
 
 public class FunctionUnitTest {
 
+    Cars cars = new Cars();
+    private final String RAW_CAR_NAME = "pobi,woni,jun";
+    private final int TRY_COUNT = 5;
+
     @Test
     void 자동차_이름_저장() {
-        Cars cars = new Cars();
-        String rawCarName = "pobi,woni";
+        List<Car> carList = cars.setPlayer(RAW_CAR_NAME);
+        carList.forEach(car -> System.out.println(car.getCarName()));
 
-        List<Car> carList = cars.setPlayer(rawCarName);
+        Assertions.assertEquals(3, carList.size());
+    }
 
-        carList.stream().forEach(car -> System.out.println(car.getCarName()));
+    @Test
+    void 자동차_전진() {
+        List<Car> carList = cars.setPlayer(RAW_CAR_NAME);
+        carList = cars.raceCars(carList, TRY_COUNT);
 
-        Assertions.assertEquals(2, carList.size());
+        carList.forEach(car -> System.out.println(car.getCarName() + " " + car.getMove()));
     }
 
 }
