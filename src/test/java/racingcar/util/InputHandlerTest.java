@@ -8,14 +8,11 @@ import java.io.InputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.InputHandler;
 
 class InputHandlerTest {
-    private static final InputStream originalSystemIn = System.in;
 
     @BeforeEach
     void setUp() {
-        System.setIn(originalSystemIn);
         Console.close();
     }
 
