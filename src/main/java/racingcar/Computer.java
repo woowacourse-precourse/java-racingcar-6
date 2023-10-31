@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class Computer {
 
     private final List<String> roundResults = new ArrayList<>();
-    private final List<RacingCar> carNames = new ArrayList<>();
+    private final List<RacingCar> racingCars = new ArrayList<>();
     private int round = ZERO;
 
     public void readCarNames(String input) {
@@ -22,8 +22,8 @@ public class Computer {
         if (isInvalidCarNames(carNames)) {
             throw new IllegalArgumentException();
         }
-        this.carNames.clear();
-        this.carNames.addAll(carNames.stream().map(RacingCar::new).toList());
+        this.racingCars.clear();
+        this.racingCars.addAll(carNames.stream().map(RacingCar::new).toList());
     }
 
     private List<String> extractCarNames(String input) {
@@ -80,7 +80,7 @@ public class Computer {
     }
 
     private String playRound() {
-        this.carNames.stream().filter(RacingCar::isMovable).forEach(RacingCar::move);
+        this.racingCars.stream().filter(RacingCar::isMovable).forEach(RacingCar::move);
         return roundResult();
     }
 
@@ -89,7 +89,7 @@ public class Computer {
     }
 
     private String roundResult() {
-        return this.carNames.stream()
+        return this.racingCars.stream()
                 .map(RacingCar::toString)
                 .collect(Collectors.joining(LINE_SEPARATOR));
     }
@@ -98,11 +98,8 @@ public class Computer {
         if (isNotZero(this.round) || this.roundResults.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        final int maxPosition = this.carNames.stream()
-                .mapToInt(RacingCar::getPosition)
-                .max()
-                .orElseThrow(IllegalArgumentException::new);
-        return this.carNames.stream()
+        final int maxPosition = maxPosition();
+        return this.racingCars.stream()
                 .filter(car ->
                         car.getPosition() == maxPosition)
                 .map(RacingCar::getName)
@@ -111,5 +108,12 @@ public class Computer {
 
     private boolean isNotZero(int round) {
         return round != ZERO;
+    }
+
+    private int maxPosition() {
+        return this.racingCars.stream()
+                .mapToInt(RacingCar::getPosition)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }
