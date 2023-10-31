@@ -12,13 +12,13 @@ public class RacingManager {
 
     private final List<Car> cars;
 
-    public RacingManager(CarNameList carNameList) {
+    public RacingManager(final CarNameList carNameList) {
         this.cars = carNameList.stream()
                 .map(Car::new)
                 .toList();
     }
 
-    public void moveEachCar(List<Integer> randomNumbers) {
+    public void moveEachCar(final List<Integer> randomNumbers) {
         validate(randomNumbers.size());
         int size = size();
         for (int i = 0; i < size; i++) {
@@ -29,17 +29,10 @@ public class RacingManager {
         }
     }
 
-    private void validate(int randomNumberSize) {
-        if (randomNumberSize != size()) {
-            throw new BusinessException(
-                    ExceptionCode.INVALID_RANDOM_NUMBERS_SIZE,
-                    this.getClass()
-            );
-        }
-    }
-
-    public int size() {
-        return cars.size();
+    public GameResult createResult() {
+        GameResult result = new GameResult();
+        cars.forEach(result::note);
+        return result;
     }
 
     public List<String> calculateWinner() {
@@ -53,18 +46,24 @@ public class RacingManager {
                 .toList();
     }
 
+    public int size() {
+        return cars.size();
+    }
+
+    private void validate(final int randomNumberSize) {
+        if (randomNumberSize != size()) {
+            throw new BusinessException(
+                    ExceptionCode.INVALID_RANDOM_NUMBERS_SIZE,
+                    this.getClass()
+            );
+        }
+    }
+
     private int getMaxDistance() {
         int zero = 0;
         Optional<Integer> maxDistance = cars.stream()
                 .max(Comparator.comparing(Car::getDistance))
                 .map(Car::getDistance);
         return maxDistance.orElse(zero);
-
-    }
-
-    public GameResult createResult() {
-        GameResult result = new GameResult();
-        cars.forEach(result::note);
-        return result;
     }
 }
