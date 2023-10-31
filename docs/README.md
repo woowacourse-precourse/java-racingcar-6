@@ -70,3 +70,20 @@
 - [x] 우승자 출력
   - [x] 우승자는 한 명 이상일 수 있다.
   - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
+
+## 기능목록 정리
+
+- 사용자는 자동차 이름을 입력할 수 있다. InputView - inputCars
+  - 사용자가 잘못된 입력을 할 경우 IllegalArgumentException 예외를 발생시킨다.           CarName - validateName
+  - 사용자가 중복된 값을 입력했을 경우 llegalArgumentException 예외를 발생시킨다          Cars - validateDuplicateName
+  - 사용자가 2개 미만의 자동차를 입력했을 경우 llegalArgumentException 예뢰를 발생시킨다.   Cars - validateMinimumCarCount
+- 사용자는 시도횟수를 입력할 수 있다. Input-inputTryCount
+  - 사용자가 잘못된 입력을 할 경우 IllegalArgumentException 예외를 발생시킨다. GameController - initializeTryCount
+  - 사용자가 0보다 작은 숫자를 입력할경우 IllegalArgumentException 예뢰를 발생 시킨다. TryCount - validateTryCount
+- 시도 횟수 만큼 게임을 반복한다. TryCount - hasRepeat
+  - 컴퓨터는 0에서 9 사이의 무작위 값을 생성한다. RandomNumberGenerator - generateRandomNumber 
+    - 무작위 값이 4 이상이면 전진한다. Car-moveToCar
+  - 한번 전진 할때마다 위치를 1만큼 증가시킨다. Position - move
+  - 자동차들의 진행 사항을 시도 횟수마다 출력시킨다. OutputView - printRacingStatus
+  - 게임이 한번 진행될때 마다 시도횟수를 1만큼 감소시킨다. TryCount - decreaseCount
+- 반복이 끝난후 우승자를 출력한다 - OutputView - printResult
