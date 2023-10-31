@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -37,6 +38,15 @@ public class ApplicationFuncTest {
         int[] carPositions = {0, 0, 0};
         int numAttempts = 3;
         Application.Race(carNames, carPositions, numAttempts);
+    }
+
+    @DisplayName("최종 우승이 없는 경우")
+    @Test
+    public void printWinnerTest() {
+        String[] carNames = {"pobi", "woni", "jun"};
+        int[] carPositions = {0, 0, 0};
+        String result = Application.printWinner(carNames, carPositions);
+        Assertions.assertThat(result).isEqualTo("최종 우승자는 없습니다.");
     }
 
 
