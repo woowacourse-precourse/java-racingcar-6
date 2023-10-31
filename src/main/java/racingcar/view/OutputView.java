@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.CarDto;
+import racingcar.model.CarDto;
 
 public class OutputView {
     private static final String RESULT_ANNOUNCEMENT = "실행 결과";
