@@ -11,7 +11,6 @@ public class Game {
 
     public void racing() {
         cars.racing();
-
     }
 
     public List<Car> giveResult() {
