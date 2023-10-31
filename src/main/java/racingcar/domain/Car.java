@@ -26,7 +26,11 @@ public class Car {
         this.forwardDistance = forwardDistance;
     }
 
-    public void carStatus(Car car) {
-        System.out.println(car.name + " : " + car.forwardDistance);
+    public String status() {
+        return this.name + " : " + this.forwardDistance;
+    }
+
+    public void forward() {
+        this.forwardDistance.append("-");
     }
 }
