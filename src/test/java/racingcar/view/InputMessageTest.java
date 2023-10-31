@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 
@@ -29,6 +30,18 @@ class InputMessageTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"name, A", "name, 한국어, ", "name, #$", "name, ", "name, -1"})
+    void 횟수_입력_예외_테스트(String input, String tryNumber) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(input, tryNumber))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+
 
     @Override
     protected void runMain() {
