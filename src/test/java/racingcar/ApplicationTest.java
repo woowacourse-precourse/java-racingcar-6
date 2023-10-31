@@ -114,7 +114,7 @@ class ApplicationTest extends NsTest {
     }
     
     @Test
-    void 우승자_리스트() {
+    void 우승자_리스트_생성() {
     	Car player1 = new Car("자동차1");
     	Car player2 = new Car("자동차2");
     	player1.setForword(5);
