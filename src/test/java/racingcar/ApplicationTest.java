@@ -10,8 +10,7 @@ import java.util.Set;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -57,21 +56,41 @@ class ApplicationTest extends NsTest {
       assertThat(cars).containsExactly("테스트1", "테스트2");
     }
 
+    @Test
+    void inputCarNameValidation_정상케이스() {
+      assertThatCode(() -> inputCarNameValidation("테스트1,테스트2,테스트3"))
+          .doesNotThrowAnyException();
+    }
 
     @Test
-    void inputCarNameValidation() {
+    void inputCarNameValidation_예외케이스() {
+      assertThatThrownBy(() -> inputCarNameValidation("123456,테스트2,테스트3"))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
+    }
 
-      String input = "테스트1,테스트2,테스트3";
+    private void inputCarNameValidation(String input){
       String[] result = input.split(",");
+      for (String car : result){
+        if(car.length()>5){
+          throw  new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+      }
+    }
+
+    @Test
+    void createCars() {
+      String input = "테스트1,테스트2,테스트3";
+      String[] inputCarNameSplit = input.split(",");
       Map<String,Integer> cars = new HashMap<>();
 
-      for (String car: result) {
-        if (car.length()>5){
-          throw new IllegalArgumentException("자동차이름은 5자 이하만 가능합니다.");
-        }
+      for (String car : inputCarNameSplit){
         cars.put(car,0);
       }
-      assertThat(cars).hasSize(3);
+
+      assertThat(cars).hasSize(3)
+          .contains(entry("테스트1", 0), entry("테스트2", 0), entry("테스트3", 0))
+          .doesNotContainEntry("테스트4", 0);
     }
 
     @Test
