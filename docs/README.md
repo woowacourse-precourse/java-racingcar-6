@@ -10,9 +10,11 @@
   <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/>
 
 </div>
+<br>
 
 ## 🚗 자동차 경주 게임
 이 프로젝트는 Java를 사용하여 구현된 자동차 경주 게임입니다. 이 게임은 여러 자동차가 경주를 벌이며, 특정 규칙에 따라 승자를 결정하는 간단한 콘솔 기반 게임입니다.
+<br><br>
   
 ## 🚀 게임 규칙
 1. **자동차 이름 부여**
