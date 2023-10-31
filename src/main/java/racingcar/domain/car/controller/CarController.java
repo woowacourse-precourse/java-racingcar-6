@@ -32,10 +32,10 @@ public class CarController {
 
     private void racingCarProcess() {
         int tryCount = carInputView.getTryCount();
-        loopRacingCar(tryCount);
+        startRacing(tryCount);
     }
 
-    private void loopRacingCar(int tryCount) {
+    private void startRacing(int tryCount) {
         carOutputView.printResult();
 
         IntStream.range(0, tryCount)
