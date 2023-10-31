@@ -47,7 +47,11 @@ public class Service {
     }
 
     public void showProgress() {
-        outputView.printProgressMessage(cars, progressBoard);
+        List<String> progress = new ArrayList<>();
+        for(String car : cars) {
+            progress.add(progressBoard.progressOf(car));
+        }
+        outputView.printProgressMessage(cars, progress);
     }
 
     public void printResultMessage() {

@@ -22,9 +22,9 @@ public class OutputView {
         System.out.println(FINAL_WINNER + stringJoiner);
     }
 
-    public void printProgressMessage(List<String> cars, ProgressBoard progressBoard) {
-        for (String carName : cars) {
-            System.out.println(carName + COLON + progressBoard.progressOf(carName));
+    public void printProgressMessage(List<String> cars, List<String> progress) {
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i) + COLON + progress.get(i));
         }
         System.out.println();
     }
