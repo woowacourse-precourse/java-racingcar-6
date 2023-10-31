@@ -18,4 +18,8 @@ public class GameView {
     public static void printCarNameInputPhrase() {
         System.out.println(CAR_NAME_INPUT_PHRASE);
     }
+
+    public static void printTryNumPhrase() {
+        System.out.println(TRY_NUM_PHRASE);
+    }
 }
