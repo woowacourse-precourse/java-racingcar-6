@@ -21,7 +21,7 @@ public class CarRacingGame {
 
     private void play(RacingCars racingCars, Integer numberOfAttempts) {
         for (int i = 0; i < numberOfAttempts; i++) {
-
+            racingCars.race();
         }
     }
 

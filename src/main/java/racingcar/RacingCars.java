@@ -17,6 +17,10 @@ public class RacingCars {
         return new RacingCars(Arrays.stream(carNames).map(RacingCar::new).toList());
     }
 
+    public void race() {
+        racingCars.stream().forEach(RacingCar::moveOrStay);
+    }
+
     @Override
     public String toString() {
         StringJoiner stringJoiner = new StringJoiner(System.lineSeparator());
