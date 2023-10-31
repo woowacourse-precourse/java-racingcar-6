@@ -12,5 +12,7 @@ public class Constant {
     public static final int MOVE_OR_STOP_BOUNDARY_VALUE = 4;
     public static final String EXECUTION_START_SIGN = "실행 결과";
     public static final String CAR_DISTANCE_VALUE_SYMBOL = "-";
+    public static final String FINAL_WINNER_ANNOUNCEMENT_SIGN = "최종 우승자 : ";
+    public static final String FINAL_WINNER_DUPLICATE_DELIMITER = ",";
 
 }

@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.constant.Constant;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
@@ -39,4 +40,11 @@ public class OutputView {
         return sb.toString();
     }
 
+    public void printFinalWinner(CarList mostDistanceCarList) {
+        System.out.print(Constant.FINAL_WINNER_ANNOUNCEMENT_SIGN);
+        String finalWinnerResult = mostDistanceCarList.getCarList()
+                .stream().map(Car::getName)
+                .collect(Collectors.joining(Constant.FINAL_WINNER_DUPLICATE_DELIMITER));
+        System.out.println(finalWinnerResult);
+    }
 }

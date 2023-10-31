@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.CarList;
 import racingcar.domain.CarNameList;
 import racingcar.domain.RacingCarManager;
 import racingcar.validator.CarNamesInputValidator;
@@ -27,5 +28,7 @@ public class GameController {
             racingCarManager.playRacingGame();
             outputView.printCarStatus(racingCarManager.getCarList());
         }
+        CarList mostDistanceCarList = racingCarManager.getCarList().getMostDistanceCars();
+        outputView.printFinalWinner(mostDistanceCarList);
     }
 }
