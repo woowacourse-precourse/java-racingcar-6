@@ -6,6 +6,7 @@ public class RacingCar {
 
     private static final Integer PICK_NUMBER_START_RANGE = 0;
     private static final Integer PICK_NUMBER_END_RANGE = 9;
+    private static final Integer CONDITION_OF_MOVING_FORWARD = 4;
 
     private String name;
     private Integer location;
@@ -13,6 +14,10 @@ public class RacingCar {
     public RacingCar(String name) {
         this.name = name;
         location = 0;
+    }
+
+    private boolean canMoveForward() {
+        return createRandomNumber() >= CONDITION_OF_MOVING_FORWARD;
     }
 
     private Integer createRandomNumber() {
