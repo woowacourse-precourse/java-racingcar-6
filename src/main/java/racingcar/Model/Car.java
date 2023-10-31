@@ -2,7 +2,9 @@ package racingcar.Model;
 
 public class Car {
     private String carName;
-    private int stepCount = 0;
+    private int moveCount = 0;
+
+    private String distance = "";
 
     public Car(String carName) {
         this.carName = carName;
@@ -12,11 +14,16 @@ public class Car {
         return this.carName;
     }
 
-    public int getStepCount(){
-        return this.stepCount;
+    public int getMoveCount(){
+        return this.moveCount;
     }
 
-    public void plusStepCount(){
-        this.stepCount = this.stepCount + 1;
+    public void accel(){
+        this.moveCount += 1;
+        this.distance += "-";
+    }
+
+    public String getCurrentState(){
+        return this.carName + " : " + this.distance;
     }
 }

@@ -67,9 +67,9 @@ public class RacingCarGameController {
     }
 
     public void totalCurrentRoundResult(List<Car> carList) {
-        Map<String, Integer> roundResult = new HashMap<>();
+        List<String> roundResult = new ArrayList<>();
         for(Car car: carList){
-            roundResult.put(car.getName(), car.getMoveCount());
+            roundResult.add(car.getCurrentState());
         }
         OutView.printCurrentRoundResult(roundResult);
     }
