@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
     private int tryNum;
 
     public void inputCarsName() {
@@ -22,16 +22,21 @@ public class RacingGame {
         System.out.println(tryNum);
     }
 
+    public int getTryNum() {
+        return tryNum;
+    }
+
     public void tryToMove() {
         for (Car c : cars) {
             c.move();
         }
     }
 
-    public void printCarsName() {
+    public void printStatus() {
         for (Car c : cars) {
-            System.out.println(c.getName());
+            c.status();
         }
+        System.out.println();
     }
 
 

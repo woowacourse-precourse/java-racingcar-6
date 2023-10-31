@@ -19,4 +19,8 @@ public class Car {
             location++;
         }
     }
+
+    public void status() {
+        System.out.println(name + " : " + "-".repeat(location));
+    }
 }

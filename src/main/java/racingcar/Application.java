@@ -4,9 +4,14 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         RacingGame game = new RacingGame();
+
         game.inputCarsName();
-        game.printCarsName();
         game.inputTryNum();
+        System.out.println("실행 결과");
+        for (int i = 0; i < game.getTryNum(); i++) {
+            game.tryToMove();
+            game.printStatus();
+        }
         //System.out.println(test);
     }
 }
