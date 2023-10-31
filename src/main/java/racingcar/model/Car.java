@@ -10,7 +10,7 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        if (name.length() > CarNameLength.MAX_LENGTH.getValue()) {
+        if (name.isEmpty() || name.length() > CarNameLength.MAX_LENGTH.getValue()) {
             throw new IllegalArgumentException(MessageFactory.getInvalidCarNameMessage(CarNameLength.MAX_LENGTH.getValue()));
         }
         this.name = name;
