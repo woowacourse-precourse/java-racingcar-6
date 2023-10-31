@@ -2,7 +2,6 @@ package racingcar;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -64,10 +63,7 @@ class PrintUtilTest {
     void 게임_우승자_두명_출력(Map<String, String> result, List<String> winner) {
         printWinnerMsg(result, winner);
 
-        StringBuilder expectedResult = new StringBuilder();
-        expectedResult.append("최종 우승자 : pobi, woni");
-
-        assertThat(out.toString()).isEqualTo(expectedResult.toString());
+        assertThat(out.toString()).isEqualTo("최종 우승자 : pobi, woni");
     }
 
     @ParameterizedTest
@@ -75,10 +71,7 @@ class PrintUtilTest {
     void 게임_우승자_세명_출력(Map<String, String> result, List<String> winner) {
         printWinnerMsg(result, winner);
 
-        StringBuilder expectedResult = new StringBuilder();
-        expectedResult.append("최종 우승자 : pobi, woni, jun");
-
-        assertThat(out.toString()).isEqualTo(expectedResult.toString());
+        assertThat(out.toString()).isEqualTo("최종 우승자 : pobi, woni, jun");
     }
 
     private static String generateExpectedGameResult(Map<String, String> result) {
