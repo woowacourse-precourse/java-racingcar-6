@@ -4,12 +4,12 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
+
     private static final String BLANK_ERROR_MESSAGE = "[ERROR] 공백이 입력되었습니다.";
     private static final String NEGATIVE_NUMBER_ERROR_MESSAGE = "[ERROR] 음수가 입력되었습니다.";
     private static final String ZERO_ERROR_MESSAGE = "[ERROR] 0이 입력되었습니다.";
     private static final String NON_NUMBER_ERROR_MESSAGE = "[ERROR] 숫자가 아닌 값이 입력되었습니다.";
     private static final String BLANK = "";
-
     private static final String ZERO = "0";
 
     private static final int NEGATIVE_NUMBER = -1;

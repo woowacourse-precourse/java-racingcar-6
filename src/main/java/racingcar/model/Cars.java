@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Cars {
 
+
     private final int POSSIBLE_RANDOM_NUMBER = 4;
     private final List<Car> cars;
 

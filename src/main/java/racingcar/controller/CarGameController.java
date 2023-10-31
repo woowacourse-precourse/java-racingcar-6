@@ -29,7 +29,6 @@ public class CarGameController {
         printResult(tryNumber);
     }
 
-
     public void processInput(String input) {
         carNames = new CarNames(game.splitCarName(input));
         createCars(carNames.getNames());
@@ -45,12 +44,10 @@ public class CarGameController {
         OutputView.printFinalWinner(game.judgeWinner(movedCars));
     }
 
-
     public List<Car> createCars(List<String> carNames) {
         List<Car> carList = carNames.stream().map(carName -> new Car(carName)).collect(Collectors.toList());
         this.cars = new Cars(carList);
         return carList;
     }
-
 
 }
