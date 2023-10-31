@@ -1,6 +1,7 @@
 package racingcar.util;
 
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -15,6 +16,7 @@ public abstract class IOTest {
 
     @BeforeEach
     protected final void init() {
+        Console.close();
         standardOut = System.out;
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
@@ -26,8 +28,9 @@ public abstract class IOTest {
         System.out.println(output());
     }
 
-    protected void input(String input) {
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
+    protected void input(final String... input) {
+        final byte[] buf = String.join("\n", input).getBytes();
+        System.setIn(new ByteArrayInputStream(buf));
     }
 
     protected final String output() {

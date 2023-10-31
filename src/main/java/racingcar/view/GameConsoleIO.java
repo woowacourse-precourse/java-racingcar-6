@@ -29,21 +29,21 @@ public class GameConsoleIO {
 
     public List<String> getCarNames() {
         System.out.println(ASK_CAR_NAMES_MESSAGE);
-        String carNames = Console.readLine().replaceAll("\\s", "");
-        Console.close();
+        String carNames = Console.readLine();
+
+
 
         return Arrays.stream(carNames.split(MEMBER_SEPARATOR))
                 .peek(name -> inputValidation.validateCarNameSize(name, GameCondition.NAME_SIZE.getValue()))
                 .toList();
+
     }
 
     public int getMovingCount() {
         System.out.println(ASK_MOVING_COUNT_MESSAGE);
         String movingCount = Console.readLine().trim();
-        Console.close();
 
         inputValidation.validateMovingCount(movingCount);
-
         return Integer.parseInt(movingCount);
     }
 
