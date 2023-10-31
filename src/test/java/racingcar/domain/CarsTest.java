@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.fixture.NameFixture.VALID_CAR_INPUT;
 
 class CarsTest {
-
+    
     @Nested
     @DisplayName("[create Test - Constructor Static Factory Method]")
     class createTest {

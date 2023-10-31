@@ -9,16 +9,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
+import static racingcar.domain.MovementCondition.*;
 import static racingcar.fixture.NameFixture.VALID_KOREAN;
 
 @DisplayName("[Name Test] - Domain Layer")
 class CarTest {
     private static final Integer START_SCORE = 0;
     private static final Integer FORWARD_SCORE = 1;
-
-    private static final Integer NUMBER_LOWER_BOUND_CONSTRAINT = 0;
-    private static final Integer NUMBER_UPPER_BOUND_CONSTRAINT = 9;
-    private static final Integer FORWARD_MOVEMENT_LOWER_BOUND_CONDITION = 4;
 
     private static MockedStatic<Randoms> randoms;
 
