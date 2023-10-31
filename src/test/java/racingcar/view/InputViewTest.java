@@ -22,7 +22,7 @@ class InputViewTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void cleanUp() {
         Console.close();
     }
 
@@ -37,7 +37,7 @@ class InputViewTest {
         //then
         assertThat(cars).isEqualTo("A,B");
     }
-    
+
     @Test
     @DisplayName("사용자에게 횟수 5를 입력 받은 후 반환한다.")
     void readCarsGameCount() throws Exception {
