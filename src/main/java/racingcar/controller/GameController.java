@@ -2,6 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import racingcar.Util;
 import racingcar.model.Car;
 import racingcar.model.Judge;
 import racingcar.model.Round;
@@ -23,7 +25,7 @@ public class GameController {
     public void set() {
 
         SystemView.promptForCarNames();
-        List<String> carNames = CarController.setCars();
+        List<String> carNames = CarController.getCarNamesFromUser(Util.readLine());
 
         SystemView.promptForRoundNumber();
         roundNumber = RoundController.setRound();
