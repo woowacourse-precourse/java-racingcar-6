@@ -19,11 +19,11 @@ public class ViewMaker {
 
     public String makeWinnerView(List<Car> cars) {
         Car WinnerCar = cars.stream().
-                max(Comparator.comparingInt(Car::getForwardCount)).
+                max(Comparator.comparingInt(Car::getCurrentPosition)).
                 orElseThrow(NoSuchElementException::new);
 
         List<String> winnerNames = cars.stream().
-                filter(car -> car.getForwardCount() == WinnerCar.getForwardCount()).
+                filter(car -> car.getCurrentPosition() == WinnerCar.getCurrentPosition()).
                 map(Car::getName).
                 collect(Collectors.toList());
 

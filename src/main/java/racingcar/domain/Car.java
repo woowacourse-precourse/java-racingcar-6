@@ -1,38 +1,24 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-import static racingcar.constant.CarForwordConstant.MINIMUM_DICE_VALUE;
-
 public class Car {
     private final String name;
-    private int forwardCount;
+    private int currentPosition;
 
     public Car(String name) {
-        forwardCount = 0;
+        currentPosition = 0;
         this.name = name;
     }
 
-    public int forward() {
-        if (isCarCanForward()) {
-            forwardCount++;
-        }
-
-        return forwardCount;
+    public void forward() {
+        currentPosition++;
     }
-
-    private boolean isCarCanForward() {
-        int dice = Randoms.pickNumberInRange(0, 9);
-        return dice >= MINIMUM_DICE_VALUE;
-    }
-
 
     public String getName() {
         return name;
     }
 
-    public int getForwardCount() {
-        return forwardCount;
+    public int getCurrentPosition() {
+        return currentPosition;
     }
 
 }
