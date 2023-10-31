@@ -47,6 +47,16 @@ public class MoveNumInputTest {
         assertThat(Integer.parseInt(testInput)).isEqualTo((int)field.get(moveNum));
     }
 
+    @Test
+    @DisplayName ("자동차 이동횟수보다 적은값인지 확인하는 기능 테스트")
+    void canMoveNumIsInRangeTest() throws NoSuchFieldException, IllegalAccessException {
+        MoveNum moveNum = new MoveNum("10");
+
+        assertThat(true).isEqualTo(moveNum.isInRange(9));
+        assertThat(false).isEqualTo(moveNum.isInRange(10));
+        assertThat(false).isEqualTo(moveNum.isInRange(50));
+    }
+
     @ParameterizedTest
     @NullAndEmptySource
     @DisplayName ("자동차 이동횟수 입력 예외동작 테스트 (입력이 없을때)")
