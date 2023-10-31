@@ -29,7 +29,7 @@ public class CarsTest {
     void 중복_자동차_이름_테스트() {
         assertSimpleTest(() -> assertThatThrownBy(() -> new Cars("pobi,woni,pobi"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 이름을 입력하셨습니다."));
+                .hasMessageContaining(ErrorMessage.ERROR_DUPLICATE_CONDITION));
     }
 
     @Test
