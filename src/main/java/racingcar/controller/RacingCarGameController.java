@@ -4,6 +4,9 @@ import racingcar.model.*;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
+
+    private static final String RESULT = "실행 결과";
+
     private RacingCarGameView racingCarGameView;
     private RacingCarGameService racingCarGameService;
 
@@ -20,6 +23,8 @@ public class RacingCarGameController {
         TryCount tryCount = new TryCount(count);
 
         RacingResult racingResult = new RacingResult(carNames, tryCount);
+
+        System.out.println(RESULT);
 
         while(tryCount.getCount() > 0) {
             racingResult = racingCarGameService.continueGame(racingResult);

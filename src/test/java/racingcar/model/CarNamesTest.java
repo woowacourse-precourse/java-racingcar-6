@@ -9,25 +9,25 @@ import java.util.List;
 public class CarNamesTest {
 
     @Test
-    public void 이름_길이_검증_테스트() {
+    public void 차_이름_검증_테스트() {
         //given
         List<String> inputList = new ArrayList<>();
 
-        String NULL = "";
-        String LAST_COMMA = "pobi,woni,jun,";
-        String DOUBLE_COMMA = "pobi,woni,,jane";
-        String FIRST_COMMA = ",pobi,jason,min";
-        String SPACE_NEXT_TO_COMMA = "jane,pan, sang";
-        String LONG_NAMES = "minseong,pobi,woni";
-        String DUPLICATED_NAMES = "pobi,woni,woni,jason";
+        String empty = "";
+        String lastComma = "pobi,woni,jun,";
+        String doubleComma = "pobi,woni,,jane";
+        String firstComma = ",pobi,jason,min";
+        String spaceNextToComma = "jane,pan, sang";
+        String longNames = "minseong,pobi,woni";
+        String duplicatedNames = "pobi,woni,woni,jason";
 
-        inputList.add(NULL);
-        inputList.add(LAST_COMMA);
-        inputList.add(DOUBLE_COMMA);
-        inputList.add(FIRST_COMMA);
-        inputList.add(SPACE_NEXT_TO_COMMA);
-        inputList.add(LONG_NAMES);
-        inputList.add(DUPLICATED_NAMES);
+        inputList.add(empty);
+        inputList.add(lastComma);
+        inputList.add(doubleComma);
+        inputList.add(firstComma);
+        inputList.add(spaceNextToComma);
+        inputList.add(longNames);
+        inputList.add(duplicatedNames);
 
         //when
         //then
