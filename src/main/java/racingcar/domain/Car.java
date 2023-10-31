@@ -15,7 +15,7 @@ public class Car {
         return Car.from(name, 0);
     }
 
-    public static Car from(String name, int position){
+    public static Car from(String name, int position) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("Car 이름은 5자 이하여야 합니다.");
         }

@@ -16,7 +16,7 @@ public class GameShell {
             race.proceedCars();
             System.out.println(race);
         }
-        
+
         printWinner(race);
     }
 

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,11 +15,26 @@ import org.junit.jupiter.params.ParameterizedTest;
 public class ProbabilityWatcher implements TestWatcher {
     static Map<String, TestResult> resultMap = new HashMap<>();
 
+    public static void registerResult(TestInfo testInfo, String result, boolean warn) {
+        String key = getRegisterKey(testInfo);
+        resultMap.put(key, new TestResult(result, warn));
+    }
+
+    static String getRegisterKey(TestInfo testInfo) {
+        Class<?> testClass = testInfo.getTestClass().orElseThrow(NullPointerException::new);
+        Method testMethod = testInfo.getTestMethod().orElseThrow(NullPointerException::new);
+
+        return testClass.getName() + "." + testMethod.getName();
+    }
+
     /**
-     * 적절한 key를 생성하기 위해 Stack Trace를 사용합니다.<br/> JUnit5의 @Test, @ParameterizedTest, @RepeatedTest 범위 내에서 호출하는 것을 권장합니다.
+     * 적절한 key를 생성하기 위해 Stack Trace를 사용합니다.<br/>
+     * JUnit5의 @Test, @ParameterizedTest, @RepeatedTest 범위 내에서 호출하는 것을 권장합니다.
      *
      * @param result 현재는 String 출력만 수행하지만, 차후 특정한 형식을 요구할 수 있습니다.
+     * @deprecated CallStack 대신 testInfo를 사용하도록 변경되었습니다.
      */
+    @Deprecated
     public static void registerResult(String result, boolean warn) {
         String key = getRegisterKey(2);
         resultMap.put(key, new TestResult(result, warn));
@@ -29,7 +45,9 @@ public class ProbabilityWatcher implements TestWatcher {
      *
      * @param skipDepth 초기에 스킵할 콜스택 깊이
      * @return <현재 TestClass의 fullName>.<현재 Test메소드 이름> 형식의 문자열
+     * @deprecated CallStack 대신 testInfo를 사용하도록 변경되었습니다.
      */
+    @Deprecated
     static String getRegisterKey(int skipDepth) {
         StackWalker stackWalker = StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE);
         StackFrame stackFrame = stackWalker.walk(stream -> stream
@@ -69,6 +87,7 @@ public class ProbabilityWatcher implements TestWatcher {
         String key = testClassName + "." + testMethodName;
         TestResult testResult = resultMap.get(key);
 
+        // 물론 실제로는 로거를 사용하는 것이 바람직할 것...
         PrintStream outputStream = System.out;
         if (testResult.warn()) {
             outputStream = System.err;

@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -56,12 +58,17 @@ public class CarTest {
     /**
      * 이 테스트는 이항분포 신뢰구간(Z = 1, 95%구간)을 사용한 통계적 테스트입니다.
      * isProceed()의 반환값이 true일 확률이 60 퍼센트에 가까워야함을 테스트합니다.
-     * 실패하지는 않으나, 테스트결과를 모니터링 하며 기준치에서 벗어나지 않는지 확인할 필요가 있습니다.
+     *
+     * 현재 케이스는 이항분포이므로, 정규화 계산이 평균과 분산을 보증합니다.
+     * 연속값에 대한 검증은 엔트로피 테스트 등의 대안이 있지만, 해당 테스트에 대한 필요성은 의문입니다.
+     *
+     * 실패하지는 않으나, 신뢰구간을 벗어나면 경고합니다.
      */
     @DisplayName("isProceed()가 true일 확률이 60%에 가깝다")
+    @Tag("확률테스트")
     @ExtendWith(ProbabilityWatcher.class)
     @Test
-    void isProceedTest() {
+    void isProceedTest(TestInfo testInfo) {
         // given
         Car car = Car.from("name");
 
@@ -87,6 +94,7 @@ public class CarTest {
                 + "\n실제 확률: " + X
                 + "\n신뢰구간 준수여부: " + isInConfidenceInterval;
 
-        ProbabilityWatcher.registerResult(report, !isInConfidenceInterval);
+        boolean warn = !isInConfidenceInterval;
+        ProbabilityWatcher.registerResult(testInfo, report, warn);
     }
 }
