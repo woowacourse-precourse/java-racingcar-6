@@ -9,23 +9,23 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class CarRacingInputManager {
-    private final CarRacingOutputManager outputManager;
+public class CarRacingInputProcessor {
+    private final CarRacingOutputProcessor outputProcessor;
 
-    public CarRacingInputManager(CarRacingOutputManager outputManager) {
-        this.outputManager = outputManager;
+    public CarRacingInputProcessor(CarRacingOutputProcessor outputProcessor) {
+        this.outputProcessor = outputProcessor;
     }
 
 
     public List<String> readCarNames() {
-        outputManager.println(INPUT_CAR_NAMES_MESSAGE);
+        outputProcessor.println(INPUT_CAR_NAMES_MESSAGE);
         return Arrays
                 .stream(readLine().split(CAR_NAME_SEPARATOR))
                 .toList();
     }
 
     public String readTryToMoveTurnCount() {
-        outputManager.println(INPUT_TRY_COUNT_MESSAGE);
+        outputProcessor.println(INPUT_TRY_COUNT_MESSAGE);
         return readLine();
     }
 

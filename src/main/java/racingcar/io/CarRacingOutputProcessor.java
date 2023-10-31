@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.StringJoiner;
 import racingcar.domain.Car;
 
-public class CarRacingOutputManager {
+public class CarRacingOutputProcessor {
 
     public void printCarPosition(String carName, int position) {
         StringBuilder positionText = new StringBuilder();
