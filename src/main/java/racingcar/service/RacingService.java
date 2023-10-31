@@ -1,7 +1,8 @@
 package racingcar.service;
 
+import static racingcar.domain.enums.Constants.MIN_RACING_COUNT;
+
 import racingcar.domain.Cars;
-import racingcar.util.Message;
 
 public class RacingService {
 
@@ -13,20 +14,16 @@ public class RacingService {
         this.racingCount = racingCount;
     }
 
-    public void startRacing() {
-        moveAllRacingCar(racingCount);
+    public void playRacing() {
+        cars.moveCars();
+        racingCount--;
     }
 
-    private void moveAllRacingCar(int count) {
-        while (count-- > 0) {
-            cars.moveCars();
-            Message.printMoveResultMessage(cars.getCarList());
-        }
+    public boolean isPlayRacing() {
+        return racingCount >= MIN_RACING_COUNT;
     }
 
-    public void getRacingResult() {
-        String winner = String.join(", ", cars.getWinner());
-        Message.printRacingResultMessage(winner);
+    public Cars getCars() {
+        return cars;
     }
-
 }
