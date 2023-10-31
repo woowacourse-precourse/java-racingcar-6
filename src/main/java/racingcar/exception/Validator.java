@@ -6,10 +6,6 @@ public class Validator {
 
     public static void validateCarName(String carName) {
 
-        validateCarNameLength(carName);
-    }
-
-    private static void validateCarNameLength(String carName) {
         boolean isValidCarName = (carName.length() <= 5) && (carName.length() > 0);
 
         if (!isValidCarName) {
