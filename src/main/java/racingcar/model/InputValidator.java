@@ -1,17 +1,19 @@
 package racingcar.model;
 
-public class Validator {
-    public Validator() {
+import java.util.List;
+
+public class InputValidator {
+    public InputValidator() {
     }
 
-    public boolean isCarNameFromPlayerValidate(String carName) {
-        String[] carNameArray = carName.split(",");
-        for (int i = 0; i < carNameArray.length; i++) {
-            if (!(carNameArray[i].length() <= 5)) {
+    public List<String> validateCarNamesFromPlayer(String carNames) {
+        List<String> carNameList = List.of(carNames.split(","));
+        for (String carName: carNameList) {
+            if (carName.length() > 5 || carName.isEmpty()) {
                 throw new IllegalArgumentException();
             }
         }
-        return true;
+        return carNameList;
     }
 
     public boolean isNumberFromPlayerValidate(String number) {

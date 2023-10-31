@@ -8,8 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Car;
 import racingcar.model.Referee;
-import racingcar.model.Validator;
-import racingcar.view.OutputView;
+import racingcar.model.InputValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,13 +22,13 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationTest extends NsTest {
-    private Validator validator;
+    private InputValidator inputValidator;
     private Car car;
     private Referee referee;
 
     @BeforeEach
     void setUp() {
-        validator = new Validator();
+        inputValidator = new InputValidator();
         car = new Car(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
         referee = new Referee(new int[]{5, 4, 5});
     }
@@ -47,10 +46,10 @@ class ApplicationTest extends NsTest {
 
     @DisplayName("입력받은 자동차이름들이 콤마를 기준으로 5자이하가 아니면 IllegalArgumentException 발생시키기")
     @ParameterizedTest
-    @ValueSource(strings = {"pobi,javaji", "pobiaa,woni,jun"})
+    @ValueSource(strings = {"pobi,javaji", "pobiaa,woni,jun", ",woni"})
     void isCarNameFromPlayerValidate(String carName) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> validator.isCarNameFromPlayerValidate(carName))
+                assertThatThrownBy(() -> inputValidator.validateCarNamesFromPlayer(carName))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -60,7 +59,7 @@ class ApplicationTest extends NsTest {
     @ValueSource(strings = {"a", "1.2"})
     void isNumberFromPlayerValidate(String number) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> validator.isNumberFromPlayerValidate(number))
+                assertThatThrownBy(() -> inputValidator.isNumberFromPlayerValidate(number))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
