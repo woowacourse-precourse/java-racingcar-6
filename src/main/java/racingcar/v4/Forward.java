@@ -11,4 +11,10 @@ public class Forward {
         return randomsNum >= 4;
     }
 
+    public boolean canNotForward(int randomsNum) {
+        return randomsNum < 4;
+    }
+
+
+
 }
