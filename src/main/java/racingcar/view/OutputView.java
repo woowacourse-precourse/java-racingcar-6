@@ -22,7 +22,7 @@ public class OutputView {
         }
     }
 
-    private static void finalWinner(List<Car> winners) {
+    public static void finalWinner(List<Car> winners) {
         StringBuilder result = new StringBuilder("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             result.append(winners.get(i).getName());
