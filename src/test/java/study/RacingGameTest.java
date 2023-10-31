@@ -1,7 +1,5 @@
 package study;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
