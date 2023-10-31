@@ -1,31 +1,35 @@
 package racingcar.model;
 
-import racingcar.service.Accelerator;
-
 public class Car {
     String name;
     Integer location;
     Boolean isWinner;
     Accelerator accelerator;
-    public Car(String name, Accelerator accelerator){
+
+    public Car(String name) {
         this.name = name;
-        this.accelerator = accelerator;
+        accelerator = new Accelerator();
         location = 0;
         isWinner = false;
     }
-    public void advance(){
+
+    public void advance() {
         location += accelerator.advance();
     }
+
     public Integer getLocation() {
         return location;
     }
+
     public String getName() {
         return name;
     }
-    public void setWinner(){
+
+    public void setWinner() {
         isWinner = true;
     }
-    public Boolean isWinner(){
+
+    public Boolean isWinner() {
         return isWinner;
     }
 }
