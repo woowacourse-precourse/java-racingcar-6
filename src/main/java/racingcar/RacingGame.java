@@ -21,6 +21,10 @@ public class RacingGame {
         this.director = new Director(inputGenerateManager, outputGenerateManager, simulator, carFactory);
     }
 
+    public RacingGame(Director director) {
+        this.director = director;
+    }
+
     public void start() {
         director.startProcess();
     }
