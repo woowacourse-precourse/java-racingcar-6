@@ -27,7 +27,7 @@ public class RacingGameModel {
 
     public void setCarNames(String carNames) {
         cars = new ArrayList<>();
-        String[] names = carNames.split(",");
+        List<String> names = List.of(",".split(carNames));
         for (String name : names) {
             validateCarName(name);
             cars.add(new Car(name));
