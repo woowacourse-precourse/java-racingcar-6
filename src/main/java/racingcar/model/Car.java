@@ -8,7 +8,7 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        this.distance = 1;
+        this.distance = 0;
     }
 
     public void getResult() {

@@ -16,6 +16,7 @@ public class CarList {
     public void raceOneRound(CarList carList) {
         race(carList);
         printResult(carList);
+        System.out.println();
     }
 
     public void race(CarList carList) {
@@ -25,6 +26,4 @@ public class CarList {
     public void printResult(CarList carList) {
         carList.cars.stream().forEach(car -> car.printRoundResult());
     }
-
-
 }

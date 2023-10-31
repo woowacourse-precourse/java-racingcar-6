@@ -4,7 +4,7 @@ import racingcar.util.Utils;
 import racingcar.validator.RoundNumberValidator;
 
 public class RoundNumber {
-    int roundNumber;
+    public final int roundNumber;
 
     public RoundNumber(String roundNumber) {
         new RoundNumberValidator(roundNumber);
