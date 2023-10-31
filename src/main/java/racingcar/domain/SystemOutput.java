@@ -4,7 +4,7 @@ package racingcar.domain;
 import java.util.List;
 import java.util.Map;
 
-import static racingcar.domain.Constants.FINAL_WINNER_MESSAGE;
+import racingcar.domain.Constants;
 
 public class SystemOutput {
     public void printMoveResult(Map<String, Integer> numMoveMap) {
@@ -20,7 +20,7 @@ public class SystemOutput {
 
     public void printOverallResult(List<String> winnerList){
         String prizeWinner = String.join(",", winnerList);
-        System.out.println(FINAL_WINNER_MESSAGE + prizeWinner);
+        System.out.println(Constants.FINAL_WINNER_MESSAGE + prizeWinner);
     }
 
 
