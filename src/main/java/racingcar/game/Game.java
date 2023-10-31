@@ -23,14 +23,12 @@ public class Game {
     }
 
     public void inputCarNames() {
-        System.out.println(OutputFormatter.getMessageWhenInputCarNames());
         String[] carNames = input.readCarNames();
         this.cars = carNames;
         this.gameManager = new GameManager(carNames);
     }
 
     public void inputNumOfTries() {
-        System.out.println(OutputFormatter.getMessageWhenInputNumOfTries());
         this.numOfTries = input.readNumOfTries();
         System.out.println();
     }
