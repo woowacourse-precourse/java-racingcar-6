@@ -41,4 +41,23 @@ public class RacingService {
             car.plusWinCount();
         }
     }
+
+    public List<Car> findByVictoryPlayers(List<Car> cars) {
+        List<Car> victoryPlayers = new ArrayList<>();
+        cars.sort(Collections.reverseOrder(Comparator.comparing(Car::getWinCount)));
+        Car vitoryCar = cars.get(0);
+
+        for (Car car : cars) {
+            checkVictoryPlayer(victoryPlayers, vitoryCar.getWinCount(), car);
+        }
+
+        return victoryPlayers;
+    }
+
+    private static void checkVictoryPlayer(List<Car> victoryPlayers, int victoryCount, Car car) {
+        int winCount = car.getWinCount();
+        if (victoryCount == winCount) {
+            victoryPlayers.add(car);
+        }
+    }
 }
