@@ -29,6 +29,9 @@ public class Application {
             attempts--;
         }
 
+        for (int k = 0; k < carNameList.length; k++) {
+            System.out.println(car[k].carName + "의 전진횟수: " + car[k].forwardCount);
+        }
 
 
 
