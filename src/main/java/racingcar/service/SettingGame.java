@@ -14,7 +14,7 @@ public class SettingGame {
         return input_carName.split(",");
     }
 
-    public HashMap<String, Integer> settingcar(String[] carNameList) {
+    public HashMap<String, Integer> settingCar(String[] carNameList) {
 
         for (String carName : carNameList) {
             ValidCheck.duplicate_check(cars.keySet(), carName);
