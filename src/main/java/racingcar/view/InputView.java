@@ -17,6 +17,8 @@ public final class InputView {
 
     public static String readMoveCount() {
         System.out.println(READ_MOVE_COUNT_MESSAGE);
-        return Console.readLine();
+        String input = Console.readLine();
+        System.out.println();
+        return input;
     }
 }
