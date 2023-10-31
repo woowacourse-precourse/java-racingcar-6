@@ -2,6 +2,8 @@ package racingcar.view;
 
 import java.util.Arrays;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputViewValidator {
@@ -16,8 +18,8 @@ public class InputViewValidator {
     private static final String EMPTY_STRING = "";
     private static final String CAR_NAME_SPLIT_REGEX = ",";
     private static final String INTEGER_REGEX = "-?\\d+";
+    private static final String POSITIVE_NUMBER_REGEX = "^[1-9]\\d*$";
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int ZERO_VALUE = 0;
     private static final InputViewValidator INSTANCE = new InputViewValidator();
 
     private InputViewValidator() {
@@ -57,7 +59,9 @@ public class InputViewValidator {
     }
 
     public boolean isNotCorrectRange(String tryNumber) {
-        return Integer.parseInt(tryNumber) <= ZERO_VALUE;
+        Pattern pattern = Pattern.compile(POSITIVE_NUMBER_REGEX);
+        Matcher matcher = pattern.matcher(tryNumber);
+        return !matcher.matches();
     }
 
     public boolean isNotIntegerType(String tryNumber) {

@@ -62,7 +62,8 @@ class InputViewValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("[ERROR] : 시도 횟수는 정수 타입이어야 합니다."));
+                        .hasMessageContaining("[ERROR] : 시도 횟수는 정수 타입이어야 합니다.")
+        );
     }
 
     @Test
@@ -89,7 +90,8 @@ class InputViewValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> inputViewValidator.validateTryNumber(tryNumber))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("[ERROR] : 시도 횟수는 1 이상이어야 합니다."));
+                        .hasMessageContaining("[ERROR] : 시도 횟수는 1 이상이어야 합니다.")
+        );
     }
-
+    
 }
