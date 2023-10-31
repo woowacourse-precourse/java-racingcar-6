@@ -12,4 +12,9 @@ public class InputView {
         System.out.println(INPUT_CAR_NAMES);
         return Console.readLine();
     }
+
+    public static int inputRepeatCount() {
+        System.out.println(INPUT_REPEAT_COUNT);
+        return IntegerConvertor.convert(Console.readLine());
+    }
 }
