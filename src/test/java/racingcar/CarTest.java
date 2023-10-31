@@ -5,12 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+    private final Car car = new Car("abc");
+
     @Test
     void moveFowrard_자동차_전진() {
-        Car car = new Car("abc");
-
         int pre = car.getMoveIndex();
         car.moveFowrard();
 
@@ -19,8 +17,6 @@ public class CarTest {
 
     @Test
     void stop_자동차_멈춤() {
-        Car car = new Car("abc");
-
         int pre = car.getMoveIndex();
         car.stop();
 
