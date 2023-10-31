@@ -2,7 +2,6 @@ package racingcar.domain;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,10 +19,11 @@ class CarsTest {
     @Test
     void 읽기전용_결과반환() {
         cars.add("a");
-        List<Car> test = cars.giveResult();
+        List<Car> original = cars.getCars();
+        List<Car> test = cars.giveCopiedResult();
+        test.get(0).race(4);
 
-        assertThatThrownBy(() -> test.set(0, new Car("new")))
-                .isInstanceOf(UnsupportedOperationException.class);
+        assertThat(original.get(0).getMovement()).isNotEqualTo(test.get(0).getMovement());
     }
 
     @Test
@@ -31,10 +31,9 @@ class CarsTest {
         cars.add("a");
         cars.add("b");
         cars.add("new");
-        //List<Car> test = cars.getCars();
-        List<Car> test = cars.giveResult();
+
+        List<Car> test = cars.giveCopiedResult();
         List<Car> expected = Arrays.asList(new Car("a"), new Car("b"), new Car("new"));
-        //assertThat(test.get(2).getName()).isEqualTo("new");
         assertThat(test).usingRecursiveComparison().isEqualTo(expected);
     }
 

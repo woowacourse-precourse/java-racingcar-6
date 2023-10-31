@@ -15,7 +15,7 @@ public class Game {
     }
 
     public List<Car> giveResult() {
-        return cars.giveResult();
+        return cars.giveCopiedResult();
     }
 
     public String findWinner() {

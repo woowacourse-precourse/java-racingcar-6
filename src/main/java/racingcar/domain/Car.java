@@ -8,6 +8,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int movement) {
+        this.name = name;
+        this.movement = movement;
+    }
+
     public void race(int randomNum) {
         if (randomNum >= 4) {
             movement++;

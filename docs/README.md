@@ -27,10 +27,10 @@
     - [x] 가장 좋은 성적 찾기 - Cars#maxMovement
     - [x] 우승자 찾기 - Cars#findWinner
     - [x] 자동차 경주 로직 - Cars#racing
-    - [x] 경주 이후 결과 반환(읽기 전용) - Cars#giveResult
+    - [x] 경주 이후 결과 복사본 반환(원본 영향 없이) - Cars#Result
 - [x] 무작위 수를 뽑아 자동차 경주를 진행 - Game#racing
 - [x] 우승자 찾기 - Game#findWinner
-- [x] 결과 반환(읽기 전용) - Game#giveResult
+- [x] 결과 복사본 반환(원본 영향 없이) - Game#giveResult
 
 - - -
 

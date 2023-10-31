@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -18,9 +17,13 @@ public class Cars {
         }
     }
 
-    public List<Car> giveResult() {
-        List<Car> result = Collections.unmodifiableList(cars);//읽을 수만 있게 반환
-        return result;
+    public List<Car> giveCopiedResult() { //원본 리스트 요소에 영향 없게 반환
+        List<Car> copiedResult = new ArrayList<>();
+        for (Car car : cars) {
+            Car copiedCar = new Car(car.getName(), car.getMovement());
+            copiedResult.add(copiedCar);
+        }
+        return copiedResult;
     }
 
     public int maxMovement() {
