@@ -25,7 +25,7 @@ public class CarNameValidator {
     }
 
     public static void checkBlank(String carName) {
-        if (carName.contains(" ")) {
+        if (carName.isEmpty() || carName.contains(" ")) {
             throw new IllegalArgumentException(MessageConstants.INVALID_CAR_NAME_FOR_BLANK);
         }
     }
