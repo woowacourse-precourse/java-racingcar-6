@@ -105,8 +105,7 @@ public class RacingGame {
         winners.stream()
                 .iterator()
                 .forEachRemaining(car -> result.append(car.getName()).append(", "));
-        if (winners.size() > 1)
-            result.delete(result.length() - 2, result.length());
+        result.delete(result.length() - 2, result.length());
         System.out.printf("%s%s", PRINT_FINAL_WINNER, result);
     }
 }
