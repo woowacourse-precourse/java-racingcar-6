@@ -12,9 +12,11 @@ public class Output {
             sb.append(entry.getKey())
             .append(" : ")
             .append(IntegerValueToDash(entry.getValue()));
+
+            System.out.println(sb);
         }
 
-        System.out.println(sb);
+        System.out.println();
     }
 
     String IntegerValueToDash(Integer distance){
