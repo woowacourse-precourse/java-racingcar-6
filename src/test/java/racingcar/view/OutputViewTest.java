@@ -64,6 +64,15 @@ class OutputViewTest {
                 OutputView.printRaceStatus(game.getCars());
                 Assertions.assertThat(outputStream.toString()).contains("실행 결과", "Tom : -", "Jin : -", "Ive : ");
             }
+
+            @Test
+            void 우승자_출력_테스트() {
+                while (!game.isGameOver()) {
+                    game.carRaceOnce();
+                }
+                OutputView.printWinnerName(game.getWinner());
+                Assertions.assertThat(outputStream.toString()).contains("Tom","Jin").doesNotContain("Ive");
+            }
         }
     }
 
