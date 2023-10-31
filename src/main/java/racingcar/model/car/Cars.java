@@ -6,7 +6,7 @@ import racingcar.model.movement.Movement;
 import racingcar.util.CarValidation;
 
 public class Cars {
-    private final List<Car> cars;
+    private List<Car> cars;
 
     public Cars(List<String> carNames) {
         CarValidation.validateCars(carNames);
