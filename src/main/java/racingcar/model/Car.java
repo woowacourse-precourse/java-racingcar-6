@@ -37,7 +37,7 @@ public class Car {
             throw new IllegalArgumentException(ErrorMessages.NULL_ERROR.getMessage());
         if (carName.isBlank())
             throw new IllegalArgumentException(ErrorMessages.EMPTY_ERROR.getMessage());
-        if (CommonValidator.isStringOverLength(carName, Common.STANDARD_NUMBER.getIntValue()))
+        if (CommonValidator.isStringOverLength(carName, Common.CAR_NAME_MAX_LENGTH.getIntValue()))
             throw new IllegalArgumentException(ErrorMessages.OVER_LENGTH_ERROR.getMessage());
         if (carName.contains(Common.SEPARATOR.getStringValue()))
             throw new IllegalArgumentException(ErrorMessages.SEPARATOR_ERROR.getMessage());
