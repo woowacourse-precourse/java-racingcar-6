@@ -1,6 +1,7 @@
 package racingcar.domain.game;
 
 import java.util.List;
+import racingcar.domain.racing.Racing;
 import racingcar.domain.raingcar.RacingCar;
 import racingcar.domain.raingcar.RacingCars;
 import racingcar.view.RacingGameInputView;
@@ -17,14 +18,19 @@ public class RacingGame {
 
         // 시도할 회수 입력
         outputView.printRacingRoundInputMessage();
-        int num = RacingGameInputView.nextInt();
+        int round = RacingGameInputView.nextInt();
 
+        // 레이싱
         List<RacingCar> cars = RacingCars.fromNames(inputCars);
-        Racing racing = new Racing(cars, num);
+        Racing racing = new Racing(new RacingCars(cars), round);
+        racing.process();
+
+        // 실행 결과 출력
+        outputView.println(racing.getRacingResult());
 
         // 최종 우승자 출력
-        List<String> finalWinnerNames = racing.getFinalWinners();
-        outputView.printFinalWinnerAnnouncedMessage(finalWinnerNames);
+        List<String> finalWinners = racing.getFinalWinnerList();
+        outputView.printFinalWinnerAnnouncedMessage(finalWinners);
 
     }
 }
