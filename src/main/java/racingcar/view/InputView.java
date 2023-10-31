@@ -15,7 +15,7 @@ public class InputView {
         if (validator.isValidCarNames(carNames)) {
             return carNames;
         } else {
-            throw new IllegalArgumentException(ErrorCode.EXCEED_LENGTH.getMessage());
+            throw new IllegalArgumentException(ErrorCode.EXCEED_NAME_LENGTH.getMessage());
         }
     }
 
