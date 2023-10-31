@@ -31,5 +31,13 @@ public class GameService {
         }
     }
 
+    private void startGame() {
+        for(int i=0; i<tryCount; i++) {
+            for(RacingCar racingCar : racingCarList) {
+                racingCar.tryMoveForward();
+            }
+        }
+    }
+
 
 }
