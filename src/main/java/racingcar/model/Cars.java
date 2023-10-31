@@ -3,14 +3,15 @@ package racingcar.model;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.RoundResult;
+import racingcar.util.CarsGenerator;
 
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+    public Cars(String inputCarNames) {
+        cars = CarsGenerator.INSTANCE.generate(inputCarNames);
     }
-
+    
     public void attemptForward() {
         cars.forEach(Car::attemptForward);
     }

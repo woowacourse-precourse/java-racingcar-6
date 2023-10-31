@@ -3,13 +3,12 @@ package racingcar.model;
 import java.util.List;
 import racingcar.constants.ExceptionMessage;
 import racingcar.dto.RoundResult;
-import racingcar.util.CarsGenerator;
 
 public class RacingGame {
     private Cars cars;
 
     public void generateCars(String inputNames) {
-        cars = CarsGenerator.INSTANCE.generate(inputNames);
+        cars = new Cars(inputNames);
     }
 
     public RoundResult playRound() {
