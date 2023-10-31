@@ -38,4 +38,11 @@ public class Application {
         }
         return results;
     }
+
+    private static void printResults(List<String> results) {
+        for (String result : results) {
+            System.out.println(result);
+        }
+        System.out.println();
+    }
 }
