@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.controller.GameController;
-import racingcar.domain.MovePossibilityChecker;
+import racingcar.domain.AutoMoveChecker;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.io.InputReader;
 import racingcar.io.OutputWriter;
@@ -15,8 +15,8 @@ public class Application {
         OutputWriter writer = new OutputWriter();
         InputView inputView = new InputView(reader, writer);
         OutputView outputView = new OutputView(writer);
-        MovePossibilityChecker movePossibilityChecker = new MovePossibilityChecker(new RandomNumberGenerator());
-        GameController gameController = new GameController(inputView, outputView, movePossibilityChecker);
+        AutoMoveChecker autoMoveChecker = new AutoMoveChecker(new RandomNumberGenerator());
+        GameController gameController = new GameController(inputView, outputView, autoMoveChecker);
         gameController.start();
     }
 }

@@ -23,9 +23,9 @@ public class Cars {
         return new Cars(carNameList);
     }
 
-    public void moveCarsBy(MovePossibilityChecker movePossibilityChecker) {
+    public void moveCarsBy(MoveChecker moveChecker) {
         for (Car car : carList) {
-            car.moveBy(movePossibilityChecker);
+            car.moveBy(moveChecker);
         }
     }
 

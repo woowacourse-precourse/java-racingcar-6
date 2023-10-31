@@ -13,16 +13,16 @@ public class Car {
         this.name = name;
     }
 
-    private static boolean isPossibleToMoveBy(MovePossibilityChecker movePossibilityChecker) {
-        return getMoveInstruction(movePossibilityChecker).equals(FORWARD);
+    private static boolean isPossibleToMoveBy(MoveChecker moveChecker) {
+        return getMoveInstruction(moveChecker).equals(FORWARD);
     }
 
-    private static MoveInstruction getMoveInstruction(MovePossibilityChecker movePossibilityChecker) {
-        return movePossibilityChecker.canMove();
+    private static MoveInstruction getMoveInstruction(MoveChecker moveChecker) {
+        return moveChecker.canMove();
     }
 
-    public void moveBy(MovePossibilityChecker movePossibilityChecker) {
-        if (isPossibleToMoveBy(movePossibilityChecker)) {
+    public void moveBy(MoveChecker moveChecker) {
+        if (isPossibleToMoveBy(moveChecker)) {
             position++;
         }
     }

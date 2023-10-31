@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.domain.MovePossibilityChecker;
+import racingcar.domain.MoveChecker;
 import racingcar.domain.dto.output.CarsDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -9,12 +9,12 @@ import racingcar.view.OutputView;
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final MovePossibilityChecker movePossibilityChecker;
+    private final MoveChecker moveChecker;
 
-    public GameController(InputView inputView, OutputView outputView, MovePossibilityChecker movePossibilityChecker) {
+    public GameController(InputView inputView, OutputView outputView, MoveChecker moveChecker) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.movePossibilityChecker = movePossibilityChecker;
+        this.moveChecker = moveChecker;
     }
 
     public void start() {
@@ -31,7 +31,7 @@ public class GameController {
     }
 
     private void playRound(Cars cars) {
-        cars.moveCarsBy(movePossibilityChecker);
+        cars.moveCarsBy(moveChecker);
         CarsDto carsDto = cars.toCarsDto();
         outputView.printGameResult(carsDto);
     }
