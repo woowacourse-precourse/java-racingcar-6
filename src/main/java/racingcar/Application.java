@@ -29,4 +29,22 @@ public class Application {
             carList.add(new Car(name));
         }
     }
+
+    public static int inputTry() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return checkTry(input);
+    }
+
+    public static int checkTry(String input) {
+        try {
+            int num = Integer.parseInt(input);
+            if(num <= 0) {
+                throw new IllegalArgumentException();
+            }
+            return num;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
