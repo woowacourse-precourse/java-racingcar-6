@@ -14,7 +14,7 @@ public class Game {
         race = new Race();
     }
 
-    public void gameStart(){ //게임 시작
+    public void gameStart() throws IllegalArgumentException { //게임 시작
         setRace();
         runRace();
         printRaceResult();
