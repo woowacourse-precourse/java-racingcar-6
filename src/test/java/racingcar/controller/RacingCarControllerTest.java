@@ -102,4 +102,35 @@ public class RacingCarControllerTest {
 
         assertThat(e.getMessage()).isEqualTo("자동차 이름들은 중복될 수 없습니다.");
     }
+
+    @Test
+    void inputNumberOfTimes_올바른_입력일_때_횟수_반환() {
+        String testInput = "5";
+
+        int result = racingCarController.inputNumberOfTimes(testInput);
+
+        assertThat(result).isEqualTo(5);
+    }
+
+    @Test
+    void inputNumberOfTimes_입력이_숫자가_아닐_때_예외_발생() {
+        String testInput = "abc";
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+            racingCarController.inputNumberOfTimes(testInput);
+        });
+
+        assertThat(e.getMessage()).isEqualTo("시도 횟수 입력이 숫자가 아닙니다.");
+    }
+
+    @Test
+    void inputNumberOfTimes_입력이_음수일_때_예외_발생() {
+        String testInput = "-5";
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+            racingCarController.inputNumberOfTimes(testInput);
+        });
+
+        assertThat(e.getMessage()).isEqualTo("시도 횟수 입력이 숫자가 아닙니다.");
+    }
 }
