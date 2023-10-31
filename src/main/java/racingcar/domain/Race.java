@@ -60,7 +60,10 @@ public class Race {
         List<String> carNames = ParserUtils.namesParser(carNamesInput);
 
         validateDuplicatedName(carNames);
+        addCarsFromNames(carNames);
+    }
 
+    private void addCarsFromNames(List<String> carNames) {
         for (String carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);
