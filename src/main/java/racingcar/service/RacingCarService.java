@@ -6,6 +6,10 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class RacingCarService {
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MIN_MOVE_PROBABILITY = 4;
+
     public List<Car> convertCarNames(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
@@ -24,8 +28,8 @@ public class RacingCarService {
     }
 
     private boolean willMoveForward() {
-        int RandomNumber = Randoms.pickNumberInRange(0, 9);
-        return RandomNumber >= 4;
+        int RandomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        return RandomNumber >= MIN_MOVE_PROBABILITY;
     }
 
     public List<Car> calculatWinner(List<Car> cars) {

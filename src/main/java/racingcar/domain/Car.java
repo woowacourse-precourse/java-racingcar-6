@@ -7,6 +7,7 @@ import static racingcar.utils.Message.ProgressBar;
 public class Car {
     private final String name;
     private int progress;
+    private static final int MIN_NAME_LENGTH = 5;
 
     private Car(String name, int progress) {
         validateCarName(name);
@@ -23,7 +24,7 @@ public class Car {
     }
 
     public void validateCarName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MIN_NAME_LENGTH) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH.getMessage());
         }
     }
