@@ -13,14 +13,13 @@ import racingcar.view.OutputView;
 public class RacingCarGameController {
 
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-    private Cars cars;
 
     public void playRacingCarGame() {
         OutputView.printInputCarsNameMessage();
 
         List<Name> namesOfCars = Utils.splitNamesOfCars(InputView.inputCarsNamesOfCars());
         List<Car> carList = CarFactory.generateCar(namesOfCars);
-        cars = new Cars(carList);
+        Cars cars = new Cars(carList);
 
         OutputView.printInputNumberOfMovesMessage();
         int numberOfMoves = InputView.inputNumberOfMoves();
