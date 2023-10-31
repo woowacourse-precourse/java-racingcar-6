@@ -1,13 +1,14 @@
 package racingcar.domain;
 
 import racingcar.message.GameMessage;
+import racingcar.util.CarGenerator;
 import racingcar.view.OutputView;
 import racingcar.view.Inputview;
 public class RacingGame {
 
     private void start(){
         printRequestNames();
-        String carNames = Inputview.consoleLine();
+        CarGenerator carGenerator = new CarGenerator(Inputview.consoleLine());
         printRequestNumber();
         String turns = Inputview.consoleLine();
 
