@@ -40,53 +40,86 @@
 
 - View
   - output
-    - "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)”를 출력하는 기능
-    - “시도할 회수는 몇회인가요?"를 출력하는 기능
-    - “실행 결과”를 출력하는 기능
-    - 최종 우승자 출력하는 기능
-    - 각 실행 결과 출력하는 기능
-    - 줄바꿈을 출력하는 기능
-    - "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."를 출력하는 기능
+    - [x] "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)”를 출력하는 기능
+    - [x] “시도할 회수는 몇회인가요?"를 출력하는 기능
+    - [x] “실행 결과”를 출력하는 기능
+    - [x] 각 실행 결과 출력하는 기능
+    - [x] 최종 우승자 출력하는 기능
+    - [x] 줄바꿈을 출력하는 기능
+    - [x] "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."를 출력하는 기능
   - input
-    - 사용자가 값을 입력 하는 기능
+    - [x] 사용자가 값을 입력 하는 기능
 - Validator
   - 자동차 이름 값 유효성 검사
-    - 빈 문자열과 5 초과 -> Exception
+    - [x] 빈 문자열(" " != "") -> Exception
+    - [x] null -> Exception
+    - [x] 5 초과 -> Exception
   - 회수 값 유호성 검사
-    - 1 ~ 9 사이 값 외 -> Exception
+    - [x] 1 ~ 9 사이 값 외 -> Exception
   - 진행 상태 값 유효성 검사
-    - 1 ~ 2 사이 값 외 -> Exception
+    - [x] 1 ~ 2 사이 값 외 -> Exception
 - Service
-  - 각 자동차마다 RaceCar 객체를 생성하는 기능
-  - 0 ~ 9 사이의 랜덤값을 뽑았을 때, 4 이상이면 전진하는 기능
-  - 최종 우승자를 구하는 기능
+  - [x] 각 자동차마다 RaceCar 객체를 생성하는 기능
+  - [x] 0 ~ 9 사이의 랜덤값을 뽑는 기능
+  - [x] 4 이상이면 전진하는 기능
+  - [x] 최종 우승자를 구하는 기능
 
   ![](../header.png)
 
 ## ⚙️Test
-- Application Test
-  - run_전진_정지_게임_종료
-    - input: run(“pobi,songe”, “2”, “2”)
-    - contains(”pobi: - -”, “songe : -”, “최종 우승자 : pobi”, “게임 종료”)
-  - name_이름에_공백이_있을_경우_공백도_출력
-    - input: run(“po bi,songe”, “2”, “2”)
-    - contains(”po bi: - -”, “songe : -”, “최종 우승자 : po bi”)
-  - name_최종_우승자_두명_이상일_경우_출력
-    - input: run(“pobi,songe”, “2”,  “2”)
-    - contains(”pobi : - -”, “songe : - -”, “최종 우승자 : pobi, songe”)
-  - name_구분자가_포함되지_않은_경우_값을_그대로_출력
-    - input: run(“pobi”, “1”,  “2”)
-    - contains(”pobi : -”, “최종 우승자 : pobi”)
-  - reStart_게임_종료후_재시작
-    - input: run("pobi,songe", "1", "1", "yeln,poly", "1", "2")
-    - contains("pobi : -", "songe : ", "최종 우승자 : pobi", "게임 종료","yeln : -", "poly : ", "최종 우승자 : yeln", "게임 종료")
-  - name_자동차_이름이_5_초과_예외_처리
-    - input: runException(“pobi,songyii”, “1”, “2”)
-  - name_자동차_이름이_빈_문자열_예외_처리
-    - input: runException(“pobi,,songe”, “1”, “2”)
-  - name_횟수가_1_이상의_숫자_외_예외_처리
-    - input: runException(“pobi,,songe”, “k”, “2”)
-
+- RacingcarTest
+  - [x] run_자동차_객체_생성_테스트
+      - input: "pobi,songe,rose"
+      - contains(“pobi", "songe", "rose”)
+  - [x] run_전진_확인
+      - input: “pobi,songe,rose”
+      - contains(“pobi", "songe", "rose”)
+      - contains(0, 2, 0)
+  - [x] run_최종_우승자_두명_이상일_경우_출력
+      - input: "pobi,songe,rose"
+      - isEqualTo(“최종 우승자 : pobi, songe”)
+- Validator
+    - NameTest
+      - [x] name_자동차_이름이_빈_문자열_예외_처리
+          - input: “pobi,,songe”
+          - isInstanceOf(IllegalArgumentException)
+          - hasMessageContaining("자동차 이름의 길이가 1 미만!")
+      - [x] name_자동차_이름이_5_초과_예외_처리
+          - input: “pobi,songyi”
+          - isInstanceOf(IllegalArgumentException)
+          - hasMessageContaining("자동차 이름의 길이가 5 초과!")
+      - [x] name_자동차_이름이_null_예외_처리
+          - input: null
+          - isInstanceOf(IllegalArgumentException)
+          - hasMessageContaining("자동차 이름이 Null!")
+      - [x] name_이름에_공백이_있을_경우_공백도_출력
+          - input: "po bi,songe, rose"
+          - contains("po bi", "songe", " rose")
+      - [x] name_구분자가_포함되지_않은_경우_값을_그대로_출력
+          - input: “pobi"
+          - contains("pobi")
+    - statusTest
+      - [x] status_상태값이_1_or_2_외면_예외_처리
+          - input: "k"
+          - isInstanceOf(IllegalArgumentException)
+          - hasMessageContaining("1, 2 외의 값 입력!")
+    - TryNumberTest
+      - [x] trynumber_횟수가_1_이상의_숫자_외_예외_처리
+          - input: "k"
+          - isInstanceOf(IllegalArgumentException)
+          - hasMessageContaining("시도 횟수를 잘못 입력!")
+- View
+  - OutputViewTest
+      - [x] print_자동차_이름을_입력하세요
+          - "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"
+      - [x] print_회수를_입력하세요
+          - "시도할 회수는 몇회인가요?"
+      - [x] print_실행_결과_문구
+          - "실행 결과"
+      - [x] print_실행_결과
+          - output: "pobi : ---"
+      - [x] print_최종_우승자
+          - "최종 우승자 : pobi"
 
   ![](../header.png)
   
