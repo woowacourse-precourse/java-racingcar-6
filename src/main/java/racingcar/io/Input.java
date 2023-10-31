@@ -2,6 +2,7 @@ package racingcar.io;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.validation.CarValidate;
 import racingcar.validation.InputValidate;
 
 public class Input {
@@ -14,8 +15,8 @@ public class Input {
         InputValidate.nameFormat(input);
 
         List<String> names = List.of(input.split(","));
-        InputValidate.participantCount(names);
-        InputValidate.carNames(names);
+        CarValidate.participantCount(names);
+        CarValidate.carNames(names);
         return names;
     }
 
