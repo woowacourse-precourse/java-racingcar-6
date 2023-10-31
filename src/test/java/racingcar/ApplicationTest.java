@@ -8,7 +8,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class ApplicationTest extends NsTest {
@@ -56,18 +56,14 @@ class ApplicationTest extends NsTest {
         				.isInstanceOf(IllegalArgumentException.class)
         );
     }
-
+    
     @Test
     void 공백_및_빈값_제거() {
     	String carInput = "apple  ,  , grape ,,  ";
-    	
-    	String[] separate = carInput.split(",");
-    	List<String> carList = new ArrayList<>();
-    	
-    	for(int i = 0; i < separate.length; i++) {
-    		carList.add(separate[i].trim());
-    	}
-    	while(carList.remove(String.valueOf("")));
+    	List<String> carList = Arrays.stream(carInput.split(","))
+    			.map(car -> car.trim())
+    			.filter(car -> !car.isEmpty())
+    			.toList();
     	
     	assertThat(carList).containsExactly("apple", "grape");	
     }
