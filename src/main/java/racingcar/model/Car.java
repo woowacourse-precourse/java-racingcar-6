@@ -2,33 +2,20 @@ package racingcar.model;
 
 import racingcar.utils.enums.Constraints;
 import racingcar.utils.numbergenerators.NumberGenerator;
-import racingcar.utils.numbergenerators.RandomNumberGenerator;
 
 public class Car {
     private final String name;
     private int distance = 0;
-    private final NumberGenerator numberGenerator;
 
-    /**
-     * 이름만 입력값으로 받으면 RandomNumberGenerator 이용
-     */
     public Car(String name) {
-        this(name, new RandomNumberGenerator()); // 기본 NumberGenerator 사용
-    }
-
-    /**
-     * NumberGenerator구현체를 받으면 해당 클래스 이용 테스트에서 쓸 수 있다.
-     */
-    public Car(String name, NumberGenerator numberGenerator) {
         this.name = name;
-        this.numberGenerator = numberGenerator;
     }
 
     /**
      * 기준 만족 시 앞으로 이동
      */
-    public void move() {
-        if (canMove()) {
+    public void move(NumberGenerator numberGenerator) {
+        if (canMove(numberGenerator)) {
             distance++;
         }
     }
@@ -36,7 +23,7 @@ public class Car {
     /**
      * 앞으로 이동하는 기준
      */
-    private boolean canMove() {
+    private boolean canMove(NumberGenerator numberGenerator) {
         return Constraints.MINIMUM_FOR_FORWARD.getValue() <= numberGenerator.generateNumber();
     }
 

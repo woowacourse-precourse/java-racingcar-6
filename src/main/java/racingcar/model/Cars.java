@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.utils.Parser;
+import racingcar.utils.numbergenerators.RandomNumberGenerator;
 import racingcar.utils.validators.CarNamesValidator;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public Cars(String carNames) {
         CarNamesValidator.validateCarNames(carNames);
@@ -53,7 +55,7 @@ public class Cars {
      * 전체 자동차 움직이기
      */
     public void moveCars() {
-        cars.forEach(Car::move);
+        cars.forEach(car -> car.move(randomNumberGenerator));
     }
 
     public List<Car> getCars() {
