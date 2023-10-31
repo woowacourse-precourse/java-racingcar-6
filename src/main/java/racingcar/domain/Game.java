@@ -2,7 +2,9 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.utils.Converter;
+import racingcar.utils.Output;
 
 public class Game {
 
@@ -25,6 +27,10 @@ public class Game {
             raceOneTime();
             printEachLocation();
         }
+    }
+
+    public void declareWinner() {
+        winners = selectWinner();
     }
 
     private void setPlayer() {
@@ -53,6 +59,20 @@ public class Game {
     private void printEachLocation() {
         carList.forEach(Car::printCurrentLocation);
         System.out.println();
+    }
+
+    private List<Car> selectWinner() {
+        Long winnersCount = findMaxCount();
+        return carList.stream()
+                .filter(car -> car.getForwardCount().equals(winnersCount))
+                .collect(Collectors.toList());
+    }
+
+    private Long findMaxCount() {
+        return carList.stream()
+                .map(Car::getForwardCount)
+                .max(Long::compareTo)
+                .orElse(0L);
     }
 
 }
