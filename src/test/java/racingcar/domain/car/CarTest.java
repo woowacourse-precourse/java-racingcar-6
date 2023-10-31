@@ -27,6 +27,18 @@ class CarTest {
             assertThat(afterRaceCar.getPosition()).isEqualTo(1);
             assertThat(afterRaceCar.getName()).isEqualTo("Car");
         }
+
+        @ParameterizedTest
+        @ValueSource(ints = {1, 2, 3})
+        @DisplayName("랜덤값이 4미만일 경우 이동하면 안된다")
+        public void 랜덤값이_4미만일_경우_이동하면_안된다(int randomNumber) {
+            Car car = new Car("Car");
+
+            Car afterRaceCar = car.race(randomNumber);
+
+            assertThat(afterRaceCar.getPosition()).isEqualTo(0);
+            assertThat(afterRaceCar.getName()).isEqualTo("Car");
+        }
     }
 
 }
