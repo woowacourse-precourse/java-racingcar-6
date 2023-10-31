@@ -2,10 +2,9 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.dto.MoveResultDto;
-import racingcar.model.Car;
 import racingcar.model.CarNames;
 import racingcar.model.Cars;
-import racingcar.model.RaceManager;
+import racingcar.model.NumberOfMove;
 import racingcar.view.View;
 import racingcar.view.constant.Prompt;
 import racingcar.view.constant.Result;
@@ -14,35 +13,34 @@ import racingcar.view.constant.Winner;
 public class Game {
 
     public static void start() {
-        List<Car> cars = createCars();
-        int numberOfMove = setNumberOfMove();
-        startRace(cars, numberOfMove);
+        Cars cars = createCars();
+        startRace(cars, setNumberOfMove());
         announceWinner(cars);
     }
 
-    private static List<Car> createCars() {
+    private static Cars createCars() {
         View.printMessage(Prompt.CAR_NAME_INPUT);
         String carNamesString = View.getInput();
         CarNames carNames = CarNames.create(carNamesString);
-        return Cars.withName(carNames);
+        return Cars.createWithNames(carNames);
     }
 
-    private static int setNumberOfMove() {
+    private static NumberOfMove setNumberOfMove() {
         View.printMessage(Prompt.NUMBER_OF_MOVE_INPUT);
         String numberOfMoveInput = View.getInput();
-        return RaceManager.validateNumberOfMove(numberOfMoveInput);
+        return NumberOfMove.create(numberOfMoveInput);
     }
 
-    private static void startRace(List<Car> cars, int numberOfMove) {
+    private static void startRace(Cars cars, NumberOfMove numberOfMove) {
         View.printMessage(Prompt.RACE_RESULT);
-        for (int i = 0; i < numberOfMove; i++) {
-            List<MoveResultDto> moveResultDtos = cars.stream().map(Car::move).toList();
+        while (numberOfMove.isLeft()) {
+            List<MoveResultDto> moveResultDtos = cars.getMoveResultDTOs();
             View.printMessage(Result.announcement(moveResultDtos));
         }
     }
 
-    private static void announceWinner(List<Car> cars) {
-        List<String> winnerList = RaceManager.decideWinner(cars);
+    private static void announceWinner(Cars cars) {
+        List<String> winnerList = cars.getWinner();
         View.printMessage(Winner.announcement(winnerList));
     }
 }

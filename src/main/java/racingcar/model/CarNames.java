@@ -26,7 +26,7 @@ public class CarNames {
         }
     }
 
-    public List<String> getCarNames() {
-        return carNames.stream().map(CarName::getCarName).toList();
+    protected List<CarName> getCarNames() {
+        return carNames;
     }
 }

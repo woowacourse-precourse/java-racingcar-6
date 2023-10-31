@@ -9,7 +9,7 @@ public class MoveResultDto {
         this.location = location;
     }
 
-    public static MoveResultDto make(String name, Integer location) {
+    public static MoveResultDto create(String name, Integer location) {
         return new MoveResultDto(name, location);
     }
 

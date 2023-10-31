@@ -10,7 +10,7 @@ public class CarName {
         carName = validate(input);
     }
 
-    public static CarName create(String input) {
+    protected static CarName create(String input) {
         return new CarName(input);
     }
 
@@ -21,7 +21,7 @@ public class CarName {
         return input;
     }
 
-    public String getCarName() {
+    protected String getCarName() {
         return carName;
     }
 }

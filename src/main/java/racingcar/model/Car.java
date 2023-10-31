@@ -10,48 +10,42 @@ public class Car {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
 
-    private final String name;
+    private final CarName name;
     private Integer location;
 
-    private Car(String name) {
+    private Car(CarName name) {
         this.name = name;
         this.location = START_LOCATION;
     }
 
-    public static Car withName(String name) {
+    protected static Car createWithName(CarName name) {
         return new Car(name);
     }
 
-    public MoveResultDto move() {
+    protected MoveResultDto getResultDto() {
         moveOrStop(generateRandomNumber());
-        return MoveResultDto.make(name, location);
+        return MoveResultDto.create(name.getCarName(), location);
     }
 
-//    public static List<Car> create(CarNames carNames) {
-//        return carNames.stream()
-//                .map(CarNames::createCar)
-//                .toList();
-//    }
-
-    private static Car createCar(String carName) {
-        return Car.withName(carName);
+    protected void moveOrStop(int randomNumber) {
+        if (randomNumber >= MOVE_FORWARD_NUMBER) {
+            moveForward();
+        }
     }
 
     protected int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
-    protected void moveOrStop(int randomNumber) {
-        if (randomNumber >= MOVE_FORWARD_NUMBER) {
-            location++;
-        }
+    private void moveForward() {
+        location++;
     }
 
-    public String getName() {
-        return name;
+    protected String getName() {
+        return name.getCarName();
     }
 
-    public Integer getLocation() {
+    protected Integer getLocation() {
         return location;
     }
 }
