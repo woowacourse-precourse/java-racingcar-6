@@ -33,4 +33,26 @@ public class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
     }
+
+    @Test
+    void Car_객체_전진_테스트() {
+        Car car = new Car("test");
+        Car expectedCarAfterMove = new Car("test");
+
+        car.move(4);
+        expectedCarAfterMove.move(4);
+
+        assertThat(car.getProgressStatus()).isEqualTo(expectedCarAfterMove.getProgressStatus());
+    }
+
+    @Test
+    void Car_객체_정지_테스트() {
+        Car car = new Car("test");
+        Car expectedCarAfterNotMoving = new Car("test");
+
+        car.move(3);
+
+        assertThat(car.getProgressStatus()).isEqualTo(expectedCarAfterNotMoving.getProgressStatus());
+    }
+
 }
