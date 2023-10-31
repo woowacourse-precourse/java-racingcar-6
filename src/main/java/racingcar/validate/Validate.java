@@ -1,5 +1,6 @@
 package racingcar.validate;
 
+import javax.imageio.IIOException;
 import racingcar.constant.CarRaceConstant;
 
 public class Validate {
@@ -19,6 +20,14 @@ public class Validate {
         String[] parts = input.split(",");
         if (parts.length > CarRaceConstant.MAX_NAME_LENGTH.getConstant()) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    public static void isNotNumber(String input) {
+        for (char ch : input.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 

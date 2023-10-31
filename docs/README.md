@@ -106,3 +106,4 @@ CommandLineController 객체의 start 메서드를 실행한다.
 ### validate
 - 숫자인지 확인하는 메서드
 - 자동차 이름이 5자 이하인지 체크하는 메서드
+- 숫자가 아닌지 확인하는 메서드
