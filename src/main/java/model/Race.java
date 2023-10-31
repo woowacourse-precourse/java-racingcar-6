@@ -18,4 +18,8 @@ public class Race {
     public int getLaps() {
         return laps;
     }
+
+    public void startDrive(){
+        carArrayList.forEach(Car::drive);
+    }
 }
