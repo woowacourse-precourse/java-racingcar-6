@@ -31,6 +31,10 @@ public class RacingGame {
             randomNumber.setRandomNumberList(randomNumberGenerator.createRandomNumberList(carList));
             move.moveTheCar(car.getCarList(), randomNumber.getRandomNumberList());
             move.stopTheCar(car.getCarList(), randomNumber.getRandomNumberList());
+            car.getCurrentRacingResult();
+            System.out.println();
+            tryValue++;
         }
+        System.out.println("최종 우승자 : " + car.getFinalWinner());
     }
 }
