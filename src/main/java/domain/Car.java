@@ -7,17 +7,20 @@ public class Car {
     private final CarName carName;
     private final CarLocation carLocation;
 
-    private Car(CarName carname, CarLocation carLocation) {
+    private final MoveStrategy moveStrategy;
+
+    private Car(CarName carname, CarLocation carLocation,MoveStrategy moveStrategy) {
         this.carName = carname;
         this.carLocation = carLocation;
+        this.moveStrategy = moveStrategy;
     }
 
     public void move() {
-        carLocation.move();
+        moveStrategy.move(this);
     }
 
-    public static Car of(CarName carName, CarLocation carLocation) {
-        return new Car(carName, carLocation);
+    public static Car of(CarName carName, CarLocation carLocation,MoveStrategy moveStrategy) {
+        return new Car(carName, carLocation,moveStrategy);
     }
 
     public CarLocation getCarLocation() {

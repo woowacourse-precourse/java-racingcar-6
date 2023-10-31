@@ -46,6 +46,6 @@ public class CarRaceResultEvaluatorTest {
     }
 
     private static Car createCar(String carName, int carLocation) {
-        return CarFactory.createCar(carName, carLocation);
+        return CarFactory.createCar(carName, carLocation,new OneStepMoveStrategy());
     }
 }

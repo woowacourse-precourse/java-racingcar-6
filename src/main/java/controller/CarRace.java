@@ -6,6 +6,7 @@ import domain.Car;
 import domain.CarRaceResultEvaluator;
 import domain.Cars;
 import domain.MoveJudgement;
+import domain.MoveStrategy;
 import dto.RoundResultDto;
 import dto.WinnerDto;
 import java.util.List;
@@ -27,12 +28,19 @@ public class CarRace implements Race {
 
     private final CarRaceResultEvaluator carRaceResultEvaluator;
 
-    public CarRace(Input input, Output output, MoveJudgement moveJudgement,
-            CarRaceResultEvaluator carRaceResultEvaluator) {
+    private final MoveStrategy moveStrategy;
+
+    public CarRace(
+            Input input,
+            Output output,
+            MoveJudgement moveJudgement,
+            CarRaceResultEvaluator carRaceResultEvaluator,
+            MoveStrategy moveStrategy) {
         this.input = input;
         this.output = output;
         this.moveJudgement = moveJudgement;
         this.carRaceResultEvaluator = carRaceResultEvaluator;
+        this.moveStrategy = moveStrategy;
     }
 
     @Override
@@ -72,7 +80,7 @@ public class CarRace implements Race {
     private Cars createCarsFromUserInput() {
         String carNames = input.input();
         List<String> carNameList = StringToStringListConvertor.convert(carNames);
-        List<Car> carList = StringListToCarListConvertor.convert(carNameList);
+        List<Car> carList = StringListToCarListConvertor.convert(carNameList, moveStrategy);
         return new Cars(carList);
     }
 

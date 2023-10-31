@@ -34,6 +34,6 @@ public class CarMoveTest {
 
     private static Arguments createTestCase(String carName) {
         return Arguments.of(
-                CarFactory.createCar(carName, 0));
+                CarFactory.createCar(carName, 0,new OneStepMoveStrategy()));
     }
 }
