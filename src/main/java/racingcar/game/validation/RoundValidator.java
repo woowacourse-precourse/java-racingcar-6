@@ -6,12 +6,12 @@ public class RoundValidator implements Validator {
 
     @Override
     public void execute(String name) {
-        validateInteger(name);
+        int movingCount = validateInteger(name);
     }
 
-    private void validateInteger(String name) {
+    private int validateInteger(String name) {
         try {
-            Integer.parseInt(name);
+            return Integer.parseInt(name);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NOT_INTEGER, e);
         }
