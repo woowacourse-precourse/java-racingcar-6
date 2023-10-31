@@ -4,25 +4,24 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.Util;
 import racingcar.validator.CarNamesValidator;
 
 public class Cars {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
-    private final List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
 
     public Cars(String names) {
         CarNamesValidator.validate(names);
-        cars = generateCars(names);
+        generateCars(names);
     }
 
-    private List<Car> generateCars(String names) {
-        List<Car> carList = new ArrayList<>();
-        String[] carNamesArray = names.replace(" ", "").split(",");
-        for (String carName : carNamesArray) {
-            carList.add(new Car(carName));
+    private void generateCars(String names) {
+        List<String> nameList = Util.parseNamesToList(names);
+        for (String name : nameList) {
+            cars.add(new Car(name));
         }
-        return carList;
     }
 
     public void decideToMove() {
