@@ -22,6 +22,7 @@ public class GameController {
     private ArrayList<String> finalWinnerList = new ArrayList<>();
     private InputException inputException = new InputException();
     private Winner winner = new Winner();
+    private int attemptsCount;
 
     public void start() {
         System.out.println(START_MESSAGE);
@@ -29,12 +30,10 @@ public class GameController {
         cars.setCarNameList(spiltCarNames(carNames));
         inputException.checkException(spiltCarNames(carNames));
         System.out.println(ATTEMPTS_MESSAGE);
-        int attemptsCount = Integer.parseInt(userInput.readAttemptsCount());
+        attemptsCount = Integer.parseInt(userInput.readAttemptsCount());
         initializeCarProgress();
         startRacing(attemptsCount, cars.getCarNameList(), cars.getCarProgress());
-
-        finalWinnerList = winner.getFinalWinner(cars.getCarNameList(), cars.getCarProgress());
-        winner.setWinnerList(finalWinnerList);
+        findWinner(cars.getCarNameList(), cars.getCarProgress());
         resultOutput.printFinalWinner(winner.getWinnerList());
 
     }
@@ -51,6 +50,11 @@ public class GameController {
         }
     }
 
+    private void findWinner(ArrayList<String> carNameList, ArrayList<List<String>> carProgress) {
+        finalWinnerList = winner.getFinalWinner(carNameList, carProgress);
+        winner.setWinnerList(finalWinnerList);
+    }
+
 
     private ArrayList<String> spiltCarNames(String carNames) {
         String[] spiltedCarNames = carNames.split(",");
@@ -63,9 +67,9 @@ public class GameController {
         ArrayList<List<String>> progress = cars.getCarProgress();
 
         for (int i = 0; i < cars.getCarNameList().size(); i++) {
-            List<String> lst = new ArrayList<>();
-            lst.add("");
-            progress.add(lst);
+            List<String> car = new ArrayList<>();
+            car.add("");
+            progress.add(car);
         }
 
         cars.setCarProgress(progress);
