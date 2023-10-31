@@ -6,7 +6,13 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
-
+    public static void checkCarNameLength(List<String> carNames){
+        for(String carName : carNames){
+            if(carName.length() < 1 || carName.length() > 5){
+                throw new IllegalArgumentException("자동차 이름 길이는 5자 이하여야만 합니다.");
+            }
+        }
+    }
     public static void checkCarNameSize(List<String> carNames){
         if (carNames == null || carNames.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 1개 이상 8개 이하여야 합니다.");

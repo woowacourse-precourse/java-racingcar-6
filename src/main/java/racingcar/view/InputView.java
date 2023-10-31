@@ -30,6 +30,7 @@ public class InputView {
         List<String> parseCarNames = Arrays.stream(names.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
+        Validator.checkCarNameLength(parseCarNames);
         Validator.checkCarNameSize(parseCarNames);
         Validator.checkCarNameDuplication(parseCarNames);
         Validator.checkCarNameIsEnglish(parseCarNames);
