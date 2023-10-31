@@ -7,6 +7,8 @@ import racingcar.util.InputUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.constant.StringConstant.*;
+
 public class RacingCarService {
     private final InputUtil inputUtil;
     private Cars cars;
@@ -21,19 +23,19 @@ public class RacingCarService {
     }
 
     public void initCars() {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        System.out.print(INPUT_CAR_NAMES_MESSAGE.getMessage());
         List<String> input = inputUtil.getCarNames();
         cars = createCars(input);
     }
 
     public int initRound() {
-        System.out.print("시도할 회수는 몇회인가요?\n");
+        System.out.print(INPUT_ROUND_NUMBER_MESSAGE.getMessage());
         return inputUtil.getRound();
     }
 
     public void printWinner() {
         String winner = cars.getWinner();
-        System.out.print("최종 우승자 : ");
+        System.out.print(OUTPUT_WINNER_MESSAGE.getMessage());
         System.out.print(winner);
     }
 

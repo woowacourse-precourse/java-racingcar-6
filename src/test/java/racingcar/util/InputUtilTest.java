@@ -3,6 +3,7 @@ package racingcar.util;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.InputException;
 
 import java.util.List;
 
@@ -89,7 +90,7 @@ public class InputUtilTest {
         List<String> nameList = inputUtil.splitString(names);
 
         // then
-        Assertions.assertThatThrownBy(() -> inputUtil.checkDuplicationName(nameList))
+        Assertions.assertThatThrownBy(() -> InputException.checkDuplicationName(nameList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복된 이름이 있습니다.");
 
@@ -105,7 +106,7 @@ public class InputUtilTest {
         List<String> nameList = inputUtil.splitString(names);
 
         // then
-        Assertions.assertThatThrownBy(() -> inputUtil.checkCarCount(nameList))
+        Assertions.assertThatThrownBy(() -> InputException.checkCarCount(nameList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차를 2대 이상 입력해주세요.");
     }
@@ -120,7 +121,7 @@ public class InputUtilTest {
         int number = inputUtil.stringToInt(input);
 
         // then
-        Assertions.assertThatThrownBy(() -> inputUtil.checkNumber(number))
+        Assertions.assertThatThrownBy(() -> InputException.checkNumber(number))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1이상의 숫자를 입력하세요.");
 

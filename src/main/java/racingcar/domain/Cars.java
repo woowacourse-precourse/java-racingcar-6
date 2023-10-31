@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.constant.NumberConstant.*;
+
 public class Cars {
     private final List<Car> cars;
     private int maxDistance;
@@ -58,13 +60,13 @@ public class Cars {
     }
 
     public boolean isMove(int random) {
-        if (random < 4) {
+        if (random < STANDARD_MOVE_NUMBER.getNumber()) {
             return false;
         }
         return true;
     }
 
     public int createRandom() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(RANDOM_MIN_NUMBER.getNumber(), RANDOM_MAX_NUMBER.getNumber());
     }
 }
