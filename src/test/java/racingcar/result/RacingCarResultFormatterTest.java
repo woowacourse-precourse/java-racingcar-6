@@ -1,10 +1,8 @@
 package racingcar.result;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -38,6 +36,24 @@ class RacingCarResultFormatterTest {
                 jun : --
 
                 """;
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    @DisplayName("주어진 레이싱 최종 결과에 따라 올바른 우승자를 포맷한다")
+    void formatFinalResult_ShouldFormatWinnersCorrectly() {
+        // Given
+        List<RacingResult> racingFinalResultList = List.of(
+                new RacingResult("pobi", 6),
+                new RacingResult("woni", 5),
+                new RacingResult("jun", 6)
+        );
+
+        // When
+        String result = formatter.formatFinalResult(racingFinalResultList);
+
+        // Then
+        String expected = "최종 우승자 : pobi, jun";
         assertThat(result).isEqualTo(expected);
     }
 }
