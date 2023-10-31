@@ -67,7 +67,7 @@ public class GameController {
         return splitCarNames(carNames);
     }
 
-    public List<String> splitCarNames(String carNames) {
+    private static List<String> splitCarNames(String carNames) {
         return Arrays.stream(carNames.split(",")).toList();
     }
 }
