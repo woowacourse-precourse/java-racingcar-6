@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,11 +34,9 @@ class StringConverterTest {
     void invalid_StringToListByDelimiter_exception_test() {
         String invalidInput = "";
 
-        try {
-            StringConverter.stringToTryNumber(invalidInput);
-        } catch (IllegalArgumentException e) {
-            assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
-        }
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+                () -> StringConverter.stringToTryNumber(invalidInput));
+        assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
     }
 
     @DisplayName("유효한 문자열을 정수로 변환한다.")
@@ -59,10 +58,8 @@ class StringConverterTest {
     void invalid_StringToTryNumber_exception_test() {
         String invalidInput = "a";
 
-        try {
-            StringConverter.stringToTryNumber(invalidInput);
-        } catch (IllegalArgumentException e) {
-            assertEquals(CHARACTERS_IN_INPUT_ERROR_MESSAGE, e.getMessage());
-        }
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+                () -> StringConverter.stringToTryNumber(invalidInput));
+        assertEquals(CHARACTERS_IN_INPUT_ERROR_MESSAGE, e.getMessage());
     }
 }

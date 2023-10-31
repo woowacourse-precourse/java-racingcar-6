@@ -2,6 +2,7 @@ package racingcar.exception;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,10 +28,8 @@ class TryNumberValidatorTest {
     void invalid_tryNumber_test() {
         Integer invalidCount = MIN_TRY_NUMBER - 1;
 
-        try {
-            TryNumberValidator.validateTryNumber(invalidCount);
-        } catch (IllegalArgumentException e) {
-            assertEquals(MIN_TRY_NUMBER + SMALLER_THAN_MIN_NUMBER_MESSAGE, e.getMessage());
-        }
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+                () -> TryNumberValidator.validateTryNumber(invalidCount));
+        assertEquals(MIN_TRY_NUMBER + SMALLER_THAN_MIN_NUMBER_MESSAGE, e.getMessage());
     }
 }
