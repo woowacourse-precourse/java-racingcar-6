@@ -25,5 +25,10 @@ public class Controller {
         RequestMessage.setCarName();
         return parser.stringCarNameToArrayList(Console.readLine());
     }
-    //TODO : 레포지토리 활용해서 도메인에 유저 입력 저장하는 거 개발하고 커밋하기
+
+    private int getAttemptNumFinal(){
+        RequestMessage.setAttemptNum();
+        return parser.stringAttemptNumToInt(Console.readLine());
+    }
+    //TODO : validator 확인
 }
