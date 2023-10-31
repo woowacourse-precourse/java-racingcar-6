@@ -23,6 +23,7 @@ public class User {
     public void inputTryCount() {
         String count = Console.readLine();
         validateTryCount(count);
+        this.tryCount = Integer.parseInt(count);
     }
 
     private void validateCarNames(List<String> carNames) {
