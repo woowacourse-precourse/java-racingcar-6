@@ -4,9 +4,13 @@ public class Car {
     private String name;
     private int location;
 
+    public static final Integer MIN_NUMBER_TO_MOVE = 4;
+    public static final Integer MOVE_DISTANCE = 1;
+    public static final Integer START_POSITION = 0;
+
     public Car(String name) {
         this.name = name;
-        this.location = 0;
+        this.location = START_POSITION;
     }
 
     public void printLocation(Car car) {
@@ -16,8 +20,10 @@ public class Car {
         System.out.println(name + " : " + "-".repeat(location));
     }
 
-    public void setLocation() {
-        this.location += 1;
+    public void canForward(int randomNumber) {
+        if (randomNumber >= MIN_NUMBER_TO_MOVE) {
+            this.location += MOVE_DISTANCE;
+        }
     }
 
     public String getName() {
