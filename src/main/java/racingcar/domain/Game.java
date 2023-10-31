@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Game {
 
-    private int trials;
+    private int trial;
     private List<Car> cars;
     private int currentTrial;
 
-    public Game(List<Car> cars, int trials) {
+    public Game(List<Car> cars, int trial) {
         this.cars = cars;
-        this.trials = trials;
+        this.trial = trial;
         this.currentTrial = 0;
     }
 
@@ -23,6 +23,6 @@ public class Game {
     }
 
     public boolean isEnd() {
-        return (trials == currentTrial);
+        return (trial == currentTrial);
     }
 }

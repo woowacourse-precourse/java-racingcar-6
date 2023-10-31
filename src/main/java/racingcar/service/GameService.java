@@ -22,7 +22,7 @@ public class GameService {
 
     public void setGame() {
         setCars();
-        setTrials();
+        setTrial();
     }
 
     private void setCars() {
@@ -32,7 +32,7 @@ public class GameService {
         }
     }
 
-    private void setTrials() {
+    private void setTrial() {
         int trial = parser.parseTrialInput(gameInputView.getTrialInput());
         game = new Game(carRepository.findAll(), trial);
     }
