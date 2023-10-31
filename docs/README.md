@@ -9,12 +9,12 @@
   - [x] 각 자동차는 처음은 이동 거리가 0으로 세팅돼야한다. Car$createCar(String name)
 - [x] 사용자로부터 몇 번의 이동을 할 것인지 입력받는다. - InputView$inputTryNumber()
   - [x] 숫자로 입력받아야 한다. -> 아니면 `IllegalArgumentException` - ClientValidator$getValidatedBigIntegerValue(String inputtedStringTryNumber)
-- [ ] 입력받은 시도 횟수만큼 0~9 사이의 무작위 값을 구한 후 4 이상인 경우 전진한다.
-  - [ ] 4 이상의 결과가 나온 수만큼 이동 거리가 1씩 증가된다.
-  - [ ] 각 차수별로 전진한 양을 출력한다.
-    - [ ] 첫 차수 출력하기 전에는 "\n실행 결과"도 출력한다. 
-    - [ ] 전진한 양이 없으면 "[$자동차 이름] : "으로 공백으로 출력한다.
-    - [ ] 한 차수의 출력이 끝나면 공백을 만들어준다.
+- [x] 입력받은 시도 횟수만큼 0~9 사이의 무작위 값을 구한 후 4 이상인 경우 전진한다. - Car$raceOneRoundAndGetDistance()
+  - [x] 4 이상의 결과가 나온 수만큼 이동 거리가 1씩 증가된다.
+- [ ] 각 차수별로 전진한 양을 출력한다.
+  - [ ] 첫 차수 출력하기 전에는 "\n실행 결과"도 출력한다. 
+  - [ ] 전진한 양이 없으면 "[$자동차 이름] : "으로 공백으로 출력한다.
+  - [ ] 한 차수의 출력이 끝나면 공백을 만들어준다.
 - [ ] 누가 우승했는지 계산 후 출력한다.
   - [ ] 우승자는 한 명 이상일 수 있다.
   - [ ] 모두 한 칸도 전진 안 한 상태면 우승했다고 할 수 없다고 (스스로) 판단한다. => 공백으로 출력!
@@ -82,7 +82,7 @@
 
 ### Behavior
 - Car createCar(String name)
-- BigInteger playOneRoundAndGetDistance()
+- BigInteger raceOneRoundAndGetDistance()
 
 ## 7. Client
 ### State

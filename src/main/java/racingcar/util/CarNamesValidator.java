@@ -3,10 +3,10 @@ package racingcar.util;
 import java.util.Arrays;
 import java.util.List;
 
-public class CarNamesValidator extends Validator {
+import static racingcar.util.Consts.CAR_NAME_LIMIT;
+import static racingcar.util.Consts.CAR_NAME_SPLITTER;
 
-    private static final int CAR_NAME_LIMIT = 5;
-    private static final String CAR_NAME_SPLITTER = ",";
+public class CarNamesValidator extends Validator {
 
     private static List<String> validateSplit(String inputtedCarNames) {
         List<String> resultCarNames = null;
@@ -42,7 +42,7 @@ public class CarNamesValidator extends Validator {
     }
 
     private static void validateLessThanLength(String carName) {
-        if (carName.length() > CarNamesValidator.CAR_NAME_LIMIT) {
+        if (carName.length() > CAR_NAME_LIMIT) {
             throwIllegalArgumentException(Error.LONG_CAR_NAME_ERROR.getMessage());
         }
     }
