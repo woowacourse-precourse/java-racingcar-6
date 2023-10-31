@@ -4,6 +4,7 @@ import racingcar.domain.Announcer;
 import racingcar.domain.Car;
 import racingcar.domain.Random;
 import racingcar.domain.Referee;
+import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,6 +18,7 @@ public class Controller {
     private final static Announcer announcer = new Announcer();
     private final static InputView inputView = new InputView();
     private final static OutputView outputView = new OutputView();
+    private final static Validator validator = new Validator();
 
     public void start() {
         outputView.displayCarNameInputMessage();
@@ -34,6 +36,7 @@ public class Controller {
     private List<Car> prepareCarList() {
         List<Car> list = new LinkedList<>();
         for (String name : inputView.inputCarNames()) {
+            validator.checkLength(name);
             list.add(new Car(name));
         }
         return list;
