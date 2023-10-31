@@ -79,7 +79,7 @@ public class RacingService {
         }
 
         List<String> carNameList = List.of(carNames.split(","));
-        if(carNameList.isEmpty())   throw new IllegalArgumentException();
+        if (carNameList.isEmpty()) throw new IllegalArgumentException();
         for (String carName : carNameList) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException();
