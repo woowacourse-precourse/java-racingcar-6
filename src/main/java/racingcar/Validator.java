@@ -8,6 +8,7 @@ public class Validator {
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static final int CAR_NAME_MIN_LENGTH = 1;
     private static final String BLANK = " ";
+    private static final int MIN_TRIAL_NUMBER = 1;
     private Set<String> existCarNames = new HashSet<>();
 
     public void checkCarName(List<String> carNames) {
@@ -21,6 +22,7 @@ public class Validator {
 
     public void checkVaildNum(String input) {
         isNumeric(input);
+        isPositiveNum(input);
     }
 
     private void checkCarNameMaxLength(String carName) {
@@ -52,6 +54,14 @@ public class Validator {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자 형태의 값만 입력할 수 있습니다.");
+        }
+    }
+
+    private void isPositiveNum(String input) {
+        int number = Integer.parseInt(input);
+
+        if (number < MIN_TRIAL_NUMBER) {
+            throw new IllegalArgumentException("1보다 작은 수는 입력할 수 없습니다.");
         }
     }
 }
