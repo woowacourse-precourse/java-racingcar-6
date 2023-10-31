@@ -32,8 +32,9 @@ public class RacingCar {
                 car.accelerate();
             }
         }
-        Result.printRaceResult(carList);
-
+        Result roundReport = new Result();
+        roundReport.printRaceResult(carList);
+        leaderDistance = roundReport.getLeaderDistance(carList);
     }
 
 }
