@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 import racingcar.dto.CarStatus;
@@ -38,27 +37,24 @@ public class Cars {
     }
 
     public WinnerNames getWinnerNames() {
-        List<String> winnerNames = new ArrayList<>();
-        int maxDriveCount = 0;
-
-        for (Car car : cars) {
-            CarStatus status = car.getStatus();
-            int driveCount = status.getDriveCount();
-
-            if (driveCount < maxDriveCount) {
-                continue;
-            }
-
-            String name = status.getName();
-
-            if (maxDriveCount < driveCount) {
-                maxDriveCount = driveCount;
-                winnerNames.clear();
-            }
-
-            winnerNames.add(name);
-        }
-
+        int maxDriveCount = calculateMaxDriveCount();
+        List<String> winnerNames = getWinnerNames(maxDriveCount);
         return new WinnerNames(winnerNames);
+    }
+
+    private int calculateMaxDriveCount() {
+        return cars.stream()
+                .map(Car::getStatus)
+                .mapToInt(CarStatus::getDriveCount)
+                .max()
+                .orElse(0);
+    }
+
+    private List<String> getWinnerNames(int maxDriveCount) {
+        return cars.stream()
+                .map(Car::getStatus)
+                .filter(carStatus -> carStatus.getDriveCount() == maxDriveCount)
+                .map(CarStatus::getName)
+                .toList();
     }
 }
