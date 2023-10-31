@@ -10,7 +10,7 @@ public class RoundCounter {
     }
 
     public boolean hasNextRound() {
-        return currentRoundNumber < totalNumberOfRounds.getTotal();
+        return currentRoundNumber <= totalNumberOfRounds.getTotal();
     }
 
     public void plusOne() {
