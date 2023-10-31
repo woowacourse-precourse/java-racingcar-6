@@ -43,12 +43,8 @@ public class OutputView {
 
     public static void printFinalWinner(List<String> winners) {
         System.out.print(FINAL_WINNER_START_MESSAGE);
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        String result = String.join(", ",winners);
+        System.out.print(result);
     }
 
 }
