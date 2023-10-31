@@ -7,31 +7,40 @@ import java.util.List;
 
 public class User {
     private final Validator validator;
-    private final List<String> carNames;
 
     public User() {
         validator = new Validator();
-        carNames = new ArrayList<>();
     }
 
-    public List<String> inputCarNames() {
+    public List<String> createCarNames(String input) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
         validator.validateInput(input);
+        String[] inputCarNames = split(input);
+        return toList(inputCarNames);
+    }
 
-        String[] carNamesArray = input.split(",");
-        carNames.addAll(Arrays.asList(carNamesArray));
+    public int createMovingNumber(String input) {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return toInt(input);
+    }
+
+    public String input() {
+        return Console.readLine();
+    }
+
+    private String[] split(String carName) {
+        return carName.split(",");
+    }
+
+    private List<String> toList(String[] inputCarNames) {
+        List<String> carNames = new ArrayList<>(Arrays.asList(inputCarNames));
         validator.validateCarNames(carNames);
-
         return carNames;
     }
 
-    public int inputMovingNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String inputMovingNumber = Console.readLine();
+    private int toInt(String input) {
         System.out.println();
-        validator.validateMovingNumber(inputMovingNumber);
-
-        return Integer.parseInt(inputMovingNumber);
+        validator.validateMovingNumber(input);
+        return Integer.parseInt(input);
     }
 }
