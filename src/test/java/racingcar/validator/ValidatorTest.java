@@ -47,4 +47,20 @@ class ValidatorTest {
                 .hasMessageContaining("자동차의 이름은 공백이 될 수 없습니다.");
     }
 
+    @Test
+    void validateRoundValue_숫자가_아닌_값일_경우_예외_발생() {
+        String input = "@";
+        assertThatThrownBy(() -> Validator.validateRoundValue(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 회수는 숫자이어야 합니다.");
+    }
+
+    @Test
+    void validateRoundValue_횟수가_1_이상이_아닐_경우_예외_발생() {
+        String input = "0";
+        assertThatThrownBy(() -> Validator.validateRoundValue(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 회수는 1회 이상을 입력해주세요.");
+    }
+
 }
