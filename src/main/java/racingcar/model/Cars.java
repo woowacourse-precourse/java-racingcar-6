@@ -8,28 +8,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private final List<Car> carList = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public Cars(String carNames) {
         validateCarNamesInput(carNames);
         String[] carNameArray = carNames.split(Common.SEPARATOR.getStringValue());
         for (String carName : carNameArray) {
-            carList.add(new Car(carName));
+            cars.add(new Car(carName));
         }
     }
 
     public void everyCarMoveForwardByRandom() {
-        for (Car car : carList) {
+        for (Car car : cars) {
             car.moveForwardByRandom();
         }
     }
 
-    public List<Car> getCarList() {
-        return carList;
+    public List<Car> getCars() {
+        return cars;
     }
 
     public Car getCar(String carName) {
-        for (Car car : carList) {
+        for (Car car : cars) {
             if (car.getName().equals(carName))
                 return car;
         }
