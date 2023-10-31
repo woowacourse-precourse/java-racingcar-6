@@ -10,7 +10,7 @@ import racingcar.dto.request.TryCount;
 public class InputView {
 
     public CarNames readCarNames() {
-        return CarNames.from(List.of(getInput().split(CAR_NAME_SEPARATOR.getSign())));
+        return CarNames.from(List.of(getInput().split(CAR_NAME_SEPARATOR.toString())));
     }
 
     public TryCount readTryCount() {

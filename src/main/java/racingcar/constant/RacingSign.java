@@ -13,7 +13,8 @@ public enum RacingSign {
         this.sign = sign;
     }
 
-    public String getSign() {
+    @Override
+    public String toString() {
         return sign;
     }
 }

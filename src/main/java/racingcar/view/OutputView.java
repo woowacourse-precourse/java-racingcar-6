@@ -32,17 +32,17 @@ public class OutputView {
     public void writeRacingWinner(Racing racing) {
         WinnerNames winnerNames = racing.getWinnerNames();
         write(getWinnerMessage(
-            String.join(WINNER_NAME_SEPARATOR.getSign(), winnerNames.getWinnerNames())));
+            String.join(WINNER_NAME_SEPARATOR.toString(), winnerNames.getWinnerNames())));
     }
 
     private String getRacingStatusMessage(RacingStatus racingStatus) {
         return racingStatus.getCarInfos().stream().map(this::makeCarInfoMessage)
-            .collect(Collectors.joining(NEW_LINE.getSign())) + NEW_LINE.getSign();
+            .collect(Collectors.joining(NEW_LINE.toString())) + NEW_LINE;
     }
 
     private String makeCarInfoMessage(CarInfo carInfo) {
         return getRacingProgressMessage(carInfo.getName(),
-            RACING_PROGRESS_BAR.getSign().repeat(carInfo.getMoveCount()));
+            RACING_PROGRESS_BAR.toString().repeat(carInfo.getMoveCount()));
     }
 
     private void write(String message) {
