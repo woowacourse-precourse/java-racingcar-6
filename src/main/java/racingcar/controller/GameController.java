@@ -23,11 +23,11 @@ public class GameController {
         printRaceWinner(race);
     }
 
-    private static void printRaceWinner(Race race) {
+    private void printRaceWinner(Race race) {
         OutputView.printMessage("최종 우승자 : " + race.getWinnerString());
     }
 
-    private static void printRaceStatus(int tryCount, Race race) {
+    private void printRaceStatus(int tryCount, Race race) {
         OutputView.printMessage("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
             race.moveEachCar();
@@ -35,14 +35,14 @@ public class GameController {
         }
     }
 
-    private static List<Car> generateCars(String carNames) {
+    private List<Car> generateCars(String carNames) {
         return InputUtil.convertInputStringToList(carNames)
                 .stream()
                 .map(Car::new)
                 .toList();
     }
 
-    private static String readCarNames() {
+    private String readCarNames() {
         OutputView.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = InputView.read();
         CarNameValidator.validateForInputString(carNames);
@@ -50,7 +50,7 @@ public class GameController {
         return carNames;
     }
 
-    private static int readTryCount() {
+    private int readTryCount() {
         OutputView.printMessage("시도할 회수는 몇회인가요?");
         String tryCount = InputView.read();
         TryCountValidator.validate(tryCount);
