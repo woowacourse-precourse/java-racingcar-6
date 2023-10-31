@@ -25,12 +25,12 @@ public class InputTest {
         try {
             command(carNames);
             carNameListForTest = input.getCarNameList();
-
-            assertEquals(3, carNameListForTest.size());
-            assertThat(carNameListForTest).containsExactly("pobi", "woni", "jun");
         } finally {
             Console.close();
         }
+
+        assertEquals(3, carNameListForTest.size());
+        assertThat(carNameListForTest).containsExactly("pobi", "woni", "jun");
     }
 
     @ParameterizedTest
