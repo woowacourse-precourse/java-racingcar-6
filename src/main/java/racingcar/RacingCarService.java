@@ -5,6 +5,7 @@ import java.util.Arrays;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 import racingcar.domain.RacingResult;
+import racingcar.utils.Utils;
 
 public class RacingCarService {
     private static final String START_GAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -22,28 +23,16 @@ public class RacingCarService {
             cars.tryRace();
             input_cnt--;
         } while (input_cnt != 0);
+        System.out.println(String.format("최종 우승자 : %s", RacingCars.comparison()));
     }
 
     private void createRacingCar() {
         System.out.println(START_GAME_MESSAGE);
         Arrays.stream(Console.readLine().split(","))
                 .forEach(e -> {
-                    nameValidation(e);
+                    Utils.nameValidation(e);
                     cars.add(new RacingCar(e), new RacingResult());
                 });
-        lengthCheck();
-    }
-
-    private void nameValidation(String name) {
-        if (name.length() == 0) {
-            throw new IllegalArgumentException("한 글자 이상 입력해주세요.");
-        }
-    }
-
-    private void lengthCheck() {
-        if (!cars.lengthCheck()) {
-            throw new IllegalArgumentException("5자 이하 이름의 자동차를 생성해주세요");
-        }
     }
 
     private void getInputCount() {

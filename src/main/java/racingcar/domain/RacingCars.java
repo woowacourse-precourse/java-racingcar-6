@@ -1,26 +1,46 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import racingcar.utils.Utils;
 
 public class RacingCars {
     private final static LinkedHashMap<RacingCar, RacingResult> racingCars = new LinkedHashMap<>();
 
-    public void add(RacingCar racingCar, RacingResult racingResult) {
-        this.racingCars.put(racingCar, racingResult);
+    public static String comparison() {
+        return String.join(", ", getWinnerList(getMaxResult()));
     }
 
-    public boolean lengthCheck() {
-        if (!racingCars.keySet().stream().allMatch(e -> Utils.wordLengthCheck(e.toString()))) {
-            return false;
-        }
-        return true;
+    private static List<String> getWinnerList(List<RacingResult> maxResult) {
+        return maxResult.stream()
+                       .map(value -> racingCars.entrySet().stream()
+                                             .filter(entry ->
+                                                             entry.getValue().length()
+                                                                     == value.length())
+                                             .map(e -> String.valueOf(e.getKey().toString()))
+                                             .collect(Collectors.toList()))
+                       .findFirst().get();
+    }
+
+    private static List<RacingResult> getMaxResult() {
+        return racingCars.entrySet().stream()
+                       .max(Comparator.comparing(
+                               entry -> entry.getValue().toString().length()))
+                       .map(Map.Entry::getValue)
+                       .stream().collect(Collectors.toList());
+    }
+
+    public void add(RacingCar racingCar, RacingResult racingResult) {
+        this.racingCars.put(racingCar, racingResult);
     }
 
     public void tryRace() {
         racingCars.values().stream()
                 .forEach(e -> {
-                    if (Utils.getRandomNum() > 4) {
+                    if (Utils.getRandomNum() >= 4) {
                         e.forward();
                     }
                 });

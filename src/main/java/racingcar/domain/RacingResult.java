@@ -10,4 +10,8 @@ public class RacingResult {
     public String toString() {
         return result;
     }
+
+    public int length() {
+        return result.length();
+    }
 }
