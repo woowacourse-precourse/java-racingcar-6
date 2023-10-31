@@ -16,5 +16,4 @@ public class Winners {
                 .map(Winner::toString)
                 .collect(Collectors.joining(", "));
     }
-
 }
