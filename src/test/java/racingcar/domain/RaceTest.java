@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.NumberGenerator;
-import racingcar.domain.Race;
+import racingcar.TestNumberGenerator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,18 +13,19 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RaceTest {
     private Race race;
-    NumberGenerator numberGenerator;
+    private final int ROUNDS = 5;
 
     @BeforeEach
     void makeTestRace() {
-        race = new Race(Arrays.asList("name1", "name2", "name3"), 5);
+        race = new Race(Arrays.asList("name1", "name2", "name3"), ROUNDS, new TestNumberGenerator());
     }
 
     @Test
+    @DisplayName("자동차는 이동횟수 이상으로 움직일 수 없다.")
     void 경주_실행() {
         ByteArrayOutputStream outputStream = getByteArrayOutputStream();
         race.play();
-//        assertThat(outputStream.toString()).
+        assertThat(outputStream.toString()).doesNotContain("-".repeat(ROUNDS + 1));
     }
 
     private ByteArrayOutputStream getByteArrayOutputStream() {
