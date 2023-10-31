@@ -5,17 +5,17 @@ public class CarName {
     private final String name;
 
     public CarName(String name) {
+        validate(name);
         this.name = name;
-        validate();
     }
 
-    private void validate() {
-        if (isGreaterThanMaximumLength()) {
+    private void validate(String name) {
+        if (isGreaterThanMaximumLength(name)) {
             throw new IllegalArgumentException("이름은 5자이내여야 합니다.");
         }
     }
 
-    private boolean isGreaterThanMaximumLength() {
+    private boolean isGreaterThanMaximumLength(String name) {
         return name.length() > MAXIMUM_LENGTH;
     }
 
