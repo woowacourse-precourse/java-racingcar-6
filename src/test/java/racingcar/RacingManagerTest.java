@@ -1,7 +1,10 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.number_generator.NumberGenerator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -50,5 +53,22 @@ public class RacingManagerTest {
         assertThatThrownBy(() -> new RacingManager(validCarsNameInput, nonNumberCountInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도할 회수는 숫자여야 합니다.");
+    }
+}
+
+class FixedNumberGenerator implements NumberGenerator {
+    private final List<Integer> fixedNumberList;
+
+    public FixedNumberGenerator(Integer... numbers) {
+        fixedNumberList = new ArrayList<>(Arrays.asList(numbers));
+    }
+
+    @Override
+    public int generate(int min, int max) {
+        if (fixedNumberList.isEmpty()) {
+            return -1;
+        } else {
+            return fixedNumberList.remove(0);
+        }
     }
 }
