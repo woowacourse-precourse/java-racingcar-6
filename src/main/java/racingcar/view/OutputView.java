@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.util.Message;
 
 public class OutputView {
@@ -17,6 +18,13 @@ public class OutputView {
 
     public void printMessage(Message message) {
         println(message.getMessage());
+    }
+
+    public void printOneRoundResult(List<String> results) {
+        for (String result : results) {
+            println(result);
+        }
+        println("");
     }
 
     private void println(String output) {
