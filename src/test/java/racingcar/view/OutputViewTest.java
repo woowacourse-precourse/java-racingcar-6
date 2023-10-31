@@ -37,6 +37,4 @@ class OutputViewTest {
         OutputView.showResultMessage();
         assertThat(outContent.toString()).contains("실행 결과");
     }
-
-
 }

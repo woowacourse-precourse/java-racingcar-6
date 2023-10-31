@@ -5,7 +5,6 @@ import racingcar.domain.RacingCars;
 import racingcar.view.constants.Strings;
 
 public class OutputView {
-
     public static void askCarName() {
         System.out.println(Strings.ASK_CAR_NAME.getMessage());
     }

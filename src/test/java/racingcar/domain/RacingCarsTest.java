@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RacingCarsTest {
-
     @Test
     @DisplayName("자동차들 중 가장 먼 거리 계산에 대한 예외 처리")
     void Given_RacingCars_When_RacingCarsMoved_Then_CalculatedFarthestIsSameAsTheFarthest() {

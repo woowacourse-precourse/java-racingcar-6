@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InputValidatorTest {
-
     static final String CAR_NAME_LENGTH_LONGER_THAN_FIVE = "abcdef";
     static final String CAR_NAME_INVALID_LETTER = "!a ";
     static final String CAR_NAME_DUPLICATED = "abc,abc";

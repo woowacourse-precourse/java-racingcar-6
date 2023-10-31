@@ -5,7 +5,6 @@ import racingcar.view.constants.Numbers;
 import racingcar.view.constants.Strings;
 
 public class InputValidator {
-
     private static void handleNullOrEmpty(String input) {
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException(Strings.NULL_OR_EMPTY_ERROR.getMessage());
@@ -55,6 +54,7 @@ public class InputValidator {
         if (playtime.length() > 4) {
             throw new IllegalArgumentException(Strings.PLAYTIME_OUT_OF_RANGE_ERROR.getMessage());
         }
+        
         int intTypePlayTime = Integer.parseInt(playtime);
         if (intTypePlayTime <= 0 || intTypePlayTime > Numbers.MAX_GAME_PLAY.getNumber()) {
             throw new IllegalArgumentException(Strings.PLAYTIME_OUT_OF_RANGE_ERROR.getMessage());

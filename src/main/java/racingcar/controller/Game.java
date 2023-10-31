@@ -10,13 +10,16 @@ public class Game {
     public void start() {
         OutputView.askCarName();
         RacingCars racingcars = TypeCasting.stringToRacingCars(InputView.askCarName());
+
         OutputView.askPlayTime();
         final int playTime = Integer.parseInt(InputView.askPlayTime());
+
         OutputView.showResultMessage();
         for (int i = 0; i < playTime; i++) {
             Referee.simulate(racingcars);
             OutputView.showCurrentDistance(racingcars);
         }
+        
         RacingCars winners = Referee.calculateWinners(racingcars);
         OutputView.showFinalWinners(winners);
     }

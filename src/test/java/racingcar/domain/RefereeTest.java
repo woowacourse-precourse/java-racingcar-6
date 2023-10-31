@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class RefereeTest {
     @Test
     @DisplayName("충분히 시뮬레이션 돌렸을 때 모든 자동차의 거리가 1 이상인지 판단")
-    void Given_RacingCars_When_RefereeSimulatedThousandTimes_Then_AllCarsMoved() {
+    void Given_RacingCars_When_RefereeSimulatedThousanTimes_Then_AllCarsMoved() {
         final int TEST_NUMBER = 10000;
         // given
         RacingCars racingCars = new RacingCars();

@@ -15,21 +15,21 @@ class ApplicationTest extends NsTest {
 
 
     @Test
-    @DisplayName("입력->이름->문자열 길이가 5를 초과함")
+    @DisplayName("문자열 길이가 5를 초과함")
     void 이름_글자_수_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobiqwrwr", "1")).isInstanceOf(
                 IllegalArgumentException.class));
     }
 
     @Test
-    @DisplayName("입력->이름->입력을 건너뜀")
+    @DisplayName("입력을 건너뜀")
     void 이름이_없음_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("", "1")).isInstanceOf(
                 IllegalArgumentException.class));
     }
 
     @Test
-    @DisplayName("입력->이름->1개 이하")
+    @DisplayName("이름이 1개 이하")
     void 이름이_1개_이하_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("abc", "1")).isInstanceOf(
                 IllegalArgumentException.class));
@@ -37,14 +37,14 @@ class ApplicationTest extends NsTest {
 
 
     @Test
-    @DisplayName("입력->이름->영어 소문자가 아님")
+    @DisplayName("영어 소문자가 아님")
     void 영어_소문자가_아닌_문자열_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("ABC,DEF", "1")).isInstanceOf(
                 IllegalArgumentException.class));
     }
 
     @Test
-    @DisplayName("입력->이름->연속된 구분자 포함")
+    @DisplayName("연속된 구분자 포함")
     void 연속된_구분자에_대한_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("qr,,,rr", "1")).isInstanceOf(
                 IllegalArgumentException.class));
@@ -52,14 +52,14 @@ class ApplicationTest extends NsTest {
 
 
     @Test
-    @DisplayName("입력->이름->중복된 이름 포함")
+    @DisplayName("중복된 이름 포함")
     void 중복된_이름에_대한_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("abc,abc", "1")).isInstanceOf(
                 IllegalArgumentException.class));
     }
 
     @Test
-    @DisplayName("입력->게임 횟수-> 숫자가 아닌 문자 포함")
+    @DisplayName("숫자가 아닌 문자 포함")
     void 게임_횟수가_올바른_문자인지에_대한_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("abc,def", "a")).isInstanceOf(
                 IllegalArgumentException.class));
@@ -68,7 +68,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("입력->게임 횟수-> 범위(1..1000)를 벗어남")
+    @DisplayName("범위(1..1000)를 벗어남")
     void 게임_횟수가_범위_안에_있는지에_대한_예외_처리() {
         assertSimpleTest(() -> assertThatThrownBy(() -> runException("abc,def", "0")).isInstanceOf(
                 IllegalArgumentException.class));

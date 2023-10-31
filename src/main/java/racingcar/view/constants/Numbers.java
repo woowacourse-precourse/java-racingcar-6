@@ -1,7 +1,6 @@
 package racingcar.view.constants;
 
 public enum Numbers {
-
     MAX_NAME_LENGTH(5),
     MIN_GAME_PLAYER(2),
     MAX_GAME_PLAYER(100),
