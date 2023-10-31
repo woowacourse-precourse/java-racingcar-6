@@ -92,4 +92,29 @@ public class ValidatorTest {
         assertThat(result3).doesNotThrowAnyException();
     }
 
+    @DisplayName("시도 횟수 입력값이 비어 있거나 빈 공백으로만 이루어져 있는지 검사")
+    @Test
+    void 시도_횟수_공백_테스트() {
+        // given
+        String case1 = "";
+        String case2 = " ";
+        String case3 = "   ";
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            Validator.validateNonEmpty(case1);
+        });
+        Throwable result2 = catchThrowable(() -> {
+            Validator.validateNonEmpty(case2);
+        });
+        Throwable result3 = catchThrowable(() -> {
+            Validator.validateNonEmpty(case3);
+        });
+
+        // then
+        assertThat(result1).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result2).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result3).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
