@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import racingcar.configuration.ConfigurationConstants;
 
 public class CarNamesInputValidator {
-
+    
     private static final String SPLIT_REGEX = ",";
     private static final char COMMA = ',';
 
@@ -24,26 +24,26 @@ public class CarNamesInputValidator {
 
     private static void validateIsNotBlank(String target) {
         if (target == null || target.isBlank()) {
-            throw new IllegalArgumentException(CarNamesInputExceptionMessage.BLANK.getError());
+            throw new IllegalArgumentException(CarNamesInputExceptionMessage.BLANK_INPUT.getError());
         }
     }
 
     private static void validateFirstCharacterIsNotComma(String target) {
         if (target.charAt(0) == COMMA) {
-            throw new IllegalArgumentException(CarNamesInputExceptionMessage.FIRST_CHARACTER_COMMA.getError());
+            throw new IllegalArgumentException(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
         }
     }
 
     private static void validateLastCharacterIsNotComma(String target) {
         if (target.charAt(target.length() - 1) == COMMA) {
-            throw new IllegalArgumentException(CarNamesInputExceptionMessage.LAST_CHARACTER_COMMA.getError());
+            throw new IllegalArgumentException(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
         }
     }
 
     private static void validateEachElementIsNotBlank(String[] targets) {
         for (String target : targets) {
             if (target.isBlank()) {
-                throw new IllegalArgumentException(CarNamesInputExceptionMessage.ELEMENT_BLANK.getError());
+                throw new IllegalArgumentException(CarNamesInputExceptionMessage.CAR_NAME_BLANK.getError());
             }
         }
     }
@@ -73,10 +73,8 @@ public class CarNamesInputValidator {
     }
 
     enum CarNamesInputExceptionMessage {
-        BLANK("공백 입력을 해선 안됩니다."),
-        FIRST_CHARACTER_COMMA("첫 번째 문자로 콤마(,)를 입력하면 안됩니다."),
-        LAST_CHARACTER_COMMA("마지막 문자로 콤마(,)를 입력하면 안됩니다."),
-        ELEMENT_BLANK("자동차 이름은 공백 문자로만 이루어져선 안됩니다."),
+        BLANK_INPUT("공백 입력을 해선 안됩니다."),
+        CAR_NAME_BLANK("자동차 이름은 공백 문자로만 이루어져선 안됩니다."),
         OUT_OF_LENGTH("자동차 이름은 5글자 이하여야 합니다."),
         DUPLICATE_EXISTS("중복된 자동차 이름이 존재합니다."),
         OUT_OF_TOTAL_COUNT(String.format("자동차이름은 %d ~ %d 개만 입력 가능합니다.", ConfigurationConstants.TOTAL_CAR_MIN_LIMIT,
