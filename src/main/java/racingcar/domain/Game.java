@@ -29,7 +29,9 @@ public class Game {
     }
 
     public void inputTrialCount() {
-
+        System.out.println("시도할 회수는 몇회인가요?");
+        String trialCountString = Console.readLine();
+        totalTrialCount = Integer.parseInt(trialCountString);
     }
 
     public void judgeWinner() {
