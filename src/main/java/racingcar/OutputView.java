@@ -6,19 +6,19 @@ public class OutputView {
     private final static String ROUND_RESULT_MSG = "실행 결과";
     private final static String WINNER_MSG = "최종 우승자 : ";
 
-    public void printInputMsg(){
+    public static void printInputMsg(){
         System.out.println(INPUT_MSG);
     }
 
-    public void printRetryNumMsg(){
+    public static void printRetryNumMsg(){
         System.out.println(RETRY_NUM_MSG);
     }
 
-    public void printRoundResultMsg(){
+    public static void printRoundResultMsg(){
         System.out.println(ROUND_RESULT_MSG);
     }
 
-    public void printWinnerMsg(){
+    public static void printWinnerMsg( ){
         System.out.println(WINNER_MSG);
     }
 }
