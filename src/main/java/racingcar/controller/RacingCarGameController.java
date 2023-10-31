@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 import racingcar.model.Player;
 import racingcar.view.RacingCarGameView;
 
@@ -46,7 +44,7 @@ public class RacingCarGameController {
     public void moveOrNot(List<Player> playerList) {
         int enoughMove;
         for (Player player : playerList) {
-            enoughMove = Randoms.pickNumberInRange(0,9);
+            enoughMove = Randoms.pickNumberInRange(0, 9);
             if (enoughMove >= 4) {
                 player.move();
             }
