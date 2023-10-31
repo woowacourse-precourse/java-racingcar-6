@@ -15,15 +15,25 @@ public class Application {
 
         NamesManager namesManager = new NamesManager();
         List<String> namesList = namesManager.separateNamesString(Console.readLine());
-        if (namesManager.checkNamesException(namesList)){
-            throw new IllegalArgumentException();
+        if (namesManager.checkNamesException(namesList)) {
+            throw new IllegalArgumentException("중복되는 이름이나 5 글자 이상의 이름이 있는지 확인해주세요.");
         }
 
         Leaderboard leaderboard = new Leaderboard(namesList);
 
         System.out.println("시도할 회수는 몇회인가요?");
+        int roundNumber;
+        String roundNumberString = Console.readLine();
+        if (notNumber(roundNumberString)) {
+            throw new IllegalArgumentException("입력하신 값이 숫자가 맞는지 확인해주세요.");
+        }
+        else {
+            roundNumber = Integer.parseInt(roundNumberString);
 
-        int roundNumber = Integer.parseInt(Console.readLine());
+            if (negativeNumber(roundNumber)) {
+                throw new IllegalArgumentException("입력하신 값이 0 이상의 수가 맞는지 확인해주세요.");
+            }
+        }
 
         System.out.println();
         System.out.println("실행 결과");
