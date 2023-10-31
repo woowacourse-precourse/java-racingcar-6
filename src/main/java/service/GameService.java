@@ -27,7 +27,7 @@ public class GameService {
     public String getInputLineOfCarNames() {
         askForInputCarNames();
         String input = Console.readLine();
-        validate.inputLineOfCarNames(Console.readLine());
+        validate.inputLineOfCarNames(input);
         return input;
     }
     public int getNumberOfAttempts() {
