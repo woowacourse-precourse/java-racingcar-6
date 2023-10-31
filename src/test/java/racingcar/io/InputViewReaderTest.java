@@ -8,8 +8,6 @@ import java.io.InputStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.io.InputViewReader;
-
 public class InputViewReaderTest {
 	
 	@DisplayName("입력값이 일치한지 확인한다.")

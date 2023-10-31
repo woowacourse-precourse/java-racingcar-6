@@ -10,7 +10,7 @@ import racingcar.util.message.ErrorMessage;
 
 public class CarNameTest {
 	
-	@DisplayName("차 이름의 길이가 5초과하면 예외를 발생시킨다.")
+	@DisplayName("자동차 이름의 길이가 5초과하면 예외를 발생시킨다.")
 	@ValueSource(strings = { "jaaass", "naacsc" })
 	@ParameterizedTest
 	void checkOutOfLength(String str) {
@@ -19,14 +19,14 @@ public class CarNameTest {
 				.hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 	}
 	
-	@DisplayName("차 이름의 길이가 5이하일 때 정삭적으로 작동하는 지 확인한다.")
+	@DisplayName("자동차 이름의 길이가 5이하일 때 정삭적으로 작동하는 지 확인한다.")
 	@ValueSource(strings = { "nnaa", "jjaa" })
 	@ParameterizedTest
 	void checkNomalOperation1(String str) {
 		new CarName(str);
 	}
 	
-	@DisplayName("숫자가 포함되어 있다면 예외를 발생시킨다.")
+	@DisplayName("자동차 이름에 숫자가 포함되어 있다면 예외를 발생시킨다.")
 	@ValueSource(strings = { "jaa22", "12sa" })
 	@ParameterizedTest
 	void checkContainNumber(String str) {
@@ -35,7 +35,7 @@ public class CarNameTest {
 				.hasMessageContaining(ErrorMessage.CONTAIN_NUMBER_ERROR.getMessage());
 	}
 	
-	@DisplayName("숫자가 아닌 문자로만 구성되었을 때 정상적으로 작동하는 지 확인한다.")
+	@DisplayName("차동차 이름이 숫자가 아닌 문자로만 구성되었을 때 정상적으로 작동하는 지 확인한다.")
 	@ValueSource(strings = { "nana", "jjaaa" })
 	@ParameterizedTest
 	void checkNomalOperation2(String str) {

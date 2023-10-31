@@ -23,7 +23,7 @@ public class CarLocation {
 	
 	private void validateNegativeNumber(int location) {
 		if(location < 0) {
-			throw new IllegalArgumentException(ErrorMessage.CAR_LOCATION_NEGATIVE_NUMBER.getMessage());
+			throw new IllegalArgumentException(ErrorMessage.CAR_LOCATION_NEGATIVE_NUMBER_ERROR.getMessage());
 		}
 	}
 	

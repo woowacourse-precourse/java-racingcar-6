@@ -32,7 +32,7 @@ public class ValidatorTest {
 	void checkisEmpty(String str) {
 		assertThatThrownBy(() -> Validator.validateIsEmpty(str))
 				.isInstanceOf(IllegalArgumentException.class)
-				.hasMessageContaining(ErrorMessage.INPUT_EMPTY.getMessage());
+				.hasMessageContaining(ErrorMessage.INPUT_EMPTY_ERROR.getMessage());
 	}
 
 	@DisplayName("값이 있을 떄 정상적으로 작동하는 지 확인한다.")

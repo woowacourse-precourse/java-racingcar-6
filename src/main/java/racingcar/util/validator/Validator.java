@@ -20,7 +20,7 @@ public class Validator {
 	
 	public static void validateIsEmpty(String inputValue) {
 		if(isStringEmpty(inputValue)) {
-			throw new IllegalArgumentException(ErrorMessage.INPUT_EMPTY.getMessage());
+			throw new IllegalArgumentException(ErrorMessage.INPUT_EMPTY_ERROR.getMessage());
 		}
 	}
 	
