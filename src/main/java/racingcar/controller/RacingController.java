@@ -28,10 +28,7 @@ public class RacingController {
     }
 
     public void playGame() {
-        List<String> carNames = getCarNames();
-        Integer roundCount = getRoundCount();
-
-        initializeGame(carNames, roundCount);
+        initializeGame();
 
         while (!gameService.isGameOver(roundInfo)) {
             RoundResult roundResult = gameService.executeRound(roundInfo, carInfos);
@@ -42,20 +39,22 @@ public class RacingController {
         outputView.printWinner(winners);
     }
 
+    private void initializeGame() {
+        List<String> carNames = getCarNames();
+        Integer roundCount = getRoundCount();
+
+        this.carInfos = carNames.stream()
+                .map(CarInfo::new)
+                .toList();
+
+        this.roundInfo = new RoundInfo(roundCount);
+    }
+
     private Integer getRoundCount() {
         return userInputValidator.validateRoundCount(inputView.getRoundCount());
     }
 
     private List<String> getCarNames() {
         return userInputValidator.validateCarNames(inputView.getCarNames());
-    }
-
-    private void initializeGame(List<String> carNames, Integer maxRound) {
-        this.carInfos = carNames
-                .stream()
-                .map(CarInfo::new)
-                .toList();
-
-        this.roundInfo = new RoundInfo(maxRound);
     }
 }
