@@ -26,7 +26,7 @@ public class Cars {
         Car maxPositionCar = findFarthestPositionCar();
         List<Car> winners = findSamePositionCar(maxPositionCar);
 
-        return winners;
+        return Collections.unmodifiableList(winners);
     }
 
     public Car findFarthestPositionCar() {
