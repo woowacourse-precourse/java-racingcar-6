@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.MessageFactory;
 import racingcar.util.MessageProcessor;
 
@@ -37,7 +38,7 @@ public class Game {
 
     private void playOneRound(StringBuilder result) {
         for (Car car : cars) {
-            car.move();
+            car.move(Randoms.pickNumberInRange(0, 9));
             result.append(car.getName()).append(" : ").append(car.getMoveResult()).append("\n");
         }
         result.append("\n");
