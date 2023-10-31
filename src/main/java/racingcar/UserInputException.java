@@ -3,6 +3,8 @@ package racingcar;
 import static racingcar.Constant.BLANK_CAR_NAME_MESSAGE;
 import static racingcar.Constant.BLANK_SPACE;
 import static racingcar.Constant.DUPLICATE_CAR_NAME_MESSAGE;
+import static racingcar.Constant.EMPTY_CAR_NAME_MESSAGE;
+import static racingcar.Constant.EMPTY_SPACE;
 import static racingcar.Constant.INVALID_NUMERIC_INPUT_MESSAGE;
 import static racingcar.Constant.MAX_CAR_NAME_LENGTH;
 import static racingcar.Constant.MINIMUM_ATTEMPT_COUNT_REQUIRED_MESSAGE;
@@ -51,6 +53,16 @@ public class UserInputException {
     private boolean overMaxLength(String[] carNames) {
         return Arrays.stream(carNames)
                 .anyMatch(carName -> carName.length() > MAX_CAR_NAME_LENGTH);
+    }
+
+    public void validateEmptyCarName(String[] carNames) {
+        if (containsEmptyName(carNames)) {
+            throw new IllegalArgumentException(EMPTY_CAR_NAME_MESSAGE);
+        }
+    }
+
+    private boolean containsEmptyName(String[] carNames) {
+        return Arrays.asList(carNames).contains(EMPTY_SPACE);
     }
 
     public int isIntegerAttemptCount(String userInput) {
