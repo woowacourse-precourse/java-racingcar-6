@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+//import java.util.Random;
 
 public class Practice {
     public static void main(String[] args) throws IOException {
@@ -38,7 +38,7 @@ public class Practice {
 class ownCar {
     private String name;
     private int position;
-    private Random random;
+   // private Random random;
 
     public ownCar(String name) {
         this.name = name;
@@ -48,7 +48,7 @@ class ownCar {
 
     public void move() {
         int random = Randoms.pickNumberInRange(0,9);
-        if (random.nextInt(10) >= 4) {
+        if (random >= 4) {
             position++;
         }
     }
