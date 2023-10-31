@@ -10,4 +10,10 @@ public class ResultView {
         appendCarPosition(result, car.getPosition());
         System.out.println(result);
     }
+
+    private static void appendCarPosition(StringBuilder result, int position) {
+        for (int i = 0; i < position; i++) {
+            result.append(CAR_POSITION_MARKER);
+        }
+    }
 }
