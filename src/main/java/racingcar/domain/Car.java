@@ -28,7 +28,7 @@ public class Car {
     public void showStatus() {
         StringBuilder resultBuilder = new StringBuilder();
         resultBuilder.append(name).append(" : ");
-        resultBuilder.append("-".repeat(Math.max(0, this.status)));
+        resultBuilder.append("-".repeat(this.status));
         System.out.println(resultBuilder);
     }
 }
