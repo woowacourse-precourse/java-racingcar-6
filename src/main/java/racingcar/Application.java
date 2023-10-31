@@ -21,7 +21,8 @@ public class Application {
             racingCupController.gamePlay();
             gameView.nowRoundResultPrint(playersController.getPlayerList());
         }
+
         racingCupController.decideFinalWinner();
-        System.out.println(racingCupController.getRacingCup().getWinners());
+        gameView.finalResultPrint(racingCupController.getWinners());
     }
 }
