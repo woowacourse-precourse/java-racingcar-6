@@ -18,6 +18,9 @@ public class CarNameValidator {
                 throw new IllegalArgumentException(CAR_NAME_FORMAT_ERROR);
             }
         }
+        if (hasDuplicates(carNames)) {
+            throw new IllegalArgumentException(CAR_NAME_DUPLICATE_ERROR);
+        }
     }
 
     private static boolean isAlphabetic(String name) {
@@ -27,5 +30,9 @@ public class CarNameValidator {
             }
         }
         return true;
+    }
+
+    private static boolean hasDuplicates(List<String> carNames) {
+        return carNames.stream().distinct().count() != carNames.size();
     }
 }
