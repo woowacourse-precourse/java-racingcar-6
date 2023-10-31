@@ -23,4 +23,10 @@ public final class Validation {
         }
     }
 
+    public static void validateCarNameLength(String carName){
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
