@@ -33,7 +33,6 @@ class RacingGameTest extends NsTest {
     void 디렉터_호출_확인() {
         //given
         InputGenerateManager inputGenerateManager = Mockito.mock(InputGenerateManager.class);
-        OutputGenerateManager outputGenerateManager = Mockito.mock(OutputGenerateManager.class);
         Simulator simulator = Mockito.mock(Simulator.class);
         CarFactory carFactory = Mockito.mock(CarFactory.class);
         Director director = Mockito.mock(Director.class);
