@@ -3,11 +3,11 @@
 양식 : [구현여부] (기능 설명)_ (클래스 이름)#(메서드 이름)
 ---
 - [] 게임을 시작한다. Race#run
-- [] 자동차 이름을 입력받는다. InputView#inputCarName
+- [] 자동차 이름을 입력받는다. OutputView#inputCarNameView, InputView#inputCarName
   - [] ","를 기준으로 구분한다.  
     - [] 이름으로 차를 생성한다. Car#Car
   - [] (검사) 5자 이하만 가능하다. Validation#carNameSizeCheck
-- [] 시도할 횟수를 입력받는다. InputView#inputTryNumber
+- [] 시도할 횟수를 입력받는다. OutPurView#inputTryNumberView, InputView#inputTryNumber
   - [] (검사) 자연수만 가능하다. Validation#
 - [] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다. Car#handle
   - [] 랜덤값 생성기 Random
