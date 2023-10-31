@@ -24,4 +24,15 @@ class GameTest {
         verify(mockCars, times(5)).moveAllCars(anyList());
         verify(mockCars, times(5)).printCarNamesAndPositions();
     }
+
+    @Test
+    public void getWinners를_호출하면_findWinner가_정상적으로_호출된다() {
+        Cars mockCars = mock(Cars.class);
+        TryCount mockTryCount = mock(TryCount.class);
+        Game game = new Game(mockCars, mockTryCount);
+
+        game.getWinners();
+
+        verify(mockCars, times(1)).findWinners();
+    }
 }
