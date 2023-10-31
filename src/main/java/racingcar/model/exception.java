@@ -5,13 +5,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class exception {
-    private static final String INPUT_SIZE_NAME_ERROR = ">> #1 예외발생 : 자동차 이름은 1자이상 5자이하만 가능합니다.";
-    private static final String INPUT_BLANK_NAME_ERROR = ">> #2 예외발생 : 자동차 이름에 공백은 사용이 불가능합니다.";
-    private static final String INPUT_DUPLICATE_NAME_ERROR = ">> #3 예외발생 : 자동차 이름은 중복이 불가능합니다.";
-    private static final String INPUT_NEED_ALL_CARS_ERROR = ">> #4 예외발생 : 마지막 자동차 이름을 입력하지 않았습니다.";
-    private static final String MIN_RACER_ERROR = ">> #5 예외발생 : 자동차경주는 2명이상부터 가능합니다.";
-    private static final String INPUT_ATTEMPT_INTEGER_ERROR = ">> 예외발생 : 시도 횟수는 숫자여야 합니다.";
-    private static final String INPUT_ATTEMPT_IS_POSSITIVE_ERROR = ">> 예외발생 : 시도 횟수는 1이상의 양수여야 합니다.";
+    private static final String INPUT_SIZE_NAME_ERROR = "예외발생 : 자동차 이름은 1자이상 5자이하만 가능합니다.";
+    private static final String INPUT_BLANK_NAME_ERROR = "예외발생 : 자동차 이름에 공백은 사용이 불가능합니다.";
+    private static final String INPUT_DUPLICATE_NAME_ERROR = "예외발생 : 자동차 이름은 중복이 불가능합니다.";
+    private static final String INPUT_NEED_ALL_CARS_ERROR = "예외발생 : 마지막 자동차 이름을 입력하지 않았습니다.";
+    private static final String MIN_RACER_ERROR = "예외발생 : 자동차경주는 2명이상부터 가능합니다.";
+    private static final String INPUT_ATTEMPT_INTEGER_ERROR = "예외발생 : 시도 횟수는 숫자여야 합니다.";
+    private static final String INPUT_ATTEMPT_IS_POSSITIVE_ERROR = "예외발생 : 시도 횟수는 1이상의 양수여야 합니다.";
     private static final int MIN_NAME_SIZE = 1;
     private static final int MAX_NAME_SIZE = 5;
     private static final int MIN_RACER = 2;

@@ -19,7 +19,6 @@ public class Stadium {
         WinnerDto winners = Winner.decision(cars);
 
         OutputView.result(winners);
-
     }
 
     private void game(){
@@ -35,5 +34,4 @@ public class Stadium {
             driver.choice();
         }
     }
-
 }
