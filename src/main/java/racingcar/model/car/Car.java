@@ -46,7 +46,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.name + Message.MARK.repeat(this.currentPosition);
+        return String.format(Message.RESULT_FORMAT, name, Message.MARK.repeat(currentPosition));
     }
 
     @Override
