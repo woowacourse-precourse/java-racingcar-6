@@ -29,6 +29,12 @@ int randomNumber() 무작위의 수 반환
 List\<Car> selectWinners(List\<Car> cars) 승리자들 결정  
 List<String> inputToCarNames(String input) 입력을 차들의 이름으로 나눈 후 리스트 반환.
 
+### IoValidation 클래스
+-역할: 입출력 오류 검사  
+- method  
+void validateInputCarName(List\<Car> carNames) 차의 입력이 옳바른지 검사  
+void validateTurnNumber(String string)  
+
 ### IoService 클래스  
 - 역할 : 게임의 입출력 담당  
 - method  
@@ -40,7 +46,9 @@ printWinners(List\<Car> winners) 승리자들 출력
 ### GamePlayer 클래스
 - 역할 : 게임의 진행을 총괄  
 - method  
-void oneTurn(List\<Car> Cars) 한 차수 진행  
+void oneTurn(List\<Car> cars) 한 차수 진행  
 void randomAdvanceAll(List\<Car> cars) 모든 차 랜덤하게 전진  
-playGame() 게임 진행
+playGame(int round,List\<Cars>) 게임 진행
 startGame() 게임 시작 
+
+
