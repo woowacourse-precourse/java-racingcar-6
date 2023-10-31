@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import racingcar.domain.primitivewraper.CarName;
+import racingcar.domain.primitivewraper.Progress;
 
 public class Car {
     private static final String COLON = " : ";
