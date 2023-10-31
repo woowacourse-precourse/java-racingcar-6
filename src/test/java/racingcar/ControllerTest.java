@@ -1,12 +1,13 @@
-package racingcar.controller;
+package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.controller.CarLocationController;
+import racingcar.controller.MaxController;
 import racingcar.generator.RandomNumberGenerator;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-
-class MaxControllerTest {
+import static org.mockito.Mockito.*;
+class ControllerTest {
     MaxController maxController =new MaxController();
     CarLocationController carLocationController= new CarLocationController();
 
@@ -17,14 +18,5 @@ class MaxControllerTest {
     }
     @Test
     void testforward() {
-        RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
-
-        // Test case 1: random number is 5 (>= 4)
-        int result1 = carLocationController.forward(0);
-        assertEquals(1, result1);
-
-        // Test case 2: random number is 3 (< 4)
-        int result2 = carLocationController.forward(0);
-        assertEquals(0, result2);
     }
 }

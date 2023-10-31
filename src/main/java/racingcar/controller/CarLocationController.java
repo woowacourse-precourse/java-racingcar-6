@@ -6,7 +6,6 @@ public class CarLocationController {
 
     public static int forward(int location){
         int randomnumber=RandomNumberGenerator.RandomNumber();
-//        System.out.println(randomnumber);
         if(randomnumber>=4) {
             location += 1;
         }

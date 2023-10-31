@@ -10,6 +10,7 @@ import java.util.List;
 import static racingcar.entity.Participantes.InputParticipantes;
 import static racingcar.entity.Winner.InputWinner;
 import static racingcar.generator.DashStringGenerator.DashStringGenerator;
+import static racingcar.generator.WinArrayGenerator.win;
 
 
 public class Application {
@@ -26,9 +27,11 @@ public class Application {
         System.out.println(participantes);
         System.out.println("시도할 회수는 몇회인가요?");
         int tries= Tries.getTries();
+        System.out.println();
         System.out.println("실행 결과");
         for(int i=0; i<tries;i++){
             gameController.GameStart(participantes);
+
             for (int j = 0; j < participantes.size(); j++) {
                 String dashString = DashStringGenerator(j, gameController.win);
                 System.out.println(participantes.get(j) + " : " + dashString);
@@ -50,12 +53,12 @@ public class Application {
             name.add(participantes.get(i));
         }
         System.out.print("최종 우승자 : ");
-        for(int i=0;i< name.size();i++){
+        for(int i=0;i< index.size();i++){
             if(i==0) {
-                System.out.print(name.get(i));
+                System.out.print(participantes.get(index.get(i)));
             }
             else{
-                System.out.print(", "+name.get(i));
+                System.out.print(", "+participantes.get(index.get(i)));
             }
         }
     }
