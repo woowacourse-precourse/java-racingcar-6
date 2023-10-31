@@ -3,9 +3,6 @@ package racingcar.view;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -15,17 +12,14 @@ import racingcar.domain.CarNames;
 import racingcar.domain.MoveCount;
 
 public class InputViewTest {
-    
+
     @ParameterizedTest
     @MethodSource
-    void 자동차_이름_입력이_정상인지_검증(List<String> normalInput) {
+    void 자동차_이름_입력이_정상인지_검증(String input) {
         //given
         //when
         Throwable normal = catchThrowable(() -> {
-            CarNames.fromInput(
-                    normalInput.stream()
-                            .map(CarName::new)
-                            .toList());
+            CarNames.fromInput(input);
         });
         //then
         assertThat(normal).doesNotThrowAnyException();
@@ -33,23 +27,21 @@ public class InputViewTest {
 
     private static Stream<Arguments> 자동차_이름_입력이_정상인지_검증() {
         return Stream.of(
-                Arguments.of(new ArrayList(Arrays.asList("name1", "name2", "name3"))),
-                Arguments.of(new ArrayList(Arrays.asList("a", "b", "c"))),
-                Arguments.of(new ArrayList(Arrays.asList("1", "2", "3"))),
-                Arguments.of(new ArrayList(Arrays.asList("박", "세", "건"))),
-                Arguments.of(new ArrayList(Arrays.asList("a1박", "b2세", "c3건"))));
+                Arguments.of("name1,name2,name3"),
+                Arguments.of("1,2,3"),
+                Arguments.of("김,이,박"),
+                Arguments.of("a,b,c"),
+                Arguments.of("1김a,2이b,3박c")
+        );
     }
 
     @ParameterizedTest
     @MethodSource
-    void 중복된_자동차_이름_입력일때_예외처리(List<String> duplicatedInput) {
+    void 중복된_자동차_이름_입력일때_예외처리(String input) {
         //given
         //when
         Throwable duplicatedResult = catchThrowable(() -> {
-            CarNames.fromInput(
-                    duplicatedInput.stream()
-                            .map(CarName::new)
-                            .toList());
+            CarNames.fromInput(input);
         });
         //then
         assertThat(duplicatedResult).isInstanceOf(IllegalArgumentException.class);
@@ -57,11 +49,12 @@ public class InputViewTest {
 
     private static Stream<Arguments> 중복된_자동차_이름_입력일때_예외처리() {
         return Stream.of(
-                Arguments.of(new ArrayList(Arrays.asList("name", "name", "name"))),
-                Arguments.of(new ArrayList(Arrays.asList("a", "a", "c"))),
-                Arguments.of(new ArrayList(Arrays.asList("1", "3", "3"))),
-                Arguments.of(new ArrayList(Arrays.asList("박", "건", "건"))),
-                Arguments.of(new ArrayList(Arrays.asList("a1박", "c3건", "c3건"))));
+                Arguments.of("name1,name1,name3"),
+                Arguments.of("1,2,2"),
+                Arguments.of("김,이,김"),
+                Arguments.of("a,c,c"),
+                Arguments.of("3박c,2이b,3박c")
+        );
     }
 
     @ParameterizedTest
