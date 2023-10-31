@@ -20,7 +20,7 @@ public class CarNameException {
     }
 
     public static void validateCarNameEmpty(String name) {
-        if (name == null || name.isEmpty()) {
+        if (name.isEmpty()) {
             throw new IllegalArgumentException(CAR_NAME_EMPTY_MSG);
         }
     }
