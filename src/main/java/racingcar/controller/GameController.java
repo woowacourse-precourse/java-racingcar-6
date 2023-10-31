@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Race;
 import racingcar.domain.car.Car;
 import racingcar.util.InputUtil;
 import racingcar.validator.CarNameValidator;
@@ -9,9 +10,17 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
+import static java.lang.Integer.*;
 
 public class GameController {
+
+    private static void printRaceStatus(int tryCount, Race race) {
+        OutputView.printMessage("\n실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+            race.moveEachCar();
+            OutputView.printMessage(race.getStatusString());
+        }
+    }
 
     private static List<Car> generateCars(String carNames) {
         return InputUtil.convertInputStringToList(carNames)
