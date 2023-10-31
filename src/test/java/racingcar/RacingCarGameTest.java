@@ -36,4 +36,14 @@ public class RacingCarGameTest {
 
         assertThat(getOutputString()).isEqualTo("yang : -");
     }
+
+    @Test
+    void 전진하는_조건이_아닐_시_자동차_정차_정상_작동() {
+        racingCarGame = new RacingCarGame(List.of(
+                new RacingCar("yang")
+        ), 1);
+        racingCarGame.run(() -> STOP);
+
+        assertThat(getOutputString()).isEqualTo("yang :");
+    }
 }
