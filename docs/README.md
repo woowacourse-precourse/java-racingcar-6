@@ -13,7 +13,7 @@
   - 분리된 문자열의 길이가 0인 경우 (IllegalArgumentException) 발생
   - 분리된 문자열의 길이가 6 이상인 경우 (IllegalArgumentException) 발생
   - 분리된 문자열 앞뒤 공백 포함한 경우(IllegalArgumentException) 발생
-- [ ] 분리된 자동차 문자열을 리스트에 저장
+- [x] 분리된 자동차 문자열을 리스트에 저장
   - 분리된 문자열이 중복인 경우 (IllegalArgumentException) 발생
 ### ✔ 시도 회수 입력
 
