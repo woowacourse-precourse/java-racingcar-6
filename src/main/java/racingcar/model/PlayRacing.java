@@ -13,6 +13,10 @@ public class PlayRacing {
         this.cars = cars;
     }
 
+    public RacingResult end() {
+        return new RacingResult(cars);
+    }
+
     public Cars process() {
         cars.updateDistance(createPickNumberOfCars());
         return cars;
