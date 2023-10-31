@@ -7,10 +7,23 @@ import racingcar.util.Parser;
 import java.util.List;
 
 public class Controller {
-    public void getCarNames(){
-        Parser parser = new Parser();
+    List<String> carNames;
+    Parser parser;
 
+    public void testRun(){
+        parser = new Parser();
+
+        System.out.println(getCarNames());
+        System.out.println(getRacingRound());
+    }
+
+    private int getRacingRound(){
+        InputView.requestRacingRoundNumber();
+        return parser.changeStringToInteger(Console.readLine());
+    }
+
+    private List<String> getCarNames(){
         InputView.requestCarNaming();
-        System.out.println(parser.getSplitString(Console.readLine()));
+        return parser.getSplitString(Console.readLine());
     }
 }
