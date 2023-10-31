@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,17 +17,16 @@ public class MoveForwardTest {
     static GameRule rule;
     static String[] names;
     CarRecord carRecord;
-    static MockedStatic<RandomNumberGenerator> mocked;
+    MockedStatic<RandomNumberGenerator> mocked;
 
     @BeforeAll
     static void setNames() {
         names = new String[] {"Max", "Lando", "Lewis", "Oscar", "Alex", "Sainz", "Kevin"};
         rule = new GameRule(0, 9);
-        mocked = Mockito.mockStatic(RandomNumberGenerator.class);
     }
 
-    @AfterAll
-    static void clean() {
+    @AfterEach
+    void clean() {
         mocked.close();
     }
 
@@ -36,6 +36,7 @@ public class MoveForwardTest {
         for (int i = 0; i < names.length; i++) {
             carRecord.register(CarFactory.car(rule, names[i]));
         }
+        mocked = Mockito.mockStatic(RandomNumberGenerator.class);
     }
 
     @Test
