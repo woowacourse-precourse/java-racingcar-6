@@ -12,14 +12,19 @@ public class Car {
     }
 
     private boolean judgeForward(Integer number) {
-        return true;
+        if (number >= 4) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void stop() {
 
     }
 
-    public void printName() {
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String name) {
