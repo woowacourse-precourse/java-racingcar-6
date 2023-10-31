@@ -27,17 +27,18 @@ public class GameController {
 
     private void raceWithTrials(Cars cars) {
         TrialCount trialCount = inputView.getTrialCountFromUserInput();
-        if (trialCount.getTrialCount() < 1) {
-            return;
-        }
         raceSingleTrial(cars, trialCount);
     }
 
-    private TrialCount raceSingleTrial(Cars cars, TrialCount trialCount) {
+    private void raceSingleTrial(Cars cars, TrialCount trialCount) {
+        if (trialCount.getTrialCount() < 1) {
+            return;
+        }
         cars.moveOnceIfMovable(moveStrategy);
         CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
         outputView.printGameResult(carsMovementDto);
-        return trialCount.decremented();
+
+        raceSingleTrial(cars, trialCount.decremented());
     }
 
     private void announceGameWinners(Cars cars) {
