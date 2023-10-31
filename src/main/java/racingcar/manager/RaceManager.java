@@ -34,6 +34,7 @@ public class RaceManager {
         System.out.println("\n실행 결과");
         for (int raceCount = 0; raceCount < tryCount; raceCount++) {
             race();
+            outputManager.printInterResult();
         }
     }
 
@@ -41,6 +42,5 @@ public class RaceManager {
         for (Car car : cars) {
             carService.ForwardOrStop(car);
         }
-        outputManager.printInterResult();
     }
 }
