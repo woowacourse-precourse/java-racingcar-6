@@ -1,9 +1,8 @@
 package racingcar.validate;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.constant.NumberConstant;
 
-import static racingcar.constant.NumberConstant.MAX_LENGTH;
+import static racingcar.constant.NumberConstant.*;
 
 public class InputValueValidate {
     static public int checkTimesException(String inputTimes) {
@@ -16,7 +15,7 @@ public class InputValueValidate {
     }
 
     static public void checkNameException(String name) {
-        if (name.length() > MAX_LENGTH.getNumber() || name.length() == 0) {
+        if (name.length() > MAX_LENGTH.getNumber() || name.length() == MIN_LENGTH.getNumber()) {
             Console.close();
             throw new IllegalArgumentException();
         }
