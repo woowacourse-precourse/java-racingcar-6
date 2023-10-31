@@ -36,4 +36,14 @@ public class CarNameValidatorTest {
                 .isThrownBy(() -> carNameValidator.validateMinimumCarNameCount(carList));
     }
 
+    @Test
+    @DisplayName("중복된 이름 입력에 대해 검증한다.")
+    void validateInputNameDuplication() {
+        List<String> carList = new ArrayList<>();
+        carList.add("pobi");
+        carList.add("pobi");
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> carNameValidator.validateInputNameDupication(carList));
+    }
+
 }
