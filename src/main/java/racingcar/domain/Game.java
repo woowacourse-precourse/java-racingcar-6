@@ -82,7 +82,7 @@ public class Game {
     private void registerCars() {
         OutputView.println(REGISTER_CAR_MESSAGE);
 
-        List<String> namesOfCars = Parser.stringToStringList(InputView.readValue(), SPLITTER);
+        List<String> namesOfCars = Parser.splitStringBySplitter(InputView.readValue(), SPLITTER);
 
         for (String name : namesOfCars) {
             cars.add(new Car(name));
