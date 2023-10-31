@@ -8,7 +8,7 @@ public class RacingGame {
     private GameSetting gameSetting = new GameSetting();
     private ScriptHandler scriptHandler = new ScriptHandler();
     private GameController gameController = new GameController();
-    private HashMap<String, Integer> cars;
+    private ArrayList<Car> cars;
     private ArrayList<String> winnerList = new ArrayList<>();
     private int attemptNumber, carNumber, carMoveMent, randomNumber, updateCarValue;
     private String carName;
@@ -28,8 +28,8 @@ public class RacingGame {
         scriptHandler.printSimpleResultScript();
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < carNumber; j++) {
-                carName = gameController.getCarName(j);
-                eachCarPickRandomNumber(carName);
+                carName = cars.get(j).getCarName();
+                //eachCarPickRandomNumber(carName);
                 printProgress(carName);
             }
             System.out.println();
@@ -47,13 +47,13 @@ public class RacingGame {
         System.out.println();
     }
 
-    public void eachCarPickRandomNumber(String carName) {
-        randomNumber = gameController.getRandomNumber();
-        if (randomNumber >= 4) {
-            updateCarValue = cars.get(carName) + 1;
-            cars.put(carName, updateCarValue);
-        }
-    }
+//    public void eachCarPickRandomNumber(String carName) {
+//        randomNumber = gameController.getRandomNumber();
+//        if (randomNumber >= 4) {
+//            updateCarValue = cars.get(carName) + 1;
+//            cars.put(carName, updateCarValue);
+//        }
+//    }
 
     public void checkWinner() {
         int furthestMovement = findFurthestMovement();

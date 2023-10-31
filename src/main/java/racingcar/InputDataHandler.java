@@ -6,20 +6,18 @@ import java.util.HashMap;
 public class InputDataHandler {
 
     public InputValidator inputValidator = new InputValidator();
-    private String[] carNames;
+    public String[] carNames;
     private HashMap<String, Integer> cars = new HashMap<>();
-    private String inputCarNames;
+    private String input;
     private String attemptNumber;
 
-    public HashMap<String, Integer> getStringFromPlayer(){
-        inputCarNames = Console.readLine();
-        carNames = seperateString(inputCarNames);
+    public String[] getStringFromPlayer(){
+        input = Console.readLine();
+        carNames = seperateString(input);
         for(String names : carNames){
-            if (inputValidator.checkStringLength(names)){
-                cars.put(names, 0);
-            }
+            inputValidator.checkStringLength(names);
         }
-        return cars;
+        return carNames;
     }
 
     public int getNumberFromPlayer(){

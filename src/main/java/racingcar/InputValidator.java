@@ -4,11 +4,10 @@ public class InputValidator {
 
     char temp;
 
-    public boolean checkStringLength(String name) {
+    public void checkStringLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
         }
-        return true;
     }
 
     public void checkNumber(String number){

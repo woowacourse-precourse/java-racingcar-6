@@ -1,10 +1,9 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 
 public class GameController {
-    private String carName;
+    private String carName = "";
     private HashMap<String, Integer> cars;
     public InputDataHandler inputDataHandler = new InputDataHandler();
     public NumberGenerator numberGenerator = new NumberGenerator();
