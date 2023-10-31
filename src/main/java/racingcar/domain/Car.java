@@ -13,8 +13,8 @@ public class Car implements Comparable<Car> {
         this.movingDistance = 0;
     }
 
-    public void addWinnerNameToWinnerNameList(List<String> winnerNameList) {
-        carName.addToWinnerNameList(winnerNameList);
+    public String getCarName() {
+        return carName.toString();
     }
 
     public void printPresentMovingDistance() {

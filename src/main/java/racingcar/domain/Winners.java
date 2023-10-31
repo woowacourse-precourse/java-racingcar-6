@@ -17,7 +17,7 @@ public class Winners {
     public void print() {
         List<String> winnerNameList = new ArrayList<>();
         for (Car winner : winners) {
-            winner.addWinnerNameToWinnerNameList(winnerNameList);
+            winnerNameList.add(winner.getCarName());
         }
         OutputView.printWinners(winnerNameList);
     }
