@@ -18,6 +18,8 @@ public class RacingController {
         String carNames = inputView.carNames();
         List<String> carNameList = converter.convert(carNames);
         Validator.validateCarNames(carNameList);
+
+        outputView.printInputRoundNumber();
     }
 
 
