@@ -7,5 +7,10 @@ public class Constant {
 
     public static final int CAR_NAME_LIMIT = 5;
 
+    public static final int NUMBER_RANGE_INCLUDE = 0;
+
+    public static final int NUMBER_RANGE_EXCLUDE = 9;
+
+
 }
 

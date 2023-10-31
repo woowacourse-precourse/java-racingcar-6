@@ -12,6 +12,15 @@ public class Input {
         input = Console.readLine();
     }
 
+    public Input() {
+
+    }
+
+    //테스트하기위한용도
+    public Input(String input) {
+        this.input = input;
+    }
+
     //자동차 이름 입력
     public String[] inputCars() {
         if (validation.validateInput(Constant.CARSVALIDATE, input)) {
@@ -30,5 +39,6 @@ public class Input {
             throw new IllegalArgumentException();
         }
     }
+
 
 }

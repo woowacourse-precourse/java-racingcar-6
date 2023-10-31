@@ -11,14 +11,15 @@ public class Car {
         this.name = name;
         this.currentPlace = 0;
     }
-
-
     public String getName() {
         return this.name;
     }
-
     public int getCurrentPlace() {
         return this.currentPlace;
+    }
+
+    public void plusCurrentPlace() {
+        currentPlace = currentPlace + 1;
     }
 
 }
