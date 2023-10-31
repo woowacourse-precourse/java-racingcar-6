@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.car.CarValidator;
 
 public class GameView {
 
@@ -22,7 +23,7 @@ public class GameView {
             userInput = Console.readLine();
             carNames = userInput.split(",");
         } while (!CarValidator.carValidation(carNames));
-        
+
         return carNames;
     }
 

@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.car;
 
 import java.util.HashSet;
 import java.util.Set;
+import racingcar.Constant;
 
 public class CarValidator {
 
