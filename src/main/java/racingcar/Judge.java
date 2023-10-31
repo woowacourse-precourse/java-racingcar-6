@@ -38,7 +38,7 @@ public class Judge {
 
     private boolean checkLengthOfStringIfExceedLimitLength(List<String> names) {
         for (String name : names) {
-            if(name.length() > maxNameLength) {
+            if(name.length() > maxNameLength || name.equals("")) {
                 throw new IllegalArgumentException("이름은 5자 이하입니다.");
             }
         }
