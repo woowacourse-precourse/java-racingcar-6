@@ -16,6 +16,12 @@ public class RacingCar {
         location = 0;
     }
 
+    public void moveOrStay() {
+        if (canMoveForward()) {
+            location++;
+        }
+    }
+
     private boolean canMoveForward() {
         return createRandomNumber() >= CONDITION_OF_MOVING_FORWARD;
     }
