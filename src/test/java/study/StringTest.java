@@ -48,4 +48,47 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void trim_입력_문자열이_공백일_경우_예외_발생() {
+        String input = " ";
+
+        assertThatThrownBy(() -> validateName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Name should not be blank");
+    }
+
+    void validateName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name should not be blank");
+        }
+    }
+
+    @Test
+    void 사용자에게_입력_받은_값이_0과_같거나_보다_작은경우_예외_발생() {
+        String input = "0";
+
+        assertThatThrownBy(() -> validateNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Number should be greater than 0");
+    }
+
+    void validateNumber(String numberStr) {
+        int number = Integer.parseInt(numberStr);
+        if (number <= 0) {
+            throw new IllegalArgumentException("Number should be greater than 0");
+        }
+    }
+
+    @Test
+    void 사용자에게_입력_받은_값이_숫자가_아닐경_예외_발생() {
+        String input = "abc";
+
+        assertThatThrownBy(() -> validateIsNumber(input))
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessageContaining("For input string: \"" + input + "\"");
+    }
+
+    void validateIsNumber(String numberStr) {
+        int number = Integer.parseInt(numberStr);
+    }
 }
