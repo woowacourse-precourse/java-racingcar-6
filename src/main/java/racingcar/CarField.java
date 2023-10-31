@@ -25,6 +25,14 @@ public class CarField {
 
         OutputView.printRoundSet();
         round = stringConverter.stringToInteger();
+
+        while(round-- > 0){
+            cars.stream()
+                    .forEach(Car::roundStart);
+
+            cars.stream()
+                    .forEach(OutputView::printCarField);
+        }
     }
 
 
