@@ -1,20 +1,20 @@
 package racingcar.domain;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
-import java.util.function.IntSupplier;
 
 public class CarFactory {
     public static final int DEFAULT_CAR_POSITION = 0;
 
-    private final IntSupplier intSupplier;
+    private final BooleanSupplier intSupplier;
     private final Consumer<String> validator;
 
-    public CarFactory(IntSupplier intSupplier, Consumer<String> validator) {
+    public CarFactory(BooleanSupplier intSupplier, Consumer<String> validator) {
         this.intSupplier = intSupplier;
         this.validator = validator;
     }
 
-    public Car create(String name, int position, IntSupplier intSupplier) {
+    public Car create(String name, int position, BooleanSupplier intSupplier) {
         validator.accept(name);
         return new Car(name, position, intSupplier);
     }

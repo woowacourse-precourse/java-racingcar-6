@@ -10,16 +10,16 @@ import org.junit.jupiter.params.provider.CsvSource;
 @SuppressWarnings("NonAsciiCharacters")
 class CarTest {
 
-    private static final CarFactory carFactory = new CarFactory(new RandomNumberSupplier(), new CarNameValidator());
+    private static final CarFactory carFactory = new CarFactory(new RandomMoveEngine(), new CarNameValidator());
 
     @ParameterizedTest
     @CsvSource(textBlock = """
-            1, 0
-            3, 0
-            4, 1
+            false, 0
+            false, 0
+            true, 1
             """)
-    void 제공받은_숫자에_따라_차를_움직일_수_있다(int suppliedInt, int expected) {
-        Car car = new Car("name", 0, () -> suppliedInt);
+    void 엔진_결과에_따라_차를_움직일_수_있다(boolean engineResult, int expected) {
+        Car car = new Car("name", 0, () -> engineResult);
 
         car.moveForward();
 

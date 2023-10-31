@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 class ParticipantsTest {
 
     private static final CarFactory carFactory =
-            new CarFactory(new RandomNumberSupplier(), new CarNameValidator());
+            new CarFactory(new RandomMoveEngine(), new CarNameValidator());
 
     private static final ParticipantsFactory participantsFactory =
             new ParticipantsFactory(carFactory, new CarsValidator());
@@ -68,9 +68,9 @@ class ParticipantsTest {
     @Test
     void 레이스를_진행할_수_있다() {
         List<Car> cars = List.of(
-                new Car("car1", 0, () -> 9),
-                new Car("car2", 0, () -> 0),
-                new Car("car3", 0, () -> 9));
+                new Car("car1", 0, () -> true),
+                new Car("car2", 0, () -> false),
+                new Car("car3", 0, () -> true));
         Participants participants = participantsFactory.create(cars);
 
         List<Car> race = participants.race();

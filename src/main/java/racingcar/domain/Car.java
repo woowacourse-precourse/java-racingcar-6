@@ -1,29 +1,23 @@
 package racingcar.domain;
 
 import java.util.Objects;
-import java.util.function.IntSupplier;
+import java.util.function.BooleanSupplier;
 
 public class Car implements Comparable<Car> {
-    public static final int MOVE_THRESHOLD = 4;
-
     private final String name;
     private int position;
-    private final IntSupplier intSupplier;
+    private final BooleanSupplier engine;
 
-    public Car(String name, int position, IntSupplier intSupplier) {
+    public Car(String name, int position, BooleanSupplier engine) {
         this.name = name;
         this.position = position;
-        this.intSupplier = intSupplier;
+        this.engine = engine;
     }
 
     public void moveForward() {
-        if (isMovable()) {
+        if (engine.getAsBoolean()) {
             position++;
         }
-    }
-
-    private boolean isMovable() {
-        return intSupplier.getAsInt() >= MOVE_THRESHOLD;
     }
 
     public int getPosition() {
