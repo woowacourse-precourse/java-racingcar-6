@@ -47,7 +47,21 @@ public class Information {
 		return Num;
 	}
 
+	// 우승자 골라내기
+	public String winner() {
+		String maxCar = result[0];
 
+		for (int i = 0; i < result.length - 1; i++) {
+			if (countChar(result[i], '-') < countChar(result[i + 1], '-')) {
+				maxCar = result[i + 1];
+			} else if (countChar(result[i], '-') == countChar(result[i + 1], '-')) {
+				maxCar += "," + result[i + 1];
+			}
+		}
+
+		System.out.print(maxCar.replaceAll("[ :-]", ""));
+		return maxCar;
+	}
 
 	// '-' (전진)갯수
 	public int countChar(String name, char ch) {
