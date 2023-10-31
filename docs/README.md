@@ -74,4 +74,44 @@ woni : ----
 jun : -----
 
 최종 우승자 : pobi, jun
-```
+```   
+
+---
+
+## 📦️ 패키지 구조
+
+---
+
+* 🚚racingcar
+  * 📦️constants : 상수 관리 패키지
+    * 📄DomainConstant : 도메인과 관련된 상수 관리 클래스
+    * 📄ValidatorConstant : 검증과 관련된 상수 관리 클래스
+    * 📄ViewConstant : 뷰와 관련된 상수 관리 클래스
+    <br/><br/>
+  * 📦️controller : 도메인과 뷰를 연결 해주는 패키지
+    * 📄RacingcarController : 레이싱과 관련된 로직이 구현된 클래스
+    <br/><br/>
+  * 📦️domain : 도메인을 다루는 패키지
+    * 📄Car : 자동차를 움직이는 기능과 자동차의 이름과 위치를 반환하는 기능을 책임지는 클래스
+    * 📄Cars : 자동차들의 이름을 구분자를 기준으로 나누는 기능과 여러 자동차의 위치를 비교해 우승자를 반환하는 기능을 책임지는 클래스
+    * 📄Driver : 자동차가 움직일 수 있는 파라미터(운전 실력)를 제공하는 기능을 책임지는 클래스
+    <br/><br/>
+  * 📦️validator : 값을 검증하기 위한 패키지
+    * 📄CarValidator : 자동차의 이름이 적절한지 검증하는 클래스
+    * 📄TotalRoundValidator : 전체 라운드가 적절한지 검증하는 클래스
+    * 📄Validator : 검증을 위한 인터페이스
+    <br/><br/>
+  * 📦️view : 입력과 출력을 담당하는 패키지
+    * 📄InputView : 입력과 관련된 기능을 책임지는 클래스
+    * 📄OutputView : 출력과 관련된 기능을 책임지는 클래스
+    <br/><br/>
+  * 📄AppConfig : 의존성 주입 기능을 책임지는 클래스 
+  * 📄Application : 애플리케이션을 실행하는 클래스
+  
+
+
+
+
+
+
+
