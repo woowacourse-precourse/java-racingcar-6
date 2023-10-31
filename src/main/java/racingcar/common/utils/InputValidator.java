@@ -15,11 +15,5 @@ public class InputValidator {
         }
     }
 
-    public static boolean validateName(String name){
-        if(name.length()> SystemConst.MAX_NAME_SIZE){
-            OutputView.printErrMessage(SystemMessage.INVALID_INPUT_NAME_ERROR);
-            throw new IllegalArgumentException(SystemMessage.INVALID_INPUT_NAME_ERROR);
-        }
-        return true;
-    }
+
 }
