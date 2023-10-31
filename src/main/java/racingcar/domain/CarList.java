@@ -7,13 +7,17 @@ import racingcar.validation.RacingCarValidation;
 
 public class CarList {
 
-    private final List<Car> carList;
+    private static List<Car> carList;
 
     public CarList(String name) {
         List<Car> cars = parsingCarNames(name);
         RacingCarValidation.isNotAvailCarList(cars);
         RacingCarValidation.isNotAvailCarName(cars);
-        this.carList = cars;
+        carList = cars;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 
     private List<Car> parsingCarNames(String name) {

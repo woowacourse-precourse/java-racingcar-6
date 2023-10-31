@@ -44,8 +44,8 @@ public class InputViewTest {
         String testInput = "1";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(testInput.getBytes());
         System.setIn(inputStream);
-
-        Assertions.assertEquals(InputView.gameRunningNumber(), Integer.valueOf(1));
+        InputView inputView = new InputView();
+        Assertions.assertEquals(inputView.gameRunningNumber(), Integer.valueOf(1));
     }
 
 }
