@@ -3,7 +3,7 @@ package racingcar.model;
 import racingcar.validator.NameLengthValidator;
 
 public class Name {
-    private String name;
+    private final String name;
 
     public Name(String name) {
         NameLengthValidator nameLengthValidator = new NameLengthValidator();

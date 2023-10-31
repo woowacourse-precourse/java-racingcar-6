@@ -5,7 +5,7 @@ import java.util.List;
 public class Car {
     private static final String MOVED_LETTER = "-";
     private static final String COLON = " : ";
-    private Name name;
+    private final Name name;
     private String record;
 
     public Car(String name) {
