@@ -22,17 +22,19 @@ public class RacingGameController {
     }
 
     private void generateCars() {
-        view.printNameInputMessage();
-        racingGameService.generateCars(readFromConsole());
+        racingGameService.generateCars(inputCarsName());
     }
 
-    private String readFromConsole() {
-        return view.inputConsole();
+    private String inputCarsName() {
+        return view.inputCarsName();
     }
 
     private void setAttemptCount() {
-        view.printAttemptCountInputMessage();
-        racingGameService.setAttemptCount(readFromConsole());
+        racingGameService.setAttemptCount(inputAttemptCount());
+    }
+
+    private String inputAttemptCount() {
+        return view.inputAttemptCount();
     }
 
     private void playRounds() {

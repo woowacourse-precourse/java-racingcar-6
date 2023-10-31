@@ -13,12 +13,18 @@ public class View {
 
     }
 
-    public String inputConsole() {
+    public String inputCarsName() {
+        System.out.println(Message.NAME_INPUT.message());
+        return readLine();
+    }
+
+    public String inputAttemptCount() {
+        System.out.println(Message.ATTEMPT_COUNT_INPUT.message());
         return readLine();
     }
 
     public void printTotalResult(TotalResult totalResult) {
-        System.out.println();
+        blankLine();
         System.out.println(Message.ROUNDS_RESULT.message());
 
         totalResult.totalResult().forEach(this::printRoundResult);
@@ -26,22 +32,18 @@ public class View {
 
     private void printRoundResult(RoundResult roundResult) {
         roundResult.roundResult().forEach(this::printCarResult);
-        System.out.println();
+        blankLine();
     }
 
     private void printCarResult(CarResult carResult) {
         System.out.println(carResult.name() + " : " + carResult.forwardState());
     }
 
-    public void printNameInputMessage() {
-        System.out.println(Message.NAME_INPUT.message());
-    }
-
-    public void printAttemptCountInputMessage() {
-        System.out.println(Message.ATTEMPT_COUNT_INPUT.message());
-    }
-
     public void printFinalWinnerMessage(Winners winners) {
         System.out.print(Message.WINNERS.message() + winners.name());
+    }
+
+    private void blankLine() {
+        System.out.println();
     }
 }
