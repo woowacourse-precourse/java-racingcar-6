@@ -10,6 +10,6 @@ public final class Message {
     public static final String NAME_NO_DISTINCT = "이름은 중복될 수 없습니다";
     public static final String NAME_MUST_SIZE = "한 대 이상의 자동차가 있어야 합니다.";
     public static final String NAME_NO_WHITESPACE = "공백은 이름이 될 수 없습니다.";
-    public static final String COUNT_MUST_INT = "회수는 정수만 입력 가능합니다.";
-    public static final String COUNT_MUST_POSITIVE_INT = "회수는 양의 정수만 입력 가능합니다.";
+    public static final String COUNT_MUST_INT = "횟수는 정수만 입력 가능합니다.";
+    public static final String COUNT_MUST_POSITIVE_INT = "횟수는 양의 정수만 입력 가능합니다.";
 }

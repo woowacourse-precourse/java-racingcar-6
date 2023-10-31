@@ -52,7 +52,7 @@ class ValidationTest {
     }
 
     @Test
-    public void 회수는_정수만_입력_가능() {
+    public void 횟수는_정수만_입력_가능() {
         String input = "string";
 
         assertThatThrownBy(() -> Validation.isPositiveInt(input))
@@ -61,7 +61,7 @@ class ValidationTest {
     }
 
     @Test
-    public void 회수는_양의_정수만_입력_가능() {
+    public void 횟수는_양의_정수만_입력_가능() {
         String input = "-1";
 
         assertThatThrownBy(() -> Validation.isPositiveInt(input))
