@@ -1,6 +1,7 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.rmi.server.RemoteRef;
 import java.util.ArrayList;
 
 public class RacingSystem {
@@ -19,27 +20,30 @@ public class RacingSystem {
         String carNameInput = Console.readLine();
         return carNameInput;
     }
-    public static int sequence(int inputCount, String[] carList) {
+    public int sequence(int inputCount, String[] carList) {
         EvaluateSystem raceResult = new EvaluateSystem();
         for (int i = 0; i < carList.length; i++) {
             carRecordSheet.add(raceResult.racingCondition(inputCount));
         }
         displaySystem(carRecordSheet, carList);
-
         return 0;
     }
     public static void displaySystem(ArrayList<ArrayList<Integer>> RecordSheet, String[] carName) {
-        for (int j = 0; j < RacingSystem.carRecordSheet.size(); j++) {
+        ArrayList<ArrayList<Integer>> recordWinner = new ArrayList<>();
+        for (int j = 0; j < RecordSheet.size(); j++) {
             System.out.printf(carName[j] + "'s car : ");
-            for (int k = 0; k < RacingSystem.carRecordSheet.get(j).size(); k++) {
-                displayCheck(RacingSystem.carRecordSheet.get(j).get(k));
+            for (int k = 0; k < RecordSheet.get(j).size(); k++) {
+                displayCheck(RecordSheet.get(j).get(k));
             }
+
             System.out.println("");
         }
+//        EvaluateSystem.winnerDisplay(recordWinner, carName);
     }
     public static void displayCheck(int insertedValue) {
         if (insertedValue <= 4) {
             System.out.printf("=");
+        } else {
         }
     }
 
