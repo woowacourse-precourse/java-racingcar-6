@@ -40,6 +40,15 @@ public class Application {
 
     }
 
+    static void start() {
+
+        RacingView racingView = new RacingView();
+
+        racingView.inputCarNames();
+        racingView.inputPlayCount();
+
+        racingView.printPlayResult();
+    }
     static Set<String> getCarNames() {
         Set<String> carNames = new HashSet<>();
 
@@ -53,7 +62,7 @@ public class Application {
         String[] splitNames = inputNames.split(",");
 
         for (String carName : splitNames) {
-            if ( 1 > carName.length() || carName.length() > 5) {
+            if (1 > carName.length() || carName.length() > 5) {
                 throw new IllegalArgumentException("이름 길이는 1 ~ 5자 이내 입니다.");
             }
 
