@@ -18,6 +18,10 @@ public class CarGenerator {
         return carList;
     }
 
+    public void setCarListToCar() {
+        car.setCarList(createCarList());
+    }
+
     public String[] splitStringByCommas() {
         String[] carList = Console.readLine().split(",");
         return carList;
