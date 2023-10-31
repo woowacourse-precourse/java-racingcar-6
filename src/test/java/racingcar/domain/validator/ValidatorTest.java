@@ -14,7 +14,7 @@ public class ValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Validator.carName(List.of("pobipobi", "pobi")))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.")
+                        .hasMessage("자동차 이름은 5자 이하여야 합니다.")
         );
     }
 
@@ -23,7 +23,7 @@ public class ValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Validator.carName(List.of("", "pobi")))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("자동차 이름은 1자 이상이어야 합니다.")
+                        .hasMessage("자동차 이름은 1자 이상이어야 합니다.")
         );
     }
 
@@ -32,7 +32,7 @@ public class ValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Validator.carName(List.of(" ")))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("자동차 이름은 1자 이상이어야 합니다.")
+                        .hasMessage("자동차 이름은 1자 이상이어야 합니다.")
         );
     }
 
@@ -41,7 +41,7 @@ public class ValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Validator.carName(new ArrayList<>()))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("자동차 이름을 입력해야 합니다.")
+                        .hasMessage("자동차 이름을 입력해야 합니다.")
         );
     }
 
@@ -50,7 +50,7 @@ public class ValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Validator.moveNumber(0))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("1이상의 숫자를 입력해야합니다.")
+                        .hasMessage("1이상의 숫자를 입력해야합니다.")
         );
     }
 
@@ -59,7 +59,7 @@ public class ValidatorTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Validator.moveNumber(-1))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("1이상의 숫자를 입력해야합니다.")
+                        .hasMessage("1이상의 숫자를 입력해야합니다.")
         );
     }
 }

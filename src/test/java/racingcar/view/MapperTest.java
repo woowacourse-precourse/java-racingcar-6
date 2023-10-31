@@ -45,7 +45,7 @@ public class MapperTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Mapper.changeToInteger("string"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("숫자를 입력해야합니다.")
+                        .hasMessage("숫자를 입력해야합니다.")
         );
     }
 
@@ -54,7 +54,7 @@ public class MapperTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Mapper.changeToInteger("10000000000000000000000"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining("너무 큰 숫자를 입력했습니다.")
+                        .hasMessage("너무 큰 숫자를 입력했습니다.")
         );
     }
 
