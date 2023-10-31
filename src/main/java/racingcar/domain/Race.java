@@ -37,12 +37,7 @@ public class Race {
 
     public String selectWinners() {
         // Key=전진 횟수, Value=자동차의 이름
-        Map<Integer, String> map = new HashMap<>();
-
-        for (Car car : cars) {
-            map.put(car.getMoveCount(),
-                    map.getOrDefault(car.getMoveCount(), "") + ", " + car.getCarName());
-        }
+        Map<Integer, String> map = getIntegerStringMap();
 
         Integer maxMoveCount = Collections.max(map.keySet());
         String winners = map.get(maxMoveCount).substring(2);
@@ -66,6 +61,16 @@ public class Race {
             Car car = new Car(carName);
             cars.add(car);
         }
+    }
+
+    private Map<Integer, String> getIntegerStringMap() {
+        Map<Integer, String> map = new HashMap<>();
+
+        for (Car car : cars) {
+            map.put(car.getMoveCount(),
+                    map.getOrDefault(car.getMoveCount(), "") + ", " + car.getCarName());
+        }
+        return map;
     }
 
     private void validateNullOrBlank(String input) {
