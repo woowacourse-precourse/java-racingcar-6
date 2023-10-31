@@ -15,7 +15,7 @@ public class CarList {
         }
     }
 
-    public CarList(List<Car> compCarList) {
+    private CarList(List<Car> compCarList) {
         carList = List.copyOf(compCarList);
     }
 
