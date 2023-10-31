@@ -1,5 +1,6 @@
 package racingcar.factory;
 
+import racingcar.constant.ErrorMessage;
 import racingcar.controller.RacingCarController;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
@@ -16,9 +17,22 @@ public class ComponentFactory {
 
     private final RacingCarController racingCarController;
 
-    public ComponentFactory() {
+    private ComponentFactory() {
         this.racingCarController =
                 new RacingCarController(outputView(), inputManager(), racingCarService());
+    }
+
+    private static class ComponentFactoryHolder {
+
+        private static final ComponentFactory INSTANCE = new ComponentFactory();
+
+        private ComponentFactoryHolder() {
+            throw new IllegalStateException(ErrorMessage.INVALID_CONSTRUCTOR.toValue());
+        }
+    }
+
+    public static ComponentFactory getInstance() {
+        return ComponentFactoryHolder.INSTANCE;
     }
 
     public RacingCarController racingCarController() {
