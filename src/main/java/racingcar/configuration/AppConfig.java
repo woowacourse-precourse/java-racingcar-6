@@ -63,7 +63,7 @@ public class AppConfig implements Config { //IoC Container
     @Override
     public RacingService racingService() {
         if (racingService == null) {
-            racingService = new RacingServiceImpl(carService());
+            racingService = new RacingServiceImpl(carRepository(), racingRepository());
         }
         return racingService;
     }

@@ -6,6 +6,7 @@ public class Racing extends IndexModel {
     private int tryCount;
     private Winners winners;
 
+
     public Participations getParticipations() {
         return participations;
     }
@@ -29,5 +30,13 @@ public class Racing extends IndexModel {
 
     public static Racing create(Participations participations, int tryCount) {
         return new Racing(participations, tryCount);
+    }
+
+    public int participationSize() {
+        return participations.size();
+    }
+
+    public Participations getParicipations() {
+        return participations;
     }
 }

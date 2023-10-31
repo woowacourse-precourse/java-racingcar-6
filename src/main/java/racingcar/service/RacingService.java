@@ -1,7 +1,11 @@
 package racingcar.service;
 
-public interface RacingService {
-    void processCarNamesInput(String input);
+import racingcar.domain.Racing;
 
-    void processTryCountInput(String input);
+public interface RacingService {
+
+    void save(Racing racing);
+    void racing(Racing racing);
+
+    Racing generateRacing(String carNames, String tryCount);
 }
