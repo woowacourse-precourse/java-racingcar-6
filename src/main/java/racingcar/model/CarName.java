@@ -7,7 +7,7 @@ import racingcar.model.validators.Validator;
 public class CarName {
     private final String value;
 
-    private static final Validator validator = new CarNameValidator();
+    private static final Validator<String> validator = new CarNameValidator();
 
     public CarName(String value) {
         validator.validate(value);

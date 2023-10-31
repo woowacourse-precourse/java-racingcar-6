@@ -6,7 +6,7 @@ import racingcar.model.validators.Validator;
 public class CarPosition {
     private int value;
 
-    private static final Validator validator = new CarPositionValidator();
+    private static final Validator<Integer> validator = new CarPositionValidator();
 
     public CarPosition(Integer value) {
         validator.validate(value);
