@@ -8,6 +8,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +24,7 @@ public class CarNameInputTest {
     @BeforeEach
     public void setUpStreams() {
         System.setOut((new PrintStream(output)));
+        Console.close();
     }
 
     @AfterEach
@@ -69,7 +72,7 @@ public class CarNameInputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {" "})
+    @ValueSource(strings = {" ", "  "})
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (이름에 공백만 들어온 경우)")
     void canHandleOnlyWhiteSpaceCarNameExceptionTest(String testInput) {
         assertThatThrownBy(() -> new Car(testInput))
@@ -77,23 +80,21 @@ public class CarNameInputTest {
                 .hasMessageContaining("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"부릉부릉부릉"})
+    @Test
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (이름이 너무 긴 경우)")
-    void canHandleOverLengthCarNameExceptionTest(String testInput) {
+    void canHandleOverLengthCarNameExceptionTest() {
         final int MAX_CAR_NAME = 5;
 
-        assertThatThrownBy(() -> new Car(testInput))
+        assertThatThrownBy(() -> new Car("부릉부릉부릉"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 너무 깁니다 이름 최대 길이 " + MAX_CAR_NAME);
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"부릉이,부릉이"})
+    @Test
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (중복된 이름이 들어온 경우)")
-    void canHandleDuplicateCarNameExceptionTest(String testInput) {
+    void canHandleDuplicateCarNameExceptionTest() {
         RacingSetting racingSetting = new RacingSetting();
-        InputStream input = new ByteArrayInputStream(testInput.getBytes());
+        InputStream input = new ByteArrayInputStream("부릉이,부릉이".getBytes());
 
         System.setIn(input);
         assertThatThrownBy(() -> racingSetting.getName())
@@ -101,13 +102,12 @@ public class CarNameInputTest {
                 .hasMessageContaining("Error : 자동차 이름이 중복되었습니다 중복되지않게 적어주세요");
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"부릉이"})
+    @Test
     @DisplayName("자동차 이름 입력 안내 메시지 출력 확인")
-    void canPrintCarNameInputInformationTest(String testInput) throws Exception{
+    void canPrintCarNameInputInformationTest() throws Exception{
         RacingSetting racingSetting = new RacingSetting();
         String lineSeparator = System.lineSeparator();
-        InputStream input = new ByteArrayInputStream(testInput.getBytes());
+        InputStream input = new ByteArrayInputStream("부릉이".getBytes());
 
         System.setIn(input);
         racingSetting.getName();
