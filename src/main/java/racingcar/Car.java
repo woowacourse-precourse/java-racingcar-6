@@ -13,7 +13,7 @@ public class Car {
         this.currentLocation++;
     }
 
-    private boolean judgeForward(Integer number) {
+    public boolean judgeForward(Integer number) {
         if (number >= 4) {
             return true;
         } else {
