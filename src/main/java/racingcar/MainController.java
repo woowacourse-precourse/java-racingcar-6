@@ -22,23 +22,13 @@ public class MainController {
     }
 
     private void generateCars() {
-        try {
-            List<String> carsList = inputView.getCarNamesInput();
-            race.registerCar(carsList);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw new RuntimeException("잘못된 값을 입력하였으므로 프로그램이 종료됩니다.");
-        }
+        List<String> carsList = inputView.getCarNamesInput();
+        race.registerCar(carsList);
     }
 
     private void registerMoveCounts() {
-        try {
-            int moveCounts = inputView.getMoveCountsInput();
-            race.registerMoveCounts(moveCounts);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw new RuntimeException("잘못된 값을 입력하였으므로 프로그램이 종료됩니다.");
-        }
+        int moveCounts = inputView.getMoveCountsInput();
+        race.registerMoveCounts(moveCounts);
     }
 
     private void initCarRacing() {
