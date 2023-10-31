@@ -41,8 +41,14 @@ public class Cars {
 
 
     public List<Car> compareWinner() {
-        int maxScore = cars.stream().mapToInt(Car::getPosition).max().orElseThrow();
-        List<Car> winnerList = cars.stream().filter(car -> car.getPosition() == maxScore).toList();
+        int maxScore = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow();
+        List<Car> winnerList = cars
+                .stream()
+                .filter(car -> car.getPosition() == maxScore)
+                .toList();
         return new ArrayList<>(winnerList);
     }
 }
