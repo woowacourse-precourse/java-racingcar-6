@@ -39,6 +39,7 @@ public class GameController {
         // 게임 라운드 만큼 실행
         playEachRaceRound();
         // 결과 찾기 및 출력
+        showWinner();
     }
 
     private void createCars() {
@@ -66,6 +67,12 @@ public class GameController {
             cars.raceAllCars();
             raceRound.increaseCurrentRound();
         }
+    }
+
+    private void showWinner() {
+        Integer winnerPosition = cars.findWinnerPosition();
+        List<Car> winner = cars.findWinner(winnerPosition);
+        outputView.outputWinner(winner);
     }
 
 
