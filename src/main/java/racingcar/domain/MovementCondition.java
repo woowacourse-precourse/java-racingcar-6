@@ -17,7 +17,7 @@ public class MovementCondition {
         return new MovementCondition();
     }
 
-    public boolean movable() {
+    public boolean canMovable() {
         return condition >= FORWARD_MOVEMENT_LOWER_BOUND_CONDITION;
     }
 

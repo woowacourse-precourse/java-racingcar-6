@@ -21,11 +21,11 @@ public class Car {
 
     public void move() {
         MovementCondition condition = MovementCondition.create();
-        if (condition.movable()) {
+        if (condition.canMovable()) {
             score++;
         }
     }
-    
+
     public boolean isSameScore(final Integer score) {
         return Objects.equals(this.score, score);
     }
