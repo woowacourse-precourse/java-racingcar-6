@@ -13,13 +13,13 @@ public class Car {
     private static final int END_NUMBER = 9;
     private static final int POSSIBLE_TO_MOVE_NUMBER = 4;
 
-    public Car(String name, int chanceCount) {
+    public Car(String name, int moveCount) {
         this.name = name;
-        this.moveCount = chanceCount;
+        this.moveCount = moveCount;
         this.score = 0;
     }
 
-    public void getMoveChance(){
+    public void getChanceToMove(){
         if(pickRandomNumberToMove()>=POSSIBLE_TO_MOVE_NUMBER) {
             this.score++;
         }
