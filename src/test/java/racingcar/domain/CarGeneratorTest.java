@@ -39,4 +39,26 @@ public class CarGeneratorTest {
         assertThat(result4).containsExactly("pobi", "jason", "juno", "hyun");
         assertThat(result5).containsExactly("pobi", "jason", "juno", "hyun", "minseo");
     }
+
+    @Test
+    void createCarList_자동차리스트_값_테스트() {
+        //given
+        final String case1 = "povi1";
+        final String case2 = "povi1,povi2";
+        final String case3 = "povi1,povi2,povi3";
+
+        //when
+        final LinkedHashMap<String, String> result1 = T.createCarList(case1);
+        final LinkedHashMap<String, String> result2 = T.createCarList(case2);
+        final LinkedHashMap<String, String> result3 = T.createCarList(case3);
+
+        //then
+        assertThat(result1).containsKey("povi1");
+        assertThat(result2).containsKey("povi1");
+        assertThat(result2).containsKey("povi2");
+        assertThat(result3).containsKey("povi1");
+        assertThat(result3).containsKey("povi2");
+        assertThat(result3).containsKey("povi3");
+
+    }
 }
