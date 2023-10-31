@@ -8,7 +8,7 @@ import racingcar.model.Player;
 
 public class View {
 
-    IOManager ioManager;
+    private final IOManager ioManager;
 
     public View(IOManager ioManager) {
         this.ioManager = ioManager;
@@ -19,9 +19,13 @@ public class View {
         return ioManager.readString();
     }
 
-    public String printInputRacingTime() {
+    public int printInputRacingTime() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return ioManager.readString();
+        try {
+            return Integer.parseInt(ioManager.readString());
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException("");
+        }
     }
 
     public void printResultMessage() {
