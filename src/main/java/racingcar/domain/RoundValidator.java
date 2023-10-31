@@ -1,6 +1,9 @@
 package racingcar.domain;
 
 public class RoundValidator {
+    public RoundValidator() {
+    }
+
     public static int checkNaturalNumber(String number) {
         int naturalNumber;
         try {
