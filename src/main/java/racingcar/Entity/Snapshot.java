@@ -12,13 +12,17 @@ public class Snapshot {
     private final List<Map<String, Integer>> snapshots;
     private final InputOutputHelper ioHelper;
 
-    public Snapshot(int tryCount) {
+    private Snapshot(int tryCount) {
         this.snapshots = new ArrayList<>(tryCount + 1);
         this.snapshots.add(Config.CAR_START_LOCATION, null);
         for(int i=1; i<=tryCount; i++) {
             this.snapshots.add(i, new LinkedHashMap<>());
         }
         ioHelper = Config.getSystemIOHelper();
+    }
+
+    public static Snapshot createSnapShot(int tryCount) {
+        return new Snapshot(tryCount);
     }
 
     public void printSnapshot(int order) {

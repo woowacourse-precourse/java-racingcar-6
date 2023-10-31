@@ -11,7 +11,7 @@ public class Application {
         stadium.inputTryCount();
 
         // 경기 진행
-        Snapshot snapshot = new Snapshot(stadium.getTryCount());
+        Snapshot snapshot = Snapshot.createSnapShot(stadium.getTryCount());
         for(int order = 1; order <= stadium.getTryCount(); order++){
             stadium.runAllCars();
             snapshot.setSnapshot(order, stadium.getCars());

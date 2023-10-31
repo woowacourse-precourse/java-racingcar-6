@@ -11,7 +11,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-
 class SnapshotTest {
 
     private static ByteArrayOutputStream outputMessage;
@@ -31,7 +30,7 @@ class SnapshotTest {
                 Car.createCar("car2", 0),
                 Car.createCar("car3", 3)
         );
-        Snapshot snapshot = new Snapshot(tryCount);
+        Snapshot snapshot = Snapshot.createSnapShot(tryCount);
         snapshot.setSnapshot(3, cars);
 
         // 출력값 검증
@@ -44,7 +43,7 @@ class SnapshotTest {
     @DisplayName("스냅샷__인덱스_파라미터_예외")
     void printSnapshot_메서드_수행시_존재하지_않는_인덱스_파라미터_예외발생() {
         int tryCount = 1;
-        Snapshot snapshot = new Snapshot(tryCount);
+        Snapshot snapshot = Snapshot.createSnapShot(tryCount);
 
         assertThatThrownBy(() -> snapshot.printSnapshot(3))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -54,7 +53,7 @@ class SnapshotTest {
     @DisplayName("스냅샷__미존재_출력")
     void printSnapshot_메서드_수행시_인덱스범위_내에서_스냅샷_미존재() {
         int tryCount = 1;
-        Snapshot snapshot = new Snapshot(tryCount);
+        Snapshot snapshot = Snapshot.createSnapShot(tryCount);
 
         // 출력값 검증
         snapshot.printSnapshot(1);
@@ -65,7 +64,7 @@ class SnapshotTest {
     @Test
     @DisplayName("스냅샷__우승자_결과")
     void printWinner_메서드의_우승자_결과_테스트() {
-        Snapshot snapshot = new Snapshot(3);
+        Snapshot snapshot = Snapshot.createSnapShot(3);
         List<Car> cars = List.of(
                 Car.createCar("car1", 5),
                 Car.createCar("car2", 5),
