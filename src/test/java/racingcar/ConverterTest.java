@@ -14,7 +14,7 @@ class ConverterTest {
     @ParameterizedTest
     @MethodSource("splitByDelimiterArguments")
     void splitByDelimiterTest(String src, String delimiter, List<String> expected) {
-        assertThat(Converter.splitByDelimiter(src, delimiter)).isEqualTo(expected);
+        assertThat(Utils.splitByDelimiter(src, delimiter)).isEqualTo(expected);
     }
 
     static Stream<Arguments> splitByDelimiterArguments() {

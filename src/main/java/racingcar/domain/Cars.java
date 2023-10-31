@@ -2,14 +2,13 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.Converter;
 import racingcar.Utils;
 
 public record Cars(List<Car> carList) {
     public static final String CAR_NAME_DELIMITER = ",";
 
     public static Cars createByString(String carsString) {
-        List<Car> carList = Converter.splitByDelimiter(carsString, CAR_NAME_DELIMITER)
+        List<Car> carList = Utils.splitByDelimiter(carsString, CAR_NAME_DELIMITER)
                 .stream()
                 .map(CarName::new)
                 .map(carName -> new Car(carName, new Position(0)))
