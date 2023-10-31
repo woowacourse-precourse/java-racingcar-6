@@ -40,6 +40,15 @@ public class CarGame {
     System.out.println();
   }
 
+  private void printWinner() {
+    System.out.print("최종 우승자 : ");
+    String result = "";
+    List<Car> winners = getWinner();
+    for(Car winner : winners)
+      result += winner.getName() + ", ";
+    System.out.println(result.substring(0, result.length() -2));
+  }
+
   private List<Car> getWinner() {
     Integer winnersPosition = 0;
     List<Car> winners = new ArrayList<Car>();
