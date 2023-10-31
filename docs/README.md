@@ -20,3 +20,22 @@
   - ~~User: 경주를 진행하는 사용자 → n~~
     - ~~사용자 이름~~
     - ~~전진 횟수~~
+
+
+### 유틸리티
+- InputManager
+  - 입력 처리 담당.
+  - UsernameInputManager
+    - 사용자 이름 입력 처리.
+    - 글자수 및 빈 문자 예외 처리.
+  - GameCountInputManager
+    - 게임 횟수 입력 처리.
+    - 입력값이 숫자인지 확인.
+    - 부적절한 입력인 경우 예외 처리.
+- OutputManager
+  - 출력 처리 담당.
+  - SystemOutputManager
+    - 시스템 사용자에게 필요한 출력 메세지 처리.
+  - RacingOutputManager
+    - 경주 진행시 사용자의 전진 정도 출력 처리.
+    - 경주 결과 출력 처리.
