@@ -14,5 +14,9 @@ public class Application {
         this.raceStatus = 0;
     }
 
+    public void move(){
+
+    }
+
 }
 
