@@ -30,10 +30,10 @@ public class CarRacing {
     public void start() {
         System.out.println(PROMPT_ENTER_CAR_NAME);
         requestCarNames();
-
         getCarNamesArray(carNames);
+        requestUserCount();
 
-        getUserCount();
+        
     }
 
     public void requestCarNames() {
@@ -102,7 +102,7 @@ public class CarRacing {
         }
     }
 
-    public void getUserCount() {
+    public void requestUserCount() {
         String stringCount = Console.readLine();
         validateUserCount(stringCount);
         userCount = Integer.parseInt(stringCount);
