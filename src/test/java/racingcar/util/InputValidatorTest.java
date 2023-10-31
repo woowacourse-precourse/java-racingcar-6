@@ -1,7 +1,7 @@
 package racingcar.util;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,27 +17,19 @@ class InputValidatorTest {
     void isValidList() {
         List<String> invalidList1 = Arrays.asList("a", "b", "U-keun");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isValidList(invalidList1);
-        });
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isValidList(invalidList1));
 
         List<String> invalidList2 = Arrays.asList("", "aa");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isValidList(invalidList2);
-        });
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isValidList(invalidList2));
 
         List<String> invalidList3 = Arrays.asList("ukeun", "ukeun");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isValidList(invalidList3);
-        });
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isValidList(invalidList3));
 
         List<String> validList = Arrays.asList("hi", "I'm", "ukeun");
 
-        assertDoesNotThrow(() -> {
-            testInputValidator.isValidList(validList);
-        });
+        assertDoesNotThrow(() -> testInputValidator.isValidList(validList));
     }
 
     @Test
@@ -45,26 +37,18 @@ class InputValidatorTest {
     void isNumber() {
         String invalidCount1 = "";
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isPositiveInteger(invalidCount1);
-        });
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isPositiveInteger(invalidCount1));
 
         String invalidCount2 = "12af";
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isPositiveInteger(invalidCount2);
-        });
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isPositiveInteger(invalidCount2));
 
         String invalidCount3 = "-34";
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isPositiveInteger(invalidCount3);
-        });
+        assertThrows(IllegalArgumentException.class, () -> testInputValidator.isPositiveInteger(invalidCount3));
 
         String validCount = "34";
 
-        assertDoesNotThrow(() -> {
-            testInputValidator.isPositiveInteger(validCount);
-        });
+        assertDoesNotThrow(() -> testInputValidator.isPositiveInteger(validCount));
     }
 }
