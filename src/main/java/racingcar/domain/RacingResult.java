@@ -9,12 +9,7 @@ import racingcar.enums.Separator;
 public class RacingResult {
     private List<CarStatusDto> carStatuses;
 
-
     public RacingResult(List<CarStatusDto> carStatuses) {
-        this.carStatuses = carStatuses;
-    }
-
-    public void update(List<CarStatusDto> carStatuses) {
         this.carStatuses = carStatuses;
     }
 
