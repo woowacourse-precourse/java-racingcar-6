@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +20,7 @@ class RacingCarsTest {
         RacingCars winners = racingCars.findWinners();
         List<RacingCar> winnersList = winners.racingCarList();
 
-        assertEquals(1, winnersList.size());
-        assertEquals(racingCar3, winnersList.get(0));
+        assertThat(winnersList).contains(racingCar3);
+        assertThat(winnersList).doesNotContain(racingCar1, racingCar2);
     }
 }
