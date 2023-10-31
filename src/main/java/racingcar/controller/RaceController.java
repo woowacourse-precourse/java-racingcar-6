@@ -12,11 +12,11 @@ public class RaceController {
     private static final int MOVE_CRITERIA = 4;
     private static final String COMMA = ", ";
 
-    public int getRandomNumber() {
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(RANGE_START_NUMBER, RANGE_END_NUMBER);
     }
 
-    public boolean isMoved() {
+    private boolean isMoved() {
         if (getRandomNumber() >= MOVE_CRITERIA) {
             return true;
         }

@@ -16,7 +16,6 @@ public class CarController {
     private List<String> inputToCarNameList() {
         String playerInput = inputView.getCarNameInput();
         List<String> carNames = Arrays.asList(playerInput.split(","));
-        System.out.println(carNames);
 
         NamesCountValidator namesCountValidator = new NamesCountValidator();
         namesCountValidator.validate(carNames);

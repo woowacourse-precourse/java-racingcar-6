@@ -12,7 +12,7 @@ public class GameController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
-    public void race(List<Car> racingCars) {
+    private void race(List<Car> racingCars) {
         for (Car car : racingCars) {
             raceController.addRecord(car);
         }

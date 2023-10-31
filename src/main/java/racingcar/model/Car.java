@@ -7,12 +7,10 @@ public class Car {
     private static final String COLON = " : ";
     private Name name;
     private String record;
-    private int distance;
 
     public Car(String name) {
         this.name = new Name(name);
         this.record = "";
-        this.distance = 0;
     }
 
     public void addRecord() {
