@@ -12,7 +12,7 @@ public class Car {
         this.location = new Location();
     }
 
-    public static Car make(CarName carName) {
+    public static Car create(CarName carName) {
         return new Car(carName);
     }
 
