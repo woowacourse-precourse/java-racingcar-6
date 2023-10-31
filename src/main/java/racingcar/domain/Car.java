@@ -28,16 +28,16 @@ public class Car {
         return this.position.equals(car.position);
     }
 
+    public CarDto toCarDto() {
+        return new CarDto(getName(), getPosition());
+    }
+
     public String getName() {
         return name.getName();
     }
 
     public int getPosition() {
         return position.getPosition();
-    }
-
-    public CarDto toCarDto() {
-        return new CarDto(name.getName(), position.getPosition());
     }
 
 }
