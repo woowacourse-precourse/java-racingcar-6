@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,7 @@ public class InputViewTest {
     @BeforeEach
     void beforeEach() {
         inputView = new InputView();
+        Console.close(); // 테스트 한번 할 때마다, 자원을 새로 만든다.
     }
 
     @Test
