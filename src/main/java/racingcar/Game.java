@@ -33,7 +33,7 @@ public class Game {
         System.out.print(Announcement.WINNER.getValue());
         int i = 0;
         for (; i < winnerArray.length - 1; i++) {
-            System.out.print(winnerArray[i] + ",");
+            System.out.print(winnerArray[i] + ", ");
         }
         System.out.println(winnerArray[i]);
     }
