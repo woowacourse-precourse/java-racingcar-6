@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import racingcar.constant.RacingGameConstants;
-import racingcar.utils.RandomGenerator;
 
 public class Car {
     private final CarName carName;
@@ -20,11 +19,8 @@ public class Car {
         return position;
     }
 
-    public void tryToMove() {
-        int randomNumber = RandomGenerator
-                .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
-
-        if (randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
+    public void tryToMove(int randomNumber) {
+        if (randomNumber >= RacingGameConstants.MOVABLE_THRESHOLD) {
             moveOneStep();
         }
     }

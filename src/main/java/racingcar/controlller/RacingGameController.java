@@ -1,5 +1,8 @@
 package racingcar.controlller;
 
+import static racingcar.constant.RacingGameConstants.MOVABLE_MAX;
+import static racingcar.constant.RacingGameConstants.MOVABLE_MIN;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +10,7 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.RoundCounter;
 import racingcar.utils.Parser;
+import racingcar.utils.RandomGenerator;
 
 public class RacingGameController {
     private boolean isRunning;
@@ -53,7 +57,7 @@ public class RacingGameController {
 
     private void playOneRound() {
         for (Car car : cars.getCarList()) {
-            car.tryToMove();
+            car.tryToMove(RandomGenerator.generateRandomIntInRange(MOVABLE_MIN, MOVABLE_MAX));
         }
         OutputController.printForwardStateMessage(cars);
     }
