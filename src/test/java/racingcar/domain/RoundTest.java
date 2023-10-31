@@ -18,16 +18,13 @@ class RoundTest {
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
     private static final String CAR3_NAME = "jun";
-    private Car car1;
-    private Car car2;
-    private Car car3;
 
     @BeforeEach
     void setUp() {
+        CarNames carNames = new CarNames(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME));
+        cars = new Cars(carNames);
         numberGenerator = mock(NumberGenerator.class);
         round = new Round(cars, numberGenerator, new ForwardChecker());
-        List<String> racingCarNames = Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME);
-        cars = new Cars(racingCarNames);
     }
 
     @Test
@@ -38,8 +35,8 @@ class RoundTest {
                 .thenReturn(5);
 
         round.run();
-        assertThat(cars.getCars().get(0).getForwardDistance()).isEqualTo(1);
-        assertThat(cars.getCars().get(1)).isEqualTo(0);
-        assertThat(cars.getCars().get(2)).isEqualTo(1);
+        assertThat(cars.getCars().get(0).getForwardDistance().getValue()).isEqualTo(1);
+        assertThat(cars.getCars().get(1).getForwardDistance().getValue()).isEqualTo(0);
+        assertThat(cars.getCars().get(2).getForwardDistance().getValue()).isEqualTo(1);
     }
 }

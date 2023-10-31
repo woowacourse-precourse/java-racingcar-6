@@ -10,22 +10,24 @@ import org.junit.jupiter.api.Test;
 class CarsTest {
 
     private Cars cars;
-    private List<String> racingCarNames;
+    private CarNames carNames;
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
     private static final String CAR3_NAME = "jun";
 
     @BeforeEach
     void setUp() {
-        racingCarNames = Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME);
-        cars = new Cars(racingCarNames);
+        carNames = new CarNames(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME));
+        cars = new Cars(carNames);
     }
 
     @Test
     void 자동차_3대가_RacingCars에_포함() {
-        assertThat(cars.getCars().size()).isEqualTo(3);
-        assertThat(cars.getCars())
+        List<Car> carList = cars.getCars();
+
+        assertThat(carList.size()).isEqualTo(3);
+        assertThat(carList)
                 .extracting("name")
-                .contains(CAR1_NAME, CAR2_NAME, CAR3_NAME);
+                .contains(new CarName(CAR1_NAME), new CarName(CAR2_NAME), new CarName(CAR3_NAME));
     }
 }
