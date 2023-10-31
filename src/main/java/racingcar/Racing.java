@@ -11,7 +11,13 @@ public class Racing {
 
     public List<Integer> maxindexs = new ArrayList<>();
 
+    public List<Integer> randomNumbersList = new ArrayList<>();
+    public void racing(List<String> carNames){
+        randomNumbersList = raceRandomNumberList(carNames);
+        forwardValidation(randomNumbersList);
+        OutputMessage.racePrint(raceSituation);
 
+    }
     public void createRace(List<String> carNames) {
 
         for(String carName : carNames){
