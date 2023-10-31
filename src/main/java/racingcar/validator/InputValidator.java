@@ -1,13 +1,14 @@
 package racingcar.validator;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputValidator {
     private static final String NOT_CAR_FORMAT_REGEX = "[^a-zA-Z,]+";
+    private static final String NUMBER_FORMAT_REGEX = "^[0-9]*$";
     private static final Pattern NOT_CAR_PATTERN = Pattern.compile(NOT_CAR_FORMAT_REGEX);
+    private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_FORMAT_REGEX);
     private static final String DELIMITER = ",";
 
     public static void validateCarsFormat(String input) {
@@ -28,7 +29,8 @@ public class InputValidator {
     }
 
     public static void validateTryNumber(String input) {
-        if (!Character.isDigit(input.charAt(0))) {
+        Matcher m = NUMBER_PATTERN.matcher(input);
+        if (!m.matches()) {
             throw new IllegalArgumentException("[ERROR] 올바른 시도 횟수를 입력해주세요.");
         }
     }
