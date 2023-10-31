@@ -48,4 +48,14 @@ class OutputTest {
         assertEquals(expected, output);
     }
 
+    @Test
+    void 게임_결과_문구를_출력한다() {
+        String expected = OutputMessage.RESULT.message + "\n";
+
+        Output.printResult();
+
+        String output = outputStream.toString();
+        assertEquals(expected, output);
+    }
+
 }
