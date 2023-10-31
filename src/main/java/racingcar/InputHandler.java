@@ -7,7 +7,7 @@ public class InputHandler {
         return Console.readLine();
     }
 
-    public String[] splitInput(String input) {
+    public String[] splitToArray(String input) {
         if (!isRightCarName(input)) {
             throw new IllegalArgumentException();
         }
