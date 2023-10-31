@@ -1,8 +1,9 @@
 package racingcar.utils.validator;
 
+import racingcar.utils.exception.CarExceptionType;
 import racingcar.utils.types.StringUtils;
 
-public class CarValidator extends CarCommonValidator{
+public class CarValidator extends CommonValidator {
 
     private static final int START_LENGTH = 1;
     private static final int END_LENGTH = 5;
@@ -18,7 +19,7 @@ public class CarValidator extends CarCommonValidator{
 
     private void validateNameLength(final String value) {
         if (!StringUtils.isLengthInRange(value, START_LENGTH, END_LENGTH)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarExceptionType.INVALID_LENGTH.getMessage());
         }
     }
 }

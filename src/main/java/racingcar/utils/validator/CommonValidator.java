@@ -1,7 +1,9 @@
 package racingcar.utils.validator;
 
-public class CarCommonValidator implements Validator<String>{
-    public CarCommonValidator() {}
+import racingcar.utils.exception.CarExceptionType;
+
+public class CommonValidator implements Validator<String>{
+    public CommonValidator() {}
 
     @Override
     public void validate(final String value) {
@@ -10,7 +12,7 @@ public class CarCommonValidator implements Validator<String>{
 
     private void validateNotEmpty(final String value) {
         if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CarExceptionType.INPUT_NULL.getMessage());
         }
     }
 }

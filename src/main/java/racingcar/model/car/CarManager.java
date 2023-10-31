@@ -36,6 +36,26 @@ public class CarManager {
                 .toList();
     }
 
+    public List<Car> move() {
+        this.cars.forEach(car ->
+                car.move(new Movable().isMove()));
+
+        return this.getCars();
+    }
+
+    public List<Car> getWinner() {
+        return this.cars.stream()
+                .filter(car -> car.getProgress() == this.getHighestProgress())
+                .toList();
+    }
+
+    private int getHighestProgress() {
+        return this.cars.stream()
+                .mapToInt(Car::getProgress)
+                .max()
+                .orElseThrow(IllegalAccessError::new);
+    }
+
     public List<Car> getCars() {
         return cars;
     }

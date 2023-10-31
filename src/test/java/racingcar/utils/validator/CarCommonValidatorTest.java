@@ -16,14 +16,14 @@ class CarCommonValidatorTest {
     @Test
     @DisplayName("비어있는 값을 입력하지 않았는지 확인 - 빈 값이 아닐 떄")
     public void enterNotEmptyCarName() {
-        Assertions.assertDoesNotThrow(() -> new CarCommonValidator().validate("acb,dffs,dfdf"));
+        Assertions.assertDoesNotThrow(() -> new CommonValidator().validate("acb,dffs,dfdf"));
     }
 
     @ParameterizedTest
     @MethodSource("emtpytCarNames")
     @DisplayName("비어있는 값을 입력하지 않았는지 확인 - 빈 값 입력할 때")
     public void enterEmptyCarName() {
-        Assertions.assertDoesNotThrow(() -> new CarCommonValidator().validate("acb,dffs,dfdf"));
+        Assertions.assertDoesNotThrow(() -> new CommonValidator().validate("acb,dffs,dfdf"));
     }
 
     static Stream<Arguments> emtpytCarNames() {
