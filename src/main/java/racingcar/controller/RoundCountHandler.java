@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.controller;
 
 public class RoundCountHandler implements UserInputHandler<Integer>{
     int roundCount;
+
     @Override
     public void handle(String stringRoundCount){
         try{

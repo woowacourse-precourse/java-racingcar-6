@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +8,7 @@ public class RacingCarModel {
     private ArrayList<Car> carList;
     public RacingCarModel(Iterator<String> carNameListIterator){
         carList = new ArrayList<>();
+
         while(carNameListIterator.hasNext()){
             String carName = carNameListIterator.next();
             Car newCar = new Car(carName);

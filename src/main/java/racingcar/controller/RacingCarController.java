@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.Iterator;
+import racingcar.model.RacingCarModel;
+import racingcar.view.RacingCarView;
 
 public class RacingCarController {
     RacingCarView view;
