@@ -23,8 +23,6 @@ public class GameController {
 
     public void play() {
         List<String> carName = inputCarNames();
-
-
         List<Car> cars = new ArrayList<>();
 
         for (String name : carName) {
@@ -33,7 +31,6 @@ public class GameController {
         }
 
         int tryNumber = inputView.askTryNumber();
-
 
         int count = 0;
         while (count < tryNumber) {
@@ -49,17 +46,27 @@ public class GameController {
             System.out.println();
         }
 
-        List<Car> sortedCars = cars.stream()
-                .sorted(Comparator.comparingInt(Car::getCarLocation).reversed()).toList();
-
-        List<Car> farthestCars = sortedCars.stream()
-                .filter(car -> car.getCarLocation() == sortedCars.get(0).getCarLocation()).toList();
-
-        List<String> winnerCarNames = farthestCars.stream()
-                .map(Car::getCarName)
-                .collect(Collectors.toList());
+        List<Car> sortedCars = getSortedCars(cars);
+        List<Car> farthestCars = getFarthestCars(sortedCars);
+        List<String> winnerCarNames = getWinnerCarNames(farthestCars);
 
         outputView.informFinalWinner(winnerCarNames);
+    }
+
+    private List<String> getWinnerCarNames(List<Car> farthestCars) {
+        return farthestCars.stream()
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
+    private List<Car> getFarthestCars(List<Car> sortedCars) {
+        return sortedCars.stream()
+                .filter(car -> car.getCarLocation() == sortedCars.get(0).getCarLocation()).toList();
+    }
+
+    private List<Car> getSortedCars(List<Car> cars) {
+        return cars.stream()
+                .sorted(Comparator.comparingInt(Car::getCarLocation).reversed()).toList();
     }
 
     private List<String> inputCarNames() {
