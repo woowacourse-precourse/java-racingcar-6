@@ -1,4 +1,4 @@
-package racingcar;
+package message;
 
 import java.util.List;
 
