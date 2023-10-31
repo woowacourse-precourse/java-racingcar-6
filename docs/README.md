@@ -7,7 +7,7 @@
     - [x] 자동차의 이름들을 입력받는다. - `Prompt#readCarNames()`
         - [x] 자동차 이름은 5자 이내이어야 한다. - `Validator#isNotCarName()`
 - [x] 자동차 경주에서 자동자는 매 턴마다 행동한다. - `CarRacing#action()`
-    - [x] 자동차는 생성한 무작위 값이 4보다 크면 이동 가능하다. - `CarUtils#isMovable()`
+    - [x] 자동차는 생성한 무작위 값이 4이상이면 이동 가능하다. - `CarUtils#isMovable()`
     - [x] 자동차는 전진할 수 있다. - `CarUtils#move()`
 - [x] 자동차 경주는 최대 턴 만큼 진행한다. - `CarRacing#race()`
     - [x] 경주에서 진행할 턴의 최대 턴을 입력 받는다. - `Prompt#readMaxTurn()`

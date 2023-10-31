@@ -10,7 +10,7 @@ class CarUtilsTest {
     @Test
     @DisplayName("무작위 수가 4보다 크면 이동가능하다.")
     void isMovable() {
-        Assertions.assertThat(CarUtils.isMovable(6))
+        Assertions.assertThat(CarUtils.isMovable(4))
                 .isTrue();
 
         Assertions.assertThat(CarUtils.isMovable(3))

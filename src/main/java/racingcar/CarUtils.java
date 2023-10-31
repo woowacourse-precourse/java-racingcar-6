@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class CarUtils {
 
     public static Boolean isMovable(Integer number) {
-        return number > CAR_MOVABLE_NUMBER;
+        return number >= CAR_MOVABLE_NUMBER;
     }
 
     public static void move(HashMap<String, Integer> cars, String name) {
