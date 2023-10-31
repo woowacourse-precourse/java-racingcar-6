@@ -8,6 +8,7 @@ import racingcar.TestNumberGenerator;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -32,5 +33,11 @@ public class RaceTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         return outputStream;
+    }
+
+    @Test
+    void 승자_구하기 () {
+        List<Car> winners = race.getWinners();
+        assertThat(winners.size()).isEqualTo(race.getCandidates().size());
     }
 }

@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.NumberGenerator;
 import racingcar.RandomNumberGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
@@ -22,6 +23,10 @@ public class Race {
         this.numberGenerator = numberGenerator;
     }
 
+    public List<Car> getCandidates() {
+        return candidates;
+    }
+
     public void play() {
         System.out.println("실행 결과");
         for (int round = 0; round < roundNumber; round++) {
@@ -32,9 +37,24 @@ public class Race {
 
     private void playOneRound() {
         for (Car car : candidates) {
-            int conditionNumber = numberGenerator.generateNumberRange(0, 9);
-            car.moveOrStop(conditionNumber);
+            car.moveOrStop(numberGenerator.generateNumberRange(0, 9));
             car.showStatus();
         }
+    }
+
+    public List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
+        int maxStatus = -1;
+        for (Car candidate : candidates) {
+            int candidateStatus = candidate.getStatus();
+            if (candidateStatus > maxStatus) {
+                maxStatus = candidate.getStatus();
+                winners.clear();
+            }
+            if (candidateStatus >= maxStatus) {
+                winners.add(candidate);
+            }
+        }
+        return winners;
     }
 }
