@@ -26,9 +26,7 @@ public class CarsTest {
         List<Car> list = cars.getCars();
 
         StringJoiner actual = new StringJoiner(",");
-        list.forEach(car -> {
-            actual.add(car.getName());
-        });
+        list.forEach(car -> actual.add(car.getName()));
 
         assertThat(actual.toString()).isEqualTo(namesFromUser);
     }
