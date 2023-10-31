@@ -23,4 +23,18 @@ public class RacingCars {
         }
     }
 
+    public Winner findWinner(){
+        Winner winner = new Winner();
+        for(Car car : racingCars){
+            if(car.getPosition() > winner.getPosition()){
+                winner.getWinners().clear();
+                winner.getWinners().add(car);
+            }
+            if(car.getPosition() == winner.getPosition()){
+                winner.getWinners().add(car);
+            }
+        }
+        return winner;
+    }
+
 }

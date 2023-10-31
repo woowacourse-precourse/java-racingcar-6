@@ -1,9 +1,14 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
+import racingcar.domain.Winner;
 import racingcar.service.CarService;
 import racingcar.service.TryService;
+import racingcar.view.OutputView;
+
+import javax.print.attribute.standard.OutputDeviceAssigned;
 
 public class RacingGameController {
 
@@ -23,7 +28,12 @@ public class RacingGameController {
         racingCars = carService.getCarNames();
         tryCount = tryService.getTryCount();
         race(racingCars, tryCount);
+        findWinner(racingCars);
 
+    }
+
+    private Winner findWinner(RacingCars racingCars) {
+        return racingCars.findWinner();
     }
 
     private void race(RacingCars racingCars, TryCount tryCount) {
