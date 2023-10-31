@@ -11,9 +11,10 @@ public class ValidException {
     private static final Integer START_NUM_ZERO = 0;
     private static final Integer END_NUM_FIVE = 5;
     private static final String NUM_REGEX = ".*[0-9].*";
-    private static final Integer ONLY_ONE_NAME = 0;
+    private static final Integer ONLY_ONE_NAME = 1;
     private static final String KOREAN_ENGLISH_REGEX = ".*[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣].*";
     private static final String SPECIAL_CHARACTER_REGEX = ".*[!@#$%^&*().?\":{}|<>].*";
+    private static final String NOTING_STRING = "";
 
     public static Boolean lessFIveLen(String strLine) {
         int len = strLine.length();
@@ -46,7 +47,7 @@ public class ValidException {
     }
 
     public static Boolean blankCheck(String strLine) {
-        if (!strLine.equals("")) {
+        if (!strLine.equals(NOTING_STRING)) {
             return true;
         }
         throw new IllegalArgumentException(ValidConstants.MSG_BLANK_STRING());
@@ -60,9 +61,7 @@ public class ValidException {
     }
 
     public static void includeString(String strLine) {
-        String regex = KOREAN_ENGLISH_REGEX;
-
-        Pattern pattern = Pattern.compile(regex);
+        Pattern pattern = Pattern.compile(KOREAN_ENGLISH_REGEX);
         Matcher matcher = pattern.matcher(strLine);
 
         if (matcher.matches()) {
