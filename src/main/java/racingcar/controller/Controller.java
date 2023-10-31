@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.service.Validator;
 import racingcar.view.Views;
 import racingcar.service.GameService;
 import racingcar.domain.Cars;
@@ -12,6 +13,7 @@ public class Controller {
     Views view = new Views();
     GameService service = new GameService();
     Cars cars = new Cars();
+    Validator validator = new Validator();
 
     public void makeGame(){
         startGame();
@@ -43,7 +45,10 @@ public class Controller {
     }
     public void makeCars(){
         view.printInputCarMessage();
-        makeCarList(service.splitCarNames(getCarNames()));
+        String carName = getCarNames();
+        List<String>carList = service.splitCarNames(carName);
+        validator.validateCarNames(carList);
+        makeCarList(carList);
     }
     public int makeTrialNumber(){
         view.printInputTrialMessage();
@@ -55,6 +60,7 @@ public class Controller {
     }
     public int getTrialNumber(){
         String input = Console.readLine();
+        validator.validateTrialNumber(input);
         return Integer.parseInt(input);
     }
     public void makeCarList(List<String> input){
