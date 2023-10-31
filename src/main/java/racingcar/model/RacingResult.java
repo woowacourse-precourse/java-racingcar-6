@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 
 public class RacingResult {
+
     private Cars cars;
 
     public RacingResult(Cars cars) {

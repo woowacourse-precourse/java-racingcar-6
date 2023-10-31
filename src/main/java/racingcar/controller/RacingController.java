@@ -8,9 +8,10 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
+
     private final InputView inputView;
     private final OutputView outputView;
-    private  PlayRacing playRacing;
+    private PlayRacing playRacing;
 
     public RacingController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -28,7 +29,8 @@ public class RacingController {
     }
 
     private void inProgress(TryCount tryCount) {
-        for (int i = 0; i < tryCount.getTryCount(); i++) {;
+        for (int i = 0; i < tryCount.getTryCount(); i++) {
+            ;
             outputView.printProcess(playRacing.process());
         }
     }
@@ -38,6 +40,7 @@ public class RacingController {
         outputView.printTryCountMessage();
         return new TryCount(inputView.inputTryCount());
     }
+
     private Cars initCars() {
         outputView.printStartMessage();
         return new Cars(inputView.inputCarNames());

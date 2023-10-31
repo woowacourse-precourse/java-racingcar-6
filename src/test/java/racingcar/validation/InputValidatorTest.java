@@ -12,10 +12,12 @@ import org.junit.jupiter.api.Test;
 class InputValidatorTest {
 
     private InputValidator inputValidator;
+
     @BeforeEach
     void setInputValidator() {
         inputValidator = new InputValidator();
     }
+
     @Test
     @DisplayName("시도할 횟수를 정하는 입력은 숫자만 입력할 수 있다.")
     void testTryCountOnlyNumber() {

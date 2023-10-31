@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public enum MovingStatus {
+
     STOP(0),
     FOR_WORD(4);
 

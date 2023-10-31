@@ -64,5 +64,4 @@ class CarsTest {
                 Arguments.arguments("a, b, c, d, e, f, g, e, f, g, pobi, h, i, pobi")
         );
     }
-
 }

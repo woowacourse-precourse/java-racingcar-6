@@ -33,5 +33,4 @@ class MovingStatusTest {
         boolean expectedCanMove = pickNumber >= 4;
         assertEquals(expectedCanMove, MovingStatus.canMove(pickNumber));
     }
-
 }

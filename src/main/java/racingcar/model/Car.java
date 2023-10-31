@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.Objects;
 
 public class Car {
+
     private static final int START_MOVING_DISTANCE = 0;
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;

@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 public class Cars {
+
     private static final String DUPLICATE_CAR_NAME = "중복된 자동차가 존재합니다.";
 
     private List<Car> cars;
@@ -17,7 +18,7 @@ public class Cars {
         validateCarDuplicated(createdCars);
         this.cars = createdCars;
     }
-    
+
     public void updateDistance(List<Integer> createdPickNumbers) {
         IntStream.range(0, createdPickNumbers.size())
                 .filter(index -> MovingStatus.canMove(createdPickNumbers.get(index)))
@@ -40,7 +41,6 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-
     private void forwardCar(int index) {
         findCarByIndex(index).forward();
     }
@@ -49,11 +49,10 @@ public class Cars {
         return cars.get(index);
     }
 
-
     private void validateCarDuplicated(List<Car> cars) {
         int originSize = cars.size();
         Set<Car> set = new HashSet<>(cars);
-        
+
         if (isSameSize(originSize, set.size())) {
             throw new IllegalArgumentException(DUPLICATE_CAR_NAME);
         }

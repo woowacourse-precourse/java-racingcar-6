@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public enum SpecialSign {
+
     SEPARATOR(","),
     COLON(":"),
     HYPHEN("-"),

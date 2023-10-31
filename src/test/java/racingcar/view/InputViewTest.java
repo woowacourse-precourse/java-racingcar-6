@@ -58,11 +58,9 @@ class InputViewTest {
 
         assertThrows(IllegalArgumentException.class,
                 () -> inputView.inputTryCount());
-
     }
 
     private static InputStream generateInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
-
 }

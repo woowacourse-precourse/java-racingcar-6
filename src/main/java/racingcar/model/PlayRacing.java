@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 import racingcar.util.NumberGenerator;
 
 public class PlayRacing {
+
     private final NumberGenerator numberGenerator;
     private final Cars cars;
 

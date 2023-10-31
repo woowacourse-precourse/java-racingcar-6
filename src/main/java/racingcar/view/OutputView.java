@@ -52,7 +52,6 @@ public class OutputView {
         System.out.print(sb);
     }
 
-
     public void printWinner(RacingResult racingResult) {
         StringBuilder sb = new StringBuilder();
         sb.append(SpecialSign.NEW_LIEN.getSign())
