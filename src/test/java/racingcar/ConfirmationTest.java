@@ -39,5 +39,25 @@ public class ConfirmationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름을 입력해주세요.");
     }
+
+    @Test
+    void 시도횟수_예외_처리() {
+        String count = "";
+        String numCount = "0";
+        String numFormatCount = "dabin";
+        int attemptCount = Integer.parseInt(numCount);
+
+        assertThatThrownBy(() -> userInputHandler.validateAttemptCount(String.valueOf(attemptCount)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 0보다 커야 합니다.");
+
+        assertThatThrownBy(() -> userInputHandler.validateAttemptCount(count))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수를 입력해주세요.");
+
+        assertThatThrownBy(() -> userInputHandler.validateAttemptCount(numFormatCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 숫자만 입력할 수 있습니다.");
+    }
 }
 
