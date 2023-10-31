@@ -7,7 +7,7 @@ import racingcar.domain.model.Cars;
 import racingcar.domain.service.RacingCarRandomGenerator;
 import racingcar.domain.service.RacingGame;
 import racingcar.domain.service.RacingGameFactory;
-import racingcar.domain.service.RandomMoveJudicator;
+import racingcar.domain.service.RandomMoveJudge;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,7 +17,7 @@ public class RacingGameController {
     private final OutputView outputView;
 
     public RacingGameController(InputView inputView, OutputView outputView) {
-        this.racingGameFactory = new RacingGameFactory(new RandomMoveJudicator(new RacingCarRandomGenerator()));
+        this.racingGameFactory = new RacingGameFactory(new RandomMoveJudge(new RacingCarRandomGenerator()));
         this.inputView = inputView;
         this.outputView = outputView;
     }

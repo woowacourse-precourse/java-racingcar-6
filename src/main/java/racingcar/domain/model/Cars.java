@@ -3,7 +3,7 @@ package racingcar.domain.model;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.service.RandomMoveJudicator;
+import racingcar.domain.service.RandomMoveJudge;
 
 public record Cars(List<Car> cars) {
 
@@ -12,14 +12,13 @@ public record Cars(List<Car> cars) {
                 .map(Car::new)
                 .collect(Collectors.toList()));
 
-
     }
 
     public static Cars of(List<Car> cars) {
         return new Cars(cars);
     }
 
-    public void moveAll(RandomMoveJudicator moveJudicator) {
+    public void moveAll(RandomMoveJudge moveJudicator) {
         cars.stream().filter(car -> moveJudicator.canMove()).forEach(Car::move);
     }
 

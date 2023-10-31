@@ -3,14 +3,13 @@ package racingcar.domain.service;
 import java.util.List;
 import racingcar.domain.dto.CarProgressDTO;
 import racingcar.domain.dto.RacingCarWinnerDTO;
-import racingcar.domain.model.AttemptsNumber;
 import racingcar.domain.model.Cars;
 
 public class RacingGame {
     private final Cars cars;
-    private final RandomMoveJudicator randomMoveJudicator;
+    private final RandomMoveJudge randomMoveJudicator;
 
-    public RacingGame(Cars cars, RandomMoveJudicator randomMoveJudicator) {
+    public RacingGame(Cars cars, RandomMoveJudge randomMoveJudicator) {
         this.cars = cars;
         this.randomMoveJudicator = randomMoveJudicator;
     }
