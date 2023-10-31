@@ -2,8 +2,10 @@ package racingcar;
 
 import racingcar.model.Car;
 import racingcar.model.Game;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {

@@ -2,7 +2,6 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Game {
     private List<Car> cars = new ArrayList<>();

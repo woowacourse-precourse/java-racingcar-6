@@ -22,7 +22,7 @@ public class Car {
     }
 
     public void move() {
-        int num = Randoms.pickNumberInRange(0,9);
+        int num = Randoms.pickNumberInRange(0, 9);
         if (num >= 4) {
             forwardCount++;
         }
@@ -30,7 +30,7 @@ public class Car {
 
     public void currentLocation() {
         System.out.print(name + " : ");
-        for(int i = 0; i < forwardCount; i++){
+        for (int i = 0; i < forwardCount; i++) {
             System.out.print("-");
         }
         System.out.println();
