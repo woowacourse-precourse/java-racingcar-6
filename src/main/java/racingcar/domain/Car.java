@@ -10,6 +10,7 @@ public class Car implements Comparable<Car> {
     private int progressCount;
 
     public Car(String name) {
+        validateBlankName(name);
         validateNameLength(name);
         this.name = name;
         progressCount = INITIAL_PROGRESS_COUNT;
@@ -17,6 +18,12 @@ public class Car implements Comparable<Car> {
 
     private void validateNameLength(String name) {
         if (name.length() > NAME_LENGTH_LIMIT) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateBlankName(String name) {
+        if (name.isBlank()) {
             throw new IllegalArgumentException();
         }
     }

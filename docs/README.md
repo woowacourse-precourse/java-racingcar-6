@@ -1,6 +1,6 @@
 # 📚 기능목록
 - [x] 자동차의 이름들을 입력받는다. ``InputView - readCarsName``
-  - [x] 🚫 자동차 이름이 공백인지 검증한다. ``InputView - validateBlankCarsName``
+  - [x] 🚫 자동차 이름이 공백인지 검증한다. ``Car - validateBlankName``
   - [x] 🚫 중복된 자동차 이름이 있는지 검증한다. ``Players - validateDuplicateName``
   - [x] 🚫 자동차 이름이 5자 이하인지 검증한다. ``Car - validateNameLength``
 - [x] 이름 문자열을 이름 리스트로 변환한다. ``GameController - convertStringToList``
