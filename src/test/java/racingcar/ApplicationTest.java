@@ -58,6 +58,22 @@ class ApplicationTest extends NsTest {
         assertThat(car.getDistance()).isEqualTo(0);
     }
 
+    @Test
+    void 자동차_생성(){
+        Game game = new Game();
+
+        game.addCarList("carName1");
+        assertThat(game.getCarList().size()).isEqualTo(1);
+        assertThat(game.getCarList().get(0).getName()).isEqualTo("carName1");
+        assertThat(game.getCarList().get(0).getDistance()).isEqualTo(0);
+
+        game.addCarList("carName2");
+        assertThat(game.getCarList().size()).isEqualTo(2);
+        assertThat(game.getCarList().get(1).getName()).isEqualTo("carName2");
+        assertThat(game.getCarList().get(1).getDistance()).isEqualTo(0);
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
