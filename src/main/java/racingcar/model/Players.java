@@ -7,7 +7,7 @@ public class Players {
 
     private List<Player> players = new ArrayList<>();
 
-    public Players (List<String> names) {
+    public Players(List<String> names) {
         for (String name : names) {
             add(name);
         }

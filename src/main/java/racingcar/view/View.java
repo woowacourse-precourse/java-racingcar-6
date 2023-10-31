@@ -36,7 +36,8 @@ public class View {
         for (Entry<Player, Integer> entry : moveLog.entrySet()) {
             Player player = entry.getKey();
             int moveCnt = entry.getValue();
-            sb.append(player.getName()).append(" : ").append("-".repeat(Math.max(0, moveCnt))).append("\n");
+            sb.append(player.getName()).append(" : ").append("-".repeat(Math.max(0, moveCnt)))
+                    .append("\n");
         }
 
         System.out.println(sb);

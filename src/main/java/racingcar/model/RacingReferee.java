@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 public class RacingReferee {
+
     private final Players players;
     private final Map<Player, Integer> result;
     private final Dice dice;
+
     public RacingReferee(Players players, Dice dice) {
         result = new LinkedHashMap<>();
         initResult(players);
@@ -26,7 +28,7 @@ public class RacingReferee {
     public Map<Player, Integer> carMove() {
         for (Player player : players.getPlayers()) {
             int v = dice.roll();
-            if(isMove(v)) {
+            if (isMove(v)) {
                 result.put(player, result.get(player) + 1);
             }
         }
