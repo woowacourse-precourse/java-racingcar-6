@@ -1,17 +1,15 @@
 package racingcar.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarManager {
-    //중간 점수 정보 반환
-    //최종 점수 반환
-
     static HashMap<String, Integer> carScore = new HashMap<>();
     private static List<Car> cars = new ArrayList<>();
 
-
-    public List<Car> initCar(List<String> carNames) { //객체 생성
+    public List<Car> initCar(List<String> carNames) {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
@@ -19,15 +17,15 @@ public class CarManager {
         return cars;
     }
 
-    public HashMap<String, Integer> midtermScoreData(){
-        for(Car carName : cars){
+    public HashMap<String, Integer> midtermScoreData() {
+        for (Car carName : cars) {
             carScore.put(carName.getCarName(), carName.getDistance());
         }
 
         return carScore;
     }
 
-    public List<String> finalScoreData() { //우승 데이터를 반환
+    public List<String> finalScoreData() {
         int topDistance = findTopScore(cars);
 
         List<String> winnerList = cars.stream()
@@ -55,6 +53,5 @@ public class CarManager {
             }
         }
     }
-
 
 }

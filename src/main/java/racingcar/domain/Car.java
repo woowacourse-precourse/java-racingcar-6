@@ -1,8 +1,7 @@
 package racingcar.domain;
 
-import java.util.List;
 
-public class Car { //자동차 객체를 관리한다.
+public class Car {
     String carName;
     int distance = 0;
 
@@ -10,10 +9,8 @@ public class Car { //자동차 객체를 관리한다.
         this.carName = carName;
     }
 
-    public void move(Car name){
-        //System.out.print(name.getCarName() + "움직입니다");
+    public void move(Car name) {
         this.distance += 1;
-        //System.out.println(name.getDistance());
     }
 
     public int getDistance() {
@@ -23,4 +20,5 @@ public class Car { //자동차 객체를 관리한다.
     public String getCarName() {
         return carName;
     }
+
 }
