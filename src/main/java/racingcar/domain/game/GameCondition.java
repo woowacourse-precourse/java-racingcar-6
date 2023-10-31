@@ -1,10 +1,13 @@
 package racingcar.domain.game;
 
-import racingcar.generator.RandomGenerator;
+import static racingcar.constant.GameConstant.END_OF_RANDOM_GENERATOR_RANGE;
+import static racingcar.constant.GameConstant.START_OF_RANDOM_GENERATOR_RANGE;
+
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameCondition {
 
     public static boolean hasDriveCondition() {
-        return RandomGenerator.generteRandomInteger() >= 4;
+        return Randoms.pickNumberInRange(START_OF_RANDOM_GENERATOR_RANGE, END_OF_RANDOM_GENERATOR_RANGE) >= 4;
     }
 }
