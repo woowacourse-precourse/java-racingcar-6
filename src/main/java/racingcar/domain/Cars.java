@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
+    private int maxDistance;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -40,7 +41,7 @@ public class Cars {
 
     public List<String> findWinner() {
         return cars.stream()
-                .filter(car -> car.getDistance() == getMaxDistance())
+                .filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
@@ -50,12 +51,9 @@ public class Cars {
         return String.join(", ", winner);
     }
 
-    public int getMaxDistance() {
-        int maxDistance = 0;
-        for (int i = 0; i < cars.size(); i++) {
-            maxDistance = Math.max(maxDistance, cars.get(i).getDistance());
-        }
-        return maxDistance;
+    public void getMaxDistance() {
+        maxDistance = 0;
+        cars.forEach(car -> maxDistance = Math.max(maxDistance, car.getDistance()));
     }
 
     public boolean isMove(int random) {
