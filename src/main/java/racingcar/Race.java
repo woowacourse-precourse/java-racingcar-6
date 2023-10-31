@@ -24,17 +24,24 @@ public class Race {
 
     public void start() {
         System.out.println(START_RACE);
-        userInput.inputCarNames();
-        userInput.inputGameCount();
+        saveCars();
+        saveGameCount();
         Console.close();
     }
 
-    public void createCar(String carName) {
-        cars.add(new Car(carName));
+    private void saveGameCount() {
+        gameCount = userInput.inputGameCount();
     }
 
-    public void saveGameCount(String userInput) {
-        gameCount = Integer.parseInt(userInput);
+    private void saveCars() {
+        String[] carNames = userInput.inputCarNames();
+        createCars(carNames);
+    }
+
+    private void createCars(String[] carNames) {
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     public boolean hasDuplicatedCarNames(String carName) {

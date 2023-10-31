@@ -3,6 +3,8 @@ package racingcar.userinput;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Race;
 
+import java.util.List;
+
 public class UserInput {
 
     private static final String CAR_NAME_INPUT_DELIMITER = ",";
@@ -16,19 +18,19 @@ public class UserInput {
         this.inputValidator = new UserInputValidator(race);
     }
 
-    public void inputCarNames() {
+    public String[] inputCarNames() {
         String userInput = Console.readLine();
         String[] carNames = userInput.split(CAR_NAME_INPUT_DELIMITER);
         for (String carName : carNames) {
             inputValidator.carName(carName);
-            race.createCar(carName);
         }
+        return carNames;
     }
 
-    public void inputGameCount() {
+    public int inputGameCount() {
         System.out.println(ASK_GAME_COUNT);
         String userInput = Console.readLine();
         inputValidator.gameCount(userInput);
-        race.saveGameCount(userInput);
+        return Integer.parseInt(userInput);
     }
 }
