@@ -3,6 +3,7 @@ package view;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
+import constants.ExceptionMessage;
 import org.junit.jupiter.api.Test;
 
 class NameListValidatorTest {
@@ -13,6 +14,7 @@ class NameListValidatorTest {
         String input = "";
         assertThatThrownBy(() -> nameListValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("입력된 값이 없습니다.");
+                .hasMessage(ExceptionMessage.EMPTY_INPUT);
     }
+
 }
