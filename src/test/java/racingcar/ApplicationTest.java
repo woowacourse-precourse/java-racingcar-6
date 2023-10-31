@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +32,19 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void splitTest() {
+        String testString = "pobiwonijun";
+        List<String> result = Arrays.asList(testString.split(","));
+
+        System.out.println("result.size() = " + result.size());
+
+
+        for(String s : result) {
+            System.out.println("s = " + s);
+        }
     }
 
     @Override
