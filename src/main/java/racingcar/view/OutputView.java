@@ -28,8 +28,7 @@ public class OutputView {
 
     public static void printWinner(List<String> winner) {
         System.out.print(END_WINNER_MESSAGE);
-        String winnerNames = winner.stream()
-                .collect(Collectors.joining(SEPARATOR_CHAR));
+        String winnerNames = String.join(SEPARATOR_CHAR, winner);
 
         System.out.print(winnerNames);
     }
