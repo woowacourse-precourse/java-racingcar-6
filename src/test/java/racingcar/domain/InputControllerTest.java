@@ -20,14 +20,17 @@ class InputControllerTest {
         InputController inputController = new InputController();
         String input = "pobi,woni,jun";
 
-        List<String> carList = inputController.setCar(input);
+        List<Car> carList = inputController.setCar(input);
 
-        assertThat(carList).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
+        assertThat(carList)
+                .extracting(Car::getName)
+                .containsExactly("pobi", "woni", "jun");
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"pobiwoni,jun", "pobiwonijun", "pobibi,woni,jun"})
-    void setCar_입력받은_이름양식이_잘못된경우_예외처리(String carNames) {
+    @DisplayName("입력받은 이름양식이 잘못된 경우 예외처리")
+    void setCar_입력받은_이름양식이_잘못된_경우_예외처리(String carNames) {
         InputController inputController = new InputController();
 
         assertThatThrownBy(() -> inputController.setCar(carNames))
