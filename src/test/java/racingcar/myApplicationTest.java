@@ -37,21 +37,28 @@ public class myApplicationTest {
                     () -> Validator.checkCarNamesForm(carNames)
             ).isInstanceOf(IllegalArgumentException.class);
         }
-        @ParameterizedTest
-        @ValueSource(strings = {"Alice,Bob,Catarina"})
+        @Test
         @DisplayName("자동차 이름들이 5글자 이상인지 테스트한다.")
-        void 자동차이름분리후_5글자_이하인지_테스트(String carNames) {
+        void 자동차이름분리후_5글자_이하인지_테스트() {
+            //give
+            List<String> carNameList = List.of("Alice","Bob","Catarina");
+
+            //when,then
             Assertions.assertThatThrownBy(
-                    () -> CarRaceGame.makeCarNamesToList(carNames)
+                    () -> CarRaceGame.validateCarName(carNameList)
             ).isInstanceOf(IllegalArgumentException.class);
         }
 
-        @ParameterizedTest
-        @ValueSource(strings = {"Alice,Bob,,Carol"})
+        @Test
         @DisplayName("자동차 이름의 공백 예외처리를 테스트한다.")
-        void 자동차_이름_공백_테스트(String carNames) {
+        void 자동차_이름_공백_테스트() {
+            //give
+            String carNames = "Alice,,Bob";
+            List<String> carNameList =  Arrays.stream(carNames.split(",")).toList();
+
+            //when,then
             Assertions.assertThatThrownBy(
-                    () -> CarRaceGame.makeCarNamesToList(carNames)
+                    () -> CarRaceGame.validateCarName(carNameList)
             ).isInstanceOf(IllegalArgumentException.class);
         }
 
