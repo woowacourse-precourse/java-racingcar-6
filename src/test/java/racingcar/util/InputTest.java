@@ -5,9 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import domain.Car;
 import domain.Cars;
 import java.io.ByteArrayInputStream;
-
 import java.util.List;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +13,7 @@ import view.InputView;
 
 public class InputTest {
     @Test
-    @DisplayName("아무것도 입력 안 한 경우")
+    @DisplayName("아무것도 입력 안 한 경우 : 자동차가 0대인 경우")
     void no_enter_check() {
         Assertions.assertThatThrownBy(() -> new Cars(""))
                 .isInstanceOf(IllegalArgumentException.class);

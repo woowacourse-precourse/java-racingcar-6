@@ -3,11 +3,14 @@ package racingcar.util;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import domain.Cars;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import view.OutputView;
 
 public class OutputTest {
     @Test
@@ -25,6 +28,36 @@ public class OutputTest {
         });
 
         assertThat(moveCountLists).containsOnly(1, 1);
+    }
+
+    @Test
+    @DisplayName("printProcess 결과 일치 비교")
+    void correct_print_process_check() {
+        Cars cars = new Cars("a,b");
+
+        cars.getCarsList().forEach(car -> {
+            car.moveOrStop(4);
+        });
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        OutputView.printProcess(cars.getCarsList());
+
+        String output = outputStream.toString();
+
+        String expectedOutput = """
+                a : -
+                b : -
+                                    
+                """;
+
+        System.setOut(System.out);
+
+        String normalizedExpectedOutput = expectedOutput.replaceAll("\\s", "");
+        String normalizedOutput = output.replaceAll("\\s", "");
+
+        assertThat(normalizedExpectedOutput).isEqualTo(normalizedOutput);
     }
 
     @Test

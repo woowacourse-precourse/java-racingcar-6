@@ -1,6 +1,5 @@
 package domain;
 
-import static constant.ConstantNumber.DEFAULT_MAX_MOVE_COUNT;
 import static constant.ConstantString.DELIMITER;
 
 import controller.RaceController;
@@ -24,18 +23,6 @@ public class Cars {
         return Arrays.stream(carNames.split(DELIMITER))
                 .map(String::trim)
                 .collect(Collectors.toList());
-    }
-
-    public int findMaxMoveCount(List<Car> carLists) {
-        int maxMoveCount = DEFAULT_MAX_MOVE_COUNT.getValue();
-
-        for (Car car : carLists) {
-            int moveCount = car.getMoveCount();
-            if (moveCount > maxMoveCount) {
-                maxMoveCount = moveCount;
-            }
-        }
-        return maxMoveCount;
     }
 
     public void MoveCars() {
