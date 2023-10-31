@@ -6,6 +6,7 @@ import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.view.ResultView;
 import racingcar.view.SettingView;
+import racingcar.utils.Validator;
 
 public class GameController {
     private final Game game = new Game();
@@ -38,14 +39,15 @@ public class GameController {
 
     public void setCars() {
         SettingView.printInputCarNameMsg();
-        String carNames = Console.readLine();
-        setCarList(carNames);
+        String carNamesInputString = Console.readLine();
+        setCarList(carNamesInputString);
     }
 
     public void setRoundNumber() {
         SettingView.printInputRoundNumberMsg();
-        String roundNumber = Console.readLine();
-        game.round = Integer.parseInt(roundNumber);
+        String roundInputString = Console.readLine();
+        Validator.checkRoundValidation(roundInputString);
+        game.round = Integer.parseInt(roundInputString);
     }
 
     public void printResultOfRound() {
@@ -62,16 +64,10 @@ public class GameController {
         }
     }
 
-    public void setCarList(String carNames) {
-        for (String carName : carNames.split(",",-1)) {
-            checkCarNameValidation(carName);
+    public void setCarList(String carNamesInputString) {
+        for (String carName : carNamesInputString.split(",",-1)) {
+            Validator.checkCarNameValidation(carName);
             game.updateCar(new Car(carName));
-        }
-    }
-
-    public void checkCarNameValidation(String carName) {
-        if (carName.length() > 5) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이내만 가능합니다.");
         }
     }
 }
