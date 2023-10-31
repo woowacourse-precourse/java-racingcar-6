@@ -2,7 +2,6 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import racingcar.vo.Car;
 
 public class ResultView {
@@ -20,11 +19,8 @@ public class ResultView {
 
     public void RacingResult(Map<Car, List<Integer>> positionHistory, int attempt) {
         for (int i = 0; i < attempt; i++) {
-            for (Entry<Car, List<Integer>> racing : positionHistory.entrySet()) {
-                Car car = racing.getKey();
-                List<Integer> position = racing.getValue();
-                showRacingResult(car, position.get(i));
-            }
+            int index = i;
+            positionHistory.forEach((k, v) -> showRacingResult(k, v.get(index)));
             System.out.println(LINE_BREAK);
         }
     }
