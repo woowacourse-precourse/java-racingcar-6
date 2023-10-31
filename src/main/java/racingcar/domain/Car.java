@@ -24,10 +24,6 @@ public class Car {
         return position;
     }
 
-    public String getName() {
-        return name.getName();
-    }
-
     public CarDTO toDTO() {
         return new CarDTO(name.getName(), position);
     }
