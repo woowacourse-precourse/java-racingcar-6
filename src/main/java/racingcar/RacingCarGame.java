@@ -42,7 +42,6 @@ public class RacingCarGame {
                 .filter(car -> car.isSamePositionWith(winner.get()))
                 .map(RacingCar::getName)
                 .collect(toList());
-
     }
 
     private List<RacingCar> createCars(String[] names) {
@@ -50,7 +49,7 @@ public class RacingCarGame {
 
         for (String name : names) {
             if (carSet.contains(name)) {
-                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: "+ name);
+                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: " + name);
             }
             carSet.add(name);
         }
@@ -66,7 +65,6 @@ public class RacingCarGame {
                     car.tryForward(random.randomNumberRange(0, 10));
                 });
         out.printStage(this);
-
     }
 
 

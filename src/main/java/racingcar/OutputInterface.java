@@ -15,12 +15,12 @@ public class OutputInterface {
         outputStream.println(str);
     }
 
-    public void printStage(RacingCarGame game){
-        outputStream.println(game.toString()+"\n");
+    public void printStage(RacingCarGame game) {
+        outputStream.println(game.toString() + "\n");
     }
 
-    public void printWinners(List<String> winners){
-        outputStream.println( "최종 우승자 : " + String.join(", ",winners));
+    public void printWinners(List<String> winners) {
+        outputStream.println("최종 우승자 : " + String.join(", ", winners));
     }
 
 }
