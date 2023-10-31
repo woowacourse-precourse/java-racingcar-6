@@ -11,12 +11,13 @@ class CarsTest {
 
     private static final int MAX_CARS_SIZE = 10;
     private static final int VALUE_FOR_MOVING_FORWARD = 5;
+    private static final int VALUE_FOR_STOP = 2;
 
     @DisplayName("cars 생성 시 최소 자동차 개수보다 적으면 예외가 발생한다.")
     @Test
     void constructCars_Fail_BySizeIsLessThanMinimum() {
         // given
-        Car carA = new Car("carA");
+        Car carA = createCar("carA");
 
         // when, then
         Assertions.assertThatThrownBy(() -> new Cars(List.of(carA)))
@@ -27,13 +28,13 @@ class CarsTest {
     @Test
     void constructCars_Fail_BySizeIsGreaterThanMaximum() {
         // given
-        List<Car> carList = new ArrayList<>();
+        List<Car> createdCars = new ArrayList<>();
         for (int i = 0; i < MAX_CARS_SIZE + 1; i++) {
-            carList.add(new Car("car" + i));
+            createdCars.add(createCar("car" + i));
         }
 
         // when, then
-        Assertions.assertThatThrownBy(() -> new Cars(carList))
+        Assertions.assertThatThrownBy(() -> new Cars(createdCars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -41,9 +42,9 @@ class CarsTest {
     @Test
     void construct_Fail_ByDuplicatedCarName() {
         // given
-        Car carA = new Car("carA");
-        Car carB = new Car("carB");
-        Car carC = new Car("carA");
+        Car carA = createCar("carA");
+        Car carB = createCar("carB");
+        Car carC = createCar("carA");
 
         // when, then
         Assertions.assertThatThrownBy(() -> new Cars(List.of(carA, carB, carC)))
@@ -54,11 +55,7 @@ class CarsTest {
     @Test
     void handleCarMovement_Success() {
         // given
-        List<Car> carList = new ArrayList<>();
-        for (int i = 1; i <= 3; i++) {
-            carList.add(new Car("car" + i));
-        }
-        Cars cars = new Cars(carList);
+        Cars cars = create3Cars();
 
         // when, then
         camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
@@ -67,27 +64,36 @@ class CarsTest {
                     Assertions.assertThat(movingResult.carNames()).isEqualTo(List.of("car1", "car2", "car3"));
                     Assertions.assertThat(movingResult.forwardCounts()).isEqualTo(List.of(1, 0, 1));
                 },
-                5, 2, 5
+                VALUE_FOR_MOVING_FORWARD, VALUE_FOR_STOP, VALUE_FOR_MOVING_FORWARD
         );
     }
 
-    @DisplayName("가장 많이 전진한 자동차가 1대라면, 가장 많이 전진한 자동차 목록을 조회했을 때 그 목록의 크기는 1이다.")
+    @DisplayName("가장 많이 전진한 자동차가 2대라면, 가장 많이 전진한 자동차 목록을 조회했을 때 그 목록의 크기는 2다.")
     @Test
     void getCarsWithMaxForwardCount_Success() {
         // given
-        Car carA = new Car("carA");
-        Car carB = new Car("carB");
-        Car carC = new Car("carC");
-        Cars cars = new Cars(List.of(carA, carB, carC));
+        Cars cars = create3Cars();
 
-        for (int i = 0; i < 2; i++) {
-            carA.move(VALUE_FOR_MOVING_FORWARD);
+        // when, then
+        camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                () -> {
+                    cars.handleCarMovement(new RandomNumberGenerator());
+                    List<Car> carsWithMaxForwardCount = cars.getCarsWithMaxForwardCount();
+                    Assertions.assertThat(carsWithMaxForwardCount.size()).isEqualTo(2);
+                },
+                VALUE_FOR_STOP, VALUE_FOR_MOVING_FORWARD, VALUE_FOR_MOVING_FORWARD
+        );
+    }
+
+    private Car createCar(String name) {
+        return new Car(name);
+    }
+
+    private Cars create3Cars() {
+        List<Car> createdCars = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            createdCars.add(createCar("car" + i));
         }
-
-        // when
-        List<Car> carsWithMaxForwardCount = cars.getCarsWithMaxForwardCount();
-
-        // then
-        Assertions.assertThat(carsWithMaxForwardCount.size()).isEqualTo(1);
+        return new Cars(createdCars);
     }
 }
