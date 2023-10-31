@@ -23,7 +23,7 @@ public class InputView {
     private static int inputGameProcessCount() {
         System.out.println(INPUT_TRY_COUNT);
         String stringCount = Console.readLine();
-        InputGameInfoValidate.gameProgressCountAlphaValidate(stringCount);
+        InputGameInfoValidate.gameProgressNotValueValidate(stringCount);
         int tryCount = Integer.parseInt(stringCount);
         InputGameInfoValidate.gameProgressCountThanZeroValidate(tryCount);
         return tryCount;
