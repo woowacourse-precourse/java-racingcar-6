@@ -25,6 +25,12 @@ public class Application {
         if(player_n == 0)
             te.shoot();
 
+        for(i=0;i<player_n;i++){
+            if(names[i].length() > 5){
+                te.shoot();
+            }
+        }
+
         racers = new Racer[player_n];
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -35,9 +41,6 @@ public class Application {
         }
 
         for(i=0;i<player_n;i++){
-            if(names[i].length() > 6){
-                te.shoot();
-            }
             racers[i] = new Racer(names[i]);
         }
 
