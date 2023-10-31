@@ -16,9 +16,16 @@ public class CarContainer {
         racingCars = Arrays.stream(carNames.split(NAME_DELIMITER))
                 .map(RacingCar::new)
                 .collect(Collectors.toList());
-
+        setCarName();
         this.numberPicker = numberPicker;
     }
+
+    public void setCarName() {
+        for (RacingCar racingCar : racingCars) {
+            CarName racingCarName = new CarName(racingCar.getCarName());
+        }
+    }
+
 
     public void moveRacingCars() {
         for (RacingCar racingCar : racingCars) {
