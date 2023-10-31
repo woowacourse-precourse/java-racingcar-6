@@ -67,7 +67,7 @@ public class RacingCarController {
     }
 
     // 게임 진행
-    public void startGame(List<RacingCar> racingCarList, int iter) {
+    private void startGame(List<RacingCar> racingCarList, int iter) {
         System.out.println("\n실행 결과");
 
         // 시도 횟수만큼 반복
