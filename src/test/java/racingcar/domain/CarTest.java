@@ -21,4 +21,32 @@ class CarTest {
         assertThat(message).isEqualTo(resultMessage);
     }
 
+    @DisplayName("자동차 간에 총 이동 횟수가 같은지 비교한다.")
+    @Test
+    void isSameMovementCountBy() {
+        //given
+        Car car1 = new Car("bonsi", 5);
+        Car car2 = new Car("soeun", 5);
+
+        //when
+        boolean isSameMovementCount = car1.isSameMovementCountBy(car2);
+
+        //then
+        assertThat(isSameMovementCount).isTrue();
+    }
+
+    @DisplayName("총 이동 횟수를 기준으로 자동차 간의 대소를 비교한다.")
+    @Test
+    void compareTo() {
+        //given
+        Car car1 = new Car("bonsi", 5);
+        Car car2 = new Car("soeun", 10);
+
+        //when
+        int compareResult = car1.compareTo(car2);
+
+        //then
+        assertThat(compareResult).isNegative();
+    }
+
 }

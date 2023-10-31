@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import racingcar.util.NameValidator;
 import racingcar.util.NumberGenerator;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private static final int FORWARD_CONDITION_NUMBER = 4;
     private static final int RANDOM_RANGE_START_NUMBER = 0;
     private static final int RANDOM_RANGE_END_NUMBER = 9;
@@ -36,12 +36,17 @@ public class Car {
         return name + " : " + hyphenStr;
     }
 
-    protected int getMovementCount(){
-        return this.movementCount;
+    public boolean isSameMovementCountBy(Car targetCar) {
+        return this.movementCount == targetCar.movementCount;
     }
 
-    protected String getName(){
+    protected String getName() {
         return this.name;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.movementCount - car.movementCount;
     }
 
 }

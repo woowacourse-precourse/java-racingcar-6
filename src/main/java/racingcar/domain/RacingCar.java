@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.NameValidator;
@@ -28,19 +28,12 @@ public class RacingCar {
     }
 
     public String getWinnerMessage() {
-        int maxMovementCount = getMaxCarMovementCount();
+        Car maxMovementCountCar = Collections.max(this.cars);
 
         return this.cars.stream()
-                .filter(c -> c.getMovementCount() == maxMovementCount)
+                .filter(c -> c.isSameMovementCountBy(maxMovementCountCar))
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
-    }
-
-    private int getMaxCarMovementCount() {
-        return this.cars.stream()
-                .max(Comparator.comparing(Car::getMovementCount))
-                .map(Car::getMovementCount)
-                .orElseGet(() -> 0);
     }
 
 }
