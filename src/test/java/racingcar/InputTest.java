@@ -2,12 +2,6 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATION;
-import static racingcar.ExceptionMessage.CAR_NAME_HAS_BLANK;
-import static racingcar.ExceptionMessage.CAR_NAME_HAS_NOTHING;
-import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
-import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
-import static racingcar.ExceptionMessage.INPUT_TYPE_MISMATCH;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -39,12 +33,12 @@ public class InputTest {
 
     static Stream<Arguments> invalidCarNamesParameters() {
         return Stream.of(
-                Arguments.of("asd, as", CAR_NAME_HAS_BLANK, "공백 포함"),
-                Arguments.of("asd,,as", CAR_NAME_HAS_NOTHING, "중간에 없음"),
-                Arguments.of(",asd,as", CAR_NAME_HAS_NOTHING, "맨 앞에 없음"),
-                Arguments.of("asd,as,", CAR_NAME_HAS_NOTHING, "맨 뒤에 없음"),
-                Arguments.of("asd,asdfgh", CAR_NAME_LENGTH_OVERED, "길이 초과"),
-                Arguments.of("asd,asdf,asd", CAR_NAME_DUPLICATION, "중복")
+                Arguments.of("asd, as", ExceptionCase.CAR_NAME_HAS_BLANK.message(), "공백 포함"),
+                Arguments.of("asd,,as", ExceptionCase.CAR_NAME_HAS_NOTHING.message(), "중간에 없음"),
+                Arguments.of(",asd,as", ExceptionCase.CAR_NAME_HAS_NOTHING.message(), "맨 앞에 없음"),
+                Arguments.of("asd,as,", ExceptionCase.CAR_NAME_HAS_NOTHING.message(), "맨 뒤에 없음"),
+                Arguments.of("asd,asdfgh", ExceptionCase.CAR_NAME_LENGTH_OVERED.message(), "길이 초과"),
+                Arguments.of("asd,asdf,asd", ExceptionCase.CAR_NAME_DUPLICATION.message(), "중복")
         );
     }
 
@@ -55,7 +49,7 @@ public class InputTest {
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
                 InputView::timesToTry);
-        assertThat(e.getMessage()).isEqualTo(INPUT_TYPE_MISMATCH);
+        assertThat(e.getMessage()).isEqualTo(ExceptionCase.INPUT_TYPE_MISMATCH.message());
     }
 
     @ParameterizedTest(name = "{index}:{2}")
@@ -68,8 +62,8 @@ public class InputTest {
 
     static Stream<Arguments> invalidTimesToTryParameters() {
         return Stream.of(
-                Arguments.of(-5, INPUT_NUMBER_RANGE_MISMATCH, "음수 입력"),
-                Arguments.of(0, INPUT_NUMBER_RANGE_MISMATCH, "0 입력")
+                Arguments.of(-5, ExceptionCase.INPUT_NUMBER_RANGE_MISMATCH.message(), "음수 입력"),
+                Arguments.of(0, ExceptionCase.INPUT_NUMBER_RANGE_MISMATCH.message(), "0 입력")
         );
     }
 }
