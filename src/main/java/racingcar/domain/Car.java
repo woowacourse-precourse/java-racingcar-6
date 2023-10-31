@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car implements Comparable<Car>{
+
     private static final int MOVE_CONDITION = 4;
     private final String name;
     private int position;
@@ -18,9 +19,13 @@ public class Car implements Comparable<Car>{
     }
 
     public void moveOrStop(int determinationNumber) {
-        if(determinationNumber > MOVE_CONDITION) {
+        if(determinationNumber >= MOVE_CONDITION) {
             position++;
         }
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public boolean isSamePosition(Car other) {
