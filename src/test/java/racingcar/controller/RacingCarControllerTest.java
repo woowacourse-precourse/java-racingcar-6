@@ -3,6 +3,7 @@ package racingcar.controller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.List;
 
@@ -150,5 +151,20 @@ public class RacingCarControllerTest {
         racingCarController.checkAtLeastFour(testCar, 3);
 
         assertThat(testCar.getDistance()).isEqualTo(0);
+    }
+
+    @Test
+    void checkEachCarForward_자동차_목록으로_경주했을_때_성공() {
+        Cars testCars = new Cars(List.of("pobi", "woni", "jun"));
+        List<Car> carList = testCars.getCars();
+
+        racingCarController.checkEachCarForward(carList);
+
+        assertThat(carList).hasSize(3);
+
+        for (Car car : carList) {
+            assertThat(car.getName()).isIn("pobi", "woni", "jun");
+            assertThat(car.getDistance()).isGreaterThanOrEqualTo(0);
+        }
     }
 }
