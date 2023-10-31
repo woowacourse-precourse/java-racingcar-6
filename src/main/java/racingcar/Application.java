@@ -43,6 +43,10 @@ class InputView {
         NameValidation.checkWord(input);
     }
 
+    private void runTryValidator(String input, TryValidation tryNumber) {
+        tryNumber.checkTryNumber(input);
+    }
+
 }
 
 class OutputView {
