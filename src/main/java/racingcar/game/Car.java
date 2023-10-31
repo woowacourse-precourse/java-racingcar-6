@@ -23,4 +23,9 @@ public class Car {
         // TODO: getter 사용 지양
         return this.name;
     }
+
+    public Integer getScore(){
+        // TODO: getter 사용 지양
+        return this.score;
+    }
 }

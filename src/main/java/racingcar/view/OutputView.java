@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.game.Car;
+
 public class OutputView {
     // TODO: Message enum으로 빼기
     private final static String START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -16,7 +18,20 @@ public class OutputView {
         System.out.println(ASK_GAME_ROUNDS);
     }
 
-    public static void gameResult(){
+    public static void startGameResult(){
         System.out.println(GAME_RESULT);
+    }
+
+    public static void broadcastUserBoardOfRound(Car car){
+        // TODO: getter 없이 쓸 수 있는 방법 고민 해보기
+        System.out.printf("%s %s", car.getCarName(), DISPLAY_USER_SCORE_SIGN);
+        for(int i=0; i<car.getScore(); i++){
+            System.out.printf("%s", SCORE_SIGN);
+        }
+        System.out.println();
+    }
+
+    public static void theEndOfRound(){
+        System.out.println();
     }
 }

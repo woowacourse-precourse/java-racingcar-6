@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.controller.Dice;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,13 @@ public class Cars {
                 car.moveForward();
             }
             car.stop();
+            broadcastGameRound(car);
         }
+    }
+
+    public void broadcastGameRound(Car car){
+        // TODO: 위치를 고민 해 봐야 할 메서드
+        OutputView.broadcastUserBoardOfRound(car);
     }
 
     public void getCarNames(){

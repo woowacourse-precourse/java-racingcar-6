@@ -15,6 +15,7 @@ public class Game {
         ArrayList<String> input = Parser.parsingByComma(InputView.readLine());
         cars = new Cars(input);
         askGameRounds();
+        OutputView.startGameResult();
         mainLogic();
     }
 
@@ -26,6 +27,7 @@ public class Game {
     private void mainLogic(){
         for(int i=0; i<round; i++){
             cars.roundRace();
+            OutputView.theEndOfRound();
         }
     }
 
