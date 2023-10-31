@@ -10,11 +10,17 @@ import racingcar.View.UserInput;
 
 public class Controller {
 
+    private final int INITIAL_SCORE = 0;
+    private final int MOVE_DECIDE_NUMBER = 4;
+    private final int MAX_MOVE_NUMBER = 9;
+    private final int MIN_MOVE_NUMBER = 0;
+
+
     public HashMap<String, Integer> createScoreBoard(){
         UserInput userInput = new UserInput();
         HashMap<String, Integer> scoreBoard = new HashMap<>();
         for (String carName : userInput.carName()) {
-            scoreBoard.put(carName, 0);
+            scoreBoard.put(carName, INITIAL_SCORE);
         }
         return scoreBoard;
     }
@@ -27,8 +33,8 @@ public class Controller {
     }
 
     public int decideMove (int score) {
-        int randomValue = Randoms.pickNumberInRange(0,9);
-        if (randomValue >= 4) {
+        int randomValue = Randoms.pickNumberInRange(MIN_MOVE_NUMBER,MAX_MOVE_NUMBER);
+        if (randomValue >= MOVE_DECIDE_NUMBER) {
             score++;
         }
         return score;

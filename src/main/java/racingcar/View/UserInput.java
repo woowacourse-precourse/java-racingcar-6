@@ -8,6 +8,7 @@ public class UserInput {
 
     private static final String CARNAME_NOTICE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ROUND_NOTICE = "시도할 회수는 몇회인가요?";
+    private static final int MAX_NAME_LENGTH = 5;
 
     public List<String> carName() {
         System.out.println(CARNAME_NOTICE);
@@ -15,7 +16,7 @@ public class UserInput {
         List<String> carNameList = Arrays.asList(userInput.split(","));
 
         for (String s : carNameList) {
-            if (s.length() > 5) {
+            if (s.length() > MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
             }
         }
