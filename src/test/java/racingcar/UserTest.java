@@ -3,11 +3,19 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
 
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UserTest {
     User user = new User();
 
+    @Order(1)
     @Test
     void N대의_자동차_만들기_테스트() {
         // 리스트 cars에 Car 인스턴스가 3개 있는지 확인
@@ -21,6 +29,7 @@ public class UserTest {
 
     }
 
+    @Order(2)
     @Test
     void 입력_횟수만큼_주행_테스트() {
         int attemptNumber = 5;
