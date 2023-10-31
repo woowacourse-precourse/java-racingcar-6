@@ -9,11 +9,13 @@ public class GameService {
     private final Rule rule;
     private final OutputView outputView;
     private final Referee referee;
+    private final RandomNumberGenerator randomNumberGenerator;
 
     public GameService() {
         rule = new Rule();
         outputView = new OutputView();
         referee = new Referee();
+        randomNumberGenerator = new RandomNumberGenerator();
     }
 
     public void playUntilTrialNumber(int trialNumber, CarsGenerateDto generatedCars) {
@@ -26,7 +28,7 @@ public class GameService {
     }
 
     private void moveCarsByRandomNumber(Cars cars) {
-        cars.moveAll(rule);
+        cars.moveAll(rule,randomNumberGenerator);
     }
 }
 

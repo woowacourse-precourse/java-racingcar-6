@@ -14,8 +14,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveAll(Rule rule) {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    public void moveAll(Rule rule, RandomNumberGenerator randomNumberGenerator) {
         for (Car car : cars) {
             int randomNumber = randomNumberGenerator.generateRandomNumber();
             car.move(rule, randomNumber);
