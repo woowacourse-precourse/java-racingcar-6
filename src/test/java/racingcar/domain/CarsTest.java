@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,21 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarsTest {
 
-    List<CarName> carNameList;
-    CarNames carNames;
-    Cars cars;
-
-    @BeforeEach
-    void makeCarsObject() {
-        carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
-        carNames = new CarNames(carNameList);
-        cars = new Cars(carNames);
-    }
-
     @Test
     @DisplayName("이동한 결과를 문자열로 반환")
     void getMoveResultTest() {
         //given
+        List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
+        CarNames carNames = new CarNames(carNameList);
+        Cars cars = new Cars(carNames);
+
         cars.moveAllCar();
 
         //when
