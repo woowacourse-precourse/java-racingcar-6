@@ -42,6 +42,10 @@ public class MessageReceiver {
     }
 
     private void validateCarNamesLength(final List<String> carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException(CAR_NAME_NOT_EXIST_EXCEPTION);
+        }
+
         for (String carName : carNames) {
             validateCarNameLength(carName);
         }
