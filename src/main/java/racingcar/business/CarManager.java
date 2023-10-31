@@ -1,5 +1,7 @@
 package racingcar.business;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -8,7 +10,8 @@ import java.util.stream.Collectors;
 
 public class CarManager {
 
-    NumberMaker numberMaker = new NumberMaker();
+    public static final int MIN_NUMBER_RANGE = 0;
+    public static final int MAX_NUMBER_RANGE = 9;
 
     List<Car> carList = new ArrayList<>();
 
@@ -27,8 +30,12 @@ public class CarManager {
     }
 
     private void makeCarMove(Car car) {
-        int randomNumber = numberMaker.getRandomNumber();
+        int randomNumber = getRandomNumber();
         car.moveCar(randomNumber);
+    }
+
+    public Integer getRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
     }
 
     public String getWinnerNames() {
