@@ -4,7 +4,7 @@ import java.util.List;
 
 import racingcar.domain.Car;
 
-public class RacingCarUtilsForTest {
+public class RacingCarUtilForTest {
 	public static List<Car> getRacingCar(List<Car> carList, List<Integer> randomNumberList) {
 		for (int i = 0; i < carList.size(); i++) {
 			int randomNumber = randomNumberList.get(i);

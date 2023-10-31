@@ -31,7 +31,7 @@ public class OutputView {
 	}
 
 	private static void printEach(Car car) {
-		System.out.println(String.format(View.EACH_RESULT, car.getName(), convertToBar(car.getCurrentPosition())));
+		System.out.println(String.format(View.EACH_RESULT, car.getName(), convertToBar(car.getPosition())));
 	}
 
 	private static String convertToBar(int position) {
