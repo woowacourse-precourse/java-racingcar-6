@@ -33,6 +33,10 @@ public class Car {
         return this.progress;
     }
 
+    public void setProgress(int input){
+        this.progress = input;
+    }
+
     public String getName(){
         return name;
     }
