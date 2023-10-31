@@ -7,9 +7,13 @@ public class Car {
     private final String name;
     private int step;
 
-    public Car(String name, int step) {
+    private Car(String name, int step) {
         this.name = name;
         this.step = step;
+    }
+
+    public static Car createCar(String name, int step) {
+        return new Car(name, step);
     }
 
     public void run() {
@@ -27,11 +31,11 @@ public class Car {
         return Util.getBooleanByNumber(number);
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getStep() {
+    int getStep() {
         return step;
     }
 }

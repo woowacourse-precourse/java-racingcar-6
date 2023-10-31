@@ -27,7 +27,7 @@ public class Stadium {
             if(name.length() > Config.MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException(String.format("각 자동차 이름은 %d자 이하여야 한다.", Config.MAX_NAME_LENGTH));
             }
-            this.cars.add(new Car(name, 0));
+            this.cars.add(Car.createCar(name, 0));
         }
     }
 
