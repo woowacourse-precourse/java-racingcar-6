@@ -14,8 +14,7 @@ public class OutputView {
     private static final String BEFORE_MOVE_MESSAGE = "실행 결과";
     private static final String WINNER_DEFAULT_MESSAGE = "최종 우승자 : ";
     private static final String MOVE_SIGN = "-";
-
-
+    
     public void requestCarName() {
         System.out.println(REQUEST_CAR_NAME_MESSAGE);
     }
