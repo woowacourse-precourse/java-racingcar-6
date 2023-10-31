@@ -42,4 +42,8 @@ public class OutputView {
         winnersName.delete(winnersName.length() - 2, winnersName.length());
         System.out.println(RACE_WINNER_MESSAGE + winnersName.toString());
     }
+
+    public static void printBreak() {
+        System.out.println();
+    }
 }
