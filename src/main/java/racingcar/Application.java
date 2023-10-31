@@ -24,6 +24,22 @@ public class Application {
 
         Validate.validateInputNumber(inputTryNumber);
 
+        // 가장 많은 "-" 값을 가진 자동차들을 저장할 리스트
+        List<String> mostDashesCar = new ArrayList<>();
+
+        System.out.println("");
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < inputTryNumber; i++) {
+
+            GameUtil.makeRandumNumber(carsList, inputCarsName.split(","));
+
+            Print.PrintRacing(carsList);
+
+            GameUtil.compareDashes(mostDashesCar, carsList);
+
+        }
+        Print.PrintWinner(mostDashesCar);
 
     }
 }
