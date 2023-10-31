@@ -25,11 +25,16 @@ public class InputCarNameValidator {
     }
 
     public List<String> validateNameBeforeSplit(String userInput) {
-        isContainDelimiter(userInput);
+        aboutDelimiter(userInput);
         isContainOtherLanguage(userInput);
+        return new ArrayList<>(Arrays.asList(userInput.split(DELIMITER)));
+    }
+
+    private void aboutDelimiter(String userInput) {
+        isContainDelimiter(userInput);
+        isContinuousDelimiter(userInput);
         isFirstDelimiter(userInput);
         isLastDelimiter(userInput);
-        return new ArrayList<>(Arrays.asList(userInput.split(DELIMITER)));
     }
 
     private void isFirstDelimiter(String userInput) {
@@ -97,6 +102,13 @@ public class InputCarNameValidator {
     private void isCarNameMinLength(String carName) {
         if (carName.length() < MINIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(ERROR_MESSAGE_FOR_CAR_NAME);
+        }
+    }
+
+    // 구분자 연속 입력
+    private void isContinuousDelimiter(String userInput) {
+        if (userInput.contains(DELIMITER + DELIMITER)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_FOR_DELIMITER);
         }
     }
 }
