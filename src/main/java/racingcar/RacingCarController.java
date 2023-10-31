@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarController {
+    static final int INPUT_RACING_CAR_LENGTH_LIMIT = 5;
+    static final int TOTAL_TURN_MIN = 0;
     RacingCarService racingCarService = new RacingCarService();
 
     public void run(){
@@ -27,7 +29,7 @@ public class RacingCarController {
         String[] racingCarInput = Console.readLine().split(",");
 
         for(String racingCar : racingCarInput) {
-            if(racingCar.length() > 5 || racingCar.isEmpty()){
+            if(racingCar.length() > INPUT_RACING_CAR_LENGTH_LIMIT || racingCar.isEmpty()){
                 throw new IllegalArgumentException();
             }
 
@@ -44,7 +46,7 @@ public class RacingCarController {
 
         int inputTotalTurn = Integer.parseInt(Console.readLine());
 
-        if(inputTotalTurn < 0){
+        if(inputTotalTurn < TOTAL_TURN_MIN){
             throw new IllegalArgumentException();
         }
         return inputTotalTurn;
