@@ -18,4 +18,11 @@ public class CarTest {
         car.moveForward(4);
         assertEquals(1, car.getPosition());
     }
+
+    @Test
+    void moveForwardDistanceLessThanFourTest() {
+        Car car = new Car("TestCar");
+        car.moveForward(3);
+        assertEquals(0, car.getPosition());
+    }
 }
