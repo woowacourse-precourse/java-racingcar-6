@@ -18,12 +18,15 @@ public class PlayerController {
     public List<Player> getPlayerList() {
         return playerList;
     }
+    public Player getPlayer(int index) {
+        return playerList.get(index);
+    }
 
     public int getDistacne(int index) {
-        return playerList.get(index).getCompletedRounds();
+        return getPlayer(index).getCompletedRounds();
     }
 
     public void forward(int index) {
-        playerList.get(index).setCompletedRounds(getDistacne(index)+1);
+        getPlayer(index).increaseCompletedRounds();
     }
 }

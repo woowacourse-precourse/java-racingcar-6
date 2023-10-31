@@ -17,8 +17,8 @@ public class Player {
         return completedRounds;
     }
 
-    public void setCompletedRounds(int completedRounds) {
-        this.completedRounds = completedRounds;
+    public void increaseCompletedRounds() {
+        this.completedRounds++;
     }
 
     @Override
