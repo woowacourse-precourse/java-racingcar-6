@@ -33,7 +33,10 @@ public class HandleInput {
     }
 
     private List<String> parseByComma(String input){
-        return Arrays.stream(input.split(",")).map(String::trim).toList();
+        List<String> parsedList = Arrays.stream(input.split(",")).map(String::trim).toList();
+        InputValidator.isListEmpty(parsedList);
+        parsedList.forEach(InputValidator::isInputValid);
+        return parsedList;
     }
 
 }
