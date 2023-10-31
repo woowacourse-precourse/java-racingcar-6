@@ -30,18 +30,18 @@
   - [X] 시도할 회수를 입력받는다
 
 ### 추가 요구 사항
-- [] 들여쓰기 depth가 3이 넘지 않도록 구현한다.
-- [] 3항 연산자를 쓰지 않는다
-- [] 메서드가 한 가지 일만 하도록 최대한 작게 만든다
-- [] JUnit 5와 AssertJ를 이용하여 테스트 코드를 작성한다
+- [X] 들여쓰기 depth가 3이 넘지 않도록 구현한다.
+- [X] 3항 연산자를 쓰지 않는다
+- [X] 메서드가 한 가지 일만 하도록 최대한 작게 만든다
+- [X] JUnit 5와 AssertJ를 이용하여 테스트 코드를 작성한다
 
 ### 라이브러리
-- [] camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API 사용
-- [] camp.nextstep.edu.missionutils.Randoms을 통해 Random값 추출
-- [] camp.nextstep.edu.missionutils.Console 으로 입력값 활용
+- [X] camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API 사용
+- [X] camp.nextstep.edu.missionutils.Randoms을 통해 Random값 추출
+- [X] camp.nextstep.edu.missionutils.Console 으로 입력값 활용
 
 ### 체크리스트
-- [] 매직 넘버 처리
-- [] 메서드 네이밍 고민
-- [] stream 문법 적용
-- [] 원시값 포장 관련 더 공부
+- [X] 매직 넘버 처리
+- [X] 메서드 네이밍 고민
+- [X] stream 문법 적용
+- [X] 원시값 포장
