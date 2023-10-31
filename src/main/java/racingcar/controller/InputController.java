@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.controller;
 
 import static racingcar.constant.Constant.SEPARATOR_CHAR;
 
@@ -8,7 +8,7 @@ import racingcar.model.RacingCars;
 import racingcar.validation.CarNameValidation;
 import racingcar.validation.CountValidation;
 
-public final class InputConvertor {
+public final class InputController {
 
     public static RacingCars toRacingCars(String input) {
         CarNameValidation.isEmptyInput(input);

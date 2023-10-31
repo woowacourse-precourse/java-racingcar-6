@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.stream.IntStream;
 import racingcar.model.RacingCars;
-import racingcar.util.InputConvertor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -18,8 +17,8 @@ public class RacingGameController {
     }
 
     private void set() {
-        racingCars = InputConvertor.toRacingCars(InputView.readCarName());
-        moveCount = InputConvertor.toMoveCount(InputView.readMoveCount());
+        racingCars = InputController.toRacingCars(InputView.readCarName());
+        moveCount = InputController.toMoveCount(InputView.readMoveCount());
     }
 
     private void play() {
