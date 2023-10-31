@@ -54,16 +54,20 @@ public class Application {
 
             getWinnerList(cars, toGo, maxNum, winner);
 
-            if (winner.size() > 1) {
-                for (int i = 0; i < winner.size() - 1; i++) {
-                    System.out.print(winner.get(i) + ", ");
-                }
-                System.out.println(winner.get(winner.size() - 1));
-            } else if (winner.size() == 1) {
-                System.out.println(winner.get(0));
-            }
+            printWinnerList(winner);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void printWinnerList(List<String> winner) {
+        if (winner.size() > 1) {
+            for (int i = 0; i < winner.size() - 1; i++) {
+                System.out.print(winner.get(i) + ", ");
+            }
+            System.out.println(winner.get(winner.size() - 1));
+        } else if (winner.size() == 1) {
+            System.out.println(winner.get(0));
         }
     }
 
