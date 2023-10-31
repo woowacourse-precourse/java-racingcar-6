@@ -40,5 +40,5 @@
     - 4이상 이면 해당 자동차의 carStatus++
   - 각 자동차의 전진 상태 출력
 
-- printResult() 함수
+- printResult() 함수 
   - 최종 우승자 출력
