@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String carName;
-    private int distance;
+    private int distance = 0;
     public Car(String carName) {
         this.carName = carName;
     }
@@ -31,7 +31,7 @@ public class Car {
     }
 
     private int totalDistance(int step){
-        return 0;
+        return distance + step;
     }
 
     public void printPosition(){}
