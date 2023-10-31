@@ -17,7 +17,7 @@
   - [ ] name, moveCount, state 확인 (getName, getMoveCount, getState)
 
 
-- [ ] 전체 게임 진행 (play) [RaceController]
+- [x] 전체 게임 진행 (play) [RaceController]
 
 - [ ] List를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
 
