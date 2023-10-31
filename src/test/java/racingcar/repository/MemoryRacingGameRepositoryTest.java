@@ -35,7 +35,7 @@ public class MemoryRacingGameRepositoryTest {
 
         // then
         assertThat(result.getId()).isNotNull();
-        assertThat(result.getParticipations()).isSameAs(participations);
+        assertThat(result.getParticipationsList()).isSameAs(participations);
         assertThat(result.getTryCount()).isEqualTo(tryCount);
     }
 

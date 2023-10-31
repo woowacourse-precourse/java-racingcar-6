@@ -42,14 +42,14 @@ public class RacingGameServiceImpl implements RacingGameService {
 
     @Override
     public void decideRandomMoveCondition(RacingGame racingGame) {
-        racingGame.allParticipationsList()
+        racingGame.getParticipationsList()
                 .forEach(car -> pickRandomNumberAndUpdateStatus(car, racingGame.getTryCount()));
     }
 
     @Override
     public void calculateWinners(RacingGame racingGame) {
         int maxPosition = racingGame.calcParticipationsMaxPosition();
-        racingGame.allParticipationsList().stream()
+        racingGame.getParticipationsList().stream()
                 .filter(car -> car.isPositionSameOrOver(maxPosition))
                 .forEach(racingGame::addWinner);
     }

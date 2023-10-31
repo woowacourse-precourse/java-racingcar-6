@@ -1,42 +1,48 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class RacingGame extends IndexModel {
 
     private Participations participations;
     private int tryCount;
     private Winners winners;
 
+    private RacingGame(Participations participations, int tryCount, Winners winners) {
+        this.participations = participations;
+        this.tryCount = tryCount;
+        this.winners = winners;
+    }
 
-    public Participations getParticipations() {
-        return participations;
+    public static RacingGame create(Participations participations, int tryCount, Winners winners) {
+        return new RacingGame(participations, tryCount, winners);
     }
 
     public int getTryCount() {
         return tryCount;
     }
 
-    public Winners getWinners() {
-        return winners;
+    public List<Car> getWinnerList() {
+        return winners.getWinners();
     }
 
-    public void setWinners(Winners winners) {
-        this.winners = winners;
+    public int calcWinnerSize() {
+        return getWinnerList().size();
     }
 
-    private RacingGame(Participations participations, int tryCount) {
-        this.participations = participations;
-        this.tryCount = tryCount;
+    public List<Car> getParticipationsList() {
+        return participations.getParticipations();
     }
 
-    public static RacingGame create(Participations participations, int tryCount) {
-        return new RacingGame(participations, tryCount);
-    }
-
-    public int participationSize() {
+    public int calcParticipationSize() {
         return participations.size();
     }
 
-    public Participations getParicipations() {
-        return participations;
+    public int calcParticipationsMaxPosition() {
+        return participations.calcMaxPosition();
+    }
+
+    public void addWinner(Car car) {
+        winners.addWinner(car);
     }
 }

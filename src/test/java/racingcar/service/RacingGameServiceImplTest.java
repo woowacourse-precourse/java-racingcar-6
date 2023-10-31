@@ -2,13 +2,17 @@ package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
+import racingcar.domain.Car;
+import racingcar.domain.Participations;
 import racingcar.domain.RacingGame;
+import racingcar.domain.Winners;
 import racingcar.repository.CarRepository;
 import racingcar.repository.RacingGameRepository;
 
@@ -16,7 +20,6 @@ public class RacingGameServiceImplTest {
 
     Config config = AppConfig.getInstance();
     private CarRepository carRepository = config.carRepository();
-    private RacingGameRepository racingGameRepository = config.racingRepository();
     RacingGameService racingGameService = config.racingService();
 
     @BeforeEach
@@ -31,11 +34,11 @@ public class RacingGameServiceImplTest {
         String tryCount = "5";
 
         // when
-        final RacingGame result = racingGameService.generateRacing(input, tryCount);
+        final RacingGame result = racingGameService.generateRacing(carNames, tryCount);
 
         // then
         assertThat(result).isNotNull();
-        assertThat(result.participationSize()).isEqualTo(3);
+        assertThat(result.calcParticipationSize()).isEqualTo(3);
         assertThat(result.getTryCount()).isEqualTo(5);
     }
 
@@ -114,7 +117,7 @@ public class RacingGameServiceImplTest {
     }
 
     @Test
-    public void tryCount횟수만큼_각Car에_랜덤정수넣기() {
+    public void 시도횟수만큼_각Car에_랜덤정수넣기() {
         // given
         String carNames = "pobi,woni,jun";
         String tryCount = "5";
@@ -124,7 +127,7 @@ public class RacingGameServiceImplTest {
         racingGameService.decideRandomMoveCondition(racingGame);
 
         // then
-        racingGame.allParticipationsList()
+        racingGame.getParticipationsList()
                 .forEach( car -> assertThat(car.calcPickedNumberSize()).isEqualTo(5));
     }
 

@@ -22,7 +22,7 @@ public class RacingGameController {
         racingGameService.decideRandomMoveCondition(racingGame);
         racingGameService.calculateWinners(racingGame);
 
-        outputView.outputExcutionResult(racingGame.getParicipations()); //출력은 outputView 담당
+        outputView.outputExcutionResult(racingGame.getParticipationsList()); //출력은 outputView 담당
         outputView.outputWinner(racingGame.getWinnerList());
 
         replayGame(false); //추후 게임을 여러번 할때 사용 가능한 기능
