@@ -12,6 +12,9 @@ public class OutputView {
     private static final String RESULT_MESSAGE = "최종 우승자 : ";
     private static final String JOINING_COMMA = ", ";
 
+    private OutputView() {
+    }
+
     public static void printNameInputMessage() {
         printMessage(NAME_INPUT_MESSAGE);
     }

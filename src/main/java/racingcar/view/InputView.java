@@ -30,6 +30,7 @@ public class InputView {
     }
 
     private static List<String> splitToStringList(String name) {
-        return Arrays.stream(name.split(Constants.COMMA)).toList();
+        return Arrays.stream(name.split(Constants.COMMA))
+                .toList();
     }
 }
