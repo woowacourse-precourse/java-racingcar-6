@@ -12,4 +12,11 @@ public class GameController {
     public String[] splitInput(String input, String delimiter) {
         return input.split(delimiter);
     }
+
+    public void generateCar(String[] names) {
+        for (String name : names) {
+            gameException.checkNameLength(name);
+            game.addCarList(name);
+        }
+    }
 }
