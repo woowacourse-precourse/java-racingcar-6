@@ -41,12 +41,19 @@ public class RacingGame {
 
             result.add(round.saveResult());
 
-            if (!round.victory().isEmpty()) {
-                printResult(result);
-                printVictory(round.victory());
+            if (hasVictory(round)) {
                 break;
             }
         }
+    }
+
+    private boolean hasVictory(Round round) {
+        if (!round.victory().isEmpty()) {
+            printResult(result);
+            printVictory(round.victory());
+            return true;
+        }
+        return false;
     }
 
 }

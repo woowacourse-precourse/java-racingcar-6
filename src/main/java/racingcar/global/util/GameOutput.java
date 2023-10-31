@@ -5,7 +5,6 @@ import static racingcar.global.enums.GuideMessage.GAME_RESULT;
 
 import java.util.List;
 import java.util.Map;
-import racingcar.domain.Car;
 
 public class GameOutput {
 
