@@ -12,40 +12,40 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
-    ArrayList<Car> cars;
+    private final ArrayList<Car> carList;
 
     public Cars() {
-        cars = new ArrayList<>();
+        carList = new ArrayList<>();
     }
 
     public void settingNames(String names) {
         ArrayList<String> nameList = validateAndSendNames(names);
         for(String name : nameList) {
-            cars.add(new Car(name));
+            carList.add(new Car(name));
         }
     }
 
     public ArrayList<Car> getCars() {
-        return cars;
+        return carList;
     }
 
     public Map<String, Integer> getResultOfRound() {
         HashMap<String, Integer> result = new HashMap<>();
-        for(Car car : cars) {
+        for(Car car : carList) {
             result.put(car.getName(), car.getMeter());
         }
         return result;
     }
 
     public int findMaxScore() {
-        return cars.stream()
+        return carList.stream()
             .mapToInt(Car::getMeter)
             .max()
             .orElse(Integer.MIN_VALUE);
     }
 
     public ArrayList<String> findWinners() {
-        return cars.stream()
+        return carList.stream()
             .filter(car -> car.getMeter() == findMaxScore())
             .map(Car::getName)
             .collect(Collectors.toCollection(ArrayList::new));
