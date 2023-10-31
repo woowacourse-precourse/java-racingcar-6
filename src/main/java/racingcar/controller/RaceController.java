@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.util.UserInput;
+import racingcar.view.OutputView;
 
 public class RaceController {
     static final int MIN_NUMBER = 0;
@@ -29,6 +30,7 @@ public class RaceController {
         for (Car car : cars) {
             decideMovement(car);
         }
+        OutputView.printRaceStatus(cars);
     }
 
     public static void decideMovement(Car car) {
