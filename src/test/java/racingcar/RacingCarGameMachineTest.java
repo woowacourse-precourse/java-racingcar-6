@@ -7,10 +7,9 @@ import racingcar.validator.RacingCarGameMachineValidator;
 import racingcar.validator.RacingCarValidator;
 
 public class RacingCarGameMachineTest {
-
+    private static final RacingCarGameFactory racingCarGameFactory = new MockRacingCarGameFactory();
+    private MockRandomNumberGenerator mockRandomNumberGenerator;
     private RacingCarGameMachine racingCarGameMachine;
-    private final RacingCarGameMachineValidator racingCarGameMachineValidator = new RacingCarGameMachineValidator();
-    private final RacingCarValidator racingCarValidator = new RacingCarValidator();
 
     private static final String RACING_CAR_NAME_INPUT = "semin,woowa,pre";
     private static final int ROUND_COUNT = 5;
@@ -19,12 +18,9 @@ public class RacingCarGameMachineTest {
 
     @BeforeEach
     void init() {
-        MockRandomNumberGenerator randomNumberGenerator = new MockRandomNumberGenerator(MOVING_FORWARD, STOP, STOP);
-        this.racingCarGameMachine = new RacingCarGameMachine(
-                racingCarGameMachineValidator,
-                racingCarValidator,
-                randomNumberGenerator
-        );
+        mockRandomNumberGenerator = (MockRandomNumberGenerator) racingCarGameFactory.randomNumberGenerator();
+        racingCarGameMachine = racingCarGameFactory.racingCarGameMachine();
+
         racingCarGameMachine.init(RACING_CAR_NAME_INPUT, ROUND_COUNT);
     }
 
@@ -62,6 +58,8 @@ public class RacingCarGameMachineTest {
 
     @Test
     void 라운드_결과() {
+        mockRandomNumberGenerator.init(MOVING_FORWARD, STOP, STOP);
+
         String roundResult = racingCarGameMachine.getRoundResult();
 
         Assertions.assertThat(roundResult).contains("semin : -");
@@ -76,6 +74,7 @@ public class RacingCarGameMachineTest {
 
     @Test
     void 단독_우승() {
+        mockRandomNumberGenerator.init(MOVING_FORWARD, STOP, STOP);
         playRoundUntilGameOver();
         String gameResult = racingCarGameMachine.getGameResult();
 
@@ -85,15 +84,9 @@ public class RacingCarGameMachineTest {
 
     @Test
     void 동점_우승() {
-        MockRandomNumberGenerator randomNumberGenerator
-                = new MockRandomNumberGenerator(MOVING_FORWARD, MOVING_FORWARD, STOP);
-        this.racingCarGameMachine = new RacingCarGameMachine(
-                racingCarGameMachineValidator,
-                racingCarValidator,
-                randomNumberGenerator);
-        racingCarGameMachine.init(RACING_CAR_NAME_INPUT, ROUND_COUNT);
-
+        mockRandomNumberGenerator.init(MOVING_FORWARD, MOVING_FORWARD, STOP);
         playRoundUntilGameOver();
+
         String gameResult = racingCarGameMachine.getGameResult();
 
         Assertions.assertThat(gameResult).contains("최종 우승자 : semin, woowa");
