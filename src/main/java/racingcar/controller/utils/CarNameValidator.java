@@ -33,9 +33,11 @@ public class CarNameValidator {
     }
 
     private void checkHasOverlap(List<String> carNames) {
-        Set<String> uniqueNames = new HashSet<>(carNames);
-        if (uniqueNames.size() < carNames.size()) {
-            throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
+        Set<String> UniqueNames = new HashSet<>();
+        for (String carName : carNames) {
+            if (!UniqueNames.add(carName)) {
+                throw new IllegalArgumentException("자동차 이름에 중복이 있습니다.");
+            }
         }
     }
 
