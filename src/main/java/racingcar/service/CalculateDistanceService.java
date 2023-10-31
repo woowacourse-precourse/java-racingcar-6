@@ -36,6 +36,7 @@ public class CalculateDistanceService {
 
 	public int getTry(String tryNumber) {
 		tryException.checkException(tryNumber);
+		System.out.println();
 		return Integer.parseInt(tryNumber);
 	}
 }
