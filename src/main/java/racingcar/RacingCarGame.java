@@ -85,7 +85,7 @@ public class RacingCarGame {
 
     void printWinners() {
         StringBuffer result = new StringBuffer();
-        result.append("최종우승자 : ");
+        result.append("최종 우승자 : ");
         for (RacingCar winner : winners) {
             result.append(winner.getName() + ", ");
         }
