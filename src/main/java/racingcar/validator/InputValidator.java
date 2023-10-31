@@ -1,6 +1,8 @@
-package racingcar.util;
+package racingcar.validator;
 
-public final class InputValidator {
+import racingcar.exception.Err;
+
+public class InputValidator {
     private static final String CAR_NAMES_REGEX = "^(\\w+,)+\\w+$";
     private static final String NUMERIC_REGEX = "\\d+";
     private static final String COMMA = ",";
