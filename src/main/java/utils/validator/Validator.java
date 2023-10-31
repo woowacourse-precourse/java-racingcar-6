@@ -1,4 +1,4 @@
-package utils.Validator;
+package utils.validator;
 
 import java.util.HashSet;
 import java.util.List;

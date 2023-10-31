@@ -11,8 +11,8 @@ import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutPutView;
-import utils.Validator.Validator;
 import utils.string.StringUtils;
+import utils.validator.Validator;
 
 public class Controller {
     private final RacingGameService racingGameService;
@@ -40,11 +40,13 @@ public class Controller {
         RacingGame racingGame = racingGameService.findGameById(racingGameId);
         List<Long> carsIdList = racingGame.getCarsIdList();
         OutPutView.printResultMessage();
+
         do {
             moveCarsForwardOrNotByRandomNumber(carsIdList);
             OutPutView.printScore(mapToCarRequestDtoList(carsIdList));
             racingGameService.addGameCount(racingGame.getId());
         } while (!racingGameService.isGameFinish(racingGame.getId()));
+
         printFinalWinner(racingGameId);
     }
 
