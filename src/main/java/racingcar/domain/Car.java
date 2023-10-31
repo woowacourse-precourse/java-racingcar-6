@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.service.CarService.checkCarMovement;
+
 public class Car {
     private final String carName;
     private int position = 0;
@@ -14,5 +16,15 @@ public class Car {
 
     public int getPosition(){
         return position;
+    }
+
+    public void carMovement(){
+        if(checkCarMovement()){
+            move();
+        }
+    }
+
+    public void move(){
+        this.position++;
     }
 }
