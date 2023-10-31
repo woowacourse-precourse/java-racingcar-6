@@ -36,4 +36,16 @@ public class Car implements Comparable<Car> {
             }
         }
     }
+
+    public static void inputRound() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        for (char i : input.toCharArray()) {
+            if (!Character.isDigit(i)) {
+                throw new IllegalArgumentException("유효한 숫자를 입력해주세요");
+            }
+        }
+        round = Integer.parseInt(input);
+    }
+
 }
