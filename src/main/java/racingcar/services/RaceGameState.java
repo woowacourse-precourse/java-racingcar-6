@@ -22,6 +22,10 @@ public class RaceGameState {
         return parsedNames;
     }
 
+    public Map<String, Integer> getStateOfEachCar() {
+        return stateOfEachCar;
+    }
+
 
     private Map<String, Integer> convertListToMap(List<String> names){
         return names.stream()
