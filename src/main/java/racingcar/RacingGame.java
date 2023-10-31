@@ -14,6 +14,7 @@ public class RacingGame {
 
         while(trial-- > 0) {
             getResultOfTurn(cars);
+            Display.printCurrentPositions(cars);
         }
 
         List<String> winners = findWinners(cars);
@@ -44,7 +45,7 @@ public class RacingGame {
 
     private boolean canMove() {
         int result = pickNumberInRange(0, 9);
-        if(result < 5) {
+        if(result >= 4) {
             return true;
         }
         return false;
