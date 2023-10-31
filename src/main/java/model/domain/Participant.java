@@ -55,14 +55,14 @@ public class Participant {
 
     private void checkNotInput(List<String> nameList) {
 
-        if(nameList.isEmpty() || nameList.contains("")){
+        if (nameList.isEmpty() || nameList.contains("")) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void checkMoreTwo(List<String> nameList){
+    private void checkMoreTwo(List<String> nameList) {
 
-        if(nameList.size() < 2){
+        if (nameList.size() < 2) {
             throw new IllegalArgumentException();
         }
     }

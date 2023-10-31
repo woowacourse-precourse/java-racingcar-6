@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class GameResultTest {
 
     @Test
-    void 단독_우승일_경우(){
+    void 단독_우승일_경우() {
         Participant test = new Participant("lee,na,yeon");
         test.getParticipant().get(0).addGo();
 
@@ -19,7 +19,7 @@ class GameResultTest {
     }
 
     @Test
-    void 공동_우승일_경우(){
+    void 공동_우승일_경우() {
         Participant test = new Participant("lee,na,yeon");
         test.getParticipant().get(0).addGo();
         test.getParticipant().get(2).addGo();

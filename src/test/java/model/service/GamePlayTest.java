@@ -15,11 +15,11 @@ class GamePlayTest {
             Participant test = new Participant("a,b,c,d,e,f,g,h,i,j");
             GamePlay.round(test);
 
-            for(int i = 0; i <= 3; i++){
+            for (int i = 0; i <= 3; i++) {
                 assertEquals(0, test.getParticipant().get(i).getGoValue());
             }
 
-            for(int i = 4; i <= 9; i++){
+            for (int i = 4; i <= 9; i++) {
                 assertEquals(1, test.getParticipant().get(i).getGoValue());
             }
 

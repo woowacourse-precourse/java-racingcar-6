@@ -22,8 +22,8 @@ public class Round {
 
     }
 
-    private int checkMoreOne(int number){
-        if(number < 1){
+    private int checkMoreOne(int number) {
+        if (number < 1) {
             throw new IllegalArgumentException();
         }
 
