@@ -3,55 +3,31 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class CarTest {
 
-    @Test
-    public void testCarConstructZeroChar() {
-        assertThatThrownBy(() -> new Car("", 0))
+    @ParameterizedTest
+    @CsvSource({",0", "abcdef,0", "pobi,-1"})
+    public void testCarConstruct(String name, int distance) {
+        assertThatThrownBy(() -> new Car("", distance))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
-    public void testCarConstructSixChar() {
-        assertThatThrownBy(() -> new Car("abcdef", 0))
-                .isInstanceOf(IllegalArgumentException.class);
+
+    @ParameterizedTest
+    @CsvSource(value = {"0,pobi : ", "1,pobi : -", "4,pobi : ----"}, ignoreLeadingAndTrailingWhitespace = false)
+    public void testCarToString(int distance, String expected) {
+        Car pobiCar = new Car("pobi", distance);
+        assertThat(pobiCar.toString()).isEqualTo(expected);
     }
 
-    @Test
-    public void testCarConstructNegativeDistance() {
-        assertThatThrownBy(() -> new Car("", -1))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    public void testCarToString() {
-        Car pobiCar = new Car("pobi", 0);
-        assertThat(pobiCar.toString()).isEqualTo("pobi : ");
-
-        Car woniCar = new Car("woni", 1);
-        assertThat(woniCar.toString()).isEqualTo("woni : -");
-    }
-
-    @Test
-    public void testCarForwardRandomOne() {
+    @ParameterizedTest
+    @CsvSource(value = {"1,pobi : ", "4,pobi : -", "9,pobi : -"}, ignoreLeadingAndTrailingWhitespace = false)
+    public void testCarRandomForward(int randomNumber, String expected) {
         Car car = new Car("pobi", 0);
-        car.forward((lowerBound, upperBound) -> 1);
-        assertThat(car.toString()).isEqualTo("pobi : ");
-    }
-
-    @Test
-    public void testCarForwardRandomFour() {
-        Car car = new Car("pobi", 0);
-        car.forward((lowerBound, upperBound) -> 4);
-        assertThat(car.toString()).isEqualTo("pobi : -");
-    }
-
-    @Test
-    public void testCarForwardRandomNine() {
-        Car car = new Car("pobi", 0);
-        car.forward((lowerBound, upperBound) -> 9);
-        assertThat(car.toString()).isEqualTo("pobi : -");
+        car.forward((lowerBound, upperBound) -> randomNumber);
+        assertThat(car.toString()).isEqualTo(expected);
     }
 }
