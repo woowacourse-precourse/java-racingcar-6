@@ -6,15 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Referee {
-	private final List<String> names;
 
-	public Referee(List<String> names) {
-		this.names = names;
-	}
-
-	public HashMap<String, Boolean> checkTryOutcome(List<Integer> randomNumbers) {
+	public Map<String, Boolean> checkTryOutcome(List<String> names, List<Integer> randomNumbers) {
 		final int MIN_MOVABLE_NUMBER = 4;
-		HashMap<String, Boolean> tryResult = new HashMap<>();
+		Map<String, Boolean> tryResult = new HashMap<>();
 
 		for (int i = 0; i < names.size(); i++) {
 			if (randomNumbers.get(i) >= MIN_MOVABLE_NUMBER) {
