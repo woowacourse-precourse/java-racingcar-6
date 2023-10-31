@@ -16,6 +16,7 @@ public class Race {
         for (int i = 0; i < num; i++) {
             playResult.getResult(RacingInfo.getNames(), results);
         }
+        playResult.getWinner(results);
     }
 
     // 실행 결과 출력을 위한 "차량이름 : "이 담긴 배열 생성 메소드
