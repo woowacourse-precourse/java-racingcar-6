@@ -2,9 +2,9 @@ package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomNumberPicker {
+public class NumberPicker {
 
-    public static int pickNumber(final int lowerBound, final int upperBound) {
+    public static int pickRandomNumberInRange(final int lowerBound, final int upperBound) {
         return Randoms.pickNumberInRange(lowerBound, upperBound);
     }
 }

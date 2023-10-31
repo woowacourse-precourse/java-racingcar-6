@@ -7,8 +7,8 @@ import static racingcar.view.Messages.WINNER_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.utils.NumberPicker;
 import racingcar.utils.Parser;
-import racingcar.utils.RandomNumberPicker;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -98,7 +98,7 @@ public class Game {
     }
 
     private boolean shouldMoveForward() {
-        return RandomNumberPicker.pickNumber(LOWER_BOUND_OF_RANDOM_NUMBER,
+        return NumberPicker.pickRandomNumberInRange(LOWER_BOUND_OF_RANDOM_NUMBER,
                 UPPER_BOUND_OF_RANDOM_NUMBER) >= MOVE_FORWARD_CONDITION_OF_CAR;
     }
 }
