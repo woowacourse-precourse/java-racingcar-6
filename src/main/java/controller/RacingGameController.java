@@ -17,11 +17,15 @@ public class RacingGameController {
 		CarNamesInput carNamesInput = initCarNameData();
 		TryCountInput tryCountInput = setTryCount();
 
+		getRaceOutcome(carNamesInput, tryCountInput);
+
 	}
 
-	public void startRace(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
+	public RacingCar getRaceOutcome(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
 		RacingCar racingCar = new RacingCar(carNamesInput.getNames());
 		movePerRounds(tryCountInput, racingCar);
+
+		return racingCar;
 	}
 
 	public void movePerRounds(TryCountInput tryCountInput, RacingCar racingCar) {
