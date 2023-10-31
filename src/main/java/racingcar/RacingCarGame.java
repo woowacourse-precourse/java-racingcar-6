@@ -48,6 +48,7 @@ public class RacingCarGame {
     }
 
     public void repeatCarRace(List<Car> carList, int numberOfRace) {
+        System.out.println("\n실행 결과");
         while (numberOfRace != 0) {
             carRace(carList);
             System.out.println(carList);
