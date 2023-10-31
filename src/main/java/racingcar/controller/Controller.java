@@ -56,7 +56,7 @@ public class Controller {
         OutputView outputView = new OutputView();
         while (howMany > 0) {
             List<Integer> randomNums = makeRandomNumberList(carList.getSize());
-            carList.UpdateDistance(replaceZeroAndOne(randomNums));
+            carList.updateDistance(replaceZeroAndOne(randomNums));
             outputView.printInterm(carList.toString());
             howMany--;
         }
@@ -70,10 +70,9 @@ public class Controller {
             return 0;
         }).collect(Collectors.toList());
     }
-
-
+    
     public List<String> whoisWinner() {
-        return carList.getWinner();
+        return carList.getWinner(carList.getMaxDistance());
     }
 
 }

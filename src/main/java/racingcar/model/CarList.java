@@ -16,7 +16,7 @@ public class CarList {
     }
 
     // CarList 사이즈만큼 Integer 리스트를 받아와서 차례대로 하나씩 적용
-    public void UpdateDistance(List<Integer> distanceList) {
+    public void updateDistance(List<Integer> distanceList) {
         int index = 0;
         for (Car car : carList) {
             car.updateDistance(distanceList.get(index));
@@ -24,10 +24,10 @@ public class CarList {
         }
     }
 
-    public List<String> getWinner() {
+    public List<String> getWinner(int maxDistance) {
         List<String> winner = new ArrayList<>();
         for (Car h : carList) {
-            if (h.getDistance() == getMaxDistance()) {
+            if (h.getDistance() == maxDistance) {
                 winner.add(h.getName());
             }
         }
