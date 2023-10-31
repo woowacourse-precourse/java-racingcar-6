@@ -9,11 +9,18 @@ public class Cars {
     private static final int MIN_RANGE = 0;
     private static final int MAX_RANGE = 9;
 
-    private final List<Car> cars = new ArrayList<>();
+    private final List<Car> cars;
 
-    public void add(String name) {
-        Car car = new Car(name, INIT_DISTANCE);
-        cars.add(car);
+    private Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public static Cars createCars(List<String> carNames) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(Car.createCar(carName));
+        }
+        return new Cars(cars);
     }
 
     public void moveAll() {
