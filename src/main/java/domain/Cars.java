@@ -14,8 +14,12 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    private int getSize() {
+        return this.cars.size();
+    }
+
     private boolean isDuplicate() {
-        int originalCarSize = this.cars.size();
+        int originalCarSize = getSize();
         return cars.stream()
                 .distinct()
                 .collect(Collectors.toList())
