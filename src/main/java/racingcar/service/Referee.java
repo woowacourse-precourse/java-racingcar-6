@@ -1,8 +1,9 @@
-package racingcar.domain;
+package racingcar.service;
 
-import racingcar.util.RandomNumberGenerator;
-import racingcar.domain.dto.CarStatus;
-import racingcar.domain.dto.GameStatus;
+import racingcar.models.Car;
+import racingcar.models.CarStatus;
+import racingcar.models.GameStatus;
+import racingcar.utils.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

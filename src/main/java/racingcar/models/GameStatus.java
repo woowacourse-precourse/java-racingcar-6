@@ -1,4 +1,4 @@
-package racingcar.domain.dto;
+package racingcar.models;
 
 import java.util.ArrayList;
 import java.util.List;

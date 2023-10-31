@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Referee;
-import racingcar.domain.dto.GameStatus;
+import racingcar.models.GameStatus;
+import racingcar.service.Referee;
 
 import java.util.Arrays;
 
