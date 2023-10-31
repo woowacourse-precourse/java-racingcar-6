@@ -16,6 +16,7 @@ class InputViewTest {
     private static final String IS_NOT_NUMBER = "숫자를 입력해 주세요.";
     private static final String IS_NOT_NATURAL_NUMBER = "전진횟수는 자연수여야 합니다.";
     private static final String IS_SPACE = "공백 혹은 빈 문자열은 등록할 수 없습니다.";
+    private static final String DUPLICATE_ERROR = "이름은 중복될 수 없습니다.";
 
     private final InputView inputView = new InputView();
 
@@ -39,7 +40,7 @@ class InputViewTest {
 
         //when
         //then
-        assertThatThrownBy(() -> inputView.inputTimes()).isInstanceOf(IllegalArgumentException.class)
+        assertThatThrownBy(inputView::inputTimes).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(IS_NOT_NATURAL_NUMBER);
     }
     @DisplayName("[실패] 자연수가 입력되었는지 확인하는 테스트(문자입력)")
@@ -51,7 +52,7 @@ class InputViewTest {
 
         //when
         //then
-        assertThatThrownBy(() -> inputView.inputTimes()).isInstanceOf(IllegalArgumentException.class)
+        assertThatThrownBy(inputView::inputTimes).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(IS_NOT_NUMBER);
     }
 
@@ -109,6 +110,21 @@ class InputViewTest {
         assertThatThrownBy(() -> inputView.inputPlayers())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(IS_SPACE);
+    }
+
+    @DisplayName("[실패] 이름이 중복으로 등록되는 경우")
+    @Test
+    public void 이름이_중복으로_등록되는_경우() throws Exception {
+        // given
+        String names = "a,a";
+        InputStream inputStream = setReadLine(names);
+        System.setIn(inputStream);
+
+        // when
+        // then
+        assertThatThrownBy(inputView::inputPlayers)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(DUPLICATE_ERROR);
     }
 
     @AfterEach
