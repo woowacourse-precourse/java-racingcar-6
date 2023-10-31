@@ -91,6 +91,5 @@ class ValidatorTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
         }
-
     }
 }

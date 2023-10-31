@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.Comparator;
-
 public class Car {
     String name;
     int progress;
