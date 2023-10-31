@@ -44,7 +44,7 @@ public class GameController {
     private void repeatPlayGame(RacingGame racingGame) {
         outputView.printExecutionResultMessage();
 
-        for (int i = 1; i <= racingGame.getRaceCount(); i++) {
+        for (int round = 1; round <= racingGame.getRaceCount(); round++) {
             racingGame.playGame();
 
             outputView.printRaceResult(new RaceResultDto(racingGame.getCarList()));
