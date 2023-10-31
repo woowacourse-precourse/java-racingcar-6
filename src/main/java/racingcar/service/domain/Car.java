@@ -6,9 +6,10 @@ import java.util.Objects;
 // TODO: public 메서드 단위 테스트
 // TODO: getter 없애도록 고민해볼 것
 public class Car {
+    private static final int CAN_MOVE_MIN_CONDITION = 4;
     public final CarName name;
     private final Engine engine;
-    private int totalMoveCount;
+    private int position;
 
     public Car(String name, Engine engine) {
         this.name = new CarName(name);
@@ -18,7 +19,7 @@ public class Car {
     public void moveCar() {
         int power = startEngine();
         if (canMove(power)) {
-            this.totalMoveCount++;
+            this.position++;
         }
     }
 
@@ -27,11 +28,11 @@ public class Car {
     }
 
     private boolean canMove(int power) {
-        return power >= 4;
+        return power >= CAN_MOVE_MIN_CONDITION;
     }
 
-    public int getTotalMoveCount() {
-        return totalMoveCount;
+    public int getPosition() {
+        return position;
     }
 
     public String getName() {
@@ -41,8 +42,8 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "name='" + name + '\'' +
-                ", totalMoveCount=" + totalMoveCount +
+                "name=" + name +
+                ", position=" + position +
                 '}';
     }
 

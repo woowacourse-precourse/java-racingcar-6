@@ -29,7 +29,7 @@ class CarTest {
                 car.moveCar();
             }
             // then
-            Assertions.assertThat(car.getTotalMoveCount()).isEqualTo(expectedMoveCount);
+            Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
 
         @Test
@@ -41,7 +41,7 @@ class CarTest {
             // when
             car.moveCar();
             // then
-            Assertions.assertThat(car.getTotalMoveCount()).isEqualTo(expectedMoveCount);
+            Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
 
         @Test
@@ -53,7 +53,7 @@ class CarTest {
             // when
             car.moveCar();
             // then
-            Assertions.assertThat(car.getTotalMoveCount()).isEqualTo(expectedMoveCount);
+            Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
 
         static class CustomEngine implements Engine {

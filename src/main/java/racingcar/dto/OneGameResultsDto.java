@@ -15,7 +15,7 @@ public class OneGameResultsDto {
     private List<ResultDto> convertToOneGameResults(final List<Car> cars) {
         List<ResultDto> oneGameResults = new ArrayList<>();
         for (Car car : cars) {
-            oneGameResults.add(new ResultDto(car.getName(), car.getTotalMoveCount()));
+            oneGameResults.add(new ResultDto(car.getName(), car.getPosition()));
         }
         return oneGameResults;
     }
@@ -28,9 +28,9 @@ public class OneGameResultsDto {
         return Collections.unmodifiableList(oneGameResults);
     }
 
-    public List<Integer> getTotalMoveCounts() {
-        List<Integer> totalMoveCounts = new ArrayList<>();
-        oneGameResults.forEach(resultDto -> totalMoveCounts.add(resultDto.getTotalMoveCount()));
-        return Collections.unmodifiableList(totalMoveCounts);
+    public List<Integer> getTotalPositions() {
+        List<Integer> totalPositions = new ArrayList<>();
+        oneGameResults.forEach(resultDto -> totalPositions.add(resultDto.getPosition()));
+        return Collections.unmodifiableList(totalPositions);
     }
 }

@@ -70,7 +70,7 @@
 
 #### 경주 1회 결과를 담고 있는 역할 (ResultDto)
 
-- [x] 필드: String name, int totalMoveCount
+- [x] 필드: String name, int position
 - [x] 이름 getter `public`
 - [x] 움직임 횟수 getter `public`
 

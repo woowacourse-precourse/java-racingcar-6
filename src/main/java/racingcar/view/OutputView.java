@@ -19,7 +19,7 @@ public class OutputView {
         StringBuilder resultForm = new StringBuilder();
         for (ResultDto result : resultDto.getResults()) {
             String name = result.getName();
-            int moveCount = result.getTotalMoveCount();
+            int moveCount = result.getPosition();
             resultForm.append(name).append(" : ").append(convertMoveCountsToHyphens(moveCount)).append("\n");
         }
         return resultForm.toString();

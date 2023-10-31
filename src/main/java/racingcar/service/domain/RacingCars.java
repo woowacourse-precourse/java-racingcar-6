@@ -43,22 +43,22 @@ public class RacingCars {
     }
 
     public List<String> findWinners() {
-        int maxTotalMoveCount = calculateMaxTotalMoveCount();
+        int maxPosition = calculateMaxPosition();
         List<String> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getTotalMoveCount() == maxTotalMoveCount) {
+            if (car.getPosition() == maxPosition) {
                 winners.add(car.getName());
             }
         }
         return Collections.unmodifiableList(winners);
     }
 
-    private int calculateMaxTotalMoveCount() {
-        int maxTotalMoveCount = 0;
+    private int calculateMaxPosition() {
+        int maxPosition = 0;
         for (Car car : this.cars) {
-            maxTotalMoveCount = Math.max(car.getTotalMoveCount(), maxTotalMoveCount);
+            maxPosition = Math.max(car.getPosition(), maxPosition);
         }
-        return maxTotalMoveCount;
+        return maxPosition;
     }
 
     public List<Car> doRace() {
