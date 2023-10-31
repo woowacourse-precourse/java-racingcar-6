@@ -5,7 +5,6 @@ import java.util.List;
 public class Moving {
 
     private User user = new User();
-    private Car car = new Car();
     private Winner winner = new Winner();
     private Moving moving = new Moving();
 
