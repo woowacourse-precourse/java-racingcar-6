@@ -117,4 +117,25 @@ public class ValidatorTest {
         assertThat(result3).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("시도 횟수 입력값이 1 이상인지 검사")
+    @Test
+    void 시도_횟수_최소값_테스트() {
+        // given
+        final int ATTEMPT_NUMBER_ZERO = 0;
+        final int MIN_ATTEMPT_NUMBER = 1;
+        int case1 = ATTEMPT_NUMBER_ZERO;
+        int case2 = MIN_ATTEMPT_NUMBER;
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            Validator.validateAtLeastOne(case1);
+        });
+        Throwable result2 = catchThrowable(() -> {
+            Validator.validateAtLeastOne(case2);
+        });
+
+        // then
+        assertThat(result1).isInstanceOf(IllegalArgumentException.class);
+        assertThat(result2).doesNotThrowAnyException();
+    }
 }
