@@ -36,7 +36,9 @@ public class Game {
             printTryResult();
         }
 
-
+        calcMaxDistance();
+        makeWinnerList();
+        myOutput.printGameResult(winnerList);
     }
 
     public void movingALLCar(){
