@@ -1,6 +1,9 @@
 package racingcar.v4;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class RacingGameResultReport {
     public void printCarPositionWithName(Map<String, Integer> racingStateMap) {
@@ -13,5 +16,16 @@ public class RacingGameResultReport {
             }
             System.out.println();
         }
+    }
+
+    public void announceWinners(Map<String, Integer> racingStateMap) {
+        int maxDistance = Collections.max(racingStateMap.values());
+
+        List<String> winners = racingStateMap.entrySet().stream()
+                .filter(entry -> entry.getValue() == maxDistance)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 }
