@@ -15,7 +15,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("5가 나올경우 이동한다.")
-    void move_test() {
+    void should_Move_When_RandomNumberIs5() {
         NumberGenerator generator = new NumberGenerator(5);
         Cars cars = new Cars(List.of(
                 new Car(new CarName("호빵맨"), new CarPosition(5)),
@@ -34,7 +34,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("3이 나올경우 이동하지 않는다.")
-    void move_test2() {
+    void should_NotMove_When_RandomNumberIs3() {
         NumberGenerator generator = new NumberGenerator(3);
         Cars cars = new Cars(List.of(
                 new Car(new CarName("호빵맨"), new CarPosition(5)),
@@ -53,7 +53,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("우승자가 한명일 경우 한명이 담긴 리스트를 반환한다.")
-    void single_winner_test() {
+    void should_GetList_When_WinnerIsSingle() {
         Cars cars = new Cars(List.of(
                 new Car(new CarName("피카츄"), new CarPosition(24)),
                 new Car(new CarName("꼬부기"), new CarPosition(41)),
@@ -66,7 +66,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("우승자가 여러명일 경우 여러명이 담긴 리스트를 반환한다.")
-    void multiple_winners_test() {
+    void should_GetList_When_WinnerIsNotSingle() {
         Cars cars = new Cars(List.of(
                 new Car(new CarName("피카츄"), new CarPosition(44)),
                 new Car(new CarName("꼬부기"), new CarPosition(32)),
