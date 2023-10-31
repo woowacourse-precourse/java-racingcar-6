@@ -25,14 +25,18 @@ public class Game {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                car.move();
-                result.append(car.getName()).append(" : ").append(car.getMoveResult()).append("\n");
-            }
-            result.append("\n");
+            playOneRound(result);
         }
         result.append(MessageFactory.getWinnerMessage(getWinners()));
         messageProcessor.print(result.toString());
+    }
+
+    private void playOneRound(StringBuilder result) {
+        for (Car car : cars) {
+            car.move();
+            result.append(car.getName()).append(" : ").append(car.getMoveResult()).append("\n");
+        }
+        result.append("\n");
     }
 
     public List<String> getWinners() {
