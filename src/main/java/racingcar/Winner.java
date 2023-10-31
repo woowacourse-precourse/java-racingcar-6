@@ -24,11 +24,17 @@ public class Winner {
     private void turnaroundOrTie(Map<String,Integer>CarAndAdvance,List<String> originalWinner,String key){
         int originalWinnersAdvance = CarAndAdvance.get(originalWinner.get(0));
         if (CarAndAdvance.get(key) > originalWinnersAdvance) {
-            originalWinner.clear();
-            originalWinner.add(key);
+            tieAct(originalWinner,key);
         } else if (CarAndAdvance.get(key) == originalWinnersAdvance) {
-            originalWinner.add(key);
+            turnaroundAct(originalWinner,key);
         }
+    }
+    private void tieAct(List<String> originalWinner,String winner){
+        originalWinner.clear();
+        originalWinner.add(winner);
+    }
+    private void turnaroundAct(List<String> originalWinner,String winner){
+        originalWinner.add(winner);
     }
     public void printWinner(){
         System.out.print("\n최종 우승자 : ");

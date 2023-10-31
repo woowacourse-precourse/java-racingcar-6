@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Race {
-    public Map<String, Integer> CarsNameAndForwardTimes = new HashMap<String, Integer>();
-    public List<String>winners=new ArrayList<>();
+    public Map<String, Integer> CarsNameAndForwardTimes = new HashMap<>();
 
     public Race(List<String> Cars) {
         for (String car:Cars) {
@@ -19,12 +18,14 @@ public class Race {
     }
     public void forwardInRace() {
         for (String key : this.CarsNameAndForwardTimes.keySet()) {
-            int canGoForward = Randoms.pickNumberInRange(0, 9);
-            int distance = this.CarsNameAndForwardTimes.get(key);
-            if (canGoForward >= 4) {
+            if(canAdvance(Randoms.pickNumberInRange(0, 9))){
+                int distance = this.CarsNameAndForwardTimes.get(key);
                 this.CarsNameAndForwardTimes.put(key, distance + 1);
             }
         }
+    }
+    public boolean canAdvance(Integer randomNum){
+        return randomNum>=4;
     }
     public void printAllCarAndAdvance(){
         for(String key: this.CarsNameAndForwardTimes.keySet()) {
