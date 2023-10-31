@@ -6,8 +6,8 @@ public class InputValidate {
     private final static int MAX_LENGTH = 5;
     public static void carNames(List<String> names) {
         names.forEach(name -> {
-            validateCarNameLength(name);
             validateNoWhiteSpaceInCarName(name);
+            validateCarNameLength(name);
         });
         validateNameDuplication(names);
     }
