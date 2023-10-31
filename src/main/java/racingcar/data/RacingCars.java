@@ -5,14 +5,14 @@ import java.util.List;
 
 public class RacingCars {
     private final List<Car> cars;
+    private static final int INIT_POS = 0;
 
     public RacingCars() {
         this.cars = new ArrayList<>();
     }
 
-    public Car createCar(String name) {
-        Car newCar = new Car(new CarName(name));
+    public void createCar(String name) {
+        Car newCar = new Car(name, INIT_POS);
         cars.add(newCar);
-        return newCar;
     }
 }
