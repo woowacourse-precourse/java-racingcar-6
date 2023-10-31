@@ -38,6 +38,13 @@ public class User {
         }
     }
 
+    private void validateDuplication(String input) {
+//        java에 배열요소의 중복을 처리해주는 메서드가 제공되는지 확인하기
+    }
+
+    private void validationSeprator() {
+
+    }
     private static String inputTrialNumber() { return Console.readLine(); }
 
 

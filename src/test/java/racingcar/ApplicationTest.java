@@ -24,29 +24,32 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름의_길이_대한_예외_처리() {
+    void 자동차_이름의_길이_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    void 이름의_중복_대한_예외_처리() {
+    void 자동차_이름의_중복_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi, pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    void 이름의_타입_대한_예외_처리() {
+    void 자동차_이름의_타입_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,j218h", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-//    void 복수의_우승자_처리() {
-//
-//    }
+
+
+
+    void 사용자_횟수_입력의_타입_판별() {
+        //
+    }
 
 
     @Override
