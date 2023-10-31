@@ -17,7 +17,11 @@ public class Car {
 
     public void startGameTurn() {
         if (isMovingForward()) {
-            currentStep++;
+            increaseCurrentStep();
         }
+    }
+
+    public void increaseCurrentStep() {
+        this.currentStep++;
     }
 }
