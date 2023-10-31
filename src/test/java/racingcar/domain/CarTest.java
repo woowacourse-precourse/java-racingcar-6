@@ -41,7 +41,7 @@ class CarTest {
     void 이름길이_5초과_예외(String name) {
         assertThatThrownBy(() -> Car.from(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 잘못된 이름 길이입니다.");
+                .hasMessage("[ERROR] 이름 길이는 5 이하만 가능합니다.");
     }
 
     @ParameterizedTest
@@ -82,6 +82,33 @@ class CarTest {
         // then
         assertThat(car.getPosition()).isEqualTo(new Position(0));
         car.isHere(new Position(0));
+    }
+
+    @Test
+    void Position_안정성_테스트() {
+        // given
+        Car car = Car.from("a");
+
+        // when
+        Position position = car.getPosition();
+        position = new Position(1);
+
+
+        // then
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
+    }
+
+    @Test
+    void Position_안정성_테스트_2() {
+        // given
+        Car car = Car.from("a");
+
+        // when
+        Position position = car.getPosition();
+        position.plus();
+
+        // then
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
     }
 
 

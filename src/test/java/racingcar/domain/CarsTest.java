@@ -32,7 +32,7 @@ class CarsTest {
         // when then
         assertThatThrownBy(() -> Cars.of(nameList, new RandomNumberGenerator()))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 잘못된 이름 길이입니다.");
+                .hasMessage("[ERROR] 이름 길이는 5 이하만 가능합니다.");
     }
 
     @Test
