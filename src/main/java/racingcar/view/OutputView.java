@@ -12,10 +12,7 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printOneGame(ResponseDto responseDto) {
-        List<String> results = responseDto.getResults();
-        for (String s : results) {
-            System.out.println(s);
-        }
+    public void printGameResult(String result) {
+        System.out.print(result);
     }
 }
