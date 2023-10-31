@@ -47,9 +47,8 @@ public class Cars {
     }
 
     private String getWinners() {
-        int maxDashNum = maxDash();
         return carList.stream()
-                .filter(car -> car.getDashNum() == maxDashNum)
+                .filter(car -> car.getDashNum() == maxDash())
                 .map(Car::getWinnerName)
                 .collect(Collectors.joining(WINNER_SEPARATOR));
     }
