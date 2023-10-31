@@ -23,7 +23,7 @@ public class Play {
             gameUtil.show("");
         }
 
-        System.out.println(gameMessage.finalWinnerMessage + " : " + gameUtil.getWinner(game));
+        System.out.println(gameMessage.finalWinnerMessage + " : " + gameUtil.getWinnerCars(game));
     }
 }
 
