@@ -1,27 +1,27 @@
 ## 기능 목록
 
-- [] 게임을 시작 한다. - RacingCarGame#startGame()
+- [X] 게임을 시작 한다. - RacingCarGame#startGame()
 
-- [] 시작 문구를 출력한다. - InputView#printStartMsg()
-- [] 자동차 이름 입력 문구를 출력 한다. - InputView#printCarNameInputMsg()
-- [] 시도 횟수 입력 문구를 출력 한다. - InputView#printTryCountInputMsg()
+- [X] 자동차 이름 입력 문구를 출력 한다. - InputView#printCarNameInputMsg()
+- [X] 시도 횟수 입력 문구를 출력 한다. - InputView#printTryCountInputMsg()
 
-- [] 값을 입력할 수 있다. User#input()
-  - [] 자동차 이름을 부여한다. - User#inputCarName()
-    - [] 값을 검증할 수 있다. - validateCarName()
-  - [] 시도 횟수를 정한다. - User#inputTryCount()
-    - [] 값을 검증할 수 있다. - validateTryCount()
-- [] 실행 결과를 출력 한다.
-  - [] 실행 결과 문구를 출력 한다. OutputView#printGameResultMsg();
-  - [] 자동차들의 위치를 출력 한다. OutputView#printCarsPosition();
-  - [] 우승자를 출력한다. OutputView#printWinnersName();
+- [X] 실행 결과를 출력한다.
+  - [X] 실행 결과 문구를 출력한다. OutputView#printGameResultMsg()
+  - [X] 자동차들의 위치를 출력한다. OutputView#printCarsPosition()
+  - [X] 우승자를 출력한다. OutputView#printWinnersName()
 
-- [] 자동차는 전진 혹은 멈출 수 있다. Car#canMove()
-  - [] 0과 9사이에 무작위 값을 생성한다. - Car#generateRandomNumbers()
-  - [] 값이 4이상이면 자동차를 전진한다. - Car#move()
+- [X] 값을 입력할 수 있다.
+  - [X] 자동차 이름을 부여한다. - User#inputCarName()
+    - [X] 값을 검증할 수 있다. - validateCarName()
+  - [X] 시도 횟수를 정한다. - User#inputTryCount()
+    - [X] 값을 검증할 수 있다. - validateTryCount()
 
-- [] 우승자를 가려낼 수 있다. - Judge#decideWinner()
-  - [] 각 자동차들의 위치를 알 수 있다. - Car#getPosition()
+- [X] 자동차는 전진 혹은 멈출 수 있다. Car#canMove()
+  - [X] 0과 9사이에 무작위 값을 생성한다. - Car#generateRandomNumbers()
+  - [X] 값이 4이상이면 자동차를 전진한다. - Car#move()
+
+- [X] 우승자를 가려낼 수 있다. - Judge#decideWinner()
+  - [X] 각 자동차들의 위치를 알 수 있다. - Car#getPosition()
 
 - [] 예외사항 - Exception
   - [] 이름이 5자를 초과한다. - checkExceedNameLength()
