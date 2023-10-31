@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.car.model.Car;
 
+@Deprecated
 public class RaceParticipants {
     private final List<Car> participantList;
 

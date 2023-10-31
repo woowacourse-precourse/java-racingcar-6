@@ -11,15 +11,7 @@ import racingcar.utils.StringValidator;
 public class CarRegistration {
     private static final int MIN_CAR_NAME_LENGTH = 2;
     private static final String DELIMITER = ",";
-
     private final List<Car> participantList;
-
-
-    private void validateCarListLength(String[] splitCarName) throws IllegalArgumentException {
-        if (splitCarName.length < MIN_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.MINIMUM_CAR_NEEDED);
-        }
-    }
 
     private List<CarName> generateCarNameList(String[] splitCarName) throws IllegalArgumentException {
         List<CarName> carNameList = new ArrayList<>();
@@ -29,8 +21,13 @@ public class CarRegistration {
         return carNameList;
     }
 
-    private List<CarName> nameRegistration(String inputCarNames) throws IllegalArgumentException {
+    private void validateCarListLength(String[] splitCarName) throws IllegalArgumentException {
+        if (splitCarName.length < MIN_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException(ErrorMessage.MINIMUM_CAR_NEEDED);
+        }
+    }
 
+    private List<CarName> nameRegistration(String inputCarNames) throws IllegalArgumentException {
         if (StringValidator.isBlank(inputCarNames)) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_IS_BLANK);
         }
@@ -51,7 +48,7 @@ public class CarRegistration {
         }
     }
 
-    public List<Car> getRaceParticipants() {
+    public List<Car> getList() {
         return participantList;
     }
 

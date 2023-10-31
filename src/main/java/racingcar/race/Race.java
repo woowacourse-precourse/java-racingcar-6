@@ -1,24 +1,27 @@
 package racingcar.race;
 
+import racingcar.race.rule.RaceRule;
 import racingcar.utils.Printer;
 import racingcar.car.CarRegistration;
 
 public class Race {
     private final CarRegistration raceParticipants;
     private final MoveCount moveCount;
+    private final RaceRule raceRule;
 
-    public Race(CarRegistration raceParticipants, MoveCount moveCount) {
+    public Race(CarRegistration raceParticipants, MoveCount moveCount, RaceRule raceRule) {
         this.raceParticipants = raceParticipants;
         this.moveCount = moveCount;
+        this.raceRule = raceRule;
     }
 
     public void start() {
         while (moveCount.isRemained()) {
-            RaceRule.phase(raceParticipants);
-            Printer.gameResultPrinter(raceParticipants.getRaceParticipants());
+            raceRule.round(raceParticipants.getList());
+            Printer.gameResultPrinter(raceParticipants.getList());
             moveCount.decreaseCount();
         }
-        Printer.winnerPrinter(RaceRule.getWinner(raceParticipants));
+        Printer.winnerPrinter(raceRule.getWinner(raceParticipants.getList()));
     }
 
     @Override

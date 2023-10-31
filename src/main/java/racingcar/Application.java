@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.CarRegistration;
 import racingcar.race.MoveCount;
 import racingcar.race.Race;
+import racingcar.race.rule.RandomRaceRule;
 
 public class Application {
 
@@ -22,7 +23,7 @@ public class Application {
             String line = Console.readLine();
             MoveCount moveCount = new MoveCount(line);
 
-            Race race = new Race(carRegistration, moveCount);
+            Race race = new Race(carRegistration, moveCount, new RandomRaceRule());
             System.out.println(RESULT_MESSAGE);
             race.start();
 
