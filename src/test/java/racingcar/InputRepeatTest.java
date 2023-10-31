@@ -6,45 +6,28 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.CarNames;
-import racingcar.controller.RepeatNum;
+import racingcar.controller.RepeatController;
+import racingcar.controller.RepeatNumCreator;
 
 public class InputRepeatTest {
+    RepeatNumCreator repeatNumCreator = new RepeatController();
+
     @Test
     void setRepeatNum_확인() {
-        String ts = "4";
-        InputStream in = new ByteArrayInputStream(ts.getBytes());
-        System.setIn(in);
+        int repeatNum = repeatNumCreator.createRepeatNum("4");
 
         int expected = 4;
-        assertThat(RepeatNum.setRepeatNum()).isEqualTo(expected);
+        assertThat(repeatNum).isEqualTo(expected);
     }
     @Test
-    void setRepeatNum_확인2() {
-        String ts = "2147483647";
-        InputStream in = new ByteArrayInputStream(ts.getBytes());
-        System.setIn(in);
+    void setRepeatNum_에러() {
+        assertThatThrownBy(() -> repeatNumCreator.createRepeatNum("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
 
-        int expected = 2147483647;
-        assertThat(RepeatNum.setRepeatNum()).isEqualTo(expected);
-    }
-
-    @Test
-    void setRepeatNum_에러확인() {
-        String ts = "aasda";
-        InputStream in = new ByteArrayInputStream(ts.getBytes());
-        System.setIn(in);
-
-        assertThatThrownBy(() -> RepeatNum.setRepeatNum())
+        assertThatThrownBy(() -> repeatNumCreator.createRepeatNum("0"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> repeatNumCreator.createRepeatNum("-1"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-    @Test
-    void setRepeatNum_에러확인2() {
-        String ts = "-1";
-        InputStream in = new ByteArrayInputStream(ts.getBytes());
-        System.setIn(in);
 
-        assertThatThrownBy(() -> RepeatNum.setRepeatNum())
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 }
