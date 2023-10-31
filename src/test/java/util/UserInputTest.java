@@ -24,4 +24,13 @@ class UserInputTest {
         assertThat(moveCount).isEqualTo(5);
     }
 
+    @Test
+    public void 사용자_inputMoveCount_문자열_입력_테스트() {
+        String input = "잘못된입력\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThatThrownBy(UserInput::inputMoveCount)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자를 입력해주세요.");
+    }
 }
