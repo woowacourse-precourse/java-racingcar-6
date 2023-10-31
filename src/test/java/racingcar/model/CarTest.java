@@ -10,6 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CarTest {
 
     @Test
+    void toDto_메서드는_CarDto_객체를_생성한다() {
+        Car car = new Car("자동차");
+        CarDto carDto = car.toDto();
+        assertThat(carDto.getName()).isEqualTo("자동차");
+        assertThat(carDto.getPosition()).isEqualTo(0);
+    }
+
+    @Test
     void go_메서드는_position_을_증가시킨다() {
         Car car = new Car("자동차");
         car.go(true);
@@ -34,6 +42,5 @@ public class CarTest {
         Car compareCar = new Car("상대자동차");
         assertThat(car.equals(compareCar)).isTrue();
     }
-
 
 }
