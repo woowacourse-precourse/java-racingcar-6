@@ -2,19 +2,14 @@ package controller;
 
 import model.Car;
 import camp.nextstep.edu.missionutils.Console;
-
-import java.util.ArrayList;
+import model.CarList;
 
 public class UserController {
-    private ArrayList<Car> racingCars;
+    private final CarList carList;
     private int coin = 0;
 
-    public UserController() {
-        this.racingCars = new ArrayList<Car>();
-    }
-
-    public ArrayList<Car> getRacingCars() {
-        return racingCars;
+    public UserController(CarList carList) {
+        this.carList = carList;
     }
 
     public int getCoin() {
@@ -50,7 +45,7 @@ public class UserController {
 
     public void inputCarToList(String carName) {
         validateNameLength(carName);
-        racingCars.add(new Car(carName));
+        carList.addCar(new Car(carName));
     }
 
     public void validateNameLength(String carName) {

@@ -3,12 +3,15 @@ package controller;
 import model.Car;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import model.CarList;
 
 public class GameController {
     private final UserController userController;
+    private final CarList carList;
 
-    public GameController(UserController userController) {
+    public GameController(UserController userController, CarList carList) {
         this.userController = userController;
+        this.carList = carList;
     }
 
     public void run() {
@@ -25,13 +28,13 @@ public class GameController {
     }
 
     public void playRound() {
-        for (int i = 0; i < userController.getRacingCars().size(); i++) {
+        for (int i = 0; i < carList.size(); i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
 
-            progressCar(userController.getRacingCars().get(i), randomNumber);
+            progressCar(carList.get(i), randomNumber);
         }
 
-        printCarState();
+        carList.printCarsState();
     }
 
     void progressCar(Car car, int randomNumber) {
@@ -40,19 +43,12 @@ public class GameController {
         }
     }
 
-    void printCarState() {
-        for (int i = 0; i < userController.getRacingCars().size(); i++) {
-            System.out.println(userController.getRacingCars().get(i).toString());
-        }
-        System.out.println();
-    }
-
     public String calculateWinner() {
-        Car winner = userController.getRacingCars().get(0);
+        Car winner = carList.get(0);
         String winnerName = winner.getName();
 
-        for (int i = 1; i < userController.getRacingCars().size(); i++) {
-            Car candidate = userController.getRacingCars().get(i);
+        for (int i = 1; i < carList.size(); i++) {
+            Car candidate = carList.get(i);
 
             if (winner.getDistance() < candidate.getDistance()) {
                 winner = candidate;
@@ -64,7 +60,7 @@ public class GameController {
         return winnerName;
     }
 
-        void printWinner() {
+    void printWinner() {
         String winnerName = calculateWinner();
         System.out.println("최종 우승자 : " + winnerName);
     }
