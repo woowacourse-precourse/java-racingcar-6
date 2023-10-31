@@ -2,6 +2,7 @@ package racingcar.input;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 import racingcar.input.InputValidatorTest.InputValidator;
 
@@ -13,6 +14,9 @@ public class CarTest {
         private String carName;
         private StringBuilder driving;
         private static final char MOVE_FORMAT = '-';
+        private static final int MOVE_CONDITION = 4;
+        private static final int START_INCLUSIVE = 0;
+        private static final int END_INCLUSIVE = 9;
 
         public static Car inputCarname(String carName) {
             return new Car(carName);
@@ -26,6 +30,18 @@ public class CarTest {
 
         private Car() {
 
+        }
+
+        public void moveCar() {
+            if(isMove()){
+                move();
+            }
+        }
+
+        private boolean isMove(){
+            int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+
+            return randomNumber >= MOVE_CONDITION;
         }
 
         public void move() {
@@ -53,6 +69,11 @@ public class CarTest {
         String carName = 차객체.getCarName();
 
         assertThat(차이름).isEqualTo(carName);
+    }
+
+    @Test
+    void 차_이동_가능여부_확인(){
+        차객체.moveCar();
     }
 
 }
