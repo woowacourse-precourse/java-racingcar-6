@@ -2,23 +2,22 @@ package jalddak.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Car;
 
 public class CarTest {
-    @Test
-    void move() {
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+    void move(int num) {
+        //given
         Car car = new Car("HJ");
-        int before = car.getDistance();
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        car.move(randomNum);
-        int after = car.getDistance();
-        System.out.println("before = " + before + ", after = " + after + ", randomNum = " + randomNum);
-        if (randomNum >= 4) {
-            assertThat(after).isEqualTo(before + 1);
-        } else {
-            assertThat(after).isEqualTo(before);
+        int expect = car.getDistance();
+        if (num >= 4) {
+            expect += 1;
         }
+        //when
+        car.move(num);
+        assertThat(expect).isEqualTo(car.getDistance());
     }
 }
