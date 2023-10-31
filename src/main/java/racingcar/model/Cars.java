@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import racingcar.validator.CarNamesValidator;
 
 public class Cars {
-    private static final int MIN_RANDOM_NUMBER = 1;
+    private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private final List<Car> cars;
 
