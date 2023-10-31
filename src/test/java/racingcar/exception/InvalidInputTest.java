@@ -29,6 +29,19 @@ class InvalidInputTest {
                 .hasMessage("이름은 최대 5글자 입니다.");
     }
 
+    @DisplayName("자동차 이름이 중복된 경우 예외가 발생한다.")
+    @Test
+    void DuplicateNameException(){
+        //given
+        InputView inputView = new InputView();
+        String names = "haha,papa,haha";
+
+        //when //then
+        assertThatThrownBy(() -> inputView.splitNames(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 이름은 사용할 수 없습니다.");
+    }
+
     @DisplayName("주어진 횟수가 숫자가 아니면 예외가 발생한다.")
     @Test
     void NotIntegerValueException(){
