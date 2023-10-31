@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarFactory;
 import racingcar.domain.Race;
 import racingcar.util.Validate;
 
@@ -14,8 +15,8 @@ public class Application {
     public static void main(String[] args) {
         List<String> carNames = askCarNames();
         Integer attemptNumber = askAttemptNumber();
-        List<Car> cars = makeCar(carNames);
 
+        List<Car> cars = CarFactory.makeCar(carNames);
         Race race = new Race(cars, attemptNumber);
         race.run();
     }
@@ -31,9 +32,4 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(isValidAttemptNumber(readLine()));
     }
-
-    public static List<Car> makeCar(List<String> carNames) {
-        return carNames.stream().map(Car::new).toList();
-    }
-
 }
