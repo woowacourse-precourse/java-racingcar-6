@@ -5,7 +5,6 @@ import model.domain.Winner;
 import model.service.GamePlay;
 import model.service.GameResult;
 import model.domain.Participant;
-import model.service.Split;
 import view.Input;
 import view.Output;
 
