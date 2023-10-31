@@ -37,6 +37,16 @@ public class GameController {
         }
         ResultView.printNewLine();
     }
+
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 }
 
 
