@@ -37,6 +37,7 @@ public class InputService {
 
     public Map<String, Integer> convertListToMap(List<String> carNameList) {
         Map<String, Integer> carNameMap = new HashMap<>();
+
         for (int i = 0; i < carNameList.size(); i++) {
             carNameMap.put(carNameList.get(i), 0);
         }
@@ -73,5 +74,25 @@ public class InputService {
             return true;
         }
         return false;
+    }
+
+    public String choiceWinner(Car car) {
+        String winnerName = "";
+        Map<String, Integer> carName = car.getName();
+
+        int max = carName.values().stream() // car의 가장 큰 값을 찾는다.
+                .max(Integer::compareTo)
+                .orElse(0);
+
+        for (Map.Entry<String, Integer> entry : carName.entrySet()) {
+            if (entry.getValue() == max) {
+                winnerName += entry.getKey() + ", ";
+            }
+        }
+
+        if (winnerName.endsWith(", ")) { // 마지막에 (, )가 있으면 제거하고 반환한다.
+            winnerName = winnerName.substring(0, winnerName.length() - 2);
+        }
+        return winnerName;
     }
 }

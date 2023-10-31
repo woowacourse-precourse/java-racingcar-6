@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Iterator;
 import java.util.Map;
 import racingcar.model.domain.Car;
@@ -30,5 +31,10 @@ public class OutputView {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void printWinner(String winner) {
+        System.out.print("최종 우승자 : " + winner);
+        Console.close();
     }
 }
