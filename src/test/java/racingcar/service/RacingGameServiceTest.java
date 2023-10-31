@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -36,6 +37,20 @@ class RacingGameServiceTest {
         assertThat("Car1").isEqualTo(racingCars.get(0).getCarName());
         assertThat("Car2").isEqualTo(racingCars.get(1).getCarName());
         assertThat("Car3").isEqualTo(racingCars.get(2).getCarName());
+    }
+
+    @Test
+    public void 시도_횟수_입력() {
+        //given
+        String input = "3";
+
+        //when
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        //then
+        Assertions.assertDoesNotThrow(() -> {
+            racingGameService.racingRoundInput();
+        });
     }
 
     @Test
