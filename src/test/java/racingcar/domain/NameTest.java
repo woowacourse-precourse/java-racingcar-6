@@ -10,8 +10,6 @@ import racingcar.util.Constants;
 
 public class NameTest {
 
-    Name name;
-
     @Test
     void 이름객체의_예외_처리() {
         assertThatThrownBy(() -> new Name("123456"))
