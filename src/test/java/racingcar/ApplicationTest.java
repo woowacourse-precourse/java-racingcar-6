@@ -87,6 +87,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_이름에_특수문자가_있는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("po@bi,woni", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {
