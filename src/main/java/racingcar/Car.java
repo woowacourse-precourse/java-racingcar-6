@@ -10,14 +10,10 @@ public class Car {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
     public int getDriveNum() {
-        return driveNum;
+        return this.driveNum;
     }
-    private void setDriveNum(int driveNum) {
+    public void setDriveNum(int driveNum) {
         this.driveNum += driveNum;
     }
 }
