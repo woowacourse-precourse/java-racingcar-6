@@ -1,11 +1,12 @@
 package racingcar.game;
 
 import java.util.List;
+import java.util.Objects;
 
 public final class GameArgumentValidator {
 
-    public static void validateCarName(List<String> cars) {
-        if (cars.isEmpty()) {
+    public static void validateCarNames(List<String> cars) {
+        if (Objects.isNull(cars) || cars.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
         }
 

@@ -6,7 +6,7 @@ import racingcar.io.GameConsoleOutput;
 
 public class Result {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Result(List<Car> cars) {
         this.cars = cars;
