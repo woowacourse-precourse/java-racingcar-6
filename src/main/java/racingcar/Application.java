@@ -1,6 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -28,6 +31,13 @@ class Event {
         for (int i = 0; i < players.length; i++) {
             if (players[i].length() > 5) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
+
+            List<String> playersList = new ArrayList<String>(Arrays.asList(players));
+            int count = Collections.frequency(playersList, players[i]);
+
+            if (count > 2) {
+                throw new IllegalArgumentException("중복된 이름입니다.");
             }
         }
 
