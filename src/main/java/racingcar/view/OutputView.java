@@ -7,6 +7,7 @@ public class OutputView {
     public void printPlayResult()
     {
         System.out.println("실행 결과");
+        System.out.println("");
     }
 
     public void printCarListResult(List<Car> carList){
