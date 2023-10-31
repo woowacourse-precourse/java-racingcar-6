@@ -2,12 +2,12 @@ package racingcar.model;
 
 public class Car {
     private String name;
-    private Integer status;
+    private Integer position;
     private static final Integer INITIAL_STATUS = 0;
 
     private Car(String name, int status) {
         this.name = name;
-        this.status = status;
+        this.position = position;
     }
 
     public static Car makeCar(String name) {
@@ -15,20 +15,20 @@ public class Car {
     }
 
     public void move() {
-        status++;
+        position++;
     }
 
     public String getStatusString() {
-        String statusString = "";
-        for (int i = 0; i < status; i++) {
-            statusString += "-";
+        String postionString = "";
+        for (int i = 0; i < position; i++) {
+            postionString += "-";
         }
         StringBuilder sb = new StringBuilder();
-        return sb.append(name).append(" : ").append(statusString).toString();
+        return sb.append(name).append(" : ").append(postionString).toString();
     }
 
-    public int getStatus() {
-        return status;
+    public int getPosition() {
+        return position;
     }
 
     public String getName() {

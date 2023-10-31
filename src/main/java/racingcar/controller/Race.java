@@ -43,10 +43,10 @@ public class Race {
     }
 
     private boolean IsWinnerCondition(Car car) {
-        return car.getStatus() == getMaxScore() && car.getStatus() > 0;
+        return car.getPosition() == getMaxScore() && car.getPosition() > 0;
     }
 
     private Integer getMaxScore() {
-        return racingCars.stream().mapToInt(Car::getStatus).max().orElseThrow(NoSuchElementException::new);
+        return racingCars.stream().mapToInt(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
     }
 }
