@@ -21,7 +21,7 @@ public class Game {
     }
 
     private void runRace(){ //각 라운드 시작
-
+        race.playRace();
     }
 
     private void printRaceResult() { //레이스 결과 출력

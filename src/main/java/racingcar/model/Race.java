@@ -32,7 +32,20 @@ public class Race {
     }
 
     public void playRace(){
+        while(raceRounds > 0){
+            moveCars();
+            printRoundResult();
+            raceRounds--;
+        }
+    }
 
+    private void moveCars() {
+        for (Car car : carList) {
+            car.moveForward();
+        }
+    }
+
+    private void printRoundResult() {
     }
 
     public List<String> getRaceResult(){
