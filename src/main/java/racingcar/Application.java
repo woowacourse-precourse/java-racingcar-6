@@ -9,7 +9,7 @@ public class Application {
         CarFactory carFactory = new CarFactory();
         UserInput userInput = new UserInput();
         List<Car> carList = carFactory.createCars(userInput.getCarNames(Console.readLine()));
-        int attemptsNumber = userInput.getAttemptsNumber();
+        int attemptsNumber = userInput.getAttemptsNumber(Console.readLine());
 
         Race race = new Race();
         race.start(carList, attemptsNumber);
