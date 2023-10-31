@@ -5,6 +5,7 @@ import static racingcar.message.ErrorMessage.*;
 public class Car implements CarCondition{
 
     private final String name;
+
     private int distance = 0;
 
     public Car(String name) {
