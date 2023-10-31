@@ -9,8 +9,4 @@ public class Utils {
         return Arrays.stream(AllCarsName.split(","))
                 .collect(Collectors.toList());
     }
-
-    public static int convertStringToInt(String playTime) {
-        return Integer.parseInt(playTime);
-    }
 }
