@@ -228,7 +228,25 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_값에_따라_자동차_전진_정지() {
+        try {
+            List<List<Object>> testCase = Arrays.asList(
+                    Arrays.asList(MOVING_FORWARD, 1),
+                    Arrays.asList(STOP, 0));
 
+            for (List<Object> input : testCase) {
+                Car car = new Car();
+                assertRandomNumberInRangeTest(
+                        () -> {
+                            car.run();
+                        },
+                        (Integer) input.get(0));
+                Field privateField = car.getClass().getDeclaredField("position");
+                privateField.setAccessible(true);
+                assertThat(privateField.get(car)).isEqualTo(input.get(input.size() - 1));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
