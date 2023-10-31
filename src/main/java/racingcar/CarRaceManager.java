@@ -1,11 +1,11 @@
 package racingcar;
 
+import static racingcar.Validation.validateCarName;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CarRaceManager {
     private List<Car> racingCars = new ArrayList<>();
@@ -21,12 +21,13 @@ public class CarRaceManager {
     }
 
     private List<String> inputCarName() {
-        String input = Console.readLine();
+        String input = Console.readLine().replaceAll(" ","");
         String[] carNameArray = input.split(",");
         return Arrays.asList(carNameArray);
     }
 
     public void createCarList() {
+        // carNameArray? List로 수정
         List<String> carNameArray = inputCarName();
         for (String carName : carNameArray) {
             Car newCar = new Car(carName);

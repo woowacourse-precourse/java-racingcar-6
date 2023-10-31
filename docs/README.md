@@ -1,7 +1,8 @@
 # 미션2 - 자동차 경주
 JAVA _ 자동차 경주 게임 프로젝트
 
-### 입력
+## 기능 목록
+### ✔ 입력
 - [x]: 경주할 자동차들의 이름을 입력받고 저장한다. - CarRaceManager.createCarList()
     - [ ]: 입력값이 없으면 오류 발생시킨다(Null).
     - [ ]: 입력값이 5자를 초과하면 오류 발생시킨다.
@@ -11,14 +12,14 @@ JAVA _ 자동차 경주 게임 프로젝트
     - [ ]: 입력값이 int type이 아니면 오류 발생시킨다.
     - [ ]: 입력값이 0이하면 오류 발생시킨다.
 
-### 각 시도별 경주 실행 - CarRaceManger.nthAttemptRace()
+### ✔ 각 시도별 경주 실행 - CarRaceManger.nthAttemptRace()
 - [x]: 0~9까지 중에 무작위 값을 구한다. - Utils.generateRandomNumber()
 - [x]: 무작위로 구한 값이 전진값인지 아닌 지 판단한다. - Utils.isMove()
     - [x]: 전진값이면 해당 차의 전진값을 +1 한다. - Car.moveForward()
 
 - [x]: 각 시도별 경주 결과 출력. - CarRaceManager.printAttemptResult()
 
-### 우승자 판단 및 출력
+### ✔ 우승자 판단 및 출력
 - [x]: 우승자를 판단한다. - carRaceManager.winnerJudgment()
 - [x]: 우승자를 출력한다. - carRaceManager.printWinner()
 
@@ -34,17 +35,19 @@ JAVA _ 자동차 경주 게임 프로젝트
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-### 입출력 요구 사항
+### ✔ 입출력 요구 사항
 
 #### 입력
 
 - 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
+- (추가) 공백은 무시한 후, 값을 판단
 
 ```
 pobi,woni,jun
 ```
 
 - 시도할 회수
+- (추가) 공백은 무시한 후, 값을 판단
 
 ```
 5

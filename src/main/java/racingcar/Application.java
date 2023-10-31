@@ -25,6 +25,6 @@ public class Application {
     }
 
     private static int getAttemptNumber() {
-        return Integer.valueOf(Console.readLine());
+        return Integer.valueOf(Console.readLine().replaceAll(" ",""));
     }
 }
