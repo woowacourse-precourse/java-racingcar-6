@@ -8,12 +8,16 @@ public class Exception {
     private final Parser parser = new Parser();
     public void checkCarNamesInput(String input) throws IllegalArgumentException {
         List<String> carNameList = parser.parseCarNames(input);
-        checkLengthAndThrowException(input);
-        checkSpaceAndThrowException(input);
+        checkCarNameLengthAndSpaceThrowException(carNameList);
         checkEmptyAndThrowException(input);
         checkCarNameListDuplicationAndThrowException(carNameList);
     }
-
+    private void checkCarNameLengthAndSpaceThrowException(List<String> carNameList) {
+        for (String carName : carNameList) {
+            checkLengthAndThrowException(carName);
+            checkSpaceAndThrowException(carName);
+        }
+    }
     private void checkSpaceAndThrowException(String carName) {
         if (carName.contains(SPACE)) {
             throwSpaceException();
