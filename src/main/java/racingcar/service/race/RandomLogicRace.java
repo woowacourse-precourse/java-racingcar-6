@@ -7,21 +7,21 @@ import racingcar.domain.Cars;
 public class RandomLogicRace implements Racing{
     private static final int MOVE_NUMBER = 4;
     @Override
-    public void race(Cars cars) {
+    public void race(final Cars cars) {
         driveCars(cars);
 
     }
-    private static void driveCars(Cars cars) {
+    private static void driveCars(final Cars cars) {
         for(Car car: cars.getCarList()){
             move(car, Randoms.pickNumberInRange(0, 9));
         }
     }
-    private static void move(Car car, int value) {
+    private static void move(final Car car, final int value) {
         if(checkValuableNumber(value)){
             car.updatePosition();
         }
     }
-    private static boolean checkValuableNumber(int value) {
+    private static boolean checkValuableNumber(final int value) {
         return value >= MOVE_NUMBER;
     }
 }

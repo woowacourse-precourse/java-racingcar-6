@@ -5,7 +5,7 @@ public class Car {
     private int position;
 
 
-    private Car(String name) {
+    private Car(final String name) {
         this.name = name;
         this.position = 0;
     }
@@ -16,7 +16,7 @@ public class Car {
         return this.position;
     }
 
-    public static Car of(String name){
+    public static Car of(final String name){
         return new Car(name);
     }
     public void updatePosition(){

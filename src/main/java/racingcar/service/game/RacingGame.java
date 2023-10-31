@@ -30,11 +30,11 @@ public class RacingGame implements GameInterface{
         resulting(cars);
     }
 
-    private void resulting(Cars cars) {
+    private void resulting(final Cars cars) {
         output.showResult(new CarsOutputDto(cars));
     }
 
-    private void competing(int time, Cars cars) {
+    private void competing( int time, final Cars cars) {
         Printer.switchLine();
         Printer.raceResult();
         while(isCounting(time)){
@@ -45,7 +45,7 @@ public class RacingGame implements GameInterface{
         }
     }
 
-    private static boolean isCounting(int time) {
+    private static boolean isCounting(final int time) {
         return time > END_TIME;
     }
 

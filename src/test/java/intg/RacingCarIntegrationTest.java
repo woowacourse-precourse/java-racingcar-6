@@ -62,6 +62,46 @@ public class RacingCarIntegrationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 이름은 5자 이하만 가능합니다.");
     }
+
+    @Test
+    void 게임_차이름_콤마만_입력_인풋_실패_케이스(){
+        //given
+        System.setIn(createUserInput(","));
+
+        //then
+        assertThatThrownBy(GameController::new)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 빈 값은 입력이 불가능합니다.");
+    }
+    @Test
+    void 게임_차이름_널값_입력_인풋_실패_케이스(){
+        //given
+        System.setIn(createUserInput(" "));
+
+        //then
+        assertThatThrownBy(GameController::new)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 빈 값은 입력이 불가능합니다.");
+    }
+    @Test
+    void 게임_차이름_콤마_뒤에_붙은_실패_케이스(){
+        //given
+        System.setIn(createUserInput("car12345,car2,car3,"));
+        //then
+        assertThatThrownBy(GameController::new)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 이름은 5자 이하만 가능합니다.");
+    }
+    @Test
+    void 게임_차이름_콤마_앞에_붙은_실패_케이스(){
+        //given
+        System.setIn(createUserInput(",car12345,car2,car3"));
+        //then
+        assertThatThrownBy(GameController::new)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 이름은 5자 이하만 가능합니다.");
+    }
+
     @Test
     void 게임_횟수_빈칸_인풋_실패_케이스(){
         //given
@@ -115,6 +155,8 @@ public class RacingCarIntegrationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 횟수는 1 이상이어야 합니다.");
     }
+
+
 
 
 
