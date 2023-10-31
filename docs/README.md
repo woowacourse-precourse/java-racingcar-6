@@ -30,7 +30,7 @@ Constants - 스트링 상수들 저장된 클래스
 사용자는 몇 번의 이동을 할 것인지 입력                   RacingGame#promptNumberOfMoves()
 
 주어진 횟수 동안 n대의 자동차는 전진 또는 정지            SimpleCar#goForward()
-    전진 여부를 결정하는 0~9 사이 무작위 값 설정          RandomNumberGenerator#generateRandomNumber()
+    전진 여부를 결정하는 0~9 사이 무작위 값 설정         
     무작위 값이 4 이상일 경우 전진 
     
 각 회차에 따른 자동차 이동 여부 출력                     RacingGame#printCarMovement()
