@@ -3,7 +3,7 @@ package racingcar.view;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.RacingResult;
-import racingcar.model.SpecialSign;
+import racingcar.model.enums.SpecialSign;
 
 public class OutputView {
 

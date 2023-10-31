@@ -2,12 +2,12 @@ package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
+import racingcar.model.enums.MovingStatus;
 import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 

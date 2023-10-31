@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import racingcar.model.enums.SpecialSign;
 
 public class RacingResult {
 
