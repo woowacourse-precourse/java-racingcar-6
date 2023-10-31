@@ -27,7 +27,16 @@ public class Car {
         }
     }
 
+    public String getCarInfo() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(this.name);
+        builder.append(" : ");
+        builder.append("-".repeat(Math.max(0, this.movedDistance)));
+        return builder.toString();
+    }
+
     private void move() {
         ++this.movedDistance;
     }
+
 }

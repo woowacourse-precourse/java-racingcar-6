@@ -19,6 +19,9 @@ public class Application {
             for (Car car: cars) {
                 car.tryMove();
             }
+            for (Car car: cars) {
+                System.out.println(car.getCarInfo());
+            }
         }
     }
 }
