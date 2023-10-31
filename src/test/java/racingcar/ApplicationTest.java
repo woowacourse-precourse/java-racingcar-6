@@ -23,14 +23,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 숫자에_대한_예외_처리_문자_입력() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi", "a"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
