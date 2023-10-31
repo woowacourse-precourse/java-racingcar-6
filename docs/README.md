@@ -33,6 +33,6 @@
 - [x] Car#winnerList_메서드_사용시_우승자_명단_반환()
 - [x] Player#moveOnInput_메서드_사용시_경기_시도할_횟수_반환()
     - [x] Player#moveOnInput_메서드_사용시_0보다_큰_정수_아닐_때_예외_발생()
-- [] Utils#randomNumberGenerator_메서드_사용시_0에서_9사이_값_반환()
+- [x] Utils#randomNumberGenerator_메서드_사용시_0에서_9사이_값_반환()
 - [] OutputView#printToResult_메서드_사용시_최종_우승자_반환()
 - [] OutputView#resultForMiddle_메서드_사용시_중간_결과_반환()

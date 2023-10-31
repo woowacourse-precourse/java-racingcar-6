@@ -14,6 +14,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.car.Car;
 import racingcar.exception.ExceptionMessage;
 import racingcar.player.Player;
+import racingcar.utils.Utils;
 
 class RacingCarGameTest {
 
@@ -84,5 +85,12 @@ class RacingCarGameTest {
                 () -> player.moveOnInput(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.MOVE_OF_RANGE);
+    }
+
+    @Test
+    void randomNumberGenerator_메서드_사용시_0에서_9사이_값_반환() {
+        int actual = Utils.randomNumberGenerator();
+
+        assertThat(actual).isBetween(0, 9);
     }
 }
