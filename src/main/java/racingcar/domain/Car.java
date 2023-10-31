@@ -4,6 +4,7 @@ public class Car {
 
     private final String name;
     private int position;
+    private final int ACCEL = 4;
 
     public Car(String name) {
         this.name = name;
@@ -16,6 +17,12 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public void move(int number) {
+        if (number >= ACCEL) {
+            position++;
+        }
     }
 
 }
