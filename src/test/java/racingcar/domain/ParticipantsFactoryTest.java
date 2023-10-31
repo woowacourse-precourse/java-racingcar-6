@@ -44,27 +44,24 @@ class ParticipantsFactoryTest {
 
     @Test
     void 중복된_이름의_자동차가_있으면_에러가_발생한다() {
-        List<Car> cars = List.of(
-                new Car("car1", 0, null),
-                new Car("car1", 0, null)
-        );
+        List<String> names = List.of("car1", "car1");
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> participantsFactory.create(cars));
+                .isThrownBy(() -> participantsFactory.createFromName(names));
     }
 
     @ParameterizedTest
     @MethodSource
-    void 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다(List<Car> cars) {
+    void 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다(List<String> names) {
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> participantsFactory.create(cars));
+                .isThrownBy(() -> participantsFactory.createFromName(names));
     }
 
     private static Stream<Arguments> 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다() {
         return Stream.of(
                 Arguments.of(List.of()),
-                Arguments.of(List.of(new Car("car", 0, null)))
+                Arguments.of(List.of("car1"))
         );
     }
 }

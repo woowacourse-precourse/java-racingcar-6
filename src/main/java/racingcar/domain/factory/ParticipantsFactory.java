@@ -14,15 +14,16 @@ public class ParticipantsFactory {
         this.validator = validator;
     }
 
-    public Participants create(List<Car> cars) {
+    public Participants createFromName(List<String> names) {
+        List<Car> cars = mapToCars(names);
+
         validator.accept(cars);
         return new Participants(cars);
     }
 
-    public Participants createFromName(List<String> names) {
-        List<Car> cars = names.stream()
+    private List<Car> mapToCars(List<String> names) {
+        return names.stream()
                 .map(carFactory::create)
                 .toList();
-        return create(cars);
     }
 }

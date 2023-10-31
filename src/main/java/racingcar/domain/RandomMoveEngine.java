@@ -6,7 +6,7 @@ import java.util.function.BooleanSupplier;
 public class RandomMoveEngine implements BooleanSupplier {
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
-    public static final int MOVE_THRESHOLD = 4;
+    private static final int MOVE_THRESHOLD = 4;
 
     @Override
     public boolean getAsBoolean() {
