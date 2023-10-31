@@ -5,8 +5,11 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Application {
+    static List<Pair<String, Integer>> carInfoList;
     static String carNameBeforeSplit, stringNumberOfMoves;
     static ArrayList<String> carList;
     static int[] moveForwardlist;
@@ -18,6 +21,9 @@ public class Application {
         // 게임 시작 후 안내 문구와 함께 자동차 이름 입력받기
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carNameBeforeSplit = readLine();
+
+        // 자동차 이름의 길이를 판단하기 위해 스플릿 작업이 필요하여 스플릿 함수 실행
+        make_name_split();
 
         // 입력 받은 자동차 이름 에러를 확인하며 스플릿 작업 같이 진행하기
         check_error_carname(carNameBeforeSplit);
@@ -31,14 +37,36 @@ public class Application {
 
         // 모든 입력이 정상이면 자동차 전진을 시작하기 위해 전진 횟수를 담을 배열 생성
         make_move_forwardlist();
+
+        // 자동차 전진 수행
         for (int i = 0; i < numberOfMoves; i++) {
             move_cars();
-
         }
 
-        System.out.println(carList);
-        System.out.println(numberOfMoves);
+        // 승자를 가리기 위해 Hashmap 자료 구조에 자동차 이름과 전진 횟수를 저장
+        combine_car_names_with_car_move_times();
+
+        // 전진 횟수가 높은 순서부터 정렬하기
+        sort_carInfo_by_move_times();
+
+        for (Pair<String, Integer> pair : carInfoList) {
+            System.out.println(pair.getKey() + ": " + pair.getValue());
+        }
     }
+
+    public static void sort_carInfo_by_move_times() {
+        Collections.sort(carInfoList, (a, b) -> b.getValue().compareTo(a.getValue()));
+
+    }
+
+
+    public static void combine_car_names_with_car_move_times() {
+        carInfoList = new ArrayList<>();
+        for (int i = 0; i < carList.size(); i++) {
+            carInfoList.add(new Pair<>(carList.get(i), moveForwardlist[i]));
+        }
+    }
+
 
     public static void move_cars() {
 
@@ -76,13 +104,10 @@ public class Application {
 
         // 에러 상황 나누기
         // 1. 빈 문자를 입력한 경우
-        // 2. 자동차 이름이 1글자~5글자 아닌 경우 -> 스플릿 작업을 1번만 하기 위해 에러 체크 시 진행하기로 결정
+        // 2. 자동차 이름이 1글자~5글자 아닌 경우
         // 3. 같은 이름의 자동차를 입력한 경우
 
         int inputLength = input.length();
-
-        // 자동차 이름의 길이를 판단하기 위해 스플릿 작업이 필요하여 이곳에서 스플릿 함수 실행
-        make_name_split();
 
         if (inputLength == 0) {
             throw new IllegalArgumentException("문자를 입력해주세요.");
