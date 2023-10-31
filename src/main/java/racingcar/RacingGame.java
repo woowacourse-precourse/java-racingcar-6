@@ -34,4 +34,12 @@ public class RacingGame {
         }
         return winner;
     }
+
+    private void moveCar() {
+        for (Car car : cars) {
+            if (isMoveForward()) {
+                car.move();
+            }
+        }
+    }
 }
