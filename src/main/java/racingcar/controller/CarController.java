@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.validator.NameDuplicateValidator;
 import racingcar.validator.NamesCountValidator;
 import racingcar.view.InputView;
 
@@ -19,6 +20,10 @@ public class CarController {
 
         NamesCountValidator namesCountValidator = new NamesCountValidator();
         namesCountValidator.validate(carNames);
+
+        NameDuplicateValidator nameDuplicateValidator = new NameDuplicateValidator();
+        nameDuplicateValidator.validate(carNames);
+
         return carNames;
     }
 
