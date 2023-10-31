@@ -10,17 +10,31 @@ import racingcar.view.InputView;
 public class GameController {
 
     InputView inputView = new InputView();
+    GameManager gameManager = new GameManager();
     Cars cars;
 
     public void gameStart() {
         cars = createCars(inputView.getCarsName());
+        runRacing(inputView.getMovingTryCount(), cars);
+    }
+
+    public void runRound(Cars cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            gameManager.tryMoveCar(cars.getCarInIndex(i));
+        }
+    }
+
+    public void runRacing(int round, Cars cars) {
+        for (int i = 0; i < round; i++) {
+            runRound(cars);
+        }
     }
 
     public Cars createCars(List<String> carsName) {
         List<Car> carsTempHolder = new ArrayList<>();
         Cars cars;
 
-        for(String carName : carsName) {
+        for (String carName : carsName) {
             Car car = new Car(carName);
             carsTempHolder.add(car);
         }
