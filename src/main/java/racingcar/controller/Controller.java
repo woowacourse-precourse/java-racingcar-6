@@ -8,6 +8,7 @@ import racingcar.view.UserInput;
 import racingcar.view.UserOutput;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Controller {
     public static void startRace() {
@@ -50,11 +51,18 @@ public class Controller {
     }
 
     public static Integer convertStringToInteger(String cnt) {
+        int result;
         try {
-            return Integer.parseInt(cnt);
+            result = Integer.parseInt(cnt);
         } catch (Exception e) {
             throw new IllegalArgumentException(Message.EXECUTION_INPUT_TYPE_ERROR);
         }
+
+        if(result <= 0){
+            throw new IllegalArgumentException(Message.EXECUTION_INPUT_TYPE_ERROR);
+        }
+
+        return result;
     }
 
     public static void checkNameValidation(String name) {
