@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.unit.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,6 +13,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.common.io.reader.Reader;
 import racingcar.common.io.writer.Writer;
+import racingcar.game.RacingGameScreen;
 import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.TurnResult;
 
@@ -28,6 +29,10 @@ class RacingGameScreenTest {
         @Override
         public String readLine() {
             return input;
+        }
+
+        @Override
+        public void close() {
         }
 
         public void setInput(String input) {

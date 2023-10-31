@@ -1,4 +1,4 @@
-package racingcar.racer;
+package racingcar.unit.racer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
+import racingcar.racer.RacingCar;
 import racingcar.util.Random;
 
 class RacingCarTest {
@@ -101,6 +102,5 @@ class RacingCarTest {
             //then
             assertThat(racingCar.getPosition()).isEqualTo(1);
         }
-
     }
 }

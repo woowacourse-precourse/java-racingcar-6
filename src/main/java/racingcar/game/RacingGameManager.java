@@ -1,7 +1,9 @@
 package racingcar.game;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.TurnResult;
 import racingcar.racer.RacingCar;
@@ -19,7 +21,7 @@ public class RacingGameManager {
         RacingCarRegistry racingCarRegistry = registerRacingCar();
         int turnCount = inputNumberOfTurns();
         startRace(racingCarRegistry, turnCount);
-
+        announceWinner(racingCarRegistry);
     }
 
     private RacingCarRegistry registerRacingCar() {
@@ -39,7 +41,7 @@ public class RacingGameManager {
 
     private int inputNumberOfTurns() {
         String numberOfTurns = racingGameScreen.inputNumberOfTurns();
-        Validator.validateLength(numberOfTurns, 0, 5);
+        Validator.validateLength(numberOfTurns, 0, 4);
         Validator.validateHasText(numberOfTurns);
         Validator.validateNumeric(numberOfTurns);
         return Integer.parseInt(numberOfTurns);
@@ -58,5 +60,20 @@ public class RacingGameManager {
 
             racingGameScreen.showTurnResult(new TurnResult(list));
         }
+    }
+
+    private void announceWinner(RacingCarRegistry racingCarRegistry) {
+        List<RacingCar> racingCars = racingCarRegistry.getRacingCars();
+        Optional<Integer> maxPosition = racingCars.stream()
+                .map(RacingCar::getPosition)
+                .max(Integer::compareTo);
+
+        List<String> winners = maxPosition.map(max -> racingCars.stream()
+                        .filter(racingCar -> racingCar.getPosition() == max)
+                        .map(RacingCar::getName)
+                        .toList())
+                .orElse(Collections.emptyList());
+
+        racingGameScreen.showFinalWinner(winners);
     }
 }
