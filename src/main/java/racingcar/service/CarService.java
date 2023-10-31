@@ -24,12 +24,24 @@ public class CarService {
     }
 
     public void movieCar(){
-        int randomNumber = getRandomNumber();
         List<Car> cars = carRepository.getCars();
+        for(Car car : cars){
+            int randomNumber= getRandomNumber();
+            movingCar(randomNumber,car);
+        }
+
+
 
     }
 
     private int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    private  void movingCar(int randomNumber,Car car){
+        if(randomNumber>=4){
+            car.setDistance(car.getDistance()+1);
+        }
+
     }
 }

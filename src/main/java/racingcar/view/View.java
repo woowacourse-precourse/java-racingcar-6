@@ -32,7 +32,7 @@ public class View implements ViewInterface{
 
         while(attemptsNumber == 0){
             attemptsNumber--;
-
+            carService.movieCar();
 
         }
 
