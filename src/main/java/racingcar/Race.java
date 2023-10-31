@@ -18,7 +18,7 @@ public class Race {
     }
 
     private List<String> getWinners(List<Car> carList) {
-         return winnerSelect(carList);
+        return winnerSelect(carList);
     }
 
     private void winnerPrintout(List<String> result) {
