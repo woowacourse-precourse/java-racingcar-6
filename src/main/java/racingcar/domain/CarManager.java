@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CarManager {
     //중간 점수 정보 반환
@@ -20,15 +21,13 @@ public class CarManager {
     }
 
     public List<String> winnerData() { //우승 데이터를 반환
-        List<String> winnerList = new ArrayList<>();
         int topDistance = findTopScore(cars);
 
-        for(Car carName : cars){
-            if(topDistance == carName.getDistance()){
-                winnerList.add(carName.getCarName());
-            }
+        List<String> winnerList = cars.stream()
+                .filter(car -> car.getDistance() == topDistance)
+                .map(Car :: getCarName)
+                .collect(Collectors.toList());
 
-        }
         return winnerList;
     }
 
