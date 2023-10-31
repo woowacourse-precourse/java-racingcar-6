@@ -10,6 +10,10 @@ public class InputValue {
 
         String input = getInputValue();
 
+        Validator.name_null_check(input);
+
+        Validator.character_check(input);
+
         String[] names = stringToStringArr(input);
 
         Validator.name_size_check(names);

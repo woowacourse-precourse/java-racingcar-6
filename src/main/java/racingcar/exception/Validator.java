@@ -22,6 +22,14 @@ public class Validator {
         if(names.length != set.size()) throw new IllegalArgumentException(ErrorCode.DUPLICATION_NAME.getMessage());
     }
 
+    public static void name_null_check(String input) {
+        if(input.length() == 0 || input.startsWith(",")) throw new IllegalArgumentException(ErrorCode.NAME_NULL.getMessage());
+    }
+
+    public static void character_check(String input) {
+        if(!input.matches("^[ㄱ-ㅎ가-힣a-zA-Z,]*$")) throw new IllegalArgumentException(ErrorCode.NOT_STRING.getMessage());
+    }
+
     public static void number_check(String input) {
         if(!input.matches("^[0-9]+$")) throw new IllegalArgumentException(ErrorCode.NOT_NUMBER.getMessage());
     }
