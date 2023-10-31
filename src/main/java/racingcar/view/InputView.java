@@ -7,8 +7,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.util.InputValidator;
-import racingcar.util.Validator;
+import racingcar.util.validator.InputValidator;
+import racingcar.util.validator.Validator;
 
 public class InputView implements View {
     private final InputValidator inputValidator;
@@ -29,6 +29,9 @@ public class InputView implements View {
 
     public Integer getUserInputCount() {
         System.out.println(TRY_COUNT.message());
-        return inputValidator.isPositiveInteger(Console.readLine());
+        String input = Console.readLine();
+        Console.close();
+
+        return inputValidator.isPositiveInteger(input);
     }
 }
