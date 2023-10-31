@@ -21,7 +21,7 @@ public class InputView {
         if (carNames.contains(",")) {
             return;
         }
-        throw new IllegalArgumentException(INVALID_SPLIT_CHAR.getMessage());
+        throw new IllegalArgumentException(INVALID_CAR_NUM.getMessage());
     }
 
     public int inputAttemptNumber() {
