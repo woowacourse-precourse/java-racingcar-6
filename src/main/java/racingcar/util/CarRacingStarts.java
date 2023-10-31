@@ -18,18 +18,18 @@ public class CarRacingStarts {
     }
 
 
-
     public void creation(List<String> carNames) {
 
         for (String carName : carNames) {
             int pickRandomNumber = this.pickRandomNumber.Generation();
-            String distanceCheck = carsDistanceData.getOrDefault(carName, "");
+            StringBuilder distanceCheck = new StringBuilder(carsDistanceData.getOrDefault(carName, ""));
+//            String distanceCheck = carsDistanceData.getOrDefault(carName, "");
 
             if (pickRandomNumber >= 4) {
-                distanceCheck += "-";
+                distanceCheck.append("-");
             }
 
-            carsDistanceData.put(carName, distanceCheck);
+            carsDistanceData.put(carName, distanceCheck.toString());
         }
 
     }
