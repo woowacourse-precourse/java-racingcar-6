@@ -30,13 +30,18 @@ public class RacingServiceTest {
         }
     }
 
-//    @Test
-//    void 모든_차들의_진행거리_출력() {
-//        racingService.printAllCarsDistance();
-//    }
-//
-//    @Test
-//    void 최종_우승자_선발() {
-//        racingService.selectWinner();
-//    }
+    @Test
+    void 모든_차들의_진행거리_출력() {
+        List<Car> allCars = racingService.getAllCars();
+        for (Car car : allCars) {
+            car.forward();
+            car.forward();
+        }
+        racingService.printAllCarsDistance();
+    }
+
+    @Test
+    void 최종_우승자_선발() {
+        racingService.selectWinner();
+    }
 }

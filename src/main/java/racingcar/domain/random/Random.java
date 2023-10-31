@@ -7,11 +7,8 @@ public class Random {
     public static final int END_INCLUSIVE = 9;
     private int randomNumber;
 
-    public void generateRandomNumber(){
+    public int generateRandomNumber() {
         randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
-    }
-
-    public int getRandomNumber() {
         return randomNumber;
     }
 }
