@@ -76,7 +76,7 @@ public class GameProcess {
     }
 
     public String knowFinalWinner() {
-        String nameOfWinner = null;
+        String nameOfWinner = "";
         String[] winnerArr = null;
         int sizeOfWinnerList = 0;
 
