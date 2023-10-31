@@ -73,8 +73,19 @@ public class Game {
         car.printCurrentLocation();
     }
 
-    private void printResult() {
+    private List<Car> getWinners(List<Car> cars) {
+        List<Car> winnerCarList;
 
+        for (Car car : cars) {
+            if (car.getCurrentLocation().equals(highestLocation)) {
+                winnerCarList.add(car);
+            }
+        }
+        return winnerCarList;
+    }
+
+    private void printResult() {
+        
     }
 
     // 게임 라운드를 진행할 때 마다 모든 car값의 위치를 넣어 높으면 highestLocation를 갱신한다
