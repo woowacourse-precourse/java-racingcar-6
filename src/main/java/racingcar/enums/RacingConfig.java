@@ -1,11 +1,11 @@
 package racingcar.enums;
 
 public enum RacingConfig {
-    RANDOM_NUMBER_MIN(0),
-    RANDOM_NUMBER_MAX(9),
-    CAR_NAME_MAX_LENGTH(5),
+    MIN_RANDOM_NUMBER(0),
+    MAX_RANDOM_NUMBER(9),
+    MAX_CAR_NAME_LENGTH(5),
     MOVE_CONDITION(4),
-    CAR_COUNT_MIN(2);
+    MIN_CAR_COUNT(2);
 
     private final int value;
 

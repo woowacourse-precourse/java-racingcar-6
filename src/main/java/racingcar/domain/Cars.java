@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Collections;
 import java.util.List;
 
-import static racingcar.enums.RacingConfig.CAR_COUNT_MIN;
+import static racingcar.enums.RacingConfig.MIN_CAR_COUNT;
 
 public class Cars {
     private final List<Car> cars;
@@ -24,8 +24,8 @@ public class Cars {
     }
 
     private void validateSize(List<Car> cars) {
-        if (cars.size() < CAR_COUNT_MIN.getValue()) {
-            throw new IllegalArgumentException(String.format("자동차는 %d대 이상이어야 합니다.", CAR_COUNT_MIN.getValue()));
+        if (cars.size() < MIN_CAR_COUNT.getValue()) {
+            throw new IllegalArgumentException(String.format("자동차는 %d대 이상이어야 합니다.", MIN_CAR_COUNT.getValue()));
         }
     }
 

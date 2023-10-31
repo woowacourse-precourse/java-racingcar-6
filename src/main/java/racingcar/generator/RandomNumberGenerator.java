@@ -2,12 +2,12 @@ package racingcar.generator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.enums.RacingConfig.RANDOM_NUMBER_MAX;
-import static racingcar.enums.RacingConfig.RANDOM_NUMBER_MIN;
+import static racingcar.enums.RacingConfig.MAX_RANDOM_NUMBER;
+import static racingcar.enums.RacingConfig.MIN_RANDOM_NUMBER;
 
 public class RandomNumberGenerator implements NumberGenerator {
     @Override
     public int generateNumber() {
-        return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN.getValue(), RANDOM_NUMBER_MAX.getValue());
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER.getValue(), MAX_RANDOM_NUMBER.getValue());
     }
 }

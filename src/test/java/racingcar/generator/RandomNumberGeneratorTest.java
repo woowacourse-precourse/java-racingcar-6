@@ -3,8 +3,8 @@ package racingcar.generator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static racingcar.enums.RacingConfig.RANDOM_NUMBER_MAX;
-import static racingcar.enums.RacingConfig.RANDOM_NUMBER_MIN;
+import static racingcar.enums.RacingConfig.MAX_RANDOM_NUMBER;
+import static racingcar.enums.RacingConfig.MIN_RANDOM_NUMBER;
 
 class RandomNumberGeneratorTest {
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
@@ -15,7 +15,7 @@ class RandomNumberGeneratorTest {
         int randomNumber = randomNumberGenerator.generateNumber();
 
         // then
-        assertTrue(randomNumber >= RANDOM_NUMBER_MIN.getValue());
-        assertTrue(randomNumber <= RANDOM_NUMBER_MAX.getValue());
+        assertTrue(randomNumber >= MIN_RANDOM_NUMBER.getValue());
+        assertTrue(randomNumber <= MAX_RANDOM_NUMBER.getValue());
     }
 }
