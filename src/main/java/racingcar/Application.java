@@ -20,7 +20,14 @@ public class Application {
     }
 
     public static void printWinners(List<String> cars, List<Integer> carsMovedDistance) {
-        List<Integer> winners = new ArrayList<>();
+        List<Integer> winners = findIndicesOfMaxDistance(carsMovedDistance);
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(cars.get(winners.get(i)));
+            if (i < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 
     public static List<Integer> findIndicesOfMaxDistance(List<Integer> carsMovedDistance) {
