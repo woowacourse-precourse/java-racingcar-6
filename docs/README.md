@@ -15,17 +15,19 @@
 
 ## 구현 기능 목록
 - model
-  - [ ] car
-     - [ ] distance
-     - [ ] name
-     - [ ] forward() 
+  - [x] car
+     - [x] distance
+     - [x] name
+     - [x] forward()
+     - [x] maxDistanceCar()
+     - [x] isSameDistance()
 - controller
   - [ ] gameController
     - [ ] playGame 
       - [ ] gameService method
       - [ ] ConsolePrintService method
 - service
-  - [ ] ConsolePrintService - 화면 출력
+  - [x] ConsolePrintService - 화면 출력
   - [ ] gameService
     - [ ] userInput (car, cnt)
     - [ ] randomNumber pick
