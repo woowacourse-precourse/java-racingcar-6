@@ -32,7 +32,6 @@ public class Validator {
     }
 
     public static void containsOnlyNumbers(String string) {
-        System.out.println(string);
         if (!string.matches(Constants.MOVE_TRY_COUNT_REGEX)) {
             throw new IllegalArgumentException(Constants.INPUT_MOVE_TRY_CONTAIN_STRING);
         }

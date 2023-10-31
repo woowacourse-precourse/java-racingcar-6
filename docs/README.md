@@ -28,6 +28,7 @@
 ### InputView
 - [x] 경주할 자동차 이름을 입력받습니다. - inputString()
 - [x] 전진 시도 횟수를 입력받니다. - inputString()
+
 ### OutputView
 - [x] 전진 시도 회차 마다 전진 결과를 출력합니다. - currentRacingView()
 - [x] 최종 우승자를 출력합니다. -winnerView
