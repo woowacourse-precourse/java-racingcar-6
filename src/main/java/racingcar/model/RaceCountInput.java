@@ -24,15 +24,15 @@ public class RaceCountInput {
     }
 
     private static void validIsNumber(String userInput) {
-        if (!userInput.matches(INTEGER.getValue())) {
-            throw new IllegalArgumentException();
+        String value = INTEGER.getValue();
+        if (!userInput.matches(value)) {
+            throw new IllegalArgumentException("시도할 횟수는 0이 아닌 자연수만 입력 가능합니다.");
         }
     }
 
     private static void validNotZero(int userCount) {
-
         if (userCount < countMin()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("시도할 횟수는 최소 1번 이상입니다.");
         }
     }
 
