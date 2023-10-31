@@ -19,6 +19,7 @@ public class Application {
         // 경주 게임 실행
         RacingGame racingGame = new RacingGame(cars);
         racingGame.play(moveNum);
+
         // 우승자 출력
         consoleUI.printWinners(racingGame.getWinners());
     }

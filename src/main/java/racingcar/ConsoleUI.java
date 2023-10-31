@@ -16,6 +16,7 @@ public class ConsoleUI {
 
         return carNames;
     }
+
     private List<String> parseCarNames(String input) {
         String[] names = input.split(",");
         List<String> carNames = new ArrayList<>();
@@ -30,6 +31,7 @@ public class ConsoleUI {
 
         return carNames;
     }
+
     private void validateCarNames(List<String> carNames) {
         Set<String> uniqueCarNames = new HashSet<>(carNames);
 
@@ -48,10 +50,11 @@ public class ConsoleUI {
     }
 
     private static void validatePositive(String input) {
-        if(Integer.parseInt(input) < 1){
+        if (Integer.parseInt(input) < 1) {
             throw new IllegalArgumentException("올바른 범위의 숫자를 입력하세요.");
         }
     }
+
     private static void validateNumeric(String input) {
         boolean isNumeric = true;
 
@@ -67,6 +70,7 @@ public class ConsoleUI {
             throw new IllegalArgumentException("올바른 범위의 숫자를 입력하세요.");
         }
     }
+
     public void printWinners(List<Car> winners) {
         System.out.print("최종 우승자 : ");
 

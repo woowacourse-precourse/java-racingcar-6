@@ -19,6 +19,7 @@ public class RacingGame {
             printGameState();
         }
     }
+
     public void printGameState() {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
