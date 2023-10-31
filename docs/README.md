@@ -27,11 +27,13 @@
 - 각 회차의 실행 결과를 출력
 - 각 자동차들의 이름과, 위치 출력
 
+## 가장 큰 자동차 위치 찾기
+> Race.findMaxPosition()
+- 자동차의 position 중 가장 큰 위치를 찾음
+
 ## 우승자 결정
-> Race.decideWinner()
-- 모든 회차가 끝났을 때 우승자를 결정
-- 전진한 수가 제일 많은 차를 결정
-  - 우승자는 한 명 이상일 수 있음
+> Race.findWinners()
+- maxPosition과 동일한 값을 가지는 자동차를 찾음
 
 ## 우승자 안내 문구 출력
 > Race.displayWinner()
