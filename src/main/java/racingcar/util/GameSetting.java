@@ -16,10 +16,10 @@ public class GameSetting {
     }
 
     public GameInfo createGameInfo() {
-        List<String> nameList = Parser.splitName(userInput.getUserInputNames(), ",");
+        List<String> nameList = Parser.splitName(userInput.readUserInputNames(), ",");
         InputException.validateName(nameList);
 
-        String attemptNum = userInput.getUserInputAttemptNum();
+        String attemptNum = userInput.readUserInputAttemptNum();
         InputException.validateAttemptNum(attemptNum);
 
         List<Participant> participants = makeParticipants(nameList);

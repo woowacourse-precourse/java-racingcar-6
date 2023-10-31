@@ -1,7 +1,7 @@
 package racingcar;
 
 public interface UserInput {
-    String getUserInputNames();
+    String readUserInputNames();
 
-    String getUserInputAttemptNum();
+    String readUserInputAttemptNum();
 }

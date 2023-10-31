@@ -12,9 +12,10 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         GameFactory gameFactory = new GameFactory(List.of(new RacingGame(new RandomNumberProviderImpl())));
+
         GameSetting gameSetting = new GameSetting(new UserInputImpl());
+
         Game racingGame = gameFactory.getGame(GameType.Racing);
         racingGame.start(gameSetting.createGameInfo());
         racingGame.getResult();
