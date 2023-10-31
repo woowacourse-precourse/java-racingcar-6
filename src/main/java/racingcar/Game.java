@@ -61,20 +61,20 @@ public class Game {
     }
 
     private void init() {
-        this.carNameArray = getCarNameArrayFromInput();
+        this.carNameArray = getCarNameArrayFromValidInput();
         this.numberOfCar = this.carNameArray.length;
         this.carLocationArray = new int[this.numberOfCar];
-        this.moveCount = getMoveCountFromInput();
+        this.moveCount = getMoveCountFromValidInput();
     }
 
-    private String[] getCarNameArrayFromInput() {
+    private String[] getCarNameArrayFromValidInput() {
         Announcement.INPUT_CAR_NAMES.speak();
         String[] inputCarNameArray = Console.readLine().split(",");
         Validator.validateCarNameArray(inputCarNameArray);
         return inputCarNameArray;
     }
 
-    private int getMoveCountFromInput() {
+    private int getMoveCountFromValidInput() {
         Announcement.INPUT_MOVE_COUNT.speak();
         String inputMoveCountString = Console.readLine();
         Validator.validateMoveCount(inputMoveCountString);
