@@ -23,7 +23,7 @@
 	- printRaceResult()
 		- [O] 각 차수별 실행 결과 출력
 	- printRaceWiner()
-		- [ ] 경주 우승자 안내 문구 및 우승자 출력
+		- [O] 경주 우승자 안내 문구 및 우승자 출력
 
 ### controller
 1. GameController
@@ -37,7 +37,7 @@
 		    - [O] 경주 시도 횟수 모델(raceNumber)에 저장
 			- [O] 경주 게임 시작 호출
 			- [O] 우승자 차 이름 String으로 변환하는 함수 호출
-			- [ ] 경주 모두 완료 시 우승자 메시지 출력 호출
+			- [O] 경주 모두 완료 시 우승자 메시지 출력 호출
 		- [ ] 게임 종료
 
 2. CarRacingController

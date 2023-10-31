@@ -5,20 +5,21 @@ import java.util.List;
 
 import racingcar.model.RaceGame;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
     RaceGame raceGame = new RaceGame();
     CarNameValidator carNameValidator = new CarNameValidator();
     CarRacingController carRacingController = new CarRacingController();
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
 
     public void startGame() {
         raceGame.setInputCarName(inputView.enterCarName());
         saveCarNames();
         raceGame.setRaceNumber(Integer.parseInt(inputView.enterRaceNumber()));
         carRacingController.playGame(raceGame);
-        String winner = convertListToString(raceGame);
-        System.out.println(winner);
+        outputView.printRaceWiner(convertListToString(raceGame));
     }
 
     public void saveCarNames() {
