@@ -7,68 +7,118 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.Application;
+import racingcar.domain.Car;
+import racingcar.domain.CarName;
+import racingcar.domain.CarNames;
 import racingcar.domain.GamePlayer;
-import racingcar.dto.CarNames;
-import racingcar.dto.MoveCount;
+import racingcar.domain.GameWinner;
 
 public class GameServiceTest extends NsTest {
-    private static final int MOVE_COUNT = 1;
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private final GameService gameService = new GameService();
-    private final List<String> normalNames = new ArrayList(Arrays.asList("name1", "name2", "name3"));
 
 
-    @Test
-    public void 자동차_이름으로_자동차와_플레이어_생성_검증() {
+    @ParameterizedTest
+    @MethodSource
+    public void 자동차_이름으로_플레이어_생성_검증(List<CarName> input) {
         //given
-        String notContainName = "name4";
+        CarNames carNames = CarNames.fromInput(input);
         //when
-        GamePlayer gamePlayer = GamePlayer.from(CarNames.from(normalNames));
-        gameService.moveCarsByCount(gamePlayer, new MoveCount(MOVE_COUNT));
-
+        GamePlayer gamePlayer = gameService.createGamePlayer(carNames);
+        List<String> expectedResult = input.stream()
+                .map(CarName::getValue)
+                .toList();
+        List<String> result = gamePlayer.getCars().stream()
+                .map(Car::getName).toList();
         //then
-        assertThat(output()).contains(normalNames);
-        assertThat(output()).doesNotContain(notContainName);
+        for (int i = 0; i < input.size(); i++) {
+            assertThat(result.get(i)).isEqualTo(expectedResult.get(i));
+        }
     }
 
-    @Test
-    public void 플레이어_정보로_게임등수_생성_검증() {
-        //given
-        //when
-        GamePlayer gamePlayer = GamePlayer.from(CarNames.from(normalNames));
-        gameService.moveCarsByCount(gamePlayer, new MoveCount(MOVE_COUNT));
-        //then
-        assertThat(output()).contains("name1", "name2", "name3");
-        assertThat(output()).doesNotContain("name4");
+    private static Stream<Arguments> 자동차_이름으로_플레이어_생성_검증() {
+        return Stream.of(
+                Arguments.of(new ArrayList(
+                        Arrays.asList(new CarName("name1"), new CarName("name2"), new CarName("name3")))),
+                Arguments.of(new ArrayList(
+                        Arrays.asList(new CarName("a"), new CarName("b"), new CarName("c")))),
+                Arguments.of(new ArrayList(
+                        Arrays.asList(new CarName("김"), new CarName("이"), new CarName("박"))))
+        );
     }
 
-    @Test
-    public void 게임등수로_우승자_생성_검증() {
+
+    @ParameterizedTest
+    @MethodSource
+    public void 자동차_랜덤값에_의한_이동(List<Integer> moveCondition, List<Integer> expectedResult) {
         //given
-
+        CarNames carNames = CarNames.fromInput(
+                new ArrayList<>(Arrays.asList(new CarName("name1"), new CarName("name2"), new CarName("name3"))));
+        GamePlayer gamePlayer = gameService.createGamePlayer(carNames);
         //when
-
-        //then
-
-    }
-
-    @Test
-    public void 모든_자동차_지정된_횟수만큼_랜덤으로_이동_검증() {
-        //given
-        //when
-        GamePlayer gamePlayer = GamePlayer.from(CarNames.from(normalNames));
-        //then
         assertRandomNumberInRangeTest(
                 () -> {
-                    gameService.moveCarsByCount(gamePlayer, new MoveCount(3));
-                    assertThat(output()).contains("name1 : ---", "name2 : --", "name3 : -");
+                    gameService.moveCars(gamePlayer);
                 },
-                MOVING_FORWARD, STOP, STOP,
-                MOVING_FORWARD, MOVING_FORWARD, STOP,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+                moveCondition.get(0), moveCondition.get(1), moveCondition.get(2)
+        );
+        List<Car> cars = gamePlayer.getCars();
+        //then
+        assertThat(cars.get(0).getMoveDistance()).isEqualTo(expectedResult.get(0));
+        assertThat(cars.get(1).getMoveDistance()).isEqualTo(expectedResult.get(1));
+        assertThat(cars.get(2).getMoveDistance()).isEqualTo(expectedResult.get(2));
+    }
+
+    private static Stream<Arguments> 자동차_랜덤값에_의한_이동() {
+        return Stream.of(
+                Arguments.of(
+                        new ArrayList<>(Arrays.asList(MOVING_FORWARD, STOP, STOP)),
+                        new ArrayList<>(Arrays.asList(1, 0, 0))
+                ),
+                Arguments.of(
+                        new ArrayList<>(Arrays.asList(MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD)),
+                        new ArrayList<>(Arrays.asList(1, 1, 1))
+                ),
+                Arguments.of(
+                        new ArrayList<>(Arrays.asList(STOP, STOP, MOVING_FORWARD)),
+                        new ArrayList<>(Arrays.asList(0, 0, 1))
+                )
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource
+    public void 게임플레이어_정보로_우승자_생성(List<Integer> moveCondition, String expectedResult) {
+        //given
+        CarNames carNames = CarNames.fromInput(
+                new ArrayList<>(Arrays.asList(new CarName("name1"), new CarName("name2"), new CarName("name3"))));
+        GamePlayer gamePlayer = gameService.createGamePlayer(carNames);
+        //when
+        assertRandomNumberInRangeTest(
+                () -> {
+                    gameService.moveCars(gamePlayer);
+                },
+                moveCondition.get(0), moveCondition.get(1), moveCondition.get(2)
+        );
+        List<Car> cars = gamePlayer.getCars();
+        GameWinner gameWinner = gameService.createGameWinner(gamePlayer);
+        String result = gameWinner.getNames();
+        //then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    private static Stream<Arguments> 게임플레이어_정보로_우승자_생성() {
+        return Stream.of(
+                Arguments.of(new ArrayList(Arrays.asList(MOVING_FORWARD, STOP, STOP)), "name1"),
+                Arguments.of(new ArrayList(Arrays.asList(MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD)),
+                        "name1, name2, name3"),
+                Arguments.of(new ArrayList(Arrays.asList(STOP, STOP, MOVING_FORWARD)), "name3")
         );
     }
 
