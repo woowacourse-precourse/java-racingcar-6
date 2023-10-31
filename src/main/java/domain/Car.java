@@ -21,4 +21,8 @@ public class Car {
 	public void move() {
 		this.location += 1;
 	}
+
+	public String createHyphenByLocation() {
+		return "-".repeat(this.location);
+	}
 }

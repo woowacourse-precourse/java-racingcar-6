@@ -1,6 +1,7 @@
 package domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -29,5 +30,17 @@ public class CarTest {
 
 		//then
 		Assertions.assertThat(car.getLocation()).isEqualTo(0);
+	}
+
+	@Test
+	public void 자동차가_움직인_거리만큼_하이픈_생성() {
+		//given
+		Car car = new Car();
+		car.moveByNumber(4);
+		// when
+		String hyphenByLocation = car.createHyphenByLocation();
+
+		//then
+		Assertions.assertThat(hyphenByLocation).isEqualTo("-");
 	}
 }
