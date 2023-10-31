@@ -13,7 +13,7 @@ public class Output {
     }
 
     public static void printResultMessage(OutputMessage outputMessage, String name, int distance) {
-        System.out.printf((outputMessage.message) + "%n", name, joinCarsDistances(distance));
+        System.out.printf(outputMessage.message + "%n", name, joinCarsDistances(distance));
     }
 
     public static void printNewLine() {
