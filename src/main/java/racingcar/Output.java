@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Output {
+    public static final String RACING_RESULT = "실행 결과";
+
     private static final String IS = " : ";
     private static final String BAR = "-";
     private static final String COMMA_AND_BLANK = ", ";
@@ -20,7 +22,7 @@ public class Output {
     }
 
     public void printRacingWinner(Map<String, Integer> carNameAndMoving) {
-        int maxMoving = getCarWithsMaxMoving(carNameAndMoving);
+        int maxMoving = findMaxMoving(carNameAndMoving);
         List<String> winners = getWinners(carNameAndMoving, maxMoving);
         String winner = String.join(COMMA_AND_BLANK, winners);
         System.out.println(FINAL_WINNER + winner);
@@ -34,7 +36,7 @@ public class Output {
         return bar;
     }
 
-    private int getCarWithsMaxMoving(Map<String, Integer> carNameAndMoving) {
+    private int findMaxMoving(Map<String, Integer> carNameAndMoving) {
         int maxMoving = 0;
         for (int moving : carNameAndMoving.values()) {
             maxMoving = Math.max(maxMoving, moving);
