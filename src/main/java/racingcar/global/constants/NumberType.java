@@ -6,7 +6,8 @@ public enum NumberType {
     MIN_RACE_COUNT(1),
     MIN_RANDOM_NUMBER(0),
     MAX_RANDOM_NUMBER(9),
-    MIN_FORWARD_THRESHOLD(4);
+    MIN_FORWARD_THRESHOLD(4),
+    INITIAL_POSITION(0);
 
     private final Integer value;
 

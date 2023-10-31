@@ -1,9 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.global.constants.NumberType.INITIAL_POSITION;
 import static racingcar.global.constants.NumberType.MIN_FORWARD_THRESHOLD;
 import static racingcar.global.constants.SymbolType.RESULT_POSITION;
 import static racingcar.global.constants.SymbolType.RESULT_TOKEN;
 
+import racingcar.global.constants.NumberType;
 import racingcar.utils.RandomUtils;
 
 public class Car {
@@ -12,7 +14,7 @@ public class Car {
 
     private Car(final String name) {
         this.name = Name.of(name);
-        this.position = 0;
+        this.position = INITIAL_POSITION.getValue();
     }
 
     public static Car of(final String name) {
