@@ -6,7 +6,8 @@ import static racingcar.constants.PositionConstant.VALUE_LOW_BOUND;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class ForwardDecider {
+public enum ForwardDecider {
+    INSTANCE;
 
     public boolean isForwardPossible() {
         return checkValueIsOverFour(makeRandomValue());

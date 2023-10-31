@@ -15,9 +15,7 @@ public class Position {
     }
 
     public void attemptForward() {
-        ForwardDecider forwardDecider = new ForwardDecider();
-
-        if (forwardDecider.isForwardPossible()) {
+        if (ForwardDecider.INSTANCE.isForwardPossible()) {
             moveForward();
         }
     }

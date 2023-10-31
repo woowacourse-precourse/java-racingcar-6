@@ -9,7 +9,8 @@ import racingcar.model.Name;
 import racingcar.model.Position;
 import racingcar.util.validator.CarsValidator;
 
-public class CarsGenerator {
+public enum CarsGenerator {
+    INSTANCE;
     private static final String EMPTY = "";
 
     public Cars generate(String inputNames) {

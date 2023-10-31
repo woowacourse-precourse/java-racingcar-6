@@ -9,8 +9,7 @@ public class RacingGame {
     private Cars cars;
 
     public void generateCars(String inputNames) {
-        CarsGenerator carsGenerator = new CarsGenerator();
-        cars = carsGenerator.generate(inputNames);
+        cars = CarsGenerator.INSTANCE.generate(inputNames);
     }
 
     public RoundResult playRound() {
