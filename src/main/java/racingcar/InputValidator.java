@@ -16,7 +16,7 @@ public class InputValidator {
             checkDuplicateName.add(name);
         }
 
-        if(checkDuplicateName.size()!=names.size()){
+        if (checkDuplicateName.size() != names.size()) {
             throw new IllegalArgumentException();
         }
     }
