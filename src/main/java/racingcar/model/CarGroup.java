@@ -49,4 +49,7 @@ public class CarGroup {
         return new CarGroupDto(carDtos);
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
 }

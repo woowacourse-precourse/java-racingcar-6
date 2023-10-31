@@ -26,6 +26,11 @@ public class CarGroupTest {
     }
 
     @Test
+    void CarGroup_생성자는_이름의_개수만큼_Car_를_생성한다(){
+        assertThat(carGroup.getCars().size()).isEqualTo(3);
+    }
+
+    @Test
     void toDto_메서드는_CarGroupDto_객체를_생성한다(){
         CarGroupDto carGroupDto = carGroup.toDto();
         assertThat(carGroupDto.getCars().size()).isEqualTo(3);
