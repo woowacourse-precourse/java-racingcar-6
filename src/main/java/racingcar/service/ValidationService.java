@@ -22,6 +22,9 @@ public class ValidationService {
     }
 
     private List<String> splitByDelimiter(String input) {
+        if (input.isBlank()) {
+            throw new RacingCarException(INVALID_CAR_RANGE_ERROR);
+        }
         return Arrays.asList(input.split(CAR_NAME_DELIMITER.getMessage()));
     }
 
