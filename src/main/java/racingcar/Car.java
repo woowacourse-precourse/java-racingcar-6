@@ -25,7 +25,7 @@ public class Car {
         judgeStopOrGo(pickedNumber);
     }
     public void judgeStopOrGo(int pickedNumber){
-        if(judgement.isOver4(pickedNumber)){
+        if(judgement.isOverFour(pickedNumber)){
             movement+=1;
         }
     }

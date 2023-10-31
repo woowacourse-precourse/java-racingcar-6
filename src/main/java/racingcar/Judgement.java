@@ -9,7 +9,7 @@ public class Judgement {
     private int carMovement;
     private ArrayList<String> winnerList = new ArrayList<>();
 
-    public boolean isOver4(int number){
+    public boolean isOverFour(int number){
         if(number >= 4){
             return true;
         }
