@@ -32,7 +32,7 @@ public class OutputViewTest extends MyTest {
                 car1 : ---
                 car2 :\s
                 car3 : --
-                        
+                
                 """);
     }
 

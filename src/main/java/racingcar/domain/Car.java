@@ -12,7 +12,7 @@ public class Car implements Comparable<Car> {
     private final IntSupplier intSupplier;
     private int position;
 
-    public Car(String name, IntSupplier intSupplier, int position) {
+    public Car(String name, int position, IntSupplier intSupplier) {
         NameValidator.validate(name);
         this.name = name;
         this.intSupplier = intSupplier;
@@ -20,15 +20,15 @@ public class Car implements Comparable<Car> {
     }
 
     public Car(String name, IntSupplier intSupplier) {
-        this(name, intSupplier, DEFAULT_CAR_POSITION);
+        this(name, DEFAULT_CAR_POSITION, intSupplier);
     }
 
     public Car(String name, int position) {
-        this(name, RandomNumberSupplier.getInstance(), position);
+        this(name, position, RandomNumberSupplier.getInstance());
     }
 
     public Car(String name) {
-        this(name, RandomNumberSupplier.getInstance(), DEFAULT_CAR_POSITION);
+        this(name, DEFAULT_CAR_POSITION, RandomNumberSupplier.getInstance());
     }
 
     public void moveForward() {
