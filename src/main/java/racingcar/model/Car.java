@@ -23,4 +23,8 @@ public class Car {
     public void forward() {
         this.forwardMovementState += "-";
     }
+
+    public String getNameAndStateOfCar() {
+        return this.name + " : " + this.forwardMovementState;
+    }
 }
