@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import model.Car;
 import model.Race;
 import model.RacingCar;
+import validate.Validator;
 import view.InputView;
 import view.OutputView;
 
@@ -19,11 +20,11 @@ public class RacingController {
         inputView.createCar();
         ArrayList<Car> carArrayList = Stream
                 .of(Console.readLine().split(","))
-                .map(name -> new RacingCar(name))
+                .map(name -> new RacingCar(Validator.checkName(name)))
                 .collect(Collectors.toCollection(() -> new ArrayList<>()));
 
         inputView.inputLaps();
-        int laps = Integer.parseInt(Console.readLine());
+        int laps = Validator.checkNum(Console.readLine());
 
         Race race = new Race(laps, carArrayList);
         startRace(race);
