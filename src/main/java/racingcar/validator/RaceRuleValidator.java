@@ -16,7 +16,7 @@ public class RaceRuleValidator {
     }
 
     private static void validateEmptyName(final List<String> carNames) {
-        if (isBlankName(carNames)) {
+        if (isBlankName(carNames) || carNames.isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름은 반드시 존재해야 합니다.");
         }
     }
