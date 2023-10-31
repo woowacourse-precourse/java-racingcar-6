@@ -33,11 +33,11 @@ public class GameCount {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         GameCount gameCount = (GameCount) obj;
-        return count == gameCount.count;
+        return this.count == gameCount.count;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(count);
+        return Objects.hash(this.count);
     }
 }

@@ -36,3 +36,6 @@
    * 테스트 코드 작성 중 랜덤 넘버 생성 과정에서 의존성 관련 문제가 발생해서 인터페이스로 분리하고 구현체를 작성하기로 결정
    * RandomNumberGenerator 인터페이스를 도입
    * Factory 패턴을 적용하여 RandomNumberGenerator의 생성을 관리하기로 결정
+   * Car 클래스안  String carName을 Name 클래스로 포장하기로 결정.
+   * Data만 전달하는 객체들은 record 클래스로 바꾸기로 결정.
+   * 

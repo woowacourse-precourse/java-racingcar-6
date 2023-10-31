@@ -22,15 +22,15 @@ public class GameService {
     }
 
     public boolean isGameFinished() {
-        return game.isFinished();
+        return this.game.isFinished();
     }
 
     public void playRound() {
-        game.playRound();
+        this.game.playRound();
     }
 
     public CarDtos getCarPositions() {
-        return game.createCarDtos();
+        return this.game.createCarDtos();
     }
 
 }

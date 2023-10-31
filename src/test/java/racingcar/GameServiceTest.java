@@ -19,7 +19,7 @@ class GameServiceTest {
         gameService.initializeGame("car1,car2,car3", "5");
         gameService.playRound(); // 모든 자동차가 전진
         WinnersDto winners = gameService.getWinners();
-        assertEquals(Arrays.asList("car1", "car2", "car3"), winners.getWinnerNames());
+        assertEquals(Arrays.asList("car1", "car2", "car3"), winners.winners());
     }
 
     @Test

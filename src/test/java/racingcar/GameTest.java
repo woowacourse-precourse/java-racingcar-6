@@ -23,18 +23,18 @@ class GameTest {
         Game testGame = new Game("car1,car2,car3", "1", testRandomNumberGenerator);
         testGame.playRound();
         CarDtos carDtos = testGame.createCarDtos();
-        assertEquals(1, carDtos.getCarDtos().get(0).getPosition());
-        assertEquals(1, carDtos.getCarDtos().get(1).getPosition());
-        assertEquals(1, carDtos.getCarDtos().get(2).getPosition());
+        assertEquals(1, carDtos.carDtos().get(0).position());
+        assertEquals(1, carDtos.carDtos().get(1).position());
+        assertEquals(1, carDtos.carDtos().get(2).position());
     }
 
     @Test
     void 게임한_라운드후_모든자동차_멈춤_테스트() {
         game.playRound();
         CarDtos carDtos = game.createCarDtos();
-        assertEquals(0, carDtos.getCarDtos().get(0).getPosition());
-        assertEquals(0, carDtos.getCarDtos().get(1).getPosition());
-        assertEquals(0, carDtos.getCarDtos().get(2).getPosition());
+        assertEquals(0, carDtos.carDtos().get(0).position());
+        assertEquals(0, carDtos.carDtos().get(1).position());
+        assertEquals(0, carDtos.carDtos().get(2).position());
     }
 
     @Test

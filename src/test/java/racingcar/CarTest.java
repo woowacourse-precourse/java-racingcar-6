@@ -30,7 +30,7 @@ class CarTest {
     void 자동차_전진_테스트() {
         Car car = new Car("pobi", testRandomNumberGenerator);
         car.move();
-        assertEquals(1, car.toCarDto().getPosition());
+        assertEquals(1, car.toCarDto().position());
     }
 
     @Test
@@ -38,7 +38,7 @@ class CarTest {
         RandomNumberGenerator stopRandomNumberGenerator = new TestRandomNumberGenerator(3);
         Car car = new Car("pobi", stopRandomNumberGenerator);
         car.move();
-        assertEquals(0, car.toCarDto().getPosition());
+        assertEquals(0, car.toCarDto().position());
     }
 }
 

@@ -7,23 +7,15 @@ import racingcar.domain.dto.CarPositionDto;
 import java.util.Objects;
 
 public class Car {
-    private static final int MAX_NAME_LENGTH = 5;
     private static final int CONDITION_NUMBER=4;
-    private final String carName;
+    private final Name carName;
     private final CarPosition carPosition;
     private final RandomNumberGenerator randomNumberGenerator;
 
     public Car(final String carName,final RandomNumberGenerator randomNumberGenerator) {
-        validateCarNameLength(carName);
-        this.carName = carName;
+        this.carName = new Name(carName);
         this.carPosition= new CarPosition();
         this.randomNumberGenerator = randomNumberGenerator;
-    }
-
-    private void validateCarNameLength(final String carName) {
-        if (carName.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 " + MAX_NAME_LENGTH + "자 이하여야 합니다.");
-        }
     }
 
     public void move() {
@@ -39,7 +31,7 @@ public class Car {
 
     public CarDto toCarDto() {
         CarPositionDto carPositionDto = this.carPosition.createPositionDto();
-        return new CarDto(this.carName,carPositionDto.getPosition() );
+        return new CarDto(this.carName.value(),carPositionDto.position() );
     }
 
     public CarPositionDto createPositionDto() {

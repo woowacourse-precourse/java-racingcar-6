@@ -29,9 +29,9 @@ class CarsTest {
         cars.forEach(Car::move);
         CarDtos carDtos = cars.toCarDtos();
 
-        assertEquals(1, carDtos.getCarDtos().get(0).getPosition());
-        assertEquals(1, carDtos.getCarDtos().get(1).getPosition());
-        assertEquals(1, carDtos.getCarDtos().get(2).getPosition());
+        assertEquals(1, carDtos.carDtos().get(0).position());
+        assertEquals(1, carDtos.carDtos().get(1).position());
+        assertEquals(1, carDtos.carDtos().get(2).position());
     }
 
     @Test
@@ -41,8 +41,8 @@ class CarsTest {
         cars.forEach(Car::move);
         CarDtos carDtos = cars.toCarDtos();
 
-        assertEquals(0, carDtos.getCarDtos().get(0).getPosition());
-        assertEquals(0, carDtos.getCarDtos().get(1).getPosition());
-        assertEquals(0, carDtos.getCarDtos().get(2).getPosition());
+        assertEquals(0, carDtos.carDtos().get(0).position());
+        assertEquals(0, carDtos.carDtos().get(1).position());
+        assertEquals(0, carDtos.carDtos().get(2).position());
     }
 }

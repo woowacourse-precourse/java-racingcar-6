@@ -7,7 +7,6 @@ import racingcar.domain.dto.WinnersDto;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalInt;
 import java.util.function.Consumer;
 
 public class Cars {
@@ -22,15 +21,15 @@ public class Cars {
     private List<Car> createCars(final String carNames) {
         String[] names = carNames.split(",");
 
-        List<Car> cars = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         for (String name : names) {
-            cars.add(new Car(name.trim(), this.randomNumberGenerator));
+            carList.add(new Car(name.trim(), this.randomNumberGenerator));
         }
-        return cars;
+        return carList;
     }
 
     public CarDtos toCarDtos() {
-        List<CarDto> carDtoList = cars.stream()
+        List<CarDto> carDtoList = this.cars.stream()
                 .map(Car::toCarDto)
                 .toList();
         return new CarDtos(carDtoList);
@@ -39,22 +38,22 @@ public class Cars {
     public WinnersDto toWinnersDto() {
         int maxPosition = findMaxPosition();
         List<String> winnersDto = this.cars.stream()
-                .filter(car -> car.createPositionDto().getPosition() == maxPosition)
+                .filter(car -> car.createPositionDto().position() == maxPosition)
                 .map(Car::toCarDto)
-                .map(CarDto::getName)
+                .map(CarDto::name)
                 .toList();
         return new WinnersDto(winnersDto);
     }
 
     private int findMaxPosition() {
-        return cars.stream()
-                .mapToInt(car -> car.createPositionDto().getPosition())
+        return this.cars.stream()
+                .mapToInt(car -> car.createPositionDto().position())
                 .max()
                 .orElse(0);
     }
 
     public void forEach(Consumer<Car> action) {
-        for (Car car : cars) {
+        for (Car car : this.cars) {
             action.accept(car);
         }
     }

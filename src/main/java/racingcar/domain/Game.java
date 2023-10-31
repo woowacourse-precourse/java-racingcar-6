@@ -17,7 +17,7 @@ public class Game {
 
     public void playRound() {
         moveAll();
-        currentRound.increase();
+        this.currentRound.increase();
     }
 
     public CarDtos createCarDtos(){
@@ -29,11 +29,11 @@ public class Game {
     }
 
     public void moveAll() {
-        cars.forEach(Car::move);
+        this.cars.forEach(Car::move);
     }
 
     public boolean isFinished() {
-        return currentRound.equals(totalRounds);
+        return this.currentRound.equals(this.totalRounds);
     }
 
 }
