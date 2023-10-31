@@ -36,7 +36,8 @@ public class InputValidator {
     }
 
     private static void handleNumberOfCarNames(String[] carNames) {
-        if (carNames.length == 0 || carNames.length > Numbers.MAX_GAME_PLAYER.getNumber()) {
+        if (carNames.length < Numbers.MIN_GAME_PLAYER.getNumber()
+                || carNames.length > Numbers.MAX_GAME_PLAYER.getNumber()) {
             throw new IllegalArgumentException(Strings.NUMBER_OF_CARS_ERROR.getMessage());
         }
     }
