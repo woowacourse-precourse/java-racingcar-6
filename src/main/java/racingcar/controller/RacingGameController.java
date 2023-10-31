@@ -1,7 +1,9 @@
 package racingcar.controller;
 
+import static racingcar.model.GameCountValidator.gameCountValidation;
 import static racingcar.utils.Utils.convertStringToList;
 import static racingcar.view.InputView.inputCarsName;
+import static racingcar.view.InputView.inputGameTryNumber;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,6 +19,10 @@ public class RacingGameController {
         List<Car> carList = carNameList.stream()
                 .map(Car::makeCarByName)
                 .collect(Collectors.toList());
+        cars = new Cars(carList);
+        String gameTryNumber = inputGameTryNumber();
+        gameCountValidation(gameTryNumber);
+        gameCount = Integer.parseInt(gameTryNumber);
 
     }
 }
