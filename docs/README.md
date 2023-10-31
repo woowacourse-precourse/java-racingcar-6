@@ -9,7 +9,7 @@
 
 ✅ 기능4. 특정 자동차의 이름과 위치를 반환한다. ➡ Car#getStatus()
 
-✅ 기능5. 라운드 수만큼 경주를 실시한다. ➡ ResultGenerator#playRound()
+✅ 기능5. 한 라운드 경주를 실시한다. ➡ ResultGenerator#playRound()
 
 ✅ 기능6. 가장 많이 이동한 자동차의 위치를 찾는다. ➡ ResultGenerator#getMaxMovingDistance()
 
