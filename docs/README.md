@@ -25,7 +25,7 @@
 `Name name`과 `MovingCount movingCount`를 멤버로 갖고있는 클래스
 
 - 다른 `Car`객체와 `movingCount`로 서로 같은지 비교할 수 있다.
-- 임의의 수가 기준 값보다 크면 `MovingCount`를 증가시킨다.
+- 자신의 멤버 `MovingCount`를 증가시킬 수 있다.
 - 현재 경주 상태를 반환할 수 있다.
 - 내림차순 정렬을 위한 정렬을 한다.
 
@@ -36,8 +36,9 @@
 `List<Car>`를 멤버로 갖고 있는 클래스
 
 - 가장 큰 `movingCount`를 가진 `Car`객체를 반환할 수 있다.
-- 멤버변수 `List<Car> cars`의 모든 `Car`객체에 임의의 수 와 기준 값을 넘겨 `movingCount`를 업데이트 할 수 있다.
+- `List<Car>`의 모든 Car에 대해 임의의 수를 뽑고 기준 값보다 크면 해당 `Car`의 `movingCount`를 업데이트 할 수 있다.
 - 멤버변수 `List<Car> cars`의 모든 `Car`객체의 경주 상태를 반환할 수 있다.
+- 최종 우승자(들)를 `List<Car>` 형태로 반환할 수 있다.
 
 ---
 
@@ -54,7 +55,6 @@
 ## `RacingController`
 
 - 입력 받은 시도 횟수만큼 경주를 진행한다.
-- 최종 우승자를 `List`형태로 반환할 수 있다 (여러명도 가능).
 
 ---
 
