@@ -20,6 +20,8 @@ public class RacingController {
         Validator.validateCarNames(carNameList);
 
         outputView.printInputRoundNumber();
+        String roundNumber = inputView.roundNumber();
+        System.out.println(roundNumber);
     }
 
 
