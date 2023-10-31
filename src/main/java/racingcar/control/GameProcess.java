@@ -84,7 +84,7 @@ public class GameProcess {
         sizeOfWinnerList = winnerList.size();
 
         if (Utill.valueGreaterThanAndEqualOne(sizeOfWinnerList)) {
-            winnerArr = makeNameArrFromWinnerCarList();
+            winnerArr = makeNameArrFromWinnerList();
             nameOfWinner = getNameOfWinnerFromWinnerArr(winnerArr);
         }
 
@@ -107,7 +107,7 @@ public class GameProcess {
      *
      * @return
      */
-    private String[] makeNameArrFromWinnerCarList() {
+    private String[] makeNameArrFromWinnerList() {
         Integer sizeOfRaceCarList = winnerList.size();
         String[] nameOfWinnerArr = new String[sizeOfRaceCarList];
         RaceCar raceCarOfWinner = null;
