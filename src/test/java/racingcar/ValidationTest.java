@@ -6,6 +6,10 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 import racingcar.validation.Validation;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 public class ValidationTest {
     @Test
     void 입력받은_문자열이_null이_아니면_통과() {
@@ -101,6 +105,27 @@ public class ValidationTest {
         //then
         assertThat(result1).isInstanceOf(IllegalArgumentException.class);
         assertThat(result2).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 현재_키셋안에_중복된_이름이_없으면_통과() {
+        final HashMap<String,String> hashMap = new HashMap<>();
+        hashMap.put("one", "--"); hashMap.put("two", "---");
+        //given
+        String case1 = "three";
+        String case2 = "one";
+
+        //when
+        Throwable result1 = catchThrowable(()->{
+            Validation.validateCarNamesNotDuplicate(hashMap, case1);
+        });
+        Throwable result2 = catchThrowable(()->{
+            Validation.validateCarNamesNotDuplicate(hashMap, case2);
+        });
+
+        //then
+        assertThat(result1).doesNotThrowAnyException();
+        assertThat(result2).isInstanceOf(IllegalArgumentException.class);
     }
 
 }
