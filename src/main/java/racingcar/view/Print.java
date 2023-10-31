@@ -22,7 +22,7 @@ public class Print {
     public static void printResult(List<String> winCars) {
         sb = new StringBuilder();
         sb.append("최종 우승자 : ");
-        String result = String.join(",", winCars);
+        String result = String.join(", ", winCars);
         sb.append(result);
         System.out.print(sb.toString());
     }
