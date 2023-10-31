@@ -40,7 +40,7 @@
       
 ### ‼️ 에러 처리
 - IllegalArgumentException 이 발생하는 경우
-  - validateUserInput(String userInput) : 자동차 이름 입력시 <br> (숫자입력하는 경우, 쉼표로 구분짓지 않는 경우, 아무것도 입력하지 않는 경우, 5자를 초과하는 경우)
+  - validateUserInput(String userInput) : 자동차 이름 입력시 <br> (숫자입력하는 경우, 중복되는 경우, 쉼표로 구분짓지 않는 경우, 아무것도 입력하지 않는 경우, 5자를 초과하는 경우)
     ```jsx
     String userInput = getUserInputFromConsole();
     ```
