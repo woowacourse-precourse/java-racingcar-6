@@ -2,6 +2,8 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.exception.CustomException;
+import racingcar.message.ErrorMessages;
 import racingcar.model.Car;
 import racingcar.model.CarDto;
 import racingcar.model.Cars;
@@ -17,22 +19,23 @@ public class CarController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public CarController(Cars cars, InputView inputView, OutputView outputView) {
-        this.cars = cars;
+    public CarController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
     public void play() {
         cars = new Cars(inputView.getPlayerNamesInput());
-        getTryCountFromInput();
+        inputTryCount();
         race();
         terminate();
     }
-    private void getTryCountFromInput() {
-        inputView.inputTryCount();
+    private void inputTryCount() {
+            tryCount = new TryCount(inputView.inputTryCount());
+            if (tryCount.isNotValid()) {
+                inputTryCount();
+            }
     }
-
     private void race() {
         outputView.printStartMessage();
         raceRecursive(0);

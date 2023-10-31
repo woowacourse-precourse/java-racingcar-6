@@ -23,4 +23,8 @@ public class TryCount {
     private void validatePositive(int tryCount) {
         CustomException.positiveValidator(tryCount);
     }
+
+    public boolean isNotValid() {
+        return tryCount == 0;
+    }
 }

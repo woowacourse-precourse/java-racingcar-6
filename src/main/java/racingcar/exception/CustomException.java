@@ -7,6 +7,7 @@ import java.util.Objects;
 import racingcar.message.ErrorMessages;
 
 public class CustomException {
+
     public static void blankValidator(String name) {
         if (name.contains(BLANK)) {
             throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME_BLANK.getMessage());
