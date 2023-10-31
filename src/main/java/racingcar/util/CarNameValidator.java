@@ -20,4 +20,20 @@ public class CarNameValidator {
             throw new IllegalArgumentException("이름을 입력하지 않았습니다.");
         }
     }
+
+    public static void validateUniqueNameCheck(List<String> carNames) {
+        final int namesSize = carNames.size();
+        if (namesSize == 0) {
+            throw new IllegalArgumentException("이름이 존재하지 않습니다.");
+        }
+        if (namesSize != countDistinctNames(carNames)) {
+            throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+        }
+    }
+
+    private static int countDistinctNames(List<String> carNames) {
+        return (int) carNames.stream()
+                .distinct()
+                .count();
+    }
 }

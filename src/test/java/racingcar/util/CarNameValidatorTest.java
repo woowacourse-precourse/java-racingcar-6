@@ -36,5 +36,13 @@ class CarNameValidatorTest {
     }
 
 
+    @Test
+    void 중복된_이름이_존재할수_없다() {
+        List<String> carNames = List.of("바보", "바보", "부부");
+        assertThatThrownBy(() -> CarNameValidator.validateUniqueNameCheck(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 이름이 존재합니다.");
+    }
+
 
 }

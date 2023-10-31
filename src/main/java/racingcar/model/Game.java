@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.dto.GameResult;
+import racingcar.util.CarNameValidator;
 
 public class Game {
     private final GameTime gameTime;
@@ -14,6 +15,7 @@ public class Game {
     }
 
     private List<Car> makeCars(List<String> carName) {
+        CarNameValidator.validateUniqueNameCheck(carName);
         return carName
                 .stream()
                 .map(Car::new)
