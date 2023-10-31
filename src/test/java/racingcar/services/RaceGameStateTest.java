@@ -22,4 +22,17 @@ class RaceGameStateTest {
         assertEquals(expected, converted);
     }
 
+    @Test
+    @DisplayName("차 이름을 입력받고 한번의 전진 테스트")
+    void goForwardByNameTest() {
+        //given
+        String sampleInput = "pobi, woni, kim";
+        RaceGameState state = new RaceGameState(sampleInput);
+        //when
+        state.moveForwardByName("pobi");
+        //then
+        int expected = 1;
+        int actual = state.getStateOfEachCar().get("pobi");
+        assertEquals(expected, actual);
+     }
 }
