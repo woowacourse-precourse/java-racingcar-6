@@ -20,19 +20,19 @@ public class InputView {
         List<String> carNames = getCarNames();
     }
 
-    public List<String> getCarNames() {
+    private List<String> getCarNames() {
         String input = inputCarNames();
         List<String> carNames = parseCarNames(input);
         //TODO: validate carNames
         return carNames;
     }
 
-    public String inputCarNames() {
+    private String inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         return Console.readLine();
     }
 
-    public List<String> parseCarNames(String input) {
+    private List<String> parseCarNames(String input) {
         List<String> parsedCarNames = List.of(input.split(","));
         return parsedCarNames;
     }
