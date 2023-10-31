@@ -23,7 +23,7 @@ public class MessageReceiver {
 
     public int receiveAttemptCount() {
         String inputText = Console.readLine();
-        int attemptCount = Integer.parseInt(inputText);
+        int attemptCount = parseInteger(inputText);
         validateAttemptCount(attemptCount);
 
         return attemptCount;
@@ -51,6 +51,14 @@ public class MessageReceiver {
     private boolean isDuplication(final List<String> carNames) {
         Set<String> distinctCarNames = new HashSet<>(carNames);
         return carNames.size() != distinctCarNames.size();
+    }
+
+    private int parseInteger(final String inputText) {
+        try {
+            return Integer.parseInt(inputText);
+        }  catch (NumberFormatException e) {
+            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION);
+        }
     }
 
     private void validateAttemptCount(final int attemptCount) {
