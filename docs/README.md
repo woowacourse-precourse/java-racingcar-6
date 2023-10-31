@@ -5,7 +5,7 @@
 [x] 사용자 이름이 중복되면 IllegalArgumentException<br/>
 [x] 게임 rotation 수 입력<br/>
 [x] 게임의 수가 정수가 아니면 IllegalArgumentException<br/>
-[?] 게임의 수의 범위는 Integer로 지정<br/>
+[x] 게임의 수의 범위는 Integer로 지정<br/>
 </br>
 2. 게임 진행</br>
 [x] 0부터 9까지 랜덤 넘버 하나 생성</br>
