@@ -25,6 +25,7 @@ public class GameService {
         setTrial();
     }
 
+    // 입력값 받아 자동차 셋팅
     private void setCars() {
         List<String> carNames = parser.parseCarInput(gameInputView.getCarInput());
         for(String name : carNames) {
@@ -32,6 +33,7 @@ public class GameService {
         }
     }
 
+    // 입력값 받아 시행 횟수 세팅
     private void setTrial() {
         int trial = parser.parseTrialInput(gameInputView.getTrialInput());
         game = new Game(carRepository.findAll(), trial);
@@ -42,6 +44,7 @@ public class GameService {
         play(game);
     }
 
+    // 시행 횟수만큼 이동, 시행 결과 출력
     private void play(Game game){
         while(!game.isEnd()){
             moveForward(game);
@@ -50,6 +53,7 @@ public class GameService {
         }
     }
 
+    // 1~9 중 랜덤으로 4이상 나오면 자동차 전진
     private void moveForward(Game game) {
         for(Car car : game.getCars()) {
             if(getRandomNumber() >= 4) {
@@ -58,14 +62,17 @@ public class GameService {
         }
     }
 
+    // 랜덤 번호 생성
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(1, 9);
     }
 
+    // 총 시행 횟수 1 증가
     private void increaseTrialNum(Game game) {
         game.increaseTrial();
     }
 
+    // 시행 횟수별 결과 출력
     private void getResult(Game game) {
         for(Car car : game.getCars()) {
             gameOutputView.printScore(car.getName(), car.getPosition());
@@ -73,6 +80,7 @@ public class GameService {
         gameOutputView.printOneLine();
     }
 
+    // 전진 횟수로 우승자 결정
     public void getWinners() {
         List<String> winner = new ArrayList<>();
 
@@ -88,6 +96,7 @@ public class GameService {
         gameOutputView.printWinner(winner);
     }
 
+    // 최대 전진 횟수 도출
     private int getMaxPosition() {
         int max = 0;
         for(Car car : game.getCars()) {
