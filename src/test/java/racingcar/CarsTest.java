@@ -36,4 +36,23 @@ public class CarsTest {
         }, number
         );
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"4", "5", "6", "7", "8", "9"}, delimiter = ',')
+    void 모든_자동차를_무작위_값이_4이상일_때_전진시키는_기능(int number) {
+        //given
+        String userInput = "yoon,su";
+        String[] carNames = userInput.split(",");
+        Cars cars = new Cars(carNames);
+        Car yoonCar = cars.getCars().get(0);
+        Car suCar = cars.getCars().get(1);
+
+        //when & then
+        assertRandomNumberInRangeTest(() -> {
+                    cars.moveAheadCars();
+                    Assertions.assertThat(yoonCar.getProgress().getValue()).isEqualTo(1);
+                    Assertions.assertThat(suCar.getProgress().getValue()).isEqualTo(1);
+                }, number
+        );
+    }
 }
