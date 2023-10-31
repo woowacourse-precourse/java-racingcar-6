@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 public class Car {
-    private final int JUDGEMENT_NUMBER = 4;
     private String name;
     private int distance;
 
@@ -18,12 +17,6 @@ public class Car {
         return name;
     }
 
-    public void judgeNumberToGo(int number) {
-        if (number >= JUDGEMENT_NUMBER) {
-            go();
-        }
-    }
-
     public int getDistance() {
         return distance;
     }
@@ -32,7 +25,7 @@ public class Car {
         return distance == compareDistance;
     }
 
-    private void go() {
+    public void go() {
         distance++;
     }
 }

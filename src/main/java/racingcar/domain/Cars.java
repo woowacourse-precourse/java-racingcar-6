@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.Generator;
+import racingcar.util.Judgement;
 
 public class Cars {
     private static final String WINNER_DELIMITER = ", ";
@@ -29,7 +30,7 @@ public class Cars {
     public void tryMovements() {
         cars.forEach(car -> {
             int number = Generator.createRandomNumber();
-            car.judgeNumberToGo(number);
+            Judgement.judgeNumberToGo(number, car);
         });
     }
 
