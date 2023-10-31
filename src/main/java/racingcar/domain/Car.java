@@ -21,7 +21,7 @@ public class Car {
         this.move = 0;
     }
 
-    protected static Car createCar(String name) {
+    public static Car createCar(String name) {
         name = name.trim();
 
         validateBlank(name);
