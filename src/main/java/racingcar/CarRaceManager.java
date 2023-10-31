@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,13 +20,14 @@ public class CarRaceManager {
         carCount = racingCars.size();
     }
 
-    private String[] inputCarName() {
-        return Console.readLine().split(","); // array말고 바로 리스트에 저장 못 하나...
+    private List<String> inputCarName() {
+        String input = Console.readLine();
+        String[] carNameArray = input.split(",");
+        return Arrays.asList(carNameArray);
     }
 
     public void createCarList() {
-        // 입력 받은 값 쉼표 기준으로 나눠서 리스트에 저장
-        String[] carNameArray = inputCarName();
+        List<String> carNameArray = inputCarName();
         for (String carName : carNameArray) {
             Car newCar = new Car(carName);
             racingCars.add(newCar);
