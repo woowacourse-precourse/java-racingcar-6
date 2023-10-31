@@ -29,9 +29,11 @@ public class Application {
         // 입력 받은 횟수 에러 확인하기
         numberOfMoves = check_error_numberofmoves(stringNumberOfMoves);
 
+        // 모든 입력이 정상이면 자동차 전진을 시작하기 위해 전진 횟수를 담을 배열 생성
+        make_move_forwardlist();
         for (int i = 0; i < numberOfMoves; i++) {
             move_cars();
-            ;
+
         }
 
         System.out.println(carList);
@@ -39,7 +41,7 @@ public class Application {
     }
 
     public static void move_cars() {
-        make_move_forwardlist();
+
         for (int i = 0; i < carList.size(); i++) {
             // 모든 입력이 정상이라면 0~9의 랜덤 숫자를 추출하여 4 이상인지 판단하기
             randomNumber = make_random_number();
@@ -66,7 +68,7 @@ public class Application {
     public static void make_name_split() {
         // 입력 받은 문자열을 쉼표를 기준으로 구분하여 자동차 이름 저장하기
         String[] carNameAfterSplit = carNameBeforeSplit.split(",");
-        carList = new ArrayList<String>(Arrays.asList(carNameAfterSplit));
+        carList = new ArrayList<>(Arrays.asList(carNameAfterSplit));
 
     }
 
