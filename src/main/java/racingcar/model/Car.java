@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import racingcar.Rule;
-import racingcar.Util;
+import racingcar.Util.Rule;
+import racingcar.Util.Util;
 
 public class Car {
     private final String name;
