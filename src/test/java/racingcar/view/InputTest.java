@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -21,6 +22,7 @@ class InputTest {
         String[] carNames = input.inputCarName();
 
         assertThat(new String[]{"pobi","hash","neo"}).isEqualTo(carNames);
+        Console.close();
     }
 
     @Test
@@ -32,6 +34,7 @@ class InputTest {
         assertThatThrownBy(() -> input.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("쉽표(,)를 통해 구분해 주세요.");
+        Console.close();
     }
 
     @Test
@@ -43,6 +46,7 @@ class InputTest {
         assertThatThrownBy(() -> input.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5자 이하만 가능합니다.");
+        Console.close();
     }
 
     @Test
@@ -54,6 +58,7 @@ class InputTest {
         assertThatThrownBy(() -> input.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차는 2대 이상이 경기에 참여해야 합니다");
+        Console.close();
     }
 
     @Test
@@ -65,6 +70,7 @@ class InputTest {
         int number = input.inputMovingNumber();
 
         assertThat(Integer.parseInt(text)).isEqualTo(number);
+        Console.close();
     }
 
     @Test
@@ -75,5 +81,6 @@ class InputTest {
 
         assertThatThrownBy(() -> input.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class);
+        Console.close();
     }
 }
