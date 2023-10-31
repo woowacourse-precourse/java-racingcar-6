@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.util.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,11 +15,11 @@ public class RacingGame {
 
     public void start() {
         String namesFromUser = InputView.getNamesFromUser();
-        String[] names = InputView.validateNames(namesFromUser);
+        String[] names = Validator.validateNames(namesFromUser);
         cars.addCarsFromNames(names);
 
         String tryCountFromUser = InputView.getTryCountFromUser();
-        tryCount = InputView.validateTryCount(tryCountFromUser);
+        tryCount = Validator.validateTryCount(tryCountFromUser);
 
         OutputView.printTryResult();
         tryEachCount();
