@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Input {
 
-    private static final InputValidation iv = new InputValidation();
-    private static final Util util = new Util();
+    private final InputValidation iv = new InputValidation();
+    private final Util util = new Util();
 
     private String getCarsName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

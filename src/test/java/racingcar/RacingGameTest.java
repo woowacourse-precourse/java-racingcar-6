@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingGameTest {
 
-    private static final RacingGame rg = new RacingGame();
+    private final RacingGame rg = new RacingGame();
 
     @Test
     void 값_비교_후_전진() {

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PrintTest extends NsTest {
 
-    private static final Print print = new Print();
+    private final Print print = new Print();
 
     @Test
     void 차수별_레이스_실행_결과_확인() {

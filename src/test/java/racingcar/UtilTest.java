@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class UtilTest {
 
-    private static final Util util = new Util();
+    private final Util util = new Util();
 
     @Test
     void 랜덤_숫자_범위_확인() {

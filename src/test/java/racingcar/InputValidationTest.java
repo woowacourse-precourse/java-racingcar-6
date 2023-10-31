@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputValidationTest {
 
-    private static final InputValidation iv = new InputValidation();
+    private final InputValidation iv = new InputValidation();
 
     @Test
     void 입력_문자열이_5자_초과시_예외처리() {

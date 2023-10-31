@@ -5,8 +5,8 @@ import java.util.List;
 
 public class RacingGame {
 
-    private static final Print print = new Print();
-    private static final Util util = new Util();
+    private final Print print = new Print();
+    private final Util util = new Util();
 
     public void race(List<Car> cars, int times) {
         System.out.println("\n실행 결과");

@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class InputTest {
 
-    private static final Input input = new Input();
+    private final Input input = new Input();
 
     @Test
     void 자동차_객체_리스트_생성() {
