@@ -8,7 +8,7 @@ public class Validator extends CommonValidator{
     private final static String ANY_EMPTY_ERROR = "[ERROR] 이름들 중 공백으로 이루어진 곳이 있습니다.";
     private final static String SEPARATOR_ERROR = "[ERROR] 구분자가 올바르지 못한 위치에서 사용되었습니다.";
     private final static String OVER_LENGTH_ERROR = String.format("[ERROR] 이름은 %d글자 이하 여야 합니다.",
-            Common.NAME_MAX_LENGTH.getIntValue());
+            Common.CAR_NAME_MAX_LENGTH.getIntValue());
     private final static String NUMERIC_ERROR = "[ERROR] 숫자형식이에 맞지 않는 문자를 입력하였습니다.";
     private final static String UNDER_NUMBER_ERROR = "[ERROR] 양수를 적어주세요.";
 

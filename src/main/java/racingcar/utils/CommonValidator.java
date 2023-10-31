@@ -4,7 +4,7 @@ import racingcar.enums.Common;
 
 public class CommonValidator {
     public static boolean isOverMaxLength(String input) {
-        return input.length() > Common.NAME_MAX_LENGTH.getIntValue();
+        return input.length() > Common.CAR_NAME_MAX_LENGTH.getIntValue();
     }
 
     public static boolean isNumeric(String input) {
