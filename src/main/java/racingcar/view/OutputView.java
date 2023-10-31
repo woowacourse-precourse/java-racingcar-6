@@ -7,7 +7,6 @@ import racingcar.util.MessageConst;
 
 public class OutputView {
     private static final String WINNER_MSG = "최종 우승자 : ";
-    public static final String DELIMITER = ",";
 
     public void printResultMessage() {
         System.out.println(MessageConst.OUTPUT_RESULT_MSG);
@@ -26,7 +25,7 @@ public class OutputView {
 
     public void printFinalWinner(Cars cars) {
         Winners winners = new Winners(cars);
-        System.out.println(WINNER_MSG + String.join(DELIMITER, winners.getFinalWinnerNames()));
+        System.out.println(WINNER_MSG + String.join(MessageConst.DELIMITER, winners.getFinalWinnerNames()));
     }
 
 }

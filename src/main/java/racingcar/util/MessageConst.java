@@ -5,4 +5,5 @@ public class MessageConst {
     public static final String INPUT_ATTEMPT_MSG = "시도할 회수는 몇회인가요?";
     public static final String OUTPUT_RESULT_MSG = "실행 결과";
     public static final String DISTANCE_MARK = "-";
+    public static final String DELIMITER = ",";
 }
