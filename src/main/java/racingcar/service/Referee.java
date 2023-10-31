@@ -12,17 +12,23 @@ import java.util.stream.Collectors;
 public class Referee {
 
     private static final int PROCEED_CONDITION = 4;
-    private static final int MAX_NAME_LENGTH = 5;
 
     private final List<Car> cars = new ArrayList<>();
+    private final List<GameStatus> gameStatuses = new ArrayList<>();
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-    public void addCar(String name) {
-        checkName(name);
-        cars.add(new Car(name));
+    public void addCars(List<String> carNames) {
+        carNames.stream().map(Car::new).forEach(cars::add);
     }
 
-    public void startTurn() {
+    public void startGame(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            startTurn();
+            saveGameStatus();
+        }
+    }
+
+    private void startTurn() {
         for (Car car : cars) {
             int randomNumber = randomNumberGenerator.getRandomNumber();
             if (isProceedNumber(randomNumber)) {
@@ -35,12 +41,10 @@ public class Referee {
         return randomNumber >= PROCEED_CONDITION;
     }
 
-    public GameStatus getGameStatus() {
+    private void saveGameStatus() {
         GameStatus gameStatus = new GameStatus();
-        for (Car car : cars) {
-            gameStatus.addCarStatus(CarStatus.of(car));
-        }
-        return gameStatus;
+        cars.stream().map(CarStatus::of).forEach(gameStatus::addCarStatus);
+        gameStatuses.add(gameStatus);
     }
 
     public List<String> getWinners() {
@@ -55,9 +59,7 @@ public class Referee {
         return cars.stream().mapToInt(Car::getMoveDistance).max().orElseThrow();
     }
 
-    private void checkName(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-        }
+    public List<GameStatus> getGameStatuses() {
+        return gameStatuses;
     }
 }
