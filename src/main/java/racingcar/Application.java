@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.collaborator.race.Race;
+import racingcar.enums.ApplicationMessage;
 import racingcar.game.RacingGame;
 import racingcar.io.Output;
 import racingcar.io.views.RaceTotalProgressView;
@@ -14,7 +15,7 @@ public class Application {
             RacingGame racingGame = getRacingGame();
             racingGame.play();
         } catch (IllegalArgumentException e) {
-            Output.consoleLine("잘못된 동작으로 인해 프로그램을 종료합니다.");
+            Output.consoleLine(ApplicationMessage.EXCEPTION_APPLICATION.get());
             throw e;
         }
     }
