@@ -22,7 +22,7 @@ public class InputView {
         return carsDto.toCars();
     }
 
-    public int getTrytimes() {
+    public int getTryTimes() {
         writer.writeInputTryTimesMsg();
         String tryTimes = reader.readLine();
         TryTimesValidator.validateNumber(tryTimes);

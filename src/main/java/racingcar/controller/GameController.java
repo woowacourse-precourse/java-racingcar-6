@@ -24,7 +24,7 @@ public class GameController {
     }
 
     private void playAllRounds(Cars cars) {
-        int tryTimes = inputView.getTrytimes();
+        int tryTimes = inputView.getTryTimes();
         for (int i = 0; i < tryTimes; i++) {
             playRound(cars);
         }
