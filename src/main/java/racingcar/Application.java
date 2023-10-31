@@ -30,7 +30,7 @@ public class Application {
     private static void validateDuplicate(String[] names) {
         List<String> nameList = Arrays.asList(names);
 
-        if(nameList.size() != nameList.stream().distinct().count()) {
+        if (nameList.size() != nameList.stream().distinct().count()) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
@@ -46,7 +46,7 @@ public class Application {
     private static void validateIsEmpty(String[] names) {
         List<String> nameList = Arrays.asList(names);
 
-        for (String n : nameList){
+        for (String n : nameList) {
             if (n.isEmpty() || n.isBlank()) {
                 throw new IllegalArgumentException("공백이나 \',\'를 연속으로 사용하거나 첫 번쨰 문자로 사용하지 마세요.");
             }
