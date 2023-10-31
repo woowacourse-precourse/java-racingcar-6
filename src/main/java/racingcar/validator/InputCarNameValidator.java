@@ -6,6 +6,8 @@ import static racingcar.config.InputPattern.INPUT_CAR_NAME_COMMA_REGEX;
 import static racingcar.config.InputPattern.INPUT_CAR_NAME_LENGTH_REGEX;
 
 import java.util.regex.Pattern;
+import racingcar.util.ErrorThrower;
+import racingcar.util.PatternChecker;
 
 public class InputCarNameValidator implements Validator<String> {
     private static final Pattern INPUT_CAR_NAME_LENGTH_PATTERN =
@@ -15,12 +17,13 @@ public class InputCarNameValidator implements Validator<String> {
 
     public String validate(String inputCarName) {
         String lengthErrorMessage = INPUT_CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage();
+        String commaErrorMessage = INPUT_CAR_NAME_COMMA_ERROR_MESSAGE.getMessage();
 
-        if (!INPUT_CAR_NAME_LENGTH_PATTERN.matcher(inputCarName).matches()) {
-            throw new IllegalArgumentException(lengthErrorMessage);
+        if (PatternChecker.checkPattern(INPUT_CAR_NAME_LENGTH_PATTERN, inputCarName)) {
+            ErrorThrower.throwIAE(lengthErrorMessage);
         }
-        if (!INPUT_CAR_NAME_COMMA_PATTERN.matcher(inputCarName).matches()) {
-            throw new IllegalArgumentException(INPUT_CAR_NAME_COMMA_ERROR_MESSAGE.getMessage());
+        if (PatternChecker.checkPattern(INPUT_CAR_NAME_COMMA_PATTERN, inputCarName)) {
+            ErrorThrower.throwIAE(commaErrorMessage);
         }
         return inputCarName;
     }
