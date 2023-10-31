@@ -5,6 +5,7 @@ import racingcar.view.RoundView;
 import java.util.List;
 
 public class Round {
+
     private final List<Car> CARS;
 
     private Round(List<Car> cars) {
@@ -17,10 +18,14 @@ public class Round {
 
     public void playRound(int numAttempts) {
         for (int round = 1; round <= numAttempts; round++) {
-            for(Car car : CARS){
-                car.move();
-            }
+            moveAllCarsOneRound();
             RoundView.printRoundResults(CARS);
+        }
+    }
+
+    private void moveAllCarsOneRound() {
+        for (Car car : CARS) {
+            car.move();
         }
     }
 }
