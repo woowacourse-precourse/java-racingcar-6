@@ -10,22 +10,30 @@
     
     - getCars()
   
-  - [X] 시도할 회수를 입력받아야 한다.
+  - [X] 시도할 횟수를 입력받아야 한다.
 
     - getTotalMove()
-    
+  
   - [ ] 결과를 출력할 수 있어야 한다.
 
-    - printResult()
+    - getResult()
+  
+  - [ ] 모든 자동차를 움직여야 한다. (한 라운드 진행)
+
+    - moveAllCar()
       
   - [ ] 단계별 진행상황을 출력할 수 있어야 한다.
 
     - printRoundProgress()
 
+  - [ ] 우승자를 구할 수 있어야 한다.
+
+    - getWinner()
+
   - [ ] 우승자를 출력할 수 있어야 한다.
 
     - printWinner()
-  
+
 
 - ### Car
   - [ ] 전진을 시도할 수 있어야 한다.
@@ -35,10 +43,7 @@
   - [ ] 차의 이름과 현재 위치를 출력할 수 있어야 한다.
 
     - printProgress()
-  
-  - [ ] 우승자 여부를 판단할 수 있어야 한다. 
-  
-    - isWinner()
+
 
 
 - ### Validation
