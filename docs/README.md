@@ -16,11 +16,10 @@
 n대의 자동차 입력받기 #inputRacingCar
 진행 횟수 입력받기 #inputRacingNumber
 { 리스트 초기화 #stopAndGo
-    { ( 진행 횟수만큼 반복 ) #repeatStopAndGo
+    { ( 진행 횟수만큼 반복 )
         전진 여부 저장하기 #saveStopAndGo
            -전진 여부 판별하기 #judgeStopAndGo
         전진 여부 전달 받아 이름과 출력 #printStopAndGo
     }
 }
-전진 여부 저장한 변수 전달받아 우승자 판별 #judgeWinner
-우승자 출력 #printWinner
+전진 여부 저장한 변수 전달받아 우승자 판별 후 출력 #judgeWinner
