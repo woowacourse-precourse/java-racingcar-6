@@ -1,16 +1,17 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.OutputView;
 
 public class Game {
     private final InputController inputController;
-    private final RandomNumberGenerator randomNumberGenerator;
+    private final int START_INCLUSIVE = 0;
+    private final int END_INCLUSIVE = 9;
+    private static final int FORWARD_CONDITION = 4;
     public Game(){
         this.inputController = new InputController();
-        this.randomNumberGenerator = new RandomNumberGenerator(0, 9);
     }
 
     public void initGame(){
@@ -24,5 +25,9 @@ public class Game {
         int attemptCount = inputController.getAttemptCountFromUserInput();
         //입력 횟수 확인
         System.out.println(attemptCount);
+    }
+
+    public int getRandomNumber() {
+        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 }
