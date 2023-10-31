@@ -43,5 +43,17 @@ public class RaceController {
 
     private void finish(Cars cars) {
         List<String> winners = raceService.getWinners(cars);
+        outputView.printlnMessage(generateFinalResultMessage(winners));
+    }
+
+    private String generateFinalResultMessage(List<String> winners) {
+        StringBuilder messageBuilder = new StringBuilder();
+        for (String winner : winners) {
+            messageBuilder.append(winner).append(FINAL_RESULT_TOKEN.getSymbol());
+        }
+        if (messageBuilder.length() > 0) {
+            messageBuilder.setLength(messageBuilder.length() - FINAL_RESULT_TOKEN.getSymbol().length());
+        }
+        return String.format(FINAL_RESULT_MESSAGE, messageBuilder.toString());
     }
 }
