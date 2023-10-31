@@ -52,7 +52,7 @@ class GameTest {
         ArrayList<String> carNames = new ArrayList<>();
 
         for(Car car : game.getCars().cars) {
-            carNames.add(car.name);
+            carNames.add(car.getName());
         }
         Set<String> resultKey = gameResult.keySet();
 

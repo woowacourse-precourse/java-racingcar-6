@@ -7,13 +7,21 @@ import static racingcar.common.ExceptionMessages.INVALID_NAME_LENGTH_EXCEPTION;
 
 public class Car {
 
-    String name;
-    int meter;
+    private final String name;
+    private int meter;
 
     public Car(String name) {
         validateLength(name);
         this.name = name;
         this.meter = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMeter() {
+        return meter;
     }
 
     public void move(int randomNumber) {

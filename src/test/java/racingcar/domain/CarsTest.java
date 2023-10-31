@@ -25,9 +25,9 @@ class CarsTest {
     void 이름들을_올바르게_입력하는_경우(String input) {
         cars.settingNames(input);
         assertEquals(cars.getCars().size(), 3);
-        assertEquals(cars.getCars().get(0).name, "seori");
-        assertEquals(cars.getCars().get(1).name, "snow");
-        assertEquals(cars.getCars().get(2).name, "joy");
+        assertEquals(cars.getCars().get(0).getName(), "seori");
+        assertEquals(cars.getCars().get(1).getName(), "snow");
+        assertEquals(cars.getCars().get(2).getName(), "joy");
     }
 
 

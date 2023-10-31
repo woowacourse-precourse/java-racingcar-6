@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static racingcar.common.ExceptionMessages.DUPLICATE_CAR_EXCEPTION;
+import static racingcar.common.ExceptionMessages.INVALID_NAME_LENGTH_EXCEPTION;
 import static racingcar.common.ExceptionMessages.NO_COMMA_EXCEPTION;
 
 import java.util.ArrayList;
@@ -31,22 +32,22 @@ public class Cars {
     public Map<String, Integer> getResultOfRound() {
         HashMap<String, Integer> result = new HashMap<>();
         for(Car car : cars) {
-            result.put(car.name, car.meter);
+            result.put(car.getName(), car.getMeter());
         }
         return result;
     }
 
     public int findMaxScore() {
         return cars.stream()
-            .mapToInt(car -> car.meter)
+            .mapToInt(Car::getMeter)
             .max()
             .orElse(Integer.MIN_VALUE);
     }
 
     public ArrayList<String> findWinners() {
         return cars.stream()
-            .filter(car -> car.meter == findMaxScore())
-            .map(car -> car.name)
+            .filter(car -> car.getMeter() == findMaxScore())
+            .map(Car::getName)
             .collect(Collectors.toCollection(ArrayList::new));
     }
 
@@ -56,6 +57,9 @@ public class Cars {
         String[] split = names.split(",");
         ArrayList<String> list = new ArrayList<>();
         for(String name : split) {
+            if(name.isEmpty()) {
+                throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION);
+            }
             list.add(name.replaceAll(" ", ""));
         }
         validateDuplicateName(list);

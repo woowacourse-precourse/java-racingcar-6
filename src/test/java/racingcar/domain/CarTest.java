@@ -14,8 +14,8 @@ class CarTest {
     @Test
     void 이름을_올바르게_입력하는_경우() {
         Car car = new Car("seori");
-        assertEquals(car.name, "seori");
-        assertEquals(car.meter, 0);
+        assertEquals(car.getName(), "seori");
+        assertEquals(car.getMeter(), 0);
     }
 
     @ParameterizedTest
@@ -37,8 +37,8 @@ class CarTest {
         seoriCar.move(MOVING_FORWARD);
         snowCar.move(STOP);
 
-        assertEquals(seoriCar.meter, 1);
-        assertEquals(snowCar.meter, 0);
+        assertEquals(seoriCar.getMeter(), 1);
+        assertEquals(snowCar.getMeter(), 0);
     }
 
 }
