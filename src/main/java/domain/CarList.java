@@ -15,11 +15,12 @@ public class CarList {
         }
     }
 
-    public void turnGoOrStay(){
+    public ArrayList<Car> turnGoOrStay(){
         for(Car car: cars)
         {
             car.go();
         }
+        return cars;
     }
 
     public HashMap<String, Integer> getTurnPositions() {
@@ -33,7 +34,7 @@ public class CarList {
 
     public String[] getWinnerNames(){
         int maxPosition= ArrayMax(getCarsPositions());
-        return (String[])cars.stream().map(car -> car.getPosition()==maxPosition).toArray();
+        return cars.stream().map(car -> car.getPosition()==maxPosition).toArray(String[]::new);
     }
 
     private ArrayList<Integer> getCarsPositions(){
