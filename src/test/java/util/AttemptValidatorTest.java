@@ -19,6 +19,7 @@ class AttemptValidatorTest {
         });
     }
 
+    @Test
     public void 공백_숫자값_입력_에러발생() {
         String invalidNumber = "12 34";
         assertThrows(IllegalArgumentException.class, () -> {
@@ -26,6 +27,7 @@ class AttemptValidatorTest {
         });
     }
 
+    @Test
     public void 음수값_입력_에러발생() {
         String invalidNumber = "-12";
         assertThrows(IllegalArgumentException.class, () -> {
