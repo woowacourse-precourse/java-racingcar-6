@@ -33,7 +33,7 @@ public class Validator {
     }
 
     private void checkCountRange(int input) {
-        if (input < 0) {
+        if (input < 1) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_ATTEMPT_COUNT_RANGE.getMessage());
         }
     }

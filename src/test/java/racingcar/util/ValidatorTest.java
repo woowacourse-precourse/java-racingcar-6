@@ -41,4 +41,13 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_ATTEMPT_COUNT_FORMAT.getMessage());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1"})
+    void 시도할_회수_입력값_범위_테스트(String input) {
+        int count = Util.convertStringToInt(input);
+        assertThatThrownBy(() -> validator.validateAttemptCount(count))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_ATTEMPT_COUNT_RANGE.getMessage());
+    }
 }
