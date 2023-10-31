@@ -11,7 +11,6 @@ import racingcar.view.ConsoleOutput;
 import racingcar.view.OutputView;
 
 public class Cars {
-    private OutputView outputView = new OutputView();
     private List<Car> carList;
 
     public Cars(List<String> carNames) {
@@ -40,6 +39,7 @@ public class Cars {
     }
 
     private void printCarInfo(Car car) {
+        OutputView outputView = new OutputView();
         outputView.printRoundResult(car.getCarInfo());
     }
 
