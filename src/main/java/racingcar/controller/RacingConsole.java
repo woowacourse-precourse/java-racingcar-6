@@ -10,27 +10,19 @@ import java.util.List;
 
 
 public class RacingConsole {
-    private final InputView inputView;
-    private final OutputView outputView;
-
-    public RacingConsole(InputView inputView, OutputView outputView) {
-        this.inputView = inputView;
-        this.outputView = outputView;
-    }
-
     public void run() {
-        outputView.printRequestCarNames();
+        OutputView.printRequestCarNames();
         String requestCarNames = Console.readLine();
 
-        List<String> carNames = inputView.receiveCarNames(requestCarNames);
-        outputView.printRequestTotalRound();
+        List<String> carNames = InputView.receiveCarNames(requestCarNames);
+        OutputView.printRequestTotalRound();
 
         String requestTotalRound = Console.readLine();
-        int round = inputView.receiveTotalRound(requestTotalRound);
+        int round = InputView.receiveTotalRound(requestTotalRound);
 
         RacingGame racingGame = new RacingGame(carNames);
 
         RaceResult raceResult = racingGame.start(round);
-        outputView.printRaceResult(raceResult);
+        OutputView.printRaceResult(raceResult);
     }
 }

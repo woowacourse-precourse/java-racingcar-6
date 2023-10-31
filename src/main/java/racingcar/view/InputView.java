@@ -3,16 +3,18 @@ package racingcar.view;
 import java.util.Arrays;
 import java.util.List;
 
-public class InputView {
-    public List<String> receiveCarNames(String input) {
+public enum InputView {
+    ;
+
+    public static List<String> receiveCarNames(String input) {
         return divideByComma(input);
     }
 
-    public int receiveTotalRound(String input) {
+    public static int receiveTotalRound(String input) {
         return Integer.parseInt(input);
     }
 
-    private List<String> divideByComma(String input) {
+    private static List<String> divideByComma(String input) {
         return Arrays.asList(input.split(","));
     }
 }

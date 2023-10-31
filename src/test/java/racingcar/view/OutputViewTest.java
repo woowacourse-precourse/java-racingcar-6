@@ -13,14 +13,12 @@ import java.util.List;
 class OutputViewTest {
     @Test
     void 자동차_이름_입력_요청_메시지를_출력한다(){
-        OutputView outputView = new OutputView();
-        outputView.printRequestCarNames();
+        OutputView.printRequestCarNames();
     }
 
     @Test
     void 라운드_횟수_입력_요청_메시지를_출력한다(){
-        OutputView outputView = new OutputView();
-        outputView.printRequestTotalRound();
+        OutputView.printRequestTotalRound();
     }
 
     @Test
@@ -35,7 +33,6 @@ class OutputViewTest {
                         CarResult.of(new Name("crong"), new Position(2))
                 ))
         ));
-        OutputView outputView = new OutputView();
-        outputView.printRaceResult(raceResult);
+        OutputView.printRaceResult(raceResult);
     }
 }
