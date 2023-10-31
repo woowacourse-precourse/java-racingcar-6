@@ -16,5 +16,8 @@ public class Validator {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
+        if (Integer.parseInt(input) == 0) {
+            throw new IllegalArgumentException("횟수는 0이 될 수 없습니다.");
+        }
     }
 }
