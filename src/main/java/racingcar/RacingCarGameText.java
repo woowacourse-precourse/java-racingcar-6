@@ -10,4 +10,6 @@ public interface RacingCarGameText {
     String RACINGCAR_ERROR_INVALID_TRY_COUNT_NUMBER = "회수는 자연수를(1 이상의 정수) 입력해야 합니다";
     String RACINGCAR_DOES_NOT_MOVE = "\u200B"; // zero-width-space trim()에 지워지지 않는 값.
     String RACINGCAR_LOCATION_SYMBOL = "-";
+    String RACINGCAR_WINNERS_DELIMITER = ", ";
+    String RACINGCAR_SPLIT_DELIMITER = ",";
 }
