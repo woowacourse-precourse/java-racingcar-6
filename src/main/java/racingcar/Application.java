@@ -77,6 +77,21 @@ public class Application {
         }
     }
 
+    public static void startRace(String[] carNames, Integer raceCount) {
+        HashMap<String, String> carMoveStatus;
+
+        carMoveStatus = initCarMoveStatus(carNames);
+    }
+
+    private static HashMap initCarMoveStatus(String[] carNames) {
+        HashMap<String, String> carMoveStatus = new HashMap<>();
+
+        for (String carName : carNames) {
+            carMoveStatus.put(carName, "");
+        }
+        return carMoveStatus;
+    }
+
     private static Integer createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
