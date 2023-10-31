@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     String name;
@@ -10,8 +11,14 @@ public class Car {
         this.distance = distance;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public int move() {
+
+        int num = Randoms.pickNumberInRange(0,9);
+
+        if ( num >= 4 ) {
+            this.distance += "-";
+        }
+
+        return num;
     }
 }

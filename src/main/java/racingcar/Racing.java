@@ -34,6 +34,7 @@ public class Racing {
         for ( int i = 0; i < count; i++ ) {
 
             for( Car car : cars ) {
+                car.move();
 
                 int length = car.distance.length();
 
