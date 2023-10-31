@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Winners;
 
 public class OutputViewTest {
     private static final int NUMBER_OF_ADVANCE = 4;
@@ -35,5 +36,30 @@ public class OutputViewTest {
 
         //then
         assertThat(output).contains("pobi : ", "java : -");
+    }
+
+    @Test
+    @DisplayName("최종 우승자 출력 테스트")
+    void finalWinnerPrintTest() {
+        //given
+        OutputView outputView = new OutputView();
+
+        OutputStream captor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captor)); // 이 후 출력은 captor에 저장됨
+
+        List<String> nameList = List.of("pobi", "java");
+        Cars cars = Cars.of(nameList);
+
+        cars.getCarList().stream()
+                .forEach(car -> car.accumulate(NUMBER_OF_ADVANCE));
+
+        Winners winners = cars.getWinnerList();
+
+        //when
+        outputView.printFinalWinner(winners);
+        String output = captor.toString().trim();
+
+        //then
+        assertThat(output).contains("최종 우승자 : pobi, java");
     }
 }
