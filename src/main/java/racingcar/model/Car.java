@@ -1,18 +1,15 @@
 package racingcar.model;
 
 import racingcar.model.vo.CarName;
-import racingcar.model.vo.RacingNumber;
 
 public class Car {
 
     private CarName name;
-    private RacingNumber racingNumber;
-    private Integer location;
+    private Location location;
 
     public Car(CarName carName) {
-        this.racingNumber = new RacingNumber();
         this.name = carName;
-        this.location = 0;
+        this.location = new Location();
     }
 
     public static Car make(CarName carName) {
@@ -20,22 +17,11 @@ public class Car {
     }
 
     public void playGameOneRound() {
-        generateRandomNumber();
-        stopOrMove();
-    }
-
-    public void generateRandomNumber() {
-        racingNumber.generateAndSaveRandomNumber();
-    }
-
-    public void stopOrMove() {
-        if (racingNumber.decideMoveOrStop(racingNumber)) {
-            location++;
-        }
+        location.stopOrMove();
     }
 
     @Override
     public String toString() {
-        return name.toString() + " : " + location;
+        return name.toString() + " : " + location.toString();
     }
 }
