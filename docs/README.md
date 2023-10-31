@@ -18,10 +18,10 @@
 ### ✔ 시도 회수 입력
 
 - [x] `시도할 회수는 몇회인가요?` 출력
-- [ ] 사용자에게 숫자 입력받기
+- [x] 사용자에게 숫자 입력받기
     - 입력받은 값이 없는 경우 (IllegalArgumentException) 발생
     - 입력받은 값이 숫자가 아닌 경우 (IllegalArgumentException) 발생
-    - 입력받은 값이 음수 인경우 (IllegalArgumentException) 발생
+    - 입력받은 값이 음수 인 경우 (IllegalArgumentException) 발생
     - 입력받은 값이 정수형(2,147,483,647) 보다 큰경우 (IllegalArgumentException) 발생
 
 ### ✔ 자동차 전진
