@@ -31,8 +31,6 @@ public class GameConsoleIO {
         System.out.println(ASK_CAR_NAMES_MESSAGE);
         String carNames = Console.readLine();
 
-
-
         return Arrays.stream(carNames.split(MEMBER_SEPARATOR))
                 .peek(name -> inputValidation.validateCarNameSize(name, GameCondition.NAME_SIZE.getValue()))
                 .toList();
