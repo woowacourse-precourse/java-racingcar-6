@@ -16,7 +16,7 @@ public class CarNameValidator {
                 dedupe.add(name);
                 continue;
             }
-            return false;
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
         return true;
     }
@@ -25,7 +25,7 @@ public class CarNameValidator {
         for (String allCarName : allCarNames) {
             String regex = "^[a-zA-Z]+$";
             if (!allCarName.matches(regex)) {
-                return false;
+                throw new IllegalArgumentException("순수 문자열이 아닙니다.");
             }
         }
         return true;
@@ -37,13 +37,16 @@ public class CarNameValidator {
         for (String carName : allCarNames) {
             int limit = 5;
             if (carName.isEmpty() || carName.length() > limit) {
-                return false;
+                throw new IllegalArgumentException("문자열 길이가 5글자를 초과했습니다.");
             }
         }
         return true;
     }
 
     private boolean isNull(String carNames) {
-        return carNames != null && !carNames.trim().isEmpty();
+        if(carNames != null && !carNames.trim().isEmpty()){
+            return true;
+        }
+        throw new IllegalArgumentException("문자열이 비어있습니다.");
     }
 }

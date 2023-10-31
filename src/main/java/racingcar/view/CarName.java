@@ -13,6 +13,6 @@ public class CarName {
         if(carNameValidator.check(carNames)){
             return carNames;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("잘못된 차 이름입니다.");
     }
 }

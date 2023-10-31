@@ -7,15 +7,25 @@ public class RotatingCountValidator {
 
     private boolean isNumber(String racingCount) {
         String regex = "[0-9]+";
-        return racingCount.matches(regex);
+        if(racingCount.matches(regex)){
+            return true;
+        }
+        throw new IllegalArgumentException("순수 숫자만 존재하지 않습니다.");
     }
 
     private boolean isSize(String racingCount) {
         int hundredMillion = 9;
-        return !racingCount.isEmpty() && racingCount.length() <= hundredMillion;
+
+        if(!racingCount.isEmpty() && racingCount.length() <= hundredMillion){
+            return true;
+        }
+        throw new IllegalArgumentException("정수 범위내로 입력해주세요.");
     }
 
     private boolean isNull(String racingCount) {
-        return racingCount != null && !racingCount.trim().isEmpty();
+        if(racingCount != null && !racingCount.trim().isEmpty()){
+            return true;
+        }
+        throw new IllegalArgumentException("입력이 비어있습니다.");
     }
 }

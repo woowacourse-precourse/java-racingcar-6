@@ -52,3 +52,36 @@ private final List를 선언하여 다른 컨트롤러로 넘어갈 때 선언�
 **controller 클래스의 여러 기능으로 많은 책임이 생겨, 작게 분리하면서 느낀 고민**
 
 : 처음에는 RacingGame의 play() 메서드에서 작게 분리할 곳을 찾지 못했다. 하지만 1) 입력 받는 부분 2) 게임이 실행되며 보여주는 결과 3) 결과 로 나눌 수 있지 않을까 해서 좀 더 분리하고자 한다.
+
+**테스트코드를 작성하며 생긴 고민(private, public)?**
+
+: 테스트 코드에 대해 작성하면서 내가 작성한 private 메서드를 public으로 교체해야했다. 어떤 방법이 맞는지 의문이 들었고, 구글링을 하게 되었다. 결론부터 말하면 테스트할 메서드 이름이나 파라미터가 바뀔 경우 테스트가 깨질 수 있고 관리가 어려워진다.
+그래서 가능하면 private 메서드를 호출하는 접근이 가능한 메서드를 테스트하는 것으로 대체하는 것이 좋은 방법이라는 글이 많다. 추가로 Private 메서드를 테스트를 소개하는 글이 있었다.
+Public 메서드를 통해 간접적으로 테스트 하거나, Reflection을 이용하여 테스트하는 방법이 존재했다.
+
+코드 참고: https://yearnlune.github.io/java/java-private-method-test/#do-not-test
+```java
+//Java Reflection API를 이용한 메소드 호출
+public class CalculatorTest {
+
+    Calculator calculator = new Calculator();
+
+    @Test
+    public void max_sourceGreaterThanTarget_ShouldBeReturnedSource() throws Exception {
+        /* REFLECTION */
+        Method maxMethod = Calculator.class.getDeclaredMethod("max", int.class, int.class);
+        maxMethod.setAccessible(true);
+
+        /* GIVEN */
+        int source = 10;
+        int target = 5;
+
+        /* WHEN */
+        int maxValue = (int)maxMethod.invoke(calculator, source, target);
+
+        /* THEN */
+        assertThat(maxValue, is(source));
+    }
+}
+```
+
