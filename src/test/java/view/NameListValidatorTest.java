@@ -58,4 +58,14 @@ class NameListValidatorTest {
         assertThat(carName.size()).isEqualTo(1);
         assertThat(carName).contains(input);
     }
+
+    @Test
+    public void 띄어쓰기가_포함되었을_때_정상작동(){
+        String input = "aa, bbbb, ccccc ";
+        List<String> carName = nameListValidator.validate(input);
+        assertThat(carName.size()).isEqualTo(3);
+        assertThat(carName).contains("aa");
+        assertThat(carName).contains("bbbb");
+        assertThat(carName).contains("ccccc");
+    }
 }
