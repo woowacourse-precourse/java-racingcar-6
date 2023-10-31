@@ -8,7 +8,7 @@ import racingcar.view.OutputView;
 public class MockRacingCarGameFactory implements RacingCarGameFactory {
     @Override
     public OutputView outputView() {
-        return new MockOutputView();
+        return MockOutputView.getInstance();
     }
 
     @Override
