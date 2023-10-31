@@ -14,6 +14,10 @@ public class Player {
         return new Player(playerName, false);
     }
 
+    public static Player of(final String playerName, boolean isWinner) {
+        return new Player(playerName, isWinner);
+    }
+
     public void checkWinner() {
         isWinner = true;
     }

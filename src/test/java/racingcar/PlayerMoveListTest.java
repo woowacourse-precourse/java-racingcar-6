@@ -1,7 +1,7 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -22,14 +22,13 @@ public class PlayerMoveListTest {
     MoveFactory moveFactory = new MoveFactory(numberGenerator);
 
     @Test
-    void from은_모든_플레이어의_이동현황을_받아_객체를_생성한다() {
-        List<PlayerMove> playerMoves = List.of(PlayerMove.fromTest(), PlayerMove.fromTest());
-        PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
-        assertNotNull(playerMoveList);
+    void of는_모든_플레이어의_이동현황을_받아_객체를_생성한다() {
+        PlayerMove playerMove = PlayerMove.from(Player.from("test"), Distance.from(1));
+        List<PlayerMove> playerMoves = List.of(playerMove, playerMove);
+        assertThat(PlayerMoveList.of(playerMoves, moveFactory)).isInstanceOf(PlayerMoveList.class);
     }
 
     @Test
-        // 조금 더 자세한 테스트?
     void move는_모든_플레이어_이동현황에_이동여부를_적용한다() {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
@@ -43,7 +42,7 @@ public class PlayerMoveListTest {
     }
 
     @Test
-    void getMaxDistance는_모든_플레이어_이동현황중에_가장_거리가_먼_값을_반환한다() {
+    void getMaxDistance는_모든_플레이어_이동현황중에_가장_거리가_먼_거리값을_반환한다() {
         List<PlayerMove> playerMoves = List.of(
                 PlayerMove.of(Player.from("a"), Distance.from(0)),
                 PlayerMove.of(Player.from("b"), Distance.from(1)),
@@ -59,12 +58,12 @@ public class PlayerMoveListTest {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
         PlayerMoveList playerMoveList = PlayerMoveList.of(List.of(playerMove, playerMove), moveFactory);
-        int max = 0;
+        int initMax = 0;
 
         // when
         playerMoveList.checkWinner();
 
         // then
-        verify(playerMove, times(playerMoveList.getPlayerMoveList().size())).checkWinner(max);
+        verify(playerMove, times(playerMoveList.getPlayerMoveList().size())).checkWinner(initMax);
     }
 }

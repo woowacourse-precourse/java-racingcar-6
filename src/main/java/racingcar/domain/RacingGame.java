@@ -16,6 +16,10 @@ public class RacingGame {
         return new RacingGame(playerMoveList, RaceCount.init());
     }
 
+    public static RacingGame from(PlayerMoveList playerMoveList, RaceCount raceCount) {
+        return new RacingGame(playerMoveList, raceCount);
+    }
+
     public void move() {
         playerMoveList.move();
         raceCount.increase();

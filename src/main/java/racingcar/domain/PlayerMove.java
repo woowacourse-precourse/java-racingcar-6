@@ -20,6 +20,10 @@ public class PlayerMove {
         return new PlayerMove(player, distance);
     }
 
+    public static PlayerMove from(final Player player, final Distance distance) {
+        return new PlayerMove(player, distance);
+    }
+
     public void move(final boolean isMove) {
         if (isMove) {
             distance.increase();
@@ -60,11 +64,5 @@ public class PlayerMove {
     @Override
     public int hashCode() {
         return Objects.hash(player, distance);
-    }
-
-    public static PlayerMove fromTest() {
-        Player testPlayer = Player.from("test");
-        Distance initDistance = Distance.from(0);
-        return new PlayerMove(testPlayer, initDistance);
     }
 }

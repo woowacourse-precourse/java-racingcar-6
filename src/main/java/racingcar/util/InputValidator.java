@@ -18,7 +18,7 @@ public class InputValidator {
         }
     }
 
-    public static boolean isNamesFormat(final String rawNames) {
+    private static boolean isNamesFormat(final String rawNames) {
         Matcher matcher = PLAYER_NAMES_PATTERN.matcher(rawNames);
         return matcher.matches();
     }
@@ -29,7 +29,7 @@ public class InputValidator {
         }
     }
 
-    public static boolean isNumber(final String count) {
+    private static boolean isNumber(final String count) {
         Matcher matcher = NUMBER_PATTERN.matcher(count);
         return matcher.matches();
     }

@@ -72,8 +72,10 @@
 
 - [x] 피라미터에 final 적용해보기
 - [x] unmodifaibleList 적용해보기
-- [ ] 빠져있는 테스트나 기능 적합하게 테스트 되어있는지
-- [ ] getWinnerList가 PlayersDto에 있어도 될까
+- [x] 빠져있는 테스트나 기능 적합하게 테스트 되어있는지
+- [x] getWinnerList가 PlayersDto에 있어도 될까
+- [ ] 테스트에서 given, when, then 줄바꿈 적용하기
+- [ ] PlayerMoveList 네이밍 개선 필요, 일급 컬렉션이 아닌데
 
 ## 프로그래밍 요구 사항
 
