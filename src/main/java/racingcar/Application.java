@@ -18,7 +18,7 @@ public class Application {
 
         String racingResult = racing.startRacing(round);
 
-        outputView.roundResult(racingResult);
+        outputView.getRacingResult(racingResult);
 
         List<String> winner = racing.determineWinner();
         outputView.getWinnerMessage(winner);

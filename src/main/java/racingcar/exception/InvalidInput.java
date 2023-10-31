@@ -24,7 +24,7 @@ public class InvalidInput {
     public static void NotIntegerValueException(String number) {
         int startIndex = 0;
 
-        if (number.contains("-")) {//음수인 경우
+        if (number.contains("-")) {
             startIndex = 1;
         }
 

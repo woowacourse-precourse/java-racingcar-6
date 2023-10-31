@@ -51,4 +51,19 @@ class OutputViewTest {
         assertThat(output.toString()).contains("최종 우승자 : abc, efg");
     }
 
+    @DisplayName("자동차 경주 실행 결과 출력")
+    @Test
+    void getRacingResult(){
+        //given
+        OutputView outputView = new OutputView();
+        String result = "\nhaha: ---";
+
+        //when
+        outputView.getRacingResult(result);
+
+        //then
+        assertThat(output.toString())
+                .contains("실행 결과", "haha: ---");
+    }
+
 }

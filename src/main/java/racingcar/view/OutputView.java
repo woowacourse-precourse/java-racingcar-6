@@ -6,7 +6,7 @@ public class OutputView {
     private final static String resultMessage = "실행 결과";
     private final static String winnerMessage = "최종 우승자";
 
-    public void roundResult(String racingResult) {
+    public void getRacingResult(String racingResult) {
         System.out.print("\n" + resultMessage);
         System.out.println(racingResult);
     }
