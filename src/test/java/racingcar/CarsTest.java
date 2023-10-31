@@ -1,8 +1,12 @@
 package racingcar;
 
+import domain.Car;
 import domain.Cars;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 
 public class CarsTest {
 
@@ -17,5 +21,19 @@ public class CarsTest {
         Assertions.assertThatThrownBy(()-> cars.validateDuplication())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("같은 자동차 이름을 입력하였습니다. 애플리케이션을 종료합니다.");
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"4", "5", "6", "7", "8", "9"}, delimiter = ',')
+    void 무작위_값이_4이상일_때_자동차를_전진시키는_기능_테스트(int number) {
+        //given
+        Car car = new Car("yoon");
+
+        //when & then
+        assertRandomNumberInRangeTest(() -> {
+            car.moveAheadByRandomNumber();
+            Assertions.assertThat(car.getProgress().getValue()).isEqualTo(1);
+        }, number
+        );
     }
 }
