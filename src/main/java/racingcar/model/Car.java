@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
-    private static final int MOVING_VALUE = 1;
     private static final int STANDARD_VALUE = 4;
     private static final int START_POSITION = 0;
 
