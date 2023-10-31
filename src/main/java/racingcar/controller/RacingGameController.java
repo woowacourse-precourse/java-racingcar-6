@@ -22,13 +22,29 @@ public class RacingGameController {
 
     public void game() {
         ready();
+        System.out.println();
+
+        System.out.println("실행 결과");
+        for(int i = 0; i < racingDto.getGameCnt(); i++) {
+            start();
+        }
     }
 
     public void ready() {
         List<String> carList = getInputCarListAndCheckName();
         int gameCnt = getInputGameCntAndCheckGameCnt();
         racingDto = convertRacingDto(carList, gameCnt);
+    }
 
+    public void start() {
+        Map<String, String> racingMap = racingDto.getCarMap();
+        racingMap.keySet().forEach(car -> {
+            boolean isForward = racingUtils.isRandomNumberOverFour();
+            String forwardVal = racingMap.get(car);
+            updateForwardCar(car, isForward, forwardVal);
+            System.out.println(car.substring(0, car.length() - 1) + " : " + racingDto.getCarMap().get(car));
+        });
+        System.out.println();
     }
 
     public List<String> getInputCarListAndCheckName() {
@@ -63,5 +79,12 @@ public class RacingGameController {
         racingDto.setGameCnt(gameCnt);
 
         return racingDto;
+    }
+
+    public void updateForwardCar(String carName, boolean isForward, String forwardVal) {
+        if(isForward) {
+            forwardVal += "-";
+            racingDto.getCarMap().put(carName, forwardVal);
+        }
     }
 }
