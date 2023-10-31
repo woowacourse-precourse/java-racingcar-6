@@ -23,6 +23,10 @@ public class Car {
         }
     }
 
+    public boolean isMaxPosition(int maxPosition) {
+        return position == maxPosition;
+    }
+
     private int startEngine() {
         return engine.generateNumber();
     }
