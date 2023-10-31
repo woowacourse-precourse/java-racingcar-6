@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.util.ArrayList;
@@ -49,14 +50,52 @@ public class MyApplicationTest {
 
     @Test
     void 전진_정지() {
-        String input = "test1,test2";
-        String[] carNames = input.split(",");
-        List<Integer> randomNumbers = new ArrayList<>();
-        randomNumbers.add(7);
-        randomNumbers.add(2);
-        CarMovement.getCarMoveResult(randomNumbers);
-        ResultOutput.printRacingResult(carNames, CarMovement.carMoveResult);
-//        assertThat().contains("1");
+        List<Integer> testNumbers = new ArrayList<>();
+        testNumbers.add(7);
+        testNumbers.add(2);
+        List<String> testMoveResult = new ArrayList<>();
+        testMoveResult.add("-");
+        testMoveResult.add("");
+
+        CarMovement.getCarMoveResult(testNumbers);
+        List<String> result = CarMovement.carMoveResult;
+        assertThat(result).isEqualTo(testMoveResult);
+    }
+
+    @Test
+    void 단일_우승자_출력() {
+        ResultOutput.racingCarNames.add("test1");
+        ResultOutput.racingCarNames.add("test2");
+        ResultOutput.racingCarNames.add("test3");
+
+        ResultOutput.strResults.add("-----");
+        ResultOutput.strResults.add("---");
+        ResultOutput.strResults.add("--");
+
+        ResultOutput.printWinner();
+
+        String result = String.join(", ", ResultOutput.winners);
+        String testResult = "test1";
+
+        assertThat(result).isEqualTo(testResult);
+    }
+
+    @Test
+    void 다수_우승자_출력() {
+        ResultOutput.racingCarNames.add("test1");
+        ResultOutput.racingCarNames.add("test2");
+        ResultOutput.racingCarNames.add("test3");
+
+        ResultOutput.strResults.add("---");
+        ResultOutput.strResults.add("---");
+        ResultOutput.strResults.add("--");
+
+        ResultOutput.printWinner();
+
+        String result = String.join(", ", ResultOutput.winners);
+        String testResult = "test1, test2";
+
+        assertThat(result).isEqualTo(testResult);
     }
 
 }

@@ -9,7 +9,6 @@ import racingcar.domain.UserInput;
 public class Application {
     public static void main(String[] args) {
         CarMovement carMovement = new CarMovement();
-        ResultOutput resultOutput = new ResultOutput();
         UserInput userInput = new UserInput();
 
         String carNames = userInput.inputCarNames();
@@ -25,7 +24,7 @@ public class Application {
             ResultOutput.printRacingResult(passedCarNames, stringResult);
         }
 
-        resultOutput.printWinner();
+        ResultOutput.printWinner();
 
 
     }

@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class ResultOutput {
-    private static List<String> strResults = new ArrayList<>();
-    private final List<Integer> intResults = new ArrayList<>();
-    private final List<String> winners = new ArrayList<>();
-    private static final List<String> racingCarNames = new ArrayList<>();
+    public static final List<String> strResults = new ArrayList<>();
+    private static final List<Integer> intResults = new ArrayList<>();
+    public static final List<String> winners = new ArrayList<>();
+    public static final List<String> racingCarNames = new ArrayList<>();
 
     public static void printRacingResult(String[] carNames, List<String> stringResult) {
         setStringResults(stringResult);
@@ -31,25 +31,20 @@ public class ResultOutput {
         }
     }
 
-    public void printWinner() {
+    public static void printWinner() {
         strResultToInt();
         findWinner();
         System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        System.out.println(String.join(", ", winners));
     }
 
-    private void strResultToInt() {
+    private static void strResultToInt() {
         for (String strResult : strResults) {
             intResults.add(strResult.length());
         }
     }
 
-    private void findWinner() {
+    private static void findWinner() {
         int maxMoveResult = Collections.max(intResults);
         for (int i = 0; i < intResults.size(); i++) {
             if (intResults.get(i) == maxMoveResult) {
