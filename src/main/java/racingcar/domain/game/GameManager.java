@@ -19,13 +19,12 @@ public class GameManager {
     public List<Car> startGame() {
         GameRound gameRound = new GameRound(new Round(INITIAL_START_ROUND));
 
-        while (gameRound.getCurrentRound() < totalRounds) {
-            gameRound.passRound();
-            gameEngine.moveCarsOfUser();
+        while (gameRound.passAndGetCurrentRound() < totalRounds) {
+            gameEngine.processTurn();
             OutputView.printBlankLine(ONE_BLANK_LINE);
         }
 
-        return gameEngine.findWinnerCar();
+        return gameEngine.findWinner();
     }
 
     public void saveTotalRoundOfGame(Integer round) {
