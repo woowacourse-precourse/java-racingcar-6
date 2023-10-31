@@ -32,7 +32,7 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름은 한 글자 이상이어야 합니다");
         }
 
-        if (name.trim().length() >= 5) {
+        if (name.trim().length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
         }
 
