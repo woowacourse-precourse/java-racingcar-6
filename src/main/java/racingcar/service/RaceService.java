@@ -28,7 +28,7 @@ public class RaceService {
     private List<GameResult> doMainContent(RacingManager racingManager, int attemptNumber) {
         List<GameResult> results = new ArrayList<>();
         for (int i = 0; i < attemptNumber; i++) {
-            racingManager.moveEach(
+            racingManager.moveEachCar(
                     randomNumberGenerator.generateNumbers(
                             racingManager.size()
                     )

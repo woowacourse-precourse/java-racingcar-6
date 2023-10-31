@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import racingcar.exception.BusinessException;
+import racingcar.exception.ExceptionCode;
 import racingcar.service.dto.GameResult;
 import racingcar.view.dto.CarNameList;
 
@@ -16,13 +18,23 @@ public class RacingManager {
                 .toList();
     }
 
-    public void moveEach(List<Integer> randomNumbers) {
+    public void moveEachCar(List<Integer> randomNumbers) {
+        validate(randomNumbers.size());
         int size = size();
         for (int i = 0; i < size; i++) {
             cars.get(i)
                     .move(
                             randomNumbers.get(i)
                     );
+        }
+    }
+
+    private void validate(int randomNumberSize) {
+        if (randomNumberSize != size()) {
+            throw new BusinessException(
+                    ExceptionCode.INVALID_RANDOM_NUMBERS_SIZE,
+                    this.getClass()
+            );
         }
     }
 
