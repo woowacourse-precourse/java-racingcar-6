@@ -28,7 +28,7 @@ public class GameController {
     }
 
     private void showWinnerCars() {
-        Winner winner = gameManager.findWinnerCar();
+        Winner winner = gameManager.findWinner();
         OutputView.finalWinnerMessage(winner);
     }
 }
