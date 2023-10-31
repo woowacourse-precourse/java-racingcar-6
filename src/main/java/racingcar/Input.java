@@ -11,7 +11,7 @@ public class Input {
         return Console.readLine();
     }
 
-    public String getRound(){
+    public String getRoundInput(){
         System.out.println(ASK_ROUND);
 
         return Console.readLine();

@@ -31,8 +31,10 @@ public class Output {
 
     void printWinner(ArrayList<String> winner){
         StringBuilder sb = new StringBuilder();
+
         sb.append(WINNER_IS);
         sb.append(String.join(",",winner));
+
         System.out.println(sb);
     }
 }

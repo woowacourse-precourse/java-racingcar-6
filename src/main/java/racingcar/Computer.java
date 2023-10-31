@@ -22,6 +22,11 @@ public class Computer {
         return carMap;
     }
 
+    int getIntRound(String roundString){
+        validation.roundValidation(roundString);
+        return Integer.parseInt(roundString);
+    }
+
     int makeRandomNum(){
         return Randoms.pickNumberInRange(0,9);
     }

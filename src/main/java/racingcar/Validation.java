@@ -8,13 +8,11 @@ public class Validation {
         }
     }
 
-    int roundValidation(String roundString){
+    void roundValidation(String roundString){
         try{
-            return Integer.parseInt(roundString);
+            Integer.parseInt(roundString);
         } catch (IllegalArgumentException e){
             System.out.println("[System] 숫자만 입력 가능합니다.");
         }
-
-        return 0;
     }
 }
