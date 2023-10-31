@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.util.Util.getDash;
 import static racingcar.util.Util.getRandomNumber;
 import static racingcar.util.validator.InputValidator.isStringLengthValid;
 import static racingcar.util.validator.InputValidator.checkBlank;
@@ -19,8 +20,7 @@ public class Car {
         }
     }
 
-    public int getPosition()
-    {
-        return position;
+    public void getResult(){
+        System.out.println(NAME+" : " +getDash(position));
     }
 }

@@ -15,4 +15,14 @@ public class Util {
         return Randoms.pickNumberInRange(0,9);
     }
 
+    public static String getDash(int position)
+    {
+        String dash ="";
+        for(int i=0; i<position ;i++){
+            dash +="-";
+        }
+        return dash;
+    }
+
+
 }
