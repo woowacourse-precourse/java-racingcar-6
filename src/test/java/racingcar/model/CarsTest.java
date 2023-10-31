@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class CarsTest {
 
-    @DisplayName("우승_자동차_탐색")
+    @DisplayName("\"pobi\", \"yeonwinner\"가 우승자라면, winner() 가 우승자를 list에 \"pobi\", \"yeonwinner\" 객체를 담아서 반환")
     @Test
     void 우승_자동차_탐색() {
         Car car1 = new Car("pobi");
