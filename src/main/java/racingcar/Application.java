@@ -158,6 +158,7 @@ class CarGame {
     }
 
     public void run(int attempt, TotalCar totalCar) {
+        output.showResultNotice();
         for (int move = 0; move < attempt; move++) {
             saveResult(totalCar);
 
@@ -169,7 +170,13 @@ class CarGame {
     }
 
     public void showResult(TotalCar totalCar) {
-
+        List<String> names = totalCar.nameList();
+        List<Integer> distances = totalCar.distanceList();
+        for (int result = 0; result < names.size(); result++) {
+            output.showName(names.get(result));
+            output.showColon();
+            output.showMove(distances.get(result));
+        }
     }
 
 
