@@ -12,10 +12,11 @@ public class Game {
         }
     }
 
-    public void roundGo() {
+    public ArrayList<Car> getRoundResult() {
         for (Car car : cars) {
             car.move();
         }
+        return cars;
     }
 
     public ArrayList<Integer> getPositions() {

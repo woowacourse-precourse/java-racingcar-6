@@ -3,6 +3,7 @@ package racingcar.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.domain.Game;
 
 public class Validator {
     private static final int CAR_NAME_LENGTH_MIN = 1;
@@ -13,14 +14,15 @@ public class Validator {
     private static final String CAR_NAME_DUPLICATE_ERROR = "자동차 목록은 중복이 없어야 합니다.";
     private static final String ROUND_NUMBER_WRONG_ERROR = "시도할 횟수는 숫자여야 합니다.";
 
-    public List<String> convertStringToList(String input) {
+    public Game convertStringToList(String input) {
         ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
         validate(carNames);
-        return carNames;
+        return new Game(carNames);
     }
 
-    public void convertStringToInt(String input) {
+    public int convertStringToInt(String input) {
         isInteger(input);
+        return Integer.parseInt(input);
     }
 
     public void validate(List<String> carNames) {
