@@ -50,12 +50,12 @@ class CarsTest {
         cars.moveAllCars(movable);
 
         // when
-        List<Car> winner = cars.findWinner();
+        WinnerDto winnerDto = cars.findWinner();
 
         // then
-        assertThat(winner.get(0).getName()).isEqualTo("a");
-        assertThat(winner.get(1).getName()).isEqualTo("b");
-        assertThat(winner.get(2).getName()).isEqualTo("c");
+        assertThat(winnerDto.winners().get(0).getName()).isEqualTo("a");
+        assertThat(winnerDto.winners().get(1).getName()).isEqualTo("b");
+        assertThat(winnerDto.winners().get(2).getName()).isEqualTo("c");
     }
 
     @DisplayName("toCarsDto를 통해 Cars를 Dto로 변환할 수 있음")
