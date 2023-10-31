@@ -27,10 +27,10 @@ public class RacingGameController {
     public void run() {
         Cars cars = getCars();
         TryNumber tryNumber = getTryNumber();
+        
         RacingGame racingGame = gameSet(cars);
 
         startRacing(cars, tryNumber, racingGame);
-
         showWinner(racingGame);
     }
 
