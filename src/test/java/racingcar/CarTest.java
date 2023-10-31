@@ -58,8 +58,13 @@ class CarTest extends NsTest {
 
     @Override
     public void runMain() {
+        // given
         Car car = new Car("pobi");
+
+        // when
         car.progress();
+
+        // then
         System.out.println(car.getPosition());
     }
 
