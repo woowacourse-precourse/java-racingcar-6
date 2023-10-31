@@ -1,4 +1,10 @@
-package racingcar;
+package racingcar.controller;
+
+import racingcar.controller.Move;
+import racingcar.controller.PickWinner;
+import racingcar.repository.Car;
+import racingcar.view.Input;
+import racingcar.view.Output;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.repository;
 
 public class Car {
     private String name;

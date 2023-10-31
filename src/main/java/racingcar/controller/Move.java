@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.repository.Car;
 
 import java.util.List;
 
