@@ -13,17 +13,17 @@ public class Car {
         this.distance = "";
     }
 
-    public void move() {
-        this.distance += "-";
-    }
-
-    public List<Car> generateCarList(List<String> nameList) {
+    public static List<Car> generateCarList(List<String> nameList) {
         List<Car> carList = new ArrayList<>();
 
         nameList.forEach(name -> {
             carList.add(new Car(name));
         });
         return carList;
+    }
+
+    public void move() {
+        this.distance += "-";
     }
 
     public String getName() {
