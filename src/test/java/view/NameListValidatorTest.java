@@ -60,12 +60,21 @@ class NameListValidatorTest {
     }
 
     @Test
-    public void 띄어쓰기가_포함되었을_때_정상작동(){
+    public void 쉼표_사이에_띄어쓰기가_포함되었을_때_정상작동(){
         String input = "aa, bbbb, ccccc ";
         List<String> carName = nameListValidator.validate(input);
         assertThat(carName.size()).isEqualTo(3);
         assertThat(carName).contains("aa");
         assertThat(carName).contains("bbbb");
         assertThat(carName).contains("ccccc");
+    }
+
+    @Test
+    public void 이름_안에_띄어쓰기가_포함되었을_때_정상작동(){
+        String input = "a  a, b b";
+        List<String> carName = nameListValidator.validate(input);
+        assertThat(carName.size()).isEqualTo(2);
+        assertThat(carName).contains("a  a");
+        assertThat(carName).contains("b b");
     }
 }
