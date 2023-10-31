@@ -7,10 +7,13 @@ public class Utils {
 
     private static final String CAR_NAME_SEPARATOR = ",";
 
+    private Utils() {
+    }
+
     public static int convertStringToInt(String number) {
         try {
             return Integer.parseInt(number);
-        } catch (NumberFormatException numberFormatException) {
+        } catch (final NumberFormatException numberFormatException) {
             throw numberFormatException;
         }
     }
