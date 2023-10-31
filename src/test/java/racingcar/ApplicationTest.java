@@ -80,6 +80,24 @@ class ApplicationTest extends NsTest {
         assertThat(result3).isEqualTo("--");
     }
 
+    @Test
+    void getWinner_테스트() {
+        // given
+        Core T = new Core();
+        List<Car> case1 = List.of(Car.make("pobi", 3), Car.make("woni", 4), Car.make("jun", 1));
+        List<Car> case2 = List.of(Car.make("kim", 2), Car.make("lee", 4), Car.make("park", 4));
+        List<Car> case3 = List.of(Car.make("james", 5), Car.make("tom", 4), Car.make("sam", 3));
+
+        // when
+        final List<String> result1 = T.getWinner(case1);
+        final List<String> result2 = T.getWinner(case2);
+        final List<String> result3 = T.getWinner(case3);
+
+        // then
+        assertThat(result1).isEqualTo(List.of("woni"));
+        assertThat(result2).isEqualTo(List.of("lee", "park"));
+        assertThat(result3).isEqualTo(List.of("james"));
+    }
 
     @Test
     void 전진_정지() {
