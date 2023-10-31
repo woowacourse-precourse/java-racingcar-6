@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.service.RaceGameService;
 import racingcar.view.InputView;
 
@@ -17,7 +18,10 @@ public class RaceGameController {
     int round = inputView.readProgressCount();
     System.out.println(round);
 
-
+    for (int i = 0; i <round ; i++) {
+        raceGameService.race();
+      System.out.println(Car.getTestCount());
+    }
   }
 
   public void EndRaceGame() {
