@@ -33,9 +33,9 @@ public class RacingGame {
 
     public void inputTryNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
-        isTryNumValid(input);
-        tryNumber = Integer.parseInt(input);
+        String tryNumInput = Console.readLine();
+        isTryNumValid(tryNumInput);
+        tryNumber = Integer.parseInt(tryNumInput);
     }
 
     public void isCarNameValid() {
