@@ -31,6 +31,6 @@ public class OutputView {
     }
 
     public void printResult(String topRacers) {
-        System.out.println(OutputMessages.FINAL_WINNER.getMessage()+ topRacers);
+        System.out.println(OutputMessages.FINAL_WINNER.getMessage() + topRacers);
     }
 }
