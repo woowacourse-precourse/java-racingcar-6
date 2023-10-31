@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import java.util.List;
+import racingcar.domain.CarNameList;
 import racingcar.domain.RacingCarManager;
 import racingcar.validator.CarNamesInputValidator;
 import racingcar.validator.NumberOfGamesInputValidator;
@@ -11,10 +11,9 @@ public class GameController {
     public void playGame() {
         OutputView outputView = new OutputView();
         InputView inputView = new InputView(new CarNamesInputValidator(), new NumberOfGamesInputValidator());
-        outputView.askToInsertCarNames();
-        List<String> carNames = inputView.getCarNamesFromUser();
-        carNames.forEach(System.out::println);
-        RacingCarManager racingCarManager = new RacingCarManager(carNames);
+        outputView.askToInsertCarNameList();
+        CarNameList carNameList = inputView.getCarNameListFromUser();
+        RacingCarManager racingCarManager = new RacingCarManager(carNameList);
         outputView.askToInsertNumberOfGames();
         Long l = inputView.getNumberOfGamesFromUser();
     }

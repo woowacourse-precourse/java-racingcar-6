@@ -1,9 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
-import java.util.List;
 import racingcar.constant.Constant;
+import racingcar.domain.CarNameList;
 import racingcar.validator.CarNamesInputValidator;
 import racingcar.validator.NumberOfGamesInputValidator;
 
@@ -18,11 +17,11 @@ public class InputView {
         this.numberOfGamesInputValidator = numberOfGamesInputValidator;
     }
 
-    public List<String> getCarNamesFromUser() {
+    public CarNameList getCarNameListFromUser() {
         String userInput = Console.readLine();
         carNamesInputValidator.validate(userInput);
         String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
-        return Arrays.asList(carNames);
+        return new CarNameList(carNames);
     }
 
     public Long getNumberOfGamesFromUser() {
