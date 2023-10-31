@@ -1,7 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Race;
+import racingcar.generator.ConsoleInputGenerator;
+import racingcar.generator.InputGenerator;
 
 import java.util.Arrays;
 import java.util.List;

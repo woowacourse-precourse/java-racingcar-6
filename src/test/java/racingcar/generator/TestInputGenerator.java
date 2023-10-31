@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.generator;
 
-public class TestInputGenerator implements InputGenerator{
+import racingcar.generator.InputGenerator;
+
+public class TestInputGenerator implements InputGenerator {
 
     @Override
     public String getInputNames() {

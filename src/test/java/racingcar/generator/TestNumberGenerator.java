@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.generator;
 
-public class TestNumberGenerator implements NumberGenerator{
+import racingcar.generator.NumberGenerator;
+
+public class TestNumberGenerator implements NumberGenerator {
 
     @Override
     public int generateNumberRange(int min, int max) {

@@ -3,7 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.TestNumberGenerator;
+import racingcar.generator.TestNumberGenerator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
