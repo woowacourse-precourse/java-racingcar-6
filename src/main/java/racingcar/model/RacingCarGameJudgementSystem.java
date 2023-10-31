@@ -9,7 +9,7 @@ public class RacingCarGameJudgementSystem {
         int maximumMovingDistance = cars.getMaximumMovingDistance();
 
         List<String> winnerNames = cars.getCars().stream()
-            .filter(car -> car.getTotalMovingDistance() == maximumMovingDistance)
+            .filter(car -> car.hasMaximumMovingDistance(maximumMovingDistance))
             .map(Car::getName)
             .collect(Collectors.toList());
 
