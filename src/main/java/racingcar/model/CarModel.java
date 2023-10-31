@@ -5,8 +5,15 @@ public class CarModel {
     private int forward;
 
     public CarModel(String name) {
+        if (isNameOverLength(name)) {
+            throw new IllegalArgumentException("자동차 이름의 길이가 5가 넘습니다.");
+        }
         this.name = name;
         this.forward = 0;
+    }
+
+    private boolean isNameOverLength(String name) {
+        return name.length() > 5;
     }
 
     public int increaseForward() {
