@@ -8,6 +8,8 @@ public class Constant {
     public static final String OUTPUT_ROUND_RESULT_DELIMITER = " : ";
     public static final String OUTPUT_CAR_MOVE_MARK = "-";
     public static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
+    public static final String OUTPUT_CAR_NAME_DELIMITER = ", ";
+
 
     public static final int CAR_NAME_MAX_SIZE = 5;
     public static final int MIN_RANDOM_NUM = 0;
