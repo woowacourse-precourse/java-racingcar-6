@@ -24,6 +24,11 @@ public class RaceGameManager {
     }
 
     public void noticeWinner() { // 최종 우승자 출력
-
+        WinnerManager winnerManager = new WinnerManager(car);
+        ArrayList<String> winnersList = winnerManager.getWinnersByForwardCount();
+        System.out.print("최종 우승자 : ");
+        for(String winner : winnersList){
+            System.out.print(winner + ",");
+        }
     }
 }
