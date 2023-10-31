@@ -30,6 +30,10 @@ public class RacingCar implements Car {
          * @param util 랜덤 숫자 생성 유틸 클래스
          */
         public RacingCar(final String name, RandomNumber util) {
+                if (name == null || util == null) {
+                        throw new IllegalArgumentException("Null은 허용되지 않습니다.");
+                }
+
                 this.name = name;
                 this.util = util;
                 drivenDistance = 0L;

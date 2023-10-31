@@ -17,9 +17,14 @@ public class RacingGameParticipant implements RacingPlayer {
 
         /**
          * 플레이어의 생성자로 GameConsole 유틸 클래스를 주입 받습니다.
+         *
          * @param console 유틸 클래스
          */
         public RacingGameParticipant(GameConsole console) {
+                if (console == null) {
+                        throw new IllegalArgumentException("Null은 허용되지 않습니다.");
+                }
+
                 this.gameConsole = console;
         }
 
@@ -42,7 +47,7 @@ public class RacingGameParticipant implements RacingPlayer {
          * 플레이어가 입력한 자동차의 이름의 유효성 검사를 실시한다.
          *
          * @param carNameList 자동차 이름 리스트
-         * @param nameLength 자동차 이름 제한 길이
+         * @param nameLength  자동차 이름 제한 길이
          * @throws IllegalArgumentException - 자동차의 이름이 제한 길이를 넘어가는 경우
          */
         private void carListValidation(final List<String> carNameList, final int nameLength) {
@@ -55,6 +60,7 @@ public class RacingGameParticipant implements RacingPlayer {
 
         /**
          * 플레이어가 입력한 laps 를 반환한다.
+         *
          * @return laps
          */
         @Override
