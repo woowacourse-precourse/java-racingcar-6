@@ -18,6 +18,7 @@ public class MessagePrinter {
     }
 
     public void printExecutionResultMessage() {
+        System.out.println(BLANK);
         System.out.println(EXECUTION_RESULT_MESSAGE);
     }
 
