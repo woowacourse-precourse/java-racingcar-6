@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.exception.InputNameException;
 import racingcar.util.StringAndListParser;
 
@@ -8,13 +10,18 @@ public class GenerateCarsService {
 	private StringAndListParser parser = new StringAndListParser();
 	private String[] carArray;
 
-	public String[] getNames(String names) {
-		nameException.checkException(getNameList(names));
-		return carArray;
+	public void getNames(String names) {
+		nameException.checkException(setCarArray(names));
 	}
 
-	public String[] getNameList(String names) {
-		carArray = parser.splitString(names);
-		return carArray;
+	public String[] setCarArray(String names) {
+		return carArray = parser.splitString(names);
+	}
+
+	public void generateCars(String names, Cars cars) {
+		getNames(names);
+		for (int i=0; i<carArray.length; i++) {
+			cars.setCars(new Car(carArray[i]));
+		}
 	}
 }
