@@ -27,11 +27,7 @@ public class GameController {
     public void play() {
         outputView.displayStartMessage();
         List<String> carNames = inputView.getCarNames();
-
-        for (String name : carNames) {
-            Car car = CarGenerator.createCar(name);
-            cars.add(car);
-        }
+        createCars(carNames);
 
         outputView.displayGetMoveCount();
         int moveCount = inputView.getMoveCount();
@@ -40,6 +36,13 @@ public class GameController {
 
         List<String> winner = referee.determineWinner(cars);
         outputView.displayWinner(winner);
+    }
+
+    private void createCars(List<String> carNames) {
+        for (String name : carNames) {
+            Car car = CarGenerator.createCar(name);
+            cars.add(car);
+        }
     }
 
     private void runRace(int moveCount) {
