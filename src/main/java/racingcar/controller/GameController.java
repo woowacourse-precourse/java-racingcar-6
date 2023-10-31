@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.GameScore;
 import racingcar.model.RacingCar;
+import racingcar.model.TrialCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -21,9 +22,10 @@ public class GameController {
     }
 
     public void start() {
-        int gameCount = INPUT_VIEW.inputGameCount();
-        while (gameCount-- != 0) {
+        TrialCount trialCount = new TrialCount(INPUT_VIEW.inputGameCount());
+        while (trialCount.isNotZero()) {
             OUTPUT_VIEW.printGameScore(playOnce());
+            trialCount.consumed();
         }
         OUTPUT_VIEW.printWinner(convertToString(gameScore.getWinner()));
     }
