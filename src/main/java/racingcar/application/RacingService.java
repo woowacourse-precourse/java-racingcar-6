@@ -6,6 +6,7 @@ import racingcar.dto.RacingResult;
 import racingcar.generator.NumberGenerator;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static racingcar.enums.RacingConfig.MOVE_CONDITION;
 
@@ -17,7 +18,8 @@ public class RacingService {
     }
 
     public List<RacingResult> race(Cars cars) {
-        return cars.getCars().stream()
+        return IntStream.range(0, cars.size())
+                .mapToObj(cars::findCar)
                 .map(this::moveCar)
                 .toList();
     }
@@ -30,18 +32,11 @@ public class RacingService {
     }
 
     public List<String> selectWinners(Cars cars) {
-        int maxMovedCount = getMaxMovedCount(cars);
-
-        return cars.getCars().stream()
+        int maxMovedCount = cars.getMaxMovedCount();
+        return IntStream.range(0, cars.size())
+                .mapToObj(cars::findCar)
                 .filter(car -> car.isSameMovedCount(maxMovedCount))
                 .map(Car::getName)
                 .toList();
-    }
-
-    private int getMaxMovedCount(Cars cars) {
-        return cars.getCars().stream()
-                .mapToInt(Car::getMovedCount)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException("자동차가 존재하지 않습니다."));
     }
 }

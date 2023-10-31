@@ -20,6 +20,6 @@ class CarFactoryTest {
         Cars cars = carFactory.createCars(carNames);
 
         // then
-        assertThat(cars.getCars()).hasSize(carNames.size());
+        assertThat(cars.size()).isEqualTo(carNames.size());
     }
 }

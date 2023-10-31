@@ -81,9 +81,8 @@ class RacingServiceTest {
 
     private Cars createCarsWithWinner(int winnerCount) {
         Cars cars = createCars(winnerCount + 10);
-        cars.getCars().stream()
-                .limit(winnerCount)
-                .forEach(Car::move);
+        IntStream.range(0, winnerCount)
+                .forEach(i -> cars.findCar(i).move());
         return cars;
     }
 }

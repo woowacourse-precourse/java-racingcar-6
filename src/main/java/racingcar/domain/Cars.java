@@ -29,7 +29,18 @@ public class Cars {
         }
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    public int size() {
+        return cars.size();
+    }
+
+    public Car findCar(int index) {
+        return cars.get(index);
+    }
+
+    public int getMaxMovedCount() {
+        return cars.stream()
+                .mapToInt(Car::getMovedCount)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
     }
 }
