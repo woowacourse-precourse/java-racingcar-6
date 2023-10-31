@@ -5,4 +5,9 @@ public class OutputManager {
     public void printCarNameRequestMessage() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
     }
+
+    public void printGameResult(GameResult gameResult) {
+        System.out.println("게임 결과 출력");
+        // TODO: 게임 결과 출력 구현
+    }
 }
