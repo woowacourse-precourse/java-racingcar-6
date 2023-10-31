@@ -4,10 +4,12 @@ import java.util.Objects;
 
 public class Position {
 
+    public static final int DEFAULT_POSITION = 0;
+
     private int position;
 
     public Position() {
-        position = 0;
+        position = DEFAULT_POSITION;
     }
 
     public void add() {
