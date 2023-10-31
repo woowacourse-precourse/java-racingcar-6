@@ -3,6 +3,7 @@ package basis;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
+import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ class ConverterTest extends NsTest{
     }
 
     @Test
-    void 입력길이_기준을_초과했을_때() {
+    void 차_이름의_입력길이_기준을_초과했을_때() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -57,7 +58,7 @@ class ConverterTest extends NsTest{
     }
 
     @Test
-    void 공백이름을_입력했을_때() {
+    void 차_이름에_공백이름을_입력했을_때() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi, ,rong", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -72,6 +73,20 @@ class ConverterTest extends NsTest{
                 assertThatThrownBy(() -> runException("     pobi,crong", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining(EMPTY_NAME_CASE_MESSAGE)
+        );
+    }
+
+    @Test
+    void 시도_횟수를_0_또는_음수로_입력했을_때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,crong", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(NOT_NUMBER_INPUT_CASE_MESSAGE)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,crong", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(NOT_NUMBER_INPUT_CASE_MESSAGE)
         );
     }
 }
