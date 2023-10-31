@@ -20,12 +20,37 @@ public class GameManager {
         return carList;
     }
 
-    public int tryCountSetting(){
+    public int tryCountSetting() {
         Output.printInputTryCountMessage();
         return input.getTryCount();
     }
 
     public int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public List<String> checkWinner(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+        int maxPosition = findMaxPosition(carList);
+
+        for (Car car : carList) {
+            if (maxPosition == car.getPosition()) {
+                winnerList.add(car.getCarName());
+            }
+        }
+
+        return winnerList;
+    }
+
+    private int findMaxPosition(List<Car> carList) {
+        int max = -1;
+
+        for (Car car : carList) {
+            if (max <= car.getPosition()) {
+                max = car.getPosition();
+            }
+        }
+
+        return max;
     }
 }
