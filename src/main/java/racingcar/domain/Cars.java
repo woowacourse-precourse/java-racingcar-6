@@ -18,16 +18,29 @@ public class Cars {
         this.cars.add(car);
     }
 
+    /**
+     * car들 각각 이동 실행
+     */
     public void move() {
         cars.stream().filter(car -> car.isCanMove()).forEach(car -> {
             car.move();
         });
     }
 
+    /**
+     * cars객체 가져온다.
+     *
+     * @return List<Car>
+     */
     public List<Car> getCars() {
         return cars;
     }
 
+    /**
+     * 가장많이 이동한 자동차의 이름들을 반환하는 메서드
+     *
+     * @return List<String>
+     */
     public List<String> getWinner() {
         int distance = cars.stream().map(Car::getDistance).max(Integer::compare).get(); // 최댓값의 거리를 구한뒤
         return cars.stream().filter(car -> car.getDistance() == distance).map(Car::getName)
