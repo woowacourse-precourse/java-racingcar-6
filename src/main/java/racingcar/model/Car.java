@@ -11,6 +11,12 @@ public class Car {
         this.distance = 1;
     }
 
+    public void getResult() {
+        if(Utils.getRandomNumber() > 3) {
+            this.distance += 1;
+        }
+    }
+
     public void printRoundResult() {
         String totalDistance = Utils.convertDistanceToSymbol(distance);
         System.out.println(name + " : " + totalDistance);
