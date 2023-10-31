@@ -7,10 +7,12 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     static List<String> inputCarNameList = new ArrayList<>();
     static String inputTryNum;
+    static List<Integer> forwardCountsList = new ArrayList<>();
 
     public static void main(String[] args) {
         inputCarInformation();
         inputTryCount();
+        determineForwardMovementCount();
     }
     // 자동차 이름 입력 받기
     static void inputCarInformation() {
@@ -45,6 +47,39 @@ public class Application {
             if (checkInputTryNum < '0' || checkInputTryNum > '9') {
                 throw new IllegalArgumentException("숫자형식만 입력 가능합니다.");
             }
+        }
+    }
+
+    // 전진 회수 결정하기 + 각 자동차의 결과 출력
+    static void determineForwardMovementCount () {
+        int forwardCounts = 0;
+        String forwardMark = "-";
+
+        //각 플레이어의 전진 성공 회수를 저장하는 리스트 생성
+        while (forwardCountsList.size() < inputCarNameList.size()) {
+            forwardCountsList.add(0);
+        }
+
+        System.out.printf("%n실행 결과");
+        for (int i = 0; i < Integer.parseInt(inputTryNum); i++) {
+            for (int j = 0; j < inputCarNameList.size(); j++) {
+                int RandomNum = Randoms.pickNumberInRange(0, 9);
+                if (RandomNum >= 4) {
+                    forwardCounts = forwardCountsList.get(j) + 1;
+                }
+                if (RandomNum < 4) {
+                    forwardCounts = forwardCountsList.get(j);
+                }
+                System.out.printf("%n%s : ", inputCarNameList.get(j));
+                for (int k = 0; k < forwardCounts; k++) {
+                    System.out.printf("%s", forwardMark);
+                }
+                forwardCountsList.set(j, forwardCounts);
+                forwardCounts = 0;
+                for (int k = 0; k < inputCarNameList.size(); k++) {
+                }
+            }
+            System.out.printf("%n");
         }
     }
 }
