@@ -9,6 +9,7 @@ public class PlayerInputManage {
     private static final String ERROR_MESSAGE_CAR_NAME = "자동차 이름은 알파벳만 가능합니다.";
     private static final String ERROR_MESSAGE_TRY_COUNT = "시도 횟수는 숫자만 가능합니다.";
     private static final String ERROR_MESSAGE_TRY_COUNT_RANGE = "시도 횟수는 1이상만 가능합니다.";
+    private static final String ERROR_MESSAGE_CAR_NAME_DUPLICATE = "자동차 이름은 중복이 불가능합니다.";
 
     private static final String Commas = ",";
     private static final String REGEX = "^[a-zA-Z]*$";
@@ -21,6 +22,7 @@ public class PlayerInputManage {
         SetCarNameList(CarNameInput);
         CheckCarNameLength(this.playerCarNameList);
         CheckCarName(this.playerCarNameList);
+        CheckCarNameDuplication(this.playerCarNameList);
     }
 
     private void SetCarNameList(String carNameInput) {
@@ -38,7 +40,20 @@ public class PlayerInputManage {
         }
     }
 
-    // 중복, 공백 체크
+    // 중복된 이름 체크
+    public static void CheckCarNameDuplication(ArrayList<String> playerCarNameList) {
+        for (int i = 0; i < playerCarNameList.size(); i++) {
+            FindCarNameDuplication(playerCarNameList, i);
+        }
+    }
+
+    private static void FindCarNameDuplication(ArrayList<String> playerCarNameList, int i) {
+        for (int j = i + 1; j < playerCarNameList.size(); j++) {
+            if (playerCarNameList.get(i).equals(playerCarNameList.get(j))) {
+                throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME_DUPLICATE);
+            }
+        }
+    }
     
 
 
