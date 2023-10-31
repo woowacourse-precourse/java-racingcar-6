@@ -17,8 +17,8 @@ class CarsTest {
 
     @Test
     void 실행_결과를_응답한다() {
-        String carNames = "pobi";
+        String carNames = "pobi,woni,jun";
         Cars cars = new Cars(carNames);
-        assertThat(cars.result()).contains("pobi : ");
+        assertThat(cars.result()).isEqualTo("pobi : \nwoni : \njun : ");
     }
 }
