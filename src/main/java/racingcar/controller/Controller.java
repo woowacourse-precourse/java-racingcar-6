@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import racingcar.model.Cars;
 import racingcar.model.TrialNumber;
 import racingcar.view.InputView;
@@ -46,13 +47,20 @@ public class Controller {
      * 입력 회수만큼 게임 진행
      */
     private void playGame() {
+        OutputView.printResultHeader();
         int rounds = trialNumber.getTrialNumber();
-        for (int count = 0; count < rounds; count++) {
-            cars.moveCars();
-            OutputView.printResult(cars.getCars());
+        for (int i = 0; i < rounds; i++) {
+            playSingleGame();
         }
     }
 
+    /**
+     * 1회 게임 진행
+     */
+    private void playSingleGame() {
+        cars.moveCars();
+        OutputView.printResult(cars.getCars());
+    }
 
     /**
      * 모든 게임 종료 시 우승 자동차 선정
