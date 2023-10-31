@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.policy.DriveRule;
 import racingcar.application.RandomDriveRule;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -21,6 +23,7 @@ class CarTest {
         Car car = new Car("test");
 
         assertNotNull(car);
+        assertNotEquals(0, car.hashCode());
     }
 
     @Test
@@ -55,7 +58,7 @@ class CarTest {
         car.move(driveRule);
         String position = car.printPosition();
 
-        assertEquals("test : --", position);
+        assertEquals("test : -- \n", position);
     }
 
     @Test
@@ -68,6 +71,38 @@ class CarTest {
         car.move(driveRule);
         String position = car.printPosition();
 
-        assertEquals("test : ", position);
+        assertEquals("test : \n", position);
+    }
+
+    @Test
+    @DisplayName("Car이 승자일 경우 이름을 반환해줘야 한다.")
+    void Car가_승자일_경우_이름을_반환() {
+        DriveRule driveRule = mock(RandomDriveRule.class);
+        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(5, 2);
+
+        Car first = new Car("First");
+        Car secon = new Car("Secon");
+        first.move(driveRule);
+        secon.move(driveRule);
+
+        String winner = first.getWinner(List.of(first, secon));
+
+        assertEquals("First", winner);
+    }
+
+    @Test
+    @DisplayName("Car이 승자가 아닐 경우 이름을 반환하면 안된다.")
+    void Car가_승자일_경우_빈문자열_반환() {
+        DriveRule driveRule = mock(RandomDriveRule.class);
+        when(driveRule.generateValue(MIN_RANGE, MAX_RANGE)).thenReturn(2, 5);
+
+        Car first = new Car("First");
+        Car secon = new Car("Secon");
+        first.move(driveRule);
+        secon.move(driveRule);
+
+        String winner = first.getWinner(List.of(first, secon));
+
+        assertEquals("", winner);
     }
 }
