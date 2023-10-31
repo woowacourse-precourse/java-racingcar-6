@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import racingcar.service.dto.GameResult;
+import racingcar.view.dto.CarNameList;
 
 public class CarList {
 
