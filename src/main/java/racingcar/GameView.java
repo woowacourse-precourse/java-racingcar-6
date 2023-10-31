@@ -30,4 +30,8 @@ public class GameView {
         System.out.println();
     }
 
+    public void printWinners(Game game) {
+        System.out.println(game.getWinnersResult());
+    }
+
 }
