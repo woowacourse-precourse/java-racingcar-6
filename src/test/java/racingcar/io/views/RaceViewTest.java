@@ -2,17 +2,28 @@ package racingcar.io.views;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.collaborator.race.Racer;
 import racingcar.io.racing.RaceRandoms;
 
 class RaceViewTest {
+
+    @AfterEach
+    void tearDown() throws NoSuchFieldException, IllegalAccessException {
+        Field field = Console.class.getDeclaredField("scanner");
+        field.setAccessible(true);
+        field.set(Scanner.class, null);
+    }
 
     @Test
     void askRacersNames로_레이서리스트를_입력할수있음() {
