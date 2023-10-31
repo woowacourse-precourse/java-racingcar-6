@@ -14,6 +14,7 @@ public class Game {
         List<String> carNames = getCarNames();
         int tryNumber = getTryNumber();
         RacingCar car = getRacingCar(carNames);
+
         OutputView.printGameResultStatement();
         for (int i = 0; i < tryNumber; i++) {
             gamePlay(car.getRacingCar());
@@ -25,13 +26,16 @@ public class Game {
         String carInput = InputView.inputCarNames();
         List<String> carNames = StringConvertor.convertStringToList(carInput);
         InputValidator.checkCarNames(carNames, carInput);
+
         return carNames;
     }
 
     public int getTryNumber() {
         String tryNumber = InputView.inputTryNumber();
+        tryNumber = StringConvertor.removeSpace(tryNumber);
         InputValidator.checkTryNumberIsInteger(tryNumber);
         System.out.println();
+
         return StringConvertor.convertStringToInt(tryNumber);
     }
 
