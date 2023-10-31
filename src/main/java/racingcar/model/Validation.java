@@ -10,6 +10,7 @@ public class Validation {
         nameLimitLength(cars);
         nameNoDuplicate(cars);
         nameMustSize(cars);
+        nameNoWhiteSpace(cars);
     }
 
     private static void nameLimitLength(List<Cars> cars) {
@@ -36,6 +37,15 @@ public class Validation {
         if (cars.size() < 1) {
             throw new IllegalArgumentException("한 대 이상의 자동차가 있어야 합니다.");
         }
+    }
+
+    private static void nameNoWhiteSpace(List<Cars> cars) {
+        cars.stream()
+                .filter(car -> car.getName().trim().isEmpty())
+                .findFirst()
+                .ifPresent(car -> {
+                    throw new IllegalArgumentException("공백은 이름이 될 수 없습니다.");
+                });
     }
 
     public static void isPositiveInt(String count) {
