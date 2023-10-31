@@ -5,6 +5,7 @@ public class Constant {
     public static final String PLAYER_NAMES_FORMAT = "^[^,]+(,[^,]+)+$";
     public static final int MINIMUM_RACE_COUNT = 1;
     public static final int MAXIMUM_PLAYER_NAME_LENGTH = 5;
+    public static final int MINUMUN_DISTANCE = 0;
     public static final String PLAYER_NAMES_DELIMITER = ",";
     public static final String PLAYER_NAMES_DELIMITER_NAME = "쉼표";
 
