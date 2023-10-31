@@ -17,7 +17,7 @@ public class Carracing {
 
     public static void startRacing() {
 
-        InputSettingValue();
+        inputSettingValue();
 
         printResultMsg();
 
@@ -25,6 +25,7 @@ public class Carracing {
         for (int i = 0; i < movingCount; i++) {
             goStop();
         }
+        printFinalResultMsg();
         chooseWinner();
     }
 
