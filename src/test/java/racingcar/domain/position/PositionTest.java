@@ -1,7 +1,7 @@
 package racingcar.domain.position;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
@@ -29,9 +29,16 @@ class PositionTest {
         Position position2 = new Position(5);
         Position position3 = new Position(3);
 
-        assertTrue(position1.equals(position2));
-        assertFalse(position1.equals(position3));
-        assertFalse(position1.equals(null));
-        assertFalse(position1.equals("Not a Position"));
+        assertEquals(position1, position2);
+        assertNotEquals(position1, position3);
+        assertNotEquals(null, position1);
+        assertNotEquals("Not a Position", position1);
+    }
+
+    @DisplayName("포지션을 올바르게 그려낼 수 있다")
+    @Test
+    void testDraw() {
+        Position position = new Position(3);
+        assertEquals("---", position.draw());
     }
 }
