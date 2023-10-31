@@ -36,7 +36,7 @@ public class Application {
     }
 
     private static void tryMoveCars(Cars cars, int carCount) {
-        List<Integer> movePowers = RandomIntgerListGenerator.generate(0, 9, carCount);
+        List<Integer> movePowers = RandomIntegerListGenerator.generate(0, 9, carCount);
         cars.tryMoveAll(movePowers);
     }
 }
