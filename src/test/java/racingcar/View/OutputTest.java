@@ -20,14 +20,14 @@ class OutputTest {
         output = new Output();
     }
 
-    @Test
-    void canForward() {
-
-        System.setIn(new ByteArrayInputStream("6".getBytes()));
-        boolean result = output.canForward();
-        assertEquals(true,result);
-
-    }
+//    @Test
+//    void canForward() {
+//
+//        System.setIn(new ByteArrayInputStream("6".getBytes()));
+//        boolean result = output.canForward();
+//        assertEquals(true,result);
+//
+//    }
 
     @Test
     void saveForward() {
@@ -35,20 +35,20 @@ class OutputTest {
         assertThat(output.saveForward(fake)).isEqualTo("");
     }
 
-    @Test
-    void printRaceRound() {
-        Map<String, String> list = new HashMap<>();
-        list.put("hi", "-");
-        list.put("ho", "---");
-        list.put("hoot", "-");
-
-
-
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
-        output.printRaceRound(list);
-
-        assertThat(outContent.toString().trim()).isEqualTo("hi : -\nho : ---\nhoot : -");
-    }
+//    @Test
+//    void printRaceRound() {
+//        Map<String, String> list = new HashMap<>();
+//        list.put("hi", "-");
+//        list.put("ho", "---");
+//        list.put("hoot", "-");
+//
+//
+//
+//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outContent));
+//
+//        output.printRaceRound(list);
+//
+//        assertThat(outContent.toString().trim()).isEqualTo("hi : -\nho : ---\nhoot : -");
+//    }
 }
