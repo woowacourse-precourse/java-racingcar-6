@@ -2,18 +2,21 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
-    public static void inputCars() {
+    public static Map<String[], Integer> inputCars() {
+
+        Map<String[], Integer> carmap = new HashMap<>();
 
         System.out.println("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
         //자동차 이름 입력
-        String inputCars = readLine();
+        String cars = readLine();
         //쉼표로 구분
-        String[] car = inputCars.split(",");
+        String[] car = cars.split(",");
 
         int carNum = car.length;
 
@@ -33,9 +36,45 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
+        carmap.put(car, num);
+
+        return carmap;
     }
 
-    
+    //차 경주 시작
+    public static void start(String[] car, int carNum, int num){
+        int[] carPos = new int[carNum];
+        int maxPos = 0;
+
+        System.out.println("경주를 시작합니다!");
+
+        for (int gameCnt = 0; gameCnt < num; gameCnt++) {
+            System.out.println("\n" + "시도 " + (gameCnt + 1) + ":");
+
+            for (int carIndex = 0; carIndex < carNum; carIndex++) {
+                //무작위 값 입력
+                int rand = Randoms.pickNumberInRange(0, 9);
+                //4보다 크면 이동
+                if (rand >= 4) {
+                    carPos[carIndex]++;
+                }
+
+                //이동한 경우 위치값을 저장한다.
+                maxPos = Math.max(maxPos, carPos[carIndex]);
+            }
+
+            // 각 차의 이동 상황 출력
+            for (int carIndex = 0; carIndex < carNum; carIndex++) {
+                System.out.print(car[carIndex] + " : ");
+                for (int i = 0; i < carPos[carIndex]; i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+        }
+
+        System.out.println("\n" + "경주가 종료되었습니다!");
+
     }
 
     public static void main(String[] args) {
@@ -50,6 +89,5 @@ public class Application {
     }
 
 
-    // 0.자동차 이름과 이동 횟수를 입력한다.
 
 }
