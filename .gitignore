@@ -30,3 +30,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### OS ###
+.DS_Store
+scr/.DS_Store
+scr/main/.DS_Store
+scr/java/.DS_Store
