@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
-    private InputView() {}
+    private InputView() {
+    }
+
     public static TrialNumber getTrialNumber() {
         OutputView.printTrialNumberInputText();
         String trialNumberInput = Console.readLine().trim();
