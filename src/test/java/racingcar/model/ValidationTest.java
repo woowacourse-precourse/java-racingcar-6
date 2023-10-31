@@ -2,6 +2,7 @@ package racingcar.model;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -27,8 +28,21 @@ class ValidationTest {
     }
 
     @Test
-    public void 자동차_이름_한개_이상_참여_공백만_입력은_금지() {
+    public void 이름_한개_이상_참여() {
+        List<Cars> input = new ArrayList<>();
 
+        assertThatThrownBy(() -> Validation.name(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("한 대 이상의 자동차가 있어야 합니다.");
+    }
+
+    @Test
+    public void 이름이_공백만_있는건_금지() {
+        List<Cars> input = Arrays.asList(new Cars(" ", 0));
+
+        assertThatThrownBy(() -> Validation.name(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백은 이름이 될 수 없습니다.");
     }
 
     @Test
