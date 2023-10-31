@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Game;
 
 public class GameService {
 
@@ -25,5 +26,15 @@ public class GameService {
             cars.add(new Car(name.trim()));
         }
         return cars;
+    }
+
+    public void decideMovement(List<Car> carList) {
+        for (Car car : carList) {
+            int randomNumber = Game.generateRandomNumber();
+            if (randomNumber >= 4) {
+                car.move();
+                car.moveCount();
+            }
+        }
     }
 }
