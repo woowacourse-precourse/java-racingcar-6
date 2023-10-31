@@ -76,6 +76,27 @@ class RacingCarGameTest {
     }
 
     @Test
+    public void 모든_자동차의_위치를_출력하는_기능() {
+        String input = "red,green,blue";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        RacingCarGame racingCarGame = new RacingCarGame();
+        racingCarGame.setRacingCarsByConsole();
+
+        racingCarGame.getCars().get(0).moveForward();
+        racingCarGame.getCars().get(0).moveForward();
+        racingCarGame.getCars().get(1).moveForward();
+
+        racingCarGame.printCarsLocation();
+
+        Assertions.assertThat(out.toString()).isEqualTo("red : --\ngreen : -\nblue : \n");
+    }
+
+    @Test
     public void 최종_우승자를_출력하는_기능() {
         String input = "red,green,blue";
         InputStream in = new ByteArrayInputStream(input.getBytes());

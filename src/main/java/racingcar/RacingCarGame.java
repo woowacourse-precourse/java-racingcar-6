@@ -56,6 +56,12 @@ public class RacingCarGame {
         System.out.println();
     }
 
+    public void printCarsLocation() {
+        for (RacingCar car : cars) {
+            car.printLocation();
+        }
+    }
+
     public List<RacingCar> getCars() {
         return cars;
     }
