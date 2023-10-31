@@ -52,10 +52,10 @@ public class Cars {
     }
 
     public List<String> findWinningCarNames() {
-        Car winnerCar = findWinningCar();
+        Car winningCar = findWinningCar();
 
         return cars.stream()
-                .filter(car -> car.isEqualPosition(winnerCar))
+                .filter(car -> car.isEqualPosition(winningCar))
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
     }
