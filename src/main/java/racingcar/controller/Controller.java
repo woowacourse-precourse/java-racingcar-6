@@ -11,10 +11,10 @@ public class Controller {
     private final GameInitializer gameInitializer;
     private final GameRunner gameRunner;
 
-    public Controller(InputView inputView, OutputView outputView, GameRunner gameRunner) {
+    public Controller(InputView inputView, OutputView outputView, GameInitializer gameInitializer, GameRunner gameRunner) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.gameInitializer = new GameInitializer(inputView, outputView);
+        this.gameInitializer = gameInitializer;
         this.gameRunner = gameRunner;
     }
 

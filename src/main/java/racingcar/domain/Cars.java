@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.strategy.RandomMoveStrategy;
-import racingcar.util.RandomNumberGenerator;
 
 public class Cars {
     private final List<Car> cars;
@@ -12,10 +11,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveAll(RandomNumberGenerator randomNumberGenerator, RandomMoveStrategy randomMoveStrategy) {
+    public void moveAll(RandomMoveStrategy randomMoveStrategy) {
         for (Car car : cars) {
-            int randomNumber = randomNumberGenerator.getNumber();
-            if (randomMoveStrategy.isMovable(randomNumber)) {
+            if (randomMoveStrategy.isMovable()) {
                 car.move();
             }
         }

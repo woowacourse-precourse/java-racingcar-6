@@ -25,8 +25,8 @@ public class GameInitializer {
         outputView.requestCarNames();
         String namesContainComma = inputView.getInput();
 
-        NameValidator validator = new NameValidator(namesContainComma);
-        validator.validateNames();
+        NameValidator nameValidator = new NameValidator(namesContainComma);
+        nameValidator.validateNames();
 
         List<Car> carList = Arrays.stream(namesContainComma.split(Delimiter.COMMA.getSymbol()))
                 .map(String::trim)
