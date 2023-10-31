@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.validator.InputValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +13,10 @@ public class Cars {
     }
 
     public void setNames(String alignedCarNames) {
-        String[] carNames = alignedCarNames.split(",");
 
+        String[] carNames = alignedCarNames.split(",");
+        InputValidator.validateName(carNames);
+        
         for (String name : carNames) {
             Car car = new Car(name);
             cars.add(car);
