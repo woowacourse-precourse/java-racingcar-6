@@ -1,9 +1,8 @@
-package racingcar.round;
+package racingcar.domain.round;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Round;
 
 public class HasMoreRoundsTest {
 

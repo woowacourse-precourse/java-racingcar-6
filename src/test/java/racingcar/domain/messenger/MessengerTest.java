@@ -1,10 +1,9 @@
-package racingcar.messenger;
+package racingcar.domain.messenger;
 
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Messenger;
 import racingcar.dto.CarInformationDto;
 import racingcar.dto.CarNamesDto;
 import racingcar.dto.CarsInformationDto;

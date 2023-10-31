@@ -1,6 +1,4 @@
-package racingcar.car.strategy;
-
-import racingcar.domain.strategy.CarMovementStrategy;
+package racingcar.domain.car.strategy;
 
 public class MoveForwardOnceStrategy implements CarMovementStrategy {
 

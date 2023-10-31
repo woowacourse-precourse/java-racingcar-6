@@ -1,7 +1,7 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import java.util.Objects;
-import racingcar.domain.strategy.CarMovementStrategy;
+import racingcar.domain.car.strategy.CarMovementStrategy;
 import racingcar.dto.CarInformationDto;
 
 public class Car {

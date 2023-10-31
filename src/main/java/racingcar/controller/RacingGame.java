@@ -1,12 +1,12 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.Cars;
-import racingcar.domain.CarsGenerator;
-import racingcar.domain.Messenger;
-import racingcar.domain.Round;
-import racingcar.domain.strategy.CarMovementStrategy;
-import racingcar.domain.strategy.MoveForwardOnceRandomlyStrategy;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.CarsGenerator;
+import racingcar.domain.messenger.Messenger;
+import racingcar.domain.round.Round;
+import racingcar.domain.car.strategy.CarMovementStrategy;
+import racingcar.domain.car.strategy.MoveForwardOnceRandomlyStrategy;
 import racingcar.dto.CarNamesDto;
 import racingcar.dto.CarsInformationDto;
 import racingcar.utility.Convertor;

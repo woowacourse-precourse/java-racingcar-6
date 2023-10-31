@@ -1,13 +1,11 @@
-package racingcar.car;
+package racingcar.domain.car;
 
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.car.strategy.MoveForwardOnceStrategy;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-import racingcar.domain.strategy.CarMovementStrategy;
+import racingcar.domain.car.strategy.MoveForwardOnceStrategy;
+import racingcar.domain.car.strategy.CarMovementStrategy;
 import racingcar.dto.CarNamesDto;
 
 public class CarsFindCarNamesTest {

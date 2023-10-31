@@ -1,10 +1,8 @@
-package racingcar.car;
+package racingcar.domain.car.strategy;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.strategy.CarMovementStrategy;
-import racingcar.domain.strategy.MoveForwardOnceRandomlyStrategy;
 
 public class MoveForwardOnceRandomlyStrategyTest {
 

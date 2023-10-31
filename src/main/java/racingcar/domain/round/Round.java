@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.round;
 
 public class Round {
 
