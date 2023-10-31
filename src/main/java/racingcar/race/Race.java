@@ -19,23 +19,25 @@ public class Race {
     }
 
     public void gameStart() {
-        carsGenerate();
+        carsGeneration();
+        roundGeneration();
     }
 
-    public void carsGenerate() {
+    public void carsGeneration() {
         OutputView.inputCarNameView();
         String[] carNames = InputView.inputCarName();
         for (var carName : carNames) {
             carAdd(carName);
         }
-
-        OutputView.inputTryNumberView();
-        String tryNumber = InputView.inputTryNumber();
-        int round = roundGeneration(tryNumber);
-        this.round = round;
     }
 
-    public int roundGeneration(String tryNumber) {
+    public void roundGeneration() {
+        OutputView.inputTryNumberView();
+        String tryNumber = InputView.inputTryNumber();
+        this.round = setRound(tryNumber);
+    }
+
+    public int setRound(String tryNumber) {
         Validation.checkNatureNumber(tryNumber);
         return Integer.parseInt(tryNumber);
     }

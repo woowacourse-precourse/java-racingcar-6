@@ -47,7 +47,7 @@ class RaceTest {
     void 숫자생성_0입력() {
         String zero = "0";
 
-        assertThatThrownBy(() -> race.roundGeneration(zero))
+        assertThatThrownBy(() -> race.setRound(zero))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자연수가 아닌 값이 들어왔습니다.");
     }
@@ -56,7 +56,7 @@ class RaceTest {
     void 숫자생성_문자() {
         String zero = "안녕";
 
-        assertThatThrownBy(() -> race.roundGeneration(zero))
+        assertThatThrownBy(() -> race.setRound(zero))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자연수가 아닌 값이 들어왔습니다.");
     }
@@ -66,7 +66,7 @@ class RaceTest {
         String[] numbers = {"1", "12", "100"};
 
         for (String number : numbers) {
-            assertThatCode(() -> race.roundGeneration(number))
+            assertThatCode(() -> race.setRound(number))
                     .doesNotThrowAnyException();
         }
     }
