@@ -11,7 +11,7 @@ import java.util.List;
 public class Application {
     static List<Pair<String, Integer>> carInfoList;
     static String carNameBeforeSplit, stringNumberOfMoves;
-    static ArrayList<String> carList, answerList;
+    static ArrayList<String> carList;
     static int[] moveForwardlist;
     static int numberOfMoves, randomNumber;
     static boolean checkMoreThanFour;
@@ -22,53 +22,53 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         carNameBeforeSplit = readLine();
 
-        // 자동차 이름의 길이를 판단하기 위해 스플릿 작업이 필요하여 스플릿 함수 실행
-        make_name_split();
+        // 자동차 이름을 쉼표를 기준으로 스플릿 함수 실행
+        makeNameSplit();
 
-        // 입력 받은 자동차 이름 에러를 확인하며 스플릿 작업 같이 진행하기
-        check_error_carname(carNameBeforeSplit);
+        // 입력 받은 자동차 이름의 에러 확인하기
+        checkErrorCarname(carNameBeforeSplit);
 
         // 시도할 횟수 입력받기
         System.out.println("시도할 회수는 몇회인가요?");
         stringNumberOfMoves = readLine();
 
         // 입력 받은 횟수 에러 확인하기
-        numberOfMoves = check_error_numberofmoves(stringNumberOfMoves);
+        numberOfMoves = checkErrorNumberofmoves(stringNumberOfMoves);
 
         // 모든 입력이 정상이면 자동차 전진을 시작하기 위해 전진 횟수를 담을 배열 생성
-        make_move_forwardlist();
+        makeMoveForwardlist();
 
         // 자동차 전진 수행 및 1회 마다 현황 출력
         System.out.println("실행 결과");
         for (int i = 0; i < numberOfMoves; i++) {
-            move_cars();
-            print_each_car_move();
+            moveCars();
+            printEachCarMove();
         }
 
         // 승자를 가리기 위해 PairList에 자동차 이름과 전진 횟수를 저장
-        combine_car_names_with_car_move_times();
+        combineCarNamesWithCarMoveTimes();
 
         // 전진 횟수가 높은 순서부터 정렬하기
-        sort_carInfo_by_move_times();
+        sortCarInfoByMoveTimes();
 
         // 정답 출력하기
-        print_answer();
+        printWinner();
     }
 
-    public static void print_answer() {
+    public static void printWinner() {
         System.out.print("최종 우승자 : ");
-        int cur_max = 0;
+        int curMax = 0;
         for (Pair<String, Integer> pair : carInfoList) {
-            if (pair.getValue() >= cur_max) {
+            if (pair.getValue() >= curMax) {
                 System.out.print(pair.getKey());
             } else {
                 return;
             }
-            cur_max = pair.getValue();
+            curMax = pair.getValue();
         }
     }
 
-    public static void print_each_car_move() {
+    public static void printEachCarMove() {
         for (int i = 0; i < carList.size(); i++) {
             System.out.print(carList.get(i) + " : ");
             for (int j = 0; j < moveForwardlist[i]; j++) {
@@ -79,12 +79,12 @@ public class Application {
         System.out.println();
     }
 
-    public static void sort_carInfo_by_move_times() {
+    public static void sortCarInfoByMoveTimes() {
         Collections.sort(carInfoList, (a, b) -> b.getValue().compareTo(a.getValue()));
     }
 
 
-    public static void combine_car_names_with_car_move_times() {
+    public static void combineCarNamesWithCarMoveTimes() {
         carInfoList = new ArrayList<>();
         for (int i = 0; i < carList.size(); i++) {
             carInfoList.add(new Pair<>(carList.get(i), moveForwardlist[i]));
@@ -92,12 +92,12 @@ public class Application {
     }
 
 
-    public static void move_cars() {
+    public static void moveCars() {
 
         for (int i = 0; i < carList.size(); i++) {
             // 모든 입력이 정상이라면 0~9의 랜덤 숫자를 추출하여 4 이상인지 판단하기
-            randomNumber = make_random_number();
-            checkMoreThanFour = judge_number_more_than_four(randomNumber);
+            randomNumber = makeRandomNumber();
+            checkMoreThanFour = judgeNumberMoreThanFour(randomNumber);
             if (checkMoreThanFour) {
                 moveForwardlist[i]++;
             }
@@ -105,26 +105,26 @@ public class Application {
     }
 
 
-    public static boolean judge_number_more_than_four(int randomNumber) {
+    public static boolean judgeNumberMoreThanFour(int randomNumber) {
         return randomNumber >= 4;
     }
 
-    public static int make_random_number() {
+    public static int makeRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static void make_move_forwardlist() {
+    public static void makeMoveForwardlist() {
         moveForwardlist = new int[carList.size()];
     }
 
-    public static void make_name_split() {
+    public static void makeNameSplit() {
         // 입력 받은 문자열을 쉼표를 기준으로 구분하여 자동차 이름 저장하기
         String[] carNameAfterSplit = carNameBeforeSplit.split(",");
         carList = new ArrayList<>(Arrays.asList(carNameAfterSplit));
 
     }
 
-    public static void check_error_carname(String input) {
+    public static void checkErrorCarname(String input) {
 
         // 에러 상황 나누기
         // 1. 빈 문자를 입력한 경우
@@ -149,7 +149,7 @@ public class Application {
 
     }
 
-    public static int check_error_numberofmoves(String input) {
+    public static int checkErrorNumberofmoves(String input) {
 
         // 숫자를 입력하지 않은 경우 예외 처리
         for (char c : input.toCharArray()) {
