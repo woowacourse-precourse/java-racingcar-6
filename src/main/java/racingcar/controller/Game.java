@@ -1,6 +1,9 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.model.Car;
 
 public class Game {
     public void start() {
@@ -26,5 +29,17 @@ public class Game {
             throw new IllegalArgumentException("시도할 횟수는 0회 이상만 가능합니다.");
         }
         System.out.println(attemptCount);
+
+        List<Car> cars = new ArrayList<>();
+        for (String name : names) {
+            Car car = new Car(name);
+            cars.add(car);
+        }
+        for (int attempt = 0; attempt < attemptCount; attempt++) {
+            for (Car car : cars) {
+                car.moveForward();
+                System.out.println(car);
+            }
+        }
     }
 }
