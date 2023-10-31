@@ -20,7 +20,7 @@
   + 우승자가 여러 명일 경우 comma로 구분
 
 ## 예외
-- [ ] 숫자를 입력 받아야 하는 경우, 입력값이 숫자가 아니면 IllegalArgumentException을 발생시킨다.
+- [X] 숫자를 입력 받아야 하는 경우, 입력값이 숫자가 아니면 IllegalArgumentException을 발생시킨다.
 - [X] 각 자동차 이름을 입력하는 경우, 글자가 5자를 초과하면 IllegalArgumentException을 발생시킨다.
 
 ## 추가 기능 및 이에 따른 예외

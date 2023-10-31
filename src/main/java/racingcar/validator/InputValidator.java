@@ -11,6 +11,7 @@ public class InputValidator {
 
     private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9]*");
     private static final Pattern CONSECUTIVE_COMMAS_PATTERN = Pattern.compile(".*,,+.*");
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("^[1-9]+$");
 
     private InputValidator() { }
 
@@ -50,6 +51,12 @@ public class InputValidator {
     public static void validateConsecutiveCommas(String alignedCarNames) {
         if (CONSECUTIVE_COMMAS_PATTERN.matcher(alignedCarNames).matches()) {
             throw ErrorMessage.BLANK_NAME.getNameException();
+        }
+    }
+
+    public static void validateNumbers(String numberInput){
+        if (!NUMBER_PATTERN.matcher(numberInput).matches()) {
+            throw ErrorMessage.INVALID_NUMBER.getNumberException();
         }
     }
 }
