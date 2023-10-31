@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.InputView;
+import racingcar.view.outputView;
 import racingcar.util.Parser;
 
 import java.util.List;
@@ -13,8 +14,7 @@ public class Controller {
     public void testRun(){
         parser = new Parser();
 
-        System.out.println(getCarNames());
-        System.out.println(getRacingRound());
+        outputView.printRoundResult(getCarNames(), getRacingRound());
     }
 
     private int getRacingRound(){
