@@ -13,7 +13,7 @@ public class CarTest {
   
   @Test
   public void 자동차_움직임_검증() {
-    Car car = new Car("car1");
+    Car car = new Car("dog");
     car.move(4);
     assertEquals(1, car.getPosition());
   }
