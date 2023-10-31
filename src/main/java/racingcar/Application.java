@@ -19,5 +19,19 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int attempt = Integer.parseInt(Console.readLine());
+
+        System.out.println("\n실행 결과");
+
+        for(int i = 0; i < attempt; i++) {
+            for(String str : carNames) {
+                if(Randoms.pickNumberInRange(0, 9) >= 4) {
+                    cars.put(str, cars.get(str) + 1);
+                }
+
+                System.out.println(str + " : " + "-".repeat(cars.get(str)));
+            }
+
+            System.out.println();
+        }
     }
 }
