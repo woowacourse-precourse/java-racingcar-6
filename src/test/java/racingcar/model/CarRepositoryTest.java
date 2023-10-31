@@ -52,4 +52,13 @@ public class CarRepositoryTest {
 
         assertEquals(expected, winner);
     }
+
+    @DisplayName("자동차 저장 용량 검사 기능 테스트")
+    @Test
+    void testValidateCapacity() {
+        for (int i = 0; i < 97 ; i++) {
+            carRepository.save(Car.from(i + ""));
+        }
+        assertThrows(IllegalArgumentException.class, () -> carRepository.save(Car.from("hani")));
+    }
 }
