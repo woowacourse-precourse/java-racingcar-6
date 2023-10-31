@@ -11,13 +11,13 @@ public class InputManager {
         return Console.readLine();
     }
 
-    public String inputTryCount() {
+    public int inputTryCount() {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String tryCount = Console.readLine();
 
-        Validator.validateTryCount(tryCount);
+        Validator.validateTryCountIsInteger(tryCount);
 
-        return tryCount;
+        return Integer.parseInt(tryCount);
     }
 }

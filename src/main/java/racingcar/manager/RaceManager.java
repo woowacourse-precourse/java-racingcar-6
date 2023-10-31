@@ -23,7 +23,7 @@ public class RaceManager {
 
     public void start() {
 
-        tryCount = Integer.parseInt(inputManager.inputTryCount());
+        tryCount = inputManager.inputTryCount();
 
         racing();
 

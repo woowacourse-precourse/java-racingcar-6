@@ -42,17 +42,37 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException("  pobi , javaji ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "!!"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", " "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
     @Test
     @DisplayName("레이스의 참여한 자동차는 2대 이상이여야 한다.")
-    public void countCarInRace() {
+    public void validateNumberOfCar() {
 
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(""))
+                assertThatThrownBy(() -> runException("pobi"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
