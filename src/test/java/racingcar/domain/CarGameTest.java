@@ -59,4 +59,26 @@ class CarGameTest {
             assertThat(keys.containsAll(names)).isTrue();
         }
     }
+
+    @DisplayName("CarGame getWinner 테스트")
+    @Test
+    void carGameGetWinnerTest() {
+
+        // given
+        List<String> names = List.of("a", "b", "c");
+        int gameSize = 10;
+        List<CarName> carNames = names.stream()
+                .map(CarName::new)
+                .toList();
+        Cars cars = Cars.createByNames(carNames);
+        CarGameRound carGameRound = CarGameRound.createByString(Integer.toString(gameSize));
+        CarGame carGame = CarGame.create(cars, carGameRound);
+
+        // when
+        CarDTO.WinnerNames winnerNames = carGame.getWinner();
+
+        // then
+        assertThat(winnerNames).isInstanceOf(CarDTO.WinnerNames.class);
+        assertThat(names.containsAll(winnerNames.getNames())).isTrue();
+    }
 }
