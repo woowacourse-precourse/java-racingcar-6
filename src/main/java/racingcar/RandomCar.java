@@ -33,4 +33,12 @@ public class RandomCar {
 
         System.out.println(format);
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
