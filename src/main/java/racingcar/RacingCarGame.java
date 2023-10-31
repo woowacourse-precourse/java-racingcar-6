@@ -13,11 +13,10 @@ public class RacingCarGame {
         carList = user.getCarNames();
         moveNumber = user.getMoveNumber();
 
-        System.out.print(RESULT_MSG);
+        System.out.print("\n" + RESULT_MSG);
         for (int i = 0; i < moveNumber; i++) {
             moveCars();
         }
-        System.out.print("");
         printFinishCarNames();
     }
 
@@ -25,6 +24,7 @@ public class RacingCarGame {
         for (Car car : carList){
             car.move();
         }
+        System.out.print("\n");
     }
 
     public void printFinishCarNames() {
@@ -41,6 +41,7 @@ public class RacingCarGame {
             if (currentDistance > maxDistance){
                 maxDistance = currentDistance;
                 FinishCarNamesList.clear();
+                FinishCarNamesList.add(car.getCarName());
             }else if (currentDistance == maxDistance){
                 FinishCarNamesList.add(car.getCarName());
             }

@@ -8,7 +8,6 @@ import java.util.List;
 import static racingcar.Constant.*;
 import static racingcar.Validation.*;
 
-
 public class User {
     public List<Car> getCarNames(){
         System.out.print(INPUT_CAR_NAMES_MSG);
