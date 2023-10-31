@@ -12,11 +12,15 @@ public class GameService {
     private static Cars cars;
 
     public static void racingStart(InputManager inputManager) {
-        int round = inputManager.getGameProcessCount();
-        List<Car> parsedCarList = inputManager.getParsedCarList();
-        cars = new Cars(parsedCarList);
+        int round = inputProcessing(inputManager);
         progressRound(round);
         OutputView.gameStartMessage();
+    }
+
+    public static int inputProcessing(InputManager inputManager){
+        List<Car> parsedCarList = inputManager.getParsedCarList();
+        cars = new Cars(parsedCarList);
+        return inputManager.getGameProcessCount();
     }
 
     public static void progressRound(int round){
