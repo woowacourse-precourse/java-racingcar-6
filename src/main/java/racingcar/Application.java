@@ -15,5 +15,14 @@ public class Application {
         List<Car> cars = names.stream()
                 .map(name -> new Car(name, 0))
                 .collect(Collectors.toList());
+
+        // 횟수 입력받기
+        String runningNumber = InputView.requestRunningCount();
+
+        // 횟수(String 타입) 을 숫자로 변환
+        Integer runningCount = Integer.parseInt(runningNumber);
+
+        // 회차별 결과 출력
+        OutputView.noticeRunningResult();
     }
 }
