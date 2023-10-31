@@ -19,6 +19,7 @@ public class GameController {
         cars = createCars(inputView.getCarsName());
         OutputView.printInputMovingTryCountMessage();
         runRacing(inputView.getMovingTryCount(), cars);
+        OutputView.printGameRoundResultMessage(gameManager.getWinnerNameList(cars.getMaxMoveInCars(),cars));
     }
 
     public void runRound(Cars cars) {

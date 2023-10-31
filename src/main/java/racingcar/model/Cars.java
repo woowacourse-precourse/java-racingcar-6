@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.List;
 
 public class Cars {
-    private List<Car> carsList;
+    private final List<Car> carsList;
 
     public Cars(List<Car> carsList) {
         this.carsList = (carsList);
@@ -17,10 +17,18 @@ public class Cars {
         return carsList.get(index);
     }
 
+    public int getMaxMoveInCars() {
+        int maxMove = 0;
+        for (Car car : carsList) {
+            maxMove = Integer.max(maxMove, car.getMove());
+        }
+        return maxMove;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(Car car : carsList) {
+        for (Car car : carsList) {
             sb.append(car);
             sb.append("\n");
         }

@@ -1,8 +1,8 @@
 package racingcar.model;
 
 public class Car {
-    String name;
-    int move;
+    private String name;
+    private int move;
 
     public Car(String name) {
         this.name = name;
@@ -13,7 +13,15 @@ public class Car {
         this.move++;
     }
 
-    public String getMoveMark() {
+    public int getMove() {
+        return move;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private String getMoveMark() {
         return "-".repeat(this.move);
     }
 
