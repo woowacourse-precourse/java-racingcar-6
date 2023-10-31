@@ -11,8 +11,8 @@ public class RacingGame {
     private static final String RESULT_MESSAGE = "실행 결과";
     private int count = 0;
 
-    private InputSystem inputSystem = new InputSystem();
     private List<Car> cars = new ArrayList<>();
+    private InputSystem inputSystem = new InputSystem();
     private Winners winners = new Winners();
 
 
@@ -22,19 +22,16 @@ public class RacingGame {
     }
 
     public void gameSystem() {
+        System.out.println(RESULT_MESSAGE);
         while(winners.getWinnersCount() == 0) {
             for (Car car : cars) {
-                randomNumber();
+//                randomNumber();
                 car.moving(randomNumber());
-                System.out.println(RESULT_MESSAGE);
-                System.out.println(car.displayMoving());
+                System.out.println(car.getNowCarPosition());
+                newWinner(car.getName(), car.getPosition());
             }
             System.out.println();
         }
-    }
-
-    public void printWinners() {
-        System.out.println("최종 우승자 : " + winners.winnersResult());
     }
 
     private int randomNumber() {
@@ -45,5 +42,9 @@ public class RacingGame {
         if (position == count) {
             winners.addWinner(name);
         }
+    }
+
+    public void printWinners() {
+        System.out.println("최종 우승자 : " + winners.toString());
     }
 }

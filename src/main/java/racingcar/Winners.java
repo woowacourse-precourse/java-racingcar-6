@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Winners {
     private List<String> winners = new ArrayList<>();
@@ -19,7 +18,18 @@ public class Winners {
         winners.add(winner);
     }
 
-    public String winnersResult() {
-        return winners.stream().collect(Collectors.joining(", "));
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        int str = getWinnersCount();
+
+        if(str>0) {
+            sb.append(winners.get(0));
+        }
+
+        for(int i=1; i<str; i++) {
+            sb.append(", ").append(winners.get(i));
+        }
+        return sb.toString();
     }
 }

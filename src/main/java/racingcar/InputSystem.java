@@ -19,23 +19,63 @@ public class InputSystem {
 
     public void inputCarName(List<Car> cars) {
         String input = answer(INPUT_NAME_MESSAGE);
-        String[] names = input.split(SEPARATOR);
-
-        for (String name : names) {
-            if (!isNotValidNames(name, cars)) {
-                cars.add(new Car(name));
-            } else {
-                throw new IllegalArgumentException();
-            }
-        }
+        nameValidator(input, cars);
     }
 
     public int inputTryCNT() {
         String input = answer(INPUT_CNT_MESSAGE);
-        if (!isNotNumber(input)) {
-            return Integer.parseInt(input);
-        } else {
+        cntValidator(input);
+        return Integer.parseInt(input);
+    }
+
+    public void nameValidator(String input, List<Car> cars) {
+        String[] namesArray = input.split(SEPARATOR,-1);
+        for(String name : namesArray) {
+            if(isNotValidName(name, cars)) {
+                throw new IllegalArgumentException();
+            } else{
+                cars.add(new Car(name));
+            }
+        }
+    }
+
+    public void cntValidator(String input) {
+        if(!isNumber(input) || !isUnderMax(input)) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean isNotValidName(String name, List<Car> cars) {
+        return isDuplicatedName(name, cars) || isBiggerThanMaxLen(name) || isEmptyName(name);
+    }
+
+    private boolean isDuplicatedName(String name, List<Car> cars) {
+        for(Car car : cars) {
+            if(name.equals(car.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isBiggerThanMaxLen(String name) {
+        return name.length() > MAX_LENGTH;
+    }
+
+    private boolean isEmptyName(String name) {
+        return name == null || GAP.equals(name);
+    }
+
+    private boolean isNumber(String str) {
+        return Pattern.matches("^[0-9]*$",str);
+    }
+
+    private boolean isUnderMax(String str) {
+        try {
+            int value = Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
@@ -43,35 +83,4 @@ public class InputSystem {
         System.out.println(str);
         return Console.readLine();
     }
-
-    private boolean isNotValidNames(String name, List<Car> cars) {
-        return  isEmptyName(name)
-                || isBiggerThanMax(name)
-                || isDuplicatedName(name, cars);
-    }
-
-    private boolean isEmptyName(String name) {
-        return name == null || GAP.equals(name);
-    }
-
-    private boolean isDuplicatedName(String name, List<Car> cars) {
-        for (Car car : cars) {
-            if (name.equals(car.getName())) {
-                return true;
-            } else {
-                continue;
-            }
-        }
-        return false;
-    }
-
-    private boolean isBiggerThanMax(String name) {
-        return name.length() > MAX_LENGTH;
-    }
-
-    private boolean isNotNumber(String str) {
-        Pattern pattern = Pattern.compile("^[0-9]*$");
-        return pattern.matcher(str).matches();
-    }
-
 }

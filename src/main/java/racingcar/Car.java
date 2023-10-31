@@ -2,8 +2,9 @@ package racingcar;
 
 public class Car {
     private static final String STATUS_BAR = "-";
+    private static final String EMPTY_COLON = " : ";
     private static final int START_POSITION = 0;
-    private static final int STANDARD_NUM = 3;
+    private static final int STANDARD_NUM = 4;
 
     private final String name;
     private int position;
@@ -30,13 +31,16 @@ public class Car {
         }
     }
 
-    public String displayMoving() {
+    public String getNowCarPosition() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name);
-        sb.append(" : ");
+        sb.append(name).append(EMPTY_COLON).append(createStatusBar());
+        return sb.toString();
+    }
 
+    private String createStatusBar() {
+        StringBuilder sb = new StringBuilder();
         for (int i=0; i<position; i++) {
-            sb.append("-");
+            sb.append(STATUS_BAR);
         }
         return sb.toString();
     }
