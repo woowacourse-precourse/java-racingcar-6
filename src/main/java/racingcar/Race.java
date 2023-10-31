@@ -1,11 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Race {
     List<RaceCar> raceCarList;
@@ -57,5 +57,19 @@ public class Race {
             reportingLive();
             System.out.println();
         }
+        winnerWinnerChickenDinner();
+    }
+
+    public void winnerWinnerChickenDinner(){
+        String name;
+        List<String> lst = new ArrayList<>();
+        for(RaceCar car: raceCarList){
+            name = car.winnerCarName();
+            if(!Objects.equals(name, "")){
+                lst.add(name);
+            }
+        }
+        String result = String.join(",", lst);
+        System.out.print("최종 우승자 : " +result);
     }
 }
