@@ -33,8 +33,9 @@ public class Game {
 
     public void userInputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String userInputCarNameString = Console.readLine();
+        String userInputCarNameString = Console.readLine(); // 유저에게서 콘솔로 입력 받기
         String[] userInputCarNameArray = stringToArrayByComma(userInputCarNameString); // 쉼표로 구분하여 String 배열 만들기
+        new Validator().validateNameArray(userInputCarNameArray); // 이름 5자 이하 유효성 검사
 
         carList = new ArrayList<>();
 
