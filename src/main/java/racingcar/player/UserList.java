@@ -1,12 +1,11 @@
 package racingcar.player;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.View.Input;
 
 public class UserList {
-    private final List<User> UserList = new ArrayList<>();
+    private final List<User> UserList = new ArrayList<>();// 리스트 변수 재할당 방지를 위해 final로 선언
 
     public List<User> inputUser() {
 
@@ -19,7 +18,7 @@ public class UserList {
         return UserList;
     }
 
-    public static String[] inputUserName() {
+    private static String[] inputUserName() {
         Input input = new Input();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputName = input.inputString();

@@ -1,36 +1,43 @@
 package racingcar.PlayGame;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.RandomNumberGenerator.GetRandomNumber;
 import racingcar.RandomNumberGenerator.RandomGenerator;
 import racingcar.View.Input;
+import racingcar.View.Print.Print;
 import racingcar.player.User;
 import racingcar.player.UserList;
 
 public class Game {
 
-
-
-    public void startGame () {
+    public void startGame() {
         UserList user = new UserList();
-        List<User> UserList =  user.inputUser();
-        int multipleCount = inputMultipleCount();
-        int count =0;
+        Print print = new Print();
+        final List<User> UserList = user.inputUser();
 
-        while (count != multipleCount) {
+        int RoundCount = inputRoundCount();
+        int count = 0;
+
+        System.out.println();
+        System.out.println("실행 결과 ");
+
+        while (count != RoundCount) {
 
             for (int i = 0; i < UserList.size(); i++) {
-                playerOne(UserList.get(i));
-                System.out.print(UserList.get(i).getUserName() + ":");
-                System.out.println(UserList.get(i).getForwardDistance());
+                onlyOnePlayer(UserList.get(i));
             }
+
             count++;
+            print.printResult(UserList);
+            System.out.println();
+
         }
+
+        print.printFinalWinner(UserList);
 
     }
 
-    private static void playerOne(User user) {
+    private static void onlyOnePlayer(User user) {
         GetRandomNumber getRandomNumber = new RandomGenerator();
         int Number = getRandomNumber.GeneratorRandomNumber();
         if(Number >= 4) {
@@ -38,7 +45,7 @@ public class Game {
         }
     }
 
-    private int inputMultipleCount(){
+    private int inputRoundCount(){
         Input input = new Input();
         System.out.println("시도할 회수는 몇회인가요?");
         int count =  input.inputInteger();
