@@ -21,4 +21,9 @@ public class Player {
         }
     }
 
+    public int inputTryCnt(){
+        String tryCnt = Console.readLine();
+        return Integer.parseInt(tryCnt);
+    }
+
 }
