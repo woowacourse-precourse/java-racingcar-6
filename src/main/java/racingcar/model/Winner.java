@@ -1,11 +1,12 @@
 package racingcar.model;
 
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.List;
 
 public class Winner {
-    public String selectWinner(List<Car> result) {
+    public String selectWinner(Cars result) {
         int max = Integer.MIN_VALUE;
         StringBuilder sb = new StringBuilder();
 

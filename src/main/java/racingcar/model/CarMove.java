@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.GameMessage;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.MoveCnt;
 
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ import java.util.List;
 
 public class CarMove {
     // 각각의 레이스 결과를 모두 담은 리스트를 반환하는 메서드
-    public List<List<Car>> race(List<Car> cars, MoveCnt moveCnt) {
-        List<List<Car>> allRaceResultList = new ArrayList<>(); // Car 클래스는 자동차 명, 이동거리를 멤버변수로 가짐
+    public List<Cars> race(Cars cars, MoveCnt moveCnt) {
+        List<Cars> allRaceResultList = new ArrayList<>(); // Car 클래스는 자동차 명, 이동거리를 멤버변수로 가짐
 
         // 첫 번째 이동 계산해서 리스트에 저장
         allRaceResultList.add(eachMove(cars));
@@ -26,13 +27,13 @@ public class CarMove {
     }
 
     // 한 번의 레이스 결과 리스트를 반환하는 메서드
-    public List<Car> eachMove(List<Car> cars) {
+    public Cars eachMove(Cars cars) {
         List<Car> raceResult = new ArrayList<>();
 
-        for (int i = 0; i < cars.size(); i++) {
+        for (Car car : cars) {
             boolean go = decideMove(pickRandNum());  // 난수 생성해서 해당 자동차의 이동 여부 결정
-            String carName = cars.get(i).getName();
-            int carDist = cars.get(i).getDist();
+            String carName = car.getName();
+            int carDist = car.getDist();
 
             if (go) {
                 raceResult.add(new Car(carName, carDist + 1));
@@ -41,7 +42,7 @@ public class CarMove {
             }
         }
 
-        return raceResult;
+        return new Cars(raceResult);
     }
 
     // 앞으로 이동 여부 결정하는 메서드

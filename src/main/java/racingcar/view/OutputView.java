@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.constant.GameMessage;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class OutputView {
         System.out.printf(GameMessage.GAME_WINNER_MESSAGE, winner);
     }
 
-    public void printEachRaceResult(List<Car> raceResult) {
+    public void printEachRaceResult(Cars raceResult) {
         for(Car car : raceResult) {
             printEachRaceCarResult(car);
         }

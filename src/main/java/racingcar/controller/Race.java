@@ -19,7 +19,7 @@ public class Race {
     private Cars cars;
     private Winner winner;
 
-    private List<List<Car>> allRaceResultList;
+    private List<Cars> allRaceResultList;
 
     public Race() {
         this.inputView = new InputView();
@@ -45,8 +45,8 @@ public class Race {
     public void move() {
         outputView.printResultMsg(); // '실행 결과' 메세지 출력
 
-//        allRaceResultList = carMove.race(cars, moveCnt); // 모든 레이스 실행 결과 각각 담고있는 리스트
-        for (List<Car> raceResult : allRaceResultList) { // 각각 실행 결과 출력
+        allRaceResultList = carMove.race(cars, moveCnt); // 모든 레이스 실행 결과 각각 담고있는 리스트
+        for (Cars raceResult : allRaceResultList) { // 각각 실행 결과 출력
             outputView.printEachRaceResult(raceResult);
         }
 

@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +18,7 @@ class WinnerTest {
                 new Car("car2",0), new Car("car3", 3));
 
         // when
-        String winnerResult = winner.selectWinner(raceResult);
+        String winnerResult = winner.selectWinner(new Cars(raceResult));
 
         // then
         assertThat(winnerResult).isEqualTo("car3");
