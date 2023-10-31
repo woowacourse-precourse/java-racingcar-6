@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarMovement {
-    public static final List<Boolean> carMoveResult = new ArrayList<>();
+    public static final List<String> carMoveResult = new ArrayList<>();
 
-    public List<Boolean> getBoolResult(int numberOfCars) {
+    public List<String> getStringResult(int numberOfCars) {
         List<Integer> randomNumberPerCar = getRandomNumberPerCar(numberOfCars);
         getCarMoveResult(randomNumberPerCar);
         return carMoveResult;
@@ -24,9 +24,9 @@ public class CarMovement {
     public static void getCarMoveResult(List<Integer> randomNumberPerCar) {
         carMoveResult.clear();
         for (int i = 0; i < randomNumberPerCar.size(); i++) {
-            carMoveResult.add(false);
+            carMoveResult.add("");
             if (randomNumberPerCar.get(i) >= 4) {
-                carMoveResult.set(i, true);
+                carMoveResult.set(i, "-");
             }
         }
     }

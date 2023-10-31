@@ -10,34 +10,23 @@ public class ResultOutput {
     private final List<String> winners = new ArrayList<>();
     private static final List<String> racingCarNames = new ArrayList<>();
 
-    public static void printRacingResult(String[] carNames, List<Boolean> boolResult) {
-        List<String> strResult = boolResultToStr(boolResult);
-        setStrResults(strResult);
+    public static void printRacingResult(String[] carNames, List<String> stringResult) {
+        setStringResults(stringResult);
+
         for (int i = 0; i < carNames.length; i++) {
             System.out.println(carNames[i] + " : " + strResults.get(i));
-            racingCarNames.add(carNames[i]);
+            racingCarNames.add(i, carNames[i]);
         }
         System.out.println();
     }
 
-    private static List<String> boolResultToStr(List<Boolean> boolResult) {
-        List<String> strResult = new ArrayList<>();
-        for (int i = 0; i < boolResult.size(); i++) {
-            strResult.add("");
-            if (boolResult.get(i)) {
-                strResult.set(i, "-");
-            }
-        }
-        return strResult;
-    }
-
-    private static void setStrResults(List<String> strResult) {
+    private static void setStringResults(List<String> stringResult) {
         if (strResults.isEmpty()) {
-            strResults = strResult;
+            strResults.addAll(stringResult);
             return;
         }
-        for (int i = 0; i < strResult.size(); i++) {
-            String addStrResult = strResults.get(i) + strResult.get(i);
+        for (int i = 0; i < stringResult.size(); i++) {
+            String addStrResult = strResults.get(i) + stringResult.get(i);
             strResults.set(i, addStrResult);
         }
     }

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarMovement;
+import racingcar.domain.InputCheck;
 import racingcar.domain.ResultOutput;
-import racingcar.domain.UserInput;
 
 public class MyApplicationTest {
 
@@ -15,7 +15,7 @@ public class MyApplicationTest {
     void 이름_오기입_구분시_쉼표_미사용_예외처리() {
         String input = "blank blank blank";
         assertThatThrownBy(() ->
-                UserInput.checkCommasInputCarNames(input))
+                InputCheck.checkUserInput(input, "1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하의 길이로 쉼표(,)를 기준으로 구분해주세요.");
     }
@@ -24,7 +24,7 @@ public class MyApplicationTest {
     void 이름_오기입_5자리초과_예외처리() {
         String input = "woo,test,overFive1";
         assertThatThrownBy(() ->
-                UserInput.checkLengthInputCarNames(input))
+                InputCheck.checkUserInput(input, "1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5자 이하로 입력해주세요.");
     }
@@ -33,7 +33,7 @@ public class MyApplicationTest {
     void 이름_오기입_중복입력_예외처리() {
         String input = "dup,test,dup";
         assertThatThrownBy(() ->
-                UserInput.checkDupInputCarNames(input))
+                InputCheck.checkUserInput(input, "1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 중복없이 설정해주세요.");
     }
@@ -42,7 +42,7 @@ public class MyApplicationTest {
     void 시도횟수_오기입_숫자가_아닌값_예외처리() {
         String input = "notNumber";
         assertThatThrownBy(() ->
-                UserInput.checkInputTryNumber(input))
+                InputCheck.checkUserInput("t1,t2,t3", input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도 횟수는 숫자로 입력해주세요.");
     }
