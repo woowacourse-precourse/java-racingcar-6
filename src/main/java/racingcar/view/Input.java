@@ -16,6 +16,7 @@ public class Input {
         nameList = nameList.stream().distinct().collect(Collectors.toList());
 
         InputCarException.numberOfCarException(nameList);
+        InputCarException.removeWhitespace(nameList);
         for (String name : nameList) {
             InputCarException.nameLengthException(name);
         }

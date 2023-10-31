@@ -16,4 +16,13 @@ public class InputCarException {
             throw new IllegalArgumentException(NUMBER_OF_CAR_EXCEPTION_MESSAGE + " Name List : " + nameList);
         }
     }
+
+    public static List<String> removeWhitespace(List<String> nameList) {
+        for (int i = 0; i < nameList.size(); i++) {
+            if (nameList.get(i).contains(" ")) {
+                nameList.set(i, nameList.get(i).replaceAll(" ", ""));
+            }
+        }
+        return nameList;
+    }
 }
