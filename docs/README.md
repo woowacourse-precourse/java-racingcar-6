@@ -12,9 +12,9 @@
   - [x] 플레이어별로 전진 가능한지 비교한다. - Judgement#playerMoveForward
   - [ ] 게임 결과를 기록하는 변수를 생성하고 모든 클래스에서 접근 가능해야 한다. - Application?
   - [x] 1턴 게임 결과를 출력한다. - Game#printLapResult
-- [ ] 최종 우승자를 출력한다. 
-  - [ ] 마지막 게임 결과를 가지고 플레이어 간 비교를 통해 가장 많이 이동한 사람을 알 수 있다. - Winner#compare
-  - [ ] 최종 우승자를 출력한다. - Game#printWinner
+- [x] 최종 우승자를 출력한다. 
+  - [x] 마지막 게임 결과를 가지고 플레이어 간 비교를 통해 가장 많이 이동한 사람을 알 수 있다. - Referee#compares
+  - [x] 최종 우승자를 출력한다. - Referee#printWinners
 
 
 
