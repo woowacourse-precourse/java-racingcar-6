@@ -110,6 +110,7 @@ public class RacingGame {
     public void runGame() {
         List<String> nameList = inputCarName();
         int count = inputCountNum();
+        Console.close();
         List<Integer> distanceList = runAllCycle(nameList, count);
         List<String> winnerList = chooseWinner(nameList, distanceList);
         String winnerStr = getWinnerNameString(winnerList);
