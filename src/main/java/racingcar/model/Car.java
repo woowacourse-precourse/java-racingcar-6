@@ -26,7 +26,7 @@ public class Car {
 
     public void move() {
         int randomNumber = createRandomNumber();
-        if (randomNumber > 4) {
+        if (randomNumber >= 4) {
             position++;
         }
     }
