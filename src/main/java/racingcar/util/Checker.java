@@ -1,11 +1,7 @@
 package racingcar.util;
-
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.Objects;
-
-import static racingcar.resource.ConsoleRes.*;
-
+import static racingcar.resource.Constant.*;
 public class Checker {
     public static void isValidInput(String input){
         isFirstWordValid(input);

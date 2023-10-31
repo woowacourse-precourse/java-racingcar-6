@@ -1,42 +1,37 @@
 package racingcar.racingGame;
+import racingcar.model.Car;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import static racingcar.Execute.carRace;
-import static racingcar.Execute.raceTime;
+import static java.lang.Math.max;
+import static racingcar.Execute.*;
 import static racingcar.console.OutPut.printCarMap;
-import static racingcar.resource.ConsoleRes.HYPHEN;
+import static racingcar.resource.Constant.HYPHEN;
 import static racingcar.util.Checker.isStraight;
 import static racingcar.util.Utils.getStringFormat;
 public class Racing {
-
     public static void playGame(){
         for(int i = 0; i < raceTime; i++){
             moveCar();
             printCarMap();
         }
     }
-
     public static void moveCar(){
-        for (String carName : carRace.keySet()) {
-            Long carPosition = carRace.get(carName);
+        for (Car car : carRace) {
+            if(!isStraight())
+                continue;
 
-            if(isStraight()){
-                carRace.replace(carName, ++carPosition);
-            }
+            car.incDistance();
+            maxDistance = max(maxDistance, car.getDistance());
         }
     }
-
     public static String getWinner(){
         List<String> winners = new ArrayList<>();
-        Long maxPosition = Collections.max(carRace.values());
 
-        for( String carName : carRace.keySet()){
-            Long carPosition = carRace.get(carName);
-
-            if(carPosition.equals(maxPosition)){
+        for(Car car : carRace){
+            if(car.isSame(maxDistance)){
+                String carName = car.getName();
                 winners.add(carName);
             }
         }
@@ -50,6 +45,4 @@ public class Racing {
         }
         return carPosition.toString();
     }
-
-
 }
