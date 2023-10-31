@@ -6,6 +6,8 @@ import racingcar.constants.Constants;
 import racingcar.validator.CarsValidator;
 
 public class CarsGenerator {
+    private static final String EMPTY = "";
+
     public Cars generate(String inputNames) {
         List<String> carNames = Arrays.stream(splitNames(inputNames))
                 .map(this::removeWhiteSpace)
@@ -21,7 +23,7 @@ public class CarsGenerator {
     }
 
     private String removeWhiteSpace(String name) {
-        return name.replace(Constants.WHITESPACE, Constants.EMPTY);
+        return name.replace(Constants.WHITESPACE, EMPTY);
     }
 
     private List<Car> toCars(List<String> names) {

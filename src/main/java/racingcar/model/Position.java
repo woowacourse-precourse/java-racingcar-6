@@ -1,10 +1,8 @@
 package racingcar.model;
 
-import static racingcar.constants.Constants.SLASH;
-
-
 public class Position {
     private int position;
+    private static final String SLASH = "-";
 
     public Position() {
         position = 0;

@@ -1,10 +1,11 @@
 package racingcar.validator;
 
-import racingcar.constants.Constants;
+import java.util.regex.Pattern;
 import racingcar.constants.ExceptionMessage;
 
 public enum AttemptCountValidator {
     INSTANCE;
+    private static final Pattern INTEGER = Pattern.compile("[0-9]+");
 
     public void validate(String input) {
         checkAttemptCountIsInteger(input);
@@ -17,6 +18,6 @@ public enum AttemptCountValidator {
     }
 
     private boolean isNotInteger(String input) {
-        return !Constants.INTEGER.matcher(input).matches();
+        return !INTEGER.matcher(input).matches();
     }
 }
