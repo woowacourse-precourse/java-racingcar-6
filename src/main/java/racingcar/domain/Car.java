@@ -18,7 +18,7 @@ public class Car {
         }
         return false;
     }
-    
+
     public String getState() {
         return state;
     }
