@@ -15,10 +15,10 @@ public class Application {
         // 게임 횟수
         System.out.println("실행 결과");
         for(int gameCount = game.getGameCount(); gameCount >= 0; gameCount--){
-            // TODO : 차 별 랜덤 주행거리 업데이트
+            // 차 별 랜덤 주행거리 업데이트
             game.runGame();
         }
-        // TODO : 최종 결과 출력
+        // 최종 결과 출력
         game.printFinalGameResult();
     }
 
@@ -35,7 +35,7 @@ public class Application {
         try{
             String[] carNames = Console.readLine().split(",");
             cars = new ArrayList<>();
-            for (String carName : carNames) { // TODO: 이름은 5자 이하만 가능
+            for (String carName : carNames) { // 이름은 5자 이하만 가능
                 if(carName.equals("") || carName.length() > 5){
                     throw new IllegalArgumentException();
                 }
