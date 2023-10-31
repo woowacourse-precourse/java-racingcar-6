@@ -14,7 +14,12 @@ public class ExceptionTest {
                 .isInstanceOf(IllegalArgumentException.class));
     }
     @Test
-    void 자동차이름_0글자_입력() {
+    void 자동차이름_0_입력() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput("a,,a,a"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
+    @Test
+    void 자동차이름_공백_입력() {
         assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput(""))
                 .isInstanceOf(IllegalArgumentException.class));
     }
