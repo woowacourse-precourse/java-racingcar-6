@@ -12,7 +12,7 @@ public final class GameInput {
         return validateCnt(input);
     }
 
-    private static int validateCnt(String input) {
+    public static int validateCnt(String input) {
         if (input.isEmpty()) {
             throw new IllegalArgumentException("입력 값이 비어 있습니다.");
         }
@@ -32,7 +32,7 @@ public final class GameInput {
     }
 
     public static void validateCarList(String[] carList) {
-        if (carList[0].equals("")) {
+        if (carList[0].equals("") || carList.length == 0) {
             throw new IllegalArgumentException("입력 값이 비어 있습니다.");
         }
 
