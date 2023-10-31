@@ -27,6 +27,16 @@ public class RacingCarGame {
     }
 
     void setGameCount() {
+        try {
+            System.out.println("시도할 회수는 몇회인가요?");
+            gameCount = Integer.parseInt(readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+        if (gameCount < 0) {
+            gameCount = 0;
+            throw new IllegalArgumentException();
+        }
     }
 
     void playGame() {
