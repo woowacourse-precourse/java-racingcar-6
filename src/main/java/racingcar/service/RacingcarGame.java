@@ -22,7 +22,7 @@ public class RacingcarGame {
         return winner;
     }
 
-    public int findMaxMoveForwardCount(List<Car> cars) {
+    private int findMaxMoveForwardCount(List<Car> cars) {
         int max = 0;
         for (Car car : cars) {
             if (car.getMoveForwardCount() > max) {
@@ -38,11 +38,11 @@ public class RacingcarGame {
         }
     }
 
-    public boolean isGreaterThanOrEqualFour() {
+    private boolean isGreaterThanOrEqualFour() {
         return generateRandomNumber() >= NUMBER_FOUR;
     }
 
-    public int generateRandomNumber() {
+    private int generateRandomNumber() {
         return Randoms.pickNumberInRange(NUMBER_ZERO, NUMBER_NINE);
     }
 }

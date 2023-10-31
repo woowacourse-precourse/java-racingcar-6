@@ -26,7 +26,7 @@ public class Controller {
         OutputView.printWinner(winner);
     }
 
-    public void result(List<Car> cars, int attemptCount) {
+    private void result(List<Car> cars, int attemptCount) {
         while (attemptCount > 0) {
             for (Car car : cars) {
                 racingcarGame.increaseMoveForwardCount(car);
@@ -37,12 +37,12 @@ public class Controller {
         }
     }
 
-    public Attempt createAttempt() {
+    private Attempt createAttempt() {
         Attempt attempt = new Attempt(InputView.inputAttemptCount());
         return attempt;
     }
 
-    public List<Car> addCarToList() {
+    private List<Car> addCarToList() {
         List<Car> cars = InputView.inputCarName()
                                   .stream()
                                   .map(Car::new)
