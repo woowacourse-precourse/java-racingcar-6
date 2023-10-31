@@ -3,7 +3,7 @@
 ## 기능 목록 V4
 
 - [x] 경주에 참여하는 자동차를 생성한다.CreateCar
-  - [ ] 자동차 이름을 입력 받는다. CreateCar#inputCarNames()
+  - [x] 자동차 이름을 입력 받는다. CreateCar#inputCarNames()
     - [x] 예외 처리를 모두 거친 자동차 이름을 반환한다. CreateCar#validateCarNames()
       - [x] 입력 받은 값은 빈 문자열이 아니다. CreateCar#validateCarNameNotEmpty()
       - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. CreateCar#splitCarName()

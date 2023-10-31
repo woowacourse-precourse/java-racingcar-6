@@ -53,6 +53,17 @@ public class CreateCar {
         }
     }
 
+    public List<String> validateCarNames(String inputCarNames) {
+        validateCarNameNotEmpty(inputCarNames);
+        List<String> splitCarNames = splitCarNames(inputCarNames);
+        List<String> validatedCarNames = trimCarNames(splitCarNames);
+        validateCarNameLength(validatedCarNames);
+        validateCarNameDuplicate(validatedCarNames);
+        validateCarCount(validatedCarNames);
+        return validatedCarNames;
+    }
+
+
     public Map<String, Integer> racingStateMap(List<String> carNames) {
         Map<String, Integer> stateMap = new HashMap<>();
         for (String carName : carNames) {
