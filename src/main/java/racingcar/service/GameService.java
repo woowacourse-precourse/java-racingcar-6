@@ -13,7 +13,8 @@ public class GameService {
     private static final int END_POSITION = 9;
     private final GameRepository gameRepository = new GameRepository();
     public void Fowardstart(Game game){
-
+        moveForwardByRandomNumber(game);
+        game.incresePlayCount();
     }
 
     private void moveForwardByRandomNumber(Game game) {
