@@ -27,6 +27,7 @@
 14. 사용자의 입력이 올바른지 검증하는 기능
 15. 자동차의 이름 데이터를 전달하는 기능
 16. 레이싱의 현황을 저장하는 기능
+17. 자동차의 위치 데이터를 전달하는 기능
 
 ## 기능을 할당받는 클래스 설계
 
@@ -34,6 +35,7 @@
 - [x] CarFactory : 3번 기능
 - [x] Car : 6번 기능, 12번 기능
 - [x] CarNameDto : 15번 기능
+- [x] CarPositionDto : 17번 기능
 - [x] RandomNumberGenerator : 4번 기능
 - [x] NumberComparator : 5번 기능
 - [x] SystemConstant : 7번 기능
