@@ -36,7 +36,7 @@ public class GameController {
         for (Car car : cars) {
             checkMaxCar(car, maxLevel, winners);
         }
-        outputView.printWinner(String.join(",", winners));
+        outputView.printWinner(String.join(", ", winners));
     }
 
     private void checkMaxCar(Car car, int maxLevel, List<String> winners) {
