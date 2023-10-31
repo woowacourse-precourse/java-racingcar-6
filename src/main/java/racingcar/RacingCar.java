@@ -26,7 +26,7 @@ public class RacingCar {
     }
 
     public String render(RacingCarGameRenderer renderer) {
-        return renderer.renderCar(name,position);
+        return renderer.renderCar(name, position);
     }
 
     public boolean isSamePositionWith(RacingCar other) {

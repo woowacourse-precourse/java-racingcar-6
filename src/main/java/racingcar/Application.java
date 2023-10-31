@@ -16,7 +16,10 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        GameExecutor gameExecutor = new GameExecutor();
-        gameExecutor.run(getRandom());
+        InputInterface in = new InputInterface();
+        OutputInterface out = new OutputInterface();
+        RacingCarGame game = new RacingCarGame(in.getNames(), in.getTrial(), getRandom());
+        GameExecutor gameExecutor = new GameExecutor(game, in, out);
+        gameExecutor.run();
     }
 }

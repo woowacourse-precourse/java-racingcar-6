@@ -5,14 +5,14 @@ public class GameExecutor {
     private InputInterface in;
     private OutputInterface out;
 
-    public GameExecutor() {
-        this.in = new InputInterface();
-        this.out = new OutputInterface();
+    public GameExecutor(RacingCarGame game, InputInterface in, OutputInterface out) {
+        this.game= game;
+        this.in = in;
+        this.out = out;
     }
 
-    public void run(GameRandom random) {
+    public void run() {
         try {
-            game = new RacingCarGame(in.getNames(), in.getTrial(),  random);
             out.println("실행 결과");
             while(!game.isFinished()){
                 game.runStage();
