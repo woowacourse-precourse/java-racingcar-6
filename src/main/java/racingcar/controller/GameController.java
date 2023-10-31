@@ -10,7 +10,8 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
-import static java.lang.Integer.*;
+import static java.lang.Integer.parseInt;
+import static racingcar.view.constant.SystemMessage.*;
 
 public class GameController {
 
@@ -24,11 +25,11 @@ public class GameController {
     }
 
     private void printRaceWinner(Race race) {
-        OutputView.printMessage("최종 우승자 : " + race.getWinnerString());
+        OutputView.printMessage(String.format(RACE_WINNERS.getMessage(), race.getWinnerString()));
     }
 
     private void printRaceStatus(Race race, int tryCount) {
-        OutputView.printMessage("\n실행 결과");
+        OutputView.printMessage(RACE_STATUS.getMessage());
         for (int i = 0; i < tryCount; i++) {
             race.moveEachCar();
             OutputView.printMessage(race.getStatusString());
@@ -43,7 +44,7 @@ public class GameController {
     }
 
     private String readCarNames() {
-        OutputView.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        OutputView.printMessage(READ_CAR_NAMES.getMessage());
         String carNames = InputView.read();
         CarNameValidator.validateForInputString(carNames);
 
@@ -51,7 +52,7 @@ public class GameController {
     }
 
     private int readTryCount() {
-        OutputView.printMessage("시도할 회수는 몇회인가요?");
+        OutputView.printMessage(READ_TRY_COUNT.getMessage());
         String tryCount = InputView.read();
         TryCountValidator.validate(tryCount);
 
