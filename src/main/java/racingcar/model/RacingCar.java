@@ -18,7 +18,11 @@ public class RacingCar {
         this.score++;
     }
 
-    public String getScoreBar() {
+    public String getCarInfo() {
+        return this.name + " : " + this.getScoreBars();
+    }
+
+    private String getScoreBars() {
         return "-".repeat(this.score);
     }
 }
