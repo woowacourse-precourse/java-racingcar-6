@@ -8,11 +8,19 @@ public class Car {
     private Integer moveCount;
     private static Integer MOVE_CONDITION = 4;
     public Car(){
-
+        this.carName = null;
+        this.moveCount = 0;
     }
     public Car(String carName, Integer moveCount){
         this.carName = carName;
         this.moveCount = moveCount;
+    }
+
+    public String getCarName(){
+        return this.carName;
+    }
+    public Integer getMoveCount(){
+        return this.moveCount;
     }
 
     public List<Car> getCarList(List<String> carNames){
@@ -22,12 +30,7 @@ public class Car {
         }
         return cars;
     }
-    public String getCarName(){
-        return this.carName;
-    }
-    public Integer getMoveCount(){
-        return this.moveCount;
-    }
+
     public void moveOrStop(Integer randomNumber){
         if(randomNumber>=MOVE_CONDITION){
             this.moveCount++;
