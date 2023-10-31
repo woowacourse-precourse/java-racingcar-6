@@ -9,7 +9,7 @@ public class ValidateService {
     public ValidateService(){}
 
     public static void isEmpty(final String carName){ //아무것도 입력안했을 경우
-        if(carName.isEmpty())throw new IllegalArgumentException();
+        if(carName == null || carName.isBlank())throw new IllegalArgumentException();
     }
 
     public static void hasBlank(final String carName){
