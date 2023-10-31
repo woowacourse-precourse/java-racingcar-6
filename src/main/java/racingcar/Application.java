@@ -49,7 +49,7 @@ public class Application {
     }
 
 
-    // 각 자동차에 따라 전진 상태 확인 
+    // 각 자동차에 따라 전진 상태 확인
     public static int[] moveForward(String[] carName, int[] carStatus){
         for(int i=0;i<carName.length;i++){
             if(isMoveForward()){
@@ -61,19 +61,40 @@ public class Application {
         return carStatus;
     }
 
-    public static void printResult(){
 
+    // 가장 큰 carStatus 값 구하기
+    public static int getMax(int[] carStatus){
+        int max = 0;
+        for(int i=0;i<carStatus.length;i++){
+            if(max < carStatus[i]){
+                max = carStatus[i];
+            }
+        }
+        return max;
     }
+
+
+    // 최종 우승자 출력
+    public static void printResult(String[] carName, int[] carStatus){
+        int max = getMax(carStatus);
+
+        System.out.print("최종 우승자 : ");
+        String result = "";
+        for(int i = 0;i < carStatus.length; i++){
+            if (max == carStatus[i]){
+                result += carName[i] + ", ";
+            }
+        }
+        result = result.substring(0, result.length()-2);
+        System.out.println(result);
+    }
+
 
     public static void main(String[] args) {
         String[] carName = inputCars();
         int carCnt = carName.length;
-//        for(int i =0; i < carCnt; i++){
-//            System.out.println(carName[i]);
-//        }
 
         int tryCnt = inputTry();
-//        System.out.println(tryCnt);
 
         System.out.println("실행 결과");
         int[] carStatus = new int[carCnt];
@@ -81,6 +102,6 @@ public class Application {
             carStatus = moveForward(carName, carStatus);
         }
 
-
+        printResult(carName, carStatus);
     }
 }
