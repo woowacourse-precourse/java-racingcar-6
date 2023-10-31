@@ -30,8 +30,9 @@ public class Game {
     }
 
     public void match(Cars cars, int attemptCount) {
-        for (int i = 0; i < attemptCount; i++) {
+        for (int round = 0; round < attemptCount; round++) {
             moveForwardByRandomNumber(cars);
+            showRoundResult(cars);
         }
     }
 
@@ -44,5 +45,12 @@ public class Game {
 
     public int getRandomNumber() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+    }
+
+    public void showRoundResult(Cars cars) {
+        for (Car car : cars.getCarList()) {
+            OutputView.showRoundResultByCar(car.getName(), "-".repeat(car.getPosition()));
+        }
+        System.out.println();
     }
 }
