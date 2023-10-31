@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.message.ErrorMessage.CAR_NAME_LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.message.MessageConstants.CAR_NAME_AND_POSITION_FORMAT;
 
 import org.junit.jupiter.api.DisplayName;
@@ -15,14 +16,16 @@ public class CarTest {
     @DisplayName("자동차에게 이름을 부여한다.")
     @Test
     void 자동차_이름_부여() {
-        assertThatCode(() -> new Car(new Name("자동차1"))).doesNotThrowAnyException();
+        assertThatCode(() -> new Car(new Name("자동차1")))
+                .doesNotThrowAnyException();
     }
 
     @DisplayName("자동차 이름이 1자 이상, 5자 이하 시 성공")
     @ParameterizedTest
     @ValueSource(strings = {"일", "일이", "일이삼", "일이삼사"})
     void 자동차_이름_길이_성공(String name) {
-        assertThatCode(() -> new Car(new Name(name))).doesNotThrowAnyException();
+        assertThatCode(() -> new Car(new Name(name)))
+                .doesNotThrowAnyException();
     }
 
     @DisplayName("자동차 이름이 1자 미만, 5자 초과 시 실패")
@@ -31,7 +34,7 @@ public class CarTest {
     void 자동차_이름_길이_실패(String name) {
         assertThatThrownBy(() -> new Car(new Name(name)))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 5자 이하여야 합니다.");
+                .hasMessageContaining(CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
     }
 
     @DisplayName("자동차가 전진한다")

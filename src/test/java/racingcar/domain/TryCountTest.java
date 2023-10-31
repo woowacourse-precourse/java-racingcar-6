@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.message.ErrorMessage.NEGATIVE_NUMBER_EXCEPTION_MESSAGE;
+import static racingcar.message.ErrorMessage.NUMBER_FORMAT_EXCEPTION_MESSAGE;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,7 +25,7 @@ class TryCountTest {
     void 시도_횟수_숫자_실패(String value) {
         assertThatThrownBy(() -> new TryCount(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해주세요.");
+                .hasMessageContaining(NUMBER_FORMAT_EXCEPTION_MESSAGE);
     }
 
     @DisplayName("시도할 횟수가 음수 일 때 실패")
@@ -32,6 +34,6 @@ class TryCountTest {
     void 시도_횟수_음수_실패(String value) {
         assertThatThrownBy(() -> new TryCount(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("유효하지 않은 시도 회수입니다.");
+                .hasMessageContaining(NEGATIVE_NUMBER_EXCEPTION_MESSAGE);
     }
 }

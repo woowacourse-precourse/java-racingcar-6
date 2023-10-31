@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.message.ErrorMessage.CAR_NAME_LENGTH_EXCEPTION_MESSAGE;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +25,7 @@ class NameTest {
     void 이름_길이_실패(String value) {
         assertThatThrownBy(() -> new Name(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 5자 이하여야 합니다.");
+                .hasMessageContaining(CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
     }
 
     @DisplayName("이름 앞 뒤 공백 제거 테스트")
@@ -32,7 +33,7 @@ class NameTest {
     @ValueSource(strings = {" 앞공백", "뒤공백 "})
     void 이름_공백_제거(String value) {
         Name name = new Name(value);
-        
+
         assertThat(value.trim()).isEqualTo(name.value());
     }
 }
