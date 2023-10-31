@@ -6,8 +6,8 @@ import racingcar.constants.ExceptionMessage;
 import racingcar.dto.AttemptCount;
 import racingcar.dto.RoundResult;
 import racingcar.dto.TotalResult;
+import racingcar.dto.Winners;
 import racingcar.model.RacingGame;
-import racingcar.model.Winners;
 import racingcar.util.validator.AttemptCountValidator;
 
 public class RacingGameService {

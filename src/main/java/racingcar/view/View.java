@@ -6,7 +6,7 @@ import racingcar.constants.Message;
 import racingcar.dto.CarResult;
 import racingcar.dto.RoundResult;
 import racingcar.dto.TotalResult;
-import racingcar.model.Winners;
+import racingcar.dto.Winners;
 
 public class View {
     public View() {
@@ -41,7 +41,7 @@ public class View {
         System.out.println(Message.ATTEMPT_COUNT_INPUT.message());
     }
 
-    public void printFinalWinnerMessage(Winners winnersResult) {
-        System.out.print(Message.WINNERS.message() + winnersResult.getWinners());
+    public void printFinalWinnerMessage(Winners winners) {
+        System.out.print(Message.WINNERS.message() + winners.name());
     }
 }

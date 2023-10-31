@@ -3,6 +3,8 @@ package racingcar.model;
 import java.util.List;
 import racingcar.constants.ExceptionMessage;
 import racingcar.dto.RoundResult;
+import racingcar.dto.Winners;
+import racingcar.util.WinnersNameExtractor;
 
 public class RacingGame {
     private Cars cars;
@@ -33,6 +35,6 @@ public class RacingGame {
     }
 
     private Winners toWinners(List<Car> winnersCar) {
-        return new Winners(winnersCar);
+        return WinnersNameExtractor.INSTANCE.extractName(winnersCar);
     }
 }

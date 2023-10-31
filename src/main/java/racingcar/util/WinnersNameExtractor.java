@@ -1,16 +1,14 @@
-package racingcar.model;
+package racingcar.util;
 
 import java.util.List;
 import racingcar.constants.Constants;
+import racingcar.dto.Winners;
+import racingcar.model.Car;
 
-public class Winners {
-    private final String winners;
+public enum WinnersNameExtractor {
+    INSTANCE;
 
-    public Winners(List<Car> winnersCar) {
-        winners = createWinner(winnersCar);
-    }
-
-    private String createWinner(List<Car> winnersCar) {
+    public Winners extractName(List<Car> winnersCar) {
         StringBuilder winners = new StringBuilder();
 
         winnersCar.stream()
@@ -18,7 +16,7 @@ public class Winners {
                 .forEach((name) -> addResult(winners, name));
         trim(winners);
 
-        return toString(winners);
+        return toWinners(winners);
     }
 
     private void addResult(StringBuilder result, String name) {
@@ -35,11 +33,11 @@ public class Winners {
         return result.length() - 2;
     }
 
-    private String toString(StringBuilder winners) {
-        return winners.toString();
+    private Winners toWinners(StringBuilder winners) {
+        return new Winners(toString(winners));
     }
 
-    public String getWinners() {
-        return winners;
+    public String toString(StringBuilder winners) {
+        return winners.toString();
     }
 }
