@@ -18,7 +18,6 @@ public class PositionTest {
     @Test
     void increasePosition() {
         position.increase();
-
         Assertions.assertEquals(1, position.getCarPosition());
     }
 }
