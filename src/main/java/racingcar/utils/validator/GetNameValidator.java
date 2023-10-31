@@ -11,6 +11,7 @@ public class GetNameValidator {
     public static final String DIGIT_ERROR_MESSAGE = "이름은 1자 이상 5자 이하로 입력해주세요";
     public static final String DUPLICATE_ERROR_MESSAGE = "중복된 이름이 있습니다";
     public static final String CARS_NUMBER_ERROR_MESSAGE = "2대 이상이 필요합니다";
+
     private GetNameValidator() {
 
     }
@@ -59,9 +60,8 @@ public class GetNameValidator {
     private static void validateUnderDigit(ArrayList<String> carsNameList) {
         if (carsNameList.stream()
                 .filter((carName) -> carName.length() == 0)
-                .count() > 0){
+                .count() > 0) {
             throw new IllegalArgumentException(DIGIT_ERROR_MESSAGE);
-
         }
     }
 

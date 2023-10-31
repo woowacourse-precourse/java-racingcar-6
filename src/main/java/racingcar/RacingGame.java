@@ -10,10 +10,9 @@ public class RacingGame {
     }
 
     public void run() {
-        controller.settingGame();
-        controller.startGame();
-        controller.printFinalResult();
+        controller.setting();
+        controller.play();
+        controller.finish();
     }
-
 
 }

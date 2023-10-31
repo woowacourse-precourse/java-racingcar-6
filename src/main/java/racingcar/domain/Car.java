@@ -1,13 +1,13 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.PrimitiveIterator;
 
 public class Car {
 
     private static final int MINIMUM_RANGE = 0;
     private static final int MAX_RANGE = 9;
     private static final int MINIMUM_ADVANCE = 4;
+
     private final String name;
     private int currentPosition = 0;
 

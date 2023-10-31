@@ -24,12 +24,12 @@ public class CarRepository {
                 });
     }
 
-    public void runAllCars() {
+    public void racingAllCars() {
         garage.stream()
                 .forEach(car -> car.runTrack());
     }
 
-    public CarsDto findAll() {
+    public CarsDto findAllCars() {
         ArrayList<CarDto> carDtoArrayList = convertGarageToDtoArrayList();
         CarsDto carsDto = new CarsDto(carDtoArrayList);
 

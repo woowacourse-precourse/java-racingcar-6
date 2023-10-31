@@ -5,15 +5,15 @@ import static racingcar.utils.Converter.convertStringToList;
 import static racingcar.utils.validator.GetNameValidator.validateArrayListNames;
 import static racingcar.utils.validator.GetNameValidator.validateStringNames;
 import static racingcar.utils.validator.GetTrialNumberValidator.validateNumberRange;
-import static racingcar.view.InputView.inputCarsName;
 import static racingcar.view.InputView.inputTrialNumber;
 import static racingcar.view.OutView.printResult;
-import static racingcar.view.OutView.printResultWinner;
+import static racingcar.view.OutView.printWinner;
 
 import java.util.ArrayList;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 import racingcar.service.Service;
+import racingcar.view.InputView;
 
 public class Controller {
 
@@ -29,14 +29,18 @@ public class Controller {
         return instance;
     }
 
-    public void settingGame() {
-        String inputString = inputCarsName();
+    public void setting() {
+        ArrayList<String> carsNameList = getCarsNameList();
+        saveCars(carsNameList);
+    }
+
+    private static ArrayList<String> getCarsNameList() {
+        String inputString = InputView.getCarsName();
         validateStringNames(inputString);
 
         ArrayList<String> carsNameList = convertStringToList(inputString);
         validateArrayListNames(carsNameList);
-
-        saveCars(carsNameList);
+        return carsNameList;
     }
 
     private void saveCars(ArrayList<String> carsName) {
@@ -46,13 +50,13 @@ public class Controller {
                 .forEach((carName) -> cars.add(new CarDto(carName)));
 
         CarsDto carsDto = new CarsDto(cars);
-        service.saveCars(carsDto);
+        service.saveCarsToRepository(carsDto);
     }
 
-    public void startGame() {
+    public void play() {
         int inputTrialNumber = getTrialNumber();
-        ArrayList<CarsDto> resultList = run(inputTrialNumber);
-        printEachTrackResult(resultList);
+        ArrayList<CarsDto> resultList = racing(inputTrialNumber);
+        printEachTryResult(resultList);
     }
 
     private int getTrialNumber() {
@@ -62,18 +66,17 @@ public class Controller {
         return trialNumber;
     }
 
-    private ArrayList<CarsDto> run(int trialNumber) {
-        ArrayList<CarsDto> resultEachTrackList = service.runTrack(trialNumber);
-        return resultEachTrackList;
-
+    private ArrayList<CarsDto> racing(int trialNumber) {
+        ArrayList<CarsDto> resultEachTryList = service.racingGivenTrialNumber(trialNumber);
+        return resultEachTryList;
     }
 
-    private void printEachTrackResult(ArrayList<CarsDto> resultList) {
+    private void printEachTryResult(ArrayList<CarsDto> resultList) {
         printResult(resultList);
     }
 
-    public void printFinalResult() {
-        printResultWinner(service.getWinner());
+    public void finish() {
+        printWinner(service.getWinner());
         service.initRepository();
     }
 

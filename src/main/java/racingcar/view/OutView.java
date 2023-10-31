@@ -2,7 +2,6 @@ package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PrimitiveIterator;
 import java.util.stream.Collectors;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
@@ -14,38 +13,43 @@ public class OutView {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String COLON = " : ";
     private static final String SEPARATOR = ", ";
+
     private OutView() {
     }
 
 
-    public static void printResultMessage() {
+    public static void printResult(ArrayList<CarsDto> resultList) {
+        printResultMessage();
+        printAllTryResult(resultList);
+    }
+
+    private static void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void printResult(ArrayList<CarsDto> resultList) {
-        printResultMessage();
-        for(int i=0;i<resultList.size();i++){
+    private static void printAllTryResult(ArrayList<CarsDto> resultList) {
+        for (int i = 0; i < resultList.size(); i++) {
             ArrayList<CarDto> carArrayList = resultList.get(i).getCarArrayList();
-            printEachTrack(carArrayList);
+            printEachTryResult(carArrayList);
             System.out.println();
         }
     }
 
-    private static void printEachTrack(ArrayList<CarDto> carArrayList) {
+    private static void printEachTryResult(ArrayList<CarDto> carArrayList) {
         carArrayList.stream()
-                .forEach(carDto -> printEachCar(carDto));
+                .forEach(carDto -> printEachCarResult(carDto));
     }
 
-    private static void printEachCar(CarDto carDto) {
+    private static void printEachCarResult(CarDto carDto) {
         int currentPosition = carDto.getCurrentPosition();
-        System.out.print(carDto.getCarName()+COLON);
-        while (currentPosition-->0){
+        System.out.print(carDto.getCarName() + COLON);
+        while (currentPosition-- > 0) {
             System.out.print(ADVANCE_MARK);
         }
         System.out.println();
     }
 
-    public static void printResultWinner(CarsDto carsDto) {
+    public static void printWinner(CarsDto carsDto) {
         ArrayList<CarDto> carArrayList = carsDto.getCarArrayList();
         List<String> winners = carArrayList.stream()
                 .map(CarDto::getCarName)

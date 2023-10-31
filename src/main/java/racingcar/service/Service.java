@@ -15,27 +15,26 @@ public class Service {
         this.carRepository = new CarRepository();
     }
 
-    public static Service getInstance(){
+    public static Service getInstance() {
         return instance;
     }
 
-
-    public void saveCars(CarsDto carsDto) {
+    public void saveCarsToRepository(CarsDto carsDto) {
         carRepository.save(carsDto);
     }
 
-    public ArrayList<CarsDto> runTrack(int inputTrialNumber) {
+    public ArrayList<CarsDto> racingGivenTrialNumber(int inputTrialNumber) {
         int trialNumber = inputTrialNumber;
-        ArrayList<CarsDto> resultEachTrackList = new ArrayList<>();
+        ArrayList<CarsDto> resultEachTryList = new ArrayList<>();
         while (trialNumber-- > 0) {
-            carRepository.runAllCars();
-            resultEachTrackList.add(carRepository.findAll());
+            carRepository.racingAllCars();
+            resultEachTryList.add(carRepository.findAllCars());
         }
-        return resultEachTrackList;
+        return resultEachTryList;
     }
 
     public CarsDto getWinner() {
-        CarsDto carsDto = carRepository.findAll();
+        CarsDto carsDto = carRepository.findAllCars();
         ArrayList<CarDto> carDtoArrayList = carsDto.getCarArrayList();
 
         int winnerDistance = getWinnerDistance(carDtoArrayList);
@@ -61,4 +60,5 @@ public class Service {
     public void initRepository() {
         carRepository.initRepository();
     }
+
 }
