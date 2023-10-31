@@ -24,7 +24,7 @@ class CarsTest {
     }
 
     @ParameterizedTest(name = "입력값 : {0}")
-    @ValueSource(strings = {"", ",", "pobi, "})
+    @ValueSource(strings = {"", ",", "pobi, ", "pobi,pobi", "pobi,woni,pobi"})
     @DisplayName("자동차 이름들이 주어졌을 때 cars 생성 실패")
     void givenNames_whenCreateCars_thenThrowException(String names) {
         assertThatThrownBy(() -> new Cars(names))
