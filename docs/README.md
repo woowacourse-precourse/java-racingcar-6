@@ -25,6 +25,7 @@
 ### 판정 관련: Judgement
 - [x] 게임 진행 여부 판정: isGameSet()
 - [x] 우승자 판정: judgeWinner()
+- [ ] 전진 조건 판정: checkGoCondition()
 ***
 ### 입력 관련: Input
 - [x] 자동차 이름 입력: enterCarName()
@@ -37,8 +38,8 @@
 - [x] 잘못된 시도 횟수 입력 확인: hasWrongAttemptsNum()
 ***
 ### 출력 관련: Output
-- [ ] 자동차 이름 입력 요청: questionCarName()
-- [ ] 시도 횟수 입력 요청: questionAttemptNum()
-- [ ] 자동차 이름 출력: printCarName()
-- [ ] 자동차 위치 출력: printCarPosition()
-- [ ] 우승자 출력: printWinner()
+- [x] 자동차 이름 입력 요청: questionCarName()
+- [x] 시도 횟수 입력 요청: questionAttemptNum()
+- [x] 실행 결과 출력 시작: printExecutionStart()
+- [x] 실행 결과 출력: printExecution()
+- [x] 우승자 출력: printWinner()
