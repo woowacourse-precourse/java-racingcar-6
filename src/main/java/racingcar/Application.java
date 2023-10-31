@@ -74,5 +74,28 @@ public class Application {
         if (attempt > 200) {
             throw new IllegalArgumentException("시도 횟수는 최대 200까지 입력할 수 있습니다.");
         }
+
+        // 진행 상황을 표시할 하이픈(-) 생성
+        String carMove = "-";
+
+        // 진행 상황 배열 생성
+        String racingCarProgress [] = new String [racingCarCount];
+        Arrays.fill(racingCarProgress, "");
+
+        // 실행 결과 출력
+        System.out.println("실행 결과");
+        String carProgress = "";
+        for (int i=0; i<attempt; i++) {
+            for (int j=0; j<racingCarCount; j++) {
+                System.out.print(racingCar[j] + " : ");
+                // 무작위 값 구하기
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                if (randomNumber >= 4) {
+                    racingCarProgress[j] += carMove;
+                }
+                System.out.println(racingCarProgress[j]);
+            }
+            System.out.println();
+        }
     }
 }
