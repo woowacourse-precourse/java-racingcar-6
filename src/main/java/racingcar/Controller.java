@@ -31,4 +31,11 @@ public class Controller {
         }
     }
 
+    public void displayResult() {
+        for (Car car : this.racingCars) {
+            System.out.printf("%s : %s\n",car.getName(),car.getDistance());
+        }
+        System.out.print("\n");
+    }
+
 }

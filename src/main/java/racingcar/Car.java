@@ -10,6 +10,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDistance() {
+        return this.distance;
+    }
+
     private void determineCanGo() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
 
