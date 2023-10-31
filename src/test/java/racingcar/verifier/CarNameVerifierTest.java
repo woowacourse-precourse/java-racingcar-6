@@ -1,26 +1,44 @@
 package racingcar.verifier;
 
 
+import camp.nextstep.edu.missionutils.test.Assertions;
+import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 import racingcar.system.ExceptionMessage;
 
 import static org.assertj.core.api.Assertions.*;
 
-class CarNameVerifierTest {
+class CarNameVerifierTest extends NsTest {
 
     private final Verifier carNameVerifier = new CarNameVerifier();
 
-    @Test
-    void 정상입력이_주어진경우() {
-        assertThatCode(() -> carNameVerifier.check("pobi,woni,jun"))
-                .doesNotThrowAnyException();
+    @Nested
+    class ValidInputTest {
+        @Test
+        void 정상입력이_주어진경우() {
+            Assertions.assertSimpleTest(() ->
+                    assertThatCode(() -> carNameVerifier.check("pobi,woni,jun"))
+                            .doesNotThrowAnyException()
+            );
+        }
     }
 
-    @Test
-    void 자동차이름이_5자이하가_아닌경우() {
-        assertThatThrownBy(() -> carNameVerifier.check("pobi,woni,123456,ifj"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME);
+    @Nested
+    class ExceptionTest {
+        @Test
+        void 자동차이름이_5자이하가_아닌경우() {
+            Assertions.assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException("pobi,woni,123456,ifj"))
+                            .isInstanceOf(IllegalArgumentException.class)
+                            .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME)
+            );
+        }
     }
 
+    @Override
+    protected void runMain() {
+        Application.main(new String[]{});
+    }
 }
