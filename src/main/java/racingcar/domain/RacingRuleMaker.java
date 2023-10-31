@@ -9,6 +9,7 @@ public class RacingRuleMaker {
 
     private List<String> cars = new ArrayList<>();
     private int allRoundCount;
+    ErrorCheck errorCheck = new ErrorCheck();
 
     public RacingRuleMaker() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -20,15 +21,15 @@ public class RacingRuleMaker {
 
     public List<String> namingCar() {
         String carNames = Console.readLine();
-
         String[] carsNamesArray = carNames.split(",");
         cars = Arrays.asList(carsNamesArray);
+        errorCheck.carNameCheck(cars);
         return cars;
     }
 
     public void inputRacingRound() {
         String inputRacingRound = Console.readLine();
-
+        errorCheck.inputNumberCheck(inputRacingRound);
         allRoundCount = Integer.parseInt(inputRacingRound);
     }
 
