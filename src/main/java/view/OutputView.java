@@ -12,13 +12,7 @@ public class OutputView {
         System.out.printf("\n");
     }
 
-    public void printResult(Race race){
+    public void printResult(){
         System.out.printf("실행 결과\n");
-        for(int i = 0;i<race.getLaps();i++){
-            for(Car car:race.getCarArrayList()){
-                printPosition(car);
-            }
-            System.out.printf("\n");
-        }
     }
 }

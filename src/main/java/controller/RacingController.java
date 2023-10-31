@@ -14,11 +14,13 @@ public class RacingController {
         ArrayList<Car> carArrayList = inputView.createCar();
         int laps = inputView.setLaps();
         Race race = new Race(laps, carArrayList);
+        startRace(race);
     }
     public static void startRace(Race race){
+        outputView.printResult();
         for(int i =0; i<race.getLaps();i++){
             race.startDrive();
-            outputView.printResult(race);
+            race.getCarArrayList().forEach(car -> outputView.printPosition(car));
         }
     }
 }
