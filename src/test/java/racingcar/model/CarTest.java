@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.car.Car;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
@@ -15,5 +16,14 @@ class CarTest {
     void checkValidateLength(String name) {
         assertThatThrownBy(() -> Car.ofStartingPoint(name))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("올바른 자동차 이름 테스트")
+    @ParameterizedTest(name = "{displayName} value = {0}")
+    @ValueSource(strings = {"soul", "bb", "k"})
+    void checkCorrectName(String name) {
+        Car car = Car.ofStartingPoint(name);
+        assertThat(car.getName()).isEqualTo(name);
+        assertThat(car.getCurrentPosition()).isEqualTo(0);
     }
 }
