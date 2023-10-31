@@ -15,4 +15,12 @@ public class RacingGame {
         }
     }
 
+    public void validateTryCountIsNumber(String inputTryCount) {
+        try {
+            Integer.parseInt(inputTryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닙니다. 시도 횟수를 입력해 주세요.");
+        }
+    }
+
 }

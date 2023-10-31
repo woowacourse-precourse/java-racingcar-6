@@ -21,7 +21,7 @@
 - [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. (1회 이상 10회 이하) RacingGame#inputTryCount()
   - [ ] 예외 처리를 모두 거친 시도 횟수를 반환한다. RacingGame#validateTryCount()
     - [x] 입력 받은 값은 빈 문자열이 아니다. RacingGame#validateTryCountNotEmpty()
-    - [ ] 입력 받은 값은 숫자이다. RacingGame#validateTryCountNumber()
+    - [ ] 입력 받은 값은 숫자이다. RacingGame#validateTryCountIsNumber()
     - [ ] 입력 받은 값은 1이상 10이하 이다. RacingGame#validateTryCountRange()
 
 - 
