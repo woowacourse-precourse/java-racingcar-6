@@ -22,8 +22,8 @@ public class Application {
             Race.showRace(raceResultsHMap);
         }
 
-        List<String> winnersArrayList;
-        winnersArrayList = Winner.pickWinners(raceResultsHMap);
+//        List<String> winnersArrayList;
+        List<String> winnersArrayList = Winner.pickWinners(raceResultsHMap);
         Winner.showWinners(winnersArrayList);
 
 

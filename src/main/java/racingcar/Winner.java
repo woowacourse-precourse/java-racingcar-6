@@ -40,23 +40,50 @@ public class Winner {
 //
 //        return winners;
 //    }
-    public static List<String> pickWinners(Map<String, String> raceResultHMap) {
-        Set<Map.Entry<String, String>> raceResultES = raceResultHMap.entrySet();
-        int maxRaceResultLength = 0;
-        List<String> winners = new ArrayList<>();
+    public static List<String> pickWinners(Map<String, String> raceResultsHMap) {
+        Set<Map.Entry<String, String>> raceResultsES = raceResultsHMap.entrySet();
+//        List<String> winners = new ArrayList<>();
 
         //value length 제일 큰 값 찾아내기
-        for (var entry : raceResultES) {
+        int maxRaceResultLength = getMaxResultLength(raceResultsES);
+//        for (var entry : raceResultsES) {
+//            String eachCarRaceResult = entry.getValue();
+//            if (eachCarRaceResult.length() >= maxRaceResultLength) {
+//                maxRaceResultLength = eachCarRaceResult.length();
+//            }
+//        }
+
+        //v 위에서 찾은 제일 큰 value length로 필터링해서, 해당 key값 ArrayList 만들기
+        List<String> winners = getWinnersArrayList(raceResultsES , maxRaceResultLength);
+//        for (var entry : raceResultsES) {
+//            String eachCarRaceResult = entry.getValue();
+//            if (eachCarRaceResult.length() == maxRaceResultLength) {
+//                String winner = entry.getKey();
+//                winners.add(winner);
+//            }
+//        }
+
+        return winners;
+    }
+
+
+    public static int getMaxResultLength(Set<Map.Entry<String, String>> raceResultsES) {
+        int maxRaceResultLength = 0;
+        for (var entry : raceResultsES) {
             String eachCarRaceResult = entry.getValue();
             if (eachCarRaceResult.length() >= maxRaceResultLength) {
                 maxRaceResultLength = eachCarRaceResult.length();
             }
         }
+        return maxRaceResultLength;
+    }
 
-        //v 위에서 찾은 제일 큰 value lengthf로 필터링해서, 해당 key값 ArrayList 만들기
-        for(var entry: raceResultES){
+
+    public static List<String> getWinnersArrayList(Set<Map.Entry<String, String>> raceResultsES, int maxRaceResultLength) {
+        List<String> winners = new ArrayList<>();
+        for (var entry : raceResultsES) {
             String eachCarRaceResult = entry.getValue();
-            if(eachCarRaceResult.length() == maxRaceResultLength){
+            if (eachCarRaceResult.length() == maxRaceResultLength) {
                 String winner = entry.getKey();
                 winners.add(winner);
             }
