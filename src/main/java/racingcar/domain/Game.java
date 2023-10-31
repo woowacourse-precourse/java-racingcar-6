@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 
@@ -25,8 +24,7 @@ public class Game {
         return gameResult;
     }
 
-    public void settingChance() {
-        String chance = Console.readLine().trim();
+    public void settingChance(String chance) {
         isNumericInput(chance);
         isGreaterThanZero(chance);
         this.tryChance = Integer.parseInt(chance);

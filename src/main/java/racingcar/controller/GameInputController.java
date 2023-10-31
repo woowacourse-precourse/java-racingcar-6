@@ -21,8 +21,8 @@ public class GameInputController {
     }
 
     public void requestTryNumber() {
-        inputView.requestTryNumber();
-        game.settingChance();
+        String tryChance = inputView.requestTryNumber();
+        game.settingChance(tryChance);
     }
 
     public Game sendGameInfo() {
