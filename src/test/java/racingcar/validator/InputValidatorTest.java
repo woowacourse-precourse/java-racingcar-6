@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.exception.Err;
 
 class InputValidatorTest {
     private InputValidator inputValidator;
@@ -25,6 +26,8 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Err.INVALID_CAR_NAMES_FORMAT.getMessage());
     }
+
+    // 자동차 이름이 1개일 때 예외발생테스트
 
     @ParameterizedTest
     @DisplayName("콤마로 문자열이 구분되었으나 공백 포함이거나 빈 문자열은 예외 발생")
