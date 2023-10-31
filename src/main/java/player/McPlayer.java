@@ -20,24 +20,10 @@ public class McPlayer implements Player{
     // 전체 레이싱플레이어(자동차)이름 리스트 변수
     private ArrayList<String> racingPlayerNameArr;
     // 전체 레이싱플레이어(자동차)객체 리스트 변수
-    public static ArrayList<RacingPlayer> racingPlayerArr;
+    private ArrayList<RacingPlayer> racingPlayerArr;
 
     // 시도 횟수 변수
     public int tryingNum;
-
-    // 정적 McPlayer innstance 변수
-    private static McPlayer innstance;
-    // private 생성자
-    private McPlayer() {}
-    // 단독 McPlayer(싱글톤)
-    public static McPlayer getInstance() {
-        if (innstance == null) {
-            synchronized(McPlayer.class) {
-                innstance = new McPlayer();
-            }
-        }
-        return innstance;
-    }
 
     /**
      * Description : McPlayer의 게임 플레이
@@ -102,5 +88,26 @@ public class McPlayer implements Player{
      */
     public void gettingTryingNum() {
         tryingNum = Integer.parseInt(display.input());
+    }
+
+
+    /**
+     * Description :  racingPlayerArr( 레이싱플레이어(자동차) 객체 리스트) 를 반환하기
+     *
+     * @Method : getracingPlayerArr()
+     * @Return : ArrayList<RacingPlayer>
+     */
+    public ArrayList<RacingPlayer> getracingPlayerArr() {
+        return this.racingPlayerArr;
+    }
+
+    /**
+     * Description :  TryingNum(시도할 횟수) 를 반환하기
+     *
+     * @Method : getTryingNum()
+     * @Return : int
+     */
+    public int getTryingNum() {
+        return this.tryingNum;
     }
 }

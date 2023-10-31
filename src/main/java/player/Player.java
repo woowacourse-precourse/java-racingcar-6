@@ -1,18 +1,17 @@
 /**
  * @Package_name   : player
- * @Interface_name : Player
+ * @Class_name : Player
  *
- * Create Date : 2023-10-31
+ * Create Date : 2023-11-01
  * Create User : 정은채
  */
 package player;
 
 public interface Player {
     /**
-     * Description :  게임 참여자들의 게임 운영
+     * Description : Player들의 게임 플레이
      *
-     * @Method : Play()
+     * @Method : play()
      */
     void play();
-
 }

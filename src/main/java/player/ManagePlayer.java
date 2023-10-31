@@ -8,26 +8,24 @@
 package player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ManagePlayer implements Player {
 
-    // 모든 레이싱플레이어(자동차) 최종 결과(거리) 리스트
-    ArrayList<Integer> racingPlayerDistanceArr;
+    // 모든 레이싱플레이어(자동차) 이름, 최종 결과(거리) 해시맵
+    Map<String, Integer> racingPlayerDistanceMap;
 
-    // 정적 ManagePlayer innstance 변수
-    private static ManagePlayer innstance;
-    // private 생성자
-    private ManagePlayer() {
-        racingPlayerDistanceArr = new ArrayList<Integer>();
-    }
-    // 단독 ManagePlayer(싱글톤)
-    public static ManagePlayer getInstance() {
-        if (innstance == null) {
-            synchronized(ManagePlayer.class) {
-                innstance = new ManagePlayer();
-            }
-        }
-        return innstance;
+    // ManagePlayer가 컨택하는 McPlayer,JudgePlayer 객체
+    McPlayer mcPlayer;
+    JudgePlayer judgePlayer;
+
+    //기본생성자
+    public ManagePlayer(){}
+    // 매개변수 생성자 (mcPlayer,judgePlayer)
+    public ManagePlayer(McPlayer mcPlayer, JudgePlayer judgePlayer){
+        this.mcPlayer = mcPlayer;
+        this.judgePlayer = judgePlayer;
     }
 
     /**
@@ -38,16 +36,17 @@ public class ManagePlayer implements Player {
     @Override
     public void play() {
         getRacingDistanceArrFromRacingPlayer();
+        giveRacingPlayerDistanceArrToJudgePlayer();
     }
 
     /**
-     * Description : McPlayer의 RacingPlayer객체리스트를 이용해 거리를 받아 RacingDistanceArr에 저장함
+     * Description : McPlayer의 getracingPlayerArr()를 이용해 거리를 받아 RacingDistanceArr에 저장함
      *
      * @Method : getRacingDistanceArr()
      */
     public void getRacingDistanceArrFromRacingPlayer() {
-        for ( RacingPlayer racingPlayer : McPlayer.racingPlayerArr){
-            racingPlayerDistanceArr.add(racingPlayer.getRunDistance());
+        for ( RacingPlayer racingPlayer : mcPlayer.getracingPlayerArr()){
+            racingPlayerDistanceMap.put(racingPlayer.racerName, racingPlayer.runDistance);
         }
     }
 
@@ -55,10 +54,9 @@ public class ManagePlayer implements Player {
      * Description : RacingDistanceArr에 저장된 전체 레이싱플레이어(자동차) 최종 결과(거리)를 JudgePlayer에게 전송
      *
      * @Method : giveRacingPlayerDistanceArrToJudgePlayer()
-     * @return : ArrayList<Integer>
      */
-    public ArrayList<Integer> giveRacingPlayerDistanceArrToJudgePlayer() {
-        return racingPlayerDistanceArr;
+    public void giveRacingPlayerDistanceArrToJudgePlayer() {
+        judgePlayer.setRacingPlayerDistanceMap(this.racingPlayerDistanceMap);
     }
 
 }

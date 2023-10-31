@@ -7,20 +7,67 @@
  */
 package player;
 
-import java.util.ArrayList;
+import display.ConsoleDisplay;
+import utility.Const;
 
-public class JudgePlayer {
-    // 정적 JudgePlayer innstance 변수
-    private static JudgePlayer innstance;
-    // private 생성자
-    private JudgePlayer() {}
-    // 단독 JudgePlayer(싱글톤)
-    public static JudgePlayer getInstance() {
-        if (innstance == null) {
-            synchronized(JudgePlayer.class) {
-                innstance = new JudgePlayer();
+import java.util.*;
+
+public class JudgePlayer implements Player{
+    // 출력을 위한 display 객체
+    ConsoleDisplay display = new ConsoleDisplay();
+
+    // 모든 레이싱플레이어(자동차) 이름, 최종 결과(거리) 해시맵
+    private Map<String, Integer> racingPlayerDistanceMap;
+    // 모든 레이싱플레이어(자동차) 최종 결과(거리) 리스트
+    private ArrayList<String> racingWinnerArr;
+
+    /**
+     * Description :  JudgePlayer의 게임 운영
+     *
+     * @Method : Play()
+     */
+    @Override
+    public void play() {
+        judgingWinner();
+        sayingWinner();
+    }
+
+    /**
+     * Description : racingPlayerDistanceMap 값 세팅하기
+     *
+     * @Method : settingRacingPlayerDistanceMap()
+     */
+    public void setRacingPlayerDistanceMap(Map<String, Integer> racingPlayerDistanceMap) {
+        this.racingPlayerDistanceMap = racingPlayerDistanceMap;
+    }
+
+    /**
+     * Description : racingPlayerDistanceMap에서 우승자를 가려내 racingWinnerArr에 넣기
+     *
+     * @Method : judgingWinner()
+     */
+    public void judgingWinner() {
+        racingWinnerArr = new ArrayList<String>();
+        Integer maxValue = Collections.max(racingPlayerDistanceMap.values());
+
+        Iterator<String> keys = racingPlayerDistanceMap.keySet().iterator();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            if (racingPlayerDistanceMap.get(key) == maxValue){
+                racingWinnerArr.add(key);
             }
         }
-        return innstance;
+    }
+
+    /**
+     * Description : racingWinnerArr에 들어 있는 우승자 출력함
+     *
+     * @Method : sayingWinner()
+     */
+    public void sayingWinner() {
+        display.output(Const.FINAL_WINNER_COMMENT);
+        for ( String winner : racingWinnerArr ){
+            display.output(winner);
+        }
     }
 }
