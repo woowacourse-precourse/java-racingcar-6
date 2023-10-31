@@ -2,8 +2,8 @@ package racingcar.domain;
 
 public class Car {
 
-    public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
     public static final int MINIMUM_FOR_MOVE = 4;
+    public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
     public static final int MINIMUM_CAR_NAME_LENGTH = 1;
 
     private final String name;
