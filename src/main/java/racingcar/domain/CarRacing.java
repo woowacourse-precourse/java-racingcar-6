@@ -19,9 +19,14 @@ public class CarRacing {
     }
 
     public void race(int turn) {
+        OutputView.printProgressStmt();
+
         while (turn-- > 0) {
             oneTurnRace();
+
+            OutputView.printOneTurnResult(cars, carPos);
         }
+
         getRaceResult();
     }
 
