@@ -1,9 +1,10 @@
 package racingcar.util;
 
+import static racingcar.consts.ViewConstant.DELIMITER;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.consts.ViewConstant;
 import racingcar.domain.Car;
 
 public class InputParser {
@@ -13,7 +14,7 @@ public class InputParser {
         playerInput = playerInput.replaceAll(" ", "");
         inputValidator.validateCarNames(playerInput);
         List<Car> result = new ArrayList<>();
-        List<String> carNames = Arrays.stream(playerInput.split(ViewConstant.DELIMITER.get())).toList();
+        List<String> carNames = Arrays.stream(playerInput.split(DELIMITER.get())).toList();
         for (String carName : carNames) {
             result.add(new Car(carName));
         }
