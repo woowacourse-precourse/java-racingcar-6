@@ -35,4 +35,14 @@ public class View {
     }
     System.out.println();
   }
+  
+  static public void printWinner(List<Car> winnerCars){
+    List<String> winnerCarNames= new ArrayList<String>();
+    for (Car winnerCar : winnerCars) {
+      winnerCarNames.add(winnerCar.getName());
+    }
+    String result = String.join(", ",winnerCarNames);
+
+    System.out.println("최종 우승자 : "+result);
+  }
 }

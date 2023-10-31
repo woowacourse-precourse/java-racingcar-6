@@ -16,7 +16,7 @@ public class GameManager {
     List<String> inputedCars = View.inputCars();
     inputedCars.forEach(car -> cars.add(new Car(car)));
 
-    for(int i=0;i<inputedCars.size();i++){
+    for (int i = 0; i < inputedCars.size(); i++) {
       progressState.add(0);
     }
 
@@ -24,14 +24,13 @@ public class GameManager {
     trialCount = View.inputGameTrialCount();
     currentCount = 0;
 
-    
 
   }
 
   public void start() {
     System.out.println("실행 결과");
 
-    while (!isGameEnd()){
+    while (!isGameEnd()) {
       this.progressRound(cars);
     }
   }
@@ -39,16 +38,37 @@ public class GameManager {
   public boolean isGameEnd() {
     return currentCount >= trialCount;
   }
-  public void progressRound(List<Car> cars){
+
+  public void progressRound(List<Car> cars) {
     currentCount++;
-    
-    for(int i=0;i<cars.size();i++){
-      if(cars.get(i).isProgress()){
-        progressState.set(i,progressState.get(i)+1);
+
+    for (int i = 0; i < cars.size(); i++) {
+      if (cars.get(i).isProgress()) {
+        progressState.set(i, progressState.get(i) + 1);
+      }
+    }
+
+    View.printProgressState(cars, progressState);
+
+  }
+
+  public void checkWinner() {
+    int maxProgress = -1;
+    for (int i = 0; i < cars.size(); i++) {
+      if (progressState.get(i) > maxProgress) {
+        maxProgress = progressState.get(i);
       }
     }
     
-    View.printProgressState(cars,progressState);
-
+    List<Car> winnerCars = new ArrayList<Car>();
+    for (int i = 0; i < cars.size(); i++) {
+      if (progressState.get(i) == maxProgress) {
+        winnerCars.add(cars.get(i));
+      }
+    }
+    
+    View.printWinner(winnerCars);
   }
+    
+  
 }
