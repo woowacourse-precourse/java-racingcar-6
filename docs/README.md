@@ -47,7 +47,7 @@
       jun : ---
     
 - (winnerList) List<String> : Winner : 우승자 안내 문구
-  - if length = 1
+  - if size = 1
     - case 1) 단독 우승자 안내 문구
       - ex) 최종 우승자 : pobi
   - else
