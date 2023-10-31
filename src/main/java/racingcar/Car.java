@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Car implements Comparable<Car> {
@@ -47,5 +48,10 @@ public class Car implements Comparable<Car> {
         }
         round = Integer.parseInt(input);
     }
+
+    public int makeRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
 
 }
