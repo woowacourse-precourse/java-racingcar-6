@@ -26,7 +26,7 @@ public class RacingService {
     private static void playRacing(List<Car> cars) {
         for (Car car : cars) {
             int move = Randoms.pickNumberInRange(0, 9);
-            car.setMove(move);
+            car.moveForward(move);
         }
     }
 

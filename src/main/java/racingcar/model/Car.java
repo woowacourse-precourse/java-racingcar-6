@@ -2,8 +2,8 @@ package racingcar.model;
 
 public class Car {
     private final String name;
-    private Integer move;
-    private Integer winCount;
+    private int move;
+    private int winCount;
 
     private Car(String name) {
         this.name = name;
@@ -19,7 +19,7 @@ public class Car {
         this.winCount++;
     }
 
-    public void setMove(Integer move) {
+    public void moveForward(Integer move) {
         this.move = move;
     }
 
