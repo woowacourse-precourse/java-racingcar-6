@@ -1,18 +1,32 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.Test;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class InputManagerTest {
-    InputManager inputManager = new InputManager();
+    DataConverter dataConverter = new DataConverter();
 
-    void 자동차_이름_정상입력(){
+    @Test
+    void 자동차_이름_입력_리스트_변환(){
+        String input = "밴츠,현대2,아우디a";
 
+        List<String> result = dataConverter.toListString(input);
 
+        assertThat(result).containsExactly("밴츠","현대2","아우디a");
+    }
+
+    @Test
+    void 시도_횟수_입력_정수_변환(){
+        String input = "3";
+
+        int result = Integer.parseInt(input);
+
+        assertThat(result).isEqualTo(3);
     }
 
 }
