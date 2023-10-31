@@ -15,17 +15,19 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    private static String getCarNames() {
+    private static String getInputLineOfCarNames() {
         return checkInputLineOfCarNames(Console.readLine());
     }
 
-    private static List<String> saveCarNames(String inputLineOfCarNames) {
-        List<String> carNames = Arrays.asList(inputLineOfCarNames.split(","));
+    private static List<String> getCarNames(String inputLineOfCarNames) {
+        List<String> carNames = splitCarNames(inputLineOfCarNames);
         checkCarNameForm((carNames));
         checkDuplicateOfCarName((carNames));
         return carNames;
     }
-
+    private static List<String> splitCarNames(String inputLineOfCarNames) {
+        return Arrays.asList(inputLineOfCarNames.split(","));
+    }
     private static String checkInputLineOfCarNames(String inputLineOfCarNames) {
         checkStartsWithCommaInInputLine(inputLineOfCarNames);
         checkEndsWithCommaInInputLine(inputLineOfCarNames);
@@ -166,7 +168,7 @@ public class Application {
 
     private static void playGame() {
         printInputCarNames();
-        List<Car> cars = makeCars(saveCarNames(getCarNames()));
+        List<Car> cars = makeCars(getCarNames(getInputLineOfCarNames()));
         printInputNumberofAttempts();
         int numberOfAttempts = getNumberOfAttempts();
         printHeadResult();
