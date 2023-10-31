@@ -9,7 +9,6 @@ import utils.Utils;
 public class Cars {
     final static String DUPLICATION_NAME = "자동차의 이름은 중복되지 않은 고유한 값이어야 합니다.";
     private List<Car> cars;
-    Utils utils = new Utils();
 
     public Cars(String input) {
         duplicateCarName(input);
@@ -17,7 +16,7 @@ public class Cars {
     }
 
     public List<Car> convertStringArrayToCars(String input) {
-        return Arrays.stream(utils.splitByDelimiter(input))
+        return Arrays.stream(Utils.splitByDelimiter(input))
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
