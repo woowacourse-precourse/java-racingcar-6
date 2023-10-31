@@ -19,5 +19,9 @@ public class GameController {
 
     private static int readTryCount() {
         OutputView.printMessage("시도할 회수는 몇회인가요?");
+        String tryCount = InputView.read();
+        TryCountValidator.validate(tryCount);
+
+        return parseInt(tryCount);
     }
 }
