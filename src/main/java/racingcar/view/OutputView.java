@@ -1,23 +1,25 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.ResultDto;
-import racingcar.model.CarGroup;
+import racingcar.domain.Result;
+import racingcar.domain.Winners;
+import racingcar.dto.ResultResponseDto;
+import racingcar.domain.CarGroup;
 
 public class OutputView {
 
     private static final String CAR_POSITION_VIEW = "-";
     private static final String DELIMITER = ",";
 
-    public void printResult(ResultDto resultDto) {
+    public void printResult(Result result) {
         System.out.println("실행 결과");
-        for (int i = 0; i < resultDto.roundNumber(); i++) {
-            printRoundResult(resultDto.carGroup());
+        for (int i = 0; i < result.getRoundNumber(); i++) {
+            printRoundResult(result.getCarGroup());
         }
     }
 
-    public void printWinner(List<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(DELIMITER, winners));
+    public void printWinner(Winners winners) {
+        System.out.println("최종 우승자 : " + String.join(DELIMITER, winners.getWinners()));
     }
 
     private void printRoundResult(CarGroup carGroup) {

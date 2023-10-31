@@ -1,10 +1,11 @@
-package racingcar.model;
+package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Winners {
 
-    private List<String> winners;
+    private final List<String> winners;
 
     public Winners(List<String> winners) {
         this.winners = winners;
@@ -13,6 +14,4 @@ public class Winners {
     public List<String> getWinners() {
         return winners;
     }
-
-
 }

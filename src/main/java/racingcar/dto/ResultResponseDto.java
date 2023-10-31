@@ -1,8 +1,8 @@
 package racingcar.dto;
 
-import racingcar.model.CarGroup;
+import racingcar.domain.CarGroup;
 
-public record ResultDto (
+public record ResultResponseDto(
     CarGroup carGroup,
     int roundNumber
 ) {
