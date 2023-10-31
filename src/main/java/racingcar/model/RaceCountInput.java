@@ -1,11 +1,12 @@
 package racingcar.model;
 
+import static racingcar.model.OutputConstants.INTEGER;
+
 import racingcar.view.InputView;
 
 public class RaceCountInput {
 
     private static final int COUNT_MIN = 1;
-    private static final String REGEX = "\\d+";
 
     private final int raceCount;
 
@@ -26,7 +27,7 @@ public class RaceCountInput {
     }
 
     private static void validIsNumber(String userInput) {
-        if (!userInput.matches(REGEX)) {
+        if (!userInput.matches(INTEGER.getValue())) {
             throw new IllegalArgumentException();
         }
     }
