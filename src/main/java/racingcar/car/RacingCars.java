@@ -27,5 +27,15 @@ public class RacingCars {
         return maxSize;
     }
 
-    public String find
+    public String findLongestDistanceDriverOfNames(){
+        int maxSize = findLongestDistanceDriverOfLength();
+        List<String> longestDistanceDriverOfNames = new ArrayList<>();
+
+        for(int i = 0; i<racingCars.size(); i++){
+            if(maxSize == racingCars.get(i).distanceDriver.length())
+                longestDistanceDriverOfNames.add(racingCars.get(i).getName());
+        }
+
+        return String.join(", ",longestDistanceDriverOfNames);
+    }
 }
