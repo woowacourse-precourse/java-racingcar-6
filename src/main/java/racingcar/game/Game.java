@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.car.Car;
+import racingcar.round.Round;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,12 +14,14 @@ import static racingcar.car.CarSetting.MAX_LENGTH_OF_NAME;
 public class Game {
     private String carNames;
     private String numberOfTry;
+    private int tryNumber;
 
-    public Game() {
+    public Game() throws IllegalArgumentException {
         printPhrasesCarName();
         inputCarName();
         printPhraseNumberOfTry();
         inputNumberOfTry();
+        initRound();
     }
 
     private void printPhrasesCarName() {
@@ -37,11 +40,11 @@ public class Game {
         numberOfTry = readLine();
     }
 
-    public List<Car> makeCarEntity() {
+    public List<Car> makeCarEntity() throws IllegalArgumentException{
         List<Car> cars = new ArrayList<>();
 
         for (String name : carNames.split(",")) {
-            if (checkDuplicationName(cars, name)) throw new IllegalArgumentException();
+            if (!checkDuplicationName(cars, name)) throw new IllegalArgumentException();
             else cars.add(new Car(name));
         }
 
@@ -51,6 +54,22 @@ public class Game {
     private boolean checkDuplicationName(List<Car> cars, String carName) {
         for (Car car : cars) {
             if (car.getCarName().equals(carName)) return false;
+        }
+
+        return true;
+    }
+
+    public void initRound() throws IllegalArgumentException {
+        if (!checkNumberOfTry()) throw new IllegalArgumentException();
+
+        tryNumber = Integer.parseInt(numberOfTry);
+    }
+
+    private boolean checkNumberOfTry() {
+        try {
+            Integer.parseInt(numberOfTry);
+        } catch (Exception e) {
+            return false;
         }
 
         return true;
