@@ -35,6 +35,26 @@ public class Application {
 		System.out.println();
 	}
 	
+	public static void print_winner(String[] name, int[] num, int usernum) {
+		int max = 0; // 최댓값
+		int[] result_name = {}; // 우승자 이름 목록
+		for (int i = 0; i < usernum; i++) {
+			if (num[i] > max) {
+				max = num[i];
+			}
+		}
+		int check = 0;
+		for (int i = 0; i < usernum; i++) {
+			if (num[i] == max && check == 0) {
+				check++;
+				System.out.print(name[i]);
+			} else if (num[i] == max && check != 0) {
+				check++;
+				System.out.print(", " + name[i]);
+			}
+		}
+	}
+	
 	
 	
     public static void main(String[] args) {
@@ -62,5 +82,10 @@ public class Application {
 			System.out.println();
 			num--;
 		}
+		
+		// 최종 우승자 출력하기
+		System.out.print("최종 우승자 : ");
+
+		print_winner(user, result, usernum);
     }
 }
