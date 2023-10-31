@@ -2,9 +2,13 @@ package racingcar;
 
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
 	public static void main(String[] args) {
@@ -13,8 +17,32 @@ public class Application {
 		String enterName = Console.readLine();
 		List<String> playerName = splitPlayerName(enterName);
 		playerNameCheck(playerName);
+
+		System.out.println("시도할 회수는 몇회인가요?");
+		int tryNum = Integer.parseInt(Console.readLine());
+
+		System.out.println("\n실행결과");
+		Map<String, String> resultMap = new LinkedHashMap<>();
+		for (String keyName : playerName) {
+			resultMap.put(keyName, "");
+		}
+
+		for(int i=0;i<tryNum;i++) {
+
+			for (String key : resultMap.keySet()) {
+
+				int ranNum = Randoms.pickNumberInRange(0, 9);
+
+				forward(ranNum,resultMap,key);
+
+				System.out.println(key+" : "+resultMap.get(key));
+
+			}
+			System.out.println();
+		}
+
 	}
-	
+
 	//입력받은 플레이어 이름 쉼표 기준으로 나누는 함수
 	public static List<String> splitPlayerName(String enterName){
 		List<String> playerName = Arrays.asList(enterName.split(","));
@@ -28,5 +56,13 @@ public class Application {
 				throw new IllegalArgumentException();
 			}
 		} 
+	}
+
+	//랜덤 숫자가 4이상일 때, 전진하는 함수
+	public static void forward(int ranNum, Map<String, String> resultMap, String key) {
+		if(ranNum>=4) {
+			String value = resultMap.get(key)+"-";
+			resultMap.replace(key, value);
+		}
 	}
 }
