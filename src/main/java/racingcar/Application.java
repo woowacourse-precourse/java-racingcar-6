@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,12 +11,24 @@ public class Application {
     private static void StartGame() {
         String carNameInput = UserEnterCarName();
         Car[] cars = MakeCarObject(carNameInput);
+
         for(int i=0; i<cars.length; i++){
             System.out.println(cars[i].name+" "+cars[i].meter);
         }
-        int RepeatNumber = UserEnterRepeatNumber();
-        System.out.println(RepeatNumber);
 
+        int repeatNumber = UserEnterRepeatNumber();
+        System.out.println(repeatNumber);
+        for(int i=0; i<repeatNumber; i++){
+        CalculateGoOrStop(cars);
+        }
+
+    }
+
+    private static void CalculateGoOrStop(Car[] cars) {
+        for(Car car : cars){
+            int n = pickNumberInRange(1,9);
+            if(n>=4) car.meter += 1;
+        }
     }
 
     private static int UserEnterRepeatNumber() throws IllegalArgumentException{
@@ -31,6 +44,7 @@ public class Application {
     private static Car[] MakeCarObject(String carNameInput) {
         String[] carNames = carNameInput.split(",");
         Car[] cars = new Car[carNames.length];
+
         for(int i=0; i<carNames.length; i++){
             cars[i] = new Car(carNames[i]);
         }
