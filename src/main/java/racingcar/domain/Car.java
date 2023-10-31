@@ -28,6 +28,14 @@ public class Car {
         this.location += 1;
     }
 
+    public int getLastLocation() {
+        return location;
+    }
+
+    public void addToWinner(final Winners winners) {
+        winners.addNameOfWinner(name);
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder(name + " : ");

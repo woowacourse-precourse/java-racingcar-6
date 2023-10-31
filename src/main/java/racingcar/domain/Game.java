@@ -3,6 +3,7 @@ package racingcar.domain;
 import static racingcar.view.Messages.REGISTER_CAR_MESSAGE;
 import static racingcar.view.Messages.RESULT_MESSAGE;
 import static racingcar.view.Messages.TRIAL_NUMBER_MESSAGE;
+import static racingcar.view.Messages.WINNER_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import racingcar.view.OutputView;
 public class Game {
 
     private final List<Car> cars;
+    private final Winners winners;
     private int trialNumber;
     private static final int MOVE_FORWARD_CONDITION_OF_CAR = 4;
     private static final int LOWER_BOUND_OF_RANDOM_NUMBER = 1;
@@ -21,6 +23,7 @@ public class Game {
 
     public Game() {
         cars = new ArrayList<>();
+        winners = new Winners();
     }
 
     public void run() {
@@ -28,7 +31,13 @@ public class Game {
         registerCars();
         readTrialNumber();
         moveCarsAndShowResults();
+        findWinners();
+        showWinners();
+    }
 
+    private void showWinners() {
+        OutputView.print(WINNER_MESSAGE);
+        OutputView.print(winners.toString());
     }
 
     private void moveCarsAndShowResults() {
@@ -51,6 +60,26 @@ public class Game {
         for (Car car : cars) {
             OutputView.println(car.toString());
         }
+    }
+
+    private void findWinners() {
+        int locationOfWinner = findLocationOfWinner();
+
+        for (Car car : cars) {
+            if (car.getLastLocation() == locationOfWinner) {
+                car.addToWinner(winners);
+            }
+        }
+    }
+
+    private int findLocationOfWinner() {
+        int maxArrivalPoint = 0;
+
+        for (Car car : cars) {
+            maxArrivalPoint = Math.max(maxArrivalPoint, car.getLastLocation());
+        }
+
+        return maxArrivalPoint;
     }
 
     private void registerCars() {
