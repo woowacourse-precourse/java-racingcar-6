@@ -30,4 +30,8 @@ public class Car {
         return new PerGameCarResultDto(name, moveCnt);
     }
 
+    public boolean isWinner(int maxMoveCnt){
+        return moveCnt == maxMoveCnt;
+    }
+
 }
