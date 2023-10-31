@@ -41,4 +41,8 @@ public class ExecutionResultGenerator {
         }
         return moveRange.toString();
     }
+
+    public List<String> getExecutionResults() {
+        return executionResults;
+    }
 }

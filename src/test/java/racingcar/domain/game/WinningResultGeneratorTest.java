@@ -1,7 +1,8 @@
-package racingcar.domain.car;
+package racingcar.domain.game;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Car;
 import racingcar.domain.car.random_generator.FakeRandomMove;
 import racingcar.domain.game.WinningResultGenerator;
 
