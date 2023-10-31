@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.CarNumberHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +18,8 @@ public class CarRacing {
     private static final String ERROR_DUPLICATE_CAR_NAME = "[error] 자동차 이름이 중복되었습니다.";
     private static final String ERROR_CAR_NAME_LENGTH = "[error] 자동차 이름의 길이는 1이상 5이하 이어야 합니다.";
     private static final String ERROR_WRONG_COUNT = "[error] 시도 횟수는 1이상의 정수 이어야 합니다.";
+
+    private static final int STANDARD_LENGTH = 5;
 
 
     private String carNames;
@@ -36,8 +39,10 @@ public class CarRacing {
         System.out.println(PROMPT_ENTER_COUNT);
         requestUserCount();
 
+        System.out.println(RESULT_MESSAGE);
+        for (int i = 0; i < userCount; i++) {
 
-
+        }
     }
 
     public void requestCarNames() {
@@ -89,7 +94,7 @@ public class CarRacing {
         isCarNameValidLength(carNamesArray);
     }
 
-    public void isCarNameDuplicate(List<String> carNamesArray) throws IllegalArgumentException {
+    public void isCarNameDuplicate(List<String> carNamesArray) {
         Set<String> set = new HashSet<>();
         for (String carName : carNamesArray) {
             if (!set.add(carName)) {
@@ -100,7 +105,7 @@ public class CarRacing {
 
     public void isCarNameValidLength(List<String> carNamesArray) {
         for (String carName : carNamesArray) {
-            if (carName.isEmpty() || carName.length() > 5) {
+            if (carName.isEmpty() || carName.length() > STANDARD_LENGTH) {
                 throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH);
             }
         }
