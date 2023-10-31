@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class TryCnt {
+    public static final int MIN_TRY_COUNT = 0;
 
     private int tryCnt;
 
@@ -27,6 +28,6 @@ public class TryCnt {
         }
     }
     private static void checkTryCntIsPositive(int tryCnt) {
-        if (tryCnt <= 0) throw new IllegalArgumentException("시도 횟수는 양수여야 합니다.");
+        if (tryCnt <= MIN_TRY_COUNT) throw new IllegalArgumentException("시도 횟수는 양수여야 합니다.");
     }
 }
