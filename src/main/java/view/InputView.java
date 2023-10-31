@@ -6,9 +6,15 @@ import java.util.List;
 
 public class InputView {
 
-    private void isNotEmpty(String userInput) {
+    private void checkNotEmpty(String userInput) {
         if (userInput.isEmpty()) {
-            throw new IllegalArgumentException("입력된 값이 없습니다");
+            throw new IllegalArgumentException("입력된 값이 없습니다.");
+        }
+    }
+
+    private void checkNotEndsWithComma(String userInput){
+        if(userInput.endsWith(",")){
+            throw new IllegalArgumentException("마지막이 쉼표로 끝납니다.");
         }
     }
 }
