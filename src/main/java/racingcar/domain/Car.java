@@ -2,6 +2,8 @@ package racingcar.domain;
 
 public class Car {
 
+    private final int MOVE_BOUND = 4;
+
     private final String name;
     private int position;
 
@@ -18,12 +20,12 @@ public class Car {
         return position;
     }
 
-    public void move() {
+    private void move() {
         position++;
     }
 
     public void tryMove(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_BOUND) {
             move();
         }
     }
