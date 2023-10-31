@@ -26,10 +26,10 @@ public class RacingGameController {
         OutputView.printFinalWinner(service.getWinners(cars));
     }
 
-    public void play(int tryCountNumber, List<Car> cars) {
-        while (tryCountNumber > 0) {
+    public void play(int tryCount, List<Car> cars) {
+        while (tryCount > 0) {
             OutputView.printResult(service.move(cars));
-            tryCountNumber--;
+            tryCount--;
         }
     }
 }
