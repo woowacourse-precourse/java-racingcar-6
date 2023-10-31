@@ -30,3 +30,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+# Ignore all .class files
+*.class
+
+# Ignore specific directories
+/bin/
