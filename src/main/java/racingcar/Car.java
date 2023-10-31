@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-
     private final String name;
     private int position = 0;
     private static final int STANDARD = 4;
