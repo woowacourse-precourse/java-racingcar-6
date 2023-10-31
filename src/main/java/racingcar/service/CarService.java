@@ -39,12 +39,12 @@ public class CarService {
     }
 
     public StringBuilder createRoundRaceResult() {
-        StringBuilder roundRaceResults = new StringBuilder();
+        StringBuilder roundRaceResult = new StringBuilder();
         List<Car> cars = carRepository.getCars();
         for (Car car : cars) {
-            roundRaceResults.append(car.createRoundRaceResult()).append("\n");
+            roundRaceResult.append(car.createRoundRaceResult()).append("\n");
         }
-        return roundRaceResults;
+        return roundRaceResult;
     }
 
     public StringBuilder createWinner(StringBuilder winner) {
