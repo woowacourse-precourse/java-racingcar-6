@@ -20,7 +20,7 @@ class RacingGameTest {
     }
 
     @Test
-    void 차_이름_예외_처리() {
+    void 차_이름_글자수_예외_발생() {
         //given
         final String input = "pobi,javaji";
 
@@ -44,4 +44,61 @@ class RacingGameTest {
         assertThat(cars).contains("woni", "pobi");
         assertThat(cars).containsExactly("pobi","woni");
     }
+
+    @Test
+    void 시도횟수_길이_예외_발생(){
+        //given
+        final String input = "55";
+        final String input2 = "";
+
+        //when
+
+        //then
+        assertThatThrownBy(() -> racingGame.inputAttempts(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("한 자리의 숫자만 입력 가능합니다.");
+
+        assertThatThrownBy(() -> racingGame.inputAttempts(input2))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("한 자리의 숫자만 입력 가능합니다.");
+    }
+
+    @Test
+    void 시도횟수_문자_예외_발생(){
+        //given
+        final String input = "a";
+
+        //when
+
+        //then
+        assertThatThrownBy(() -> racingGame.inputAttempts(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자만 입력 가능합니다.");
+    }
+
+    @Test
+    void 시도횟수_0_예외_발생(){
+        //given
+        final String input = "0";
+
+        //when
+
+        //then
+        assertThatThrownBy(() -> racingGame.inputAttempts(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1부터 9사이의 숫자만 입력 가능합니다.");
+    }
+
+    @Test
+    void 시도횟수_입력_테스트(){
+        //given
+        final String input = "5";
+
+        //when
+        final int attempts = racingGame.inputAttempts(input);
+
+        //then
+        assertThat(attempts).isEqualTo(5);
+    }
+
 }
