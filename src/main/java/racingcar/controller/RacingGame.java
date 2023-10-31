@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TryNumber;
@@ -28,14 +29,16 @@ public class RacingGame {
         OutputView.startDisplayRoundResults();
         while (tryNumber.isNotOver(count)) {
             cars.decideToMove();
-            OutputView.displayRoundResult(cars);
+            OutputView.displayRoundResult(cars.generateRoundResultString());
             count++;
         }
     }
 
     private void displayWinners() {
         List<Car> winners = cars.getWinners();
-        OutputView.displayWinners(winners);
+        OutputView.displayWinners(winners.stream()
+                .map(Car::getNameFormat)
+                .collect(Collectors.toList()));
     }
 
 }

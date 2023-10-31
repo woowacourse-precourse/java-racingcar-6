@@ -14,14 +14,11 @@ public class OutputView {
         System.out.println(EXECUTE_RESULT);
     }
 
-    public static void displayRoundResult(Cars cars) {
-        System.out.println(cars.generateRoundResultString());
+    public static void displayRoundResult(String roundResult) {
+        System.out.println(roundResult);
     }
 
-    public static void displayWinners(List<Car> winners) {
-        String displayFormat = String.join(COMMA, winners.stream().map(
-                        car -> car.getNameFormat())
-                .collect(Collectors.toList()));
-        System.out.println(WINNER_IS + displayFormat);
+    public static void displayWinners(List<String> winnerNames) {
+        System.out.println(WINNER_IS + String.join(COMMA, winnerNames));
     }
 }
