@@ -3,17 +3,12 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.util.InputParser;
-import racingcar.util.InputValidator;
 
 public class Cars {
     private List<Car> cars;
 
-    public Cars(String playerInput) {
-        InputValidator inputValidator = new InputValidator();
-        InputParser inputParser = new InputParser();
-        inputValidator.validateCarNames(playerInput);
-        this.cars = inputParser.parseCarName(playerInput);
+    public Cars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public void driveAll() {
@@ -50,5 +45,9 @@ public class Cars {
                 .map(Car::toString)
                 .collect(Collectors.toList());
         return names;
+    }
+
+    public int getNumberOfCar() {
+        return cars.size();
     }
 }
