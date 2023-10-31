@@ -16,13 +16,16 @@ public class InputConvertor {
 
         for (String name : split) {
             name = name.trim();
-            if (name.length() <= MAX_NAME_LENGTH) {
-                validNames.add(name);
-            } else {
-                throw new IllegalArgumentException(NAME_LENGTH_EXCEED);
-            }
+            checkNameLength(name);
+            validNames.add(name);
         }
         return validNames.toArray(new String[0]);
+    }
+
+    private static void checkNameLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(NAME_LENGTH_EXCEED);
+        }
     }
 
     public static int parseTryCount(String input) {

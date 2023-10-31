@@ -9,6 +9,7 @@ import racingcar.view.OutputView;
 public class RacingGame {
     private static final int RANDOM_MOVE_LIMIT = 4;
     private static final int INITIAL_DISTANCE = 0;
+    private static final int MOVE_DISTANCE = 1;
     private final String[] carNames;
     private final int tryCount;
     private final int[] distance;
@@ -29,21 +30,30 @@ public class RacingGame {
 
     private void proceedRound() {
         for (int i = 0; i < distance.length; ++i) {
-            if (canMove()) {
-                distance[i] += 1;
+            int number = RandomUtils.getRandomNumber();
+            if (canMove(number)) {
+                move(i);
             }
         }
     }
 
-    private boolean canMove() {
-        int number = RandomUtils.getRandomNumber();
+    private void move(int i) {
+        distance[i] += MOVE_DISTANCE;
+    }
+
+    private boolean canMove(int number) {
         if (number >= RANDOM_MOVE_LIMIT) {
             return true;
         }
         return false;
     }
 
-    public void findWinners() {
+    public void printWinners() {
+        List<String> winners = getWinners();
+        OutputView.printWinner(winners);
+    }
+
+    private List<String> getWinners() {
         int maxDistance = -1;
         List<String> winners = new ArrayList<>();
 
@@ -56,7 +66,7 @@ public class RacingGame {
                 winners.add(carNames[i]);
             }
         }
-        OutputView.printWinner(winners);
+        return winners;
     }
 }
 

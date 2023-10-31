@@ -11,6 +11,6 @@ public class GameController {
         RacingGame racingGame = new RacingGame(carNames, tryCount);
         OutputView.printResultCommand();
         racingGame.run();
-        racingGame.findWinners();
+        racingGame.printWinners();
     }
 }
