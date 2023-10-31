@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class GameProcess {
-    private ArrayList<Car> cars = new ArrayList<>();
+    private final ArrayList<Car> cars = new ArrayList<>();
+    private int raceTime;
     public void inputName() {
         String line = readLine();
         makeCars(splitNames(line));
@@ -26,6 +27,15 @@ public class GameProcess {
     private void makeCars(String[] names) {
         for (String name: names) {
             cars.add(new Car(name));
+        }
+    }
+
+    public void inputRaceTime() {
+        String line = readLine();
+        try {
+            this.raceTime = Integer.parseInt(line);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 }
