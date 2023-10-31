@@ -1,7 +1,5 @@
 package racingcar.generator;
 
-import racingcar.generator.NumberGenerator;
-
 public class TestNumberGenerator implements NumberGenerator {
 
     @Override

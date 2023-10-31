@@ -1,7 +1,5 @@
 package racingcar.generator;
 
-import racingcar.generator.InputGenerator;
-
 public class TestInputGenerator implements InputGenerator {
 
     @Override
