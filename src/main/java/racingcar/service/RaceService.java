@@ -17,4 +17,7 @@ public class RaceService {
         race.advanceFullRound();
     }
 
+    public String selectWinners() {
+        return race.selectWinners();
+    }
 }
