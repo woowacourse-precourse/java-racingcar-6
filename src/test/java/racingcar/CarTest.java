@@ -1,4 +1,5 @@
 package racingcar;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -10,7 +11,7 @@ class CarTest {
     private Car car;
 
     @BeforeEach
-    void 자동차_생성() {
+    void beforeEach() {
         car = new Car("자동차1");
     }
 
