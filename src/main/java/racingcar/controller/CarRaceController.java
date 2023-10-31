@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.validator.AttemptNumberValidator;
+import racingcar.validator.CarNameValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,6 +13,7 @@ public class CarRaceController {
 
     public static void startRace() {
         List<String> carNames = inputView.inputCarNames();
+        CarNameValidator.validateCarNames(carNames);
 
         int numberOfAttempts = AttemptNumberValidator.validateNumber(inputView.inputNumberOfAttempts());
     }

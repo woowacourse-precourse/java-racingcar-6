@@ -47,10 +47,10 @@
     - [x] 숫자 관리
 
 ## 예외 처리
-- [ ] CAR_NAME_LENGTH_ERROR: 자동차 이름은 1~5자 이하만 가능
-- [ ] CAR_NAME_DUPLICATE_ERROR: 자동차 이름은 중복될 수 없음
-- [ ] CAR_NAME_EMPTY_ERROR: 자동차 이름은 공백일 수 없음
-- [ ] CAR_NAME_FORMAT_ERROR: 자동차 이름은 알파벳만 가능
+- [x] CAR_NAME_LENGTH_ERROR: 자동차 이름은 1~5자 이하만 가능
+- [x] CAR_NAME_DUPLICATE_ERROR: 자동차 이름은 중복될 수 없음
+- [x] CAR_NAME_EMPTY_ERROR: 자동차 이름은 공백일 수 없음
+- [x] CAR_NAME_FORMAT_ERROR: 자동차 이름은 알파벳만 가능
 - [ ] ATTEMPTS_FORMAT_ERROR: 시도 횟수는 숫자만 가능
 - [ ] ATTEMPTS_EMPTY_ERROR: 시도 횟수는 공백일 수 없음
 - [ ] INVALID_ATTEMPTS_ERROR: 유효하지 않은 시도 횟수
