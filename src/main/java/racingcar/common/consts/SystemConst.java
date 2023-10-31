@@ -8,4 +8,6 @@ public class SystemConst {
     public static final int INITIAL_ADVANCE = 0;
     public static final int ADVANCE_STEP = 1;
     public static final String ADVANCE_DISPLAY_CHARACTER = "-";
+    public static final String LINE_SEPARATOR = "\n";
+
 }
