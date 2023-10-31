@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Position;
 
 
-public class MaxPositionTest {
+public class PositionTest {
     @Test
     void 최대_거리_테스트() {
         Position maxPosition = new Position();
@@ -24,5 +24,5 @@ public class MaxPositionTest {
         }
         assertEquals(new Position(9), maxPosition);
     }
-    
+
 }
