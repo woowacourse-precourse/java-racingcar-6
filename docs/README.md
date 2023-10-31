@@ -21,10 +21,11 @@
 - [x] 우승자가 여러 명일 경우 ','를 이용하여 구분한다.
 
 # 공통
+
 - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
 - [x] Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
 - [x] 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
-- [ ] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
+- [x] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
 
 
 ## 기능 요구사항
