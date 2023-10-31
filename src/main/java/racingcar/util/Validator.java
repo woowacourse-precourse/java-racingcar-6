@@ -24,4 +24,10 @@ public class Validator {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validateNameDuplicate(List<String> names) {
+        if(names.size() != names.stream().distinct().count()) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

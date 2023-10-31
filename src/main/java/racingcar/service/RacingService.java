@@ -16,6 +16,7 @@ public class RacingService {
     public List<String> stringToList(String str) {
         String[] strArr = str.split(",");
         Validator.validateNameLength(strArr, LENGTH_LIMIT);
+        Validator.validateNameDuplicate(Arrays.asList(strArr));
 
         return new ArrayList<>(Arrays.asList(strArr));
     }
