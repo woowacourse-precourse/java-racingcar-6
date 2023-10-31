@@ -11,20 +11,21 @@ public class RacingCarService {
     private static final String MOVE_FORWARD_STRING = "-";
     private static final int MIN_FORWARD_NUMBER = 4;
     private static Cars cars;
+    private final RandomNumUtil randomNumUtil = new RandomNumUtil();
 
-    private static HashMap<String, String> gameResult = new HashMap<>();
-
-    public void generateCars(String carNames) {
+    public Cars generateCars(String carNames) {
         List<String> carsInfos = ConverterUtil.covertStringToList(carNames);
-        cars = new Cars(carsInfos);
-        gameResult = cars.initCarsStatus();
+        HashMap<String, String> initialGameStatus = new HashMap<>();
+        cars = new Cars(carsInfos, initialGameStatus);
+        cars.initCarsStatus();
+        return cars;
     }
 
     public int generateRandomNum() {
-        return RandomNumUtil.generateRandomNum();
+        return randomNumUtil.generateRandomNum();
     }
 
-    public boolean judgeMove(int randomNum) {
+    private boolean judgeMove(int randomNum) {
         boolean moving = false;
         if (randomNum >= MIN_FORWARD_NUMBER) {
             moving = true;
@@ -33,30 +34,30 @@ public class RacingCarService {
         return moving;
     }
 
-    public HashMap<String, String> judgeResult() {
+    public HashMap<String, String> judgeResult(HashMap<String, String> carsStatus) {
 
-        for (String car : gameResult.keySet()) {
+        for (String car : carsStatus.keySet()) {
             int randomNum = generateRandomNum();
             if (judgeMove(randomNum)) {
-                gameResult.put(car, gameResult.get(car) + MOVE_FORWARD_STRING);
+                carsStatus.put(car, carsStatus.get(car) + MOVE_FORWARD_STRING);
             }
         }
-        return gameResult;
+        return carsStatus;
     }
 
-    public int mostMovementCount() {
+    private int mostMovementCount(HashMap<String, String> finalResult) {
         int maxLen = Integer.MIN_VALUE;
-        for (String car : gameResult.keySet()) {
-            maxLen = Math.max(maxLen, gameResult.get(car).length());
+        for (String car : finalResult.keySet()) {
+            maxLen = Math.max(maxLen, finalResult.get(car).length());
         }
         return maxLen;
     }
 
-    public List<String> judgeWinners() {
+    public List<String> judgeWinners(HashMap<String, String> finalResult) {
         List<String> winners = new ArrayList<>();
-        int mostMovementCount = mostMovementCount();
-        for (String car : gameResult.keySet()) {
-            if (mostMovementCount == gameResult.get(car).length()) {
+        int mostMovementCount = mostMovementCount(finalResult);
+        for (String car : finalResult.keySet()) {
+            if (mostMovementCount == finalResult.get(car).length()) {
                 winners.add(car);
             }
         }
