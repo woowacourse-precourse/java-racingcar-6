@@ -1,15 +1,26 @@
 package racingcar.view;
 
-public class SystemOutputMessage {
-    public static void showStartGameMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
+import racingcar.Entity.Car;
 
+import java.util.List;
+
+public class SystemOutputMessage {
     public void showCarPosition(String name, int position) {
         System.out.print(name + " : ");
         for(int i=0; i<position; i++){
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public void showWinnerMessage(List<Car> winner) {
+        StringBuilder str = new StringBuilder();
+        System.out.print("최종우승자 : ");
+        for (int i = 0; i < winner.size(); i++) {
+            if(i == winner.size()-1) str.append(winner.get(i).getName());
+            else str.append(winner.get(i).getName()).append(", ");
+
+        }
+        System.out.print(str);
     }
 }

@@ -7,6 +7,10 @@ import racingcar.Entity.Racing;
 import racingcar.view.SystemInputMessage;
 import racingcar.view.SystemOutputMessage;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class RacingService {
 
     Racing racing = new Racing();
@@ -60,5 +64,19 @@ public class RacingService {
     }
 
     public void selectWinner() {
+        comparePosition();
+    }
+
+    private void comparePosition() {
+        List<Car> cars = racing.getCars();
+        List<Car> winner = new ArrayList<>();
+        Collections.sort(cars, (c1, c2) -> (c2.getPosition() - c1.getPosition()));
+
+        for (int i = 0; i < cars.size(); i++) {
+            if(cars.get(0).getPosition() != cars.get(i).getPosition()) break;
+            winner.add(cars.get(i));
+        }
+
+        systemOutputMessage.showWinnerMessage(winner);
     }
 }
