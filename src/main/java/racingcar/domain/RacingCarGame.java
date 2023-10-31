@@ -7,27 +7,38 @@ import racingcar.output.Output;
 
 
 public class RacingCarGame {
-    private Output output;
-    private Input input;
-    private WinnerPicker winnerPicker;
+    private final Output output;
+    private final Input input;
+    private final WinnerPicker winnerPicker;
+    private Cars cars;
 
-    public RacingCarGame(Output output, Input input, WinnerPicker winnerPicker) {
+    public RacingCarGame(final Output output, final Input input, final WinnerPicker winnerPicker) {
         this.output = output;
         this.input = input;
         this.winnerPicker = winnerPicker;
     }
 
     public void play() {
+        CarNames carNames = createCarNames(input.requestCarNames());
+        RoundCount roundCount = createRoundCount(input.requestRoundCount());
 
-        String carNamesInput = input.requestCarNames();
+        cars = new Cars(carNames);
+        runRounds(cars, roundCount);
+
+        pickAndPrintWinners();
+    }
+
+    private CarNames createCarNames(String carNamesInput) {
         InputValidator.validate(carNamesInput);
-        CarNames carNames = new CarNames(InputParser.parseCarNames(carNamesInput));
-        Cars cars = new Cars(carNames);
+        return new CarNames(InputParser.parseCarNames(carNamesInput));
+    }
 
-        String roundCountInput = input.requestRoundCount();
+    private RoundCount createRoundCount(String roundCountInput) {
         InputValidator.validate(roundCountInput);
-        RoundCount roundCount = new RoundCount(roundCountInput);
+        return new RoundCount(roundCountInput);
+    }
 
+    private void runRounds(Cars cars, RoundCount roundCount) {
         output.printEnter();
         output.print("실행결과");
         Round round = new Round(cars, new NumberGenerator(), new ForwardChecker());
@@ -36,6 +47,9 @@ public class RacingCarGame {
             output.print(cars);
             output.printEnter();
         }
+    }
+
+    private void pickAndPrintWinners() {
         Winners winner = winnerPicker.pickWinner(cars);
         output.print(winner);
     }
