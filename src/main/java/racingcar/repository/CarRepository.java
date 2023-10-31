@@ -2,7 +2,9 @@ package racingcar.repository;
 
 import racingcar.domain.Car;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CarRepository {
@@ -14,4 +16,13 @@ public class CarRepository {
         id++;
         return id;
     }
+
+    public Car findById(Long id) {
+        return cars.get(id);
+    }
+
+    public List<Car> findAll() {
+        return new ArrayList<>(cars.values());
+    }
+
 }
