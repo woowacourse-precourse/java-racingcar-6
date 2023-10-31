@@ -8,8 +8,8 @@ import racingcar.domain.Car;
 public class RacingCarService {
     public static List<Car> convertCarNames(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
-        for (String carname : carNames) {
-            Car car = new Car(carname);
+        for (String carName : carNames) {
+            Car car = new Car(carName);
             cars.add(car);
         }
         return cars;
@@ -24,8 +24,8 @@ public class RacingCarService {
     }
 
     private static boolean willMoveForward() {
-        int RandomNum = Randoms.pickNumberInRange(0, 9);
-        return RandomNum >= 4;
+        int RandomNumber = Randoms.pickNumberInRange(0, 9);
+        return RandomNumber >= 4;
     }
 
     public static List<Car> calculatWinner(List<Car> cars) {

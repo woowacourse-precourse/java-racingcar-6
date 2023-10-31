@@ -16,15 +16,15 @@ public class RacingCarController {
 
     private List<Car> inputCarNames() {
         OutputView.printStartGameMessage();
-        List<String> carstr = InputView.inputCarNames();
-        List<Car> cars = RacingCarService.convertCarNames(carstr);
+        List<String> carNames = InputView.inputCarNames();
+        List<Car> cars = RacingCarService.convertCarNames(carNames);
         return cars;
     }
 
     private int inputAttempNumber() {
         OutputView.printAttempNumMessage();
-        int attempNum = InputView.inputAttempNum();
-        return attempNum;
+        int attempNumber = InputView.inputAttempNum();
+        return attempNumber;
     }
 
     private void printResult(int attempNumber, List<Car> cars) {

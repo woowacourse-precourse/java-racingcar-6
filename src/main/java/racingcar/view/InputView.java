@@ -17,8 +17,8 @@ public class InputView {
         return carNames;
     }
 
-    public static void validateCarInput(String carstr) {
-        if (carstr.contains(",")) {
+    public static void validateCarInput(String carNames) {
+        if (carNames.contains(",")) {
             return;
         }
         throw new IllegalArgumentException(INVALID_SPLIT_CHAR.getMessage());
@@ -26,8 +26,8 @@ public class InputView {
 
     public static int inputAttempNum() {
         try {
-            int attempNum = Integer.parseInt(Console.readLine());
-            return attempNum;
+            int attempNumber = Integer.parseInt(Console.readLine());
+            return attempNumber;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NON_DIGIT_ATTEMP_NUM.getMessage());
         }
