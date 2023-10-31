@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.Map;
+import racingcar.validation.Validation;
 
 public class View {
 
@@ -14,14 +15,16 @@ public class View {
     public String showApplicantView() {
         System.out.println(APPLICANT_VIEW);
         String carNames = Console.readLine();
-        // validate 로직
-        return carNames;
+
+        Validation.validateApplicantCars(carNames);
+        return carNames.trim();
     }
 
     public int showRaceCountView() {
         System.out.println(RACE_COUNT_VIEW);
         String raceCount = Console.readLine();
-        // validate 로직
+
+        Validation.validateRaceCount(raceCount);
         return Integer.parseInt(raceCount);
     }
 
