@@ -10,15 +10,15 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingCarGameMachineValidatorTest {
-    private final String RACING_CAR_NAME_1 = "semin";
-    private final String RACING_CAR_NAME_2 = "woowa";
-    private final String RACING_CAR_NAME_3 = "tech";
-    private final String RACING_CAR_NAME_4 = "pre";
-    private final String RACING_CAR_NAME_5 = "java";
-    private final String RACING_CAR_NAME_6 = "back";
-    private final int VALID_ROUND_COUNT = 5;
-    private final int TOO_SMALL_ROUND_COUNT = 0;
-    private final int TOO_LARGE_ROUND_COUNT = 31;
+    private static final String RACING_CAR_NAME_1 = "semin";
+    private static final String RACING_CAR_NAME_2 = "woowa";
+    private static final String RACING_CAR_NAME_3 = "tech";
+    private static final String RACING_CAR_NAME_4 = "pre";
+    private static final String RACING_CAR_NAME_5 = "java";
+    private static final String RACING_CAR_NAME_6 = "back";
+    private static final int VALID_ROUND_COUNT = 5;
+    private static final int TOO_SMALL_ROUND_COUNT = 0;
+    private static final int TOO_LARGE_ROUND_COUNT = 31;
 
     private RacingCarGameMachineValidator racingCarGameMachineValidator;
 
