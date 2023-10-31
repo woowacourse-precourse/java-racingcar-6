@@ -27,7 +27,7 @@ public class RacingGameServiceImplTest {
     @Test
     public void 차이름과_시도횟수_정제해서_Racing객체_만들기() {
         // given
-        String input = "pobi,woni,jun";
+        String carNames = "pobi,woni,jun";
         String tryCount = "5";
 
         // when
@@ -113,4 +113,18 @@ public class RacingGameServiceImplTest {
                 .hasMessageContaining("1 이상 2,147,483,647 이하의 정수 값이 필요합니다.");
     }
 
+    @Test
+    public void tryCount횟수만큼_각Car에_랜덤정수넣기() {
+        // given
+        String carNames = "pobi,woni,jun";
+        String tryCount = "5";
+        final RacingGame racingGame = racingGameService.generateRacing(carNames, tryCount);
+
+        // when
+        racingGameService.decideRandomMoveCondition(racingGame);
+
+        // then
+        racingGame.allParticipationsList()
+                .forEach( car -> assertThat(car.calcPickedNumberSize()).isEqualTo(5));
+    }
 }
