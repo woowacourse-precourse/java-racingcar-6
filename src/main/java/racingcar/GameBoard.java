@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Comparator;
 import java.util.List;
 
+import static racingcar.config.GameConfig.*;
+
 public class GameBoard {
     private final List<Player> players;
 
@@ -42,6 +44,9 @@ public class GameBoard {
     }
 
     private boolean canMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(
+                RANDOM_NUMBER_MINIMUM_RANGE,
+                RANDOM_NUMBER_MAXIMUM_RANGE
+        ) >= RANDOM_NUMBER_THRESHOLD;
     }
 }

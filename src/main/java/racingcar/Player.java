@@ -1,6 +1,9 @@
 package racingcar;
 
+
 import java.util.Objects;
+
+import static racingcar.config.GameConfig.*;
 
 public class Player {
     private String name;
@@ -14,7 +17,7 @@ public class Player {
     public static Player of(String name) {
         validateCarName(name);
 
-        return new Player(name, 0);
+        return new Player(name, INITIAL_POSITION);
     }
 
     public static Player of(String name, Integer position) {
@@ -25,13 +28,13 @@ public class Player {
     }
 
     private static void validatePositionRange(Integer position) {
-        if (position < 0) {
+        if (position < INITIAL_POSITION) {
             throw new IllegalArgumentException();
         }
     }
 
     private static void validateCarName(String name) {
-        if (name.isEmpty() || name.length() > 5) {
+        if (name.isEmpty() || name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }

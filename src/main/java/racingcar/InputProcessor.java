@@ -5,9 +5,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
-public class InputProcessor {
-    public static final String CAR_NAMES_INPUT_REGEX = "^[^,]+(,[^,]+)*$";
+리import static racingcar.config.GameConfig.*;
 
+public class InputProcessor {
     public List<Player> readCarNamesInput() {
         return manipulateCarNameInput(Console.readLine());
     }
@@ -19,7 +19,7 @@ public class InputProcessor {
     }
 
     private static List<Player> parseCarNameInputToList(String carNamesInput) {
-        String[] carNames = carNamesInput.split(",");
+        String[] carNames = carNamesInput.split(PLAYER_NAME_INPUT_SEPARATOR);
 
         return Arrays.stream(carNames)
                 .map(Player::of)
@@ -44,7 +44,7 @@ public class InputProcessor {
     }
 
     private static void validateRepetitionInput(int repetition) {
-        if (repetition < 1) {
+        if (repetition < MINIMUM_REPETITION) {
             throw new IllegalArgumentException();
         }
     }
