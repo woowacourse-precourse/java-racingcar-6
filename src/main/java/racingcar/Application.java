@@ -67,4 +67,15 @@ public class Application {
                 .max(Integer::compare)
                 .orElse(0);
     }
+
+    private static List<String> calculateWinners(List<String> results) {
+        int maxDistance = calculateMaxDistance(results);
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < results.size(); i++) {
+            if (results.get(i).length() - results.get(i).replace("-", "").length() == maxDistance) {
+                winners.add(results.get(i).split(":")[0].trim());
+            }
+        }
+        return winners;
+    }
 }
