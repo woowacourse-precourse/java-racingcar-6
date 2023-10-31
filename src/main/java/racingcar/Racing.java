@@ -19,4 +19,18 @@ public class Racing {
             System.out.println(car.getName() + " : " + "-".repeat(car.getAdvance()));
         }
     }
+
+    public static String result() {
+        int maxAdvance = racingCars.get(0).getAdvance();
+        String winner = "";
+
+        for (Car car : racingCars) {
+            if (car.getAdvance() > maxAdvance) {
+                maxAdvance = car.getAdvance();
+                winner = car.getName();
+            }
+        }
+
+        return winner;
+    }
 }
