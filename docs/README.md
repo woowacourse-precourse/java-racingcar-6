@@ -42,6 +42,7 @@
     - [CarNameValidatorTest.java](#CarNameValidatorTest.java)
     - [MoveCountValidatorTest.java](#MoveCountValidatorTest.java)
     - [RandomNumberGeneratorTest.java](#RandomNumberGeneratorTest.java)
+    - [RandomNumberValidatorTest.java](#RandomNumberValidatorTest.java)
 ---
 # Application.java
 - play()로 시작
@@ -199,3 +200,9 @@
 
 ### RandomNumberGeneratorTest.java
 - 랜덤값 범위 검사(0~9)
+
+
+### RandomNumberValidatorTest.java
+- 비정상 입력값
+  - 0 미만, 9 초과
+- 정상 입력값
