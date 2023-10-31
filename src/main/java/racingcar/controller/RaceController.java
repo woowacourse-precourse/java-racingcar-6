@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.PlayCount;
 import racingcar.domain.Winners;
@@ -67,6 +68,6 @@ public class RaceController {
     private List<String> getWinnersNames() {
         Winners winners = new Winners(cars.getCars());
         return winners.getWinners().stream()
-                .map(car -> car.getName()).toList();
+                .map(Car::getName).toList();
     }
 }

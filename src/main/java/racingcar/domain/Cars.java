@@ -18,7 +18,7 @@ public class Cars {
         validateDuplicates(trimNames);
 
         cars = trimNames.stream()
-                .map(name -> new Car(name))
+                .map(Car::new)
                 .toList();
     }
 
@@ -28,7 +28,7 @@ public class Cars {
 
     private void validateBlank(List<String> names) {
         boolean hasBlank = names.stream()
-                .anyMatch(name -> StringUtils.isBlank(name));
+                .anyMatch(StringUtils::isBlank);
         if (hasBlank) {
             throw new IllegalArgumentException();
         }

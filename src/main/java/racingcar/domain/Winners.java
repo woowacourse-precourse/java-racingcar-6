@@ -23,7 +23,7 @@ public class Winners {
 
     private List<Car> findMaxPositionCarList(Car maxPositionCar, List<Car> cars) {
         return cars.stream()
-                .filter(car -> maxPositionCar.isSamePosition(car))
+                .filter(maxPositionCar::isSamePosition)
                 .toList();
     }
 
