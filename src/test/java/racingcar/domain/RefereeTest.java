@@ -1,9 +1,12 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import racingcar.utils.RandomNumberGenerator;
 
 class RefereeTest {
 
@@ -14,19 +17,22 @@ class RefereeTest {
     @Test
     void decideWinners_Success_IsResultSizeSameAsCarsCount() {
         // given
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        Car car3 = new Car("car3");
-
-        car1.move(VALUE_FOR_MOVING_FORWARD);
-        car2.move(VALUE_FOR_MOVING_FORWARD);
-
+        List<Car> createdCars = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            createdCars.add(new Car("car" + i));
+        }
+        Cars cars = new Cars(createdCars);
         Referee referee = new Referee();
 
-        // when
-        List<Car> result = referee.decideWinners(new Cars(List.of(car1, car2, car3)));
-
-        // then
-        Assertions.assertThat(result.size()).isEqualTo(2);
+        // when, then
+        camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest(
+                () -> {
+                    cars.handleCarMovement(new RandomNumberGenerator());
+                    cars.handleCarMovement(new RandomNumberGenerator());
+                    List<Car> result = referee.decideWinners(cars);
+                    Assertions.assertThat(result.size()).isEqualTo(2);
+                },
+                VALUE_FOR_STOP, VALUE_FOR_MOVING_FORWARD, VALUE_FOR_MOVING_FORWARD
+        );
     }
 }
