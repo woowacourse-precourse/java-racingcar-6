@@ -58,13 +58,17 @@ public class Cars {
     }
 
     public List<String> findWinners() {
-        Car frontLineCar = cars.stream()
-                .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException("컬렉션 내부에 자동차가 존재하지 않습니다!"));
+        Car frontLineCar = findMaxPositionCar();
 
         return cars.stream()
                 .filter(frontLineCar::isSamePosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("컬렉션 내부에 자동차가 존재하지 않습니다!"));
     }
 }
