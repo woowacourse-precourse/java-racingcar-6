@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.car.DuplicateCarNameException;
 
 class InputCarValidatorTest {
 
@@ -28,7 +29,7 @@ class InputCarValidatorTest {
         //given
         String[] cars = new String[]{"pobi", "woni", "json", "pobi"};
         // when & then
-        assertThatExceptionOfType(IllegalArgumentException.class)
+        assertThatExceptionOfType(DuplicateCarNameException.class)
                 .isThrownBy(() -> InputCarValidator.checkDuplicateCarName(cars))
                 .withMessageMatching("자동차 이름은 중복이 될 수 없습니다.");
     }

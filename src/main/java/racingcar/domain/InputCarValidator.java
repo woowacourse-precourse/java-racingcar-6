@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+import racingcar.exception.car.DuplicateCarNameException;
 
 public class InputCarValidator {
     public static String[] carsByStringToArray(String inputAllCars) {
@@ -19,7 +20,7 @@ public class InputCarValidator {
 
     public static void validateDuplicate(String car, Set<String> carSet) {
         if (carSet.contains(car)) {
-            throw new IllegalArgumentException("자동차 이름은 중복이 될 수 없습니다.");
+            throw new DuplicateCarNameException();
         }
     }
 }
