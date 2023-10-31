@@ -24,7 +24,7 @@ public class ViewValidationTest {
         input.add("woni");
         input.add("jun112");
 
-        assertThat(validation.lessThanFiveLetter(input)).isFalse();
+        assertThat(validation.greaterThanFiveLetter(input)).isFalse();
     }
     @Test
     void 차량_입력_중_중복된_이름_존재하는지_검증(){
