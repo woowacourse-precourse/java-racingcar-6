@@ -58,5 +58,25 @@ public class RacingGame {
 
     private void getRound() {
         String input = Console.readLine();
+        validateRound(input);
+    }
+
+    private void validateRound(String input) {
+        int round = validateRoundType(input);
+        isValidRoundRange(round);
+    }
+
+    private int validateRoundType(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void isValidRoundRange(int round) {
+        if (round <= 0) {
+            throw new IllegalArgumentException();
+        }
     }
 }
