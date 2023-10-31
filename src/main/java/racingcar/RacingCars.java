@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class RacingCars {
     private final LinkedList<Car> cars;
@@ -9,6 +11,7 @@ public class RacingCars {
 
     public RacingCars(LinkedList<Car> cars){
         validateCarNames(cars);
+        checkDuplicateNames(cars);
         this.cars = cars;
     }
 
@@ -18,6 +21,14 @@ public class RacingCars {
                 throw new IllegalArgumentException("차의 이름은 5글자를 넘을 수 없습니다.");
             }
         });
+    }
+
+    private void checkDuplicateNames(LinkedList<Car> cars){
+        Set<String> nameSet = new HashSet<>();
+        cars.forEach(car -> nameSet.add(car.getName()));
+        if (nameSet.size() < cars.size()){
+            throw new IllegalArgumentException("중복되는 자동차 이름은 사용할 수 없습니다.");
+        }
     }
 
     protected void moveCars(Dice dice){

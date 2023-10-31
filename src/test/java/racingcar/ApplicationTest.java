@@ -49,8 +49,8 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_이름은_숫자를_포함하지_않는다() {
         final Game game = new Game();
-        assertThatThrownBy(() -> runException("1234")).isInstanceOf(IllegalArgumentException.class);
-
+        assertThatThrownBy(() -> runException("test3"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -67,8 +67,8 @@ class ApplicationTest extends NsTest {
     @Test
     void 게임_진행횟수는_숫자이다() {
         final Game game = new Game();
-        assertThatThrownBy(() -> runException("test", "seven")).isInstanceOf(IllegalArgumentException.class);
-
+        assertThatThrownBy(() -> runException("test", "seven"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

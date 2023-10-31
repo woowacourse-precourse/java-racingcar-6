@@ -88,3 +88,7 @@
     2. moveCars(Dice dice) - 컬렉션 안의 Car 객체들 턴마다 이동 혹은 정지
 
     3. getWinners() - Car 객체들중 가장 이동거리가 긴 객체들의 이름을 리스트로 반환
+
+------- 추가 -------
+    
+    4. checkDuplicateNames(LinkedList<Car> cars) - 중복되는 이름이 있는지 확인
