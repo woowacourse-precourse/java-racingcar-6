@@ -5,6 +5,7 @@ import static java.util.Arrays.*;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
+import static racingcar.ExceptionMessage.ILLEGAL_TRY_COUNT;
 
 public class InputView {
     public static List<String> inputCarName() {
@@ -25,8 +26,8 @@ public class InputView {
         try {
             String number = Console.readLine();
             round = Integer.parseInt(number);
-        } catch (Exception e1) {
-            throw new IllegalArgumentException();
+        } catch (NumberFormatException e1) {
+            throw new IllegalArgumentException(ILLEGAL_TRY_COUNT.getMessage());
         }
         return round;
     }
