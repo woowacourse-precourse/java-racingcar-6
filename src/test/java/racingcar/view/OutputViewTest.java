@@ -49,7 +49,7 @@ class OutputViewTest {
             MockPrinter printer = new MockPrinter();
             OutputView outputView = new OutputView(printer);
             WinnerDto winner = new WinnerDto(List.of("pobi"));
-            String expectedMessage = "최종 우승자 : pobi";
+            String expectedMessage = "최종 우승자 : pobi%n".formatted();
 
             outputView.printWinner(winner);
 
@@ -62,7 +62,7 @@ class OutputViewTest {
             MockPrinter printer = new MockPrinter();
             OutputView outputView = new OutputView(printer);
             WinnerDto winner = new WinnerDto(List.of("pobi", "jun"));
-            String expectedMessage = "최종 우승자 : pobi, jun";
+            String expectedMessage = "최종 우승자 : pobi, jun%n".formatted();
 
             outputView.printWinner(winner);
 

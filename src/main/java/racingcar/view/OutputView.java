@@ -18,7 +18,6 @@ public class OutputView {
     private static final String NEW_NINE = "%n".formatted();
     private static final String WINNER_PREFIX = "최종 우승자 : ";
     private static final String WINNER_DELIMITER = ", ";
-    private static final String WINNER_SUFFIX = "";
 
     private final Printer printer;
 
@@ -54,7 +53,7 @@ public class OutputView {
 
     private String makeWinnerFormat(List<String> names) {
         return names.stream()
-                .collect(joining(WINNER_DELIMITER, WINNER_PREFIX, WINNER_SUFFIX));
+                .collect(joining(WINNER_DELIMITER, WINNER_PREFIX, NEW_NINE));
     }
 
     private void print(String message) {
