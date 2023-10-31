@@ -3,7 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.core.Core;
+import racingcar.model.Car;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -32,6 +34,31 @@ class ApplicationTest extends NsTest {
         assertThat(result1).isEqualTo(List.of("pobi", "woni", "jun"));
         assertThat(result2).isEqualTo(List.of("kim", "lee", "park"));
         assertThat(result3).isEqualTo(List.of("james", "tom", "sam"));
+    }
+
+    @Test
+    void getCarListByCarNames_테스트() {
+        // given
+        Core core = new Core();
+        final List<String> case1 = List.of("pobi", "woni", "jun");
+        final List<String> case2 = List.of("kim", "lee", "park");
+        final List<String> case3 = List.of("james", "sam", "tom");
+
+        // when
+        final List<Car> result1 = core.getCarListByCarNames(case1);
+        final List<Car> result2 = core.getCarListByCarNames(case2);
+        final List<Car> result3 = core.getCarListByCarNames(case3);
+
+        // then
+        assertThat(result1.get(0).getName()).isEqualTo("pobi");
+        assertThat(result1.get(1).getName()).isEqualTo("woni");
+        assertThat(result1.get(2).getName()).isEqualTo("jun");
+        assertThat(result2.get(0).getName()).isEqualTo("kim");
+        assertThat(result2.get(1).getName()).isEqualTo("lee");
+        assertThat(result2.get(2).getName()).isEqualTo("park");
+        assertThat(result3.get(0).getName()).isEqualTo("james");
+        assertThat(result3.get(1).getName()).isEqualTo("sam");
+        assertThat(result3.get(2).getName()).isEqualTo("tom");
     }
 
     @Test
