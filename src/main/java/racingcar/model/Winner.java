@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 public class Winner {
 
+    private static final int DEFAULT_POSITION = 0;
+
     private final List<Car> winners;
 
     public Winner(Cars cars) {
@@ -19,7 +21,7 @@ public class Winner {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElse(0);
+                .orElse(DEFAULT_POSITION);
     }
 
     public List<Car> getWinners() {
