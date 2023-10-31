@@ -21,4 +21,8 @@ public class OutputView {
             System.out.println(racer.getName() + " : " + racer.getMoveState());
         }
     }
+
+    public static void printWinner(String winners) {
+        System.out.println("\n최종 우승자 : " + winners);
+    }
 }
