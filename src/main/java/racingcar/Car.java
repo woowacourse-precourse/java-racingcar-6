@@ -4,11 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String name;
-    private int moveIndex;
+    private int distance = 0;
 
     public Car(String name) {
         this.name = name;
-        this.moveIndex = 0;
     }
 
     public void tryToMove() {
@@ -32,14 +31,14 @@ public class Car {
     }
 
     public void moveFowrard() {
-        moveIndex++;
+        distance++;
     }
 
     public void stop() {
         return;
     }
 
-    public int getMoveIndex() {
-        return moveIndex;
+    public int getDistance() {
+        return distance;
     }
 }
