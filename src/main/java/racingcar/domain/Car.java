@@ -26,7 +26,7 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름은 1~5까지 지정 가능합니다.");
         }
     }
-    
+
     public int getPosition() {
         return position;
     }
