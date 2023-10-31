@@ -1,8 +1,11 @@
 package racingcar.controller;
 
 import racingcar.validator.CarNameValidator;
+import racingcar.validator.TryCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import static java.lang.Integer.parseInt;
 
 public class GameController {
 
@@ -12,5 +15,9 @@ public class GameController {
         CarNameValidator.validateForInputString(carNames);
 
         return carNames;
+    }
+
+    private static int readTryCount() {
+        OutputView.printMessage("시도할 회수는 몇회인가요?");
     }
 }
