@@ -1,21 +1,18 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 
 public class Judging {
     GetUserInput getUserInput = new GetUserInput();
     public Judging(){
-
     }
 
-    public void judgingMovingOrNot(){
+    public ArrayList<String>[] judgingMovingOrNot(){
         ArrayList<String> carList = new ArrayList<>();
         ArrayList<String>[] result = new ArrayList[1000];
         carList = getUserInput.getName();
         int attempt = getUserInput.getTryNumber();
         int i = 0;
-
 
         System.out.println("실행 결과");
 
@@ -23,6 +20,8 @@ public class Judging {
             result = addDistance(carList, result);
             i++;
         }
+
+        return result;
     }
 
     public ArrayList<String>[] addDistance(ArrayList<String> carList, ArrayList<String>[] result){

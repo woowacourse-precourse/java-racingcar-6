@@ -121,6 +121,7 @@ jun : -----
 
 
 - `public Class Judging`
+  - `callUserInput()`: getUserInput.getName()을 부르는 함수
   - `judgingMovingOrNot()`: 자동차를 전진시킬 것인지 판단한다.
   - `addDistance()`: 각 자동차가 이동한 거리를 arrayList에 저장한다.
   - `printCurrentStatus()`: 자동차가 현재 이동한 거리를 반환한다.
