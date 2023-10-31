@@ -22,8 +22,7 @@ public class InputManager {
     public String readCarNameInput() {
         outputManager.printCarNameInputMessage();
         String input = inputProvider.getInput();
-        return input;
-        // return getValidatedInput(getCarNameValidators(), input);
+        return getValidatedInput(getCarNameValidators(StringSplitter.split(input, SPLIT_DELIMITER)), input);
     }
     public String readTryCountInput() {
         outputManager.printTryCountInputMessage();
@@ -31,13 +30,13 @@ public class InputManager {
         return getValidatedInput(getTryCountValidators(), input);
     }
 
-    private List<Predicate<String>> getCarNameValidators() {
+    private List<Predicate<String>> getCarNameValidators(List<String> CarNames) {
         return Arrays.asList(
-                input -> NotEmptyValidator.validate(StringSplitter.split(input, SPLIT_DELIMITER)),
                 input -> NoWhitespaceValidator.validate(input),
                 input -> AsciiValidator.validate(input),
-                input -> LengthValidator.validate(input, GameConfig.MAX_CAR_NAME_LENGTH.getValue()),
-                input -> UniqueNameValidator.validate(StringSplitter.split(input, SPLIT_DELIMITER))
+                input -> NotEmptyValidator.validate(CarNames),
+                input -> LengthValidator.validate(CarNames, GameConfig.MAX_CAR_NAME_LENGTH.getValue()),
+                input -> UniqueNameValidator.validate(CarNames)
         );
     }
 
