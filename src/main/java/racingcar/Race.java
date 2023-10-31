@@ -1,12 +1,15 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import model.Car;
 
 public class Race {
-    private final List<String> positionList = new ArrayList<>();
     private final List<String> currentPositions = new ArrayList<>();
+    private final Map<String, String> raceResult = new HashMap<>();
 
     public String raceCar(List<Car> cars, int times){
 
@@ -14,19 +17,23 @@ public class Race {
             System.out.print("\n");
             for (Car car : cars) {
                 int move = car.moveForward();
-                System.out.println(car.getName() + " : " + move + car.getPosition());
-                currentPositions.add(car.getPosition());
+                String position = car.getPosition();
+                System.out.println(car.getName() + " : " + move + position);
+                currentPositions.add(position);
             }
             times--;
         }
-        System.out.println(currentPositions);
-        for(int i = currentPositions.size()-1; i >= currentPositions.size() - cars.size(); i--){
-            positionList.add(currentPositions.get(i));
-        }
-        System.out.println(positionList);
+
+        cars.forEach(car -> {
+            String name = car.getName();
+            String position = car.getPosition();
+            raceResult.put(name,position);
+        });
+        System.out.println(raceResult);
 
         return "게임종료";
     }
+
 
     public void raceResult(){
 
