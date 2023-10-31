@@ -2,10 +2,12 @@ package racingcar.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RacingCarControllerTest {
@@ -65,5 +67,39 @@ public class RacingCarControllerTest {
         });
 
         assertThat(e.getMessage()).isEqualTo("빈칸은 이름이 될 수 없습니다.");
+    }
+
+    @Test
+    void createCarList_올바른_이름_목록일_때_자동차_목록_반환() {
+        List<String> testList = List.of("pobi", "woni", "jun");
+
+        List<Car> result = racingCarController.createCarList(testList);
+
+        assertThat(result)
+                .hasSize(3)
+                .extracting(Car::getName, Car::getDistance)
+                .containsExactly(tuple("pobi", 0), tuple("woni", 0), tuple("jun", 0));
+    }
+
+    @Test
+    void createCarList_자동차_이름에_공백이_포함됐을_때_예외_발생() {
+        List<String> testList = List.of("po bi", "woni", "jun");
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+            racingCarController.createCarList(testList);
+        });
+
+        assertThat(e.getMessage()).isEqualTo("이름에 공백이 포함될 수 없습니다.");
+    }
+
+    @Test
+    void createCarList_자동차_이름들이_중복됐을_때_예외_발생() {
+        List<String> testList = List.of("pobi", "pobi", "jun");
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
+            racingCarController.createCarList(testList);
+        });
+
+        assertThat(e.getMessage()).isEqualTo("자동차 이름들은 중복될 수 없습니다.");
     }
 }
