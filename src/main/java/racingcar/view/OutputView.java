@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
-
-
+    
     public void printWinnerList(List<RandomCar> winnerCars) {
         String winners = winnerCars.stream()
                 .map(RandomCar::getName)

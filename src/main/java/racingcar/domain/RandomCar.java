@@ -3,6 +3,8 @@ package racingcar.domain;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.util.ZeroToNineGenerator;
 
+import static racingcar.constant.ConstantNumber.MOVE_THRESHOLD;
+
 public class RandomCar {
     private String name;
     private int position = 0;
@@ -18,7 +20,7 @@ public class RandomCar {
     }
 
     public int move() {
-        if (randomNumberGenerator.generate() >= 4) {
+        if (randomNumberGenerator.generate() >= MOVE_THRESHOLD) {
             position++;
         }
 

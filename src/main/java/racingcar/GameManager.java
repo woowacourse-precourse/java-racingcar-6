@@ -23,7 +23,7 @@ public class GameManager {
         List<String> names = inputView.inputCarNames();
         createRandomCars(names);
 
-        int trialCount = inputView.inputMoveNumber();
+        int trialCount = inputView.inputTrialCount();
         moveRandomCars(trialCount);
 
         List<RandomCar> winnerCars = selectWinners();

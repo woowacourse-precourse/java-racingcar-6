@@ -6,11 +6,14 @@ import racingcar.validator.MoveNumberValidator;
 
 import java.util.List;
 
+import static racingcar.constant.ConsoleMessage.INPUT_YOUR_CAR_NAMES;
+import static racingcar.constant.ConsoleMessage.INPUT_YOUR_TRIAL_COUNT;
+
 
 public class InputView {
 
     public List<String> inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_YOUR_CAR_NAMES);
         String input = Console.readLine();
 
         CarNameValidator.validate(input);
@@ -28,10 +31,10 @@ public class InputView {
         return List.of(carNames);
     }
 
-    public int inputMoveNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String moveNumber = Console.readLine();
-        MoveNumberValidator.validate(moveNumber);
-        return Integer.parseInt(moveNumber);
+    public int inputTrialCount() {
+        System.out.println(INPUT_YOUR_TRIAL_COUNT);
+        String trialCount = Console.readLine();
+        MoveNumberValidator.validate(trialCount);
+        return Integer.parseInt(trialCount);
     }
 }

@@ -3,6 +3,7 @@ package racingcar.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static racingcar.constant.ConstantNumber.MAX_TRIAL_COUNT;
 import static racingcar.constant.ErrorMessage.ENTER_ONLY_NATURAL_NUMBER;
 import static racingcar.constant.ErrorMessage.ENTER_PROPER_RANGE_NUMBER;
 
@@ -26,6 +27,6 @@ public class MoveNumberValidator {
 
     private static boolean isOutOfRange(String moveNumber) {
         int number = Integer.parseInt(moveNumber);
-        return number <= 0 || number > 10000;
+        return number <= 0 || number > MAX_TRIAL_COUNT;
     }
 }
