@@ -6,4 +6,6 @@ public class GamePhrases {
 
     public static final String PHRASES_INPUT_NUMBER_OF_TRY = "시도할 회수는 몇회인가요?";
 
+    public static final String PHRASES_OUTPUT_GAME_START = "\n실행결과";
+
 }

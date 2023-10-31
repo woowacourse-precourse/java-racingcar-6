@@ -4,12 +4,9 @@ import racingcar.car.Car;
 import racingcar.round.Round;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.car.CarSetting.MAX_LENGTH_OF_NAME;
 
 public class Game {
     private String carNames;
@@ -73,5 +70,17 @@ public class Game {
         }
 
         return true;
+    }
+
+    public void startGame(List<Car> cars) throws IllegalArgumentException {
+        printPhrasesGameStart();
+
+        while (tryNumber --> 0) {
+            
+        }
+    }
+
+    private void printPhrasesGameStart() {
+        System.out.println(GamePhrases.PHRASES_OUTPUT_GAME_START);
     }
 }
