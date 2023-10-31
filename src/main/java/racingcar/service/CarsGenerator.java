@@ -2,16 +2,14 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.configurations.Configurations;
-import racingcar.model.Accelerator;
 import racingcar.model.Car;
 
 public class CarsGenerator {
     List<Car> carList;
     Accelerator accelerator;
-    public CarsGenerator(Configurations config) {
+    public CarsGenerator() {
         carList = new ArrayList<>();
-        accelerator = new Accelerator(config);
+        accelerator = new Accelerator();
     }
 
     public List<Car> generateCars(List<String> carNames) {
