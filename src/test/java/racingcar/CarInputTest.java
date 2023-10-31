@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Computer.getInput;
+import static racingcar.Message.INPUT_CAR_NAMES;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -139,11 +140,11 @@ class CarInputTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        Car car = new Car(CarManager.createNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
+        Car car = new Car(CarManager.createNames(getInput(INPUT_CAR_NAMES.getMessage())));
 
         // then
         assertThat(out.toString())
-                .contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+                .contains(INPUT_CAR_NAMES.getMessage());
 
         Console.close();
     }

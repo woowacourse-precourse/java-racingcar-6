@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.Message.START_RACE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayOutputStream;
@@ -76,7 +77,7 @@ public class MoveTest {
 
         // then
         assertThat(out.toString())
-                .contains("실행 결과")
+                .contains(START_RACE.getMessage())
                 .contains("pobi : ")
                 .contains("woni : ")
                 .contains("jun : ");

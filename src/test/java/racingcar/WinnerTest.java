@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.Message.RESULT;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -70,7 +71,7 @@ public class WinnerTest {
 
         // then
         assertThat(out.toString())
-                .contains("최종 우승자 : pobi, woni, jun");
+                .contains(RESULT.getMessage() + "pobi, woni, jun");
 
     }
 }
