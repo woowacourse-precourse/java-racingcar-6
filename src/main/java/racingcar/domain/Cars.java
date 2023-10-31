@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.RandomNumberGenerator;
@@ -37,16 +36,12 @@ public class Cars {
     }
 
     public List<String> getWinners() {
-        List<String> winners = new ArrayList<>();
         Car highestCar = getHighestPositionCar();
 
-        for (Car car : cars) {
-            if (car.isSamePosition(highestCar)) {
-                winners.add(car.getName());
-            }
-        }
-
-        return winners;
+        return cars.stream()
+                .filter(car -> car.isSamePosition(highestCar))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private Car getHighestPositionCar() {
