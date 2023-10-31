@@ -23,6 +23,7 @@ class GameRuleValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Wrong Size Of Name");
     }
+
     @Test
     @DisplayName("잘못된 크기의 이름의 경우 예외를 던진다. : 0")
     public void validateNameInvalidSizeZero() {
@@ -38,7 +39,7 @@ class GameRuleValidatorTest {
         List<String> carNames = Arrays.asList("Car1", "Car2", "Car1");
         assertThatThrownBy(() -> GameRuleValidator.validateNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("중복된 자동차 이름이 있습니다: Car1");
+                .hasMessage("Duplicated Name : Car1");
     }
 
     @Test

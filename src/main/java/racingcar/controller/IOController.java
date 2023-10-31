@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.GameRuleValidator;
@@ -8,7 +7,7 @@ import racingcar.view.IOView;
 
 public final class IOController {
     private final IOView ioView;
-    InputValidator inputValidator;
+    private final InputValidator inputValidator;
 
     public IOController() {
         this.ioView = new IOView();
@@ -16,13 +15,11 @@ public final class IOController {
     }
 
     public void showIntroMessage() {
-        String introMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-        ioView.showSingleMessage(introMessage);
+        ioView.showSingleMessage(GameMessage.INTRO_MESSAGE.toString());
     }
 
     public void showRequestRoundNumberMessage() {
-        String askRoundMessage = "시도할 회수는 몇회인가요?";
-        ioView.showSingleMessage(askRoundMessage);
+        ioView.showSingleMessage(GameMessage.ASK_ROUND_MESSAGE.toString());
     }
 
     public Integer getRoundNumber() {
@@ -39,9 +36,8 @@ public final class IOController {
     }
 
     private List<String> parseIntoCarNames(final String givenInput) {
-        String delimiter = ",";
-        inputValidator.validateNamesByDelimiter(givenInput, delimiter);
-        return Arrays.asList(givenInput.split(delimiter));
+        inputValidator.validateNamesByDelimiter(givenInput, GameMessage.DELIMITER.toString());
+        return Arrays.asList(givenInput.split(GameMessage.DELIMITER.toString()));
     }
 
     public void showRoundResult(final List<String> message) {
@@ -49,8 +45,7 @@ public final class IOController {
     }
 
     public void showWinner(final List<String> message) {
-        String winnerHeadMessage = "최종 우승자 : ";
-        ioView.showHeadMessage(winnerHeadMessage);
+        ioView.showHeadMessage(GameMessage.WINNER_HEAD_MESSAGE.toString());
         String winnerNames = message.toString().replace("[", "")
                 .replace("]", "");
         ioView.showSingleMessage(winnerNames);
