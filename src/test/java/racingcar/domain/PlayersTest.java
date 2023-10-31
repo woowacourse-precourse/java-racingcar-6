@@ -28,4 +28,19 @@ class PlayersTest {
         assertThatThrownBy(() -> new Players(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("우승자 확인")
+    @Test
+    void findWinner() {
+        List<String> names = Arrays.asList("pobi", "woni", "jun");
+        Players players = new Players(names);
+        players.getCars().get(0).move(5);
+        players.getCars().get(1).move(7);
+
+        List<String> winnersName = players.findWinner();
+
+        assertThat(winnersName.contains("pobi")).isTrue();
+        assertThat(winnersName.contains("woni")).isTrue();
+        assertThat(winnersName.size()).isEqualTo(2);
+    }
 }
