@@ -10,7 +10,7 @@ public class RacingMap {
         carList = new ArrayList<>();
     }
 
-    public void getCarList(List<Car> carList){
+    public void setCarList(List<Car> carList){
         this.carList = carList;
     }
 
@@ -19,5 +19,7 @@ public class RacingMap {
             car.trial();
     }
 
-    public List<Car> getCarList
+    public List<Car> getCarList(){
+
+    }
 }

@@ -55,7 +55,8 @@
           - List<car> carList
           - List<String> winner
           - map() // constructor
-          - void getCarList(List<Car>)
+          - void setCarList(List<Car>)
+          - List<Car> getCarList()
           - void trial() // execute one attempt
           - void calWinner()
     - view
