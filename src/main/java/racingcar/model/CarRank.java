@@ -28,6 +28,7 @@ public class CarRank implements Model {
     }
 
     private boolean isTieRecord(final Car winner) {
-        return winner.isDraw(rankQueue.peek());
+        Car candidate = requireNonNull(rankQueue.peek());
+        return winner.isDraw(candidate);
     }
 }
