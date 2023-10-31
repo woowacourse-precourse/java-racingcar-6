@@ -1,5 +1,7 @@
 package racingcar.Domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private static final Integer MOVE_LENGTH_START = 0;
@@ -27,10 +29,15 @@ public class Car {
 
     public void move(){
 
+        Integer randomValue = createRandomValue();
+
     }
 
     private Integer createRandomValue(){
-        return null;
+
+        Integer randomValue = Randoms.pickNumberInRange(0, 9);
+
+        return randomValue;
     }
 
     private boolean checkRandomValueValidation(Integer randomValue){

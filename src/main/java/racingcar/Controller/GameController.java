@@ -1,8 +1,12 @@
 package racingcar.Controller;
 
+import racingcar.Domain.Car;
 import racingcar.Service.RacingGame;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
+
+import java.lang.reflect.Array;
+import java.util.List;
 
 public class GameController {
 
@@ -25,6 +29,12 @@ public class GameController {
         this.tryCount = inputView.getTryCount();
 
         this.game = new RacingGame(carsName);
+
+        while(tryCount > 0){
+            tryCount--;
+            List<Car> racingResult= game.racing();
+        }
+
 
     }
 

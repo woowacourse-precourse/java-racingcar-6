@@ -14,7 +14,7 @@ public class RacingGame {
     public RacingGame(String inputCarsString){
         this.cars = this.createCars(inputCarsString);
     }
-    public List<Car> createCars(String inputCarsString){
+    private List<Car> createCars(String inputCarsString){
 
         List<String> carNames = new ArrayList<String>();
         Collections.addAll(carNames, inputCarsString.split(","));
@@ -27,11 +27,16 @@ public class RacingGame {
         return carList;
     }
 
-    public ArrayList<Car> racing(){
-        return null;
+    public List<Car> racing(){
+
+        for(Car car : this.cars){
+            car.move();
+        }
+
+        return this.cars;
     }
 
-    public ArrayList<Car> findWinners(){
+    public List<Car> findWinners(){
         return null;
     }
 
