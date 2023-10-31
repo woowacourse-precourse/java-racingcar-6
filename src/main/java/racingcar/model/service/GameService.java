@@ -13,8 +13,8 @@ public class GameService {
         this.carRepository = carRepository;
     }
 
-    public void createCars(List<String> names) {
-        names.forEach(name -> carRepository.save(name));
+    public void createCars(List<String> carNames) {
+        carNames.forEach(name -> carRepository.save(name));
     }
 
     public void nameCheck(List<String> carNames) {
