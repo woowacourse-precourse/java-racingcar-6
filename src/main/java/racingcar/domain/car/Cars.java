@@ -22,13 +22,18 @@ public class Cars {
     }
 
     public List<Car> getFarthestDistance() {
-        int maxDistance = carList.stream()
-                .mapToInt(Car::getDistance)
-                .max()
-                .orElseThrow(()-> new IllegalArgumentException("차량 목록이 없습니다."));
+        int maxDistance = getMaxDistance();
 
         return carList.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .collect(Collectors.toList());
+    }
+
+    private int getMaxDistance(){
+        int maxDistance = carList.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElseThrow(()-> new IllegalArgumentException("차량 목록이 없습니다."));
+        return maxDistance;
     }
 }
