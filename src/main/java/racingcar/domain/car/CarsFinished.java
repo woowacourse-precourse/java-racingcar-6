@@ -21,7 +21,7 @@ public final class CarsFinished extends Cars {
 
     private List<? extends Car> reversed() {
         return cars.stream()
-                .sorted((o1, o2) -> o2.coordinate.subtractAsInt(o1.coordinate))
+                .sorted((o1, o2) -> o2.coordinate.subtract(o1.coordinate))
                 .toList();
     }
 
