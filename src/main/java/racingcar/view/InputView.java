@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InputView {
 
@@ -23,7 +24,7 @@ public class InputView {
     private List<String> getCarNames() {
         String input = inputCarNames();
         List<String> carNames = parseCarNames(input);
-        //TODO: validate carNames
+        validateCarNames(carNames);
         return carNames;
     }
 
@@ -35,5 +36,17 @@ public class InputView {
     private List<String> parseCarNames(String input) {
         List<String> parsedCarNames = List.of(input.split(","));
         return parsedCarNames.stream().map(String::trim).collect(Collectors.toList());
+    }
+
+    private void validateCarNames(List<String> carNames) {
+        for (String carName : carNames) {
+            validateNotEmpty(carName);
+        }
+    }
+
+    private void validateNotEmpty(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException(InputViewException.EMPTY_NAME);
+        }
     }
 }
