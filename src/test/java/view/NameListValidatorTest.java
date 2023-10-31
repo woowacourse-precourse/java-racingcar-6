@@ -24,4 +24,12 @@ class NameListValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ExceptionMessage.ENDS_WITH_COMMA);
     }
+
+    @Test
+    public void 쉼표가_연달아_있으면_예외발생(){
+        String input = "aa,,bb";
+        assertThatThrownBy(() -> nameListValidator.validate(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.CONTAINS_REPEATING_COMMAS);
+    }
 }
