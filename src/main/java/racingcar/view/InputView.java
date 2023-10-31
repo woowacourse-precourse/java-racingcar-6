@@ -19,6 +19,7 @@ public class InputView {
 
         List<String> separatedCarNames = Utils.splitAndToList(carNames);
         Validator.validateCarNameLength(separatedCarNames);
+        Validator.validateHasDuplicateCarNames(separatedCarNames);
 
         return separatedCarNames;
     }

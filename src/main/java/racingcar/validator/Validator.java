@@ -1,6 +1,8 @@
 package racingcar.validator;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Validator {
     public static void validateSeparatedByComma(String carNames) {
@@ -14,6 +16,13 @@ public class Validator {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
+        }
+    }
+
+    public static void validateHasDuplicateCarNames(List<String> separatedCarNames) {
+        Set<String> carNames = new HashSet<>(separatedCarNames);
+        if (separatedCarNames.size() != carNames.size()) {
+            throw new IllegalArgumentException("중복되지 않은 자동차 이름을 입력해주세요.");
         }
     }
 
