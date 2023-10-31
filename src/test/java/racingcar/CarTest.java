@@ -16,20 +16,20 @@ class CarTest {
 
     @Test
     void 지정한_길이를_초과한_이름의_자동차_생성_시_예외_발생() {
-        Assertions.assertThatThrownBy(() -> new Car(NAME_EXCEEDS_LENGTH_LIMIT))
+        Assertions.assertThatThrownBy(() -> 자동차_생성(NAME_EXCEEDS_LENGTH_LIMIT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 지정한_길이를_만족하는_이름의_자동차_정상_생성() {
-        Car car = new Car(NAME_UNDER_LENGTH_LIMIT);
+        Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
         assertThat(car.getName())
                 .isEqualTo(NAME_UNDER_LENGTH_LIMIT);
     }
 
     @Test
     void 지정한_값을_넘는_랜덤_값이_주어지면_포지션_증가() {
-        Car car = new Car(NAME_UNDER_LENGTH_LIMIT);
+        Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
         assertRandomNumberInRangeTest(
                 () -> {
                     car.attempt();
@@ -41,7 +41,7 @@ class CarTest {
 
     @Test
     void 지정한_값을_미만_랜덤_값이_주어지면_포지션_증가() {
-        Car car = new Car(NAME_UNDER_LENGTH_LIMIT);
+        Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
         assertRandomNumberInRangeTest(
                 () -> {
                     car.attempt();
@@ -53,7 +53,7 @@ class CarTest {
 
     @Test
     void 포지션에_맞는_출력값_반환() {
-        Car car = new Car(NAME_UNDER_LENGTH_LIMIT);
+        Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
         for (int attempt = 1; attempt <= 5; attempt++) {
             car.attempt();
         }
@@ -64,6 +64,9 @@ class CarTest {
         }
         Assertions.assertThat(car.toString())
                 .isEqualTo(String.format(CAR_FORMAT, car.getName(), stringBuilder.toString()));
+    }
 
+    private Car 자동차_생성(String name) {
+        return new Car(name);
     }
 }
