@@ -19,11 +19,11 @@ public class RacingGame {
 
     public void run() {
         Cars cars = new Cars();
-        cars.createCars();
+        String carsName = cars.createCars();
 
         inputTryCount();
 
-        cars.racing(tryCount);
+        cars.racing(carsName, tryCount);
 
         winner();
     }
