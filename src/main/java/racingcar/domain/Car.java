@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static racingcar.global.constants.NumberType.*;
 import static racingcar.global.constants.NumberType.MAX_LENGTH_OF_NUMBER;
+import static racingcar.global.constants.SymbolType.*;
 
 import racingcar.utils.RandomUtils;
 
@@ -24,6 +25,11 @@ public class Car {
         if (isQualified(randomNumber)) {
             move();
         }
+    }
+
+    @Override
+    public String toString() {
+        return name + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
     }
 
     private void move() {
