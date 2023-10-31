@@ -27,7 +27,7 @@ public class Validator {
     }
 
     /**
-     * , 로 끝나는 경우 마지막 차 이름을 NULL로 판단하여 오류 처리했습니다.
+     * , 로 끝나는 경우 입력오류로 판단하여 오류 처리했습니다.
      */
     public static void validateEndsWith(String input) {
         if (input.endsWith(",")) {
