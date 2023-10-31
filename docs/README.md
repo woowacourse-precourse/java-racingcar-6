@@ -1,24 +1,28 @@
 # 자동차 경주 게임
 
 ## 기능 목록
+
 - [O] 사용자로부터 자동차 이름을 입력받는다 - Referee#readPlayer()
-        - [O] 입력받은 이름의 길이가 5를 넘는지 확인한다 - Judgment#isOverFiveLength()
+    - [O] 입력받은 이름의 길이가 5를 넘는지 확인한다 - Judgment#isOverFiveLength()
 - [O] 레이스를 진행할 그룹에 사용자를 추가한다 - Referee#addGroup()
+ 
 
 - [O] 사용자로부터 레이싱 진행 횟수를 입력받는다 - Referee#readGameCount()
-        - [O] 사용자로부터 제대로 된 진행 횟수 값을 입력받았는지 확인한다 - Judgment#checkInteger()
+    - [O] 사용자로부터 제대로 된 진행 횟수 값을 입력받았는지 확인한다 - Judgment#checkInteger()
 
-- [] 자동차 경주를 시작한다 - Referee#run()
-    - [O] 각 자동차의 경주를 N회 진행한다 - Judgment#cycle()
-        - [O] 무작위 숫자를 생성하여 4를 넘을경우 자동차를 전진시킨다 - Racer#moveForward()
-            - [O] 생성된 무작위 숫자가 4 이상인지를 판단한다 - Judgment#isOverFourDistance()
-        - [O] 현재까지의 경주 결과를 출력한다 - Referee#printProgress()
-            - [O] 현재까지 자신의 이동거리를 출력한다 - Racer#printDistance()
 
-    - [O] 현재 가장 큰 전진값을 구한다 - Referee#findMaxDistance()
-        - [O] 참가자의 전진값과 현재 최대 전진값을 비교한다  - Referee#compareMax()
-    - [O] 우승자를 출력한다 - Referee#printWinner()
-        - [O] 최대값과 비교하여 해당 선수를 우승자에 추가한다 - Referee#addMaxPlayer()
+- [O] 자동차 경주를 시작한다 - Referee#run()
+  - [O] 각 자동차의 경주를 N회 진행한다 - Judgment#cycle()
+      - [O] 무작위 숫자를 생성하여 4를 넘을경우 자동차를 전진시킨다 - Racer#moveForward()
+          - [O] 생성된 무작위 숫자가 4 이상인지를 판단한다 - Judgment#isOverFourDistance()
+      - [O] 현재까지의 경주 결과를 출력한다 - Referee#printProgress()
+          - [O] 현재까지 자신의 이동거리를 출력한다 - Racer#printDistance()
+
+
+- [O] 현재 가장 큰 전진값을 구한다 - Referee#findMaxDistance()
+  - [O] 참가자의 전진값과 현재 최대 전진값을 비교한다  - Referee#compareMax()
+- [O] 우승자를 출력한다 - Referee#printWinner()
+  - [O] 최대값과 비교하여 해당 선수를 우승자에 추가한다 - Referee#addMaxPlayer()
 
 ## 기능 요구 사항
 
