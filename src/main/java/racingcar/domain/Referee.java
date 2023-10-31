@@ -1,16 +1,25 @@
 package racingcar.domain;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Referee {
 
+    public int getFurthestDistance(List<Car> cars) {
+        return cars.stream().mapToInt(Car::getDistance).max().orElseThrow(IllegalArgumentException::new);
+    }
+
     public List<Car> getFurthestCar(List<Car> cars) {
+        int furthestDistance = getFurthestDistance(cars);
         return cars.stream()
-                .peek(Car::getDistance)
+                .filter(car -> car.getDistance() == furthestDistance)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getFurthestCarNames(List<Car> cars) {
+        List<Car> furthestCars = getFurthestCar(cars);
+        return furthestCars.stream()
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }

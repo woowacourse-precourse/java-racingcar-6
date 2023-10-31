@@ -39,5 +39,7 @@ public class Car {
         return this.result.length();
     }
 
+    public String getName() {
+        return this.name;
     }
 }
