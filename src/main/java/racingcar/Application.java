@@ -7,8 +7,20 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        playGame();
+        playRacingGame();
+    }
+    private static void playRacingGame() {
+        printAskForInputCarNames();
+        List<Car> cars = createCars(getCarNames(getInputLineOfCarNames()));
+        printAskForInputNumberOfAttempts();
+        int numberOfAttempts = getNumberOfAttempts();
+        printHeadResult();
+
+        for (int i = 0; i < numberOfAttempts; i++) {
+            attemptOneRound(cars);
+            printOneRoundResult(cars);
+        }
+        printWinner(cars);
     }
 
     private static void printAskForInputCarNames() {
@@ -16,37 +28,28 @@ public class Application {
     }
 
     private static String getInputLineOfCarNames() {
-        return checkInputLineOfCarNames(Console.readLine());
+        return validateInputLineOfCarNames(Console.readLine());
+    }
+
+    private static String validateInputLineOfCarNames(String inputLineOfCarNames) {
+        if (inputLineOfCarNames.startsWith(",") || inputLineOfCarNames.endsWith(",")) {
+            throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
+        }
+        return inputLineOfCarNames;
     }
 
     private static List<String> getCarNames(String inputLineOfCarNames) {
         return checkCarNames(splitCarNames(inputLineOfCarNames));
     }
 
-    private static List<String> checkCarNames(List<String> carNames){
-        checkCarNameForm((carNames));
-        validateDuplicateOfCarName((carNames));
-        return carNames;
-    }
     private static List<String> splitCarNames(String inputLineOfCarNames) {
         return Arrays.asList(inputLineOfCarNames.split(","));
     }
-    private static String checkInputLineOfCarNames(String inputLineOfCarNames) {
-        validateStartsWithCommaInInputLine(inputLineOfCarNames);
-        validateEndsWithCommaInInputLine(inputLineOfCarNames);
-        return inputLineOfCarNames;
-    }
 
-    private static void validateStartsWithCommaInInputLine(String inputLineOfCarNames) {
-        if (inputLineOfCarNames.startsWith(",")) {
-            throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
-        }
-    }
-
-    private static void validateEndsWithCommaInInputLine(String inputLineOfCarNames) {
-        if (inputLineOfCarNames.endsWith(",")) {
-            throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
-        }
+    private static List<String> checkCarNames(List<String> carNames) {
+        checkCarNameForm((carNames));
+        validateDuplicateOfCarName((carNames));
+        return carNames;
     }
 
     private static void checkCarNameForm(List<String> carNames) {
@@ -78,7 +81,7 @@ public class Application {
         }
     }
 
-    private static List<Car> makeCars(List<String> carNames) {
+    private static List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<Car>();
         for (int i = 0; i < carNames.size(); i++) {
             Car car = new Car(carNames.get(i));
@@ -87,25 +90,18 @@ public class Application {
         return cars;
     }
 
-    private static void printInputNumberofAttempts() {
+    private static void printAskForInputNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
     private static int getNumberOfAttempts() {
-        int numberOfAttempts = Integer.parseInt(checkNumberOfAttemptsForm(Console.readLine()));
-        return numberOfAttempts;
+        return Integer.parseInt(checkNumberOfAttemptsForm(Console.readLine()));
     }
 
     private static String checkNumberOfAttemptsForm(String numberOfAttempts) {
         validateIsNumber(numberOfAttempts);
         validateIsZero(numberOfAttempts);
         return numberOfAttempts;
-    }
-
-    private static void validateIsZero(String numberOfAttempts) {
-        if (numberOfAttempts.matches("0")) {
-            throw new IllegalArgumentException("0은 입력할 수 없습니다.");
-        }
     }
 
     private static void validateIsNumber(String numberOfAttempts) {
@@ -115,12 +111,14 @@ public class Application {
         }
     }
 
-    private static boolean isMove() {
-        int random = Randoms.pickNumberInRange(0, 9);
-        if (random >= 4) {
-            return true;
+    private static void validateIsZero(String numberOfAttempts) {
+        if (numberOfAttempts.matches("0")) {
+            throw new IllegalArgumentException("0은 입력할 수 없습니다.");
         }
-        return false;
+    }
+
+    private static void printHeadResult() {
+        System.out.println("\n실행 결과");
     }
 
     private static void attemptOneRound(List<Car> cars) {
@@ -131,8 +129,8 @@ public class Application {
         }
     }
 
-    private static void printHeadResult() {
-        System.out.println("\n실행 결과");
+    private static boolean isMove() {
+        return Randoms.pickNumberInRange(0,9) >= 4;
     }
 
     private static void printOneRoundResult(List<Car> cars) {
@@ -140,16 +138,6 @@ public class Application {
             System.out.println(car.toString());
         }
         System.out.println();
-    }
-
-    private static int findMaxPosition(List<Car> cars) {
-        int maxPosition = -1;
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-            }
-        }
-        return maxPosition;
     }
 
     private static List<String> findWinner(List<Car> cars) {
@@ -163,25 +151,19 @@ public class Application {
         return winner;
     }
 
+    private static int findMaxPosition(List<Car> cars) {
+        int maxPosition = -1;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
+
     private static void printWinner(List<Car> cars) {
         List<String> winner = findWinner(cars);
-        String result = String.join(",",winner);
-        System.out.println(String.format("최종 우승자 : %s",result));
+        String result = String.join(",", winner);
+        System.out.println(String.format("최종 우승자 : %s", result));
     }
-
-    private static void playGame() {
-        printAskForInputCarNames();
-        List<Car> cars = makeCars(getCarNames(getInputLineOfCarNames()));
-        printInputNumberofAttempts();
-        int numberOfAttempts = getNumberOfAttempts();
-        printHeadResult();
-
-        for (int i = 0; i < numberOfAttempts; i++) {
-            attemptOneRound(cars);
-            printOneRoundResult(cars);
-        }
-        printWinner(cars);
-
-    }
-
 }
