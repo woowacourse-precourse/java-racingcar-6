@@ -37,12 +37,12 @@ public class Car {
         return name.name();
     }
 
-    public Position getPosition() {
-        return position;
+    public int getPositionInt() {
+        return position.getValue();
     }
 
-    public int getPositionInt() {
-        return position.getPosition();
+    public Position getPosition() {
+        return new Position(position.getValue());
     }
 
 

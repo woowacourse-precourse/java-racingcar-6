@@ -39,7 +39,7 @@ public class Cars {
     private Position findMaxPosition() {
         return cars.stream()
                 .map(Car::getPosition)
-                .max(Comparator.comparing(Position::getPosition))
+                .max(Comparator.comparing(Position::getValue))
                 .orElseThrow(() -> RacingGameException.of(CANT_FIND_MAX_VALUE));
     }
 

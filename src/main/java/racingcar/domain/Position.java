@@ -26,7 +26,7 @@ public class Position {
         this.position += CAR_ONE_STEP;
     }
 
-    public int getPosition() {
+    public int getValue() {
         return position;
     }
 
