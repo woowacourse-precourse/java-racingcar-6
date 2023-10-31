@@ -18,6 +18,7 @@ public class ValidException {
     private static final Integer POSITIVE_CONDITION_ZERO = 0;
     private static final String BLANK = " ";
     private static final Integer ZERO_NUM = 0;
+    private static final Character COMMA_CHAR = ',';
 
     public static Boolean lessFIveLen(String strLine) {
         int len = strLine.length();
@@ -98,7 +99,7 @@ public class ValidException {
     public static boolean commaNextBlank(String strLine) {
         int length = strLine.length();
 
-        if (strLine.charAt(length - 1) != ',') {
+        if (strLine.charAt(length - 1) != COMMA_CHAR) {
             return true;
         }
 
