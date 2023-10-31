@@ -6,6 +6,7 @@ public class Car {
     private final CarName carName;
     private final Progress progress;
     private int trial;
+
     public Car(String carName) {
         this.carName = new CarName(carName);
         this.progress = new Progress();
@@ -27,11 +28,10 @@ public class Car {
         }
         return false;
     }
+
     public int getProgress() {
         return progress.getProgress();
     }
-
-
 
     public String indicate() {
         return carName.carName() + " : "
