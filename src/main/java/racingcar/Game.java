@@ -10,6 +10,8 @@ public class Game {
     String userNumber;
     String nameLine;
     String[] names;
+    int maxForwards = 0;
+    ArrayList<String> winnerName = new ArrayList<>();
     ArrayList<Car> Cars = new ArrayList<>();
 
     void getCarsNames() {
@@ -32,21 +34,32 @@ public class Game {
         Error.isDigitError(userNumber);
     }
 
-    static void whoIsWinner(Car car) {
-        String name = car.getName();
-        int forwards = car.getForward();
-        // key와 value의 pair인 map 자료형을 배우면 좋을 것 같다. 아니면 그냥 linked list로 push pop구현.
-    }
-
     Game() {
         Message.getStartMessage();
         getCarsNames();
         Message.getAttemptNumberMessage();
         getNumber();
-        Message.getResultMessage();
+        Message.getProcessMessage();
         for (Car car : Cars) {
             car.goForward(Integer.parseInt(userNumber));
             whoIsWinner(car);
         }
+        Message.getResultMessage(winnerName);
+    }
+
+    void whoIsWinner(Car car) {
+        String name = car.getName();
+        int forwards = car.getForward();
+        if (maxForwards < forwards) {
+            maxForwards = forwards;
+            removeAll(new ArrayList<>(winnerName));
+            winnerName.add(name);
+        }
+        if (maxForwards == forwards)
+            winnerName.add(name);
+    }
+
+    void removeAll(ArrayList<String> winnerNameClone){
+        winnerName.removeAll(winnerNameClone);
     }
 }
