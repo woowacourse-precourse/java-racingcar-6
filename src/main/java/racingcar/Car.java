@@ -21,8 +21,13 @@ public class Car {
     }
 
     private int goOrStop(int randomNumber){
-
-        return 0;
+        int step;
+        if (randomNumber >= 4){
+            step = 1;
+        }else{
+            step = 0;
+        }
+        return step;
     }
 
     private int totalDistance(int step){
