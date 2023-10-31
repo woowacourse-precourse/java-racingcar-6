@@ -18,6 +18,8 @@ public class RacingGame {
     public void init() {
         inputCarName();
         inputTryNum();
+        startGame();
+        getWinner();
     }
 
     public void inputCarName() {
@@ -32,5 +34,32 @@ public class RacingGame {
         String input = Console.readLine();
 
         tryNumber = Integer.parseInt(input);
+    }
+
+    public void startGame() {
+        cars = new Car[carCount];
+        for (int i = 0; i < carCount; i++) {
+            cars[i] = new Car(carName[i]);
+        }
+
+        for (int i = 0; i < tryNumber; i++) {
+            for (int j = 0; j < carCount; j++) {
+                cars[j].startGameTurn();
+            }
+            System.out.println("\n실행 결과");
+            for (int j = 0; j < carCount; j++) {
+                cars[j].showCurrentStep();
+                currentMax = Math.max(currentMax, cars[j].getCurrentStep());
+            }
+        }
+    }
+
+    public ArrayList<String> getWinner() {
+        for (int i = 0; i < carCount; i++) {
+            if (cars[i].getCurrentStep() == currentMax) {
+                winner.add(cars[i].getName());
+            }
+        }
+        return winner;
     }
 }
