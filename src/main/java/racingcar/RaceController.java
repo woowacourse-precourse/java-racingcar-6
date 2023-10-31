@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class RaceController {
+    private static final int FIRST_RANK = 0;
     private final LinkedHashMap<Integer, List<String>> ranks = new LinkedHashMap<>();
 
     private Cars cars;
@@ -17,7 +18,7 @@ public class RaceController {
         tryMove(cars);
 
         calculateRanking(names, carNames);
-        SystemOutput.printWinner(ranks.get(0));
+        SystemOutput.printWinner(ranks.get(FIRST_RANK));
     }
 
     private List<String> inputCarNames() {
