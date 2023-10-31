@@ -15,7 +15,14 @@ public class RaceGameStateValidator implements Validator {
         return name.length() < 6 && name.length() != 0;
     }
 
-
+    private boolean isAllValidLength(List<String> names){
+        int originNamesLength = names.size();
+        int validNamesLength = names.stream()
+                .filter(this::isValidNameLength)
+                .toList()
+                .size();
+        return originNamesLength == validNamesLength;
+    }
     private boolean isUniqueNames(List<String> nameList){
         int originLength = nameList.size();
         int deleteDuplicateLength = nameList.stream().distinct().toList().size();
