@@ -18,12 +18,11 @@ import static racingcar.view.Print.printResult;
 public class Play {
     private static List<Car> cars;
     private static int num;
+
     public static void start() {
         inputNameMessage();
         cars = new ArrayList<>();
-        for (String name : inputCarName()) {
-            cars.add(new Car(name, 0));
-        }
+        saveCar();
 
         inputNumMessage();
         num = inputNum();
@@ -35,14 +34,24 @@ public class Play {
         result();
     }
 
+    public static void saveCar() {
+        for (String name : inputCarName()) {
+            cars.add(new Car(name, 0));
+        }
+    }
+
     public static void rotate(int num) {
-        int carLength = cars.size();
         for (int i=0; i<num; i++) {
-            for (int index : findEachCarRandomNum(carLength)) {
-                int pre = cars.get(index).length;
-                cars.get(index).addLength(pre+1);
-            }
+            addLengthIfGo();
             printEachRotate(cars);
+        }
+    }
+
+    public static void addLengthIfGo() {
+        int carLength = cars.size();
+        for (int index : findEachCarRandomNum(carLength)) {
+            int pre = cars.get(index).length;
+            cars.get(index).addLength(pre+1);
         }
     }
 
