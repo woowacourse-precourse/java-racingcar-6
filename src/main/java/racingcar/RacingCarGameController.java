@@ -30,15 +30,7 @@ public class RacingCarGameController {
 
 
         // 3. 이동회수 입력 (숫자만 가능)
-        int moveCnt;
-        try {
-            moveCnt = Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-
-            // 4-1. 숫자인지 검증
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
-        }
-
+        int moveCnt = inputMoveCount();
 
         // 4. 자동차 전진
         for (int i = 0; i < moveCnt; i++) {
@@ -83,6 +75,14 @@ public class RacingCarGameController {
     private void validationCarNameLength(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 입력 가능합니다.");
+        }
+    }
+
+    private int inputMoveCount() {
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
     }
 }
