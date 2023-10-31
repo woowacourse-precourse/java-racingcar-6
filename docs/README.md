@@ -12,6 +12,8 @@
 - [ ] 자동차 이름 입력 (inputCarNames)
 - [ ] 경주할 자동차 생성 (generateCarsByCarNames)
 - [ ] 시도 횟수 입력 (inputTrialCount)
+- [ ] 각 차수 실행 (attemptTrial)
+- [ ] 실행 결과 출력 (printTrialResult)
 - [ ] 우승자 판단 (judgeWinner)
 - [ ] 우승자 출력 (printWinner)
 
