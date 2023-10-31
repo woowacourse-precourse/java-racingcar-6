@@ -22,7 +22,7 @@ public class Car {
 		times = Console.readLine();
 		System.out.println("\n" + "실행 결과");
 		ready.isDigit(times);
-
+		
 		play(Integer.parseInt(times));
 	}
 

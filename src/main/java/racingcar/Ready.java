@@ -20,6 +20,9 @@ public class Ready {
 		if ((str.contains(" ")) == true || (str.charAt(str.length() - 1) == ','))
 			throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분되며, 공백 입력 여부를 확인해 주세요.");
 
+		if(carList.length == 1)
+			throw new IllegalArgumentException("자동차 경주 진행을 위해 2대 이상의 자동차 이름을 입력해 주세요.");
+		
 		for (int i = 0; i < carList.length; i++) {
 			checkLength(carList[i]);
 		}
@@ -32,7 +35,7 @@ public class Ready {
 	}
 
 	public static void isDigit(String times) {
-		String tmp = "^[0-9]*$";
+		String tmp = "^[1-9]*$";
 		if (Pattern.matches(tmp, times) != true)
 			throw new IllegalArgumentException("입력값을 확인해 주세요.");
 	}
