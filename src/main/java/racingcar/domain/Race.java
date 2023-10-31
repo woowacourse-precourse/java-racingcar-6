@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.stream.IntStream;
 import javax.swing.Spring;
+import racingcar.utils.StringUtils;
 import racingcar.utils.validation.InputValidation;
 import racingcar.view.OutputView;
 
@@ -11,16 +12,8 @@ public class Race {
 
     public Race(String carNames, String count) {
         this.cars = new Cars(carNames);
-        this.moveCount = convertStringToInt(count);
+        this.moveCount = StringUtils.convertStringToInt(count);
         InputValidation.validateCountRange(moveCount);
-    }
-
-    private int convertStringToInt(String count) {
-        try {
-            return Integer.parseInt(count);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
     }
 
     public void printResults() {

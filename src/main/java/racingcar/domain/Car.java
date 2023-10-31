@@ -13,12 +13,8 @@ public class Car {
         this.name = name;
     }
 
-    private int pickRandomNumber() {
-        return Randoms.pickNumberInRange(Constant.MIN_RANDOM_NUMBER, Constant.MAX_RANDOM_NUMBER);
-    }
-
-    public void move() {
-        if (pickRandomNumber() >= Constant.MOVE_NUMBER) {
+    public void move(int randomNumber) {
+        if (randomNumber >= Constant.MOVE_NUMBER) {
             this.moveCount++;
         }
     }
