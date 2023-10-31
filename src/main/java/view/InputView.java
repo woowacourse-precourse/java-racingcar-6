@@ -5,13 +5,22 @@ import java.util.List;
 
 public class InputView {
     private final NameListValidator nameListValidator;
+    private final AttemptTimesValidator attemptTimesValidator;
 
-    InputView() {
+    InputView(AttemptTimesValidator attemptTimesValidator) {
+        this.attemptTimesValidator = attemptTimesValidator;
         this.nameListValidator = new NameListValidator();
     }
 
     public List<String> getNameList(){
         String userInput = Console.readLine();
-        return nameListValidator.validate(userInput);
+        nameListValidator.validate(userInput);
+        return nameListValidator.splitAndTrim(userInput, ",");
+    }
+
+    public int getAttemptTimes(){
+        String userInput = Console.readLine();
+        attemptTimesValidator.validate(userInput);
+        return Integer.parseInt(userInput);
     }
 }
