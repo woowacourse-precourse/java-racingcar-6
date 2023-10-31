@@ -52,7 +52,7 @@ class RacingCarsTest {
     }
 
     @Test
-    void moveCar() {
+    void List안에_Car객체들을_이동시킨다() {
         Car car1 = new Car("test1", 5);
 
         racingCars.add(car1);
@@ -63,7 +63,7 @@ class RacingCarsTest {
     }
 
     @Test
-    void testToString() {
+    void RacingCars의_toString이_정상적으로_작동한다() {
         Car car1 = new Car("test1", 6);
         Car car2 = new Car("test2", 5);
 
