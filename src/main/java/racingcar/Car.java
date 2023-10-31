@@ -32,4 +32,8 @@ public class Car {
     public int getForwardCount() {
         return forwardCount;
     }
+
+    public void setForwardCount(int forwardCount) {
+        this.forwardCount = forwardCount;
+    }
 } // end class

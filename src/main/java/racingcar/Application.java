@@ -21,14 +21,14 @@ public class Application {
             for(Car car : cars){
                 car.forward();
             }
-            
-            RacingGame.printRaceState(cars);
+
+            System.out.print(RacingGame.printRaceState(cars));
             System.out.println("");
             attemptsNum--;
 
         } // while
 
-        RacingGame.printFinalWinner(cars);
+        System.out.print(RacingGame.printFinalWinner(cars));;
     } // main
 
 

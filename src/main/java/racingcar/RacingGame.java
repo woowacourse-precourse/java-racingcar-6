@@ -22,19 +22,20 @@ public class RacingGame {
         return Integer.parseInt(Console.readLine());
     } // forwardCar
 
-    public static void printFinalWinner(List<Car> cars){ // 최종 우승자 메소드
-
+    public static String printFinalWinner(List<Car> cars){ // 최종 우승자 메소드
+        StringBuffer sb = new StringBuffer();
         int maxForward = maxForward(cars);
 
-        System.out.print("최종 우승자 : ");
+        sb.append("최종 우승자 : ");
 
         for(Car car : cars){
-            oneOrOtherWinner(car, maxForward);
+            String winner = oneOrOtherWinner(car, maxForward);
+            sb.append(winner);
         }
-
+        return sb.toString();
     } // printFinalWinner
 
-    private static int maxForward(List<Car> cars) { // 제일 많이 전진한 것 찾기
+    public static int maxForward(List<Car> cars) { // 제일 많이 전진한 것 찾기
         int maxForwardCar = 0;
 
         for(Car car : cars){
@@ -44,30 +45,33 @@ public class RacingGame {
         return maxForwardCar;
     }
 
-    public static void printRaceState(List<Car> cars) { // 전진 횟수에 따라 - 찍기
+    public static String printRaceState(List<Car> cars) { // 전진 횟수에 따라 - 찍기
+        StringBuffer sb = new StringBuffer();
+
         for (Car car : cars) {
-            System.out.print(car.getName() + " : ");
+            sb.append(car.getName() + " : ");
             for (int i = 0; i < car.getForwardCount(); i++) {
-                System.out.print("-");
+                sb.append("-");
             }
-            System.out.println("");
+            sb.append("\n");
         }
+
+        return sb.toString();
     }
 
-    public static void oneOrOtherWinner(Car car, int maxForward){ // 우승자가 한명 또는 여러명일 때 출력 메소드
+    public static String oneOrOtherWinner(Car car, int maxForward) {
+        StringBuffer sb = new StringBuffer();
 
+        if (car.getForwardCount() == maxForward) {
+            if (!firstWinner) {
+                sb.append(", ");
+            }
 
-        if(car.getForwardCount() == maxForward){
-
-            if(!firstWinner){
-                System.out.print(", ");
-            } // if
-
-            System.out.print(car.getName());
+            sb.append(car.getName());
             firstWinner = false;
+        }
 
-        } // if
-
+        return sb.toString();
     }
 
 } // end class
