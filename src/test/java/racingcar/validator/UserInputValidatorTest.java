@@ -2,7 +2,7 @@ package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.exception.car.carName.HasSpaceException.HAS_BLANK_EXCEPTION_MESSAGE;
+import static racingcar.exception.car.carName.HasSpaceException.HAS_SPACE_EXCEPTION_MESSAGE;
 import static racingcar.exception.car.carName.LengthException.LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.exception.cars.DuplicateException.DUPLICATE_EXCEPTION_MESSAGE;
 import static racingcar.exception.round.totalNumberOfRounds.NonPositiveIntegerException.NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE;
@@ -49,7 +49,7 @@ public class UserInputValidatorTest {
     void 자동차_이름_공백문자_있는_경우(String carNames) {
         assertThatThrownBy(() -> CarNamesValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(HAS_BLANK_EXCEPTION_MESSAGE);
+                .hasMessageContaining(HAS_SPACE_EXCEPTION_MESSAGE);
     }
 
     @ParameterizedTest

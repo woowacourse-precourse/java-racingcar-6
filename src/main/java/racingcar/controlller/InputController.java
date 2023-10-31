@@ -11,7 +11,6 @@ public class InputController {
         String userInput = Console.readLine();
         CarNamesValidator.getInstance()
                 .validate(userInput);
-
         return userInput;
     }
 
