@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class NameInputValidationTest {
 
-    NameInputValidation nameInputValidation = new NameInputValidation();
+    private final NameInputValidation nameInputValidation = new NameInputValidation();
 
     @Test
     @DisplayName("자동차 이름이 5자 이하인가?")
