@@ -13,11 +13,11 @@ public class Application {
     }
 
     public static void inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-
         try {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String input = Console.readLine();
             String[] name = input.split(",");
+
             if (!checkLength(name)) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
             } else if (!duplicateName(name)) {
@@ -26,9 +26,9 @@ public class Application {
                 throw new IllegalArgumentException("문자만 입력하세요");
             }
         } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             System.exit(0);
         }
-
     }
 
     private static boolean checkLength(String[] arr) {
@@ -57,43 +57,39 @@ public class Application {
     private static boolean isNumberic(String[] arr) {
         boolean flag = true;
 
-        try {
-            for (String s : arr) {
-                for (char c : s.toCharArray()) {
-                    if (!Character.isDigit(c)) {
-                        flag = false;
-                        break;
-                    }
+        for (String s : arr) {
+            for (char c : s.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    flag = false;
+                    break;
                 }
             }
-        } catch (IllegalArgumentException e) {
-            System.out.println("문자만 입력하세요.");
-            System.exit(0);
         }
 
         return flag;
     }
 
-    public static void inputCount(){
-        System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
-
+    public static void inputCount() {
         try {
-            if(!checkisDigit(input)) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            String input = Console.readLine();
+
+            if (!checkisDigit(input)) {
                 throw new IllegalArgumentException("숫자만 입력하세요");
-            } else if(!checkNegative(input)) {
+            } else if (!checkNegative(input)) {
                 throw new IllegalArgumentException("양수만 입력하세요");
             }
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             System.exit(0);
         }
     }
 
-    private static boolean checkisDigit(String s){
+    private static boolean checkisDigit(String s) {
         boolean flag = true;
 
-        for(int i=0; i<s.length(); i++){
-            if(!Character.isDigit(s.charAt(i))){
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
                 flag = false;
             }
         }
@@ -101,11 +97,11 @@ public class Application {
         return flag;
     }
 
-    private static boolean checkNegative(String s){
+    private static boolean checkNegative(String s) {
         boolean flag = true;
         int result = Integer.parseInt(s);
 
-        if(result < 0) flag = false;
+        if (result < 0) flag = false;
 
         return flag;
     }
