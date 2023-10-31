@@ -8,7 +8,9 @@ import static racingcar.utils.ViewMessages.OUTPUT_WINNER_FORMAT;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.Name;
+import racingcar.domain.WinnerNames;
 
 public class OutputView {
 
@@ -17,8 +19,8 @@ public class OutputView {
         System.out.println(OUTPUT_RESULT);
     }
 
-    public static void printRacingStatus(List<Car> cars) {
-        cars.forEach(OutputView::printStatus);
+    public static void printRacingStatus(Cars cars) {
+        cars.getCars().forEach(OutputView::printStatus);
         System.out.println();
     }
 
@@ -27,9 +29,8 @@ public class OutputView {
         System.out.printf(OUTPUT_RESULT_FORMAT + "%n", car.getName(), position);
     }
 
-    public static void printRacingWinners(List<Name> winners) {
-        String[] names = winners.stream().map(Name::toString).toArray(String[]::new);
-        String winnerNames = String.join(OUTPUT_WINNER_DELIMITER, names);
-        System.out.printf(OUTPUT_WINNER_FORMAT, winnerNames);
+    public static void printRacingWinners(WinnerNames winnerNames) {
+        String winners = String.join(OUTPUT_WINNER_DELIMITER, winnerNames.getNames());
+        System.out.printf(OUTPUT_WINNER_FORMAT, winners);
     }
 }

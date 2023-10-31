@@ -1,11 +1,9 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Judgment;
-import racingcar.domain.Name;
-import racingcar.domain.RepeatCount;
+import racingcar.domain.RaceCount;
+import racingcar.domain.WinnerNames;
 import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,10 +11,10 @@ import racingcar.view.OutputView;
 public class RacingController {
     public void run() {
         Cars cars = setUpRaceCars();
-        RepeatCount repeatCount = setUpRaceCount();
+        RaceCount raceCount = setUpRaceCount();
         Judgment judgment = setUpJudgment(cars);
 
-        startRace(repeatCount, judgment);
+        startRace(raceCount, judgment);
         doneRace(judgment);
     }
 
@@ -25,30 +23,30 @@ public class RacingController {
         return new Cars(names);
     }
 
-    private RepeatCount setUpRaceCount() {
+    private RaceCount setUpRaceCount() {
         int repeatCount = InputView.inputRepeatCount();
-        return new RepeatCount(repeatCount);
+        return new RaceCount(repeatCount);
     }
 
     private Judgment setUpJudgment(Cars cars) {
         return new Judgment(cars, new RandomNumberGenerator());
     }
 
-    private void startRace(RepeatCount repeatCount, Judgment judgment) {
+    private void startRace(RaceCount raceCount, Judgment judgment) {
         OutputView.printRacingResult();
-        while (repeatCount.isRunable()) {
+        while (raceCount.isRunable()) {
             race(judgment);
-            repeatCount.disCount();
+            raceCount.disCount();
         }
     }
 
     private void race(Judgment judgment) {
-        List<Car> cars = judgment.judge();
+        Cars cars = judgment.judge();
         OutputView.printRacingStatus(cars);
     }
 
     private void doneRace(Judgment judgment) {
-        List<Name> winnerNames = judgment.award();
+        WinnerNames winnerNames = judgment.award();
         OutputView.printRacingWinners(winnerNames);
     }
 }
