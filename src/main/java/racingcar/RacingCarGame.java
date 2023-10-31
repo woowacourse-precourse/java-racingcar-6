@@ -17,12 +17,19 @@ public class RacingCarGame {
         return Arrays.asList(userInput.split(","));
     }
 
+    static void validateCarNameLength(List<String> carNamesList) {
+        for (int i = 0; i < carNamesList.size(); i++) {
+            if (carNamesList.get(i).length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     static void printAskingForTrialNumberMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
     static int convertStringToInt(String userInput) {
-        return Integer.parseInt(userInput);
     }
 
     static void printExecutionResult() {
