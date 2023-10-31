@@ -91,4 +91,16 @@ public class RacingTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력해주세요.");
     }
+
+    @Test
+    @DisplayName("성공 : 진행회수에 문자열 기입")
+    public void 진행회수에_문자열_기입() {
+        String input = "안녕";
+
+        final Racing racing = new Racing();
+
+        assertThatThrownBy(() -> racing.getTurn(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자만 입력해주세요.");
+    }
 }
