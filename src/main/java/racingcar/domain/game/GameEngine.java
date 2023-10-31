@@ -9,21 +9,21 @@ import racingcar.view.OutputView;
 public class GameEngine {
     private static final CarInfo carInfo = CarInfo.getInstance();
 
-    public void moveCarsOfUser() {
+    public void processTurn() {
         carInfo.getAllCarInfo().stream()
                 .map(currentCar -> (new CarMovement(currentCar)).car())
                 .forEach(OutputView::printStatusOfRaceCar);
     }
 
-    public List<Car> findWinnerCar() {
-        List<Car> carList = carInfo.getAllCarInfo();
+    public List<Car> findWinner() {
+        List<Car> winnerList = carInfo.getAllCarInfo();
 
-        int maxPosition = carList.stream()
+        int maxPosition = winnerList.stream()
                 .mapToInt(Car::position)
                 .max()
                 .orElseThrow(() -> new IllegalStateException("차량 목록이 비어있습니다."));
 
-        return carList.stream()
+        return winnerList.stream()
                 .filter(car -> car.position() == maxPosition)
                 .toList();
     }
