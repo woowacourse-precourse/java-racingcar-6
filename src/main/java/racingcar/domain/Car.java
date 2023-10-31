@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.constant.NumberConstant.CAN_FORWARD_NUMBER;
+import static racingcar.enums.CarConstant.CAN_FORWARD_NUMBER;
 
 public class Car {
     private final String name;
@@ -16,7 +16,7 @@ public class Car {
     }
 
     public boolean canGo(int number) {
-        return number >= CAN_FORWARD_NUMBER;
+        return number >= CAN_FORWARD_NUMBER.getNumber();
     }
 
     public boolean isWinner(int winnerPosition) {
