@@ -30,13 +30,13 @@ public class InputView {
     }
 
     private void checkCarNameNotEmpty(String carName) {
-        if(carName.isEmpty()) {
+        if (carName.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 앞뒤 공백을 제외한 1자 이상으로 입력해야 합니다.");
         }
     }
 
     private void checkCarNamesNotEmpty(List<String> carNames) {
-        if(carNames.isEmpty()) {
+        if (carNames.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해야 합니다.");
         }
     }
