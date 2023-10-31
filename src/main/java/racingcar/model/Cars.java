@@ -41,7 +41,7 @@ public class Cars {
         String[] carNamesArray = carNames.split(Common.SEPARATOR.getStringValue());
         if (!CommonValidator.isPositive(carNamesArray.length))
             throw new IllegalArgumentException(ErrorMessages.SEPARATOR_ERROR.getMessage());
-        if (!CommonValidator.isDuplicate(carNamesArray))
+        if (CommonValidator.isDuplicate(carNamesArray))
             throw new IllegalArgumentException(ErrorMessages.DUPLICATE_NAME_ERROR.getMessage());
     }
 }

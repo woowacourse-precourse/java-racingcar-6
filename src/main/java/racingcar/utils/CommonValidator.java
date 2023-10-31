@@ -34,6 +34,6 @@ public class CommonValidator {
 
     public static boolean isDuplicate(String[] input) {
         int inputLength = input.length;
-        return inputLength == new HashSet<>(Arrays.asList(input)).size();
+        return inputLength != new HashSet<>(Arrays.asList(input)).size();
     }
 }
