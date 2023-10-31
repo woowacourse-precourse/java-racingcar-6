@@ -1,6 +1,6 @@
 package racingcar.view.message;
 
-public class GameMessage {
+public final class GameMessage {
     private GameMessage() {
 
     }
