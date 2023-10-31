@@ -5,6 +5,8 @@ public interface ViewInterface {
 
     public void moveCar();
 
+    public void finalResult();
+
 
 
 }

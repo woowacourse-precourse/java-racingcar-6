@@ -43,6 +43,14 @@ public class View implements ViewInterface{
         }
 
     }
+
+    @Override
+    public void finalResult() {
+
+
+
+    }
+
     private void numberOfResult(List<Car> cars){
         for(Car car : cars){
             String str = "-";
