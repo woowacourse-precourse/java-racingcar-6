@@ -41,4 +41,39 @@ public class GameViewTest {
                 .asList()
                 .contains("t", "t1", "T3S", "Test", "T2st0");
     }
+
+    @Test
+    void 시도_횟수_올바른_형식() {
+        InputValidator inputValidator = new NumberAttemptsValidator();
+        assertThatCode(() -> {
+            inputValidator.validate("1230");
+        })
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 시도_횟수_숫자_아님() {
+        InputValidator inputValidator = new NumberAttemptsValidator();
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+                    inputValidator.validate("NaN");
+                })
+                .withMessageContaining("Invalid Format");
+    }
+
+    @Test
+    void 시도_횟수_음수() {
+        InputValidator inputValidator = new NumberAttemptsValidator();
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+                    inputValidator.validate("-1");
+                })
+                .withMessageContaining("Invalid Value");
+    }
+
+    @Test
+    void 시도_횟수_파싱() {
+        InputParser inputParser = new NumberAttemptsParser();
+        assertThat(inputParser.parse("123"))
+                .isInstanceOf(Integer.class)
+                .isEqualTo(123);
+    }
 }
