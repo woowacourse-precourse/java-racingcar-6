@@ -3,12 +3,15 @@ package racingcar.control;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class GameProcess {
     private final ArrayList<Car> cars = new ArrayList<>();
+    private int countOfCars;
     private int raceTime;
     public void inputName() {
         String line = readLine();
@@ -22,6 +25,7 @@ public class GameProcess {
                 throw new IllegalArgumentException("이름의 길이는 5자로 입력해주세요.");
             }
         }
+        this.countOfCars = names.length;
         return names;
     }
 
@@ -60,4 +64,26 @@ public class GameProcess {
         }
     }
 
+    public void resultGame() {
+        sortCars();
+        System.out.print(cars.get(0).getCarName());
+        for (int i = 1; i < this.countOfCars; i++) {
+            printWinner(i);
+        }
+    }
+
+    private void printWinner(int i) {
+        if (cars.get(i).getMovingDistance() == cars.get(0).getMovingDistance()) {
+            System.out.print(", " + cars.get(i).getCarName());
+        }
+    }
+
+    private void sortCars() {
+        Collections.sort(cars, new Comparator<Car>() {
+            @Override
+            public int compare(Car car1, Car car2) {
+                return car1.getMovingDistance()-car2.getMovingDistance();
+            }
+        });
+    }
 }

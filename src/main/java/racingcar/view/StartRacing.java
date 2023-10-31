@@ -36,5 +36,6 @@ public class StartRacing {
 
     private void endGame() {
         System.out.print("최종 우승자 : ");
+        gameProcess.resultGame();
     }
 }
