@@ -11,7 +11,7 @@ public class Car {
     }
 
     public void move(int going) {
-        this.location += going;
+        if ((this.location + going)>=0){this.location += going;}
     }
 
     private void checkCarName(String name) {
