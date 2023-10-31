@@ -22,7 +22,7 @@ public class CarTest extends NsTest {
         testCar = new Car(TEST_CAR_NAME);
     }
 
-    private void 차_이동_메소드_시나리오_틀(int randomNumber, int expectedPosition) {
+    private void 차_이동_메소드_시나리오(int randomNumber, int expectedPosition) {
         Car car = new Car(TEST_CAR_NAME) {
             @Override
             protected int createRandomNumber() {
@@ -35,30 +35,27 @@ public class CarTest extends NsTest {
 
     @Test
     public void 차_이동_메소드_시나리오_숫자_0() {
-        차_이동_메소드_시나리오_틀(0, 0);
+        차_이동_메소드_시나리오(0, 0);
     }
 
     @Test
     public void 차_이동_메소드_시나리오_숫자_3() {
-
-        차_이동_메소드_시나리오_틀(3, 0);
+        차_이동_메소드_시나리오(3, 0);
     }
 
     @Test
     public void 차_이동_메소드_시나리오_숫자_4() {
-        차_이동_메소드_시나리오_틀(4, 1);
+        차_이동_메소드_시나리오(4, 1);
     }
 
     @Test
     public void 차_이동_메소드_시나리오_숫자_9() {
-        차_이동_메소드_시나리오_틀(9, 1);
+        차_이동_메소드_시나리오(9, 1);
     }
 
     @Test
     void 차_이름_호출_메소드() {
-        String testCarName = TEST_CAR_NAME;
-
-        assertEquals(testCar.getName(), testCarName);
+        assertEquals(testCar.getName(), TEST_CAR_NAME);
     }
 
     @Test
@@ -92,7 +89,6 @@ public class CarTest extends NsTest {
     void 차_이름_길이_초과_예외_처리() {
         assertThrows(IllegalArgumentException.class, () -> new Car(" 123141123"));
     }
-
 
     @Override
     protected void runMain() {
