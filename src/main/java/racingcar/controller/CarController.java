@@ -3,6 +3,7 @@ package racingcar.controller;
 import static racingcar.enumType.message.InputMessage.GET_TRY_COUNT_MESSAGE;
 import static racingcar.enumType.message.InputMessage.SAVE_CAR_NAMES_MESSAGE;
 import static racingcar.enumType.message.OutputMessage.RESULT_MESSAGE;
+import static racingcar.enumType.message.OutputMessage.WINNER_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -46,6 +47,8 @@ public class CarController {
     }
 
     public void getWinner() {
-        System.out.println(carService.createWinner());
+        StringBuilder winner = new StringBuilder();
+        winner.append(WINNER_MESSAGE.getValue()).append(" : ");
+        System.out.println(carService.createWinner(winner));
     }
 }

@@ -4,7 +4,6 @@ import static racingcar.enumType.number.NumberConstant.FORMAT_NUMBER;
 import static racingcar.enumType.number.NumberConstant.RANDOM_MAX_RANGE;
 import static racingcar.enumType.number.NumberConstant.RANDOM_MIN_NUMBER;
 import static racingcar.enumType.number.NumberConstant.RANDOM_MIN_RANGE;
-import static racingcar.enumType.message.OutputMessage.WINNER_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
@@ -48,12 +47,10 @@ public class CarService {
         return roundRaceResults;
     }
 
-    public StringBuilder createWinner() {
+    public StringBuilder createWinner(StringBuilder winner) {
         List<Car> cars = carRepository.getCars();
         int highestScore = findHighestScore(cars);
         List<Car> carsWithHighestScore = createCarsWithHighestScore(cars, highestScore);
-        StringBuilder winner = new StringBuilder();
-        winner.append(WINNER_MESSAGE.getValue()).append(" : ");
         for (Car car : carsWithHighestScore) {
             winner.append(car.createWinner());
         }
