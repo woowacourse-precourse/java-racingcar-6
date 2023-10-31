@@ -31,11 +31,38 @@ public class Controller {
         }
     }
 
+    public void executeTrial() {
+        for (Car car : this.racingCars) {
+            car.determineCanGo();
+            car.updateDistance();
+        }
+    }
+
     public void displayResult() {
         for (Car car : this.racingCars) {
             System.out.printf("%s : %s\n",car.getName(),car.getDistance());
         }
         System.out.print("\n");
+    }
+
+    public String getWinners() {
+        int maxDistance = 0;
+        StringBuilder winners = new StringBuilder();
+
+        for (Car car : racingCars) {
+            if (car.getDistance().length() > maxDistance) {
+                maxDistance = car.getDistance().length();
+            }
+        }
+
+        for (Car car : racingCars) {
+            if (car.getDistance().length() == maxDistance) {
+                winners.append(car.getName());
+                winners.append(", ");
+            }
+        }
+
+        return winners.substring(0, winners.length()-2);
     }
 
 }

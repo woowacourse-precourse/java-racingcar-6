@@ -18,13 +18,13 @@ public class Car {
         return this.distance;
     }
 
-    private void determineCanGo() {
+    public void determineCanGo() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
 
         this.canGo = randomNumber >= 4;
     }
 
-    private void updateDistance() {
+    public void updateDistance() {
         if (this.canGo) {
             this.distance += "-";
         }
