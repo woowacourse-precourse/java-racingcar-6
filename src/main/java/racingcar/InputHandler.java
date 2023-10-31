@@ -14,21 +14,21 @@ public class InputHandler {
     private static final String BLANK = " ";
     private static int MAX_LENGTH = 5;
     private static final String NUMBER = "[0-9]";
-    public String userInput() {
+    public static String userInput() {
         return Console.readLine();
     }
 
-    public String[] splitToArray(String input) {
+    public static String[] splitToArray(String input) {
         validateCarNames(input);
         return input.split(",");
     }
 
-    public int convertToNumber(String input) {
+    public static int convertToNumber(String input) {
         validateTrialCount(input);
         return Integer.parseInt(input);
     }
 
-    public void validateCarNames(String target) {
+    public static void validateCarNames(String target) {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
@@ -49,7 +49,7 @@ public class InputHandler {
         }
     }
 
-    public void validateTrialCount(String target) {
+    public static void validateTrialCount(String target) {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
@@ -61,17 +61,17 @@ public class InputHandler {
         }
     }
 
-    public boolean isBothEndPattern(String target) {
+    public static boolean isBothEndPattern(String target) {
         return (Pattern.matches(COMMA+"[^COMMA]+", target)
                 || Pattern.matches("[^COMMA]+"+COMMA, target));
     }
 
-    public boolean hasLengthExcess(String target) {
+    public static boolean hasLengthExcess(String target) {
         return Arrays.stream(target.split(COMMA))
                 .allMatch(each -> each.length() <= MAX_LENGTH);
     }
 
-    public boolean hasDuplicates(String target) {
+    public static boolean hasDuplicates(String target) {
         Stream<String> stream = Arrays.stream(target.split(COMMA));
         List<String> list = stream.collect(Collectors.toList());
         Set<String> set = stream.collect(Collectors.toSet());
