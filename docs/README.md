@@ -15,8 +15,8 @@
 
 
 ## 기능 목록
-- [ ] 자동차에 사용할 이름을 입력받는다. -UserCar#inputCarName()
-    - [ ] 5자 이내인지 확인한다. -UserCar#checkCorrectName()
+- [x] 자동차에 사용할 이름을 입력받는다. -UserCar#inputCarName()
+    - [ ] 5자 이내인지 확인한다. -UserCarService#checkCorrectName()
 - [ ] 이동의 횟수(라운드 횟수)를 입력한다. -RacingCarGame#inputRoundNumber()
 - [ ] 자동차 마다 0에서 9사이에서 무작위 값을 생성한다. -RacingCarGame#generateCarNumber()
   - [ ] 4이상이면 전진하여 이동한 거리를 저장한다. -RacingCarGame#decideForward()
