@@ -27,7 +27,7 @@ public class Cars {
 
     public void broadcastGameRound(Car car){
         // TODO: 위치를 고민 해 봐야 할 메서드
-        OutputView.broadcastUserBoardOfRound(car);
+        OutputView.broadcastCarRoundScore(car);
     }
 
     private ArrayList<Car> getMaxOfScores(){

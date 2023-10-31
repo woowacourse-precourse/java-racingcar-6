@@ -16,7 +16,7 @@ public class OutputView {
         System.out.println(GAME_RESULT.getMessage());
     }
 
-    public static void broadcastUserBoardOfRound(Car car) {
+    public static void broadcastCarRoundScore(Car car) {
         // TODO: getter 없이 쓸 수 있는 방법 고민 해보기
         System.out.printf("%s %s ", car.getCarName(), DISPLAY_USER_SCORE_SIGN.getMessage());
         for(int i=0; i<car.getScore(); i++){
