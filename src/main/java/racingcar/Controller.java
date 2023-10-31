@@ -52,9 +52,9 @@ public class Controller {
         writeWinner();
     }
 
-    private List<String> calculateOutput() {
+    private List<Name> calculateOutput() {
         int max = 0;
-        List<String> winnerList = new ArrayList<>();
+        List<Name> winnerList = new ArrayList<>();
         for(Car car : cars.carList){
             int forward = car.forward;
             if(max <= forward){
@@ -69,7 +69,7 @@ public class Controller {
     }
 
     private void writeWinner(){
-        List<String> winnerList = calculateOutput();
+        List<Name> winnerList = calculateOutput();
         OutputView.printWinner(winnerList);
     }
 
