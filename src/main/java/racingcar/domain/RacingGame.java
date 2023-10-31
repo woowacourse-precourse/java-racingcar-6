@@ -9,7 +9,7 @@ import java.util.List;
 public class RacingGame {
 
     private List<String> resultList = new ArrayList<>();
-
+    private List<String> winner = new ArrayList<>();
 
     private RacingGame() {
 
@@ -33,6 +33,24 @@ public class RacingGame {
 
     }
 
+    public void chooseWinners(List<String> resultList) {
+
+        List<String> cars = Inputs.getCars();
+        int maxLen = 0;
+        for (int i=0; i<resultList.size(); i++) {
+            if( resultList.get(i).length() > maxLen) {
+                maxLen = resultList.get(i).length();
+                winner.clear();
+                winner.add(cars.get(i));
+                continue;
+            }
+            if(resultList.get(i).length() == maxLen) {
+                winner.add(cars.get(i));
+                continue;
+            }
+        }
+
+    }
 
 
 
