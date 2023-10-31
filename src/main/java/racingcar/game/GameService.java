@@ -64,12 +64,12 @@ public class GameService {
     }
 
 
-    private boolean shouldIncreaseStepCount() {
+    public boolean shouldIncreaseStepCount() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
-    
-    private void printFinalWinner() {
+
+    public void printFinalWinner() {
         StringBuilder sb = new StringBuilder("최종 우승자 : ");
 
         for (var car : carList) {
