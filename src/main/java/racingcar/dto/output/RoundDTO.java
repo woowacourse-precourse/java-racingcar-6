@@ -23,8 +23,11 @@ public final class RoundDTO {
         return new RoundDTO(car.getName(), car.getDistance());
     }
 
-    @Override
-    public String toString() {
-        return name + " : " + "-".repeat(Math.max(0, distance));
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

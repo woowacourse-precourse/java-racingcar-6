@@ -13,8 +13,7 @@ public final class WinnerDTO {
         return new WinnerDTO(winnerNames);
     }
 
-    @Override
-    public String toString() {
-        return "최종 우승자 : " + String.join(",", names);
+    public List<String> getNames() {
+        return this.names;
     }
 }
