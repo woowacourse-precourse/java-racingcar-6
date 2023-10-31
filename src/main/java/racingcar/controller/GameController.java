@@ -12,7 +12,7 @@ public class GameController {
     private CarView view;
 
     public void startGame() {
-        System.out.print("Name of the racing cars (distinguish by ','): ");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         ArrayList<String> carNames = new ArrayList<>();
         for (String name : input.split(",")) {
@@ -20,7 +20,7 @@ public class GameController {
         }
         race = new Race(carNames);
 
-        System.out.print("How many times do the cars move?: ");
+        System.out.println("시도할 회수는 몇회인가요?");
         int moves = Integer.parseInt(Console.readLine());
 
         for (int i = 0; i < moves; i++) {
@@ -28,6 +28,7 @@ public class GameController {
             view.printRaceResult(race.getCars());
         }
 
+        System.out.println("실행 결과");
         ArrayList<Car> winners = getWinners();
         view.printWinners(winners);
     }

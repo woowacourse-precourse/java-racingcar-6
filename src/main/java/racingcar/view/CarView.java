@@ -13,6 +13,7 @@ public class CarView {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void printWinners(ArrayList<Car> winners) {
@@ -20,6 +21,6 @@ public class CarView {
         for (Car car : winners) {
             winnerNames.add(car.getName());
         }
-        System.out.println("The winners: " + String.join(", ", winnerNames));
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }
