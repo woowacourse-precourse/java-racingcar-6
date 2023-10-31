@@ -3,7 +3,7 @@ package racingcar.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static racingcar.constant.ErrorMessage.ENTER_ONLY_NUMBER;
+import static racingcar.constant.ErrorMessage.ENTER_ONLY_NATURAL_NUMBER;
 import static racingcar.constant.ErrorMessage.ENTER_PROPER_RANGE_NUMBER;
 
 
@@ -12,7 +12,7 @@ public class MoveNumberValidator {
 
     public static void validate(String moveNumber) {
         if (!isNumeric(moveNumber)) {
-            throw new IllegalArgumentException(ENTER_ONLY_NUMBER);
+            throw new IllegalArgumentException(ENTER_ONLY_NATURAL_NUMBER);
         }
         if (isOutOfRange(moveNumber)) {
             throw new IllegalArgumentException(ENTER_PROPER_RANGE_NUMBER);
