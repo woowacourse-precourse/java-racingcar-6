@@ -8,7 +8,11 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
 
 public class UserInput {
-    Converter converter = new Converter();
+    private final Converter converter;
+
+    public UserInput(Converter converter) {
+        this.converter = converter;
+    }
 
     public int getAttemptsNumber() {
         println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);

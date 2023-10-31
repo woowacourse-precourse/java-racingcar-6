@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class WinnerResult {
-    UserInput ui = new UserInput();
+    private final UserInput ui;
+
+    public WinnerResult(UserInput ui) {
+        this.ui = ui;
+    }
 
     public void printWinner(LinkedHashMap<String, String> carNameHashMap) {
         int largestMove = getWinnerMovementCriteria(carNameHashMap);

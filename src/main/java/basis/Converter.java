@@ -7,7 +7,11 @@ import java.util.LinkedHashMap;
 import validation.UserInputValidator;
 
 public class Converter {
-    UserInputValidator userInputValidator = new UserInputValidator();
+    private final UserInputValidator userInputValidator;
+
+    public Converter(UserInputValidator userInputValidator) {
+        this.userInputValidator = userInputValidator;
+    }
 
     public int wordToInt(String word) {
         try {
