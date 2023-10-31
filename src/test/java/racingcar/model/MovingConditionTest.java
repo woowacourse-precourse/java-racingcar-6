@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("움직이는 조건 객체에 대해 ")
 class MovingConditionTest {
 
-    MovingCondition movingCondition = new MovingCondition();
+    private final MovingCondition movingCondition = new MovingCondition();
 
     @Test
     @DisplayName("레이싱 카는 움직일 수도 있고 안 움직일 수도 있다.")

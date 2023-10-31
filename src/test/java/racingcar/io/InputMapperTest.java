@@ -10,11 +10,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("입력 변환 객체에 대해")
 class InputMapperTest {
 
-    InputMapper inputMapper = new InputMapper();
+    private final InputMapper inputMapper = new InputMapper();
 
     @Test
     @DisplayName("자동차 이름들이 Cars객체로 변환한다.")
-    void names_to_Cars() {
+    void names_to_cars() {
         //given
         Cars cars = inputMapper.toCars("pobi,woni");
 
