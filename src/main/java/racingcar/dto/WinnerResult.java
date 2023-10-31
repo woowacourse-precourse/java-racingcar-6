@@ -7,10 +7,10 @@ import racingcar.model.Winner;
 
 public class WinnerResult {
 
-    private final List<String> winners;
+    private final List<String> winnerResult;
 
     public WinnerResult(Winner winner) {
-        this.winners = getNames(winner.getWinners());
+        this.winnerResult = getNames(winner.getWinners());
     }
 
     private List<String> getNames(List<Car> winners) {
@@ -20,6 +20,6 @@ public class WinnerResult {
     }
 
     public List<String> getWinners() {
-        return winners;
+        return winnerResult;
     }
 }
