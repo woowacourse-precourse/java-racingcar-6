@@ -11,13 +11,13 @@
 - [X] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.<br>
 
 ## 추가 요구 사항
-- [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.<br>
+- [X] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.<br>
 - [X] 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.<br>
 - [X] 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.<br>
-- [ ] 3항 연산자를 쓰지 않는다.<br>
-- [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.<br>
-- [ ] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.<br>
-- [ ] 테스트 도구 사용법이 익숙하지 않다면 test/java/study를 참고하여 학습한 후 테스트를 구현한다.<br>
+- [X] 3항 연산자를 쓰지 않는다.<br>
+- [X] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.<br>
+- [X] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.<br>
+- [X] 테스트 도구 사용법이 익숙하지 않다면 test/java/study를 참고하여 학습한 후 테스트를 구현한다.<br>
 
 ## 라이브러리
 - [X] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.<br>
@@ -91,3 +91,45 @@
   - 게임 시작 (자동차 이름, 이동 횟수 받아서 초기화)
   - 게임 진행 (자동차 이동 시킴)
   - 우승자 판별
+- -----------
+
+## 디렉토리 구조
+
+
+docs
+    ├─ README.md
+    ├─ study_MVC.md
+
+
+
+src ├─main
+    │  └─java
+    │      └─racingcar
+    │          │  Application.java
+    │          │
+    │          ├─Controller
+    │          │      RacingCar.java
+    │          │
+    │          ├─Model
+    │          │      Car.java
+    │          │
+    │          ├─Validator
+    │          │      NumberValidator.java
+    │          │      StringValidator.java
+    │          │
+    │          └─View
+    │                  InputView.java
+    │                  OutputView.java
+    │
+    └─test
+    └─java
+    ├─racingcar
+    │      ApplicationTest.java
+    │      CarTest.java
+    │      DisplayTest.java
+    │      NumberTest.java
+    │      RacingCarTest.java
+    │      StringTest.java
+    │
+    └─study
+    StringTest.java
