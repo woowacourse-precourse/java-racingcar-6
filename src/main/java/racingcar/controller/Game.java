@@ -14,7 +14,7 @@ public class Game {
         cars = new Cars(InputView.readCarNames());
         askGameRounds();
         OutputView.startGameResult();
-        mainLogic();
+        startRace();
         result();
     }
 
@@ -23,7 +23,7 @@ public class Game {
         round = Parser.parsingInteger(InputView.readLine());
     }
 
-    private void mainLogic(){
+    private void startRace(){
         for(int count = STARTING_POINT.getValue(); count < round; count++){
             cars.roundRace();
             OutputView.theEndOfRound();
