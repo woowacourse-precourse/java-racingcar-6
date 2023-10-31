@@ -2,20 +2,21 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class PromptHandler {
     public static void promptOutput(String message) {
         System.out.println(message);
     }
 
+    public static void promptOutputWinner(List<String> winner) {
+        System.out.println(GameMessage.FINAL_WINNER.getMessage() + String.join(", ", winner));
+    }
+
     public static String[] promptInputCarsName() {
         String input = Console.readLine();
-        String[] carsName = input.split(",");
 
-        if (isOverCarsCount(carsName.length)) {
-            throw new IllegalArgumentException("자동차의 갯수가 초과되었습니다.");
-        }
-
-        return carsName;
+        return input.split(",");
     }
 
     public static int promptInputRoundCount() {
@@ -25,9 +26,5 @@ public class PromptHandler {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 입력입니다.");
         }
-    }
-
-    private static boolean isOverCarsCount(int number) {
-        return number > GameConfig.MAX_CAR_COUNT.getValue();
     }
 }
