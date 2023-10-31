@@ -30,15 +30,15 @@ public class CarRacing {
     public void start() {
         System.out.println(PROMPT_ENTER_CAR_NAME);
         requestCarNames();
-        validateCarNames(carNames);
 
         getCarNamesArray(carNames);
-        validateCarNamesArray(carNamesArray);
 
+        getUserCount();
     }
 
     public void requestCarNames() {
         carNames = Console.readLine();
+        validateCarNames(carNames);
     }
 
     public void validateCarNames(String carNames) {
@@ -76,7 +76,8 @@ public class CarRacing {
 
     public void getCarNamesArray(String carNames) {
         String[] carNamesStringArray = carNames.split(",");
-        List<String> carNamesArray = new ArrayList<>(Arrays.asList(carNamesStringArray));
+        carNamesArray = new ArrayList<>(Arrays.asList(carNamesStringArray));
+        validateCarNamesArray(carNamesArray);
     }
 
     public void validateCarNamesArray(List<String> carNamesArray) {
@@ -100,4 +101,23 @@ public class CarRacing {
             }
         }
     }
+
+    public void getUserCount() {
+        String stringCount = Console.readLine();
+        validateUserCount(stringCount);
+        userCount = Integer.parseInt(stringCount);
+    }
+
+    public void validateUserCount(String stringCount) {
+        if (stringCount.charAt(0) == '0') {
+            throw new IllegalArgumentException(ERROR_WRONG_COUNT);
+        }
+        for (int i = 1; i < stringCount.length(); i++) {
+            if (!(stringCount.charAt(i) >= '0' && stringCount.charAt(i) <= '9')) {
+                throw new IllegalArgumentException(ERROR_WRONG_COUNT);
+            }
+        }
+    }
+
+
 }
