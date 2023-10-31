@@ -53,15 +53,22 @@ public class Position extends Car {
     }
 
     public static List<Position> updatePositions(Race race) {
-        while (race.positionValues().get(0).distanceValue() < race.tryValue()
-                && race.positionValues().get(1).distanceValue() < race.tryValue()) {
-            for (Position position : race.positionValues()) {
-                int randomDistance = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
-                position.move(randomDistance);
-                System.out.println(position.positionValue());
-            }
+        while (raceIsInProgress(race)) {
+            updateAllPositions(race);
             System.out.println();
         }
         return race.positionValues();
+    }
+
+    private static boolean raceIsInProgress(Race race) {
+        return race.positionValues().stream().allMatch(position -> position.distanceValue() < race.tryValue());
+    }
+
+    private static void updateAllPositions(Race race) {
+        race.positionValues().forEach(position -> {
+            int randomDistance = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+            position.move(randomDistance);
+            System.out.println(position.positionValue());
+        });
     }
 }
