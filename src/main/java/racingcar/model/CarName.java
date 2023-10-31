@@ -9,7 +9,7 @@ public class CarName {
         this.carName = carName;
     }
 
-    public CarName makeCarName(List<String> carName) {
+    public static CarName makeCarName(List<String> carName) {
         return new CarName(carName);
     }
 

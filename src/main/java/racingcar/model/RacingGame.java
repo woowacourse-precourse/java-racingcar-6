@@ -12,8 +12,9 @@ public class RacingGame {
 
     public void startGame() {
         View.askCarName();
-        carName = carName.makeCarName(View.readCarName());
-        carDistance.setStartPoint();
+        carName = CarName.makeCarName(View.readCarName());
+        carDistance = CarDistance.makeCarDistance();
+        carDistance.setStartPoint(carName.getSize());
         View.askCount();
         this.count = Controller.readCount(View.readInput());
         View.startRace();

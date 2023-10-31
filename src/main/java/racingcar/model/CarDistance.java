@@ -1,16 +1,24 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarDistance {
     private List<Integer> carDistance;
 
-    public CarDistance(List<Integer> playerDistance) {
-        this.carDistance = playerDistance;
+    private CarDistance(List<Integer> carDistance) {
+        this.carDistance = carDistance;
     }
 
-    public CarDistance makePlayerDistance(List<Integer> playerDistance) {
-        return new CarDistance(playerDistance);
+    public static CarDistance makeCarDistance() {
+        List<Integer> distance = new ArrayList<>();
+        return new CarDistance(distance);
+    }
+
+    public void setStartPoint(int index) {
+        for (int i = 0; i < index; i++) {
+            carDistance.add(i, 0);
+        }
     }
 
     public int getDistanceOf(int index) {
@@ -23,12 +31,6 @@ public class CarDistance {
 
     public int getSize() {
         return carDistance.size();
-    }
-
-    public void setStartPoint() {
-        for (int i = 0; i < carDistance.size(); i++) {
-            carDistance.add(i, 0);
-        }
     }
 
     public void setDistance(int index) {
