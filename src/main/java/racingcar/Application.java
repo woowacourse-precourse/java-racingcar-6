@@ -19,7 +19,12 @@ public class Application {
             goTime.add(0);
         }
         System.out.println("시도할 회수는 몇회인가요?");
-        int runTime = Integer.parseInt(readLine());
+        int runTime;
+        try {
+            runTime = Integer.parseInt(readLine());
+        }catch (IllegalArgumentException ex){
+            return;
+        }
         System.out.println();
         System.out.println("실행 결과");
         for(int i=0; i<runTime; i++){
