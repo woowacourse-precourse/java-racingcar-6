@@ -20,17 +20,17 @@ public class CarRaceGameController {
     public void run() {
         Car car = raceGameService.startGame(inputView.userInputCarName());
         carMoveResult(car, Integer.parseInt(inputView.userInputGameCount()));
-        printWinnerResult(car, raceGameService.findWinner(car));
+        printWinnerResult(raceGameService.findWinners(car, car.findMaxPosition()));
     }
 
     private void carMoveResult(Car car, int count) {
         for (int i=0; i<count; i++) {
             raceGameService.race(car);
-            OutputView.outputCarMoveResult(car);
+            OutputView.outputCarMoveResult(car.getCarData());
         }
     }
 
-    private void printWinnerResult(Car car, List<Integer> winnerIndex) {
-        OutputView.outputWinnerResult(car, winnerIndex);
+    private void printWinnerResult(List<String> winners) {
+        OutputView.outputWinnerResult(winners);
     }
 }
