@@ -1,6 +1,10 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Application {
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -25,10 +29,10 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
 
-        Car[] carList = new Car[nameList.length];
+        List<Car> carList = new ArrayList<>();
 
-        for (int i = 0; i < nameList.length; i++){
-            carList[i] = new Car(nameList[i]);
+        for (String s : nameList) {
+            carList.add(new Car(s));
         }
 
         for (int i = 0; i < gameRound; i++) {
@@ -38,12 +42,30 @@ public class Application {
             }
             System.out.println();
         }
+
+        int maxMoveCount = Integer.MIN_VALUE;
+        for (Car car : carList) {
+            if (car.getMoveCount() > maxMoveCount) {
+                maxMoveCount = car.getMoveCount();
+            }
+        }
+
+        List<String> winners = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getMoveCount() == maxMoveCount) {
+                winners.add(car.getName());
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", winners));
+
     }
 }
 
 class Car{
     private String name;
-    private int moveCount;
+    public int moveCount;
     Car(String name){
         this.name = name;
         moveCount = 0;
@@ -54,5 +76,11 @@ class Car{
     }
     public void gameResultPrint(){
         System.out.println(name + " : " + "-".repeat(moveCount));
+    }
+    public int getMoveCount(){
+        return moveCount;
+    }
+    public String getName(){
+        return name;
     }
 }
