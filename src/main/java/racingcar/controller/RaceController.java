@@ -17,10 +17,7 @@ public class RaceController {
     }
 
     private boolean isMoved() {
-        if (getRandomNumber() >= MOVE_CRITERIA) {
-            return true;
-        }
-        return false;
+        return getRandomNumber() >= MOVE_CRITERIA;
     }
 
     public void addRecord(Car car) {
