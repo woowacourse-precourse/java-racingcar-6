@@ -5,17 +5,17 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
-import racingcar.GameController;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
-public class GameControllerTest {
-    private GameController gameController;
+public class CarsTest {
+    private Cars cars;
     private List<Car> actual;
 
     @BeforeEach
     void initTest() {
-        gameController = new GameController();
         actual = Arrays.asList(new Car("pobi"), new Car("jiho"), new Car("java"));
+        cars = new Cars(actual);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class GameControllerTest {
         actual.get(0).moveForward();
         List<Car> expected = Arrays.asList(actual.get(0));
 
-        Assertions.assertThat(gameController.compareWinner(actual)).isEqualTo(expected);
+        Assertions.assertThat(cars.compareWinner()).isEqualTo(expected);
     }
 
     @Test
@@ -36,6 +36,6 @@ public class GameControllerTest {
         actual.get(1).moveForward();
         List<Car> expected = Arrays.asList(actual.get(0), actual.get(1));
 
-        Assertions.assertThat(gameController.compareWinner(actual)).isEqualTo(expected);
+        Assertions.assertThat(cars.compareWinner()).isEqualTo(expected);
     }
 }
