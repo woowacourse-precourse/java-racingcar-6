@@ -21,6 +21,4 @@ public class RacerManager {
         }
         return racers;
     }
-
-
 }
