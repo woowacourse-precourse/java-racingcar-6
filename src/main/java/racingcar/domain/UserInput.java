@@ -1,15 +1,10 @@
 package racingcar.domain;
 
-import static racingcar.exception.InputException.checkCarCount;
-import static racingcar.exception.InputException.checkEmpty;
-import static racingcar.exception.InputException.checkFormat;
-import static racingcar.exception.InputException.checkLimit;
-import static racingcar.exception.InputException.checkSameName;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.exception.InputException;
+import racingcar.exception.CountException;
+import racingcar.exception.NameException;
 
 public class UserInput {
 
@@ -19,23 +14,22 @@ public class UserInput {
 
         List<String> carNamesList = Arrays.asList(inputStr.split(","));
 
-        InputException.validateInput(carNamesList);
+        NameException.validateInput(carNamesList);
 
         return carNamesList;
     }
 
 
-
     // 자동차 경주 게임 플레이 횟수
-    public static int inputGameCount(){
+    public static int inputGameCount() {
 
         System.out.println("시도할 횟수는 몇회인가요?");
         int count = Integer.parseInt(Console.readLine());
 
-        InputException.isNotNumber(count);
-        InputException.isNotPositiveNumber(count);
+        CountException.isNotNumber(count);
+        CountException.isNotPositiveNumber(count);
 
-        return count ;
+        return count;
     }
 
 }
