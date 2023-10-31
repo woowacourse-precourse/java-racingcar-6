@@ -32,11 +32,8 @@ public class Cars {
     }
 
     private static void validateDuplicatedName(String[] carNames) {
-        Set<String> names = new HashSet<>();
-        boolean hasDuplicates = Arrays.stream(carNames)
-                .anyMatch(name -> !names.add(name));
-
-        if (hasDuplicates) {
+        long nameCount = Arrays.stream(carNames).distinct().count();
+        if (carNames.length != nameCount) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_DUPLICATED_NAME.getMessage());
         }
     }
