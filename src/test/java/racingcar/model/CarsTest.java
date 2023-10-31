@@ -1,51 +1,49 @@
 package racingcar.model;
 
-import org.junit.jupiter.api.Test;
-import racingcar.utils.Constraints;
-
 import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import racingcar.utils.numbergenerators.TestNumberGenerator;
 
 class CarsTest {
-    @Test
-    void 길이_초과_자동차명() {
-        String carNames = "Hot, HotFriedDelicious";
+    private Cars cars;
+    private Car car1;
+    private Car car2;
+    private Car car3;
+    private TestNumberGenerator movableNumberGenerator;
 
-        assertThatThrownBy(() -> new Cars(carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(String.valueOf(Constraints.MAX_SIZE.getValue()));
+    @BeforeEach
+    void setUp() {
+        cars = new Cars("hot, fried, chick");
+
+        movableNumberGenerator = new TestNumberGenerator(6);
+
+        List<Car> carList = cars.getCars();
+
+        car1 = carList.get(0);
+        car2 = carList.get(1);
+        car3 = carList.get(2);
     }
 
     @Test
-    void 길이_0_자동차명() {
-        String carNames = "Hot, ";
+    @DisplayName("단독 우승")
+    void testSingleWinner() {
+        car1.move(movableNumberGenerator);
+        List<String> winnerList = cars.getWinnerCars();
 
-        assertThatThrownBy(() -> new Cars(carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(String.valueOf(Constraints.MIN_SIZE.getValue()));
+        Assertions.assertThat(winnerList).containsExactly("hot");
     }
 
     @Test
-    void 중복된_자동차명() {
-        String carNames = "Car1, Car2, Car1";
+    @DisplayName("공동 우승")
+    void testMultipleWinner() {
+        car1.move(movableNumberGenerator);
+        car2.move(movableNumberGenerator);
+        car3.move(movableNumberGenerator);
+        List<String> winnerList = cars.getWinnerCars();
 
-        assertThatThrownBy(() -> new Cars(carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 자동차 이름이 존재 합니다.");
-    }
-
-    @Test
-    void 자동차객체_저장_확인() {
-        String carNames = "Car1,Car2,Car3";
-        Cars cars = new Cars(carNames);
-
-        List<Car> result = cars.getCars();
-        String[] carNamesArray = carNames.split(",");
-
-        for (int i = 0; i < result.size(); i++) {
-            assertThat(result.get(i).getName()).isEqualTo(carNamesArray[i]);
-        }
+        Assertions.assertThat(winnerList).containsExactly("hot", "fried", "chick");
     }
 }
