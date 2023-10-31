@@ -41,7 +41,7 @@ public class CallNsTestMethod {
             final Integer... values // 나머지 리턴값
     ) {
         assertRandomTest(
-                // executable 함수가 실행되던 도중 Randoms.pickNumberInRange 함수가 실행되면 무조건 value 또는 value를 리턴함
+                // executable 함수가 실행되던 도중 Randoms.pickNumberInRange 함수가 실행되면 무조건 처음에는 value, 이후에는 순서대로 value를 리턴함
                 () -> Randoms.pickNumberInRange(anyInt(), anyInt()), 
                 executable,
                 value,
