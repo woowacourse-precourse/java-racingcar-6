@@ -2,7 +2,9 @@ package racingcar.domain;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.util.Generator;
 
@@ -18,12 +20,24 @@ public class Cars {
         if (isEmptyOrNoCompetitors(cars)) {
             throw new IllegalArgumentException("자동차를 2대 이상 입력해야 합니다.");
         }
+        if (hasDuplicatedNames(cars)) {
+            throw new IllegalArgumentException("중복된 이름은 사용할 수 없습니다.");
+        }
     }
 
     private boolean isEmptyOrNoCompetitors(List<Car> cars) {
         return cars.isEmpty() || cars.size() == 1;
     }
 
+    private boolean hasDuplicatedNames(List<Car> cars) {
+        List<String> carNames = cars.stream()
+                .map(Car::getName)
+                .toList();
+
+        Set<String> uniqueCarNames = new HashSet<>(carNames);
+
+        return carNames.size() != uniqueCarNames.size();
+    }
 
     public List<Car> getCars() {
         return cars;

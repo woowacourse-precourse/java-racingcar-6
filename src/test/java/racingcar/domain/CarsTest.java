@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import generator.NumberGenerator;
 import java.util.List;
@@ -72,5 +73,17 @@ public class CarsTest {
         List<String> winner = cars.getWinners();
         assertThat(winner.get(0)).isEqualTo("피카츄");
         assertThat(winner.get(1)).isEqualTo("파이리");
+    }
+
+    @Test
+    @DisplayName("중복된 자동차의 이름이 있을 경우 예외를 발생시킨다.")
+    void should_ThrowIllegalArgumentException_When_HasDuplicatedNames() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Cars(List.of(
+                    new Car(new CarName("피카츄"), new CarPosition(4)),
+                    new Car(new CarName("꼬부기"), new CarPosition(5)),
+                    new Car(new CarName("피카츄"), new CarPosition(6))
+            ));
+        });
     }
 }
