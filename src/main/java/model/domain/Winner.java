@@ -11,10 +11,6 @@ public class Winner {
         winner = new ArrayList<>();
     }
 
-    public List<Name> getWinner() {
-        return winner;
-    }
-
     @Override
     public String toString() {
 
