@@ -13,7 +13,9 @@ public class CarService {
     Validate validate = new Validate();
 
     public List<String> getCarNames(String inputLineOfCarNames) {
-        return validate.CarNames(splitCarNames(inputLineOfCarNames));
+        List<String> carNames = splitCarNames(inputLineOfCarNames);
+        validate.CarNames(carNames);
+        return carNames;
     }
 
     public List<Car> createCars(List<String> carNames) {

@@ -6,16 +6,14 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Validate {
-    public String inputLineOfCarNames(String inputLineOfCarNames) {
+    public void inputLineOfCarNames(String inputLineOfCarNames) {
         if (inputLineOfCarNames.startsWith(",") || inputLineOfCarNames.endsWith(",")) {
-            throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
+            throw new IllegalArgumentException("[오류] 입력 형식이 맞지 않습니다.");
         }
-        return inputLineOfCarNames;
     }
-    public List<String> CarNames(List<String> carNames) {
+    public void CarNames(List<String> carNames) {
         validateCarNameForm((carNames));
         validateDuplicateOfCarName((carNames));
-        return carNames;
     }
     private void validateCarNameForm(List<String> carNames) {
         carNames.forEach(carName -> {
@@ -27,13 +25,13 @@ public class Validate {
     private void validateCarNameRegex(String carName) {
         String regex = "^[a-zA-Z]+[a-zA-Z0-9]*$";
         if (!Pattern.matches(regex, carName)) {
-            throw new IllegalArgumentException("이름 형식이 맞지 않습니다.");
+            throw new IllegalArgumentException("[오류] 이름 형식이 맞지 않습니다.");
         }
     }
 
     private void validateMaxLengthOfCarName(String carName) {
         if (carName.length() > 5) {
-            throw new IllegalArgumentException("이름 길이가 초과했습니다.");
+            throw new IllegalArgumentException("[오류] 이름 길이가 초과했습니다.");
         }
     }
 
@@ -41,27 +39,26 @@ public class Validate {
         Set<String> uniqueNames = new HashSet<String>();
         carNames.forEach(carName -> {
             if (!uniqueNames.add(carName)) {
-                throw new IllegalStateException("이름이 중복됩니다.");
+                throw new IllegalStateException("[오류] 이름이 중복됩니다.");
             }
         });
     }
 
-    public String numberOfAttemptsForm(String numberOfAttempts) {
+    public void numberOfAttemptsForm(String numberOfAttempts) {
         validateIsNumber(numberOfAttempts);
         validateIsZero(numberOfAttempts);
-        return numberOfAttempts;
     }
 
     private void validateIsNumber(String numberOfAttempts) {
         String numberRegex = "^[0-9]*$";
         if (!Pattern.matches(numberRegex,numberOfAttempts)) {
-            throw new IllegalArgumentException("숫자 형식이 아닙니다.");
+            throw new IllegalArgumentException("[오류] 숫자 형식이 아닙니다.");
         }
     }
 
     private void validateIsZero(String numberOfAttempts) {
         if (Pattern.matches("0",numberOfAttempts)) {
-            throw new IllegalArgumentException("0은 입력할 수 없습니다.");
+            throw new IllegalArgumentException("[오류] 0은 입력할 수 없습니다.");
         }
     }
 

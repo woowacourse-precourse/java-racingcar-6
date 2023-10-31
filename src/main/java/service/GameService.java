@@ -26,11 +26,15 @@ public class GameService {
     }
     public String getInputLineOfCarNames() {
         askForInputCarNames();
-        return validate.inputLineOfCarNames(Console.readLine());
+        String input = Console.readLine();
+        validate.inputLineOfCarNames(Console.readLine());
+        return input;
     }
     public int getNumberOfAttempts() {
         askForNumbersOfAttempts();
-        return Integer.parseInt(validate.numberOfAttemptsForm(Console.readLine()));
+        String input = Console.readLine();
+        validate.numberOfAttemptsForm(input);
+        return Integer.parseInt(input);
     }
 
     private void attemptOneRound(List<Car> cars) {
