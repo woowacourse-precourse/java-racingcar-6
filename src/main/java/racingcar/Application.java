@@ -45,10 +45,11 @@ public class Application {
                 if (name.length() <= 5) {
                     carList.add(new Car(name));
                 } else {
-                    System.out.println("자동차 이름은 5자 이하로 입력하세요.");
-                    fiveLetters = false;
-                    carList.clear();
-                    break;
+//                    System.out.println("자동차 이름은 5자 이하로 입력하세요.");
+//                    fiveLetters = false;
+//                    carList.clear();
+//                    break;
+                    throw new IllegalArgumentException("자동차 이름은 5자 이하로 입력하세요.");
                 }
             }
             if (fiveLetters) {
@@ -75,6 +76,7 @@ public class Application {
         int maxCount = 0;
         for (Car car : carList) {
             maxCount = Math.max(maxCount, car.getCount());  //현재까지 가장 큰 이동거리 저장
+            //System.out.println(maxCount);
         }
 
         StringBuilder winners = new StringBuilder();    //최종 우승자 이름 저장
