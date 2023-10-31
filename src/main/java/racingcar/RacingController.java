@@ -11,8 +11,8 @@ public class RacingController {
 	}
 
 	public void runGame() {
-		racingGame.initializeGame();
 		int tryCount = getTryCount();
+		System.out.println("\b실행 결과");
 		racingGame.runRacing(tryCount);
 		printResults();
 	}
@@ -23,8 +23,6 @@ public class RacingController {
 	}
 
 	private void printResults() {
-		System.out.println("\n실행 결과");
-		racingGame.printCarProgress();
 		List<String> winners = racingGame.getWinners();
 		System.out.println("최종 우승자 : " + String.join(", ", winners));
 	}

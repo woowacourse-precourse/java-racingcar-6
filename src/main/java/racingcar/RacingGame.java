@@ -22,15 +22,13 @@ public class RacingGame {
 		}
 	}
 
-	public void initializeGame() {
-		cars.clear();
-	}
-
 	public void runRacing(final int tryCount) {
 		for (int i = 0; i < tryCount; i++) {
 			for (RacingCar car : cars) {
 				car.move(car.generateRandomNumber());
 			}
+			printCarProgress();
+			System.out.println("\b");
 		}
 	}
 
