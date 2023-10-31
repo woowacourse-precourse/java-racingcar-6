@@ -5,8 +5,6 @@ import java.util.regex.Pattern;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import static org.assertj.core.util.Arrays.asList;
-
 public class UserInput {
     public List<String> inputRacingCarName() {
         String input = Console.readLine();

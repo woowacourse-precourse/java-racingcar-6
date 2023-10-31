@@ -14,13 +14,15 @@ public class Racing {
         }
         return 0;
     }
-    public List<Integer> Start(int attemptNumber, int racingCarCount) {
-        List<Integer> advancementResult = new ArrayList<>(Collections.nCopies(racingCarCount, 0));
+    public List<Integer> Start(int attemptNumber, List<String> racingCarName) {
+        List<Integer> advancementResult = new ArrayList<>(Collections.nCopies(racingCarName.size(), 0));
+        PrintResult printer = new PrintResult();
+        System.out.println("실행 결과");
         for (int attempt = 0; attempt < attemptNumber; attempt++) {
-            for (int i = 0; i < racingCarCount; i++) {
+            for (int i = 0; i < racingCarName.size(); i++) {
                 advancementResult.set(i, advancementResult.get(i) + GoOrStop());
             }
-            System.out.println(advancementResult);
+            printer.PrintOneAttemptResult(advancementResult, racingCarName);
         }
         return advancementResult;
     }
