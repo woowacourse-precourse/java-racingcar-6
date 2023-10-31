@@ -27,6 +27,9 @@ public class Car implements Comparable<Car>, Model {
     String getName() {
         return name;
     }
+    int getMoved() {
+        return moved;
+    }
 
     boolean isDraw(final Car other) {
         return this.moved == other.moved;
