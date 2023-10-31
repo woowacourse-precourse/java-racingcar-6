@@ -12,12 +12,12 @@ import racingcar.global.exception.RaceException;
 import racingcar.utils.Parser;
 
 public class Cars {
-    private List<Car> carList;
+    private List<Car> cars;
 
     private Cars(final String userInput) {
         List<Car> cars = Parser.parseStringToCarList(userInput);
         Validator.validateCars(cars);
-        this.carList = cars;
+        this.cars = cars;
     }
 
     public static Cars of(final String userInput) {
@@ -25,7 +25,7 @@ public class Cars {
     }
 
     public void tryMoveCars() {
-        for (Car car : carList) {
+        for (Car car : cars) {
             car.tryMove();
         }
     }
@@ -37,7 +37,7 @@ public class Cars {
     }
 
     private List<String> generateCarStates() {
-        return carList.stream()
+        return cars.stream()
                 .map(Car::toString)
                 .toList();
     }
@@ -48,7 +48,7 @@ public class Cars {
     }
 
     private List<Car> findSamePositionCars(final Integer maxPosition) {
-        return carList.stream()
+        return cars.stream()
                 .filter(car -> car.isSamePosition(maxPosition))
                 .toList();
     }
@@ -58,7 +58,7 @@ public class Cars {
     }
 
     private Car findCarWithMaxPosition() {
-        return carList.stream()
+        return cars.stream()
                 .max(Comparator.comparingInt(Car::getPosition))
                 .get();
     }
