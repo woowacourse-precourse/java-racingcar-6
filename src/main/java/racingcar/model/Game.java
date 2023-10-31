@@ -20,7 +20,7 @@ public class Game {
 
     public void editStatus(String key) {
         Integer originalStatus = cars.get(key);
-        cars.replace(key, originalStatus);
+        cars.replace(key, originalStatus + 1);
     }
 
 //    public class GameBuilder {
