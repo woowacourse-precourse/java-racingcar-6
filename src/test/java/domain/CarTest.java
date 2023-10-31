@@ -43,4 +43,16 @@ public class CarTest {
 		//then
 		Assertions.assertThat(hyphenByLocation).isEqualTo("-");
 	}
+
+	@Test
+	public void 자동차가_움직인_거리_없다면_빈값() {
+		//given
+		Car car = new Car();
+		car.moveByNumber(3);
+		// when
+		String hyphenByLocation = car.createHyphenByLocation();
+
+		//then
+		Assertions.assertThat(hyphenByLocation).isEqualTo("");
+	}
 }
