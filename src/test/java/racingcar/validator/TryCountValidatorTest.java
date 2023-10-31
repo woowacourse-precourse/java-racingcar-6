@@ -24,13 +24,13 @@ class TryCountValidatorTest {
 
     @DisplayName("숫자만 입력할 수 있다.")
     @ParameterizedTest
-    @ValueSource(strings = {"a", "ㅁ", "one", "!", "1o1", "-1"})
+    @ValueSource(strings = {"1.3,1o1,-1", "ㅍㅂ,ㅋㄴ", "one,two", "!,@,#"})
     void validateInputFormat(String input) {
         // when
         Throwable exception = getException(input);
 
         // then
-        assertEquals(ErrorMessage.TRY_COUNT_ONY_NUMBER.getMessage(), exception.getMessage());
+        assertEquals(ErrorMessage.TRY_COUNT_ONLY_NUMBER.getMessage(), exception.getMessage());
     }
 
     @DisplayName("횟수는 1회 이상만 입력할 수 있다.")

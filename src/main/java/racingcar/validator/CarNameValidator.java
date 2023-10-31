@@ -27,7 +27,7 @@ public class CarNameValidator {
     }
 
     private static void validateSeparator(String input) {
-        if (!RegexPattern.INCLUDE_COMMA.matches(input)) {
+        if (RegexPattern.NOT_INCLUDE_COMMA.matches(input)) {
             throw new IllegalArgumentException(ErrorMessage.ONLY_COMMA.getMessage());
         }
     }
@@ -60,7 +60,7 @@ public class CarNameValidator {
     }
 
     private static void validateCarNameCond(String carName) {
-        if (!RegexPattern.CAR_NAME_COND.matches(carName)) {
+        if (RegexPattern.NOT_CAR_NAME_COND.matches(carName)) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_COND.getMessage());
         }
     }

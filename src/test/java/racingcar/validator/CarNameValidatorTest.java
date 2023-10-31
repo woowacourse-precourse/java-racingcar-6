@@ -56,7 +56,7 @@ class CarNameValidatorTest {
 
     @DisplayName("자동차 이름은 영소문자, 숫자, 한글, 이름 사이에 공백만 허용한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"c@3,Ad+", "c-22,go@naver", "ㅁㄴㅇㄹ,pony"})
+    @ValueSource(strings = {"c@3,Ad+", "c-22,go@na", "ㅁㄴㅇㄹ,pony"})
     void validateCarNameCond(String input) {
         // when
         Throwable exception = getException(input);

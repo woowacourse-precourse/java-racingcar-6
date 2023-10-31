@@ -25,8 +25,8 @@ public class TryCountValidator {
     }
 
     private static void validateInputFormat(String input) {
-        if (!RegexPattern.ONLY_NUMBER.matches(input)) {
-            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_ONY_NUMBER.getMessage());
+        if (RegexPattern.NOT_ONLY_NUMBER.matches(input)) {
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_ONLY_NUMBER.getMessage());
         }
     }
 
