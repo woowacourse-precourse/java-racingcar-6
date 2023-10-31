@@ -8,11 +8,7 @@ public class Judgement {
     public static boolean moveForward() {
         int number = Randoms.pickNumberInRange(0, 9);
 
-        if (number >= 4) {
-            return true;
-        } else {
-            return false;
-        }
+        return number >= 4;
 
     }
 

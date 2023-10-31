@@ -1,8 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Application {
@@ -34,8 +32,11 @@ public class Application {
         }
 
         for (int lap=0; lap<lapOfRace; lap++) {
-            ArrayList<Integer> currentRaceResult = Game.startRace(carList, gameResult);
+            gameResult = Game.startRace(carList, gameResult);
         }
+
+        ArrayList<Integer> lastRaceResult = gameResult;
+
 
         // TODO: print Winners
 
