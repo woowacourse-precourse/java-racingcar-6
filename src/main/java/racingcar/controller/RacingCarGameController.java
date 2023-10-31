@@ -4,7 +4,6 @@ import racingcar.model.*;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
-
     private RacingCarGameView racingCarGameView;
     private RacingCarGameService racingCarGameService;
 
@@ -16,8 +15,10 @@ public class RacingCarGameController {
     public void gameStart() {
         String input = racingCarGameView.inputCarNames();
         CarNames carNames = new CarNames(input);
+
         int count = racingCarGameView.inputTryCount();
         TryCount tryCount = new TryCount(count);
+
         RacingResult racingResult = new RacingResult(carNames, tryCount);
 
         while(tryCount.getCount() > 0) {
