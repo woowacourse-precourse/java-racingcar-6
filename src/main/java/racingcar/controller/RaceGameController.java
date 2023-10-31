@@ -19,7 +19,7 @@ public class RaceGameController {
         OutputView.beforeRaceMessage();
         startRace(attemptCount);
         OutputView.showScoreBoard(scoreBoardService.getScoreBoard());
-        OutputView.showWinners(scoreBoardService.findWinners());
+        OutputView.showWinners(scoreBoardService.findFinalRoundWinners());
     }
 
     private void startRace(int attemptCount) {

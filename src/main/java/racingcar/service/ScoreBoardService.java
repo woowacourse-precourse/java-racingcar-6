@@ -1,8 +1,8 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.model.ScoreDto;
 import racingcar.model.ScoreBoard;
+import racingcar.model.ScoreDto;
 
 public class ScoreBoardService {
     private final ScoreBoard scoreBoard;
@@ -19,7 +19,7 @@ public class ScoreBoardService {
         return scoreBoard;
     }
 
-    public List<ScoreDto> findWinners() {
+    public List<ScoreDto> findFinalRoundWinners() {
         return scoreBoard.findFinalRoundWinners();
     }
 
