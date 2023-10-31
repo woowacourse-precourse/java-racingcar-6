@@ -16,4 +16,3 @@
   - RacingInput : 경주 진행을 위해 입력 받는 값
 - Util
   - InputValidator : 입력 받는 값에 대한 Validation
-  - RacingUtils : 경주 진행을 도와주는 Utility(랜덤 값, postion 값 세팅)
