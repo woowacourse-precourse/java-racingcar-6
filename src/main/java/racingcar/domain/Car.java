@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Car {
     String name;
@@ -29,17 +27,5 @@ public class Car {
     public static boolean isMoved() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
-    }
-
-    public static List<String> getRacingGameWinner(List<Car> carNames) {
-        int maxMovingCount = carNames.stream()
-                .mapToInt(Car::getMovingCount)
-                .max()
-                .orElse(0);
-
-        return carNames.stream()
-                .filter(car -> car.getMovingCount() == maxMovingCount)
-                .map(Car::getName)
-                .collect(Collectors.toList());
     }
 }
