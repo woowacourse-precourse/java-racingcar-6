@@ -49,10 +49,9 @@ public class RacingGame {
 
     private void printResult() {
         cars.forEach(car -> {
-            outputView.print(car.getName() + PRINT_DISTANCE_SEPARATOR);
-            for (int i = 0; i < car.getDistance(); i++) {
-                outputView.print(DISTANCE);
-            }
+            outputView.print(car.getName());
+            outputView.print(PRINT_DISTANCE_SEPARATOR);
+            outputView.print(DISTANCE.repeat(car.getDistance()));
             outputView.lineBreak();
         });
         outputView.lineBreak();
