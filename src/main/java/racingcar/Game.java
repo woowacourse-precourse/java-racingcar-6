@@ -51,4 +51,15 @@ public class Game {
         return maxValue;
     }
 
+    public List<String> getWinners(List<Car> cars, int maxValue) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition().length() == maxValue) {
+                winners.add(car.getName());
+            }
+        }
+
+    }
+
+
 }
