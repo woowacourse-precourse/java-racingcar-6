@@ -132,11 +132,35 @@ public class myApplicationTest {
         }
     }
 
+    @Nested
+    @DisplayName("우승자 출력 테스트")
+    class 우승자_출력_테스트{
+        private static ByteArrayOutputStream outputMessage;
+        @BeforeEach
+        void setUpStreams() {
+            outputMessage = new ByteArrayOutputStream(); // OutputStream 생성
+            System.setOut(new PrintStream(outputMessage)); // 생성한 OutputStream 으로 설정
+        }
+
+        @AfterEach
+        void restoresStreams() {
+            System.setOut(System.out); // 원상복귀
+        }
+
+        static Stream<Arguments> generateData() {
+            return Stream.of(
+                    Arguments.of(Arrays.asList("Alice"),"최종 우승자 : Alice\r\n"),
+                    Arguments.of(Arrays.asList("Alice","Bob","Carol"),"최종 우승자 : Alice, Bob, Carol\r\n"));
+        }
 
 
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
+        @ParameterizedTest
+        @MethodSource("generateData")
+        void 우승자_출력_테스트(List<String> winnerList,String result) {
+            CarRaceGameView.gameResultView(winnerList);
+            org.junit.jupiter.api.Assertions.assertEquals(result, outputMessage.toString());
+        }
     }
+
+
 }
