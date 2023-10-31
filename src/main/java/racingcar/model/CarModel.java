@@ -12,6 +12,11 @@ public class CarModel {
         this.forward = 0;
     }
 
+    public CarModel(String name, int forward) {
+        this.name = name;
+        this.forward = forward;
+    }
+
     private boolean isNameOverLength(String name) {
         return name.length() > 5;
     }
