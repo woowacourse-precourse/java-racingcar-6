@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 
-public class CarGenerator {
+public class CarFactory {
     private final String INVALID_CAR_NAME_LENGTH = "자동차 이름은 5자 이하, 1자 이상만 가능합니다.";
 
     public Car generate(String carName) {

@@ -8,15 +8,15 @@ public class Game {
     private final int MOVING_FORWARD = 4;
     private List<Car> carList;
     private final Announcer announcer;
-    private final CarGenerator carGenerator;
+    private final CarFactory carFactory;
     private final RandomNumberGenerator randomNumberGenerator;
     private final WinnerChecker winnerChecker;
     private final InputView inputView;
 
-    public Game(Announcer announcer, CarGenerator carGenerator, RandomNumberGenerator randomNumberGenerator,
+    public Game(Announcer announcer, CarFactory carFactory, RandomNumberGenerator randomNumberGenerator,
                 WinnerChecker winnerChecker, InputView inputView) {
         this.announcer = announcer;
-        this.carGenerator = carGenerator;
+        this.carFactory = carFactory;
         this.randomNumberGenerator = randomNumberGenerator;
         this.winnerChecker = winnerChecker;
         this.inputView = inputView;
@@ -24,7 +24,7 @@ public class Game {
 
     public void init() {
         announcer.announceToInputCarName();
-        carList = carGenerator.generate(inputView.inputCarNames());
+        carList = carFactory.generate(inputView.inputCarNames());
         announcer.announceToInputTryCount();
     }
 
