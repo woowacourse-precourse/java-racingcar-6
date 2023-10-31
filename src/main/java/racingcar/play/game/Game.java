@@ -1,6 +1,8 @@
 package racingcar.play.game;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import racingcar.play.car.Car;
@@ -36,7 +38,7 @@ public class Game {
         }
 
         //게임 종료로 이동
-
+        end(score);
 
     }
 
@@ -53,6 +55,41 @@ public class Game {
             System.out.println(key + " : " + score.get(key));
         }
         System.out.println();
+    }
+
+    private static void end(Map<String, String> score){
+        //Map의 value에서 최대 길이 구하기
+        int highScore = 0;
+        String[] keys = score.keySet().toArray(new String[0]);
+
+        for(String key : keys){
+            if(score.get(key).length() > highScore){
+                highScore = score.get(key).length();
+            }
+        }
+
+        //최대길이와 같은 Key찾기
+        List<String> winner = new ArrayList<>();
+
+        for(String key : keys){
+            if(score.get(key).length() == highScore){
+                winner.add(key);
+            }
+        }
+
+        //승자 출력
+        StringBuilder temp = new StringBuilder();
+        int idx = 1;
+        for(String name : winner){
+            temp.append(name);
+            if(!(winner.size() == idx)){
+                temp.append(", ");
+                idx++;
+            }
+        }
+
+        System.out.print("최종 우승자"+" : "+temp);
+
     }
 
 }
