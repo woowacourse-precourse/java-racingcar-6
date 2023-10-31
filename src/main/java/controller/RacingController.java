@@ -22,7 +22,7 @@ public class RacingController {
         ArrayList<Car> carArrayList = RacingService.createCar(Console.readLine());
 
         inputView.printinputLaps();
-        int laps = Validator.checkNum(Console.readLine());
+        int laps = RacingService.inputLaps(Console.readLine());
 
         Race race = new Race(laps, carArrayList);
 

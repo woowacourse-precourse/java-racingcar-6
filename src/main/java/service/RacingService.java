@@ -19,6 +19,10 @@ public class RacingService {
                 .collect(Collectors.toCollection(() -> new ArrayList<Car>()));
     }
 
+    public static int inputLaps(String input){
+        return Validator.checkNum(input);
+    }
+
     public static int findMax(ArrayList<Car> carArrayList){
         return carArrayList.stream()
                 .max(Comparator.comparing(Car::getPosition))
