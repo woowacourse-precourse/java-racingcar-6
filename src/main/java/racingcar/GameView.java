@@ -41,5 +41,13 @@ public class GameView {
     }
 
     public void printWinners(List<String> winners) {
+        System.out.print(Message.WINNER.getMessage());
+        System.out.print(winners.get(0));
+        int winnerCount = winners.size();
+        if (winnerCount > 1) {
+            for (int i = 1; i < winnerCount; i++) {
+                System.out.print("," + winners.get(i));
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GameController {
@@ -44,5 +45,13 @@ public class GameController {
     }
 
     private void endGame() {
+        Collections.sort(cars);
+        int maxStep = cars.get(0).getStep();
+        List<String> winners = new ArrayList<>();
+        for (Car car: cars) {
+            if (car.getStep() == maxStep) winners.add(car.getName());
+        }
+        view.printWinners(winners);
     }
+
 }
