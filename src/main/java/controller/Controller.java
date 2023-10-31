@@ -15,7 +15,7 @@ public class Controller {
     private final List<Car> groupOfCar = new ArrayList<Car>();
 
     public void run() { //프로그램의 시작
-        createCar();
+        createCar(parseCarName(getCarNameByInput()));
         startCarRace();
     }
 
@@ -77,15 +77,13 @@ public class Controller {
         }
     }
 
-    private void createCar() {
-        String[] carName = parseCarName();
-        for(String name: carName) {
+    private void createCar(String[] carNames) {
+        for(String name: carNames) {
             this.groupOfCar.add(new Car(name));
         }
     }
 
-    private String[] parseCarName() {
-        String carNames = getCarNameByInput();
+    private String[] parseCarName(String carNames) {
         return carNames.split(",");
     }
 
