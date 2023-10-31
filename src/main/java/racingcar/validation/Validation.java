@@ -17,4 +17,10 @@ public final class Validation {
         }
     }
 
+    public static void validateCarNumber(String[] arr){
+        if (arr.length < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
