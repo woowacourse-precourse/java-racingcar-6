@@ -1,11 +1,12 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.validator.BasicValidator;
 import racingcar.validator.LocationValidator;
 
 public record Location(int location) {
 
-    private static final LocationValidator locationValidator = new LocationValidator();
+    private static final BasicValidator<Integer> locationValidator = new LocationValidator();
 
     public Location {
         locationValidator.validate(location);
