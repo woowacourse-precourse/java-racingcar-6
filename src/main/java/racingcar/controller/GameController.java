@@ -24,7 +24,6 @@ public class GameController {
     private void printWinner(List<Car> cars, int numberOfAttempts) {
         List<String> winners = determineWinners(cars);
         OutputView.printGameResult(cars, numberOfAttempts);
-        OutputView.printWinners(winners);
     }
 
 
@@ -35,6 +34,8 @@ public class GameController {
             moveCars(cars);
             printWinner(cars, numberOfAttempts);
         }
+        List<String> winners = determineWinners(cars);
+        OutputView.printWinners(winners);
     }
 
     private List<Car> createCars(String carNamesInput) {
