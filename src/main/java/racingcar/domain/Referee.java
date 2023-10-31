@@ -11,10 +11,13 @@ import java.util.stream.Collectors;
 public class Referee {
 
     private static final int PROCEED_CONDITION = 4;
+    private static final int MAX_NAME_LENGTH = 5;
+
     private final List<Car> cars = new ArrayList<>();
     private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public void addCar(String name) {
+        checkName(name);
         cars.add(new Car(name));
     }
 
@@ -49,5 +52,11 @@ public class Referee {
 
     private int getDistanceOfWinner() {
         return cars.stream().mapToInt(Car::getMoveDistance).max().orElseThrow();
+    }
+
+    private void checkName(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
     }
 }
