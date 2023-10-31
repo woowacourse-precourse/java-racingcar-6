@@ -22,16 +22,10 @@ public class InvalidInput {
     }
 
     public static void NotIntegerValueException(String number) {
-        int startIndex = 0;
-
-        if (number.contains("-")) {
-            startIndex = 1;
-        }
-
-        for (int i = startIndex; i < number.length(); i++) {
-            if (!Character.isDigit(number.charAt(i))) {
-                throw new IllegalArgumentException("횟수는 숫자 여야 합니다.");
-            }
+        try{
+            Integer.parseInt(number);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("횟수는 숫자 여야 합니다.");
         }
     }
 
