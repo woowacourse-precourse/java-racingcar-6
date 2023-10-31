@@ -46,7 +46,7 @@ public class RacingCarView {
                 .map(Car::getName)
                 .toList();
 
-        System.out.println("최종 우승자 : " + String.join(", ",winners));
+        System.out.print("최종 우승자 : " + String.join(", ",winners));
     }
 
     private static String inputStringLine() {
