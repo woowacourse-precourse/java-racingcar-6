@@ -14,7 +14,9 @@ public class InputView {
     public static List<Car> promptCarNames() {
         System.out.println(Prompts.PROMPT_CAR_NAMES);
         String input = Console.readLine();
-
+        return createCarsList(input);
+    }
+    public static List<Car> createCarsList(String input) {
         List<Car> carsList = new ArrayList<>();
         Set<String> carNamesSet = new HashSet<>();
 
@@ -41,10 +43,15 @@ public class InputView {
         return carsList;
     }
 
-    public static int promptNumber(){
+    public static int promptNumber() {
         System.out.println(Prompts.PROMPT_TRIAL_COUNT);
+        String input = Console.readLine();
+        return parseNumber(input);
+    }
+
+    public static int parseNumber(String input) {
         try {
-            int number = Integer.parseInt(Console.readLine());
+            int number = Integer.parseInt(input);
             if (number < InputExceptionConstants.MIN_TRIAL_COUNT) {
                 throw new IllegalArgumentException();
             }
