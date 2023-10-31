@@ -40,3 +40,16 @@
   - MessageReceiver : 메세지 입력을 담당하는 클래스
 - GameManager : 전체적인 비즈니스 로직 흐름을 파악할 수 있는 클래스
 - Application : 코드를 실행하는 main 클래스
+
+# 예외 처리
+
+- 자동차 이름
+  - 아무것도 입력하지 않음 : READ_LINE_EXCEPTION
+  - 쉼표만 입력 : CAR_NAME_NOT_EXIST_EXCEPTION
+  - 1자 이상 5자 이하로 입력하지 않은 이름 : CAR_NAME_LENGTH_EXCEPTION 
+  - 중복된 이름 : CAR_NAME_DUPLICATION_EXCEPTION
+
+- 시도 횟수
+  - 아무것도 입력하지 않음 : READ_LINE_EXCEPTION
+  - 숫자를 입력하지 않음 : NUMBER_FORMAT_EXCEPTION
+  - 1보다 작은 수 입력 : ATTEMPT_COUNT_EXCEPTION
