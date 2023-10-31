@@ -17,7 +17,7 @@ public class Race {
     }
 
     public void playOneRound() {
-        this.cars.driveOneRound(gameCount, 4);
+        this.cars.driveOneRound( 4);
         this.gameCount--;
     }
 

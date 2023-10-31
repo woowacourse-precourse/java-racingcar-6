@@ -15,13 +15,7 @@ public class Cars {
     }
 
     public List<Car> getWinners() {
-        Position maxPosition = new Position();
-
-        for (Car car : cars) {
-            if (car.getPosition().isGreaterThen(maxPosition)) {
-                maxPosition = car.getPosition();
-            }
-        }
+        Position maxPosition = calculateMaxPosition();
 
         ArrayList<Car> winnerCars = new ArrayList<>();
         for (Car car : cars) {
@@ -33,15 +27,24 @@ public class Cars {
         return winnerCars;
     }
 
-    public void driveOneRound(int gameCount, int pivotNumber) {
-        for (int i = 0; i < gameCount; i++) {
-            for (Car car : cars) {
-                int number = Randoms.pickNumberInRange(0, 9);
-                if(number >= pivotNumber) {
-                    car.moveForward();
-                }
+    public void driveOneRound(int pivotNumber) {
+        for (Car car : cars) {
+            int number = Randoms.pickNumberInRange(0, 9);
+            if(number >= pivotNumber) {
+                car.moveForward();
             }
         }
+    }
+
+    private Position calculateMaxPosition() {
+        Position maxPosition = new Position();
+
+        for (Car car : cars) {
+            if (car.getPosition().isGreaterThen(maxPosition)) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
     }
 
     public List<Car> getCars() {
