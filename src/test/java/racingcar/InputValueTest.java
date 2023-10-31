@@ -41,7 +41,8 @@ class InputValueTest {
     @ValueSource(strings = "pobi,woni,jun")
     void 자동차_이름_구분자를_기준으로_구분(String carName) {
         String[] carList = inputValue.createCarList(carName);
-        assertThat(carList).isEqualTo(new String[]{"pobi", "woni", "jun"});
+        String[] expectedCarList = new String[] {"pobi", "woni", "jun"};
+        assertThat(carList).isEqualTo(expectedCarList);
     }
 
     @ParameterizedTest
@@ -49,7 +50,7 @@ class InputValueTest {
     void 이동_횟수_입력(String input) {
         generateUserInput(input);
         int moveCount = inputValue.inputMovingCount();
-        assertThat(moveCount).isEqualTo(4);
+        assertThat(moveCount).isEqualTo(NumberConst.STANDARD_MOVING_NUMBER);
     }
 
     private static void generateUserInput(String input) {
