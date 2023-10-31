@@ -1,10 +1,11 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RaceManager {
-    private List<Car> raceCarList = new ArrayList<>();
+    private final List<Car> raceCarList = new ArrayList<>();
     private int attempts = 0;
 
     public void startRace() {
@@ -12,6 +13,7 @@ public class RaceManager {
         runRace();
         List<String> winners = determineWinner(raceCarList);
         OutputView.showWinner(winners);
+        Console.close();
     }
 
     private void prepareRace() {

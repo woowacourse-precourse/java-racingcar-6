@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
-
     @Test
     void 무작위_값이_4_이상이면_전진() {
         //given
@@ -43,5 +42,4 @@ class CarTest {
         int newDistance = car.getDistance().length();
         assertThat(newDistance).isEqualTo(previousDistance);
     }
-
 }

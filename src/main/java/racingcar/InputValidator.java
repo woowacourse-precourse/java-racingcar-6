@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputValidator {
-
     public static List<String> validateCarNames(String input) {
         String[] splitInput = input.split(",");
         List<String> carNames = checkNameLengthLimit(splitInput);

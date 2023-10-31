@@ -10,7 +10,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class InputValidatorTest {
-
     @Test
     void 이름은_5자_이하여야_함() {
         //given
