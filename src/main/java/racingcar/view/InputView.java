@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.global.Constants;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -32,8 +33,7 @@ public class InputView {
 
     private int getTryCount() {
         String input = inputTryCount();
-        // TODO: 비어있지 않고, 숫자로 구성된 input 인지 검증
-        // TODO: 0보다 큰 자연수인지 검증
+        validateTryCount(input);
         return Integer.parseInt(input);
     }
 
@@ -68,6 +68,18 @@ public class InputView {
     private void validateNameLength(String carName) {
         if (carName.length() > Constants.MAX_CARNAME_LENGTH) {
             throw new IllegalArgumentException(InputViewException.INVALID_NAME_LENGTH);
+        }
+    }
+
+    private void validateTryCount(String tryCount) {
+        if (tryCount.isEmpty()) {
+            throw new IllegalArgumentException(InputViewException.EMPTY_TRY_COUNT);
+        }
+        if (!Pattern.matches(Constants.TRY_COUNT_REGEXP, tryCount)) {
+            throw new IllegalArgumentException(InputViewException.INVALID_TRY_COUNT);
+        }
+        if (Integer.parseInt(tryCount) <= 0) {
+            throw new IllegalArgumentException(InputViewException.INVALID_TRY_COUNT);
         }
     }
 }
