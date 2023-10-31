@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Player;
 
@@ -11,9 +12,9 @@ public class RacingCarGameView {
     private static final String GAME_RESULT = "실행 결과";
     private static final String GAME_WINNER = "최종 우승자 : ";
 
-    public String[] requestCarName() {
+    public List<String> requestCarName() {
         System.out.println(REQUEST_CAR_NAME);
-        String[] carNames = Console.readLine().split(",");
+        List<String> carNames = Arrays.asList(Console.readLine().split(","));
 
         for (String name : carNames) {
             validName(name);
