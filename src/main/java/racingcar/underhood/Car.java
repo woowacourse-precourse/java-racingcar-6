@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.underhood;
+
+import racingcar.RandomNumberGenerator;
 
 public class Car extends RacingGameComponent {
 

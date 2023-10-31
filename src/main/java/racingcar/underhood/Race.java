@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.underhood;
 
 import racingcar.factories.RefereeFactory;
 
-public class Race extends RacingGameComponent{
+public class Race extends RacingGameComponent {
 
     private Referee referee;
     private CarRecord racers;

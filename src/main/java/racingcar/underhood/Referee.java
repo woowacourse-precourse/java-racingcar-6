@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.underhood;
+
+import racingcar.underhood.CarRecord;
 
 public class Referee {
 

@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.underhood.GameRule;
 
 public class RandomNumberGeneratorTest {
 

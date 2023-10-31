@@ -14,7 +14,11 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.factories.CarFactory;
 import racingcar.factories.CarRecordFactory;
-import racingcar.ui.UserInputReader;
+import racingcar.underhood.CarRecord;
+import racingcar.underhood.ConsoleReader;
+import racingcar.underhood.GameRule;
+import racingcar.underhood.NumberOfRepetitions;
+import racingcar.underhood.Race;
 
 public class IOTest {
 

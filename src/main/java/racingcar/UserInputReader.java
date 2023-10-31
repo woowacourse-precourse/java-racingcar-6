@@ -1,6 +1,6 @@
-package racingcar.ui;
+package racingcar;
 
-import racingcar.RacingGameComponent;
+import racingcar.underhood.RacingGameComponent;
 
 public interface UserInputReader<T extends RacingGameComponent> {
 

@@ -1,7 +1,7 @@
 package racingcar.factories;
 
-import racingcar.CarRecord;
-import racingcar.GameRule;
+import racingcar.underhood.CarRecord;
+import racingcar.underhood.GameRule;
 
 public class CarRecordFactory {
 

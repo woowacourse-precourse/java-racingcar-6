@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.underhood;
 
 public enum CliPrompt {
 

@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.underhood;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.factories.CarRecordFactory;
-import racingcar.ui.UserInputReader;
+import racingcar.UserInputReader;
 
 public class ConsoleReader
         <T extends RacingGameComponent>

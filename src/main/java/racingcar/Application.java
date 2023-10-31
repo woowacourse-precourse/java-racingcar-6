@@ -1,9 +1,16 @@
 package racingcar;
 
-import static racingcar.CliPrompt.ENTER_CAR_NAMES;
-import static racingcar.CliPrompt.NUMBER_OF_REPETITIONS;
-import static racingcar.CliPrompt.RACE_RESULT;
-import static racingcar.CliPrompt.WINNERS_ARE;
+import static racingcar.underhood.CliPrompt.ENTER_CAR_NAMES;
+import static racingcar.underhood.CliPrompt.NUMBER_OF_REPETITIONS;
+import static racingcar.underhood.CliPrompt.RACE_RESULT;
+import static racingcar.underhood.CliPrompt.WINNERS_ARE;
+
+import racingcar.underhood.CarRecord;
+import racingcar.underhood.CliOutput;
+import racingcar.underhood.ConsoleReader;
+import racingcar.underhood.GameRule;
+import racingcar.underhood.NumberOfRepetitions;
+import racingcar.underhood.Race;
 
 public class Application {
 

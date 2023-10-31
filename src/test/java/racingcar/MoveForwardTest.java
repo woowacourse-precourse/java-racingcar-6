@@ -2,7 +2,6 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +10,8 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.factories.CarFactory;
 import racingcar.factories.CarRecordFactory;
+import racingcar.underhood.CarRecord;
+import racingcar.underhood.GameRule;
 
 public class MoveForwardTest {
 

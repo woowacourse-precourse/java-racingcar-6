@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.underhood;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import racingcar.underhood.NumberOfRepetitions;
 
 public class GameRule {
 

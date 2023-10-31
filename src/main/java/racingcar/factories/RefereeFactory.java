@@ -1,7 +1,7 @@
 package racingcar.factories;
 
-import racingcar.CarRecord;
-import racingcar.Referee;
+import racingcar.underhood.CarRecord;
+import racingcar.underhood.Referee;
 
 public class RefereeFactory {
 
