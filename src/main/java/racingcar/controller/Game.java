@@ -11,10 +11,12 @@ import java.util.List;
 public class Game {
     private final Race race;
     private final Round round;
+    private final RandomGenerator randomGenerator;
 
     public Game() {
         race = new Race();
         round = new Round();
+        randomGenerator = new RandomGenerator();
     }
 
     public void run() {
@@ -31,7 +33,7 @@ public class Game {
 
         while (round.isRemaining()) {
             int size = race.getSize();
-            List<Integer> randomNumbers = RandomGenerator.getNumbers(size);
+            List<Integer> randomNumbers = randomGenerator.getNumbers(size);
             race.moveCars(randomNumbers);
 
             List<Integer> roundResult = race.getRoundResult();

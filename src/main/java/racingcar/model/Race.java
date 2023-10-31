@@ -37,10 +37,10 @@ public class Race {
         return carList.size();
     }
 
-    public void moveCars() {
-        for (Car car : carList) {
-            int randomNumber = RandomGenerator.createNumber();
-            if (randomNumber >= CAN_MOVE) {
+    public void moveCars(List<Integer> randomNumbers) {
+        for(int i = 0; i < carList.size(); i++) {
+            if (randomNumbers.get(i) >= CAN_MOVE) {
+                Car car = carList.get(i);
                 car.moveForward();
             }
         }
