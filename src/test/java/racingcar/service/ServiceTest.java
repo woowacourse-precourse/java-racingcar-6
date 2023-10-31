@@ -61,4 +61,13 @@ class ServiceTest {
         service.initRepository();
         assertThat(service.carRepository.findAllCars().getCarArrayList().size()).isEqualTo(0);
     }
+
+    @Test
+    void 다른_레포지토리_인스턴스_생성_테스트() {
+        Service service1 = new Service();
+        Service service2 = new Service();
+
+        assertThat(service1.carRepository).isNotEqualTo(service2.carRepository);
+    }
+
 }
