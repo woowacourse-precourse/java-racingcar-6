@@ -20,4 +20,8 @@ public class GameView {
         return Integer.parseInt(numberOfAttempts);
     }
 
+    public void printResult() {
+        System.out.println("실행 결과");
+    }
+
 }
