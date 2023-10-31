@@ -3,7 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class InputHandler {
     private static final String COMMA = ",";
@@ -63,7 +67,14 @@ public class InputHandler {
     }
 
     public boolean hasLengthExcess(String target) {
-        return Arrays.stream(target.split(""))
+        return Arrays.stream(target.split(COMMA))
                 .allMatch(each -> each.length() <= MAX_LENGTH);
+    }
+
+    public boolean hasDuplicates(String target) {
+        Stream<String> stream = Arrays.stream(target.split(COMMA));
+        List<String> list = stream.collect(Collectors.toList());
+        Set<String> set = stream.collect(Collectors.toSet());
+        return (list.size() != set.size());
     }
 }
