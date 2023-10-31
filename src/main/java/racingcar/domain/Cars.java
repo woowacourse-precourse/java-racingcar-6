@@ -5,26 +5,24 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class Cars {
+public record Cars(List<Car> cars) {
     private static final int MAX_NAME_SIZE = 5;
 
-    private final List<Car> cars;
-
-    public Cars(List<Car> cars) {
+    public Cars {
         validateEmpty(cars);
         validateNameSize(cars);
         validateDuplicatedName(cars);
-        this.cars = cars;
     }
 
-    public List<Car> getCars() {
+    @Override
+    public List<Car> cars() {
         return Collections.unmodifiableList(cars);
     }
 
     public Cars getWinningCars() {
         int maxDistance = findMaxDistance();
 
-        List<Car> winningCars = this.cars.stream()
+        List<Car> winningCars = cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .toList();
 
