@@ -71,16 +71,21 @@
 ### 2. 입력값에 대한 비즈니스 검증 Validator
 
 - 자동차 이름 하나에 대한 검증
-    - 자동차 이름이 5자 이하인 경우 IllegalArgumentException을 던진다.
+    - 자동차 이름이 6자 이상인 경우 IllegalArgumentException을 던진다.
+        - ex) "carcar"
 - 전체 자동차 이름에 대한 검증
-    - 입력한 자동차이름에 빈 값이 포함되어 있는 경우 IllegalArgumentException을 던진다.
-        - ex) “,pobi,doni” → “”, “pobi”, “doni” → 빈 값 포함
+    - 입력한 자동차 이름에 빈 값이 포함되어 있는 경우 IllegalArgumentException을 던진다.
+        - ex) “,pobi,doni” → (“”, “pobi”, “doni”) → 빈 값(""") 포함
+    - 입력한 자동차 이름에 중복이 존재하는 경우 IllegalArgumentException을 던진다.
+        - ex) "pobi,pobi"
+    - 입력한 자동차 이름의 크기가 1인 경우 IllegalArgumentException을 던진다.
+        - ex) "pobi"
 - 시도횟수에 대한 검증
     - 시도 횟수가 1보다 작은 경우 IllegalArgumentException을 던진다.
 
-### 3. 입력한 값(String)을 처리하기 쉽게 변환해주는 Converter**
+### 3. 입력한 값(String)을 처리하기 쉽게 변환해주는 Converter
 
-- 사용자가 입력한 자동차 이름을 List<VO> 형태로 변환해주는 기능
+- 사용자가 입력한 자동차 이름을 VO List 형태로 변환해주는 기능
 - 사용자가 입력한 시도횟수를 Integer VO로 변환해주는 기능
 
 ### 4. 난수 생성기
