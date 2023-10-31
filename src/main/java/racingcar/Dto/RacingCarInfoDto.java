@@ -2,7 +2,7 @@ package racingcar.Dto;
 
 import java.util.List;
 
-public class RacingCarDto {
+public class RacingCarInfoDto {
     private List<String> carNames;
     private int racingCount;
 
@@ -20,5 +20,9 @@ public class RacingCarDto {
 
     public void setRacingCount(int racingCount) {
         this.racingCount = racingCount;
+    }
+
+    public int getRacingCarCount() {
+        return carNames.size();
     }
 }

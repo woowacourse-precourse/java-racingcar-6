@@ -17,6 +17,7 @@ public class RacingCarController {
         game.userInputRacingCar(getUserInput());
         OutputView.printInputRacingCount();
         game.userInputCount(getUserInput());
+        game.initGame();
     }
 
     private void playGame() {

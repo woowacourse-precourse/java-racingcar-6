@@ -1,6 +1,7 @@
 package racingcar.Service;
 
 import java.util.List;
+import racingcar.Dto.CarDto;
 import racingcar.Model.InputCarNameValidator;
 import racingcar.Model.InputCountValidator;
 import racingcar.Utils.DtoManager;
@@ -19,6 +20,14 @@ public class RacingCarService {
     public static void userInputCount(String racingCount) {
         int validateRacingCount = countValidator.validateCount(racingCount);
         dtoManager.setRacingCount(validateRacingCount);
+    }
+
+    public void initGame() {
+        for (int i = 0; i < dtoManager.getRacingCarCount(); i++) {
+            dtoManager.newRacingCar(dtoManager.getRacingCarDto().get(i));
+//            System.out.println(dtoManager.getCarDtoList().get(i).getCarName());
+//            System.out.println(dtoManager.getCarDtoList().get(i).getPosition());
+        }
     }
 
     public void play() {
