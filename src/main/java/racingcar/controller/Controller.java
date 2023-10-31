@@ -4,6 +4,7 @@ import static java.lang.Integer.parseInt;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.CarList;
 import racingcar.view.OutputView;
 
@@ -25,7 +26,7 @@ public class Controller {
 
     public List<String> getNames(String inputLine) {
         List<String> inputNames = seperateNames(inputLine);
-        validate.validateOverNameorZero(inputNames);
+        validate.validateOverorZero(inputNames);
         validate.validateDuplicate(inputNames);
         return inputNames;
     }
@@ -53,11 +54,21 @@ public class Controller {
         OutputView outputView = new OutputView();
         while (howMany > 0) {
             List<Integer> randomNums = makeRandomList();
-            carList.upgradeDistance(validate.replaceZeroAndOne(randomNums));
+            carList.upgradeDistance(replaceZeroAndOne(randomNums));
             outputView.printInterm(carList.toString());
             howMany--;
         }
     }
+
+    public List<Integer> replaceZeroAndOne(List<Integer> randomNumms) {
+        return randomNumms.stream().map(s -> {
+            if (s >= 4) {
+                return 1;
+            }
+            return 0;
+        }).collect(Collectors.toList());
+    }
+
 
     public List<String> whoWinner() {
         return carList.getWinner();
