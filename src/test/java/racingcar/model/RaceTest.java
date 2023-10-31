@@ -8,21 +8,36 @@ import org.junit.jupiter.api.Test;
 
 
 public class RaceTest {
-    List<String> names = Arrays.asList("Race", "Test");
-    int NUMBER_ATTEMPTS_VALID = 2;
-    int NUMBER_ATTEMPTS_INVALID = -1;
+    List<String> CAR_NAMES = Arrays.asList("Race", "Test");
 
     @Test
     void 올바른_Race_생성() {
-        Race race = new Race(names, NUMBER_ATTEMPTS_VALID);
+        Race race = new Race(CAR_NAMES);
+
         assertThat(race)
                 .isNotNull();
     }
 
     @Test
-    void 시도횟수_음수_예외처리() {
-        assertThatThrownBy(() -> { new Race(names, NUMBER_ATTEMPTS_INVALID); })
-                .isInstanceOf(IllegalArgumentException.class);
+    void 시도_전_거리는_모두_0() {
+        Race race = new Race(CAR_NAMES);
+
+        for (String name : race.getCarNames()) {
+            assertThat(race.getDistance(name))
+                    .isEqualTo(0);
+        }
+    }
+
+    @Test
+    void 시도_후_거리_확인() {
+        Race race = new Race(CAR_NAMES);
+        race.doAttempt();
+        race.doAttempt();
+
+        for (String name : race.getCarNames()) {
+            assertThat(race.getDistance(name))
+                    .isBetween(0, 2);
+        }
     }
 
 }
