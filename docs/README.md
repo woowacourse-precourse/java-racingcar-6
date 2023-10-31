@@ -21,7 +21,6 @@
   - [] 경주는 진행상황을 출력기에 전송한다. OutputView#outputRounds
   - [] 경주는 가장 멀리 간 자동차(들)을 우승자로 지정한다. Race#findWinner
   - [] 우승자를 출력한다. OutputView#outputResult
-  - [] 공동 우승자인 경우 ", "를 구분자로 사용하여 출력한다. OutputView#outputResults
 
 
 
