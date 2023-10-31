@@ -11,7 +11,7 @@ class UserTest {
 
     @DisplayName("시도 횟수의 입력값이 숫자가 아니면 예외를 발생시킨다.")
     @Test
-    void moveSizeFail() {
+    void moveSizeIsString() {
         assertThatThrownBy(() -> new User("a"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자만 입력해 주세요.");
@@ -28,5 +28,12 @@ class UserTest {
         assertThatThrownBy(() -> new User("0"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("시도 횟수는 1 이상이어야 합니다.");
+    }
+    @DisplayName("시도 횟수가 음수이면 예외를 발생시킨다.")
+    @Test
+    void moveSizeIsNegative() {
+        assertThatThrownBy(() -> new User("-1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 양수여야 합니다.");
     }
 }
