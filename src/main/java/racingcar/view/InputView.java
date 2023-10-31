@@ -18,15 +18,19 @@ public class InputView {
     }
 
     public CarNameList getCarNameListFromUser() {
-        String userInput = Console.readLine();
+        String userInput = readUserInput();
         carNamesInputValidator.validate(userInput);
         String[] carNames = userInput.split(Constant.INPUT_CAR_NAMES_DELIMITER);
         return new CarNameList(carNames);
     }
 
     public NumberOfGames getNumberOfGamesFromUser() {
-        String userInput = Console.readLine();
+        String userInput = readUserInput();
         numberOfGamesInputValidator.validate(userInput);
         return new NumberOfGames(Long.parseLong(userInput));
+    }
+
+    private String readUserInput() {
+        return Console.readLine();
     }
 }
