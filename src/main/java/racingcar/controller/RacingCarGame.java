@@ -6,6 +6,8 @@ import racingcar.model.RacingCar;
 import racingcar.model.RacingCarRace;
 import racingcar.view.RacingCarGameView;
 
+import static racingcar.utils.Constants.COMMA;
+
 public class RacingCarGame {
     RacingCarRace race;
     RacingCarGameView view;
@@ -44,7 +46,7 @@ public class RacingCarGame {
         view.enterCarNames();
         String carNamesStr = Console.readLine();
         // TODO 유효성 체크
-        return carNamesStr.split(",");
+        return carNamesStr.split(COMMA);
     }
 
     private int getTotalMoveCount() {
