@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -50,7 +51,7 @@ class InputValidatorTest {
     class validateDuplicatedTest {
         @Test
         @DisplayName("[Success] 정상적인 조건의 이름으로, 아무런 행동도 하지 않는다.")
-        void Given_ValidNames_When_validateDuplicated_Then_DoNothing() {
+        void Given_ValidNames_When_ValidateDuplicated_Then_DoNothing() {
             // given
             List<String> validCarNames = CAR_NAMES_LIST.getCarNamesList();
 
@@ -60,6 +61,40 @@ class InputValidatorTest {
 
         @Test
         @DisplayName("[Exception] 중복된 이름이 리스트에 포함되어, 예외를 던진다.")
+        void Given_Duplicated_When_ValidateDuplicated_Then_ThrowException() {
+            // given
+            List<String> duplicatedCarNames = DUPLICATED_CAR_NAMES_LIST.getCarNamesList();
+
+            // when &&then
+            assertThatThrownBy(() -> InputValidator.validateDuplicated(duplicatedCarNames))
+                    .isInstanceOf(RacingCarException.class)
+                    .hasMessageContaining(ErrorMessage.DUPLICATED.getMessage());
+        }
+    }
+
+    @Nested
+    @DisplayName("[validateRoundCount] 최소 수행 횟수 미만의 시도 횟수에 대해  예외를 던진다.")
+    class validateRoundCount {
+
+        @Test
+        @DisplayName("[Success] 정상적인 조건의 시도 횟수로, 아무런 행동도 하지 않는다.")
+        void Given_ValidNames_When_ValidateDuplicated_Then_DoNothing() {
+            // given
+            final int validRoundCountA = 1;
+            final int validRoundCountB = 20;
+            final int validRoundCountC = 300;
+
+            //when &&then
+            Assertions.assertAll(
+                    () -> assertDoesNotThrow(() -> InputValidator.validateRoundCount(validRoundCountA)),
+                    () -> assertDoesNotThrow(() -> InputValidator.validateRoundCount(validRoundCountB)),
+                    () -> assertDoesNotThrow(() -> InputValidator.validateRoundCount(validRoundCountC))
+            );
+
+        }
+
+        @Test
+        @DisplayName("[Exception] 중복 이름 입력으로 예외를 던진다.")
         void Given_Duplicated_When_ValidateDuplicated_Then_ThrowException() {
             // given
             List<String> duplicatedCarNames = DUPLICATED_CAR_NAMES_LIST.getCarNamesList();
