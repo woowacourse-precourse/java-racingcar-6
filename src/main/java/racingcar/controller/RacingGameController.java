@@ -28,6 +28,9 @@ public class RacingGameController {
         for(int i = 0; i < racingDto.getGameCnt(); i++) {
             start();
         }
+
+        System.out.println();
+        finish();
     }
 
     public void ready() {
@@ -45,6 +48,24 @@ public class RacingGameController {
             System.out.println(car.substring(0, car.length() - 1) + " : " + racingDto.getCarMap().get(car));
         });
         System.out.println();
+    }
+
+    public void finish() {
+        List<String> winnerList = new ArrayList<>();
+        int winnerLength = -1;
+        Map<String, String> racingMap = racingDto.getCarMap();
+
+        for (String car : racingMap.keySet()) {
+            int nowLength = racingMap.get(car).length();
+            if (nowLength > winnerLength) {
+                winnerList = new ArrayList<>();
+                winnerList.add(car.substring(0, car.length() - 1));
+                winnerLength = nowLength;
+            } else if (nowLength == winnerLength) {
+                winnerList.add(car);
+            }
+        }
+        System.out.println("최종 우승자 : " + winnerList.stream().collect(Collectors.joining(", ")));
     }
 
     public List<String> getInputCarListAndCheckName() {
