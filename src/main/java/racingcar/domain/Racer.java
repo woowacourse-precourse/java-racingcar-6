@@ -21,7 +21,7 @@ public class Racer{
         int random = Randoms.pickNumberInRange(0, 9);
 
         if (Judgment.isOverFourDistance(random))
-            this.distance += distance;
+            this.distance += 1;
     }
 
     public void printDistance() {
