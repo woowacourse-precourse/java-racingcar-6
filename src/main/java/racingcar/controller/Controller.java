@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.dto.RoundDTO;
 import racingcar.model.RacingGame;
+import racingcar.model.Winner;
 import racingcar.utils.validation.ValidateAttempts;
 import racingcar.utils.validation.ValidateCars;
 import racingcar.view.InputView;
@@ -10,6 +11,7 @@ import racingcar.view.OutputView;
 
 public class Controller {
     private RacingGame game;
+    private Winner winner = new Winner();
     InputView input = new InputView();
     OutputView output = new OutputView();
 
@@ -18,7 +20,6 @@ public class Controller {
         createGameSession();
         game.proceedGame();
         displayGameResult();
-        displayWinners();
     }
 
 
@@ -32,13 +33,9 @@ public class Controller {
     // 게임 결과를 받아와 OutputView에 출력
     private void displayGameResult() {
         List<RoundDTO> rounds = game.getRoundDTO();
-        output.displayResult(rounds);
-    }
+        List<String> winners = winner.getWinners(rounds);
 
-    // 승자 정보를 받아와 OutputView에 출력
-    private void displayWinners() {
-        List<String> winners = game.getWinners();
-        output.displayWinners(winners);
+        output.displayResult(rounds, winners);
     }
 
     // InputView를 통해 자동차 목록 입력받기

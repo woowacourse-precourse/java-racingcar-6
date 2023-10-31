@@ -6,18 +6,29 @@ import java.util.List;
 import racingcar.dto.CarDTO;
 import racingcar.dto.RoundDTO;
 
-public class Winners {
-    public List<String> getWinners(RoundDTO finalRound) {
-        List<CarDTO> states = finalRound.getStates();
-        List<String> winners = findWinners(states);
+public class Winner {
+    List<String> winners = new ArrayList<>();
+
+
+    public List<String> getWinners(List<RoundDTO> rounds) {
+        List<CarDTO> finalRoundState = parseFinalRound(rounds);
+        findWinners(finalRoundState);
 
         return winners;
     }
 
 
+    // 마지막 RoundDTO를 찾아 CarDTO 배열로 반환
+    private List<CarDTO> parseFinalRound(List<RoundDTO> rounds) {
+        int finalRoundIndex = rounds.size() - 1;
+        RoundDTO finalRound = rounds.get(finalRoundIndex);
+        List<CarDTO> finalRoundState = finalRound.getStates();
+
+        return finalRoundState;
+    }
+
     // 이동 거리가 가장 먼 자동차를 모두 찾아 winners 배열로 반환
-    private List<String> findWinners(List<CarDTO> states) {
-        List<String> winners = new ArrayList<>();
+    private void findWinners(List<CarDTO> states) {
         int farthest = findFarthestPosition(states);
 
         for (CarDTO car : states) {
@@ -26,7 +37,6 @@ public class Winners {
                 winners.add(name);
             }
         }
-        return winners;
     }
 
     // 가장 멀리 이동한 거리 찾기
