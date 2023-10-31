@@ -38,6 +38,7 @@ public class CarGroupTest {
 
     @Test
     void race_메서드는_자동차들의_움직임을_호출한다() {
+        // 자동차 움직임 여부 true, false, false
         carGroup.race(new TestMovement(List.of(true, false, false)));
         List<CarDto> cars = carGroup.toDto().getCars();
 
@@ -55,6 +56,7 @@ public class CarGroupTest {
     }
 
     static List<Arguments> provideFindWinnersInformation() {
+        // 자동차 움직임에 따른 결과 예상
         return Arrays.asList(
                 Arguments.of(List.of(true, true, true), List.of("자동차1", "자동차2", "자동차3")),
                 Arguments.of(List.of(false, false, true), List.of("자동차3")),

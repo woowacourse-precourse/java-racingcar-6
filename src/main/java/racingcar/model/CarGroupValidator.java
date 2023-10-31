@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 public class CarGroupValidator {
-    private static final Integer MIN_CAR_COUNT = 1;
-    private static final String CAR_COUNT_ERROR = "최소 1개 이상의 자동차를 입력해야 합니다.";
+    private static final Integer MIN_CAR_COUNT = 2;
+    private static final String CAR_COUNT_ERROR = "최소 2개 이상의 자동차를 입력해야 합니다.";
     private static final String DUPLICATE_CAR_ERROR = "중복된 자동차 이름이 존재합니다.";
 
     public static void validate(List<String> names) {
