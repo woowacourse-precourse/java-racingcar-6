@@ -25,6 +25,11 @@ public class Exception {
             throw new IllegalArgumentException("시도 횟수는 숫자로 입력하세요.");
         }
     }
+    private void checkLastIndexAndThrowException(String carName) {
+        if (carName.lastIndexOf(",") == carName.length() - 1) {
+            throwSpaceException();
+        }
+    }
     private void checkCarNameLengthAndSpaceThrowException(List<String> carNameList) {
         for (String carName : carNameList) {
             checkLengthAndThrowException(carName);
