@@ -45,6 +45,7 @@ public class RacingGameController {
         // convert String to Attempt
         Attempt attempt = attemptMapper.toAttempt(attemptStr);
         // save attempts
+        inMemoryRepository.save(attempt);
     }
 
     public void startGame() {
