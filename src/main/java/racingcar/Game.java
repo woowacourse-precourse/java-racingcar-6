@@ -46,7 +46,7 @@ public class Game {
                 winnerList.add(carNameArray[i]);
             }
         }
-        return winnerList.toArray(new String[winnerList.size()]);
+        return winnerList.toArray(new String[0]);
     }
 
     private void carRuns() {
