@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    private String racingCar;
-    private String progress;
+    private final String racingCar;
+    private String progress = "";
 
     public Car(String racingCar) {
         this.racingCar = racingCar;
