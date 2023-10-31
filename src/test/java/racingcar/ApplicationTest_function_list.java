@@ -287,7 +287,6 @@ class ApplicationTest_function_list extends NsTest {
                         }
                         Print.raceSituation(race);
                         String result = output();
-                        System.err.println(result);
                         assertThat(result).isEqualTo(expectString);
                     },
                     inputRandomFirst, (Integer[]) inputRandomElse);
