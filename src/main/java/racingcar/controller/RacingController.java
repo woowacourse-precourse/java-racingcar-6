@@ -14,7 +14,7 @@ public class RacingController {
     }
 
     public void playRacing(int count){
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for(int i=0; i<count; i++){
             racingService.playGame();
             racingService.printAllCarsDistance();
