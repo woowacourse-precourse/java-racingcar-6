@@ -32,4 +32,13 @@ class GameTest {
         Assertions.assertEquals(Arrays.asList(1,1,0),
                 game.getCars().stream().map(Car::getPosition).toList());
     }
+
+    @Test
+    @DisplayName("모든 시행 후 isGameOver true반한")
+    void 게임_끝_확인() {
+        for (int i = 0; i < givenAttemptCount; i++) {
+            game.carRaceOnce();
+        }
+        Assertions.assertTrue(game.isGameOver());
+    }
 }
