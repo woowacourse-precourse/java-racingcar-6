@@ -14,6 +14,6 @@ public class AttemptCount {
     }
 
     public void increaseCount() {
-        count ++;
+        count++;
     }
 }

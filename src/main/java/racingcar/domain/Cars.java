@@ -14,7 +14,7 @@ public class Cars {
     }
 
     private void validateIsDuplicate(List<Car> values) {
-        if(values.size() != values.stream().map(Car::getName).distinct().count()){
+        if (values.size() != values.stream().map(Car::getName).distinct().count()) {
             throw new IllegalArgumentException(ExceptionMessage.IS_DUPLICATE.toString());
         }
     }

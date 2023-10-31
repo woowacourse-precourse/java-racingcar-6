@@ -11,6 +11,7 @@ public class InputView {
     private static final String REGEX = ",";
 
     private static final InputValidator inputValidator = new InputValidator();
+
     public Cars readCarNames() {
         String input = Console.readLine();
         inputValidator.validateIsSplitByComma(input);

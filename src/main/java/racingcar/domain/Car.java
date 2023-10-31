@@ -20,7 +20,7 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if(name.length() > MAX_NAME_LENGTH) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.OVER_FIVE_LENGTH.toString());
         }
     }
