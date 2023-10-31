@@ -19,8 +19,14 @@ public class Computer {
         return carMap;
     }
 
-    int getRandomNum(){
+    int makeRandomNum(){
         return Randoms.pickNumberInRange(0,9);
+    }
+    int decideToMoveForward(int randomNum){
+        if(randomNum >= 4){
+            return 1;
+        }
+        return 0;
     }
 
 }
