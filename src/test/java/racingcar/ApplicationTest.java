@@ -31,20 +31,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    void setNumber(int number){
-        if(number < 0){
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-        }
-    }
-
     @Test
     void 시도할_횟수가_음수이면_예외처리(){
-        int num = -3943;
+        String num = "-3943";
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> setNumber(num));
-
-        String message = exception.getMessage();
-        assertEquals("이름은 5자 이하만 가능합니다.", message);
+        assertThatThrownBy(() -> runException("pobi,woni", num))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 5자 이하만 가능합니다.");
     }
 
 
