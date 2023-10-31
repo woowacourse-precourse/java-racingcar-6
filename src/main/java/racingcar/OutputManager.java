@@ -20,11 +20,11 @@ public class OutputManager {
     }
 
     private void printGameSnapshot(Game game) {
-        game.getCars().forEach(this::printCarSnapshot);
+        game.getCars().forEach(this::printCarPosition);
         System.out.println();
     }
 
-    private void printCarSnapshot(Car car) {
+    private void printCarPosition(Car car) {
         System.out.print(car.getName() + " : ");
         printPositionBar(car.getPosition());
     }
