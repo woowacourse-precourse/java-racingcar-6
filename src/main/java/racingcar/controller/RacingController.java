@@ -39,6 +39,8 @@ public class RacingController {
             racingGame.race();
             printRaceResults(racingGame.getCars());
         }
+
+        racingGame.printWinners();
     }
 
     private void printRaceResults(List<Car> cars) {

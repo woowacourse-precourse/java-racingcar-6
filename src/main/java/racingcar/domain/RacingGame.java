@@ -38,4 +38,13 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
+    public void printWinners() {
+        List<Car> winners = findWinners();
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+        System.out.println("최종 우승자 : " + winnerNames);
+    }
+
+
 }
