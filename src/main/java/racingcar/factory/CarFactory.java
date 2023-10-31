@@ -1,13 +1,15 @@
 package racingcar.factory;
 
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.List;
 
 public class CarFactory {
-    public List<Car> createCars(List<String> carNames) {
-        return carNames.stream()
+    public Cars createCars(List<String> carNames) {
+        List<Car> cars = carNames.stream()
                 .map(Car::new)
                 .toList();
+        return new Cars(cars);
     }
 }

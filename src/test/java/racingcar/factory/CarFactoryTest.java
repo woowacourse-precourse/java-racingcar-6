@@ -2,6 +2,7 @@ package racingcar.factory;
 
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 import java.util.List;
 
@@ -16,9 +17,9 @@ class CarFactoryTest {
         List<String> carNames = List.of("test1", "test2", "test3");
 
         // when
-        List<Car> cars = carFactory.createCars(carNames);
+        Cars cars = carFactory.createCars(carNames);
 
         // then
-        assertThat(cars).hasSize(carNames.size());
+        assertThat(cars.getCars()).hasSize(carNames.size());
     }
 }

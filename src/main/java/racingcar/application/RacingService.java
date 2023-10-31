@@ -1,6 +1,7 @@
 package racingcar.application;
 
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.dto.RacingResult;
 import racingcar.generator.NumberGenerator;
 
@@ -15,8 +16,8 @@ public class RacingService {
         this.generator = generator;
     }
 
-    public List<RacingResult> race(List<Car> cars) {
-        return cars.stream()
+    public List<RacingResult> race(Cars cars) {
+        return cars.getCars().stream()
                 .map(this::moveCar)
                 .toList();
     }
@@ -28,17 +29,17 @@ public class RacingService {
         return RacingResult.from(car);
     }
 
-    public List<String> selectWinners(List<Car> cars) {
+    public List<String> selectWinners(Cars cars) {
         int maxMovedCount = getMaxMovedCount(cars);
 
-        return cars.stream()
+        return cars.getCars().stream()
                 .filter(car -> car.isSameMovedCount(maxMovedCount))
                 .map(Car::getName)
                 .toList();
     }
 
-    private int getMaxMovedCount(List<Car> cars) {
-        return cars.stream()
+    private int getMaxMovedCount(Cars cars) {
+        return cars.getCars().stream()
                 .mapToInt(Car::getMovedCount)
                 .max()
                 .orElseThrow(() -> new IllegalArgumentException("자동차가 존재하지 않습니다."));

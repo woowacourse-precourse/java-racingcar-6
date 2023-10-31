@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.dto.RacingResult;
 import racingcar.support.TestNumberGenerator;
 
@@ -23,7 +24,7 @@ class RacingServiceTest {
         // given
         generator.setReturnNumber(wrongConditionNumber);
         int createCount = 3;
-        List<Car> cars = createCars(createCount);
+        Cars cars = createCars(createCount);
 
         // when
         List<RacingResult> racingResults = racingService.race(cars);
@@ -37,7 +38,7 @@ class RacingServiceTest {
         // given
         generator.setReturnNumber(MOVE_CONDITION.getValue());
         int createCount = 5;
-        List<Car> cars = createCars(createCount);
+        Cars cars = createCars(createCount);
 
         // when
         List<RacingResult> racingResults = racingService.race(cars);
@@ -49,7 +50,7 @@ class RacingServiceTest {
     @Test
     void 단독_우승자를_반환한다() {
         // given
-        List<Car> cars = createCarsWithWinner(1);
+        Cars cars = createCarsWithWinner(1);
 
         // when
         List<String> winners = racingService.selectWinners(cars);
@@ -62,7 +63,7 @@ class RacingServiceTest {
     @ValueSource(ints = {2, 3, 4, 5, 10})
     void 공동_우승자를_반환한다(int winnerCount) {
         // given
-        List<Car> cars = createCarsWithWinner(winnerCount);
+        Cars cars = createCarsWithWinner(winnerCount);
 
         // when
         List<String> winners = racingService.selectWinners(cars);
@@ -71,15 +72,16 @@ class RacingServiceTest {
         assertThat(winners).hasSize(winnerCount);
     }
 
-    private List<Car> createCars(int createCount) {
-        return IntStream.range(0, createCount)
+    private Cars createCars(int createCount) {
+        List<Car> cars = IntStream.range(0, createCount)
                 .mapToObj(i -> new Car("test"))
                 .toList();
+        return new Cars(cars);
     }
 
-    private List<Car> createCarsWithWinner(int winnerCount) {
-        List<Car> cars = createCars(winnerCount + 10);
-        cars.stream()
+    private Cars createCarsWithWinner(int winnerCount) {
+        Cars cars = createCars(winnerCount + 10);
+        cars.getCars().stream()
                 .limit(winnerCount)
                 .forEach(Car::move);
         return cars;

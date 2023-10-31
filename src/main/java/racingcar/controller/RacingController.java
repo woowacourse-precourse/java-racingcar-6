@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.application.RacingService;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.dto.RacingResult;
 import racingcar.factory.CarFactory;
 import racingcar.ui.InputView;
@@ -25,7 +26,7 @@ public class RacingController {
     }
 
     public void run() {
-        List<Car> cars = createCars();
+        Cars cars = createCars();
         int tryCount = createTryCount();
 
         outputView.printResultMessage();
@@ -38,7 +39,7 @@ public class RacingController {
         outputView.printWinners(winners);
     }
 
-    private List<Car> createCars() {
+    private Cars createCars() {
         String carNames = inputView.inputCarNames();
         return carFactory.createCars(StringUtil.convertToListByDelimiter(carNames));
     }
