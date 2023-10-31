@@ -12,17 +12,21 @@ public class User {
     private int attempts;
 
     public void setCarsName() {
-        System.out.println(CAR_NAME_INPUT_MESSAGE);
-        String carsNameString = Console.readLine();
+        String carsNameString = inputCarsName();
         splitCarsName(carsNameString);
-    }
-
-    public void splitCarsName(String carsNameString) {
-        carsNameArray = carsNameString.split(",");
         checkCarNameUnderFive();
     }
 
-    private void checkCarNameUnderFive() {
+    public String inputCarsName() {
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
+        return Console.readLine();
+    }
+
+    public void splitCarsName(String input) {
+        carsNameArray = input.split(",");
+    }
+
+    public void checkCarNameUnderFive() {
         for(String carName : carsNameArray) {
             if(carName.length() > 5) {
                 throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
@@ -35,9 +39,13 @@ public class User {
     }
 
     public void setAttempts() {
+        String attempts = inputAttempts();
+        checkAttempts(attempts);
+    }
+
+    public String inputAttempts() {
         System.out.println(ATTEMPTS_INPUT_MESSAGE);
-        String input = Console.readLine();
-        checkAttempts(input);
+        return Console.readLine();
     }
 
     public void checkAttempts(String input) {
