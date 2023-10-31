@@ -3,7 +3,7 @@ package racingcar;
 import java.util.Objects;
 
 public class Car {
-    static GameManager gameManager = new GameManager();
+    GameManager gameManager = new GameManager();
     private String carName;
     private int position;
 
