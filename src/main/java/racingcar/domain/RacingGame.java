@@ -9,7 +9,7 @@ import java.util.List;
 public class RacingGame {
 
     private List<String> resultList = new ArrayList<>();
-    private List<String> winner = new ArrayList<>();
+
 
     private RacingGame() {
 
@@ -21,6 +21,18 @@ public class RacingGame {
             resultList.add("");
         }
     }
+
+    public void move(List cars) {
+        int randNum;
+        for (int i=0; i<cars.size(); i++) {
+            randNum = Randoms.pickNumberInRange(0,9);
+            if(randNum >= 4) {
+                resultList.set(i, resultList.get(i)+"-");
+            }
+        }
+
+    }
+
 
 
 
