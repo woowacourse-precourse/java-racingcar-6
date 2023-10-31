@@ -5,11 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceOfficial {
-    private List<Car> winners;
-    public void findAndSetWinners(List<Car> cars) {
-        int longestDistance = findLongestDistance(cars);
-
-        winners = cars.stream()
+    public List<Car> findWinners(List<Car> cars, int longestDistance) {
+        return cars.stream()
                 .filter(car -> car.getDistance() == longestDistance)
                 .collect(Collectors.toList());
     }
@@ -19,12 +16,5 @@ public class RaceOfficial {
                 .map(Car::getDistance)
                 .min(Comparator.reverseOrder())
                 .orElse(0);
-    }
-
-    public void reportWinners() {
-        List<String> names = winners.stream().map(Car::getName).collect(Collectors.toList());
-        String allWinners = String.join(", ", names);
-
-        Util.print(MessageType.SHOW_WINNERS, allWinners);
     }
 }

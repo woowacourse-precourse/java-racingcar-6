@@ -1,33 +1,27 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class RaceManager {
-    private final RaceOfficial raceOfficial = new RaceOfficial();
+public class RaceController {
+    private final RaceOfficial official = new RaceOfficial();
 
     private List<Car> cars = new ArrayList<>();
     private int tryNumber;
 
     public void run() {
-        init();
-        start();
+        initCars();
+        initTryNumber();
+        startRace();
 
-        raceOfficial.findAndSetWinners(cars);
-        raceOfficial.reportWinners();
+        int longestDistance = official.findLongestDistance(cars);
+        List<Car> winners = official.findWinners(cars, longestDistance);
+        reportWinners(winners);
     }
 
-    public void init() {
-        setCars();
-        setTryNumber();
-    }
-
-    public void setCars() {
+    public void initCars() {
         Util.print(MessageType.INPUT_CAR_NAMES);
         String input = Util.getUserInput();
         Util.handleCarNamesException(input);
@@ -36,7 +30,7 @@ public class RaceManager {
             .forEach(name -> cars.add(new Car(name)));
     }
 
-    public void setTryNumber() {
+    public void initTryNumber() {
         Util.print(MessageType.INPUT_TRY_NUMBER);
         String input = Util.getUserInput();
         Util.handleTryNumberException(input);
@@ -44,7 +38,7 @@ public class RaceManager {
         tryNumber = Integer.parseInt(input);
     }
 
-    public void start() {
+    public void startRace() {
         Util.print(MessageType.SHOW_RUN_RESULT);
         Stream.iterate(0, i -> i + 1).limit(tryNumber)
                 .forEach(moment -> racing());
@@ -56,5 +50,12 @@ public class RaceManager {
             car.print();
         });
         System.out.println();
+    }
+
+    public void reportWinners(List<Car> winners) {
+        List<String> names = winners.stream().map(Car::getName).collect(Collectors.toList());
+        String allWinners = String.join(", ", names);
+
+        Util.print(MessageType.SHOW_WINNERS, allWinners);
     }
 }

@@ -40,4 +40,9 @@ public class RaceOfficialTest {
     void findLongestDistance_최대_거리_찾기() {
         assertThat(raceOfficial.findLongestDistance(cars)).isEqualTo(longestDistance);
     }
+
+    @Test
+    void findWinners_우승자_찾기() {
+        assertThat(raceOfficial.findWinners(cars)).isEqualTo(winners);
+    }
 }
