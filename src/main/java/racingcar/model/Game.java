@@ -18,4 +18,13 @@ public class Game {
     public void addCar(String nameOfCar) {
         cars.add(new Car(nameOfCar));
     }
+
+    /**
+     * cars 리스트에 저장된 car 객체들이 한 라운드를 수행하도록 하는 함수
+     */
+    public void startRound() {
+        for (Car car : cars) {
+            car.playRound();
+        }
+    }
 }
