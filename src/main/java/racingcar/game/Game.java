@@ -1,6 +1,8 @@
 package racingcar.game;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 import racingcar.firstclasscollection.CarList;
 import racingcar.firstclasscollection.PositionMap;
@@ -19,14 +21,14 @@ public class Game {
     }
 
     private void makeCars(String[] carNames) {
-        carList = new CarList();
+        carList = new CarList(ArrayList::new);
         Arrays.stream(carNames)
                 .map(Car::new)
                 .forEach(carList::addCar);
     }
 
     private void initPosition() {
-        positions = new PositionMap();
+        positions = new PositionMap(HashMap::new);
         carList.forEachCar((car) -> positions.putCar(car));
     }
 

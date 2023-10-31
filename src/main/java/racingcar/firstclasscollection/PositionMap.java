@@ -1,9 +1,9 @@
 package racingcar.firstclasscollection;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import racingcar.constant.ExceptionMessage;
 import racingcar.model.Car;
@@ -13,8 +13,8 @@ public class PositionMap {
     private Map<Car, Integer> positionMap;
     private int winnerPosition;
 
-    public PositionMap() {
-        positionMap = new HashMap<>();
+    public PositionMap(Supplier<Map> mapSupplier) {
+        positionMap = mapSupplier.get();
         winnerPosition = INIT_POSITION;
     }
 
