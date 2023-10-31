@@ -4,8 +4,10 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class OutputView {
+    public static final String RESULT_HEADER_MESSAGE = "실행 결과";
+
     public static String resultHeaderMessage() {
-        return "실행 결과";
+        return RESULT_HEADER_MESSAGE;
     }
 
     // 현재 자동차들의 전진 상태 출력 화면 템플릿 생성
