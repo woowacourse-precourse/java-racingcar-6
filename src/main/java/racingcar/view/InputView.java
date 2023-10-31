@@ -8,12 +8,12 @@ public class InputView {
     }
 
     public static String enterCarNames() {
-        System.out.println(ConsoleMessage.ENTER_CAR_NAMES);
+        System.out.println(ConsoleMessage.ENTER_CAR_NAMES.getMessage());
         return Console.readLine();
     }
 
     public static String enterCycle() {
-        System.out.println(ConsoleMessage.ENTER_TRY_COUNT);
+        System.out.println(ConsoleMessage.ENTER_CYCLE.getMessage());
         return Console.readLine();
     }
 
