@@ -10,7 +10,10 @@ public class GameView {
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String playerCarNames = Console.readLine();
-        List<String> carNames = Arrays.asList(playerCarNames.split(","));
+        List<String> carNames = Arrays.asList(playerCarNames.split(","))
+                .stream()
+                .map(it-> it.trim())
+                .toList();
 
         InputDataExceptionHandler.validateCarNames(carNames);
 

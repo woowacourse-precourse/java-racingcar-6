@@ -16,7 +16,7 @@ public class GameViewTest extends NsTest {
     void 자동차_입력_검증() {
         System.setIn(new ByteArrayInputStream("ab, cd , ef".getBytes()));
         List<String> carNames = gameView.getCarNames();
-        assertThat(carNames).contains("ab", " cd ", " ef");
+        assertThat(carNames).contains("ab", "cd", "ef");
     }
 
     @Override
