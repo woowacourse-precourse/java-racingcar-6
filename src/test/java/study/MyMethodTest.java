@@ -58,7 +58,19 @@ public class MyMethodTest {
         carsWithWins.put("genesis", 5);
 
         printWinResult(carsWithWins);
+    }
 
+    @Test
+    void getWinnerList_메서드_사용시_제일_많이_전진한_차를_반환한다() {
+        Map<String, Integer> carsWithWins = new HashMap<>();
+
+        carsWithWins.put("pony", 3);
+        carsWithWins.put("benz", 2);
+        carsWithWins.put("genesis", 5);
+
+        List<String> winnerList = getWinnerList(carsWithWins, 5);
+        assertThat(winnerList.size()).isOne();
+        assertThat(winnerList.get(0)).isEqualTo("genesis");
     }
 
 }
