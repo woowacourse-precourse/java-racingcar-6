@@ -4,7 +4,7 @@ import racingcar.enums.ErrorMessages;
 import racingcar.utils.CommonValidator;
 
 public class Attempts {
-    private final int number;
+    private final Integer number;
 
     public Attempts(int number) {
         this.number = number;
