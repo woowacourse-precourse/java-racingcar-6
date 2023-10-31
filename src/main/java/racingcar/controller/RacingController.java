@@ -30,6 +30,7 @@ public class RacingController {
         Map<String, Integer> carList = new HashMap<>();
         setCarList(carList);
 
+        int tryCount = getTryCount();
     }
 
     private void setCarList(Map<String, Integer> list) {
@@ -39,6 +40,12 @@ public class RacingController {
         }
         carNameValidator.checkDuplicatedCarName(list);
     }
+    private int getTryCount() {
+        racingViewer.showTryCountMessage();
+        String tryCount = tryCountInput.returnTryCount();
+        tryCountValidator.isNumber(tryCount);
+        tryCountValidator.isNumberInRange(tryCount);
 
-
+        return Integer.parseInt(tryCount);
+    }
 }
