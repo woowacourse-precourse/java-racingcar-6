@@ -24,13 +24,10 @@ public class Input {
     public int runtime() {
         System.out.println("시도할 회수는 몇회인가요?");
         String time_string = readLine();
-        int time_int = 0;
-        try {
-            time_int = Integer.parseInt(time_string);
-        } catch (Exception e) {
+        if (!Check.checkRunTime(time_string)) {
             throw new IllegalStateException();
-        } finally {
-            return time_int;
         }
+        int time_int = Integer.parseInt(time_string);
+        return time_int;
     }
 }
