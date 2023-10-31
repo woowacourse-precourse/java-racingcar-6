@@ -4,7 +4,7 @@ import racingcar.validation.GameCountValidator;
 
 public class GameCount {
 
-    private int count;
+    private String count;
 
     private GameCount(String userInput) {
         this.count = create(userInput);
@@ -14,12 +14,12 @@ public class GameCount {
         return new GameCount(userInput);
     }
 
-    private int create(String userInput) {
+    private String create(String userInput) {
         GameCountValidator.validateGameCount(userInput);
-        return Integer.parseInt(userInput);
+        return userInput;
     }
 
-    public int getCount() {
-        return this.count;
+    public int convertStrToInt() {
+        return Integer.parseInt(this.count);
     }
 }

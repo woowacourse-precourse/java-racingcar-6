@@ -11,6 +11,6 @@ class GameCountTest {
     void 정적_팩토리_객체가_생성되는지_확인() {
         GameCount gameCount = GameCount.from("2");
 
-        assertThat(gameCount.getCount() == 2);
+        assertThat(gameCount.convertStrToInt() == 2);
     }
 }
