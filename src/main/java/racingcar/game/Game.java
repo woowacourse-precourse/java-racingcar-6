@@ -1,6 +1,5 @@
 package racingcar.game;
 
-import racingcar.exception.UninitializedException;
 import racingcar.io.InputAdaptor;
 import racingcar.io.Printer;
 import racingcar.util.OutputFormatter;
@@ -37,7 +36,7 @@ public class Game {
 
     public void execute() {
         if (this.numOfTries < 0 || this.gameManager == null) {
-            throw new UninitializedException(UNINITIALIZED_EXCEPTION_MSG);
+            throw new IllegalStateException(UNINITIALIZED_EXCEPTION_MSG);
         }
 
         Printer.print(OutputFormatter.getMessageToIndicateToStartToShowResult());
