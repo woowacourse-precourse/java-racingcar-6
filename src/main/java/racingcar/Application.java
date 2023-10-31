@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Application {
     private static List<String> carNames = new ArrayList<>();
+    private static List<String> winners = new ArrayList<>();
     private static int carMovingCount;
     private static List<Integer> carMovings = new ArrayList<>();
 
@@ -68,6 +69,32 @@ public class Application {
         System.out.println();
     }
 
+    private static void decideWinners() {
+        int max = 0;
+
+        for (int i = 0; i < carMovings.size(); i++) {
+            if (carMovings.get(i) > max) {
+                max = carMovings.get(i);
+            }
+        }
+
+        for (int i = 0; i < carMovings.size(); i++) {
+            if (carMovings.get(i) == max) {
+                winners.add(carNames.get(i));
+            }
+        }
+    }
+
+/*    private static void displayWinners() {
+        System.out.print(winners.get(0));
+        if (winners.size() > 1) {
+            System.out.print(", ");
+            for (int i = 1; i < winners.size(); i++) {
+                System.out.print(winners.get(i));
+            }
+        }
+    }*/
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         displayStartText();
@@ -89,5 +116,7 @@ public class Application {
             displayTurnResult();
             System.out.println();
         }
+        decideWinners();
+        //displayWinners();
     }
 }
