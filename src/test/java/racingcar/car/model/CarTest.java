@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.car.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +10,7 @@ import racingcar.car.model.RacingCar;
 class CarTest {
 
     @Test
-    void 자동차_getName() {
+    void 자동차_생성() {
         String name = "Ford";
         CarName carName = new CarName(name);
         Car mustang = new RacingCar(carName);
@@ -19,7 +19,7 @@ class CarTest {
     }
 
     @Test
-    void 자동차_drive() {
+    void 자동차_전진() {
         String name = "Ford";
         CarName carName = new CarName(name);
         Car mustang = new RacingCar(carName);

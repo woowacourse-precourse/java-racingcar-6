@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.race;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import racingcar.race.MoveCount;
 
 class MoveCountTest {
     @Test

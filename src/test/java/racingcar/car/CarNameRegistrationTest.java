@@ -1,10 +1,9 @@
-package racingcar;
+package racingcar.car;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.car.CarNameRegistration;
 import racingcar.car.model.CarName;
 
 class CarNameRegistrationTest {
