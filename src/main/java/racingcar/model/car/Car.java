@@ -26,4 +26,13 @@ public class Car {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public String carInfo() {
+        String output = "";
+        output += name + Texts.SPACE + Texts.COLON + Texts.SPACE;
+        for (int i = 0; i < count; i++) {
+            output += Texts.BAR;
+        }
+        return output;
+    }
 }
