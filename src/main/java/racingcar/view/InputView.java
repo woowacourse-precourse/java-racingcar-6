@@ -16,4 +16,10 @@ public class InputView {
         validator.validateInputCar(carsName);
         return carsName;
     }
+
+    public int getMovingTryCount() {
+        String input = Console.readLine();
+        validator.validateInputMovingTryCount(input);
+        return StringParser.parseStringToInt(input);
+    }
 }
