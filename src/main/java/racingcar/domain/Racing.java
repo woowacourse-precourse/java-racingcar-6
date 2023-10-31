@@ -14,23 +14,27 @@ public class Racing {
         }
     }
 
-    private static int isAllowIntString(String turn) {
+    private static int isAllowIntString() {
+        System.out.println("시도할 회수는 몇회인가요?");
         try {
-            return Integer.parseInt(turn);
+            return Integer.parseInt(Console.readLine());
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자만 입력해 주세요.");
         }
     }
 
-    private static List<Car> transformStringToCarList(String cars) {
+    public List<Car> getCarList(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        final String carNameString = Console.readLine();
         List<Car> carList = new ArrayList<>();
-        for (String carName : Arrays.stream(cars.split(",")).toList()) {
+        for (String carName : Arrays.stream(carNameString.split(",")).toList()) {
             checkNameException(carName);
             final Car car = new Car(carName);
             carList.add(car);
         }
         return carList;
     }
+
 
     private void start(List<Car> cars, int turn) {
         int maxScore = 0;
@@ -53,10 +57,8 @@ public class Racing {
     }
 
     public void ready() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        final List<Car> cars = transformStringToCarList(Console.readLine());
-        System.out.println("시도할 회수는 몇회인가요?");
-        int turn = isAllowIntString(Console.readLine());
+        final List<Car> cars = getCarList();
+        int turn = isAllowIntString();
         start(cars, turn);
     }
 }
