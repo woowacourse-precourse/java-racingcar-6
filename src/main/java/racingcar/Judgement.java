@@ -7,9 +7,7 @@ import java.util.ArrayList;
 public class Judgement {
     public static boolean moveForward() {
         int number = Randoms.pickNumberInRange(0, 9);
-
         return number >= 4;
-
     }
 
     public static ArrayList<Integer> playerMoveForward(ArrayList<Integer> gameResult) {
