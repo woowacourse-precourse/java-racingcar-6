@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-import static racingcar.constant.Constant.ERROR_COUNT_NOT_POSITIVE_MESSAGE;
+import static racingcar.constant.IllegalArgumentMessage.COUNT_NOT_POSITIVE;
 
 public final class CountValidation extends InputValidation {
 
@@ -16,10 +16,10 @@ public final class CountValidation extends InputValidation {
         try {
             int number = Integer.parseInt(input);
             if (number <= 0) {
-                throw new IllegalArgumentException(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+                throw new IllegalArgumentException(COUNT_NOT_POSITIVE.getMessage());
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+            throw new IllegalArgumentException(COUNT_NOT_POSITIVE.getMessage());
         }
     }
 

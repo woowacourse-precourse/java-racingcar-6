@@ -1,7 +1,7 @@
 package racingcar.validation;
 
-import static racingcar.constant.Constant.ERROR_CAR_NAME_DUPLICATE_MESSAGE;
-import static racingcar.constant.Constant.ERROR_CAR_NAME_RANGE_MESSAGE;
+import static racingcar.constant.IllegalArgumentMessage.NAME_DUPLICATE;
+import static racingcar.constant.IllegalArgumentMessage.NAME_OUT_OF_RANGE;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ class CarNameValidationTest {
 
         Assertions.assertThatThrownBy(() -> CarNameValidation.validate(carNameList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_CAR_NAME_DUPLICATE_MESSAGE);
+                .hasMessageContaining(NAME_DUPLICATE.getMessage());
     }
 
     @Test
@@ -30,6 +30,6 @@ class CarNameValidationTest {
 
         Assertions.assertThatThrownBy(() -> CarNameValidation.validate(carNameList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_CAR_NAME_RANGE_MESSAGE);
+                .hasMessageContaining(NAME_OUT_OF_RANGE.getMessage());
     }
 }

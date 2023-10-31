@@ -1,6 +1,6 @@
 package racingcar.validation;
 
-import static racingcar.constant.Constant.ERROR_COUNT_NOT_POSITIVE_MESSAGE;
+import static racingcar.constant.IllegalArgumentMessage.COUNT_NOT_POSITIVE;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -16,7 +16,7 @@ class CountValidationTest {
 
         Assertions.assertThatThrownBy(() -> CountValidation.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+                .hasMessageContaining(COUNT_NOT_POSITIVE.getMessage());
     }
 
     @Test
@@ -26,7 +26,7 @@ class CountValidationTest {
 
         Assertions.assertThatThrownBy(() -> CountValidation.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+                .hasMessageContaining(COUNT_NOT_POSITIVE.getMessage());
     }
 
     @Test
@@ -36,6 +36,6 @@ class CountValidationTest {
 
         Assertions.assertThatThrownBy(() -> CountValidation.validate(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+                .hasMessageContaining(COUNT_NOT_POSITIVE.getMessage());
     }
 }

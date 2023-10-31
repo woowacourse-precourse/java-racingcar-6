@@ -1,8 +1,8 @@
 package racingcar.validation;
 
-import static racingcar.constant.Constant.ERROR_CAR_NAME_DUPLICATE_MESSAGE;
-import static racingcar.constant.Constant.ERROR_CAR_NAME_RANGE_MESSAGE;
 import static racingcar.constant.Constant.RULE_CAR_NAME_MAX_SIZE;
+import static racingcar.constant.IllegalArgumentMessage.NAME_DUPLICATE;
+import static racingcar.constant.IllegalArgumentMessage.NAME_OUT_OF_RANGE;
 
 import java.util.HashSet;
 import java.util.List;
@@ -23,14 +23,14 @@ public final class CarNameValidation extends InputValidation {
                 .filter(carName -> carName.isBlank() || carName.length() > RULE_CAR_NAME_MAX_SIZE)
                 .count();
         if (count > 0) {
-            throw new IllegalArgumentException(ERROR_CAR_NAME_RANGE_MESSAGE);
+            throw new IllegalArgumentException(NAME_OUT_OF_RANGE.getMessage());
         }
     }
 
     private static void hasDuplicateName(List<String> carNameList) {
         Set<String> carNameSet = new HashSet<>(carNameList);
         if (carNameList.size() != carNameSet.size()) {
-            throw new IllegalArgumentException(ERROR_CAR_NAME_DUPLICATE_MESSAGE);
+            throw new IllegalArgumentException(NAME_DUPLICATE.getMessage());
         }
     }
 
