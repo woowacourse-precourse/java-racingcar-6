@@ -22,4 +22,10 @@ public class Application {
 
         return list;
     }
+
+    public static int getTry(){
+        String input = Console.readLine();
+
+        return Integer.parseInt(input);
+    }
 }
