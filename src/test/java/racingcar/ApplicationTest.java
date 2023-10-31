@@ -78,6 +78,22 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 라운드_범위_초과_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("do,fo", String.valueOf(Integer.MAX_VALUE+1)))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_범위_미만_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("do,fo", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
 
     @Override
