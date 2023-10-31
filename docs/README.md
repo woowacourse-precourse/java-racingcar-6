@@ -35,7 +35,7 @@
 
 ### Controller
 
-- Controller
+- RacingController
   - [x] 자동차 경주 진행 기능
 - Parser
   - [x] 들어온 자동차 이름을 쉼표를 기준으로 파싱하는 기능
@@ -43,6 +43,13 @@
   - [ ] (공백, 숫자, 한글 허용할건지 고민)
   - [ ] (자동차를 몇대까지 받을 것인지 정한 후)
   - [ ] (시도할 회수를 몇회까지 받을 것인지 정한 후)
+
+### Service
+- RacingService
+  - [ ] 자동차 경주 준비 기능
+  - [ ] 1회 경주 기능
+  - [ ] race 진행 여부 반환 기능
+  - [ ] 우승자 반환 기능
 
 ### Model
 
@@ -55,6 +62,7 @@
   - [x] n 대 Car 저장 기능
   - [x] 이름이 중복되는지 검사 기능
   - [x] 우승자 찾는 기능
+  - [ ] 자동차 저장 용량 검사 기능
 - Race
   - race 회수 저장
   - [x] race 회수 유효성 검사 기능
@@ -76,3 +84,7 @@
 
 
 
+controller - RacingController, Parser
+model - Car, CarDto, CarName, CarNameLength, CarRepository, ErrorMessage, Generator, Race
+service - CarDto, RacingService
+view - InputView, OutputMessage, OutputView
