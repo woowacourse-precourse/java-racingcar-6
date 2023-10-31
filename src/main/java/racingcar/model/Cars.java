@@ -18,13 +18,13 @@ public class Cars {
         return distance;
     }
 
-    public void move() {
-        if (movable()) {
+    public void move(int moving) {
+        if (movable(moving)) {
             distance++;
         }
     }
 
-    private boolean movable() {
-        return RandomNum.generate() >= 4;
+    private boolean movable(int moving) {
+        return moving >= 4;
     }
 }

@@ -37,7 +37,7 @@ public class CarGame {
 
     public void moveOrStop() {
         for (Cars car : cars) {
-            car.move();
+            car.move(RandomNum.generate());
         }
     }
 
