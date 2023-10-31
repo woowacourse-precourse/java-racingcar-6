@@ -38,8 +38,22 @@ public class Application {
 
     private static int inputTrialTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String inputTrialTimes = Console.readLine();
+        return checkIsPositiveInteger(inputTrialTimes);
     }
+
+    private static int checkIsPositiveInteger(String inputTrialTimes) {
+        try {
+            int trialTimes = Integer.parseInt(inputTrialTimes);
+            if (trialTimes <= 0) {
+                throw new IllegalArgumentException("시도 회수는 양의 정수여야 합니다.");
+            }
+            return trialTimes;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 회수는 양의 정수여야 합니다.");
+        }
+    }
+
 
     private static List<String> parseCarNamesToList(String carNames) {
         List<String> carNameList = Arrays.stream(carNames.split(","))
