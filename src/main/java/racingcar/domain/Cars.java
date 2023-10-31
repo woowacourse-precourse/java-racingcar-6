@@ -5,6 +5,7 @@ import static racingcar.global.constants.NumberType.MIN_CAR_SIZE;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.utils.RandomUtils;
 
 public class Cars {
     private List<Car> carList;
@@ -16,6 +17,12 @@ public class Cars {
 
     public static Cars of(List<String> nameList) {
         return new Cars(nameList);
+    }
+
+    public void tryMoveCars() {
+        for (Car car : carList) {
+            car.tryMove();
+        }
     }
 
     private List<Car> convertNameListToCarList(List<String> nameList) {
