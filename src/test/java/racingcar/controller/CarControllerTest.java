@@ -49,4 +49,21 @@ class CarControllerTest {
         assertThat(cars.get(1).getPosition()).isEqualTo(1);
     }
 
+    @Test
+    public void 우승자_찾기_테스트() throws Exception {
+        //given
+        List<Car> cars = Arrays.asList(
+                new Car("car1", 3),
+                new Car("car2", 4),
+                new Car("car3", 5),
+                new Car("car4", 2)
+        );
+        //when
+        List<Car> winners = carController.findWinners(cars);
+
+        //then
+        assertThat(winners).hasSize(1);
+        assertThat(winners).extracting("name").containsExactlyInAnyOrder("car3");
+    }
+
 }
