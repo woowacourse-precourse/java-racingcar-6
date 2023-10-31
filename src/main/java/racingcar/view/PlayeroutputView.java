@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class PlayeroutputView {
+
     public static void round(List<Car> cars) {
         for (Car car : cars) {
             String carName = car.getName();
@@ -16,7 +17,7 @@ public class PlayeroutputView {
         System.out.println();
     }
 
-    private static String generateOnestepMessage(int position) {
+    public static String generateOnestepMessage(int position) {
         StringBuilder message = new StringBuilder();
         for (int i = 0; i < position; i++) {
             message.append("-");
@@ -52,4 +53,5 @@ public class PlayeroutputView {
         }
         System.out.println("최종 우승자 : " + winners);
     }
+
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import static racingcar.view.PlayeroutputView.resultPrize;
 
 public class Gamecontroller {
+
     public static void start(){
         String[] names = PlayerinputView.getNames();
         List<Car> cars = PlayerinputView.saveNames(names);
@@ -25,4 +26,5 @@ public class Gamecontroller {
             PlayeroutputView.round(cars);
         }
     }
+
 }
