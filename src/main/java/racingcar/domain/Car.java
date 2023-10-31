@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import racingcar.util.NumberGenerator;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private final NumberGenerator numberGenerator;
 
@@ -45,5 +45,14 @@ public class Car {
             System.out.print(GAME_PROCEED_CHAR);
         }
         System.out.println();
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return this.position - otherCar.position;
+    }
+
+    public boolean isSamePosition(Car otherCar) {
+        return this.position == otherCar.position;
     }
 }

@@ -1,31 +1,27 @@
 package racingcar.domain;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.validation.CarNameValidator;
 
 public class CarList {
 
-    private final CarNameValidator carNameValidator;
-
     private static final String DIVISION_STANDARD = ",";
 
     private List<Car> carList;
 
-    private CarList(String userInput, CarNameValidator carNameValidator) {
-        this.carList = from(userInput);
-        this.carNameValidator = carNameValidator;
+    private CarList(String userInput) {
+        this.carList = create(userInput);
     }
 
-    public static CarList of(String userInput, CarNameValidator carNameValidator) {
-        return new CarList(userInput, carNameValidator);
+    public static CarList of(String userInput) {
+        return new CarList(userInput);
     }
 
-    public List<Car> from(String userInput) {
+    private List<Car> create(String userInput) {
         List<String> userInputList = convertStrToList(userInput);
-        carNameValidator.validateCarName(userInputList);
+        CarNameValidator.validateCarName(userInputList);
         return userInputList.stream()
                 .map(name -> Car.from(name))
                 .collect(Collectors.toList());
@@ -34,6 +30,16 @@ public class CarList {
     private List<String> convertStrToList(String userInput) {
         return Arrays.stream(userInput.split(DIVISION_STANDARD))
                 .collect(Collectors.toList());
+    }
+
+    public void playGame(int gameCount) {
+        for (int count = 0; count < gameCount; count++) {
+            for (Car carList : carList) {
+                carList.play();
+                carList.printGameProceed();
+            }
+            System.out.println();
+        }
     }
 
     public List<String> findWinner() {

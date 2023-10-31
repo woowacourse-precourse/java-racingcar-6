@@ -14,7 +14,7 @@ public class CarNameValidator {
     private static final String CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE = "자동차의 이름은 중복될 수 없습니다.";
     private static final String CAR_NAME_TYPE_EXCEPTION_MESSAGE = "자동차의 이름은 특수문자를 제외한 문자와 숫자만 허용합니다.";
 
-    public void validateCarName(List<String> carNameList) {
+    public static void validateCarName(List<String> carNameList) {
         if (!validateNameSize(carNameList)) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
         }
@@ -28,18 +28,18 @@ public class CarNameValidator {
         }
     }
 
-    private boolean validateNameSize(List<String> carNameList) {
+    private static boolean validateNameSize(List<String> carNameList) {
         return carNameList.stream()
                 .allMatch(carName -> CAR_NAME_MIN_SIZE <= carName.length() && carName.length() < CAR_NAME_MAX_SIZE);
     }
 
-    private boolean validateNameDuplication(List<String> carNameList) {
+    private static boolean validateNameDuplication(List<String> carNameList) {
         Set<String> carNameSet = new HashSet<>(carNameList);
 
         return carNameList.size() == carNameSet.size();
     }
 
-    private boolean validateNameType(List<String> carNameList) {
+    private static boolean validateNameType(List<String> carNameList) {
         for (String carName : carNameList) {
             if (!CAR_NAME_TYPE_REGEX.matcher(carName).matches()) {
                 return false;
