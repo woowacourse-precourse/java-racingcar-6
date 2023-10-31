@@ -37,4 +37,14 @@ public class ValidatorTest {
                 Validator.validateNameStartsWithComma(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_이름이_5자_이상인_경우() {
+        String[] names = {"pobipobi", "woni", "jun"};
+        int DIGIT = 5;
+
+        assertThatThrownBy(() ->
+                Validator.validateNameLength(names, DIGIT))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
