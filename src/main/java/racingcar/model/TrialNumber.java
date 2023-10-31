@@ -1,4 +1,4 @@
-package model;
+package racingcar.model;
 
 public class TrialNumber {
     private int trial;

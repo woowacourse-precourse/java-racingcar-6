@@ -1,6 +1,6 @@
 package racingcar;
 
-import model.Car;
+import racingcar.model.Car;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

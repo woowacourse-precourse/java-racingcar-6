@@ -1,4 +1,4 @@
-package model;
+package racingcar.model;
 
 public class CarName {
     private final int MIN_NAME_LENGTH = 1;

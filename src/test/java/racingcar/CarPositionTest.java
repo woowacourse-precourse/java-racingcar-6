@@ -1,6 +1,6 @@
 package racingcar;
 
-import model.CarPosition;
+import racingcar.model.CarPosition;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

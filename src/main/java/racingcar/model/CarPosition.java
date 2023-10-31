@@ -1,4 +1,4 @@
-package model;
+package racingcar.model;
 
 public class CarPosition {
     private final int INITIAL_POS = 0;

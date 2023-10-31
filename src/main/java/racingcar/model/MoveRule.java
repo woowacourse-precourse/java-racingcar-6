@@ -1,6 +1,6 @@
-package model;
+package racingcar.model;
 
-import util.RandomNumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 
 public class MoveRule {
     private final int MOVE_CONDITION = 4;

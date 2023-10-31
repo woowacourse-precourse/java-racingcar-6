@@ -1,9 +1,8 @@
-package view;
+package racingcar.view;
 
-import java.util.List;
-import model.Car;
-import model.Cars;
-import model.Winners;
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.model.Winners;
 
 public class OutputView {
     private final String RESULT_MESSAGE = "\n실행 결과";
