@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.constant.GameMessage;
+import racingcar.controller.Controller;
 import racingcar.controller.Validator;
 
 public class OutputView {
@@ -58,4 +59,11 @@ public class OutputView {
     public static String readInput() {
         return Console.readLine();
     }
+
+    public static List<String> readCarName() {
+        List<String> carName = Controller.splitName(Console.readLine());
+        Validator.isRightName(carName);
+        return carName;
+    }
+
 }
