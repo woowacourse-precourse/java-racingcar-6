@@ -29,7 +29,7 @@ public class GameManager {
   }
 
   public void start() {
-    System.out.println("시작");
+    System.out.println("실행 결과");
 
     while (!isGameEnd()){
       this.progressRound(cars);
@@ -41,14 +41,14 @@ public class GameManager {
   }
   public void progressRound(List<Car> cars){
     currentCount++;
-    System.out.println(currentCount+"라운드 진행");
     
     for(int i=0;i<cars.size();i++){
       if(cars.get(i).isProgress()){
         progressState.set(i,progressState.get(i)+1);
       }
     }
+    
+    View.printProgressState(cars,progressState);
 
-    System.out.println(progressState);
   }
 }

@@ -6,6 +6,6 @@ public class Application {
     GameManager gameManager = new GameManager();
     gameManager.init();
     gameManager.start();
-
+    
   }
 }

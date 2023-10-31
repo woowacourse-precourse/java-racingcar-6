@@ -28,4 +28,11 @@ public class View {
     String input = Console.readLine();
     return Integer.parseInt(input);
   }
+  
+  static public void printProgressState(List<Car> cars, List<Integer> progressState){
+    for(int i=0;i<cars.size();i++){
+      System.out.println(cars.get(i).getName()+" : "+ "-".repeat(progressState.get(i)));
+    }
+    System.out.println();
+  }
 }
