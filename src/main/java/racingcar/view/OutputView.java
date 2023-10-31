@@ -9,6 +9,7 @@ import java.util.List;
 
 public class OutputView {
     private static final String DASH = "-";
+    private static final String DELIMITER = ", ";
     private final OutputWriter writer;
     private boolean isFirstRound = true;
 
@@ -42,6 +43,6 @@ public class OutputView {
 
     public void printWinner(WinnersDto winnersDto) {
         writer.writeGameWinnerMsg();
-        System.out.println(String.join(", ", winnersDto.winnerList()));
+        System.out.println(String.join(DELIMITER, winnersDto.winnerList()));
     }
 }
