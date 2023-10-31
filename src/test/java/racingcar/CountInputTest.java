@@ -3,9 +3,9 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Computer.getInput;
-import static racingcar.Error.NOT_NUMBER_ERROR;
-import static racingcar.Error.ROUND_COUNT_ERROR;
-import static racingcar.Message.INPUT_RACING_ROUND;
+import static racingcar.constants.Error.NOT_NUMBER_ERROR;
+import static racingcar.constants.Error.ROUND_COUNT_ERROR;
+import static racingcar.constants.Message.INPUT_RACING_ROUND;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;

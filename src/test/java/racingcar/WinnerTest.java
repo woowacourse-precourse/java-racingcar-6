@@ -1,7 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.Message.RESULT;
+import static racingcar.constants.Message.RESULT;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constants;
 
 public enum BoundaryValue {
     MIN_RANDOM(0),

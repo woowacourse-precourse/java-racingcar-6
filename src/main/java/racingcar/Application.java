@@ -1,8 +1,8 @@
 package racingcar;
 
 import static racingcar.Computer.getInput;
-import static racingcar.Message.INPUT_CAR_NAMES;
-import static racingcar.Message.INPUT_RACING_ROUND;
+import static racingcar.constants.Message.INPUT_CAR_NAMES;
+import static racingcar.constants.Message.INPUT_RACING_ROUND;
 
 public class Application {
 
@@ -15,4 +15,5 @@ public class Application {
         CarRace.printWinner(CarRace.findWinner(car, CarRace.findBest(car.movedDistances)));
 
     }
+
 }

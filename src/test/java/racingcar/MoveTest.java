@@ -1,7 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.Message.START_RACE;
+import static racingcar.constants.Message.START_RACE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayOutputStream;

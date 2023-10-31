@@ -1,9 +1,9 @@
 package racingcar;
 
-import static racingcar.BoundaryValue.MAX_RANDOM;
-import static racingcar.BoundaryValue.MIN_RANDOM;
-import static racingcar.BoundaryValue.MOVE_LIMIT;
-import static racingcar.Message.START_RACE;
+import static racingcar.constants.BoundaryValue.MAX_RANDOM;
+import static racingcar.constants.BoundaryValue.MIN_RANDOM;
+import static racingcar.constants.BoundaryValue.MOVE_LIMIT;
+import static racingcar.constants.Message.START_RACE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;

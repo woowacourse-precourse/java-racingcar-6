@@ -1,9 +1,10 @@
 package racingcar;
 
-import static racingcar.Message.RESULT;
+import static racingcar.constants.Message.RESULT;
 
 import java.util.List;
 import java.util.StringJoiner;
+
 
 public class CarRace {
 

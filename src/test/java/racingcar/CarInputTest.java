@@ -3,11 +3,11 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.Computer.getInput;
-import static racingcar.Error.BLANK_ERROR;
-import static racingcar.Error.CAR_COUNT_ERROR;
-import static racingcar.Error.DUPLICATION_ERROR;
-import static racingcar.Error.LENGTH_ERROR;
-import static racingcar.Message.INPUT_CAR_NAMES;
+import static racingcar.constants.Error.BLANK_ERROR;
+import static racingcar.constants.Error.CAR_COUNT_ERROR;
+import static racingcar.constants.Error.DUPLICATION_ERROR;
+import static racingcar.constants.Error.LENGTH_ERROR;
+import static racingcar.constants.Message.INPUT_CAR_NAMES;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;

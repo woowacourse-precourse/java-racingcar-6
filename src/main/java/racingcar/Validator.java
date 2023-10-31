@@ -1,14 +1,14 @@
 package racingcar;
 
-import static racingcar.BoundaryValue.MAX_NAME_LENGTH;
-import static racingcar.BoundaryValue.MIN_CAR_COUNT;
-import static racingcar.BoundaryValue.MIN_ROUND;
-import static racingcar.Error.BLANK_ERROR;
-import static racingcar.Error.CAR_COUNT_ERROR;
-import static racingcar.Error.DUPLICATION_ERROR;
-import static racingcar.Error.LENGTH_ERROR;
-import static racingcar.Error.NOT_NUMBER_ERROR;
-import static racingcar.Error.ROUND_COUNT_ERROR;
+import static racingcar.constants.BoundaryValue.MAX_NAME_LENGTH;
+import static racingcar.constants.BoundaryValue.MIN_CAR_COUNT;
+import static racingcar.constants.BoundaryValue.MIN_ROUND;
+import static racingcar.constants.Error.BLANK_ERROR;
+import static racingcar.constants.Error.CAR_COUNT_ERROR;
+import static racingcar.constants.Error.DUPLICATION_ERROR;
+import static racingcar.constants.Error.LENGTH_ERROR;
+import static racingcar.constants.Error.NOT_NUMBER_ERROR;
+import static racingcar.constants.Error.ROUND_COUNT_ERROR;
 
 import java.util.HashSet;
 import java.util.List;
@@ -40,7 +40,7 @@ public class Validator {
         for (String carName : carNames) {
 
             if (carName.length() > MAX_NAME_LENGTH.get()) {
-                throw new IllegalArgumentException( LENGTH_ERROR.getMessage());
+                throw new IllegalArgumentException(LENGTH_ERROR.getMessage());
             }
 
         }

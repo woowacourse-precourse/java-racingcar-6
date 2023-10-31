@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constants;
 
 
 public enum Error {
