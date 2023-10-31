@@ -54,7 +54,6 @@ public class Game {
     /**
      * 가장 많이 전진한 자동차의 전진 횟수를 리턴하는 함수
      */
-    // no commit
     private int findMaxForwardMovement() {
         int max = 0;
         for (Car car : cars) {
@@ -65,4 +64,15 @@ public class Game {
         return max;
     }
 
+    /**
+     * 자동차들의 전진 상황을 비교하여 우승자를 저장하는 함수
+     */
+    public void findWinners() {
+        int max = findMaxForwardMovement();
+        for (Car car : cars) {
+            if (car.getForwardMovementStateOfLength() == max) {
+                this.winners.add(car.getName());
+            }
+        }
+    }
 }
