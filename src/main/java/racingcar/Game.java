@@ -59,6 +59,22 @@ public class Game {
         }
         System.out.println();
     }
+    // 최종 우승자 선택
+    List<String> findFirst() {
+        int maxLen = 0;
+        List<String> results = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            if (car[i].getMoveNum() >= maxLen) {
+                maxLen = car[i].getMoveNum();
+            }
+        }
+        for (int i = 0; i < cars.size(); i++) {
+            if (car[i].getMoveNum() == maxLen) {
+                results.add(car[i].getName());
+            }
+        }
+        return results;
+    }
 
     void startGame() {
         initCar();
@@ -66,5 +82,9 @@ public class Game {
         for (int i = 0; i < this.num; i++) {
             round();
         }
+        List<String> firsts = findFirst();
+        int len = firsts.size();
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", firsts.toArray(new String[len])));
     }
 }
