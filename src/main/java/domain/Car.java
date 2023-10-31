@@ -1,5 +1,7 @@
 package domain;
 
+import utils.RandomUtils;
+
 public class Car {
 
     private final String name;
@@ -12,6 +14,12 @@ public class Car {
 
     public void moveAhead() {
         this.progress = this.progress.addValue();
+    }
+
+    public void moveAheadByRandomNumber() {
+        if (RandomUtils.isPossibleMoveAhead()) {
+            moveAhead();
+        }
     }
 
     public RaceResult generateResult() {
