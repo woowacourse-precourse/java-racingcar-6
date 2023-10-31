@@ -20,4 +20,15 @@ public record CarList(
         return new CarList(carList);
     }
 
+    public int getMaxForwardCount() {
+        return this.cars.stream()
+                .map(Car::getForwardCount)
+                .reduce(Integer::max)
+                .orElse(0);
+    }
+
+    public boolean isEmpty() {
+        return this.cars.isEmpty();
+    }
+
 }
