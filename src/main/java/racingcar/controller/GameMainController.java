@@ -18,9 +18,9 @@ public class GameMainController {
 
     private void startGame() {
         InputView.requestCarName();
-        gameService.getCarList();
+        gameService.createCarList();
         InputView.requestGameCount();
-        gameService.getGameCount();
+        gameService.createGameCount();
     }
 
     private void playGame() {

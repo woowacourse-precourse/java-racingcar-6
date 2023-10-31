@@ -18,13 +18,12 @@ public class GameService {
         this.gameCountValidator = gameCountValidator;
     }
 
-    public void getCarList() {
+    public void createCarList() {
         String userInput = UserUtil.getUserInput();
-
         carList = CarList.of(userInput);
     }
 
-    public void getGameCount() {
+    public void createGameCount() {
         String userInput = UserUtil.getUserInput();
         gameCountValidator.validateGameCount(userInput);
         gameCount = Integer.parseInt(userInput);
