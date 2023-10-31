@@ -3,12 +3,12 @@ package racingcar.util;
 import java.util.List;
 
 public class StringAndListParser {
-	private String[] carArray;
+	private String[] nameArray;
 	private String winner;
 
 	public String[] splitString(String input) {
-		carArray = input.trim().split("\\s*,\\s*");
-		return carArray;
+		nameArray = input.trim().split("\\s*,\\s*");
+		return nameArray;
 	}
 
 	public String parseToString(List<String> list) {
