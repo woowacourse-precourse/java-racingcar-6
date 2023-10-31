@@ -43,6 +43,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+//    @Test
+//    void 최종_우승자가_여러_명일_경우(){
+//        String input = ""
+//    }
+//
+//    @Test
+//    void 자동차가_한_대_일_경우(){
+//
+//    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

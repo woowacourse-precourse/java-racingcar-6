@@ -7,6 +7,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import camp.nextstep.edu.missionutils.Randoms;
 public class Computer {
+    static final int MIN_RANGE = 0;
+    static final int MAX_RANGE = 9;
     Validation validation = new Validation();
     public ConcurrentHashMap<String, Integer> splitCarName(String carNameString) {
         ConcurrentHashMap<String, Integer> carMap = new ConcurrentHashMap<>();
@@ -28,7 +30,7 @@ public class Computer {
     }
 
     int makeRandomNum(){
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(MIN_RANGE,MAX_RANGE);
     }
     int decideToMoveForward(int randomNum){
         if(randomNum >= 4){
