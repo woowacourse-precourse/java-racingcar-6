@@ -2,6 +2,8 @@ package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import racingcar.domain.Car;
 import racingcar.service.CarService;
 
@@ -24,6 +26,13 @@ public class CarTest {
     @Test
     void emptyCarName() {
         assertThatThrownBy(()-> carService.stringToList(" "))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    @ParameterizedTest
+    @DisplayName("자동차 이름이 null 또는 empty 일 경우 예외가 발생한다.")
+    @NullAndEmptySource
+    void nullOrEmptyCarName(String carName) {
+        assertThatThrownBy(() -> carService.stringToList(carName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
     @DisplayName("자동차 이름이 null이면 예외가 발생한다.")
