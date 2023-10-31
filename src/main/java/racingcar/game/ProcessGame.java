@@ -20,11 +20,11 @@ public class ProcessGame {
         printResult(carList);
     }
 
-    private static int randomNumber(){
+    public static int randomNumber(){
         return Randoms.pickNumberInRange(Constant.MIN_VALUE,Constant.MAX_VALUE);
     }
 
-    private static boolean isForward(int number){
+    public static boolean isForward(int number){
         return number >= Constant.FORWARD_CONDITION;
     }
 

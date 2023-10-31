@@ -14,7 +14,7 @@ public class UserInputGameRound {
         return Console.readLine();
     }
 
-    private static int processInput(String round) {
+    public static int processInput(String round) {
         int gameRound = checkIsNumber(round);
         checkIsZero(gameRound);
 
