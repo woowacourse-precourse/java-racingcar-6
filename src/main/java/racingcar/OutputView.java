@@ -3,7 +3,7 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
-    public static void printExecutionResultInKorean() {
+    public static void printCarsMovementHeadline() {
         System.out.println();
         System.out.println("실행 결과");
     }

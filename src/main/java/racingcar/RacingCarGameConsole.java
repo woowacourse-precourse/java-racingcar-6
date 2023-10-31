@@ -6,14 +6,13 @@ import java.util.List;
 
 public class RacingCarGameConsole {
     private static final String INT_TYPE = "^[0-9]*$";
-    private static final int TIMES_TO_TRY_MINIMUM = 0;
     private static final int MOVE_JUDGE_INTEGER = 4;
     private final Car car;
     private final List<String> winnerNames = new ArrayList<>();
     private final int numberOfCars;
     private final int timesToTry;
     private int carIndex = 0;
-    private int mostMovedAmount = 0;
+    private int winnerMovedAmount = 0;
 
     public RacingCarGameConsole(Car car, String timesToTry) {
         this.car = car;
@@ -46,48 +45,48 @@ public class RacingCarGameConsole {
 
     public void race() {
         for (int moveTry = 0; moveTry < timesToTry; moveTry++) {
-            tryMoving();
+            carsMovement();
         }
     }
 
-    private void tryMoving() {
-        OutputView.printExecutionResultInKorean();
+    private void carsMovement() {
+        OutputView.printCarsMovementHeadline();
         carIndex = 0;
         while (carIndex < numberOfCars) {
-            updateCarMovement(oneDigitRandomNumber());
+            updateCarMovement(moveJudgeNumber());
             OutputView.printCarMovement(car.name(carIndex), car.movedLately(carIndex));
             carIndex++;
         }
     }
 
-    public void updateCarMovement(int randomNumber) {
-        if (moveAllowed(randomNumber)) {
+    public void updateCarMovement(int moveJudgeNumber) {
+        if (moveAllowed(moveJudgeNumber)) {
             car.move(carIndex);
         }
     }
 
-    private boolean moveAllowed(int randomNumber) {
-        return randomNumber >= MOVE_JUDGE_INTEGER;
+    private boolean moveAllowed(int MoveJudgeNumber) {
+        return MoveJudgeNumber >= MOVE_JUDGE_INTEGER;
     }
 
-    private int oneDigitRandomNumber() {
+    private int moveJudgeNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
     private void printWinnerNames() {
-        setWinnerNamesList();
+        makeWinnerNamesList();
         OutputView.printResult(winnerNames);
     }
 
-    public void setWinnerNamesList() {
-        mostMovedAmount = car.mostMovedAmount();
+    public void makeWinnerNamesList() {
+        winnerMovedAmount = car.mostMovedAmount();
         for (carIndex = 0; carIndex < numberOfCars; carIndex++) {
             addNamesToListIfWinner();
         }
     }
 
     private void addNamesToListIfWinner() {
-        if (car.movedLately(carIndex) == mostMovedAmount) {
+        if (car.movedLately(carIndex) == winnerMovedAmount) {
             winnerNames.add(car.name(carIndex));
         }
     }

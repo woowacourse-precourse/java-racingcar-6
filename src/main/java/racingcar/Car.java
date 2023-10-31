@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Car {
-    private static final int NAME_LENGTH_MAX = 5;
+    private static final int MAX_NAME_LENGTH = 5;
     private final List<String> names;
     private final int[] moveAmount;
     private final int number;
@@ -52,7 +52,7 @@ public class Car {
     }
 
     private void checkNameLength(String name) {
-        if (name.length() > NAME_LENGTH_MAX) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionCase.CAR_NAME_LENGTH_OVERED.message());
         }
     }
