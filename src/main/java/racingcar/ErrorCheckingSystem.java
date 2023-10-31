@@ -26,6 +26,14 @@ public class ErrorCheckingSystem {
         }
         return letterCount > 5;
     }
+    public int numberCheck(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Input is not a valid number: " + input);
+        }
+        return Integer.parseInt(input);
+    }
     
 
 }
