@@ -42,7 +42,11 @@ public class GameService {
         }
     }
 
-   
+    private int setTryNumber() {
+        String tryNumber = input.inputFromUser();
+
+
+    }
 
     private void play() {
 

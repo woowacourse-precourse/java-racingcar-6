@@ -6,5 +6,6 @@ public class Error {
     public final static String NUMERIC_INPUT = "Input must be numeric.";
     public final static String BLANK_INPUT = "Input value cannot be blank.";
     public final static String EXCEED_NAME = "The car name cannot be longer than 5 characters.";
+    public final static String IS_NOT_NATURAL_NUMBER = "Number of attempts must be a natural number.";
 
 }

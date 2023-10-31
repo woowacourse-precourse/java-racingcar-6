@@ -22,9 +22,22 @@ public class ExceptionHandler {
     }
 
     public void isExceedLength(String name) {
-        if(name.length() > 5) {
+        if (name.length() > 5) {
             throw new IllegalArgumentException(Error.EXCEED_NAME);
         }
     }
 
+    public void isNumeric(String inputValue) {
+        for (int i = 0; i < inputValue.length(); i++) {
+            if (inputValue.charAt(i) > '9' || inputValue.charAt(i) < '0') {
+                throw new IllegalArgumentException(Error.NUMERIC_INPUT);
+            }
+        }
+    }
+
+    public void isValidTryCount(int inputValue) {
+        if(inputValue == 0){
+            throw new IllegalArgumentException(Error.IS_NOT_NATURAL_NUMBER);
+        }
+    }
 }
