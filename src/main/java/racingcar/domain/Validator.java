@@ -13,7 +13,6 @@ public class Validator {
         if (ridBlank.length() == 0) {
             throw new IllegalArgumentException(CAR_NAME_BLANK_EXCEPTION);
         }
-
     }
 
     public static void validateLength(String carName) {
