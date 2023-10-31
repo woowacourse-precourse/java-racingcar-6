@@ -6,8 +6,8 @@
 - [x] 쉼표를 기준으로 구분한다. UserInputManager#splitInput
   - [x] 공백이 있으면 제거한다. UserInputManager#removeSpace 
   - [x] 자동차 이름은 1자 이상 5자 이하 InputValidator#checkCarNameLength
-- [ ] 시도할 횟수를 입력 받는다. UserInputManager#inputNumberOfAttempts
-  - [ ] 숫자가 아니면 안된다. InputValidator#isNumeric
+- [x] 시도할 횟수를 입력 받는다. UserInputManager#inputNumberOfAttempts
+  - [x] 숫자가 아니면 안된다. InputValidator#isNumeric
 - [ ] 전진하는 자동차를 출력 시 자동차 이름을 같이 출력 UserOutputManager#print
 - [ ] 값이 4 이상인지 체크할 수 있다.Checker#checkAtLeast4
 - [ ] 값이 4 이상일 경우 전진. Car#goStright
@@ -19,6 +19,6 @@
 - [ ] indent depth 3을 넘기지 않도록 구현한다.
 - [ ] 3항 연산자 사용 금지
 - [ ] 함수가 한 가지 일만 하도록 최대한 작게 구성
-- [ ] JUnit 5와 AssertJ를 사용한 기능 목록 정상 독작 테스트 코드 작성
+- [ ] JUnit 5와 AssertJ를 사용한 기능 목록 정상 동작 테스트 코드 작성
 - [ ] camp.nextstep.edu.missionutils.Console의 readLine() 활용
 - [ ] camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange() 활용

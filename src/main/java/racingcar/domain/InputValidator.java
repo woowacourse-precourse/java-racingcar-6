@@ -10,4 +10,11 @@ public class InputValidator {
         return true;
     }
 
+    public static void isNumeric(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        }
+    }
 }
