@@ -114,7 +114,7 @@ public class GameProcess {
         return winnerList.get(index);
     }
 
-    public void moveOfCurrentRaceCar() {
+    public void moveAllRaceCar() {
         for (RaceCar raceCar : raceCarList) {
             raceCar.movementControlCar(createRandomNum.createRanOneNum());
         }
