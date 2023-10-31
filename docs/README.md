@@ -4,11 +4,12 @@
 
 - [1. 구현 기능 목록](#ballotboxwithcheck-구현-기능-목록) 
 - [2. 문제 해결 과정](#bookmark_tabs-문제-해결-과정)
-  - [2.1 🧪 1주차 미션 피드백과 적용 사항](#-1주차-미션-피드백과-적용-사항)
+  - [2.1 🧪 1주 차 미션 피드백과 적용 사항](#-1주-차-미션-피드백과-적용-사항)
   - [2.2 ❓ DTO와 VO의 차이](#-dto와-vo의-차이)
   - [2.3 🧐 Arrays.asList vs List.of](#-arraysaslist-vs-listof)
   - [2.4 🚗 `RacingCar` 클래스의 유효성 검사와 정규 표현식](#-racingcar-클래스의-유효성-검사와-정규-표현식)
-- [3. 다음 미션에 적용할 학습 내용](#ledger-다음-미션에-적용할-학습-내용) 
+  - [2.5 💬 wrapper 클래스와 정적 팩토리 메서드](#-wrapper-클래스와-정적-팩토리-메서드)
+- [3. 다음 미션에 적용할 학습 내용](#ledger-다음-미션에-적용할-학습-내용)
 
 # :ballot_box_with_check: 구현 기능 목록
 - [x] controller Package
@@ -112,13 +113,178 @@
         - 각 차수별 실행 결과를 출력하는 `printGameProgress` 메서드 구현
         - 최종 우승자를 출력하는 `printFinalWinners` 메서드 구현
 
+```mermaid
+classDiagram
+    class Application {
+        - inputHandler: InputHandler
+        - outputHandler: OutputHandler
+        - carGameService: CarGameService
+        + main(args: String[]): void
+    }
+
+    class CarGameController {
+        - inputHandler: InputHandler
+        - outputHandler: OutputHandler
+        - carGameService: CarGameService
+        + CarGameController(inputHandler: InputHandler, outputHandler: OutputHandler, carGameService: CarGameService)
+        + run(): void
+        - loadCarNames(): CarNames
+        - loadTryCount(): TryCount
+        - generateStatusGroup(carNames: CarNames): void
+        - playGame(tryCount: TryCount): void
+        - gameResult(): void
+        - finalWinners(): void
+    }
+
+    class CarGameService {
+        - carStatusGroup: CarStatusGroup
+        - carStatusList: List<CarStatus>
+        + generateStatusGroup(carNames: CarNames): void
+        + carGameProgress(): void
+        + carGameResult(): List<Map<String, String>>
+        + getWinnerNames(): String
+    }
+
+    class CarStatusGroup {
+        - carStatusList: List<CarStatus>
+        + create(carStatusList: List<CarStatus>): CarStatusGroup
+        + moveForward(): void
+        + getCarStatusList(): List<CarStatus>
+        + getMaxPosition(): CarStatus
+        + getWinnerNames(maxPositionCar: CarStatus): List<String>
+    }
+
+    class CarStatus {
+        - carStatus: Map<String, String>
+        - carName: CarName
+        - position: CarPosition
+        + create(carName: String): CarStatus
+        + getCarStatus(): Map<String, String>
+        + forWard(number: int): void
+        + isSamePosition(otherCar: CarStatus): boolean
+        + compareTo(otherCar: CarStatus): int
+        + getCarName(): String
+        + getPosition(): int
+    }
+
+    class CarNames {
+        - carNames: List<String>
+        + create(carNames: List<String>): CarNames
+        - validateDuplicate(carNames: List<String>): void
+        + getCarNames(): List<String>
+    }
+
+    class TryCount {
+        - count: int
+        + create(tryCount: String): TryCount
+        - validateType(tryCount: String): int
+        - validateRange(count: int): void
+        + getTryCount(): int
+    }
+
+    class InputHandler {
+        <<interface>>
+        + inputCarNames(): List<String>
+        + inputTryCount(): String
+    }
+
+    class OutputHandler {
+        <<interface>>
+        + printInputCarNameMessage(): void
+        + printInputTryCountMessage(): void
+        + printGameResultMessage(): void
+        + printGameProgress(stageGameResults: List<Map<String, String>>): void
+        + printFinalWinners(winners: String): void
+    }
+
+    class ConsoleInput {
+        + inputCarNames(): List<String>
+        + inputTryCount(): String
+        - stringToList(input: String): List<String>
+    }
+
+    class ConsoleOutput {
+        + printInputCarNameMessage(): void
+        + printInputTryCountMessage(): void
+        + printGameResultMessage(): void
+        + printGameProgress(stageGameResults: List<Map<String, String>>): void
+        + printFinalWinners(winners: String): void
+    }
+
+    class CarName {
+        - carName: String
+        + create(carName: String): CarName
+        - validateCarName(carName: String): void
+        - validateLength(carName: String): void
+        + getCarName(): String
+    }
+
+    class CarPosition {
+        - position: int
+        + create(): CarPosition
+        + addPosition(): void
+        + getPosition(): int
+    }
+
+    class RandomNumber {
+        - randomNumber: int
+        + create(): RandomNumber
+        - generateNumber(): int
+        + getRandomNumber(): int
+    }
+
+    class ConstantsHandler {
+        - VALID_CAR_NAMES_LENGTH: int
+        - MIN_TRY_COUNT: int
+        - INIT_POSITION: int
+        - MIN_RANDOM_NUMBER: int
+        - MAX_RANDOM_NUMBER: int
+        - NUMBER_POSSIBLE_TO_FORWARD: int
+        - JOIN_MARK: String
+        - POINT_MARK: String
+        - SPLIT_DELIMITER: String
+    }
+
+    class ErrorHandler {
+        <<enumeration>>
+        - INVALID_NUMBER: ErrorHandler
+        - INVALID_INPUT: ErrorHandler
+        - INVALID_ENGLISH_KOREAN: ErrorHandler
+        - INVALID_LENGTH: ErrorHandler
+        - INVALID_RANGE: ErrorHandler
+        - MAX_VALUE_MISSING: ErrorHandler
+        - DUPLICATE_NUMBER: ErrorHandler
+    }
+
+InputHandler <|-- ConsoleInput
+OutputHandler <|-- ConsoleOutput
+
+Application --> InputHandler
+Application --> OutputHandler
+Application --> CarGameService
+CarGameController --> InputHandler
+CarGameController --> OutputHandler
+CarGameController --> CarGameService
+CarGameService --> CarStatusGroup
+CarGameService --> CarStatus
+CarGameService --> CarNames
+CarGameService --> TryCount
+CarStatusGroup --> CarStatus
+CarStatusGroup --> List
+CarStatus --> Map
+CarName --> ConstantsHandler
+CarName --> ErrorHandler
+CarPosition --> ConstantsHandler
+RandomNumber --> ConstantsHandler
+```
+
 ---
 
 # :bookmark_tabs: 문제 해결 과정
 
-## 🧪 1주차 미션 피드백과 적용 사항
+## 🧪 1주 차 미션 피드백과 적용 사항
 
-➡️ 2주차 미션에서는 1주차 미션에서 적용하고 싶었던 내용들을 적용해보고, 1주차 미션 후 진행한 코드 리뷰를 통해서 받았던 피드백을 적용해보는 시간을 가졌다.
+➡️ 2주 차 미션에서는 1주 차 미션에서 적어뒀던 다음 미션에 적용하고 싶었던 내용들을 적용해보고, 1주 차 미션 후 진행한 코드 리뷰를 통해서 받았던 피드백을 적용해 보는 시간을 가졌다. 가장 먼저 내가 적용해야겠다고 생각한 학습 내용이다.
 
 1. 테스트 코드는 마지막이 아닌 기능이 완성되는 경우 바로 작성을 하도록 했고 이를 통해, 놓치고 있는 예외 사항에 대해서 체크할 수 있다는 사실을 알 수 있었다. 다만 구현에 걸리는 시간이 오래 걸렸기 때문에 상황에 맞게 사용하는 것이 좋겠다는 생각을 가졌다.
 
@@ -128,13 +294,21 @@
 
 3. 2주 차 미션에서는 처음 커밋 하게 되는 구현 기능 목록을 처음부터 자세하게 작성함으로써 프로젝트의 전체적인 구조를 설계하고 시작했다. 인터페이스의 경우는 결합도를 느슨하기 위해서 사용하는 것이 좋다고 생각했고, 프로젝트의 구조를 더 명확하게 파악하기 위해서 UML을 그려봐야겠다고 생각했다.
 
-➡️ 1주차 미션이 끝나고 코드 리뷰를 하며 저번 미션에 고민하던 부분에 대한 피드백을 받을 수 있었다. 피드백을 통해 2주차 미션에서는 `ConstantsHandler`로 상수들을 관리하는 클래스를 만들었다.
+➡️ 다음은 첫번째 피드백 내용이다. 1주 차 미션이 끝나고 코드 리뷰를 하며 저번 미션 중 고민하던 부분에 대한 피드백을 받을 수 있었다. 피드백의 내용은 상수화한 매직넘버를 어느 곳에서 관리해야 할까? 라는 내용이었고, 나의 경우는 직관적인 파악을 위해 사용한 클래스 상단에 표시하는 게 맞다고 생각했지만 피드백을 통해 2주 차 미션에서는 `ConstantsHandler`로 상수들을 관리하는 클래스를 만들었다.
 
-🔸 (리뷰어) : 3은 숫자 야구의 길이를 의미하는데, 3을 가진 상수가 여러 번 선언되어있는 것 같습니다. 같이 변경되는 상수라면 같은 변수를 참고하는 게 좋지 않을까요?
+🔸 (@minnim1010) : 3은 숫자 야구의 길이를 의미하는데, 3을 가진 상수가 여러 번 선언되어있는 것 같습니다. 같이 변경되는 상수라면 같은 변수를 참고하는 게 좋지 않을까요?
 
 🔹 (본인) : 마침 제가 딱 고민하던 부분입니다! 말씀하신 것과 같이 3은 여러 클래스에서 사용하게 되는데 이런 경우 constants 혹은 util 이라는 package를 만들어서 관리할 수 있다고 생각했습니다. 하지만, 매직 넘버를 의미를 알 수 있도록 상수화 해주더라도 어떤 값으로 사용되었는지 직관적으로 파악할 수 있도록 클래스 상단에 작성하는게 좋지 않을까 라는 생각이 들더라고여🤔 혹시 이 부분에 대해서 어떻게 생각하시나요!?
 
-🔸 (리뷰어) : 변수명을 잘 정해주면 무리 없다고 생각합니다. BASEBALL_LENGTH와 같이 도메인 차원의 네이밍을 하면 어느 클래스든지 의미를 파악할 수 있다고 생각해요. 저한테는 변경이 발생했을 경우 유지보수성이 떨어지는 부정적 측면이 더 커보입니다.
+🔸 (@minnim1010) : 변수명을 잘 정해주면 무리 없다고 생각합니다. BASEBALL_LENGTH와 같이 도메인 차원의 네이밍을 하면 어느 클래스든지 의미를 파악할 수 있다고 생각해요. 저한테는 변경이 발생했을 경우 유지보수성이 떨어지는 부정적 측면이 더 커보입니다.
+
+➡️ 두 번째 피드백 내용은 정적 팩토리 메서드에 대한 내용이다. 피드백을 받았지만 모르고 있던 부분이라 이번 미션에 적용해 보기 위해서 학습했고, 그 과정에서 기존의 설계와는 다르게 wrapper 클래스와 정적 팩토리 메서드를 활용하는 방식으로 리팩토링 하는데 시간을 많이 사용하게 되었다. 
+
+🔸 (@h-beeen) : GameChoice의 생성자에 따라 결과가 달라지는 것 같아요. 인자값 없이 사용되면, RESTART_GAME을 선언하고, 인자값이 있다면 choice를 검증 후 반영하는 생성자인 것 같아요. 생성자 오버로딩으로 설계할 때는 `정적 팩토리 메소드`를 고려해보시는 것도 좋을 것 같습니다.
+
+이런 식으로 설계한다면 생성자를 오버로딩해서 설계해도, 누구나 해당 메소드가 어떤 의미로 어디에 사용되어야 할 지 직관적으로 파악이 가능할 것 같네요!
+
+🔹 (본인) : 이 답변은 진짜 놀랐어요😲!! 생각하지 못했던 방향성인데 생성자를 오버로딩하는 경우가 있다면 이런식으로 사용하는게 훨씬 직관적일 것 같습니다!
 
 ## ❓ DTO와 VO의 차이
 
@@ -178,7 +352,7 @@ public class ConsoleInput implements InputHandler {
 }
 ```
 
-## 🚗 `RacingCar` 클래스의 유효성 검사와 정규 표현식
+## 🚗 예외 처리한 내용과 정규 표현식
 
 🔹 `domain package`의 `RacingCar`의 코드를 작성하면서 유효성 검사와 정규 표현식에 대한 고민을 했다. 문제의 요구사항에는 자동차의 이름으로 한글, 스페이스 바 등의 입력이 가능한지 명시되어 있지 않았기 때문에 이런 부분은 개인적으로 판단해서 해결해야겠다고 생각했다. 
 
@@ -191,6 +365,22 @@ https://user-images.githubusercontent.com/122594223/278618923-23df4374-4c29-4ff0
 2. 각 자동차의 이름이 중복되지 않도록 했다.
 
 3. 요구사항에 나와있던 입력이 5자 이하가 아닌 경우 예외가 발생하도록 했다.
+
+## 💬 wrapper 클래스와 정적 팩토리 메서드
+
+🔹 이번 미션에서는 CarName, CarNames, CarPosition, TryCount를 wrapper 클래스와 같이 만들었다. wrapper 클래스를 사용한다면 아래와 같은 장점을 갖는다. 이러한 장점을 이유로 wrapper 클래스를 사용했다.
+
+1. 의미 부여 : 이름을 통해 변수의 의미를 더 명확하게 전달할 수 있다.
+
+2. 유지보수성 : 코드의 변경이 필요한 경우, 해당하는 wrapper 클래스만 수정하면 된다. 이렇게 하면 코드 변경이 더 효율적이고 다른 부분에 미치는 영향을 최소화할 수 있다.
+
+3. SRP : 객체 지향 설계 원칙 중 하나인 단일 책임 원칙(SRP)을 지키는데 도움이 된다. wrapper 클래스는 특정 데이터나 개념을 캡슐화하고 관리하는 역할을 수행하므로 단일 책임을 갖는다.
+
+🔹 정적 팩토리 메서드의 경우 피드백을 통해 알게되어 활용했다. 정적 팩토리 메서드는 객체 생성을 위해 클래스의 인스턴스 생성자 대신 사용되는 정적 메서드이다. 이러한 메서드는 해당 클래스의 인스턴스를 반환하며, 주로 해당 클래스의 인스턴스를 생성하고 초기화하는 과정을 캡슐화하거나 다양한 생성 방법을 제공하는 데 사용한다. 이를 활용한다면 아래와 같은 장점을 갖기 때문에 이번 미션에 활용했다.
+
+1. 객체 생성의 캡슐화 : 객체 생성 로직을 클래스 내부에 숨기는 역할을 한다. 이로써 객체 생성에 필요한 복잡한 로직이나 초기화 코드를 숨길 수 있으며, 단순히 메서드를 호출하여 객체를 얻을 수 있다.
+
+2. 코드 가독성: 이름으로 객체 생성의 목적을 더 명확하게 나타내므로 코드 가독성이 향상된다.
 
 ---
 
