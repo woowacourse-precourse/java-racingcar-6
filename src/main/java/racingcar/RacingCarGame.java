@@ -30,6 +30,11 @@ public class RacingCarGame {
     }
 
     static int convertStringToInt(String userInput) {
+        try {
+            return Integer.parseInt(userInput);
+        } catch(Exception e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     static void printExecutionResult() {
