@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +18,7 @@ public class RaceTest {
     void createCarObjectsTest() {
         // Given
         Race race = new Race();
-        String[] carNames = { "Car1", "Car2", "Car3" };
+        String[] carNames = {"Car1", "Car2", "Car3"};
 
         // When
         race.createCarObjects(carNames);
@@ -42,7 +43,7 @@ public class RaceTest {
         race.cars.add(car3);
 
         NumberGenerator numberGenerator = mock(NumberGenerator.class);
-        when(numberGenerator.createRandomNumber()).thenReturn(1,4,5);
+        when(numberGenerator.createRandomNumber()).thenReturn(1, 4, 5);
         race.numberGenerator = numberGenerator;
 
         // When
@@ -81,7 +82,25 @@ public class RaceTest {
     }
 
     @Test
-    void decideWinner() {
+    void findMaxPositionTest() {
+        Race race = new Race();
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car3");
+        race.cars.add(car1);
+        race.cars.add(car2);
+        race.cars.add(car3);
+
+        car1.setPosition(3);
+        car2.setPosition(4);
+        car3.setPosition(2);
+
+        int maxPosition = race.findMaxPosition();
+        assertEquals(4, maxPosition);
+    }
+
+    @Test
+    void findWinnersTest() {
         Race race = new Race();
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
@@ -94,9 +113,9 @@ public class RaceTest {
         car2.setPosition(1);
         car3.setPosition(3);
 
-        List<String> winners = race.decideWinner();
-
-        assertThat(winners).containsExactly(car1.getName(), car3.getName());
+        List<String> winners = race.findWinners();
+        List<String> expectedWinners = Arrays.asList("Car1", "Car3");
+        assertEquals(expectedWinners, winners);
     }
 
     @Test
@@ -104,17 +123,23 @@ public class RaceTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
-        List<String> winners = new ArrayList<>();
-        winners.add("Car1");
-        winners.add("Car2");
-        winners.add("Car3");
-
         Race race = new Race();
-        race.displayWinner(winners);
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car3");
+        race.cars.add(car1);
+        race.cars.add(car2);
+        race.cars.add(car3);
+
+        car1.setPosition(3);
+        car2.setPosition(3);
+        car3.setPosition(2);
+
+        race.displayWinner();
 
         System.setOut(System.out);
 
-        String expectedOutput = "최종 우승자 : Car1, Car2, Car3";
+        String expectedOutput = "최종 우승자 : Car1, Car2";
         assertThat(outputStream.toString().trim()).isEqualTo(expectedOutput);
     }
 }
