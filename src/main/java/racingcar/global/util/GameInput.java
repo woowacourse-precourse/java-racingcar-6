@@ -2,6 +2,8 @@ package racingcar.global.util;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.Arrays;
+
 public final class GameInput {
 
     public static int inputRoundCnt() {
@@ -20,12 +22,14 @@ public final class GameInput {
 
     public static String[] inputCarList() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] carList = readLine().split(",\\s*");
+        String[] carList = readLine().trim().split(",\\s*");
         validateCarList(carList);
         return carList;
     }
 
     private static void validateCarList(String[] carList) {
-
+        if (carList[0].equals("")) {
+            throw new IllegalArgumentException("하나 이상의 차량 이름을 입력해야 합니다.");
+        }
     }
 }
