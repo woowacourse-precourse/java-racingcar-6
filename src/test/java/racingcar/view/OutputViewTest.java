@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import constants.DomainConstant;
+import racingcar.constants.DomainConstant;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
@@ -42,10 +42,10 @@ public class OutputViewTest {
     @Test
     @DisplayName("결과 안내 메세지 출력 테스트")
     void testPrintResultGuideMessage() {
-        outputView.printInputTotalRoundMessage();
+        outputView.printResultGuideMessage();
         String output = byteArrayOutputStream.toString();
 
-        Assertions.assertThat(output.trim()).isEqualTo("\n실행 결과");
+        Assertions.assertThat(output.trim()).isEqualTo("실행 결과");
     }
 
     @Test

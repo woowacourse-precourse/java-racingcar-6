@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import constants.ViewConstant;
+import racingcar.constants.ViewConstant;
 import java.util.List;
 
 public class OutputView {
@@ -13,7 +13,8 @@ public class OutputView {
     }
 
     public void printResultGuideMessage() {
-        System.out.println("\n실행 결과");
+        System.out.println();
+        System.out.println("실행 결과");
     }
 
     public void printMoveRecord(String carName, int moveRecord) {

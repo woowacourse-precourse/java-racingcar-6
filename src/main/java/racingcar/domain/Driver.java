@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import constants.DomainConstant;
+import racingcar.constants.DomainConstant;
 
 public class Driver {
     public void drive(Car car) {

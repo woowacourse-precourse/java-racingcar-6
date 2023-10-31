@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import constants.ValidatorConstant;
+import racingcar.constants.ValidatorConstant;
 
 public class CarValidator implements Validator {
     @Override

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import constants.DomainConstant;
+import racingcar.constants.DomainConstant;
 import racingcar.AppConfig;
 import racingcar.validator.Validator;
 

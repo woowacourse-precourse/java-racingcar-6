@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
-import constants.DomainConstant;
+import racingcar.constants.DomainConstant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

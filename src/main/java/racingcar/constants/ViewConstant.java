@@ -1,4 +1,4 @@
-package constants;
+package racingcar.constants;
 
 public class ViewConstant {
     public static final String ONE_MOVE_SYMBOL = "-";

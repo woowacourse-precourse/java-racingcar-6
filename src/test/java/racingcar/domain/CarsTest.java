@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import constants.DomainConstant;
+import racingcar.constants.DomainConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

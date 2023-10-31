@@ -1,4 +1,4 @@
-package constants;
+package racingcar.constants;
 
 public class DomainConstant {
     public static final int INITIAL_POSITION = 0;

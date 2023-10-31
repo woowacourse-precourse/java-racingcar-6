@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import constants.DomainConstant;
+import racingcar.constants.DomainConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
