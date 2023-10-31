@@ -13,12 +13,10 @@ import racingcar.util.InputHandler;
 
 class JudgeTest {
     private Judge judge;
-    private static final InputStream originalSystemIn = System.in;
 
     @BeforeEach
     void setUp() {
         judge = new Judge();
-        System.setIn(originalSystemIn);
         Console.close();
     }
 
