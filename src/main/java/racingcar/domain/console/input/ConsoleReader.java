@@ -7,18 +7,18 @@ public class ConsoleReader {
     private final InputValidator inputValidator;
     private final static String DELIMITER = ",";
 
-    private ConsoleReader(InputValidator inputValidator, InputParser userNameParser) {
+    private ConsoleReader(final InputValidator inputValidator, final InputParser userNameParser) {
         this.inputValidator = inputValidator;
         this.inputParser = userNameParser;
     }
 
-    public ConsoleReader of(InputValidator inputValidator, InputParser userNameParser) {
+    public static ConsoleReader of(final InputValidator inputValidator, final InputParser userNameParser) {
         return new ConsoleReader(inputValidator, userNameParser);
     }
 
     public String[] readNames() {
-        String inputNames = readLine();
-        String[] names = inputParser.parseUserNames(inputNames, DELIMITER);
+        final String inputNames = readLine();
+        final String[] names = inputParser.parseUserNames(inputNames, DELIMITER);
 
         for (String name : names) {
             inputValidator.validateNameLength(name);
@@ -28,8 +28,8 @@ public class ConsoleReader {
     }
 
     public int readAttemptCount() {
-        String inputAttempCount = readLine();
-        int count = inputParser.parseInt(inputAttempCount);
+        final String inputAttemptCount = readLine();
+        final int count = inputParser.parseInt(inputAttemptCount);
         inputValidator.validateAttemptSize(count);
 
         return count;
