@@ -10,7 +10,6 @@ import racingcar.util.Util;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -223,10 +222,17 @@ class FunctionTest {
 
     @Test
     void 이동거리출력테스트() {
-        Car car = new Car("123");
+        Car car1 = new Car("123");
+        Car car2 = new Car("456");
+        Car car3 = new Car("789");
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(car1);
+        cars.add(car2);
+        cars.add(car3);
         for(int i = 0; i < 10; i++) {
-            car.move();
-            OutputView.printRoundResult(car);
+            System.out.println(i+1+"round");
+            cars.forEach(Car::move);
+            OutputView.printRoundResult(cars);
         }
     }
 

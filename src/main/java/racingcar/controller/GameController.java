@@ -4,6 +4,8 @@ import racingcar.model.RacingModel;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.stream.IntStream;
+
 public class GameController {
     private RacingModel racingModel;
 
@@ -23,11 +25,7 @@ public class GameController {
 
     public void play() {
         OutputView.printRoundResultMessage();
-        for(int i = 1; i <= roundCount; i++) {
-            racingModel.playRound().forEach(OutputView::printRoundResult);
-            System.out.println();
-        }
-
+        IntStream.range(0, roundCount).forEach(i -> OutputView.printRoundResult(racingModel.playRound()));
     }
 
     public void showWinner() {
