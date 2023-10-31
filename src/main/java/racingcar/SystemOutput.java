@@ -21,4 +21,8 @@ public class SystemOutput {
         cars.forEach(car -> System.out.println(car.indicate()));
         System.out.println();
     }
+
+    public static void printWinner(List<String> winner) {
+        System.out.println(String.join(", ", winner));
+    }
 }
