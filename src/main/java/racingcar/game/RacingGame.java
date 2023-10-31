@@ -3,7 +3,7 @@ package racingcar.game;
 import java.util.List;
 import racingcar.circuit.Circuit;
 import racingcar.domain.car.RacingCar;
-import racingcar.domain.result.RacingGameStatistics;
+import racingcar.domain.statistics.RacingGameStatistics;
 import racingcar.domain.trial.Trial;
 import racingcar.domain.winner.Winners;
 import racingcar.game.validate.BlankTrialValidator;

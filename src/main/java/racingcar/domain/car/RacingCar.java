@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 import racingcar.domain.car.validate.NameLengthValidator;
-import racingcar.domain.result.RacingCarResult;
+import racingcar.domain.statistics.RacingCarResult;
 
 public class RacingCar {
 
@@ -17,6 +17,10 @@ public class RacingCar {
         this.location = START_LOCATION;
     }
 
+    private void validate(String name) {
+        NameLengthValidator.validate(name);
+    }
+
     public void move(Integer commandNumber) {
         if (commandNumber >= MOVE_CONDITION) {
             this.location++;
@@ -25,9 +29,5 @@ public class RacingCar {
 
     public RacingCarResult toResult() {
         return new RacingCarResult(name, location);
-    }
-
-    private void validate(String name) {
-        NameLengthValidator.validate(name);
     }
 }

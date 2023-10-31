@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.RacingCar;
-import racingcar.domain.result.RacingCarResult;
-import racingcar.domain.result.RacingGameStatistics;
+import racingcar.domain.statistics.RacingCarResult;
+import racingcar.domain.statistics.RacingGameStatistics;
 import racingcar.generator.NumberGenerator;
 
 class CircuitTest {

@@ -13,15 +13,15 @@ public class Trial {
         this.trial = trial;
     }
 
+    private void validate(Integer trial) {
+        PositiveIntegerValidator.validate(trial);
+    }
+
     public void useTrialCount() {
         this.trial--;
     }
 
     public boolean isExhausted() {
         return trial.equals(EXHAUSTED_TRIAL_COUNT);
-    }
-
-    private void validate(Integer trial) {
-        PositiveIntegerValidator.validate(trial);
     }
 }

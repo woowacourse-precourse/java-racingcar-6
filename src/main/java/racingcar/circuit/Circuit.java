@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.RacingCar;
-import racingcar.domain.result.RacingCarResult;
-import racingcar.domain.result.RacingGameStatistics;
+import racingcar.domain.statistics.RacingCarResult;
+import racingcar.domain.statistics.RacingGameStatistics;
 import racingcar.generator.NumberGenerator;
 
 public class Circuit {

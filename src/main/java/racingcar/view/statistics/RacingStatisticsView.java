@@ -1,7 +1,7 @@
 package racingcar.view.statistics;
 
 import java.util.List;
-import racingcar.domain.result.RacingGameStatistics;
+import racingcar.domain.statistics.RacingGameStatistics;
 
 public class RacingStatisticsView {
     private static final String RESULT_MESSAGE = "실행 결과";

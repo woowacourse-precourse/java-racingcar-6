@@ -1,4 +1,4 @@
-package racingcar.domain.result;
+package racingcar.domain.statistics;
 
 import java.util.Arrays;
 import java.util.List;
