@@ -4,17 +4,20 @@ import racingcar.DTO.CarDTO;
 import racingcar.model.Car;
 import racingcar.model.Round;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
     private final InputView INPUT_VIEW;
+    private final OutputView OUTPUT_VIEW;
     private List<Car> cars;
     private int totalRoundCount;
 
-    public GameController(InputView INPUT_VIEW) {
+    public GameController(InputView INPUT_VIEW, OutputView OUTPUT_VIEW) {
         this.INPUT_VIEW = INPUT_VIEW;
+        this.OUTPUT_VIEW = OUTPUT_VIEW;
     }
 
     public void setupGame() {
