@@ -8,11 +8,13 @@ public class Game {
     private Input myInput;
     private ArrayList<Car> carList;
     private int maxDistance;
+    private ArrayList<String> winnerList;
     public Game(){
         myOutput = new Output();
         myInput = new Input();
         carList = new ArrayList<>();
         maxDistance = 0;
+        winnerList = new ArrayList<>();
     }
 
     public void run(){
@@ -33,6 +35,8 @@ public class Game {
             movingALLCar();
             printTryResult();
         }
+
+
     }
 
     public void movingALLCar(){
@@ -58,6 +62,18 @@ public class Game {
     public void compareDistance(int index){
         if(maxDistance < carList.get(index).getDistance()){
             maxDistance = carList.get(index).getDistance();
+        }
+    }
+
+    public void makeWinnerList(){
+        for(int i=0; i<carList.size(); i++){
+            getWinner(i);
+        }
+    }
+
+    public void getWinner(int index){
+        if(carList.get(index).getDistance() == maxDistance){
+            winnerList.add(carList.get(index).getName());
         }
     }
 }
