@@ -13,7 +13,7 @@ public class GameUtil {
         return Randoms.pickNumberInRange(GameInfo.MIN_RANDOM_NUM, GameInfo.MAX_RANDOM_NUM);
     }
 
-    public static void printRoundSeperator() {
+    public static void printRoundSeparator() {
         System.out.println(GameInfo.ROUND_SEPARATE_SYMBOL);
     }
 }

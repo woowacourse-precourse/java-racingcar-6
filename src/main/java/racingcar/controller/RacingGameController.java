@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.constants.GameInfo;
 import racingcar.model.CarList;
 import racingcar.util.GameUtil;
 import racingcar.view.OutputView;
@@ -27,7 +26,7 @@ public class RacingGameController {
         for (int i = 0; i < roundNum; i++) {
             carList.moveAll();
             carList.printAll();
-            GameUtil.printRoundSeperator();
+            GameUtil.printRoundSeparator();
         }
     }
 
