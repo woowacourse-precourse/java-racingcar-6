@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.dto.PerGameCarResultDto;
 
 public class Car {
     private String name;
@@ -16,6 +17,13 @@ public class Car {
 
     public void moveForward(){
         this.moveCnt += 1;
+    }
+
+    public int race(){
+        if(getRandomNum()>=4){
+            moveForward();
+        }
+        return moveCnt;
     }
 
 }
