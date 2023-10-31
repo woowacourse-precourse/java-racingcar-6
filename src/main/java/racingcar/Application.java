@@ -3,10 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -99,16 +96,14 @@ public class Application {
     }
 
     public static void winnerDisplay(Map<String,Integer> cars){
-      String winner = "";
+      StringJoiner winner = new StringJoiner(",");
       Integer maxValue = Collections.max(cars.values());
       Set<Map.Entry<String, Integer>> entrySet = cars.entrySet();
       for(Map.Entry<String,Integer> entry: entrySet){
         if(entry.getValue() == maxValue){
-          winner+=",";
-          winner+=entry.getKey();
+          winner.add(entry.getKey());
         }
       }
-      winner = winner.replaceFirst(",","");
       System.out.println("최종 우승자 : " + winner);
     }
 
