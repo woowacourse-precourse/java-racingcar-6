@@ -6,7 +6,7 @@ import racingcar.service.StageService;
 import racingcar.view.PrintView;
 
 public class StageController {
-    private Game game = new Game();
+    private Game game;
 
     public StageController(Game game) {
         this.game = game;

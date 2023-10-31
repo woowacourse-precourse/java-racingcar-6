@@ -5,7 +5,7 @@ import racingcar.view.InputView;
 import racingcar.view.PrintView;
 
 public class InputController {
-    private Game game = new Game();
+    private Game game;
 
     public InputController(Game game) {
         this.game = game;

@@ -5,8 +5,7 @@ import racingcar.constant.Number;
 
 public class GameUtil {
     public static int createRandomNumber() {
-        int random = Randoms.pickNumberInRange(Number.MIN.getNumber(), Number.MAX.getNumber());
-        return random;
+        return Randoms.pickNumberInRange(Number.MIN.getNumber(), Number.MAX.getNumber());
     }
 
     public static boolean moveOrStop(int number) {
