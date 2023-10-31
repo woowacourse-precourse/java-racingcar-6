@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import static racingcar.constant.ExceptionConstants.NEGATIVE_NUMBER_ROUNDCOUNT;
+import static racingcar.constant.ExceptionConstants.OVER_INTMAX_ROUNDCOUNT;
 import static racingcar.model.RacingCarGameConfig.RANDOM_MAXIMUM_VALUE;
 import static racingcar.model.RacingCarGameConfig.RANDOM_MINIMUM_VALUE;
 
@@ -18,11 +20,11 @@ public class RacingCarGameUtils {
 
   public static int convertStringToInt(final String inputString) {
     if (Long.parseLong(inputString) > Integer.MAX_VALUE) {
-      throw new RacingCarGameException("라운드 횟수는 INT_MAXVALUE보다 클 수 없습니다.");
+      throw new RacingCarGameException(OVER_INTMAX_ROUNDCOUNT);
     }
     Integer input = Integer.parseInt(inputString);
     if (input < 0) {
-      throw new RacingCarGameException("라운드 횟수는 0보다 작거나 같을 수 없습니다.");
+      throw new RacingCarGameException(NEGATIVE_NUMBER_ROUNDCOUNT);
     }
     return input;
   }

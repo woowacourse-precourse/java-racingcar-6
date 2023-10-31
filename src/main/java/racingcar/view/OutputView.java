@@ -1,11 +1,13 @@
 package racingcar.view;
 
+import static racingcar.constant.ViewConstants.ROUND_RESULT_NOTICE;
+
 import racingcar.model.Cars;
 
 public class OutputView {
 
   public static void printRoundResultNotice() {
-    System.out.println(ViewNotice.ROUND_RESULT_NOTICE);
+    System.out.println(ROUND_RESULT_NOTICE);
   }
 
   public static void printRoundResult(final Cars cars) {
