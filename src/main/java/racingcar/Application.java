@@ -51,7 +51,11 @@ public class Application {
     private static int inputRacingCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String racingCount = Console.readLine();
-        return Integer.parseInt(racingCount);
+        try {
+            return Integer.parseInt(racingCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("정수가 아닌 값이 입력됨");
+        }
     }
 
     private static void playRacing(List<Car> carList) {
