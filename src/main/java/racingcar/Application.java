@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.InputValidator;
+import racingcar.domain.NumberGenerator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +12,7 @@ public class Application {
     public static void main(String[] args) {
         List<String> carNames = carNames();
         int numberOfMoves = moves();
+        // int randomNumber = NumberGenerator.generateRandomNumber();
     }
 
 
