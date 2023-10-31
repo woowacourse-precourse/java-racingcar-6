@@ -14,9 +14,13 @@ public class Race {
     }
 
     private void RacingEachCars(List<Car> cars) {
+        Output output = new Output();
+
         for (Car car : cars) {
             WinCar(car);
+            output.CarResult(car);
         }
+        System.out.println();
 
     }
 

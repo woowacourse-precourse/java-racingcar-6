@@ -12,25 +12,22 @@ public class Output {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-
-    public void CarsResult(List<Car> cars, List<Car> winner) {
+    public void CarsResult(){
+        System.out.println();
         System.out.println("실행 결과");
-        for (Car c : cars) {
-            CarResult(c);
-        }
-
-        WinnerResult(winner);
     }
 
-    private void CarResult(Car car) {
+
+
+    public void CarResult(Car car) {
         System.out.print(car.name + " : ");
-        for (int i = 0; i < car.cnt; i++) {
+        for (int i = 1; i <= car.cnt; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
 
-    private void WinnerResult(List<Car> cars) {
+    public void WinnerResult(List<Car> cars) {
         System.out.print("최종 우승자 : ");
 
         String result = "";

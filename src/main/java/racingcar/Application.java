@@ -21,14 +21,15 @@ public class Application {
 
         output.InputCarDes();
         input.InputCarName(cars);
+
         output.InputGameNumDes();
         gamenum = input.InputGameNum();
 
+        output.CarsResult();
         race.Racing(cars, gamenum);
 
         comp.CompCars(cars, winner);
-
-        output.CarsResult(cars, winner);
+        output.WinnerResult(winner);
 
 
     }
