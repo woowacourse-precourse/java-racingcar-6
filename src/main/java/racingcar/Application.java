@@ -1,7 +1,13 @@
 package racingcar;
 
+import game.GameStatus;
+import game.RacingGame;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RacingGame game = new RacingGame();
+        while (game.status != GameStatus.EXIT) {
+            game.run();
+        }
     }
 }

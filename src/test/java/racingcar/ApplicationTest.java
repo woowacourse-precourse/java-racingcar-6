@@ -13,6 +13,17 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 전진() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : -", "woni : ", "pobi : --", "woni : -");
+                },
+                MOVING_FORWARD, STOP,MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
@@ -20,6 +31,17 @@ class ApplicationTest extends NsTest {
                 assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
             },
             MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 복수_우승자() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "5");
+                    assertThat(output()).contains("최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,MOVING_FORWARD, MOVING_FORWARD,STOP,MOVING_FORWARD, STOP,STOP,  STOP,STOP,STOP,STOP,MOVING_FORWARD,STOP
         );
     }
 
