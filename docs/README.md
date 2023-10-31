@@ -17,8 +17,9 @@
 #### 자동차 역할 (Car)
 
 - [x] 전진 하는 기능 `public`
-- [x] 전체 움직인 횟수 getter `public`
+- [x] 위치 getter `public`
 - [x] 이름 getter `public`
+- [x] 최대 위치인지 학인하는 기능 `public`
 - [x] 전진 가능한지 확인하는 기능 (엔진 시동 결과가 4 이상이다) `private`
 - [x] 엔진의 시동을 건다 `private`
 
