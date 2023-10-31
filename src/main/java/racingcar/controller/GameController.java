@@ -1,12 +1,16 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Race {
+public class GameController {
 
     List<Car> cars = new ArrayList<>();
 
@@ -59,7 +63,7 @@ public class Race {
         result.append("최종 우승자 : ");
 
         int max_score = cars.stream().max(Comparator.comparingInt(Car::getScore)).get().getScore();
-        result.append(cars.stream().filter(Car -> Car.getScore() == max_score).map(Car -> Car.getName()).collect(Collectors.joining(", ")));
+        result.append(cars.stream().filter(Car -> Car.getScore() == max_score).map(Car::getName).collect(Collectors.joining(", ")));
 
         System.out.println(result);
     }
