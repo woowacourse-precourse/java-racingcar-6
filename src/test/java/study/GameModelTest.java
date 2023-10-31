@@ -38,6 +38,4 @@ public class GameModelTest {
 
         Assertions.assertThat(winner).isEqualTo(answer);
     }
-
-
 }

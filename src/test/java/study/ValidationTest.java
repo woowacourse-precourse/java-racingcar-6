@@ -34,7 +34,7 @@ public class ValidationTest {
 
     @Test
     void comma_end_test() {
-        String name = ",,,";
+        String name = ",김,,";
         Assertions.assertThatThrownBy(() -> Validation.endsWithComma(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("올바르지 않은 입력이에요.");

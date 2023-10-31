@@ -1,6 +1,7 @@
 package racingcar.View;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import racingcar.Constants;
 import racingcar.Model.Cars;
 
@@ -20,13 +21,10 @@ public class OutputView {
     }
 
     public void printFinalWinner(ArrayList<String> winnerNames) {
-        System.out.print(Constants.FINAL_WINNER + " : ");
-        for (String name : winnerNames) {
-            System.out.print(name + ", ");
-        }
-        if (!winnerNames.isEmpty()) {
-            System.out.println("\b\b"); // 마지막 순번이라면 쉼표와 공백 제거
-        }
+        String winners = winnerNames.stream()
+                .map(x -> String.valueOf(x))
+                .collect(Collectors.joining(", "));
+        System.out.print(Constants.FINAL_WINNER + " : " + winners);
     }
 
     public void printSingleGame(ArrayList<Cars> players) {
