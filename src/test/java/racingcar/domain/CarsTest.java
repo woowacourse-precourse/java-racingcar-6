@@ -36,6 +36,17 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("자동차 이름이 1개 입력되면 실패")
+    void CarsTestFailByCarCount() {
+        // given
+        String inputNames = "pobi";
+
+        // then
+        assertThatThrownBy(() -> new Cars(inputNames))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     @DisplayName("자동차 이름이 중복되면 실패")
     void CarsTestFailByDuplicate() {
         // given
