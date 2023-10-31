@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.DTO.CarDTO;
 import racingcar.model.Car;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,12 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameControllerTest {
     private final static int TOTAL_ROUND_COUNT = 5;
     private final static InputView INPUT_VIEW = new InputView();
+    private final static OutputView OUTPUT_VIEW = new OutputView();
 
     @Test
     @DisplayName("입력받은 이름 개수 만큼 자동차 객체 생성 확인")
     public void 이름_개수_만큼_자동차_생성() {
         // given
-        GameController gameController = new GameController(INPUT_VIEW);
+        GameController gameController = new GameController(INPUT_VIEW, OUTPUT_VIEW);
         List<String> carNames = Arrays.asList("kim", "lee", "cho");
 
         // when
@@ -43,7 +45,7 @@ class GameControllerTest {
     @DisplayName("전체 라운드 수만큼 라운드의 결과들을 확인")
     public void 게임_플레이_결과_확인_테스트() {
         // given
-        GameController mockedGameController = new GameController(INPUT_VIEW) {
+        GameController mockedGameController = new GameController(INPUT_VIEW, OUTPUT_VIEW) {
             List<Car> cars = Arrays.asList(new Car("kim"), new Car("lee"));
             int totalRoundCount = TOTAL_ROUND_COUNT;
 
