@@ -152,19 +152,19 @@
 
     * [Cars] buildRoundResponses 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
     * [RoundResponses] stream 문법을 사용해 모든 List<Car>를 순회하며 List<RoundResponse>를 생성한다.
-    * [RoundResponse] 각 RoundResponse는 name과 score를 가지며, toResponse 편의 메소드로 <br>`이름 : --` 형태로 출력한다.
+    * [RoundResponse] 각 RoundResponse는 name과 score를 가지며, getResponse 편의 메소드로 <br>`이름 : --` 형태로 출력한다.
     * [RoundResponses] 레코드의 일급 컬렉션 멤버변수인 List<RoundResponse>를 순회하며 모든 자동차의 라운드 결과를 <br>`이름 : --` 형태의 `String`으로 리턴한다.
-    * [View] RoundResponses.toResponseList()를 통해 각 라운드 진행 현황을 사용자에게 출력한다.
+    * [View] RoundResponses.getResponses()를 통해 각 라운드 진행 현황을 사용자에게 출력한다.
 
 <br>
 
 + [X] [Game] 모든 라운드 종료`(라운드 횟수 만큼 모든 자동차가 경주를 진행한 상황)`되었을 때
 
     * [Cars] buildFinalResponse 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
-    * [FinalResponse] FinalResponse는 List<String> winnerNames 가지며, toResponse 편의 메소드로 <br>`최종 우승자 : 해빈, 햅, 빈빈`
+    * [FinalResponse] FinalResponse는 List<String> winnerNames 가지며, getResponse 편의 메소드로 <br>`최종 우승자 : 해빈, 햅, 빈빈`
       형태의 `String`으로
       리턴한다.
-    * [View] FinalResponse.toEntity()를 통해 최종 우승자를 사용자에게 출력한다.
+    * [View] FinalResponse.getResponse()를 통해 최종 우승자를 사용자에게 출력한다.
     * [Console] Console.close() 명령어를 통해 `Scanner.close()` 기능을 수행한다.
 
 <br>
@@ -182,18 +182,20 @@ Input Layer에서 유효성 검사를 진행하는게 맞을까에 대한 고민
 - ➡️ (Parser) Validator를 통해 검증된 문자열을 자료형에 맞게 변환 `ex : String ➡️ List<String>`<br>
 - ➡️ (Domain Constructor) 요구사항 예외처리 및 검증
 
-위 순서로 View Layer에서 검증하지 않고, 별도의 Validator 도메인에서 유효성/자료형 검증을 진행합니다.<br>
+위 순서로 View Layer에서 검증하지 않고, 별도의 Validator 도메인에서 유효성/자료형 검증을 진행합니다.
 이렇게 기본적인 유효성 검증을 마치고, 개발 요구사항에 대한 검증은 일급컬렉션 및 각 도메인의 생성자에서 검증합니다.<br>
 
 위와 같은 방식의 설계가 MVC 패턴에 입각해 좋은 설계로 구성되었는지 봐주시면 좋을 것 같아요. ⸝⸝ʚ̴̶̷̆ ̯ʚ̴̶̷̆⸝⸝
 
 ### 2️⃣&nbsp;&nbsp;&nbsp;객체 간 관계를 Static으로 풀어낸 결과, 어려워진 테스트 코드 작성
 
-도메인 구조를 싱글톤으로 가져가지 않고, 설계하다 보니 테스트 코드 작성 간 어려움을 겪었습니다.<br><br>
+도메인 구조를 싱글톤으로 가져가지 않고, 설계하다 보니 테스트 코드 작성 간 어려움을 겪었습니다.
+`MovementCondition` 의 경우, 개별 `Car`가 매 라운드마다 새로운 `MovementCondition` 객체를 생성하고, 전진 여부를 요청합니다.
 
-- `MovementCondition` 의 경우, 개별 `Car`가 매 라운드마다 새로운 `MovementCondition` 객체를 생성하고, 전진 여부를 요청합니다.<br><br>
-
-MovementCondition은 Static 객체라, 일반적인 방법으로 모킹이 쉽지 않았고,
+MovementCondition은 Static 객체라, 해당 조건으로 분기하는 Car 객체는 일반적인 방법으로 테스트를 진행하기 어려웠습니다.
+그래서 우회 방법으로 `Randoms` 객체를 모킹해, Random Generated Value를 모킹해서, 테스트를 진행했습니다.
+해당 방법은 좋은 테스트 방법이라고 생각되지 않습니다! 이 부분에 대해서 리뷰를 꼭 받아보고 싶어요.
+(어쩌면 초기 설계가 부적절 했을 수도 있다고 생각합니다.)
 
 ---------------------------------------------------------
 
