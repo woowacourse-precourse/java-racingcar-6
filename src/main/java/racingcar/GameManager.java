@@ -18,6 +18,7 @@ public class GameManager {
         List<RacingCar> player = new ArrayList<>();
 
         splitPlayer(input, player);
+        CheckInput.checkLength(player);
 
         for (RacingCar racingCar : player) {
             System.out.println(racingCar.name + " : ");
