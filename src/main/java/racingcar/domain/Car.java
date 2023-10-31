@@ -33,5 +33,9 @@ public class Car {
 
     private void printResult() {
         System.out.println(String.format("%s : %s", this.name, "-".repeat(this.forwardCount)));
+    public int getDistance() {
+        return this.result.length();
+    }
+
     }
 }
