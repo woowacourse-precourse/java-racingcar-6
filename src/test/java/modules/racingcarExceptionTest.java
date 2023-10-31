@@ -14,4 +14,13 @@ public class racingcarExceptionTest {
                     .isInstanceOf(IllegalArgumentException.class)
     );
   }
+
+  @Test
+  void car_이름의_길이가_5를_초과한_경우_예외_처리() {
+    String input = "someone_name_over_5";
+    assertSimpleTest(() ->
+            assertThatThrownBy(() -> modules.racingcarException.exception_len_5(input))
+                    .isInstanceOf(IllegalArgumentException.class)
+    );
+  }
 }
