@@ -15,7 +15,6 @@ public class View {
   static public List<String> inputCars() {
     String input = Console.readLine();
     List<String> cars = Arrays.asList(input.split(","));
-    System.out.println(cars);
     return cars;
   }
 

@@ -11,7 +11,6 @@ public class GameManager {
   private int currentCount;
 
   public void init() {
-    System.out.println("초기화");
     View.printGameStart();
     List<String> inputedCars = View.inputCars();
     inputedCars.forEach(car -> cars.add(new Car(car)));
