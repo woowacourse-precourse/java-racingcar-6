@@ -5,19 +5,13 @@ import java.util.List;
 public class RacingGame {
 
     private int count;
-    private RacingCars racingCars;
+    private RacingCars racingCars = new RacingCars();
 
-    private InputView inputView;
-    private OutputView outputView;
+    private InputView inputView = new InputView();
+    private OutputView outputView = new OutputView();
 
     public void start() {
-
-        inputView = new InputView();
-        outputView = new OutputView();
-
         String[] carNames = inputView.readCarNames();
-
-        racingCars = new RacingCars();
 
         for (String carName : carNames) {
             validateCarName(carName);
