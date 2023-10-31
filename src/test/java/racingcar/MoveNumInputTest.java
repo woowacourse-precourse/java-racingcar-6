@@ -41,7 +41,7 @@ public class MoveNumInputTest {
     @DisplayName ("자동차 이동횟수 입력 정상동작 테스트")
     void canGetMoveNameGeneralTest(String testInput) throws NoSuchFieldException, IllegalAccessException {
         MoveNum moveNum = new MoveNum(testInput);
-        Field field = moveNum.getClass().getDeclaredField("num");
+        Field field = moveNum.getClass().getDeclaredField("value");
 
         field.setAccessible(true);
         assertThat(Integer.parseInt(testInput)).isEqualTo((int)field.get(moveNum));
