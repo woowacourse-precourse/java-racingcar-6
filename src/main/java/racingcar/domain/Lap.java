@@ -7,7 +7,7 @@ import racingcar.constant.DomainConstant;
 public record Lap(int count) {
 
     public Lap {
-        LAP_MUST_BE_GREATER_THAN_ZERO.dynamicInvoke(() -> DomainConstant.LAP_MIN_SIZE.getValue() > count);
+        LAP_MUST_BE_GREATER_THAN_ZERO.dynamicInvokeBy(() -> DomainConstant.LAP_MIN_SIZE.getValue() > count);
     }
 
     public Lap nextLap() {

@@ -7,7 +7,7 @@ import static racingcar.exception.DomainExceptionCode.EXTRACT_TRACK_MUST_BE_GRAT
 public record ExtractTrack(int value) {
 
     public ExtractTrack {
-        EXTRACT_TRACK_MUST_BE_GRATER_THAN_ZERO.dynamicInvoke(() -> value < EXTRACT_TRACK_MIN_SIZE.getValue());
+        EXTRACT_TRACK_MUST_BE_GRATER_THAN_ZERO.dynamicInvokeBy(() -> value < EXTRACT_TRACK_MIN_SIZE.getValue());
     }
 
 

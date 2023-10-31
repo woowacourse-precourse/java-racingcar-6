@@ -5,7 +5,12 @@ import java.util.function.Function;
 import racingcar.exception.DomainExceptionCode;
 import racingcar.strategy.RacingCarMoveStrategy;
 
-public record Participants(List<Car> cars) {
+public class Participants {
+    private final List<Car> cars;
+
+    private Participants(List<Car> cars) {
+        this.cars = cars;
+    }
 
     public static Participants of(List<String> names) {
         return new Participants(names.stream()
@@ -30,8 +35,7 @@ public record Participants(List<Car> cars) {
                 .max()
                 .orElseThrow(DomainExceptionCode.DID_NOT_EXISTS_WINNER::create);
 
-        return cars()
-                .stream()
+        return cars.stream()
                 .filter(car -> car.getLap() == maxLap)
                 .map(Car::getName)
                 .toList();
