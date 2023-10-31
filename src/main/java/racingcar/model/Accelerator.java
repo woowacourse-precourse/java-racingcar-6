@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.model;
 
 import static racingcar.configurations.GameConfigurations.*;
 
