@@ -120,20 +120,28 @@ public class RacingGame {
 
     private List<String> getWinnerNames(List<Car> cars) {
         List<String> winners = new ArrayList<>();
-        int maxPosition = Integer.MIN_VALUE;
+        int maxPosition = getMaxPosition(cars);
+
+        for (Car car : cars) {
+            int position = car.getPosition();
+
+            if (position == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
 
         for (Car car : cars) {
             int position = car.getPosition();
 
             if (position > maxPosition) {
                 maxPosition = position;
-                winners.clear();
-                winners.add(car.getName());
-            }
-            if (position == maxPosition) {
-                winners.add(car.getName());
             }
         }
-        return winners;
+        return maxPosition;
     }
 }
