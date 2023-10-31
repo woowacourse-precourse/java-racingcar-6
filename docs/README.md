@@ -16,6 +16,7 @@
   - 입력받은 값이 숫자가 맞는지, 0보다 큰지 체크
 ## 3. 게임 실행
 ### ✅ 자동차 목록(Map) 생성
-- RacingcarController
+- RacingcarController를 만들어 자동차 목록을 생성해줌
+- 데이터 검증을 RacingcarController에서 실행하고, 검증 실패시 RacingcarController 발생
 ### ⬜️ 입력받은 횟수만큼 전진 거리 출력
 ### ⬜️ 우승자 출력
