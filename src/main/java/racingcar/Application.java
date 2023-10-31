@@ -51,7 +51,7 @@ public class Application {
     }
 
 
-    private static void showRaceResult(Map<String, String> raceResultsHMap){
+    private static void showRaceResult(Map<String, String> raceResultsHMap) {
         List<String> winnersArrayList = Winner.pickWinners(raceResultsHMap);
         Winner.showWinners(winnersArrayList);
     }
