@@ -52,11 +52,7 @@ public class Application {
             int maxNum = Collections.max(toGo);
             List<String> winner = new ArrayList<>();
 
-            for (int i = 0; i < toGo.size(); i++) {
-                if (toGo.get(i) == maxNum) {
-                    winner.add(cars.get(i));
-                }
-            }
+            getWinnerList(cars, toGo, maxNum, winner);
 
             if (winner.size() > 1) {
                 for (int i = 0; i < winner.size() - 1; i++) {
@@ -68,6 +64,14 @@ public class Application {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void getWinnerList(List<String> cars, List<Integer> toGo, int maxNum, List<String> winner) {
+        for (int i = 0; i < toGo.size(); i++) {
+            if (toGo.get(i) == maxNum) {
+                winner.add(cars.get(i));
+            }
         }
     }
 
