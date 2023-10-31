@@ -1,5 +1,6 @@
 package racingcar.Model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,5 +18,15 @@ public class Game {
 
     public void setRepetition(int repetition){
         this.repetition = repetition;
+    }
+
+    public void forward(){
+        System.out.println("\n실행 결과");
+        for(int i=0; i<repetition; i++){
+            for(Car car: carList){
+                    car.go(Randoms.pickNumberInRange(1,9));
+            }
+            System.out.println();
+        }
     }
 }

@@ -15,4 +15,12 @@ public class TextInterface {
         System.out.println(ENTER_REPETITION);
         return Console.readLine();
     }
+
+    public void printDistance(String name, int distance){
+        System.out.print(name+ " : ");
+        for(int i=0; i<distance; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }

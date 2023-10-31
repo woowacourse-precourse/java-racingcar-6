@@ -14,6 +14,7 @@ public class GameController {
         gameService.enterRepetition();
     }
     private void start(){
+        gameService.forward();
     }
     private void end(){
 
