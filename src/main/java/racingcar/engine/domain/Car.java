@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.engine.domain;
 
 import java.util.StringJoiner;
+import racingcar.utils.RandomUtils;
 
 public class Car {
     private static final String PROGRESS_BAR = "-";

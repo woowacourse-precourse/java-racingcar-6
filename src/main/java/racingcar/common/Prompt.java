@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.common;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.common.Message;
+import racingcar.engine.RacingCarSystem;
 
 public class Prompt {
 
@@ -13,14 +15,14 @@ public class Prompt {
     }
 
     public void print(Message message) {
-        RacingCarSystem.out.print(message.getMessage());
+        System.out.print(message.getMessage());
     }
 
     public void println(Message message) {
-        RacingCarSystem.out.println(message.getMessage());
+        System.out.println(message.getMessage());
     }
 
     public void printNewLine() {
-        RacingCarSystem.out.println();
+        System.out.println();
     }
 }

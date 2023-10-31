@@ -1,18 +1,23 @@
-package racingcar;
+package racingcar.engine;
 
 
-import static racingcar.RacingCarSystem.ATTEMPTS_MAXIMUM_VALUE;
-import static racingcar.RacingCarSystem.CAR_NAME_SEPARATOR;
-import static racingcar.RacingCarSystem.Input.ATTEMPTS_MINIMUM_VALUE;
-import static racingcar.RacingCarSystem.Input.CAR_NAME_MAXIMUM_LENGTH;
-import static racingcar.RacingCarSystem.Input.CAR_NAME_MINIMUM_LENGTH;
-import static racingcar.RacingCarSystem.TextMessage.EXECUTION_RESULT_PREFIX;
-import static racingcar.RacingCarSystem.TextMessage.INPUT_THE_CAR_NAMES;
-import static racingcar.RacingCarSystem.TextMessage.INPUT_THE_NUMBER_OF_ATTEMPTS;
-import static racingcar.RacingCarSystem.TextMessage.OUTPUT_THE_WINNER_PREFIX;
+import static racingcar.engine.RacingCarSystem.ATTEMPTS_MAXIMUM_VALUE;
+import static racingcar.engine.RacingCarSystem.CAR_NAME_SEPARATOR;
+import static racingcar.engine.RacingCarSystem.Input.ATTEMPTS_MINIMUM_VALUE;
+import static racingcar.engine.RacingCarSystem.Input.CAR_NAME_MAXIMUM_LENGTH;
+import static racingcar.engine.RacingCarSystem.Input.CAR_NAME_MINIMUM_LENGTH;
+import static racingcar.engine.RacingCarSystem.TextMessage.EXECUTION_RESULT_PREFIX;
+import static racingcar.engine.RacingCarSystem.TextMessage.INPUT_THE_CAR_NAMES;
+import static racingcar.engine.RacingCarSystem.TextMessage.INPUT_THE_NUMBER_OF_ATTEMPTS;
+import static racingcar.engine.RacingCarSystem.TextMessage.OUTPUT_THE_WINNER_PREFIX;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.engine.domain.Car;
+import racingcar.common.Prompt;
+import racingcar.engine.mapper.RacingCarMapper;
+import racingcar.engine.manager.Referee;
+import racingcar.common.Validator;
 
 public class RacingCarGame {
     private final Prompt prompt;

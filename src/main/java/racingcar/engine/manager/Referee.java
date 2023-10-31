@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.engine.manager;
 
 import java.util.List;
+import racingcar.engine.domain.Car;
 
 public class Referee {
     public Referee() {

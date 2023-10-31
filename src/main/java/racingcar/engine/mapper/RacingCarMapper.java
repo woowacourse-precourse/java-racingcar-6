@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.engine.mapper;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.engine.domain.Car;
 
 public class RacingCarMapper {
     public RacingCarMapper() {

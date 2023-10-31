@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.engine;
+
+import racingcar.common.Message;
 
 public sealed interface RacingCarSystem {
 

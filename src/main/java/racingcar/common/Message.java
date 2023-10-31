@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.common;
 
 @FunctionalInterface
 public interface Message {
