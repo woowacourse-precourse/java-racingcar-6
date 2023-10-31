@@ -26,6 +26,20 @@ class CarNamesValidatorTest {
     }
 
     @Test
+    @DisplayName("메서드 사용시 구분자가 포함되지 않은 경우 값을 그대로 반환한다.")
+    void validateOnlyOneCarName() {
+        // given
+        String inputtedCarNames = "pobi";
+
+        // when
+        List<String> validatedCarNames = CarNamesValidator.getValidatedCarNamesList(inputtedCarNames);
+
+        // then
+        assertThat(validatedCarNames.size()).isEqualTo(1);
+        assertThat(validatedCarNames).containsExactly("pobi");
+    }
+
+    @Test
     @DisplayName("쉼표를 구분해서 공백을 자동으로 제거해서 자동차 이름을 입력받는다.")
     void getTrimCarNamesList() {
         // given
