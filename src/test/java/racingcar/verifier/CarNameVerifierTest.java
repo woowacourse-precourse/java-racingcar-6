@@ -26,7 +26,7 @@ class CarNameVerifierTest extends NsTest {
     @Nested
     class ExceptionTest {
         @Test
-        void 자동차이름이_5자이상인_경우() {
+        void 자동차이름의_길이가이_5자초과인_경우() {
             Assertions.assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException("pobi,woni,123456,ifj", "3"))
                             .isInstanceOf(IllegalArgumentException.class)
@@ -35,7 +35,7 @@ class CarNameVerifierTest extends NsTest {
         }
 
         @Test
-        void 자동차이름이_0자인_경우() {
+        void 자동차이름의_길이가_1자미만인_경우() {
             Assertions.assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException(",,pobi,woni", "3"))
                             .isInstanceOf(IllegalArgumentException.class)
