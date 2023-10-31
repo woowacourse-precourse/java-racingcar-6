@@ -1,7 +1,5 @@
 package racingcar.common;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,16 +9,16 @@ public class Validator {
 
     public static void validateCarNames(List<String> carNameList) {
         if(isContainsEmptyName(carNameList)) {
-            throw new IllegalArgumentException(MessageConstants.CAR_NAME_BLANK_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessageConstants.CAR_NAME_BLANK_MESSAGE);
         }
         if(isNull(carNameList)){
-            throw new IllegalArgumentException(MessageConstants.CAR_NAMES_NULL_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessageConstants.CAR_NAMES_NULL_MESSAGE);
         }
         if(isOverLength(carNameList)) {
-            throw new IllegalArgumentException(MessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
         }
         if(isDuplicated(carNameList)) {
-            throw new IllegalArgumentException(MessageConstants.CAR_NAME_DUPLICATED_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessageConstants.CAR_NAME_DUPLICATED_MESSAGE);
         }
     }
 
@@ -28,10 +26,10 @@ public class Validator {
         try {
             Integer rn = Integer.parseInt(roundNumber);
             if(rn <= 0) {
-                throw new IllegalArgumentException(MessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
+                throw new IllegalArgumentException(ErrorMessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(MessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
         }
     }
 

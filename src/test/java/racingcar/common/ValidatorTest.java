@@ -1,7 +1,5 @@
 package racingcar.common;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +23,7 @@ class ValidatorTest {
             //then
             Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(MessageConstants.CAR_NAME_BLANK_MESSAGE);
+                    .hasMessage(ErrorMessageConstants.CAR_NAME_BLANK_MESSAGE);
         }
 
         @DisplayName("이름 입력 안할 시 예외 발생")
@@ -37,7 +35,7 @@ class ValidatorTest {
 
             Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(MessageConstants.CAR_NAMES_NULL_MESSAGE);
+                    .hasMessage(ErrorMessageConstants.CAR_NAMES_NULL_MESSAGE);
         }
 
         @DisplayName("중복된 이름 입력 시 예외 발생")
@@ -51,7 +49,7 @@ class ValidatorTest {
             //then
             Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(MessageConstants.CAR_NAME_DUPLICATED_MESSAGE);
+                    .hasMessage(ErrorMessageConstants.CAR_NAME_DUPLICATED_MESSAGE);
         }
 
         @DisplayName("길이가 6이상일 경우 예외 발생")
@@ -65,7 +63,7 @@ class ValidatorTest {
             //then
             Assertions.assertThatThrownBy(() -> Validator.validateCarNames(carNameList))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(MessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
+                    .hasMessage(ErrorMessageConstants.CAR_NAME_WRONG_LENGTH_MESSAGE);
         }
     }
 
@@ -82,7 +80,7 @@ class ValidatorTest {
             //then
             Assertions.assertThatThrownBy(() -> Validator.validateRoundNumber(roundNumber))
                             .isInstanceOf(IllegalArgumentException.class)
-                                    .hasMessage(MessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
+                                    .hasMessage(ErrorMessageConstants.ROUND_NUMBER_WRONG_TYPE_MESSAGE);
         }
 
         @DisplayName("양의 정수가 아닌 숫자 입력 시 예외 발생")
@@ -91,7 +89,7 @@ class ValidatorTest {
         public void notPositiveInteger(String roundNumber) {
             Assertions.assertThatThrownBy(() -> Validator.validateRoundNumber(roundNumber))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(MessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
+                    .hasMessage(ErrorMessageConstants.ROUND_NUMBER_WRONG_RANGE_MESSAGE);
         }
 
     }
