@@ -1,9 +1,8 @@
 package racingcar.view;
 
-import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Winners;
 import racingcar.util.MessageConst;
 
 public class OutputView {
@@ -26,28 +25,8 @@ public class OutputView {
     }
 
     public void printFinalWinner(Cars cars) {
-        int maxDistance = getMaxDistance(cars);
-        List<Car> finalWinnerCars = getFinalWinnerCars(cars, maxDistance);
-        List<String> finalWinnerNames = getFinalWinnerNames(finalWinnerCars);
-        System.out.println(WINNER_MSG + String.join(DELIMITER, finalWinnerNames));
+        Winners winners = new Winners(cars);
+        System.out.println(WINNER_MSG + String.join(DELIMITER, winners.getFinalWinnerNames()));
     }
 
-    private static List<String> getFinalWinnerNames(List<Car> finalWinnerCars) {
-        return finalWinnerCars.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
-    }
-
-    private static List<Car> getFinalWinnerCars(Cars cars, int maxDistance) {
-        return cars.getCars().stream()
-                .filter(car -> car.getPosition() == maxDistance)
-                .collect(Collectors.toList());
-    }
-
-    private static int getMaxDistance(Cars cars) {
-        return cars.getCars().stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(-1);
-    }
 }
