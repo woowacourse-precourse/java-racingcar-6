@@ -20,6 +20,7 @@ public class RacingCarService {
             }
         }
     }
+
     public RacingCar operateCar(RacingCar car, int moveNum){
         if(moveNum >= MOVE_CRITERIA){
             car.setMoveCount(car.getMoveCount() + 1);
