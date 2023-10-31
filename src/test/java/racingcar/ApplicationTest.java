@@ -153,7 +153,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void validateStringIsDigit_정상처리_테스트() {
+    void validateStringDigit_정상처리_테스트() {
         // given
         final String case1 = "5";
         final String case2 = "10";
@@ -169,6 +169,27 @@ class ApplicationTest extends NsTest {
         // then
         assertThat(thrown1).doesNotThrowAnyException();
         assertThat(thrown2).doesNotThrowAnyException();
+    }
+
+    @Test
+    void validateStringDigit_예외처리_테스트() {
+        // given
+        final String case1 = "!2";
+        final String case2 = "Not a Number";
+
+        // when
+        final Throwable thrown1 = catchThrowable(() -> {
+            Utils.validateStringDigit(case1);
+        });
+        final Throwable thrown2 = catchThrowable(() -> {
+            Utils.validateStringDigit(case2);
+        });
+
+        // then
+        assertThat(thrown1).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자를 입력해주세요.");
+        assertThat(thrown2).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자를 입력해주세요.");
     }
 
     @Test
