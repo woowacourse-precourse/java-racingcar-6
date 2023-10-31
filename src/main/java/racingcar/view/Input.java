@@ -14,9 +14,8 @@ public class Input {
         String input = Console.readLine();
 
         List<String> cars = splitName(input);
-        validateName(cars);
 
-        return stringToCar(cars);
+        return createCarList(cars);
     }
 
     public int askTimes(){
@@ -29,7 +28,7 @@ public class Input {
         return Arrays.asList(names.split(","));
     }
 
-    public List<Car> stringToCar(List<String> cars){
+    public List<Car> createCarList(List<String> cars){
         List<Car> result = new ArrayList<>();
         for (String name : cars) {
             Car car = new Car(name);
@@ -42,11 +41,4 @@ public class Input {
         return Integer.parseInt(str);
     }
 
-    public void validateName(List<String> names){
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("The name must not be more than 5 characters.");
-            }
-        }
-    }
 }
