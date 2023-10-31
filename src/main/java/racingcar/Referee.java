@@ -1,7 +1,9 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Referee {
 	private final List<String> names;
@@ -23,5 +25,22 @@ public class Referee {
 		}
 
 		return tryResult;
+	}
+
+	public List<String> checkWinner(Map<String, Integer> moveResult) {
+		List<String> winner = new ArrayList<>();
+		int maxScore = 0;
+		for (Map.Entry<String, Integer> resultOfCar : moveResult.entrySet()) {
+			if (maxScore == resultOfCar.getValue()) {
+				winner.add(resultOfCar.getKey());
+				continue;
+			}
+			if (maxScore < resultOfCar.getValue()) {
+				maxScore = resultOfCar.getValue();
+				winner.clear();
+				winner.add(resultOfCar.getKey());
+			}
+		}
+		return winner;
 	}
 }
