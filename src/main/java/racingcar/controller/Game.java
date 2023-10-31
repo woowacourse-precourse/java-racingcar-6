@@ -25,6 +25,21 @@ public class Game {
         int attemptCount = inputController.getAttemptCountFromUserInput();
         //입력 횟수 확인
         System.out.println(attemptCount);
+
+        match(cars, attemptCount);
+    }
+
+    public void match(Cars cars, int attemptCount) {
+        for (int i = 0; i < attemptCount; i++) {
+            moveForwardByRandomNumber(cars);
+        }
+    }
+
+    public void moveForwardByRandomNumber(Cars cars) {
+        for (Car car : cars.getCarList()) {
+            if (getRandomNumber() >= FORWARD_CONDITION)
+                car.moveForward();
+        }
     }
 
     public int getRandomNumber() {

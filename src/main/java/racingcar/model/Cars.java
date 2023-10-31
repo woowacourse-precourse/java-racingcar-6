@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.Error.*;
+import static racingcar.utils.Error.*;
 
 public class Cars {
     private final List<Car> carList;
@@ -21,7 +21,7 @@ public class Cars {
         if (carList.stream().anyMatch(car -> car.getName().contains(carName)))
             throwError(DUPLICATE_NAME);
         return false;
-    }
+    }//수정필요
 
     public List<Car> getCarList() {
         return carList;

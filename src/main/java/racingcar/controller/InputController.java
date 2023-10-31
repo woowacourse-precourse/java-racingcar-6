@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Cars;
-import static racingcar.Error.*;
+import static racingcar.utils.Error.*;
 
 import java.util.Arrays;
 
