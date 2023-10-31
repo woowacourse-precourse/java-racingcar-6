@@ -1,5 +1,7 @@
 package racingcar.dto.request;
 
+import static racingcar.constants.ErrorMessage.LENGTH_LIMIT;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class CarNamesDto {
     private void validateNameLength(final List<String> names) {
         for(String name: names) {
             if(name.length() > NAME_SIZE || name.length() == 0) {
-                throw new IllegalArgumentException("length of numbers must be below " + NAME_SIZE);
+                throw new IllegalArgumentException(LENGTH_LIMIT + NAME_SIZE);
             }
         }
     }

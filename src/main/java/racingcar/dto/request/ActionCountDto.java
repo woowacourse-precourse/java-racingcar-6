@@ -1,5 +1,8 @@
 package racingcar.dto.request;
 
+import static racingcar.constants.ErrorMessage.NEGATIVE_INTEGER;
+import static racingcar.constants.ErrorMessage.NOT_INTEGER;
+
 public class ActionCountDto {
 
     private final Integer actionCount;
@@ -15,13 +18,13 @@ public class ActionCountDto {
         try {
             return Integer.valueOf(actionCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("please enter an integer");
+            throw new IllegalArgumentException(NOT_INTEGER);
         }
     }
 
     private void validateRange(final Integer actionCount) {
         if(actionCount < 0) {
-            throw new IllegalArgumentException("please enter a non-negative integer");
+            throw new IllegalArgumentException(NEGATIVE_INTEGER);
         }
     }
 

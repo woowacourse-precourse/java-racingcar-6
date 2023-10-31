@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constants.ErrorMessage.DUPLICATED_NAME;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,7 +47,7 @@ public class CarRepository {
     private void validateDuplicatedName(final String name) {
         for (Car car : storage.values()) {
             if (car.getName().equals(name)) {
-                throw new IllegalArgumentException("car names must not be duplicated");
+                throw new IllegalArgumentException(DUPLICATED_NAME);
             }
         }
     }
