@@ -4,13 +4,13 @@
 - start: [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
 ### 입출력
 #### 입력
-- 경주 할 자동차 이름
+- 경주 할 자동차 이름 입력
   - 이 때, 입력받은 string을 구분하는 기준으로 ","을 통해 구분하여 List에 저장
   - IllegalArgumentException()를 사용하여, 5글자를 초과하는 경우에 대한 예외 발생
+    - 아래 구현할 기능에서 checkNamelength()에 대하여 설명
 ```java
-// 경주 할 자동차 이름 입력
 System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-String racerNames = scanner.nextLine();
+String racerNames = scanner.nextLine();     // 경주 할 자동차 이름 입력
 // ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
 String[] racerArray = racerNames.split(",");
 checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
@@ -19,33 +19,55 @@ checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
 ```java
 // 시도할 횟수 입력
 System.out.println("시도할 회수는 몇회인가요?");
-int tryCount = scanner.nextInt();
-```
-```java
-// Implement input
-// 경주 할 자동차 이름 입력
-System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-String racerNames = scanner.nextLine();
-// ","을 기준으로 하여 각 경주 참가자들을 Array에 임시 저장
-String[] racerArray = racerNames.split(",");
-checkNamelength(racerArray);    // racer들의 이름을 List<Stirng>에 저장
-```
-
-```java
-
+int tryCount = scanner.nextInt();   // 경주 시도 횟수 입력
 ```
 
 
 #### 출력
-- 
+- tryCount 만큼 race를 반복하는 내용을 출력
 ```
-
+// 에시
+poni : 
+koni : 
+jun : -
+```
+- tryCount 만큼 반복 후 최고로 멀리 간 winner 출력
+```
+// 에시
+최종 우승자 : jun
 ```
 
 ### 구현할 기능 및 구현 내용
 #### 'Car' class 생성
 - 자동차 이름(carName)과 자동차의 위치(position) 정의
 - 자동차가 이동하는 조건 정의(move())
+  - 
+```java
+class Car {
+    private String carName;
+    private int position;
+
+    public Car(String carName) {
+        this.carName = carName;
+    }
+
+    public String getName() {
+        return carName;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    // move 조건 설정
+    public void move() {
+        int randomNumber = Randoms.pickNumberInRange(0,9);;
+        if (randomNumber >= 4) {
+            position++;
+        }
+    }
+}
+```
 
 #### racing() 함수 생성
 - 프로그램의 전체적인 기능 수행
