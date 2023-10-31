@@ -26,7 +26,7 @@ public class OutputView {
         StringBuilder sb = new StringBuilder(WINNERS_NAME);
         winners.stream()
                 .map(Car::getName)
-                .forEach(name -> {sb.append(" ").append(name).append(",");});
+                .forEach(name -> sb.append(" ").append(name).append(","));
         sb.deleteCharAt(sb.length() - 1);
         System.out.print(sb.toString());
     }
