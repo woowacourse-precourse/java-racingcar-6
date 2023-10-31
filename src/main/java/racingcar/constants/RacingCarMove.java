@@ -19,4 +19,8 @@ public enum RacingCarMove {
         attemptCount -= NEXT_POSITION.value;
         return attemptCount;
     }
+
+    public int getValue() {
+        return value;
+    }
 }
