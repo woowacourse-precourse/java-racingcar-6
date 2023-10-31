@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.utils.Constants;
+import racingcar.utils.RandomNumber;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
