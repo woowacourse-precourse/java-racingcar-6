@@ -5,18 +5,17 @@ import java.util.Comparator;
 public class RacingCar {
     private final String name;
     public static Comparator<RacingCar>
-            positionComparator = Comparator.comparingInt(r -> r.position);
-    private int position = 0;
+            positionComparator = Comparator.comparingInt(r -> r.position.getX());
+    private Position position = Position.of(0);
 
     public RacingCar(String name) {
         checkName(name);
         this.name = name;
     }
 
-
     public void tryForward(int randomDice) {
         if (randomDice >= 4) {
-            position += 1;
+            position = position.forward(1);
         }
     }
 
@@ -30,14 +29,14 @@ public class RacingCar {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(String.format("%s : ", name));
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < position.getX(); i++) {
             builder.append("-");
         }
         return builder.toString();
     }
 
     public boolean isSamePositionWith(RacingCar other) {
-        return this.position == other.position;
+        return this.position.equals(other.position);
     }
 
     public String getName() {

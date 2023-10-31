@@ -32,20 +32,25 @@ public class RacingCarGame {
     }
 
     private List<String> getWinners() {
-        Optional<RacingCar> winner = cars.stream()
-                .max(RacingCar.positionComparator);
-
-        out.println(winner.get().getName());
-
-        if (winner.isEmpty()) {
-            throw new IllegalStateException("winner가 없습니다.");
-        }
+        RacingCar highest = getCarWithHighestPosition();
 
         return cars.stream()
-                .filter(car -> car.isSamePositionWith(winner.get()))
+                .filter(car -> car.isSamePositionWith(highest))
                 .map(RacingCar::getName)
                 .collect(toList());
     }
+
+    private RacingCar getCarWithHighestPosition() {
+        Optional<RacingCar> highest = cars.stream()
+                .max(RacingCar.positionComparator);
+
+        if (highest.isEmpty()) {
+            throw new IllegalStateException("winner가 없습니다.");
+        }
+
+        return highest.get();
+    }
+
 
     private List<RacingCar> createCars(String[] names) {
         checkNames(names);
