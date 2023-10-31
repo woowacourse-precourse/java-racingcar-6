@@ -17,6 +17,9 @@ public class CarList {
             carList.add(car);
         });
     }
+    public List<Car> getCarList() {
+        return carList;
+    }
 
     public void isNameRange(Car car) {
         if (car.getName().length() > 5) {

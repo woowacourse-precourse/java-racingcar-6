@@ -31,9 +31,9 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                '}';
+        return this.name
+                + " : "
+                + "-".repeat(position)
+                +"\n";
     }
 }
