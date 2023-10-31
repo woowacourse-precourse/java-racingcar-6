@@ -19,12 +19,17 @@ public class InputView {
         this.inputValidator = inputValidator;
     }
     // 자동차 입력 받기
-    public List<Car> inputCarName() {
-        System.out.println(INPUT_CAR_NAME);
-        String input = Console.readLine();
+    public List<Car> carName(String input) {
         inputValidator.validateCarString(input.replace(" ",""));
+        inputValidator.validateIsString(List.of(input.split(","))); // 바꾸고 싶음
 
         return inputParser.parseCarString(input);
+    }
+
+    // 자동차 입력만 받기
+    public String inputCarName() {
+        System.out.println(INPUT_CAR_NAME);
+        return Console.readLine();
     }
 
     // 시도 횟수 입력 받기
