@@ -3,6 +3,8 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -22,10 +24,10 @@ class GameUtilTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "-1"})
     @DisplayName("잘못된 반복 횟수 입력 테스트")
-    void setRepeatNumberValidateTest() {
-        String repeatNumber = "a";
+    void setRepeatNumberValidateTest(String repeatNumber) {
         assertThatThrownBy(() -> gameUtil.setRepeatNumber(repeatNumber))
                 .isInstanceOf(IllegalArgumentException.class);
     }
