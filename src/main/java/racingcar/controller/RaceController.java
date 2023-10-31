@@ -25,6 +25,8 @@ public class RaceController {
                 throw new IllegalArgumentException("올바르지 않은 자동차 이름입니다.");
 
             // 자동차 이름이 길이 제한(1~5자)을 벗어났을 경우
+            if(car.length() > 5)
+                throw new IllegalArgumentException("자동차 이름 길이 제한(1~5자)을 벗어났습니다.");
         }
 
         return racingCarList;
