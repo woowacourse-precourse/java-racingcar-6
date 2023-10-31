@@ -87,10 +87,14 @@ public class RacingCarValidationTest {
     void 쉼표의_개수가_올바른지_판별() {
         String input = "a,b,c";
         List<String> list = List.of("a", "b", "c");
-        assertTrue(Validation.isCorrectComma(list, input.length()));
+        assertTrue(Validation.isCorrectComma(list, input));
 
         String input2 = "a,,,,";
         List<String> list2 = List.of("a");
-        assertFalse(Validation.isCorrectComma(list2, input2.length()));
+        assertFalse(Validation.isCorrectComma(list2, input));
+
+        String input3 = "pobi,woni,crong";
+        List<String> list3 = List.of("pobi", "woni", "crong");
+        assertTrue(Validation.isCorrectComma(list3, input3));
     }
 }
