@@ -41,6 +41,7 @@ public class GameController {
     public void play() {
         int carNum = this.carsList.size();
         for (int i = 0; i < tryNum; i++) {
+//            다이스 회전 돌고 결과 저장
             playDices(this.carsList);
             showLoad(this.carsList, carNum);
         }
@@ -71,20 +72,22 @@ public class GameController {
     }
 
     public String getResult(List<Cars> carsList) {
-        String winnerName = "";
-        int lagestLocation = 0;
-        int currentLocation;
+        String winner = "";
+        int bestRecord = 0;
+        int thisRecord;
 
         for (Cars car : carsList) {
-            currentLocation = car.getLength();
-            if (currentLocation == lagestLocation) {
-                winnerName = winnerName.concat(", " + car.getName());
+            thisRecord = car.getLength();
+//            기존 기록과 공동일 경우
+            if (thisRecord == bestRecord) {
+                winner = winner.concat(", " + car.getName());
             }
-            if (currentLocation > lagestLocation) {
-                lagestLocation = currentLocation;
-                winnerName = car.getName();
+//            기존 기록을 능가하는 경우
+            if (thisRecord > bestRecord) {
+                bestRecord = thisRecord;
+                winner = car.getName();
             }
         }
-        return winnerName;
+        return winner;
     }
 }
