@@ -34,7 +34,7 @@
 
 역할: 게임에 참가하는 자동차
 
-- [ ] 주어진 랜덤 값이 4 이상이면 전진 또는 정지 한다.
+- [x] 주어진 랜덤 값이 4 이상이면 전진 또는 정지 한다.
 
 ## Game
 
@@ -72,6 +72,12 @@
 - `convertStringToList()` : 입력된 String 값을 쉼표(,)를 기준으로 List<String> 형태로 변환.
 - `convertStringListToCarList()` : String형태의 리스트의 값을 Car 객체의 이름으로 하는 List<Car>로 변환
 - `convertStringToLong()` : String으로 입력된 값을 Long 타입으로 변환
+
+## RandomUtil
+
+역할: Random 숫자에 관한 클래스
+
+- `getRandomNumber()` : 주어진 범위내의 랜덤 정수를 반환.
 
 # Validate
 
