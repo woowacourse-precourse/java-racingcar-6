@@ -51,11 +51,16 @@ public class OutView {
 
     public static void printWinner(CarsDto carsDto) {
         ArrayList<CarDto> carArrayList = carsDto.getCarArrayList();
+        List<String> winners = extractNameFromDto(carArrayList);
+        String winner = String.join(SEPARATOR, winners);
+        System.out.print(WINNER_MESSAGE + winner);
+    }
+
+    private static List<String> extractNameFromDto(ArrayList<CarDto> carArrayList) {
         List<String> winners = carArrayList.stream()
                 .map(CarDto::getCarName)
                 .collect(Collectors.toList());
-        String winner = String.join(SEPARATOR, winners);
-        System.out.print(WINNER_MESSAGE + winner);
+        return winners;
     }
 
 }
