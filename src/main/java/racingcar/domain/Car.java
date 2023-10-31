@@ -15,7 +15,7 @@ public class Car {
     private Integer position;
 
     private Car(final String name) {
-        validateName(name);
+        Validator.validateName(name);
         this.name = name;
         this.position = 0;
     }
@@ -56,28 +56,30 @@ public class Car {
         return name + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
     }
 
-    private void validateName(final String name) {
-        validateLength(name);
-        validateCharacters(name);
-    }
-
-    private void validateLength(final String name) {
-        if (isLengthExceeded(name)) {
-            throw RaceException.of(INVALID_NAME_LENGTH);
+    private static class Validator {
+        private static void validateName(final String name) {
+            validateLength(name);
+            validateCharacters(name);
         }
-    }
 
-    private boolean isLengthExceeded(final String name) {
-        return name.length() > MAX_LENGTH_OF_NUMBER.getValue();
-    }
-
-    private void validateCharacters(final String name) {
-        if (containsInvalidCharacters(name)) {
-            throw RaceException.of(INVALID_NAME_CHARACTERS);
+        private static void validateLength(final String name) {
+            if (isLengthExceeded(name)) {
+                throw RaceException.of(INVALID_NAME_LENGTH);
+            }
         }
-    }
 
-    private boolean containsInvalidCharacters(final String name) {
-        return !name.matches("[a-zA-Z]+");
+        private static boolean isLengthExceeded(final String name) {
+            return name.length() > MAX_LENGTH_OF_NUMBER.getValue();
+        }
+
+        private static void validateCharacters(final String name) {
+            if (containsInvalidCharacters(name)) {
+                throw RaceException.of(INVALID_NAME_CHARACTERS);
+            }
+        }
+
+        private static boolean containsInvalidCharacters(final String name) {
+            return !name.matches("[a-zA-Z]+");
+        }
     }
 }
