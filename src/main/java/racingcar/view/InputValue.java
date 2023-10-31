@@ -1,17 +1,16 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.exception.Validator;
+
+import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputValue {
 
     public static String[] getRacingCarsNames() {
 
-        String input = Console.readLine();
+        String input = getInputValue();
 
-        String temp = input.replaceAll(" ", "");
-
-        String[] names = temp.split(",");
+        String[] names = stringToStringArr(input);
 
         Validator.name_size_check(names);
 
@@ -22,13 +21,21 @@ public class InputValue {
 
     public static int getRacingRange() {
 
-        String input = Console.readLine();
+        String input = getInputValue();
 
-        String temp = input.replaceAll(" ", "");
+        Validator.number_check(input);
 
-        Validator.number_check(temp);
-
-        return Integer.parseInt(temp);
+        return Integer.parseInt(input);
     }
 
+    private static String getInputValue() {
+
+        String input = readLine();
+
+        return input.replaceAll(" ", "");
+    }
+
+    private static String[] stringToStringArr(String input) {
+        return input.split(",");
+    }
 }
