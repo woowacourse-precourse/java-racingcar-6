@@ -20,4 +20,14 @@ public class RacingGame {
         }
     }
 
+    public List<Car> playRound() {
+        for (Car car : cars) {
+            car.move(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER));
+        }
+        return cars;
+    }
+
+    public int getRounds() {
+        return rounds;
+    }
 }
