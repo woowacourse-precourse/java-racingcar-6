@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.domain.strategy.MovingStrategy;
 import racingcar.dto.CarDto;
 
 public class Cars {
@@ -19,6 +20,10 @@ public class Cars {
         return carNames.stream()
                 .map(Car::from)
                 .toList();
+    }
+
+    public void move(MovingStrategy movingStrategy) {
+        cars.forEach(car -> car.move(movingStrategy));
     }
 
     public List<CarDto> dtos() {
