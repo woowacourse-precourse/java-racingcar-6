@@ -55,8 +55,8 @@ class GameSystem {
         return manufacture.changeIntegerNumber(attempt);
     }
 
-    public void runGame() {
-        CarGameResult game = new CarGameResult();
+    public void runGame(OutputView output) {
+        CarGame game = new CarGame(output);
         game.saveResult(attempt, totalCar);
     }
 
@@ -134,12 +134,20 @@ class InputManufacture {
     }
 }
 
-class CarGameResult {
+class CarGame {
+    private OutputView output;
+
+    public CarGame(OutputView output) {
+        this.output = output;
+    }
+
     public void saveResult(int attempt, TotalCar totalCar) {
         for (int move = 0; move < attempt; move++) {
             totalCar.moveDistance();
         }
     }
+
+
 }
 
 class TotalCar {
