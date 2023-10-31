@@ -1,7 +1,7 @@
 package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.constant.ExceptionMessage.DUPLICATED_CAR_NAME;
 import static racingcar.constant.ExceptionMessage.INVALID_TRIAL_NUMBER;
 import static racingcar.constant.ExceptionMessage.LENGTH_OUT_OF_RANGE_CAR_NAME;
