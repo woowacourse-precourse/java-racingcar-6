@@ -1,14 +1,11 @@
 package validator.trynumber;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
+import racingcar.message.ErrorMessage;
 import racingcar.validator.Validator;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 class TryNumberTest {
     @DisplayName("trynumber_횟수가_1_이상의_숫자_외_예외_처리()")
@@ -18,6 +15,7 @@ class TryNumberTest {
         Validator validator = new Validator();
 
         assertThatThrownBy(() -> validator.checkRegExpTryNumber(tryNumber))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.EXCEPTION_TRY_NUMBER);;
     }
 }

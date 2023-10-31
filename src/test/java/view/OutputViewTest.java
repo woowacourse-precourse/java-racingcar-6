@@ -1,11 +1,10 @@
 package view;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import racingcar.Application;
 import racingcar.view.OutputView;
 import racingcar.message.ViewMessage;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import camp.nextstep.edu.missionutils.test.NsTest;

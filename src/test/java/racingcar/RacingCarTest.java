@@ -1,19 +1,14 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
-import racingcar.controller.GameController;
 import racingcar.model.RaceCar;
 import racingcar.service.GameService;
-import racingcar.validator.Validator;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;

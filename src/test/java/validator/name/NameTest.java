@@ -1,15 +1,14 @@
 package validator.name;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import racingcar.model.RaceCar;
 import racingcar.service.GameService;
 import racingcar.validator.Validator;
 import racingcar.message.ErrorMessage;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
