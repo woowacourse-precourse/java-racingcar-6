@@ -18,9 +18,8 @@
 
 - 3항 연산자를 쓰지 않는다
 - 함수(메서드)가 한 가지 일만 하도록 최대한 작게 만들어라
-- **JUnit4 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다**
+- **JUnit5 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다**
     - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다
-
 
 ### Model
 
@@ -28,22 +27,23 @@
     - [x]  name
     - [x]  distance
     - [x]  생성자(String name)
+    - [x] bar(이동거리를 나타냄 "---")
     - [x]  update Distance
 
-        - distance 직접 업그레이드 → 1씩 증가함
+        - 외부에서 호출하면 Car에서 업그레이드 → 1씩 증가함
 
-    - [x]  여기서 toString 만들기 (1개)
+    - [x]  여기서 toString 만들기 "이름 : ---"
     - [x]  int getDistance
-    - [x]  String getName()
+    - [x]  String getName
 
-        - 우승자 출력할 때 이름 가져옴
+        - 우승자 이름 가져올 때 사용하기 위해
 
 - CarList
     - [x]  생성자(List<String> names)
 
         - controller/putCar에서 List<String> names 받으면 이걸로 CarList 생성하기
 
-    - [x]  upgrade distance(List<Integer> distances)
+    - [x] UpdateDistancee(List<Integer> distances)
 
         - 리스트별로 생성자에 업그레이드, 근데 이게 맞나? 이름에 맞춰서 해야 되지 않나? - update Distance 사용하기
 
@@ -60,45 +60,41 @@
     - [x]  int getMaxDistance()
         - 각 자동차의 distance 값 중 제일 큰 값 리턴
 
-       ```java
-       List<Car> cars = new ArrayList<>();
-       cars.add(new Car("a", 3));
-       cars.add(new Car("b", 5));
-       cars.add(new Car("c", 6));
-       cars.add(new Car("d", 6));
-       
-       System.out.println(cars.stream().max(Comparator.comparingInt(Car::getDistance)).get().getDistance());
-       ```
-
+      ```java
+      List<Car> cars = new ArrayList<>();
+      cars.add(new Car("a", 3));
+      cars.add(new Car("b", 5));
+      cars.add(new Car("c", 6));
+      cars.add(new Car("d", 6));
+      
+      System.out.println(cars.stream().max(Comparator.comparingInt(Car::getDistance)).get().getDistance());
+      ```
 
 ### Controller
 
 - controller
-    - [x]  putCarList(view에서 받은 List<String>)
-
-        - validateName 실행시키고
-
-        - CarList 호출하기
-
-    - [x]  int getHowMany(String view에서 온 친구들)
+    - [x]  makeCarList(view에서 받은 List<String>)
+    - [x] getAttemptNumber(String view에서 온 친구들)
 
         - 여기서 validateName 실행시키고 int 리턴하기
 
+    - [x] getEnteredNames
+        - seperateNames
+        - validateOverorZero
+        - validateDuplicate
+    - [x] seperateNames
+    - [x] makeRandomNumberList
     - [x]  play(int howMany)
-        - [x]  List <Integer> distances5개의 new Generator(); 해서 반복문 들어가게
-    - [x]  whoWinner
-    - [x]  name 분리하기
-  
-        -  컴마가 없다면 → 1개일 수도 있으니 일단 넘기기
+        - 입력된 수 만큼 반복문 진행
+    - [x]  whoisWinner
+    - [x]  replaceZeroAndOne
+        - 4 이상이면 1, 아니면 0으로 바꾼 리스트를 리턴
 - validate
-  - [x]  name가 제대로 들어왔는지 확인
-  - [x]  validateOverName 이름이 5글자 이상(공백합쳐서 다 한 글자로 보기) → 공백 합쳐서 5글자 이상이면 넘기기
-  - [x]  이름 길이가 0인 것도 숙청해버리자
-  - [x]  중복인 이름이 있는지 확인 → 중복이면 throw
-      - a,a,a,a
-      - a   ,   a
-  - [x]  number가 제대로 들어왔는지 확인
-  - [x]  랜덤한 수가 4 이상이면 1, 4미만이면 0으로 바꾸기
+    - [x]  name가 제대로 들어왔는지 확인
+        - [x]  validateOverorZero 이름이 5글자 이상인지 아님 ""이 들어왔는지 확인
+        - [x]  validateDuplicate 중복인 이름이 있는지 확인
+    - [x]  number가 제대로 들어왔는지 확인
+        - [x] validateInteger
 - Generator
     - [x]  랜덤 숫자 리턴
 
@@ -125,13 +121,13 @@
 
     - [x]  void printInterm
 
-        - controller에서 받은 string 넘긴걸 출력하기
+        - controller에서 받은 string 그대로 출력
 
-       ```
-       pobi : -
-       woni :
-       jun : -
-       ```
+      ```
+      pobi : -
+      woni :
+      jun : -
+      ```
 
     - [x]  void printWinner
         - controller의 whoWinnner 호출 받아서 출력
@@ -139,12 +135,8 @@
 ### Application
 
 - [x]  구현하기
-    - [view] 에서 입력 실행
-    - controller: 이름 입력값 가져오기
-    - [view]: 횟수 입력하세요 출력
-    - [controller]: 횟수 가져오기
-    - controller: put carlist
-    - [view] 실행 결과 출력되게
-    - [controller] play
-        - [view] 중간 과정 실행
-    - [view] 최종 우승자 실행
+    - 이름 입력 받기
+    - 숫자 입력받기
+    - 이름에 따른 CarList 생성
+    - 게임 진행
+    - 우승자 출력
