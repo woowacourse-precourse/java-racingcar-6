@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Cars;
 import racingcar.model.Name;
 
-public class CarNameTest {
+public class NameTest {
     @Test
     void 이름_자리수_초과_예외_처리() {
         assertThatThrownBy(() -> {
