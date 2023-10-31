@@ -12,12 +12,7 @@ public class Application {
     public static void main(String[] args) {
 
         // TODO: 프로그램 구현
-        try {
-            // 경주 시작
-            raceStart();
-        } catch (IllegalArgumentException e) {
-            System.out.println("예외 발생: " + e.getMessage());
-        }
+        raceStart();
     }
 
     private static void raceStart(){
@@ -29,11 +24,9 @@ public class Application {
 
         // 경주 할 자동차 이름 입력 받기
         String carName = inputCarNames();
-        System.out.println(carName);
 
         // 경주 할 자동차 입력 받은 문자열을 배열로 변환
         String[] carNamesArray = convertToCarNameArray(carName);
-        System.out.println(Arrays.toString(carNamesArray));
 
         // 시도 할 횟수 입력
         askMoveCount();
@@ -111,7 +104,7 @@ public class Application {
     }
 
     private static String inputCarNames(){
-        Console.readLine();
+        // Console.readLine();
         return Console.readLine();
     }
 
@@ -122,8 +115,10 @@ public class Application {
     }
 
     private static void containsNonStringElement(String[] carNamesArray) {
-        if(carNamesArray.length > 5){
-            throw new IllegalArgumentException("5개 이하로 입력해주세요");
+        for (String carName : carNamesArray) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("5글자 이하의 이름을 입력해주세요.");
+            }
         }
     }
 
@@ -132,7 +127,7 @@ public class Application {
     }
 
     private static String inputMoveCount(){
-        Console.readLine();
+        // Console.readLine();
         return Console.readLine();
     }
 
