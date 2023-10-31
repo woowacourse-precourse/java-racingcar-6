@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class IO {
     private static CheckForm checkForm;
+
     public IO(CheckForm checkForm) {
         this.checkForm = checkForm;
     }
