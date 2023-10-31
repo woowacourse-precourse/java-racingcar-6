@@ -33,6 +33,7 @@ public class RacingCarGameView {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void showGameWinner(List<Player> winner) {
