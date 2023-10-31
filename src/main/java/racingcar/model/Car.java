@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Car {
     private String name; //name of the car
-    private Integer location;//location of the car means the number of '-'
+    private Integer location; //location of the car means the number of '-'
 
     public Car(String name) {
         this.name = name;

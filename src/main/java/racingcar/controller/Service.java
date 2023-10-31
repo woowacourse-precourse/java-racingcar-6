@@ -21,8 +21,8 @@ public class Service {
         raceGame.setWinner(findWinner(raceGame.getParticipants()));
     }
 
-    public static void moveAllCars(ArrayList<Car> cars){
-        for(Car car :cars){
+    public static void moveAllCars(ArrayList<Car> cars) {
+        for(Car car : cars){
             if(canMove()){
                 moveCar(car);
             }
@@ -30,14 +30,14 @@ public class Service {
     }
 
     public static boolean canMove() {
-        return Randoms.pickNumberInRange(Constant.BOUNDARY_START,Constant.BOUNDARY_END) >= Constant.FORWARD_BOUNDARY;
+        return Randoms.pickNumberInRange(Constant.BOUNDARY_START, Constant.BOUNDARY_END) >= Constant.FORWARD_BOUNDARY;
     }
 
-    public static void moveCar(Car car){
+    public static void moveCar(Car car) {
         car.moveForward();
     }
 
-    public static ArrayList<Car> findWinner(ArrayList<Car> cars){
+    public static ArrayList<Car> findWinner(ArrayList<Car> cars) {
         ArrayList<Car> winners = new ArrayList<>();
         int max_distance = findMaxDistance(cars);
 
@@ -50,10 +50,10 @@ public class Service {
         return winners;
     }
 
-    public static Integer findMaxDistance(ArrayList<Car> cars){
+    public static Integer findMaxDistance(ArrayList<Car> cars) {
         int max_distance = 0;
         for(Car car : cars){
-            max_distance = max(car.getLocation(),max_distance);
+            max_distance = max(car.getLocation(), max_distance);
         }
 
         return max_distance;
