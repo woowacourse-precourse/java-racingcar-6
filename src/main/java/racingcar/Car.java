@@ -12,8 +12,8 @@ public class Car {
         distance = new ArrayList<>();
     }
 
-    public void go(int randomNumber){
-        if (randomNumber >= 4){
+    public void go(int randomNumber) {
+        if (randomNumber >= 4) {
             distance.add("-");
         }
     }
