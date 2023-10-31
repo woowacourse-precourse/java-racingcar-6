@@ -8,4 +8,7 @@ public class RacingCar {
 
     private void setName(String name) {
     }
+    int move(int randomNumber) {
+        return 0;
+    }
 }

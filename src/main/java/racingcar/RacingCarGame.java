@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -40,6 +42,9 @@ public class RacingCarGame {
     }
 
     void playGame() {
+        for (RacingCar player : racingCars) {
+            player.move(Randoms.pickNumberInRange(0,9));
+        }
     }
 
     void printResult() {
