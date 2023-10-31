@@ -1,5 +1,7 @@
 package racingcar.validate;
 
+import racingcar.utils.Constants;
+
 public class CarNameValidate {
     public static void validateCarName(String name) {
         isCarNameLength(name);
@@ -7,7 +9,7 @@ public class CarNameValidate {
     }
 
     private static void isCarNameLength(String name) {
-        if (name.length() >= 5) {
+        if (name.length() >= Constants.MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하로만 입력해주세요.");
         }
     }
