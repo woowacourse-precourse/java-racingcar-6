@@ -3,6 +3,11 @@ package racingcar.controller;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.controller.InputValidator.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -10,12 +15,22 @@ public class validationTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"longname,short", ",,,", ""})
-    void name_Validation_Test(String player) {
+    void 잘못된_이름_테스트(String player) {
 
-        // 이름의 길이가 5를 넘었을 경우
         assertThatThrownBy(() -> {
             nameValidation(player);
         }).isInstanceOf(IllegalArgumentException.class);
+
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"kim, lee, son","kim,,,lee, son"})
+    void 올바른_이름_테스트(String player) {
+
+        List<String> players = nameValidation(player);
+        List<String> validPlayers = new ArrayList<>(Arrays.asList(new String[]{"kim", "lee", "son"}));
+
+        Assertions.assertEquals(players,validPlayers);
 
     }
 

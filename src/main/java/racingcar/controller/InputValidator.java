@@ -1,18 +1,20 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InputValidator {
 
-    public static List<String> nameValidation(String input_name) {
+    public static List<String> nameValidation(String input_player) {
 
-        List<String> names;
+        String input_name = input_player.replace(" ", "");
 
         if (input_name.isEmpty()) { // 입력값이 없을 경우
             throw new IllegalArgumentException("Invalid argument: empty names");
         }
 
-        names = List.of(input_name.split(","));
+        List<String> names = new ArrayList<>(Arrays.asList(input_name.split(",")));
 
         if (names.isEmpty()) { // 쉼표만 입력되었을 경우
             throw new IllegalArgumentException("Invalid argument: empty names");
@@ -23,6 +25,9 @@ public class InputValidator {
                 throw new IllegalArgumentException("Invalid argument: " + name);
             }
         }
+
+        // 이름이 없는 값들 삭제
+        names.removeAll(Arrays.asList(""));
 
         return names;
 

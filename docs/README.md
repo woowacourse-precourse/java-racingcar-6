@@ -22,7 +22,9 @@
 
 - [X] 입력값에 따른 정상적인 예외처리하는지 확인하는 테스트코드 생성한다. - class validationTest()
 - [X] 출력값이 정상적인지 확인하는 테스트코드를 작성한다. - class OutputViewTest()
-- [] Controller가 정상적으로 작동하는지 확인한다. - class ControllerTest()
+- [X] Controller가 정상적으로 작동하는지 확인한다. - class ControllerTest()
+
+- [X] "kim, lee"와 "kim,, lee" 같은 입력을 정상적으로 변환하여 실행하게 만든다. - nameValidation()
 
 
 기능 요구 사항
