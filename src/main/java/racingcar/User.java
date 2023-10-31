@@ -19,9 +19,10 @@ public class User {
     public void inputCheck(List<User> users) {
         for (User u : users) {
             String carName = u.name;
-            if (carName.length() > 5 || carName.isBlank()) {
+            if (carName == null || carName.isBlank() || carName.length() > 5) {
                 throw new IllegalArgumentException();
             }
+
         }
     }
 
