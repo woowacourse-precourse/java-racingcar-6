@@ -22,6 +22,8 @@ public class Application {
         RacingGame racingGame = new RacingGame(carNames);
         racingGame.start(tryCount);
 
+        // 우승자 출력
+        racingGame.Winners();
     }
 }
 
@@ -65,8 +67,34 @@ class RacingGame {
         }
         return cars;
     }
+    public void Winners() {
+        List<String> winners = getWinners();
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i != winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
+    private List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxNum = getMaxNum();
+        for (Car car : cars) {
+            if (car.getPosition() == maxNum) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 
-
+    private int getMaxNum() {
+        int maxNum = 0;
+        for (Car car : cars) {
+            maxNum = Math.max(maxNum, car.getPosition());
+        }
+        return maxNum;
+    }
 
 }
 
@@ -86,7 +114,9 @@ class Car {
     public String getName() {
         return name;
     }
-
+    public int getPosition() {
+        return position;
+    }
     public String getMove() {
         moveprocess = "";
         for(int i=0;i<position;i++){
