@@ -10,24 +10,43 @@ public class Application {
         Printer printer = new Printer();
         Referee referee = new Referee();
 
+        String enteredNames = readNames();
+        List<String> nameList = generator.splitNames(enteredNames);
+        if (!Validation.validLength(nameList))
+            throw new IllegalArgumentException("이름은 1글자 이상 5글자 이하로 구성해주세요.");
+
+        int numberOfTimes = readNumberOfTimes();
+        List<Car> carList = generator.createCars(nameList);
+
+        System.out.println("\n실행 결과");
+        runRace(printer, carList, numberOfTimes);
+
+        int max = referee.findMaxDistance(carList);
+        List<Car> winnerList = referee.findWinner(carList, max);
+
+        System.out.print("최종 우승자 : ");
+        printer.printWinner(winnerList);
+    }
+
+    public static String readNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String enteredNames = readLine();
         if (!Validation.validNames(enteredNames))
             throw new IllegalArgumentException("영어와 쉼표로만 입력해주세요.");
 
-        List<String> nameList = generator.splitNames(enteredNames);
-        if (!Validation.validLength(nameList))
-            throw new IllegalArgumentException("이름은 1글자 이상 5글자 이하로 구성해주세요.");
+        return enteredNames;
+    }
 
+    public static int readNumberOfTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
         String enteredNumber = readLine();
         if (!Validation.validNumber(enteredNumber))
             throw new IllegalArgumentException("1회 이상의 횟수를 숫자로만 입력해주세요.");
 
-        int numberOfTimes = Integer.parseInt(enteredNumber);
-        List<Car> carList = generator.createCars(nameList);
+        return Integer.parseInt(enteredNumber);
+    }
 
-        System.out.println("\n실행 결과");
+    public static void runRace(Printer printer, List<Car> carList, int numberOfTimes) {
         for (int i = 0; i < numberOfTimes; i++) {
             for (Car car : carList) {
                 car.move(Car.canMove());
@@ -35,11 +54,5 @@ public class Application {
             printer.printDistance(carList);
             System.out.println();
         }
-
-        int max = referee.findMaxDistance(carList);
-        List<Car> winnerList = referee.findWinner(carList, max);
-
-        System.out.print("최종 우승자 : ");
-        printer.printWinner(winnerList);
     }
 }
