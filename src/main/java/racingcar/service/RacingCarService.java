@@ -13,9 +13,11 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RacingCarService {
 
-
     private final CarList carList;
     private final RacingCarValidation racingCarValidation;
+    private final int MIN_NUMBER = 0;
+    private final int MAX_NUMBER = 9;
+    private final int MOVING_MIN_NUMBER = 4;
 
     public RacingCarService(CarList carList, RacingCarValidation racingCarValidation) {
         this.carList = carList;
@@ -49,8 +51,8 @@ public class RacingCarService {
     }
 
     public void checkMoving(Car car) {
-        int excel = pickNumberInRange(0, 9);
-        if (excel >= 4)
+        int excel = pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        if (excel >= MOVING_MIN_NUMBER)
             car.move();
     }
 
