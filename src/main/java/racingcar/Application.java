@@ -11,7 +11,6 @@ public class Application {
         String cars = readLine();
         //쉼표로 구분
         String[] car = cars.split(",");
-
         int carNum = car.length;
 
         //5자 이하만 가능하도록 제한
@@ -53,43 +52,35 @@ public class Application {
         }
     }
 
-    // 차 경주 시작
-    public static void start(Race race){
-        String[] car = race.getCars();
-        int num = race.getNum();
-
-        int carNum = car.length;
-        int[] carPos = new int[carNum];
-        int maxPos = 0;
-
-        System.out.println();
-        System.out.println("실행 결과");
-        for (int gameCnt = 0; gameCnt < num; gameCnt++) {
-            for (int carIndex = 0; carIndex < carNum; carIndex++) {
-                //무작위 값 입력
-                int rand = Randoms.pickNumberInRange(0, 9);
-                //4보다 크면 이동
-                if (rand >= 4) {
-                    carPos[carIndex]++;
-                }
-
-                //이동한 경우 위치값을 저장한다.
+    public static int move(int[] carPos, int maxPos) {
+        for (int carIndex = 0; carIndex < carPos.length; carIndex++) {
+            int rand = Randoms.pickNumberInRange(0, 9);
+            if (rand >= 4) {
+                carPos[carIndex]++;
                 maxPos = Math.max(maxPos, carPos[carIndex]);
-            }
 
-            // 각 차의 이동 상황 출력
-            for (int carIndex = 0; carIndex < carNum; carIndex++) {
-                System.out.print(car[carIndex] + " : ");
-                for (int i = 0; i < carPos[carIndex]; i++) {
-                    System.out.print("-");
-                }
-                System.out.println();
+            }
+        }
+        return maxPos;
+    }
+
+    public static void curPos(String[] car, int[] carPos) {
+        // 각 차의 이동 상황 출력
+        int carNum = car.length;
+        for (int carIndex = 0; carIndex < carNum; carIndex++) {
+            System.out.print(car[carIndex] + " : ");
+            for (int i = 0; i < carPos[carIndex]; i++) {
+                System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
+    }
 
 
+    public static void result(String[] car, int[] carPos, int maxPos) {
         //최종우승자 판별
+        int carNum = car.length;
         StringBuilder win = new StringBuilder();
         for (int carIndex = 0; carIndex < carNum; carIndex++) {
             if (carPos[carIndex] == maxPos) {
@@ -106,6 +97,29 @@ public class Application {
             System.out.println("최종 우승자 : " + win.toString());
         }
 
+    }
+
+
+        // 차 경주 시작
+    public static void start(Race race){
+        String[] car = race.getCars();
+        int num = race.getNum();
+
+        int carNum = car.length;
+        int[] carPos = new int[carNum];
+        int maxPos = 0;
+
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for (int gameCnt = 0; gameCnt < num; gameCnt++) {
+            maxPos = move(carPos, maxPos);
+            curPos(car, carPos);
+            System.out.println();
+
+        }
+
+        result(car, carPos, maxPos);
     }
 
 
