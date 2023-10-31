@@ -30,6 +30,7 @@ public class RaceController {
 
     private void findWinners(Race race) {
         List<String> winners = raceService.findWinners(race);
+        outputView.winnersOutput(winners);
     }
 
     private Race initializeRace() {
