@@ -9,16 +9,18 @@ import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
 import racingcar.domain.Racing;
 import racingcar.repository.CarRepository;
+import racingcar.repository.RacingRepository;
 
 public class RacingServiceImplTest {
 
     Config config = AppConfig.getInstance();
-    private CarRepository memoryCarRepository = config.carRepository();
+    private CarRepository carRepository = config.carRepository();
+    private RacingRepository racingRepository = config.racingRepository();
     RacingService racingService = config.racingService();
 
     @BeforeEach
     public void setUp() {
-        memoryCarRepository.deleteAll();
+        carRepository.deleteAll();
     }
 
     @Test
@@ -32,8 +34,22 @@ public class RacingServiceImplTest {
 
         // then
         assertThat(result).isNotNull();
-        assertThat(result.participationsSize()).isEqualTo(3);
-        assertThat(result.getTryCount()).isEqualTo(3);
+        assertThat(result.participationSize()).isEqualTo(3);
+        assertThat(result.getTryCount()).isEqualTo(5);
+    }
+
+    @Test
+    public void Racing객체_저장하기() {
+        // given
+        String input = "pobi,woni,jun";
+        String tryCount = "5";
+        final Racing racing = racingService.generateRacing(input, tryCount);
+
+        // when
+        final Racing result = racingService.save(racing);
+
+        // then
+        assertThat(result).isSameAs(racing);
     }
 
 
