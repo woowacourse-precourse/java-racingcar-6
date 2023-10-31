@@ -22,12 +22,10 @@ public class OutputView {
         StringBuilder stringBuilder = new StringBuilder();
         for (int round = 1; round <= scoreBoard.getSize(); round++) {
             List<CarDto> score = scoreBoard.getScoreForRound(round);
-            for (CarDto carDto : score) {
-                stringBuilder.append(carDto.getName())
-                        .append(FIELD_SEPARATOR)
-                        .append(DISTANCE_DASH.repeat(carDto.getDistance()))
-                        .append(NEW_LINE);
-            }
+            score.forEach(carDto -> stringBuilder.append(carDto.getName())
+                    .append(FIELD_SEPARATOR)
+                    .append(DISTANCE_DASH.repeat(carDto.getDistance()))
+                    .append(NEW_LINE));
             stringBuilder.append(NEW_LINE);
         }
         System.out.print(stringBuilder);
