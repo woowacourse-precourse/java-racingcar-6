@@ -24,13 +24,13 @@ public class GameController {
     }
 
     public void start() {
-        initGame();
+        setGame();
         runGame();
     }
 
-    private void initGame() {
+    private void setGame() {
         String namesInput = inputView.askCarNames();
-        initCars(namesInput);
+        setCars(namesInput);
 
         String roundInput = inputView.askRound();
         outputView.printEmptyLine();
@@ -42,7 +42,7 @@ public class GameController {
         printWinner();
     }
 
-    private void initCars(String input) {
+    private void setCars(String input) {
         List<Car> carList = new ArrayList<>();
         List<String> carNameList = validator.checkValidInputList(input);
 
