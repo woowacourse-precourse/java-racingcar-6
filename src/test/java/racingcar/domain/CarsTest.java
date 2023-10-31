@@ -4,13 +4,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.RandomGenerator;
 
 import java.util.Arrays;
 import java.util.List;
 
 
 class CarsTest {
-    
+
     Car movableCar1;
     Car movableCar2;
     Car immovableCar;
@@ -37,6 +38,20 @@ class CarsTest {
                 .toList();
 
         Assertions.assertEquals(Arrays.asList(5, 5, 0), positions);
+    }
+
+    @Test
+    @DisplayName("새로운 Car객체 추가 및 삭제 불가")
+    void getCars테스트() {
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> {
+                    cars.getCars().add(new Car("ADD", new RandomGenerator()));
+                });
+
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> {
+                    cars.getCars().clear();
+                });
     }
 
 }
