@@ -12,6 +12,7 @@ public class Race {
     static UserInput userInterface = new UserInput();
 
     public void run() {
+
         LinkedHashMap<String, String> carNameHashMap = userInterface.getCarNameHashMap();
         int attemptsNumber = userInterface.getAttemptsNumber();
         System.out.println();

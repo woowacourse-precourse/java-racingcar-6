@@ -6,11 +6,13 @@ import java.util.LinkedHashMap;
 import validation.UserInputValidator;
 
 public class Converter {
-    UserInputValidator userInputValidator;
+    UserInputValidator userInputValidator = new UserInputValidator();
 
     public int wordToInt(String word) {
         try {
-            return Integer.parseInt(word);
+            int wordToIntResult = Integer.parseInt(word);
+            userInputValidator.checkPositiveNumber(wordToIntResult);
+            return wordToIntResult;
         } catch (NumberFormatException error) {
             throw new IllegalArgumentException(NOT_NUMBER_INPUT_CASE_MESSAGE);
         }
@@ -28,7 +30,7 @@ public class Converter {
     private LinkedHashMap<String, String> convertArrayToMap(String[] parts) {
         LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
         for (String part : parts) {
-            UserInputValidator.validateInput(part);
+            userInputValidator.validateInputCarName(part);
             carNameHashMap.put(part, "");
         }
         return carNameHashMap;
