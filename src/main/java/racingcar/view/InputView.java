@@ -30,7 +30,7 @@ public class InputView {
 
     private static TrialCount readTrialCount() {
         System.out.println(TRIAL_COUNT_MESSAGE);
-        int count = Integer.parseInt(Console.readLine());
+        String count = Console.readLine();
 
         return TrialCount.of(count);
     }
