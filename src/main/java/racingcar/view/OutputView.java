@@ -1,16 +1,21 @@
 package racingcar.view;
 
+import static racingcar.view.messages.Messages.GAME_RESULT_GUIDE;
+import static racingcar.view.messages.Messages.INPUT_CAR_NAMES_GUIDE;
+import static racingcar.view.messages.Messages.INPUT_TRY_COUNT_GUIDE;
+import static racingcar.view.messages.Messages.WINNERS_GUIDE;
+
 public class OutputView {
     public static void displayCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAMES_GUIDE.getMessage());
     }
 
     public static void displayTryCount() {
-        System.out.println("시도할 횟수는 몇회인가요?");
+        System.out.println(INPUT_TRY_COUNT_GUIDE.getMessage());
     }
 
     public static void displayGameResultMessage() {
-        System.out.println("실행 결과");
+        System.out.println(GAME_RESULT_GUIDE.getMessage());
     }
 
     public static void displayGameResult(String gameResult) {
@@ -18,6 +23,6 @@ public class OutputView {
     }
 
     public static void displayWinners(String winners) {
-        System.out.println("최종 우승자 : " + winners);
+        System.out.println(WINNERS_GUIDE.getMessage() + winners);
     }
 }
