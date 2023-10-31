@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import static racingcar.property.ErrorProperty.*;
+import static racingcar.property.ValidateProperty.SEPARATOR;
 
 public class NameValidation extends InputValidation{
 
@@ -24,14 +25,14 @@ public class NameValidation extends InputValidation{
     }
 
     public static void verifyForRacerNameIsDuplicate(String racerNameList){
-        List<String> nameList = Arrays.asList(racerNameList.split(","));
+        List<String> nameList = Arrays.asList(racerNameList.split(SEPARATOR));
         if (nameList.size() != new HashSet<>(nameList).size()){
             throw new IllegalArgumentException(NAME_VALUE_IS_DUPLICATE);
         }
     }
 
     public static void verifyForRacerNameContainComma(String racerNameList){
-        if (racerNameList.charAt(racerNameList.length()-1) ==','){
+        if (racerNameList.charAt(racerNameList.length()-1) == ','){
             throw new IllegalArgumentException(NAME_VALUE_CONTAINS_COMMA);
         }
     }

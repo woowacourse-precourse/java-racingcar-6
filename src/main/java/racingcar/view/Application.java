@@ -10,6 +10,7 @@ import java.util.List;
 
 
 public class Application {
+    private static final String SEPARATOR = ",";
     public static void main(String[] args) {
         OutputView.outputForRaceStart();
         raceBefore();
@@ -48,7 +49,7 @@ public class Application {
         String inputRacerNames = InputTool.readLineByConsole();
         RacerNames racerValidate = new RacerNames(inputRacerNames);
         racerValidate.validateRacerNameList();
-        return Arrays.asList(inputRacerNames.split(","));
+        return Arrays.asList(inputRacerNames.split(SEPARATOR));
     }
 
     private static RaceCount raceCountForm(){
