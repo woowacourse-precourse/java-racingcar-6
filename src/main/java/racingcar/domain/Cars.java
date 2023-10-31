@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-    List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 
     public void add(String name) {
         cars.add(new Car(name));

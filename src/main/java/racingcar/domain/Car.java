@@ -8,7 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    void race(int randomNum) {
+    public void race(int randomNum) {
         if (randomNum >= 4) {
             movement++;
         }
