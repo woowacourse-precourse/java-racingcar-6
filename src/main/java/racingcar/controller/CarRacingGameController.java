@@ -19,29 +19,37 @@ public class CarRacingGameController {
         postConstruct();
     }
 
-    private void postConstruct() {
-        racingGame = RacingGame.of(inputView.getInputCarNames(), inputView.getInputTrialCount());
-    }
-
     public static CarRacingGameController of(InputView inputView, OutputView outputView) {
         Objects.requireNonNull(inputView);
         Objects.requireNonNull(outputView);
         return new CarRacingGameController(inputView, outputView);
     }
 
+    private void postConstruct() {
+        racingGame = RacingGame.of(inputView.getInputCarNames(), inputView.getInputTrialCount());
+    }
+
     public void playGame() {
-        outputView.printRunResult(Message.RUN_RESULT.getMessage());
-        repeatRounds();
-        outputView.printFinalWinner(racingGame.getWinnerMessage());
+        printRunResult();
+        printFinalWinner();
         inputView.close();
     }
 
-    private void repeatRounds() {
+    private void printRunResult() {
+        outputView.printRunResult(Message.RUN_RESULT.getMessage());
+        repeatRound();
+    }
+
+    private void repeatRound() {
         while (racingGame.isNotFinished()) {
             racingGame.increaseCurrentRound();
             racingGame.runRound();
             outputView.printRoundResult(racingGame.getRunResultMessage());
         }
-        racingGame.decideWinner();
+        racingGame.decideWinners();
+    }
+
+    private void printFinalWinner() {
+        outputView.printFinalWinner(racingGame.getFinalWinnerMessage());
     }
 }
