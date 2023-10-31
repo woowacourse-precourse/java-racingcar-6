@@ -2,7 +2,10 @@ package racingcar.service;
 
 import racingcar.model.Car;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
 
 public class GameService {
     private static GameService INSTANCE;
