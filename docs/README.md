@@ -31,9 +31,11 @@
 - [x] 이동 회수를 설정한다. Round()#Round()
 
 
+- [x] 0에서 9사이의 무작위 값을 생성한다. RandomGenerator#createNumber()
+
+
 - [x] 매 번 이동마다 각각의 자동차가 전진하거나 멈춘다. Race#moveCars()
     - [x] 자동차를 전진시킨다. Car#moveForward()
-        - [x] 0에서 9사이의 무작위 값을 생성해야 한다. RandomGenerator#createNumber()
         - [x] 무작위 값이 4 이상일 때만 한 칸 전진해야 한다.
 
 
@@ -82,3 +84,6 @@
 
 
 - [x] 출력할 게임 결과 문자열을 만든다. OutputView#makeResultString()
+
+
+- [x] 랜덤 숫자로 이루어진 특정 크기의 리스트를 반환한다. RandomGenerator#getNumbers()

@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Race;
+import racingcar.model.RandomGenerator;
 import racingcar.model.Round;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -29,7 +30,9 @@ public class Game {
         List<String> carNames = race.getCarNames();
 
         while (round.isRemaining()) {
-            race.moveCars();
+            int size = race.getSize();
+            List<Integer> randomNumbers = RandomGenerator.getNumbers(size);
+            race.moveCars(randomNumbers);
 
             List<Integer> roundResult = race.getRoundResult();
             OutputView.printRoundResult(carNames, roundResult);
