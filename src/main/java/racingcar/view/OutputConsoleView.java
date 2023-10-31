@@ -19,12 +19,14 @@ public class OutputConsoleView {
     }
 
     public void printRaceResult() {
-        System.out.println(RACE_RESULT);
+        System.out.println("\n" + RACE_RESULT);
     }
 
     public void printRaceStatus(List<RaceStatus> raceStatuses) {
+        StringBuilder sb = new StringBuilder();
         raceStatuses.stream()
-                .forEach(raceStatus -> System.out.println(printCarNameAndDistance(raceStatus)));
+                .forEach(raceStatus -> sb.append(printCarNameAndDistance(raceStatus)).append("\n"));
+        System.out.println(sb);
     }
 
     private String printCarNameAndDistance(RaceStatus raceStatus) {
