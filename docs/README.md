@@ -65,13 +65,26 @@
 **[ Validator ]**
 -
 
-- [ ]  **CarNameValidator**
+- [x]  **CarNameValidator**
 
 입력된 자동차 이름의 유효성 검사
 
-- [ ]  **TryCountValidator**
+- [x]  **TryCountValidator**
 
 입력된 시도 횟수의 유효성 검사
+
+### ✅ 예외 처리 - IllegalArgumentException
+
+**[CarNameValidator]**
+
+- [x]  사용자가 입력한 자동차 이름이 6자리 이상일 경우
+- [x]  사용자가 입력한 자동차 이름에 공백이 들어갈 경우
+- [x]  사용자가 입력한 자동차 이름이 중복일 경우
+
+**[TryCountValidator]**
+
+- [x]  사용자가 입력한 시도할 횟수가 0 이하일 경우
+- [x]  사용자가 입력한 시도할 횟수가 숫자가 아닐 경우
 
 ### ✅ 프로그래밍 요구 사항
 
