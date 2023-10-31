@@ -19,4 +19,9 @@ public class StringUtilsTest {
     void String_to_Integer_변환_테스트() {
         assertEquals(3, StringUtils.toInteger("3"));
     }
+
+    @Test
+    void 콤마로_리스트_문자열_연결_테스트() {
+        assertEquals("pobi, woni, jun", StringUtils.listToString(Arrays.asList("pobi", "woni", "jun")));
+    }
 }
