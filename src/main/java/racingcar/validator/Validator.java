@@ -3,7 +3,7 @@ package racingcar.validator;
 import java.util.regex.Pattern;
 import racingcar.common.exception.ErrorMessage;
 
-public class Validator {
+public final class Validator {
 
     private static final Pattern NUMERIC_PATTERN = Pattern.compile("\\d+");
 

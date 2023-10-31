@@ -2,7 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Random {
+public final class Random {
 
     private Random() {
     }

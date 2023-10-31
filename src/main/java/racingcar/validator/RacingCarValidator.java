@@ -8,7 +8,7 @@ import racingcar.common.config.RacingCarRule;
 import racingcar.common.exception.ErrorMessage;
 import racingcar.racer.Raceable;
 
-public class RacingCarValidator {
+public final class RacingCarValidator {
 
     private static final Pattern RACING_CAR_NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9]+$");
 

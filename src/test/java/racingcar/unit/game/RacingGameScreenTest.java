@@ -11,11 +11,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.common.io.reader.Reader;
-import racingcar.common.io.writer.Writer;
 import racingcar.game.RacingGameScreen;
 import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.TurnResult;
+import racingcar.io.reader.Reader;
+import racingcar.io.writer.Writer;
 
 class RacingGameScreenTest {
 

@@ -1,4 +1,4 @@
-package racingcar.common.io.reader;
+package racingcar.io.reader;
 
 public interface Reader {
 

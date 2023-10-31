@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.config.RacingCarRule;
-import racingcar.common.io.reader.Reader;
-import racingcar.common.io.writer.Writer;
 import racingcar.game.vo.TurnResult;
+import racingcar.io.reader.Reader;
+import racingcar.io.writer.Writer;
 
 public class RacingGameScreen {
 

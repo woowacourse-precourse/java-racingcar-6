@@ -1,4 +1,4 @@
-package racingcar.common.io.reader;
+package racingcar.io.reader;
 
 import camp.nextstep.edu.missionutils.Console;
 

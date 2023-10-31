@@ -1,4 +1,4 @@
-package racingcar.common.io.writer;
+package racingcar.io.writer;
 
 public class CommandLineWriter implements Writer {
 

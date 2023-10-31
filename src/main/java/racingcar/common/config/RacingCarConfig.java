@@ -1,11 +1,11 @@
 package racingcar.common.config;
 
-import racingcar.common.io.reader.CommandLineReader;
-import racingcar.common.io.reader.Reader;
-import racingcar.common.io.writer.CommandLineWriter;
-import racingcar.common.io.writer.Writer;
 import racingcar.game.RacingGameManager;
 import racingcar.game.RacingGameScreen;
+import racingcar.io.reader.CommandLineReader;
+import racingcar.io.reader.Reader;
+import racingcar.io.writer.CommandLineWriter;
+import racingcar.io.writer.Writer;
 
 public class RacingCarConfig {
     private Reader reader;
