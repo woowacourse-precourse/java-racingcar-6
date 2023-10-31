@@ -58,6 +58,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름_종합_검사(){
+        NamesManager manager = new NamesManager();
+        boolean result = manager.checkNamesException(Arrays.asList("pobi","pobiiii"));
+        assertThat(result).isEqualTo(true);
+    }
+
+    @Test
     void 숫자_확인(){
         RoundNumberManager manager = new RoundNumberManager();
         boolean result = manager.notNumber("abc");
@@ -70,6 +77,9 @@ class ApplicationTest extends NsTest {
         boolean result = manager.negativeNumber(-5);
         assertThat(result).isEqualTo(true);
     }
+
+    @Test
+
 
     @Override
     public void runMain() {
