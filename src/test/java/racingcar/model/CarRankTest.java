@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 
-class RankTest {
+class CarRankTest {
 
     @Test
     void getWinnerList() {
@@ -23,8 +23,8 @@ class RankTest {
                     for (Car car:cars) {
                         car.moveOrStop();
                     }
-                    Rank testRank = (Rank) Model.generateRank(cars);
-                    List<String> testWinner = testRank.getWinnerList();
+                    CarRank testCarRank = (CarRank) Model.generateRank(cars);
+                    List<String> testWinner = testCarRank.getWinnerList();
 
                     assertEquals(testWinner, List.of("eu"));
                 },
