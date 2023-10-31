@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SeparationUtil {
 
-    public List<String> separationCarName(String carNames) {
+    public static List<String> separationCarName(String carNames) {
         String[] separatedCarName = carNames.split(",");
         return List.of(separatedCarName);
     }

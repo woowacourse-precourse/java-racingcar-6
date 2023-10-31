@@ -14,8 +14,6 @@ public class RacingCarService {
 
     private static final int MIN_VALUE = -1;
 
-    private final RandomUtil randomUtil = new RandomUtil();
-    private final SeparationUtil separationUtil = new SeparationUtil();
     private final RacingCarGame racingCarGame = new RacingCarGame();
 
     private final ValidateService validateService = new ValidateService();
@@ -46,7 +44,7 @@ public class RacingCarService {
     }
 
     private List<String> separateCarName(String carNames) {
-        return separationUtil.separationCarName(carNames);
+        return SeparationUtil.separationCarName(carNames);
     }
 
     public void gameProcess() {
@@ -73,7 +71,7 @@ public class RacingCarService {
     }
 
     private void setRandomNumberToCar(Car car) {
-        car.setCarRandomNumber(randomUtil.createRandomNumber());
+        car.setCarRandomNumber(RandomUtil.createRandomNumber());
     }
 
     private void compareNumber(Car car) {

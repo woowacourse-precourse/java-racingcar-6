@@ -11,13 +11,11 @@ public class InputValidator {
     private static final int INPUT_NAME_MAXIMUM_LENGTH = 5;
     private static final int INPUT_NAME_MINIMUM_LENGTH = 1;
 
-    private final SeparationUtil separationUtil = new SeparationUtil();
-
     public void validateInputCarName(String inputCarNames) {
         checkEmptyInput(inputCarNames);
         checkLastCharIsComma(inputCarNames);
 
-        List<String> carNames = separationUtil.separationCarName(inputCarNames);
+        List<String> carNames = SeparationUtil.separationCarName(inputCarNames);
         checkInputCarNameCorrectLength(carNames);
         checkDuplicateCarName(carNames);
         checkCarNameIsBlank(carNames);
