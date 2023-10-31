@@ -32,7 +32,7 @@ public class CarNameService {
 
         String[] splited = str.split(partition);
         for (String s : splited) {
-            if (checkException(s) && (!nameList.contains(s))) nameList.add(s);
+            if (checkException(s)) nameList.add(s);
         }
 
         return nameList;
