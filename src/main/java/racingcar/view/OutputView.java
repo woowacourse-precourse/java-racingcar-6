@@ -24,7 +24,7 @@ public class OutputView {
 
     public void printWinnerName(Winners winners) {
         printWinnerTitle();
-        System.out.println(winners.toString());
+        System.out.print(winners.toString());
     }
 
     private void printWinnerTitle() {
