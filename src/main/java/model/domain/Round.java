@@ -5,7 +5,7 @@ public class Round {
     private final int round;
 
     public Round(String roundStr) {
-        this.round = checkIsNumber(roundStr);
+        this.round = checkMoreOne(checkIsNumber(roundStr));
     }
 
     public int getRound() {
@@ -21,4 +21,13 @@ public class Round {
         }
 
     }
+
+    private int checkMoreOne(int number){
+        if(number < 1){
+            throw new IllegalArgumentException();
+        }
+
+        return number;
+    }
+
 }
