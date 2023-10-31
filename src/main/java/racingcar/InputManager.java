@@ -1,11 +1,13 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class InputManager {
     public List<String> getCarNames() {
-        // TODO: 자동차 이름을 입력받아서 파싱
-        return null;
+        String input = Console.readLine();
+        String[] splited = input.split(",");
+        return List.of(splited);
     }
 
     public int getRaceCount() {
