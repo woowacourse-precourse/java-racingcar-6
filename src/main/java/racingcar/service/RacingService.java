@@ -17,8 +17,15 @@ public class RacingService {
     }
 
     public void validateCount(String count) {
+        if (!count.matches("-?\\d+")) {
+            throw new InvalidCountException("입력한 값이 정수가 아닙니다.");
+        }
+
         try {
-            Integer.parseInt(count);
+            int parsedCount = countStringToInt(count);
+            if (parsedCount <= 0) {
+                throw new InvalidCountException("입력한 값이 0 이하입니다. 1 이상의 숫자를 입력해주세요.");
+            }
         } catch (NumberFormatException e) {
             throw new InvalidCountException("입력한 값이 숫자가 아닙니다.");
         }
