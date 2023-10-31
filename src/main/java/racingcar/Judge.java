@@ -12,13 +12,9 @@ public class Judge {
     }
 
     public List<Car> decideWinner() {
-        int maxPoistion = getMaxPosition();
-
-        List<Car> winners = cars.stream()
-                .filter(car -> car.getPosition() == maxPoistion)
+        return cars.stream()
+                .filter(car -> car.getPosition() == getMaxPosition())
                 .toList();
-
-        return winners;
     }
 
     private int getMaxPosition() {
