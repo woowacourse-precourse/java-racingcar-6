@@ -1,7 +1,7 @@
 - 생성할 클래스
     1. GameManager 클래스 : 게임 전체를 관리하고 실행한다
     2. Player 클래스 : 게임에 참여하는 유저의 정보를 담는다.
-
+    <br><br>
 - GameManager 클래스 구성 변수 및 함수
     1. List<Player> players : 플레이어 정보를 저장한다.
         <br>1-1. addPlayers(Player player) : players에 player를 추가하는 함수
@@ -16,7 +16,7 @@
     6. String print() : 최종 우승자를 출력한다. 출력형식은 "최종 우승자 : "+winner
     7. gameInit(int maxCount) : 초기화함수, players 재선언, maxCount 지정, winner = ""로 초기화
     8. GameManager(int maxCount) : 생성자, 변수가 없을시 GameInit(0), 변수 존재시 gameInit(maxCount) 실행   
-
+    <br>
 - Player 클래스 구성 변수 및 함수
     1. String name : 플레이어 이름
         <br>1-1. setName, getName : name을 반환 또는 변경하는 함수
@@ -27,3 +27,16 @@
     4. void move() : Random 실행후 4 이상인 경우 setResult()와 setCount()를 사용하여 값을 바꾼다.
     5. void print() : 현재 진행상황을 출력한다. 출력 형식은 name+" : "+result
     6. Player(String name) : 생성자, result = "", count = 0, name = name 으로 변경
+    <br><br>
+- 함수 세분화
+    1. Game 클래스 추가
+        1. 출력형식에 맞게 입력을 받고 GameManager의 메서드를 호출하는 역할을 하는 클래스를 생성하였다
+        2. 출력문구는 마지막 결과를 제외하고 상수로 만들어 분리하였다.
+    2. GameManager 클래스
+        1. addPlayer() : 기존의 Console.readLine()을 받아 StringTokenizer() 로 문자를 분리하여 
+            <br>while문을 사용하여 List.add를 수행하던 방식에서 뎁스를 줄이기 위해
+            <br>함수 setPlayer()를 추가하고, 내부에 addPlayer()를 넣어 StringTokenizer와 List.add 를 분리하였다.
+            - addPlayer()는 players에 해당 플레이어를 추가하는 작업만을 수행하며,
+            - setPlayer()가 StringTokenizer로 문자열을 분류하여 addPlayer를 실행한다.
+    3. Player 클래스
+       1. 역순 정렬을 위해 Comparable<Player>인터페이스를 선언 하였다.
