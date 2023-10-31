@@ -20,12 +20,10 @@ public class RaceController {
         String[] racingCarList = input.split(",");
 
         for(String car : racingCarList) {
-            // 콤마 사이에 자동차 이름이 없을 경우
-            if(car.isEmpty())
+            if(car.isEmpty())  // 콤마 사이에 자동차 이름이 없을 경우
                 throw new IllegalArgumentException("올바르지 않은 자동차 이름입니다.");
 
-            // 자동차 이름이 길이 제한(1~5자)을 벗어났을 경우
-            if(car.length() > 5)
+            if(car.length() > 5)  // 자동차 이름이 길이 제한(1~5자)을 벗어났을 경우
                 throw new IllegalArgumentException("자동차 이름 길이 제한(1~5자)을 벗어났습니다.");
         }
 
