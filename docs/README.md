@@ -14,11 +14,11 @@
 
 ### 예외 처리 ###
 
-[-] 자동차 이름이 5자를 초과하거나 1보다 작을 수 없다. -carNameLengthException()
+[o] 자동차 이름이 5자를 초과하거나 1보다 작을 수 없다. -carNameLengthException()
 
-[-] 자동차의 이름은 서로 중복 될 수 없다. -carNameSameException()
+[o] 자동차의 이름은 서로 중복 될 수 없다. -carNameSameException()
 
-[-] 이름을 구분할때 띄어쓰기가 들어갈 수 없다. -blankException()
+[o] 이름을 구분할때 띄어쓰기가 들어갈 수 없다. -blankException()
 
-[-] 라운드는 정수로만 입력할 수 있다. -noIntRoundException()
+[o] 라운드는 정수로만 입력할 수 있다. -noIntRoundException()
 

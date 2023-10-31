@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.exception.CarNameException;
+import racingcar.exception.RoundException;
 import racingcar.model.Car;
 import racingcar.view.Input;
 import racingcar.view.Output;
@@ -21,12 +22,6 @@ public class Game {
         for (int i = 0; i < carName.length; i++) {
             carList.add(new Car(carName[i]));
         }
-
-        for (String name : carName){
-            CarNameException.carNameLengthException(name);
-            CarNameException.blankException(name);
-        }
-        CarNameException.carNameSameException(carName);
 
         Output.roundMessage();
         round = Input.gameRound();
