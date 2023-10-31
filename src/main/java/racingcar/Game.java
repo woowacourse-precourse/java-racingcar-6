@@ -3,16 +3,19 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Game {
 
-    List<String> carList;
+    List<Car> carList;
 
-    public void start(){
+    public void start() {
         saveCar();
-        countCheck();
+        runRace(carList, attemptsCheck());
     }
 
     public void saveCar() {
@@ -23,15 +26,16 @@ public class Game {
 
     public void carNameCheck(List<String> carNameList) {
         carList = new ArrayList<>();
-        for (String carName : carNameList) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException();
+        for (String name : carNameList) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
-            carList.add(carName);
+            carList.add(new Car(name));
         }
+
     }
 
-    public int countCheck() {
+    public int attemptsCheck() {
         System.out.println("시도할 회수는 몇회인가요?");
         return numberCheckException(readLine());
     }
@@ -44,6 +48,21 @@ public class Game {
             throw new IllegalArgumentException();
         }
     }
+
+    public void runRace(List<Car> cars, int attemptsCheck) {
+        System.out.println();
+        for (int attempt = 0; attempt < attemptsCheck; attempt++) {
+            for (Car car : cars) {
+                car.move();
+                System.out.println(car.getName() + " : " + car.getPositionString());
+            }
+            System.out.println();
+        }
+
+
+    }
+
+
 
 }
 
