@@ -15,7 +15,7 @@ public class GameController {
     }
 
     public void run() {
-        userController.intputUserValue();
+        userController.getUserValue();
         playGame();
     }
 
