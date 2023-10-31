@@ -18,7 +18,6 @@ public class Application {
         saveTrialNumber(Console.readLine().trim());
     }
 
-
     private static void createDriveCarNum () {
         Integer driveNumber = isMoreThanFour(createRandomNum());
     }
@@ -39,6 +38,7 @@ public class Application {
     }
     private static void createCar(String carNames) {
         for (String carName : carNames.split(",")) {
+            isCorrectCarsInput(carName);
             Car car = new Car(carName, 0);
             cars.add(car);
         }
@@ -56,7 +56,6 @@ public class Application {
             throw new IllegalArgumentException("이름의 길이가 5자가 넘어갑니다. ");
         }
         //구분문자가 쉼표가 아닌 경우 한 명만 들어오면 쉼표는 없는데..
-
     }
 
 
