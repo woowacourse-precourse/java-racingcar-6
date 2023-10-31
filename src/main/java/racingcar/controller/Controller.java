@@ -37,4 +37,17 @@ public class Controller {
         return validator.validateCarNameInput(userInput);
     }
 
+    private int getAttemptCount() {
+        InputView.printAttemptCountRequest();
+        return ParseAttemptCountInput(CheckValidationAttemptCountInput(Console.readLine()));
+    }
+
+    private int ParseAttemptCountInput(String userInput) {
+        return parser.parseAttemptCountInput(userInput);
+    }
+
+    private String CheckValidationAttemptCountInput(String userInput) {
+        return validator.validateAttemptCountInput(userInput);
+    }
+
 }
