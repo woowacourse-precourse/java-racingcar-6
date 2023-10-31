@@ -20,7 +20,7 @@ public class Display {
         return Integer.parseInt(Console.readLine());
     }
 
-    public static void printCurrentPositions(List<Car> cars) {
+    static void printCurrentPositions(List<Car> cars) {
         for(Car car : cars) {
             System.out.println(car.getName() + " : " + makeLane(car.getPosition()));
         }

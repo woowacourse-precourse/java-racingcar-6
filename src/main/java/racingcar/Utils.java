@@ -12,7 +12,7 @@ public class Utils {
         }
     }
 
-    public static String makeLane(int position) {
+    static String makeLane(int position) {
         StringBuilder lane = new StringBuilder();
         while(position-- > 0) {
             lane.append("-");
