@@ -18,6 +18,10 @@ public class GameService {
         game.incresePlayCount();
     }
 
+    public Long save(Game game) {
+        return gameRepository.save(game);
+    }
+
     private int getWinnerPosition(List<Car> cars) {
         int max = MIN_VALUE;
         for (Car car : cars) {
