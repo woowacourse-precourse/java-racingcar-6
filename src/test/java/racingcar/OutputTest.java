@@ -58,4 +58,14 @@ class OutputTest {
         assertEquals(expected, output);
     }
 
+    @Test
+    void 턴마다_현재_상태를_출력한다() {
+        List<String> status = List.of("a : -", "aaa : --");
+
+        Output.printGameResult(status);
+
+        String output = outputStream.toString();
+        assertThat(output).contains(status);
+    }
+
 }
