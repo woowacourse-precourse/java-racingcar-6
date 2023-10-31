@@ -8,8 +8,7 @@ import static java.lang.Integer.parseInt;
 public class ValueCheck {
     void sizeUnderFive(List<String> carList){
         for (String carName:carList) {
-            List<String> carNameSplitArray = Arrays.asList(carName.split(""));
-            if (carNameSplitArray.size() >= 5) {
+            if (carName.length()>5){
                 throw new IllegalArgumentException();
             }
         }
