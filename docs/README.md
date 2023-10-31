@@ -50,7 +50,7 @@
   - showResult : 자동차의 이동 결과를 출력
   - findWinners : 우승자들을 찾음
   - findLocationOfWinner : 우승자의 위치를 찾음
-  - registerCars : 자동차의 이름들을 읽어들이고 이를 등록함
+  - readNamesOfCars : 자동차의 이름들을 읽어들이고 이를 등록함
   - moveCars : 자동차들을 조건에 맞는 경우 이동시킴
   - shouldMoveForward : 랜덤한 숫자의 결과를 기반으로 전진해야 하는지 여부를 판단
 - Winners

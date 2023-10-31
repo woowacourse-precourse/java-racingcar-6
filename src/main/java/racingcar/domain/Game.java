@@ -28,7 +28,7 @@ public class Game {
     }
 
     public void run() {
-        registerCars();
+        readNamesOfCars();
         readTrialNumber();
         moveCarsAndShowResults();
         findWinners();
@@ -79,7 +79,7 @@ public class Game {
         return maxArrivalPoint;
     }
 
-    private void registerCars() {
+    private void readNamesOfCars() {
         OutputView.println(REGISTER_CAR_MESSAGE);
 
         List<String> namesOfCars = Parser.splitStringBySplitter(InputView.readValue(), SPLITTER);
