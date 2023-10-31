@@ -22,6 +22,7 @@ public class Car implements Comparable<Car> {
 
     public void attemptMove() {
         boolean canMove = moveStrategy.shouldMove();
+        
         if (canMove) {
             moveForward();
         }
