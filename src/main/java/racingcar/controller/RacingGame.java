@@ -28,7 +28,7 @@ public class RacingGame {
         userInputRoundNumber = new UserInputRoundNumber();
         cars = new Cars(InputView.createCarName());
         userRoundNum = InputView.createRoundNumber();
-        roundRepeatNum = userInputRoundNumber.createRoundNumber(userRoundNum); // 라운드 반복 횟수
+        roundRepeatNum = userInputRoundNumber.createRoundNumber(userRoundNum);
     }
 
     private void play(){
