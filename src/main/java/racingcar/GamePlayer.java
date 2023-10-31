@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.ui.OutputView;
 
 public class GamePlayer {
     private final List<Car> cars;

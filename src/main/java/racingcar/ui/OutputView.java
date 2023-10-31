@@ -1,8 +1,10 @@
-package racingcar;
+package racingcar.ui;
 
 import static racingcar.Converter.DELIMITER;
 
 import java.util.List;
+import racingcar.Car;
+import racingcar.Converter;
 
 public class OutputView {
     public static final String COLON = " : ";
