@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.utils.InputValidator;
 import racingcar.utils.StringConvertor;
 
@@ -48,6 +50,13 @@ public class InputTest {
 
         assertThatThrownBy(() -> InputValidator.checkNameIsExist(
                 StringConvertor.convertStringToList(input))).isInstanceOf(
+                IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"가나다", "0", "0가나다"})
+    void 시도_횟수_예외_처리(String input) {
+        assertThatThrownBy(() -> InputValidator.checkTryNumberIsInteger(input)).isInstanceOf(
                 IllegalArgumentException.class);
     }
 
