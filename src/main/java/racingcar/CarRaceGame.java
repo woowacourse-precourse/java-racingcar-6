@@ -32,7 +32,7 @@ public class CarRaceGame {
     }
 
     private void startMoveCars(final int raceCount) {
-        for (int count = 0; count < raceCount; count++) {
+        for (int count = 1; count <= raceCount; count++) {
             judge.moveCars(RandomNumberGenerator.getGenerateSupplier());
             printSingleMoveResult();
         }
