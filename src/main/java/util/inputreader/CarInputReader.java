@@ -5,11 +5,12 @@ import static racingcar.Constants.COMMA;
 import static racingcar.Constants.MIN_TRY_COUNT;
 import static racingcar.Constants.PLAYER_NAME_MAX_LENGTH;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
-public class CarInputReader implements InputReader {
+public class CarInputReader {
     public String readPlayers() throws IllegalArgumentException{
-        String players =  this.readStringInput();
+        String players = Console.readLine();
         if(!isValidPlayers(players)){
             throw new IllegalArgumentException("Invalid player names");
         }
@@ -35,11 +36,16 @@ public class CarInputReader implements InputReader {
     }
 
     public int readTryCount() throws IllegalArgumentException{
-        int tryCount = this.readIntInput();
-        if(!isValidTryCount(tryCount)){
+        String tryCount = Console.readLine();
+        try{
+            int tryCountInt = Integer.parseInt(tryCount);
+            if(!isValidTryCount(tryCountInt)){
+                throw new IllegalArgumentException("Invalid try count");
+            }
+            return tryCountInt;
+        } catch (NumberFormatException e){
             throw new IllegalArgumentException("Invalid try count");
         }
-        return tryCount;
     }
 
     public boolean isValidTryCount(int tryCount){
