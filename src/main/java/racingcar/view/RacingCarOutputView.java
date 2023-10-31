@@ -18,13 +18,13 @@ public class RacingCarOutputView {
 
     public void printEachRacingResult(RacingResult racingResult) {
         List<RacingRoundResult> racingRoundResults = racingResult.getRacingRoundResults();
-        for (RacingRoundResult r : racingRoundResults) {
-            printCarsNameAndPosition(r);
+        for (RacingRoundResult racingRoundResult : racingRoundResults) {
+            printCarsNameAndPosition(racingRoundResult);
         }
     }
 
-    private void printCarsNameAndPosition(RacingRoundResult r) {
-        List<CarInfo> carInfoList = r.getCarInfoList();
+    private void printCarsNameAndPosition(RacingRoundResult racingRoundResult) {
+        List<CarInfo> carInfoList = racingRoundResult.getCarInfos();
         for (CarInfo carInfo : carInfoList) {
             String carName = carInfo.name();
             String positionProgress = carInfo.convertPositionValue();
