@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class CarList {
 
     private final List<Car> carList;
-    private static final int WIN = 4;
+    private static final int MOVE = 4;
 
     public CarList(List<String> carNameList) {
         carList = carNameList.stream().map(Car::new).toList();
@@ -37,7 +37,7 @@ public class CarList {
     }
 
     private boolean isNumberGreaterThanOrEqualFour(int number) {
-        return number >= WIN;
+        return number >= MOVE;
     }
 
     public List<Car> getCarList() {
