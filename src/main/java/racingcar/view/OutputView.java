@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import static racingcar.constants.GameMessage.GAME_RESULT_MESSAGE;
+import static racingcar.constants.GameMessage.WINNER_MESSAGE;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.dto.response.MovementDto;
@@ -7,9 +10,6 @@ import racingcar.dto.response.WinnersDto;
 import racingcar.utility.Writer;
 
 public class OutputView {
-    private static final String GAME_RESULT_MESSAGE = "실행 결과";
-    private static final String WINNER_MESSAGE = "최종 우승자 : ";
-
     public void announceGameResult() {
         Writer.println(" ");
         Writer.println(GAME_RESULT_MESSAGE);
