@@ -7,7 +7,7 @@ import java.util.List;
 public class OutputView {
 
     private static final String NAME_PROGRESS_DELIMITER = " : ";
-    private static final String WINNER_NAME_DELIMITER = " : ";
+    private static final String WINNER_NAME_DELIMITER = ", ";
     private static final String PROGRESS_BAR = "-";
 
     public void printRaceStart() {
