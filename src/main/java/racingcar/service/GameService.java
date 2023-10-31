@@ -9,24 +9,21 @@ public class GameService {
     private static List<Car> cars;
     private static GameConsoleIO gameConsoleIO;
 
-    private static int movingCount;
-
 
     public GameService() {
+        cars = new ArrayList<>();
         gameConsoleIO = new GameConsoleIO();
-        setCars();
-        setMoveCount();
     }
 
 
     private void setCars() {
-        List<String> carNames = gameConsoleIO.getCarNames();
-        carNames.forEach(name -> cars.add(new Car(name)));
+        cars = gameConsoleIO.getCarNames()
+                .stream().map(Car::new).toList();
     }
 
-    private void setMoveCount() {
-        movingCount = gameConsoleIO.getMovingCount();
-    }
 
+    private int getMovingCount() {
+        return gameConsoleIO.getMovingCount();
+    }
 
 }
