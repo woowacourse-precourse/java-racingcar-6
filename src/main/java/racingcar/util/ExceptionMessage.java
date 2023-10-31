@@ -9,11 +9,10 @@ public enum ExceptionMessage {
     INVALID_UNIQUE_NICKNAME("중복된 자동차 이름은 허용되지 않습니다."),
     INVALID_NUMBER_OF_CARS("자동차 이름을 두 개 이상 입력해주세요.");
 
-    public static final String ERROR_MESSAGE = "[ERROR] %s";
     private String message;
 
     ExceptionMessage(String message) {
-        this.message = String.format(ERROR_MESSAGE, message);
+        this.message = message;
     }
 
     public String getMessage() {
