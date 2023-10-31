@@ -19,6 +19,11 @@ public class Car {
         return new Car(carName);
     }
 
+    public void playGameOneRound() {
+        generateRandomNumber();
+        stopOrMove();
+    }
+
     public void generateRandomNumber() {
         racingNumber.generateAndSaveRandomNumber();
     }

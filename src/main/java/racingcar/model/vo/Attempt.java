@@ -7,4 +7,8 @@ public class Attempt {
     public Attempt(Integer count) {
         this.count = count;
     }
+
+    public Integer getCount() {
+        return count;
+    }
 }

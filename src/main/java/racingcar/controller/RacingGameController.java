@@ -1,10 +1,10 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.Car;
-import racingcar.model.repository.InMemoryRepository;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
 import racingcar.validation.AttemptValidator;
@@ -14,41 +14,46 @@ public class RacingGameController {
 
     private CarNameMapper carNameMapper;
     private NameValidator nameValidator;
-    private InMemoryRepository inMemoryRepository;
     private AttemptValidator attemptValidator;
     private AttemptMapper attemptMapper;
 
     public RacingGameController() {
         this.carNameMapper = new CarNameMapper();
         this.nameValidator = new NameValidator();
-        this.inMemoryRepository = new InMemoryRepository();
         this.attemptValidator = new AttemptValidator();
         this.attemptMapper = new AttemptMapper();
     }
 
-    public void setCarName(String carNames) {
+    public List<Car> makeCar(String carNames) {
         // validate has comma
         nameValidator.validate(carNames);
         // convert String to CarName
         List<CarName> carNameGroup = carNameMapper.toCarName(carNames);
-        // validate & make Car & save
+        // validate & make Car
+        List<Car> carGroup = new ArrayList<>();
         for (CarName name : carNameGroup) {
             nameValidator.validate(name);
             Car car = Car.make(name);
-            inMemoryRepository.save(name, car);
+            carGroup.add(car);
         }
+        return carGroup;
     }
 
-    public void setAttempts(String attemptStr) {
+    public Attempt setAttempts(String attemptStr) {
         // validate
         attemptValidator.validate(attemptStr);
         // convert String to Attempt
         Attempt attempt = attemptMapper.toAttempt(attemptStr);
         // save attempts
-        inMemoryRepository.save(attempt);
+        return attempt;
     }
 
-    public void startGame() {
-
+    public void startGame(List<Car> cars, Attempt attempt) {
+        // go racing game!
+        for (int i = 0; i < attempt.getCount(); i++) {
+            for (Car car : cars) {
+                car.playGameOneRound();
+            }
+        }
     }
 }
