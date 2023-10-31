@@ -51,6 +51,10 @@ public class Car {
         }
     }
 
+    public boolean isSameLocation(Location compareLocation){
+        return this.carLocation.equals(compareLocation);
+    }
+
     public void displayCarLocation() {
         OutputView.printFormatStatus(carName.getName(), carLocation.getStringPosition());
     }

@@ -121,6 +121,20 @@ class CarTest extends NsTest {
         }, 3, 4, 5, 6, 7);
     }
 
+    @Test
+    void 자동차_위치값이_같은지_확인() {
+        Car givenCar = Car.fromString("mooso");
+        Location expectedLocation = Location.fromInteger(2);
+        boolean expected = true;
+
+        givenCar.setCarStatus(Status.MOVING_FORWARD);
+        givenCar.move();
+        givenCar.setCarStatus(Status.MOVING_FORWARD);
+        givenCar.move();
+
+        boolean compareResult = givenCar.isSameLocation(expectedLocation);
+        assertThat(compareResult).isEqualTo(expected);
+    }
     @Override
     protected void runMain() {
         // TODO Auto-generated method stub
