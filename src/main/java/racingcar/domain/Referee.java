@@ -19,7 +19,7 @@ public class Referee {
     }
   }
 
-  public void findFinalWinner(List<RacingCar> racingCars) {
+  public String findFinalWinner(List<RacingCar> racingCars) {
     Collections.sort(racingCars);
     RacingCar winnerRacingCar = racingCars.get(0);
 
@@ -31,10 +31,6 @@ public class Referee {
       winnerList.append("," + racingCars.get(index++).getName());
     }
 
-    printFinalWinner(winnerList.toString());
-  }
-
-  private void printFinalWinner(String finalWinner) {
-    System.out.println("최종 우승자 : " + finalWinner);
+    return winnerList.toString();
   }
 }
