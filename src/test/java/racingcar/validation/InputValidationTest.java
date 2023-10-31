@@ -4,6 +4,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class InputValidationTest {
@@ -52,6 +55,20 @@ class InputValidationTest {
         assertThrows(IllegalArgumentException.class, () ->
                 inputValidation.checkedInputValidation(twoName));
 
+    }
+
+    @Test
+    public void 중복발생() throws Exception{
+        //given (주어진 값)
+        String duplicateNamesOne = "aa,bb,aa";
+        String duplicateNamesTwo = "aa,bb,bb,bb";
+
+        //then (기능 작동 후 결과)
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputValidation(duplicateNamesOne));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputValidation(duplicateNamesTwo));
     }
 
     @Test
