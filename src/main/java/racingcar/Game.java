@@ -21,4 +21,11 @@ public class Game {
          }
          return racingCar;
      }
+    private void printRacing(LinkedHashMap<String, Integer> racingCar){
+        for (String car : racingCar.keySet()){
+            String dashes = "-".repeat(racingCar.get(car));
+            System.out.println(car + " : " + dashes);
+        }
+        System.out.println();
+    }
 }
