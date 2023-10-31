@@ -50,7 +50,7 @@ public class GameController {
             for (Car car : players.getCars()) {
                 car.move(NumberGenerator.createRandomNumber());
             }
-            outputView.printCarsProgress(players.getCars());
+            outputView.printRacePlayers(players.getCars());
         }
     }
 

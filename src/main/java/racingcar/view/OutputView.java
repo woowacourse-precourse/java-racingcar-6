@@ -14,7 +14,7 @@ public class OutputView {
         System.out.println("\n실행 결과");
     }
 
-    public void printCarsProgress(List<Car> carList) {
+    public void printRacePlayers(List<Car> carList) {
         for (Car car : carList) {
             printCarName(car);
             System.out.print(NAME_PROGRESS_DELIMITER);
