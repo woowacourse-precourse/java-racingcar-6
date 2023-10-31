@@ -20,7 +20,7 @@ public class Output {
         System.out.println(result);
     }
 
-    public static String Winner(List<Car> cars){
+    public static String winner(List<Car> cars){
         int maxPosition=cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
