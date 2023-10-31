@@ -8,6 +8,7 @@ public class OutputView {
     private final static String WINNER = "최종 우승자";
 
     public void printResult() {
+        System.out.println();
         System.out.println(RESULT);
     }
 
