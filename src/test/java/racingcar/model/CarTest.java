@@ -6,14 +6,16 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CarTest {
     @Test
-    void testRandomNumberRange(){
-        Car car = new Car();
-        int num = car.getRandomNumber();
-        assertThat(num).isBetween(0,9);
+    void 이름으로차만들기(){
+        Car car = new Car("car1");
+        assertThat(car.getName()).isEqualTo("car1");
     }
     @Test
-    void testAddNumber(){
-        Car car = new Car();
-        assertThat(car.addPlace()).isEqualTo(1);
+    void 차전진시키기(){
+        Car car = new Car("car1");
+        for(int i=0; i<3; i++){
+            car.forward();
+        }
+        assertThat(car.getPlace()).isBetween(0,3);
     }
 }
