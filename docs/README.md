@@ -12,7 +12,7 @@
     - [x] 잘못된 값을 입력할 경우, IllegalArgumentException 발생 후 종료 
 - [ ] 총 이동 횟수 입력
   - [x] 입력 문구 출력
-  - [ ] 횟수 입력
+  - [x] 횟수 입력
   - [ ] 입력 값 검증
     - [ ] 양의 정수만 가능
     - [ ] 잘못된 값을 입력할 경우, IllegalArgumentException 발생 후 종료
