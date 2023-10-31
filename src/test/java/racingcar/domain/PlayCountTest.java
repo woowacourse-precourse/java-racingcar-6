@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class PlayCountTest {
@@ -20,5 +21,14 @@ class PlayCountTest {
         PlayCount playCount = PlayCount.from(2);
 
         assertThat(playCount.play()).isEqualTo(PlayCount.from(1));
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"2:false", "1:true"}, delimiter = ':')
+    void 게임종료_조회시_값이_0일때만_true가_반환된다(int initialValue, boolean expected) {
+        PlayCount playCount = PlayCount.from(initialValue);
+        playCount = playCount.play();
+
+        assertThat(playCount.finished()).isEqualTo(expected);
     }
 }
