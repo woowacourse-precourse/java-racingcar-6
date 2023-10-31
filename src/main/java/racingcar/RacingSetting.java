@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
+
 public class RacingSetting {
     private CarNum carNum;
     private MoveNum moveNum;
@@ -14,6 +16,7 @@ public class RacingSetting {
         inputCarName = Util.getUserInput();;
         isVaildInputCarName(inputCarName);
         parsedCarName = inputCarName.split(",");
+        isDuplicatedInputCarName(parsedCarName);
         carNum = new CarNum(parsedCarName);
         return (parsedCarName);
     }
@@ -26,9 +29,17 @@ public class RacingSetting {
         moveNum = new MoveNum(inputMoveNum);
     }
 
-    private void isVaildInputCarName(String inputCarName) throws IllegalArgumentException{
+    private void isVaildInputCarName(String inputCarName) throws IllegalArgumentException {
         if (inputCarName.matches(".*,,.*|.*,+$|^,.*")) {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
+        }
+    }
+
+    private void isDuplicatedInputCarName(String[] parsedCarName) throws IllegalArgumentException {
+        if (Arrays.stream(parsedCarName)
+                .distinct()
+                .count() != parsedCarName.length) {
+            throw new IllegalArgumentException("Error : 중복된 자동차 이름이 있습니다 중복되지않게 입력해 주세요");
         }
     }
 
