@@ -175,24 +175,25 @@
 
 ### 1️⃣&nbsp;&nbsp;&nbsp;[MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC")에서 View Layer와 Domain Layer의 검증 책임
 
-> Input Layer에서 유효성 검사를 진행하는게 맞을까에 대한 고민을 꾸준히 해왔습니다.<br>
->
-> ➡️ (View) 순수하게 문자열을 입/출력하는 기능<br>
-> ➡️ (Validator) 기본 유효성, 자료형 검사<br>
-> ➡️ (Parser) Validator를 통해 검증된 문자열을 자료형에 맞게 변환 `ex : String ➡️ List<String>`<br>
-> ➡️ (Domain Constructor) 요구사항 예외처리 및 검증
->
-> 위 순서로 View Layer에서 검증하지 않고, 별도의 Validator 도메인에서 유효성/자료형 검증을 진행합니다.<br>
-> 이렇게 기본적인 유효성 검증을 마치고, 개발 요구사항에 대한 검증은 일급컬렉션 및 각 도메인의 생성자에서 검증합니다.<br>
->
-> 위와 같은 방식의 설계가 MVC 패턴에 입각해 좋은 설계로 구성되었는지 봐주시면 좋을 것 같아요. ⸝⸝ʚ̴̶̷̆ ̯ʚ̴̶̷̆⸝⸝
+Input Layer에서 유효성 검사를 진행하는게 맞을까에 대한 고민을 꾸준히 해왔습니다.<br>
+
+- ➡️ (View) 순수하게 문자열을 입/출력하는 기능
+- ➡️ (Validator) 기본 유효성, 자료형 검사
+- ➡️ (Parser) Validator를 통해 검증된 문자열을 자료형에 맞게 변환 `ex : String ➡️ List<String>`<br>
+- ➡️ (Domain Constructor) 요구사항 예외처리 및 검증
+
+위 순서로 View Layer에서 검증하지 않고, 별도의 Validator 도메인에서 유효성/자료형 검증을 진행합니다.<br>
+이렇게 기본적인 유효성 검증을 마치고, 개발 요구사항에 대한 검증은 일급컬렉션 및 각 도메인의 생성자에서 검증합니다.<br>
+
+위와 같은 방식의 설계가 MVC 패턴에 입각해 좋은 설계로 구성되었는지 봐주시면 좋을 것 같아요. ⸝⸝ʚ̴̶̷̆ ̯ʚ̴̶̷̆⸝⸝
 
 ### 2️⃣&nbsp;&nbsp;&nbsp;객체 간 관계를 Static으로 풀어낸 결과, 어려워진 테스트 코드 작성
 
-> 도메인 구조를 싱글톤으로 가져가지 않고, 설계하다 보니 테스트 코드 작성 간 어려움을 겪었습니다.<br><br>
-> `MovementCondition` 의 경우, 개별 `Car`가 매 라운드마다 <br>새로운 `MovementCondition` 객체를 생성하고, 전진 여부를 요청합니다.<br><br>
->
-> 이런 상황에서
+도메인 구조를 싱글톤으로 가져가지 않고, 설계하다 보니 테스트 코드 작성 간 어려움을 겪었습니다.<br><br>
+
+- `MovementCondition` 의 경우, 개별 `Car`가 매 라운드마다 새로운 `MovementCondition` 객체를 생성하고, 전진 여부를 요청합니다.<br><br>
+
+MovementCondition은 Static 객체라, 일반적인 방법으로 모킹이 쉽지 않았고,
 
 ---------------------------------------------------------
 

@@ -38,11 +38,11 @@ public class Game {
         cars.playOneRound();
 
         RoundResponses roundResponses = cars.buildRoundResponses();
-        View.printListWithNewLine(roundResponses.toResponseList());
+        View.printListWithNewLine(roundResponses.getResponses());
     }
 
     private static void publishFinalResult(final Cars cars) {
         FinalResponse finalResponse = cars.buildFinalResponse();
-        System.out.println(finalResponse.toResponse());
+        System.out.println(finalResponse.getResponse());
     }
 }

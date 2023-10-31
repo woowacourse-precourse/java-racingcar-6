@@ -9,7 +9,7 @@ public record FinalResponse(
 ) {
     private static final String DELIMITER = ", ";
 
-    public String toResponse() {
+    public String getResponse() {
         String dividedNames = String.join(DELIMITER, winnerNames);
         return String.format(ConstantMessage.FINAL_WINNER_MESSAGE.getMessage(), dividedNames);
     }

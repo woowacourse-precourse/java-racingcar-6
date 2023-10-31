@@ -5,9 +5,9 @@ import java.util.List;
 public record RoundResponses(
         List<RoundResponse> roundsResponse
 ) {
-    public List<String> toResponseList() {
+    public List<String> getResponses() {
         return roundsResponse.stream()
-                .map(RoundResponse::toResponse)
+                .map(RoundResponse::getResponse)
                 .toList();
     }
 }
