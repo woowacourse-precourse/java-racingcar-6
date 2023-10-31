@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -23,11 +24,10 @@ class InputValidatorTest {
     }
 
     @DisplayName("자동차 이름에 대한 입력값이 비어있는 경우 예외가 발생해야 한다.")
-    @ParameterizedTest
-    @ValueSource(strings = "")
-    void invalidCarNames_empty_exception_test(String carNames) {
+    @Test
+    void invalidCarNames_empty_exception_test() {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> InputValidator.validateInputCarNames(carNames));
+                () -> InputValidator.validateInputCarNames(""));
 
         assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
     }
@@ -42,11 +42,10 @@ class InputValidatorTest {
     }
 
     @DisplayName("시도 횟수에 대한 입력값이 비어있는 경우 예외가 발생해야 한다.")
-    @ParameterizedTest
-    @ValueSource(strings = "")
-    void invalid_tryNumber_empty_exception_test(String tryNumber) {
+    @Test
+    void invalid_tryNumber_empty_exception_test() {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> InputValidator.validateInputTryNumber(tryNumber));
+                () -> InputValidator.validateInputTryNumber(""));
 
         assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
     }

@@ -10,6 +10,8 @@ import static org.mockito.Mockito.when;
 import java.lang.reflect.Field;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.vo.CarName;
 
@@ -21,10 +23,11 @@ class CarTest {
     private Car car;
 
     @DisplayName("자동차 이름이 5자 이하인 경우 예외 발생 없이, 객체가 생성된다.")
-    @Test
-    void valid_carName_test() {
+    @ParameterizedTest
+    @ValueSource(strings = {"12345", "abcde"})
+    void valid_carName_test(String name) {
         // given
-        CarName carName = new CarName("12345");
+        CarName carName = new CarName(name);
 
         // when
         car = new Car(carName);
@@ -36,17 +39,18 @@ class CarTest {
     }
 
     @DisplayName("자동차 이름이 6자 이상인 경우 예외가 발생한다.")
-    @Test
-    void inValid_carName_test() {
+    @ParameterizedTest
+    @ValueSource(strings = {"123456", "abcdef"})
+    void inValid_carName_test(String name) {
         assertThrows(IllegalArgumentException.class, () -> {
-            CarName carName = new CarName("123456");
+            CarName carName = new CarName(name);
         });
     }
 
     @DisplayName("랜덤 숫자가 임계치 이상인 경우 자동차는 전진한다.")
     @Test
     void updatePosition_moving_required_test() throws Exception {
-        Car car = new Car(new CarName("MyCar"));
+        Car car = new Car(new CarName("Car1"));
         setRandomNumberGenerator(THRESHOLD, car);
 
         Integer originalPosition = car.getCarPosition().position();
