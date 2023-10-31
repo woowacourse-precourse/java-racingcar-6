@@ -8,7 +8,7 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(String[] carNames) {
+    public Cars(List<String> carNames) {
         this.cars = createCars(carNames);
     }
 
@@ -16,12 +16,12 @@ public class Cars {
         return cars;
     }
 
-    public List<Car> createCars(String[] carNames) {
+    public List<Car> createCars(List<String> carNames) {
         List<Car> cars = mapCarNamesToCars(carNames);
         return cars;
     }
 
-    private List<Car> mapCarNamesToCars(String[] carNames) {
+    private List<Car> mapCarNamesToCars(List<String > carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = Car.create(carName);
