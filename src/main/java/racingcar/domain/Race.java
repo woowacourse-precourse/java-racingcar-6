@@ -43,4 +43,11 @@ public class Race {
         }
         return car2;
     }
+
+    public String getRaceStatus() {
+        return cars.stream()
+                .map(Car::getCarStatus)
+                .collect(Collectors.joining("\n"));
+    }
+
 }
