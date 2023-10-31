@@ -77,6 +77,26 @@ public class InputViewUnitTest {
     }
 
     @Test
+    void 차량_이름_콤마만_들어온_실패_케이스(){
+        //given
+        System.setIn(createUserInput(","));
+        //then
+        assertThatThrownBy(()->input.getCarInput())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 빈 값은 입력이 불가능합니다.");
+    }
+
+    @Test
+    void 차량_이름_NULL이_들어온_실패_케이스(){
+        //given
+        System.setIn(createUserInput(" "));
+        //then
+        assertThatThrownBy(()->input.getCarInput())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 빈 값은 입력이 불가능합니다.");
+    }
+
+    @Test
     void 횟수_입력_성공_케이스(){
         //given
         System.setIn(createUserInput("7"));
