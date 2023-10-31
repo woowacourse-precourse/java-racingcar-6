@@ -1,12 +1,12 @@
 package racingcar.mvc.model;
 
-import org.junit.jupiter.api.Test;
-import racingcar.model.CarSetting;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import racingcar.model.CarSetting;
 
 
 class CarSettingTest {
@@ -14,7 +14,7 @@ class CarSettingTest {
     private static String inputValue = "songHee, minGu";
 
     @Test
-    public void string배열로_분리성공_확인() throws Exception{
+    public void string배열로_분리성공_확인() throws Exception {
         //given
         carSetting = new CarSetting();
 
@@ -26,7 +26,25 @@ class CarSettingTest {
     }
 
     @Test
-    void 경주_자동차_입력성공_확인(){
+    public void string배열에서_Map값으로_입력성공_확인() throws Exception {
+        //given
+        carSetting = new CarSetting();
+        String[] strings = carSetting.getStrings(inputValue);
+
+        //when
+        carSetting.setCarStringArrayToMap(strings);
+        Map<String, Integer> expectedMap = new HashMap<>();
+        for (String user : strings) {
+            expectedMap.put(user, 0);
+        }
+
+        //then
+        assertThat(carSetting.getCarsSituation().size()).isEqualTo(2);
+        assertThat(carSetting.getCarsSituation()).containsAllEntriesOf(expectedMap);
+    }
+
+    @Test
+    public void 경주_자동차_입력성공_확인() {
         //given
         carSetting = new CarSetting(inputValue);
 
@@ -40,4 +58,16 @@ class CarSettingTest {
         assertThat(carsSituation.keySet()).contains("songHee", "minGu");
         assertThat(carsSituation.values()).contains(0, 0);
     }
+
+    @Test
+    public void 최종_우승자_일치성공_확인() throws Exception {
+        //given
+
+        //when
+
+        //then
+
+    }
+
+
 }

@@ -1,24 +1,29 @@
 package racingcar.model;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class CarSetting {
     private static Map<String, Integer> carGameSituation;
     private int trialNumber;
     private static int maxScore;
 
-    public CarSetting(){
+    public CarSetting() {
+        carGameSituation = new HashMap<>();
     }
 
-    public CarSetting(String inputCarName){
+    public CarSetting(String inputCarName) {
         carGameSituation = new HashMap<>();
         String[] splitCars = getStrings(inputCarName);
-        carStringArrayToMap(splitCars);
+        setCarStringArrayToMap(splitCars);
     }
 
-    private static void carStringArrayToMap(String[] splitCars) {
-        Arrays.stream(splitCars).map(car -> carGameSituation.put(car, 0));
+    public void setCarStringArrayToMap(String[] splitCars) {
+        Arrays.stream(splitCars).forEach(car -> carGameSituation.put(car, 0));
     }
 
     public String[] getStrings(String inputCarName) {
@@ -26,33 +31,33 @@ public class CarSetting {
         return splitCars;
     }
 
-    public void setTrialNumber(int setInputValue){
+    public void setTrialNumber(int setInputValue) {
         this.trialNumber = setInputValue;
         System.out.println();
     }
 
-    public int getTrialNumber(){
+    public int getTrialNumber() {
         return trialNumber;
     }
 
-    public Map<String, Integer> getCarsSituation(){
+    public Map<String, Integer> getCarsSituation() {
         return carGameSituation;
     }
 
-    public void setCarsSituation(Map<String, Integer> newCarsSituation){
+    public void setCarsSituation(Map<String, Integer> newCarsSituation) {
         this.carGameSituation = newCarsSituation;
     }
 
-    public void setMaxScore(int scoreValue){
+    public void setMaxScore(int scoreValue) {
         this.maxScore = scoreValue;
     }
 
-    public static List<String> findFinalWinner(){
+    public static List<String> findFinalWinner() {
         List<String> maxScoreUser = new ArrayList<>();
         Iterator<String> iterator = carGameSituation.keySet().iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             String key = iterator.next();
-            if(carGameSituation.get(key) == maxScore){
+            if (carGameSituation.get(key) == maxScore) {
                 maxScoreUser.add(key);
             }
         }

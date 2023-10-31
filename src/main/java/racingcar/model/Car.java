@@ -1,32 +1,33 @@
 package racingcar.model;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import racingcar.view.InputUserCar;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.*;
 
 public class Car {
     private CarSetting carSetting;
-    public Car(){
+
+    public Car() {
 
     }
-    public void carsSet(){
+
+    public void setCars() {
         String inputValue = InputUserCar.inputName();
         carSetting = new CarSetting(inputValue);
     }
 
-    public int trialSet(){
+    public int setTrial() {
         int trial = InputUserCar.inputStringToInt(InputUserCar.inputTrialNumber());
         carSetting.setTrialNumber(trial);
         return trial;
     }
 
-    public Map<String, Integer> goFront(){
+    public Map<String, Integer> goFront() {
         Map<String, Integer> carsSituation = carSetting.getCarsSituation();
         Iterator<String> iterator = carsSituation.keySet().iterator();
         int maxScore = 0;
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             String key = iterator.next();
             maxScore = getScore(carsSituation, key, maxScore);
         }
@@ -37,8 +38,8 @@ public class Car {
     }
 
     private static int getScore(Map<String, Integer> carsSituation, String key, int maxScore) {
-        int randomNumber = RandomPlay.randomNumberGenerator();
-        if(randomNumber>=4) {
+        int randomNumber = RandomPlay.generateRandomNumber();
+        if (randomNumber >= 4) {
             carsSituation.replace(key, carsSituation.get(key) + randomNumber);
             maxScore = getMaxScore(maxScore, carsSituation, key);
         }
@@ -46,17 +47,14 @@ public class Car {
     }
 
     private static int getMaxScore(int maxScore, Map<String, Integer> carsSituation, String key) {
-        if(maxScore < carsSituation.get(key)){
+        if (maxScore < carsSituation.get(key)) {
             maxScore = carsSituation.get(key);
         }
         return maxScore;
     }
 
-    public List<String> resultWinner(){
+    public List<String> getResultWinner() {
         return carSetting.findFinalWinner();
     }
-
-
-
 
 }
