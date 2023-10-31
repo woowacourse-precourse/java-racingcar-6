@@ -10,5 +10,6 @@ public class RacingController {
         OutputView.printInputCarName();
         ArrayList<String> carNames = InputView.inputCarName();
         OutputView.printInputRacingCount();
+        Integer carRacingCount = InputView.inputRacingCount();
     }
 }
