@@ -34,4 +34,11 @@ public class InputValidCheck {
         }
     }
 
+    public void isValidCarCount(String[] input) {
+
+        if ( input.length < 2 ) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }

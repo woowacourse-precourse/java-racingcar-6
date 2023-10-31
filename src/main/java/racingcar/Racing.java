@@ -18,6 +18,8 @@ public class Racing {
         names = names.replaceAll(" ", "");
         String[] name = names.split(",");
 
+        ivc.isValidCarCount(name);
+
         for ( String n : name ) {
             ivc.isValidLength(n);
             Car c = new Car(n, "");
