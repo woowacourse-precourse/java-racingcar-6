@@ -7,10 +7,13 @@ import java.util.Set;
 public class ValidInput {
     private ValidInput() {                      // 생성자
     }
-    public static boolean isValidInput(String inputString) {
+    public static boolean isValidString(String inputString) {
         if(true==hasComma(inputString));
+        else return false;
         if(false==hasDoubleComma(inputString));
+        else return false;
         if(false==startsOrEndsWithComma(inputString));
+        else return false;
         return true;
     }
     public static boolean hasComma(String inputString) {
