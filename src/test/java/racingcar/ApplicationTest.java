@@ -98,8 +98,21 @@ class ApplicationTest extends NsTest {
         void carStop() {
             CarRepository carRepository = new CarRepository();
             carRepository.save("pobi");
-            carRepository.carForward(0,3);
+            carRepository.carForward(0, 3);
             assertThat(carRepository.findByName("pobi").getForward()).isEqualTo(0);
+        }
+
+        @Test
+        void findAllMaxForward() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.save("pobi");
+            carRepository.save("woni");
+            carRepository.save("faker");
+            carRepository.save("bdd");
+            carRepository.save("chovy");
+            carRepository.findByName("pobi").setForward(5);
+            carRepository.findByName("woni").setForward(5);
+            assertThat(carRepository.findAllMaxForward()).containsExactly("pobi", "woni");
         }
     }
 
