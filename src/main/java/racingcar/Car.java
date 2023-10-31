@@ -60,5 +60,13 @@ public class Car implements Comparable<Car> {
         }
     }
 
-
+    public void race() {
+        for (int i = 0; i < round; i++) {
+            for (Car car : cars) {
+                car.isMove(makeRandomNumber());
+                System.out.println(car.name + " : " + car.position);
+            }
+            System.out.println();
+        }
+    }
 }
