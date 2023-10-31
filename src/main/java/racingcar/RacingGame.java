@@ -9,8 +9,9 @@ public class RacingGame {
         getCarNames();
     }
 
-    private void getCarNames(){
+    private void getCarNames() {
         String input = Console.readLine();
+        String[] carNames = input.split(",");
     }
 
     private void inputRound() {
