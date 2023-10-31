@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class User {
 
+    private static final int CAR_NAME_LENGTH = 5;
     private static final int MINUMUM_RANGE_OF_NUMBER = 0;
     private static final int MAXIMUM_RANGE_OF_NUMBER = 9;
     private static final int DRIVE_FORWARD_NUMBER = 4;
@@ -31,6 +32,11 @@ public class User {
 
     }
 
+    private void vaildateStringLength(String input) {
+        if (input.length() > CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException(EXCEPTION_NAME_LENGTH_MESSAGE);
+        }
+    }
 
     private static String inputTrialNumber() { return Console.readLine(); }
 
