@@ -46,6 +46,7 @@ public class Car implements Comparable<Car>, Model {
         if (other.moved == this.moved) {
             return this.index - other.index;
         }
+
         return other.moved - this.moved;
     }
 }
