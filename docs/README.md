@@ -1,26 +1,33 @@
 # <기능 요구 사항>
 초간단 자동차 경주 게임을 구현한다.
 
-### 주어진 횟수 동안 
-- n대의 자동차는 전진 or 멈춤  
+### 주어진 횟수 동안
+- [x] n대의 자동차는 전진 or 멈춤
+> contoller/Stadium/moving()
 
 
 ### 각 자동차에 이름 부여
-- 전진하는 자동차 출력 시 자동차 이름 같이 출력
-- 자동차 이름은 쉼표(,)를 기준으로 구분
-- 이름은 5자 이하만 가능하다.
+- [x] 전진하는 자동차 출력 시 자동차 이름 같이 출력
+> view/InputView/GAME-START-MESSAGE
+
+- [x] 자동차 이름은 쉼표(,)를 기준으로 구분
+> view/InputView/GAME-START-MESSAGE
+
+- [x] 이름은 5자 이하만 가능하다.
+> model/exception/isValidNameSize()
 
 
 ### 사용자는 몇 번의 이동을 할 것인지를 입력
-- 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
+- [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우
 
 
-### 자동차 경주 게임을 완료한 후 우승자를 알림. 
-- 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분
+### 자동차 경주 게임을 완료한 후 우승자를 알림.
+- [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분
 
 
-### 사용자가 잘못된 값을 입력할 경우 
-- IllegalArgumentException을 발생시킨 후 >> 애플리케이션은 종료되어야 한다.
+### 사용자가 잘못된 값을 입력할 경우
+- [x] IllegalArgumentException을 발생시킨 후 >> 애플리케이션은 종료되어야 한다.
+> model/exception
 
 ## <입출력 요구 사항>
 ### 처음 경주할 자동차 이름 입력(, 로 구분)
@@ -42,7 +49,7 @@ pobi,woni,jun
 - 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
 
 # <추가 요구 사항>
-### 1) indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 
+### 1) indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다.
 - 2까지만 허용한다.
 - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
 - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메서드)를 분리하면 된다.
@@ -56,7 +63,7 @@ pobi,woni,jun
 JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
 Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
-- 0~9까지의 정수 중 한개의 정수 반환
+- [ ] 0~9까지의 정수 중 한개의 정수 반환
 ```
 Randoms.pickNumberInRange(0,9);
 ```
