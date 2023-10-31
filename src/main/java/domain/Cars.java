@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> cars = new ArrayList<>();
@@ -20,9 +21,8 @@ public class Cars {
     }
 
     public Map<String, Integer> getScores() {
-        Map<String, Integer> scores = new HashMap<>();
-        cars.forEach(car -> scores.put(car.getName(), car.getScore()));
-        return scores;
+        return cars.stream().
+                collect(Collectors.toMap(Car::getName, Car::getScore));
     }
 
     public void moveAllCar() {
