@@ -13,4 +13,18 @@ public class RacingCarResultFormatter {
         }
         return result.append("\n").toString();
     }
+
+    public String formatFinalResult(List<RacingResult> racingFinalResultList) {
+        int maxDistance = racingFinalResultList.stream()
+                .mapToInt(RacingResult::distanceDriven)
+                .max()
+                .orElse(0);
+
+        List<String> winners = racingFinalResultList.stream()
+                .filter(r -> r.distanceDriven() == maxDistance)
+                .map(RacingResult::carName)
+                .toList();
+
+        return "최종 우승자 : " + String.join(", ", winners);
+    }
 }
