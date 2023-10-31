@@ -10,15 +10,23 @@ import java.util.Map;
 public class GameManager {
     private int game;
     private User user;
+    private List<String> victory;
+    private int maxvalue;
+
     final String start ="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public  GameManager(){
+    public  GameManager()
+    {
         user = new User();
+        victory = new ArrayList<>();
+        maxvalue = Integer.MIN_VALUE;
     }
     public void Race(int game, Map<String, Integer> cars){
         for(int i=0;i<game;i++){
+            //Map에 들어있는 원소 만큼 반복
             for(String car : cars.keySet()){
                 String go_num;
                 int go = Randoms.pickNumberInRange(0,9);
+                //go가 4 이상이면 전진(Map의 value증가)
                 if(go>=4){
                     int value = cars.get(car);
                     value += 1;
@@ -30,6 +38,21 @@ public class GameManager {
             System.out.println();
         }
     }
+    public List<String> Winner(User user, int maxvalue, List<String> victory){
+        //가장큰 벨류값 찾기
+        for (int value : user.getCars_map().values()) {
+            if (value > maxvalue) {
+                maxvalue = value;
+            }
+        }
+        // 가장 큰 값과 일치하는 벨류값이 있으면 그 것의 Key값을 리스트에 저장
+        for (Map.Entry<String, Integer> entry : user.getCars_map().entrySet()) {
+            if (entry.getValue() == maxvalue) {
+                victory.add(entry.getKey());
+            }
+        }
+        return victory;
+    }
 
     public void RacingGame(){
         System.out.println(start);
@@ -38,26 +61,13 @@ public class GameManager {
         String num = Console.readLine();
         try {
             game = Integer.parseInt(num);
-            System.out.println("실행 결과");
-            // 게임 실행 코드 작성
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("유효한 숫자를 입력해주세요.");
         }
         System.out.println("실행 결과");
         Race(this.game,user.getCars_map());
-        int max = Integer.MIN_VALUE;
-        for (int value : user.getCars_map().values()) {
-            if (value > max) {
-                max = value;
-            }
-        }
-        List<String> maxCars = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : user.getCars_map().entrySet()) {
-            if (entry.getValue() == max) {
-                maxCars.add(entry.getKey());
-            }
-        }
+        victory = Winner(user,maxvalue,victory);
         // 가장 많이 이동한 자동차들의 이름을 한 줄에 출력
-        System.out.println("최종 우승자 : " + String.join(", ", maxCars));
+        System.out.println("최종 우승자 : " + String.join(", ", victory));
     }
 }
