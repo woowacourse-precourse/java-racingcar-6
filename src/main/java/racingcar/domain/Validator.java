@@ -24,4 +24,10 @@ public class Validator {
             throw new IllegalArgumentException("입력값이 비어있습니다.");
         }
     }
+
+    public static void validateIsBlank(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("입력값이 공백으로만 이루어져 있습니다.");
+        }
+    }
 }
