@@ -1,19 +1,16 @@
 package repository;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class CarListRepository {
-    public HashMap<String, Integer> carList = new HashMap<>();
+    private Map<String, Integer> carList;
 
-    public void setCarListRepository(String carList) {
-        String[] carName = carList.split(",");
-        for (String car : carName) {
-            this.carList.put(car, 0);
-        }
+    public CarListRepository(Map<String, Integer> carList) {
+        this.carList = carList;
     }
 
     public void forwardCar(String carName) {
-        int originalValue = this.carList.get(carName);
-        this.carList.put(carName, originalValue + 1);
+        Integer currentValue = carList.get(carName);
+        carList.put(carName, currentValue + 1);
     }
 }
