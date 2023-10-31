@@ -1,10 +1,11 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import java.util.HashMap;
 import java.util.List;
-import racingcar.Model.CarRaceModel;
-import racingcar.Model.CarTextModel;
-import racingcar.View.GamePlayView;
+import racingcar.model.CarRaceModel;
+import racingcar.model.CarTextModel;
+import racingcar.model.Validator;
+import racingcar.view.GamePlayView;
 
 public class GameController {
 

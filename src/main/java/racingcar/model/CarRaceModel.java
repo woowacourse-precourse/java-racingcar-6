@@ -1,4 +1,4 @@
-package racingcar.Model;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class CarRaceModel {
     }
 
     public boolean controlCarMovement() {
-        if(Randoms.pickNumberInRange(0,9)>4) {
+        if(Randoms.pickNumberInRange(0,9)>=4) {
             return true;
         }
         return false;
