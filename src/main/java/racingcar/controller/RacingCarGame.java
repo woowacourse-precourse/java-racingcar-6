@@ -7,7 +7,13 @@ import racingcar.view.RacingGameException;
 import racingcar.view.UserInput;
 
 public class RacingCarGame {
-    public void run() {
+    private final UserInput userInput;
+
+    public RacingCarGame(UserInput userInput) {
+        this.userInput = userInput;
+    }
+
+    public RacingResult run() {
         try {
             CarManager carManager = initializeCarManager();
             int numberOfAttempts = getNumberOfAttempts();
@@ -24,14 +30,17 @@ public class RacingCarGame {
             determineWinners(racingResult, carManager);
             printWinners(racingResult);
 
+            return racingResult;
+
         } catch (RacingGameException e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
 
     private CarManager initializeCarManager() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)");
-        String[] carNames = UserInput.readCarNames();
+        String[] carNames = userInput.readCarNames();
         CarManager carManager = new CarManager();
         for (String carName : carNames) {
             carManager.addCar(carName);
@@ -41,7 +50,7 @@ public class RacingCarGame {
 
     private int getNumberOfAttempts() {
         System.out.println("\n시도할 횟수를 입력하세요.");
-        return UserInput.readNumberOfAttempts();
+        return userInput.readNumberOfAttempts();
     }
 
     private void printCarMovements(CarManager carManager) {
@@ -62,4 +71,3 @@ public class RacingCarGame {
         System.out.println(String.join(", ", racingResult.getWinners()));
     }
 }
-
