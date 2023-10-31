@@ -2,14 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Racing {
-    public int[] startRacing(int length, int[] locations){
-        for(int i = 0; i < length; i++){
-            startOneRound(locations);
-        }
-        return locations;
-    }
-
-    private int[] startOneRound(int[] locations){
+    public int[] startOneRound(int[] locations){
         for(int i = 0; i < locations.length; i++){
             if(goOrStop()) locations[i]++;
         }
