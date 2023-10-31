@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
 
+    private final InputValidator inputValidator = new InputValidator();
+
     public String readCarNames() {
         return read();
     }
@@ -13,6 +15,8 @@ public class Input {
     }
 
     private String read() {
-        return Console.readLine();
+        String input = Console.readLine();
+        inputValidator.validateEmpty(input);
+        return input;
     }
 }
