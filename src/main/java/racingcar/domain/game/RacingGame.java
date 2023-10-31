@@ -26,7 +26,7 @@ public class RacingGame {
         racing.process();
 
         // 실행 결과 출력
-        outputView.println(racing.getRacingResult());
+        outputView.println(racing.getTotalRacingResult());
 
         // 최종 우승자 출력
         List<String> finalWinners = racing.getFinalWinnerList();
