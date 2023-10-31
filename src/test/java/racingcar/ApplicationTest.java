@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.NumberGenerator;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCarProvider;
 
@@ -75,6 +76,15 @@ class ApplicationTest extends NsTest {
 
         assertThat(racingCar.getDistance())
                 .isEqualTo(2);
+    }
+
+    // NumberGenerator Test
+    @Test
+    void 난수_생성_확인() {
+        int randomNumber = NumberGenerator.createRandomNumber();
+
+        assertThat(randomNumber)
+                .isBetween(0,9);
     }
 
     @Override
