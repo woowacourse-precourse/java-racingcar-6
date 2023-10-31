@@ -1,89 +1,40 @@
 package racingcar.controller;
-
-import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.view.View;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
 
     private Race race;
     private View raceView = new View();
+    private Input input = new Input();
+    private RaceContent raceContent;
+    private RaceResult raceResult;
 
     public void startRace() {
         carInput();
-        runRace();
+        moveRace();
         winner();
     }
 
     private void carInput(){
-
         String carInput = raceView.startMeg();
-        List<String> carNames = splitNames(carInput);
+        List<String> carNames = input.carInput(carInput);
 
         this.race = new Race(carNames.toArray(new String[0]));
+        this.raceContent = new RaceContent(race);
+        this.raceResult = new RaceResult(race);
     }
 
-    private void runRace(){
-
+    private void moveRace(){
         int countNumber = raceView.countMeg();
 
         raceView.resultMeg();
-        for (int i=0; i<countNumber; i++) {
-            movingCar();
-        }
-    }
-
-    private void movingCar(){
-
-        for (Car car : race.getCars()) {
-            race.moveCars(car.getName());
-        }
-        raceView.raceResult(race.getCars());
+        raceContent.runRace(countNumber);
     }
 
     private void winner(){
-        String winnerCar = checkWinner();
+        String winnerCar = raceResult.checkWinner();
         raceView.winnerCar(winnerCar);
-    }
-
-    private List<String> splitNames(String carInput) {
-
-        String[] carArray = carInput.split(",");
-        List<String> carNames = new ArrayList<>();
-
-        for (String carName : carArray) {
-            carNames.add(carName.trim());
-        }
-        return carNames;
-    }
-
-    private int maxCount() {
-
-        int maxMove = -1;
-
-        for (Car car : race.getCars()) {
-
-            if (car.getMove() > maxMove) {
-                maxMove = car.getMove();
-            }
-        }
-        return maxMove;
-    }
-
-    private String checkWinner() {
-
-        int maxMove = maxCount();
-        List<String> winnerCar = new ArrayList<>();
-
-        for (Car car : race.getCars()) {
-
-            if (car.getMove() == maxMove) {
-                winnerCar.add(car.getName());
-            }
-        }
-        return String.join(", ", winnerCar);
     }
 }
