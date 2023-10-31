@@ -46,7 +46,7 @@ public class Controller {
 
     private void move(final Vehicles vehicles) {
         vehicles.moveAll(new RandomNumberGenerator());
-        GameResultResponse gameResultResponse = GameResultResponse.from(vehicles.getResult());
+        GameResultResponse gameResultResponse = GameResultResponse.from(vehicles.getVehicles());
         outputView.printGameResult(gameResultResponse);
     }
 
