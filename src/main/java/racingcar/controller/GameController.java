@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.GameResult;
 import racingcar.util.NumberGenrator;
 import racingcar.util.RandomNumberGenrator;
@@ -17,21 +18,25 @@ public class GameController {
     private final static NumberGenrator randomNUmberGenerator = new RandomNumberGenrator();
 
     public void start() {
-        outputView.printCarNameInputMessage();
-        List<Car> carList = transferUtil.transferStringToListCar(inputView.readCarNames());
-        outputView.printTryCountInputMessage();
-        int tryCount = inputView.readTryCount();
+        startRace();
         outputView.printNewLine();
         outputView.printPlayingResult();
         //시도 횟수만큼 반복
         for(int i = 0; i < tryCount; i++){
-            playingGame(carList);
+            playingRace(carList);
         }
         GameResult gameResult = endGame(carList);
         outputView.printWinnerMessage(gameResult.provideWinnderCarName());
     }
 
-    private void playingGame(List<Car> carList) {
+    private void startRace() {
+        outputView.printCarNameInputMessage();
+        Cars cars = new Cars(transferUtil.transferStringToListString(inputView.readCarNames()));
+        outputView.printTryCountInputMessage();
+        int tryCount = inputView.readTryCount();
+    }
+
+    private void playingRace(List<Car> carList) {
         //CarList의 각 Car에서 random수를 이용해 전진 후 OutputView로 이름과 현재 위치를 출력
         carList.forEach(car -> {
             car.moveOrStop(randomNUmberGenerator.generate());

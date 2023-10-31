@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TransferUtil {
-    private final static int CAR_START_POSITION = 0;
 
     public List<String> transferStringToListString(String targetString) {
         if (targetString.isEmpty()){
