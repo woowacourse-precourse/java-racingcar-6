@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Player;
@@ -15,11 +16,12 @@ public class Game {
     private final Player player = new Player();
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Game(){
-       player.setCarName(inputView.askCarName());
-       player.setAttemptNumber(inputView.askAttemptNumber());
+        cars  = new ArrayList<>();
+        player.setCarName(inputView.askCarName());
+        player.setAttemptNumber(inputView.askAttemptNumber());
     }
 
     public void playGame(){
