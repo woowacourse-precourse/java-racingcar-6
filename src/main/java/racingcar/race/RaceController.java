@@ -4,15 +4,14 @@ import racingcar.car.Car;
 import racingcar.variables.ErrorMessages;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RaceController {
-
     private static RaceViewer viewer;
     private String result = "실행 결과\n";
     private static List<Car> cars;
-    private int N ;
 
     public RaceController(RaceViewer viewer) {
         this.viewer = viewer;
@@ -20,17 +19,17 @@ public class RaceController {
     }
 
     public void startRace(){
-        String[] carsAsString = viewer.getCars();
-        for(String carName : carsAsString){
-            checkValidName(carName);
-            cars.add(new Car(carName));
-        }
-
-        N = viewer.nTimes();
+        getCars();
         playRaces();
         checkWinner();
         viewer.printResult(result);
+    }
 
+    private void getCars() {
+        cars = Arrays.stream(viewer.getCars())
+                .peek(this::checkValidName)
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     private void checkWinner(){
@@ -55,7 +54,8 @@ public class RaceController {
 
     private void playRaces() {
         // play race N times
-        for(int i = 0 ; i < N ; i++){
+        int N = viewer.nTimes();
+        for(int i = 0 ; i < N; i++){
            calcResult();
         }
     }
@@ -70,10 +70,4 @@ public class RaceController {
 
         return result = result + tmpres + "\n";
     }
-
-    String getResult() {
-        return result;
-    }
-
-
 }
