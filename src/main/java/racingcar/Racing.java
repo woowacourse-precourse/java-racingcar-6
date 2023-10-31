@@ -11,7 +11,7 @@ public class Racing {
 
     public void run() {
         generateRacingCar();
-        promptForExecutionCount();
+        generateExecutionCount();
 
         ioHandler.printComment("\n" + "실행결과");
 
@@ -29,9 +29,8 @@ public class Racing {
         }
     }
 
-    private void promptForExecutionCount() {
-        String executionCount = ioHandler.readConsoleInputWithMessage("시도할 회수는 몇회인가요?");
-        execution = new Execution(executionCount);
+    private void generateExecutionCount() {
+        execution = new Execution();
     }
 
     private void execute() {
@@ -46,32 +45,25 @@ public class Racing {
     }
 
     private void printStatus(String name, int count) {
-        ioHandler.printComment(name + " : " + "-".repeat(Math.max(0, count)));
+        ioHandler.printComment(name + " : " + "-".repeat(count));
     }
 
     private void printResult() {
-        ArrayList<RacingCar> winnerList = getWinners();
-        StringBuilder output = new StringBuilder();
-
-        for (RacingCar racingCar : winnerList) {
-            if (!output.toString().equals("")) {
-                output.append(", ");
-            }
-            output.append(racingCar.name);
-        }
+        String output = String.join(", ", getWinners());
         ioHandler.printComment("최종 우승자 : " + output);
     }
 
-    private ArrayList<RacingCar> getWinners() {
-        ArrayList<RacingCar> winnerList = new ArrayList<>();
-        int maxCount = 0;
+    private ArrayList<String> getWinners() {
+        ArrayList<String> winnerList = new ArrayList<>();
 
         Collections.sort(racingCars);
+        int maxCount = racingCars.get(racingCars.size() - 1).count;
         for (int i = racingCars.size(); i > 0; i--) {
-            if (racingCars.get(i - 1).count < maxCount) {
+            RacingCar racingCar = racingCars.get(i - 1);
+            if (racingCar.count < maxCount) {
                 break;
             }
-            winnerList.add(racingCars.get(i - 1));
+            winnerList.add(racingCar.name);
         }
         return winnerList;
     }

@@ -2,12 +2,19 @@ package racingcar;
 
 public class Execution {
     public static int count;
+    IOHandler ioHandler = new IOHandler();
 
-    public Execution(String input) {
+    public Execution() {
+        String input = generate();
+        
         validateFormat(input);
         validatePositive(input);
 
         count = Integer.parseInt(input);
+    }
+
+    private String generate() {
+        return ioHandler.readConsoleInputWithMessage("시도할 회수는 몇회인가요?");
     }
 
     private void validateFormat(String input) {
