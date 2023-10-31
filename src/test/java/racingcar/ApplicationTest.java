@@ -31,6 +31,28 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 횟수에_대한_예외_처리_음수() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("aaaa,bbbb", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 횟수에_대한_예외_처리_숫자_아님() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("aaaa,bbbb", "ab23"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 횟수에_대한_예외_처리_int_범위외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("aaaa,bbbb", "9999999999"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
