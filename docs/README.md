@@ -33,10 +33,10 @@
 
 ### RacingGamePrompter
     유저에게 입력 받는 클래스
-- [ ] ','로 구분된 자동차 이름 목록을 받기
-    - [ ] 반환 타입은 List<Integer>
-- [ ] 시도 횟수 입력 받기
-    - [ ] 반환 타입은 int
+- [x] ','로 구분된 자동차 이름 목록을 받기
+    - [x] 반환 타입은 List<Integer>
+- [x] 시도 횟수 입력 받기
+    - [x] 반환 타입은 int
 
 ### RacingGameResponder
     결과를 유저에게 전달(stdout)하는 클래스
