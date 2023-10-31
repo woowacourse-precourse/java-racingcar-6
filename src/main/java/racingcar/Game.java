@@ -3,11 +3,9 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Game {
 
@@ -15,7 +13,7 @@ public class Game {
 
     public void start() {
         saveCar();
-        runRace(carList, attemptsCheck());
+        runRace(attemptsCheck(), carList);
     }
 
     public void saveCar() {
@@ -28,7 +26,7 @@ public class Game {
         carList = new ArrayList<>();
         for (String name : carNameList) {
             if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+                throw new IllegalArgumentException();
             }
             carList.add(new Car(name));
         }
@@ -49,19 +47,43 @@ public class Game {
         }
     }
 
-    public void runRace(List<Car> cars, int attemptsCheck) {
+    public void runRace(int attemptsCheck, List<Car> carList) {
         System.out.println();
         for (int attempt = 0; attempt < attemptsCheck; attempt++) {
-            for (Car car : cars) {
+            for (Car car : carList) {
                 car.move();
                 System.out.println(car.getName() + " : " + car.getPositionString());
             }
             System.out.println();
         }
-
+        List<String> winners = winners(carList);
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
 
     }
 
+    public List<String> winners(List<Car> carList) {
+        List<Integer> positions = carList.stream()
+                .map(car -> {
+                    return car.getPosition();
+                }).toList();
+
+        Optional<Integer> maxPositionOptional = positions.stream()
+                .max((position1, position2) -> Integer.compare(position1, position2));
+
+        int maxPosition = maxPositionOptional.orElse(0);
+        return findWinners(carList, maxPosition);
+    }
+
+
+    public List<String> findWinners(List<Car> carList, int maxPosition) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 
 
 }
