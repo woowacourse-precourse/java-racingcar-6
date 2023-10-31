@@ -10,25 +10,30 @@ import static racingcar.constant.GameConstants.SPACE;
 
 public class CarRaceGameView {
     private CarRaceGameView() {}
-    public static String startGameView() {
+    public static void printStartGame() {
         System.out.println(START_GAME);
+    }
+
+    public static String receiveCarNames() {
         String carNames = readLine();
         Validator.checkCarNamesForm(carNames);
-
         return carNames;
     }
 
-    public static String attemptNumberView() {
+    public static void printAttemptNumber() {
         System.out.println(ATTEMPT_NUMBER);
+    }
+
+    public static int receiveAttemptNumber() {
         String attemptNumberString = readLine();
         Validator.isEmptyString(attemptNumberString);
         Validator.isNumber(attemptNumberString);
         Validator.isMoreThanOne(attemptNumberString);
 
-        return attemptNumberString;
+        return Integer.parseInt(attemptNumberString);
     }
 
-    public static void tryForwardResultView(String carName, int advanceNumber) {
+    public static void printOneRoundResult(String carName, int advanceNumber) {
         String advanceString = NULL;
         for (int i = 0; i < advanceNumber; i++) {
             advanceString += DASH;
@@ -37,11 +42,11 @@ public class CarRaceGameView {
 
     }
 
-    public static void newRoundRefreshView() {
+    public static void printBlackLine() {
         System.out.println(NULL);
     }
 
-    public static void gameResultView(List<String> winnerList) {
+    public static void printGameResult(List<String> winnerList) {
         String resultText = FINAL_WINNER + SPACE + COLONS + SPACE;
         String winnerListString = String.join(COMMA+SPACE, winnerList);
         System.out.println(resultText + winnerListString);

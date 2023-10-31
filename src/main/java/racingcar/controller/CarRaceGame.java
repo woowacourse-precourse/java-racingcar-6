@@ -23,10 +23,11 @@ public class CarRaceGame {
     }
 
     public static void startGame() {
-        String carNames = CarRaceGameView.startGameView();
-        dealWithCarNames(carNames);
-        String roundNumberString = CarRaceGameView.attemptNumberView();
-        executeCarRaceGame(Integer.parseInt(roundNumberString));
+        CarRaceGameView.printStartGame();
+        dealWithCarNames(CarRaceGameView.receiveCarNames());
+
+        CarRaceGameView.printAttemptNumber();
+        executeCarRaceGame(CarRaceGameView.receiveAttemptNumber());
     }
 
     public static void dealWithCarNames(String carNames) {
@@ -60,7 +61,7 @@ public class CarRaceGame {
         for (int i = 0; i < roundNumber; i++) {
             CarRaceGameUtility.executeCarRaceGameOneRound();
         }
-        CarRaceGameView.gameResultView(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
+        CarRaceGameView.printGameResult(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
     }
 }
 

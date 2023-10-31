@@ -19,9 +19,9 @@ public class CarRaceGameUtility {
             if (car.decideToMove(randomNumberGenerator())) {
                 car.forwardOneBlock();
             }
-            CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
+            CarRaceGameView.printOneRoundResult(car.getCarName(), car.getAdvanceNumber());
         }
-        CarRaceGameView.newRoundRefreshView();
+        CarRaceGameView.printBlackLine();
     }
 
     public static int randomNumberGenerator() {
