@@ -16,6 +16,7 @@ public class RacingController {
     private RacingService racingService = new RacingService();
     private List<Car> cars; // 경주에 참여하는 자동차 정보 리스트
     private int tryCount;   // 경주 시도 횟수
+
     public void startGame() {
         consolePrint.requestCarNameInput();
         String carNameInput = Console.readLine();   // 자동차 이름 입력
@@ -28,7 +29,7 @@ public class RacingController {
         consolePrint.informRacingResult();
 
         int count = 0;
-        while(count++ < tryCount) {    // tryCount마다 실행 결과 계산 후 출력
+        while (count++ < tryCount) {    // tryCount마다 실행 결과 계산 후 출력
             racingService.playRacing(cars);
         }
 
