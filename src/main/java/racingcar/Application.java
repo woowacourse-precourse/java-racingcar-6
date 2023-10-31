@@ -23,20 +23,24 @@ public class Application {
         System.out.println("\n실행 결과");
 
         for(int i = 0; i < attempt; i++) {
-            for(String str : carNames) {
-                if(Randoms.pickNumberInRange(0, 9) >= 4) {
-                    cars.put(str, cars.get(str) + 1);
-                }
-
-                System.out.println(str + " : " + "-".repeat(cars.get(str)));
-            }
-
-            System.out.println();
+            race(carNames, cars);
         }
 
         System.out.print("최종 우승자 : ");
         Integer maxVal = Collections.max(cars.values());
         carNames.removeIf(str -> !(Objects.equals(cars.get(str), maxVal)));
         System.out.println(String.join(",", carNames));
+    }
+
+    private static void race(List<String> carNames, Map<String, Integer> cars) {
+        for(String str : carNames) {
+            if(Randoms.pickNumberInRange(0, 9) >= 4) {
+                cars.put(str, cars.get(str) + 1);
+            }
+
+            System.out.println(str + " : " + "-".repeat(cars.get(str)));
+        }
+
+        System.out.println();
     }
 }
