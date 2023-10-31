@@ -10,8 +10,8 @@ enum ExceptionCase {
 
     private final String message;
 
-    ExceptionCase(String exceptionMessage) {
-        this.message = exceptionMessage;
+    ExceptionCase(String message) {
+        this.message = message;
     }
 
     public String message() {
