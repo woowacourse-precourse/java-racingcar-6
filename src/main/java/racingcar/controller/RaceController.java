@@ -21,6 +21,12 @@ public class RaceController {
         this.validationService = new ValidationService();
     }
 
+    public void startGame() {
+        Race race = getRaceInput();
+        playRace(race);
+        endRace(race);
+    }
+    
     private Race getRaceInput() {
         List<String> carNames = validationService.validateCarsRange(InputView.getCarNames());
         int rounds = validationService.validateRoundType(InputView.getRounds());
