@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import racingcar.dto.RaceResultTexts;
+import racingcar.util.StepForwardValidator;
 import racingcar.util.StringFormatter;
 
 public final class CarsPosition {

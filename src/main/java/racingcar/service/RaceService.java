@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.model.CarsPosition;
 import racingcar.model.MovingCount;
 import racingcar.model.RacingCars;
-import racingcar.model.RaceResultTexts;
+import racingcar.dto.RaceResultTexts;
 
 public class RaceService {
     private final MovingCount movingCount;

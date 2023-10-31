@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.MovingCount;
-import racingcar.model.RaceResultTexts;
+import racingcar.dto.RaceResultTexts;
 import racingcar.model.RacingCars;
 import racingcar.util.StringFormatter;
 

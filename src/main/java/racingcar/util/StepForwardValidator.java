@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.util;
 
 import static racingcar.constant.RaceConfig.LEAST_VALUE_TO_STEP_FORWARD;
 import static racingcar.constant.RaceConfig.MAXIMUM_RANDOM_NUMBER;

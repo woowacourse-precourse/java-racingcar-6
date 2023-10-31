@@ -5,7 +5,7 @@ import static racingcar.constant.ViewMessage.INSERT_CARS_NAMES;
 import static racingcar.constant.ViewMessage.INSERT_MOVING_COUNT;
 
 import racingcar.constant.ViewMessage;
-import racingcar.model.RaceResultTexts;
+import racingcar.dto.RaceResultTexts;
 
 public class OutputView {
     private OutputView() {
