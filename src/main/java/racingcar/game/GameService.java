@@ -2,22 +2,22 @@ package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Map;
-import java.util.Set;
+import java.util.ArrayList;
+import racingcar.car.Car;
 import racingcar.car.CarService;
 import racingcar.constants.Constants;
 
-public class GameServiceImpl {
-    private Map<String, Integer> carList;
+public class GameService {
+    private ArrayList<Car> carList;
     private int tryCount;
-    private int max = 0;
+    private int maxStepCount = 0;
 
     public void playGame() {
 
         // 자동차 생성
         System.out.println(Constants.CAR_NAME_TEXT);
         CarService carService = new CarService();
-        carList = carService.createCar();
+        carList = carService.createCarList();
 
         // 시도 횟수 생성
         System.out.println(Constants.TRY_COUNT_TEXT);
@@ -34,7 +34,7 @@ public class GameServiceImpl {
     }
 
     // 시도 횟수 생성하는 메소드
-    private void createTryCount() {
+    public void createTryCount() {
         try {
             String input = Console.readLine();
             this.tryCount = Integer.parseInt(input);
@@ -44,30 +44,27 @@ public class GameServiceImpl {
     }
 
     // 각 차수별 실행 결과 출력
-    private void printResultsByDegree() {
-        Set<Map.Entry<String, Integer>> carListSet = carList.entrySet();
-        for (var car : carListSet) {
-            String name = car.getKey();
-            int forwardNumber = car.getValue();
-            if (shouldMoveForward()) {
-                forwardNumber++;
-                carList.put(name, forwardNumber);
+    public void printResultsByDegree() {
+        for (Car car : carList) {
+            if (shouldIncreaseStepCount()) {
+                car.increaseStepCount();
             }
+            int stepCount = car.getStepCount();
 
             StringBuilder sb = new StringBuilder();
-            sb.append(name + " : ");
-            sb.append("-".repeat(forwardNumber));
+            sb.append(car.getName()).append(" : ").append("-".repeat(stepCount));
             System.out.println(sb);
 
-            if (forwardNumber > max) {
-                max = forwardNumber;
+            if (stepCount > maxStepCount) {
+                maxStepCount = stepCount;
             }
         }
         System.out.println();
     }
 
+
     // 0부터 9까지 숫자 중 무작위 수 하나 생성 후 전진할지 멈출지 판단하는 메소드
-    private boolean shouldMoveForward() {
+    private boolean shouldIncreaseStepCount() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
@@ -76,12 +73,10 @@ public class GameServiceImpl {
     private void printFinalWinner() {
         StringBuilder sb = new StringBuilder("최종 우승자 : ");
 
-        Set<Map.Entry<String, Integer>> carListSet = carList.entrySet();
-        for (var car : carListSet) {
-            String name = car.getKey();
-            int forwardNumber = car.getValue();
-            if (max == forwardNumber) {
-                sb.append(name + ", ");
+        for (var car : carList) {
+            int stepCount = car.getStepCount();
+            if (maxStepCount == stepCount) {
+                sb.append(car.getName()).append(", ");
             }
         }
         sb.delete(sb.length() - 2, sb.length());
