@@ -3,7 +3,7 @@
 
 구현할 프로그램의 flowchart를 그려보면 다음과 같다.
 
-<img src="flowchart.png" width="700" height="600"/>
+<img src="flowchart.png" width="500" height="570"/>
 
 
 # 기능 목록
