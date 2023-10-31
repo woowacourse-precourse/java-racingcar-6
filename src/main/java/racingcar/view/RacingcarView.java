@@ -2,6 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class RacingcarView {
 
     public String inputName() {
@@ -28,4 +30,17 @@ public class RacingcarView {
         System.out.println();
     }
 
+    public void announceChampion(List<String> championName) {
+        System.out.print("최종 우승자 : ");
+        int count = 1;
+
+        for (String champion : championName) {
+            System.out.print(champion);
+
+            if (count < championName.size()) {
+                System.out.print(", ");
+            }
+            count++;
+        }
+    }
 }

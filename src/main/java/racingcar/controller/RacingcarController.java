@@ -39,9 +39,11 @@ public class RacingcarController {
             racingResult(carMap);
             inputNumberToInt--;
         }
+
+        racingcarView.announceChampion(cars.findChampionGroup(carMap));
     }
 
-    private void racingResult(Map<String, Car> carList) {
+    public void racingResult(Map<String, Car> carList) {
         for (Car car : carList.values()) {
             int distance = car.moveForward();
             racingcarView.racingResult(car.getName(), distance);
