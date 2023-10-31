@@ -28,6 +28,7 @@ public class Game {
     public void startRacingGame() {
         System.out.println();
         System.out.println(RESULT_MESSAGE);
-        racing.CarRacingGameStart();
+        racing.carRacingGameStart();
+        racing.carRacingGameResult();
     }
 }
