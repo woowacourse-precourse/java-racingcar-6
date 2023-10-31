@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.constant.ExceptionMessage;
-import racingcar.utils.RandomNumberGenerator;
 
 public class Car {
 

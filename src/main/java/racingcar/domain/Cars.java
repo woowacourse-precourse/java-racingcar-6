@@ -11,6 +11,7 @@ import racingcar.dto.ResultCars;
 
 public class Cars {
 
+    private static final int FIRST_INDEX = 0;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -18,6 +19,7 @@ public class Cars {
     }
 
     public List<Car> getCars() {
+        new ArrayList<>(cars);
         return cars;
     }
 
@@ -25,13 +27,14 @@ public class Cars {
         List<Car> sortedCars = cars.stream()
                 .sorted(Comparator.comparingInt(Car::getDistance).reversed())
                 .toList();
-        int maxDistance = sortedCars.get(0).getDistance();
 
-        List<ResultCar> resultCarList = sortedCars.stream()
+        int maxDistance = sortedCars.get(FIRST_INDEX).getDistance();
+
+        List<ResultCar> resultCars = sortedCars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(car -> new ResultCar(car.getName()))
                 .toList();
 
-        return new ResultCars(resultCarList);
+        return new ResultCars(resultCars);
     }
 }
