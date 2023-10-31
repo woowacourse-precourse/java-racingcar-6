@@ -8,7 +8,6 @@ import racingcar.game.Car;
 
 public class Judgment {
 
-    InputView inputview = new InputView();
 
     public void checkCarNameUnderFive(List<String> carNames) {
         for (String carName : carNames) {
@@ -22,7 +21,7 @@ public class Judgment {
         checkCarNameIsValid(name);
         checkCarNameUnderFive(carNames);
         checkCarNameSame(carNames);
-        
+
     }
 
     public void checkCarNameSame(List<String> carNames) {
