@@ -13,10 +13,28 @@ public class Application {
 
 
         inputRacerName(racer);
+        int raceCount = inputRaceCount();
 
 
 
 
+    }
+
+    private static int inputRaceCount() {
+
+        String input;
+        input = Console.readLine();
+
+        int count;
+
+        try{
+            count = Integer.parseInt(input);
+        }
+        catch (NumberFormatException e){
+            throw new IllegalArgumentException("숫자가 아닌 문자가 섞여있습니다.");
+        }
+
+        return count;
     }
 
 
