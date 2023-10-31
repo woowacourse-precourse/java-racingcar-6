@@ -37,4 +37,8 @@ public class GameController {
             gameView.printCarResult(game);
         }
     }
+
+    public void requestPrintWinner() {
+        gameView.printWinner(game.getWinnerList());
+    }
 }
