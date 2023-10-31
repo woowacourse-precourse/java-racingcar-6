@@ -14,7 +14,7 @@ public class RacingService {
 
         return Validator.forIndividualCarName().validate(carNames);
     }
-    public int attemptCountValidate(int countInput) {
+    public String attemptCountValidate(String countInput) {
         return Validator.forAttemptCount().validate(countInput);
     }
 
