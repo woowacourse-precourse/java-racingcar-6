@@ -35,4 +35,19 @@ public class Cars {
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_START_RANGE, RANDOM_END_RANGE);
     }
+
+    private int getMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public List<String> getWinner() {
+        int maxPosition = getMaxPosition();
+        return carList.stream()
+                .filter(x -> x.getPosition() == maxPosition)
+                .map(x -> new String(x.getName()))
+                .toList();
+    }
 }

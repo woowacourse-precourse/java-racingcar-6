@@ -1,7 +1,5 @@
 package racingcar.service;
 
-import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.util.Message;
 
@@ -26,21 +24,9 @@ public class RacingService {
         }
     }
 
-    public void getWinner() {
-        String winner = String.join(", ", calculateRaceResults());
+    public void getRacingResult() {
+        String winner = String.join(", ", cars.getWinner());
         Message.printRacingResultMessage(winner);
-    }
-
-    private List<String> calculateRaceResults() {
-        int maxMoveCount = cars.getCarList().stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElseThrow(IllegalArgumentException::new);
-
-        return cars.getCarList().stream()
-                .filter(x -> x.getPosition() == maxMoveCount)
-                .map(x -> new String(x.getName()))
-                .toList();
     }
 
 }

@@ -15,8 +15,7 @@ public class RacingController {
     }
 
     public void run() {
-
         racingService.startRacing();
-        racingService.getWinner();
+        racingService.getRacingResult();
     }
 }
