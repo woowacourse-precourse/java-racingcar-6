@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import racingcar.util.ErrorMessage;
 
@@ -65,12 +66,9 @@ public class CarGroup {
     }
 
     private int getMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : carList) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-            }
-        }
-        return maxPosition;
+        return carList.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .get()
+                .getPosition();
     }
 }
