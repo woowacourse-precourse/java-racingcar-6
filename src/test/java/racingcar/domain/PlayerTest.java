@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class PlayerTest {
 
@@ -34,9 +35,10 @@ class PlayerTest {
         assertThat(carNames).contains("name1", "name2", "name3");
     }
 
-    @Test
-    void 입력한_자동차_이름_길이_예외처리() {
-        setInput("namename3");
+    @ParameterizedTest
+    @ValueSource(strings = {" ", ",name1", "name1,,name2", "namename1"})
+    void 입력한_자동차_이름_길이_예외처리(String input) {
+        setInput(input);
         assertThatThrownBy(player::inputCarNames).isInstanceOf(IllegalArgumentException.class);
     }
 
