@@ -53,10 +53,14 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position +
-                '}';
+        StringBuilder result = new StringBuilder();
+        int position = this.getPosition();
+        result.append(String.format("%s : ", name));
+        while (position > 0) {
+            result.append("-");
+            position--;
+        }
+        return result.toString();
     }
 
     @Override

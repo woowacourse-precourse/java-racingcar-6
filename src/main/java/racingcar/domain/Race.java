@@ -29,21 +29,7 @@ public class Race {
     }
 
     private void printProgress() {
-        cars.stream()
-                .map(this::generateProgress)
-                .forEach(System.out::println);
-    }
-
-    private String generateProgress(Car car) {
-        StringBuilder progress = new StringBuilder();
-        int position = car.getPosition();
-        progress.append(car.getName())
-                .append(" : ");
-        while (position > 0) {
-            progress.append("-");
-            position--;
-        }
-        return progress.toString();
+        cars.forEach(System.out::println);
     }
 
     private List<Car> pickWinners() {
