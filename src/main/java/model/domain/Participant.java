@@ -16,6 +16,7 @@ public class Participant {
 
         List<String> nameList = removeBlank(splitByComma(input));
 
+        checkNotInput(nameList);
         checkDuplication(nameList);
 
         this.participant = new ArrayList<>();
@@ -27,14 +28,6 @@ public class Participant {
 
     public List<Car> getParticipant() {
         return participant;
-    }
-
-    private void checkDuplication(List<String> nameList) {
-
-        Set<String> nameSet = new HashSet<>(nameList);
-        if (nameSet.size() != nameList.size()) {
-            throw new IllegalArgumentException();
-        }
     }
 
     private List<String> splitByComma(String input) {
@@ -49,6 +42,21 @@ public class Participant {
         }
 
         return nameList;
+    }
+
+    private void checkDuplication(List<String> nameList) {
+
+        Set<String> nameSet = new HashSet<>(nameList);
+        if (nameSet.size() != nameList.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkNotInput(List<String> nameList) {
+
+        if(nameList.isEmpty() || nameList.contains("")){
+            throw new IllegalArgumentException();
+        }
     }
 
 }
