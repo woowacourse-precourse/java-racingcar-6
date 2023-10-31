@@ -30,6 +30,21 @@ class InputViewTest extends NsTest {
     }
 
     @Test
+    public void 이름_중복_입력_테스트() {
+        // given
+        String input = "pobi,crong,honux,pobi";
+
+        try {
+            // when
+            run(input, "1");
+        } catch (IllegalArgumentException e) {
+
+            // then
+            assertThat(e.getMessage()).isEqualTo("중복된 이름이 존재합니다.");
+        }
+    }
+
+    @Test
     public void 시도_횟수_음수_테스트() {
         // given
         String input = "pobi,crong,honux";
