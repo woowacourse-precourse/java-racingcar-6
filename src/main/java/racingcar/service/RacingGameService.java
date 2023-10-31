@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerRepository;
 
@@ -7,9 +8,8 @@ public class RacingGameService {
     private final PlayerRepository playerRepository = new PlayerRepository();
     private final int MAXNAMELENGTH = 5;
     private final int MINNAMELENGTH = 1;
-    private int gameAttempts;
     // 게임 초기화 함수
-    public void initGame(String playerInput, String attempts){
+    public void initGame(String playerInput){
         //parsing name
         String[] playerNames = inputParser(playerInput);
 
@@ -17,20 +17,8 @@ public class RacingGameService {
         for (String playerName:playerNames) {
             playerRepository.addPlayer(createPlayer(playerName));
         }
-        //set attempts
-        setGameAttempts(attemptParseToInt(attempts));
-
-
-    }
-    //게임 회수 setter
-    public void setGameAttempts(int gameAttempts) {
-        this.gameAttempts = gameAttempts;
     }
 
-    // 게임 회수 getter
-    public int getGameAttempts() {
-        return gameAttempts;
-    }
 
     //input에서 사용자 이름 파싱
     private String[] inputParser(String inputString) throws IllegalArgumentException{
@@ -48,7 +36,7 @@ public class RacingGameService {
         return new Player(playerName);
     }
     // 시도회수 형 변환
-    private int attemptParseToInt(String attempts) throws IllegalArgumentException{
+    public int attemptParseToInt(String attempts) throws IllegalArgumentException{
         int parsedInt = Integer.parseInt(attempts);
         //입력값이 0보다 작은 경우 예외 처리
         if (parsedInt < 0){
