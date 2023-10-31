@@ -24,6 +24,12 @@ public class Cars {
         cars.forEach(Car::printCarNameAndPosition);
     }
 
+    public void moveAllCars(List<Integer> randomNumbers) {
+        for (int i = 0; i < cars.size(); ++i) {
+            cars.get(i).move(randomNumbers.get(i));
+        }
+    }
+
     public static Cars createdByName(List<String> carNames) {
         List<Car> list = carNames.stream()
             .map(Car::new)
