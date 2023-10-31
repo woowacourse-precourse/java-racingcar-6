@@ -21,11 +21,11 @@ public class GameManager {
     }
 
     private void setupGame() {
-        List<String> carsName = GameUI.getCarNamesWithPrompt();
+        List<String> carsName = GameUI.promptForCarNames();
         for (String name : carsName) {
             this.cars.add(new Car(name));
         }
-        this.remainingRounds = GameUI.getRoundsWithPrompt();
+        this.remainingRounds = GameUI.promptForNumberOfRounds();
     }
 
     private void playGame() {
