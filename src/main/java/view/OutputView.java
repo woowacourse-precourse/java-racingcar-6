@@ -4,8 +4,8 @@ import domain.Car;
 import domain.Winners;
 
 public class OutputView {
-	private final String COLON = " : ";
-	private final String COMMA = ", ";
+	private static final String COLON = " : ";
+	private static final String COMMA = ", ";
 
 	public void printRacingCarStatus(Car car) {
 		System.out.println(car.getName() + COLON + car.createHyphenByLocation());
