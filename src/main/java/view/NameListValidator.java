@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class NameListValidator {
-    public List<String> validate(String nameStr){
-        validateNotEmpty(nameStr);
-        validateNotEndsWithComma(nameStr);
-        validateContainsRepeatingCommas(nameStr);
-        List<String> nameList = splitAndTrim(nameStr, ",");
-        validateNameLength(nameList);
+    public List<String> validate(String nameListInput){
+        validateNotEmpty(nameListInput);
+        validateNotEndsWithComma(nameListInput);
+        validateContainsRepeatingCommas(nameListInput);
+        List<String> nameList = splitAndTrim(nameListInput, ",");
+        validateNameLength(nameList, Constants.MAX_LENGTH);
         validateNameDuplication(nameList);
         return nameList;
     }
@@ -42,10 +42,10 @@ public class NameListValidator {
         return input.replace(" ", "");
     }
 
-    private void validateNameLength(List<String> names) {
+    private void validateNameLength(List<String> names, int maxLength) {
         for (String name : names) {
-            if (name.length() > Constants.MAX_LENGTH) {
-                String message = "이름의 길이가 " + Constants.MAX_LENGTH + "자가 넘습니다.";
+            if (name.length() > maxLength) {
+                String message = "이름의 길이가 " + maxLength + "자가 넘습니다.";
                 throw new IllegalArgumentException(message);
             }
         }
