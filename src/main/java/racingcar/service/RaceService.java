@@ -29,4 +29,8 @@ public class RaceService {
         race.run();
         return race.getCars();
     }
+
+    public List<String> findWinners(Race race) {
+        return race.findWinners();
+    }
 }

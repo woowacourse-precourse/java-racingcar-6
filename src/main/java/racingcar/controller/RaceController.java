@@ -25,6 +25,11 @@ public class RaceController {
     public void run() {
         Race race = initializeRace();
         runRace(race);
+        findWinners(race);
+    }
+
+    private void findWinners(Race race) {
+        List<String> winners = raceService.findWinners(race);
     }
 
     private Race initializeRace() {

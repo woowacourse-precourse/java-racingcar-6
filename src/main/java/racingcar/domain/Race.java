@@ -25,4 +25,8 @@ public class Race {
     public boolean playable() {
         return count.playable();
     }
+
+    public List<String> findWinners() {
+        return cars.findWinners();
+    }
 }
