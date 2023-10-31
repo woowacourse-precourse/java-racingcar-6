@@ -13,6 +13,7 @@ public class RacingGameController {
 
   public void runGame() {
     List<Car> cars = createCars();
+    int tryCount = getTryCount();
   }
 
   private List<Car> createCars() {
@@ -34,5 +35,8 @@ public class RacingGameController {
     }
   }
 
-
+  private int getTryCount() {
+    System.out.println("시도할 횟수는 몇 회인가요?");
+    return Integer.parseInt(Console.readLine());
+  }
 }
