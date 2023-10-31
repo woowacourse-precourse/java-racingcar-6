@@ -1,15 +1,21 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class InputControllerTest {
 
     @Test
+    @DisplayName("입력받은 이름으로 자동차를 생성하는 기능")
     void setCar_입력받은_이름으로_자동차를_생성하는_기능() {
         InputController inputController = new InputController();
         String input = "pobi,woni,jun";
@@ -17,5 +23,15 @@ class InputControllerTest {
         List<String> carList = inputController.setCar(input);
 
         assertThat(carList).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobiwoni,jun", "pobiwonijun", "pobibi,woni,jun"})
+    void setCar_입력받은_이름양식이_잘못된경우_예외처리(String carNames) {
+        InputController inputController = new InputController();
+
+        assertThatThrownBy(() -> inputController.setCar(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5자이하이고 여러개라면 쉽표(,)로 구분해야 합니다.");
     }
 }
