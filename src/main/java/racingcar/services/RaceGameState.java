@@ -3,6 +3,7 @@ package racingcar.services;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.validate.Validator;
 import racingcar.validate.impls.RaceGameStateValidator;
@@ -14,6 +15,15 @@ public class RaceGameState {
         List<String> listOfCarNames = enumerateCarNames(inputStringOfParticipant);
         stateOfEachCar = convertListToMap(listOfCarNames);
     }
+
+    public void moveForwardByName(String targetCarName){
+        int previousDistance = stateOfEachCar.get(targetCarName);
+        stateOfEachCar.put(targetCarName, ++previousDistance);
+    }
+    public Map<String, Integer> getStateOfEachCar() {
+        return stateOfEachCar;
+    }
+
     private List<String> enumerateCarNames(String inputStringOfParticipants){
         Validator validator = new RaceGameStateValidator();
         String [] parsed = inputStringOfParticipants.replaceAll(" ", "").split(",");
@@ -21,12 +31,6 @@ public class RaceGameState {
         validator.validate(parsedNames);
         return parsedNames;
     }
-
-
-    public Map<String, Integer> getStateOfEachCar() {
-        return stateOfEachCar;
-    }
-
 
     private Map<String, Integer> convertListToMap(List<String> names){
         return names.stream()
