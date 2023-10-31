@@ -25,6 +25,16 @@ public class Race {
         for (var carName : carNames) {
             carAdd(carName);
         }
+
+        OutputView.inputTryNumberView();
+        String tryNumber = InputView.inputTryNumber();
+        int round = roundGeneration(tryNumber);
+        this.round = round;
+    }
+
+    public int roundGeneration(String tryNumber) {
+        Validation.checkNatureNumber(tryNumber);
+        return Integer.parseInt(tryNumber);
     }
 
     public void carAdd(String carName) {

@@ -7,8 +7,8 @@
   - [X] ","를 기준으로 구분한다.  
     - [X] 이름으로 차를 생성한다. Car#Car
   - [X] (검사) 5자 이하만 가능하다. Validation#carNameSizeCheck, SizeNotMatchException
-- [] 시도할 횟수를 입력받는다. OutPurView#inputTryNumberView, InputView#inputTryNumber
-  - [] (검사) 자연수만 가능하다. Validation#checkNatureNumber, NotNatureNumberException
+- [X] 시도할 횟수를 입력받는다. OutPurView#inputTryNumberView, InputView#inputTryNumber
+  - [X] (검사) 자연수만 가능하다. Validation#checkNatureNumber, NotNatureNumberException
 - [] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다. Car#handle
   - [] 랜덤값 생성기 Random
     - [] 0 - 9 사이의 정수를 생성한다. Random#pickNumberInRange

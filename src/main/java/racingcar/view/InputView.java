@@ -9,4 +9,8 @@ public class InputView {
         String[] carArray = inputCarNames.split(",");
         return carArray;
     }
+
+    public static String inputTryNumber() {
+        return Console.readLine();
+    }
 }
