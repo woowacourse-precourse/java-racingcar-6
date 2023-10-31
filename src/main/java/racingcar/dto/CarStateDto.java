@@ -1,13 +1,23 @@
 package racingcar.dto;
 
-public class CarStateDto {
-    private final String carStatus;
+import racingcar.domain.Car;
 
-    public CarStateDto(String carStatus) {
+public class CarStateDto {
+    private final Car carStatus;
+
+    public CarStateDto(Car carStatus) {
         this.carStatus = carStatus;
     }
 
     public String getCarStatus() {
-        return carStatus;
+        return carStatus.toString();
+    }
+
+    public String getCarName() {
+        return carStatus.getName();
+    }
+
+    public int getCarPosition() {
+        return carStatus.getPosition();
     }
 }
