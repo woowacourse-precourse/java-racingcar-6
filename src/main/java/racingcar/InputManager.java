@@ -7,14 +7,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
     public static String[] getCarNames() {
-        System.out.print("경주할 자동차 이름을 입력하세요 (쉼표로 구분): ");
+        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         validateCarNames(input);
         return input.split(",");
     }
 
     public static int getNumberOfAttempts() {
-        System.out.print("시도할 회수를 입력하세요: ");
+        System.out.print("시도할 회수는 몇회인가요?");
         int numberOfAttempts = parseNumberOfAttempts(Console.readLine());
         validateNumberOfAttempts(numberOfAttempts);
         return numberOfAttempts;
