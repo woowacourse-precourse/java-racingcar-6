@@ -1,6 +1,7 @@
 package racingcar.dto;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 import java.util.Arrays;
 
@@ -10,7 +11,8 @@ class RoundResultDtoTest {
 
     @Test
     public void givenCarStates_whenGetCarStates_thenReturnCorrectStates() {
-        CarStateDto carState = new CarStateDto("Car : --");
+        Car car = new Car("Car", 2);
+        CarStateDto carState = new CarStateDto(car);
         RoundResultDto dto = new RoundResultDto(Arrays.asList(carState));
 
         assertEquals(1, dto.getCarStates().size());
@@ -19,7 +21,8 @@ class RoundResultDtoTest {
 
     @Test
     public void givenCarStates_whenGetCarStates_thenReturnIncorrectStates() {
-        CarStateDto carState = new CarStateDto("Car : --");
+        Car car = new Car("Car", 2);
+        CarStateDto carState = new CarStateDto(car);
         RoundResultDto dto = new RoundResultDto(Arrays.asList(carState));
 
         assertNotEquals(2, dto.getCarStates().size());

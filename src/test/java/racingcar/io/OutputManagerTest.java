@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.config.GameMessages;
+import racingcar.domain.Car;
 import racingcar.dto.CarStateDto;
 import racingcar.dto.GameResultDto;
 import racingcar.dto.RoundResultDto;
@@ -51,8 +52,8 @@ public class OutputManagerTest {
     @Test
     public void testPrintRoundResult() {
         RoundResultDto roundResultDto = new RoundResultDto(Arrays.asList(
-                new CarStateDto("car1 : ----"),
-                new CarStateDto("car2 : --")
+                new CarStateDto(new Car("car1", 4)),
+                new CarStateDto(new Car("car2", 2))
         ));
         outputManager.printRoundResult(roundResultDto);
         String expectedOutput = "car1 : ----" + System.lineSeparator() + "car2 : --" + System.lineSeparator();
