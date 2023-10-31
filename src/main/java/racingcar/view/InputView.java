@@ -10,10 +10,15 @@ public class InputView {
     public int getNumberOfAttempts() {
         return 0;
     }
+
     public List<String> inputName() {
         List<String> carName = splitString(Console.readLine());
         Validator.inputNameSize(carName);
         return carName;
+    }
+
+    public int inputRound() {
+        return Integer.parseInt(Console.readLine());
     }
 
     private List<String> splitString(String input) {
