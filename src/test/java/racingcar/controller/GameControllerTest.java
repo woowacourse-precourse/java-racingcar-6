@@ -12,17 +12,31 @@ import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.enums.InterfaceMsg;
 import racingcar.domain.enums.ValidationMsg;
+import racingcar.domain.racingcar.RacingCar;
+import racingcar.dto.RacingCarInitDto;
+import racingcar.service.RacingCarService.RacingCarService;
+import racingcar.service.RacingCarServiceTest;
 import racingcar.service.ValidatorServiceTest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameControllerTest extends NsTest {
 	private ValidatorServiceTest validatorServiceTest;
+	private List<String> carNameList;
+	private RacingCarServiceTest racingCarServiceTest;
 
 	@BeforeEach
 	void setup() {
 		validatorServiceTest = ValidatorServiceTest.getInstance();
+		carNameList = new ArrayList<>(Arrays.asList("pobi", "woni", "crong"));
+		racingCarServiceTest = RacingCarServiceTest.getInstance();
 	}
 
 	@DisplayName("자동차_이름_string_null_입력_체크")
@@ -95,6 +109,26 @@ class GameControllerTest extends NsTest {
 		});
 	}
 
+	@Test
+	void RacingCarServiceTest를_통해_RacingCarRepository에_여러_자동차_저장() {
+		RacingCarInitDto racingCarInitDto = RacingCarInitDto.builder().carNameList(carNameList).inputCarRaceTimes(1).build();
+
+		racingCarServiceTest.initSaveRacingCar(racingCarInitDto);
+
+		Map<String, RacingCar> racingCarMap = racingCarServiceTest.getRacingCarMap();
+		racingCarMap.forEach((key, val) -> assertThat(carNameList).contains(key));
+	}
+
+	@Test
+	void RacingCarService를_통해_RacingCarRepository에_여러_자동차_저장() {
+		RacingCarInitDto racingCarInitDto = RacingCarInitDto.builder().carNameList(carNameList).inputCarRaceTimes(1).build();
+
+		RacingCarService.getInstance().initSaveRacingCar(racingCarInitDto);
+
+		RacingCarService.getInstance().getRacingCarMap().forEach((key, val) -> assertThat(carNameList).contains(key));
+		RacingCarService.getInstance().getRacingCarMap().forEach((key, val) -> val.movingForward());
+		RacingCarService.getInstance().getRacingCarMap().forEach((key, val) -> System.out.println(key + " : " + val.getCarPosition()));
+	}
 
 	@Override
 	protected void runMain() {

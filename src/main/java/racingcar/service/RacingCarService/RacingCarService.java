@@ -1,7 +1,10 @@
 package racingcar.service.RacingCarService;
 
+import racingcar.domain.racingcar.RacingCar;
 import racingcar.domain.racingcar.RacingCarRepository;
 import racingcar.dto.RacingCarInitDto;
+
+import java.util.Map;
 
 public class RacingCarService {
 	private final RacingCarRepository racingCarRepository = RacingCarRepository.getInstance();
@@ -24,5 +27,16 @@ public class RacingCarService {
 		for (String carName : racingCarInitDto.getCarNameList()) {
 			racingCarRepository.saveRacingCar(carName);
 		}
+	}
+
+	public void initSaveRacingCar(RacingCarInitDto racingCarInitDto) {
+		this.inputCarRaceTimes = racingCarInitDto.getInputCarRaceTimes();
+		for (String carName : racingCarInitDto.getCarNameList()) {
+			racingCarRepository.initSaveRacingCar(carName);
+		}
+	}
+
+	public Map<String, RacingCar> getRacingCarMap() {
+		return racingCarRepository.getRacingCarMap();
 	}
 }

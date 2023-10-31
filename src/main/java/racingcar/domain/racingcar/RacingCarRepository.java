@@ -28,7 +28,19 @@ public class RacingCarRepository {
 		racingCarMap.put(racingCarDto.getCarName(), new RacingCar(racingCarDto.getCarName()));
 	}
 
+	public void initSaveRacingCar(String carName) {
+		racingCarMap.put(carName, new RacingCar(carName));
+	}
+
 	public RacingCar getRacingCarByName(String carName) {
 		return racingCarMap.get(carName);
+	}
+
+	public void movingForwardByName(RacingCarDto racingCarDto) {
+		racingCarMap.get(racingCarDto.getCarName()).movingForward();
+	}
+
+	public Map<String, RacingCar> getRacingCarMap() {
+		return racingCarMap;
 	}
 }
