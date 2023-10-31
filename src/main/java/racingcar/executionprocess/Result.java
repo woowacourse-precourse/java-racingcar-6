@@ -29,14 +29,6 @@ public class Result {
         return false;
     }
 
-    public int findMaxMove(int left, int right) {
-        int half;
-        if(left == right) {
-            return move[left];
-        }
-        half = (left+right)/2;
-        return Math.max(findMaxMove(left, half), findMaxMove(half+1, right));
-    }
 
     public String findWinner(List<String> cars) {
         int max = findMaxMove(0,move.length-1);
@@ -48,5 +40,14 @@ public class Result {
         }
         String winner = String.join(", ", winCar);
         return winner;
+    }
+
+    public int findMaxMove(int left, int right) {
+        int half;
+        if(left == right) {
+            return move[left];
+        }
+        half = (left+right)/2;
+        return Math.max(findMaxMove(left, half), findMaxMove(half+1, right));
     }
 }
