@@ -40,7 +40,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_공백_확인() {
+    void 자동차_이름_공백_예외_처리() {
         String carName = "a b c";
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> new CarList(carName))
@@ -49,7 +49,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 레이스_횟수_입력_예외_사항_처리() {
+    void 레이스_횟수_입력_예외_처리() {
         String carName = "abc,def"; // there is no exception
         String raceTime = "5a"; // expect to occur exception
         assertSimpleTest(() ->
