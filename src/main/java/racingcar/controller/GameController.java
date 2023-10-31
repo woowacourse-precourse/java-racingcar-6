@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Cars;
 import racingcar.domain.Game;
+import racingcar.domain.dto.CarDto;
 import racingcar.service.GameService;
 import racingcar.view.ConsoleView;
 import racingcar.view.GameView;
@@ -54,21 +55,16 @@ public class GameController {
         return count >= MIN_MOVE_COUNT && count <= MAX_MOVE_COUNT;
     }
 
-
-    private void playRound(int count) {
+    private void printRoundResult(Cars cars, Game game) {
         gameView.printExecutionStart();
-        for (int i = 0; i < count; i++) {
-            cars.updateAllDistance();
-            List<Car> roundResult = getRoundResult();
+
+        while (!game.isGameEnd()) {
+            List<CarDto> roundResult = gameService.getRoundResult(cars, game);
             gameView.printMoveResult(roundResult);
         }
     }
 
-    private List<Car> getRoundResult() {
-        return cars.getCars();
-    }
-
-    private void endGame() {
+    private void printWinners(Cars cars) {
         List<String> winners = cars.findWinners();
         gameView.printFinalWinner(winners);
     }
