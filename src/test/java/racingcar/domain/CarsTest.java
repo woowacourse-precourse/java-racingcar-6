@@ -7,8 +7,8 @@ import racingcar.view.InputView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
+import static racingcar.domain.CarTest.*;
 
 class CarsTest {
     private final static String CAR_NAME_DUPLICATE = "차 이름은 중복될 수 없습니다.";
@@ -40,4 +40,22 @@ class CarsTest {
         }
     }
 
+    @DisplayName("여러 자동차 일괄 움직임 테스트")
+    @Test
+    void moveTest() {
+
+        InputView inputView = new InputView();
+        String input = "pobi,woni,jun";
+        List<String> names = inputView.parseNames(input);
+        Cars cars = new Cars(names);
+
+        TestNumberGenerator testNumberGenerator = new TestNumberGenerator(new ArrayList<>(List.of(5, 1, 4, 2, 3, 6, 7, 2, 9)));
+        cars.move(testNumberGenerator);
+        cars.move(testNumberGenerator);
+        cars.move(testNumberGenerator);
+
+        assertThat(cars.getCars().get(0).getPosition()).isEqualTo(2);
+        assertThat(cars.getCars().get(1).getPosition()).isEqualTo(0);
+        assertThat(cars.getCars().get(2).getPosition()).isEqualTo(3);
+    }
 }
