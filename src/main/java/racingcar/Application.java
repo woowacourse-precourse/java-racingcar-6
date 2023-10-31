@@ -14,10 +14,10 @@ import static racingcar.util.Validate.isValidAttemptNumber;
 public class Application {
     public static void main(String[] args) {
         List<String> carNames = askCarNames();
-        Integer attemptNumber = askAttemptNumber();
-
+        Integer round = askRound();
+        
         List<Car> cars = CarFactory.makeCar(carNames);
-        Race race = new Race(cars, attemptNumber);
+        Race race = new Race(cars, round);
         race.run();
     }
 
@@ -28,7 +28,7 @@ public class Application {
                 .toList();
     }
 
-    public static Integer askAttemptNumber() {
+    public static Integer askRound() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(isValidAttemptNumber(readLine()));
     }

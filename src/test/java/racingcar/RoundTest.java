@@ -8,9 +8,9 @@ import java.io.ByteArrayInputStream;
 import static camp.nextstep.edu.missionutils.Console.close;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Application.askAttemptNumber;
+import static racingcar.Application.askRound;
 
-public class AttemptNumberTest {
+public class RoundTest {
     void setInputStream(String carNames) {
         System.setIn(new ByteArrayInputStream(carNames.getBytes()));
     }
@@ -26,7 +26,7 @@ public class AttemptNumberTest {
         setInputStream("1");
 
         // when
-        Integer attemptNumber = askAttemptNumber();
+        Integer attemptNumber = askRound();
 
         // then
         assertThat(attemptNumber).isEqualTo(1);
@@ -38,7 +38,7 @@ public class AttemptNumberTest {
         setInputStream("0");
 
         // when, then
-        assertThatThrownBy(Application::askAttemptNumber)
+        assertThatThrownBy(Application::askRound)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -48,7 +48,7 @@ public class AttemptNumberTest {
         setInputStream("-10");
 
         // when, then
-        assertThatThrownBy(Application::askAttemptNumber)
+        assertThatThrownBy(Application::askRound)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -58,7 +58,7 @@ public class AttemptNumberTest {
         setInputStream("1000");
 
         // when, then
-        assertThatThrownBy(Application::askAttemptNumber)
+        assertThatThrownBy(Application::askRound)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

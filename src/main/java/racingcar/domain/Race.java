@@ -17,7 +17,7 @@ public class Race {
         result();
     }
 
-    public void begin() {
+    private void begin() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < round; i++) {
             for (Car car : cars) {
@@ -30,7 +30,7 @@ public class Race {
         }
     }
 
-    public void result() {
+    private void result() {
         System.out.println("최종 우승자 : " +
                 String.join(", ", getWinners().stream()
                         .map(Car::getName)
