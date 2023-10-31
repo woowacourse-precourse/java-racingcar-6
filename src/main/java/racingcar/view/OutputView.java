@@ -14,10 +14,7 @@ public class OutputView {
 	}
 
 	public static void printResult(RacingCar racingCar) {
-		racingCar.getRacingCar().forEach(
-			car -> {
-				printEach(car);
-			});
+		racingCar.getRacingCar().forEach(car -> printEach(car));
 		System.out.println();
 	}
 

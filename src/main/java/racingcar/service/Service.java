@@ -11,8 +11,6 @@ public class Service {
 	}
 
 	private void tryEach(RacingCar racingCar) {
-		racingCar.getRacingCar().forEach(car -> {
-				car.race();
-		});
+		racingCar.getRacingCar().forEach(car -> car.race());
 	}
 }
