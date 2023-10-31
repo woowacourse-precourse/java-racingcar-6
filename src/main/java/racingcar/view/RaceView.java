@@ -42,6 +42,7 @@ public class RaceView {
                 ModelConst.ATTEMPT_NUMBER,
                 attemptNumber
         );
+        printNewLine();
     }
 
     private String conveyInput() {
@@ -94,6 +95,7 @@ public class RaceView {
                 .forEach(n ->
             printResultEachMoveOfCar(gameResult, n)
         );
+        printNewLine();
     }
 
     private void printResultEachMoveOfCar(final GameResult gameResult, final String name) {
@@ -106,5 +108,9 @@ public class RaceView {
                         )
                 )
         );
+    }
+
+    private static void printNewLine() {
+        System.out.println();
     }
 }
