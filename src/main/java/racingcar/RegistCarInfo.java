@@ -9,8 +9,9 @@ public class RegistCarInfo {
 	public List<String> registCarName(String carName) {
 
 		List<String> racingCarNames = new ArrayList<>();
-		for (String name : carName.split(",")) {
-			racingCarNames.add(name);
+		String[] carNames = carName.split(",");
+		for (int i = 0; i < carNames.length; i++) {
+			racingCarNames.add(i, carNames[i]);
 		}
 
 		return racingCarNames;
