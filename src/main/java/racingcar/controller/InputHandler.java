@@ -1,8 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.AppConfig;
-import racingcar.InputConfig;
+import racingcar.config.InputConfig;
 
 public class InputHandler {
     public static String readInput() {
@@ -15,11 +14,11 @@ public class InputHandler {
 
     public static int StringToInteger(String input) {
         int round = validInteger(input);
-        validateRange(round);
+        validRange(round);
         return round;
     }
 
-    private static void validateRange(int round) {
+    private static void validRange(int round) {
         if (round < InputConfig.RACE_INPUT_MIN) {
             throw new IllegalArgumentException(InputConfig.RACE_INPUT_MIN + " ~ " +
                     InputConfig.RACE_INPUT_MAX + "의 숫자를 입력하세요.");

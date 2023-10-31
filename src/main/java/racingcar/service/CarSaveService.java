@@ -1,11 +1,12 @@
 package racingcar.service;
 
 import java.util.ArrayList;
-import racingcar.InputConfig;
+import racingcar.config.InputConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 
 public class CarSaveService {
+
     public static Participants save(String[] names) {
         validateLength(names);
         int length = names.length;
@@ -19,7 +20,7 @@ public class CarSaveService {
 
     private static void validateLength(String[] names) {
         if (names.length < InputConfig.PARTICIPANT_MIN) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("참가자는 2명 이상 입력해주세요.");
         }
     }
 }

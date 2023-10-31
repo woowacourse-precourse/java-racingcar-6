@@ -2,15 +2,11 @@ package racingcar.service.raceservice;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import racingcar.AppConfig;
+import racingcar.config.AppConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 
 public class VariableDistanceRaceService implements RaceService {
-
-    private static boolean moveOrNot(int distance) {
-        return distance > AppConfig.MOVE_CRITERIA;
-    }
 
     @Override
     public Map<Car, Integer> runRace(Participants participants) {
@@ -29,5 +25,9 @@ public class VariableDistanceRaceService implements RaceService {
             }
         }
         return map;
+    }
+
+    private static boolean moveOrNot(int distance) {
+        return distance >= AppConfig.MOVE_CRITERIA;
     }
 }

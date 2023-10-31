@@ -10,6 +10,7 @@ import racingcar.model.Participants;
 import racingcar.model.car.Car;
 
 public class GetWinnersService {
+
     public static List<String> getWinnersNames(Participants participants) {
         Map<Integer, List<Car>> rankMap = getRankMap(participants);
         List<Car> winners = getWinners(rankMap);

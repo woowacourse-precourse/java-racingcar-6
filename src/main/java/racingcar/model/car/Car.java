@@ -18,20 +18,22 @@ public class Car {
     }
 
     public void move(int distance) {
-        if (distance > 0 && distance + position < 0) {
-            throw new IllegalArgumentException();
-        }
+        checkOverFlow(distance);
         position += distance;
+    }
+
+    private void checkOverFlow(int distance) {
+        if (distance > 0 && distance + position < 0) {
+            throw new IllegalArgumentException("자동차 이동거리 오버플로우");
+        }
     }
 
     public CarId getCarId() {
         return carId;
     }
-
     public CarName getCarName() {
         return carName;
     }
-
     public Integer getPosition() {
         return position;
     }

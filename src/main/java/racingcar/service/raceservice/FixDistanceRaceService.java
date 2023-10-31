@@ -2,7 +2,7 @@ package racingcar.service.raceservice;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import racingcar.AppConfig;
+import racingcar.config.AppConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 

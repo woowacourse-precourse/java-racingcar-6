@@ -6,8 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.AppConfig;
-import racingcar.InputConfig;
+import racingcar.config.InputConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 import racingcar.service.CarSaveService;
@@ -69,6 +68,7 @@ public class RaceTest {
         RaceService raceService = new FixDistanceRaceService();
         raceService.runRace(participants);
         List<String> winnersNames = GetWinnersService.getWinnersNames(participants);
+
         Assertions.assertThat(winnersNames).containsAnyOf("a","b","c","d","e");
         Assertions.assertThat(winnersNames.size()).isGreaterThan(0);
     }

@@ -9,15 +9,12 @@ public class Participants {
     public Participants(List<Car> list) {
         this.list = list;
     }
-
     public void save(Car car) {
         list.add(car);
     }
-
     public int size() {
         return list.size();
     }
-
     public Car get(int index) {
         return list.get(index);
     }

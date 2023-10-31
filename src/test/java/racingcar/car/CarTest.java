@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.controller.InputHandler;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
+import racingcar.model.car.CarId;
 import racingcar.model.car.CarName;
 import racingcar.service.CarSaveService;
 
@@ -43,6 +44,9 @@ public class CarTest {
 
         CarName carName = carList.get(2).getCarName();
         Assertions.assertThat(carName.name()).isEqualTo("ef");
+
+        CarId carId = carList.get(2).getCarId();
+        Assertions.assertThat(carId.getId()).isEqualTo(2);
     }
 
     @Test

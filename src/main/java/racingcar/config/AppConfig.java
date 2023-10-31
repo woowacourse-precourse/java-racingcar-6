@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.config;
 
 import racingcar.service.raceservice.FixDistanceRaceService;
 import racingcar.service.raceservice.RaceService;
