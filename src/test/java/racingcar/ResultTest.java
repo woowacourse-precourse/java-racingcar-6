@@ -13,7 +13,7 @@ public class ResultTest {
     private String winner;
 
     @Test
-    void testFinalWinner() {
+    void 결과_내놓아라() {
 
         carArrayList = new ArrayList<>();
         carArrayList.add(new Car("pobi"));
@@ -32,6 +32,5 @@ public class ResultTest {
 
         assertThat(winner).isEqualTo("MJ, tjwls");
     }
-
 
 }
