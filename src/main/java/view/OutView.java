@@ -16,9 +16,7 @@ public class OutView {
 	}
 	
 	public static void showResult(Car car, int i) {
-		System.out.print(car.getName() + " : ");
 		OutputImpo.showMovingProcess(car, i);
-		System.out.println();
 	}
 
 	public static void showWinner(List<Car> carList) {
@@ -26,17 +24,16 @@ public class OutView {
 		int max = OutputImpo.WinnerValue(carList);
 		
 		List<String> winnerList = new ArrayList<>();
+		OutputImpo out = new OutputImpo(winnerList);
 		for(Car car : carList) {
-			OutputImpo out = new OutputImpo(winnerList);
 			winnerList = out.addWinner(car, max);
 		}
 		
-		for(int i = 0; i < winnerList.size(); i++) {
-			if(i == winnerList.size() - 1) {
-				System.out.println(winnerList.get(i));
-				return;
-			}
-			System.out.print(winnerList.get(i) + ", ");
+		StringBuilder builder = new StringBuilder();
+		for(String winner : winnerList) {
+			builder.append(winner).append(", ");
 		}
+		String formatWinner = builder.toString();
+		System.out.println(formatWinner);
 	}
 }

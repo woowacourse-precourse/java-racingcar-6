@@ -11,6 +11,7 @@ public class OutputImpo {
 	}
 
 	public static void showMovingProcess(Car car, int i) {
+		System.out.print(car.getName() + " : ");
 		if(car.getNumberList().get(i) >= 4) {
 			car.plusForword();
 		}
@@ -18,6 +19,7 @@ public class OutputImpo {
 		for(int j = 1; j <= car.getForword(); j++) {
 			System.out.print("-");
 		}
+		System.out.println();
 	}
 	
 	public static int WinnerValue(List<Car> carList) {
@@ -42,5 +44,4 @@ public class OutputImpo {
 		
 		return winnerList;
 	}
-
 }
