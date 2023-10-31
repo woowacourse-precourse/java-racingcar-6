@@ -23,5 +23,26 @@ public class Application {
                 int tryCount = Integer.parseInt(Console.readLine());
                 return tryCount;
         }
+        //자동차 전진 여부 결정하는 메소드
+        public static boolean moveState() {
+                int randomValue = Randoms.pickNumberInRange(0, 9);
+                return randomValue >= 4;
+        }
+        // 자동차 전진 여부에 따라 자동차 위치를 변경하는 메소드
+        public static int moveCar(int position, boolean moveState) {
+                if (moveState) {
+                        position++;
+                }
+                return position;
+        }
+        // 자동차 위치를 출력하는 메소드
+        public static void printCarPosition(String[] carName, int position) {
+                System.out.print(carName + " : ");
+                for (int i = 0; i < position; i++) {
+                        System.out.print("-");
+                }
+                System.out.println();
+        }
 
 }
+
