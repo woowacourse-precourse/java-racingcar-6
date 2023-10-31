@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class WinnerCalculator {
+    private static final String printFinalWinnersFormat = "최종 우승자 : %s";
 
     public static String getWinners(List<Car> cars) {
         int maxMoveDistance = getMaxMoveDistance(cars);
         List<String> winnerList = findWinners(cars, maxMoveDistance);
-        return convertListToString(winnerList);
+        return String.format(printFinalWinnersFormat, convertListToString(winnerList));
     }
 
     private static int getMaxMoveDistance(List<Car> cars) {
