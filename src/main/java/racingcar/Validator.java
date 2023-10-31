@@ -2,19 +2,22 @@ package racingcar;
 
 
 public class Validator {
-    public void verifyLength(int start, int end, String s) {
-        if (s.length() < start || s.length() > end) {
-            throw new IllegalArgumentException("제한된 범위에 포함되지 않습니다.");
-        }
-    }
-
     public void verifyNullAndBlank(String s) {
         if (s == null || s.isBlank()) {
             throw new IllegalArgumentException("공백혹은 빈 문자열은 허용하지 않습니다.");
         }
+
+        s.chars().filter(Character::isWhitespace)
+                .findAny().ifPresent((character) -> {
+                    throw new IllegalArgumentException("공백이 포함될 수 없습니다.");
+                });
     }
 
     public void verifyDigitPerUnit(String numberOfAttempts) {
+        if (numberOfAttempts==null || numberOfAttempts.length() < 1) {
+            throw new IllegalArgumentException("숫자가 아닌 값이 들어가있습니다.");
+        }
+
         numberOfAttempts.chars().filter(number -> !Character.isDigit(number))
                 .findAny()
                 .ifPresent((notNUmber) -> {
