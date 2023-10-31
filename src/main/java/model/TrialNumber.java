@@ -2,7 +2,6 @@ package model;
 
 public class TrialNumber {
     private int trial;
-    private int INITIAL_TRIAL = 0;
 
     public TrialNumber(String input){
         validateTrialNumber(input);
