@@ -46,4 +46,8 @@ public class CarNamesInput {
 			}
 		}
 	}
+
+	public String trimName(String name) {
+		return name.trim();
+	}
 }

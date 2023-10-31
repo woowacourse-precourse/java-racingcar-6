@@ -58,4 +58,14 @@ public class CarNamesInputTest {
 		Assertions.assertThatThrownBy(() -> carNamesInput.validateNamesDuplicate(names))
 				.isInstanceOf(IllegalArgumentException.class);
 	}
+
+	@Test
+	public void 이름_앞뒤로_공백시_없애기() {
+		//given
+		String name = " asdf ";
+		CarNamesInput carNamesInput = new CarNamesInput(name);
+		// when & then
+		String trimmedName = carNamesInput.trimName(name);
+		Assertions.assertThat(trimmedName).isEqualTo("asdf");
+	}
 }
