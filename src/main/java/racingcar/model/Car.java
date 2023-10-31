@@ -20,7 +20,7 @@ public class Car {
         if(getRandNum() >= MIN_DASH_CONDITION) carInform.plusDash();
     }
 
-    public int getRandNum() {
+    private int getRandNum() {
         return Randoms.pickNumberInRange(MIN_NUM_RANGE, MAX_NUM_RANGE);
     }
 
