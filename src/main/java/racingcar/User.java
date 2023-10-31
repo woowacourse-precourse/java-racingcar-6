@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-
     private static final Integer CARNAME_MAXSIZE = 5;
     private static final Integer CARNAME_MINSIZE = 1;
 
     public List<String> carNames = new ArrayList<>();
+
+    public void setCarNames(){
+        carNameSplit(InputMessage.carName());
+        carNameVaildation(carNames);
+    }
 
     public void carNameSplit(String userInput){
         String[] carNameArray = userInput.split(",");
