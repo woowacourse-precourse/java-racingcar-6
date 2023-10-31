@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.model.NameTest.MIN_NAME_LENGTH;
+import static racingcar.model.NameTest.MAX_NAME_LENGTH;
 
 import java.util.UUID;
 import racingcar.model.car.Car;
@@ -23,6 +23,6 @@ public class TestHelper {
 
     private static String generateRandomCarName() {
         UUID uuid = UUID.randomUUID();
-        return uuid.toString().substring(0, MIN_NAME_LENGTH);
+        return uuid.toString().substring(0, MAX_NAME_LENGTH);
     }
 }
