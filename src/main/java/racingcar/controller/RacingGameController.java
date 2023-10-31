@@ -7,56 +7,46 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import java.util.Map;
 import racingcar.Constant;
 
 public class RacingGameController {
 
-    public static String[] commaBasedSplitCarName(final String carName) {
-        String[] carNameArr = carName.split(Constant.COMMA);
+    public static Map<String, Integer> makePersonalCarAndForwardStatus(List<String> carNames) {
+        Map<String, Integer> carMoveStatus = new HashMap<>();
 
-        ExceptionController.multiCommaException(carNameArr);
-        ExceptionController.carNameMaxLengthException(carNameArr);
-
-        return carNameArr;
-    }
-
-    public static HashMap<String, String> makePersonalCarAndForwardStatus(final String[] carNameArr) {
-        HashMap<String, String> createUserCar = new HashMap<>();
-
-        for (String car : carNameArr) {
-            createUserCar.put(car, "");
+        for (String car : carNames) {
+            carMoveStatus.put(car, 0);
         }
-
-        return createUserCar;
+        return carMoveStatus;
     }
 
-    public static HashMap<String, String> carNameAndForwardStatus(final String carName) {
-        String[] carNameArr = commaBasedSplitCarName(carName);
-        HashMap<String, String> personalCar = makePersonalCarAndForwardStatus(carNameArr);
+    public static Map<String, Integer> carNameAndForwardStatus(List<String> carNames) {
+        Map<String, Integer> personalCar = makePersonalCarAndForwardStatus(carNames);
 
-        ExceptionController.carNameDuplicateException(personalCar, carNameArr);
+        ExceptionController.carNameDuplicateException(personalCar, carNames);
 
         return personalCar;
     }
 
-    public static List<String> mostMoveForwardCar(HashMap<String,String> carMoveStatus) {
-        List<String> winnerList = new ArrayList<>();
-        String mostForward = Collections.max(carMoveStatus.values());
+    public static List<String> mostMoveForwardCar(Map<String,Integer> carMoveStatus) {
+        List<String> winners = new ArrayList<>();
+        int max = Collections.max(carMoveStatus.values());
 
         for (String winner : carMoveStatus.keySet()) {
-            if (mostForward.equals(carMoveStatus.get(winner))) {
-                winnerList.add(winner);
+            if (carMoveStatus.get(winner) == max) {
+                winners.add(winner);
             }
         }
 
-        return winnerList;
+        return winners;
     }
 
-    public static void moveForward(HashMap<String, String> userCarName) {
+    public static void moveForward(Map<String, Integer> userCarName) {
         for (String key : userCarName.keySet()) {
-            String value = userCarName.get(key);
+            int value = userCarName.get(key);
             if (randomNumber() >= Constant.FORWARD_STANDARD) {
-                userCarName.put(key, value + Constant.MOVE_FORWARD);
+                userCarName.put(key, value + 1);
             }
         }
     }

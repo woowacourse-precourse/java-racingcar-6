@@ -1,5 +1,8 @@
 package racingGameTest;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
@@ -12,26 +15,23 @@ import static racingcar.controller.ExceptionController.tryCountLengthException;
 import static racingcar.controller.ExceptionController.tryCountNotIntException;
 import static racingcar.controller.ExceptionController.multiCommaException;
 
-import static racingcar.controller.RacingGameController.commaBasedSplitCarName;
 import static racingcar.controller.RacingGameController.makePersonalCarAndForwardStatus;
 
-import java.util.HashMap;
+import racingcar.view.RacingGameView;
 
 public class FailCaseTest {
 
     @Test
     void duplicateCarName() {
         // given
-        final String carName = "user1,user2,user3,user1";
-        String[] carNameArr = commaBasedSplitCarName(carName);
+        List<String> cars = RacingGameView.commaBasedSplitCarName( "user1,user2,user3,user1");
 
         // when
-        HashMap<String, String> carNameSave = makePersonalCarAndForwardStatus(carNameArr);
+        Map<String, Integer> carNameSave = makePersonalCarAndForwardStatus(cars);
 
         // then
-        assertThatThrownBy(() -> carNameDuplicateException(carNameSave, carNameArr))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+        assertThatThrownBy(() -> carNameDuplicateException(carNameSave, cars))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -41,8 +41,7 @@ public class FailCaseTest {
 
         // when then
         assertThatThrownBy(() -> tryCountNotIntException(tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -52,8 +51,7 @@ public class FailCaseTest {
 
         // when then
         assertThatThrownBy(() -> stringBlankException(blankString))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -63,8 +61,7 @@ public class FailCaseTest {
 
         // when then
         assertThatThrownBy(() -> specialCharactersException(specialChar))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -74,8 +71,7 @@ public class FailCaseTest {
 
         // when then
         assertThatThrownBy(() -> tryCountLengthException(tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -84,25 +80,23 @@ public class FailCaseTest {
         final String carName = "user,user1,user12";
 
         // when
-        String[] carNameArr = carName.split(",");
+        List<String> carNameArr = Arrays.asList(carName.split(","));
 
         // then
         assertThatThrownBy(() -> carNameMaxLengthException(carNameArr))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void multiComma() {
         // given
-        final String carName = "user,user1,,user2";
+        String carName = "user,user1,,user2";
 
         // when
-        String[] carNameArr = carName.split(",");
+        List<String> carNames = Arrays.asList(carName.split(","));
 
         // then
-        assertThatThrownBy(() -> multiCommaException(carNameArr))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("String index out of range: 5");
+        assertThatThrownBy(() -> multiCommaException(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }

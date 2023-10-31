@@ -1,19 +1,17 @@
 package racingcar;
 
-import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import racingcar.controller.RacingGameController;
 import racingcar.view.RacingGameView;
 
 public class Application {
+
     public static void main(String[] args) {
-        String carName = RacingGameView.inputCarName();
+        List<String> carNames = RacingGameView.inputCarName();
+        Map<String, Integer> car = RacingGameController.carNameAndForwardStatus(carNames);
 
-        HashMap<String, String> car = RacingGameController.carNameAndForwardStatus(carName);
-
-        String tryCount = RacingGameView.inputTryCount();
-        int intTryCount = RacingGameView.stringTryCountToInteger(tryCount);
+        int intTryCount = RacingGameView.tryCount();
 
         RacingGameView.gameResultMessage();
         for (int i = 0; i < intTryCount; i++) {

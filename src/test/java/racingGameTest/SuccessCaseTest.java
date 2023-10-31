@@ -1,15 +1,14 @@
 package racingGameTest;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
-
-import static racingcar.controller.RacingGameController.commaBasedSplitCarName;
 import static racingcar.controller.RacingGameController.makePersonalCarAndForwardStatus;
-
 import static racingcar.view.RacingGameView.stringTryCountToInteger;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+import racingcar.view.RacingGameView;
 
 public class SuccessCaseTest {
 
@@ -17,13 +16,13 @@ public class SuccessCaseTest {
     void notDuplicatedCarName() {
         // given
         final String carName = "user1,user2,user3";
-        String[] carNameArr = carName.split(",");
+        List<String> carNameArr = List.of(carName.split(","));
 
         // when
-        HashMap<String, String> carNameSave = new HashMap<>();
-        carNameSave.put("user1", "");
-        carNameSave.put("user2", "");
-        carNameSave.put("user3", "");
+        Map<String, Integer> carNameSave = new HashMap<>();
+        carNameSave.put("user1", 0);
+        carNameSave.put("user2", 0);
+        carNameSave.put("user3", 0);
 
         // then
         assertThat(carNameSave).isEqualTo(makePersonalCarAndForwardStatus(carNameArr));
@@ -46,25 +45,25 @@ public class SuccessCaseTest {
     void inputStringBlank() {
         // given
         final String carName = "user1,user2";
-        String[] testCarNameArr = new String[]{"user1", "user2"};
+        List<String> testCars = List.of("user1", "user2");
 
         // when
-        String[] carNameArr = commaBasedSplitCarName(carName);
+        List<String> cars = RacingGameView.commaBasedSplitCarName(carName);
 
         // then
-        assertThat(testCarNameArr).isEqualTo(carNameArr);
+        assertThat(testCars).isEqualTo(cars);
     }
 
     @Test
     void carNameMaxLength() {
         // given
         final String carName = "user,user1,user2";
-        String[] carNameArrTest = carName.split(",");
+        List<String> carNamesTest = List.of(carName.split(","));
 
         // when
-        String[] carNameArr = commaBasedSplitCarName(carName);
+        List<String> carNames = RacingGameView.commaBasedSplitCarName(carName);
 
         // then
-        assertThat(carNameArr).isEqualTo(carNameArr);
+        assertThat(carNames).isEqualTo(carNamesTest);
     }
 }

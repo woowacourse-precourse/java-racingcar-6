@@ -1,9 +1,11 @@
 package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.Constant.MOVE_FORWARD;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import racingcar.Constant;
 import racingcar.controller.ExceptionController;
 
@@ -17,48 +19,40 @@ public class RacingGameView {
         System.out.println(Constant.INPUT_CAR_NAME);
     }
 
-    public static String inputCarName() {
+    public static List<String> inputCarName() {
         inputCarNameMessage();
         String inputCarName = readLine();
-
-        ExceptionController.specialCharactersException(inputCarName);
-        ExceptionController.stringBlankException(inputCarName);
-
-        return inputCarName;
+        List<String> cars = commaBasedSplitCarName(inputCarName);
+        ExceptionController.checkIsNotDuplicated(cars);
+        return cars;
     }
 
-    public static void inputTryCountMessage() {
-        System.out.println(Constant.INPUT_TRY_COUNT);
+    public static List<String> commaBasedSplitCarName(final String inputNames) {
+        List<String> names = Arrays.asList(inputNames.split(Constant.COMMA));
+        ExceptionController.multiCommaException(names);
+        ExceptionController.carNameMaxLengthException(names);
+        return names;
     }
 
     public static String inputTryCount() {
-        inputTryCountMessage();
-        String tryCount = readLine();
-
-        ExceptionController.tryCountNotIntException(tryCount);
-        ExceptionController.tryCountLengthException(tryCount);
-
-        return tryCount;
+        System.out.println(Constant.INPUT_TRY_COUNT);
+        return readLine();
     }
 
     public static int stringTryCountToInteger(String tryCount) {
-        return Integer.parseInt(tryCount);
-    }
-
-    public static void forwardResultMessage(String carName, String result) {
-        System.out.println(carName + " : " + result);
-    }
-
-    public static void blankLine() {
-        System.out.println();
-    }
-
-    public static void forwardResult(HashMap<String, String> forwardStatus) {
-        for (String carName : forwardStatus.keySet()) {
-            String result = forwardStatus.get(carName);
-            forwardResultMessage(carName, result);
+        try {
+            return Integer.parseInt(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자 외에 다른 문자는 사용할 수 없습니다.");
         }
-        blankLine();
+    }
+
+    public static void forwardResult(Map<String, Integer> forwardStatus) {
+        for (String carName : forwardStatus.keySet()) {
+            int result = forwardStatus.get(carName);
+            System.out.println(carName + " : " + MOVE_FORWARD.repeat(result));
+        }
+        System.out.println();
     }
 
     private static void winnerMessage(String winner) {
@@ -68,5 +62,13 @@ public class RacingGameView {
     public static void winner(List<String> carMoveStatus) {
         String winner = String.join(Constant.COMMA_SPACE, carMoveStatus);
         winnerMessage(winner);
+    }
+
+    public static int tryCount() {
+        String tryCount = inputTryCount();
+        if (tryCount.length() > Constant.MAX_CAR_NAME_SIZE) {
+            throw new IllegalArgumentException("자동차의 이름은 5글자를 초과할 수 없습니다.");
+        }
+        return RacingGameView.stringTryCountToInteger(tryCount);
     }
 }
