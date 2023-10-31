@@ -5,7 +5,7 @@ package racingcar.domain;
  */
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position;
 
     /**
      * 자동차 이름을 입력받아 Car 객체를 생성합니다.
@@ -14,6 +14,12 @@ public class Car {
      */
     public Car(String name) {
         this.name = name;
+        this.position = 0;
+    }
+
+    public Car(String name, int position) {
+        this.name = name;
+        this.position = position;
     }
 
     /**
