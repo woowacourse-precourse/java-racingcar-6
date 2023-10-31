@@ -8,7 +8,8 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Application {
 
     static ArrayList<String> playerCar = new ArrayList<>();
-    static ArrayList<Integer> randomNumber = new ArrayList<>();
+    static ArrayList<String> playerLine = new ArrayList<>();
+    static ArrayList<String> winner = new ArrayList<>();
     public static void main(String[] args) {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -31,5 +32,16 @@ public class Application {
 
         System.out.println("\n" + "실행결과" + "\n");
 
+        for(int i=0;i < Integer.parseInt(testCase);i++){
+           for(int j=0;j<playerCar.size();j++){
+               int randomNum = Randoms.pickNumberInRange(0,9);
+               if(randomNum >=4){
+                   playerLine.add("-");
+               }
+           }
+        }
     }
+
+
+
 }
