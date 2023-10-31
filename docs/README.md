@@ -12,7 +12,7 @@
 - [] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다. Car#handle
   - [] 랜덤값 생성기 Random
     - [] 0 - 9 사이의 정수를 생성한다. Random#pickNumberInRange
-  - [] 생성된 값이 4이상일 경우 전진한다. Car#move
+  - [] 생성된 값이 4이상일 경우 전진한다. Car#moveFoward
 - [] 경주는 한번의 라운드가 끝날 때마다 진행상황을 저장한다. Race#playRound
   - [] 자동차는 자기의 이름과 상태를 경주에게 제공한다. Car#resultOutput
   - [] 경주는 자동차 상태 목록을 저장한다. Result#saveRound
