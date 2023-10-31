@@ -9,14 +9,14 @@ import racingcar.model.Car;
 public class RacingCarView {
 
     public static String[] inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(ViewFormat.INPUT_CARNAME.getFormatContent());
         String cars = inputStringLine();
 
         return cars.split(",");
     }
 
     public static int inputGameCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(ViewFormat.INPUT_COUNT.getFormatContent());
         String count = inputStringLine();
 
         gameCountValidate(count);
@@ -26,7 +26,9 @@ public class RacingCarView {
 
     public static void outputRaceResult(List<Car> cars) {
         for (Car car : cars) {
-            String graphicOfDistance = DistanceFormat.DISTANCE_FORMAT.repeat(car.getDistance());
+            String graphicOfDistance = ViewFormat.DISTANCE
+                    .getFormatContent()
+                    .repeat(car.getDistance());
             System.out.println(car.getName() + " : " + graphicOfDistance);
         }
         System.out.println();
