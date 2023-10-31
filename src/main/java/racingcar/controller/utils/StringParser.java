@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Parser {
+public class StringParser {
     public List<String> splitCarNames(String input) {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
-    public static int parseInteger(String input) {
+    public static int toInteger(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {

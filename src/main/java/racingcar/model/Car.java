@@ -13,16 +13,11 @@ public class Car {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getCurrentLocation() {
         return currentLocation;
     }
 
-    public void setCurrentLocation(int currentLocation) {
-        this.currentLocation = currentLocation;
+    public void moveFoward(){
+        currentLocation+=1;
     }
-
 }

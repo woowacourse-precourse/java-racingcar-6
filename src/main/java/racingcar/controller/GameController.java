@@ -1,37 +1,35 @@
 package racingcar.controller;
 
-import static racingcar.view.GameView.inputCarName;
-import static racingcar.view.GameView.inputTrialNumber;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import racingcar.controller.utils.Parser;
+import racingcar.controller.utils.StringParser;
 import racingcar.model.Car;
-import racingcar.model.Game;
+import racingcar.model.CarService;
 import racingcar.view.GameView;
 
 public class GameController {
-    private Game model;
-    private GameView view;
-    private final Parser parser = new Parser();
+    private final CarService model;
+    private final GameView view;
+    private final StringParser stringParser = new StringParser();
 
-    public GameController(Game model, GameView view) {
+    public GameController(CarService model, GameView view) {
         this.model = model;
         this.view = view;
     }
 
     public void run() {
-        List<String> carNames = parser.splitCarNames(inputCarName());
-        System.out.println(carNames);
+        List<String> carNames;
+        List<Car> cars;
+        int trialNumber;
 
-        List<Car> cars = createCarObject(carNames);
-        model.setCars(cars);
+        carNames = stringParser.splitCarNames(view.inputCarName());
+        cars = createCarObject(carNames);
+        model.saveAllCars(cars);
 
-        int trialNumber = parser.parseInteger(inputTrialNumber());
-        System.out.println(trialNumber);
+        trialNumber = stringParser.toInteger(view.inputTrialNumber());
+        gameStart(trialNumber);
 
-        gameStart(trialNumber, cars);
+        view.printWinner();
     }
 
     private List<Car> createCarObject(List<String> carNames) {
@@ -43,12 +41,17 @@ public class GameController {
         return cars;
     }
 
-    private void gameStart(int trialNumber, List<Car> cars) {
+    private void gameStart(int trialNumber) {
+        List<Car> cars = model.getAllCars();
+
+        view.printEnter();
+        view.printResultMessage();
         for (int i = 0; i < trialNumber; i++) {
-            for (Car car : cars){
-                System.out.println(car.getName());
+            model.FowardCars();
+            for(Car car : cars){
+                view.printCurrentStatus(car.getName(), car.getCurrentLocation());
             }
+            view.printEnter();
         }
     }
-
 }
