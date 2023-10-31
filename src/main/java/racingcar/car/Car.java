@@ -11,4 +11,16 @@ public class Car {
         this.carName = carName;
         distanceDriven = 0;
     }
+
+    public void moveForward() {
+        distanceDriven++;
+    }
+
+    public String getCarName() {
+        return carName.name();
+    }
+
+    public int getDistanceDriven() {
+        return distanceDriven;
+    }
 }

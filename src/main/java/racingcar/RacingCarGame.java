@@ -6,7 +6,6 @@ import racingcar.car.Car;
 import racingcar.car.name.CarName;
 import racingcar.car.name.CarNameParser;
 import racingcar.io.UserIo;
-import racingcar.randomvalue.RandomValueGenerator;
 
 public class RacingCarGame {
 
@@ -24,6 +23,7 @@ public class RacingCarGame {
         RacingAttempt racingAttempt = getRacingAttempt(userIo);
 
         List<Car> carList = createCarList(carNameList);
+        List<RacingResult> racingResultList = race(carList, racingAttempt);
     }
 
     private List<CarName> getCarNameList(UserIo userIo) {
@@ -40,6 +40,15 @@ public class RacingCarGame {
     private List<Car> createCarList(List<CarName> carNameList) {
         return carNameList.stream()
                 .map(Car::new)
+                .toList();
+    }
+
+    private List<RacingResult> race(List<Car> carList, RacingAttempt racingAttempt) {
+        IntStream.range(0, racingAttempt.getAttempts())
+                .forEach(i -> carMovementDecider.move(carList));
+
+        return carList.stream()
+                .map(car -> new RacingResult(car.getCarName(), car.getDistanceDriven()))
                 .toList();
     }
 }
