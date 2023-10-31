@@ -1,11 +1,11 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
 
 import racingcar.utils.Utils;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -92,5 +92,19 @@ public class UtilsTest {
         //then
         assertThat(result1).isTrue();
         assertThat(result2).isFalse();
+    }
+
+    @Test
+    void 배열의_원소들을_콤마로_결합하면_통과() {
+        final String rightResult = "one, two, three";
+        //given
+        ArrayList<String> case1 = new ArrayList<>();
+        case1.add("one"); case1.add("two"); case1.add("three");
+
+        //when
+        String result1 = Utils.joinByComma(case1);
+
+        //then
+        assertThat(result1).isEqualTo(rightResult);
     }
 }
