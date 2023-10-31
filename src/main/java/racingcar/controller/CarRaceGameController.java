@@ -35,7 +35,6 @@ public class CarRaceGameController {
     }
 
     private void carRace(Car car) {
-        userInputRaceCount();
         printRaceResult(car, userInputRaceCount());
     }
 
