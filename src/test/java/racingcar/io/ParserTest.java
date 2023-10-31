@@ -1,8 +1,10 @@
 package racingcar.io;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ParserTest {
     private Parser parser;
@@ -37,8 +39,8 @@ class ParserTest {
 
         for (int i = 0; i < testCases.length; i++) {
             String[] names = this.parser.parseCarNames(testCases[i]);
-            Assertions.assertThat(names.length).isEqualTo(expectedLengths[i]);
-            Assertions.assertThat(names).contains(expectedArrays[i]);
+            assertThat(names.length).isEqualTo(expectedLengths[i]);
+            assertThat(names).contains(expectedArrays[i]);
         }
     }
 
@@ -54,7 +56,7 @@ class ParserTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThatThrownBy(() -> this.parser.parseInt(testCase))
+            assertThatThrownBy(() -> this.parser.parseInt(testCase))
                     .isInstanceOf(NumberFormatException.class);
         }
     }
@@ -78,7 +80,7 @@ class ParserTest {
         };
 
         for (int i = 0; i < testCases.length; i++) {
-            Assertions.assertThat(this.parser.parseInt(testCases[i]))
+            assertThat(this.parser.parseInt(testCases[i]))
                     .isEqualTo(expected[i]);
         }
     }

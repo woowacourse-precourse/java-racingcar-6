@@ -1,7 +1,8 @@
 package racingcar.util;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberUtilTest {
 
@@ -17,7 +18,7 @@ public class NumberUtilTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThat(NumberUtil.isInteger(testCase)).isFalse();
+            assertThat(NumberUtil.isInteger(testCase)).isFalse();
         }
     }
 
@@ -30,7 +31,7 @@ public class NumberUtilTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThat(NumberUtil.isInteger(testCase)).isFalse();
+            assertThat(NumberUtil.isInteger(testCase)).isFalse();
         }
     }
 
@@ -46,7 +47,7 @@ public class NumberUtilTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThat(NumberUtil.isInteger(testCase)).isTrue();
+            assertThat(NumberUtil.isInteger(testCase)).isTrue();
         }
     }
 }

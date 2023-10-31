@@ -1,7 +1,9 @@
 package racingcar.validation;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 
 class ValidationTest {
     private static final String EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME =
@@ -24,7 +26,7 @@ class ValidationTest {
                 "strang"
         };
 
-        Assertions.assertThatThrownBy(() -> Validation.checkCarNames(testCases))
+        assertThatThrownBy(() -> Validation.checkCarNames(testCases))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME);
     }
@@ -37,7 +39,7 @@ class ValidationTest {
                 "a"
         };
 
-        Assertions.assertThatNoException().isThrownBy(() -> Validation.checkCarNames(testCases));
+        assertThatNoException().isThrownBy(() -> Validation.checkCarNames(testCases));
     }
 
     @Test
@@ -54,7 +56,7 @@ class ValidationTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThatThrownBy(() -> Validation.checkIfInteger(testCase))
+            assertThatThrownBy(() -> Validation.checkIfInteger(testCase))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(EXCEPTION_MESSAGE_FOR_NON_NUM);
         }
@@ -72,7 +74,7 @@ class ValidationTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThatNoException().isThrownBy(() -> Validation.checkIfInteger(testCase));
+            assertThatNoException().isThrownBy(() -> Validation.checkIfInteger(testCase));
         }
     }
 
@@ -84,7 +86,7 @@ class ValidationTest {
         };
 
         for (int testCase : testCases) {
-            Assertions.assertThatThrownBy(() -> Validation.checkIfNonNegative(testCase))
+            assertThatThrownBy(() -> Validation.checkIfNonNegative(testCase))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(EXCEPTION_MESSAGE_FOR_NEGATIVE_NUMBER);
         }
@@ -97,7 +99,7 @@ class ValidationTest {
         };
 
         for (int testCase : testCases) {
-            Assertions.assertThatNoException().isThrownBy(() -> Validation.checkIfNonNegative(testCase));
+            assertThatNoException().isThrownBy(() -> Validation.checkIfNonNegative(testCase));
         }
     }
 }
