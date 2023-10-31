@@ -20,8 +20,7 @@ public class Car implements Subject {
         this.name = name;
     }
 
-    //TODO : 메인 코드로 옮길 때 인자 변경
-    public void moveCar() {
+    public void move() {
         if(Randoms.pickNumberInRange(RANDOM_NUMBER_MIN.getValue(),
                 RANDOM_NUMBER_MAX.getValue()) >= RANDOM_NUMBER_PASS_MIN.getValue()) {
             moved++;
