@@ -49,6 +49,13 @@ public class Application {
         return false;
     }
 
+    public static boolean negativeNumber(Integer number){
+        if (number<0) {
+            return true;
+        }
+
+        return false;
+    }
 
     public static void round(Leaderboard leaderboard){
         for (String name : leaderboard.board.keySet()){
