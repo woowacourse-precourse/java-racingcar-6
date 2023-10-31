@@ -42,7 +42,7 @@ public class Play {
                 int pre = cars.get(index).length;
                 cars.get(index).addLength(pre+1);
             }
-            System.out.println(printEachRotate(cars));
+            printEachRotate(cars);
         }
     }
 
@@ -70,10 +70,7 @@ public class Play {
 
     public static void result() {
         List<String> winCarsName = findWinCars(cars);
-        String answer = printResult(winCarsName);
-        System.out.println(answer);
+        printResult(winCarsName);
     }
-
-
 
 }
