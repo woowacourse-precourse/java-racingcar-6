@@ -16,7 +16,7 @@ public class RacingCar {
     public RacingCar(String name) {
         this.name = name;
         this.distance = START_DISTANCE;
-        this.randomNumberGenerator = new CarRandomNumberGenerator();
+        this.randomNumberGenerator = CarRandomNumberGenerator.getInstance();
     }
 
     public RacingCar(String name, RandomNumberGenerator randomNumberGenerator) {
