@@ -2,7 +2,6 @@ package racingcar.validator;
 
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.FixedNumber;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

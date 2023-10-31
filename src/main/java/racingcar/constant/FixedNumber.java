@@ -8,6 +8,8 @@ public enum FixedNumber {
     MAX_ROUND_COUNT (30),
     MAX_NAME_LENGTH(5),
     MIN_MOVING_FORWARD(4),
+    MIN_RANDOM_NUMBER (0),
+    MAX_RANDOM_NUMBER(9),
     ;
 
     FixedNumber(int value) {
