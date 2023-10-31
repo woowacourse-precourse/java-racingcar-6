@@ -29,7 +29,7 @@ public class RacingGame {
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < carNumber; j++) {
                 carName = cars.get(j).getCarName();
-                //eachCarPickRandomNumber(carName);
+                cars.get(j).pickRandomNumber();
                 printProgress(carName);
             }
             System.out.println();
