@@ -42,9 +42,13 @@ public class Car {
     }
 
     private static void validateName(String name) {
-        if (name == null || name.trim().isEmpty() || name.trim().length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 1~5자 이어야 합니다.");
+        if (isInvalidName(name)) {
+            throw new IllegalArgumentException("자동차 이름은 1~5자이고 공백이 없어야 합니다.");
         }
+    }
+
+    private static boolean isInvalidName(String name) {
+        return name == null || name.trim().isEmpty() || name.trim().length() > MAX_NAME_LENGTH || name.contains(" ");
     }
 
     private static void validateCarNames(List<String> carNames) {
@@ -53,7 +57,9 @@ public class Car {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
         for (String name : carNames) {
-            validateName(name);
+            if (isInvalidName(name)) {
+                throw new IllegalArgumentException("자동차 이름은 1~5자이고 공백이 없어야 합니다.");
+            }
         }
     }
 }
