@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private String name;
 
-    private int moveCount;
+    private int remainMoveCount;
 
     private int score;
 
@@ -15,7 +15,7 @@ public class Car {
 
     public Car(String name, int moveCount) {
         this.name = name;
-        this.moveCount = moveCount;
+        this.remainMoveCount = moveCount;
         this.score = 0;
     }
 
@@ -23,10 +23,10 @@ public class Car {
         if(pickRandomNumberToMove()>=POSSIBLE_TO_MOVE_NUMBER) {
             this.score++;
         }
-        this.moveCount--;
+        this.remainMoveCount--;
     }
 
-    private int pickRandomNumberToMove(){
+    protected int pickRandomNumberToMove(){
         return Randoms.pickNumberInRange(START_NUMBER,END_NUMBER);
     }
 
@@ -37,7 +37,7 @@ public class Car {
         return score;
     }
 
-    public int getMoveCount(){
-        return moveCount;
+    public int getRemainMoveCount(){
+        return remainMoveCount;
     }
 }
