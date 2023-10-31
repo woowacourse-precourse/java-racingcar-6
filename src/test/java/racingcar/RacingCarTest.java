@@ -84,10 +84,45 @@ public class RacingCarTest {
                 outputManager.printCarPosition(car.getName(), car.getPosition());
             }
 
-            List<String> expectedOutputs = List.of("jamy :", "risa :", "jun :");
-            String actualOutput = outputStream.toString().trim();
+            List<String> expectedOutputs = List.of("jamy : ", "risa : ", "jun : ");
+            String actualOutput = outputStream.toString();
 
             assertThat(actualOutput).contains(expectedOutputs);
+
+
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
+
+    @Test
+    void 자동차_현위치_출력() {
+        PrintStream originalOut = System.out;
+        CarRacingOutputManager outputManager = new CarRacingOutputManager();
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outputStream));
+
+            Car car1 = Car.fromName("car1");
+            Car car2 = Car.fromName("car2");
+            Car car3 = Car.fromName("car3");
+            car2.move();
+            car3.move();
+            car3.move();
+            List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
+
+            for (Car car : cars) {
+                outputManager.printCarPosition(car.getName(), car.getPosition());
+            }
+
+            String expectedOutput = """
+                    car1 :\s
+                    car2 : -
+                    car3 : --
+                    """;
+            String actualOutput = outputStream.toString();
+
+            assertThat(actualOutput).isEqualTo(expectedOutput);
 
 
         } finally {
