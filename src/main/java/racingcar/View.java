@@ -15,8 +15,8 @@ public class View {
 
     public void printResult(List<PerGameCarResultDto> resultDtos) {
         for (PerGameCarResultDto resultDto : resultDtos) {
-            String moveResult = new String(new char[resultDto.getMoveCnt()]).replace('\0', '-');
-            System.out.println(resultDto.getCarName() + " : " + moveResult);
+            String moveResult = new String(new char[resultDto.moveCnt()]).replace('\0', '-');
+            System.out.println(resultDto.carName() + " : " + moveResult);
         }
         System.out.println();
     }
