@@ -3,14 +3,14 @@ package racingcar.Util;
 public class ErrorCollection {
 
     public static void IllegalEmptyInput() {
-        throw  new IllegalArgumentException("올바르지 않은 입력입니다.");
+        throw  new IllegalArgumentException(ErrorMessage.EMPTY.label());
     }
 
     public static void IllegalCarNames() {
-        throw new IllegalArgumentException("올바르지 않은 입력입니다. 자동차 이름은 5자 이하만 가능합니다.\n올바른 예) pobi,woni,jun\n");
+        throw new IllegalArgumentException(ErrorMessage.NAME.label());
     }
 
     public static void IllegalAttempts() {
-        throw new IllegalArgumentException("올바르지 않은 입력입니다. 숫자만 입력해 주세요.");
+        throw new IllegalArgumentException(ErrorMessage.ATTEMPT.label());
     }
 }
