@@ -7,6 +7,9 @@ public class Generate {
     public static HashMap<String, Integer> playerGenerate(HashMap<String, Integer> map, String playerString) {
         String[] player = playerString.split(",");
         for(int i = 0; i < player.length; i++) {
+            if(player[i].length() > 5){
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
             map.put(player[i], 0);
         }
 

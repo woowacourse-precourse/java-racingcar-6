@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Race {
+    public static final boolean MOVING_FORWARD = true;
+    public static final boolean STOP = false;
     public static HashMap<String, Integer> race(HashMap<String, Integer> map){
         for(Map.Entry<String, Integer> entry : map.entrySet()){
             String key = entry.getKey();
@@ -23,9 +25,9 @@ public class Race {
         int number = Randoms.pickNumberInRange(0,9);
 
         if(number < 4) {
-            return false;
+            return STOP;
         } else {
-            return true;
+            return MOVING_FORWARD;
         }
     }
 }
