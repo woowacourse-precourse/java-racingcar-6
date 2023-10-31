@@ -34,6 +34,7 @@ public class RacingGameController {
 
         for (int i = 0; i < numberOfRounds; i++) {
             cars.doRound(numberGenerator);
+            output.printRoundResult(cars);
         }
 
     }
