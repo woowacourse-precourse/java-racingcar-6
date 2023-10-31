@@ -19,8 +19,7 @@ public class InputValidator {
     }
 
     private static void validateNoBlank(String name) {
-        String noBlankName = name.replace(" ", "");
-        if (name.length() != noBlankName.length()) {
+        if (name.contains(" ")) {
             throw new IllegalArgumentException();
         }
     }
