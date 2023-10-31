@@ -15,9 +15,13 @@ public class Car{
     }
 
     public void go(){
-        if (Randoms.pickNumberInRange(START_NUMBER, END_NUMBER) >= GO_NUMBER) {
+        if (getRandomNumber() >= GO_NUMBER) {
             distance++;
         }
+    }
+
+    public int getRandomNumber(){
+        return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 
     public String getName() {
