@@ -53,6 +53,7 @@ public class RacingGame {
         final int maxCount = scoreBoard.values().stream()
                 .max(Integer::compareTo)
                 .orElse(0);
+
         return scoreBoard.entrySet().stream()
                 .filter(entry -> entry.getValue() >= maxCount)
                 .map(entry -> entry.getKey().getName())

@@ -40,7 +40,7 @@ public class ConsoleProcessor {
     }
 
     public void printWinners(final List<String> names) {
-        final String winners = String.join("-", names);
+        final String winners = String.join(", ", names);
         System.out.println(RESPONSE_WINNER.getMessage() + winners);
     }
 }
