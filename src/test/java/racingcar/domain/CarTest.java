@@ -29,4 +29,16 @@ public class CarTest {
 
         assertEquals(0, car.getMoveDistance());
     }
+
+    @Test
+    void 랜덤숫자_4이상_수에서_전진_확인() {
+        // 모의 객체(Mock)을 사용하여 RandomNumber.createRandomNumber()의 결과 조작
+        mockStatic(RandomNumber.class);
+        when(RandomNumber.createRandomNumber()).thenReturn(7);
+
+        Car car = new Car("pobi");
+        car.move();
+
+        assertEquals(1, car.getMoveDistance());
+    }
 }
