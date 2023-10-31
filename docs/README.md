@@ -1,4 +1,4 @@
-# 문서
+# [우아한테크코스 프리코스 2주차] 자동차 경주
 
 ## 기능 요구 사항
 
@@ -42,3 +42,134 @@
 4. 게임 종료
 
 - 우승자를 판별해 결과 출력
+
+## 구현 클래스와 메서드
+
+### /model
+
+- 데이터를 가진 객체
+- CRUD
+
+규칙
+
+1. 편집하기 원하는 모든 데이터를 갖고 있음
+2. 뷰나 컨트롤러와는 독립되어 관련된 어떤 정보도 알고 있지 않음
+3. 변경 발생시 변경 통지에 대한 처리 방법을 구현해야 함
+
+#### Game.java
+
+게임에 대한 정보를 가진 클래스
+
+- getCars(): HashMap<String, Integer> cars를 return
+- addCar(String name): cars에 새로운 차를 추가
+- editStatus(String key): cars에 저장된 차의 값을 변경
+
+### /view
+
+- 요청을 받아 화면 구성
+- 사용자와 상호작용
+
+규칙
+
+1. 모델이 가진 데이터를 저장해서는 안 됨
+2. 모델이나 컨트롤러 등의 다른 구성 요소를 몰라야 함
+3. 변경 발생시 변경 통지에 대한 처리 방법을 구현해야 함
+
+#### InputView
+
+입력과 관련된 클래스
+
+- inputCarNames(): 차 이름을 입력 받아 유효성을 검증하고 반환
+- inputStageTimes(): 이동 횟수(= 스테이지 수)를 입력 받아 유효성을 검증하고 반환
+
+#### PrintView
+
+출력과 관련된 클래스
+
+- inputCarNamesMessage(): 차 이름을 입력하라는 안내 문구 출력
+- inputStageTimesMessage(): 이동 횟수를 입력하라는 안내 문구 출력
+- initialStageResultMessage(): 게임 시작 후 최초 한 번만 "실행 결과" 출력
+- stageResultMessage(ArrayList<String> list): 각 스테이지의 결과값 출력
+- winnerResultMessage(ArrayList<String> winners): 게임의 최종 결과값 출력
+
+### /controller
+
+- 모델과 뷰를 이어주는 인터페이스
+- 사용자의 입력 처리 및 응답 담당
+
+규칙
+
+1. 모델이나 뷰에 대해서 알고 있음
+2. 모델이나 뷰의 변경을 모니터링
+
+#### GameController
+
+전반적인 게임을 진행하는 클래스
+
+- runGame(): 게임을 순서에 맞게 실행
+- returnWinners(): 우승자를 판별 및 출력 지시
+
+#### InputController
+
+입력과 관련된 클래스
+
+- inputCarNames(): 입력 받은 차 이름을 저장
+- inputStageTimes(): 입력 받은 이동 횟수(= 스테이지 수)를 저장
+
+#### StageController
+
+스테이지를 진행하는 클래스
+
+- runStage(): 전진 혹은 정지 여부를 통해 status(HashMap의 value값) 값을 변경
+- returnStageResult(): 스테이지 실행 결과 출력을 지시
+- initialStageResult(): 게임 시작 후 최초 한 번만 "실행 결과" 출력 지시
+
+### /service
+
+- 컨트롤러의 호출에 따라 실질적으로 요청을 수행
+
+#### GameService
+
+게임과 관련된 로직을 갖고 있는 클래스
+
+- checkWinners(HashMap<String, Integer> cars): status값을 비교해 우승자를 판별 후 반환
+
+#### StageService
+
+- stageProcess(): 임의의 수를 생성해 전진 혹은 정지 여부를 결정 후 반환
+- checkStageResult(HashMap<String, Integer> cars): 스테이지 종료 후 각 차의 결과 반환
+
+### /util
+
+- 자주 사용하는 util 메서드 정리
+
+#### GameUtil
+
+게임과 관련된 util
+
+- createRandomNumber(): 0에서 9사이의 임의의 수를 생성
+- moveOrStop(int number): 입력된 수가 4 이상인지 판별
+
+#### FormatUtil
+
+출력값에 맞게 가공하는 util
+
+- statusFormat(int number): status(전진 횟수)를 토대로 출력값에 맞게 "-"를 반복해 반환
+- stageResultFormat(String car, String status): 스테이지 종료 후의 결과값을 출력값에 맞게 가공해 반환
+- winnerResultFormat(ArrayList<String> winners): 게임 종료 후의 결과값을을 출력값에 맞게 가공해 반환
+
+#### StringUtil
+
+- splitString(String string): `,`로 구분된 차 이름을 사용하기 편한 자료 구조로 반환
+
+#### Validator
+
+유효성 검증을 위한 클래스
+
+- nameLengthLimit(String name): 5글자 이상, 0글자 이하인 이름은 예외 처리
+- isNumber(String input): 숫자가 아닌 이동 횟수는 예외 처리
+
+### /constant
+
+- 상수값 저장
+- enum class 활용
