@@ -24,7 +24,6 @@ public class GameData {
     }
 
     public void proceedOneRace() {
-        attemptData.createAttempt();
         attemptData.pickNewNumber();
     }
 }
