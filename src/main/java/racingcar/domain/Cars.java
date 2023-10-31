@@ -7,7 +7,7 @@ public class Cars {
 
     private List<Car> cars;
 
-    private Cars(List<Car> list) {
+    public Cars(List<Car> list) {
         this.cars = list;
     }
 
