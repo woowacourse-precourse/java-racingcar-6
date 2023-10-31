@@ -3,32 +3,25 @@ package racingcar.domain;
 import static racingcar.domain.InputToCarList.getInstance;
 
 import java.util.List;
+import racingcar.controller.RaceController;
 
 public class RacingCarGame {
 
-    private static final String GAME_RESULT = "실행 결과";
     private final Referee referee;
+    private final RaceController controller;
 
-    public RacingCarGame(Referee referee) {
+    public RacingCarGame(Referee referee, RaceController controller) {
         this.referee = referee;
+        this.controller = controller;
     }
 
-    public StringBuilder gameStart(String verifiedInput, Integer tryCount) {
+    public List<Car> gameStart(String verifiedInput, Integer tryCount) {
         List<Car> carNameList = getInstance().askCarName(verifiedInput);
-        StringBuilder gameResult = new StringBuilder();
-        gameResult.append(GAME_RESULT).append('\n');
 
         for (int i = 0; i < tryCount; i++) {
-            for (int k = 0; k < carNameList.size(); k++) {
-                Car car = carNameList.get(k);
-                referee.startEngine(car);
-                gameResult.append(car).append('\n');
-            }
-            gameResult.append('\n');
+            controller.getWinner(carNameList, referee);
         }
 
-        List<Car> cars = referee.selectWinnerList(carNameList);
-        gameResult.append(referee.winnerName(cars));
-        return gameResult;
+        return carNameList;
     }
 }

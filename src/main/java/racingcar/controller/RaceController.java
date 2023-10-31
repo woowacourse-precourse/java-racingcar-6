@@ -1,21 +1,36 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.RacingCarGame;
 import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.domain.RacingCarGame;
 
 public class RaceController {
+    public static StringBuilder gameResult = new StringBuilder();
 
     public void run() {
         InputView view = new InputView();
-        RacingCarGame racingCarGame = new RacingCarGame(new Referee());
         String carNames = view.inputCarNames();
-
         Integer tryCount = view.inputHowManyTry();
-        StringBuilder game = racingCarGame.gameStart(carNames, tryCount);
+
+        RacingCarGame racingCarGame = new RacingCarGame(new Referee(), new RaceController());
+        List<Car> resultList = racingCarGame.gameStart(carNames, tryCount);
 
         OutputView outputView = new OutputView();
-        outputView.printGameResult(game);
+        outputView.printGameResult(resultList, new Referee());
+    }
+
+    public StringBuilder getWinner(List<Car> carNameList, Referee referee) {
+
+        for (int k = 0; k < carNameList.size(); k++) {
+            Car car = carNameList.get(k);
+            referee.startEngine(car);
+            gameResult.append(car).append('\n');
+        }
+
+        gameResult.append('\n');
+        return gameResult;
     }
 }
