@@ -24,7 +24,7 @@ public class ErrorCheckTest {
                 .hasMessageContaining("잘못된 입력입니다 1이상의 값을 입력해주세요");
     }
 
-    @DisplayName("시도할 횟수가 가수인지 테스트")
+    @DisplayName("시도할 횟수가 정수인지 테스트")
     @Test
     void tryNumberIsAlphaTest() {
         String input = "ab01";
