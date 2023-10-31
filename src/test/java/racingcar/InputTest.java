@@ -33,19 +33,21 @@ public class InputTest {
         }
     }
 
-    @Test
-    @DisplayName("시도할 횟수 입력 테스트")
-    void getTryCount_test() {
-        int tryCountForTest;
-
+    @ParameterizedTest
+    @ValueSource(ints = {4, 0})
+    @DisplayName("시도할 횟수 입력 테스트 및 '0' 입력 시 예외 발생 테스트")
+    void getTryCount_test(int inputTryCount) {
         try {
-            command(String.valueOf(4));
-            tryCountForTest = input.getTryCount();
-        } finally {
+            command(String.valueOf(inputTryCount));
+            int tryCountForTest = input.getTryCount();
+
+            assertThat(tryCountForTest).isEqualTo(4);
+        } catch (IllegalArgumentException illegalArgumentException){
+            assertThat(illegalArgumentException).hasMessageContaining("입력이 잘못되었습니다.");
+        }
+        finally {
             Console.close();
         }
-
-        assertThat(tryCountForTest).isEqualTo(4);
     }
 
     @Test
