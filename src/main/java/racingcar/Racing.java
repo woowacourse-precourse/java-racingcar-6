@@ -8,16 +8,14 @@ public class Racing {
     private static final int CARFORWARD_NUMBER = 4;
     public List<String> raceSituation = new ArrayList<>();
     public List<Integer> forwardCountNumbers = new ArrayList<>();
-
     public List<Integer> maxindexs = new ArrayList<>();
 
-    private List<Integer> randomNumbersList = new ArrayList<>();
     public void racing(List<String> carNames){
-        randomNumbersList = raceRandomNumberList(carNames);
+        List<Integer> randomNumbersList = raceRandomNumberList(carNames);
         forwardValidation(randomNumbersList);
         OutputMessage.racePrint(raceSituation);
-
     }
+
     public void createRace(List<String> carNames) {
 
         for(String carName : carNames){
