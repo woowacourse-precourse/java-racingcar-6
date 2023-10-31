@@ -16,6 +16,12 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
+    public void init() {
+        carLineup = new ArrayList<>();
+        totalTryCount = 0;
+    }
+
+    @Override
     public void insertCar(Car car) {
         carLineup.add(car);
     }
@@ -23,5 +29,19 @@ public class CarDaoImpl implements CarDao {
     @Override
     public void insertTryCount(int tryCount) {
         totalTryCount = tryCount;
+    }
+
+    @Override
+    public List<Car> selectAllCars() {
+        return carLineup;
+    }
+
+    @Override
+    public void increaseMoveCount(String carName) {
+        for (Car car : carLineup) {
+            if (car.getName().equals(carName)) {
+                car.increaseMoveCount();
+            }
+        }
     }
 }
