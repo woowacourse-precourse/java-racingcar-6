@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Car {
 
     private String name;
@@ -29,5 +33,9 @@ public class Car {
         if (randomValue >= 4) {
             straightCount++;
         }
+    }
+
+    public static List<Car> create(String[] cars) {
+        return Arrays.stream(cars).map(Car::createForStart).collect(Collectors.toList());
     }
 }
