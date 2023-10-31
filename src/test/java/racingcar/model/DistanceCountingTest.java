@@ -5,8 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DistanceCountingTest {
 
-    private static final String PASS = "4";
-    private static final String FAIL = "1";
+    private static final int PASS = 4;
+    private static final int FAIL = 1;
     private static final int TRY = 5;
     private static final String DISTANCE = "_";
 
@@ -19,6 +19,6 @@ public class DistanceCountingTest {
                 distanceCounting.plusDistance(DISTANCE);
             }
         }
-        assertThat(distanceCounting.totalDistance()).isEqulaTo("_____");
+        assertThat(distanceCounting.totalDistance()).isEqualTo("_____");
     }
 }
