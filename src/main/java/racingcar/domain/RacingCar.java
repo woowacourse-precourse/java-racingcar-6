@@ -14,14 +14,14 @@ public class RacingCar {
 
     public void move() {
         if (Randoms.pickNumberInRange(0, 9) >= 4)
-            place += 1;
+          place += 1;
     }
 
     public void display() {
         System.out.print(name + " : ");
 
         for(int i = 0; i < place; i++) {
-            System.out.print("-");
+          System.out.print("-");
         }
 
         System.out.println();
