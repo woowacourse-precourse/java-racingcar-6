@@ -24,7 +24,7 @@ public class RaceController {
 
         int moveCount = inputView.askMoveCount();
 
-        System.out.println("\n실행 결과");
+        outputView.showExecutionResultMessage();
         repeatMoveCars(moveCount, cars);
 
         final List<Car> winners = cars.findWinners();
