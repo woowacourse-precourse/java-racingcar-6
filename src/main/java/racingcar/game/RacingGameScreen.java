@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.io.reader.Reader;
 import racingcar.common.io.writer.Writer;
+import racingcar.game.vo.TurnResult;
 
 public class RacingGameScreen {
 
@@ -23,12 +24,12 @@ public class RacingGameScreen {
         this.writer = writer;
     }
 
-    public String inputRacer(){
+    public String inputRacer() {
         writer.writeLine(INPUT_RACER);
         return reader.readLine();
     }
 
-    public String inputNumberOfTurns(){
+    public String inputNumberOfTurns() {
         writer.writeLine(INPUT_NUMBER_OF_TURNS);
         return reader.readLine();
     }
@@ -37,9 +38,10 @@ public class RacingGameScreen {
         writer.writeLine("\n" + START_SHOW_GAME_RESULT);
     }
 
-    public void showTurnResult(TurnResult result) {
-        String resultMessage = result.getAllRacerNames().stream()
-                .map(name -> String.format("%s : %s", name, repeatChar(result.getPosition(name))))
+    public void showTurnResult(TurnResult turnResult) {
+        String resultMessage = turnResult.result().stream()
+                .map(racerPosition -> String.format("%s : %s", racerPosition.name(),
+                        repeatChar(racerPosition.position())))
                 .collect(Collectors.joining("\n"));
 
         writer.writeLine(resultMessage + "\n");

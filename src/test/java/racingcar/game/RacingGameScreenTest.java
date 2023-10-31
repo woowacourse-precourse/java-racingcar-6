@@ -4,16 +4,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.common.io.reader.Reader;
 import racingcar.common.io.writer.Writer;
+import racingcar.game.vo.RacerPosition;
+import racingcar.game.vo.TurnResult;
 
 class RacingGameScreenTest {
 
@@ -111,9 +112,9 @@ class RacingGameScreenTest {
     @Test
     void test_ShowTurnResultScreen() {
         //given
-        Map<String, Integer> result = new LinkedHashMap<>();
-        result.put("name1", 1);
-        result.put("name2", 2);
+        List<RacerPosition> result = new ArrayList<>();
+        result.add(new RacerPosition("name1", 1));
+        result.add(new RacerPosition("name2", 2));
 
         TurnResult turnResult = new TurnResult(result);
 

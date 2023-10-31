@@ -2,6 +2,8 @@ package racingcar.game;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.game.vo.RacerPosition;
+import racingcar.game.vo.TurnResult;
 import racingcar.racer.RacingCar;
 import racingcar.validator.Validator;
 
@@ -16,6 +18,8 @@ public class RacingGameManager {
     public void run() {
         RacingCarRegistry racingCarRegistry = registerRacingCar();
         int turnCount = inputNumberOfTurns();
+        startRace(racingCarRegistry, turnCount);
+
     }
 
     private RacingCarRegistry registerRacingCar() {
@@ -39,5 +43,20 @@ public class RacingGameManager {
         Validator.validateHasText(numberOfTurns);
         Validator.validateNumeric(numberOfTurns);
         return Integer.parseInt(numberOfTurns);
+    }
+
+    private void startRace(RacingCarRegistry racingCarRegistry, int turnCount) {
+        racingGameScreen.startShowGameResult();
+
+        List<RacingCar> racingCars = racingCarRegistry.getRacingCars();
+        for (int i = 0; i < turnCount; i++) {
+            racingCars.forEach(RacingCar::move);
+
+            List<RacerPosition> list = racingCars.stream()
+                    .map(racingCar -> new RacerPosition(racingCar.getName(), racingCar.getPosition()))
+                    .toList();
+
+            racingGameScreen.showTurnResult(new TurnResult(list));
+        }
     }
 }

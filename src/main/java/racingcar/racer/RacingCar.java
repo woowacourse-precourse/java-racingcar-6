@@ -1,8 +1,13 @@
 package racingcar.racer;
 
+import racingcar.util.Random;
 import racingcar.validator.RacingCarValidator;
 
 public class RacingCar extends Car implements Raceable {
+
+    private static final int RANDOM_NUMBER_MIN = 0;
+    private static final int RANDOM_NUMBER_MAX = 9;
+    private static final int MOVING_FORWARD = 4;
 
     private int position;
 
@@ -23,7 +28,14 @@ public class RacingCar extends Car implements Raceable {
 
     @Override
     public void move() {
-        // TODO: 2023/10/31
+        moveForwardOrStop();
+    }
+
+    private void moveForwardOrStop() {
+        int number = Random.getRandomNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+        if (number >= MOVING_FORWARD) {
+            ++position;
+        }
     }
 
     @Override
