@@ -25,7 +25,14 @@ public class Car {
         if(randnum >= 4){
             this.setGo(this.getGo()+1);
         }
+    }
 
+    public String printInfo(int r_num){
+        String res_print = this.getName() + ": ";
+        for(int i=0;i<r_num;i++){
+            res_print += "-";
+        }
+        return res_print;
     }
 
     public int makerandom(){
