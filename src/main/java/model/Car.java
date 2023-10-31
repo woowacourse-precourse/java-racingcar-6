@@ -1,7 +1,5 @@
 package model;
 
-import utils.Utils;
-
 public class Car {
     final static int MAX_INPUT_LENGTH = 5;
     final static String INPUT_IS_EMPTY = "입력은 공백일 수 없습니다.";
