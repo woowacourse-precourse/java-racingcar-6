@@ -71,6 +71,13 @@ public class Application {
         Collections.addAll(carNames, input.split(","));
         int N = carNames.size();
         
+        for(int i = 0; i < N; i++) {
+        	String tmp = carNames.get(i);
+        	if(tmp.length() > 5) {
+        		throw new IllegalArgumentException();
+        	};
+        }
+        
         Car[] cars = new Car[N];
         for(int i = 0; i < N; i++) {
         	cars[i] = new Car(carNames.get(i));
