@@ -1,7 +1,7 @@
 package basis;
 
 import static constant.Constant.STOP_SYMBOL;
-import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
+import static constant.ErrorMessage.NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE;
 
 import java.util.LinkedHashMap;
 import validation.UserInputValidator;
@@ -15,7 +15,7 @@ public class Converter {
             userInputValidator.checkPositiveNumber(wordToIntResult);
             return wordToIntResult;
         } catch (NumberFormatException error) {
-            throw new IllegalArgumentException(NOT_NUMBER_INPUT_CASE_MESSAGE);
+            throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE);
         }
     }
 
