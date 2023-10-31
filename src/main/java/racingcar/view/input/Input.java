@@ -13,12 +13,12 @@ public final class Input {
     public static final Pattern REMOVE_REGEX_PATTERN = Pattern.compile("\\s");
     public static final String DIVIDING_STANDARD = ",";
 
-    public static List<String> bringNames() {
+    public static List<String> inputNames() {
         String name = Console.readLine();
         return devideToList(name);
     }
 
-    public static int bringTrialAmount() {
+    public static int inputTrialAmount() {
         String trialAmount = Console.readLine();
         try {
             return Integer.parseInt(trialAmount);
