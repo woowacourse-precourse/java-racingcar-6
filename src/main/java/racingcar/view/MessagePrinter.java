@@ -40,7 +40,7 @@ public class MessagePrinter {
 
     public void printWinners(final RacingCarRace racingCarRace) {
         List<RacingCar> winners = racingCarRace.findWinners();
-        String result = RacingCarRace.getCarNames(winners);
+        String result = RacingCarRace.concatCarNames(winners);
 
         System.out.println(result);
     }

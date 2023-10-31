@@ -35,7 +35,7 @@ class RacingCarRaceTest {
         racingCars.add(RacingCar.of("jun"));
 
         // when
-        String carNames = RacingCarRace.getCarNames(racingCars);
+        String carNames = RacingCarRace.concatCarNames(racingCars);
 
         // then
         assertThat(carNames).contains("pobi");

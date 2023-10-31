@@ -24,7 +24,7 @@ public final class RacingCarRace {
         return new RacingCarRace(racingCars, attemptCount);
     }
 
-    public static String getCarNames(final List<RacingCar> racingCars) {
+    public static String concatCarNames(final List<RacingCar> racingCars) {
         List<String> carNames = racingCars.stream()
                 .map(RacingCar::getCarName)
                 .toList();
