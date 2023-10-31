@@ -58,8 +58,33 @@ class RaceTest {
     }
 
     @Test
-    void moveCars_입력된_랜덤_숫자가_4_미만일_경우_전진하지_않음() {
+    void moveCars_입력된_랜덤_숫자가_4_미만일_경우_자동차_전진하지_않음() {
+        //given
+        String nameInput = "0,1,2,3";
+        List<Integer> randomNumbers = List.of(0, 1, 2, 3);
+        Race race = new Race();
+        race.setCarList(nameInput);
 
+        //when
+        race.moveCars(randomNumbers);
+
+        //then
+        assertThat(race.getRoundResult()).isEqualTo(List.of(0, 0, 0, 0));
+    }
+
+    @Test
+    void moveCars_입력된_랜덤_숫자가_4_이상일_경우_자동차_전진() {
+        //given
+        String nameInput = "4,5,6,7,8,9";
+        List<Integer> randomNumbers = List.of(4, 5, 6, 7, 8, 9);
+        Race race = new Race();
+        race.setCarList(nameInput);
+
+        //when
+        race.moveCars(randomNumbers);
+
+        //then
+        assertThat(race.getRoundResult()).isEqualTo(List.of(1, 1, 1, 1, 1, 1));
     }
 
     @Test
