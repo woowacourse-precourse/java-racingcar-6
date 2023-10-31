@@ -11,6 +11,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(final List<Car> cars) {
+        validation_Empty(cars);
         validation_Duplicate(cars);
         this.cars = cars;
     }
@@ -24,6 +25,12 @@ public class Cars {
 
         if (carNameWithoutDuplication.size() != cars.size()) {
             throw new IllegalArgumentException("자동차 이름은 중복되지 않아야합니다.");
+        }
+    }
+
+    private void validation_Empty(List<Car> cars){
+        if(cars.isEmpty()){
+            throw new IllegalArgumentException("자동차가 없습니다.");
         }
     }
 
