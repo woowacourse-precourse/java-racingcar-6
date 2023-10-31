@@ -7,11 +7,17 @@ public class Validator {
         if (!roundInputString.matches("^[0-9]*$")) {
             throw new IllegalArgumentException(ErrorMessage.roundValidationError);
         }
+        if (roundInputString.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.nullInputError);
+        }
     }
 
     public static void checkCarNameValidation(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.carNameValidationError);
+        }
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.nullInputError);
         }
     }
 }
