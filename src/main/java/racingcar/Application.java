@@ -20,7 +20,10 @@ public class Application {
     }
 
     private static List<String> getCarNames(String inputLineOfCarNames) {
-        List<String> carNames = splitCarNames(inputLineOfCarNames);
+        return validateCarNames(splitCarNames(inputLineOfCarNames));
+    }
+
+    private static List<String> validateCarNames(List<String> carNames){
         checkCarNameForm((carNames));
         checkDuplicateOfCarName((carNames));
         return carNames;
