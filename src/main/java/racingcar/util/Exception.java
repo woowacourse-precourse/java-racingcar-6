@@ -15,6 +15,15 @@ public class Exception {
         throw new IllegalArgumentException("자동차 이름안에 공백을 제거하세요.");
     }
 
+    private void checkLengthAndThrowException(String carName) {
+        if (CAR_NAME_LIMIT_MAX < carName.length()) {
+            throwMaxLengthException();
+        }
+        if (carName.length() < CAR_NAME_LIMIT_MIN) {
+            throwMinLengthException();
+        }
+    }
+
     private void throwMinLengthException() {
         throw new IllegalArgumentException("자동차 이름은 " + CAR_NAME_LIMIT_MIN + "글자 이상이어야 합니다.");
     }
