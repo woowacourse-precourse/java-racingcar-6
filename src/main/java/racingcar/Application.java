@@ -15,12 +15,14 @@ public class Application {
             }
         }
 
-        System.out.printf("시도할 회수는 몇회인가요?\n");
         try {
+            System.out.printf("시도할 회수는 몇회인가요?\n");
             count = Integer.parseInt(Console.readLine());
-        } catch (Exception e){
+        }
+        catch (Exception e){
             throw new IllegalArgumentException();
         }
+
 
     }
 }
