@@ -2,22 +2,19 @@
 
 ## RacingInfo 클래스
 - 차량 이름과 이동 횟수 변수와 이를 입력 받고 반환할 메소드를 담는다.
-1. 달리는 차량 이름 입력 메소드
+1. 달리는 차량 이름과 이동 횟수 입력 메소드
    - "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" 입력 멘트 출력
    - ``` camp.nextstep.edu.missionutils.Console``` 의 ```readLine()``` 으로 입력 받기
-   - 메소드 이름 : setNames
+   - 메소드 이름 : setNamesAndNum
    - 이름은 5자 이하
      - 5자를 초과할 경우 ``` IllegalArgumentException ``` 예외처리
      - 입력된 각 이름은 , 로 구분  ```ex) pobi,woni,jun ```
+   - 이동 횟수는 오직 양수인 정수만
+     - 음수나 숫자가 아닌 경우 ``` IllegalArgumentException ``` 예외처리
    - 입력된 이름을 저장할 문자열 이름 : names
+   - 입력된 숫자를 저장할 변수 이름 : num 
 
-2. 이동 횟수 입력 메소드
-   - "시도할 회수는 몇회인가요?" 출력
-   - ``` camp.nextstep.edu.missionutils.Console``` 의 ```readLine()``` 으로 입력 받기
-   - 메소드 이름 : setNums
-   - 정수가 아니거나 음수일 때 예외처리
-
-3. 차량 이름과 이동횟수 반환 메소드
+2. 차량 이름과 이동횟수 반환 메소드
 - 메소드 이름 : getNames, getNums
 - 각각 차량 이름과 이동횟수를 반환
 
@@ -50,3 +47,5 @@
 
 ## Application 클래스
 - 레이싱 게임을 실행
+
+## 
