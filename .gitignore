@@ -34,3 +34,9 @@ out/
 
 ### etc ###
 .gitmessage.txt
+
+### temp ###
+test/java/racingcar/CarRaceManagerTest.java
+test/java/racingcar/CarTest.java
+test/java/racingcar/UtilsTest.java
+test/java/racingcar/ValidationTest.java
