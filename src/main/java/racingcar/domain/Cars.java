@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,11 +27,7 @@ public class Cars {
     }
 
     private int getMaxDistance() {
-        int maxDistance = 0;
-        for (Car car : this.cars) {
-            maxDistance = Math.max(maxDistance, car.getTotalDistance());
-        }
-        return maxDistance;
+        return Collections.max(getTotalDistances());
     }
 
     public List<Integer> getTotalDistances() {

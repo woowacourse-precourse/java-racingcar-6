@@ -10,7 +10,6 @@ public enum GameConstant {
 
     private final int number;
 
-
     GameConstant(int number) {
         this.number = number;
     }
