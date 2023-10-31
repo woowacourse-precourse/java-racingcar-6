@@ -16,21 +16,14 @@ Map<String,Integer> CarDistance를 가진다.
 
 ## GameController
 
+### run()
+1. 레이스 시도횟수를 입력받는다(View로 이동).
+2. 해당 횟수만큼 레이스를 진행한뒤 결과를 반환한다(View로 이동).
+3. 우승자를 반환한다.(View로 이동)
+4. 
 ### gameInit()
 1. GameView에서 경주할 자동차 이름들을 입력받는다.
-2. 입력받은 값으로 생성된 Dto를 RaceCourse Entity로 반환한다.
-2. 입력 받은 String으로 경주할 자동차들을 생성한다.
-3. 생성한 자동차를 통해 RaceTrack을 생성한다.
-4. 생성된 자동차와 RaceTrack를 통해 Game을 반환한다.
-
-
-## GameManager
-1.
-
-### MoveAndPrint()
-1. RaceCourse의 저장된 cars를 통해 움직인 값을 저장한다.
-2. 현재 모든 자동차의 위치를 RaceCourse를 통해 GameView에 출력한다.
-
+2. 입력받은 값으로 생성된 Race를 가진 Controller를 반환한다.
 
 ## GameView
 경주할 자동차 이름을 입력받는다.
