@@ -10,7 +10,7 @@ public class RandomNumberGenerator implements NumberGenerator {
         return generateRandomNumberInRange(MOVABLE_MIN, MOVABLE_MAX);
     }
 
-    private int generateRandomNumberInRange(int startInclusive, int endInclusive) {
+    public int generateRandomNumberInRange(int startInclusive, int endInclusive) {
         return Randoms.pickNumberInRange(startInclusive, endInclusive);
     }
 }
