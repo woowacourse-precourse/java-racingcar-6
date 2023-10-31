@@ -1,14 +1,12 @@
 package model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import utils.Generator;
 
 public class Cars {
 
     private final List<Car> cars;
-    private static final int MIN_RANDOM_NUMBER = 1;
-    private static final int MAX_RANDOM_NUMBER = 9;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -35,7 +33,7 @@ public class Cars {
 
     public void updateMovingCount(int minimumNumber) {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            int randomNumber = Generator.generateRandomNumber();
             car.increaseMovingCountIfGreater(minimumNumber, randomNumber);
         }
     }
@@ -47,7 +45,7 @@ public class Cars {
             stringBuilder.append(car.currentRacingStatus());
             stringBuilder.append("\n");
         }
-        
+
         return stringBuilder.toString();
     }
 }
