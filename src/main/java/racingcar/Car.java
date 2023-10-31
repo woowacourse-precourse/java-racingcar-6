@@ -1,16 +1,16 @@
 package racingcar;
 
 public class Car {
-    private final String carName;
+    private final String name;
     private int position;
 
-    public Car(String carName) {
-        this.carName = carName;
+    public Car(String name) {
+        this.name = name;
         this.position = 0;
     }
 
-    public String getCarName() {
-        return carName;
+    public String getName() {
+        return name;
     }
 
     public void plusMoveForward() {

@@ -19,7 +19,7 @@ public class GameService {
         for (int i = 0; i < car.getPosition(); i++) {
             moveCount.append(CAR_MOVEMENT_SYMBOL);
         }
-        System.out.println(car.getCarName() + CAR_NAME_FRAME + moveCount);
+        System.out.println(car.getName() + CAR_NAME_FRAME + moveCount);
     }
 
     public void moveForward(Car car) {
@@ -38,7 +38,7 @@ public class GameService {
         List<String> gameWinners = new ArrayList<>();
         for (Car carInfo : carInfos) {
             if (gameWinnerPosition == carInfo.getPosition()) {
-                gameWinners.add(carInfo.getCarName());
+                gameWinners.add(carInfo.getName());
             }
         }
         return gameWinners;

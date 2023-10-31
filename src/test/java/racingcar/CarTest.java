@@ -8,7 +8,7 @@ class CarTest {
     @Test
     void 자동차_생성_테스트() {
         Car car = new Car("pobi");
-        Assertions.assertThat(car.getCarName())
+        Assertions.assertThat(car.getName())
                 .isNotNull()
                 .isEqualTo("pobi");
     }
