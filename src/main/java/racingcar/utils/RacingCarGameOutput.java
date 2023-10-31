@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import static racingcar.Message.AlarmMessage.RESULT_HEADER_MESSAGE;
+
 import java.util.List;
 import racingcar.dto.RacingCar;
 
@@ -15,10 +17,12 @@ public class RacingCarGameOutput {
 
     public static void printWinnersMessage(List<RacingCar> winners) {
         StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자 : ");
+        sb.append(RESULT_HEADER_MESSAGE.getMessage());
+
         List<String> winnerNames = winners.stream().map(RacingCar::getName).toList();
-        String winnersString = String.join(", ",winnerNames);
+        String winnersString = String.join(", ", winnerNames);
         sb.append(winnersString);
+
         System.out.println(sb.toString());
     }
 }
