@@ -16,10 +16,7 @@ public class GameStart {
     public static void start() {
 
         Participant participant = new Participant(Split.byComma(Input.name()));
-
-        String roundStr = Input.round();
-        int num = InputCheck.round(roundStr);
-        Round round = new Round(num);
+        Round round = new Round(Input.round());
 
         Output.startResult();
         for (int i = 0; i < round.getRound(); i++) {
