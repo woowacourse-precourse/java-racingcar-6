@@ -41,8 +41,8 @@ public class CarController {
         carService.forward();
     }
 
-    public void getRoundRaceResults() {
-        outputView.printRoundRaceResults(carService.createRoundRaceResults());
+    public void getRoundRaceResult() {
+        outputView.printRoundRaceResult(carService.createRoundRaceResult());
     }
 
     public void getWinner() {

@@ -38,7 +38,7 @@ public class CarService {
         }
     }
 
-    public StringBuilder createRoundRaceResults() {
+    public StringBuilder createRoundRaceResult() {
         StringBuilder roundRaceResults = new StringBuilder();
         List<Car> cars = carRepository.getCars();
         for (Car car : cars) {

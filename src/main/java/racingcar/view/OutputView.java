@@ -9,7 +9,7 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE.getValue());
     }
 
-    public void printRoundRaceResults(StringBuilder roundRaceResult) {
+    public void printRoundRaceResult(StringBuilder roundRaceResult) {
         System.out.println(roundRaceResult);
     }
 
