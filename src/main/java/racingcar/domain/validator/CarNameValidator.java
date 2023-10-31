@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class CarNameValidator implements Consumer<String> {
     private static final String NOT_BLANK_NAME = "자동차 이름은 비어있을 수 없습니다";
     private static final String NO_WHITESPACE_AROUND_NAME = "자동차 이름 양 옆에 공백이 올 수 없습니다";
-    private static final Pattern WHITE_SPACE_AROUND_STRING = Pattern.compile("^\\s+|\\s+$");
+    private static final Pattern WHITE_SPACE_AROUND_STRING = Pattern.compile("(^\\s+)|(\\s+$)");
     private static final String INVALID_NAME_LENGTH_FORMAT = "자동차 이름은 %d자 이하여야 합니다";
     private static final int MAX_NAME_LENGTH = 5;
 
