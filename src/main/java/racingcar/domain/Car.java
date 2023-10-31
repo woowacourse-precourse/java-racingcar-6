@@ -40,9 +40,4 @@ public class Car {
         return progress;
     }
 
-    public String printProgressBar() {
-        String progressBar = ProgressBar.getMessage();
-        return progressBar.repeat(this.progress);
-    }
-
 }

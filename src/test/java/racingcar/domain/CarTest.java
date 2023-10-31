@@ -6,6 +6,7 @@ import static racingcar.domain.Car.createZeroProgressCar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.view.OutputView;
 
 class CarTest {
 
@@ -25,7 +26,8 @@ class CarTest {
     void printProgressBar() {
         Car car = createCar("car A", 4);
 
-        String progressBar = car.printProgressBar();
+        OutputView outputView = new OutputView();
+        String progressBar = outputView.printProgressBar(car.getProgress());
 
         assertEquals("----", progressBar);
     }

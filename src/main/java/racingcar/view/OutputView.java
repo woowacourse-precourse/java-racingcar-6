@@ -22,7 +22,7 @@ public class OutputView {
     public void printAttempResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
-            System.out.println(car.printProgressBar());
+            System.out.println(printProgressBar(car.getProgress()));
         }
         System.out.println();
     }
@@ -34,4 +34,8 @@ public class OutputView {
         System.out.println(String.join(", ", winnerNames));
     }
 
+    public String printProgressBar(int progress) {
+        String progressBar = ProgressBar.getMessage();
+        return progressBar.repeat(progress);
+    }
 }
