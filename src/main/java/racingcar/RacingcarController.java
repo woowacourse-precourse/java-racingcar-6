@@ -3,10 +3,13 @@ package racingcar;
 public class RacingcarController {
     Input input = new Input();
     Cars cars = new Cars();
+    Exception exception = new Exception();
 
     public void playRacingcarGame() {
         String carsName = inputCarsName();
-        addCars(splitCarsName(carsName));
+        String[] splitCarName = splitCarsName(carsName);
+        exception.validateNumberOfCarName(splitCarName);
+        addCars(splitCarName);
     }
 
     public String inputCarsName() {
