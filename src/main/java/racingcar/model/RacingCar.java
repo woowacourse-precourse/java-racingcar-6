@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.view.GameMessage;
+import racingcar.view.RacingGameMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +12,23 @@ public class RacingCar {
     private List<Boolean> racingCarMove;
     private int moveCount;
 
-    public RacingCar(final String racingCarName) {
-        this.racingCarName = racingCarName;
+    public RacingCar(final String carName) {
+        this.racingCarName = carName;
         this.racingCarMove= new ArrayList<>();
         this.moveCount = 0;
     }
 
-    public void isRacingCarMove(final int randomNumber) {
-        if (randomNumber > MOVE_LIMITS) {
+    public void move(final int movableNumber) {
+        if (movableNumber > MOVE_LIMITS) {
             this.racingCarMove.add(true);
             moveCount += 1;
         }
     }
 
-    public String makeGameResult() {
+    public String getRaceResult() {
         final String gameResult = this.racingCarMove.stream()
                 .filter(move -> move)
-                .map(move -> GameMessage.MOVE.getMoveMessage())
+                .map(move -> RacingGameMessage.MOVE.getMoveMessage())
                 .collect(Collectors.joining());
 
         return gameResult;
@@ -48,7 +48,7 @@ public class RacingCar {
 
     @Override
     public String toString() {
-        final String gameResult = makeGameResult();
+        final String gameResult = getRaceResult();
 
         return this.racingCarName + " : " + gameResult + "\n";
     }

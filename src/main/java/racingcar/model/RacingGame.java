@@ -1,25 +1,34 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.GameMessage;
+import racingcar.view.RacingGameMessage;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RacingGameService {
+public class RacingGame {
     private final int MIN_NUMBER = 0;
     private final int MAX_NUMBER = 9;
-    private List<RacingCar> racingCars;
+    private ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
 
-    public void readyToPlay(final List<String> carNames) {
+    private List<RacingCar> racingCars;
+    private int raceCount;
+
+    public void readyToCars(final String carNamesInputLine) {
+        List<String> carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
         this.racingCars = carNames.stream().map(RacingCar::new).toList();
+    }
+
+    public void readyToRace(final String raceCountInputLine) {
+        int raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
+        this.raceCount = raceCount;
     }
 
     public void race() {
         for (RacingCar car : this.racingCars) {
             final int movableNumber = this.generateMovableNumber();
-            car.isRacingCarMove(movableNumber);
+            car.move(movableNumber);
         }
     }
 
@@ -35,13 +44,13 @@ public class RacingGameService {
         return winners;
     }
 
-    public String allRacePlay(final int raceCount) {
+    public String allRacePlay() {
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < raceCount; i++) {
+        for (int i = 0; i < this.raceCount; i++) {
             this.race();
             result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining()))
-                    .append(GameMessage.NEWLINE.getNewLine());
+                    .append(RacingGameMessage.NEWLINE.getNewLine());
         }
 
         result.setLength(result.length() - 1);

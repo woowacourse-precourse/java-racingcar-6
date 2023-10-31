@@ -1,46 +1,41 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.RacingGameService;
+import racingcar.model.RacingGame;
 import racingcar.model.ValidatePlayerInput;
 import racingcar.view.RacingGameView;
-
-import java.util.List;
 
 public class RacingGameController {
     private RacingGameView racingGameView;
     private ValidatePlayerInput validatePlayerInput;
-    private RacingGameService racingGameService;
-    private List<String> carNames;
-    private int raceCount;
+    private RacingGame racingGame;
 
     public RacingGameController() {
         this.racingGameView = new RacingGameView();
         this.validatePlayerInput = new ValidatePlayerInput();
-        this.racingGameService = new RacingGameService();
+        this.racingGame = new RacingGame();
     }
 
-    public void validatePlayerInputLine() {
+    public void readyToPlay() {
         racingGameView.raceStartMessage();
         String carNamesInputLine = getInputLine();
 
-        this.carNames = validatePlayerInput.validateCarNames(carNamesInputLine);
+        racingGame.readyToCars(carNamesInputLine);
 
         racingGameView.raceCountMessage();
         String raceCountInputLine = getInputLine();
 
-        this.raceCount = validatePlayerInput.validateRaceCount(raceCountInputLine);
+        racingGame.readyToRace(raceCountInputLine);
     }
 
     public void play() {
-        racingGameService.readyToPlay(carNames);
 
         racingGameView.raceResultMessage();
 
-        String raceResult = racingGameService.allRacePlay(raceCount);
+        String raceResult = racingGame.allRacePlay();
         racingGameView.raceResults(raceResult);
 
-        String winners = racingGameService.getWinners();
+        String winners = racingGame.getWinners();
         racingGameView.gameWinners(winners);
     }
 

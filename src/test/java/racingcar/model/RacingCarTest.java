@@ -27,7 +27,7 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
         //given
         int randomNumber = 5;
-        racingCar.isRacingCarMove(randomNumber);
+        racingCar.move(randomNumber);
         //then
         List<Boolean> racingCarMove = racingCar.getRacingCarMove();
         assertThat(racingCarMove.get(0)).isEqualTo(true);
@@ -41,7 +41,7 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
         //given
         int randomNumber = 2;
-        racingCar.isRacingCarMove(randomNumber);
+        racingCar.move(randomNumber);
         //then
         List<Boolean> racingCarMove = racingCar.getRacingCarMove();
         assertThat(racingCarMove.isEmpty()).isEqualTo(true);
@@ -55,10 +55,10 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
         //given
         for (int randomNumber = 3; randomNumber < 8; randomNumber++) {
-            racingCar.isRacingCarMove(randomNumber);
+            racingCar.move(randomNumber);
         }
         //then
-        String gameResult = racingCar.makeGameResult();
+        String gameResult = racingCar.getRaceResult();
         assertThat(gameResult).isEqualTo("----");
     }
 
@@ -70,10 +70,10 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
         //given
         for (int randomNumber = 0; randomNumber < 4; randomNumber++) {
-            racingCar.isRacingCarMove(randomNumber);
+            racingCar.move(randomNumber);
         }
         //then
-        String gameResult = racingCar.makeGameResult();
+        String gameResult = racingCar.getRaceResult();
         assertThat(gameResult).isEqualTo("");
     }
 
@@ -85,7 +85,7 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar(carName);
         //given
         for (int randomNumber = 3; randomNumber < 8; randomNumber++) {
-            racingCar.isRacingCarMove(randomNumber);
+            racingCar.move(randomNumber);
         }
         //then
         String racingCartoString = "pobi : ----\n";
