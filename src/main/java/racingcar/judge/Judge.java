@@ -13,7 +13,7 @@ public class Judge {
                 maxLaps = laps;
                 winners = new StringBuilder(driverName);
             } else if (laps == maxLaps) {
-                winners.append(", ").append(driverName);
+                winners.append(",").append(driverName);
             }
         }
 
