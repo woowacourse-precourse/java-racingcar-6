@@ -25,7 +25,7 @@ public class RacingGame {
         return winners;
     }
 
-    public int getMaxLocation(List<Car> carList) {
+    private int getMaxLocation(List<Car> carList) {
         return carList.stream()
                 .max(Comparator.comparingInt(Car::getLocation))
                 .get().getLocation();
