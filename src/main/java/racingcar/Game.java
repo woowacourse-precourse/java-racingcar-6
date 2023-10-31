@@ -53,8 +53,7 @@ public class Game {
     private void moveAllCar() {
 
         for (Car car : cars) {
-            /// TODO : Car Move
-            System.out.println("Each Car Tries To Move");
+            car.tryMove();
         }
     }
 
