@@ -29,54 +29,36 @@ public class Application {
         outputWinner(racer);
     }
 
-    private static void outputWinner(Map<String, Integer> racer) {
 
-        Integer max = Collections.max(racer.values());
+    public static void inputRacerName(Map<String, Integer> racer) {
 
-        StringBuilder stringBuilder = new StringBuilder();
+        String input;
+        input = Console.readLine();
 
-        for (String runner : racer.keySet()) {
-            if (racer.get(runner).equals(max)) {
-                stringBuilder.append(runner);
-                stringBuilder.append(", ");
-            }
-        }
-
-        String winner = stringBuilder.substring(0, stringBuilder.length() - 2);
-
-        System.out.println("최종 우승자 : " + winner);
-    }
-
-    private static void outputCurrentRaceResult(Map<String, Integer> racer) {
-
-        for (String runner : racer.keySet()) {
-            String path = "-".repeat(racer.get(runner));
-            System.out.println(runner + " : " + path);
-        }
-        System.out.println();
-    }
-
-    private static void race(Map<String, Integer> racer) {
-
-        boolean runFlag;
-
-        for (String runner : racer.keySet()) {
-
-            runFlag = runCheck();
-
-            if (runFlag) {
-                racer.put(runner, racer.get(runner) + 1);
-            }
+        for (String name : input.split(",")) {
+            // 이름의 앞 뒤에 들어오는 공백은 지운다. -> 쉼표 이후 공백일 가능성이 존재하기 때문
+            nameValidetor(name.trim(), racer);
+            racer.put(name.trim(), 0);
         }
     }
 
-    private static boolean runCheck() {
 
-        int diceCount = Randoms.pickNumberInRange(0, 9);
-        return diceCount >= 4;
+    /**
+     * 이름이 양식에 맞게 들어왔는지, 중복된 이름이 들어왔는지 검사
+     */
+    public static void nameValidetor(String name, Map<String, Integer> racer) {
+
+        if (name.length() >= 5 || name.length() == 0) {
+            throw new IllegalArgumentException("이름은 5자 이하만 가능, 0자는 불가");
+        }
+
+        if (racer.get(name) != null) {
+            throw new IllegalArgumentException("중복된 이름이 들어옴");
+        }
     }
 
-    private static int inputRaceCount() {
+
+    public static int inputRaceCount() {
 
         String input;
         input = Console.readLine();
@@ -93,30 +75,53 @@ public class Application {
     }
 
 
-    private static void inputRacerName(Map<String, Integer> racer) {
+    public static void race(Map<String, Integer> racer) {
 
-        String input;
-        input = Console.readLine();
+        boolean runFlag;
 
-        for (String name : input.split(",")) {
-            // 이름의 앞 뒤에 들어오는 공백은 지운다. -> 쉼표 이후 공백일 가능성이 존재하기 때문
-            nameValidetor(name.trim(), racer);
-            racer.put(name.trim(), 0);
+        for (String runner : racer.keySet()) {
+
+            runFlag = runCheck();
+
+            if (runFlag) {
+                racer.put(runner, racer.get(runner) + 1);
+            }
         }
     }
 
 
-    /**
-     * 이름이 양식에 맞게 들어왔는지, 중복된 이름이 들어왔는지 검사
-     */
-    private static void nameValidetor(String name, Map<String, Integer> racer) {
+    public static boolean runCheck() {
 
-        if (name.length() >= 5 || name.length() == 0) {
-            throw new IllegalArgumentException("이름은 5자 이하만 가능, 0자는 불가");
+        int diceCount = Randoms.pickNumberInRange(0, 9);
+        return diceCount >= 4;
+    }
+
+
+    public static void outputCurrentRaceResult(Map<String, Integer> racer) {
+
+        for (String runner : racer.keySet()) {
+            String path = "-".repeat(racer.get(runner));
+            System.out.println(runner + " : " + path);
+        }
+        System.out.println();
+    }
+
+
+    public static void outputWinner(Map<String, Integer> racer) {
+
+        Integer max = Collections.max(racer.values());
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String runner : racer.keySet()) {
+            if (racer.get(runner).equals(max)) {
+                stringBuilder.append(runner);
+                stringBuilder.append(", ");
+            }
         }
 
-        if (racer.get(name) != null) {
-            throw new IllegalArgumentException("중복된 이름이 들어옴");
-        }
+        String winner = stringBuilder.substring(0, stringBuilder.length() - 2);
+
+        System.out.println("최종 우승자 : " + winner);
     }
 }
