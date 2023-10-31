@@ -29,6 +29,7 @@ public class Car {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
+        if (name.isBlank()) throw new IllegalArgumentException();
     }
 
     private boolean isMove(int movePoint) {
