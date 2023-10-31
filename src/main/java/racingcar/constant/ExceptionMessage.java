@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.constant;
 
 public enum ExceptionMessage {
 

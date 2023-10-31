@@ -1,14 +1,16 @@
 package racingcar.validation;
 
+import static racingcar.constant.NumberConstant.CAR_NAME_MAX_SIZE;
+import static racingcar.constant.NumberConstant.CAR_NAME_MIN_SIZE;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import racingcar.constant.ExceptionMessage;
 
 public class CarNameValidator {
 
-    private static final int CAR_NAME_MIN_SIZE = 1;
-    private static final int CAR_NAME_MAX_SIZE = 5;
     private static final Pattern CAR_NAME_TYPE_REGEX = Pattern.compile("^[0-9a-zA-Zㄱ-ㅎ가-힣]*$");
 
     public static void validateCarName(List<String> carNameList) {
@@ -27,7 +29,8 @@ public class CarNameValidator {
 
     private static boolean validateNameSize(List<String> carNameList) {
         return carNameList.stream()
-                .allMatch(carName -> CAR_NAME_MIN_SIZE <= carName.length() && carName.length() < CAR_NAME_MAX_SIZE);
+                .allMatch(carName -> CAR_NAME_MIN_SIZE.getMessage() <= carName.length()
+                        && carName.length() < CAR_NAME_MAX_SIZE.getMessage());
     }
 
     private static boolean validateNameDuplication(List<String> carNameList) {

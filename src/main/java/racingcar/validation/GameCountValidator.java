@@ -1,6 +1,7 @@
 package racingcar.validation;
 
 import java.util.regex.Pattern;
+import racingcar.constant.ExceptionMessage;
 
 public class GameCountValidator {
 

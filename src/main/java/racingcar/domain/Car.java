@@ -1,8 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.constant.NumberConstant.GAME_PROCEED_STANDARD;
+
 public class Car implements Comparable<Car> {
 
-    private static final int GAME_PROCEED_STANDARD = 4;
     private static final String GAME_PROCEED_CHAR = "-";
 
     private final String name;
@@ -24,7 +25,7 @@ public class Car implements Comparable<Car> {
     public void movePosition(int randomNumber) {
         int number = randomNumber;
 
-        if (number >= GAME_PROCEED_STANDARD) {
+        if (number >= GAME_PROCEED_STANDARD.getMessage()) {
             this.position++;
         }
     }
