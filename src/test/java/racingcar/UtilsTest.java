@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
 
 import racingcar.utils.Utils;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,8 @@ public class UtilsTest {
         int result2 = Utils.generateRandomNumber();
 
         //then
-        assertThat(result1 > case1 && result1 < case2);
-        assertThat(result2 > case1 && result2 < case2);
+        assertThat(result1 > case1 && result1 < case2).isTrue();
+        assertThat(result2 > case1 && result2 < case2).isTrue();
     }
 
     @Test
@@ -40,9 +41,9 @@ public class UtilsTest {
         int result3 = Utils.measureMaxNumInHashMapValues(case3);
 
         //then
-        assertThat(result1 == 5);
-        assertThat(result2 == 5);
-        assertThat(result3 == 0);
+        assertThat(result1 == 5).isTrue();
+        assertThat(result2 == 5).isTrue();
+        assertThat(result3 == 0).isTrue();
     }
 
     @Test
@@ -57,7 +58,7 @@ public class UtilsTest {
         String[] result2 = Utils.splitByComma(case2);
 
         //then
-        assertThat(Arrays.equals(result1,rightResult));
-        assertThat(!Arrays.equals(result2,rightResult));
+        assertThat(Arrays.equals(result1,rightResult)).isTrue();
+        assertThat(!Arrays.equals(result2,rightResult)).isTrue();
     }
 }
