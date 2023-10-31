@@ -14,4 +14,9 @@ public class Input {
         return split;
     }
 
+    public int input_count() {
+        int cnt = Integer.parseInt(Console.readLine());
+        return cnt;
+    }
+
 }
