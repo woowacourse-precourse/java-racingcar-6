@@ -1,4 +1,4 @@
-package racingcar.RandomNumberGenerator;
+package racingcar.util.RandomNumberGenerator;
 
 public interface GetRandomNumber {
     int GeneratorRandomNumber();
