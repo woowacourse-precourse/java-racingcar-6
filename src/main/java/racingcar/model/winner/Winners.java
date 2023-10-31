@@ -31,13 +31,13 @@ public class Winners {
     private CarRaceRecords getLastRecordsFrom(final RaceResult result) {
         return result.stream()
                 .reduce((first, second) -> second)
-                .orElseThrow(IllegalAccessError::new);
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     private int getMaxDistance(final CarRaceRecords records) {
         return records.stream()
                 .max(comparingInt(CarRaceRecord::distance))
-                .orElseThrow(IllegalAccessError::new)
+                .orElseThrow(IllegalArgumentException::new)
                 .distance();
     }
 
