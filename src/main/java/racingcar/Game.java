@@ -2,36 +2,38 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Game {
+    private static final int RANDOM_MIN = 0;
+    private static final int RANDOM_MAX = 9;
+    private static final int RANDOM_THRESHOLD = 4;
     static List<Car> racingCar;
 
-    public static void racingGame() {
-        racingCar = Car.carReset();
+    public static void run() {
+        racingCar = Car.initialize();
         int iterationNumber = User.stringToInteger();
         Car.checkLength(racingCar);
 
         for (int i = 0; i < iterationNumber; i++) {
-            printRacing(updateCarStats(racingCar));
+            printRacing(updateStatus(racingCar));
         }
         printWinner(findWinner(racingCar));
     }
 
     private static int randomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
     }
 
-    private static boolean checkNumber(int randomNumber) {
-        return randomNumber >= 4;
+    private static boolean checkRandomNumber(int randomNumber) {
+        return randomNumber >= RANDOM_THRESHOLD;
     }
 
-    private static List<Car> updateCarStats(List<Car> racingCar) {
+    private static List<Car> updateStatus(List<Car> racingCar) {
         for (Car car : racingCar) {
-            if (checkNumber(randomNumber())) {
-                int count = car.getCount();
-                car.setCount(count + 1);
+            if (checkRandomNumber(randomNumber())) {
+                int moveCount = car.getMoveCount();
+                car.setMoveCount(moveCount + 1);
             }
         }
         return racingCar;
@@ -39,7 +41,7 @@ public class Game {
 
     private static void printRacing(List<Car> racingCar) {
         for (Car car : racingCar) {
-            String dashes = "-".repeat(car.getCount());
+            String dashes = "-".repeat(car.getMoveCount());
             System.out.println(car + " : " + dashes);
         }
         System.out.println();
@@ -49,7 +51,7 @@ public class Game {
         int max = 0;
         List<String> winner = new ArrayList<>();
         for (Car car : racingCar) {
-            int value = car.getCount();
+            int value = car.getMoveCount();
             if (value > max) {
                 max = value;
                 winner.clear();

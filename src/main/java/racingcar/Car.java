@@ -4,28 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
+    private static final int MAX_CAR_NAME_LENGTH = 5;
     private String name;
-    private int count;
+    private int moveCount;
 
-    public Car(String name, int count) {
+    public Car(String name, int moveCount) {
         this.name = name;
-        this.count = count;
+        this.moveCount = moveCount;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getCount() {
-        return count;
+    public int getMoveCount() {
+        return moveCount;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 
-    public static List<Car> carReset() {
-        String[] carNames = User.splitInput(User.input());
+    public static List<Car> initialize() {
+        List<String> carNames = User.splitInput(User.input());
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName, 0);
@@ -37,7 +38,7 @@ public class Car {
     public static void checkLength(List<Car> carList) {
         for (Car car : carList) {
             String carName = car.getName();
-            if (carName.length() > 5) {
+            if (carName.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하로 작성해주세요.");
             }
         }
