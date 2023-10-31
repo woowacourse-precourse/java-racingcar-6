@@ -1,13 +1,24 @@
 package racingcar.controller;
 
+import racingcar.domain.car.Car;
+import racingcar.util.InputUtil;
 import racingcar.validator.CarNameValidator;
 import racingcar.validator.TryCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 import static java.lang.Integer.parseInt;
 
 public class GameController {
+
+    private static List<Car> generateCars(String carNames) {
+        return InputUtil.convertInputStringToList(carNames)
+                .stream()
+                .map(Car::new)
+                .toList();
+    }
 
     private static String readCarNames() {
         OutputView.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
