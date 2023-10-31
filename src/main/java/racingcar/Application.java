@@ -18,10 +18,10 @@ public class Application {
 
         while (i < count){
             for (String input : inputs) {
-                map.put(input, map.getOrDefault(input, 0));
+                map.put(input, map.getOrDefault(input, Number.MIN.getValue()));
                 int num = createRandom();;
 
-                if (num >= 4) {
+                if (num >= Number.RANDOM_VALUE.getValue()) {
                     if(map.containsKey(input)){
                         map.put(input, map.get(input)+1);
                     }
@@ -49,7 +49,7 @@ public class Application {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            System.exit(0);
+            System.exit(Number.MIN.getValue());
         }
 
         return name;
@@ -59,7 +59,7 @@ public class Application {
         boolean flag = true;
 
         for (String s : arr) {
-            if (s.length() > 5) {
+            if (s.length() > Number.NAME_LENGTH.getValue()) {
                 flag = false;
                 break;
             }
@@ -110,7 +110,7 @@ public class Application {
             num = Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            System.exit(0);
+            System.exit(Number.MIN.getValue());
         }
 
         return num;
@@ -132,13 +132,13 @@ public class Application {
         boolean flag = true;
         int result = Integer.parseInt(s);
 
-        if (result < 0) flag = false;
+        if (result < Number.MIN.getValue()) flag = false;
 
         return flag;
     }
 
     public static int createRandom(){
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(Number.MIN.getValue(), Number.MAX.getValue());
     }
 
     public static void print(Map<String, Integer> map) {
@@ -146,7 +146,7 @@ public class Application {
             String key = entry.getKey();
             int value = entry.getValue();
 
-            System.out.println(key + " : " + "-".repeat(Math.max(0, value)));
+            System.out.println(key + " : " + "-".repeat(Math.max(Number.MIN.getValue(), value)));
         }
         System.out.println();
     }
@@ -167,7 +167,7 @@ public class Application {
     public static void out(ArrayList<String> list){
         System.out.print("최종 우승자 : ");
 
-        if(list.size() >= 2){
+        if(list.size() >= Number.TWO.getValue()){
             for (String s : list) {
                 System.out.print(s + ", ");
             }
