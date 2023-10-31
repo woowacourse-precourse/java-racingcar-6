@@ -13,6 +13,7 @@ public class RacingController {
     private final OutputView outputView;
     private final RacingService racingService;
 
+
     public RacingController() {
         inputView = new InputView();
         outputView = new OutputView();
@@ -20,14 +21,31 @@ public class RacingController {
     }
 
     public void start() {
+        requestCarNames();
+        requestAttemptNumber();
+        race();
+        showWinner();
+    }
+
+    private void requestCarNames(){
         inputView.printRequestCarName();
-        List<String> carNames = racingService.saveCarNames(Console.readLine());
+        racingService.saveCarNames(Console.readLine());
+    }
+
+    private void requestAttemptNumber(){
         inputView.printRequestAttemptsNumber();
         racingService.saveAttemptNumber(Console.readLine());
+    }
+
+    private void race() {
         outputView.printRacingStartMessage();
+        List<String> carNames = racingService.getCarNamesList();
         while(racingService.isContinue()) {
             outputView.printRoundResult(carNames, racingService.race());
         }
-        outputView.printWinner(racingService.getWinners());
+    }
+
+    private void showWinner() {
+        outputView.printWinner(racingService.findWinners());
     }
 }
