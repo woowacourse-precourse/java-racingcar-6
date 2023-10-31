@@ -10,7 +10,7 @@ public class Constant {
     public static final int MINIMUM_TRY_COUNT = 1;
     public static final int MAXIMUM_TRY_COUNT = 100;
 
-    public static final String COMMA = ",";
+    public static final String CAR_NAMES_DELIMITER = ",";
     public static final String COLON = " : ";
     public static final String HYPHEN = "-";
 
