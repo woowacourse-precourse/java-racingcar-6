@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Racing {
 
@@ -15,15 +16,17 @@ public class Racing {
         this.winnerList = new ArrayList<>();
     }
 
-    public void trySeveral(List<Car> carList, int tryCount) {
+    public void playRacing() {
     }
 
-    public void tryOnce(List<Car> carList) {
+    private void tryOnce() {
+        playerList.stream()
+                .forEach(car -> car.move());
     }
 
-    public void printResult(List<Car> carList) {
+    private void printResult() {
     }
 
-    public void printWinner(List<Car> winnerList) {
+    public void printWinner() {
     }
 }
