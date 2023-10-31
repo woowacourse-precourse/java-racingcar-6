@@ -1,19 +1,19 @@
-package Presenter;
+package controller;
 
-import Model.GameManager;
-import Model.GameResult;
-import Model.UserInput;
+import model.GameManager;
+import model.GameResult;
+import model.UserInput;
 import view.InputView;
 import view.OutputView;
 
-public class Presenter {
+public class Controller {
 
-    private final static Presenter instance = new Presenter();
+    private final static Controller instance = new Controller();
 
-    private Presenter() {
+    private Controller() {
     }
 
-    public static Presenter getInstance() {
+    public static Controller getInstance() {
         return instance;
     }
 
