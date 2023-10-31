@@ -10,9 +10,8 @@ public class SettingGame {
 
     public String[] inputCar() {
         String input_carName = Console.readLine();
-        String[] carNameList = input_carName.split(",");
 
-        return carNameList;
+        return input_carName.split(",");
     }
 
     public HashMap<String, Integer> settingcar(String[] carNameList) {

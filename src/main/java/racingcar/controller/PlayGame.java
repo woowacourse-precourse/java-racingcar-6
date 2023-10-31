@@ -5,7 +5,6 @@ import racingcar.service.FindWinner;
 import racingcar.service.SettingGame;
 import racingcar.view.PrintInput;
 import racingcar.view.PrintOutput;
-import racingcar.view.PrintResult;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +28,6 @@ public class PlayGame {
 
         FindWinner win = new FindWinner();
         List<String> winner = win.findWinner(car_list);
-        PrintResult.printWinner(winner);
+        PrintOutput.printWinner(winner);
     }
 }
