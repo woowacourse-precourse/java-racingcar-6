@@ -4,7 +4,7 @@ import java.util.HashMap;
 import racingcar.model.Car;
 import racingcar.model.vo.CarName;
 
-public class CarRepository {
+public class InMemoryRepository {
 
     private static HashMap<CarName, Car> carHashMap = new HashMap<>();
 

@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.Car;
-import racingcar.model.repository.CarRepository;
+import racingcar.model.repository.InMemoryRepository;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
 import racingcar.validation.AttemptValidator;
@@ -14,14 +14,14 @@ public class RacingGameController {
 
     private CarNameMapper carNameMapper;
     private NameValidator nameValidator;
-    private CarRepository carRepository;
+    private InMemoryRepository inMemoryRepository;
     private AttemptValidator attemptValidator;
     private AttemptMapper attemptMapper;
 
     public RacingGameController() {
         this.carNameMapper = new CarNameMapper();
         this.nameValidator = new NameValidator();
-        this.carRepository = new CarRepository();
+        this.inMemoryRepository = new InMemoryRepository();
         this.attemptValidator = new AttemptValidator();
         this.attemptMapper = new AttemptMapper();
     }
@@ -35,7 +35,7 @@ public class RacingGameController {
         for (CarName name : carNameGroup) {
             nameValidator.validate(name);
             Car car = Car.make(name);
-            carRepository.save(name, car);
+            inMemoryRepository.save(name, car);
         }
     }
 
