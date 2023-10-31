@@ -15,13 +15,13 @@ public class GameController {
         userInput();
     }
 
-    public void userInput() {
+    private void userInput() {
         List<String> carNames = InputView.inputCarName();
         int numberOfAttempts = InputView.inputTryCount();
         carName(carNames, numberOfAttempts);
     }
 
-    public void printWinner(List<Car> cars, int numberOfAttempts) {
+    private void printWinner(List<Car> cars, int numberOfAttempts) {
         List<String> winners = determineWinners(cars);
         OutputView.printGameResult(cars, numberOfAttempts);
         OutputView.printWinners(winners);
