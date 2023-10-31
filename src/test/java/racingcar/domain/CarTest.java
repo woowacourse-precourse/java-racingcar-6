@@ -102,7 +102,7 @@ class CarTest {
     static class TestNumberGenerator implements NumberGenerator{
         private final List<Integer> numbers;
 
-        private TestNumberGenerator(List<Integer> numbers) {
+        public TestNumberGenerator(List<Integer> numbers) {
             this.numbers = numbers;
         }
 
