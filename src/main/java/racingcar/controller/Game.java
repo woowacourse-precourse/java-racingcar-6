@@ -19,9 +19,25 @@ public class Game {
        player.setAttemptNumber(inputView.askAttemptNumber());
     }
 
+    public void playGame(){
+        setCars();
+        for(int i = 0; i < player.getAttemptNumber(); i++){
+            moveCar();
+        }
+    }
+
     public void setCars(){
         player.getCarName()
                 .forEach(name -> cars.add(new Car(name)));
+    }
+
+    public void moveCar(){
+        for(Car car : cars){
+            if(canMove()){
+                car.setCarState();
+                car.setCarMovedResult();
+            }
+        }
     }
 
     public boolean canMove(){
