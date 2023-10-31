@@ -7,13 +7,13 @@ public class Validator {
 
     public void isNameValidated(String[] strings) {
         if (!isValidatedPlayerNum(strings)) {
-            throw new IllegalArgumentException("플레이어수");
+            throw new IllegalArgumentException("플레이어 수가 두 명 이상이어야 합니다.");
         }
         if (!isValidatedLength(strings)) {
-            throw new IllegalArgumentException("길이");
+            throw new IllegalArgumentException("5자를 넘어가는 자동차 이름이 존재합니다.");
         }
         if (!isValidatedDuplication(strings)) {
-            throw new IllegalArgumentException("중복");
+            throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다.");
         }
     }
 
@@ -23,7 +23,10 @@ public class Validator {
             number = Integer.parseInt(string);
         }
         catch (Exception e) {
-            throw new IllegalArgumentException("정수 아님");
+            throw new IllegalArgumentException("정수가 아닙니다.");
+        }
+        if (number < 0) {
+            throw new IllegalArgumentException("음의 정수는 입력될 수 없습니다.");
         }
     }
 
