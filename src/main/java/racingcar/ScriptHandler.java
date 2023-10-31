@@ -8,6 +8,9 @@ public class ScriptHandler {
     private static final String REQUIRE_ATTEMPT_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String PROGRESS_RESULT = "실행결과";
 
+    private Judgement judgement = new Judgement();
+    private int winnerNumber;
+
     public void printGetCarNameScript(){
         System.out.println(REQUIRE_CAR_NAME_MESSAGE);
     }
@@ -31,10 +34,11 @@ public class ScriptHandler {
     }
 
     public void printWinner(ArrayList<String> winnerList) {
-        if (winnerList.size() == 1) {
+        winnerNumber = judgement.checkWinnersNumber(winnerList);
+        if (winnerNumber == 1) {
             printSoloWinner(winnerList);
         }
-        if (winnerList.size() > 1) {
+        if (winnerNumber > 1) {
             printJointWinner(winnerList);
         }
     }

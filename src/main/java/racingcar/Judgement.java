@@ -28,6 +28,10 @@ public class Judgement {
         return winnerList;
     }
 
+    public int checkWinnersNumber(ArrayList<String> winnerList){
+        return winnerList.size();
+    }
+
     public int findFurthestMovement(ArrayList<Car> cars) {
         int max = -1;
         for (int i = 0; i < cars.size(); i++) {
