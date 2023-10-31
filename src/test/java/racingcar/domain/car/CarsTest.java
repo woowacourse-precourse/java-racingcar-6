@@ -81,7 +81,7 @@ class CarsTest {
         }
     }
 
-    @DisplayName("우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다")
+    @DisplayName("우승자가 여러 명일 경우 쉼표(,)로 구분된다")
     @Test
     void should_Determine_Final_Winners() {
         // given
