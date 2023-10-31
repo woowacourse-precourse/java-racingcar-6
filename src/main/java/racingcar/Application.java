@@ -46,9 +46,9 @@ public class Application {
             throw new IllegalArgumentException("자동차 이름은 최대 9개까지 설정 가능합니다.");
         }
         // 이름 중복의 경우
-        String[] overLap = Arrays.stream(racingCar).distinct().toArray(String[]::new);
-        if (overLap.length != racingCarCount) {
-            throw new IllegalArgumentException("자동차 이름이 중복되어 있습니다.");
+        String[] Duplicate = Arrays.stream(racingCar).distinct().toArray(String[]::new);
+        if (Duplicate.length != racingCarCount) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
 
         // 자동차가 전진을 시도하는 횟수 입력 받기
