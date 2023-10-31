@@ -7,7 +7,7 @@ public class Car {
     private int position;
 
     public Car(String name) {
-
+        isValid(name);
         this.name = name;
         this.position = START_POSITION;
     }
@@ -24,6 +24,7 @@ public class Car {
         checkNull(name);
         checkBlank(name);
         checkNameLength(name);
+        checkNameFormat(name);
     }
 
     private void checkNull(String name) {
@@ -41,6 +42,12 @@ public class Car {
     private void checkNameLength(String name) {
         if (name.trim().length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차 이름 글자 범위 초과");
+        }
+    }
+
+    private void checkNameFormat(String name) {
+        if (!name.matches("^[a-zA-Z0-9]+$")) {
+            throw new IllegalArgumentException("자동차 이름은 문자와 숫자만 가능");
         }
     }
 }
