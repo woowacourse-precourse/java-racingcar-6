@@ -21,16 +21,6 @@ class CarTest {
         assertThat(car).isNotNull();
     }
 
-    @DisplayName("Car가 한 번 움직일 때마다 position이 1씩 증가하는지 확인")
-    @Test
-    void should_Increment_Position_On_Move() {
-        // when
-        car.moveOnce();
-
-        // then
-        assertThat(car.getPosition()).isEqualTo(1);
-    }
-
     @DisplayName("CarMovementDto로 변환 시 유효한 데이터를 제공하는지 확인")
     @Test
     void should_Provide_Valid_CarMovementDto() {
@@ -40,6 +30,17 @@ class CarTest {
         // then
         assertThat(carMovementDto.carName().getName()).isEqualTo("benz");
         assertThat(carMovementDto.position()).isEqualTo(0);
+    }
+
+    @DisplayName("Car가 한 번 움직일 때마다 position이 1씩 증가하는지 확인")
+    @Test
+    void should_Increment_Position_On_Move() {
+        // when
+        car.moveOnce();
+        CarMovementDto carMovementDto = car.toCarMovementDto();
+
+        // then
+        assertThat(carMovementDto.position()).isEqualTo(1);
     }
 
     @DisplayName("CarName에서 자동차 이름 문자열을 가져올 수 있는지 확인")
@@ -56,11 +57,36 @@ class CarTest {
     @Test
     void should_Check_If_Car_Is_At_Given_Position() {
         // given
-        car.moveOnce();
+        Car audi = Car.from(CarName.from("audi"));
+        audi.moveOnce();
 
         // when
         // then
-        assertThat(car.isSameAs(0)).isFalse();
-        assertThat(car.isSameAs(1)).isTrue();
+        assertThat(car.isSameAs(audi)).isFalse();
+    }
+
+    @DisplayName("자동차가 주어진 maxPosition과 같은 postion에 있는지 확인")
+    @Test
+    void should_Check_If_Car_Is_At_Given_Position2() {
+        // given
+        Car audi = Car.from(CarName.from("audi"));
+
+        // when
+        // then
+        assertThat(car.isSameAs(audi)).isTrue();
+    }
+
+    @Test
+    @DisplayName("position에 따른 compareTo 메소드 검증")
+    public void should_Return_Correct_Comparison_Result() {
+        Car audi = Car.from(CarName.from("audi"));
+        audi.moveOnce();
+        assertThat(car.compareTo(audi)).isEqualTo(-1);
+
+        car.moveOnce();
+        assertThat(car.compareTo(audi)).isEqualTo(0);
+
+        car.moveOnce();
+        assertThat(car.compareTo(audi)).isEqualTo(1);
     }
 }
