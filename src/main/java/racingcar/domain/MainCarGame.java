@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.InputManager;
 import racingcar.Validator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,6 @@ public class MainCarGame {
             scorePrinter.printMidtermScore();
         }
         scorePrinter.printFinalScore();
-
     }
 
     private void setInput() { //+유효검사
