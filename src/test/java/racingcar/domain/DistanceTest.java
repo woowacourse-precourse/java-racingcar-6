@@ -32,4 +32,17 @@ class DistanceTest {
         assertThat(getDistance).isEqualTo(3);
     }
 
+    @DisplayName("자동차가 정상적으로 움직인다.")
+    @Test
+    void moveDistance() {
+        // given
+        Distance distance = new Distance(3);
+
+        // when
+        distance.moveDistance();
+
+        // then
+        assertThat(distance.getValue()).isEqualTo(4);
+    }
+
 }
