@@ -22,7 +22,7 @@ public class RacingCarGame {
     }
 
     public void run() {
-        inputNames();
+        inputNames(splitInputNames());
         inputTryLimit();
         System.out.println();
         System.out.println(race());
@@ -31,13 +31,20 @@ public class RacingCarGame {
         System.out.println(getWinnerNames());
     }
 
-    //private void inputNames(){
-    public void inputNames(){
+    //Test 코드를 작성하다가 역할이 2개인 메서드를 찾아 분리시킬 수 있게 되었다.
+    public String[] splitInputNames(){
+        String[] names;
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = Console.readLine();
-        String[] names = inputNames.split(",");
-        for(String name : names){
-            cars.add(new Car(name));
+        names = inputNames.split(",");
+        return names;
+    }
+    //private void inputNames(){
+    public void inputNames(String[] names){
+        if(names.length>0){
+            for(String name : names){
+                cars.add(new Car(name));
+            }
         }
     }
 
