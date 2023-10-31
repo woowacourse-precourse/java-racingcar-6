@@ -10,7 +10,7 @@ public enum ConstantNumbers {
 
     private final int number;
 
-    ConstantNumbers(int number) {
+    ConstantNumbers(final int number) {
         this.number = number;
     }
 

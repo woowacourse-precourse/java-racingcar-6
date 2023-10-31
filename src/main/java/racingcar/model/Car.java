@@ -26,7 +26,7 @@ public class Car implements Comparable<Car>, Model {
         return name;
     }
 
-    public boolean isDraw(Car other) {
+    public boolean isDraw(final Car other) {
         return this.moved == other.moved;
     }
 
@@ -40,7 +40,7 @@ public class Car implements Comparable<Car>, Model {
     }
 
     @Override
-    public int compareTo(Car other) {
+    public int compareTo(final Car other) {
         if (other.moved == this.moved) {
             return this.index - other.index;
         }

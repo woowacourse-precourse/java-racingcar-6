@@ -14,7 +14,7 @@ public enum ConstantMessage {
     NEXT_LINE("\n");
     private final String message;
 
-    ConstantMessage(String message) {
+    ConstantMessage(final String message) {
         this.message = message;
     }
 
