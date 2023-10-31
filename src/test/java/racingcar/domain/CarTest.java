@@ -5,18 +5,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import racingcar.common.strategy.MoveStrategy;
+import racingcar.common.strategy.RandomMoveStrategy;
 import racingcar.common.type.Names;
 
 public class CarTest {
     private List<Car> cars;
-    private MoveStrategy moveStrategy;
+    private RandomMoveStrategy randomMoveStrategy;
 
     @BeforeEach
     public void setUp() {
         Names names = Names.of(new String[]{"hyunjin", "pobi", "lefthand"});
         cars = Car.createCarList(names);
-        moveStrategy = Mockito.mock(MoveStrategy.class);
+        randomMoveStrategy = Mockito.mock(RandomMoveStrategy.class);
     }
 
     @Test
@@ -36,11 +36,11 @@ public class CarTest {
     @Test
     public void 이동_테스트() {
         //given
-        Mockito.when(moveStrategy.isMovable()).thenReturn(true);
+        Mockito.when(randomMoveStrategy.isMovable()).thenReturn(true);
 
         //when
         Car car = cars.get(0);
-        car.move(moveStrategy);
+        car.move(randomMoveStrategy);
 
         //then
         Assertions.assertEquals(1, car.getDistance());
@@ -49,11 +49,11 @@ public class CarTest {
     @Test
     public void 이동_불가능_테스트() {
         //given
-        Mockito.when(moveStrategy.isMovable()).thenReturn(false);
+        Mockito.when(randomMoveStrategy.isMovable()).thenReturn(false);
 
         //when
         Car car = cars.get(0);
-        car.move(moveStrategy);
+        car.move(randomMoveStrategy);
 
         //then
         Assertions.assertEquals(0, car.getDistance());
@@ -63,10 +63,10 @@ public class CarTest {
     public void 우승자와_점수가_같은_경우() {
         //given
         Car car = cars.get(0);
-        Mockito.when(moveStrategy.isMovable()).thenReturn(true);
+        Mockito.when(randomMoveStrategy.isMovable()).thenReturn(true);
 
         //when
-        car.move(moveStrategy);
+        car.move(randomMoveStrategy);
 
         //then
         Assertions.assertTrue(car.isWinner(1));
@@ -76,10 +76,10 @@ public class CarTest {
     public void 우승자와_점수보다_점수가_작은_경우() {
         //given
         Car car = cars.get(0);
-        Mockito.when(moveStrategy.isMovable()).thenReturn(false);
+        Mockito.when(randomMoveStrategy.isMovable()).thenReturn(false);
 
         //when
-        car.move(moveStrategy);
+        car.move(randomMoveStrategy);
 
         //then
         Assertions.assertFalse(car.isWinner(1));

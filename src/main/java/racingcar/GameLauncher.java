@@ -1,7 +1,10 @@
 package racingcar;
 
 import java.util.List;
+import racingcar.common.generator.NsRandomGenerator;
+import racingcar.common.generator.RandomGenerator;
 import racingcar.common.strategy.MoveStrategy;
+import racingcar.common.strategy.RandomMoveStrategy;
 import racingcar.common.type.Names;
 import racingcar.controller.Game;
 import racingcar.controller.Racing;
@@ -24,7 +27,10 @@ public class GameLauncher {
     private static Racing initializeRacingGame(InputDTO userInput) {
         //자동자 리스트 생성 및 움직임 전략 생성
         List<Car> carList = createCarList(userInput.getNames());
-        MoveStrategy moveStrategy = initializeMoveStrategy();
+
+        //랜덤 Generator 및 이동전략 DI
+        RandomGenerator randomGenerator = initializeRandomGenerator();
+        MoveStrategy moveStrategy = initializeMoveStrategy(randomGenerator);
 
         //도메인 객체(일급 컬렉션) 생성
         RacingCars racingCars = createRacingCars(carList, moveStrategy);
@@ -34,16 +40,20 @@ public class GameLauncher {
         return createRacing(racingCars, racingWinners);
     }
 
+    private static RandomGenerator initializeRandomGenerator() {
+        return NsRandomGenerator.of();
+    }
+
     private static List<Car> createCarList(Names names) {
         return Car.createCarList(names);
     }
 
-    private static MoveStrategy initializeMoveStrategy() {
-        return MoveStrategy.of();
+    private static MoveStrategy initializeMoveStrategy(RandomGenerator randomGenerator) {
+        return RandomMoveStrategy.of(randomGenerator);
     }
 
-    private static RacingCars createRacingCars(List<Car> carList, MoveStrategy moveStrategy) {
-        return RacingCars.of(carList, moveStrategy);
+    private static RacingCars createRacingCars(List<Car> carList, MoveStrategy randomMoveStrategy) {
+        return RacingCars.of(carList, randomMoveStrategy);
     }
 
     private static RacingWinners createRacingWinners(List<Car> carList) {
