@@ -26,6 +26,19 @@ class RaceServiceTest {
     }
 
     @Test
+    @DisplayName("동일한 싱글톤 인스턴스를 보장합니다.")
+    void sameSingletonInstance() {
+        // GIVEN
+        RaceService instance1 = RaceService.getInstance();
+
+        // WHEN
+        RaceService instance2 = RaceService.getInstance();
+
+        // THEN
+        assertEquals(instance1, instance2);
+    }
+
+    @Test
     @DisplayName("입력문자열을 검증하고, 입력으부터 자동차들을 생성합니다.")
     void getCarsFromInput() {
         // GIVEN
