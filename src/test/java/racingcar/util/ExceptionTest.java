@@ -29,4 +29,10 @@ public class ExceptionTest {
         assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput("a,a"))
                 .isInstanceOf(IllegalArgumentException.class));
     }
+
+    @Test
+    void 시도횟수_공백() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkNumberOfPlayCountInput(""))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
 }
