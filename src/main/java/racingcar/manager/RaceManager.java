@@ -12,7 +12,7 @@ public class RaceManager {
     private List<Car> cars;
     private int tryCount;
 
-    public RaceManager(List<Car> cars,CarService carService,InputManager inputManager,OutputManager outputManager) {
+    public RaceManager(List<Car> cars, CarService carService, InputManager inputManager, OutputManager outputManager) {
 
         this.cars = cars;
         this.carService = carService;
@@ -23,22 +23,24 @@ public class RaceManager {
 
     public void start() {
 
-        tryCount = inputManager.inputTryCount();
-
-        racing();
-
+        raceRepeatByTryCount();
         outputManager.printWinner();
     }
 
-    private void racing() {
+    private void raceRepeatByTryCount() {
+
+        tryCount = inputManager.inputTryCount();
 
         System.out.println("\n실행 결과");
-
         for (int raceCount = 0; raceCount < tryCount; raceCount++) {
-            for (Car car : cars) {
-                carService.ForwardOrStop(car);
-            }
-            outputManager.printInterResult();
+            race();
         }
+    }
+
+    private void race() {
+        for (Car car : cars) {
+            carService.ForwardOrStop(car);
+        }
+        outputManager.printInterResult();
     }
 }
