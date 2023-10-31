@@ -42,12 +42,13 @@ public class Utils {
         return carNames.split(",");
     }
 
-    public void convertStringToInt(String input) {
+    public int convertStringToInt(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NOT_NUMBER);
         }
+        return Integer.parseInt(input);
     }
 
     public void isPositiveNumber(int number) {
