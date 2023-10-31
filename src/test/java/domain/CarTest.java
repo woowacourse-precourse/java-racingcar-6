@@ -30,4 +30,10 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
+    @Test
+    void testDrive_드라이브_테스트() {
+        car.drive();
+        assertThat(car.getPosition()).isIn(0,1);
+    }
+
 }
