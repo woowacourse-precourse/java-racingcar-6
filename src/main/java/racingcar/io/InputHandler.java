@@ -1,8 +1,10 @@
 package racingcar.io;
 
 import static racingcar.constant.Constants.INPUT_SEPARATOR;
-import static racingcar.constant.Constants.MAX_CAR_NAME_LEN;
-import static racingcar.constant.Constants.MIN_CAR_NAME_LEN;
+import static racingcar.constant.ExceptionMessage.DUPLICATED_CAR_NAME;
+import static racingcar.constant.ExceptionMessage.INVALID_TRIAL_NUMBER;
+import static racingcar.constant.ExceptionMessage.LENGTH_OUT_OF_RANGE_CAR_NAME;
+import static racingcar.constant.ExceptionMessage.NOT_ALLOWED_WORDS_CAR_NAME;
 
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
@@ -27,21 +29,21 @@ public class InputHandler {
 
     private static void checkValidCarNames(String[] carNameGroup) {
         if (!StringManipulator.isValidLength(carNameGroup)) {
-            throw new IllegalArgumentException("자동차 이름의 길이는 " + MIN_CAR_NAME_LEN + "이상, " + MAX_CAR_NAME_LEN + "이하여야 합니다.");
+            throw new IllegalArgumentException(LENGTH_OUT_OF_RANGE_CAR_NAME);
         }
 
         if (StringManipulator.hasDuplicates(carNameGroup)) {
-            throw new IllegalArgumentException("중복된 이름을 입력하였습니다.");
+            throw new IllegalArgumentException(DUPLICATED_CAR_NAME);
         }
 
         if (!StringManipulator.isValidNames(carNameGroup)) {
-            throw new IllegalArgumentException("차 이름은 숫자, _, 영어, 한글만 입력 가능합니다.");
+            throw new IllegalArgumentException(NOT_ALLOWED_WORDS_CAR_NAME);
         }
     }
 
     private static void checkValidTryNumber(String trialNum) {
         if (!trialNum.matches("^[1-9][0-9]*$")) {
-            throw new IllegalArgumentException("시도 횟수는 1이상의 숫자만 입력해야 합니다.");
+            throw new IllegalArgumentException(INVALID_TRIAL_NUMBER);
         }
     }
 }
