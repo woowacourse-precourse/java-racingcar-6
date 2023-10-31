@@ -37,6 +37,7 @@ public class Controller {
     private void play(Long racingGameId) {
         RacingGame racingGame = racingGameService.findGameById(racingGameId);
         List<Long> carsIdList = racingGame.getCarsIdList();
+        OutPutView.printResultMessage();
         do {
             moveCarsForwardOrNotByRandomNumber(carsIdList);
             OutPutView.printScore(mapToCarRequestDtoList(carsIdList));
@@ -46,7 +47,6 @@ public class Controller {
     }
 
     private void printFinalWinner(Long racingGameId) {
-//        RacingGame racingGame = racingGameService.findGameById(racingGameId);
         List<Long> winners = racingGameService.getWinningCarsId(racingGameId);
         OutPutView.printFinalWinner(mapToCarWinnersDtoList(winners));
     }
