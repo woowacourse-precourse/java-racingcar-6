@@ -48,4 +48,12 @@ public class CreateCar {
         }
     }
 
+    public Map<String, Integer> racingStateMap(List<String> carNames) {
+        Map<String, Integer> stateMap = new HashMap<>();
+        for (String carName : carNames) {
+            stateMap.put(carName, 0);
+        }
+        return stateMap;
+    }
+
 }
