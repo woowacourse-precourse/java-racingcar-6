@@ -11,12 +11,15 @@ import java.util.Set;
 import racingcar.util.StringUtils;
 
 public class RacingGame {
+    private static final String INIT_TRY_NUMBER = "0";
+
     private final List<Car> cars;
+
     private GameTry gameTry;
 
     public RacingGame(String carNames) {
         this.cars = initCars(carNames);
-        this.gameTry = new GameTry("0");
+        this.gameTry = new GameTry(INIT_TRY_NUMBER);
     }
 
     public static List<Car> initCars(String carNames) {
