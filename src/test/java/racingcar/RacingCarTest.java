@@ -12,6 +12,8 @@ class RacingCarTest extends NsTest {
     Computer computer = new Computer();
     @Test
     void 이름_공백_무효_처리() {
+        String testName = "   pobi";
+        assertThat(computer.removeBlank(testName)).isEqualTo("pobi");
 
     }
 
