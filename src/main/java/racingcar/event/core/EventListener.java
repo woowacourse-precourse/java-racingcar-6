@@ -2,17 +2,17 @@ package racingcar.event.core;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
-import racingcar.data.DataStore;
+import racingcar.data.RacingCarRepository;
 
-public record EventListener(DataStore dataStore) {
+public record EventListener(RacingCarRepository racingCarRepository) {
 
     /**
      * 결과와 파라미터가 없는 이벤트
      *
      * @param eventConstructor
      */
-    public void listen(Function<DataStore, Event> eventConstructor) {
-        eventConstructor.apply(dataStore).execute();
+    public void listen(Function<RacingCarRepository, Event> eventConstructor) {
+        eventConstructor.apply(racingCarRepository).execute();
     }
 
 
@@ -23,8 +23,8 @@ public record EventListener(DataStore dataStore) {
      * @param <R>
      * @return
      */
-    public <R> R listenWithResult(Function<DataStore, ReturnEvent<R>> eventConstructor) {
-        return eventConstructor.apply(dataStore).execute();
+    public <R> R listenWithResult(Function<RacingCarRepository, ReturnEvent<R>> eventConstructor) {
+        return eventConstructor.apply(racingCarRepository).execute();
     }
 
     /**
@@ -34,8 +34,8 @@ public record EventListener(DataStore dataStore) {
      * @param <T>
      * @return
      */
-    public <T> Consumer<T> listenWithParameter(Function<DataStore, ParameterEvent<T>> eventConstructor) {
-        return (input) -> eventConstructor.apply(dataStore).execute(input);
+    public <T> Consumer<T> listenWithParameter(Function<RacingCarRepository, ParameterEvent<T>> eventConstructor) {
+        return (input) -> eventConstructor.apply(racingCarRepository).execute(input);
 
     }
 
@@ -47,8 +47,8 @@ public record EventListener(DataStore dataStore) {
      * @param <R>
      * @return
      */
-    public <T, R> Function<T, R> listenWithParameterAndResult(Function<DataStore, ParameterAndReturnEvent<T, R>> eventConstructor) {
-        return (input) -> eventConstructor.apply(dataStore).execute(input);
+    public <T, R> Function<T, R> listenWithParameterAndResult(Function<RacingCarRepository, ParameterAndReturnEvent<T, R>> eventConstructor) {
+        return (input) -> eventConstructor.apply(racingCarRepository).execute(input);
     }
 
 

@@ -3,7 +3,7 @@ package racingcar.data;
 import racingcar.domain.ExtractTrack;
 import racingcar.domain.Participants;
 
-public class DataStore {
+public class RacingCarRepository {
 
     private ExtractTrack extractTrack;
     private Participants participants;
