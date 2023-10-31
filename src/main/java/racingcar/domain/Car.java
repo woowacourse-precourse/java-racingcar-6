@@ -2,12 +2,10 @@ package racingcar.domain;
 
 public class Car {
     private String name;
-    private int tryCount;
     private int moveCount;
 
-    public Car(String name, int tryCount) {
+    public Car(String name) {
         this.name = name;
-        this.tryCount = tryCount;
         this.moveCount = 0;
     }
 

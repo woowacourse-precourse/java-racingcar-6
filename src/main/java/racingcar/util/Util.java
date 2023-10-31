@@ -2,7 +2,6 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
 
 public class Util {
     public static List<String> splitNameByComma(String names) {
