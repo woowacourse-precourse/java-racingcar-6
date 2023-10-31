@@ -8,7 +8,8 @@ public class Car {
     private static final int NAME_MIN_LENGTH = 1;
     private static final int NAME_MAX_LENGTH = 5;
 
-    private static final String INVALID_NAME_LENGTH_RANGE = "자동차 이름 길이는 1~5 입니다.";
+    private static final String INVALID_NAME_LENGTH_RANGE =
+            String.format("자동차 이름 길이는 %d~%d 입니다.", NAME_MIN_LENGTH, NAME_MAX_LENGTH);
 
     private String name;
     private int distance;

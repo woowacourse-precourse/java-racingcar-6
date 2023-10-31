@@ -3,7 +3,7 @@ package racingcar.model;
 public class TryCount {
 
     private static final int MIN_TRY_COUNT = 1;
-    private static final String INVALID_TRY_COUNT = "시도 횟수는 1 이상 입력해 주세요";
+    private static final String INVALID_TRY_COUNT = String.format("시도 횟수는 %d 이상 입력해 주세요", MIN_TRY_COUNT);
     private int tryCount;
 
     public TryCount(String tryCount) {
