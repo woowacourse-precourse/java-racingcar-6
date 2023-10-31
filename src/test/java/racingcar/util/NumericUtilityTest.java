@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.util;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.util.NumericUtility;
 
 class NumericUtilityTest {
 

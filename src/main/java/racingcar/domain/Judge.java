@@ -2,10 +2,9 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.InputHandler;
-import racingcar.NumericUtility;
-import racingcar.OutputHandler;
-import racingcar.Validator;
+import racingcar.util.InputHandler;
+import racingcar.util.NumericUtility;
+import racingcar.util.OutputHandler;
 
 public class Judge {
     private List<Car> cars;
