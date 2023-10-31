@@ -5,6 +5,8 @@ import java.util.List;
 
 public class RacingGame {
     private List<Car> cars = new ArrayList<>();
+    private int count;
+
 
     private boolean isMoveForward() {
         return CreateRandomNumber.getNumber() >= 4;
@@ -41,5 +43,17 @@ public class RacingGame {
                 car.move();
             }
         }
+    }
+
+    private void gameLogic() {
+        setCars(UserInput.inputNames());
+        count = UserInput.inputNumberOfGames();
+        System.out.println("\n실행 결과");
+        while (count > 0) {
+            moveCar();
+            Output.viewResultOfRound(cars);
+            count--;
+        }
+        Output.viewResultOfGame(judge(cars));
     }
 }
