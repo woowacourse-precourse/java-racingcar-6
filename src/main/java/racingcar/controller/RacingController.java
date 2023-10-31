@@ -11,6 +11,8 @@ import java.util.List;
 
 public class RacingController {
     RacingCars racingCars;
+    Exception exception = new Exception();
+
     int attempts = 0;
     int maxPosition = 0;
 
@@ -33,6 +35,8 @@ public class RacingController {
         InputView.inputCars();
         String inputCars = Console.readLine();
         carNames = List.of(inputCars.split(","));
+        exception.CarNameException(carNames);
+
         racingCars = new RacingCars(carNames);
     }
 
