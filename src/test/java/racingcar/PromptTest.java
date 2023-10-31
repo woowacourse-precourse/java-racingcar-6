@@ -2,17 +2,31 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class PromptTest {
 
+    private static ByteArrayOutputStream outputMessage;
+
+    @BeforeEach
+    void setUpStreams() {
+        outputMessage = new ByteArrayOutputStream(); // OutputStream 생성
+        System.setOut(new PrintStream(outputMessage)); // 생성한 OutputStream 으로 설정
+    }
 
     @AfterEach
     void afterEach() {
         Console.close();
+        System.setOut(System.out); // 원상복귀
     }
 
     @Test
@@ -63,5 +77,28 @@ class PromptTest {
         //then
         Assertions.assertThatThrownBy(() -> Prompt.readMaxTurn())
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @Test
+    @DisplayName("자동차의 현재 위치들을 출력한다.")
+    void printCarPositions() {
+        HashMap<String, Integer> cars = new HashMap<>();
+        cars.put("pobi", 1);
+        cars.put("woni", 2);
+
+        Prompt.printCarPositions(cars);
+        Assertions.assertThat(outputMessage.toString())
+                .contains("pobi : -", "woni : --");
+    }
+
+    @Test
+    @DisplayName("우승한 자동차 이름들을 출력한다.")
+    void printWinners() {
+        List<String> winners = Arrays.asList("pobi", "woni");
+
+        Prompt.printWinners(winners);
+        Assertions.assertThat(outputMessage.toString())
+                .isEqualTo("최종 우승자 : pobi, woni");
     }
 }
