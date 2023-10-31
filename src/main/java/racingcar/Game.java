@@ -47,6 +47,22 @@ public class Game {
         return new GameResult(history, winners);
     }
 
+    private List<CarSnapshot> determineWinners() {
+        int maxPosition = getMaxPosition();
+
+        return cars
+                .stream()
+                .filter(car -> car.isPosition(maxPosition))
+                .map(CarSnapshot::from)
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return cars
+                .stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
     }
 
     private void race() {

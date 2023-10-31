@@ -19,4 +19,8 @@ public class Car {
     public void move() {
         // TODO: 자동차 이동 기능 구현
     }
+
+    public boolean isPosition(int position) {
+        return this.position == position;
+    }
 }
