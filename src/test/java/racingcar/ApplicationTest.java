@@ -22,7 +22,6 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
-
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
@@ -31,8 +30,34 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 이름에_특수문자_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("$%,   ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_글자수_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("qeiruskldfjir,qsdfdfckvckjv", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 횟수_예외처리_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("김,지호", "qweqwe"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 }
