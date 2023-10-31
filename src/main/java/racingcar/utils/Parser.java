@@ -1,6 +1,6 @@
 package racingcar.utils;
 
-import static racingcar.global.constants.SymbolType.DELIMITER;
+import static racingcar.global.constants.SymbolType.CAR_NAME_DELIMITER;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +14,7 @@ public class Parser {
     }
 
     private static String[] split(String userInput) {
-        return userInput.split(DELIMITER.getSymbol());
+        return userInput.split(CAR_NAME_DELIMITER.getSymbol());
     }
 
     public static Integer parseStringToInteger(String userInput) {

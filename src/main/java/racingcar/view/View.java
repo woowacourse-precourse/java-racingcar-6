@@ -3,7 +3,7 @@ package racingcar.view;
 import static racingcar.global.constants.MessageType.CAR_NAMES_REQUEST_MESSAGE;
 import static racingcar.global.constants.MessageType.TOTAL_COUNT_REQUEST_MESSAGE;
 import static racingcar.global.constants.NumberType.MIN_RACE_COUNT;
-import static racingcar.global.constants.SymbolType.DELIMITER;
+import static racingcar.global.constants.SymbolType.CAR_NAME_DELIMITER;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.global.constants.MessageType;
@@ -59,11 +59,11 @@ public final class View {
         }
 
         private static boolean startWithDelimiter(final String names) {
-            return names.startsWith(DELIMITER.getSymbol());
+            return names.startsWith(CAR_NAME_DELIMITER.getSymbol());
         }
 
         private static boolean endsWithDelimiter(final String names) {
-            return names.endsWith(DELIMITER.getSymbol());
+            return names.endsWith(CAR_NAME_DELIMITER.getSymbol());
         }
 
         private static boolean hasContinuousDelimiters(final String names) {
@@ -71,7 +71,7 @@ public final class View {
         }
 
         private static String generateContinuousDelimiters() {
-            return DELIMITER.getSymbol().repeat(2);
+            return CAR_NAME_DELIMITER.getSymbol().repeat(2);
         }
 
         /* validate requestCount() */

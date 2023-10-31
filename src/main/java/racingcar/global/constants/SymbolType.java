@@ -1,7 +1,7 @@
 package racingcar.global.constants;
 
 public enum SymbolType {
-    DELIMITER(","),
+    CAR_NAME_DELIMITER(","),
     RESULT_POSITION("-"),
     RESULT_TOKEN(" : "),
     FINAL_RESULT_TOKEN(", ");
