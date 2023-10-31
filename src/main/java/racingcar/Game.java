@@ -8,26 +8,25 @@ import java.util.ArrayList;
 public class Game {
     GameException gameException = new GameException();
 
-    public void playGame() {
-
-        ArrayList<String> carName = InputCarName();
+    public void PlayGame() {
+        ArrayList<String> carNames = InputCarName();
         int round = InputRound();
 
         System.out.println("실행 결과");
-        RandomResult(carName, round);
+        PlayRound(carNames, round);
     }
 
     private ArrayList<String> InputCarName() {
-        ArrayList<String> carName = new ArrayList<>();
+        ArrayList<String> carNames = new ArrayList<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] inputName = Console.readLine().split(",");
 
         for (int i = 0; i < inputName.length; i++) {
-            carName.add(inputName[i]);
+            carNames.add(inputName[i]);
             gameException.NameCount(inputName[i]);
         }
-        return carName;
+        return carNames;
     }
 
     private int InputRound() {
@@ -39,20 +38,40 @@ public class Game {
         return inputRound;
     }
 
-    private void RandomResult(ArrayList<String> carName, int round) {
-        int minNumber = 0;
-        int maxNumber = 9;
+    private void PlayRound(ArrayList<String> carNames, int round) {
+        int carMax = carNames.size();
 
-        for (int i = 0; round >= i; i++) { //0depth
-            for (int j = 0; carName.size() > j; j++) { //1depth
-                int random = Randoms.pickNumberInRange(minNumber, maxNumber);
-                if (random >= 4) { //2depth
-                    System.out.println(carName.get(j) + ":");
-                } else {
-                    System.out.println(carName.get(j) + ":");
-                }
+        int[] counts = new int[carMax];
+
+        for (int i = 0; round >= i; i++) { //1depth
+            for (int j = 0; carMax > j; j++) { //2depth
+                counts[j] = GoCount(carNames, counts[j], j);
             }
             System.out.println("");
         }
+    }
+
+    private int GoCount(ArrayList<String> carNames, int count, int round) {
+        int minNumber = 0;
+        int maxNumber = 9;
+
+        int random = Randoms.pickNumberInRange(minNumber, maxNumber);
+        if (random >= 4) {
+            count++;
+            ResultText(carNames.get(round), count);
+        } else {
+            ResultText(carNames.get(round), count);
+        }
+
+        return count;
+    }
+
+    private void ResultText(String carName, int count) {
+        String result = "";
+
+        for (int i = 0; count > i; i++) {
+            result += "-";
+        }
+        System.out.println(carName + ":" + result);
     }
 }
