@@ -23,4 +23,13 @@ public class racingcarExceptionTest {
                     .isInstanceOf(IllegalArgumentException.class)
     );
   }
+
+  @Test
+  void 횟수로_받은_값이_int로_변환이_안될_경우_예외_처리() {
+    String input = "string";
+    assertSimpleTest(() ->
+            assertThatThrownBy(() -> modules.racingcarException.exception_not_int(input))
+                    .isInstanceOf(IllegalArgumentException.class)
+    );
+  }
 }
