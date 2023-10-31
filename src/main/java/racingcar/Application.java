@@ -164,6 +164,8 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        inputCarNames();
+        String[] carNames = inputCarNames();
+        Integer raceCount = inputRaceCount();
+        startRace(carNames, raceCount);
     }
 }
