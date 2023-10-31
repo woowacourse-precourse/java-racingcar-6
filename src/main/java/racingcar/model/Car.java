@@ -19,4 +19,8 @@ public class Car {
     public boolean checkRandomNumber() {
         return this.randomNumber >= 4;
     }
+
+    public void forward() {
+        this.forwardMovementState += "-";
+    }
 }
