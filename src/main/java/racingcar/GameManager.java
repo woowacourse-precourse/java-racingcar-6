@@ -15,6 +15,7 @@ public class GameManager {
         // TODO: 게임 진행
 
         Game game = initializeGame();
+        GameResult gameResult = game.play();
     }
 
     private Game initializeGame() {

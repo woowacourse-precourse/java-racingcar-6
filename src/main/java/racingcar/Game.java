@@ -10,4 +10,9 @@ public class Game {
         this.cars = cars;
         this.raceCount = raceCount;
     }
+
+    public GameResult play() {
+        // TODO: 게임 플레이 구현
+        return null;
+    }
 }
