@@ -24,7 +24,7 @@ class StadiumTest {
         try (MockedStatic<Randoms> randoms = mockStatic(Randoms.class)) {
             given(Randoms.pickNumberInRange(0, 9)).willReturn(5);
             stadium.startRace();
-            stadium.getUsers().stream()
+            stadium.getUsers()
                     .forEach(user -> {
                         assertThat(user.getProceedCount()).isEqualTo(gameCount);
                         assertThat(user.getOutputMessage()).contains(user.getName() + " : ");

@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.output.RacingOutputManager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -28,7 +30,7 @@ public class Stadium {
     private void setUsersProceedCount() {
         users.forEach(user -> {
             user.decideProceed();
-            System.out.println(user.getOutputMessage());
+            RacingOutputManager.of(user).output();
         });
         System.out.println();
     }
