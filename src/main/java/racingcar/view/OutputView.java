@@ -2,16 +2,17 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.model.ScoreDto;
 import racingcar.model.ScoreBoard;
+import racingcar.model.ScoreDto;
 
 public class OutputView {
     private static final String FINAL_WINNER = "최종 우승자";
     private static final String BEFORE_RACE_MESSAGE = "실행 결과";
     private static final String DISTANCE_DASH = "-";
-    private static final String FIELD_SEPARATOR = " : ";
+    private static final String FIELD_SEPARATOR = ":";
+    private static final String SPACE = " ";
     private static final String NEW_LINE = "\n";
-    private static final String COMMA = ", ";
+    private static final String COMMA = ",";
 
     public static void beforeRaceMessage() {
         printEmptyLine();
@@ -23,7 +24,7 @@ public class OutputView {
         for (int round = 1; round <= scoreBoard.getSize(); round++) {
             List<ScoreDto> score = scoreBoard.getScoreForRound(round);
             score.forEach(carDto -> stringBuilder.append(carDto.getName())
-                    .append(FIELD_SEPARATOR)
+                    .append(SPACE + FIELD_SEPARATOR + SPACE)
                     .append(DISTANCE_DASH.repeat(carDto.getDistance()))
                     .append(NEW_LINE));
             stringBuilder.append(NEW_LINE);
@@ -32,9 +33,9 @@ public class OutputView {
     }
 
     public static void showWinners(List<ScoreDto> winners) {
-        StringJoiner winnerNames = new StringJoiner(COMMA);
+        StringJoiner winnerNames = new StringJoiner(COMMA + SPACE);
         winners.forEach(carDto -> winnerNames.add(carDto.getName()));
-        System.out.println(FINAL_WINNER + FIELD_SEPARATOR + winnerNames);
+        System.out.println(FINAL_WINNER + SPACE + FIELD_SEPARATOR + SPACE + winnerNames);
     }
 
     private static void printEmptyLine() {
