@@ -12,6 +12,7 @@ import static racingcar.util.Constants.MOVE_FORWARD;
 import static racingcar.util.Constants.INIT;
 import static racingcar.util.VerificationMessage.IS_NOT_NUMBER;
 import static racingcar.util.VerificationMessage.NOT_ZERO;
+import static racingcar.util.VerificationMessage.NOT_NEGATIVE_NUMBER;
 
 public class User {
     private final int moveSize;
@@ -20,8 +21,15 @@ public class User {
         this.moveSize = moveSize(size);
     }
     public int moveSize(String size) {
-        if(!isNumber(size)) throw new IllegalArgumentException(IS_NOT_NUMBER);
+        if(!isNumber(size)) {
+            try {
+                if (isNegativeNumber(size)) throw new IllegalArgumentException(NOT_NEGATIVE_NUMBER);
+            }catch(NumberFormatException e) {
+                throw new IllegalArgumentException(IS_NOT_NUMBER);
+            }
+        }
         if(isZero(size)) throw new IllegalArgumentException(NOT_ZERO);
+
         return Integer.parseInt(size);
     }
     public boolean moveForward() {
@@ -37,6 +45,9 @@ public class User {
     }
     private boolean isZero(String size) {
         return Integer.parseInt(size) == INIT;
+    }
+    private boolean isNegativeNumber(String size) {
+        return Integer.parseInt(size) < INIT;
     }
     public int getMoveSize() {
         return this.moveSize;
