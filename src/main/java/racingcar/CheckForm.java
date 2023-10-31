@@ -17,9 +17,6 @@ public class CheckForm {
         if(runner.length()>5){
             throw new IllegalArgumentException("ERROR: 자동차의 이름은 5글자를 초과해서는 안됩니다.");
         }
-
     }
-
-
 
 }
