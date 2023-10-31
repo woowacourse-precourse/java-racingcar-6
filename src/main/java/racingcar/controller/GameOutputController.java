@@ -17,11 +17,7 @@ public class GameOutputController {
     public void startGame() {
         int round = 1;
         outputView.showResultLog();
-        while(round <= game.getChanceNumber()) {
-            game.running();
-            showResultOfRound();
-            round++;
-        }
+        isPlaying(round);
     }
 
     public void showResultOfRound() {
@@ -32,6 +28,14 @@ public class GameOutputController {
         Cars cars = game.getCars();
         ArrayList<String> winners = cars.findWinners();
         outputView.showWinners(winners);
+    }
+
+    private void isPlaying(int round) {
+        while(game.stillInPlaying(round)) {
+            game.running();
+            showResultOfRound();
+            round++;
+        }
     }
 
 }
