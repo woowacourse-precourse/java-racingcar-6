@@ -21,6 +21,7 @@ public class RacingGameView {
         inputCarNameMessage();
         String inputCarName = readLine();
 
+        ExceptionController.specialCharactersException(inputCarName);
         ExceptionController.stringBlankException(inputCarName);
 
         return inputCarName;

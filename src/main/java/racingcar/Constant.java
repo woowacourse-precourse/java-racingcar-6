@@ -10,6 +10,8 @@ public class Constant {
     public static final String COMMA = ",";
     public static final String COMMA_SPACE = ", ";
 
+    public static final int MAX_CRY_COUNT_SIZE = 1;
+    public static final int MIN_CAR_NAME_SIZE = 1;
     public static final int MAX_CAR_NAME_SIZE = 5;
 
     public static final int MIN_RANDOM_NUMBER_RANGE = 0;

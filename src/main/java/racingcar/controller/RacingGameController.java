@@ -11,9 +11,12 @@ import racingcar.Constant;
 
 public class RacingGameController {
 
-    public static String[] commaBasedSplitCarName(String carName) {
+    public static String[] commaBasedSplitCarName(final String carName) {
         String[] carNameArr = carName.split(Constant.COMMA);
+
+        ExceptionController.multiCommaException(carNameArr);
         ExceptionController.carNameMaxLengthException(carNameArr);
+
         return carNameArr;
     }
 
