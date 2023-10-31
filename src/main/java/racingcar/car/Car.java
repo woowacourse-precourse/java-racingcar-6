@@ -17,6 +17,10 @@ public abstract class Car {
         return name;
     }
 
+    public String getDistanceDriver(){
+        return distanceDriver;
+    }
+
     @Override
     public String toString() {
         return name + COLON +distanceDriver;
