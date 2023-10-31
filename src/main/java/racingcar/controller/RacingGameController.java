@@ -25,14 +25,12 @@ public class RacingGameController {
     public void run() {
         List<Car> cars = receiveCars();
         int tryCount = receiveTryCount();
-
         playCarRacing(cars, tryCount);
     }
 
     private List<Car> receiveCars() {
         outputView.printCarInputMessage();
         final List<String> carNames = inputView.askCarNames();
-
         List<Car> cars = convertToCars(carNames);
         return cars;
     }

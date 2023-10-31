@@ -10,6 +10,7 @@ public class Validator {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -19,6 +20,7 @@ public class Validator {
                 return false;
             }
         }
+
         return true;
     }
 }

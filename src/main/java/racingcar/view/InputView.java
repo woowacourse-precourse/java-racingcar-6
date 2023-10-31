@@ -11,7 +11,6 @@ public class InputView {
         Validator validator = new Validator();
         String names = Console.readLine();
         List<String> carNames = Arrays.asList(names.split(","));
-
         if (validator.isValidCarNames(carNames)) {
             return carNames;
         } else {

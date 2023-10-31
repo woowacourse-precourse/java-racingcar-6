@@ -12,6 +12,7 @@ public class Referee {
                 winners.add(car);
             }
         }
+
         return winners;
     }
 
@@ -22,6 +23,7 @@ public class Referee {
                 maxPosition = car.getPosition();
             }
         }
+
         return maxPosition;
     }
 }
