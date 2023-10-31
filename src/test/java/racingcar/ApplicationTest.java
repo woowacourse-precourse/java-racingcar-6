@@ -50,9 +50,25 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "3");
-                    assertThat(output()).contains("pobi : ---", "woni : ---", "최종 우승자 : pobi,woni");
+                    assertThat(output()).contains("pobi : ---", "woni : ---", "최종 우승자 : pobi, woni");
                 },
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @DisplayName("경기 실행결과 예시에 맞춘 테스트(공동우승)")
+    @Test
+    void 전진_정지_다회차_공동우승자_실행예시() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "5");
+                    assertThat(output()).contains("pobi : -----", "woni : ----", "jun : -----", "최종 우승자 : pobi, jun");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
