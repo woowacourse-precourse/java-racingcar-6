@@ -10,4 +10,9 @@ public class GameManager {
         this.inputManager = inputManager;
         this.outputManager = outputManager;
     }
+    
+    public void run() {
+        // TODO: 게임 진행
+    }
+
 }
