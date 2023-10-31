@@ -37,6 +37,14 @@ public final class Validation {
         }
     }
 
+    public static void validateIsDigit(String string) {
+        try {
+            Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void validateTryNumber(String inputString){
         if (stringToInt(inputString) < 0) {
             throw new IllegalArgumentException();
