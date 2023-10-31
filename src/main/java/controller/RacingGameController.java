@@ -24,6 +24,13 @@ public class RacingGameController {
 	public void startRace(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
 		RacingCar racingCar = new RacingCar(carNamesInput.getNames());
 		List<Car> cars = racingCar.getCars();
+		movePerRounds(tryCountInput, cars);
+	}
+
+	public void movePerRounds(TryCountInput tryCountInput, List<Car> cars) {
+		for (int count = 0; count < tryCountInput.getTryCount(); count++) {
+			moveForRound(cars);
+		}
 	}
 
 	public void moveForRound(List<Car> cars) {
