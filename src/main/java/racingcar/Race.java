@@ -43,20 +43,20 @@ public class Race {
         }
     }
 
-    public static String findWinners(List<Car> carList) {
+    public String findWinners(List<Car> carList) {
         int maxPositionLength = calculateMaxPositionLength(carList);
         List<String> winners = getWinningCarNames(carList, maxPositionLength);
         return String.join(", ", winners);
     }
 
-    public static int calculateMaxPositionLength(List<Car> carList) {
+    public int calculateMaxPositionLength(List<Car> carList) {
         return carList.stream()
                 .mapToInt(Car::getPositionLength)
                 .max()
                 .orElse(0);
     }
 
-    public static List<String> getWinningCarNames(List<Car> carList, int maxPositionLength) {
+    public List<String> getWinningCarNames(List<Car> carList, int maxPositionLength) {
         return carList.stream()
                 .filter(car -> car.isWinner(maxPositionLength))
                 .map(Car::getName)
