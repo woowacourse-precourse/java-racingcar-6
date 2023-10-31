@@ -6,11 +6,10 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.constant.Rule;
 import racingcar.constant.message.Message;
 import racingcar.dto.Result;
 import racingcar.service.Accelerator;
-import racingcar.service.NumberGenerator;
+import racingcar.service.GeneratorTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,40 +52,26 @@ class RacerTest {
     @ParameterizedTest(name = "{displayName}: racer: {0}, round: {1}")
     @MethodSource("MoveForwardParametersProvider")
     void checkMoveForward(String value, Integer round, String expected) {
-        Accelerator accelerator = new Accelerator(new MaxNumberGenerator());
+        Accelerator accelerator = new Accelerator(new GeneratorTest.MoveNumberGenerator());
         Racer racer = Racer.of(value);
         for (int i = 0; i < round; i++) {
             racer.play(accelerator);
         }
         Result result = racer.getResult();
         assertThat(result.toIntermediateResult()).contains(expected);
-    }
-
-    static class MaxNumberGenerator implements NumberGenerator {
-        @Override
-        public int generate() {
-            return Rule.MAX_POSSIBILITY;
-        }
     }
 
     @DisplayName("전진 하지 못하는 테스트")
     @ParameterizedTest(name = "{displayName}: racer: {0}, round: {1}")
     @MethodSource("CanNotMoveParametersProvider")
     void checkCanNotMove(String value, Integer round, String expected) {
-        Accelerator accelerator = new Accelerator(new MinNumberGenerator());
+        Accelerator accelerator = new Accelerator(new GeneratorTest.CanNotMoveNumberGenerator());
         Racer racer = Racer.of(value);
         for (int i = 0; i < round; i++) {
             racer.play(accelerator);
         }
         Result result = racer.getResult();
         assertThat(result.toIntermediateResult()).contains(expected);
-    }
-
-    static class MinNumberGenerator implements NumberGenerator {
-        @Override
-        public int generate() {
-            return Rule.MIN_POSSIBILITY;
-        }
     }
 
     static Stream<Arguments> MoveForwardParametersProvider() {
