@@ -3,14 +3,14 @@ package racingcar.application.racing.dto;
 import java.util.Map;
 
 public class RacingDto {
-    private Map<String, Integer> carMap;
+    private Map<String, String> carMap;
     private int gameCnt;
 
-    public void setRacingCar(Map<String, Integer> carMap) {
+    public void setRacingCar(Map<String, String> carMap) {
         this.carMap = carMap;
     }
 
-    public Map<String, Integer> getCarMap() {
+    public Map<String, String> getCarMap() {
         return this.carMap;
     }
 
