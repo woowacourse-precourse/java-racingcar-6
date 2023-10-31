@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Unchangeable {
     private String name;
     private int movement;
 

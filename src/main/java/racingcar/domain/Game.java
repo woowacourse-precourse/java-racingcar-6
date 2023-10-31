@@ -13,7 +13,7 @@ public class Game {
         cars.racing();
     }
 
-    public List<Car> giveResult() {
+    public List<Unchangeable> giveResult() {
         return cars.giveCopiedResult();
     }
 

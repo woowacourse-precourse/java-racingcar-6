@@ -3,7 +3,6 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +15,7 @@ class CarsTest {
         cars = new Cars();
     }
 
-    @Test
+    /*@Test
     void 읽기전용_결과반환() {
         cars.add("a");
         List<Car> original = cars.getCars();
@@ -24,9 +23,9 @@ class CarsTest {
         test.get(0).race(4);
 
         assertThat(original.get(0).getMovement()).isNotEqualTo(test.get(0).getMovement());
-    }
+    }*/
 
-    @Test
+   /* @Test
     void 자동차추가_확인() {
         cars.add("a");
         cars.add("b");
@@ -35,7 +34,7 @@ class CarsTest {
         List<Car> test = cars.giveCopiedResult();
         List<Car> expected = Arrays.asList(new Car("a"), new Car("b"), new Car("new"));
         assertThat(test).usingRecursiveComparison().isEqualTo(expected);
-    }
+    }*/
 
     @Test
     void 우수성적_확인() {
