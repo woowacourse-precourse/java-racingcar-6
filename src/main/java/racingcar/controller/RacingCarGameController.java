@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import racingcar.model.Player;
 import racingcar.view.RacingCarGameView;
@@ -53,8 +54,10 @@ public class RacingCarGameController {
     }
 
     public List<Player> judgeGame(List<Player> playerList) {
-        return playerList.stream().collect(Collectors.groupingBy(Player::getLocation, Collectors.toList()))
-                .values().stream().max(Comparator.comparingInt(List::size))
-                .orElse(List.of());
+
+        int winScore = playerList.stream().max(Comparator.comparingInt(Player::getLocation))
+                .orElseThrow().getLocation();
+
+        return playerList.stream().filter(player -> player.getLocation() == winScore).toList();
     }
 }
