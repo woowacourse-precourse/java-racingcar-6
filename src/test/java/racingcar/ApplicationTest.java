@@ -89,7 +89,7 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("각 자동차별 전진거리 누적시키며 결과출력하기")
     void moveCarForwardOrStop() {
-        car.moveCarForwardOrStop(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
+        car.moveCarForwardOrStopAndPrintMoving(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
     }
 
     @Override

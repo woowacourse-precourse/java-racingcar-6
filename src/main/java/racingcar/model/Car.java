@@ -27,7 +27,7 @@ public class Car {
         return false;
     }
 
-    public void moveCarForwardOrStop(List<String> carNameList) {
+    public void moveCarForwardOrStopAndPrintMoving(List<String> carNameList) {
         for (int i = 0; i < carNameList.size(); i++) {
             OutputView.printCarName(carNameList.get(i));
             if (isCarMoveForward()) {
