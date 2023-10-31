@@ -17,9 +17,9 @@ public class Application {
 
     private static void racingGame () {
         String carNames = inputCarNames();
-        int trialTimes = inputTrialTimes();
         List<String> carNameList = parseCarNamesToList(carNames);
         List<Integer> moveCountList = new ArrayList<>(Collections.nCopies(carNameList.size(), 0));
+        int trialTimes = inputTrialTimes();
 
         System.out.println("실행 결과");
         for (int i = 0; i < trialTimes; i++) {
@@ -42,9 +42,21 @@ public class Application {
     }
 
     private static List<String> parseCarNamesToList(String carNames) {
-        return Arrays.stream(carNames.split(","))
+        List<String> carNameList = Arrays.stream(carNames.split(","))
+                .filter(name -> name.length() <= 5)
                 .collect(Collectors.toList());
+
+        checkHasOverFiveChar(carNames, carNameList);
+
+        return carNameList;
     }
+
+    private static void checkHasOverFiveChar(String carNames, List<String> carNameList) {
+        if (carNameList.size() != carNames.split(",").length) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
 
     private static void moveForward(List<Integer> moveCountList) {
         for (int i = 0; i < moveCountList.size(); i++) {
