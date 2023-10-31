@@ -27,7 +27,12 @@ public class Racing {
         List<RacingMovement> randomMoves = new ArrayList<>();
 
         for (RacingCar car : cars.getCars()) {
-            RacingMovement move = RacingMovement.getRacingMovement(car);
+            RacingMovement move = new RacingMovement(car.getName());
+
+            if (move.isMovingForward()) {
+                car.moveForward();
+            }
+
             randomMoves.add(move);
         }
 
