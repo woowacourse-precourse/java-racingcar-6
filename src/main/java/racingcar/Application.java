@@ -14,16 +14,16 @@ public class Application {
         // 횟수 입력
         int count = inputCount();
 
-        int i=0;
+        int i = 0;
 
-        while (i < count){
+        while (i < count) {
             for (String input : inputs) {
                 map.put(input, map.getOrDefault(input, Number.MIN.getValue()));
-                int num = createRandom();;
+                int num = createRandom();
 
                 if (num >= Number.RANDOM_VALUE.getValue()) {
-                    if(map.containsKey(input)){
-                        map.put(input, map.get(input)+1);
+                    if (map.containsKey(input)) {
+                        map.put(input, map.get(input) + 1);
                     }
                 }
             }
@@ -137,12 +137,12 @@ public class Application {
         return flag;
     }
 
-    public static int createRandom(){
+    public static int createRandom() {
         return Randoms.pickNumberInRange(Number.MIN.getValue(), Number.MAX.getValue());
     }
 
     public static void print(Map<String, Integer> map) {
-        for(Map.Entry<String, Integer> entry : map.entrySet()){
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();
 
@@ -151,7 +151,7 @@ public class Application {
         System.out.println();
     }
 
-    public static void output(Map<String, Integer> map){
+    public static void output(Map<String, Integer> map) {
         ArrayList<String> list = new ArrayList<>();
         Comparator<Map.Entry<String, Integer>> comparator = new Comparator<Map.Entry<String, Integer>>() {
             @Override
@@ -164,16 +164,16 @@ public class Application {
         out(list);
     }
 
-    public static void out(ArrayList<String> list){
+    public static void out(ArrayList<String> list) {
         System.out.print("최종 우승자 : ");
 
-        if(list.size() >= Number.TWO.getValue()){
+        if (list.size() >= Number.TWO.getValue()) {
             for (String s : list) {
                 System.out.print(s + ", ");
             }
             System.out.println();
         } else if (list.size() == 1) {
-            for(String s : list){
+            for (String s : list) {
                 System.out.println(s);
             }
         }
