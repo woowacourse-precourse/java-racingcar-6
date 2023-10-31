@@ -40,7 +40,7 @@ public class Race {
 
     public String getStatusString() {
         return cars.stream()
-                .map(Car::toString)
+                .map(Car::getMovementString)
                 .collect(Collectors.joining("\n")) + "\n";
     }
 
