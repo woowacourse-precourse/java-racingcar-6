@@ -41,4 +41,8 @@ public class Game {
             throw new IllegalArgumentException("같은 이름의 자동차가 있습니다");
         }
     }
-}
+
+    public List<Car> getCars() {
+        return cars;
+    }
+ }
