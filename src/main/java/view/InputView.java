@@ -13,7 +13,7 @@ public class InputView {
         checingNullOrBlankException(namesWithComma);
 
         String[] names = namesWithComma.split(",");
-        checkingException(names);
+        checkingCarNameException(names);
 
         return names;
     }
@@ -23,7 +23,7 @@ public class InputView {
             throw new IllegalArgumentException();
     }
 
-    private static void checkingException(String[] names) {
+    private static void checkingCarNameException(String[] names) {
         Map<String,Integer> checkingNames = new HashMap<>();
 
         for(String s : names){
