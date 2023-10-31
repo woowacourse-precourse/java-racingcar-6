@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoundResults {
-    private List<String> results;
+    private final List<String> results;
 
     public RoundResults() {
         this.results = new ArrayList<>();
