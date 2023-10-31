@@ -16,46 +16,54 @@ public class CarsTest {
     static Stream<Arguments> provideCarsTestArguments() {
         return Stream.of(
                 arguments(List.of(
-                        setCar("test1", true),
-                        setCar("test2", false)
-                ))
+                        "pobi", "woni"), new FixedCarEngine(true)
+                )
         );
-    }
-
-    private static Car setCar(String carName, boolean engineCanMove) {
-        return new Car(new CarName(carName), new FixedCarEngine(engineCanMove));
     }
 
     @DisplayName("Cars를 생성한다.")
     @ParameterizedTest
     @MethodSource("provideCarsTestArguments")
-    void createTest(List<Car> cars) {
-        assertThatCode(() -> new Cars(cars))
+    void createTest(List<String> cars) {
+        assertThatCode(() -> Cars.from(cars, new FixedCarEngine(true)))
                 .doesNotThrowAnyException();
     }
 
-    @DisplayName("자동차들의 엔진에 시동을 걸어서 움직일 수 있으면 1칸 전진, 움직일 수 없으면 전진하지 않는다.")
+    @DisplayName("자동차들의 엔진에 시동을 걸어서 움직일 수 있으면 1칸 전진한다.")
     @ParameterizedTest
     @MethodSource("provideCarsTestArguments")
-    void moveTest(List<Car> inputCars) {
-        Cars cars = new Cars(inputCars);
+    void moveSuccessTest(List<String> inputCarNames) {
+        Cars cars = Cars.from(inputCarNames, new FixedCarEngine(true));
+        List<Car> beforeMoveCars = cars.getCars();
+        assertThat(beforeMoveCars.get(0).getPosition()).isEqualTo(0);
+        assertThat(beforeMoveCars.get(1).getPosition()).isEqualTo(0);
         cars.move();
-        List<Car> afterMoveCars = cars.getReadOnlyCarList();
-        Car afterMoveCar1 = afterMoveCars.get(0);
-        assertThat(afterMoveCar1.getPosition()).isEqualTo(1);
-        assertThat(afterMoveCar1.getCarName()).isEqualTo(inputCars.get(0).getCarName());
-        Car afterMoveCar2 = afterMoveCars.get(1);
-        assertThat(afterMoveCar2.getPosition()).isEqualTo(0);
-        assertThat(afterMoveCars.get(1).getCarName()).isEqualTo(inputCars.get(1).getCarName());
+        List<Car> afterMoveCars = cars.getCars();
+        assertThat(afterMoveCars.get(0).getPosition()).isEqualTo(1);
+        assertThat(afterMoveCars.get(1).getPosition()).isEqualTo(1);
+    }
+
+    @DisplayName("자동차들의 엔진에 시동을 걸어서 움직일 수 없으면 전진하지 않는다.")
+    @ParameterizedTest
+    @MethodSource("provideCarsTestArguments")
+    void moveFailTest(List<String> inputCarNames) {
+        Cars cars = Cars.from(inputCarNames, new FixedCarEngine(false));
+        List<Car> beforeMoveCars = cars.getCars();
+        assertThat(beforeMoveCars.get(0).getPosition()).isEqualTo(0);
+        assertThat(beforeMoveCars.get(1).getPosition()).isEqualTo(0);
+        cars.move();
+        List<Car> afterMoveCars = cars.getCars();
+        assertThat(afterMoveCars.get(0).getPosition()).isEqualTo(0);
+        assertThat(afterMoveCars.get(1).getPosition()).isEqualTo(0);
     }
 
     @DisplayName("사용자가 입력한 자동차 이름으로 자동차객체를 생성한다.")
     @ParameterizedTest
     @MethodSource("provideAssembleTestArguments")
     void assembleTest(List<String> inputNames, Cars expectedCars) {
-        Cars assembledCars = Cars.assemble(inputNames, new FixedCarEngine(true));
-        List<Car> assembledCarList = assembledCars.getReadOnlyCarList();
-        List<Car> expectedCarList = expectedCars.getReadOnlyCarList();
+        Cars assembledCars = Cars.from(inputNames, new FixedCarEngine(true));
+        List<Car> assembledCarList = assembledCars.getCars();
+        List<Car> expectedCarList = expectedCars.getCars();
         for (int i = 0; i < assembledCarList.size(); i++) {
             Car assembledCar = assembledCarList.get(i);
             Car expectedCar = expectedCarList.get(i);
@@ -68,20 +76,11 @@ public class CarsTest {
         return Stream.of(
                 arguments(
                         List.of("pobi", "woni", "jun"),
-                        new Cars(List.of(
-                                new Car(new CarName("pobi"), new FixedCarEngine(true)),
-                                new Car(new CarName("woni"), new FixedCarEngine(true)),
-                                new Car(new CarName("jun"), new FixedCarEngine(true))
-                        )),
+                        Cars.from(List.of("pobi", "woni", "jun"), new FixedCarEngine(true)),
                         List.of("pobi", "woni"),
-                        new Cars(List.of(
-                                new Car(new CarName("pobi"), new FixedCarEngine(true)),
-                                new Car(new CarName("woni"), new FixedCarEngine(true))
-                        )),
+                        Cars.from(List.of("pobi", "woni"), new FixedCarEngine(true)),
                         List.of("pobi"),
-                        new Cars(List.of(
-                                new Car(new CarName("pobi"), new FixedCarEngine(true))
-                        ))
+                        Cars.from(List.of("pobi"), new FixedCarEngine(true))
                 )
         );
     }
