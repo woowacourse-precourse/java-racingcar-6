@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.controller.dto.RacingResultResponse;
+import racingcar.model.dto.RacingResult;
 
 public class OutputView {
 
@@ -25,17 +25,16 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printResult(final RacingResultResponse result) {
-        System.out.print(result.getCarName() + COLON);
-        printPositionResult(result.getCarPosition());
+    public void printResult(final List<RacingResult> racingResult) {
+        racingResult.forEach(result -> {
+            System.out.print(result.getCarName() + COLON);
+            printPositionResult(result.getCarPosition());
+        });
+        System.out.println();
     }
 
     private void printPositionResult(final int count) {
         System.out.println(HYPHEN.repeat(count));
-    }
-
-    public void printNewLine() {
-        System.out.println();
     }
 
     public void printWinners(final List<String> winnerNames) {

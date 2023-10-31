@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.Collections;
 import java.util.List;
 import racingcar.exception.DuplicateCarNamesException;
+import racingcar.model.dto.RacingResult;
 import racingcar.util.NumberGenerator;
 
 public class Cars {
@@ -40,6 +41,12 @@ public class Cars {
 
     public void moveAll(final NumberGenerator generator) {
         cars.forEach(car -> car.move(generator));
+    }
+
+    public List<RacingResult> getRacingStatuses() {
+        return cars.stream()
+                .map(RacingResult::from)
+                .toList();
     }
 
     public List<String> getWinnerNames() {

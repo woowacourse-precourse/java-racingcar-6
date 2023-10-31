@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.controller.dto.RacingResultResponse;
 import racingcar.model.Cars;
 import racingcar.model.TryCount;
 import racingcar.util.Converter;
@@ -49,12 +48,6 @@ public class RacingController {
 
     private void race(final Cars cars, final NumberGenerator numberGenerator) {
         cars.moveAll(numberGenerator);
-        printCarsRaceResult(cars);
-    }
-
-    private void printCarsRaceResult(final Cars cars) {
-        cars.getCars()
-                .forEach(car -> outputView.printResult(RacingResultResponse.from(car)));
-        outputView.printNewLine();
+        outputView.printResult(cars.getRacingStatuses());
     }
 }
