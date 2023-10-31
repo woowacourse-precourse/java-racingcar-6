@@ -10,6 +10,10 @@ public class Name {
         this.name = name;
     }
 
+    public String getName(){
+        return name;
+    }
+
     private void validate(String name){
         validateIsNotEmpty(name);
         validateLength(name);
