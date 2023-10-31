@@ -29,7 +29,7 @@ class InputViewTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"foo,bar","foo, bar"})
+    @ValueSource(strings = {"foo,bar", "foo, bar", "       foo,bar       ", "foo       ,       bar"})
     void getCars_이름_입력_확인(String foobar) {
 
         BDDMockito.given(Console.readLine()).willReturn(foobar);
