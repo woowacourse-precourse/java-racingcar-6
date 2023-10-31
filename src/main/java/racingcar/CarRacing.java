@@ -41,8 +41,7 @@ public class CarRacing {
 
         System.out.println(RESULT_MESSAGE);
         getRacingResult();
-
-
+        printOutWinners();
     }
 
     public void requestCarNames() {
