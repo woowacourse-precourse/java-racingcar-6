@@ -16,17 +16,9 @@ public class RacingController {
     }
 
     public void play() {
-        try {
-            RacingGame racingGame = initRacingGame();
-            race(racingGame, inputGameTry());
-            OutputView.printWinners(new Winners(racingGame.getCars()));
-        } catch (IllegalArgumentException exception) {
-            outputView.printExceptionMessage(exception);
-        }
-    }
-
-    private static GameTry inputGameTry() {
-        return new GameTry(InputView.inputTryNumber());
+        RacingGame racingGame = initRacingGame();
+        race(racingGame, inputGameTry());
+        OutputView.printWinners(new Winners(racingGame.getCars()));
     }
 
     private static RacingGame initRacingGame() {
@@ -34,11 +26,16 @@ public class RacingController {
         return new RacingGame(carNames);
     }
 
+    private static GameTry inputGameTry() {
+        return new GameTry(InputView.inputTryNumber());
+    }
+
     private void race(RacingGame racingGame, GameTry targetGameTry) {
         OutputView.printMainMessage();
         while (racingGame.isContinue(targetGameTry.getGameTry())) {
             racingGame.race();
             OutputView.printCarsStatus(racingGame.getCars());
-        };
+        }
+        ;
     }
 }
