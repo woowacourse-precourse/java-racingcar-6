@@ -36,7 +36,7 @@ class CarTest {
 
         car.move(4);
 
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isOne();
     }
 
     @Test
@@ -46,7 +46,7 @@ class CarTest {
 
         car.move(3);
 
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPosition()).isZero();
     }
 
     @Test

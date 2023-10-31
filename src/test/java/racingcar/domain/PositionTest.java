@@ -14,7 +14,7 @@ class PositionTest {
 
         position.moveForward();
 
-        assertThat(position.getPosition()).isEqualTo(1);
+        assertThat(position.getPosition()).isOne();
     }
 
 }
