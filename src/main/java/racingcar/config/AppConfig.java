@@ -1,6 +1,7 @@
 package racingcar.config;
 
 import racingcar.controller.GameController;
+import racingcar.repository.CarRepository;
 import racingcar.service.GameService;
 import racingcar.util.ConsoleInputUtil;
 import racingcar.util.GameConsoleInputUtil;
@@ -13,7 +14,8 @@ public class AppConfig {
         ConsoleInputUtil consoleInputUtil = consoleInputUtil();
         InputView inputView = inputView(consoleInputUtil);
         OutputView outputView = outputView();
-        GameService gameService = gameService();
+        CarRepository carRepository = new CarRepository();
+        GameService gameService = gameService(carRepository);
 
         return gameController(inputView, outputView, gameService);
     }
@@ -30,8 +32,12 @@ public class AppConfig {
         return new OutputView();
     }
 
-    private GameService gameService() {
-        return new GameService();
+    private CarRepository carRepository() {
+        return new CarRepository();
+    }
+
+    private GameService gameService(CarRepository carRepository) {
+        return new GameService(carRepository);
     }
 
     private GameController gameController(InputView inputView, OutputView outputView, GameService gameService) {
