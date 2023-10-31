@@ -14,7 +14,8 @@ public class Race {
         this.rounds = rounds;
     }
 
-    public Race() {}
+    public Race() {
+    }
 
     public List<Car> getCars() {
         return cars;
