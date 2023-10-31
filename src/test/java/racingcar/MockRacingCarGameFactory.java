@@ -33,6 +33,6 @@ public class MockRacingCarGameFactory implements RacingCarGameFactory {
 
     @Override
     public TimeSleepStrategy timeSleepStrategy() {
-        return OneSecondSleepStrategy.getInstance();
+        return MockTimeSleepStrategy.getInstance();
     }
 }
