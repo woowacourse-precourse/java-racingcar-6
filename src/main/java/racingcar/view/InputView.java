@@ -17,4 +17,13 @@ public class InputView {
         names.forEach(name -> Validator.validateLength(name, 5));
         return names;
     }
+
+    public static int readMoveCount() {
+        String moveCountInput = Console.readLine();
+        Validator.validateBlack(moveCountInput);
+        int moveCount = Validator.validateInteger(moveCountInput);
+        Validator.validateLargeThanParam2(moveCount, 1);
+
+        return moveCount;
+    }
 }

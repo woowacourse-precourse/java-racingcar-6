@@ -6,10 +6,10 @@
   - [X] 자동차 이름은 5자 이하만 가능하다.
     - [X] 자동차 이름이 5자 초과면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
 
-- [ ] 사용자는 몇 번의 이동을 할 것인지 입력한다.
-    - [ ] 빈 값이 입력되면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
-    - [ ] 숫자 이외의 값이 입력되면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
-    - [ ] 1 미만의 숫자 값이 입력되면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
+- [X] 사용자는 몇 번의 이동을 할 것인지 입력한다.
+    - [X] 빈 값이 입력되면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
+    - [X] 숫자 이외의 값이 입력되면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
+    - [X] 1 미만의 숫자 값이 입력되면 `IllegalArgumentException` 을 발생시킨 후 애플리케이션은 종료된다.
 
 - [ ] 각 자동차는 이름을 가지고 있다.
 - [ ] 각 자동차는 이동한 횟수를 가지고 있다.
