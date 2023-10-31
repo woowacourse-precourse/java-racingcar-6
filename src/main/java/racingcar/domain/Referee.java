@@ -42,6 +42,22 @@ public class Referee{
           this.maxDistance = player.getDistance();
   }
 
+  public void printWinner() {
+    List<String> members = new ArrayList<>();
+
+    for (Racer player : group)
+      addMaxPlayer(members, player);
+
+    String result = String.join(", ", members);
+    System.out.println(result);
+  }
+
+  public void addMaxPlayer(List<String> members, Racer player) { // 해당 player가 최대 전진거리 일 경우 우승자에 추가함
+    if (player.getDistance() >= this.maxDistance)
+      members.add(player.getName());
+  }
+
+
     public void run() {
 
     }
