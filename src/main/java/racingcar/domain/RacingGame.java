@@ -46,7 +46,5 @@ public class RacingGame {
             }
             System.out.println("");
         }
-
     }
-
 }

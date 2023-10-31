@@ -1,11 +1,8 @@
 package racingcar.view.Input;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
-import racingcar.view.Input.InputParser;
-import racingcar.view.Input.InputValidator;
-
 import java.util.List;
+import racingcar.domain.Car;
 
 /* 자동차 입력 받는 클래스
 *  입력만 받기

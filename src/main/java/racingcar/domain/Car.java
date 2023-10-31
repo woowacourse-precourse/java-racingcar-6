@@ -10,19 +10,19 @@ import java.util.Map;
 * */
 public class Car {
     public String carName;
-    public int location;
+    public int location; // static으로 하니까 모든 car 객체들의 location++ 합쳐짐
 
     public Car(String carName) {
         this.carName = carName;
         this.location = 0;
     }
 
-    // 전진 기능
+    // 전진 기능 -- > go 처럼 직관적인 이름도  괜찮을 듯
     public void forward() {
         this.location++;
     }
 
-    // 후진 기능
+    // 후진 기능 --> 필요 없을 듯
     public void backward() {
         this.location--;
     }
