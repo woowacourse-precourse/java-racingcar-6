@@ -9,18 +9,21 @@ public class OutputView {
     private static final String FINAL_WINNERS = "최종 우승자 : ";
     private static final String COMMA = ", ";
     private static final String COLON = " : ";
+    private static final String CAR_NAMES_INPUT_CALL_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String TRIALS_INPUT_CALL_MESSAGE = "시도할 회수는 몇회인가요?";
+    private static final String EXECUTION_RESULT_TEXT = "실행 결과";
 
     public void printRaceStartingMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAMES_INPUT_CALL_MESSAGE);
     }
 
     public void printGetTrialsMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(TRIALS_INPUT_CALL_MESSAGE);
     }
 
     public void printRacingResult() {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(EXECUTION_RESULT_TEXT);
     }
 
     public void printEachTrialResult(List<Car> cars) {
