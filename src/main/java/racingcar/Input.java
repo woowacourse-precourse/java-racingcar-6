@@ -19,4 +19,9 @@ public class Input {
         }
         return nameList;
     }
+
+    public int getTryCount(String input){
+        validation.checkNumber(input);
+        return Integer.parseInt(input);
+    }
 }
