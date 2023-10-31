@@ -4,14 +4,14 @@
 
 ### 입력
 
-- [ ] 자동차 이름을 입력받는다. - Game#inputCarNames()
+- [ ] 자동차 이름을 입력받는다. - UserInputHandler#inputCarNames()
   - [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - String#trim()
 - [ ] 문자열 리스트 만큼 자동차를 만들 수 있다. - Game#createCars()
 - [ ] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
   - [ ] 이름이 5자가 넘으면 프로그램 종료 - ExceptionInput#checkName()   
 <br>
 
-- [ ] 레이싱 시도 횟수를 입력받는다. - Game#InputRacingNumber()
+- [ ] 레이싱 시도 횟수를 입력받는다. - UserInputHandler#InputRacingNumber()
   - [ ] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다. - Game#setPlay()
 <br>
 
@@ -28,13 +28,13 @@
 
 <br>
 
-- [ ] 숫자 리스트에서 가장 높은 수의 인덱스 번호 리스트(중복 고려)를 알 수 있다. - Game#getMaxForwaldCarsIndex()
+- [ ] 숫자 리스트에서 가장 높은 수의 자동차 이름 리스트(중복 고려)를 알 수 있다. - Cars#getMaxForwardCarNames()
 
 <br>
 
 ### 출력
 
-- [ ] 각 자동차의 경주 결과를 출력한다. - Car#printRacingResult()
+- [ ] 각 자동차의 경주 결과를 출력한다. - Cars#printRacingResult()
 - [ ] 문자열 리스트를 쉼표(,)를 이용하여 출력한다. - Game#printGameResult()
 
 <br>
