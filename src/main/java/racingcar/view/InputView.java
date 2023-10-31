@@ -16,4 +16,10 @@ public class InputView {
         inputValidate.validateNames(input);
         return input;
     }
+
+    public String readTrialNum() {
+        String input = Console.readLine().trim();
+        inputValidate.validateTrialNum(input);
+        return input;
+    }
 }
