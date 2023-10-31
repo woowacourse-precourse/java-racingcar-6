@@ -9,6 +9,7 @@ public class InputHandler {
     private static final String COMMA = ",";
     private static final String BLANK = " ";
     private static int MAX_LENGTH = 5;
+    private static final String NUMBER = "[0-9]";
     public String userInput() {
         return Console.readLine();
     }
@@ -40,6 +41,18 @@ public class InputHandler {
             throw new IllegalArgumentException();
         }
         else if (hasDuplicates(target)) {   // 중복 입력
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void validateTrialCount(String target) {
+        if (target.isEmpty()) { // 입력값 부재
+            throw new IllegalArgumentException();
+        }
+        else if (target.contains("^"+NUMBER)) { // 숫자가 아닌 문자 포함
+            throw new IllegalArgumentException();
+        }
+        else if (target.charAt(0) == '0') { // 0으로 시작
             throw new IllegalArgumentException();
         }
     }
