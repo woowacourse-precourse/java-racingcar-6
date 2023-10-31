@@ -3,7 +3,7 @@ package racingcar.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TrialCountValidator {
+public final class TrialCountValidator {
 
     private static final String POSITIVE_NUMBER_REGEX = "^[1-9]+[0-9]*$";
     private static final String POSITIVE_NUMBER_ERROR_MESSAGE = "양수가 아닙니다.";
