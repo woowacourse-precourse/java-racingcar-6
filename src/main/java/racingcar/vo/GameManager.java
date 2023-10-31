@@ -13,6 +13,7 @@ public class GameManager {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private List<Car> cars = new ArrayList<>();
     private String input = "";
+    private Integer times = 0;
 
     public void setGame() {
 
@@ -21,7 +22,7 @@ public class GameManager {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         input();
 
-        names = List.of(input.split(","));
+        names = List.of(this.input.split(","));
         setCarName(names);
 
 
@@ -41,32 +42,34 @@ public class GameManager {
 
     }
 
-    private Integer setTimes() {
+    private void setTimes() {
 
-        return Integer.parseInt(input);
+        this.times = Integer.parseInt(this.input);
 
     }
 
     private void input() {
+
         try {
 
-            input = br.readLine();
+            this.input = br.readLine();
 
         } catch (Exception e) {
 
-            new IllegalArgumentException(RacingCarError.NOT_VALID_INPUT.getMsg());
+            throw new IllegalArgumentException(RacingCarError.NOT_VALID_INPUT.getMsg());
 
         }
+
     }
 
 
-    public void playGame(Integer times) {
+    public void playGame() {
 
-        for (int i = 0; i < times; i++) {
+        for (int i = 0; i < this.times; i++) {
 
             for (int j = 0; j < this.cars.size(); j++) {
 
-                cars.get(j).choiceActive();
+                this.cars.get(j).choiceActive();
 
             }
 
@@ -74,4 +77,31 @@ public class GameManager {
 
     }
 
+    public void announcementWinner() {
+
+        StringBuilder sb = new StringBuilder();
+
+        cars.sort(Comparator.comparing(Car::getPositionLength));
+
+        sb.append("최종 우승자 : " + cars.get(cars.size() - 1).getName());
+
+        for (int i = cars.size() - 1; i >= 0; i--) {
+
+            Car nowCar = cars.get(i);
+            Car prevCar = cars.get(i - 1);
+
+            if (nowCar.getPositionLength() == prevCar.getPositionLength()) {
+
+                sb.append(", " + prevCar.getName());
+
+            } else {
+
+                break;
+
+            }
+
+        }
+
+        System.out.println(sb.toString());
+    }
 }

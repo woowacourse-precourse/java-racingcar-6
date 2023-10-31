@@ -11,19 +11,25 @@ public class Car {
 
     private final StringBuilder position = new StringBuilder();
 
-    public Car(String name){
+    public Car(String name) {
 
         validCarName(name);
         this.name = name;
 
     }
+
     public Integer getPositionLength() {
         return position.length();
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void validCarName(String name) {
-        if (name.isEmpty() || name.isBlank() || name.length() < 6) {
-            new IllegalArgumentException(RacingCarError.NOT_VALID_NAME.getMsg());
+        if (name.isEmpty() || name.isBlank() || name.length() > 5) {
+
+            throw new IllegalArgumentException(RacingCarError.NOT_VALID_NAME.getMsg());
 
         }
     }
