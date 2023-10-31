@@ -63,7 +63,6 @@ class CarsTest {
         assertEquals(0, thirdCar.getPosition());
     }
 
-
     @Test
     void 각_자동차의_최대_위치를_계산해서_리스트에_넣고_리스트에_포함되어_있으면_true를_반환한다() {
         firstCar.movePosition(4);
