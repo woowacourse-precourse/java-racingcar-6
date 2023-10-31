@@ -1,8 +1,8 @@
 package racingcar.view;
 
-import racingcar.dto.CarNames;
-import racingcar.dto.RacingStatus;
-import racingcar.dto.TryCount;
+import racingcar.dto.request.CarNames;
+import racingcar.dto.response.RacingStatus;
+import racingcar.dto.request.TryCount;
 import racingcar.model.Racing;
 
 public class RacingView {

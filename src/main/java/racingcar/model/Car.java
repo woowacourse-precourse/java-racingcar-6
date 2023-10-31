@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.dto.CarName;
+import racingcar.dto.request.CarName;
 
 public class Car {
 

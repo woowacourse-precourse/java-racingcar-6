@@ -2,8 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.dto.CarNames;
-import racingcar.dto.TryCount;
+import racingcar.dto.request.CarNames;
+import racingcar.dto.request.TryCount;
 
 public class InputView {
 

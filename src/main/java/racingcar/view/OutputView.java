@@ -1,9 +1,9 @@
 package racingcar.view;
 
 import java.util.stream.Collectors;
-import racingcar.dto.CarInfo;
-import racingcar.dto.RacingStatus;
-import racingcar.dto.WinnerNames;
+import racingcar.dto.response.CarInfo;
+import racingcar.dto.response.RacingStatus;
+import racingcar.dto.response.WinnerNames;
 import racingcar.model.Racing;
 
 public class OutputView {

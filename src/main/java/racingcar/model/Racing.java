@@ -1,11 +1,11 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.dto.CarInfo;
-import racingcar.dto.CarNames;
-import racingcar.dto.RacingStatus;
-import racingcar.dto.TryCount;
-import racingcar.dto.WinnerNames;
+import racingcar.dto.response.CarInfo;
+import racingcar.dto.request.CarNames;
+import racingcar.dto.response.RacingStatus;
+import racingcar.dto.request.TryCount;
+import racingcar.dto.response.WinnerNames;
 
 public class Racing {
 

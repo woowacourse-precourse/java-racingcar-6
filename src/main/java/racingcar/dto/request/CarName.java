@@ -1,4 +1,4 @@
-package racingcar.dto;
+package racingcar.dto.request;
 
 public class CarName {
 
