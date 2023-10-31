@@ -2,6 +2,7 @@ package racingcar.util;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.constant.RaceConfig.CONVERTING_SIGNS;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,8 @@ class StringFormatterTest {
     void raceResultFormat() {
         // given
         String name = "pobi";
-        String position = "-";
-        String expected = name + " : " + position + String.format("%n");
+        int position = 1;
+        String expected = String.format("%s : %s%n", name, CONVERTING_SIGNS.repeat(position));
 
         // when
         String result = StringFormatter.raceResultFormat(name, position);

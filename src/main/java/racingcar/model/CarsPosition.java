@@ -1,10 +1,8 @@
 package racingcar.model;
 
-import static racingcar.constant.RaceConfig.CONVERTING_SIGNS;
 import static racingcar.constant.RaceConfig.DELIMITER_WHEN_WINNER_IS_PLURAL;
 import static racingcar.constant.RaceConfig.STEP_FORWARD_SPACE_COUNT;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -22,25 +20,22 @@ public final class CarsPosition {
         return new CarsPosition(racingCars.createInitPosition());
     }
 
-    public RaceResultTexts getEachRaceResult() {
-        List<String> result = new ArrayList<>();
+    public void race() {
         for (String key : carsPosition.keySet()) {
-            checkStepForward(key);
-            String signs = convertPositionToSigns(carsPosition.get(key));
-            result.add(StringFormatter.raceResultFormat(key, signs));
-        }
-        return new RaceResultTexts(result);
-    }
-
-    private void checkStepForward(String key) {
-        if (StepForwardValidator.isCarStepForward()) {
-            int changedPosition = carsPosition.get(key) + STEP_FORWARD_SPACE_COUNT;
-            carsPosition.put(key, changedPosition);
+            if (StepForwardValidator.isCarStepForward()) {
+                int position = carsPosition.get(key);
+                carsPosition.put(key, position + STEP_FORWARD_SPACE_COUNT);
+            }
         }
     }
 
-    private String convertPositionToSigns(int position) {
-        return CONVERTING_SIGNS.repeat(position);
+    public RaceResultTexts getEachRaceResult() {
+        List<String> eachResults = carsPosition.keySet()
+                .stream()
+                .map(key ->
+                        StringFormatter.raceResultFormat(key, carsPosition.get(key)))
+                .toList();
+        return new RaceResultTexts(eachResults);
     }
 
     public String getWinner() {

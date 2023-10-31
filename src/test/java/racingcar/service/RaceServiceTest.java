@@ -62,17 +62,17 @@ class RaceServiceTest {
 
     private RaceResultTexts createFirstRaceResultTexts() {
         List<String> results = new ArrayList<>();
-        results.add(StringFormatter.raceResultFormat("apple", "-"));
-        results.add(StringFormatter.raceResultFormat("bear", ""));
-        results.add(StringFormatter.raceResultFormat("cake", "-"));
+        results.add(StringFormatter.raceResultFormat("apple", 1));
+        results.add(StringFormatter.raceResultFormat("bear", 0));
+        results.add(StringFormatter.raceResultFormat("cake", 1));
         return new RaceResultTexts(results);
     }
 
     private RaceResultTexts createSecondRaceResultTexts() {
         List<String> results = new ArrayList<>();
-        results.add(StringFormatter.raceResultFormat("apple", "--"));
-        results.add(StringFormatter.raceResultFormat("bear", ""));
-        results.add(StringFormatter.raceResultFormat("cake", "-"));
+        results.add(StringFormatter.raceResultFormat("apple", 2));
+        results.add(StringFormatter.raceResultFormat("bear", 0));
+        results.add(StringFormatter.raceResultFormat("cake", 1));
         return new RaceResultTexts(results);
     }
 

@@ -24,6 +24,7 @@ public class RaceService {
     public RaceResultTexts getTotalResult() {
         List<String> totalResult = new ArrayList<>();
         for (int i = 0; movingCount.isNotEqual(i); i++) {
+            carsPosition.race();
             RaceResultTexts eachRaceResult = carsPosition.getEachRaceResult();
             totalResult.add(eachRaceResult.convertOneLine());
         }

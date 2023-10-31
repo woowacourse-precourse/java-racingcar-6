@@ -38,6 +38,7 @@ class CarsPositionTest {
         // when // then
         assertRandomNumberInRangeTest(
                 () -> {
+                    carsPosition.race();
                     RaceResultTexts result = carsPosition.getEachRaceResult();
                     assertThat(result).isEqualTo(expected);
                 },
@@ -57,7 +58,7 @@ class CarsPositionTest {
         // when // then
         assertRandomNumberInRangeTest(
                 () -> {
-                    carsPosition.getEachRaceResult();
+                    carsPosition.race();
                     String result = carsPosition.getWinner();
                     assertThat(result).isEqualTo(expected);
                 },
@@ -77,7 +78,7 @@ class CarsPositionTest {
         // when // then
         assertRandomNumberInRangeTest(
                 () -> {
-                    carsPosition.getEachRaceResult();
+                    carsPosition.race();
                     String result = carsPosition.getWinner();
                     assertThat(result).isEqualTo(expected);
                 },
@@ -87,9 +88,9 @@ class CarsPositionTest {
 
     private RaceResultTexts createRaceResults() {
         List<String> list = new ArrayList<>();
-        list.add(StringFormatter.raceResultFormat("apple", "-"));
-        list.add(StringFormatter.raceResultFormat("bear", ""));
-        list.add(StringFormatter.raceResultFormat("cake", "-"));
+        list.add(StringFormatter.raceResultFormat("apple", 1));
+        list.add(StringFormatter.raceResultFormat("bear", 0));
+        list.add(StringFormatter.raceResultFormat("cake", 1));
         return new RaceResultTexts(list);
     }
 
