@@ -30,7 +30,7 @@ class ApplicationTest extends NsTest {
     @BeforeEach
     void setUp() {
         validator = new Validator();
-        car = new Car();
+        car = new Car(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
         referee = new Referee(new int[]{5, 4, 5});
     }
 
@@ -84,6 +84,12 @@ class ApplicationTest extends NsTest {
     void getWinner() {
         String[] winners = referee.getWinner(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
         assertThat(winners).isEqualTo(new String[]{"pobi", "jun"});
+    }
+
+    @Test
+    @DisplayName("각 자동차별 전진거리 누적시키며 결과출력하기")
+    void moveCarForwardOrStop() {
+        car.moveCarForwardOrStop(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
     }
 
     @Override

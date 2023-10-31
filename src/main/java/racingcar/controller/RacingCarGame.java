@@ -16,7 +16,6 @@ public class RacingCarGame {
     private int[] count;
 
     public RacingCarGame() {
-        car = new Car();
         validator = new Validator();
         count = new int[splitCarNamesByComma().size()];
     }
