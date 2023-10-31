@@ -14,15 +14,15 @@ public final class RacingCar {
     }
 
     public String getCarName() {
-        return carName;
+        return this.carName;
     }
 
     public List<String> getDistance() {
-        return distance;
+        return this.distance;
     }
 
     public String getNameAndDistance() {
-        return this.carName + " : " + distance
+        return this.carName + " : " + this.distance
                 .stream()
                 .map(Object::toString)
                 .collect(Collectors.joining());
@@ -30,7 +30,7 @@ public final class RacingCar {
 
     public void move() {
         if (Randoms.pickNumberInRange(0, 9) > 3) {
-            distance.add("-");
+            this.distance.add("-");
         }
         System.out.println(getNameAndDistance());
     }

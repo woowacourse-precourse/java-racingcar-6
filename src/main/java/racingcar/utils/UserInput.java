@@ -6,7 +6,9 @@ import racingcar.validation.InputException;
 public final class UserInput {
     public static String[] racingCarsName() {
         System.out.println(Phrases.start);
-        return InputException.carNameValidation(Console.readLine()).split(",");
+        return InputException
+                .carNameValidation(Console.readLine())
+                .split(",");
     }
 
     public static int racingTimes() {

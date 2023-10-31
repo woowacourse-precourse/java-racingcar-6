@@ -13,8 +13,8 @@ public final class RacingGameLauncher {
     }
 
     public void addRacingCar() {
-        for (String carName : userInput) {
-            racingBoard.addRacingCar(new RacingCar(carName));
+        for (String carName : this.userInput) {
+            this.racingBoard.addRacingCar(new RacingCar(carName));
         }
     }
 
@@ -31,7 +31,7 @@ public final class RacingGameLauncher {
         System.out.println("\n" + Phrases.racing);
 
         IntStream.range(0, racingTimes)
-                .forEach(car -> racingBoard.racingCarsMove());
+                .forEach(car -> this.racingBoard.racingCarsMove());
 
         winner();
     }

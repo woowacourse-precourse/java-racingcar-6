@@ -8,11 +8,11 @@ public final class RacingBoard {
     private final List<RacingCar> racingBoard = new ArrayList<>();
 
     public void addRacingCar(final RacingCar racingCar) {
-        racingBoard.add(racingCar);
+        this.racingBoard.add(racingCar);
     }
 
     public void racingCarsMove() {
-        for (RacingCar racingCar : racingBoard) {
+        for (RacingCar racingCar : this.racingBoard) {
             racingCar.move();
         }
         System.out.println();
@@ -22,7 +22,7 @@ public final class RacingBoard {
 
         final int maxDistance = getMaxDistance();
 
-        return racingBoard
+        return this.racingBoard
                 .stream()
                 .filter(car -> car.getDistance().size() == maxDistance)
                 .map(RacingCar::getCarName)
@@ -30,7 +30,7 @@ public final class RacingBoard {
     }
 
     public int getMaxDistance() {
-        return racingBoard.stream()
+        return this.racingBoard.stream()
                 .mapToInt(car -> car.getDistance().size())
                 .max()
                 .orElse(0);
