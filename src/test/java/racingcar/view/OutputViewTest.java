@@ -15,9 +15,9 @@ class OutputViewTest {
 
     @Test
     void testPrintAttempResult() {
-        Car car1 = createCar("car A",2);
-        Car car2 = createCar("car B",2);
-        Car car3 = createCar("car C",2);
+        Car car1 = createCar("car A", 2);
+        Car car2 = createCar("car B", 2);
+        Car car3 = createCar("car C", 2);
         List<Car> cars = List.of(car1, car2, car3);
 
         OutputStream out = new ByteArrayOutputStream();
@@ -25,15 +25,16 @@ class OutputViewTest {
 
         outputView.printAttempResult(cars);
 
-        assertEquals("car A : --\ncar B : --\ncar C : --\n\n",out);
+        String expectedResult = "car A : --\ncar B : --\ncar C : --\n\n";
+        assertEquals(expectedResult, out);
 
     }
 
     @Test
     void testPrintWinners() {
-        Car car1 = createCar("car A",2);
-        Car car2 = createCar("car B",2);
-        Car car3 = createCar("car C",2);
+        Car car1 = createCar("car A", 2);
+        Car car2 = createCar("car B", 2);
+        Car car3 = createCar("car C", 2);
         List<Car> cars = List.of(car1, car2, car3);
 
         OutputStream out = new ByteArrayOutputStream();
@@ -41,6 +42,7 @@ class OutputViewTest {
 
         outputView.printWinners(cars);
 
-        assertEquals("최종 우승자 : car A, car B, car C\n",out);
+        String expectedResult = "최종 우승자 : car A, car B, car C\n";
+        assertEquals(expectedResult, out);
     }
 }
