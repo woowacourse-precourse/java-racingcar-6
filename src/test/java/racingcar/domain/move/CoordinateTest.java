@@ -84,6 +84,7 @@ final class CoordinateTest {
 
         // then
         assertThat(coordinate1.value()).isEqualTo(input1 + 1);
+
     }
 
 

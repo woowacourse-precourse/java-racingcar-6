@@ -45,12 +45,12 @@ public final class GameController {
             return;
         }
         cars.moveAllBy(moveCommander);
-        final CarsRacingDto carsDto = cars.toDto();
+        final CarsRacingDto carsDto = cars.toCarsRacingDto();
         outputView.printRoundResult(carsDto);
         _playUntilMaxRound(cars, currentRound.nextRound(), maxRound);
     }
 
-    private void showWinners(CarsRacing cars) {
+    private void showWinners(final CarsRacing cars) {
         final WinnersDto winnersDto = cars.toFinished().toWinnersDto();
         outputView.printGameResult(winnersDto);
     }
