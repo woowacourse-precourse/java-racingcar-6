@@ -1,13 +1,13 @@
 package racingcar.domain;
 
+import static java.lang.String.format;
+import static org.junit.platform.commons.util.StringUtils.containsWhitespace;
 import static racingcar.constants.MessageConstant.INVALID_CAR_NAME_MESSAGE;
 import static racingcar.constants.MessageConstant.MOVE_TRAIL_INDICATOR;
 import static racingcar.constants.MessageConstant.PRINT_CAR_INFO_FORMAT;
 import static racingcar.constants.NumberConstant.MAXIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MINIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MOVING_FORWARD_LENGTH;
-
-import org.junit.platform.commons.util.StringUtils;
 
 public class Car {
 
@@ -67,11 +67,11 @@ public class Car {
     }
 
     private boolean hasBlank(final String name) {
-        return StringUtils.containsWhitespace(name);
+        return containsWhitespace(name);
     }
 
     @Override
     public String toString() {
-        return String.format(PRINT_CAR_INFO_FORMAT, name, receiveMoveTrail());
+        return format(PRINT_CAR_INFO_FORMAT, name, receiveMoveTrail());
     }
 }

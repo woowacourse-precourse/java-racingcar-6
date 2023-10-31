@@ -1,12 +1,12 @@
 package racingcar.domain;
 
+import static java.util.stream.Collectors.toList;
 import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
 import static racingcar.constants.NumberConstant.RANDOM_NUMBER_LIMIT;
 import static racingcar.utils.Converter.convertToCarList;
 import static racingcar.utils.Randoms.pickNumberInRange;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -24,7 +24,7 @@ public class Cars {
     public List<String> receiveCurrentRank() {
         return cars.stream()
                 .map(Car::toString)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     public void applyMovingForward() {

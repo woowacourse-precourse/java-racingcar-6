@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static java.lang.String.format;
 import static racingcar.constants.MessageConstant.ASK_ATTEMPT;
 import static racingcar.constants.MessageConstant.BLANK_STRING;
 import static racingcar.constants.MessageConstant.FINAL_WINNER;
@@ -21,11 +22,11 @@ public class OutputView {
     }
 
     public void printGameResult() {
-        println(String.format(PRINT_GAME_RESULT_FORMAT, GAME_RESULT));
+        println(format(PRINT_GAME_RESULT_FORMAT, GAME_RESULT));
     }
 
     public void printFinalWinner(final String winner) {
-        print(String.format(PRINT_FINAL_WINNER_FORMAT, FINAL_WINNER, winner));
+        print(format(PRINT_FINAL_WINNER_FORMAT, FINAL_WINNER, winner));
     }
 
     public void printRank(final Cars cars) {

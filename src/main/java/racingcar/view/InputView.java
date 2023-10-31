@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static java.lang.Character.isDigit;
 import static java.lang.Integer.parseInt;
 import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
 import static racingcar.utils.Console.readLine;
@@ -32,12 +33,8 @@ public class InputView {
     }
 
     private void checkInteger(final char target) {
-        if (isNotInteger(target)) {
+        if (!isDigit(target)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
-    }
-
-    private boolean isNotInteger(final char c) {
-        return !Character.isDigit(c);
     }
 }
