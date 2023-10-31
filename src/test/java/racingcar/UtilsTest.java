@@ -49,7 +49,6 @@ public class UtilsTest extends NsTest {
         assertThat(repeatedDash).isEqualTo("-----");
     }
 
-
     @Override
     protected void runMain() {
 
