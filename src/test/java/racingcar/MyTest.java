@@ -1,8 +1,10 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 import racingcar.utils.Validation;
 
 public class MyTest {
@@ -24,5 +26,15 @@ public class MyTest {
         String name3 = "abcdef";
         assertThatThrownBy(() -> Validation.validateName(name3))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void isValidCarToString() {
+        String input = "abc";
+        Car car = new Car(input);
+        car.moveForward();
+        car.moveForward();
+        String result = car.toString();
+        assertThat(result).isEqualTo("abc : --");
     }
 }
