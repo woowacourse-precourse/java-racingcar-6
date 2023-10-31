@@ -21,16 +21,20 @@ public class MoveAttempts {
     }
 
     public void initBasicAttempt(String racingCarNameData) {
-        attempts.get(0).initRacingCars(racingCarNameData);
+        findAttemptByIndex(0).initRacingCars(racingCarNameData);
     }
 
     public void initNewAttempt(int index) {
-        createAttempt(attempts.get(index - 1));
+        createAttempt(findAttemptByIndex(index - 1));
         attempts.get(index).initRandomNumbers();
     }
 
     public void apply(int index) {
-        String moves = attempts.get(index).decideMoves();
-        attempts.get(index).moveRacingCars(moves);
+        String moves = findAttemptByIndex(index).decideMoves();
+        findAttemptByIndex(index).moveRacingCars(moves);
+    }
+
+    public Attempt findAttemptByIndex(int index) {
+        return attempts.get(index);
     }
 }

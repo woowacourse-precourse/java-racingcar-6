@@ -15,4 +15,9 @@ public class CarName {
             throw new IllegalArgumentException(LONGER_THAN_LIMIT + limit + ".");
         }
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

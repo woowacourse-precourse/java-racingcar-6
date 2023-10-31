@@ -61,4 +61,9 @@ public class Attempt {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return racingCars.toString();
+    }
 }

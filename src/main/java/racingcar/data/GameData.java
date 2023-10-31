@@ -21,4 +21,12 @@ public class GameData {
         attemptData.pickNewNumber();
         attemptData.moveRacingCars();
     }
+
+    public int getAttemptNumber() {
+        return attemptNumber.toInt();
+    }
+
+    public Attempt findLastAttempt() {
+        return attemptData.findLastAttemptByIndex();
+    }
 }

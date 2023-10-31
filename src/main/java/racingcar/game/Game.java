@@ -21,7 +21,12 @@ public class Game {
     }
 
     public void proceed() {
-        gameData.proceedOneRace();
+        gameExecution.printAttemptResultMessage();
+        int attemptNumber = gameData.getAttemptNumber();
+        for (int i = 0; i < attemptNumber; i++) {
+            gameData.proceedOneRace();
+            gameExecution.printAttemptResult(gameData.findLastAttempt());
+        }
     }
 
     public void run() {

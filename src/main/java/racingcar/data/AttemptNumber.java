@@ -13,4 +13,8 @@ public class AttemptNumber {
             throw new IllegalArgumentException(NOT_A_POSITIVE_INTEGER);
         }
     }
+
+    public int toInt() {
+        return number;
+    }
 }

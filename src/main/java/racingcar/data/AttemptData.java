@@ -22,4 +22,8 @@ public class AttemptData {
     public void moveRacingCars() {
         moveAttempts.apply(attemptIndex.toInt());
     }
+
+    public Attempt findLastAttemptByIndex() {
+        return moveAttempts.findAttemptByIndex(attemptIndex.toInt());
+    }
 }

@@ -18,4 +18,9 @@ public class CarPosition {
             throw new IllegalArgumentException(NEGATIVE_INTEGER);
         }
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(pos);
+    }
 }
