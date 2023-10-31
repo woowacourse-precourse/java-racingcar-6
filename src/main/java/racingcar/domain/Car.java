@@ -34,22 +34,26 @@ public class Car {
 
     public String getFinalWinner() {
         ArrayList<String> winnerList = new ArrayList<>();
-        int maxValue = 0;
-        for (String value : getCarList().values()) {
-            if (value.length() > maxValue) {
-                maxValue = value.length();
+
+        for (String carName : getCarList().keySet()) {
+            if (getCarList().get(carName).length() == findMaxMoveValueFromCarList()) {
+                winnerList.add(carName);
             }
         }
 
-        for (String key : getCarList().keySet()) {
-            if (getCarList().get(key).length() == maxValue) {
-                winnerList.add(key);
+        return String.join(", ", winnerList);
+    }
+
+    public Integer findMaxMoveValueFromCarList() {
+        int maxMoveValue = 0;
+
+        for (String moveValue : getCarList().values()) {
+            if (moveValue.length() > maxMoveValue) {
+                maxMoveValue = moveValue.length();
             }
         }
 
-        String winners = String.join(", ", winnerList);
-
-        return winners;
+        return maxMoveValue;
     }
 
     public void checkCarNameLength() {
