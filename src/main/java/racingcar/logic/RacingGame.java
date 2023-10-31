@@ -42,6 +42,7 @@ public class RacingGame implements Game {
             view.printRoundProgress(playerList);
         }
         view.printWinner(getWinners());
+        controller.clearPlayer();
     }
 
     private List getWinners() {
