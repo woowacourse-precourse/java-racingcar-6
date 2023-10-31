@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import racingcar.model.car.CarManager;
+import racingcar.model.cycle.RaceCount;
 import racingcar.model.race.Racing;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,9 +25,9 @@ public class RacingGame {
     }
 
     private Racing enterCarNamesAndRacingCount() {
-        final String carNames = inputView.enterCarNames();
-        final String racingCount = inputView.enterRacingCount();
+        final CarManager carManager = new CarManager(inputView.enterCarNames());
+        final RaceCount raceCount = new RaceCount(inputView.enterRacingCount());
 
-        return new Racing(carNames, racingCount);
+        return new Racing(carManager, raceCount);
     }
 }
