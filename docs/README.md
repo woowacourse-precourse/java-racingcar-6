@@ -51,9 +51,9 @@
 - [x] CAR_NAME_DUPLICATE_ERROR: 자동차 이름은 중복될 수 없음
 - [x] CAR_NAME_EMPTY_ERROR: 자동차 이름은 공백일 수 없음
 - [x] CAR_NAME_FORMAT_ERROR: 자동차 이름은 알파벳만 가능
-- [ ] ATTEMPTS_FORMAT_ERROR: 시도 횟수는 숫자만 가능
-- [ ] ATTEMPTS_EMPTY_ERROR: 시도 횟수는 공백일 수 없음
-- [ ] INVALID_ATTEMPTS_ERROR: 유효하지 않은 시도 횟수
+- [x] ATTEMPTS_FORMAT_ERROR: 시도 횟수는 숫자만 가능
+- [x] ATTEMPTS_EMPTY_ERROR: 시도 횟수는 공백일 수 없음
+- [x] INVALID_ATTEMPTS_ERROR: 유효하지 않은 시도 횟수
 
 ## 프로그래밍 요구 사항
 - [ ] JDK 17 버전에서 실행 가능한지 확인
