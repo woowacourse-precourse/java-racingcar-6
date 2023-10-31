@@ -44,6 +44,24 @@ class InputHandlerTest {
         Assertions.assertThat(carNames).isEqualTo(expected);
     }
 
+    @Test
+    @DisplayName("정상적인 자동차 이름 입력")
+    void makeCarNamesArrayTest1() {
+        setInput("pobi,wons,jun,park\n");
+        String[] carNamesArray = InputHandler.makeCarNamesArray();
+        String[] expectedCarNamesArray = {"pobi", "wons", "jun", "park"};
+        Assertions.assertThat(carNamesArray).isEqualTo(expectedCarNamesArray);
+    }
+
+    @Test
+    @DisplayName("잘못된 자동차 이름 입력 시, 예외 발생")
+    void makeCarNamesArrayTest2() {
+        setInput("pobi,wonians,jun\n");
+        Assertions.assertThatThrownBy(() -> InputHandler.makeCarNamesArray())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
+    }
+
     void setInput(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
