@@ -21,7 +21,7 @@ public class IOView implements View {
 
     @Override
     public int getRaceCount() {
-        outputView.requestTryCount();
+        outputView.requestRaceCount();
         return inputView.enterRaceCount();
     }
 

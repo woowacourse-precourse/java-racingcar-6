@@ -9,7 +9,7 @@ public class ConsoleOutputView implements OutputView {
 
     private static final String REQUEST_CAR_NAMES = "경주할 자동차 이름을 입력하세요.";
     private static final String SEPARATED_BY = "(이름은 %s(%s) 기준으로 구분)";
-    private static final String REQUEST_TRY_COUNT = "시도할 회수는 몇회인가요?";
+    private static final String REQUEST_RACE_COUNT = "시도할 회수는 몇회인가요?";
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String DRIVE_COUNT_DESCRIPTION_TEXT = "-";
     private static final String CAR_STATUS_MESSAGE = "%s : %s";
@@ -26,8 +26,8 @@ public class ConsoleOutputView implements OutputView {
     }
 
     @Override
-    public void requestTryCount() {
-        System.out.println(REQUEST_TRY_COUNT);
+    public void requestRaceCount() {
+        System.out.println(REQUEST_RACE_COUNT);
     }
 
     @Override

@@ -6,7 +6,7 @@ import racingcar.dto.WinnerNames;
 public interface OutputView {
     void requestCarNames(String delimiterDescription, String delimiter);
 
-    void requestTryCount();
+    void requestRaceCount();
 
     void printRacingGameStatus(RacingGameStatus racingGameStatus);
 
