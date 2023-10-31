@@ -32,17 +32,17 @@
 
 <br>
 
-- [x] 파싱된 입력값으로 ``Player``객체를 생성한다.
+- [x] 파싱된 입력값으로 ``Car``객체를 생성한다.
 
-    - **[PlayerGenerator]** : 플레이어 이름이 담겨있는 ``List<String>``을 이용해 ``Player``객체를 생성한다.
-    - **[PlayerGenerator]** : 생성된 ``Player``객체를 ``List<Player>``형태로 반환한다.
+    - **[Participant]** : 플레이어 이름이 담겨있는 ``List<String>``을 이용해 ``Car``객체를 생성한다.
+    - **[Participant]** : 생성된 ``Car``객체를 ``List<Car>``형태로 변환하여 필드값을 갖는다.
 
 <br>
 
 ##### ⚠️ 예외 처리 ⚠️
 
 - [x] ``IllegalArgumentException``를 상속한 **[RacingCarException]** 를 활용한다.
-- [x] ``Registry``클래스는 **[RegistryValidator]** 인터페이스를 통해 구현된 validator를 사용합니다.
+- [x] ``Registry``클래스는 **[RegistryValidator]** 인터페이스를 통해 구현된 validator를 사용한다.
     - **[MaximumLengthValidator]** : 플레이어 명이 5자 초과한 경우, ``RacingCarException``을 호출한다
     - **[MinimumLengthValidator]** : 플레이어 명이 1자 미만인 경우, ``RacingCarException``을 호출한다
     - **[DuplicateNameValidator]** : 플레이어 명이 중복된 경우, ``RacingCarException``을 호출한다
@@ -65,11 +65,31 @@
 ##### ⚠️ 예외 처리 ⚠️
 
 - [x] ``IllegalArgumentException``를 상속한 **[RacingCarException]** 를 활용한다.
-- [x] ``PlayTime``클래스는 **[PlayTimeValidator]** 인터페이스를 통해 구현된 validator를 사용합니다.
+- [x] ``PlayTime``클래스는 **[PlayTimeValidator]** 인터페이스를 통해 구현된 validator를 사용한다.
     - **[EmptyPlayTimeValidator]** : 입력값이 비어있는 경우, ``RacingCarException``을 호출한다
     - **[IntegerTypeValidator]** : 입력값이 ``Integer``타입이 아닌 경우, ``RacingCarException``을 호출한다
     - **[MinimumPlayTimeValidator]** : 입력값이 최소 시도 횟수 (1) 미만인 경우, ``RacingCarException``을 호출한다
 
 <br>
 
-### 3. 우승자 출력
+### 3️⃣ 회당 게임 진행
+
+- [x] 시도 횟수만큼 다음 과정을 반복하여 진행한다.
+
+    - **[Participant]** : 필드로 가지고 있던 ``List<Car>``를 통해 등록된``Car``객체에 ``tryProgress``함수를 호출한다.
+    - **[Car]** : ``tryProgress``함수는 **[Progress]** 클래스를 통해 1 또는 0의 값을 받아 ``progressScore`` 필드를 업데이트한다.
+        - **[Progress]** : ``Randoms.pickNumberInRange(0, 9)``을 활용하여 4이상의 값이 나온 경우, SUCCESS (1) 값을 반환한다.
+        - **[Progress]** : ``Randoms.pickNumberInRange(0, 9)``을 활용하여 4미만의 값이 나온 경우, FAIL (0) 값을 반환한다.
+
+    - **[Participant]** : ``generateResult``함수를 호출하여 **[List<CarStatusDto>]** 를 매개로하는 **[RacingResult]** 객체를 생성한다.
+    - **[RacingResult]** : ``referExecution`` 함수로 String 결과값을 List로 묶어 반환한다.
+    - **[OutView]** : 반환 받은 ``List<Stinrg>`` 을 파싱하여 결과를 출력한다.
+
+<br>
+
+### 4️⃣ 우승자 출력
+
+- [x] 게임이 모두 진행된 우승자를 출력한다.
+    - **[Participant]** : ``generateResult``함수를 호출하여 **[List<CarStatusDto>]** 를 매개로하는 **[RacingResult]** 객체를 생성한다.
+    - **[RacingResult]** : ``referWinner`` 함수로 String 결과값을 List로 묶어 반환한다.
+    - **[OutView]** : 반환 받은 ``List<Stinrg>`` 을 파싱하여 결과를 출력한다.
