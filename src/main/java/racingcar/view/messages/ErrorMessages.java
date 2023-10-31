@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.view.messages;
 
 public enum ErrorMessages {
     ERROR_CAR_NAMES_BLANK("공백만 입력할 수 있습니다."),

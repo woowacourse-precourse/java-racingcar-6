@@ -1,10 +1,10 @@
 package racingcar.controller;
 
-import static racingcar.view.ErrorMessages.ERROR_CAR_NAMES_BLANK;
-import static racingcar.view.ErrorMessages.ERROR_CAR_NAMES_LENGTH;
-import static racingcar.view.ErrorMessages.ERROR_CAR_NAMES_UNIQUE;
-import static racingcar.view.ErrorMessages.ERROR_TRY_COUNT_NUMERIC;
-import static racingcar.view.ErrorMessages.ERROR_TRY_COUNT_RANGE;
+import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_BLANK;
+import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_LENGTH;
+import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_UNIQUE;
+import static racingcar.view.messages.ErrorMessages.ERROR_TRY_COUNT_NUMERIC;
+import static racingcar.view.messages.ErrorMessages.ERROR_TRY_COUNT_RANGE;
 
 import java.util.HashSet;
 import java.util.List;
