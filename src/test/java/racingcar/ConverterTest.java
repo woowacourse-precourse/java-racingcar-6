@@ -47,4 +47,12 @@ class ConverterTest {
 
         assertThat(result).containsExactly("aaa", "bbb", "ccc");
     }
+
+    @Test
+    void matchWinnersConvention_메서드로_주어진_값_구분자로_연결() {
+        List<String> input = List.of("aaa", "bbbb", "ccccc");
+        String result = Converter.matchWinnersConvention(input);
+
+        assertThat(result).isEqualTo("aaa,bbbb,ccccc");
+    }
 }
