@@ -69,10 +69,20 @@ public class InputValidation {
     }
 
     public static int validateInputNumber(String input) {
-        if (!isNumber(input)) {
+        if (!isCorrectNumber(input)) {
             throw new IllegalArgumentException("숫자를 입력하지 않았습니다.");
         }
         return Integer.parseInt(input);
+    }
+
+    private static boolean isCorrectNumber(String input) {
+        if (!isNumber(input)) {
+            return false;
+        }
+        if (isNegativeNumber(Integer.parseInt(input))) {
+            return false;
+        }
+        return true;
     }
 
     private static boolean isNumber(String input) {
@@ -82,5 +92,9 @@ public class InputValidation {
             return false;
         }
         return true;
+    }
+
+    private static boolean isNegativeNumber(int input) {
+        return 0 > input;
     }
 }
