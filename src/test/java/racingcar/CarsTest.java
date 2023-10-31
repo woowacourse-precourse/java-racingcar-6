@@ -17,7 +17,7 @@ public class CarsTest {
     @ValueSource(strings = {"sdfjlvo14n", "121@fsh", "non-separable-words"})
     @DisplayName("쉼표로 분할할 수 없는 이름이면 예외가 발생한다.")
     void isNotNumeric_Then_ExceptionOccurs(final String names) {
-        assertThatThrownBy(() -> Cars.fromNames(names))
+        assertThatThrownBy(() -> Cars.withNames(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -25,7 +25,7 @@ public class CarsTest {
     @MethodSource("generateDuplicatedNames")
     @DisplayName("중복된 이름이 있으면 예외가 발생한다.")
     void givenDuplicateNames_Then_ExceptionOccurs(final String names) {
-        assertThatThrownBy(() -> Cars.fromNames(names))
+        assertThatThrownBy(() -> Cars.withNames(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -39,7 +39,7 @@ public class CarsTest {
     @Test
     @DisplayName("중복된 이름이 없다면 예외가 발생하지 않는다.")
     void givenUniqueNames_Then_NoExceptionOccurs() {
-        assertThatCode(() -> Cars.fromNames("pobi,woni,jun"))
+        assertThatCode(() -> Cars.withNames("pobi,woni,jun"))
                 .doesNotThrowAnyException();
     }
 }

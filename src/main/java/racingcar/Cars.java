@@ -33,7 +33,7 @@ public class Cars {
                 .toList();
     }
 
-    public static Cars fromNames(final String names) {
+    public static Cars withNames(final String names) {
         return new Cars(names);
     }
 }
