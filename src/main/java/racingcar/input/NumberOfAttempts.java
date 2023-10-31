@@ -10,9 +10,8 @@ public class NumberOfAttempts {
 
     public static int input() {
         String numberOfAttempts = Console.readLine();
-        int numberOfAttemptsToInt = validateNumber(numberOfAttempts);
-
-            return numberOfAttemptsToInt;
+        
+        return validateNumber(numberOfAttempts);
     }
 
     private static int validateNumber(String numberOfAttempts) {
