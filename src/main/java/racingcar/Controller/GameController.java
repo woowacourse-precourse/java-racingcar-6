@@ -7,5 +7,6 @@ public class GameController {
     {
         GameService.startRacingCar();
         GameService.playRacingCar();
+        GameService.endRacingCar();
     }
 }
