@@ -58,11 +58,13 @@
     - [x] consumeTry() 구현
 
 ### RandomNumber 구현
-- [ ] RandomNumber 구현
-    - [ ] pickNumber 구현
-        - [ ] start, end 으로 생성
-            - [ ] end가 start 보다 작을 수 없음 검증
-        - [ ] start와 end내에 임의의 숫자로 PositiveNumber 객체 생성
+- [x] RandomNumber 구현
+    - [x] start, end 으로 생성
+        - [x] end가 start 보다 작을 수 없음 검증
+    - [x] pickNumber 구현
+        - [x] start, end 범위 안에서 생성
+        - [ ] ~~start와 end내에 임의의 숫자로 PositiveNumber 객체 생성~~
+        - [x] Randoms.pickNumberInRange 이용
 
 ### PositiveNumber 구현
 - [x] PositiveNumber 구현
