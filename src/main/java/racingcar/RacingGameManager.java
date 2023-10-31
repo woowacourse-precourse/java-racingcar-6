@@ -43,9 +43,10 @@ public class RacingGameManager {
      * 출력: 없음
      */
     private void moveCar() {
-        for (int i = 0; i < carList.size(); i++)
+        for (Car car : carList) {
             if (Randoms.pickNumberInRange(0,9) >= 4)
-                carList.get(i).increaseMove();
+                car.increaseMove();
+        }
     }
 
     /**
@@ -53,7 +54,9 @@ public class RacingGameManager {
      * 입력: 없음
      * 출력: 없음
      */
-    private void showCarMoveResult() {}
+    private void showCarMoveResult() {
+
+    }
 
     /**
      * 우승자 확인 함수
