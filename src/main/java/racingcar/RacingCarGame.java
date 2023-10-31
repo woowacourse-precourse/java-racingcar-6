@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
@@ -22,6 +23,7 @@ public class RacingCarGame {
         CustomArrayList<Car> carList = generateCars(carName);
         int numberOfRace = getNumberOfRace();
         repeatCarRace(carList, numberOfRace);
+        List<Car> winner = decideWinner(carList);
     }
 
     private String getCarsName() {
@@ -65,5 +67,30 @@ public class RacingCarGame {
         for (Car car : carList) {
             car.race();
         }
+    }
+
+    private List<Car> decideWinner(List<Car> carList) {
+        List<Car> winner = new ArrayList<>();
+        winner.add(carList.get(0));
+        repeatCompareDistance(carList, winner);
+        return winner;
+    }
+
+    private void repeatCompareDistance(List<Car> carList, List<Car> winner) {
+        int countRepeat = 0;
+        while (countRepeat < carList.size() - 1) {
+            countRepeat = compareDistance(carList, winner, countRepeat);
+        }
+    }
+
+    private int compareDistance(List<Car> carList, List<Car> winner, int i) {
+        if (winner.get(0).getDistance().length() < carList.get(i + 1).getDistance().length()) {
+            winner.clear();
+            winner.add(carList.get(i + 1));
+        } else if (winner.get(0).getDistance().length() == carList.get(i + 1).getDistance().length()) {
+            winner.add(carList.get(i + 1));
+        }
+        i++;
+        return i;
     }
 }

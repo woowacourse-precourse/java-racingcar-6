@@ -15,6 +15,10 @@ public class Car {
         return name;
     }
 
+    public StringBuilder getDistance() {
+        return distance;
+    }
+
     public void race() {
         setRandomNumber();
         move();
