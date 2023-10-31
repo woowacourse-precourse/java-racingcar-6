@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.Controller;
 
-public class controllerTest {
+public class ControllerTest {
 
     private Controller controller;
 
@@ -47,6 +47,4 @@ public class controllerTest {
         assertThat(output).isEqualTo(Arrays.asList(1, 1, 1, 0, 0, 0, 1, 1, 1));
 
     }
-
-    //play, whoWinner 메소드는 carList가 있어 더 고민 필요
 }

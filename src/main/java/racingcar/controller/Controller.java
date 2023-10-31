@@ -49,9 +49,11 @@ public class Controller {
         return randomNums;
     }
 
-    /* 입력한 수 만큼 반복 진행
-     * 자동차 수 만큼 랜덤한 숫자 만들어서
-     * 이걸 carList에 넘겨줌*/
+    /*
+     * makeRandomNumberList에서 CasList만큼의 랜덤한 숫자가 들어간 배열을 생성한다 Arrays.asList(9,3,5,1,7)
+     * replaceZeroAndOne에서 4이상은 1, 4 미만은 0으로 바꾸어서 리턴한다          Arrays.asList(1,0,1,0,1)
+     * 61번 줄 carList.updateDistance에서 carList에 하나씩 들어가 distance를 업데이트한다
+     * */
     public void play(int howMany) {
         OutputView outputView = new OutputView();
         while (howMany > 0) {
@@ -70,7 +72,7 @@ public class Controller {
             return 0;
         }).collect(Collectors.toList());
     }
-    
+
     public List<String> whoisWinner() {
         return carList.getWinner(carList.getMaxDistance());
     }
