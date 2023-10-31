@@ -4,27 +4,27 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.ExceptionMessage;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingGameTest {
-    private final static String spaceString = " ";
-    private final static String blankString = "";
+    private RacingGame racingGame = new RacingGame();
     private final static String commaString = ",";
+
     private static List<String> convertStringToList(String carNames) {
-        return Arrays.asList(carNames.replace(spaceString, blankString).split(commaString));
+        return Arrays.stream(carNames.split(commaString))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
     @DisplayName(",를 입력받으면 오류가 발생한다.")
     @Test
     void inputOneCommaString(){
-        String carNames = ",";
-        assertThatThrownBy(() -> new RacingGame(convertStringToList(carNames)))
+        List<String> carNames = convertStringToList(",");
+        assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INPUT_NO_CAR_NAME_MESSAGE.getExceptionMessage());
     }
@@ -32,8 +32,8 @@ public class RacingGameTest {
     @DisplayName("빈 값을 입력받으면 오류가 발생한다.")
     @Test
     void inputEmptyString(){
-        String carNames = "";
-        assertThatThrownBy(() -> new RacingGame(convertStringToList(carNames)))
+        List<String> carNames = convertStringToList("");
+        assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INPUT_WRONG_CAR_NAME_LENGTH_MESSAGE.getExceptionMessage());
     }
@@ -41,8 +41,8 @@ public class RacingGameTest {
     @DisplayName("공백 문자를 포함한 자동차 이름 목록을 입력받으면 오류가 발생한다.")
     @Test
     void inputBlankCarNames(){
-        String carNames = "tomas, ,emily";
-        assertThatThrownBy(() -> new RacingGame(convertStringToList(carNames)))
+        List<String> carNames = convertStringToList("tomas, ,emily");
+        assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INPUT_WRONG_CAR_NAME_LENGTH_MESSAGE.getExceptionMessage());
     }
@@ -50,31 +50,18 @@ public class RacingGameTest {
     @DisplayName("유효한 길이를 가지지 않은 자동차 이름 목록을 입력받으면 오류가 발생한다.")
     @Test
     void inputWrongLengthOfCarNames(){
-        String carNames = "tomas,emily,spiderMan";
-        assertThatThrownBy(() -> new RacingGame(convertStringToList(carNames)))
+        List<String> carNames = convertStringToList("tomas,emily,spiderMan");
+        assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INPUT_WRONG_CAR_NAME_LENGTH_MESSAGE.getExceptionMessage());
     }
 
-    @DisplayName("중복된 자동차 이름 목록을 입력받으면 오류가 발생한다.")
+    @DisplayName("1보다 작은 시도 횟수 값을 입력하면 오류가 발생한다.")
     @Test
-    void inputDuplicateCarNames(){
-        String carNames = "tomas,emily,emily";
-        assertThatThrownBy(() -> new RacingGame(convertStringToList(carNames)))
+    void inputUnderOneTryCount(){
+        int tryCount = 0;
+        assertThatThrownBy(() -> racingGame.setTryCount(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ExceptionMessage.INPUT_DUPLICATE_CAR_NAME_MESSAGE.getExceptionMessage());
-    }
-
-    @DisplayName("올바른 자동차 이름 목록을 입력받으면 성공한다")
-    @Test
-    void inputRightCarNames() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        String carNames = "tomas,emily,james";
-        RacingGame racingGame = new RacingGame(convertStringToList(carNames));
-
-        Method method = racingGame.getClass().getDeclaredMethod("getCars");
-        method.setAccessible(true);
-        List<Car> invoke = (List<Car>) method.invoke(racingGame);
-
-        assertThat(invoke.size()).isEqualTo(3);
+                .hasMessageContaining(ExceptionMessage.INPUT_WRONG_RANGE_OF_COUNT_MESSAGE.getExceptionMessage());
     }
 }
