@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 /* [ ] (1) 자동차는 전진 또는 멈출 수 있다. -> carMoveOrStop()
    [ ] (2) 각 자동차에 이름을 부여할 수 있다. -> giveNameOfCar()
    [ ] (3) 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. -> printMovingCarWithCarName()
-   [ ] (4) 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. -> isLengthFive()
+   [v] (4) 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. -> isLengthFive()
    [v] (6) 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. -> isMoveAble()
        [v] (6-1) 무작위 값을 구하는 메서드 generateRandomNumber()
    [ ] (7) 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다. -> returnWinner() */
@@ -25,9 +25,18 @@ public class Car {
     public String giveNameOfCar() {
         return "";
     }
+/*
+[ ] (3) 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다. ->
+printMovingCarWithCarName()
+[ ] (4) 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
+ -> isLengthFive()
+*/
 
     public String printMovingCarWithCarName() {
         return "";
+    }
+    public boolean isLengthFive(String carName) {
+        return carName.length() <= 5;
     }
     public boolean isMoveAble() {
         return generateRandomNumber() > 3;
