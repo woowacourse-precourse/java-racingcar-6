@@ -23,7 +23,7 @@ public class Error {
     }
 
     public static void checkIsNumber(String number) {
-        boolean isAllDigit = number.strip().matches(regex);
+        boolean isAllDigit = number.matches(regex);
 
         if (!isAllDigit || number.isBlank()) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
