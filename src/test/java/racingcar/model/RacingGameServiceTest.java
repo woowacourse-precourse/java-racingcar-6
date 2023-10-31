@@ -61,7 +61,7 @@ public class RacingGameServiceTest {
         jonhan.isRacingCarMove(6);
         //then
         List<String> winners = racingGameService.findWinners();
-        String joinString = String.join(", ", winners);
+        String joinString = racingGameService.getWinners();
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.size()).isEqualTo(1);
         assertThat(GameMessage.WINNER_MESSAGE.getWinnerMessage(joinString))
@@ -101,7 +101,7 @@ public class RacingGameServiceTest {
 
         //then
         List<String> winners = racingGameService.findWinners();
-        String joinString = String.join(", ", winners);
+        String joinString = racingGameService.getWinners();
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.get(1)).isEqualTo("jnam");
         assertThat(winners.size()).isEqualTo(2);
