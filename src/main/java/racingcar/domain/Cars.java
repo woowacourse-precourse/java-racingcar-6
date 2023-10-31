@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import racingcar.utils.NumberGenerator;
 
 public class Cars {
@@ -30,24 +30,19 @@ public class Cars {
 
     private void validateDuplicatedName(List<Car> cars) {
         List<String> carNames = getCarNames(cars);
-        for (int i = 0; i < carNames.size(); i++) {
-            throwIfContainsDuplicatedName(carNames, i);
-        }
-    }
-
-    private void throwIfContainsDuplicatedName(List<String> carNames, int i) {
-        List<String> remainingCarNames = carNames.subList(i + 1, carNames.size());
-        if (remainingCarNames.contains(carNames.get(i))) {
+        long carNamesDistinctCount = carNames.stream()
+                .distinct()
+                .count();
+        if (carNames.size() != carNamesDistinctCount) {
             throw new IllegalArgumentException("[ERROR] 중복되는 자동차 이름이 존재합니다.");
         }
     }
 
-    public MoveResult handleCarMovement(NumberGenerator numberGenerator) {
-        List<Integer> forwardCounts = new ArrayList<>();
-        cars.forEach(car ->
-                forwardCounts.add(car.move(numberGenerator.generate()))
-        );
-        return new MoveResult(getCarNames(cars), forwardCounts);
+    public MovingResult handleCarMovement(NumberGenerator numberGenerator) {
+        List<Integer> forwardCounts = cars.stream()
+                .map(car -> car.move(numberGenerator.generate()))
+                .toList();
+        return new MovingResult(getCarNames(cars), forwardCounts);
     }
 
     private List<String> getCarNames(List<Car> cars) {
