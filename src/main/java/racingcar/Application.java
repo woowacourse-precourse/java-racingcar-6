@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,11 @@ public class Application {
 
         List<String> results = CarNameColon(carNames);
 
+    }
+
+    private static boolean shouldCarMove() {
+        int move = Randoms.pickNumberInRange(0, 9);
+        return move >= 4;
     }
 
     private static List<String> splitCarNames(String input) {
