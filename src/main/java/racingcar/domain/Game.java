@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.common.ExceptionMessages.NOT_NUMERIC_INPUT_EXCEPTION;
+import static racingcar.common.ExceptionMessages.SMALLER_THAN_ZERO_EXCEPTION;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 
@@ -42,14 +45,14 @@ public class Game {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+            throw new IllegalArgumentException(NOT_NUMERIC_INPUT_EXCEPTION);
         }
     }
 
     private void isGreaterThanZero(String input) {
         int chance = Integer.parseInt(input);
         if(chance <= 0) {
-            throw new IllegalArgumentException("0보다 큰 숫자를 입력해야 합니다.");
+            throw new IllegalArgumentException(SMALLER_THAN_ZERO_EXCEPTION);
         }
     }
 }

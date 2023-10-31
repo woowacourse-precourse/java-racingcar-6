@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.common.ExceptionMessages.DUPLICATE_CAR_EXCEPTION;
+import static racingcar.common.ExceptionMessages.NO_COMMA_EXCEPTION;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -61,14 +64,14 @@ public class Cars {
 
     private void hasComma(String name) {
         if(!name.contains(",")) {
-            throw new IllegalArgumentException("이름을 쉼표(,)로 구분해야 합니다. 또한, 최소 2대 이상의 자동차가 필요합니다.");
+            throw new IllegalArgumentException(NO_COMMA_EXCEPTION);
         }
     }
 
     private void validateDuplicateName(ArrayList<String> name) {
         Set<String> nameSet = new HashSet<>(name);
         if(nameSet.size() != name.size()) {
-            throw new IllegalArgumentException("동일한 이름으로 경주 게임을 진행할 수 없습니다.");
+            throw new IllegalArgumentException(DUPLICATE_CAR_EXCEPTION);
         }
     }
 }

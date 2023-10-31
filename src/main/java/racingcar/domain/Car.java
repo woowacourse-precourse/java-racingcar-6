@@ -3,6 +3,7 @@ package racingcar.domain;
 import static racingcar.common.Constants.MAX_LENGTH_OF_NAME;
 import static racingcar.common.Constants.MIN_NUMBER_FOR_MOVEMENT;
 import static racingcar.common.Constants.MOVEMENT_DISTANCE;
+import static racingcar.common.ExceptionMessages.INVALID_NAME_LENGTH_EXCEPTION;
 
 public class Car {
 
@@ -23,7 +24,7 @@ public class Car {
 
     private void validateLength(String name) {
         if(name.isEmpty() || name.length() > MAX_LENGTH_OF_NAME) {
-            throw new IllegalArgumentException("이름은 공백 하여 최소 1자 이상 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION);
         }
     }
 
