@@ -15,8 +15,16 @@ public class Car {
         this.position = position.move();
     }
 
+    public String getCarName() {
+        return carName.getName();
+    }
+
     public Position getPosition() {
         return position;
+    }
+
+    public int getDistance() {
+        return position.getDistance();
     }
 
     @Override

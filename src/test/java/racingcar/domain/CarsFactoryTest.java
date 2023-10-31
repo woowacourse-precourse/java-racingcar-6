@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CarFactoryTest {
+public class CarsFactoryTest {
 
     @Test
     void Factory로_Cars생성() {
@@ -18,7 +18,7 @@ public class CarFactoryTest {
                 , new Car(new CarName("jun"), new Position(0)));
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
         //when
-        Cars cars = CarFactory.createCars(carNames);
+        Cars cars = CarsFactory.createCars(carNames);
         List<Car> carsFromFactory = cars.getCars();
         //then
         assertThat(carsFromFactory.get(0)).isEqualTo(new Car(new CarName("pobi"), new Position(0)));

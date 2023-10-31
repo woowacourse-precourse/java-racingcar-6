@@ -16,6 +16,10 @@ public class Position {
         return new Position(distance + 1);
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

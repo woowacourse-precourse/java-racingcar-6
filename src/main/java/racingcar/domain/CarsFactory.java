@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarFactory {
+public class CarsFactory {
 
     public static Cars createCars(List<String> carNames) {
         List<Car> carList = mapFrom(carNames);
