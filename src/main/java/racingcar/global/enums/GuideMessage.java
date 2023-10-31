@@ -1,5 +1,8 @@
 package racingcar.global.enums;
 
+/**
+ * 고정된 게임 안내 문구를 상수로 관리하여 공용
+ */
 public final class GuideMessage {
 
     public final static String GAME_RESULT = "실행 결과";

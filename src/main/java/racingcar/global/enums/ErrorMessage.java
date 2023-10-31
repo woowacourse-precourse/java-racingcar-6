@@ -1,5 +1,8 @@
 package racingcar.global.enums;
 
+/**
+ * 예외 상황을 구분하기 위한 에러 메시지 ENUM
+ */
 public enum ErrorMessage {
 
     EMPTY_INPUT_VALUE("입력 값이 비어 있습니다."),
