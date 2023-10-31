@@ -4,17 +4,13 @@ public class Car {
     private String name;
     private String location;
 
-    public Car() {
-        name = "";
+    public Car(String name) {
+        this.name = name;
         location = "";
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getLocation() {
