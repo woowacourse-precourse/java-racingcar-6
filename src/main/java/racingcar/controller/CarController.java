@@ -4,7 +4,6 @@ import racingcar.model.Car;
 import racingcar.constant.GameSettingCharacter;
 import racingcar.validator.NameDuplicateValidator;
 import racingcar.validator.NamesCountValidator;
-import racingcar.view.InputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,4 +30,4 @@ public class CarController {
         }
         return racingCars;
     }
-}›
+}
