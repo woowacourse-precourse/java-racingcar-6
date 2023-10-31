@@ -30,3 +30,4 @@
   
 ### 4. 리팩토링
 ✅ checkCarEligibility() 메소드를 startCarRace() 메소드로 이름 변경
+✅ Application Test에 test 경우의 수 추가

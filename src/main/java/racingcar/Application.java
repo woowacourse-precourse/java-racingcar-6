@@ -2,8 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.sql.SQLOutput;
 import java.util.*;
 import java.util.List;
 
@@ -23,6 +21,7 @@ public class Application {
         String answer = Console.readLine();
         String[] cars = answer.split(",");
         checkCarNameValidation(cars);
+
         return cars;
     }
 
@@ -37,11 +36,9 @@ public class Application {
         Arrays.fill(raceList, 0);
 
         for (int i = 0; i < number; i++) {
-
             System.out.println("실행 결과");
 
             for(int j = 0; j < cars.length; j++) {
-
                 System.out.print(cars[j] + " : ");
                 int eligibility = Randoms.pickNumberInRange(0, 9);
 
