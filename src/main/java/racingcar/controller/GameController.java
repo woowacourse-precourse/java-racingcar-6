@@ -67,6 +67,8 @@ public class GameController {
 
     private void setTryNum() {
         gameMember.setTryNum(inputView.enterGameNumber());
+        System.out.println("");
+        System.out.println("실행 결과");
     }
 
 }
