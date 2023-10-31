@@ -1,46 +1,46 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.RacingResult;
+import racingcar.dto.RacingResultDto;
+import racingcar.dto.RacingRoundResultDto;
 import racingcar.service.RacingCarService;
-import racingcar.view.RacingCarInputValidator;
 import racingcar.view.RacingCarInputView;
 import racingcar.view.RacingCarOutputView;
 
 public class RacingController {
     private final RacingCarInputView racingCarInputView;
     private final RacingCarOutputView racingCarOutputView;
-    private final RacingCarInputValidator racingCarInputValidator;
     private final RacingCarService racingCarService;
 
     public RacingController(RacingCarInputView racingCarInputView, RacingCarOutputView racingCarOutputView,
-                            RacingCarInputValidator racingCarInputValidator, RacingCarService racingCarService) {
+                            RacingCarService racingCarService) {
         this.racingCarInputView = racingCarInputView;
         this.racingCarOutputView = racingCarOutputView;
-        this.racingCarInputValidator = racingCarInputValidator;
         this.racingCarService = racingCarService;
     }
 
     public void run() {
-        List<String> carNames = getCarNamesFromUser();
-        int attemptCounts = getAttemptCountsFromUser();
-
-        racingCarOutputView.printStartMessage();
-        RacingResult racingResult = racingCarService.race(carNames, attemptCounts);
-
-        racingCarOutputView.printEachRacingResult(racingResult);
-        racingCarOutputView.printWinner(racingResult);
+        initializeGameByUserInput();
+        raceAndPrintEachResult();
+        printFinalWinners();
     }
 
-    private List<String> getCarNamesFromUser() {
+    private void initializeGameByUserInput() {
         List<String> carNames = racingCarInputView.inputCarNames();
-        racingCarInputValidator.validateCarNames(carNames);
-        return carNames;
+        String attemptCounts = racingCarInputView.inputAttemptCounts();
+        racingCarService.initializeRacingGame(carNames, attemptCounts);
     }
 
-    private int getAttemptCountsFromUser() {
-        String attemptCounts = racingCarInputView.inputAttemptCounts();
-        racingCarInputValidator.validateAttemptCounts(attemptCounts);
-        return Integer.parseInt(attemptCounts);
+    private void raceAndPrintEachResult() {
+        racingCarOutputView.printStartMessage();
+        while (racingCarService.isRemainAttemptCounts()) {
+            RacingRoundResultDto racingRoundResultDto = racingCarService.race();
+            racingCarOutputView.printEachRacingResult(racingRoundResultDto);
+        }
+    }
+
+    private void printFinalWinners() {
+        RacingResultDto racingResultDto = racingCarService.determineWinner();
+        racingCarOutputView.printWinner(racingResultDto);
     }
 }
