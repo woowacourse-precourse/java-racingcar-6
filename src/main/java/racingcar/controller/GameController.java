@@ -21,17 +21,23 @@ public class GameController {
 
     public void run() {
         Cars cars = inputView.getCarsFromUserInput();
-        startGameWithTrials(cars);
+        raceWithTrials(cars);
         announceGameWinners(cars);
     }
 
-    private void startGameWithTrials(Cars cars) {
+    private void raceWithTrials(Cars cars) {
         TrialCount trialCount = inputView.getTrialCountFromUserInput();
-        for (int i = 1; i <= trialCount.getTrialCount(); i++) {
-            cars.moveOnceIfMovable(moveStrategy);
-            CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
-            outputView.printGameResult(carsMovementDto);
+        if (trialCount.getTrialCount() < 1) {
+            return;
         }
+        raceSingleTrial(cars, trialCount);
+    }
+
+    private TrialCount raceSingleTrial(Cars cars, TrialCount trialCount) {
+        cars.moveOnceIfMovable(moveStrategy);
+        CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
+        outputView.printGameResult(carsMovementDto);
+        return trialCount.decremented();
     }
 
     private void announceGameWinners(Cars cars) {
