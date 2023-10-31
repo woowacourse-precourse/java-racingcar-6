@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import racingcar.model.AttemptCount;
+import racingcar.model.RacingCarNames;
 import racingcar.service.RacingCarGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -29,12 +31,16 @@ public class RacingCarGameController {
 
     private List<String> getCarNames() {
         outputView.printInputRacingCarNamesMessage();
-        return inputView.readCarNames();
+        List<String> carNames = inputView.readCarNames();
+        new RacingCarNames(carNames);
+        return carNames;
     }
 
     private int getAttemptCount() {
         outputView.printInputAttemptCountMessage();
-        return inputView.readAttemptCount();
+        Integer attemptCount = inputView.readAttemptCount();
+        new AttemptCount(attemptCount);
+        return attemptCount;
     }
 
     private void playRacingCarGame(int attemptCount, List<String> carNames, LinkedHashMap<String, Integer> racingProgressStatus) {
