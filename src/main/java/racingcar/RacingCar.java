@@ -2,7 +2,7 @@ package racingcar;
 
 public class RacingCar {
     private String name;
-    private int score;
+    private int score = 0;
     public RacingCar(String name) {
         this.setName(name);
     }
