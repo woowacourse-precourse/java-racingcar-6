@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +32,31 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 우승자_여러명() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi,woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 자동차_이름_분리() {
+        String carNamesWithComma = "pobi,woni";
+
+        Input input = new Input();
+        List<String> carNames = input.carNameSplit(carNamesWithComma);
+
+        assertThat(carNames.contains("pobi"));
+        assertThat(carNames.contains("woni"));
+        assertThat(carNames.get(0)).isEqualTo("pobi");
+        assertThat(carNames.get(1)).isEqualTo("woni");
+        assertThat(carNames.size()).isEqualTo(2);
     }
 
     @Override
