@@ -15,24 +15,18 @@ public class NameValidator {
     }
 
     public void validate() {
-        validateBlank();
-        validateLength();
+        isLengthLessThan5();
+        isBlank();
     }
 
-    private void validateCarNames(String carNames) {
-        if (!carNames.contains(",")) {
-            throw new IllegalArgumentException("사용자는 최대 2명 이상입니다.");
-        }
-    }
-
-    private void validateLength() {
+    private void isLengthLessThan5() {
         if (carName.toString().length() >= 5) {
             throw new IllegalArgumentException("이름은 5자 이내여야 합니다.");
         }
     }
 
-    public void validateBlank() {
-        if (carName.toString().isBlank()){
+    public void isBlank() {
+        if (carName.toString().isBlank()) {
             throw new IllegalArgumentException("이름에 빈 값이 들어올 수 없습니다.");
         }
     }
