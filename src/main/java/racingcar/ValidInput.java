@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ValidInput {
     private ValidInput() {                      // 생성자
@@ -36,5 +38,13 @@ public class ValidInput {
         }
         return true;
     }
-
+    public static boolean hasDuplicateNames(List<String> NamesList) {
+        Set<String> set = new HashSet<>(NamesList);
+        if (set.size() == NamesList.size()) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 }
