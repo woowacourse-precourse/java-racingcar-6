@@ -65,19 +65,18 @@ public class RacingController {
 
     private void driveRepeatExecution() {
         while (attemptCount < inputView.getNumberOfAttempts()) {
-            for (Car car : cars) {
-                isMove(car);
-                isMaxPosition(car);
-                executionResult(car);
-            }
+            carsIterator();
             outputView.printSpaceLine();
             attemptCount++;
         }
     }
 
-    private static void executionResult(Car car) {
-        String result = car.getName() + " : " + "-".repeat(car.getPosition());
-        System.out.println(result);
+    private void carsIterator() {
+        for (Car car : cars) {
+            isMove(car);
+            isMaxPosition(car);
+            outputView.printNameAndResultMessage(car.getName(), car.getPosition());
+        }
     }
 
     private void isMaxPosition(Car car) {

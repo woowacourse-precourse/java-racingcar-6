@@ -14,6 +14,10 @@ public class OutputView {
         System.out.println(Message.EXECUTION_RESULT_MESSAGE.message);
     }
 
+    public void printNameAndResultMessage(String name, int position) {
+        System.out.println(name + " : " + "-".repeat(position));
+    }
+
     public void printWinnersMessage(String winner) {
         System.out.println(Message.WINNER_MESSAGE.message + winner);
     }
