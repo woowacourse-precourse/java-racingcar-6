@@ -11,9 +11,13 @@ public class WinnerResult {
         List<String> winnerList = getWinnerList(carNameHashMap, largestMove);
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.print(winnerList.get(i));
-            if (winnerList.size() > 1) {
-                System.out.print(", ");
-            }
+            addCommaIfMultipleWinners(winnerList);
+        }
+    }
+
+    private static void addCommaIfMultipleWinners(List<String> winnerList) {
+        if (winnerList.size() > 1) {
+            System.out.print(", ");
         }
     }
 
@@ -27,7 +31,6 @@ public class WinnerResult {
         }
         return winnerList;
     }
-
     private int getLargestMove(LinkedHashMap<String, String> carNameHashMap) {
         int largestMove = 0;
         for (Entry<String, String> element : carNameHashMap.entrySet()) {
