@@ -23,7 +23,15 @@ public class Player {
 
     public int inputTryCnt(){
         String tryCnt = Console.readLine();
+        checkIsNumber(tryCnt);
         return Integer.parseInt(tryCnt);
     }
 
+    private void checkIsNumber(String input){
+        try {
+            Integer.parseInt(input);
+        }catch (NumberFormatException numberFormatException){
+            throw new IllegalArgumentException();
+        }
+    }
 }
