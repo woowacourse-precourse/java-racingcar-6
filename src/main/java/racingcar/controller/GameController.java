@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.GameMember;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
@@ -53,7 +54,7 @@ public class GameController {
 
     private void goGame() {
         for (String key : gameMember.getCarPlayers()) {
-            if (generateRandomNum.pickNum()) {
+            if (generateRandomNum.pickNum(Randoms.pickNumberInRange(0, 9))) {
                 gameMember.setDuringGame(key);
             }
         }
