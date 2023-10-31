@@ -6,6 +6,7 @@ import racingcar.domain.Race;
 import racingcar.domain.strategy.MoveStrategy;
 import racingcar.util.Constants;
 import racingcar.util.InputValidator;
+import racingcar.util.ResultStringifier;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -33,10 +34,11 @@ public class RacingGameConsole {
 
         for (int currentRound = 0; currentRound < roundCount; currentRound++) {
             race.executeOneRound();
-            OutputView.printProgress(race.getCars());
+
+            printProgress(cars.getCars());
         }
 
-        OutputView.printWinners(race.getWinnerNames());
+        printWinners(race.getWinnerNames());
     }
 
     private Cars createCars(String carNamesInput) {
@@ -52,5 +54,15 @@ public class RacingGameConsole {
         InputValidator.validateRound(roundInput);
 
         return Integer.parseInt(roundInput);
+    }
+
+    private void printProgress(List<Car> cars) {
+        String progressString = ResultStringifier.generateProgressString(cars);
+        OutputView.printProgress(progressString);
+    }
+
+    private void printWinners(List<String> winners) {
+        String winnersString = ResultStringifier.generateWinnersString(winners);
+        OutputView.printWinners(winnersString);
     }
 }
