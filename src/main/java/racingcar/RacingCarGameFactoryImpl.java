@@ -15,7 +15,7 @@ public class RacingCarGameFactoryImpl implements RacingCarGameFactory {
 
     @Override
     public InputView inputView() {
-        return new InputViewImpl();
+        return InputViewImpl.getInstance();
     }
 
     @Override
