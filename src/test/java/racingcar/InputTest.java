@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
@@ -28,6 +29,14 @@ public class InputTest {
         List<String> input = List.of("pobi", "gorani", "goni", "goni");
         assertThatThrownBy(() -> InputValidator.checkNameIsDuplicated(input)).isInstanceOf(
                 IllegalArgumentException.class);
+    }
+
+    @Test
+    void 이름_공백_제거_확인() {
+        String input = " pobi,goni ,  jun  ";
+        List<String> result = List.of("pobi", "goni", "jun");
+
+        assertThat(StringConvertor.convertStringToList(input)).isEqualTo(result);
     }
 
     @Test
