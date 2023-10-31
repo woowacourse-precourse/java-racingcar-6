@@ -3,6 +3,7 @@ package racingcar.input;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.input.InputValidatorTest.InputValidator;
 
 public class RacingCountTest {
     private static String 사용자_이동_횟수 = "";
@@ -23,6 +24,8 @@ public class RacingCountTest {
         }
 
         private RacingCount(String stringMoveCount) {
+            InputValidator.validateRaceCount(stringMoveCount);
+
             raceCount = Integer.parseInt(stringMoveCount);
         }
     }

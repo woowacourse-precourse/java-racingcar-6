@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import racingcar.input.CarTest.Car;
+import racingcar.input.InputValidatorTest.InputValidator;
 
 public class CarListTest {
     private static String 차이름들;
@@ -38,6 +39,8 @@ public class CarListTest {
             cars = carNameList.stream()
                     .map(Car::inputCarname)
                     .collect(Collectors.toList());
+
+            InputValidator.validateCarList(cars);
         }
 
         public List<Car> getCarList() {

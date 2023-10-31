@@ -3,6 +3,7 @@ package racingcar.input;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.input.InputValidatorTest.InputValidator;
 
 public class CarTest {
     private static final String 차이름 = "차1";
@@ -18,6 +19,7 @@ public class CarTest {
         }
 
         private Car(String carName) {
+            InputValidator.validateCarname(carName);
             this.carName = carName;
             this.driving = new StringBuilder();
         }
