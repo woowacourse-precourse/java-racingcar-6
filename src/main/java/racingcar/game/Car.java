@@ -3,7 +3,7 @@ package racingcar.game;
 import static racingcar.controller.constants.GlobalConstants.*;
 
 public class Car {
-    private String name;
+    private final String name;
     private Integer score;
 
     public Car(String name){
