@@ -35,8 +35,8 @@ public class Car implements Comparable<Car> {
     }
 
     public String getState() {
-        StringBuilder state = new StringBuilder(name+" : ");
 
+        StringBuilder state = new StringBuilder(name+" : ");
         for (int count = 0; count < forwardCount; count++) {
             state.append("-");
         }
