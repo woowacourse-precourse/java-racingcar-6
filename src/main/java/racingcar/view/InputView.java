@@ -7,8 +7,8 @@ import racingcar.exception.IllegalArgumentMessage;
 import racingcar.exception.IllegalArgumentMessageException;
 
 public class InputView {
-    private static final int ONE_LENGTH = 1;
     private static final int FIVE_LENGTH = 5;
+    private static final String NEGATIVE = "-";
     private static final String DELIMITER = ",";
 
     public static String getTryCountFromUser() {
@@ -18,13 +18,13 @@ public class InputView {
 
     public static int validateTryCount(String tryCountFromUser) {
         if (isNull(tryCountFromUser)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentMessageException(IllegalArgumentMessage.NOT_NULL);
         }
-        if (!isOneLength(tryCountFromUser)) {
-            throw new IllegalArgumentException();
+        if (isNegative(tryCountFromUser)) {
+            throw new IllegalArgumentMessageException(IllegalArgumentMessage.ONLY_POSITIVE);
         }
         if (!isNumber(tryCountFromUser)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentMessageException(IllegalArgumentMessage.ONLY_DIGIT);
         }
 
         return Integer.parseInt(tryCountFromUser);
@@ -51,8 +51,8 @@ public class InputView {
         return stringFromUser == null;
     }
 
-    private static boolean isOneLength(String stringFromUser) {
-        return stringFromUser.length() == ONE_LENGTH;
+    private static boolean isNegative(String stringFromUser) {
+        return stringFromUser.contains(NEGATIVE);
     }
 
     private static boolean isNumber(String stringFromUser) {

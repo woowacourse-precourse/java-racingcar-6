@@ -14,7 +14,7 @@ public class InputViewTest {
     @EmptySource
     @NullSource
     @NullAndEmptySource
-    @CsvSource({"123", "-1", "-99", "string", "s", "가", "00", "1 0", "0 8"})
+    @CsvSource({"-1", "-99", "string", "s", "가", "1 0", "0 8", "1*9", "1+1"})
     void 시도횟수_예외처리(String tryCountFromUser) {
         assertThatThrownBy(() -> InputView.validateTryCount(tryCountFromUser))
                 .isInstanceOf(IllegalArgumentException.class);
