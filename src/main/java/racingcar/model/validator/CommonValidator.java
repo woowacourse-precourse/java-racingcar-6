@@ -14,6 +14,10 @@ public class CommonValidator {
         return !carName.trim().isEmpty();
     }
 
+    public static boolean validateCarNameUnderBar(String carName) {
+        return !carName.contains("_");
+    }
+
     public static boolean validateRoundNumRange(String roundNum) {
         int numInt = Integer.parseInt(roundNum);
         return numInt >= GameInfo.MIN_ROUND_NUM && numInt <= GameInfo.MAX_ROUND_NUM;

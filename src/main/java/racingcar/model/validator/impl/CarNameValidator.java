@@ -25,6 +25,9 @@ public class CarNameValidator implements InputValidator {
         if (!CommonValidator.validateCarNameLength(input)) {
             throw new IllegalArgumentException(Messages.ERROR_CAR_NAMES_LENGTH.getMessage());
         }
+        if (!CommonValidator.validateCarNameUnderBar(input)) {
+            throw new IllegalArgumentException(Messages.ERROR_CAR_NAMES_UNDER_BAR.getMessage());
+        }
         if (!CommonValidator.validateCarNameBlank(input)) {
             throw new IllegalArgumentException(Messages.ERROR_CAR_NAMES_BLANK.getMessage());
         }
@@ -47,7 +50,7 @@ public class CarNameValidator implements InputValidator {
         int originCount = carNameCount.getOrDefault(carName, 0);
         carNameCount.put(carName, originCount + 1);
         if (originCount > 0) {
-            carName += "_" + (originCount + 1);
+            carName += GameInfo.CAR_DUPLICATED_SEPARATOR + (originCount + 1);
         }
         return carName;
     }
