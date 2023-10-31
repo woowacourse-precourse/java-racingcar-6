@@ -13,11 +13,12 @@ public class InputValidator {
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_FORMAT_REGEX);
     private static final String DELIMITER = ",";
 
-    public static void validateCarsFormat(String input) {
+    public static List<String> validateCarsFormat(String input) {
         Matcher matcher = NOT_CAR_PATTERN.matcher(input);
         if (matcher.find() || input.endsWith(DELIMITER) || input.startsWith(DELIMITER)) {
             throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
         }
+        return List.of(input.split(","));
     }
 
     public static void validateCarNameValid(List<String> inputs) {

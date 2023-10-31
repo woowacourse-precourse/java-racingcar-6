@@ -7,14 +7,10 @@ import racingcar.validator.InputValidator;
 public class InputView {
     public static List<String> getRacingCars() {
         String input = Console.readLine();
-        InputValidator.validateCarsFormat(input);
-        InputValidator.validateUniqueCarName(buildRacingCars(input));
-        InputValidator.validateCarNameValid(buildRacingCars(input));
-        return buildRacingCars(input);
-    }
-
-    public static List<String> buildRacingCars(String input) {
-        return List.of(input.split(","));
+        List<String> inputs = InputValidator.validateCarsFormat(input);
+        InputValidator.validateUniqueCarName(inputs);
+        InputValidator.validateCarNameValid(inputs);
+        return inputs;
     }
 
     public static int getTryNumber() {

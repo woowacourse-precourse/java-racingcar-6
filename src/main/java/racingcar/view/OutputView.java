@@ -15,4 +15,8 @@ public class OutputView {
     public static void printTryMessage() {
         System.out.println(TRY_MESSAGE);
     }
+
+    public static void printNewLine() {
+        System.out.println();
+    }
 }

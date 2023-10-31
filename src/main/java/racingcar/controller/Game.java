@@ -20,7 +20,7 @@ public class Game {
         OutputView.printString(GET_RESULT_STRING);
         for (int i = 0; i < tryNumber; i++) {
             racingCars.run();
-            System.out.println();
+            OutputView.printNewLine();
         }
 
         OutputView.printString(getWinnerString(racingCars.getWinners()));
