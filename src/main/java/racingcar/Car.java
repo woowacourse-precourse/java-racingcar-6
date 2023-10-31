@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,18 +15,6 @@ public class Car {
         forwardCount = 0;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getForwardCount() {
-        return forwardCount;
-    }
-
-    public void moveForward() {
-        forwardCount++;
-    }
-
     public static List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
@@ -33,4 +23,19 @@ public class Car {
 
         return cars;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardCount() {
+        return forwardCount;
+    }
+
+    public void attemptForward() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            forwardCount++;
+        }
+    }
+
 }
