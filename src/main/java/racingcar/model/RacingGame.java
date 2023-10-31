@@ -3,6 +3,10 @@ package racingcar.model;
 import java.util.List;
 
 public class RacingGame {
+
+    public static final int CAR_NAME_MAX_LENGTH = 5;
+    public static final int CAR_MAX_NUM = 10;
+
     private List<Car> cars;
     private int gameCount;
 

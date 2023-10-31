@@ -68,7 +68,10 @@ public class RacingGameController implements GameController {
     }
 
     public void checkCarNameIsValid(List<String> carNames) {
-        if (inputManager.hasDuplicate(carNames)) {
+        if (inputManager.hasDuplicateInList(carNames) ||
+                !inputManager.isStringLengthValidInList(carNames, RacingGame.CAR_NAME_MAX_LENGTH) ||
+                !inputManager.isStringNumValidInList(carNames, RacingGame.CAR_MAX_NUM)
+        ) {
             throw new IllegalArgumentException();
         }
     }

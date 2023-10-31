@@ -7,7 +7,6 @@ public class OutputManager {
     private static final String REQUEST_GAME_COUNT_INPUT = "시도할 회수는 몇회인가요?";
     private static final String RESULT = "실행 결과";
     private static final String WINNER = "최종 우승자 : ";
-
     private static final String GAME_OVER = "게임을 종료합니다...";
 
     public void printWithNewLine(String s) {

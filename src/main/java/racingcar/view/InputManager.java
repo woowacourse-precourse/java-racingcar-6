@@ -24,7 +24,15 @@ public class InputManager {
         return Integer.parseInt(input);
     }
 
-    public boolean hasDuplicate(List<String> carNames) {
-        return carNames.stream().distinct().count() != carNames.size();
+    public boolean hasDuplicateInList(List<String> list) {
+        return list.stream().distinct().count() != list.size();
+    }
+
+    public boolean isStringLengthValidInList(List<String> list, int length) {
+        return list.stream().allMatch(s -> s.length() <= length);
+    }
+
+    public boolean isStringNumValidInList(List<String> list, int length) {
+        return list.size() <= length;
     }
 }
