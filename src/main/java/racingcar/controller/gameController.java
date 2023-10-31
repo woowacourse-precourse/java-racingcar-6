@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.model.*;
 import racingcar.viewer.GameViewer;
@@ -43,11 +44,15 @@ public class GameController {
     }
 
     private void readCarNames() {
-        List<String> names = new ArrayList<>();
         viewer.printAskCarNames();
 
         String line = Console.readLine();
-        for (String name : line.split(",")) {
+        List<String> names = Arrays.asList(line.split(","));
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException("잘못된 차 이름 입력");
+        }
+
+        for (String name : names) {
             Car newCar = new Car(name);
             cars.add(newCar);
         }
@@ -56,8 +61,13 @@ public class GameController {
     private void readTheNumberOfTry() {
         viewer.printAskTheNumberOfTry();
 
-        String line = Console.readLine();
-        int num = Integer.parseInt(line);
+        int num;
+        try {
+            String line = Console.readLine();
+            num = Integer.parseInt(line);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 차 이름 입력");
+        }
 
         coin = new Try(num);
     }
