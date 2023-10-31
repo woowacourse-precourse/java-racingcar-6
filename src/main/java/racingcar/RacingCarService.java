@@ -14,6 +14,10 @@ public class RacingCarService {
     public void exec() {
         createRacingCar();
         getInputCount();
+        do {
+            cars.tryRace();
+            input_cnt--;
+        } while (input_cnt != 0);
     }
 
     private void createRacingCar() {
@@ -45,6 +49,5 @@ public class RacingCarService {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
-
     }
 }

@@ -8,7 +8,7 @@ public class RacingCars {
     private final static List<RacingCar> racingCars = new ArrayList<>();
 
     public void add(RacingCar racingCar) {
-        racingCars.add(racingCar);
+        this.racingCars.add(racingCar);
     }
 
     public boolean lengthCheck() {
@@ -16,5 +16,18 @@ public class RacingCars {
             return false;
         }
         return true;
+    }
+
+    public void tryRace() {
+        racingCars.stream().forEach(e -> {
+            e.setDistance(Utils.getRandomNum());
+        });
+        printResult();
+    }
+
+    private void printResult() {
+        racingCars.stream().forEach(e -> {
+            System.out.println(String.format("%s : %d", e.toString(), e.getDistance()));
+        });
     }
 }
