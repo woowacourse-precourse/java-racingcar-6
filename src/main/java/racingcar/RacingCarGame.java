@@ -1,0 +1,74 @@
+package racingcar;
+
+import java.util.List;
+
+import racingcar.input.InputView;
+
+public class RacingCarGame {
+
+    private CarCollection racingCarCollection;
+    private TryCount racingCarTryCount;
+    private static final int ALLOW_EMPTY_CARNAME_OPTION = -1;
+
+    public RacingCarGame() {
+        this.racingCarCollection = CarCollection.initCarCollect();
+        this.racingCarTryCount = TryCount.fromInteger(0);
+    }
+
+    public void addRacingCar(String carNames) {
+        List<String> carNameStringList = List
+                .of(carNames.split(RacingCarGameText.RACINGCAR_SPLIT_DELIMITER, ALLOW_EMPTY_CARNAME_OPTION));
+
+        carNameStringList.stream()
+                .map(String::strip)
+                .forEach(carNameString -> this.racingCarCollection.add(Car.fromString(carNameString)));
+    }
+
+    public CarCollection getCarCollection() {
+        return this.racingCarCollection;
+    }
+
+    public void setTryCount(String number) {
+        this.racingCarTryCount = TryCount.fromString(number);
+    }
+
+    public TryCount getTryCount() {
+        return this.racingCarTryCount;
+    }
+
+    public String getCarNameFromPrompt() {
+        OutputView.printRequestMultipleCarName();
+        return InputView.inputCarsName();
+    }
+
+    public String getTryCountFromPrompt() {
+        OutputView.printRequestTryCount();
+        return InputView.inputTryCount();
+    }
+
+    public void displayRacingCarGameResult() {
+        System.out.println();
+        OutputView.printExecuteResult();
+    }
+
+    public void displayCurrentCarStatus() {
+        this.racingCarCollection.batchDisplayCarStatus();
+        System.out.println();
+    }
+
+    public void displayWinners() {
+        OutputView.printFormatFinalWinner(this.racingCarCollection.getMaxLocationCarName());
+    }
+
+    public void play() {
+        addRacingCar(getCarNameFromPrompt());
+        setTryCount(getTryCountFromPrompt());
+        displayRacingCarGameResult();
+        while(!racingCarTryCount.isFinished()){
+            racingCarCollection.batchMoveCarOnRandomCondition();
+            displayCurrentCarStatus();
+            racingCarTryCount.consumeTry();
+        }
+        displayWinners();
+    }
+}
