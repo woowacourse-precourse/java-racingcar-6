@@ -47,6 +47,14 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining("자동차 이름의 길이가 5보다 깁니다.");
     }
 
+    @Test
+    void 시도할_횟수_입력이_잘못된_경우에_대한_예외_처리(){
+        String input = "abc";
+        assertThatThrownBy(() -> new Control(input, new ArrayList<>()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 횟수의 입력이 잘못 되었습니다.");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
