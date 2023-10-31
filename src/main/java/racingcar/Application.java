@@ -4,28 +4,26 @@ import camp.nextstep.edu.missionutils.*;
 import java.util.*;
 
 public class Application {
+    static Map<String, Integer> cars = new HashMap<>();
+    static List<String> carNames;
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        Map<String, Integer> cars = new HashMap<>();
-        List<String> carNames;
-        carNames = getCarNames();
-
-        setCarInfo(carNames, cars);
+        getCarNames();
+        setCars();
 
         int attempt = getAttempt();
-        printRaceResult(attempt, carNames, cars);
-        printWinner(cars, carNames);
+        printRaceResult(attempt);
+        printWinner();
     }
 
-    private static List<String> getCarNames() {
-        List<String> carNames;
+    private static void getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] temp = Console.readLine().split(",");
         carNames = new ArrayList<>(Arrays.asList(temp));
-        return carNames;
     }
 
-    private static void setCarInfo(List<String> carNames, Map<String, Integer> cars) {
+    private static void setCars() {
         for(String str : carNames) {
             if(str.length() >= 6) throw new IllegalArgumentException();
             cars.put(str, 0);
@@ -37,15 +35,15 @@ public class Application {
         return Integer.parseInt(Console.readLine());
     }
 
-    private static void printRaceResult(int attempt, List<String> carNames, Map<String, Integer> cars) {
+    private static void printRaceResult(int attempt) {
         System.out.println("\n실행 결과");
 
         for(int i = 0; i < attempt; i++) {
-            race(carNames, cars);
+            race();
         }
     }
 
-    private static void race(List<String> carNames, Map<String, Integer> cars) {
+    private static void race() {
         for(String str : carNames) {
             if(Randoms.pickNumberInRange(0, 9) >= 4) {
                 cars.put(str, cars.get(str) + 1);
@@ -57,7 +55,7 @@ public class Application {
         System.out.println();
     }
 
-    private static void printWinner(Map<String, Integer> cars, List<String> carNames) {
+    private static void printWinner() {
         System.out.print("최종 우승자 : ");
         Integer maxVal = Collections.max(cars.values());
         carNames.removeIf(str -> !(Objects.equals(cars.get(str), maxVal)));
