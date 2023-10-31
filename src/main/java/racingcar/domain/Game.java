@@ -18,6 +18,9 @@ public class Game {
         setGameCount();
     }
 
+    private void setPlayer(){
+        player = new Player();
+    }
     private void setCarList() {
         player.inputCarNames();
         List<String> carNames = player.getCarNames();
