@@ -49,4 +49,10 @@ public class Car {
     }
 
 
+    public String indicate() {
+        return carName + " : "
+                + "-".repeat(progress);
+    }
+
+
 }
