@@ -11,7 +11,7 @@ public class MakeNames {
         Utils utils = new Utils();
         String originalStr;
 
-        originalStr = utils.inputName();
+        originalStr = utils.inputStr();
         names = commaSplit(originalStr);
         return names;
     }
