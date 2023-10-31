@@ -21,7 +21,7 @@ public class RacingCarTest {
         Car car = new Car("stella");
         car.setPosition(0);
         racingCarService.move(car,5);
-        assertThat(car.getPosition()==1);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
     @DisplayName("랜덤 번호가 4 이하이면 전진하지 않는다.")
     @Test
@@ -29,7 +29,7 @@ public class RacingCarTest {
         Car car = new Car("stella");
         car.setPosition(0);
         racingCarService.move(car,1);
-        assertThat(car.getPosition()==0);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @DisplayName("가장 많이 전진한 숫자를 찾는다.")
@@ -40,6 +40,17 @@ public class RacingCarTest {
         Car minCar = new Car("jay");
         minCar.setPosition(1);
         List<Car> cars = Arrays.asList(maxCar,minCar);
-        assertThat(racingCarService.findMaxPosition(cars)==4);
+        assertThat(racingCarService.findMaxPosition(cars)).isEqualTo(4);
+    }
+
+    @DisplayName("최종 우승자를 찾는다.")
+    @Test
+    void findWinner() {
+        Car winner = new Car("winner");
+        winner.setPosition(5);
+        Car loser = new Car("loser");
+        loser.setPosition(2);
+        List<Car> cars = Arrays.asList(winner,loser);
+        assertThat(racingCarService.findWinner(cars,racingCarService.findMaxPosition(cars))).isEqualTo(Arrays.asList("winner"));
     }
 }
