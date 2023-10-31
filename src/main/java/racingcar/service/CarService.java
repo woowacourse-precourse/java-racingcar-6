@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.data.Car;
 import racingcar.util.CarUtil;
+import racingcar.validator.CarInputValidator;
+import racingcar.validator.RoundInputValidator;
 
 public class CarService {
     private List<Car> carList = new ArrayList<>();
@@ -22,15 +24,13 @@ public class CarService {
 
     private List<Car> getCarList() {
         CarUtil.printGetCarList();
-        String[] inputs = Console.readLine().split(CarUtil.CAR_NAME_SPLIT);
+        String[] carNames = Console.readLine().split(CarUtil.CAR_NAME_SPLIT);
+        CarInputValidator.checkCarNameDuplicate(carNames);
 
         List<Car> carList = new ArrayList<>();
-        for (String input : inputs) {
-            if (input.length() > CarUtil.MAX_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException();
-            }
-
-            carList.add(new Car(input, CarUtil.FIRST_SCORE));
+        for (String carName : carNames) {
+            CarInputValidator.checkCarNameLength(carName);
+            carList.add(new Car(carName, CarUtil.FIRST_SCORE));
         }
 
         return carList;
@@ -38,11 +38,10 @@ public class CarService {
 
     private int getRound() {
         CarUtil.printGetRound();
-        try {
-            return Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
+        String round = Console.readLine();
+        RoundInputValidator.checkRoundNumberFormat(round);
+
+        return Integer.parseInt(round);
     }
 
     private void playRound() {
@@ -68,7 +67,7 @@ public class CarService {
     private List<String> getWinnerList() {
         int maxDistance = carList.get(0).getMoveDistance();
         List<String> winnerList = new ArrayList<>(List.of(carList.get(0).getName()));
-        
+
         int carListSize = carList.size();
         for (int i = 1; i < carListSize; i++) {
             Car car = carList.get(i);
