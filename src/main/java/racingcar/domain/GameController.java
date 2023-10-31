@@ -28,6 +28,6 @@ public class GameController {
         }
         while (numberOfAttempts-- != 0);
 
-        //raceResultsPresenter.printWinner();
+        raceResultsPresenter.printWinner(cars);
     }
 }
