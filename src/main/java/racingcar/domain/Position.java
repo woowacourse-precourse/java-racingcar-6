@@ -1,18 +1,19 @@
 package racingcar.domain;
 
 public class Position {
-    public static final int FORWARD_VALUE = 1;
+    public static final int START_POSITION = 0;
     private int value;
 
     public Position() {
+        this.value = START_POSITION;
     }
 
     public Position(int value) {
         this.value = value;
     }
 
-    Position goForward() {
-        return new Position(this.value + FORWARD_VALUE);
+    public void goForward() {
+        this.value++;
     }
 
     int getValue() {
