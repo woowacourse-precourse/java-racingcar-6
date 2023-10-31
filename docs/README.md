@@ -3,10 +3,10 @@
     -[] 자동차는 멈출 수 있다. Car#moveStop()
 -[]자동차를 위치를 나타낸다.  Car#locate()
 -[]자동차의 위치를 초기화한다. Car#clear()
+-[]이름은 5자 이하만 가능하다. Car#validateName()
 
 -[]각 자동차에 이름을 부여할 수 있다. User#nameForCar()
     -[]자동차 이름은 쉼표(,)를 기준으로 구분한다. User#seprateName()
-    -[]이름은 5자 이하만 가능하다. User#vailedName()
 
 -[] 0에서 9사이의 무작위 값을 구해야 한다. Random#createNumber()
 
