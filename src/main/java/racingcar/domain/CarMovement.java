@@ -10,7 +10,7 @@ public class CarMovement {
 
     public boolean getRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        return randomNumber > 4;
+        return randomNumber > 3;
     }
 
     public void movement(List<Car> carList) {
