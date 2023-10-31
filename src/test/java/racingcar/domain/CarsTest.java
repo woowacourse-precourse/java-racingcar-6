@@ -1,25 +1,23 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class RefereeTest {
-    private Referee referee;
+class CarsTest {
+    private Cars cars;
 
     @BeforeEach
     void setUp() {
-        List<Car> cars = Arrays.asList(new Car("test1"), new Car("test2"), new Car("test3"));
-        cars.get(0).moveForward(5);
-        cars.get(2).moveForward(5);
+        List<Car> carList = Arrays.asList(new Car("test1"), new Car("test2"), new Car("test3"));
+        carList.get(0).moveForward(5);
+        carList.get(2).moveForward(5);
 
-        referee = new Referee(cars);
+        cars = new Cars(carList);
     }
 
     @DisplayName("가장 먼 거리에 있는 자동차 찾기 테스트")
@@ -27,7 +25,7 @@ class RefereeTest {
     void findFarthestPositionCarTest() {
         String expectedName = "test1";
 
-        Car maxPositionCar = referee.findFarthestPositionCar();
+        Car maxPositionCar = cars.findFarthestPositionCar();
         String maxPositionCarName = maxPositionCar.getName();
 
         assertThat(maxPositionCarName).isEqualTo(expectedName);
@@ -37,9 +35,9 @@ class RefereeTest {
     @Test
     void findSamePositionCarTest() {
         String expectedName = "test3";
-        Car maxPositionCar = referee.findFarthestPositionCar();
+        Car maxPositionCar = cars.findFarthestPositionCar();
 
-        List<Car> maxPositionCars = referee.findSamePositionCar(maxPositionCar);
+        List<Car> maxPositionCars = cars.findSamePositionCar(maxPositionCar);
         String otherMaxPositionCarName = maxPositionCars.get(1).getName();
 
         assertThat(otherMaxPositionCarName).isEqualTo(expectedName);
@@ -51,7 +49,7 @@ class RefereeTest {
         String expected1 = "test1";
         String expected2 = "test3";
 
-        List<Car> winners = referee.findWinners();
+        List<Car> winners = cars.findWinners();
         String winnerName1 = winners.get(0).getName();
         String winnerName2 = winners.get(1).getName();
 
