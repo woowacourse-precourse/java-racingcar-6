@@ -10,10 +10,6 @@ public class Application {
         // TODO: 프로그램 구현
         String[] inputs = inputCarName();
         Map<String, Integer> map = new LinkedHashMap<>();
-        // 순서대로 key값 넣기
-        for(String i : inputs){
-            map.put(i, map.getOrDefault(i, 0));
-        }
 
         // 횟수 입력
         int count = inputCount();
@@ -22,10 +18,13 @@ public class Application {
 
         while (i < count){
             for (String input : inputs) {
+                map.put(input, map.getOrDefault(input, 0));
                 int num = createRandom();;
 
                 if (num >= 4) {
-                    map.put(input, map.getOrDefault(input,0)+1);
+                    if(map.containsKey(input)){
+                        map.put(input, map.get(input)+1);
+                    }
                 }
             }
             print(map);
