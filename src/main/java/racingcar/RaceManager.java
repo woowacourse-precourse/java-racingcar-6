@@ -10,7 +10,7 @@ public class RaceManager {
     public void startRace() {
         prepareRace();
         runRace();
-        List<String> winners = determineWinner();
+        List<String> winners = determineWinner(raceCarList);
         OutputView.showWinner(winners);
     }
 
@@ -42,7 +42,7 @@ public class RaceManager {
         }
     }
 
-    private List<String> determineWinner() {
+    public List<String> determineWinner(List<Car> raceCarList) {
         List<String> winners = new ArrayList<>();
         int maxDistance = -1;
         for (Car car : raceCarList) {
