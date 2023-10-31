@@ -32,6 +32,13 @@ public class CarTest {
 
         assertThat(car.getTrackLength()).isEqualTo(3);
     }
+    @Test
+    void Car_문자열로_반환(){
+        String name = "cys";
+        Car car = new Car(name);
+        car.add();
 
+        assertThat(car.toString()).contains("cys : -");
+    }
 
 }
