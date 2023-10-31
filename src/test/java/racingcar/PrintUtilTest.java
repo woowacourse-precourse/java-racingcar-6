@@ -40,9 +40,14 @@ class PrintUtilTest {
     @ParameterizedTest
     @MethodSource("provideGameResult")
     void 게임_결과_출력(Map<String, String> result) {
+        printResultMsg();
         printGameResultMsg(result);
+        printFinalResultMsg();
 
-        String expectedResult = generateGameResult(result);
+        String expectedResult = generateExpectedGameResult(result);
+
+        assertThat(out.toString()).isEqualTo(expectedResult);
+    }
 
     @ParameterizedTest
     @MethodSource("provideOneWinner")
