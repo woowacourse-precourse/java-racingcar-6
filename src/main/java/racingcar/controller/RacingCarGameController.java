@@ -2,8 +2,10 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Player;
 import racingcar.view.RacingCarGameView;
 
@@ -20,8 +22,11 @@ public class RacingCarGameController {
         List<Player> playerList = generatePlayer(Arrays.stream(playerNames).toList());
 
         for (int i=0; i< racingCarGameView.requestTryNumber(); i++) {
-
+            moveOrNot(playerList);
+            racingCarGameView.showNowPlayerLocation(playerList);
         }
+
+        racingCarGameView.showGameWinner(judgeGame(playerList));
     }
 
     public List<Player> generatePlayer(List<String> playerNamerList) {
@@ -42,5 +47,11 @@ public class RacingCarGameController {
                 player.move();
             }
         }
+    }
+
+    public List<Player> judgeGame(List<Player> playerList) {
+        return playerList.stream().collect(Collectors.groupingBy(Player::getLocation, Collectors.toList()))
+                .values().stream().max(Comparator.comparingInt(List::size))
+                .orElse(List.of());
     }
 }
