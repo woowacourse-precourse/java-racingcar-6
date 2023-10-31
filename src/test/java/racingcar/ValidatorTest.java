@@ -13,13 +13,6 @@ public class ValidatorTest {
     final Validator validator = new Validator();
 
     @Test
-    void separateAndRemoveSpace_메서드로_자동차_이름_구분() {
-        String input = "a, b, c";
-        List<String> result = Arrays.asList("a", "b", "c");
-        assertThat(validator.separateAndRemoveSpace(input)).isEqualTo(result);
-    }
-
-    @Test
     void existsDuplicateName_메서드로_중복된_차_여부_검증() {
         List<String> carNames = Arrays.asList("a", "a", "c");
         boolean result = true;
@@ -27,56 +20,75 @@ public class ValidatorTest {
     }
 
     @Test
-    void ensureLengthInRange_메서드로_자동차_길이_검증() {
+    void isBiggerThanMaxCarLength_메서드로_자동차_길이_검증() {
         List<List<String>> carsNames = Arrays.asList(
-            Arrays.asList("a", "a", "c"),
-            Arrays.asList("abcdef", "g", "hij")
+                Arrays.asList("a", "a", "c"),
+                Arrays.asList("abcdef", "g", "hij")
         );
-        List<Boolean> result = Arrays.asList(true, false);
+        List<Boolean> result = Arrays.asList(false, true);
 
         int index = 0;
         for (List<String> carNames : carsNames) {
-            assertThat(validator.ensureLengthInRange(carNames)).isEqualTo(result.get(index));
+            assertThat(validator.isBiggerThanMaxCarLength(carNames))
+                    .isEqualTo(result.get(index));
             index++;
         }
     }
 
     @Test
-    void ensureNumberOfCars_메서드로_자동차_개수_검증() {
+    void isSmallerThanMinCarNumber_메서드로_자동차_개수_검증() {
         List<String> carNames = Arrays.asList("a");
-        boolean result = false;
-        assertThat(validator.ensureNumberOfCars(carNames)).isEqualTo(result);
+        boolean result = true;
+        assertThat(validator.isSmallerThanMinCarNumber(carNames)).isEqualTo(result);
     }
 
     @Test
-    void validateCarNamesInput_메서드_사용시_예외_발생() {
-        List<String> input = Arrays.asList("pobi,pobi,jun", "p, , bi", " ", "\n");
+    void validateCarNames_메서드_사용시_예외_발생() {
+        List<List<String>> input = Arrays.asList(
+                Arrays.asList("pobi", "pobi", "jun"),
+                Arrays.asList("p", "", "bi"),
+                Arrays.asList("abcdefg", "ab"),
+                Arrays.asList("abc"));
 
-        for (String carNames : input) {
+        for (List<String> cars : input) {
             assertThatIllegalArgumentException().isThrownBy(
-                () -> validator.validateCarNamesInput(carNames));
+                    () -> validator.validateCarNames(cars));
         }
     }
 
     @Test
-    void ensureRange_메서드로_시도_횟수_검증() {
-        List<Integer> attempts = Arrays.asList(1, 0, 55);
-        List<Boolean> result = Arrays.asList(true, false, true);
+    void isNotNumber_메서드로_시도_횟수_숫자_여부_검증() {
+        List<String> rounds = Arrays.asList(" ", ".", "!!");
+        List<Boolean> result = Arrays.asList(true, true, true);
 
         int index = 0;
-        for (Integer attempt : attempts) {
-            assertThat(validator.ensureRange(attempt)).isEqualTo(result.get(index));
+        for (String round : rounds) {
+            assertThat(validator.isNotNumber(round))
+                    .isEqualTo(result.get(index));
             index++;
         }
     }
 
     @Test
-    void validateCarNamesInput_메서드_사용시_1이상의_숫자가_아닌_경우_예외_처리() {
+    void isSmallerThanMinRoundNumber_메서드로_시도_횟수_범위_검증() {
+        List<String> rounds = Arrays.asList("1", "0", "55");
+        List<Boolean> result = Arrays.asList(false, true, false);
+
+        int index = 0;
+        for (String round : rounds) {
+            assertThat(validator.isSmallerThanMinRoundNumber(round))
+                    .isEqualTo(result.get(index));
+            index++;
+        }
+    }
+
+    @Test
+    void validateRounds_메서드_사용시_1이상의_숫자가_아닌_경우_예외_처리() {
         List<String> input = Arrays.asList("10.11", "-10", "f", "0", " ", "");
 
-        for (String attempt : input) {
+        for (String rounds : input) {
             assertThatIllegalArgumentException().isThrownBy(
-                () -> validator.validateCarNamesInput(attempt));
+                    () -> validator.validateRounds(rounds));
         }
     }
 
