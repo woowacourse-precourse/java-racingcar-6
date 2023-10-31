@@ -13,10 +13,8 @@ class NameTest {
     @ValueSource(strings = {"k", "poobi"})
     @DisplayName("자동차 이름 생성 성공")
     void givenInput_whenCreateName_thenNoException(String input) {
-        // when
         Name name = new Name(input);
 
-        // then
         assertThat(name.getName()).isEqualTo(input);
     }
 

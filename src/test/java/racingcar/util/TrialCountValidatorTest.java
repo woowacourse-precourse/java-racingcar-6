@@ -30,10 +30,8 @@ class TrialCountValidatorTest {
     @Test
     @DisplayName("시도할 회수 검증 실패: int 범위가 아니다")
     void givenTrialCount_whenValidateRange_thenThrowException() {
-        // given
         String trialCount = "2147483648";
 
-        // when & then
         assertThatThrownBy(() -> TrialCountValidator.validate(trialCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("int 범위 숫자가 아닙니다.");

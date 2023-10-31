@@ -31,63 +31,50 @@ class CarTest {
     @Test
     @DisplayName("랜덤 값이 4 이상이면 자동차 전진")
     void givenNumber_whenMove_thenIncreasePosition() {
-        // given
         Car car = new Car("pobi");
 
-        // when
         car.move(4);
 
-        // then
         assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @Test
     @DisplayName("랜덤 값이 4 미만이면 자동차 멈춤")
     void givenNumber_whenMove_thenStop() {
-        // given
         Car car = new Car("pobi");
 
-        // when
         car.move(3);
 
-        // then
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test
     @DisplayName("자동차 위치 비교: 똑같은 위치")
     void givenTwoCar_whenIsSamePosition_thenReturnTrue() {
-        // given
         Car pobi = new Car("pobi");
         Car woni = new Car("woni");
 
-        // when & then
         assertThat(pobi.isSamePosition(woni)).isTrue();
     }
 
     @Test
     @DisplayName("자동차 위치 비교: 다른 위치")
     void givenTwoCar_whenIsSamePosition_thenReturnFalse() {
-        // given
         Car pobi = new Car("pobi");
         Car woni = new Car("woni");
         pobi.move(4);
 
-        // when & then
         assertThat(pobi.isSamePosition(woni)).isFalse();
     }
 
     @Test
     @DisplayName("CarDto 생성 확인")
     void givenCar_thenToCarDto_thenSuccess() {
-        // given
         Car pobi = new Car("pobi");
         pobi.move(4);
 
-        // when
         CarDto result = pobi.toCarDto();
 
-        // then
         assertThat(result).extracting("name").isEqualTo("pobi");
         assertThat(result).extracting("position").isEqualTo(1);
     }

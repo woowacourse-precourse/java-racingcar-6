@@ -25,10 +25,8 @@ class GameServiceTest {
     @ValueSource(strings = {"1", "2147483647"})
     @DisplayName("시도할 회수 생성 성공")
     void givenInput_whenCreateTrialCount_thenSuccess(String input) {
-        // when
         int result = gameService.createTrialCount(input);
 
-        // then
         assertThat(result).isEqualTo(Integer.parseInt(input));
     }
 
@@ -43,14 +41,11 @@ class GameServiceTest {
     @Test
     @DisplayName("라운드를 실행하고 정상적인 결과를 알려주는지 확인")
     void givenCars_whenPlayRound_thenReturnCorrectResult() {
-        // given
         Cars cars = new Cars("pobi,woni");
 
-        // when
         gameService.moveCars(cars);
         CarsDto result = gameService.getRoundResult(cars);
 
-        // then
         assertThat(result.carDtos().size()).isEqualTo(2);
         assertThat(result.carDtos().get(0)).extracting("name").isEqualTo("pobi");
         assertThat(result.carDtos().get(1)).extracting("name").isEqualTo("woni");
