@@ -5,18 +5,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ResultDtoTest {
 
     public static final long TOTAL_ROUND = 3L;
     public static final int FIRST_ROUND = 1;
-    public static final int NUMBER_OF_CARS = 3;
     private static BigInteger idProvider = BigInteger.ZERO;
     private ResultDto resultDto;
 
@@ -31,11 +28,11 @@ class ResultDtoTest {
 
         // when
         for (int i = FIRST_ROUND; i < TOTAL_ROUND + 1; i++) {
-            List<Car.CarResultDto> carResultDtos = new ArrayList<>(NUMBER_OF_CARS);
-            carResultDtos.add(pobiCar.createCarResultDto());
-            carResultDtos.add(woniCar.createCarResultDto());
-            carResultDtos.add(junCar.createCarResultDto());
-            SingleRoundResultDto singleRoundResult = new SingleRoundResultDto(carResultDtos);
+            List<Car.CarResultDto> carResults = Arrays.asList(
+                    pobiCar.createCarResultDto(),
+                    woniCar.createCarResultDto(),
+                    junCar.createCarResultDto());
+            SingleRoundResultDto singleRoundResult = new SingleRoundResultDto(carResults);
             resultDto.addSingleRoundResult(BigInteger.valueOf(i), singleRoundResult);
         }
     }
