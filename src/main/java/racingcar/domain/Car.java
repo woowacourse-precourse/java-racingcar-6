@@ -15,9 +15,13 @@ public class Car {
     }
 
     public void move(final int randomNumber) {
-        if (randomNumber >= MOVE_CONDITION) {
+        if (canMove(randomNumber)) {
             position.moveForward();
         }
+    }
+
+    private boolean canMove(final int randomNumber) {
+        return randomNumber >= MOVE_CONDITION;
     }
 
     public boolean isSamePosition(final Car car) {
