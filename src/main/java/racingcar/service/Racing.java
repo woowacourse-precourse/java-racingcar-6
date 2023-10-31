@@ -25,20 +25,24 @@ public class Racing {
         output.printMessage(AnnouncerScript.EXCUTION_RESULT);
         cars = carList;
 
-        Iterator<String> carNames = carList.getCarName().iterator();
-        while (carNames.hasNext()) {
-            String carName = carNames.next();
-
-            raceCar(carName);
-            printResult(carName);
+        for (int i = 0; i < attempt; i++) {
+            Iterator<String> carNames = carList.getCarName().iterator();
+            raceCar(carNames);
+            output.printMessage(AnnouncerScript.FINISH_ONE_ROUND);
         }
     }
 
-    private void raceCar(String carName) {
-        int random = providerRandomValue.returnRandomNumeric();
+    private void raceCar(Iterator<String> carNames) {
+        while (carNames.hasNext()) {
+            String carName = carNames.next();
 
-        if (judgement.isMovableRange(random)) {
-            moving(carName);
+            int random = providerRandomValue.returnRandomNumeric();
+
+            if (judgement.isMovableRange(random)) {
+                moving(carName);
+            }
+
+            printResult(carName);
         }
     }
 
@@ -54,8 +58,10 @@ public class Racing {
             movingCount += "-";
         }
 
-        result = String.format("%s : %s", carName, movingCount);
+        result = String.format("%s : %s\n", carName, movingCount);
 
         output.printMessage(result);
     }
+
+
 }

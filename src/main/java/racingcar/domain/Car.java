@@ -1,14 +1,15 @@
 package racingcar.domain;
 
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
 
 public class Car {
 
-    private HashMap<String, Integer> car;
+    private Map<String, Integer> car = new LinkedHashMap<>();
 
-    public Car(HashMap<String, Integer> car) {
-        this.car = car;
+    public Car(List<String> carNames) {
+        for (String carname : carNames) {
+            car.put(carname, 0);
+        }
     }
 
     public Set<String> getCarName() {

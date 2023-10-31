@@ -6,7 +6,9 @@ import racingcar.utility.ExceptionHandler;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class GameService {
@@ -33,9 +35,9 @@ public class GameService {
         racing.play(carList, attemp);
     }
 
-    private HashMap<String, Integer> setCarName() {
+    private List<String> setCarName() {
         String name = input.inputFromUser();
-        HashMap<String, Integer> nameList = new HashMap<>();
+        List<String> nameList = new ArrayList<>();
 
         exceptionHandler.isBlank(name);
 
@@ -45,7 +47,7 @@ public class GameService {
             String carName = st.nextToken();
             exceptionHandler.isExceedLength(carName);
 
-            nameList.put(carName, 0);
+            nameList.add(carName);
         }
 
         return nameList;

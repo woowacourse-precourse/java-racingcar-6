@@ -6,5 +6,6 @@ public class AnnouncerScript {
     public final static String ASK_NUMBER_OF_ATTEMPTS = "시도할 회수는 몇회인가요?\n";
     public final static String EXCUTION_RESULT = "실행 결과\n";
     public final static String WINNER = "최종 우승자 : ";
+    public final static String FINISH_ONE_ROUND = "\n";
 
 }
