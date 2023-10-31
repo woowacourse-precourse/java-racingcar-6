@@ -1,5 +1,5 @@
 package racingcar.execution;
 
 public interface GameOutput {
-    public abstract void printString(String output);
+    public abstract void print(String output);
 }

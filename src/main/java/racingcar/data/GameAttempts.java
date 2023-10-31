@@ -15,7 +15,7 @@ public class GameAttempts {
         attempts.add(newAttempt);
     }
 
-    public void pickNewNumber(int index) {
-        attempts.get(index).initInputNumber();
+    public void pickNewNumberByIndex(int index) {
+        attempts.get(index).initRandomNumber();
     }
 }

@@ -13,8 +13,7 @@ public class AttemptData {
 
     public void pickNewNumber() {
         gameAttempts.createAttempt();
-        gameAttempts.pickNewNumber(attemptIndex.toInt());
-        attemptIndex.increaseIndex();
+        gameAttempts.pickNewNumberByIndex(attemptIndex.toInt());
     }
 
     public static void validateAttemptNumber(int number) {

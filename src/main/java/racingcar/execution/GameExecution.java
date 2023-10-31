@@ -9,11 +9,11 @@ public class GameExecution {
         this.gameOutput = new ConsoleOutput();
     }
 
-    public String receiveGameInput() {
-        return gameInput.receiveInput();
+    public String scan() {
+        return gameInput.scan();
     }
 
-    public void printOutputString(String output) {
-        gameOutput.printString(output);
+    public void print(String output) {
+        gameOutput.print(output);
     }
 }

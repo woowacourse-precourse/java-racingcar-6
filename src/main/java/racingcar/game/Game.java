@@ -15,11 +15,11 @@ public class Game {
     }
 
     public void initGameData() {
-        gameExecution.printOutputString(RACING_CAR_NAME_INPUT_MESSAGE);
-        gameData.initRacingCars(gameExecution.receiveGameInput());
+        gameExecution.print(RACING_CAR_NAME_INPUT_MESSAGE);
+        gameData.initRacingCars(gameExecution.scan());
 
-        gameExecution.printOutputString(ATTEMPT_NUMBER_INPUT_MESSAGE);
-        gameData.initAttemptData(gameExecution.receiveGameInput());
+        gameExecution.print(ATTEMPT_NUMBER_INPUT_MESSAGE);
+        gameData.initAttemptData(gameExecution.scan());
     }
 
     public void proceed() {

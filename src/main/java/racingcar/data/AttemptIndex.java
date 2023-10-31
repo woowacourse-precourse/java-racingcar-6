@@ -7,7 +7,7 @@ public class AttemptIndex {
         return index;
     }
 
-    public void increaseIndex() {
+    public void increase() {
         index++;
     }
 }

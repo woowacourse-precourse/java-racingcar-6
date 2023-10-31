@@ -1,5 +1,5 @@
 package racingcar.execution;
 
 public interface GameInput {
-    public abstract String receiveInput();
+    public abstract String scan();
 }
