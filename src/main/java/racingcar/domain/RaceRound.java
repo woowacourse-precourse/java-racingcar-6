@@ -9,11 +9,10 @@ public class RaceRound {
     private final int totalRound;
     private int currentRound;
 
-    public RaceRound(final int totalRound, final int currentRound) {
+    public RaceRound(final int totalRound) {
         validateTotalRound(totalRound);
-        validateInitCurrentRound(currentRound);
         this.totalRound = totalRound;
-        this.currentRound = currentRound;
+        this.currentRound = INIT_CURRENT_GAME_ROUND_COUNT.getSetting();
     }
 
     public Boolean increaseCurrentRound() {
@@ -34,12 +33,4 @@ public class RaceRound {
             throw new IllegalArgumentException(ERROR_TOTAL_GAME_ROUND_COUNT.getMessage());
         }
     }
-
-    private void validateInitCurrentRound(final int currentRound) {
-        if (currentRound != INIT_CURRENT_GAME_ROUND_COUNT.getSetting()) {
-            throw new IllegalArgumentException(ERROR_INIT_CURRENT_GAME_ROUND.getMessage());
-        }
-    }
-
-
 }

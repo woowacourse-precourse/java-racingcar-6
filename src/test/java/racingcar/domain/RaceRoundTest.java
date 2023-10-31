@@ -12,32 +12,20 @@ class RaceRoundTest {
     void 예외_처리_테스트_1() {
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new RaceRound(-1, 0);
+                    new RaceRound(-1);
                 });
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new RaceRound(0, 0);
+                    new RaceRound(0);
                 });
     }
 
-    @Test
-    @DisplayName("게임 진행 회수 초기 값이 0이 아닌 경우 에외 발생")
-    void 예외_처리_테스트_2() {
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    new RaceRound(3, -1);
-                });
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    new RaceRound(3, 2);
-                });
-    }
 
     @Test
     @DisplayName("현재 라운드가 총 라운드 보다 작은 경우 increaseCurrentRound()는 true를 반환")
     void increaseCurrentRound_현재_라운드_올라감_테스트() {
         // given
-        RaceRound raceRound = new RaceRound(5, 0);
+        RaceRound raceRound = new RaceRound(5);
 
         // when
         Boolean result = raceRound.increaseCurrentRound();
@@ -50,7 +38,7 @@ class RaceRoundTest {
     @DisplayName("현재 라운드가 총 라운드 보다 같은 경우 increaseCurrentRound()는 false를 반환")
     void increaseCurrentRound_현재_라운드_올라가지_않음_테스트() {
         // given
-        RaceRound raceRound = new RaceRound(5, 0);
+        RaceRound raceRound = new RaceRound(5);
         while (raceRound.isLeftRound()) raceRound.increaseCurrentRound();
 
         // when
@@ -65,7 +53,7 @@ class RaceRoundTest {
     @DisplayName("현재 라운드가 총 라운드 보다 작은 경우 isLeftRound()는 true를 반환")
     void isLeftRound_남은_라운드_있음_테스트() {
         // given
-        RaceRound raceRound = new RaceRound(5, 0);
+        RaceRound raceRound = new RaceRound(5);
 
         // when
         Boolean result = raceRound.isLeftRound();
@@ -78,7 +66,7 @@ class RaceRoundTest {
     @DisplayName("현재 라운드가 총 라운드와 같은 경우 isLeftRound()는 false를 반환")
     void isLeftRound_남은_라운드_없음_테스트() {
         // given
-        RaceRound raceRound = new RaceRound(5, 0);
+        RaceRound raceRound = new RaceRound(5);
         while (raceRound.isLeftRound()) raceRound.increaseCurrentRound(); // 남아 있는 모든 라운드 돌리기
 
         // when

@@ -54,7 +54,7 @@ public class GameController {
 
     private void createRaceRound() {
         final Integer countOfRaceRound = inputView.inputCountOfGameRound();
-        raceRound = new RaceRound(countOfRaceRound, 0);
+        raceRound = new RaceRound(countOfRaceRound);
     }
 
     private void playEachRaceRound() {
