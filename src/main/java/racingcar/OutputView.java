@@ -25,9 +25,9 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public void printGameWinner(String gameWinner) {
+	public void printGameWinner(String winnerResult) {
 		final String WINNER_PREFIX = "최종 우승자 : ";
 
-		System.out.println(WINNER_PREFIX + gameWinner);
+		System.out.println(WINNER_PREFIX + winnerResult);
 	}
 }
