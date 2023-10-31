@@ -14,9 +14,9 @@ public class User {
         return carNames;
     }
 
-    public void checkLastComma(String input){
+    public void checkLastComma(String input) {
         boolean endsWithComma = input.endsWith(",");
-        if(endsWithComma){
+        if (endsWithComma) {
             throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
         }
     }
@@ -29,7 +29,7 @@ public class User {
         }
     }
 
-    public void checkLengthName(String carName){
+    public void checkLengthName(String carName) {
         if (carName.length() > 5 || carName.length() < 1) {
             throw new IllegalArgumentException("잘못된 이름을 입력하셨습니다.");
         }
