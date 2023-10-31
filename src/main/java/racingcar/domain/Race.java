@@ -23,13 +23,19 @@ public class Race {
         for (int i = 0; i < round; i++) {
             showProgress();
         }
+        afterRace();
     }
+
+    private void afterRace() {
+        outputView.printWinners(Referee.separationWinners(carList));
+    }
+
 
     private void showProgress() {
         for (Car car : carList) {
             car.moveForward();
-            car.showProgress(car);
+            outputView.printProgress(car.getName(), car.getPosition());
         }
-        System.out.println();
+        System.out.print('\n');
     }
 }
