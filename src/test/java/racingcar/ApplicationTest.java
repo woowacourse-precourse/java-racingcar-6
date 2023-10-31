@@ -2,7 +2,6 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -14,6 +13,27 @@ class ApplicationTest extends NsTest {
 
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    @Test
+    void 전진_정지_예제코드_테스트() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "5");
+                assertThat(output())
+                    .contains("pobi : -", "woni :", "jun : -")
+                    .contains("pobi : --", "woni : -", "jun : --")
+                    .contains("pobi : ---", "woni : --", "jun : ---")
+                    .contains("pobi : ----", "woni : ---", "jun : ----")
+                    .contains("pobi : -----", "woni : ----", "jun : -----")
+                    .contains("최종 우승자 : pobi, jun");
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD,
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+            MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
 
     @Test
     void 전진_정지_우승자_두명() {
@@ -67,12 +87,12 @@ class ApplicationTest extends NsTest {
     @Test
     void 이동_횟수에_대한_예외_처리_숫자가_아님() {
         assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi","woni", "a"))
+            assertThatThrownBy(() -> runException("pobi", "woni", "a"))
                 .isInstanceOf(IllegalArgumentException.class)
         );
 
         assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi","woni", "!"))
+            assertThatThrownBy(() -> runException("pobi", "woni", "!"))
                 .isInstanceOf(IllegalArgumentException.class)
         );
     }
