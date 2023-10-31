@@ -162,5 +162,25 @@ public class myApplicationTest {
         }
     }
 
-
+    @Nested
+    @DisplayName("전체 실행 테스트")
+    class runTest extends NsTest{
+        private static final int MOVING_FORWARD = 4;
+        private static final int STOP = 3;
+        @Test
+        @DisplayName("전체 실행 테스트")
+        void 전체실행() {
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        run("Alice,Bob,Carol", "2");
+                        assertThat(output()).contains("Alice : --", "Bob : -","Carol : -", "최종 우승자 : Alice");
+                    },
+                    MOVING_FORWARD, STOP,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD,STOP
+            );
+        }
+        @Override
+        public void runMain() {
+            Application.main(new String[]{});
+        }
+    }
 }
