@@ -6,16 +6,17 @@ import static racingcar.UserInputValidator.carNameIsValid;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 
 public class UserInputValidatorTest {
 
-
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"carname", "carname,123456"})
     @DisplayName("입력받은 자동차이름이 5글자를 넘을 경우 IllegalArgumentException을 처리한다")
-    void throw_IllegalArgumentException_when_inputCarName_isLongerThan_5() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid("carname"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid("carname,123456"));
+    void throw_IllegalArgumentException_when_inputCarName_isLongerThan_5(String name) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid(name));
     }
 
     @Test
@@ -24,11 +25,11 @@ public class UserInputValidatorTest {
         Assertions.assertTrue(() -> carNameIsValid("12345,pobi"));
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"한글과!차,en!@굳", "!](,오"})
     @DisplayName("한국어나 특수문자로 자동차이름을 입력받아도 true반환")
-    void return_true_when_inputCarName_is_korAndSpecialChar() {
-        Assertions.assertTrue(() -> carNameIsValid("한글과!차,en!@굳"));
-        Assertions.assertTrue(() -> carNameIsValid("!](,오"));
+    void return_true_when_inputCarName_is_korAndSpecialChar(String name) {
+        Assertions.assertTrue(() -> carNameIsValid(name));
     }
 
     @Test
@@ -45,21 +46,18 @@ public class UserInputValidatorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid(null));
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"java", "java,", ",java"})
     @DisplayName("자동차를 한대만 입력했다면 예외처리")
-    void throw_when_input_only_one_carName() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid("java"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid("java,"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid(",java"));
+    void throw_when_input_only_one_carName(String name) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> carNameIsValid(name));
     }
 
-    // 시도할 회수가 숫자가 아닌지 체크
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"다섯번", "five", "0"})
     @DisplayName("0이나 문자를 입력했을 때 IllegalArgumentException 처리")
-    void throw_IllegalArgumentException_when_inputCarName_is_not_num() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid("다섯번"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid("five"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid("0"));
+    void throw_IllegalArgumentException_when_inputCarName_is_not_num(String count) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid(count));
     }
 
     @Test
@@ -68,11 +66,11 @@ public class UserInputValidatorTest {
         Assertions.assertTrue(() -> attemptCountIsValid("12"));
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"10000", "100_000_000_000"})
     @DisplayName("10_000이상을 입력하면 IllegalArgumentException 처리")
-    void throw_when_input_1000() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid("10000"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid("100_000_000_000"));
+    void throw_when_input_1000(String count) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> attemptCountIsValid(count));
     }
 
 }
