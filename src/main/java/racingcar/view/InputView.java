@@ -2,7 +2,7 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.util.InputDataValidator.validateHasSpace;
-import static racingcar.util.InputDataValidator.validateInputSize;
+import static racingcar.util.InputDataValidator.validateInputList;
 import static racingcar.util.InputDataValidator.validateIsInteger;
 
 import java.util.Arrays;
@@ -31,7 +31,7 @@ public class InputView {
 
         carList = Arrays.stream(input.split(Config.SPLIT_REGEXP)).collect(Collectors.toList());
 
-        validateInputSize(carList);
+        validateInputList(carList);
 
         return Collections.unmodifiableList(carList);
     }
