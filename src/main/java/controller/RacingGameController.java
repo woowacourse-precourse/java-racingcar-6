@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import domain.Car;
 import domain.CarNamesInput;
@@ -60,26 +61,21 @@ public class RacingGameController {
 
 	private void receiveAward(List<Car> winners) {
 		messageView.printAwardMessage();
+		String winnerMessage = crateWinnerMessage(winners);
 
-		awardSingleWinner(winners);
-
-		if (isTiedWinners(winners)) {
-			awardTiedWinners(winners);
-		}
+		outputView.printAwardWinner(winnerMessage);
 	}
 
-	private boolean isTiedWinners(List<Car> winners) {
-		return winners.size() > 1;
+	private String crateWinnerMessage(List<Car> winners) {
+		List<String> winnerNames = getCarNames(winners);
+
+		return String.join(", ", winnerNames);
 	}
 
-	private void awardSingleWinner(List<Car> winners) {
-		outputView.printAwardSingleWinner(winners.get(0));
-	}
-
-	private void awardTiedWinners(List<Car> winners) {
-		for (int i = 1; i < winners.size(); i++) {
-			outputView.printAwardTiedWinner(winners.get(i));
-		}
+	private List<String> getCarNames(List<Car> winners) {
+		return winners.stream()
+				.map(Car::getName)
+				.collect(Collectors.toList());
 	}
 
 	public CarNamesInput initCarNameData() {
