@@ -7,8 +7,15 @@ public class NameValidiator {
     NameValidiator(String inputCarNames)
     {
         checkEmpty(inputCarNames);
+        checkEndDelimiter(inputCarNames);
     }
 
+    private void checkEndDelimiter(String inputCarNames){
+        if(inputCarNames.charAt(inputCarNames.length()-1)==',')
+        {
+            throw new IllegalArgumentException("입력값이 쉼표로 끝납니다.");
+        }
+    }
     private void checkEmpty(String inputCarNames){
         if(inputCarNames.isEmpty()){
             throw new IllegalArgumentException("입력값이 없습니다.");
