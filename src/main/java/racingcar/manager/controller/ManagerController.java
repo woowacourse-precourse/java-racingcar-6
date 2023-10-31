@@ -22,8 +22,8 @@ public class ManagerController {
 
         resultExecutionMessage();
         executeRacing(cars,tryCount);
-        judgeWinnerCar(cars);
-
+        List<String> winnerCars = judgeWinnerCar(cars);
+        finalWinner(winnerCars);
     }
     public int createRandomNumber(){
         return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE);
