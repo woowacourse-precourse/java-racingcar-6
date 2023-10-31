@@ -1,6 +1,6 @@
 # 구현할 기능 목록
 ## 1. 자동차 이름 분류하기
-- InputHandler#inputCarNames()
+- InputHandler#makeCarNamesArray()
 - 사용자에게 입력 받은 값을 구분자에 맞게 분류하여 배열로 반환한다.
 
 ## 2. 자동차 이름 입력 유효성 확인하기
@@ -34,4 +34,3 @@
 ## 10. 자동차 이동하기
 - Car#move()
 - 자동차가 전달받은 값만큼 이동한다.
-
