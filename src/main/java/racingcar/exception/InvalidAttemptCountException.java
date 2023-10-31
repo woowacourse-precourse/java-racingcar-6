@@ -23,7 +23,7 @@ public class InvalidAttemptCountException extends IllegalArgumentException {
     }
 
     public static void validate(int attemptCount) {
-        if (attemptCount < MIN_BOUND) {
+        if (attemptCount <= MIN_BOUND) {
             throw new InvalidAttemptCountException();
         }
     }
