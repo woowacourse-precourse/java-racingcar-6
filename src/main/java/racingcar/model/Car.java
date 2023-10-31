@@ -1,4 +1,4 @@
-package racingcar.entity;
+package racingcar.model;
 
 public class Car {
 
