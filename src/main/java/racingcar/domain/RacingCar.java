@@ -8,14 +8,26 @@ import racingcar.domain.condition.MoveCondition;
 public class RacingCar {
     private final String carName;
     private final MoveCondition moveCondition;
+    private int position;
 
     public RacingCar(String carName, MoveCondition moveCondition) {
+        this(carName, 0, moveCondition);
+    }
+
+    public RacingCar(String carName, int position, MoveCondition moveCondition) {
         if (carName.length() <= 5) {
             this.carName = carName;
             this.moveCondition = moveCondition;
+            this.position = position;
             return;
         }
         throw new IllegalArgumentException(CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION);
+    }
+
+    public void race(int randomNumber) {
+        if (moveCondition.check(randomNumber)) {
+            position++;
+        }
     }
 
     @Override
@@ -27,13 +39,13 @@ public class RacingCar {
             return false;
         }
         RacingCar racingCar = (RacingCar) o;
-        return Objects.equals(carName, racingCar.carName) && Objects.equals(moveCondition,
-                racingCar.moveCondition);
+        return position == racingCar.position && Objects.equals(carName, racingCar.carName)
+                && Objects.equals(moveCondition, racingCar.moveCondition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(carName, moveCondition);
+        return Objects.hash(carName, moveCondition, position);
     }
 }
 
