@@ -20,13 +20,13 @@ public class Car {
     }
 
     public void moveForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(Constant.MINIMUM_RANDOM_NUMBER, Constant.MAXIMUM_RANDOM_NUMBER);
+        if (randomNumber >= Constant.RANDOM_NUMBER_THRESHOLD) {
             this.position++;
         }
     }
 
     public void printResult() {
-        System.out.println(this.name + " : " + "-".repeat(this.position));
+        System.out.println(this.name + Constant.COLON + Constant.HYPHEN.repeat(this.position));
     }
 }

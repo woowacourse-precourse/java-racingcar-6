@@ -27,7 +27,7 @@ public class Game {
     }
 
     private void makeCars(String carNames) {
-        for (String carName : carNames.split(",")) {
+        for (String carName : carNames.split(Constant.COMMA)) {
             if (cars.contains(carName)) {
                 throw new IllegalArgumentException("중복된 이름의 자동차가 존재합니다.");
             }
