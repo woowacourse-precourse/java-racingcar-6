@@ -140,6 +140,22 @@ class RacingCarGameTest extends NsTest {
                 .hasCauseInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("잘못된 진행 횟수 입력 받기: 문자열")
+    @Test
+    void readFullRoundThrowCase3()
+            throws NoSuchMethodException, NoSuchFieldException {
+        // given
+        final String fullRound = "일";
+        Method method = getAccessibleMethod("readFullRound");
+
+        // when, then
+        run(fullRound);
+        assertThatThrownBy(() -> {
+            Number round = (Number) method.invoke(racingCarGame);
+        })
+                .isInstanceOf(InvocationTargetException.class)
+                .hasCauseInstanceOf(IllegalArgumentException.class);
+    }
 
     @DisplayName("준비가 되었는지 확인한다.")
     @Test
@@ -172,9 +188,9 @@ class RacingCarGameTest extends NsTest {
 
     }
 
-    @DisplayName("승리 결과가 정상 출력되는지 확인한다.")
+    @DisplayName("승리 결과가 정상 출력되는지 확인한다. (1명)")
     @Test
-    void printResult()
+    void printResultCase1()
             throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         // given
         Car car1 = new Car("car1");
@@ -186,6 +202,23 @@ class RacingCarGameTest extends NsTest {
         // when, then
         method.invoke(racingCarGame);
         assertThat(output()).contains("최종 우승자 : car1");
+    }
+
+    @DisplayName("승리 결과가 정상 출력되는지 확인한다. (여러명)")
+    @Test
+    void printResultCase2()
+            throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        // given
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        car1.increaseAdvance();
+        car2.increaseAdvance();
+        setTestCar(new Car[]{car1, car2});
+        Method method = getAccessibleMethod("printResult");
+
+        // when, then
+        method.invoke(racingCarGame);
+        assertThat(output()).contains("최종 우승자 : car1, car2");
     }
 
     /**
