@@ -32,6 +32,10 @@ public class Car {
         return distance >= otherCarDistance;
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
     public int getDistance() {
         return distance;
     }
