@@ -15,4 +15,14 @@ public class CarGame {
     cars = new ArrayList<Car>();
     attempts = 0;
   }
+
+  public void prompt() {
+    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    String names = readLine();
+    this.cars = Arrays.stream(names.split(",")).map((String name) -> new Car(name)).collect(Collectors.toList());
+    System.out.println("시도할 회수는 몇회인가요?");
+    String attemptsInput = readLine();
+    this.attempts = Integer.parseInt(attemptsInput);
+    if(attempts < 0) throw new IllegalArgumentException();
+  }
 }
