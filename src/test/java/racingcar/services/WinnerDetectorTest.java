@@ -37,4 +37,24 @@ class WinnerDetectorTest {
         Assertions.assertThat(actual).isEqualTo(expect);
      }
 
+     @Test
+     @DisplayName("단일 승리자들 출력")
+     void differentScoreTest() throws Exception{
+         //given
+         RaceGameState state = new RaceGameState("aa, bb, cc");
+         String expect ="최종 우승자 : cc";
+
+         state.moveForwardByName("aa");
+         state.moveForwardByName("aa");
+         state.moveForwardByName("bb");
+         state.moveForwardByName("cc");
+         state.moveForwardByName("cc");
+         state.moveForwardByName("cc");
+         //when
+         WinnerDetector.printAllWinners(state);
+         //then
+         String actual = outputStream.toString().substring(0, outputStream.toString().length() - 2);
+         Assertions.assertThat(actual).isEqualTo(expect);
+      }
+
 }
