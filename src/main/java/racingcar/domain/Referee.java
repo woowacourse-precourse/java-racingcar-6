@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Referee {
@@ -16,5 +17,24 @@ public class Referee {
         throw new IllegalArgumentException(LENGTH_OF_NAME_EXCEPTION_COMMENT);
       }
     }
+  }
+
+  public void findFinalWinner(List<RacingCar> racingCars) {
+    Collections.sort(racingCars);
+    RacingCar winnerRacingCar = racingCars.get(0);
+
+    StringBuilder winnerList = new StringBuilder();
+    winnerList.append(racingCars.get(0).getName());
+
+    int index = 1;
+    while(racingCars.get(index).isSamePosition(winnerRacingCar)) {
+      winnerList.append("," + racingCars.get(index++).getName());
+    }
+
+    printFinalWinner(winnerList.toString());
+  }
+
+  private void printFinalWinner(String finalWinner) {
+    System.out.println("최종 우승자 : " + finalWinner);
   }
 }
