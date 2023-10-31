@@ -17,19 +17,6 @@ public class Player {
         validateCarNames(inputs);
     }
 
-    public List<String> getCarNames() {
-        return carNames;
-    }
-
-    public void inputRaceCount() {
-        String input = Console.readLine();
-        validateRaceCount(input);
-    }
-
-    public int getRaceCount() {
-        return raceCount;
-    }
-
     private List<String> splitInputCarNames(String input) {
         String[] inputs = input.split(",");
         return Arrays.asList(inputs);
@@ -49,6 +36,15 @@ public class Player {
         }
     }
 
+    public List<String> getCarNames() {
+        return carNames;
+    }
+
+    public void inputRaceCount() {
+        String input = Console.readLine();
+        validateRaceCount(input);
+    }
+
     private void validateRaceCount(String input) {
         validateRaceCountType(input);
         validateRaceCountValue();
@@ -66,5 +62,9 @@ public class Player {
         if (raceCount < 1) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public int getRaceCount() {
+        return raceCount;
     }
 }
