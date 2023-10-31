@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.configurations.InputConfigurations.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +11,9 @@ public class Scanner {
     private String delimiter;
     private int maximumNameLength;
 
-    Scanner(String delimiter, Integer maximumNameLength) {
-        this.delimiter = delimiter;
-        this.maximumNameLength = maximumNameLength;
+    Scanner() {
+        delimiter = getDelimiter();
+        maximumNameLength = getMaximumNameLength();
     }
 
     List<String> inputCarNames() {
