@@ -97,10 +97,24 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void inputAttemptsValidation() {
-      String inputAttempts = "5";
-      int attempts = Integer.parseInt(inputAttempts);
-      assertThat(attempts).isEqualTo(5);
+    void inputAttemptsValidation_정상케이스() {
+      assertThatCode(() -> inputAttemptsValidation("5"))
+          .doesNotThrowAnyException();
+    }
+    @Test
+    void inputAttemptsValidation_예외케이스() {
+      assertThatThrownBy(() -> inputAttemptsValidation("시도횟수"))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessageContaining("숫자만 입력해 주세요.");
+    }
+
+    private int inputAttemptsValidation(String inputAttempts){
+      try {
+        int attempts = Integer.parseInt(inputAttempts);
+        return attempts;
+      } catch (NumberFormatException e){
+        throw new IllegalArgumentException("숫자만 입력해 주세요.");
+      }
     }
 
     @Test
