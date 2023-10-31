@@ -1,10 +1,7 @@
 package model.service;
 
-import java.util.ArrayList;
-import java.util.List;
 import model.domain.Car;
 import model.domain.Go;
-import model.domain.Name;
 import model.domain.Participant;
 import model.domain.Winner;
 

@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.List;
-import model.domain.Name;
 import model.domain.Round;
 import model.domain.Winner;
 import model.service.GameResult;
