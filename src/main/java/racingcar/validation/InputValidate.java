@@ -9,6 +9,10 @@ public class InputValidate {
         if(input.contains(",,") || input.startsWith(",") || input.endsWith(",")) {
             throw new IllegalArgumentException(ErrorMessage.NAME_FORMAT_ERROR.getMessage());
         }
+
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_FORMAT_ERROR.getMessage());
+        }
     }
 
     public static void participantCount(List<String> names) {
