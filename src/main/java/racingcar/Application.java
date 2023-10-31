@@ -3,15 +3,15 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.controller.GameController;
+import racingcar.util.InputValidator;
 import racingcar.util.Util;
 import racingcar.model.CarModel;
-import racingcar.util.InputValidatior;
 import racingcar.view.InitView;
 
 public class Application {
 
     public static void main(String[] args) {
-        InitView initView = new InitView(new InputValidatior());
+        InitView initView = new InitView(new InputValidator());
 
         String[] carNames = initView.inputCarNames();
         List<CarModel> carList = generateCarList(carNames);

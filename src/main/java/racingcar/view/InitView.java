@@ -1,13 +1,13 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.InputValidatior;
+import racingcar.util.InputValidator;
 
 public class InitView {
 
-    private final InputValidatior validator;
+    private final InputValidator validator;
 
-    public InitView(InputValidatior validator) {
+    public InitView(InputValidator validator) {
         this.validator = validator;
     }
 
