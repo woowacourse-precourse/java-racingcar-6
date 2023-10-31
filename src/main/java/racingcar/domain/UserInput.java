@@ -16,7 +16,7 @@ public class UserInput {
     }
 
     public int moveNumber() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
         InvalidValue invalidValue = new InvalidValue();
         if (!invalidValue.isNaturalNumber(input)) {
