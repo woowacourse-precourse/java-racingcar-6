@@ -40,11 +40,15 @@ public class GameController {
         return new Round();
     }
 
-    public List<List<CarDTO>> play() {
+    public void play() {
         Round currentRound;
+        List<CarDTO> currentRoundResult;
 
         while (Round.getCurrentRoundCount() < totalRoundCount) {
             currentRound = createRound();
+            currentRound.startRace(cars);
+            currentRound.endRace();
+            currentRoundResult = currentRound.generateResult(cars);
         }
     }
 
