@@ -8,6 +8,14 @@ public class Game {
     boolean hasWinners; // 우승자가 여러명인지 판별하는 변수 : true이면 우승자가 여러명
 
 
+    // 자동차 경주를 실행
+    private void doRace(List<Car> cars, int index) {
+        for (int i = 0; i < inputs.raceNumbers; i++) {
+            cars.get(index).createRandomNumber();
+            cars.get(index).goOrStop();
+        }
+    }
+
     // 최대 전진 회수를 체크하는 함수
     private int checkMaxGoNumber(Car car, int maxGoNumber, List<Car> winners) {
         if (car.totalGoNumber > maxGoNumber) { // 현재 자동차의 전진 회수 > 기존 최고 전진 회수
