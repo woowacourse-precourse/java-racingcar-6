@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import static java.util.regex.Pattern.matches;
 import static racingcar.util.Constant.ZERO;
 
 import racingcar.exception.console_input.CanNotConvertToIntInputException;
@@ -16,10 +15,14 @@ public class AttemptCount {
         this.attemptCount = Integer.parseInt(attemptCount);
     }
 
-    private static void validateStringToInt(final String string) {
-        if (!matches(REGEXP_PATTERN_NUMBER, string)) {
-            throw new CanNotConvertToIntInputException(string);
+    private void validateStringToInt(final String attemptCount) {
+        if (hasNonNumericChar(attemptCount)) {
+            throw new CanNotConvertToIntInputException(attemptCount);
         }
+    }
+
+    private boolean hasNonNumericChar(final String attemptCount) {
+        return !attemptCount.matches(REGEXP_PATTERN_NUMBER);
     }
 
     public boolean isGameOver() {
