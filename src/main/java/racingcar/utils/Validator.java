@@ -31,4 +31,10 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
         }
     }
+
+    public static void validateNotZero(String number) {
+        if(number.equals("0")) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_ZERO.getMessage());
+        }
+    }
 }

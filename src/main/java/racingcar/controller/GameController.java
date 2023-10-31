@@ -52,7 +52,7 @@ public class GameController {
 
     public int initAttempt() {
         String inputAttempt = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_ATTEMPT_NUMBER.getMessage());
-        Validator.validateNumber(inputAttempt);
+        validate(inputAttempt);
         return Converter.convertStringToInt(inputAttempt);
     }
 
@@ -60,5 +60,10 @@ public class GameController {
         Validator.validateCarName(names);
         Validator.validateNotDuplicate(names);
         Validator.validateNoSpace(names);
+    }
+
+    private void validate(String attempt) {
+        Validator.validateNumber(attempt);
+        Validator.validateNotZero(attempt);
     }
 }

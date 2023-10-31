@@ -45,7 +45,7 @@ public class InputTest {
     }
 
     @Test
-    @DisplayName("사죵자의 입력이 숫자가 아닐때, 에러를 출력하는가?")
+    @DisplayName("사용자의 입력이 숫자가 아닐때, 에러를 출력하는가?")
     void testErrorConvertToInt() {
         String input = "다섯번";
 
@@ -53,6 +53,17 @@ public class InputTest {
                 () -> Validator.validateNumber(input));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
+    }
+
+    @Test
+    @DisplayName("사죵자의 입력이 0일때, 에러를 출력하는가?")
+    void testErrorZero() {
+        String input = "0";
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNotZero(input));
+
+        assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_ZERO.getMessage());
     }
 
     @Test
