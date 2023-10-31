@@ -1,5 +1,6 @@
 package jalddak.view;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.view.OutputView.printPerMatchResult;
 import static racingcar.view.OutputView.printSystemMessage;
 import static racingcar.view.SystemMessage.ASK_CAR_LIST;
@@ -10,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
+import racingcar.view.OutputView;
 
 public class OutputViewTest {
     @Test
@@ -34,5 +36,11 @@ public class OutputViewTest {
         for (Map<String, Integer> given : givenList) {
             printPerMatchResult(given);
         }
+    }
+
+    @Test
+    void drawDistance() {
+        String expect = "----";
+        assertThat(expect).isEqualTo(OutputView.drawDistance(4));
     }
 }
