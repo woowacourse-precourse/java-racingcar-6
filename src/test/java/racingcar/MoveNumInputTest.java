@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Field;
 
 import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
@@ -16,6 +17,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -37,13 +39,16 @@ public class MoveNumInputTest {
     @ParameterizedTest
     @ValueSource(strings = {"1", "10", "100"})
     @DisplayName ("자동차 이동횟수 입력 정상동작 테스트")
-    void canGetMoveNameGeneralTest(String testInput) {
-        assertDoesNotThrow(() -> new MoveNum(testInput));
+    void canGetMoveNameGeneralTest(String testInput) throws NoSuchFieldException, IllegalAccessException {
+        MoveNum moveNum = new MoveNum(testInput);
+        Field field = moveNum.getClass().getDeclaredField("num");
+
+        field.setAccessible(true);
+        assertThat(Integer.parseInt(testInput)).isEqualTo((int)field.get(moveNum));
     }
 
     @ParameterizedTest
-    @NullSource
-    @EmptySource
+    @NullAndEmptySource
     @DisplayName ("자동차 이동횟수 입력 예외동작 테스트 (입력이 없을때)")
     void canHandleEmptyInputMoveNumExceptionTest(String testInput) {
     assertThatThrownBy(() -> new MoveNum(testInput))
