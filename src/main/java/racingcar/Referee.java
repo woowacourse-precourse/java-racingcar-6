@@ -4,8 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
+    private MessageMaker messageMaker;
+    private List messageParams;
+    private String returnMessage;
+
+    public Referee() {
+        this.messageMaker = new MessageMaker();
+        this.messageParams = new ArrayList<>();
+        this.returnMessage = new String();
+    }
+
     public String announceWinner(Game game) {
-        List<String> winners = new ArrayList<>();
+        messageParams.clear();
+        returnMessage = "";
         int maxRace = 0;
         for (int i = 0; i < game.players.length; i++) {
             if (maxRace < game.players[i].location) {
@@ -14,36 +25,19 @@ public class Referee {
         }
         for (int i = 0; i < game.players.length; i++) {
             if (maxRace == game.players[i].location) {
-                winners.add(game.players[i].name);
+                messageParams.add(game.players[i].name);
             }
         }
-        String messageJoin = String.join(", ", winners);
-        String message = "최종 우승자 : " + messageJoin;
-        return String.valueOf(message);
+
+        returnMessage = messageMaker.winnerMessage(messageParams);
+        return returnMessage;
     }
 
     public String reportNow(Game game) {
-        StringBuilder message = new StringBuilder();
+        returnMessage = "";
         for (int i = 0; i < game.players.length; i++) {
-            message.append(playerLocationMessage(game, game.players[i].name) + "\n");
+            returnMessage += messageMaker.playerLocationMessage(game.players[i].name, game.players[i].location);
         }
-        return String.valueOf(message);
-    }
-
-    private String playerLocationMessage(Game game, String name) {
-        StringBuilder message = new StringBuilder();
-        String nowPlayerName = name;
-        int nowPlayerLocation = 0;
-        for (int i = 0; i < game.players.length; i++) {
-            if (game.players[i].name == name) {
-                nowPlayerLocation = game.players[i].location;
-            }
-        }
-        message.append(nowPlayerName);
-        message.append(" : ");
-        for (int i = 0; i <= nowPlayerLocation; i++) {
-            message.append("-");
-        }
-        return String.valueOf(message);
+        return returnMessage;
     }
 }
