@@ -154,7 +154,7 @@ class TotalCar {
         CarCondition condition = new CarCondition();
         for (Car c : carList) {
             if (condition.isMove()) {
-
+                c.updateDistance(1);
             }
         }
     }
