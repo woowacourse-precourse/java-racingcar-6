@@ -27,10 +27,19 @@ public class RacingCarGameView {
     }
 
     public int inputTryCount() {
+        int count;
+
         System.out.println(TRY_COUNT);
-        int count = Integer.parseInt(Console.readLine());
+
+        try {
+            count = Integer.parseInt(Console.readLine());
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
         System.out.println();
         System.out.println(RESULT);
+
         return count;
     }
 
