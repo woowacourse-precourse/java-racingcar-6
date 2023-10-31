@@ -33,6 +33,8 @@
 - CarPark Class 생성
   - 경주용 차들을 List 형태로 연관관계
   - 일급컬렉션으로 생성
+  - winnerList 리턴
+  - 실행 결과 list 리턴
 - Car Class 생성
   - name, point attribute로 생성
   - VO로 생성
@@ -44,3 +46,6 @@
 - RacingService 생성
   - 랜덤화된 값을 통해 차 전진
   - 변경가능성에 염두에 두어 interface를 통한 DI 처리
+- game launcher class 생성
+  - 게임을 실행시키는 역할
+  - 기능에 맞게 메서드 분리
