@@ -6,9 +6,9 @@ import racingcar.repository.Car;
 import java.util.List;
 
 public class Move {
-    final static int START_VALUE = 0;
-    final static int END_VALUE = 9;
-    final static int FORWARD_NUMBER = 3;
+    private final static int START_VALUE = 0;
+    private final static int END_VALUE = 9;
+    private final static int FORWARD_NUMBER = 3;
 
     public static void race(List<Car> carList) {
         for (Car car : carList) {

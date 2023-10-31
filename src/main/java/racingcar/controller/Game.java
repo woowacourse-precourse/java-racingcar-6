@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Game {
     private final List<Car> carList = new ArrayList<>();
-    int round;
+    private int round;
 
     public void run() {
         Output.askNamesMessage();
