@@ -25,15 +25,18 @@ public class Cars {
         }
     }
 
-    private ArrayList<Car> getMaxOfScores(){
+    private ArrayList<Car> getWinners(){
         ArrayList<Car> winners = new ArrayList<>();
+        int winnerScore;
+        int tempScore;
+
         for (Car car : cars) {
             if (winners.size() == EMPTY.getValue()) {
                 winners.add(car);
                 continue;
             }
-            int winnerScore = winners.get(STARTING_POINT.getValue()).getScore();
-            int tempScore = car.getScore();
+            winnerScore = winners.get(STARTING_POINT.getValue()).getScore();
+            tempScore = car.getScore();
 
             if (winnerScore < tempScore) {
                 winners.clear();
@@ -47,7 +50,7 @@ public class Cars {
     }
 
     public String winnersToString(){
-        ArrayList<String> carNames = getCarNames(getMaxOfScores());
+        ArrayList<String> carNames = getCarNames(getWinners());
         return String.join(DELIMITER_WITH_BLANK.getValue(), carNames);
     }
 
