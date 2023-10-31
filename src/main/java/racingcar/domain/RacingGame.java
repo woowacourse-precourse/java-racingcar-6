@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.InputView.inputRaceCount;
+import static racingcar.view.OutputView.printNewLine;
 import static racingcar.view.OutputView.printSituation;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class RacingGame {
     }
 
     private void printRaceResult() {
+        printNewLine();
         cars.getCars().forEach(car -> {
             CarDto dto = CarDto.of(car);
             printSituation(dto);
