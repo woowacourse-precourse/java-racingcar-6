@@ -2,10 +2,16 @@ package racingcar;
 
 public class Car {
     public String name;
-    public int count;
-    public Car(String name, int count){
+    public int move;
+    public Car(String name){
         this.name = name;
-        this.count = count;
+        this.move = 0;
     }
 
+    public String getName(){
+        return this.name;
+    }
+    public int getMove(){
+        return this.move;
+    }
 }
