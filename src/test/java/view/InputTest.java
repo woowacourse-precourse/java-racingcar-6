@@ -3,6 +3,7 @@ package view;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.Test;
@@ -18,11 +19,15 @@ public class InputTest {
         String inputCars = null;
 
         // 자동차 이름을 a,b,c 입력
-        System.setIn(tempCars);
-        inputCars = inputView.promptForCarNames();
+        try {
+            System.setIn(tempCars);
+            inputCars = inputView.promptForCarNames();
 
-        // 입력한 값과 a,b,c와 같은지 확인
-        assertThat(inputCars).isEqualTo(equalCars);
+            // 입력한 값과 a,b,c와 같은지 확인
+            assertThat(inputCars).isEqualTo(equalCars);
+        } finally {
+            Console.close();
+        }
     }
 
     @Test
@@ -32,12 +37,16 @@ public class InputTest {
         InputStream tempAttempt = new ByteArrayInputStream(equalAttempt.getBytes());
         String inputAttempt = null;
 
-        // 시도 횟수를 3 입력
-        System.setIn(tempAttempt);
-        inputAttempt = inputView.promptForAttempts();
+        try {
+            // 시도 횟수를 3 입력
+            System.setIn(tempAttempt);
+            inputAttempt = inputView.promptForAttempts();
 
-        // 입력한 값과 3이 같은지 확인
-        assertThat(inputAttempt).isEqualTo(equalAttempt);
+            // 입력한 값과 3이 같은지 확인
+            assertThat(inputAttempt).isEqualTo(equalAttempt);
+        } finally {
+            Console.close();
+        }
     }
 
     @Test
