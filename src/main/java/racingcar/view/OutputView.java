@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Cars;
-import racingcar.domain.Names;
+import racingcar.domain.Winners;
 
 
 public class OutputView {
@@ -34,10 +34,10 @@ public class OutputView {
         System.out.println(gameProgress);
     }
 
-    public void printWinner(Names names) {
+    public void printWinner(Winners names) {
         final String DELIMITER = ", ";
 
-        String winners = names.joinNamesWithDelimiter(DELIMITER);
+        String winners = names.joinWinnersNames(DELIMITER);
         System.out.println(WINNER_MESSAGE + SEPARATOR + winners);
     }
 }

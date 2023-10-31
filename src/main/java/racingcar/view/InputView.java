@@ -7,17 +7,15 @@ import racingcar.domain.Name;
 import racingcar.domain.TryCount;
 import racingcar.validator.GameValidator;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class InputView {
 
-    private static final String DELIMITER = ",";
-
     public Cars inputCarNames() {
 
-        String cars = getCars();
+        List<String> cars = getCars();
 
-        return new Cars(Arrays.stream(cars.split(DELIMITER))
+        return new Cars(cars.stream()
                 .map(String::trim)
                 .map(Name::new)
                 .map(Car::new)
@@ -34,12 +32,12 @@ public class InputView {
         return new TryCount(tryCount);
     }
 
-    private String getCars() {
+    private List<String> getCars() {
 
         String cars = Console.readLine();
         GameValidator.validateCarNumberIsOverTwo(cars);
         GameValidator.validateZeroCarName(cars);
 
-        return cars;
+        return GameValidator.validateDuplicateCarNames(cars);
     }
 }

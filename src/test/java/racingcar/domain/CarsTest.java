@@ -19,7 +19,7 @@ class CarsTest {
         Cars cars = new Cars(List.of(pobi, woni));
 
         // when
-        Names winners = cars.findWinners();
+        Winners winners = cars.findWinners();
 
         // then
         assertThat(winners.value()).containsExactly(new Name("pobi"));
@@ -29,18 +29,18 @@ class CarsTest {
     @DisplayName("우승자가 두명일 경우 두명의 우승자를 찾을 수 있다.")
     void findTwoWinners() {
         // given
-        Car pobi = new Car(new Name("pobi"), new Position(4));
-        Car woni = new Car(new Name("woni"), new Position(4));
+        Position winningPosition = new Position(4);
+        Car pobi = new Car(new Name("pobi"), winningPosition);
+        Car woni = new Car(new Name("woni"), winningPosition);
         Cars cars = new Cars(List.of(pobi, woni));
 
+        Winners expectedWinners = new Winners(List.of(new Name("pobi"), new Name("woni")));
+
         // when
-        Names winners = cars.findWinners();
+        Winners winners = cars.findWinners();
 
         // then
-        assertAll(
-                () -> assertThat(winners.value()).hasSize(2),
-                () -> assertThat(winners.value()).containsExactly(new Name("pobi"), new Name("woni"))
-        );
+        assertThat(winners).isEqualTo(expectedWinners);
     }
 
     @Test

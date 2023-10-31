@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.domain.Names;
+import racingcar.domain.Winners;
 import racingcar.domain.TryCount;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
@@ -31,7 +31,7 @@ public class GameController {
 
         progressRounds(cars, tryCounts);
 
-        Names winners = cars.findWinners();
+        Winners winners = cars.findWinners();
 
         outputView.printWinner(winners);
     }

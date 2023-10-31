@@ -28,9 +28,7 @@ class PositionTest {
         // given
         int invalidValue = -1;
 
-        // when
-
-        // then
+        // when & then
         assertThatThrownBy(() -> new Position(invalidValue))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 위치는 0 이상이어야 합니다.");
@@ -56,8 +54,6 @@ class PositionTest {
         Position position1 = new Position(5);
         Position position2 = new Position(5);
 
-        // when
-
         // then
         assertAll(
                 () -> assertThat(position1).isEqualTo(position2),
@@ -72,9 +68,7 @@ class PositionTest {
         Position position1 = new Position(3);
         Position position2 = new Position(5);
 
-        // when
-
-        // then
+        // when & then
         assertAll(
                 () -> assertThat(position1.compareTo(position2)).isNegative(),
                 () -> assertThat(position2.compareTo(position1)).isPositive(),

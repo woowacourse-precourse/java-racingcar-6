@@ -3,9 +3,9 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public record Names(List<Name> value) {
+public record Winners(List<Name> value) {
 
-    public String joinNamesWithDelimiter(String delimiter) {
+    public String joinWinnersNames(String delimiter) {
 
         return value.stream()
                 .map(Name::value)
