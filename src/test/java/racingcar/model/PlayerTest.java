@@ -17,7 +17,7 @@ public class PlayerTest {
     @DisplayName("자동차 완주 횟수에 대한 테스트")
     @Test
     void 완주_결과() {
-        player.setDistance(3);
+        player.setCompletedRounds(3);
         assertEquals("test : ---", player.toString());
     }
 }

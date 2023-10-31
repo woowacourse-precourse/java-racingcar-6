@@ -1,32 +1,28 @@
 package racingcar.model;
 
 public class Player {
-    private String carName;
-    private int distance;
+    private final String CAR_NAME;
+    private int completedRounds;
 
     public Player(String carName) {
-        this.carName = carName;
-        this.distance = 0;
+        this.CAR_NAME = carName;
+        this.completedRounds = 0;
     }
 
     public String getCarName() {
-        return carName;
+        return CAR_NAME;
     }
 
-    public void setCarName(String carName) {
-        this.carName = carName;
+    public int getCompletedRounds() {
+        return completedRounds;
     }
 
-    public int getDistance() {
-        return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
+    public void setCompletedRounds(int completedRounds) {
+        this.completedRounds = completedRounds;
     }
 
     @Override
     public String toString() {
-        return carName + " : " + "-".repeat(distance);
+        return CAR_NAME + " : " + "-".repeat(completedRounds);
     }
 }

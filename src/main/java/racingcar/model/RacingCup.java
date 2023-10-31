@@ -4,38 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCup {
-    private final int FINAL_ROUND;
-    private int round;
+    private final int TOTAL_ROUNDS;
+    private int nowRound;
     private List<Player> playerList;
     private List<String> winners;
-    private int first;
+    private int topPlayerCompletedRound;
 
-    public RacingCup(int FINAL_ROUND) {
-        this.FINAL_ROUND = FINAL_ROUND;
-        this.round = 0;
+    public RacingCup(int totalRounds) {
+        this.TOTAL_ROUNDS = totalRounds;
+        this.nowRound = 0;
         this.playerList = new ArrayList<>();
         this.winners = new ArrayList<>();
-        this.first = 0;
+        this.topPlayerCompletedRound = 0;
     }
 
-    public int getFirst() {
-        return first;
+    public int getTopPlayerCompletedRound() {
+        return topPlayerCompletedRound;
     }
 
-    public void setFirst(int first) {
-        this.first = first;
+    public void setTopPlayerCompletedRound(int round) {
+        this.topPlayerCompletedRound = round;
     }
 
-    public int getFINAL_ROUND() {
-        return FINAL_ROUND;
+    public int getTOTAL_ROUNDS() {
+        return TOTAL_ROUNDS;
     }
 
-    public int getRound() {
-        return round;
+    public int getNowRound() {
+        return nowRound;
     }
 
-    public void setRound(int round) {
-        this.round = round;
+    public void setNowRound(int nowRound) {
+        this.nowRound = nowRound;
     }
 
     public List<Player> getPlayerList() {
@@ -52,15 +52,5 @@ public class RacingCup {
 
     public void setWinners(List<String> winners) {
         this.winners = winners;
-    }
-
-    @Override
-    public String toString() {
-        return "RacingCup{" +
-                "FINAL_ROUND=" + FINAL_ROUND +
-                ", round=" + round +
-                ", playerList=" + playerList +
-                ", winners=" + winners +
-                '}';
     }
 }

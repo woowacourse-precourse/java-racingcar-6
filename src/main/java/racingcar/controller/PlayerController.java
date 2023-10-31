@@ -20,9 +20,10 @@ public class PlayerController {
     }
 
     public int getDistacne(int index) {
-        return playerList.get(index).getDistance();
+        return playerList.get(index).getCompletedRounds();
     }
+
     public void forward(int index) {
-        playerList.get(index).setDistance(getDistacne(index)+1);
+        playerList.get(index).setCompletedRounds(getDistacne(index)+1);
     }
 }

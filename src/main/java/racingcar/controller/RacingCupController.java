@@ -20,16 +20,12 @@ public class RacingCupController {
     }
 
     public boolean nextRound() {
-        int round = this.racingCup.getRound();
-        if (round < this.racingCup.getFINAL_ROUND()) {
-            this.racingCup.setRound(round + 1);
+        int round = this.racingCup.getNowRound();
+        if (round < this.racingCup.getTOTAL_ROUNDS()) {
+            this.racingCup.setNowRound(round + 1);
             return true;
         }
         return false;
-    }
-
-    public RacingCup getRacingCup() {
-        return racingCup;
     }
 
     public int playerSize() {
@@ -37,11 +33,11 @@ public class RacingCupController {
     }
 
     public void updateFisrtPlayerDistance(int distance) {
-        this.racingCup.setFirst(distance);
+        this.racingCup.setTopPlayerCompletedRound(distance);
     }
 
     public int getFisrtPlayerDistance() {
-        return racingCup.getFirst();
+        return racingCup.getTopPlayerCompletedRound();
     }
 
     public void gamePlay() {
@@ -49,7 +45,7 @@ public class RacingCupController {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 playerController.forward(i);
                 int distanceOfPlayer = playerController.getDistacne(i);
-                if(racingCup.getFirst() < distanceOfPlayer) {
+                if(racingCup.getTopPlayerCompletedRound() < distanceOfPlayer) {
                     updateFisrtPlayerDistance(distanceOfPlayer);
                 }
             }
@@ -66,6 +62,7 @@ public class RacingCupController {
         }
         this.racingCup.setWinners(winners);
     }
+
     public List<String> getWinners() {
         return racingCup.getWinners();
     }
