@@ -17,7 +17,7 @@ public class RacingGame {
 
     public void gameSetAndStart() {
         carList.init(InputView.setCarNames());
-        Integer rounds = Round.setRound();
+        int rounds = Round.setRound();
 
         for(int round = 0; round < rounds; round++){
             playSingleRound();
@@ -31,7 +31,7 @@ public class RacingGame {
     }
 
     private void moveCar(String carName){
-        if(moveDecide(carName)){
+        if(moveDecide()){
             carList.forwardCar(carName);
         }
     }
