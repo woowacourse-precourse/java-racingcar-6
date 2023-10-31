@@ -71,3 +71,29 @@
 * 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 * JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
   * 테스트 도구 사용법이 익숙하지 않다면 test/java/study를 참고하여 학습한 후 테스트를 구현한다.
+
+---
+
+## FlowChart
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Game Phrase] 
+    B --->|경주할 자동차 이름을 입력하세요.이름은 쉼표 기준으로 구분|C[Car Name Input]
+    C --> D{Is it correct?}
+    D --YES-->N[TryNumber Phrase]
+    N -->|시도할 회수는 몇회인가요?|E[TryNumber Input : TN]
+    E --> F{Is is correct?}
+    F -- YES ----> G[Result Print : CNT=0]
+    G -->|각 자동차 무작위 값 생성|H[Generate RandomNumber : RN]
+    H --> I{RN >= 4}
+    I --YES --> J[Move Car]
+    I --No --> K[Stop Car]
+    J --> L{CNT == TN}
+    K --> L
+    L --YES -->M[Winner Print]
+    L --No -->H
+    M --End--> Z
+    F --> No -----> Z[GAME OVER]
+    D -- No -----> Z[GAME OVER]
+```
