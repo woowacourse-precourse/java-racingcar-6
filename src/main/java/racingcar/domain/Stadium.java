@@ -22,14 +22,13 @@ public class Stadium {
     }
 
     public void startRace() {
-        IntStream.range(0, gameCount).forEach(i -> playEachStep());
+        IntStream.range(0, gameCount).forEach(i -> setUsersProceedCount());
     }
 
-    // TODO: 2023-10-31 오후 8:07 이름 개별로
-    private void playEachStep() {
+    private void setUsersProceedCount() {
         users.forEach(user -> {
             user.decideProceed();
-            System.out.println(user.visualizeProgress());
+            System.out.println(user.getOutputMessage());
         });
         System.out.println();
     }

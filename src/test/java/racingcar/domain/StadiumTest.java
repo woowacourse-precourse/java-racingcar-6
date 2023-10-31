@@ -27,7 +27,7 @@ class StadiumTest {
             stadium.getUsers().stream()
                     .forEach(user -> {
                         assertThat(user.getProceedCount()).isEqualTo(gameCount);
-                        assertThat(user.visualizeProgress()).contains(user.getName() + " : ");
+                        assertThat(user.getOutputMessage()).contains(user.getName() + " : ");
                     });
         }
     }

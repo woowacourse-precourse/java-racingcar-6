@@ -17,7 +17,7 @@ class UserTest {
             given(Randoms.pickNumberInRange(0,9)).willReturn(5);
             user.decideProceed();
             assertThat(user.getProceedCount()).isEqualTo(1);
-            assertThat(user.visualizeProgress()).isEqualTo(user.getName()+" : "+"-");
+            assertThat(user.getOutputMessage()).isEqualTo(user.getName()+" : "+"-");
         }
     }
 }

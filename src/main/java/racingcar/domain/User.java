@@ -20,14 +20,12 @@ public class User {
         return new User(name);
     }
 
-
-    public String visualizeProgress() {
+    public String getOutputMessage() {
         return name + " : " + visualizedCount();
     }
 
-    private StringBuilder visualizedCount() {
-        StringBuilder sb = new StringBuilder();
-        return sb.append("-".repeat(Math.max(0, proceedCount)));
+    private String visualizedCount() {
+        return "-".repeat(Math.max(0, proceedCount));
     }
 
     public void proceedCar() {
@@ -42,22 +40,15 @@ public class User {
         if (randomNum >= 4) proceedCar();
     }
 
-    public int getProceedCount() {
-        return this.proceedCount;
-    }
-
     public String getName() {
         return name;
     }
 
     public boolean isFasterThen(List<User> winner) {
         if (winner.isEmpty()) return true;
-        for (User user : winner)
-            if (this.proceedCount >= user.getProceedCount()) return true;
-        return false;
+        return winner.stream().anyMatch(user -> this.proceedCount >= user.getProceedCount());
     }
-
-    public void setProceedCount(int proceedCount) {
-        this.proceedCount = proceedCount;
+    public int getProceedCount() {
+        return this.proceedCount;
     }
 }
