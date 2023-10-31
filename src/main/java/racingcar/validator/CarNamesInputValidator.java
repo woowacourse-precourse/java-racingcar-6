@@ -52,6 +52,7 @@ public class CarNamesInputValidator implements BasicValidator<String> {
     }
 
     private void isCarNameLengthValid(String carName) {
+        carName = carName.trim();
         if (carName.length() > 5 || carName.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
         }
