@@ -52,53 +52,51 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_BLANK_STRING());
     }
 
-    public static void negative(String inputStr) {
-        Integer inputNum = Integer.valueOf(inputStr);
+    public static void negative(String strLine) {
+        Integer inputNum = Integer.valueOf(strLine);
         if (inputNum < 0) {
             throw new IllegalArgumentException(ValidConstants.MSG_NOT_POSITIVE_NUM());
         }
     }
 
-    public static void includeString(String inputStr) {
+    public static void includeString(String strLine) {
         String regex = KOREAN_ENGLISH_REGEX;
 
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(inputStr);
+        Matcher matcher = pattern.matcher(strLine);
 
         if (matcher.matches()) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_STRING());
         }
     }
 
-    public static void includeSpecialString(String inputStr) {
-        String regex = SPECIAL_CHARACTER_REGEX;
-
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(inputStr);
+    public static void includeSpecialString(String strLine) {
+        Pattern pattern = Pattern.compile(SPECIAL_CHARACTER_REGEX);
+        Matcher matcher = pattern.matcher(strLine);
 
         if (matcher.matches()) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_SPECIAL_STRING());
         }
     }
 
-    public static void includeBlank(String inputStr) {
-        if (inputStr.contains(" ")) {
+    public static void includeBlank(String strLine) {
+        if (strLine.contains(" ")) {
             throw new IllegalArgumentException(ValidConstants.MSG_INCLUDE_BLANK_STRING());
         }
     }
 
-    public static void zeroNum(String inputStr) {
-        Integer inputNum = Integer.valueOf(inputStr);
+    public static void zeroNum(String strLine) {
+        Integer inputNum = Integer.valueOf(strLine);
 
         if (inputNum == 0) {
             throw new IllegalArgumentException(ValidConstants.MSG_ZERO_NUM());
         }
     }
 
-    public static boolean commaNextBlank(String inputStr) {
-        int length = inputStr.length();
+    public static boolean commaNextBlank(String strLine) {
+        int length = strLine.length();
 
-        if (inputStr.charAt(length - 1) != ',') {
+        if (strLine.charAt(length - 1) != ',') {
             return true;
         }
 
