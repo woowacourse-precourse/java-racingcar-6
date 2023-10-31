@@ -1,9 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.controller.CarController;
 import racingcar.util.Log;
 
 public class Application {
+
+    private final CarController carController = new CarController();
     public static void main(String[] args) {
         startGame();
     }
