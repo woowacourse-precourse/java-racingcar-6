@@ -24,8 +24,15 @@ public class User {
 
     private static String inputCarName() { return Console.readLine(); }
 
+    public void setTrialNumber() {
+        System.out.println(INPUT_TRIAL_MESSAGE);
+        String input = inputTrialNumber();
+        this.trialNumber = Integer.parseInt(input);
+
+    }
 
 
+    private static String inputTrialNumber() { return Console.readLine(); }
 
 
 }
