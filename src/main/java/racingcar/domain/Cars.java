@@ -10,7 +10,6 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(String inputNames) {
-
         String[] splitNames = splitInputNames(inputNames);
         validateBlank(splitNames);
 
@@ -49,7 +48,7 @@ public class Cars {
     }
 
     private void validateDuplicates(String[] names) {
-        if(names.length != Arrays.stream(names).distinct().count()) {
+        if (names.length != Arrays.stream(names).distinct().count()) {
             throw new IllegalArgumentException();
         }
     }

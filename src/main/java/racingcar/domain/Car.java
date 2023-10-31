@@ -12,7 +12,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void goOrStop(int randomNumber) {
-        if(isMovable(randomNumber)) {
+        if (isMovable(randomNumber)) {
             position.move();
         }
     }
