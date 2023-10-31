@@ -38,6 +38,40 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_입력_공백에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_입력_중간_공백에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("d f", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_입력_공백에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", ""))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드_입력_중간_공백에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("do,fo", "1 2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

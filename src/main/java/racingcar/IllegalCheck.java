@@ -32,6 +32,10 @@ public class IllegalCheck {
             return false;
         }
 
+        if(inputLine.contains(" ")){
+            return false;
+        }
+
         return true;
     }
 
