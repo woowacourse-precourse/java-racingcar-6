@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    static void playOnce (Car[] car) {
+        for (int j = 0; j < car.length; j++) {
+            car[j].changeLocation();
+            car[j].printLocation();
+        }
+        System.out.println();
+    }
+    
     static void chooseWinner(Car[] car) {
         int furthestLocation = getFurthestLocation(car);
         List<String> winners = getWinners(car, furthestLocation);

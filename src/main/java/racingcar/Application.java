@@ -4,37 +4,29 @@ public class Application {
     public static void main(String[] args) {
         // 차 이름 입력받기
         OutputView.outputCar();
-        String inputCar = InputView.InputCar();
+        String inputCarNames = InputView.InputCar();
         
         // 쉼표 기준으로 나누고 객체 생성
-        String[] carName = inputCar.split(",");
-        Car[] car = new Car[carName.length];
-        for (int i = 0; i < carName.length; i++) {
-            //System.out.println(carName[i]);
-            //car[i].name = carName[i];
-            //car[i].location = 0;
-            HandleException.carName(carName[i]);
-            car[i] = new Car(carName[i]);
-            //System.out.println(car[i].location + car[i].name);
+        String[] splitCarNames = inputCarNames.split(",");
+        Car[] carObjectsArray = new Car[splitCarNames.length];
+        for (int i = 0; i < splitCarNames.length; i++) {
+            HandleException.carName(splitCarNames[i]);
+            carObjectsArray[i] = new Car(splitCarNames[i]);
         }
         
         // 횟수 입력받기
         OutputView.outputTimes();
         String inputTimes = InputView.InputTimes();
         // 횟수 예외상황 처리
-        int times = HandleException.times(inputTimes);
+        int timesValue = HandleException.times(inputTimes);
         
         // 게임 진행
         OutputView.outputResult();
-        for (int i = 0; i < times; i++) { // 횟수만큼 반복
-            for (int j = 0; j < car.length; j++) {
-                car[j].changeLocation();
-                car[j].printLocation();
-            }
-            System.out.println();
+        for (int i = 0; i < timesValue; i++) { // 횟수만큼 반복
+            Game.playOnce(carObjectsArray);
         }
         
         // 결과 도출
-        Game.chooseWinner(car);
+        Game.chooseWinner(carObjectsArray);
     }
 }
