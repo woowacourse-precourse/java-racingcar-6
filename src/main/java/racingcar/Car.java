@@ -6,9 +6,8 @@ public class Car {
     private String name = "";
     private Integer position = -1;
     private Numbers numbers;
-    public Car(String name, Integer position) {
+    public Car(String name) {
         this.name = name;
-        this.position = position;
         this.numbers = new Numbers();
     }
 

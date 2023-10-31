@@ -10,10 +10,9 @@ public class Racing {
     private List<Car> cars = new ArrayList<>();
     private int trials;
 
-    public void getCarNameAndTrials() {
-        List<String> carName = List.of(readLine().split(","));
-        trials = Integer.parseInt(readLine());
-        carName.forEach(name -> cars.add(new Car(name, 0)));
+    public void getInfo() {
+        NameInput.inputNames(cars);
+        trials = TrialInput.inputTrial();
     }
 
     public void start() {
