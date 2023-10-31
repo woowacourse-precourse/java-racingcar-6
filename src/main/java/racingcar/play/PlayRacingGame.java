@@ -22,10 +22,12 @@ public class PlayRacingGame {
         String tmpName = Console.readLine();
 
         cars = new Cars(tmpName);
+        inputNameException();
 
         System.out.println(Texts.TRYCOUNTINPUT);
         String tmpCount = Console.readLine();
 
+        inputRoundCountException(tmpCount);
 
         roundCount = Integer.parseInt(tmpCount);
 
@@ -45,5 +47,25 @@ public class PlayRacingGame {
     public void printGameResult() {
         Winners winners = new Winners(cars, maxCount);
         winners.printWinners();
+    }
+
+    public void inputNameException() {
+        for (Car car : cars.getCars()) {
+            if (car.getName().length() > 5) {
+                throw new IllegalArgumentException();
+            }
+            if (car.getName().isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    public void inputRoundCountException(String roundCount) {
+        if (roundCount.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        if (Integer.parseInt(roundCount) < 0) {
+            throw new IllegalArgumentException();
+        }
     }
 }
