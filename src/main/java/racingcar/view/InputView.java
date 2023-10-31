@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import racingcar.validation.NameInputValidation;
 
 public class InputView {
@@ -11,6 +13,9 @@ public class InputView {
     }
 
     public String[] askCarNames() {
-        return null;
+        String input = Console.readLine();
+        String[] carNames = input.split(",");
+        Arrays.stream(carNames).forEach(nameInputValidation::isUnderFiveLetters);
+        return carNames;
     }
 }
