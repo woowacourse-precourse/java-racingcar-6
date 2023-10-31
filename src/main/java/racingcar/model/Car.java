@@ -2,15 +2,20 @@ package racingcar.model;
 
 public class Car {
     private static final int MIN_MOVE_THRESHOLD = 4;
+    private static final int INIT_DISTANCE = 0;
     private static final String HYPHEN = "-";
     private static final String COLON = " : ";
 
     private final String name;
     private int distance;
 
-    public Car(String name, int distance) {
+    private Car(String name, int distance) {
         this.name = name;
         this.distance = distance;
+    }
+
+    public static Car createCar(String name) {
+        return new Car(name, INIT_DISTANCE);
     }
 
     public void move(int randomNumber) {
