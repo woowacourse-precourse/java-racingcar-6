@@ -20,4 +20,7 @@ public class Game {
         trialNumber += 1;
     }
 
+    public boolean checkTrialEnd() {
+        return this.trial == this.trialNumber;
+    }
 }
