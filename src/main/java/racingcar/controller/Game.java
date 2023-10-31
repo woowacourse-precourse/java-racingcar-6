@@ -32,7 +32,7 @@ public class Game {
         List<String> carNames = race.getCarNames();
 
         while (round.isRemaining()) {
-            int size = race.getSize();
+            int size = race.getCarListSize();
             List<Integer> randomNumbers = randomGenerator.getNumbers(size);
             race.moveCars(randomNumbers);
 

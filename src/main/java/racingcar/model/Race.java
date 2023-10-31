@@ -33,7 +33,7 @@ public class Race {
         return carNames;
     }
 
-    public int getSize() {
+    public int getCarListSize() {
         return carList.size();
     }
 
