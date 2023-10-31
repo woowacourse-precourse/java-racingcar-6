@@ -55,4 +55,15 @@ public class Verifier {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
+
+    /**
+     * 시도 횟수 검증
+     *
+     * @param trialNumber 시도 횟수
+     */
+    public static void verifyTrialNumber(String trialNumber) {
+        if (!trialNumber.matches("^[1-9][0-9]*$")) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상의 자연수만 가능합니다.");
+        }
+    }
 }

@@ -30,4 +30,18 @@ public class VerifierTest {
         assertThatThrownBy(() -> Verifier.verifyCarName("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 시도_횟수_예외처리() {
+        assertThatThrownBy(() -> Verifier.verifyTrialNumber(" "))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Verifier.verifyTrialNumber("-1"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Verifier.verifyTrialNumber("0"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Verifier.verifyTrialNumber("1.1"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Verifier.verifyTrialNumber("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
