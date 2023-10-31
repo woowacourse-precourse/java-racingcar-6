@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -45,5 +46,21 @@ class RaceTest {
         // then
         assertThatThrownBy(() -> new Race(names, count))
             .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void getMaxCount() {
+        // given
+        String name = "car";
+        String count = "5";
+        Race race = new Race(name, count);
+
+        // when
+        Car car = race.getCars().get(0);
+        car.move(5);
+        car.move(6);
+
+        // then
+        assertThat(race.getMaxCount()).isEqualTo(2);
     }
 }
