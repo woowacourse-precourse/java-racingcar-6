@@ -1,7 +1,7 @@
 # ✨ 기능 구현  목록
 
 <br>
-✅ 기능1. 사용자 입력값을 받는다. (숫자) ➡ UserInputParser#takeInt()
+✅ 기능1. 사용자 입력값을 받는다. (숫자) ➡ UserInputParser#parseInt()
 
 ✅ 기능2. 사용자 입력값을 쉼표기준으로 분할하여 carList를 생성한다. ➡ UserInputParser#generateCarList()
 
