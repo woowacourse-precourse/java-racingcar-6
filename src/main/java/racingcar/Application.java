@@ -34,13 +34,13 @@ public class Application {
         whoisWinner(cars, progress);
     }
 
-    public static void randomForward(String[] cars, Integer[] progress, int carindex){
+    private static void randomForward(String[] cars, Integer[] progress, int carindex){
         int randomnumber = Randoms.pickNumberInRange(0,9);
         if(randomnumber >= 4){
             progress[carindex] += 1;
         }
     }
-    public static void whoisWinner(String[] cars, Integer[] progress){
+    private static void whoisWinner(String[] cars, Integer[] progress){
         int maxPoint = 0;
         for(int i=0; i<cars.length; i++){
             maxPoint = Math.max(maxPoint, progress[i]);
@@ -63,7 +63,7 @@ public class Application {
         }
 
     }
-    public static String[] makingCarList(){
+    private static String[] makingCarList(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carname = Console.readLine();
         if(carname.equals("")){
@@ -80,7 +80,7 @@ public class Application {
         }
         return cars;
     }
-    public static void printRacingStatus(int carindex, Integer[] progress, String[] cars){
+    private static void printRacingStatus(int carindex, Integer[] progress, String[] cars){
         String progressbar = "";
         for(int i=0; i<progress[carindex]; i++){
             progressbar += "-";
@@ -88,7 +88,7 @@ public class Application {
         System.out.println(cars[carindex] + " : " + progressbar);
     }
 
-    public  static  int askRounds(){
+    private static int askRounds(){
             System.out.println("시도할 횟수는 몇회인가요?");
             String input = Console.readLine();
             int rounds = Integer.parseInt(input);
