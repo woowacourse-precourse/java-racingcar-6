@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +24,7 @@ class CountCarMovementTest {
         countCarMovement.forwardCar(2);
 
         //when
-        List<Integer> winnerIndex = new ArrayList<>();
-        winnerIndex = countCarMovement.winnersIndex();
+        List<Integer> winnerIndex = countCarMovement.winnersIndex();
 
         //then
         Assertions.assertThat(winnerIndex).isEqualTo(Arrays.asList(0, 2));
