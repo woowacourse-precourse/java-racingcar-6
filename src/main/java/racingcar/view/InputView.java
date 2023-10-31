@@ -14,7 +14,10 @@ public class InputView {
     public static List<String> inputCarName() {
         String carNames = Console.readLine();
         Validator.validateSeparatedByComma(carNames);
-        return Utils.splitAndToList(carNames);
-    }
 
+        List<String> separatedCarNames = Utils.splitAndToList(carNames);
+        Validator.validateCarNameLength(separatedCarNames);
+
+        return separatedCarNames;
+    }
 }
