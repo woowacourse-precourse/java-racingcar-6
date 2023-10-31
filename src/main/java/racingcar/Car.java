@@ -1,11 +1,9 @@
 package racingcar;
 
 public class Car {
-
     private String name;
     private String distance = "";
     private int count = 0;
-
 
     public Car(String name) {
         this.name = name;
@@ -30,5 +28,4 @@ public class Car {
     public void setCount() {
         this.count++;
     }
-
 }
