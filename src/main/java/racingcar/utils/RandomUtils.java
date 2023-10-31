@@ -6,7 +6,7 @@ import racingcar.config.RandomConfig;
 
 public class RandomUtils {
 
-    public static CarPosition determinePositionByRandomNumber() {
+    public CarPosition determinePositionByRandomNumber() {
         int randomNumber = makeRandomNumber();
         if (randomNumber >= RandomConfig.DETERMINE_VALUE) {
             return CarPosition.STRAIGHT;
@@ -15,7 +15,7 @@ public class RandomUtils {
         }
     }
 
-    public static int makeRandomNumber() {
+    public int makeRandomNumber() {
         return Randoms.pickNumberInRange(RandomConfig.MIN_VALUE, RandomConfig.MAX_VALUE);
     }
 

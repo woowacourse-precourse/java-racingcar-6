@@ -41,8 +41,9 @@ public class CarService {
 
 
     public void updateCarPosition() {
+        RandomUtils randomUtils = new RandomUtils();
         for (int carIndex = 0; carIndex < carsName.size(); carIndex++) {
-            CarPosition position = RandomUtils.determinePositionByRandomNumber();
+            CarPosition position = randomUtils.determinePositionByRandomNumber();
             if (position.increase(car[carIndex])) {
                 builderUtils.appendToCarPosition(carIndex);
             }
