@@ -12,9 +12,8 @@ class RaceTest {
     void 자동차는_4이상의_숫자일때_이동() {
         Car car = new Car("chan");
         int randomNumber = 4;
-        List<Car> carList = List.of(car);
 
-        Race race = new Race(carList, randomNumber);
+        Race race = new Race();
         race.moveCarRandomly(car, randomNumber);
 
         assertThat(car.getPositionLength()).isEqualTo(1);
@@ -24,9 +23,8 @@ class RaceTest {
     void 자동차는_4미만의_숫자일때_정지() {
         Car car = new Car("chan");
         int randomNumber = 3;
-        List<Car> carList = List.of(car);
 
-        Race race = new Race(carList, randomNumber);
+        Race race = new Race();
         race.moveCarRandomly(car, randomNumber);
 
         assertThat(car.getPositionLength()).isEqualTo(0);
@@ -38,8 +36,9 @@ class RaceTest {
         Car car2 = new Car("geon", "--");
         Car car3 = new Car("park", "");
         List<Car> carList = List.of(car1, car2, car3);
+        Race race = new Race();
 
-        String winners = Race.findWinners(carList);
+        String winners = race.findWinners(carList);
 
         assertThat(winners).isEqualTo("geon");
     }
@@ -50,8 +49,9 @@ class RaceTest {
         Car car2 = new Car("geon", "--");
         Car car3 = new Car("park", "--");
         List<Car> carList = List.of(car1, car2, car3);
+        Race race = new Race();
 
-        String winners = Race.findWinners(carList);
+        String winners = race.findWinners(carList);
 
         assertThat(winners).isEqualTo("geon, park");
     }
@@ -61,8 +61,9 @@ class RaceTest {
         Car car1 = new Car("chan", "-");
         Car car2 = new Car("geon", "--");
         List<Car> carList = List.of(car1, car2);
+        Race race = new Race();
 
-        int maxPositionLength = Race.calculateMaxPositionLength(carList);
+        int maxPositionLength = race.calculateMaxPositionLength(carList);
 
         assertThat(maxPositionLength).isEqualTo(2);
     }
@@ -72,8 +73,9 @@ class RaceTest {
         Car car1 = new Car("chan", "-");
         Car car2 = new Car("geon", "--");
         List<Car> carList = List.of(car1, car2);
+        Race race = new Race();
 
-        List<String> winningCarNames = Race.getWinningCarNames(carList, 2);
+        List<String> winningCarNames = race.getWinningCarNames(carList, 2);
 
         assertThat(winningCarNames.size()).isEqualTo(1);
         assertThat(winningCarNames.get(0)).isEqualTo("geon");

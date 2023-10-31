@@ -11,9 +11,10 @@ class InputFactoryTest {
 
     @Test
     void 이름을_입력받아서_자동차리스트로_반환() {
+        InputFactory inputFactory = new InputFactory();
         String names = "chan,geon";
 
-        List<Car> cars = InputFactory.getCars(names);
+        List<Car> cars = inputFactory.getCars(names);
 
         assertThat(cars.size()).isEqualTo(2);
         assertThat(cars.get(0).getName()).isEqualTo("chan");
@@ -22,45 +23,50 @@ class InputFactoryTest {
 
     @Test
     void 문자형_라운드를_입력받아_정수로_반환() {
+        InputFactory inputFactory = new InputFactory();
         String round = "1";
 
-        int racingRound = InputFactory.getRacingRound(round);
+        int racingRound = inputFactory.getRacingRound(round);
 
         assertThat(racingRound).isEqualTo(1);
     }
 
     @Test
     void 라운드에_문자를_입력하면_예외_처리() {
+        InputFactory inputFactory = new InputFactory();
         String round = "one";
 
-        assertThatThrownBy(() -> InputFactory.getRacingRound(round))
+        assertThatThrownBy(() -> inputFactory.getRacingRound(round))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력 가능합니다.");
     }
 
     @Test
     void 라운드를_정수로_반환() {
+        InputFactory inputFactory = new InputFactory();
         String round = "1";
 
-        int roundNumber = InputFactory.parseRoundNumber(round);
+        int roundNumber = inputFactory.parseRoundNumber(round);
 
         assertThat(roundNumber).isEqualTo(1);
     }
 
     @Test
     void 라운드_문자_입력시_예외_처리() {
+        InputFactory inputFactory = new InputFactory();
         String round = "a";
 
-        assertThatThrownBy(() -> InputFactory.parseRoundNumber(round))
+        assertThatThrownBy(() -> inputFactory.parseRoundNumber(round))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력 가능합니다.");
     }
 
     @Test
     void 양수_외_입력시_예외_처리() {
+        InputFactory inputFactory = new InputFactory();
         int round = 0;
 
-        assertThatThrownBy(() -> InputFactory.validatePositiveNumber(round))
+        assertThatThrownBy(() -> inputFactory.validatePositiveNumber(round))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("양수를 입력해주세요.");
     }
