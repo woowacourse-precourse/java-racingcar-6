@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import static racingcar.util.vaildator.carNameValidator.validateInputName;
-import static racingcar.util.vaildator.carNameValidator.validateInputNameSize;
+import static racingcar.util.vaildator.CarNameValidator.validateInputName;
+import static racingcar.util.vaildator.CarNameValidator.validateInputNameSize;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;

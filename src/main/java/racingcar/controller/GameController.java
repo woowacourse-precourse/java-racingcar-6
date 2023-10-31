@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.util.vaildator.carNameValidator.validateInputNameDupication;
-import static racingcar.util.vaildator.carNameValidator.validateMinimumCarNameCount;
+import static racingcar.util.vaildator.CarNameValidator.validateInputNameDupication;
+import static racingcar.util.vaildator.CarNameValidator.validateMinimumCarNameCount;
 
 import java.util.List;
 import racingcar.model.Car;

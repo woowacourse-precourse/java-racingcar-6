@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class carNameValidator {
+public class CarNameValidator {
     private static final int MAX_INPUT_NAME_SIZE = 5;
     private static final int MININUM_CARLIST_SIZE = 2;
     private static final String INPUT_NAME_SIZE_EXCEPTION = "이름이 5자를 초과하였습니다.";

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.util.vaildator.carNameValidator;
+import racingcar.util.vaildator.CarNameValidator;
 
 public class CarNameValidatorTest {
 
@@ -17,14 +17,14 @@ public class CarNameValidatorTest {
     @ValueSource(strings = {"pooobi", "asdfasdfa"})
     void validateInputNameSize(String carName) {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> carNameValidator.validateInputNameSize(carName));
+                .isThrownBy(() -> CarNameValidator.validateInputNameSize(carName));
     }
 
     @Test
     @DisplayName("이름을 아무것도 입력하지 않았을 때를 검증한다.")
     void validateInputName() {
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> carNameValidator.validateInputName(""));
+                .isThrownBy(() -> CarNameValidator.validateInputName(""));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class CarNameValidatorTest {
         List<String> carList = new ArrayList<>();
         carList.add("poobi");
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> carNameValidator.validateMinimumCarNameCount(carList));
+                .isThrownBy(() -> CarNameValidator.validateMinimumCarNameCount(carList));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CarNameValidatorTest {
         carList.add("pobi");
         carList.add("pobi");
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> carNameValidator.validateInputNameDupication(carList));
+                .isThrownBy(() -> CarNameValidator.validateInputNameDupication(carList));
     }
 
 }
