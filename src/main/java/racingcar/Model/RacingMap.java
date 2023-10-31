@@ -25,15 +25,13 @@ public class RacingMap {
     }
 
     public void calWinner(){
-        public void calResult(){
-            Car max = carList.get(0);
-            for(Car car: carList)
-                if(max.compareTo(car) < 0)
-                    max = car;
-            for(Car car: carList)
-                if(max.compareTo(car) == 0)
-                    winner.add(car.getName());
-        }
+        Car max = carList.get(0);
+        for(Car car: carList)
+            if(max.compareTo(car) < 0)
+                max = car;
+        for(Car car: carList)
+            if(max.compareTo(car) == 0)
+                winner.add(car.getName());
     }
 
     public List<String> getWinner(){
