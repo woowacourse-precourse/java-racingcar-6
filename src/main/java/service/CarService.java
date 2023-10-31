@@ -1,16 +1,17 @@
 package service;
 
 import domain.Car;
-import validate.Validate;
+import util.Validate;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static validate.Parser.splitCarNames;
+import static util.Parser.splitCarNames;
 
 
 public class CarService {
     Validate validate = new Validate();
+
     public List<String> getCarNames(String inputLineOfCarNames) {
         return validate.checkCarNames(splitCarNames(inputLineOfCarNames));
     }

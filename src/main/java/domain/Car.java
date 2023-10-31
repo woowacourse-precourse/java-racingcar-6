@@ -21,8 +21,8 @@ public class Car {
     }
 
     public String toString() {
-        StringBuilder distance= new StringBuilder();
-        for(int i = 0; i < position; i++){
+        StringBuilder distance = new StringBuilder();
+        for (int i = 0; i < position; i++) {
             distance.append("-");
         }
         return name + " : " + distance;
