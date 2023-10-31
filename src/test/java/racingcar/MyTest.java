@@ -3,8 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Racing;
 
 public class MyTest {
     @Test
@@ -26,5 +28,11 @@ public class MyTest {
         Car car = new Car("Tony");
         car.go(4);
         assertThat(car.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void StreamTest() {
+        Racing racing = new Racing(List.of(new Car[]{new Car("tony"), new Car("tommy")}));
+        assertThat(racing.computeResult()).isEqualTo(List.of(new String[]{"tony", "tommy"}));
     }
 }
