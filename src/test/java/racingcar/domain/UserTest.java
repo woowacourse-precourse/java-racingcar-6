@@ -43,32 +43,6 @@ class UserTest extends NsTest {
     }
 
     @Test
-    @DisplayName("5자 초과인 이름은 불가능하다.")
-    void 이름_사이즈_확인x(){
-        //given
-        String name="Caaaaar";
-
-        //when
-        boolean pass=user.validateName(name);
-
-        //then
-        Assertions.assertThat(pass).isEqualTo(false);
-    }
-
-    @Test
-    @DisplayName("5자 이하인 이름은 가능하다.")
-    void 이름_사이즈_확인o(){
-        //given
-        String name="Caaar";
-
-        //when
-        boolean pass=user.validateName(name);
-
-        //then
-        Assertions.assertThat(pass).isEqualTo(true);
-    }
-
-    @Test
     @DisplayName("자동차의 이름이 없으면 예외를 발생한다.")
     void 이름_예외_처리(){
         assertSimpleTest(() ->

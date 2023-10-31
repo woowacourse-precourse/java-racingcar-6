@@ -16,10 +16,6 @@ public class User {
         return cars;
     }
 
-    public boolean validateName(String name) {
-        return name.length() <= MAX_NAME_SIZE;
-    }
-
     public List<String> separateNames(String names) {
         String[] temp = names.split(",");
         validateCarCount(names,temp);
@@ -28,19 +24,19 @@ public class User {
         return cars;
     }
 
-    public void validateGame(String[] cars) {
+    private void validateGame(String[] cars) {
         if (cars.length < MIN_CAR_NUMBER) {
             throw new IllegalArgumentException("게임을 진행하기 위한 자동차의 개수는 최소 2대 입니다.");
         }
     }
 
-    public void validateCarCount(String names,String[] cars){
+    private void validateCarCount(String names,String[] cars){
         if(cars.length<=countComas(names)){
             throw new IllegalArgumentException("자동차의 이름은 공백이 불가능합니다.");
         }
     }
 
-    public long countComas(String names){
+    private long countComas(String names){
         return names.chars()
                 .filter(c->c==',')
                 .count();
