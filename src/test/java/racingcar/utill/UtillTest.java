@@ -28,7 +28,7 @@ class UtillTest {
         String input = "123";
 
         // when
-        Integer result = Utill.parseInteger(input);
+        Integer result = Utill.parseInt(input);
 
         // than
         assertThat(result).isEqualTo(123);
