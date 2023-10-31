@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.utility.Constants.COMMA;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
@@ -10,7 +11,7 @@ public class User {
     public User() {}
     public void inputCarNames() throws IllegalArgumentException {
         String carNames = readLine();
-        String[] splitCars = carNames.split(",");
+        String[] splitCars = carNames.split(COMMA);
 
         for (String car: splitCars) {
             car = car.replace(" ", "");
