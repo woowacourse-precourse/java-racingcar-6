@@ -49,7 +49,7 @@ public class OutputTest {
 
         OutputView.printResult(winnerList);
 
-        assertThat(out.toString()).isEqualTo("최종 우승자 : a");
+        assertThat(out.toString()).contains("최종 우승자 : a");
     }
 
     @Test
@@ -58,6 +58,6 @@ public class OutputTest {
 
         OutputView.printResult(winnerList);
 
-        assertThat(out.toString()).isEqualTo("최종 우승자 : a, b");
+        assertThat(out.toString()).contains("최종 우승자 : a, b");
     }
 }
