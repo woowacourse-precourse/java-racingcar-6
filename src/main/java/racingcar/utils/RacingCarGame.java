@@ -26,7 +26,7 @@ public class RacingCarGame {
         return util.getRandomValue() >= 4;
     }
 
-    public void moveCarsForward(RandomUtil util) {
+    private void moveCarsForward(RandomUtil util) {
         racingCarList.forEach(car -> {
             if (isRandomForwardMove(util)) {
                 car.moveForword();
@@ -35,7 +35,7 @@ public class RacingCarGame {
         });
     }
 
-    public void updateFarthestDistance(int distance) {
+    private void updateFarthestDistance(int distance) {
         if (farthestDistance < distance) {
             farthestDistance = distance;
         }
