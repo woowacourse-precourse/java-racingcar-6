@@ -40,7 +40,6 @@ public class Game {
 
     private void PlayRound(ArrayList<String> carNames, int round) {
         int carMax = carNames.size();
-
         int[] counts = new int[carMax];
 
         for (int i = 0; round >= i; i++) { //1depth
@@ -49,6 +48,7 @@ public class Game {
             }
             System.out.println("");
         }
+        Winner(carNames, counts);
     }
 
     private int GoCount(ArrayList<String> carNames, int count, int round) {
@@ -72,6 +72,28 @@ public class Game {
         for (int i = 0; count > i; i++) {
             result += "-";
         }
-        System.out.println(carName + ":" + result);
+        System.out.println(carName + " : " + result);
+    }
+    private void Winner(ArrayList<String> carNames, int[] count) {
+        ArrayList<String> winner = new ArrayList<>();
+
+        int wincount = 0;
+
+        for (int i = 0; count.length > i; i++) {
+            if (wincount < count[i]) {
+                wincount = count[i];
+            }
+        }
+        for (int i = 0; count.length > i; i++) {
+            if (wincount == count[i]) {
+                winner.add(carNames.get(i));
+            }
+        }
+        if (winner.size() > 1) {
+            String allWinner = String.join(",", winner);
+            System.out.print("최종 우승자 : " + allWinner);
+        } else {
+            System.out.print("최종 우승자 : " + winner.get(0));
+        }
     }
 }
