@@ -30,6 +30,7 @@ public class ValidateForm {
 
     private static void verifyForRacerNameList(String racerNameList){
         verifyForRacerNameIsDuplicate(racerNameList);
+        verifyForRacerNameContainComma(racerNameList);
     }
 
     private static void verifyForRaceCount(String raceCount){

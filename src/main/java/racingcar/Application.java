@@ -78,9 +78,9 @@ public class Application {
 
     private static void generateRacer(List<String> racerNameList){
         racerNameList.stream()
-                            .forEach(racerName->{
-                                generateRacerByInputValue(racerName);
-                            });
+                .forEach(racerName->{
+                    generateRacerByInputValue(racerName);
+                });
     }
     private static GenerateRacer generateRacerByInputValue(String inputValue){
         return (racerName)-> Racer.getInstance(inputValue);
