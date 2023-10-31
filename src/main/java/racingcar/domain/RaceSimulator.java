@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class RaceSimulator {
 
@@ -19,4 +21,29 @@ public class RaceSimulator {
 
         return racingResult;
     }
+
+    public static void raceWinner(HashMap<String, String> carResults) {
+        List<String> winners = new ArrayList<>();
+        int maxDistance = 0;
+
+        for (String car : carResults.keySet()) {
+            String result = carResults.get(car);
+            int distance = result.length();
+
+            if (distance > maxDistance) {
+                maxDistance = distance;
+                winners.clear();
+                winners.add(car);
+            } else if (distance == maxDistance) {
+                winners.add(car);
+            }
+        }
+
+        if (winners.size() == 1) {
+            System.out.println("최종 우승자 : " + winners.get(0));
+        } else {
+            System.out.println("최종 우승자 : " + String.join(", ", winners));
+        }
+    }
+
 }
