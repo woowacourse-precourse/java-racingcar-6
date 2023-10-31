@@ -2,7 +2,9 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,5 +37,27 @@ public class CarsTest {
             assertThat(number == 0 || number == 1).isTrue();
         }
     }
-    
+
+    @Test
+    @DisplayName("우승자를 리턴하는 기능")
+    void testGetWinners() {
+        String playerInput = "pobi,woni,kibum";
+        Cars cars = new Cars(playerInput);
+
+        for (int i = 0; i < 5; i++) {
+            cars.driveAll();
+        }
+        List<String> winners = cars.getWinners();
+        List<Integer> result = cars.getTotalDistances();
+        List<String> names = cars.getNames();
+        int maxDistance = Collections.max(result);
+        List<String> expected = new ArrayList<>();
+        for (int i = 0; i < result.size(); i++) {
+            if (result.get(i) == maxDistance) {
+                expected.add(names.get(i));
+            }
+        }
+
+        assertThat(expected).containsAll(winners);
+    }
 }
