@@ -12,8 +12,8 @@ public class Car {
         position = 0;
     }
 
-    public void move(){
-        if (GameUtil.getRandomNumber() >= MOVE_NUM){
+    public void move(int randomNumber){
+        if (randomNumber >= MOVE_NUM){
             position ++;
         }
     }

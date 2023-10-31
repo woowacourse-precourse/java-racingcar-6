@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.util.GameUtil;
 import racingcar.validator.CarNameValidator;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Cars {
 
     public void move(){
         for(Car car:cars){
-            car.move();
+            car.move(GameUtil.getRandomNumber());
         }
     }
 
