@@ -59,3 +59,167 @@
 - [x] InputValidator를 통해 유효성 검사를 한다.
 3.5. `OutputView` 클래스
 - [x] 게임으로부터 요청받은 내용을 출력한다.
+
+## 기능 목록 테이블
+<table>
+  <tr style="background-color: green; color:white">
+    <th>No
+    <th>클래스 이름</th>
+    <th>함수 이름</th>
+    <th>기능 이름</th>
+    <th>기능 설명</th>
+  </tr>
+  <tr>
+    <td>01</td>
+    <td>RaceGame</td>
+    <td>run()</td>
+    <td>게임 실행 함수</td>
+    <td>전반적인 게임 실행을 위한 함수. playGame(), endGame() 메서드 호출</td>
+  </tr>
+   <tr>
+    <td></td>
+    <td></td>
+    <td>playGame()</td>
+    <td>게임 시작 함수</td>
+    <td>run() 함수에서 핵심 게임을 시작하는 함수, 게임의 핵심 로직들을 실행함.</td>
+  </tr>
+   <tr>
+    <td></td>
+    <td></td>
+    <td>endGame()</td>
+    <td>게임 종료 함수</td>
+    <td>run() 함수에서 핵심 게임을 종료하는 함수, 최종 승자를 출력</td>
+  </tr>
+  <tr>
+    <td>02</td>
+    <td>Car</td>
+    <td>Car()</td>
+    <td>생성자</td>
+    <td>Car 객체 생성을 위한 생성자</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>getName()</td>
+    <td>접근자</td>
+    <td>자동차의 이름 확인하는 접근자</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>getPosition()</td>
+    <td>접근자</td>
+    <td>자동차의 위치 확인하는 접근자</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>move()</td>
+    <td>자동차 객체 이동 시도 함수</td>
+    <td>랜덤한 값을 생성하여 기준 값 이상이면 전진, 아니면 멈춤 하는 메서드</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>generateRandomValue()</td>
+    <td>랜덤값 생성 함수</td>
+    <td>자동차 이동/멈춤을 위한 랜덤 값 생성 함수</td>
+  </tr>
+  <tr>
+    <td>03</td>
+    <td>InputValidator</td>
+    <td>validateNameOfLength()</td>
+    <td>자동차 이름 길이 유효성 검사</td>
+    <td>내부적으로 자동차 이름의 최소길이, 최대길이를 확인하는 메서드를 호출</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>isMinLengthValid()</td>
+    <td>자동차 이름 최소 길이 확인 메서드</td>
+    <td>자동차 이름의 길이가 최소 1인지 확인한다.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>isMaxLengthValid()</td>
+    <td>자동차 이름 최대 길이 확인 메서드</td>
+    <td>자동차 이름의 길이가 최대 5인지 확인한다.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>isNotNullValid()</td>
+    <td>사용자 입력 Null값 확인 메서드</td>
+    <td>사용자 입력 Null인지 확인하는 함수</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>isNoSpaceValid()</td>
+    <td>사용자 이름 입력 공백 확인 메서드</td>
+    <td>사용자 이름 입력 공백이 포함되어 있는지 아닌지 확인하는 함수</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>validateNumberOfCar()</td>
+    <td>사용자 이름 입력 최소 자동차 개수 확인 메서드</td>
+    <td>사용자 이름 입력 최소 자동차 개수 1을 넘기는지 확인 메서드</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>validateNumberOfCar()</td>
+    <td>사용자 이름 입력 최소 자동차 개수 확인 메서드</td>
+    <td>사용자 이름 입력 최소 자동차 개수 1을 넘기는지 확인 메서드</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>isMinValueValid()</td>
+    <td>사용자 이동 횟수 입력이 최소 수를 넘었는지 확인 메서드</td>
+    <td>사용자 이동 횟수 입력이 최소 수 1을 넘었는지 확인 메서드</td>
+  </tr>
+  <tr>
+    <td>04</td>
+    <td>InputView</td>
+    <td>InputView</td>
+    <td>생성자</td>
+    <td>InputView 객체 생성을 위한 생성자</td>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>inputName()</td>
+    <td>사용자 이름 입력 함수</td>
+    <td>사용자로부터 여러개의 입력을 받은 후 유효성 검사 후 유효할 경우 참가자로 등록, 그렇지 않을 경우 에러 발생</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>parseNamesFromInput()</td>
+    <td>사용자의 이름 입력으로부터 쉼표를 기준으로 구분하는 메서드</td>
+    <td>사용자의 이름 입력으로부터 쉼표를 기준으로 구분하여 리스트를 반환하는 메서드</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>inputMoveCount()</td>
+    <td>이동 횟수 입력 함수</td>
+    <td>이동 횟수를 입력받고 이것에 대한 유효성 검사 후 유효성 검사를 통과할 경우 해당 이동 횟수 반환 그렇지 않을 경우 에러 발생</td>
+
+  <tr>
+    <td>05</td>
+    <td>OutputView</td>
+    <td>printCarsPosition()</td>
+    <td>경기 중 현재 자동차의 위치를 확인하는 함수</td>
+    <td>현재 경기에 참가하고 있는 자동차 객체를 확인하며 현재 자동차들의 위치 정보를 출력해주는 함수</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>printWinner()</td>
+    <td>최종 우승자 출력 함수</td>
+    <td>가장 멀리 간 우승자의 이름을 출력한다.</td>
+  </tr>
+</table>
