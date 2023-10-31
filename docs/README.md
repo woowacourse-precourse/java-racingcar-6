@@ -10,7 +10,7 @@
   - [x][t] 입력한 자동차 이름이 5자 이하인지 검사한다. - Validators#isListElementOverFive
   - [x][t] 입력한 게임 회수가 정수로 변환 가능한지 검사한다. - Validators#isInteger
 - 1턴동안 자동차가 1칸 전진 또는 멈추고, 이를 주어진 횟수 동안 반복한다. Game#startRace
-  - [x][] 0~9 사이의 임의의 숫자 1개를 생성한다. - NumberGenerator#createRandomNumber
+  - [x][t] 0~9 사이의 임의의 숫자 1개를 생성한다. - NumberGenerator#createRandomNumber
   - [x][] 전진 조건을 충족했는지 검사한다. - Judgement#moveForward
   - [x][] 플레이어별로 전진 가능한지 비교한다. - Judgement#playerMoveForward
   - [x][] 1턴 게임 결과를 출력한다. - Game#printLapResult
