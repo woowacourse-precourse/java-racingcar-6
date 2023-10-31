@@ -23,6 +23,6 @@ public class Car {
     }
 
     private void moveForward() {
-        this.carDistance.setDistance(carDistance.getDistance() + 1);
+        this.carDistance.setDistance(carDistance.getDistance() + Constants.FORWARD.getNumber());
     }
 }
