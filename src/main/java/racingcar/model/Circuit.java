@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 import racingcar.util.RandomGenerator;
@@ -28,12 +27,12 @@ public class Circuit {
     }
 
     public RaceResult report() {
-        List<RacingCar> nominees = new ArrayList<>();
+        RaceResult result = new RaceResult();
 
         for (RacingCar racingCar : racingCars) {
-            nominees = racingCar.compare(nominees);
+            result.report(racingCar);
         }
 
-        return new RaceResult(nominees);
+        return result;
     }
 }

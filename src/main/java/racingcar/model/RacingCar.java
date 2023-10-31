@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.List;
-
 public class RacingCar {
 
     private static final int FORWARD_THRESHOLD = 4;
@@ -30,25 +28,20 @@ public class RacingCar {
         }
     }
 
-    public List<RacingCar> compare(List<RacingCar> nominees) {
-        if (nominees.isEmpty() || nominees.get(0).equals_pos(this.position)) {
-            nominees.add(this);
-        }
-
-        if (nominees.get(0).compare(this.position)) {
-            nominees.clear();
-            nominees.add(this);
-        }
-
-        return nominees;
+    public RaceStatus compare(RacingCar nominee) {
+        return nominee.compare(this.position);
     }
 
-    private boolean equals_pos(int position) {
-        return this.position == position;
-    }
+    private RaceStatus compare(int position) {
+        if (this.position < position) {
+            return RaceStatus.WIN;
+        }
 
-    private boolean compare(int position) {
-        return this.position < position;
+        if (this.position > position) {
+            return RaceStatus.LOSE;
+        }
+
+        return RaceStatus.DRAW;
     }
 
     public String getName() {
