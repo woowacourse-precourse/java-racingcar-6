@@ -2,8 +2,16 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
+import racingcar.util.Parser;
+import racingcar.util.Exception;
+import racingcar.repository.CarRepository;
 
 public class Controller {
+
+    private final Parser parser = new Parser();
+    private final Exception exception = new Exception();
+    private final CarRepository carRepository = new CarRepository();
 
     private String getCarNameByUserInput(){
         InputView.requestCarNamesMessage();
@@ -11,12 +19,13 @@ public class Controller {
         return checkValidateCarName(input);
     }
 
-    private String checkValidateCarName(String input){
-        try{
-
-        }
-        catch (IllegalArgumentException e){
-
+    private String checkValidateCarName(String input) {
+        try {
+            exception.checkCarNamesInput(input);
+            return input;
+        } catch (IllegalArgumentException e) {
+            OutputView.printException(e.getMessage());
+            return getCarNameByUserInput();
         }
     }
 }
