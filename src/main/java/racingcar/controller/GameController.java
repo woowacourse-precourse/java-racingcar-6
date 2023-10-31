@@ -7,6 +7,7 @@ import racingcar.io.Input;
 import racingcar.service.GameService;
 
 public class GameController {
+    private static final String EXECUTION_RESULT = "실행 결과";
     private RacingGame racingGame;
 
     public void initGame() {
@@ -16,6 +17,7 @@ public class GameController {
     }
 
     public void playGame() {
+        System.out.println(EXECUTION_RESULT);
         while (!racingGame.isFinalRound()) {
             GameService.playSingleRound(racingGame);
             //각 라운드 종료후 게임 결과 출력 기능 추가
