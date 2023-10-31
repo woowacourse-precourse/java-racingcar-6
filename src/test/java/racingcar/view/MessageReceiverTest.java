@@ -88,6 +88,13 @@ class MessageReceiverTest {
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
+        @Test
+        void 시도할_횟수_공백을_입력하면_예외발생() {
+            // expected
+            assertThatThrownBy(() -> run(""))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
         @Override
         protected void runMain() {
             MessageReceiver messageReceiver = new MessageReceiver();
