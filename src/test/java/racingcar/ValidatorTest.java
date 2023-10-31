@@ -1,6 +1,7 @@
 package racingcar;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ class ValidatorTest {
     void checkValidCarNamesTest1() {
         String[] carNames = {"pobi", "woni", "jun", "abcde"};
 
-        Assertions.assertDoesNotThrow(
+        assertDoesNotThrow(
                 () -> Validator.checkValidCarNames(carNames));
     }
 
@@ -20,7 +21,7 @@ class ValidatorTest {
     void checkValidCarNamesTest2() {
         String[] carNames = {"pobi", "woni", "junnie", "abcde"};
 
-        Assertions.assertThrows(
+        assertThrows(
                 IllegalArgumentException.class,
                 () -> Validator.checkValidCarNames(carNames),
                 "자동차 이름은 5자 이하만 가능합니다.");
@@ -31,7 +32,7 @@ class ValidatorTest {
     void checkValidCarNamesTest3() {
         String[] carNames = {"pobi", "woni", "", "abcde"};
 
-        Assertions.assertThrows(
+        assertThrows(
                 IllegalArgumentException.class,
                 () -> Validator.checkValidCarNames(carNames),
                 "자동차 이름은 1글자 이상만 가능합니다.");
@@ -42,7 +43,7 @@ class ValidatorTest {
     void checkValidCarNamesTest4() {
         String[] carNames = {"pobi", "woni", "pobi", "abcde"};
 
-        Assertions.assertThrows(
+        assertThrows(
                 IllegalArgumentException.class,
                 () -> Validator.checkValidCarNames(carNames),
                 "자동차 이름은 중복될 수 없습니다.");
@@ -53,7 +54,7 @@ class ValidatorTest {
     void checkValidCarNamesTest5() {
         String[] carNames = {"pobi", "woni", "jun ", "abcde"};
 
-        Assertions.assertThrows(
+        assertThrows(
                 IllegalArgumentException.class,
                 () -> Validator.checkValidCarNames(carNames),
                 "자동차 이름에 공백이 있을 수 없습니다.");
@@ -64,7 +65,7 @@ class ValidatorTest {
     void isValidNumberOfAttemptsTest1() {
         int trial = 1;
 
-        Assertions.assertDoesNotThrow(
+        assertDoesNotThrow(
                 () -> Validator.isValidNumberOfAttempts(trial));
     }
 
@@ -73,7 +74,7 @@ class ValidatorTest {
     void isValidNumberOfAttemptsTest2() {
         int trial = 0;
 
-        Assertions.assertThrows(
+        assertThrows(
                 IllegalArgumentException.class,
                 () -> Validator.isValidNumberOfAttempts(trial),
                 "시도 횟수는 1 이상만 가능합니다.");

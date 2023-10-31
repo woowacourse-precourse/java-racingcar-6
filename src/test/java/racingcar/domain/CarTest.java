@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,8 @@ class CarTest {
         car.move(1);
         int secondPostion = car.getPosition();
 
-        Assertions.assertThat(firstPostion).isEqualTo(0);
-        Assertions.assertThat(secondPostion).isEqualTo(1);
+        assertThat(firstPostion).isEqualTo(0);
+        assertThat(secondPostion).isEqualTo(1);
     }
 
     @Test
@@ -31,7 +32,7 @@ class CarTest {
         car.move(0);
         int secondPostion = car.getPosition();
 
-        Assertions.assertThat(firstPostion).isEqualTo(0);
-        Assertions.assertThat(secondPostion).isEqualTo(0);
+        assertThat(firstPostion).isEqualTo(0);
+        assertThat(secondPostion).isEqualTo(0);
     }
 }

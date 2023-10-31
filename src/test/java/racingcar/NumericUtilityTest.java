@@ -1,7 +1,8 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.*;
+
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -16,8 +17,8 @@ class NumericUtilityTest {
         boolean actual1 = NumericUtility.isNumberGreaterOrEqualToFour(number1);
         boolean actual2 = NumericUtility.isNumberGreaterOrEqualToFour(number2);
 
-        Assertions.assertThat(actual1).isEqualTo(true);
-        Assertions.assertThat(actual2).isEqualTo(true);
+        assertThat(actual1).isEqualTo(true);
+        assertThat(actual2).isEqualTo(true);
     }
 
     @Test
@@ -28,8 +29,8 @@ class NumericUtilityTest {
         boolean actual1 = NumericUtility.isNumberGreaterOrEqualToFour(number1);
         boolean actual2 = NumericUtility.isNumberGreaterOrEqualToFour(number2);
 
-        Assertions.assertThat(actual1).isEqualTo(false);
-        Assertions.assertThat(actual2).isEqualTo(false);
+        assertThat(actual1).isEqualTo(false);
+        assertThat(actual2).isEqualTo(false);
     }
 
     @Test
@@ -43,6 +44,6 @@ class NumericUtilityTest {
         cars.get(2).move(1);
         cars.get(2).move(1);
         int maxPosition = NumericUtility.findMaxPosition(cars);
-        Assertions.assertThat(maxPosition).isEqualTo(3);
+        assertThat(maxPosition).isEqualTo(3);
     }
 }
