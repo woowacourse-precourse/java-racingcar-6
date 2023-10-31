@@ -14,4 +14,16 @@ public class RacingCarDataTest {
         Assertions.assertThat(racingCarNames.containsKey("pobi"));
         Assertions.assertThat(racingCarNames.containsKey("woni"));
     }
+
+    @Test
+    void 이동거리에_대한_업데이트_여부가_제대로_이루어지는지_확인(){
+        int randomNumber1 = 6;
+        RacingCarData racingCarData = new RacingCarData();
+        int currentNumber1 = racingCarData.updateRacingCarDistance(randomNumber1);
+        Assertions.assertThat(currentNumber1).isEqualTo(1);
+
+        int randomNumber2 = 3;
+        int currentNumber2 = racingCarData.updateRacingCarDistance(randomNumber2);
+        Assertions.assertThat(currentNumber2).isEqualTo(0);
+    }
 }
