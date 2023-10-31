@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 
-public class MemoryCarRepository implements CarRepository{
+public class MemoryCarRepository implements CarRepository {
     private static ArrayList<Car> carList = new ArrayList<>();
+
     @Override
     public void save(String name) {
         carList.add(new Car(name));

@@ -18,6 +18,10 @@ public class Car {
         return this.name;
     }
 
+    public int getPosition() {
+        return this.position;
+    }
+
     public void drive() {
         int number = randomNumberGenerator.makeRandomNumber();
 
