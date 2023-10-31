@@ -28,7 +28,7 @@ public class InputCarName {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            Car car = new Car(carName, randomNumberGenerator);
+            Car car = new Car(carName, randomNumberGenerator, 0);
             cars.add(car);
         }
 

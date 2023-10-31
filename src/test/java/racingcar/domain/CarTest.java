@@ -14,7 +14,7 @@ class CarTest {
                 .thenReturn(3)
                 .thenReturn(5);
 
-        Car car = new Car("phobi", mockGenerator);
+        Car car = new Car("phobi", mockGenerator, 0);
 
         // move 메서드 호출
         car.move(); // randomNumber = 3
