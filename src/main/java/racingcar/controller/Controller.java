@@ -1,27 +1,21 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
-import racingcar.domain.Race;
-import racingcar.repository.CarRepository;
-import racingcar.repository.RaceRepository;
-import racingcar.service.RaceService;
-import racingcar.util.Parsing;
+import racingcar.service.Service;
 import racingcar.util.Validation;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
     private final Validation validation = new Validation();
-    private final RaceService raceService = new RaceService();
-    private final OutputView outputView = new OutputView();
+    private final Service raceService = new Service();
 
     public void run() {
         //자동차 이름
         InputView.requestInputMessage();
 
         String carNameInput = Console.readLine();
-        
+
         validation.checkCarNamesInput(carNameInput);
 
         String[] carName = carNameInput.split(",");
@@ -39,7 +33,7 @@ public class Controller {
         OutputView.responseExecution();
         raceService.resultOfExecution(count, carPresentPoint, carName);
 
-        outputView.responseWinner(raceService.getWinner(carName, carPresentPoint));
+        OutputView.responseWinner(raceService.getWinner(carName, carPresentPoint));
 
     }
 
