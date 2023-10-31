@@ -13,19 +13,18 @@ public class Car {
         this.currentLocation++;
     }
 
-    public boolean judgeForward(Integer number) {
-        if (number >= 4) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public String getName() {
         return this.name;
+    }
+
+    public void printCurrentLocation() {
+        for (int i = 0; i < currentLocation; i++) {
+            System.out.print('-');
+        }
     }
 
     public void setName(String name) {
         this.name = name;
     }
+
 }
