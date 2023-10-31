@@ -1,32 +1,38 @@
 package racingcar;
 
-
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private final String carName;
+    private String carName;
     final String MARK_FOR_FORWARD = "-";
     private int forwardCount;
     private String presentCondition;
     private ErrorMessages errorType;
 
     public Car(String carName) {
-        validateNameSpace(carName);
-        validateNameLength(carName);
+        setCarName(carName);
 
-        this.carName = carName;
         this.forwardCount = 0;
         this.presentCondition = "";
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
-    public int getRandomNumber() {
-
+    private int getRandomNumber() {
         return Randoms.pickNumberInRange(CarConstants.START_RANDOM.getConst(),
                 CarConstants.END_RANDOM.getConst());
+    }
+
+    private boolean validateName(String carName) {
+        if (!(carName.length() <= CarConstants.LENGTH_CAR_NAME.getConst())) {
+            errorType = ErrorMessages.OVER_LENGTH_CARNAME;
+            throw new IllegalArgumentException(CarConstants.LENGTH_CAR_NAME.getConst() + errorType.getDescription());
+        }
+
+        if (carName.contains(" ")) {
+            errorType = ErrorMessages.CONTAIN_WHITE_SPACE;
+            throw new IllegalArgumentException(errorType.getDescription());
+        }
+
+        return true;
     }
 
     public void runCar() {
@@ -50,17 +56,13 @@ public class Car {
         return getCarName() + " : " + presentCondition;
     }
 
-    final void validateNameLength(String carName) {
-        if (!(carName.length() <= CarConstants.LENGTH_CAR_NAME.getConst())) {
-            errorType = ErrorMessages.OVER_LENGTH_CARNAME;
-            throw new IllegalArgumentException(CarConstants.LENGTH_CAR_NAME.getConst() + errorType.getDescription());
+    public void setCarName(String name) {
+        if (validateName(name)) {
+            this.carName = name;
         }
     }
 
-    final void validateNameSpace(String carName) {
-        if (carName.contains(" ")) {
-            errorType = ErrorMessages.CONTAIN_WHITE_SPACE;
-            throw new IllegalArgumentException(errorType.getDescription());
-        }
+    public String getCarName() {
+        return carName;
     }
 }
