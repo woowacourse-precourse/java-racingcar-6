@@ -12,4 +12,6 @@ public class Message {
 
     public final static String EXCPTION_CAR_NAME_DUPLICATED = "자동차 이름은 중복될 수 없습니다.";
 
+    public final static String EXCPTION_NUM_ONLY = "숫자만 입력할 수 있습니다.";
+
 }

@@ -2,7 +2,6 @@ package racingcar.service;
 
 import static java.util.Objects.isNull;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,9 +13,7 @@ public class ValidationService {
     private static final int MAX_NUM = 5;
     public List<String> checkCarNames(String carNames) {
         // 1. null 체크
-        if (isNull(carNames) || carNames.isEmpty() || carNames.isBlank()) {
-            throw new IllegalArgumentException(Message.EXCEPTION_DO_NOT_ENTER_CAR_NAME);
-        }
+        checkNull(carNames);
 
         // 2. 공백 제거
         carNames = carNames.replaceAll(" ", "");
@@ -47,5 +44,24 @@ public class ValidationService {
     private List<String> seperatedCarName(String carNames) {
         List<String> listOfCarNames = Stream.of(carNames.split(",")).collect(Collectors.toList());
         return listOfCarNames;
+    }
+
+    public int checkTrialCount(String inputTrialCount) {
+        // 1. null 체크
+        checkNull(inputTrialCount);
+
+        // 2. 입력 형식이 숫자인지 확인
+        try {
+            Integer.parseInt(inputTrialCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Message.EXCPTION_NUM_ONLY);
+        }
+        return Integer.parseInt(inputTrialCount);
+    }
+
+    public void checkNull (String inputText) {
+        if (isNull(inputText) || inputText.isEmpty() || inputText.isBlank()) {
+            throw new IllegalArgumentException(Message.EXCEPTION_DO_NOT_ENTER_CAR_NAME);
+        }
     }
 }

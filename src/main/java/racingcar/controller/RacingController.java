@@ -11,6 +11,7 @@ public class RacingController {
 
     public void startRacing() {
         List<String> carNames = getCarNameList();
+        int trialCount = getTrialCount();
 
     }
 
@@ -18,6 +19,12 @@ public class RacingController {
         String carNames = inputView.insertCarName();
         List<String> validatedCarNames = validationService.checkCarNames(carNames);
         return validatedCarNames;
+    }
+
+    private int getTrialCount() {
+        String inputTrialCount = inputView.insertTrialCount();
+        int trialCount = validationService.checkTrialCount(inputTrialCount);
+        return trialCount;
     }
 
 }
