@@ -23,10 +23,6 @@ public class Game {
         return carList;
     }
 
-    public int getTryChance() {
-        return tryChance;
-    }
-
     public Map<String, Integer> getGameResult() {
         return gameResult;
     }
@@ -58,5 +54,9 @@ public class Game {
         if(chance <= 0) {
             throw new IllegalArgumentException(SMALLER_THAN_ZERO_EXCEPTION);
         }
+    }
+
+    public boolean stillInPlaying(int round) {
+        return round <= tryChance;
     }
 }
