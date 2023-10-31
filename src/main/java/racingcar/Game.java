@@ -9,18 +9,18 @@ public class Game {
     private Racing racing;
 
     public Game() {
-        user = new User(); // 생성 주입 순서.. 필드주입, 생성자주입..(보통선호)
+        user = new User();
         inputRacingCarName();
         inputRacingRound();
-        racing = new Racing(racerNameArray, round); // ["pobi", "woni"], 5
+        racing = new Racing(racerNameArray, round);
     }
 
-    public void inputRacingCarName() {
+    private void inputRacingCarName() {
         this.inputRacerName = user.inputCarName();
         this.racerNameArray = inputRacerName.split(",");
     }
 
-    public void inputRacingRound() {
+    private void inputRacingRound() {
         this.round = user.inputRound();
     }
 
