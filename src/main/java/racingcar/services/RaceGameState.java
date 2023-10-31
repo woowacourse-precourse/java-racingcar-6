@@ -22,9 +22,11 @@ public class RaceGameState {
         return parsedNames;
     }
 
+
     public Map<String, Integer> getStateOfEachCar() {
         return stateOfEachCar;
     }
+
 
     private Map<String, Integer> convertListToMap(List<String> names){
         return names.stream()
@@ -38,5 +40,11 @@ public class RaceGameState {
         return name + " : "+ repeatedIndicate +"\n";
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder printAnswer = new StringBuilder();
+        stateOfEachCar.keySet()
+                .forEach(i -> printAnswer.append(StringOfCurrentProgress(i)));
+        return printAnswer.toString();
+    }
 }
