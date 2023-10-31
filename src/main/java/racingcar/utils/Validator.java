@@ -1,6 +1,8 @@
 package racingcar.utils;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Validator {
     private static final Validator validator = new Validator();
@@ -37,6 +39,13 @@ public class Validator {
                 .anyMatch(String::isBlank);
         if (isMemberEmpty) {
             throw new IllegalArgumentException("쉼표를 연속으로 입력할 수 없습니다.");
+        }
+    }
+
+    public void duplicateCarName(final List<String> members, final String carNames) {
+        Set<String> uniqueCarNames = new HashSet<>(List.of(carNames.split(",")));
+        if (members.size() != uniqueCarNames.size()) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
     }
 }
