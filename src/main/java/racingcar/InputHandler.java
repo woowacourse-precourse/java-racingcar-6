@@ -27,12 +27,6 @@ public class InputHandler {
         return uniqueCarNames;
     }
 
-    private List<String> removeDuplicate(List<String> carNames) {
-        return carNames.stream()
-                .distinct()
-                .collect(Collectors.toList());
-    }
-
     private String getUserInputForCarNames() {
         System.out.println(MESSAGE_TO_INQUIRE_CARS_NAME);
         return Console.readLine();
@@ -42,6 +36,12 @@ public class InputHandler {
         return Arrays.stream(str.split(","))
                 .map(String::strip)
                 .filter(name -> !name.isEmpty())
+                .collect(Collectors.toList());
+    }
+
+    private List<String> removeDuplicate(List<String> carNames) {
+        return carNames.stream()
+                .distinct()
                 .collect(Collectors.toList());
     }
 
