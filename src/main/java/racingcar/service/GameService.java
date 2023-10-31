@@ -22,6 +22,12 @@ public class GameService {
         return gameRepository.save(game);
     }
 
+    public List<String> getWinners(Game game) {
+        List<Car> cars = game.getCars();
+        int maxPosition = getWinnerPosition(cars);
+        return getWinnerPositionCars(cars, maxPosition);
+    }
+
     private List<String> getWinnerPositionCars(List<Car> cars, int winnerPosition) {
         List<String> carNames = new ArrayList<>();
         for (Car car : cars) {
