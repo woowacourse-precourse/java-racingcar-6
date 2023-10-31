@@ -20,4 +20,8 @@ public class Race {
         }
         currentRound++;
     }
+
+    public boolean isFinished() {
+        return currentRound >= rounds;
+    }
 }
