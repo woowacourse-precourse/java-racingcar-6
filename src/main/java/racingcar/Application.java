@@ -46,7 +46,33 @@ public class Application {
 
         }
 
+        int max = raceCount[0]; // 배열의 첫 번째 요소를 최대값으로 초기화
 
+        for (int i = 1; i < raceCount.length; i++) {
+            if (raceCount[i] > max) {
+                max = raceCount[i]; // 더 큰 값을 발견하면 최대값을 업데이트
+            }
+        }
+
+        ArrayList<String>resultArray = new ArrayList<>();
+
+        for (int i = 0; i < raceCount.length; i++) {
+            if (raceCount[i] == max) {
+                resultArray.add(userArray.get(i)); // 더 큰 값을 발견하면 최대값을 업데이트
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+
+        if(resultArray.size() == 1){
+            System.out.print(resultArray.get(0));
+        } else {
+            System.out.print(resultArray.get(0));
+            for(int i = 1; i < resultArray.size();i++){
+                System.out.print(","+resultArray.get(i));
+
+            }
+        }
 
     }
 }
