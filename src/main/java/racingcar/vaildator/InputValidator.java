@@ -14,6 +14,7 @@ public class InputValidator {
         return removeTrimString(input).isBlank();
     }
 
+    //코드 리펙토링
     public static boolean isValidLengthCarNames(List<String> carNames){
 
         for(String carName : carNames){
@@ -33,7 +34,6 @@ public class InputValidator {
         }
         return false;
     }
-
 
 
     private static String removeTrimString(String input){

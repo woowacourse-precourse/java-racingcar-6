@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static racingcar.Constant.EXCEPTION_MESSAGE;
+import static racingcar.vaildator.InputValidator.isBlankInput;
 import static racingcar.vaildator.InputValidator.isValidLengthCarNames;
 
 public class Cars {
@@ -19,6 +20,15 @@ public class Cars {
 
     public Cars(String nameBeforeSeparation){
         List<String> carNames = Arrays.asList(nameBeforeSeparation.split(","));
+
+        if(carNames.size() == 0){
+            throw new IllegalArgumentException(EXCEPTION_MESSAGE);
+        }
+
+        for(String carName : carNames){
+            if(isBlankInput(carName)) throw new IllegalArgumentException(EXCEPTION_MESSAGE);
+        }
+
 
         if(!isValidLengthCarNames(carNames)){
             throw new IllegalArgumentException(EXCEPTION_MESSAGE);
