@@ -21,6 +21,15 @@ public class Application {
         int rounds = Integer.parseInt(Console.readLine());
 
         List<Car> cars = initializeCars(carNames);
+
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < rounds; i++) {
+            moveCars(cars);
+            printCarPositions(cars);
+        }
+
+        List<String> winners = findWinners(cars);
+        System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 
     private List<Car> initializeCars(String[] carNames) {
@@ -29,6 +38,41 @@ public class Application {
             cars.add(new Car(name));
         }
         return cars;
+    }
+
+    private void moveCars(List<Car> cars) {
+        for (Car car : cars) {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            if (randomValue >= 4) {
+                car.moveForward();
+            }
+        }
+    }
+
+    private void printCarPositions(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
+    }
+
+    private List<String> findWinners(List<Car> cars) {
+        int maxPosition = findMaxPosition(cars);
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
+    private int findMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
     }
 }
 
