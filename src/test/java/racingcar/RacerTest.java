@@ -18,8 +18,8 @@ public class RacerTest {
     }
     @Test
     void 자동차_공장에서_경주할_차를_받을수_있다(){
-        Car raceCar = racer.getRaceCar();
-        Assertions.assertEquals(Car.class,raceCar.getClass());
+        boolean isInitialized = racer.isCarInitialized();
+        Assertions.assertTrue(isInitialized);
     }
     @Test
     void 자동차_전진여부에_따라_현재_위치에서_일정_칸_전진할_수_있다() {

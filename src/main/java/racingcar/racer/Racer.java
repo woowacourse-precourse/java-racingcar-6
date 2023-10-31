@@ -7,7 +7,7 @@ import racingcar.configs.Config;
 public class Racer {
     private final String name;
     private final Car raceCar;
-    private Integer currentPos;
+    private int currentPos;
     public Racer(String racerName){
         raceCar = CarFactory.getNewCarInstance();
         name = racerName;
@@ -21,9 +21,9 @@ public class Racer {
     private boolean canMoveForward(){
         return raceCar.checkCarSpeedIsExceedThreshold();
     }
-    public Integer getCurrentPos(){
+    public int getCurrentPos(){
         return currentPos;
     }
-    public Car getRaceCar(){return raceCar;};
+    public boolean isCarInitialized(){return raceCar!=null;};
     public String getName(){return name;}
 }
