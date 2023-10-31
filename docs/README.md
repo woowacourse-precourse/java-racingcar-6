@@ -13,6 +13,7 @@
 
 - [X] 문자열 전체에 대한 검증
     - [X] [예외] 공백으로 이루어지거나 빈 문자열이 입력 되었을 경우 `IllegalArgumentException` 발생
+    - [ ] [예외] 쉼표가 문자열의 양 끝단에 하나라도 존재할 경우 `IllegalArgumentException` 발생
 
 - - -
 
@@ -21,6 +22,7 @@
 - [X] 쉼표(,) 구분로 문자열을 나누기
 - [x] 자동차 이름 리스트에 대한 검증
     - [X] [예외] 같은 이름이 있는 경우 `IllegalArgumentException` 발생
+    - [ ] [예외] 자동차 객체 리스트 사이즈가 2 미만인 경우 `IllegalArgumentException` 발생
 - [X] 자동차 이름에 대한 검증
     - [X] [예외] 이름에 문자나 숫자가 아닌 다른 문자가 있으면 `IllegalArgumentException`발생
     - [X] [예외] 이름이 5자 초과면 `IllegalArgumentException` 발생
