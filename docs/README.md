@@ -62,8 +62,8 @@ for(car : cars(List<String>) { if(유효하다면){carGame.move(car)} }
 - [x]  최종 점수 출력은 winner이 1명 이상일때 ","로 구분된다.
 
 ## 리팩토링
-- [ ] car 객체 생성하기
-- [ ] List<Car> cars 에 객체 담기
+- [x] car 객체 생성하기
+- [x] List<Car> cars 에 객체 담기
 
 ---
 
