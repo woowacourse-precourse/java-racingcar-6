@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,9 +27,57 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 이름에_대한_예외_처리_숫자_입력() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException("1", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_6자이상_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("seungjae,jun,july", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_특수기호_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("@#,jail,#%", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_쉼표2번_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hill,name,seung,,hun", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_중복_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hill,name,hill,hi", "2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도회수에_대한_예외_처리_문자_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hill,name,seung,hun", "cake"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도회수에_대한_예외_처리_음수_입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("hill,name,seung,hun", "-3"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
