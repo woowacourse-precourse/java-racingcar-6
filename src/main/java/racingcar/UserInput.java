@@ -47,6 +47,9 @@ public class UserInput {
     }
 
     public static boolean isNotEmpty(List<String> inputs) {
+        if (inputs.contains(" ")) {
+            return false;
+        }
         for (String input : inputs) {
             if (input.isEmpty()) {
                 return false;
