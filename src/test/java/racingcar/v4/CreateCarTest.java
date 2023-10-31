@@ -66,4 +66,15 @@ class CreateCarTest {
         createCar.validateCarNameLength(carNames);
     }
 
+    @Test
+    void 자동차_이름이_6자_이상인_경우_예외가_발생한다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("pobipobi", "crong", "honux");
+        assertThatThrownBy(() -> createCar.validateCarNameLength(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
+    }
+
+
+
 }
