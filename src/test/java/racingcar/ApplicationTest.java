@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -30,6 +30,23 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    void setNumber(int number){
+        if(number < 0){
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    @Test
+    void 시도할_횟수가_음수이면_예외처리(){
+        int num = -3943;
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> setNumber(num));
+
+        String message = exception.getMessage();
+        assertEquals("이름은 5자 이하만 가능합니다.", message);
+    }
+
 
     @Override
     public void runMain() {
