@@ -12,8 +12,8 @@ public class Race {
         carList = new ArrayList<>();
     }
 
-    public void setRaceRounds(int rounds){
-        raceRounds = rounds;
+    public void setRaceRounds(){
+        raceRounds = Integer.parseInt(Input.inputRounds());
     }
 
     public void setCarList(){

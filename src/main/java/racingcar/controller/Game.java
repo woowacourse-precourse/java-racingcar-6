@@ -17,9 +17,10 @@ public class Game {
 
     private void setRace() { //레이스 세팅
         race.setCarList();
+        race.setRaceRounds();
     }
 
-    private void runRace(int rounds){ //각 라운드 시작
+    private void runRace(){ //각 라운드 시작
 
     }
 
