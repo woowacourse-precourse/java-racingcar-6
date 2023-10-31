@@ -295,11 +295,6 @@ class ApplicationTest_function_list extends NsTest {
     }
 
     @Test
-    void 기능목록_테스트_경기_상황_출력() {
-
-    }
-
-    @Test
     void 기능목록_테스트_우승자_목록을_형식에_맞춰_출력() {
 
     }
