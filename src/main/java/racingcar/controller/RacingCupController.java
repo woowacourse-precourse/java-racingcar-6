@@ -27,10 +27,6 @@ public class RacingCupController {
         return racingCup.getPlayerList().size();
     }
 
-    public void updateFisrtPlayerDistance(int distance) {
-        this.racingCup.setTopPlayerCompletedRound(distance);
-    }
-
     public int getFisrtPlayerDistance() {
         return racingCup.getTopPlayerCompletedRound();
     }
@@ -39,10 +35,7 @@ public class RacingCupController {
         for (int i = 0; i < playerSize(); i++) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 playerController.forward(i);
-                int distanceOfPlayer = playerController.getDistacne(i);
-                if(racingCup.getTopPlayerCompletedRound() < distanceOfPlayer) {
-                    updateFisrtPlayerDistance(distanceOfPlayer);
-                }
+                this.racingCup.updateTopPlayerCompletedRound(playerController.getDistacne(i));
             }
         }
     }

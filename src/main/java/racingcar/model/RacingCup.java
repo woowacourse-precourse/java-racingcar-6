@@ -18,14 +18,6 @@ public class RacingCup {
         this.topPlayerCompletedRound = 0;
     }
 
-    public int getTopPlayerCompletedRound() {
-        return topPlayerCompletedRound;
-    }
-
-    public void setTopPlayerCompletedRound(int round) {
-        this.topPlayerCompletedRound = round;
-    }
-
     public boolean nextRound() {
         if(nowRound < TOTAL_ROUNDS) {
             this.nowRound++;
@@ -48,5 +40,15 @@ public class RacingCup {
 
     public void setWinners(List<String> winners) {
         this.winners = winners;
+    }
+
+    public int getTopPlayerCompletedRound() {
+        return topPlayerCompletedRound;
+    }
+
+    public void updateTopPlayerCompletedRound(int completedRoundOfPlayer) {
+        if (topPlayerCompletedRound < completedRoundOfPlayer) {
+            this.topPlayerCompletedRound = completedRoundOfPlayer;
+        }
     }
 }
