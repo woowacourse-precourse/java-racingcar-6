@@ -12,4 +12,8 @@ public class GameUtil {
     public static int getRandomNumber() {
         return Randoms.pickNumberInRange(GameInfo.MIN_RANDOM_NUM, GameInfo.MAX_RANDOM_NUM);
     }
+
+    public static void printRoundSeperator() {
+        System.out.println(GameInfo.ROUND_SEPERATE_SYMBOL);
+    }
 }

@@ -14,4 +14,5 @@ public class GameInfo {
     public static final int MAX_RANDOM_NUM = 9;
     public static final int MOVE_OR_STOP_CRITERIA = 4;
     public static final String CAR_MOVE_SYMBOL = "-";
+    public static final String ROUND_SEPERATE_SYMBOL = "";
 }
