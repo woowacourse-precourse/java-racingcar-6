@@ -6,6 +6,9 @@ import static racingcar.Exception.*;
 import static racingcar.Input.getCarName;
 import static racingcar.Input.getTryNumber;
 
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.io.ByteArrayInputStream;
@@ -15,6 +18,16 @@ public class InputTest {
 
     InputStream generateByteArrayInputStream(String userInput) {
         return new ByteArrayInputStream(userInput.getBytes());
+    }
+
+    @BeforeEach
+    void closeScanner() {
+        Console.close();
+    }
+
+    @AfterEach
+    void restoreSystemIn() {
+        System.setIn(System.in);
     }
 
     @ParameterizedTest
