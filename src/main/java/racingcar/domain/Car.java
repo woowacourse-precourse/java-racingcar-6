@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.Constants;
+
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,7 +26,7 @@ public class Car {
     public String resultPosition() {
 
         return IntStream.range(0,getPosition())
-                .mapToObj(i -> "-")
+                .mapToObj(i -> Constants.DASH)
                 .collect(Collectors.joining());
     }
 
