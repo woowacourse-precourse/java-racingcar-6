@@ -39,7 +39,7 @@ public class InputView {
     }
 
     private static class InputValidation {
-        private static final int MAX_VALUE = 20000;
+        private static final int MAX_VALUE = 100;
 
         private InputValidation() {}
 
