@@ -42,6 +42,14 @@ public class RacingController {
         outputView.printWinner(winners);
     }
 
+    private Integer getRoundCount() {
+        return userInputValidator.validateRoundCount(inputView.getRoundCount());
+    }
+
+    private List<String> getCarNames() {
+        return userInputValidator.validateCarNames(inputView.getCarNames());
+    }
+
     private void initializeGame(List<String> carNames, Integer maxRound) {
         this.carInfos = carNames
                 .stream()
@@ -49,13 +57,5 @@ public class RacingController {
                 .toList();
 
         this.roundInfo = new RoundInfo(maxRound);
-    }
-
-    private Integer getRoundCount() {
-        return userInputValidator.validateRoundCount(inputView.getRoundCount());
-    }
-
-    private List<String> getCarNames() {
-        return userInputValidator.validateCarNames(inputView.getCarNames());
     }
 }
