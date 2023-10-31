@@ -61,4 +61,11 @@ public class RacingCarGame {
         }
 
     }
+
+    static void repeatExecution(int trialNumberInt, List<String> carNamesList, List<String>[] progressOfCarRacing) {
+        for (int i = 0; i < trialNumberInt; i++) {
+            executePerCycle(carNamesList, progressOfCarRacing);
+            System.out.println();
+        }
+    }
 }
