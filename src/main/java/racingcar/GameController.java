@@ -15,6 +15,7 @@ public class GameController {
 
         print.questionTryNum();
         inputService.gameNum();
+        print.result();
         gameService.run();
     }
 }

@@ -14,7 +14,7 @@ public class WinnerRepository {
         winner.init(name);
     }
 
-    public String winnerToString() {
+    public String convertListToString() {
         return winner.toString();
     }
 }

@@ -54,7 +54,6 @@ public class Cars {
     public int findMaxPosition() {
         int max = 0;
         for (Car car : carList) {
-
             max = Math.max(max, car.getPosition());
         }
         return max;
