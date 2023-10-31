@@ -1,7 +1,8 @@
-package racingcar.utils;
+package racingcar.domain;
 
 import java.util.List;
 import racingcar.dto.RacingCar;
+import racingcar.utils.RandomUtil;
 
 public class RacingCarGame {
     private int farthestDistance;

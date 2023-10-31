@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
-import racingcar.utils.RacingCarGameOutput;
+import racingcar.domain.RacingCarGameOutput;
 import utils.OutputUtil;
 
 

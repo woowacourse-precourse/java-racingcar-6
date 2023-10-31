@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.domain;
 
 import static racingcar.utils.RacingCarUtil.validateCarList;
 import static racingcar.utils.RacingCarUtil.validateCarNamesInput;

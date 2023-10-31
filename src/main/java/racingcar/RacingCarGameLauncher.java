@@ -7,9 +7,9 @@ import static racingcar.Message.AlarmMessage.MOVE_COUNT_INPUT_MESSAGE;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.dto.RacingCar;
-import racingcar.utils.RacingCarGame;
-import racingcar.utils.RacingCarGameInput;
-import racingcar.utils.RacingCarGameOutput;
+import racingcar.domain.RacingCarGame;
+import racingcar.domain.RacingCarGameInput;
+import racingcar.domain.RacingCarGameOutput;
 
 public class RacingCarGameLauncher {
     private RacingCarGame racingCarGame;

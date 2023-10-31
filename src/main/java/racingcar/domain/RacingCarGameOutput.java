@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.domain;
 
 import static racingcar.Message.AlarmMessage.RESULT_HEADER_MESSAGE;
 
