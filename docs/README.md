@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="wooteco.png" alt="우아한테크코스" width="449">
+    <img src="wooteco.png" alt="우아한테크코스" width="2246">
 </p>
 
 # 프리코스 2주차 미션: 자동차 경주
@@ -21,21 +21,55 @@
 
 > 게임 흐름 순서로 기능 목록이 나열되어 있습니다.
 
-### 1. 플레이어 등록
+### 1️⃣ 플레이어 등록
 
-- 플레이어 이름을 쉼표(,)를 기준으로 구분하여 등록한다.
-    - 사용자의 입력값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-    - 입력값을 검증하고 유효하지 않은 입력값엔 `IllegalArgumentException`을 호출한다.
-    - 검증 후 `PlayerGenerator`클래스를 활용하여 각각의 플레이어의 이름으로 `Player`객체를 생성한다.
-    - 생성된 `Player`객체를 리스트에 담아 보관한다.
+- [x] 사용자로부터 구분자 쉼표(,)를 기준으로하는 플레이어 이름을 입력값을 받는다.
 
-  #### 1-1. ⚠️ 예외 처리 ⚠️
-    - [x] 플레이어 명이 5자 초과한 경우, ``IllegalArgumentException``을 호출한다
-    - [x] 플레이어 명이 1자 미만인 경우, ``IllegalArgumentException``을 호출한다
-    - [x] 플레이어 명이 중복된 경우, ``IllegalArgumentException``을 호출한다
-    - [x] 참/가 플레이어가 단 1명일 경우, ``IllegalArgumentException``을 호출한다
-    - [x] 아무것도 입력하지 않았을 경우, ``IllegalArgumentException``을 호출한다
+    - **[InputView]** : 플레이어 등록 메세지를 출력한다.
+    - **[InputView]** : ``camp.nextstep.edu.missionutils.Console``의 ``readLine()``을 활용하여 입력값을 받는다.
+    - **[InputView]** : 입력값은 쉼표(,)를 기준으로 파싱하여 ``List<String>`` 로 변환한다.
+    - **[Registry]** : 변환된 입력값을 검증하고 유효하지 않은 입력값은 ⚠️ 예외처리 ⚠️ 한다. (``IllegalArgumentException``을 호출)
 
-### 2. 시도 횟수 입력
+<br>
+
+- [x] 파싱된 입력값으로 ``Player``객체를 생성한다.
+
+    - **[PlayerGenerator]** : 플레이어 이름이 담겨있는 ``List<String>``을 이용해 ``Player``객체를 생성한다.
+    - **[PlayerGenerator]** : 생성된 ``Player``객체를 ``List<Player>``형태로 반환한다.
+
+<br>
+
+##### ⚠️ 예외 처리 ⚠️
+
+- [x] ``IllegalArgumentException``를 상속한 **[RacingCarException]** 를 활용한다.
+- [x] ``Registry``클래스는 **[RegistryValidator]** 인터페이스를 통해 구현된 validator를 사용합니다.
+    - **[MaximumLengthValidator]** : 플레이어 명이 5자 초과한 경우, ``RacingCarException``을 호출한다
+    - **[MinimumLengthValidator]** : 플레이어 명이 1자 미만인 경우, ``RacingCarException``을 호출한다
+    - **[DuplicateNameValidator]** : 플레이어 명이 중복된 경우, ``RacingCarException``을 호출한다
+    - **[OnlyPlayerValidator]** : 참가 플레이어가 단 1명일 경우, ``RacingCarException``을 호출한다
+    - **[EmptyRegistryValidator]** : 입력값이 비어있는 경우, ``RacingCarException``을 호출한다
+
+<br>
+
+### 2️⃣ 시도 횟수 입력
+
+- [x] 사용자로부터 시도할 횟수를 입력받는다.
+
+    - **[InputView]** : 플레이 타임 메세지를 출력한다.
+    - **[InputView]** : ``camp.nextstep.edu.missionutils.Console``의 ``readLine()``을 활용하여 입력값을 받는다.
+    - **[PlayTime]** : 입력값을 검증하고 유효하지 않은 입력값은 ⚠️ 예외처리 ⚠️한다. (``IllegalArgumentException``을 호출)
+    - **[InputView]** : 검증된 입력값은 ``Integer``으로 파싱한다.
+
+<br>
+
+##### ⚠️ 예외 처리 ⚠️
+
+- [x] ``IllegalArgumentException``를 상속한 **[RacingCarException]** 를 활용한다.
+- [x] ``PlayTime``클래스는 **[PlayTimeValidator]** 인터페이스를 통해 구현된 validator를 사용합니다.
+    - **[EmptyPlayTimeValidator]** : 입력값이 비어있는 경우, ``RacingCarException``을 호출한다
+    - **[IntegerTypeValidator]** : 입력값이 ``Integer``타입이 아닌 경우, ``RacingCarException``을 호출한다
+    - **[MinimumPlayTimeValidator]** : 입력값이 최소 시도 횟수 (1) 미만인 경우, ``RacingCarException``을 호출한다
+
+<br>
 
 ### 3. 우승자 출력
