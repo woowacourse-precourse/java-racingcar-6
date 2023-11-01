@@ -43,4 +43,20 @@ public class GameManager {
         }
         return carPositions;
     }
+
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition();
+
+        for (Car car : cars) {
+            if (car.getCarCurrentPosition() == maxPosition) {
+                winners.add(car.getCarName());
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxPosition() {
+        int 
+    }
 }
