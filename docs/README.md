@@ -11,7 +11,7 @@
 ***
 ### 기록표 관련: RacingBoard
 - [x] 레이싱 참여: join()
-- [x] 보드 기록: write()
+- [x] 여러 차량 레이싱 참여: joinManyCars()
 - [x] 기록 열람: view()
 - [x] 승자 기록: recordWinner()
 - [x] 승자 열람: viewWinner()
@@ -21,6 +21,7 @@
 - [x] 게임 시작: startGame()
 - [x] 게임 진행: doGame()
 - [x] 게임 종료: finishGame()
+- [x] 차례 진행: turnProcess()
 ***
 ### 판정 관련: Judgement
 - [x] 게임 진행 여부 판정: isGameSet()
@@ -34,6 +35,7 @@
 ***
 ### 문자열 나누기: Divider
 - [x] 쉼표로 나누기: doByComma()
+***
 ### 잘못된 입력 검출: WrongChecker
 - [x] 잘못된 자동차 이름 확인: hasWrongCarName()
 - [x] 잘못된 시도 횟수 입력 확인: hasWrongAttemptsNum()
