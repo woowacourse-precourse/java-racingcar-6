@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
+import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -69,6 +70,28 @@ public class InputValidatorTest {
 
         // Act & Assert
         assertThatThrownBy(() -> InputValidator.validateTrialNumber(inputNum))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateParticipantNum_ValidParticipants_NoException() {
+        // Arrange
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
+        List<Car> carList = Arrays.asList(car1, car2);
+
+        // Act & Assert
+        assertDoesNotThrow(() -> InputValidator.validateParticipantNum(carList));
+    }
+
+    @Test
+    void validateParticipantNum_InvalidParticipants_ExceptionThrown() {
+        // Arrange
+        Car car1 = new Car("Car1");
+        List<Car> carList = singletonList(car1);
+
+        // Act & Assert
+        assertThatThrownBy(() -> InputValidator.validateParticipantNum(carList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
