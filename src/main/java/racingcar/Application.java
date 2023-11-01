@@ -1,7 +1,12 @@
 package racingcar;
 
+import racingcar.domain.system.game.Game;
+import racingcar.initializer.RacingGameInitializer;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Game game = new RacingGameInitializer().getGame();
+        game.start();
     }
 }
