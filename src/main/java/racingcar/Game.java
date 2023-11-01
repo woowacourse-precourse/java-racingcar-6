@@ -6,11 +6,29 @@ public class Game {
     private List<Car> cars = new ArrayList<>();
     private int gameCnt;
 
-    public Game(String[] carNames, int gameCnt) {
+    public Game(String[] carNames, String gameCnt) {
         for (String name : carNames) {
             cars.add(new Car(name));
         }
-        this.gameCnt = gameCnt;
+
+        if (!isNum(gameCnt)) {
+            throw new IllegalArgumentException();
+        }
+
+        this.gameCnt = Integer.parseInt(gameCnt);
+
+        if (this.gameCnt <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean isNum(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public void race() {
