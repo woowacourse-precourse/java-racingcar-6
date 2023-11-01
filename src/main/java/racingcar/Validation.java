@@ -12,4 +12,10 @@ public class Validation {
             throw new IllegalArgumentException(DUPLICATE_ERROR_MESSAGE);
         }
     }
+
+    public static boolean checkCarNameLength(List<String> carNameList) {
+        return carNameList.stream()
+                .filter(carName -> carName.length() >= NAME_MIN_SIZE && carName.length() <= NAME_MAX_SIZE)
+                .count() == carNameList.size();
+    }
 }
