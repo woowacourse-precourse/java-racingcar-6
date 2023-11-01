@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -11,6 +12,17 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    @Test
+    void valid한_이름인지_확인() {
+        new Car("torch", 0);
+    }
+
+    @Test
+    void valid한_이름인지_확인_예외() {
+        assertThatThrownBy(() -> new Car("hyunwoo", 0))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Test
     void 전진_정지() {
