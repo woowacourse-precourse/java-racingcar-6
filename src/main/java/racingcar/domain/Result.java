@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Result {
+    private List<String> winnerList;
+    private String winner;
+
     public Result() {
     }
 
-    private List<String> winnerList;
-    private String winner;
+    public int getLeaderDistance(List<Car> carList) {
+        int leaderDistance = carList.stream().map(Car::getState).mapToInt(String::length).max().getAsInt();
+        return leaderDistance;
+    }
 
     public void printRaceResult(List<Car> carList) {
         for (Car car : carList) {
@@ -19,11 +24,6 @@ public class Result {
 
     public void printWinner() {
         System.out.println("최종 우승자 : " + winner);
-    }
-
-    public int getLeaderDistance(List<Car> carList) {
-        int leaderDistance = carList.stream().map(Car::getState).mapToInt(String::length).max().getAsInt();
-        return leaderDistance;
     }
 
     public void decideWinner(List<Car> carList, int leaderDistance) {
