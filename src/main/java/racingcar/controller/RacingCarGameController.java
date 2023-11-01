@@ -23,7 +23,7 @@ public class RacingCarGameController {
         }
     }
 
-    private static void parseRacingCarNames(String str) {
+    public static void parseRacingCarNames(String str) {
         final String[] namesArray = str.split(",");
 
         racingCarNames = Arrays.asList(namesArray);
