@@ -11,6 +11,6 @@ public class InputView {
     }
 
     public String readTrialNumber() {
-        return Console.readLine();
+        return Console.readLine().trim();
     }
 }
