@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Game {
@@ -20,6 +21,27 @@ public class Game {
             }
             System.out.println();
         }
+    }
+
+    public static ArrayList<Car> getWinner(ArrayList<Car> cars) {
+        ArrayList<Car> winners = new ArrayList<Car>();
+        int maxPosition = getMaxPosition(cars);
+        for (Car car : cars) {
+            if (car.position == maxPosition) {
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
+    public static int getMaxPosition(ArrayList<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (car.position > maxPosition) {
+                maxPosition = car.position;
+            }
+        }
+        return maxPosition;
     }
 
 }

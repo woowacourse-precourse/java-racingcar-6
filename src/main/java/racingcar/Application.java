@@ -18,6 +18,9 @@ public class Application {
         int counts = getCounts();
 
         System.out.println(printGamingMessage);
+        Game.runGame(cars, counts);
+
+
 
 
     }
