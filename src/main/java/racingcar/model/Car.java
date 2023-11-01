@@ -9,8 +9,8 @@ public class Car {
         this.move = 0;
     }
 
-    public void moveForward(int number) {
-        if (number >= 4) move++;
+    public void moveForward() {
+        this.move++;
     }
 
     public String getName() {
