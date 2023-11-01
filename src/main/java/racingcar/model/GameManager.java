@@ -35,4 +35,12 @@ public class GameManager {
         }
         return carNames;
     }
+
+    public List<Integer> getCarPositions() {
+        List<Integer> carPositions = new ArrayList<>();
+        for (Car car : cars) {
+            carPositions.add(car.getCarCurrentPosition());
+        }
+        return carPositions;
+    }
 }
