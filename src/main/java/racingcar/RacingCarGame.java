@@ -29,6 +29,16 @@ public class RacingCarGame {
         return isPossible;
     }
 
+    static boolean validateCarNameBlankness(List<String> carNamesList) {
+        boolean isPossible = true;
+        for (int i = 0; i < carNamesList.size(); i++) {
+            if (carNamesList.get(i).trim().isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+        }
+        return isPossible;
+    }
+
     static void printAskingForTrialNumberMessage() {
         System.out.println(Constants.ASKING_FOR_TRIAL_NUMBER_MESSAGE);
     }
