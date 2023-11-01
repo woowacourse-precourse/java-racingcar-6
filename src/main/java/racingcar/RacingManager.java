@@ -29,12 +29,13 @@ public class RacingManager {
         while (!racingController.checkEnd(playerResultMap));
 
         List<String> winnerString = racingController.getWinnerList();
-        printWinnerString(winnerString);
+        String WinnerString = getWinnerString(winnerString);
+        System.out.println(WinnerString);
     }
 
-    private void printWinnerString(List<String> inputString) {
+    public String getWinnerString(List<String> inputString) {
         String result = String.join(SEP_COMMA_ONESPACE_STRING, inputString);
-        System.out.println(CMD_WINNER_RESULT + result);
+        return CMD_WINNER_RESULT + result;
     }
 
     private void initSettingForPlaying() {
@@ -83,6 +84,7 @@ public class RacingManager {
                     "\nExpect : tryNumber is upper than -1" +
                     "\nInput : " + tryNumber);
         }
-
     }
+
+
 }
