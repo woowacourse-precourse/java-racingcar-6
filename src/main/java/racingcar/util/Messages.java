@@ -7,4 +7,5 @@ public class Messages {
     public static final String FINAL_WINNER = "최종 우승자";
     public static final String COLON = " : ";
     public static final String HYPHEN = "-";
+    public static final String COMMA = ",";
 }
