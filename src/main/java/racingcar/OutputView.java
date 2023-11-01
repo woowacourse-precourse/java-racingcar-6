@@ -17,12 +17,22 @@ public class OutputView {
         System.out.println(RETRY_NUM_MSG);
     }
 
-    public static void printRoundResultMsg(){
+    public static void printResultMsg(){
         System.out.println(ROUND_RESULT_MSG);
     }
+    public static void printRoundResultMsg(List<Car> cars){
 
-    public static void printWinnerMsg( ){
-        System.out.println(WINNER_MSG);
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
+    }
+
+    public static void printWinners(List<Car> winners) {
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+        System.out.println(WINNER_MSG + winnerNames);
     }
 
 
