@@ -13,9 +13,7 @@ public class CarManager {
         this.maxMoveForwardCount = 0;
     }
 
-    public static CarManager createFromInputCarNames(String inputCarNames) {
-        List<String> carNames = NameSeparator.separateNamesByComma(inputCarNames);
-        List<Car> cars = carNames.stream().map(Car::createFromName).toList();
+    public static CarManager createFromCars(List<Car> cars) {
         return new CarManager(cars);
     }
 
