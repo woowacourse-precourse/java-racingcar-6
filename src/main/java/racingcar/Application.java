@@ -75,6 +75,7 @@ public class Application {
 
     private static List<String> inputCarNames() {
         String input = getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        validateBlank(input);
 
         List<String> carNames = toList(input);
 
@@ -91,6 +92,16 @@ public class Application {
 
     private static List<String> toList(String input) {
         return Arrays.asList(input.split(","));
+    }
+
+    private static void validateBlank(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("공백은 허용되지 않습니다.");
+        }
+
+        if (input.contains(" ")) {
+            throw new IllegalArgumentException("공백은 허용되지 않습니다.");
+        }
     }
 
     private static void validateCarNames(List<String> carNames) {
