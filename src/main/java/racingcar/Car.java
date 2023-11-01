@@ -8,6 +8,7 @@ import java.util.List;
 public class Car {
     private String name;
     private int forwardValue;
+    private int totalForward;
 
     Car(String name) {
         this.name = name;
@@ -37,5 +38,17 @@ public class Car {
 
     public void setForwardValue(int forwardValue) {
         this.forwardValue = forwardValue;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getForwardValue() {
+        return forwardValue;
+    }
+
+    public void addTotalForward() {
+        totalForward += forwardValue;
     }
 }

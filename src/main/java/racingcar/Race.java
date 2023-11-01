@@ -13,7 +13,27 @@ public class Race {
         int attempt = getAttemptNumber();
         for(int i = 0; i < attempt; i++) {
             setForwardValues();
+            printRaceResult();
         }
+    }
+
+    private void printRaceResult() {
+        System.out.println("실행 결과");
+        for(Car car : cars) {
+            System.out.print(car.getName());
+            System.out.print(" : ");
+            if(car.getForwardValue() >= 4) {
+                printHyphens(car.getForwardValue());
+                car.addTotalForward();
+            }
+            else {
+                System.out.println();
+            }
+        }
+    }
+
+    private void printHyphens(int forwardValue) {
+        System.out.println("-".repeat(forwardValue));
     }
 
     private void setForwardValues() {
