@@ -3,6 +3,8 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.Race;
 
+import java.util.List;
+
 public class OutputView {
 
     public static void raceStart() {
@@ -22,6 +24,11 @@ public class OutputView {
         for (int i = 0; i < num; i++) {
             System.out.print("-");
         }
+    }
+
+    public static void printWinner(List<String> winner) {
+        String winners = "최종 우승자 : " + String.join(", ", winner);
+        System.out.println(winners);
     }
 
 }

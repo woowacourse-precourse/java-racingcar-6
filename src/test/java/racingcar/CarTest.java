@@ -27,6 +27,7 @@ public class CarTest {
         String input = "pobi,woni";
         List<Car> cars = CarUtil.createCar(input);
         Race race = new Race(cars, 5);
+
         OutputView.raceResult(race);
     }
 
