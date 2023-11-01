@@ -14,6 +14,7 @@ public class RacingController {
 		// TODO Auto-generated method stub
 		outputView.printInputCarName();
 		List<Car> carNames = inputView.inputCarNames();
+		outputView.inputRaceCount();
 	}
 
 }
