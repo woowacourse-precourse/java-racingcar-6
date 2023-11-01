@@ -5,8 +5,8 @@ import java.util.*;
 import camp.nextstep.edu.missionutils.*;
 
 public class RacingGameManager {
-    static final int STRING=0;
-    static final int LONG=1;
+    static final int STRING = 0;
+    static final int LONG = 1;
     private List<Car> carList;
     private Long racingTry;
 
@@ -51,7 +51,7 @@ public class RacingGameManager {
     private void moveCar() {
         for (Car car : carList) {
             // 사용자의 입력값이 4보다 클 경우 이동
-            if (Randoms.pickNumberInRange(0,9) >= 4)
+            if (Randoms.pickNumberInRange(0, 9) >= 4)
                 car.increaseMove();
         }
     }
@@ -76,8 +76,8 @@ public class RacingGameManager {
         carList.sort(Comparator.comparingLong(Car::getMove));
 
         // carList에서의 가장 큰 move값 저장
-        Long max = carList.get(carList.size()-1).getMove();
-        int sameMoveIndex = carList.size()-1;
+        Long max = carList.get(carList.size() - 1).getMove();
+        int sameMoveIndex = carList.size() - 1;
         // 가장 큰 move값이 여러개일 시를 고려하여 리스트 방문
         while (sameMoveIndex >= 0 && max == carList.get(sameMoveIndex).getMove()) {
             sameMoveIndex--;
@@ -85,7 +85,7 @@ public class RacingGameManager {
 
         List<String> winnerList = new ArrayList<>();
         // 승자 리스트에 최고값을 가진 Car 객체들의 이름 추가
-        carList.subList(sameMoveIndex+1, carList.size()).forEach(
+        carList.subList(sameMoveIndex + 1, carList.size()).forEach(
                 car -> winnerList.add(car.getName())
         );
 

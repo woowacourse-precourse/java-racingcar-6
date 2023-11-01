@@ -10,6 +10,10 @@ public class Validator {
      * 출력: boolean(정상적으로 경주 자동차 이름이 배정됐을 경우 true)
      */
     public boolean validate(String string, int type) {
+        // 공통, 입력값이 공백이거나 null일 경우
+        if (string == null || string.equals(""))
+            throw new IllegalArgumentException();
+
         // 경주자동차 이름을 지정하는 입력값일 경우
         if (type == 0) {
             if (!isSplitByComma(string))
@@ -18,7 +22,7 @@ public class Validator {
             if (!isValidLength(string.split(",")))
                 return false;
 
-        }else { // 시도 회수를 나타내는 입력값일 경우
+        } else { // 시도 회수를 나타내는 입력값일 경우
             if (!isValidNumber(string))
                 return false;
         }
