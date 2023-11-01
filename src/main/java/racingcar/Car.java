@@ -27,4 +27,14 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public String getPositionBar() {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
+        }
+
+        return sb.toString();
+    }
 }

@@ -23,4 +23,16 @@ public class CarTest {
         Assertions.assertThatThrownBy(() -> new Car("santa fe"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void positionBar() {
+        Car car = new Car("car");
+
+        while (car.getPosition() != 3) {
+            car.run();
+        }
+
+        String positionBar = car.getPositionBar();
+        Assertions.assertThat(positionBar).isEqualTo("---");
+    }
 }
