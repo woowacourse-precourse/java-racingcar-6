@@ -25,6 +25,7 @@ public class ResultView {
         for (Car car : cars) {
             System.out.println(createMoveMessage(car));
         }
+        System.out.println();
     }
 
     private static String createMoveMessage(Car car) {
