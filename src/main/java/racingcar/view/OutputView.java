@@ -9,7 +9,7 @@ public class OutputView {
     }
 
     public void printCarResult(String carName, String carResult) {
-        System.out.print(carName + " : " + carResult + "\n");
+        System.out.println(carName + " : " + carResult);
     }
 
     public void printWinnerList(List<String> winnerList) {
