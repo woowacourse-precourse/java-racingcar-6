@@ -13,7 +13,7 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void showScoreBoard(ScoreBoard scoreBoard) {
+    public static void displayScoreBoard(ScoreBoard scoreBoard) {
         StringBuilder roundScoresStringBuilder = new StringBuilder();
         for (int round = 1; round <= scoreBoard.getSize(); round++) {
             List<ScoreDto> score = scoreBoard.getScoreForRound(round);
@@ -26,7 +26,7 @@ public class OutputView {
         System.out.print(roundScoresStringBuilder);
     }
 
-    public static void showWinners(List<ScoreDto> winners) {
+    public static void displayWinners(List<ScoreDto> winners) {
         StringJoiner winnerNamesJoiner = new StringJoiner(", ");
         winners.forEach(scoreDto -> winnerNamesJoiner.add(scoreDto.getName()));
         System.out.println(

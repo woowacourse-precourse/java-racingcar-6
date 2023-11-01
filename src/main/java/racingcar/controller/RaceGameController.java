@@ -18,8 +18,8 @@ public class RaceGameController {
         int attemptCount = InputView.inputAttemptCount();
         OutputView.beforeRaceMessage();
         startRace(attemptCount);
-        OutputView.showScoreBoard(scoreBoardService.getScoreBoard());
-        OutputView.showWinners(scoreBoardService.findFinalRoundWinners());
+        OutputView.displayScoreBoard(scoreBoardService.getScoreBoard());
+        OutputView.displayWinners(scoreBoardService.findFinalRoundWinners());
     }
 
     private void startRace(int attemptCount) {
