@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static racingcar.constants.RaceRule.MOVE_DISTANCE;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class RaceProgress {
     }
 
     public Set<String> getCarList() {
-        return this.progress.keySet();
+        return Collections.unmodifiableSet(progress.keySet());
     }
 
     public void addMovedDistance(String carName) {
