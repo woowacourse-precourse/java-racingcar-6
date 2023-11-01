@@ -28,12 +28,14 @@ public class RacingCar {
         endGame();
     }
 
+    //참가자 초기화
     public void initCar(String input){
         String [] cars = splitCarsName(input);
         checkCarsNameLength(cars);
         saveCars(cars);
     }
 
+    //게임 진행
     public void play(){
         for(String car : carsMap.keySet()){
             int moveOrStop = getRandomValue();
@@ -42,6 +44,7 @@ public class RacingCar {
         printRoundResult();
     }
 
+    //게임 결과 출력
     public void endGame(){
         int valueOfWinner = getMaxValue();
         getWinner(valueOfWinner);
@@ -148,5 +151,4 @@ public class RacingCar {
 
         System.out.println(sb);
     }
-
 }
