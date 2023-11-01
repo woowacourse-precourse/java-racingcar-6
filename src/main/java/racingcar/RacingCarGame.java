@@ -59,6 +59,14 @@ public class RacingCarGame {
         }
         return s;
     }
+    //only for test
+    public int getTryLimit(){
+        return tryLimit;
+    }
+    //only for test
+    public int getMax() {
+        return max;
+    }
 
     public void inputTryLimit(){
         System.out.println("시도할 회수는 몇회인가요?");

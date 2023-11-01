@@ -40,6 +40,16 @@ public class RacingCarGameTest extends NsTest {
 
     @Test
     @Order(3)
+    void 시도_횟수_입력확인(){
+        RacingCarGame game = new RacingCarGame();
+        System.setIn(createTestingInput("1"));
+        game.inputTryLimit();
+
+        assertThat(game.getTryLimit()).isEqualTo(1);
+    }
+
+    @Test
+    @Order(3)
     void 게임_3명_5회() {
         assertRandomNumberInRangeTest(
                 ()->{
