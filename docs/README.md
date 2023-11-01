@@ -17,12 +17,15 @@ RacingCarGame을 실행시킴
 
 - playGame() : 게임시작
   - init() : 초기 자동차이름과 시도횟수 입력
-    - 초기 자동차이름과 시도횟수 입력
-    - checkInputValid() : 입력한 것에 오류가 없는지 검증(5자리 이상의 이름이 있는지)
-    - setNumOfPlaying() : 실행횟수 setter함수 실행
+    - 자동차입력 받기
     - generateListOfRacingCars() : 입력받은 값을 가지고 RacingCar 생성후 자동차 list에 넣기
       - StringToListOfString() : 입력받은 문자열을 가지고 ,로 구분하여 String을 list<String>로 변환
+      - checkCarNameValid() : 5자 이하인지 확인, 아니면 IllegalArgumentException 예외 발생
       - generateRacingCar() : List에서 하나의 이름을 꺼내 RacingCar 객체를 생성(이동량의 default:0)
+    - 횟수 입력ㅂ다기
+    - checkInputNumValid() : 입력한 것에 오류가 없는지 검증(5자리 이상의 이름이 있는지)
+    - setNumOfPlaying() : 실행횟수 setter함수 실행
+
   - 반복문으로 입력받은 시도횟수만큼 play
     - play(): 1회차마다 
       - decideToGoOrStop() : 리스트에서 자동차를 꺼내서 전진할지말지
