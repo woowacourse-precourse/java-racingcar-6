@@ -31,7 +31,7 @@ public class RacingGameTest {
     }
 
     @Test
-    void 단독_우승한_자동차_리스트_정상_출력() {
+    void 단독_우승한_자동차_리스트_정상_리턴() {
         List<String> carList = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
         int size = carList.size();
         movingCount.initMovingCount(size);
@@ -45,7 +45,7 @@ public class RacingGameTest {
     }
 
     @Test
-    void 공동_우승한_자동차_리스트_정상_출력() {
+    void 공동_우승한_자동차_리스트_정상_리턴() {
         List<String> carList = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
         int size = carList.size();
         movingCount.initMovingCount(size);
