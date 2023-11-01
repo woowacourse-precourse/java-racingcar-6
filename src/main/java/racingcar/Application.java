@@ -8,6 +8,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -34,5 +35,23 @@ public class Application {
         outputView.printExecutionResultMessage();
         gameService.startRacingCarGame(outputView, racingCars, numberOfRound);
 
+        List<Integer> forwards = new ArrayList<>();
+        for (RacingCar racingCar : racingCars) {
+            forwards.add(racingCar.getForward());
+        }
+
+        List<String> winner = getWinner(forwards, racingCars);
+        outputView.printFinalWinner(winner);
+    }
+
+    private static List<String> getWinner(List<Integer> forwards, List<RacingCar> racingCars) {
+        int bestOfForwards = Collections.max(forwards);
+        List<String> winner = new ArrayList<>();
+        for (RacingCar racingCar : racingCars) {
+            if (bestOfForwards == racingCar.getForward()) {
+                winner.add(racingCar.getName());
+            }
+        }
+        return winner;
     }
 }
