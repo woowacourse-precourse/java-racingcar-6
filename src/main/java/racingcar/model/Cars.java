@@ -12,6 +12,7 @@ public class Cars {
     private static String DUPLICATE_NAME_ERROR = "중복된 이름이 입력되었습니다.";
 
     public Cars(List<String> inputs) {
+        validateSameName(inputs);
         this.carList = InputsToCars(inputs);
     }
 

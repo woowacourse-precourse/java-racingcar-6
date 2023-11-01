@@ -22,11 +22,34 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    @Test
+    void 숫자입력에_음수_대한_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 숫자입력_정수아닌값에_대한_예외_처리_(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "S"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 중복이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
