@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import jdk.jshell.execution.Util;
 import racingcar.Constants;
 import racingcar.Utils;
 
@@ -19,5 +20,8 @@ public class Car {
     }
     public int getPosition() {
         return position;
+    }
+    public boolean isWinner(int winDistance) {
+        return position == winDistance;
     }
 }

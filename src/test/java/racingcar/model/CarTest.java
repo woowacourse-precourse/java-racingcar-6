@@ -1,7 +1,9 @@
 package racingcar.model;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Utils;
@@ -11,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import static org.mockito.Mockito.*;
 
-public class CarTest {
 
+public class CarTest {
     @Test
     public void 자동차_생성() {
         // given
