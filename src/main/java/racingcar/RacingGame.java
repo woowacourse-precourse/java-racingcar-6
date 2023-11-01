@@ -1,4 +1,5 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -6,113 +7,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static racingcar.InputTryNumberError.isNumeric;
-import static racingcar.RandomNumber.pickRandomNumber;
-import static racingcar.MoveConditionCar.MovingofNumber;
-public class RacingGame {
-    public static void main(String[] args) {
-        // Assuming you have some way of getting the input from the user
-        String[] carNamesArray = new InputCarName().carname.split(",");
-        int tryNumber = new InputTryNumber().trynumber;
 
-        Race race = new Race(carNamesArray, tryNumber);
-        race.startRace();
-    }
-}
 
-class InputCarName{
-    public String carname;
-    public void CarName(){
+class InputCarName {
+    public static String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        this.carname = Console.readLine(); // readline은 문자열만 받아 올 수있다
-        String[] CarNameArray = this.carname.split(",");
+        String carNameInput = Console.readLine();
+        String[] carNames = carNameInput.split(",");
+        validateCarNames(carNames);
+        return carNames;
+    }
 
-        for(String Name : CarNameArray){
-            CarNameError.validate(this.carname);
+    private static void validateCarNames(String[] carNames) {
+        for (String name : carNames) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
+            }
         }
     }
 }
 
-class CarNameError {
-    public static void validate(String carName) {
-        if (carName.length() > 5) {
-            throw new IllegalArgumentException("이름은 5글자 이하여야 합니다.");
-        }
-    }
-}
-
-class InputTryNumber{
-    public int trynumber;
-    private void TryNumber(){
+class InputTryNumber {
+    public static int getTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String InputNumber = Console.readLine();
-        if(!isNumeric(InputNumber)){
+        String tryNumberInput = Console.readLine();
+        validateTryNumberInput(tryNumberInput);
+        return Integer.parseInt(tryNumberInput);
+    }
+
+    private static void validateTryNumberInput(String tryNumberInput) {
+        if (!isNumeric(tryNumberInput)) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
         }
-        this.trynumber=Integer.parseInt(InputNumber);
-        if (this.trynumber == 0) {
+        int tryNumber = Integer.parseInt(tryNumberInput);
+        if (tryNumber <= 0) {
             throw new IllegalArgumentException("게임이 종료됩니다.");
         }
     }
-}
 
-class InputTryNumberError{
-    public static boolean isNumeric(String str) {
+    private static boolean isNumeric(String str) {
         String pattern = "^[0-9]*$";
         return Pattern.matches(pattern, str);
-    }
-}
-
-//class RandomNumber{
-//    public static int randomnumber;
-//    private void pickRandomNumber(){
-//        this.randomnumber = Randoms.pickNumberInRange(0,9);
-//    }
-//}
-
-class MoveConditionCar{
-    public static boolean MovingofNumber(int number){
-        return number >=4;
-    }
-}
-
-class MovingofCar{
-    public int moveCnt;
-    private void moveCar(){
-    if(MovingofNumber(pickRandomNumber())) {
-        this.moveCnt++;
-    }
-    }
-}
-
-class Car {
-    private String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
-    public void move() {
-        if (MoveConditionCar.MovingofNumber(RandomNumber.pickRandomNumber())) {
-            position++;
-        }
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void displayCurrentPosition() {
-        System.out.print(name + " : ");
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
     }
 }
 
@@ -157,12 +92,12 @@ class Race {
                 winners.add(car.getName());
             }
         }
-        System.out.print("최종 우승자 :");
+        System.out.print("최종 우승자 : ");
         System.out.print(String.join(", ", winners));
     }
 
     private int getMaxPosition() {
-        int max = -1;
+        int max = -1;//명시적 초기화
         for (Car car : cars) {
             if (car.getPosition() > max) {
                 max = car.getPosition();
@@ -172,7 +107,43 @@ class Race {
     }
 }
 
-// Update the RandomNumber class
+class Car {
+    private String name;
+    private int position = 0;
+
+    public Car(String name) {
+        this.name = name;
+    }
+
+    public void move() {
+        if (MoveConditionCar.isMoving()) {
+            position++;
+        }
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void displayCurrentPosition() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+}
+
+class MoveConditionCar {
+    public static boolean isMoving() {
+        return RandomNumber.pickRandomNumber() >= 4;
+    }
+}
+
 class RandomNumber {
     public static int pickRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
