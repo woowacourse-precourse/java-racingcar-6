@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.in;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 import java.util.stream.Stream;
@@ -8,7 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class StringUtilTest {
 
@@ -27,18 +30,20 @@ class StringUtilTest {
         );
     }
 
-    @Test
-    @DisplayName("주어진 문자열에 공백이 있을 경우 공백을 삭제")
-    void removeStringBlank() {
+    @ParameterizedTest
+    @CsvSource({
+            "test , test",
+            " hello, hello",
+            " hello world , hello world"
+    })
+    @DisplayName("주어진 문자열에 앞 뒤공백이 있을 경우 공백을 삭제")
+    void removeLeadingAndTrailingWhitespace(String input, String expected) {
         // given
-        String inputString = " test, string , hello";
-        String expectedString = "test,string,hello";
-
         // when
-        String result = StringUtil.removeWhitespace(inputString);
+        String result = StringUtil.removeLeadingAndTrailingWhitespace(input);
 
         // then
-        assertThat(result).isEqualTo(expectedString);
+        assertThat(result).isEqualTo(expected);
     }
 
 
