@@ -33,7 +33,7 @@ public class GameResult {
 
 		}
 		String[] array;
-		for (int k = moveNumber; k > 0; k--) {
+		for (int k = carNamesArray.length; k > 0; k--) {
 			array = carNamesArray[carNamesArray.length - k].split(":");
 			String carName = array[0].trim();
 			String advanceCnt = array[1].trim();
@@ -64,6 +64,7 @@ public class GameResult {
 		for (Map.Entry<String, String> entry : gameRs2.entrySet()) {
 			if (entry.getValue().equals(finalValue)) {
 				finalWinner.add(entry.getKey());
+
 			}
 		}
 		return finalWinner;
