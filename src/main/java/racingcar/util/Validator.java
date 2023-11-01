@@ -32,13 +32,13 @@ public class Validator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자입니다.");
+            throw new IllegalArgumentException("[에러] 시도할 횟수는 숫자입니다.");
         }
     }
 
     private void checkEmptyAndThrowException(String input) {
         if (input.isEmpty()) {
-            throw new IllegalArgumentException("[ERROR] 값을 입력해주세요.");
+            throw new IllegalArgumentException("[에러] 값을 입력해주세요.");
         }
     }
 
@@ -52,7 +52,7 @@ public class Validator {
 
     private void checkEqualsAndThrowException(String carName1, String carName2) {
         if (carName1.equals(carName2)) {
-            throw new IllegalArgumentException("[ERROR] 같은 이름을 가진 자동차가 있습니다.");
+            throw new IllegalArgumentException("[에러] 같은 이름을 가진 자동차가 있습니다.");
         }
     }
 
@@ -72,11 +72,11 @@ public class Validator {
     }
 
     private void throwMinLengthException() {
-        throw new IllegalArgumentException("[ERROR] 자동차 이름은 "+ CAR_NAME_RESTRICTIONS_MIN + "글자 이상이어야 합니다.");
+        throw new IllegalArgumentException("[에러] 자동차 이름은 "+ CAR_NAME_RESTRICTIONS_MIN + "글자 이상이어야 합니다.");
     }
 
     private void throwMaxLengthException() {
-        throw new IllegalArgumentException("[ERROR] 자동차 이름은 "+ CAR_NAME_RESTRICTIONS_MAX + "글자 이하여야 합니다.");
+        throw new IllegalArgumentException("[에러] 자동차 이름은 "+ CAR_NAME_RESTRICTIONS_MAX + "글자 이하여야 합니다.");
     }
 
     private void checkSpaceAndThrowException(String carName) {
@@ -86,6 +86,6 @@ public class Validator {
     }
 
     private void throwSpaceException() {
-        throw new IllegalArgumentException("[ERROR] 자동차 이름안에는 공백이 있어서는 안됩니다.");
+        throw new IllegalArgumentException("[에러] 자동차 이름안에는 공백이 있어서는 안됩니다.");
     }
  }

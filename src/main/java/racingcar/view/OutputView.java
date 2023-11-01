@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OutputView {
     private static final int SOLO = 1;
-    private static void printHead() {
+    public static void printHead() {
         System.out.println("실행 결과");
     }
 
@@ -14,19 +14,19 @@ public class OutputView {
         for(Car car : cars) {
             printCarScore(car);
         }
-        System.out.println(); // car 한대의 이름과 점수 출력하고 줄바꿈
+        System.out.println();
     }
 
     public static void printWinners(List<String> carNames) {
-        System.out.println("최종 우승자 : ");
-        System.out.println(carNames.get(0));
+        System.out.print("최종 우승자 : ");
+        System.out.print(carNames.get(0));
         if(checkSoloWin(carNames)) {
             System.out.println();
             return;
         }
         for(int i = 1; i < carNames.size(); i++) {
-            System.out.println(", ");
-            System.out.println(carNames.get(i));
+            System.out.print(", ");
+            System.out.print(carNames.get(i));
         }
         System.out.println();
     }
@@ -35,19 +35,19 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void printCarScore(Car car) {
-        System.out.println(car.getName() + " : ");
-        printPositionCar(car);
+    private static void printCarScore(Car car) {
+        System.out.print(car.getName() + " : ");
+        printPosition(car);
         System.out.println();
     }
 
-    public static void printPositionCar(Car car) {
+    private static void printPosition(Car car) {
         for(int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
         }
     }
 
-    public static boolean checkSoloWin(List<String> carNames) {
+    private static boolean checkSoloWin(List<String> carNames) {
         return carNames.size() == SOLO;
     }
 }

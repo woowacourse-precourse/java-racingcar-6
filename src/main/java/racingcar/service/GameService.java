@@ -15,7 +15,7 @@ public class GameService {
     private static final int MIN_VALUE = -1;
     private final GameRepository gameRepository = new GameRepository();
 
-    public void Play(Game game) {
+    public void play(Game game) {
         moveForwardByRandomNumber(game);
         game.increaseTrialNumber();
     }
@@ -56,10 +56,9 @@ public class GameService {
 
     private void moveForwardByRandomNumber(Game game) {
         for (Car car : game.getCars()) {
-            if(FORWARD_CONDITION <= getRandomNumber()) {
+            if (FORWARD_CONDITION <= getRandomNumber()) {
                 car.moveForward(1);
             }
-
         }
     }
 
