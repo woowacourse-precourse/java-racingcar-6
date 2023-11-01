@@ -1,8 +1,8 @@
 # 🚗 자동차 경주
 
 ## 기능 목록
-- [x] n대의 자동차 이름 입력을 받는다. (쉼표 기준으로 구분, 5자 이하) 
-- [x] 시도할 횟수 입력을 받는다
+- [x] n대의 자동차 이름 입력을 받는다. (쉼표 기준으로 구분, 5자 이하) - UserInputManager#inputCarName()
+- [x] 시도할 횟수 입력을 받는다 - UserInputManager#inputAttempts()
 - [x] 각 자동차마다 랜덤값(0-9)을 생성한다. - NumberGenerator#createRandomNumber()
   - [x] 랜덤값이 4이상일 경우 전진한다. - Car#moveForward()
 - [x] 전진 횟수가 가장 많은 사람이 우승한다. 
