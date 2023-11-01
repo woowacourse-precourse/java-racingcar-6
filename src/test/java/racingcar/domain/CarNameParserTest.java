@@ -4,12 +4,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.view.InputView;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarNameParserTest {
-    CarNameParser carNameParser = new CarNameParser();
+    CarNameParser carNameParser;
+    @BeforeEach
+    public void setUp() {
+        carNameParser = new CarNameParser();
+    }
+
     @Test
     void 이름_파싱_검증_예외_테스트1() {
         String failInputNames = "dave";
