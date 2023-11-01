@@ -115,8 +115,8 @@ class CarManagerTest {
         runMatch(expectedNumbers);
 
         // then
-        String expectWinner = "pobi";
-        String winnerNames = carManager.getWinnerNames();
+        List<String> expectWinner = Arrays.asList("pobi");
+        List<String> winnerNames = carManager.getWinnerNames();
         assertThat(expectWinner).isEqualTo(winnerNames);
     }
 
@@ -131,8 +131,8 @@ class CarManagerTest {
         runMatch(expectedNumbers);
 
         // then
-        String expectWinner = "pobi, wooni";
-        String winnerNames = carManager.getWinnerNames();
+        List<String> expectWinner = Arrays.asList("pobi", "wooni");
+        List<String> winnerNames = carManager.getWinnerNames();
         assertThat(expectWinner).isEqualTo(winnerNames);
     }
 
@@ -147,8 +147,8 @@ class CarManagerTest {
         runMatch(expectedNumbers);
 
         // then
-        String expectWinner = "pobi, wooni, kong";
-        String winnerNames = carManager.getWinnerNames();
+        List<String> expectWinner = Arrays.asList("pobi", "wooni", "kong");
+        List<String> winnerNames = carManager.getWinnerNames();
         assertThat(expectWinner).isEqualTo(winnerNames);
     }
 
