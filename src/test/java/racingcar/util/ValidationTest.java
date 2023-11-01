@@ -43,7 +43,15 @@ public class ValidationTest {
     }
 
     @Test
-    void 시도_회수가_유효한_입력_일_경우() {
+    void 이름이_하나_일_경우_예외_처리() {
+        validation = new Validation();
+        var names = List.of("matia");
+
+        assertThrows(IllegalArgumentException.class, () -> validation.validateCarNames(names));
+    }
+
+    @Test
+    void 시도_회수가_자연수_입력_일_경우() {
         validation = new Validation();
         String inputString = "5";
 
