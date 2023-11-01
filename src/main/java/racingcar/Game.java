@@ -50,8 +50,19 @@ public class Game {
         }
     }
 
-    public void inputCarsName() {
+    public void selectWinner() {
+        Car winnerFirst = carList.stream().max(Comparator.comparing(Car::getForwardCount)).get();
 
+        for (Car car : carList) {
+            if (car.getForwardCount() == winnerFirst.getForwardCount()) {
+                winnerList.add(car.getCarName());
+            }
+        }
+
+        gameStatus = GameStatus.COMPLETE_SELECT_WINNER;
+    }
+
+    private void inputCarsName() {
         System.out.print(GameMessages.MESSAGE_START.getMessage());
         String inputNames = Console.readLine();
 
@@ -63,27 +74,18 @@ public class Game {
         String[] arrayNames = inputNames.split(SEPARATOR_CAR_NAME);
         List<String> carNameList = Arrays.asList(arrayNames);
 
-        if (!validateCarNamesLength(carNameList)) {
-            errorType = ErrorMessages.NOT_ENOUGH_CAR_NUMBER;
-            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + errorType.getDescription());
-        }
-
-        if (!validateCarNameDuplication(carNameList)) {
-            errorType = ErrorMessages.CONTAIN_DUPLICATE_CARNAME;
-            throw new IllegalArgumentException(errorType.getDescription());
-        }
+        validateInputWholeCarName(carNameList);
 
         createCarList(carNameList);
 
         gameStatus = GameStatus.READY_TO_INPUT_ROUNDNUMBER;
     }
 
-    public void inputRoundNumber() {
+    private void inputRoundNumber() {
         System.out.print(GameMessages.MESSAGE_ASK_TRY.getMessage());
         String inputRoundNumber = Console.readLine();
 
-        validateIsOnlyNumber(inputRoundNumber);
-        validateIsGraterZero(inputRoundNumber);
+        validateInputNumber(inputRoundNumber);
 
         gameStatus = GameStatus.START_PROCEED_EACH_ROUND;
     }
@@ -94,7 +96,7 @@ public class Game {
         }
     }
 
-    public void proceedEachRound() {
+    private void proceedEachRound() {
         System.out.print(GameMessages.MESSAGE_RACE_RESULT.getMessage());
 
         for (int i = 0; i < roundNumber; i++) {
@@ -108,64 +110,45 @@ public class Game {
         gameStatus = GameStatus.COMPLETE_TOTAL_ROUND;
     }
 
-    public void selectWinner() {
-        Car winnerFirst = carList.stream().max(Comparator.comparing(Car::getForwardCount)).get();
-
-        for (Car car : carList) {
-            if (car.getForwardCount() == winnerFirst.getForwardCount()) {
-                winnerList.add(car.getCarName());
-            }
-        }
-
-        gameStatus = GameStatus.COMPLETE_SELECT_WINNER;
-    }
-
-    public void announceWinner() {
+    private void announceWinner() {
         String winnerListWithComma = String.join(", ", winnerList);
         System.out.print(GameMessages.MESSAGE_ANNOUNCE_WINNER.getMessage() + winnerListWithComma);
         gameStatus = GameStatus.END_OF_RACING_GAME;
     }
 
-    public boolean validateCarNameDuplication(List<String> nameList) {
-        Set<String> nameSet = new HashSet<>(nameList);
+    private void validateInputWholeCarName(List<String> carNameList) {
+        Set<String> nameSet = new HashSet<>(carNameList);
 
-        if (nameSet.size() == nameList.size()) {
-            return true;
+        if (!(carNameList.size() >= COUNT_MINIMUM_CAR)) {
+            errorType = ErrorMessages.NOT_ENOUGH_CAR_NUMBER;
+            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + errorType.getDescription());
         }
 
-        return false;
-    }
-
-    public boolean validateCarNamesLength(List<String> nameList) {
-        if (nameList.size() >= COUNT_MINIMUM_CAR) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public void validateIsOnlyNumber(String inputNumber) {
-        try {
-            roundNumber = Integer.parseInt(inputNumber);
-        } catch (NumberFormatException e) {
-            errorType = ErrorMessages.NOT_NUMBER;
+        if (nameSet.size() != carNameList.size()) {
+            errorType = ErrorMessages.CONTAIN_DUPLICATE_CARNAME;
             throw new IllegalArgumentException(errorType.getDescription());
         }
     }
 
-    private void validateIsGraterZero(String inputNumber) {
+    private void validateInputNumber(String inputNumber) {
         if (inputNumber == null) {
             errorType = ErrorMessages.NOT_OVER_ZERO;
             throw new IllegalArgumentException(errorType.getDescription());
         }
 
-        int resultNumber = Integer.parseInt(inputNumber);
+        int validatedResultNumber = 0;
+        try {
+            validatedResultNumber = Integer.parseInt(inputNumber);
+        } catch (NumberFormatException e) {
+            errorType = ErrorMessages.NOT_NUMBER;
+            throw new IllegalArgumentException(errorType.getDescription());
+        }
 
-        if (resultNumber <= 0) {
+        if (validatedResultNumber <= 0) {
             errorType = ErrorMessages.NOT_OVER_ZERO;
             throw new IllegalArgumentException(errorType.getDescription());
         }
 
-        roundNumber = resultNumber;
+        roundNumber = validatedResultNumber;
     }
 }
