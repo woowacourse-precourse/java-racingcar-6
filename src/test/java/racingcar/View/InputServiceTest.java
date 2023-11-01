@@ -2,20 +2,19 @@ package racingcar.View;
 
 import static org.assertj.core.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-public class InputViewTest {
-    InputView inputView;
+public class InputServiceTest {
+    InputService inputService;
     String name;
 
     @BeforeEach
     public void init() {
         //given
-        inputView = new InputView();
+        inputService = new InputService();
     }
 
     @Test
@@ -24,9 +23,9 @@ public class InputViewTest {
         name = "pobi,woni,jun";
 
         //then
-        assertThat(inputView.inputCarname(name)).isEqualTo(name);
-        assertThat(inputView.SplitCarname(name)).contains("pobi", "woni", "jun");
-        assertThat(inputView.getCars().get(0)).isEqualTo("pobi");
+        assertThat(inputService.inputCarname(name)).isEqualTo(name);
+        assertThat(inputService.SplitCarname(name)).contains("pobi", "woni", "jun");
+        assertThat(inputService.getCars().get(0)).isEqualTo("pobi");
     }
 
     @Test
@@ -34,7 +33,14 @@ public class InputViewTest {
     public void Input2() {
 
         name = "pobi,woni,JUUUUN";
-        assertThat(inputView.valideFivename(name)).isFalse();
+        assertThat(inputService.valideFivename(name)).isFalse();
 
+    }
+
+    @Test
+    @DisplayName("사용자는 시도할 횟수를 입력하는 기능")
+    public void Input3() {
+        String tryNum = "5";
+        assertThat(inputService.inputTryNum(tryNum)).isEqualTo("5");
     }
 }

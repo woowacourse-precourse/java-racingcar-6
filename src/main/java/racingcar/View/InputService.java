@@ -1,14 +1,14 @@
 package racingcar.View;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class InputView {
+public class InputService {
     String inputCarname;
     ArrayList<String> Cars = new ArrayList<>();
+    String inputTryNum;
 
     public List<String> SplitCarname(String inputCarname) {
         Cars = new ArrayList<>(Arrays.asList(inputCarname.split(",")));
@@ -31,5 +31,10 @@ public class InputView {
 
     private boolean isNameOverFiveChars(String name) {
         return name.length() > 5;
+    }
+
+    public String inputTryNum(String tryNum) {
+       return this.inputTryNum=tryNum;
+
     }
 }
