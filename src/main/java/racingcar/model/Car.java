@@ -6,7 +6,7 @@ public class Car {
     private final static Integer SET_PLACE = 0;
     private final static Integer MIN_RANDOM_NUM = 0;
     private final static Integer MAX_RANDOM_NUM = 9;
-    private final static Integer AVAILABLE_FOWARD_NUM = 3;
+    private final static Integer MAX_CANNOT_FORWARD_NUM = 3;
     private int place = SET_PLACE;
     private final String name;
 
@@ -23,7 +23,7 @@ public class Car {
     }
 
     public void forward() {
-        if (generateRandomNumber() > AVAILABLE_FOWARD_NUM) {
+        if (generateRandomNumber() > MAX_CANNOT_FORWARD_NUM) {
             place++;
         }
     }
