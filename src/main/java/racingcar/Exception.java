@@ -27,10 +27,7 @@ public class Exception {
     }
 
     public static void checkWithinRange(Integer tryNumber) {
-        if (tryNumber <= 0) {
-            throwIllegalArgumentException();
-        }
-        if (tryNumber > 100) {
+        if (tryNumber <= 0 || tryNumber > 100) {
             throwIllegalArgumentException();
         }
     }
