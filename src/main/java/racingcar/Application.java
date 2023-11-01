@@ -110,10 +110,11 @@ public class Application {
         List<String> names = Arrays.asList(temp.split(",")); // pobi,woni,jun
 
         // 자동차 이름 잘못 입력 시 처리
-        for (String name : names) {  // 이름 입력 예외 처리
-            name = name.trim();      // 좌우 공백 제거, 중간의 공백은 글자수로 포함.
-            names.set(i++, name);    // 공백 제거 글자로 원본 변경
-
+        for (i = 0; i < names.size(); i++) {    // 이름 입력 예외 처리
+            String name = names.get(i);         // 이름을 받아와서
+            String modifiedName = name.trim();  // 좌우 공백 제거, 중간의 공백은 글자수로 포함.
+            names.set(i, modifiedName);         // 공백 제거 글자로 원본 변경
+            // 예외처리 코드
             under_N_Exception(1, name.length(), "자동차이름은 1자 이상으로 적어주십시오"); // 1미만의 수는 예외발생
             over_N_Exception(5, name.length(), "자동차이름은 5자 이하로 적어주십시오"); // 5초과의 수는 예외발생
         }
