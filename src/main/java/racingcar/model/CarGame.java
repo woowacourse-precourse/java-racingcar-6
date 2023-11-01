@@ -6,7 +6,6 @@ import racingcar.util.RandomNum;
 
 public class CarGame {
     private final List<Car> cars;
-    private int playCount;
 
     public CarGame(List<Car> cars) {
         this.cars = cars;
@@ -17,17 +16,8 @@ public class CarGame {
         Validation.name(cars);
     }
 
-    public void setPlayCount(String playCount) {
-        Validation.isPositiveInt(playCount);
-        this.playCount = Integer.parseInt(playCount);
-    }
-
     public List<Car> getCars() {
         return cars;
-    }
-
-    public int getPlayCount() {
-        return playCount;
     }
 
     public List<String> getWinner() {
