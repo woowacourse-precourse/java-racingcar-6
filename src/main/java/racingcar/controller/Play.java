@@ -109,6 +109,10 @@ public class Play {
         }
     }
 
+    public void deleteEndSuplus(StringBuilder tempChampoinMessage){
+        tempChampoinMessage.delete(tempChampoinMessage.length() - 2, tempChampoinMessage.length());
+    }
+
 
     //예외처리
     public void varifyCarNameLength(String[] carNameStringArray){
