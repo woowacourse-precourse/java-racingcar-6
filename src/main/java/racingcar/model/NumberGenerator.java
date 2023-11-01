@@ -1,6 +1,10 @@
 package racingcar.model;
 
-public interface NumberGenerator {
+import camp.nextstep.edu.missionutils.Randoms;
 
-    Integer generateInRange(Integer min, Integer max);
+public class NumberGenerator {
+
+    public Integer generateInRange(Integer min, Integer max) {
+        return Randoms.pickNumberInRange(min, max);
+    }
 }
