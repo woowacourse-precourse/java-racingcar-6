@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    private RandomUtil randomUtil = new RandomNumber();
+    private RandomUtil randomUtil;
     private final List<String> carNameList;
     private List<Car> carList = new ArrayList<>();
 
-    public CarList(List<String> carNameList) {
+    public CarList(List<String> carNameList, RandomUtil randomUtil) {
         this.carNameList = carNameList;
-        createCarList();
+        this.randomUtil = randomUtil;
+        initializeCarList();
     }
 
-    public void createCarList() {
+    public void initializeCarList() {
         for (String carName : carNameList) {
-            carList.add(new Car(carName, 0, randomUtil));
+            carList.add(new Car(carName.trim(), 0, randomUtil));
         }
     }
 
@@ -28,55 +29,33 @@ public class CarList {
     public String showCarList() {
         StringBuilder translatedResult = new StringBuilder();
         int size = carList.size();
-        for (int carNumber = 0; carNumber < size; carNumber++) {
-            Car car = carList.get(carNumber);
+        for (Car car : carList) {
             translatedResult
                     .append(car.getName())
                     .append(" : ")
                     .append("-".repeat(car.getPosition()))
-                    .append(newLine(carNumber));
+                    .append("\n");
         }
         return translatedResult.toString();
     }
 
-    private String newLine(int carNumber) {
-        if (carNumber != carList.size() - 1) {
-            return "\n";
-        }
-        return "";
-    }
-
-    public String findMaxPositionCars() {
+    public List<String> findMaxPositionCars() {
         int maxPosition = findMaxPosition();
-        StringBuilder translatedMaxPositionCars = new StringBuilder();
-        for (int i = 0; i < carList.size(); i++) {
-            translatedMaxPositionCars
-                    .append(findMaxPositionCar(maxPosition, carList.get(i)))
-                    .append(addComma(i));
+        List<String> maxPositionCarList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                maxPositionCarList.add(car.getName());
+            }
         }
-        return translatedMaxPositionCars.toString();
+        return maxPositionCarList;
     }
 
-    private Integer findMaxPosition() {
+    public Integer findMaxPosition() {
         int maxPosition = -1;
         for (Car car : carList) {
             Integer position = car.getPosition();
             maxPosition = Math.max(maxPosition, position);
         }
         return maxPosition;
-    }
-
-    private String findMaxPositionCar(int maxPosition, Car car) {
-        if (maxPosition == car.getPosition()) {
-            return car.getName();
-        }
-        return "";
-    }
-
-    private String addComma(int index) {
-        if (index == carList.size() - 1) {
-            return "";
-        }
-        return ", ";
     }
 }

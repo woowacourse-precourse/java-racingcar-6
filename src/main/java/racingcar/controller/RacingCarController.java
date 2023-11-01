@@ -1,13 +1,17 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.model.RacingCarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
-    InputView inputView = new InputView();
-    RacingCarService service = new RacingCarService();
+    private InputView inputView;
+    private RacingCarService service;
+
+    public RacingCarController(InputView inputView, RacingCarService service) {
+        this.inputView = inputView;
+        this.service = service;
+    }
 
     public String userInputCarNames() {
         OutputView.carNameInputMessage();
@@ -23,16 +27,15 @@ public class RacingCarController {
         String userInputCarNames = userInputCarNames();
         String userInputTryNumber = userInputTryNumber();
         Integer tryNumber = service.parsingTryNumber(userInputTryNumber);
-        List<String> carNameList = service.createCarNameList(userInputCarNames);
-        service.createCarList(carNameList);
+        service.createCarList(userInputCarNames);
         OutputView.racingResultMessage();
 
         if (tryNumber == 0) {
-            OutputView.racingResult(service.racingResult() + "\n");
+            OutputView.racingResult(service.racingResult());
         }
         for (int step = 0; step < tryNumber; step++) {
             service.move();
-            OutputView.racingResult(service.racingResult() + "\n");
+            OutputView.racingResult(service.racingResult());
         }
 
         findWinner();
