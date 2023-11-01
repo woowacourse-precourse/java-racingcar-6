@@ -7,6 +7,10 @@ import racingcar.model.Car;
 public class TypeConverter {
     private static final int INIT_POSITION = 0;
 
+    private TypeConverter() {
+        throw new IllegalArgumentException();
+    }
+
     public static List<Car> convertStringArrayToCarList(String[] carNames) {
         return Arrays.stream(carNames)
                 .map(name -> new Car(name, INIT_POSITION))

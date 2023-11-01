@@ -10,6 +10,10 @@ public class Validator {
     private static final int MAX_LENGTH = 5;
     private static final int ZERO = 0;
 
+    private Validator() {
+        throw new IllegalArgumentException();
+    }
+
     public static void validateCarName(String carName) {
         validateLength(carName);
         validateBlank(carName);
