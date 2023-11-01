@@ -1,41 +1,43 @@
-package racingcar.console;
+package racingcar.controller;
 
-import racingcar.domain.RacingCar;
+import racingcar.model.RacingCar;
 import racingcar.service.RacingCarService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.util.constant.ProductConstant.*;
 
-public class RacingCarGame {
+public class RacingCarController {
     public int start = 0;
     public String input = null;
-    public RacingCarService racingCarService;
+    public RacingCarService racingCarService = new RacingCarService();
+    public InputView inputView = new InputView();
+    public OutputView outputView = new OutputView();
 
     public void playGame() {
 
-        racingCarService = new RacingCarService();
-
         System.out.println(INPUT_NAMES);
-        input = readLine();
+
+        input = inputView.inputCarNames();
         List<RacingCar> racingCars = racingCarService.initRacingCarMembers(input);
 
         System.out.println(INPUT_NUMBER_OF_ATTEMPTS);
-        input = readLine();
+
+        input = inputView.inputNumberOfAttempts();
         int attempts = racingCarService.initNumberOfAttempts(input);
 
-        System.out.println(GAME_RESULT);
+        System.out.println("\n" + GAME_RESULT);
 
         while (start < attempts) {
             racingCars = racingCarService.movingForward(racingCars);
-            racingCarService.getRaceResult(racingCars);
+            outputView.getRaceResult(racingCars);
 
             start = racingCarService.addTime(start);
         }
 
         List<String> finalWinner = racingCarService.getFinalWinner(racingCars);
-        racingCarService.printWinners(finalWinner);
+        outputView.printWinners(finalWinner);
     }
 }
