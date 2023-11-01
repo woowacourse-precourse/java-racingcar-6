@@ -27,7 +27,7 @@ public class RaceGameController {
         while (roundTime-- > 0) {
             carList.forEach(car -> {
                 int randomNumber = RandomNumber.generateRandomNumber();
-                if (randomNumber > Car.MOVE_FORWARD_THRESHOLD) {
+                if (randomNumber >= Car.MOVE_FORWARD_THRESHOLD) {
                     car.moveForward();
                 }
             });
