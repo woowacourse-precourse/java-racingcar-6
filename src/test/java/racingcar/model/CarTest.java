@@ -2,75 +2,52 @@ package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 
+import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
 
-    @Test
-    public void tryMove_return_false_when_0() {
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    public void tryMove_return_false(int mockValue) {
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
                 () -> Assertions.assertThat(car.isMove())
                         .isFalse(),
-                0
+                mockValue
         );
     }
 
-    @Test
-    public void tryMove_return_false_when_3() {
-        Car car = new Car("name");
-        assertRandomNumberInRangeTest(
-                () -> Assertions.assertThat(car.isMove())
-                        .isFalse(),
-                3
-        );
-    }
-
-    @Test
-    public void tryMove_return_true_when_4() {
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    public void tryMove_return_true_when_4(int mockValue) {
         Car car = new Car("name");
         assertRandomNumberInRangeTest(
                 () -> Assertions.assertThat(car.isMove())
                         .isTrue(),
-                4
+                mockValue
         );
     }
 
-    @Test
-    public void tryMove_return_true_when_9() {
-        Car car = new Car("name");
+    @ParameterizedTest
+    @MethodSource("resultTestData")
+    public void toStringTest1(int roundNumber, String result, int mockNumber, Integer[] mockNumbers) {
         assertRandomNumberInRangeTest(
-                () -> Assertions.assertThat(car.isMove())
-                        .isTrue(),
-                4
+                () -> Assertions.assertThat(moveCar("car", roundNumber))
+                        .isEqualTo(result),
+                mockNumber, mockNumbers
         );
     }
 
-    @Test
-    public void toStringTest1() {
-        assertRandomNumberInRangeTest(
-                () -> Assertions.assertThat(moveCar("car", 3))
-                        .isEqualTo("car : ---"),
-                5, 4, 6
-        );
-    }
-
-    @Test
-    public void toStringTest2() {
-        assertRandomNumberInRangeTest(
-                () -> Assertions.assertThat(moveCar("car", 5))
-                        .isEqualTo("car : --"),
-                1, 2, 3, 4, 5
-        );
-    }
-
-    @Test
-    public void toStringTest3() {
-        assertRandomNumberInRangeTest(
-                () -> Assertions.assertThat(moveCar("car", 10))
-                        .isEqualTo("car : "),
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+    private static Stream<Arguments> resultTestData() {
+        return Stream.of(
+                Arguments.of(3, "car : ---", 5, new Integer[]{4, 6}),
+                Arguments.of(5, "car : --", 1, new Integer[]{2, 3, 4, 5}),
+                Arguments.of(10, "car : ", 1, new Integer[]{1, 1, 1, 1, 1, 1, 1, 1, 1})
         );
     }
 
