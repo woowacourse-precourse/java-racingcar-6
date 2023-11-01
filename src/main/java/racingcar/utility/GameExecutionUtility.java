@@ -1,5 +1,6 @@
 package racingcar.utility;
 
+import static camp.nextstep.edu.missionutils.Console.close;
 import static racingcar.constant.GameConstants.EXECUTION_RESULT;
 import static racingcar.constant.GameConstants.MAX_NUM;
 import static racingcar.constant.GameConstants.MIN_NUM;
@@ -12,14 +13,14 @@ import racingcar.domain.GameManager;
 import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
-public class CarRaceGameUtility {
-    private CarRaceGameUtility(){}
+public class GameExecutionUtility {
+    private GameExecutionUtility(){}
 
     public static void executeCarRaceGameForNRound(int gameRoundNumber) {
         System.out.println(EXECUTION_RESULT);
 
         for (int i = 0; i < gameRoundNumber; i++) {
-            CarRaceGameUtility.executeCarRaceGameOneRound();
+            GameExecutionUtility.executeCarRaceGameOneRound();
         }
     }
 
@@ -54,6 +55,10 @@ public class CarRaceGameUtility {
             }
         }
         return winnerList;
+    }
+
+    public static void endGame() {
+        close();
     }
 }
 
