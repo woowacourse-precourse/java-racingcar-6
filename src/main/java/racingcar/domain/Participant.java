@@ -20,10 +20,10 @@ public class Participant {
     }
 
     public RacingResult generateResult() {
-        return RacingResult.create(generatePlayerStatus());
+        return RacingResult.create(generateCarStatus());
     }
 
-    private List<CarStatusDto> generatePlayerStatus() {
+    public List<CarStatusDto> generateCarStatus() {
         return participant.stream()
                 .map(Car::sendStatus)
                 .toList();
@@ -31,8 +31,8 @@ public class Participant {
 
     private static List<Car> generateParticipant(List<String> playerList) {
         List<Car> participantList = new ArrayList<>();
-        for (String eachPlayer : playerList) {
-            participantList.add(Car.create(eachPlayer));
+        for (String eachCar : playerList) {
+            participantList.add(Car.create(eachCar));
         }
         return participantList;
     }
