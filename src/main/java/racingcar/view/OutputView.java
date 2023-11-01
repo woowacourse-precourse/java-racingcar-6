@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public class OutputView {
     private static final String DASH = "-";
-    private static final String PLAY_RESULT = "실행 결과";
+    private static final String PLAY_RESULT = "\n실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : ";
 
+    public static void printBlankLine() {
+        System.out.println();
+    }
     public static void printResult() {
         System.out.println(PLAY_RESULT);
     }

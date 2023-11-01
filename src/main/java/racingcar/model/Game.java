@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.view.OutputView;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -17,6 +19,7 @@ public class Game {
             car.move();
             car.showMove();
         }
+        OutputView.printBlankLine();
         this.gameRound -= 1;
     }
 
