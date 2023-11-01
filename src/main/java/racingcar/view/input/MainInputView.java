@@ -18,8 +18,6 @@ public class MainInputView {
         Input input = Input.readLine();
         String trimmedInput = input.trimmed();
 
-
-
-        return Integer.parseInt(trimmedInput);
+        return PlayCountInput.parse(trimmedInput).playCount();
     }
 }
