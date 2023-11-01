@@ -20,26 +20,24 @@ import view.Output;
 
 public class CarRace implements Race {
 
-    private static final int MINIMUM_PLAY_COUNT = 0;
+    private static final int END_ROUND_COUNT = 0;
     private final Input input;
     private final Output output;
 
     private final MoveJudgement moveJudgement;
 
-    private final CarRaceResultEvaluator carRaceResultEvaluator;
-
     private final MoveStrategy moveStrategy;
+
+    private final CarRaceResultEvaluator carRaceResultEvaluator = new CarRaceResultEvaluator();
 
     public CarRace(
             Input input,
             Output output,
             MoveJudgement moveJudgement,
-            CarRaceResultEvaluator carRaceResultEvaluator,
             MoveStrategy moveStrategy) {
         this.input = input;
         this.output = output;
         this.moveJudgement = moveJudgement;
-        this.carRaceResultEvaluator = carRaceResultEvaluator;
         this.moveStrategy = moveStrategy;
     }
 
@@ -62,7 +60,7 @@ public class CarRace implements Race {
     }
 
     private boolean isPlayable(int playCount) {
-        return playCount > MINIMUM_PLAY_COUNT;
+        return playCount > END_ROUND_COUNT;
     }
 
     private void playRound(Cars cars) {

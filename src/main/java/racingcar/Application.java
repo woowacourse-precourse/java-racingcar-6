@@ -16,7 +16,6 @@ public class Application {
                 new ConsoleInput(),
                 new ConsoleOutput(),
                 new RandomMoveJudgement(),
-                new CarRaceResultEvaluator(),
                 new OneStepMoveStrategy());
         race.executeRace();
     }
