@@ -32,7 +32,6 @@ public class RacingcarController {
         return new Race(cars, rounds);
     }
     public void startGame() {
-        initRace();
         runRace();
         printWinners();
     }
