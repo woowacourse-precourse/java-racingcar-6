@@ -27,29 +27,35 @@ class InputViewTest {
 
     @Test
     void 차량이름_입력_성공_테스트() {
-        String[] args = new String[]{"pobi, real, what"};
+        String carName1 = "pobi";
+        String carName2 = "woni";
+        String carName3 = "jyk";
+        String[] carNames = new String[]{carName1, carName2, carName3};
+
+        String[] args = new String[]{String.join(", ", carNames)};
         setUp(args);
+
         assertThat(inputView.readCarNames())
-                .containsExactly("pobi", "real", "what")
+                .containsExactly(carName1, carName2, carName3)
                 .isInstanceOf(List.class)
-                .hasSize(3);
+                .hasSize(carNames.length);
     }
 
     @Test
     void 시도횟수_입력_성공_테스트() {
-        String[] args = new String[]{"3"};
-        setUp(args);
+        int three = 3;
+        setUp(new String[]{"" + three});
 
-        assertThat(inputView.readAttemptCount()).isEqualTo(3);
+        assertThat(inputView.readAttemptCount()).isEqualTo(three);
     }
+
     @Test
     void 시도횟수_입력_실패_테스트() {
+        String koreanThree = "삼";
+        setUp(new String[]{koreanThree});
         IllegalArgumentException exception = IllegalArgumentExceptionType
                 .PARSE_INT_ERROR_MESSAGE
                 .getException();
-
-        String[] args = new String[]{"삼"};
-        setUp(args);
 
         assertThatThrownBy(() -> inputView.readAttemptCount())
                 .isInstanceOf(exception.getClass())
