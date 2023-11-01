@@ -4,11 +4,11 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
-import static racingcar.TestConstants.MOVING_FORWARD;
-import static racingcar.TestConstants.NAME_EXCEEDS_LENGTH_LIMIT;
-import static racingcar.TestConstants.NAME_UNDER_LENGTH_LIMIT;
-import static racingcar.TestConstants.STOP;
+import static racingcar.constant.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
+import static racingcar.constant.TestConstants.MOVING_FORWARD;
+import static racingcar.constant.TestConstants.NAME_EXCEEDS_LENGTH_LIMIT;
+import static racingcar.constant.TestConstants.NAME_UNDER_LENGTH_LIMIT;
+import static racingcar.constant.TestConstants.STOP;
 
 import org.junit.jupiter.api.Test;
 

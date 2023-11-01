@@ -1,7 +1,10 @@
 package racingcar;
 
 
-import static racingcar.ExceptionMessage.INVALID_ATTEMPT;
+import static racingcar.constant.ExceptionMessage.INVALID_ATTEMPT;
+
+import racingcar.util.Reader;
+import racingcar.util.Writer;
 
 public final class Game {
     private final Cars cars;

@@ -1,14 +1,15 @@
-package racingcar;
+package racingcar.util;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.TestConstants.MOVING_FORWARD;
-import static racingcar.TestConstants.STOP;
+import static racingcar.constant.TestConstants.MOVING_FORWARD;
+import static racingcar.constant.TestConstants.STOP;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
+import racingcar.Cars;
 
 class WriterTest {
 

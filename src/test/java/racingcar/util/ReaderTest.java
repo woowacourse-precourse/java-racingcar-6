@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.ExceptionMessage.INVALID_ATTEMPT_TYPE;
+import static racingcar.constant.ExceptionMessage.INVALID_ATTEMPT_TYPE;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;

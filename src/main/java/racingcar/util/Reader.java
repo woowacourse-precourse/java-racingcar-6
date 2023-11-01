@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.util;
 
-import static racingcar.ExceptionMessage.INVALID_ATTEMPT_TYPE;
+import static racingcar.constant.ExceptionMessage.INVALID_ATTEMPT_TYPE;
 
 import camp.nextstep.edu.missionutils.Console;
 

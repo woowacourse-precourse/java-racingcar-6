@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
+import static racingcar.constant.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

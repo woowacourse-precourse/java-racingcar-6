@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public final class TestConstants {
     private TestConstants() {
