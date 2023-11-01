@@ -7,8 +7,8 @@ public class RacingGame {
     private final int round;
     private final List<Car> cars;
 
-    public RacingGame(List<Car> carList, Referee referee, int round) {
-        this.cars = carList;
+    public RacingGame(List<Car> cars, Referee referee, int round) {
+        this.cars = cars;
         this.referee = referee;
         this.round = round;
     }
