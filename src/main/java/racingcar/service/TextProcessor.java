@@ -53,7 +53,7 @@ public class TextProcessor {
         return String.join(DELIMITER, winnerNames);
     }
 
-    protected String displayDistance(int distance) {
+    private String displayDistance(int distance) {
         return String.valueOf(CAR_DISTANCE)
                 .repeat(Math.max(0, distance));
     }
