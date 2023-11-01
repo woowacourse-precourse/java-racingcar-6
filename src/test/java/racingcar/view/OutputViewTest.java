@@ -45,4 +45,14 @@ class OutputViewTest {
         assertEquals("test : ---\r\ncar : -\r\n\r\n", outputStream.toString());
     }
 
+    @Test
+    public void printGameWinner_출력테스트() {
+        String winners = "this, is, test";
+
+        OutputView outputView = new OutputView();
+        outputView.printGameWinner(winners);
+
+        assertEquals("최종 우승자 : " + winners + "\r\n", outputStream.toString());
+    }
+
 }
