@@ -36,9 +36,6 @@ public class OutputView {
             case PROGRESS_RESULT:
                 print(MessageType.PROGRESS_RESULT.getMessage());
                 break;
-            case CAR_STEP_PROGRESS:
-                print(MessageType.CAR_STEP_PROGRESS.getMessage());
-                break;
             case FINAL_RESULT:
                 print(MessageType.FINAL_RESULT.getMessage());
                 break;
