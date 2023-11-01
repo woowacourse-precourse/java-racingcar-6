@@ -2,15 +2,29 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.ui.InputView;
 import racingcar.ui.OutputView;
 
 public class Game {
     private final List<Car> cars;
     private final int round;
 
-    public Game(List<Car> cars, int round) {
-        this.cars = cars;
-        this.round = round;
+    public Game() {
+        this.cars = setUpCars();
+        this.round = setUpRound();
+    }
+
+    private List<Car> setUpCars() {
+        List<Car> cars = new ArrayList<>();
+        List<String> delimitedCarNames = Converter.delimitCarNames(InputView.inputCarNames());
+        for (String delimitedCarName : delimitedCarNames) {
+            cars.add(new Car(delimitedCarName));
+        }
+        return cars;
+    }
+
+    private int setUpRound() {
+        return Converter.convertRound(InputView.inputRound());
     }
 
     public void playAllRound() {
