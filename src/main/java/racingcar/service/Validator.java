@@ -9,10 +9,14 @@ public class Validator {
     private static final int MAX_CAR_NAMES_LENGTH = 2;
 
     public String[] stringToArray(String carNamesInput) {
-        if (!isCommasInclude(carNamesInput)) {
+        validateCommasInclude(carNamesInput);
+        return validateAndChangeToArray(carNamesInput);
+    }
+
+    private void validateCommasInclude(String carNamesInput) {
+        if (!carNamesInput.contains(",")) {
             throw new IllegalArgumentException();
         }
-        return validateAndChangeToArray(carNamesInput);
     }
 
     public int stringToInt(String numberOfAttempts) {
@@ -55,11 +59,6 @@ public class Validator {
         if (carNames.length < MAX_CAR_NAMES_LENGTH) {
             throw new IllegalArgumentException();
         }
-    }
-
-
-    private boolean isCommasInclude(String carNamesInput) {
-        return carNamesInput.contains(",");
     }
 
     private String[] dividedByCommas(String carNamesInput) {
