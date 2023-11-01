@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OutputView {
 
-    public static void outputRunResult(String carName, Integer advanceCount) {
+    public static void outputRunResult() {
         System.out.println("실행 결과");
     }
 
@@ -13,14 +13,9 @@ public class OutputView {
     }
 
     public static void outputFinalWinner(List<String> winnerList) {
-        String output = "최종 우승자 :";
-        for(int i = 0; i < winnerList.size(); i++) {
-            if(i == winnerList.size() - 1) {
-                output += " " + winnerList.get(i);
-            } else {
-              output += " " + winnerList.get(i) + ",";
-            }
-        }
-        System.out.println(output);
+        String output = "최종 우승자 : ";
+        String winner = String.join(", ", winnerList);
+
+        System.out.println(output + winner);
     }
 }
