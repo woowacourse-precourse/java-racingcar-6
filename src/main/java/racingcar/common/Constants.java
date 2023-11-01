@@ -8,5 +8,7 @@ public class Constants {
     public static final int NAME_LENGTH = 5;
     public static final String COMMA = ",";
     public static final String HYPHEN = "-";
+    public static final String COMMA_BLANK_IN_BACK = ", ";
+    public static final String ERROR = "[ERROR] ";
 
 }

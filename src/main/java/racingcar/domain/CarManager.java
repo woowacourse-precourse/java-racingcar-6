@@ -25,6 +25,12 @@ public class CarManager {
         });
     }
 
+    public List<String> orderCarsPrintCurrentCondition() {
+        return cars.stream()
+                .map(Car::getCurrentCondition)
+                .toList();
+    }
+
     private void updateMaxMoveForwardCount(int count) {
         this.maxMoveForwardCount = Math.max(count, this.maxMoveForwardCount);
     }
