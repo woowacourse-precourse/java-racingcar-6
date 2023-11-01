@@ -1,9 +1,5 @@
 package racingcar.domain;
-
-import racingcar.constant.Constant;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
-
 import java.util.List;
 
 public class Referee {

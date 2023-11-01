@@ -1,10 +1,6 @@
 package racingcar.domain;
-
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.controller.RacingCarGameController;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,7 +2,6 @@ package racingcar.view;
 
 import racingcar.domain.Judgment;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class OutputView {
 
     public static void gameResult() {
         for(int i = 0; i < InputView.getNumberOfCars(); i++) {
-//            System.out.println(InputView.getNameOfCars().get(i) + " : " + Judgment.getUserForwardMovement()[i]);
             System.out.println(InputView.getNameOfCars().get(i) + " : " + showRacingResult(Judgment.getUserForwardMovement()[i]));
         }
         System.out.println();
@@ -56,5 +54,4 @@ public class OutputView {
         }
         System.out.println("최종 우승자 :" + winner);
     }
-
 }

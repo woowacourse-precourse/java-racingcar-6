@@ -10,10 +10,6 @@ public class RacingCarGameController {
         InputView.printStartMessage();
     }
 
-    public void startCarRacingGame() {
-        CarRacingGameProcess();
-    }
-
     public void getNumberOfGameRepeat () {
         int NumberOfGameRepeat = InputView.checkAttemptsNumber();
         System.out.println();
