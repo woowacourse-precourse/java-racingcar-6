@@ -17,11 +17,13 @@ public class RacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         inputName();
+        createCar();
 
         System.out.println("시도할 회수는 몇회인가요?");
         int num = inputNumber();
 
         System.out.println("\n실행 결과");
+
     }
 
     private void inputName() {
@@ -43,5 +45,13 @@ public class RacingGame {
             throw new IllegalArgumentException();
         }
         return num;
+    }
+
+    private void createCar() {
+        cars = new ArrayList<>();
+        for (String name : names) {
+            Car car = new Car(name);
+            cars.add(car);
+        }
     }
 }
