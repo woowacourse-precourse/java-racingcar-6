@@ -18,4 +18,10 @@ class RacingCarsTest {
         );
     }
 
+    @Test
+    void 자동차_생성() {
+        RacingCars racingCars = new RacingCars("car1,car2");
+        assertThat(racingCars).isNotNull();
+    }
+
 }
