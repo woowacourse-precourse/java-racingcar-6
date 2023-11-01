@@ -40,5 +40,11 @@ class DistanceTest {
 //    }
 
     @Test
-    void increaseByOne_메소드_경계값
+    void 최대의_Distance_최소의_Distance_객체에대해_increaseByOne_메소드_적용() {
+        Distance d1 = new Distance(0);
+        Distance d2 = new Distance(Integer.MAX_VALUE);
+
+        assertTrue(d1.increaseByOne());
+        assertFalse(d2.increaseByOne());
+    }
 }
