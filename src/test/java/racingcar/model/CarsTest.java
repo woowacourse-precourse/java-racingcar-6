@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import racingcar.util.RacingCarGameUtils;
 
 class CarsTest {
@@ -15,10 +14,11 @@ class CarsTest {
   @DisplayName("[Success] 유효한 Car 이름들로 Cars를 생성합니다. ")
   void 유효한_차_이름들로_생성() {
     // given
-    String validStr = "우,테,코,재,밌,다";
+    String validCarNames = "우,테,코,재,밌,다";
+
     // when && then
     assertDoesNotThrow(
-        () -> Cars.createFromCarNames(RacingCarGameUtils.convertStringToList(validStr)));
+        () -> Cars.createFromCarNames(RacingCarGameUtils.convertStringToList(validCarNames)));
   }
 
   @Test
@@ -31,7 +31,6 @@ class CarsTest {
 
     // when && then
     Cars carsList = Cars.createCarsFromList(Arrays.asList(car1, car2, car3));
-
     Assertions.assertThat(carsList.getWinnerByDistance()).isEqualTo("Car3");
   }
 
