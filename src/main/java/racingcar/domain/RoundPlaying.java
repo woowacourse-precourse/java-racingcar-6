@@ -5,14 +5,37 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class RoundPlaying {
-    public RoundPlaying() {
-    } // 테스트용 생성자
-    public RoundPlaying(Map<String, Integer> cars) {
+    Map<String, Integer> playRound(Map<String, Integer> cars) {
         for (String name : cars.keySet()) {
             int number = createRandomNumber();
-            cars.get(name) += roundScore(number);
+            int replaceNumber = cars.get(name);
+            replaceNumber += getRoundScore(number);
+            cars.replace(name, replaceNumber);
         }
-        printScore();
+        findRoundResult(cars);
+        return cars;
+    }
+
+    private void findRoundResult(Map<String, Integer> cars) {
+        for (String key : cars.keySet()) {
+            printScore(key, cars);
+        }
+    }
+
+    private void printScore(String key, Map<String, Integer> cars) {
+        int score = cars.get(key);
+        System.out.print(key + " : ");
+        for (int i = 0; i < score; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    private int getRoundScore(int number) {
+        if (decideToMove(number)) {
+            return 1;
+        }
+        return 0;
     }
 
     boolean decideToMove (int randomNumber) {
