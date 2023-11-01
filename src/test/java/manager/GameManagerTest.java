@@ -97,5 +97,32 @@ public class GameManagerTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("outputWinnerTestArguments")
+    @DisplayName("outputWinnerTest")
+    public void outputWinnerTest(int numberOfMatch, String answer) {
+        List<Car> carList = new ArrayList<>(Arrays.asList(new Car("test1"), new Car("test2")));
+        GameManager gameManager = new GameManager(carList);
 
+        assertRandomNumberInRangeTest(
+                () -> {
+                    for (int i = 0; i < numberOfMatch; i++) {
+                        gameManager.progressMatch();
+                    }
+
+                    gameManager.outputWinner();
+
+                    assertThat(captor.toString().trim()).isEqualTo(answer);
+                },
+                4,3,3,3,4,4
+        );
+    }
+
+    public static Stream<Arguments> outputWinnerTestArguments() {
+        return Stream.of(
+                Arguments.of( 1, "최종 우승자 : test1"),
+                Arguments.of( 2, "최종 우승자 : test1"),
+                Arguments.of( 3, "최종 우승자 : test1")
+        );
+    }
 }
