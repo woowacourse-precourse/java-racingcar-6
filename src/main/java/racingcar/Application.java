@@ -68,7 +68,7 @@ public class Application {
         System.out.println();
     }
 
-    public static void winnerOf() {
+    public static List<String> winnersOf() {
         List<String> winners = new ArrayList<>();
         int max = -1;
         String[] carName = cars.keySet().toArray(new String[cars.size()]);
@@ -79,6 +79,7 @@ public class Application {
                 winners.add(carName[i]);
             }
         }
+        return winners;
     }
 
 }
