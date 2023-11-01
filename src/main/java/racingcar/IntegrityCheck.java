@@ -1,6 +1,9 @@
 package racingcar;
 
 public class IntegrityCheck {
+    public boolean originalNameIntegrityCheck(String originalName){
+        return (originalName.isEmpty() || originalName.charAt(originalName.length() - 1) == ',');
+    }
     public boolean nameIntegrityCheck(String name){
         if (name.length() > 5 || name.length() == 0){
             return true;
