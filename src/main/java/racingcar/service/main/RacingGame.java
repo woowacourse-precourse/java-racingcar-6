@@ -1,10 +1,10 @@
-package racingcar.service;
+package racingcar.service.main;
 
 import java.util.Arrays;
 import java.util.List;
 import racingcar.input.count.CountReader;
 import racingcar.input.name.NameReader;
-import racingcar.output.DriverProgress;
+import racingcar.service.movement.MovementStatus;
 import racingcar.output.ServicePrinter;
 import racingcar.service.winner.WinnerSelector;
 
@@ -24,7 +24,7 @@ public class RacingGame {
 
         servicePrinter.printOutputMessage();
 
-        int[] countsByName = DriverProgress.race(names, count);
+        int[] countsByName = MovementStatus.race(names, count);
 
         int maxCount = Arrays.stream(countsByName).max().orElse(0);
 

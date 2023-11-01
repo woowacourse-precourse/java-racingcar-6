@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.service.RacingGame;
+import racingcar.service.main.RacingGame;
 
 public class Application {
     public static void main(String[] args) {
