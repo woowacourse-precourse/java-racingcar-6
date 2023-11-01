@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -23,7 +22,6 @@ public class GameController {
         while (game.isPlay()) {
             moveCars();
             game.updateTryNumber();
-            System.out.println();
         }
         List<Car> carList = game.getCarList();
         sortFinalWinner(carList);
@@ -57,6 +55,7 @@ public class GameController {
             }
             OutputView.outputCarMoveDistance(car.getCarName(), randomDistance);
         });
+        System.out.println();
     }
 
     private void sortFinalWinner(List<Car> carList) {
