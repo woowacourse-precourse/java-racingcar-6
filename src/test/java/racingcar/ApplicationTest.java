@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.GameManager;
@@ -45,6 +46,20 @@ class ApplicationTest extends NsTest {
         gameManager.addCar(carName);
 
         assertEquals(carName, gameManager.getCarNames().get(0));
+    }
+
+    @Test
+    void testGetCarNames() {
+        GameManager gameManager = GameManager.create();
+
+        gameManager.addCar("Car1");
+        gameManager.addCar("Car2");
+
+
+        List<String> carNames = gameManager.getCarNames();
+        assertEquals(2, carNames.size());
+        assertEquals("Car1", carNames.get(0));
+        assertEquals("Car2", carNames.get(1));
     }
 
 
