@@ -16,7 +16,8 @@ public class RacingGameController {
         this.racingGameService = new RacingGameService();
     }
 
-    String inputCarName(){
-        return readLine();
+    CarList inputCarName(){
+        String carNames = readLine();
+        return racingGameService.makeCarList(carNames);
     }
 }
