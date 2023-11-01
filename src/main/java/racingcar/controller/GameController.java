@@ -32,15 +32,13 @@ public class GameController {
         String carName = InputView.getCarNames();
         List<String> carNames = gameService.parseCarName(carName);
         validator.checkCarName(carNames);
-        List<Car> cars = saveCars(carNames);
-        return cars;
+        return saveCars(carNames);
     }
 
     private int createTrialNum() {
         String countTrial = InputView.getTrialNum();
         validator.checkVaildNum(countTrial);
-        int trialNum = saveTrialNum(countTrial);
-        return trialNum;
+        return saveTrialNum(countTrial);
     }
 
     private List<Car> saveCars(List<String> carNames) {
