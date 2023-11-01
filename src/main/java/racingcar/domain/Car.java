@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car {
+
     private static final int START_POSITION = 0;
     private static final int MOVE_CONDITION = 4;
     private final String name;
