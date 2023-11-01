@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.constant.ErrorMessage.CAR_NAME_BLANK_OR_NULL;
 import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
 
@@ -16,10 +17,17 @@ public class RacingCars {
     private final List<RacingCar> racingCars;
 
     public RacingCars(final String carNamesBeforeSeparation) {
+        validateCarNameIsBlankOrNull(carNamesBeforeSeparation);
         final String[] carNames = carNamesBeforeSeparation.split(RACING_CAR_NAME_SEPARATOR);
         validateCarNameDuplicate(carNames);
         validateNumberOfCarNames(carNames);
         this.racingCars = Arrays.stream(carNames).map(RacingCar::new).toList();
+    }
+
+    private void validateCarNameIsBlankOrNull(String carNamesBeforeSeparation) {
+        if (carNamesBeforeSeparation.isBlank() || carNamesBeforeSeparation == null) {
+            throw new IllegalArgumentException(CAR_NAME_BLANK_OR_NULL);
+        }
     }
 
     private void validateCarNameDuplicate(final String[] carNames) {
