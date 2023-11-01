@@ -36,4 +36,10 @@ public class InputValidator {
             }
         }
     }
+
+    public void validateRaceRounds(int raceRounds) {
+        if (raceRounds <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
