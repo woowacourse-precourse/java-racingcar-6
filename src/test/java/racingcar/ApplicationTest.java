@@ -51,14 +51,32 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+
+    @Test
+    void 자동차_무브() {
+        Car car = new Car("testCar");
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.move();
+                    assertEquals(1, car.getPosition());
+
+                    car.move();
+                    assertEquals(2, car.getPosition()); // Random number 2 is less than 4, so position remains the same.
+
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
