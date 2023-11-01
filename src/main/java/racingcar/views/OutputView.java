@@ -12,4 +12,8 @@ public class OutputView {
     public static void printTrialCountInstruction() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public static void printEmptyLine() {
+        System.out.println();
+    }
 }

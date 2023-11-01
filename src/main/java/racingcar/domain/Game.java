@@ -50,5 +50,6 @@ public class Game {
     public void run() {
         inputCarName();
         getMoveCount();
+        OutputView.printEmptyLine();
     }
 }
