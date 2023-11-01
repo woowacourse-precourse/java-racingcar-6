@@ -30,12 +30,4 @@ public class InputException {
             throw new IllegalArgumentException();
         }
     }
-
-    public List<String> divideCarNames(String userInput){
-        try{
-            return new ArrayList<String>(Arrays.asList(userInput.split(",")));
-        } catch(Exception e){
-            throw new IllegalArgumentException();
-        }
-    }
 }
