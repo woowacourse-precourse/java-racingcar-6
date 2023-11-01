@@ -23,7 +23,7 @@ public class OutputView {
 
     public static void printWinner() {
         findWinner();
-        putWinner();
+        addWinner();
         System.out.println("\n최종 우승자 : " + String.join(DELIMITER, winners));
     }
 
@@ -34,7 +34,7 @@ public class OutputView {
         }
     }
 
-    private static void putWinner() {
+    private static void addWinner() {
         winners = new ArrayList<>();
         for (Car car: Cars.cars) {
             if (isWinner(car)) {
