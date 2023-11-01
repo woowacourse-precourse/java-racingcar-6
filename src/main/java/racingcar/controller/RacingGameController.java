@@ -25,7 +25,7 @@ public class RacingGameController {
         int numberOfRounds = input.getNumberOfRounds();
 
         if (numberOfRounds > 0) {
-            output.printResultMessage();
+            output.printRaceResultMessage();
             runRace(cars, numberOfRounds);
         }
 
