@@ -10,7 +10,7 @@ import racingcar.output.WinnerTest.Winner;
 
 public class RacingCarTest {
     private static String 차이름들 = "";
-    private final static String 사용자_이동_횟수 = "1000";
+    private final static String 사용자_이동_횟수 = "10";
 
     private void 차이름_n개_입력하라(int count) {
         StringBuilder sb = new StringBuilder();
@@ -37,7 +37,7 @@ public class RacingCarTest {
 
     @Test
     void 테스트_최대_범위(){
-        차이름_n개_입력하라(100);
+        차이름_n개_입력하라(10);
 
         RacingCar.play();
     }

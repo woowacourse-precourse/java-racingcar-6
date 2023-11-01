@@ -18,11 +18,11 @@ public class CarTest {
         private static final int START_INCLUSIVE = 0;
         private static final int END_INCLUSIVE = 9;
 
-        public static Car inputCarname(String carName) {
+        public static Car inputCarname(final String carName) {
             return new Car(carName);
         }
 
-        private Car(String carName) {
+        private Car(final String carName) {
             InputValidator.validateCarname(carName);
             this.carName = carName;
             this.driving = new StringBuilder();

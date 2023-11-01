@@ -17,21 +17,22 @@ public class RacingCountTest {
     public static class RacingCount {
         private int raceCount;
 
-        public static RacingCount inputRaceCount(String stringMoveCount) {
+        public static RacingCount inputRaceCount(final String stringMoveCount) {
             return new RacingCount(stringMoveCount);
         }
 
-        public int getRaceCount() {
-            return raceCount;
-        }
-
-        private RacingCount(String stringMoveCount) {
+        private RacingCount(final String stringMoveCount) {
             OutputCarRace.printf(MessageType.INPUT_CAR_RACING_COUNT_PRINT);
             InputValidator.validateRaceCount(stringMoveCount);
 
             raceCount = Integer.parseInt(stringMoveCount);
             OutputCarRace.printf(MessageType.INPUT_DATA_PRINT, stringMoveCount);
         }
+
+        public int getRaceCount() {
+            return raceCount;
+        }
+
     }
 
     @Test

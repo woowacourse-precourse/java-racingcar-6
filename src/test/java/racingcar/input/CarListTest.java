@@ -32,11 +32,11 @@ public class CarListTest {
     public static class CarList {
         private List<Car> cars = new ArrayList<>();
 
-        public static CarList inputCarList(String stringCarNames) {
+        public static CarList inputCarList(final String stringCarNames) {
             return new CarList(stringCarNames);
         }
 
-        private CarList(String stringCarNames) {
+        private CarList(final String stringCarNames) {
             OutputCarRace.print(MessageType.INPUT_CAR_NAME_PRINT);
 
             List<String> carNameList = Arrays.asList(stringCarNames.split(","));
