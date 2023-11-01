@@ -47,3 +47,4 @@
    - validateGameNumber()
      - 사용자로부터 입력받는 게임 횟수에 대해 validate한다.
      - 정규표현식을 사용해 입력 값이 1이상인 정수가 아닌 경우 IllegalArgumentException 예외를 발생시킨다. 
+### 
