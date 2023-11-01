@@ -10,6 +10,8 @@ public class Game {
         int attempt = GameManager.enterAttempt();
         System.out.println();
 
+        GameManager.play(cars, attempt);
 
+        GameManager.end(cars);
     }
 }
