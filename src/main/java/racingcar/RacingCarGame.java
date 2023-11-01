@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RacingCarGame {
     static void printAskingForCarNamesMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Constants.ASKING_FOR_CAR_NAMES_MESSAGE);
     }
 
     static String getUserInput() {
@@ -16,19 +16,21 @@ public class RacingCarGame {
     }
 
     static List<String> splitGamePlayers(String userInput) {
-        return Arrays.asList(userInput.split(","));
+        return Arrays.asList(userInput.split(Constants.COMMA));
     }
 
-    static void validateCarNameLength(List<String> carNamesList) {
+    static boolean validateCarNameLength(List<String> carNamesList) {
+        boolean isPossible = true;
         for (int i = 0; i < carNamesList.size(); i++) {
             if (carNamesList.get(i).length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
+        return isPossible;
     }
 
     static void printAskingForTrialNumberMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Constants.ASKING_FOR_TRIAL_NUMBER_MESSAGE);
     }
 
     static int convertStringToInt(String userInput) {
@@ -40,7 +42,7 @@ public class RacingCarGame {
     }
 
     static void printExecutionResult() {
-        System.out.println("실행 결과");
+        System.out.println(Constants.EXECUTION_RESULT_MESSAGE);
     }
 
     static int getRandomNumber() {
@@ -50,7 +52,7 @@ public class RacingCarGame {
     static void executePerCar(int i, List<String>[] progressOfCarRacing) {
         int number = getRandomNumber();
         if (number >= 4) {
-            progressOfCarRacing[i].add("-");
+            progressOfCarRacing[i].add(Constants.PROGRESS_EXPRESSION);
         }
     }
 
