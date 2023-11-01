@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Model.Car;
+import racingcar.Model.CarList;
+import racingcar.Model.TryNumber;
 
 public class ValidateTest {
     private static final String NUM_POSITIVE = "시도 횟수는 양의정수만 입력하세요";

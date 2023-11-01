@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Controller.RaceController;
 import racingcar.Model.Car;
+import racingcar.Model.CarList;
 import racingcar.View.ConsolePrint;
 
 public class RaceProgressTest extends NsTest {

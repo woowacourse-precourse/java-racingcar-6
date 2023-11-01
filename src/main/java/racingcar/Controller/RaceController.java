@@ -4,9 +4,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.CarComparator;
-import racingcar.CarList;
 import racingcar.Model.Car;
-import racingcar.TryNumber;
+import racingcar.Model.CarList;
+import racingcar.Model.TryNumber;
 import racingcar.View.ConsolePrint;
 
 public class RaceController {

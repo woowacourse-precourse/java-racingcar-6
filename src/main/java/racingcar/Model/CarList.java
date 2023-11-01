@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.Model;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import racingcar.Model.Car;
 
 public class CarList {
     private List<Car> carList = new ArrayList<Car>();
