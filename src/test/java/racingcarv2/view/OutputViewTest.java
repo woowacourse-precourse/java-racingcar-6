@@ -1,4 +1,4 @@
-package racingcarv2;
+package racingcarv2.view;
 
 import java.util.Arrays;
 import org.assertj.core.api.Assertions;
@@ -7,7 +7,6 @@ import racingcarv2.model.Car;
 import racingcarv2.model.Name;
 import racingcarv2.model.Position;
 import racingcarv2.model.RacingCars;
-import racingcarv2.view.OutputView;
 
 public class OutputViewTest extends IOTest {
     private RacingCars racingCars = new RacingCars(Arrays.asList(

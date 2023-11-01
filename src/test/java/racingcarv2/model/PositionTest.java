@@ -1,4 +1,4 @@
-package racingcarv2;
+package racingcarv2.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

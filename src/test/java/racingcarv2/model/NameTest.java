@@ -1,4 +1,4 @@
-package racingcarv2;
+package racingcarv2.model;
 
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;

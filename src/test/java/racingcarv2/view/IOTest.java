@@ -1,4 +1,4 @@
-package racingcarv2;
+package racingcarv2.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;

@@ -1,11 +1,10 @@
-package racingcarv2;
+package racingcarv2.view;
 
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcarv2.view.InputView;
 
 public class InputViewTest extends IOTest {
     private void inputGeneratedString(String userInput) {
