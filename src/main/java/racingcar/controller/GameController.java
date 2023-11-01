@@ -20,17 +20,10 @@ public class GameController {
         List<Integer> carPositions = carList.initialPosition(carNames.size());
 
         for (int i = 0; i < numberRound; i++) {
-//            for (int j = 0; j < carPositions.size(); j++) {
-//                int carPosition = carList.setCarPosition(j, carPositions);
-//                outputView.printRoundResult(carNames.get(j), carPosition);
-//            }
             carPositions = carList.setCarPositions(carPositions);
             outputView.printRoundResults(carNames, carPositions);
         }
 
-//        if (carList.decideWinner(carPositions).size() == 1) {
-//            outputView.printWinner(carList.decideWinner(carPositions).get(0));
         outputView.printWinner(carList.decideWinner(carPositions, carNames));
-//        }
     }
 }

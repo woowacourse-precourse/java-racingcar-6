@@ -10,9 +10,6 @@ public class CarList {
     private List<Integer> carPositions;
     Car car = new Car();
 
-//    public CarList(List<String> carNames) {
-//        this.carNames = carNames;
-//    }
 
     public List<Integer> initialPosition(int carNumber) {
         List<Integer> carPositions = new ArrayList<>();
@@ -22,15 +19,6 @@ public class CarList {
         System.out.println(carPositions);
         return carPositions;
     }
-
-//    public int setCarPosition(int orderOfCar, List<Integer> carPositions) {
-//        if (car.isGoingForward() == true) {
-//            int currentPosition = carPositions.get(orderOfCar);
-//            carPositions.set(orderOfCar, currentPosition + 1);
-//        }
-//
-//        return carPositions.get(orderOfCar);
-//    }
 
     public List<Integer> setCarPositions(List<Integer> carPositions) {
         for (int i = 0; i < carPositions.size(); i++) {
