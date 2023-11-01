@@ -24,7 +24,7 @@ public class RacingApp {
         List<String> winnerList = requestFindWinner(gameRecord.getCars());
 
         printRecord(gameRecord.getRecord());
-        OutputView.printWinner(winnerList);
+        printWinner(winnerList);
     }
 
     private List<Car> requestInputCarNames() {
@@ -41,11 +41,15 @@ public class RacingApp {
         return gameController.startRacingGame(car, roundNumber);
     }
 
+    private List<String> requestFindWinner(List<Car> carList) {
+        return gameController.addResultRecord(carList);
+    }
+
     private void printRecord(Map<Integer, List<String>> record) {
         OutputView.printRecord(record);
     }
 
-    private List<String> requestFindWinner(List<Car> carList) {
-        return gameController.addResultRecord(carList);
+    private void printWinner(List<String> winnerList) {
+        OutputView.printWinner(winnerList);
     }
 }
