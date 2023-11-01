@@ -117,12 +117,8 @@ public class Application {
      * 검증 메서드
      */
     private static void validateBlank(String input) {
-        if (input.isBlank()) {
-            throw new IllegalArgumentException("공백은 허용되지 않습니다.");
-        }
-
-        if (input.contains(" ")) {
-            throw new IllegalArgumentException("공백은 허용되지 않습니다.");
+        if (input.isBlank() || input.contains(" ")) {
+            throw new IllegalArgumentException("공백 또는 여백이 포함되어 있습니다.");
         }
     }
 
