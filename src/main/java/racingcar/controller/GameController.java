@@ -3,11 +3,13 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.CarCreator;
 import racingcar.model.User;
+import racingcar.view.GameView;
 
 import java.util.List;
 import java.util.Random;
 
 public class GameController {
+    GameView gameView = new GameView();
     private final User user = new User();
     private List<Car> cars;
 
@@ -26,6 +28,7 @@ public class GameController {
             if (randomNumber >= 4) {
                 car.move();
             }
+            gameView.printMoveStatus(car);
         }
     }
 }
