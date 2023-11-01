@@ -5,4 +5,10 @@ public class Verification {
         String[] split = carName.split("");
         return split.length <= 5;
     }
+
+    public void isPositive(int moveTime) {
+        if (moveTime <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
