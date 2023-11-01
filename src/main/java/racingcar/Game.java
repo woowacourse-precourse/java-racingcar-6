@@ -29,7 +29,8 @@ public class Game {
 
     private void settingRound() {
         PromptHandler.promptOutput(GameMessage.ASK_ROUND_COUNT.getMessage());
-        maxRoundCount = PromptHandler.promptInputRoundCount();
+        maxRoundCount =  PromptHandler.promptInputRoundCount();
+        validateRoundCount(maxRoundCount);
     }
 
     private void settingCar() {
@@ -41,5 +42,11 @@ public class Game {
         PromptHandler.promptOutput(GameMessage.ASK_CARS_NAME.getMessage());
 
         return PromptHandler.promptInputCarsName();
+    }
+
+    private void validateRoundCount(int roundCount) {
+        if (roundCount < GameConfig.MIN_ROUND_COUNT.getValue()) {
+            throw new IllegalArgumentException("잘못된 라운드 수입니다.");
+        }
     }
 }
