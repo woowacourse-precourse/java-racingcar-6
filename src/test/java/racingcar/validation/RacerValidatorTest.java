@@ -22,9 +22,11 @@ class RacerValidatorTest {
     @DisplayName("잘못된 구분자 입력시 예외")
     @ParameterizedTest(name = "{displayName}: {0}")
     @NullSource
-    @ValueSource(strings = {"", ",", ",car", ",,,,,", ",,dk", "a,b,c,,", "ㄱ,ㄴ,,,"})
+    @ValueSource(strings = {"", " ", ",", ",car", ",,,,,", ",,dk", "a,b,c,,", "ㄱ,ㄴ,,,"})
     void checkRacer(String value) {
-        assertThatThrownBy(() -> Racer.of(value))
+        Validator validator = new RacerValidator();
+        assertThatThrownBy(() ->
+                validator.validate(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -32,7 +34,9 @@ class RacerValidatorTest {
     @ParameterizedTest(name = "{displayName}: {0}")
     @ValueSource(strings = {"ad,k,la,a,la", "l,l", "qwe,kz,pi,pi", "a, a,a ", "ba,l, ba"})
     void checkUnique(String value) {
-        assertThatThrownBy(() -> Racer.of(value))
+        Validator validator = new RacerValidator();
+        assertThatThrownBy(() ->
+                validator.validate(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
