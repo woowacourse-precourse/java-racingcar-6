@@ -19,6 +19,9 @@ class Cars {
 
     public void SetCarNames(String carName) {       //자동차 이름 setter
         int MAX_LENGTH = 5;
+
+        if(carName.isEmpty()) throw new IllegalArgumentException("You must write carNames");
+
         String[] InputArray = carName.split(",");
         for (String car : InputArray) {
             if (car.length() > MAX_LENGTH)
