@@ -33,12 +33,29 @@ class ApplicationTest extends NsTest {
 
     // My test
     @Test
-    void 숫자에_대한_예외_처리() {
+    void 숫자가_음수일_때에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("son,kane", "-1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 숫자가_문자일_때에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("son,kane", "ss"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 빈칸에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", ""))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
 
     @Override
