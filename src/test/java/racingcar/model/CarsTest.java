@@ -37,4 +37,18 @@ class CarsTest {
                 5, 4, 3
         );
     }
+
+    @Test
+    void 단독_우승자를_판단한다() {
+        assertRandomNumberInRangeTest(
+                () -> cars.forward(numberGenerator),
+                5, 3, 3
+        );
+        Cars winner = cars.judgeWinner();
+        assertAll(
+                () -> assertThat(winner.getCars().size()).isEqualTo(1),
+                () -> assertThat(winner.getCars().get(0).getName()).isEqualTo("pobi"),
+                () -> assertThat(winner.getCars().get(0).getPosition()).isEqualTo(1)
+        );
+    }
 }
