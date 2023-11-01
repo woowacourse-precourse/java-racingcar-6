@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,11 @@ class AttemptTest {
     void setUp() {
         attempt = new Attempt();
         inputCount = System.in;
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.setIn(System.in);
     }
 
     @Test

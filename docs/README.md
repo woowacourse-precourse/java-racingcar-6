@@ -33,7 +33,6 @@
 # Test Code
 
 ### Car 클래스
-- [ ] getNames
 - [ ] splitInputNames
 - [ ] checkEmpty
 - [ ] checkDuplicate
