@@ -6,7 +6,7 @@ import static racingcar.constants.ExceptionMessage.EXCEPTION_CARS_COUNT;
 import static racingcar.constants.ExceptionMessage.EXCEPTION_NAME_DUPLICATE;
 import static racingcar.constants.ExceptionMessage.EXCEPTION_NAME_LENGTH;
 
-import java.util.HashSet;
+import java.util.Arrays;
 
 public class CheckingInput {
 
@@ -23,13 +23,14 @@ public class CheckingInput {
     }
 
     static void validateNamesDuplicate(String[] carNames) {
-        HashSet<String> carNamesSet = new HashSet<>();
+        boolean duplicated = Arrays.stream(carNames)
+                .distinct()
+                .count() != carNames.length;
 
-        for (String carName : carNames) {
-            if (!carNamesSet.add(carName)) {
-                throw new IllegalArgumentException(EXCEPTION_NAME_DUPLICATE);
-            }
+        if (duplicated) {
+            throw new IllegalArgumentException(EXCEPTION_NAME_DUPLICATE);
         }
+
     }
 
     static void validateLetter(char letter) {
@@ -44,7 +45,7 @@ public class CheckingInput {
         }
     }
 
-    public static void validateInputNames(String[] carNames) {
+    public static void checkInputNames(String[] carNames) {
         for (String carName : carNames) {
             validateCarName(carName);
         }
@@ -54,7 +55,7 @@ public class CheckingInput {
 
     }
 
-    public static void validateInputCount(String count) {
+    public static void checkInputCount(String count) {
         for (int i = 0; i < count.length(); i++) {
             char letter = count.charAt(i);
             validateLetter(letter);
