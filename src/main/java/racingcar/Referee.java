@@ -5,6 +5,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static racingcar.Resource.finalWinnerMessage;
+
 public class Referee {
     public List<String> find_maxKeys(LinkedHashMap<String, Integer> map) {
         List<String> maxKeys = new ArrayList<>();
@@ -27,7 +29,7 @@ public class Referee {
     public void outputView(LinkedHashMap<String, Integer> map) {
         List<String> members = find_maxKeys(map);
         String result = String.join(",", members);
-        System.out.print("최종 우승자 : ");
+        System.out.print(finalWinnerMessage);
         System.out.println(result);
     }
 }

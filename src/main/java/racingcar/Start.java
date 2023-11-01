@@ -8,16 +8,20 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import static racingcar.Resource.carNamesMessage;
+import static racingcar.Resource.attemptsMessage;
+
+
 public class Start {
     private int attempts;
     private ArrayList<String> carList;
 
     public void getInput() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String car = Console.readLine();
+        System.out.println(carNamesMessage);
+        String cars = Console.readLine();
         carList = new ArrayList<>();
 
-        List<String> inputList = Arrays.asList(car.split(","));
+        List<String> inputList = Arrays.asList(cars.split(","));
         Set<String> inputSet = new HashSet<>(inputList);
 
         if (inputList.size() != inputSet.size()) {
@@ -34,7 +38,7 @@ public class Start {
             carList.add(input);
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(attemptsMessage);
         String numberAttemptsStr = Console.readLine();
 
         try {

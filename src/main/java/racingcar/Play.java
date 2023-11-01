@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.LinkedHashMap;
 
+import static racingcar.Resource.executionResultMessage;
+
 public class Play {
     public LinkedHashMap<String, Integer> outputView(Start start) {
         CarMap carMap = new CarMap();
@@ -9,7 +11,7 @@ public class Play {
         ExecutionResult executionResult = new ExecutionResult();
         int attempts = start.getNumberAttempts();
 
-        System.out.println("실행 결과");
+        System.out.println(executionResultMessage);
 
         for (int i = 0; i < attempts; i++) {
             map = carMap.updateMap();
