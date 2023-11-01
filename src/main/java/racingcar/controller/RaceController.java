@@ -24,6 +24,9 @@ public class RaceController {
         getCount();
         while (!raceService.isEnd()) {
             raceService.race(carList);
+            for (Car car : carList) {
+                car.printResult();
+            }
         }
     }
 
