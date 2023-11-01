@@ -38,4 +38,13 @@ public class CarNameValidatorTest {
                 () -> CarNameValidator.validateCarNames(carList));
     }
 
+    @Test
+    void 빈_문자열_또는_공백만_포함된_문자열이_있다면_예외발생() {
+        List<Car> carList = new ArrayList<>();
+        carList.add(Car.makeCarByName(""));
+        carList.add(Car.makeCarByName("  "));
+
+        assertThrows(IllegalArgumentException.class,
+                () -> CarNameValidator.validateCarNames(carList));
+    }
 }
