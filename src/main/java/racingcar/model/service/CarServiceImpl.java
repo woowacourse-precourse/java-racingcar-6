@@ -58,19 +58,21 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> showCarLineupInfo() {
-        return carDao.selectAllCars();
-    }
-
-    @Override
     public boolean isRacingcarStop() {
         return carDao.getTryCount() < 1;
     }
 
     @Override
-    public List<String> selectWinnerNames() {
+    public List<Car> getCarLineupInfo() {
+        return carDao.selectAllCars();
+    }
+
+    @Override
+    public List<String> getWinnerNames() {
         List<String> winnerNames = new ArrayList<>();
-        List<Car> winners = carDao.selectCarsByTopMoveCount();
+        int topMoveCount = carDao.getTopMoveCount();
+        List<Car> winners = carDao.selectCarsByMoveCount(topMoveCount);
+
         for (Car winner : winners) {
             winnerNames.add(winner.getName());
         }

@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.dto.Car;
 import racingcar.model.service.CarService;
 import racingcar.model.service.CarServiceImpl;
 import racingcar.view.InputView;
@@ -19,13 +17,13 @@ public class CarController {
     }
 
     private void awardRacingcar() {
-        outputView.printWinners(carService.selectWinnerNames());
+        outputView.printWinners(carService.getWinnerNames());
     }
 
     private void simulRacingcar() {
         while (!carService.isRacingcarStop()) {
             carService.goOrStop();
-            outputView.printAllCarResult(carService.showCarLineupInfo());
+            outputView.printAllCarResult(carService.getCarLineupInfo());
         }
     }
 

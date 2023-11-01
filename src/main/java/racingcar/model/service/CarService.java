@@ -7,7 +7,7 @@ public interface CarService {
     void registerCarLineUp(String carNames);
     void registerTryCount(String tryCount);
     void goOrStop();
-    List<Car> showCarLineupInfo();
     boolean isRacingcarStop();
-    List<String> selectWinnerNames();
+    List<Car> getCarLineupInfo();
+    List<String> getWinnerNames();
 }
