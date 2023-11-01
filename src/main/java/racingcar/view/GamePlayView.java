@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.HashMap;
 import java.util.List;
 import racingcar.model.Car;
 
@@ -32,7 +31,7 @@ public class GamePlayView {
         for (int i = 0; i < attempts; i++) {
             for (Car car : carList) {
                 car.controlCarMovement();
-                System.out.println(car.getName() + " : " + car.showCarMovement());
+                System.out.printf("%s : %s%n", car.getName(), car.reportCarMovement());
             }
             System.out.println();
         }

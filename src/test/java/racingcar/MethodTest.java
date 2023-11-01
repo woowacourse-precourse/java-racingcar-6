@@ -66,7 +66,7 @@ public class MethodTest {
             car.controlCarMovement();
         }
 
-        assertThat(car.showCarMovement()).isGreaterThan("");
+        assertThat(car.reportCarMovement()).isGreaterThan("");
     }
 
     @Test

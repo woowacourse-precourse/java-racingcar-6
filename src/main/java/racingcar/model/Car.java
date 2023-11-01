@@ -19,7 +19,7 @@ public class Car {
         return distance;
     }
 
-    public String showCarMovement() {
+    public String reportCarMovement() {
         String movement = "";
 
         for (int i = 0; i < distance; i++) {
