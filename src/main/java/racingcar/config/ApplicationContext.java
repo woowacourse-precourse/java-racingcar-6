@@ -13,10 +13,10 @@ import racingcar.view.output.OutputView;
 public class ApplicationContext {
 
     public RacingGameController racingGameController() {
-        return new RacingGameController(racingGame(), inputView(), outputView());
+        return new RacingGameController(racingGame(), outputView());
     }
 
-    private InputView inputView() {
+    public InputView inputView() {
         return new InputView(consoleService());
     }
 
