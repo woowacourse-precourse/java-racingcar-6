@@ -36,14 +36,16 @@ public class RacingGame {
     public void progressCarGame(int userGameNumber) {
         int num = 0;
         while (true) {
+            if (num == userGameNumber)
+                break;
             for (Car car : carList) {
                 int randomNum = Randoms.pickNumberInRange(0, 9);
                 if (randomNum >= 4) {
                     car.moveForward();
                 }
             }
-            if (num == userGameNumber)
-                break;
+            num++;
+            printRunResult();
         }
         printWinner();
     }
@@ -59,6 +61,7 @@ public class RacingGame {
         for (Car car : carList) {
             if(car.getmovingDistance() == maxCar.getmovingDistance()) {
                 winnerCar.add(car.getName());
+                System.out.println("d" + car.getmovingDistance());
             }
         }
         String result = String.join(", ", winnerCar);
