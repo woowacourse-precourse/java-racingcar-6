@@ -1,14 +1,14 @@
 package racingcar;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class GameTest {
     Game game = new Game();
@@ -24,6 +24,7 @@ class GameTest {
         outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
     }
+
     protected String getOutput() {
         return outputStreamCaptor.toString();
     }
@@ -45,13 +46,14 @@ class GameTest {
             assertThat(createdCar.getName()).isEqualTo(carName);
         }
     }
+
     @Test
     void distanceOutputTest() {
         //given
         int movingCount = 5;
         String carName = "lee";
         Car car = new Car(carName);
-        StringBuilder stringBuilder = new StringBuilder(carName+" : ");
+        StringBuilder stringBuilder = new StringBuilder(carName + " : ");
         for (int i = 0; i < movingCount; i++) {
             stringBuilder.append("-");
             car.run(MOVING_FORWARD);
@@ -62,6 +64,7 @@ class GameTest {
         //then
         assertThat(getOutput()).contains(stringBuilder.toString());
     }
+
     @Test
     void sameCarNameValidation_자동차_이름이_전부_다른_경우() {
         //given
@@ -72,7 +75,9 @@ class GameTest {
         //when
         game.sameCarNameValidation(carNames);
         //then
-    }    @Test
+    }
+
+    @Test
     void sameCarNameValidation_자동차_이름이_하나라도_같은경우() {
         //given
         String carName1 = "lee";
@@ -96,6 +101,7 @@ class GameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Util.OutputMessage.ATTEMPT_VALUE_ERROR_MESSAGE.getMessage());
     }
+
     @Test
     void attemptValidation_0_입력_된_경우() {
         //given
@@ -106,6 +112,7 @@ class GameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Util.OutputMessage.ATTEMPT_VALUE_ERROR_MESSAGE.getMessage());
     }
+
     @Test
     void attemptValidation_1_이상_입력_된_경우() {
         //given

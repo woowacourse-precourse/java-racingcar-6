@@ -58,7 +58,7 @@ public class FeatureTest extends NsTest {
 
     @Test
     @Order(1)
-    void input_정상_케이스(){
+    void input_정상_케이스() {
         String carNames = "lee,juho,test";
         String attempt = "3";
 
@@ -79,9 +79,10 @@ public class FeatureTest extends NsTest {
 
         assertThat(game.attempt).isEqualTo(Integer.parseInt(attempt));
     }
+
     @Test
     @Order(2)
-    void input_자동차_5글자_이상_입력_시_예외_발생(){
+    void input_자동차_5글자_이상_입력_시_예외_발생() {
         //given
         String carNames = "lee,juho,testAbc";
         String attempt = "3";
@@ -92,9 +93,10 @@ public class FeatureTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Util.OutputMessage.CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
     }
+
     @Test
     @Order(3)
-    void input_자동차_알파벳_제외_문자_입력_시_예외_발생(){
+    void input_자동차_알파벳_제외_문자_입력_시_예외_발생() {
         //given
         String carNames = "lee,juho,t12c";
         String attempt = "3";
@@ -104,9 +106,10 @@ public class FeatureTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(Util.OutputMessage.CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
     }
+
     @Test
     @Order(4)
-    void input_자동차_중복된_이름_입력_시_예외_발생(){
+    void input_자동차_중복된_이름_입력_시_예외_발생() {
         //given
         String carNames = "juho,juho,test";
         String attempt = "3";
@@ -116,9 +119,10 @@ public class FeatureTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(OutputMessage.SAME_CAR_NAME_ERROR_MESSAGE.getMessage());
     }
+
     @Test
     @Order(5)
-    void input_횟수_0회_입력_시_예외_발생(){
+    void input_횟수_0회_입력_시_예외_발생() {
         //given
         String carNames = "lee,juho,test";
         String attempt = "0";
@@ -128,9 +132,10 @@ public class FeatureTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(OutputMessage.ATTEMPT_VALUE_ERROR_MESSAGE.getMessage());
     }
+
     @Test
     @Order(6)
-    void input_횟수_문자_입력_시_예외_발생(){
+    void input_횟수_문자_입력_시_예외_발생() {
         //given
         String carNames = "lee,juho,test";
         String attempt = "a";
@@ -140,8 +145,9 @@ public class FeatureTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(OutputMessage.ATTEMPT_VALUE_ERROR_MESSAGE.getMessage());
     }
+
     @Test
-    void race_랜덤값_3_이하_시_거리_유지(){
+    void race_랜덤값_3_이하_시_거리_유지() {
         //given
         game.cars = Arrays.asList(new Car("lee"),
                 new Car("juho"));
@@ -152,7 +158,7 @@ public class FeatureTest extends NsTest {
                 () -> {
                     game.race();
                 },
-                0,1,2,3
+                0, 1, 2, 3
         );
         List<Car> cars = game.cars;
 
@@ -162,8 +168,9 @@ public class FeatureTest extends NsTest {
             assertThat(car.getDistance()).isEqualTo(0);
         }
     }
+
     @Test
-    void race_랜덤값_4_이상_시_거리_증가(){
+    void race_랜덤값_4_이상_시_거리_증가() {
         //given
         game.cars = Arrays.asList(new Car("lee"),
                 new Car("juho"),
@@ -178,7 +185,7 @@ public class FeatureTest extends NsTest {
                         game.race();
                     }
                 },
-                4,5,6,7,8,9
+                4, 5, 6, 7, 8, 9
         );
 
         //then
@@ -187,8 +194,9 @@ public class FeatureTest extends NsTest {
             assertThat(car.getDistance()).isEqualTo(2);
         }
     }
+
     @Test
-    void distanceOutput_거리_별_출력_값_확인(){
+    void distanceOutput_거리_별_출력_값_확인() {
         //given
         game.cars = Arrays.asList(new Car("lee"),
                 new Car("juho"),
@@ -219,7 +227,7 @@ public class FeatureTest extends NsTest {
     }
 
     @Test
-    void getWinners_우승자가_한_명인_경우(){
+    void getWinners_우승자가_한_명인_경우() {
         //given
         game.cars = Arrays.asList(new Car("lee"),
                 new Car("juho"));
@@ -233,8 +241,9 @@ public class FeatureTest extends NsTest {
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners.get(0)).isEqualTo("lee");
     }
+
     @Test
-    void getWinners_우승자가_두_명인_경우(){
+    void getWinners_우승자가_두_명인_경우() {
         //given
         game.cars = Arrays.asList(new Car("lee"),
                 new Car("juho"));
