@@ -1,12 +1,8 @@
 package racingcar.domain;
 
-import static java.util.Arrays.stream;
-import static java.util.Collections.max;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Race {
     private final List<Car> carList = new ArrayList<>();
@@ -25,7 +21,6 @@ public class Race {
         InputOutputMessage.printRoundResult(new ArrayList<>(carList.stream()
                 .map(Car::getRoundResult)
                 .collect(Collectors.toList())
-
         ));
     }
 
