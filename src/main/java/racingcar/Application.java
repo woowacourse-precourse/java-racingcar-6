@@ -5,11 +5,11 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input= Console.readLine();
+        String input = View.getCarNames();
         String[] carNames=input.split(",");
         List<Car> cars=new ArrayList<>();
         for (String carName: carNames){
@@ -22,10 +22,10 @@ public class Application {
             cars.add(new Car(carName));
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        String inputForTryCount= View.getTryCount();
         int tryCount;
         try {
-            tryCount=Integer.parseInt(Console.readLine());
+            tryCount=Integer.parseInt(inputForTryCount);
         }catch(NumberFormatException e){
             throw new IllegalArgumentException();
         }
@@ -34,11 +34,11 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
-        System.out.println("실행 결과");
+        View.printResultAlarm();
 
         Race race = new Race(cars, tryCount);
         race.conductRace();
         List<String> winners=race.getWinners();
-        System.out.println("최종 우승자 : "+String.join(", ", winners));
+        View.printFinalWinner(String.join(", ", winners));
     }
 }

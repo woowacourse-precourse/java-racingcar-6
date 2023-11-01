@@ -23,7 +23,7 @@ public class Race{
                     car.position++;
                 }
                 //실행값 출력
-                System.out.println(car.getCarName()+" : "+"-".repeat(car.getCarPosition()));
+                View.printCarMove(car.getCarName(), car.getCarPosition());
             }
             System.out.println();
         }
