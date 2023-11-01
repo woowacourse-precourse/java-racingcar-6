@@ -100,6 +100,9 @@
 
 ## 📋 기능 테스트 `ApplicationTest.java`
 - 입출력 기능 테스트 `RacingGameTest.java`
+  - `전진_테스트()`
+  - `정지_테스트()`
+  - `우승자_중복_테스트()`
 - 예외처리 기능 테스트 `ValidatorTest.java`
   - `void String_이름에_대한_빈문자_처리()`
   - `void String_이름에_대한_공백_처리()`
