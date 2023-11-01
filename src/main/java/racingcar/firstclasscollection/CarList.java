@@ -13,12 +13,6 @@ public class CarList {
         this.cars = listSupplier.get();
     }
 
-    /**
-     * add Car instance in CarList
-     *
-     * @param car
-     * @throws IllegalArgumentException when add duplicated cars
-     */
     public void addCar(Car car) {
         if (cars.contains(car)) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATED);
@@ -26,11 +20,6 @@ public class CarList {
         cars.add(car);
     }
 
-    /**
-     * consume each car in CarList
-     *
-     * @param consumer behavior to consume car
-     */
     public void forEachCar(Consumer<Car> consumer) {
         for (Car car : cars) {
             consumer.accept(car);
