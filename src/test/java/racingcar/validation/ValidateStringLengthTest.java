@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ValidateStringLengthTest {
 
     ValidateStringLength validateStringLength;
+
     @Test
     void validate_이름이_5자_이상일때_예외처리() {
         String input = "abcde,fghij,klmnop";

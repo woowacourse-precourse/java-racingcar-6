@@ -19,7 +19,7 @@ public class Car {
 
     public void moveOrStop(int num) {
         if (num >= 4) {
-            distance+=1;
+            distance += 1;
         }
     }
 }

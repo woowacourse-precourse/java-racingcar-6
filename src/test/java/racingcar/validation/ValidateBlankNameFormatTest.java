@@ -8,6 +8,7 @@ import racingcar.exception.InvalidBlankNameException;
 class ValidateBlankNameFormatTest {
 
     ValidateBlankNameFormat validateBlankNameFormat;
+
     @Test
     void validate_이름이_공백일때_예외처리() {
         String input = "abcd,   ,efghi";

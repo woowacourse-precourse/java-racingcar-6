@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ValidateNumberFormatTest {
 
     ValidateNumberFormat validateNumberFormat;
+
     @Test
     void validate_시도할_횟수가_숫자형식이_아닐경우_예외발생() {
         String input = "숫자";

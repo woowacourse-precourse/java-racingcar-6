@@ -13,6 +13,6 @@ class RacingcarGameTest {
         racingcarGame.setTryCount(1);
         String[] cars = {"test"};
         racingcarGame.setCars(cars);
-        assertThat(racingcarGame.race().get("test")).isBetween(0,1);
+        assertThat(racingcarGame.race().get("test")).isBetween(0, 1);
     }
 }

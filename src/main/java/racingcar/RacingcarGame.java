@@ -26,7 +26,7 @@ public class RacingcarGame {
         this.tryCount = tryCount;
     }
 
-    public HashMap<String,Integer> race() {
+    public HashMap<String, Integer> race() {
         moveOrStop();
         HashMap<String, Integer> raceResult = new HashMap<>();
         for (Car car : cars.getRacingCars()) {
@@ -47,7 +47,8 @@ public class RacingcarGame {
     public Boolean isContinue() {
         if (tryCount == 0) {
             return false;
-        }return true;
+        }
+        return true;
     }
 
     public String getWinner() {
@@ -60,7 +61,7 @@ public class RacingcarGame {
             return winners.get(0).getName();
         } else if (isJointWinner(winners) && maxDistance != 0) {
             return winnerStringJoin(winners);
-        }else {
+        } else {
             return null;
         }
     }
@@ -75,12 +76,13 @@ public class RacingcarGame {
     private Boolean isJointWinner(List<Car> winnerList) {
         if (winnerList.size() > 1) {
             return true;
-        }return false;
+        }
+        return false;
     }
 
     private String winnerStringJoin(List<Car> winners) {
         StringJoiner stringJoiner = new StringJoiner(",");
-        winners.forEach(car->stringJoiner.add(car.getName()));
+        winners.forEach(car -> stringJoiner.add(car.getName()));
         return stringJoiner.toString();
     }
 }

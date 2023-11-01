@@ -23,7 +23,7 @@ public class RacingcarGameController {
         outputView.readOngoingResultMessage();
         do {
             outputView.readOngoingResult(ongoing());
-        }while(racingcarGame.isContinue());
+        } while (racingcarGame.isContinue());
         outputView.readWinner(racingcarGame.getWinner());
     }
 

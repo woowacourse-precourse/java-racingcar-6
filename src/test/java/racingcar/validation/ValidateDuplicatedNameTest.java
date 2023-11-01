@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ValidateDuplicatedNameTest {
 
     ValidateDuplicatedName validateDuplicatedName;
+
     @Test
     void validate_이름이_중복될때_예외처리() {
         String input = "중복이름,중복이름";
