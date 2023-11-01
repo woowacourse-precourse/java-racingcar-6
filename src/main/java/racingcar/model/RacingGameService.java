@@ -43,7 +43,7 @@ public class RacingGameService {
     }
 
     private static void play() {
-        for (int i : new int[playNumber]) {
+        for (int ignore : new int[playNumber]) {
             CarManager.proceed();
             ProgressState progressState = CarManager.getState();
             printProgressState(progressState);
