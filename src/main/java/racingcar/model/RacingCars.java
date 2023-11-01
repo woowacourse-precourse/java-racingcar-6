@@ -38,7 +38,7 @@ public class RacingCars {
                 .toArray(String[]::new);
     }
 
-    public static int maxDistance(ArrayList<Integer> position){
+    public static int maxDistance(ArrayList<Integer> position) {
         return Collections.max(position);
     }
 }
