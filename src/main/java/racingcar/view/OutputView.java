@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.constant.GameMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+
 import java.util.List;
 
 public class OutputView {
@@ -19,6 +20,7 @@ public class OutputView {
         printBlankLine();
         System.out.println(GameMessage.ROUND_RESULT);
     }
+
     public void displayRaceStatus(Cars cars) {
         for (Car car : cars.getCars()) {
             System.out.println(car.getName() + " : " + getFormattedPosition(car.getPosition()));
