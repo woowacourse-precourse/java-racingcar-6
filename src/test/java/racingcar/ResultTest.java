@@ -59,6 +59,21 @@ public class ResultTest {
     }
 
     @Test
+    void 최고_거리_찾기_테스트() {
+        List<Car> carList1 = new ArrayList<>();
+        List<Car> carList2 = new ArrayList<>();
+        carList1.add(new Car("car1", 5));
+        carList1.add(new Car("car2", 13));
+        carList1.add(new Car("car3", 7));
+        carList2.add(new Car("car4", 7));
+        carList2.add(new Car("car5", 7));
+        carList2.add(new Car("car6", 3));
+
+        assertThat(result.getMaxDistance(carList1)).isEqualTo(13);
+        assertThat(result.getMaxDistance(carList2)).isEqualTo(7);
+    }
+
+    @Test
     void 우승자_출력_테스트() {
         List<Car> carList1 = new ArrayList<>();
         List<Car> carList2 = new ArrayList<>();
