@@ -18,6 +18,7 @@ public class RacingCar {
         validateName(name);
 
         this.name = name;
+        this.lap = 1;
     }
 
     public void start() {
@@ -29,7 +30,7 @@ public class RacingCar {
     }
 
     public String raceState() {
-        return "%s : %s".formatted(name, STATE_BAR.repeat(lap));
+        return "%s : %s".formatted(name, STATE_BAR.repeat(lap - 1));
     }
 
     public boolean isSameLap(int lap) {

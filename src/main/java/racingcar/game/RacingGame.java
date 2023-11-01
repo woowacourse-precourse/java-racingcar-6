@@ -25,7 +25,7 @@ public class RacingGame {
     public void run() {
         System.out.println("실행 결과");
 
-        for (int i = 0; i < endLap; i++) {
+        for (int lap = 1; lap <= endLap; lap++) {
             racingCars.forEach(RacingCar::start);
 
             printLapResult();
