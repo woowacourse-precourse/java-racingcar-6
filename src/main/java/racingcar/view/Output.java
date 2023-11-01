@@ -1,9 +1,8 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-import racingcar.message.SystemMessage;
+import racingcar.constant.SystemMessage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Output {
@@ -16,9 +15,7 @@ public class Output {
     }
     public static void displayRaceProgress(String name, int position) {
         System.out.print(name + " : ");
-        StringBuilder result = new StringBuilder();
-        result.append("-".repeat(Math.max(0, position)));
-        System.out.println(result.toString());
+        System.out.println("-".repeat(Math.max(0, position)));
     }
 
     public static void displayRaceWinner(List<Car> cars) {
