@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -46,6 +47,16 @@ public class Game {
             }
         }
         return winningPosition;
+    }
+
+    public static List<String> findWinners(List<Car> cars, int winningPosition) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == winningPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 
 
