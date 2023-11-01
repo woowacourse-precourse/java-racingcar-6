@@ -25,6 +25,7 @@ public class RacingGame {
         for(int i = 0; i < attemptCount; i++) {
             extractRandomNumber(carList);
         }
+        extractResult(carList, size);
     }
 
     public List<Integer> extractRandomNumber(List<String> carList) {
@@ -49,5 +50,23 @@ public class RacingGame {
             }
         }
         System.out.println();
+    }
+
+    public List<String> extractResult(List<String> carList, int size) {
+        List<Integer> resultList = extractResultList();
+        List<String> winnerList = new ArrayList<>();
+        int max = Collections.max(resultList);
+        for (int i = 0; i < size; i++) {
+            if (resultList.get(i) == max) {
+                winnerList.add(carList.get(i));
+            }
+        }
+        System.out.print("최종 우승자 : " + String.join(", ", winnerList));
+        return winnerList;
+    }
+
+    public List<Integer> extractResultList() {
+        List<Integer> resultList = movingCount.getMovingCount();
+        return resultList;
     }
 }
