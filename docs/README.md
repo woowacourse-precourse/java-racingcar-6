@@ -1,7 +1,5 @@
 # 자동차 경주
 
----
-
 ## 기능 목록
 - [x] 사용자는 각 자동차에 이름을 부여할 수 있다. - `CarGenerator#createCarList`
   - [x] 사용자로부터 이름을 입력받을 수 있다. - `UserInput#setCarNames`
