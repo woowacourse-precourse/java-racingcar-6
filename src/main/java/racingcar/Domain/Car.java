@@ -34,8 +34,8 @@ public class Car {
         return Math.max(this.position, fastestPosition);
     }
 
-    public boolean isSamePosition(int winnerPosition) {
-        return this.position == winnerPosition;
+    public boolean isSamePosition(int comparePosition) {
+        return this.position == comparePosition;
     }
 
     public String makePositionString (String positionStamp) {
