@@ -18,7 +18,7 @@ class Car{
         return name;
     }
 
-    public int getCarPositioin(){
+    public int getCarPosition(){
         return position;
     }
 }
@@ -61,11 +61,25 @@ public class Application {
                     car.position++;
                 }
                 //실행값 출력
-                System.out.println(car.getCarName()+" : "+"-".repeat(car.getCarPositioin()));
+                System.out.println(car.getCarName()+" : "+"-".repeat(car.getCarPosition()));
             }
             System.out.println();
         }
 
+        //차들의 이동거리 최댓값 구하기
+        int maxPosition=0;
+        for (Car car: cars){
+            maxPosition=Math.max(maxPosition, car.getCarPosition());
+        }
+
+        List<String> winners=new ArrayList<>();
+        for (Car car: cars){
+            if(car.getCarPosition()==maxPosition){
+                winners.add(car.getCarName());
+            }
+        }
+
+        System.out.println("최종 우승자 : "+String.join(", ", winners));
 
 
     }
