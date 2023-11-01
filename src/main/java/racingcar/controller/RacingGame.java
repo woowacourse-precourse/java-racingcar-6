@@ -32,6 +32,8 @@ public class RacingGame {
 
         Exception.checkMinimumParticipants(names); // 2명 이상인지 확인
 
+        trimSpaces(names); // 양끝 공백 제거
+
         for (String name : names) {
             Exception.isSpace(name); // 이름에 공백이 포함되어 있는지 확인
             Exception.checkNameLength(name);
@@ -40,7 +42,12 @@ public class RacingGame {
         return names;
     }
 
-    
+    private void trimSpaces(String[] names) {
+        for (int i = 0; i < names.length; i++) {
+            names[i] = names[i].trim();
+        }
+    }
+
     private void addCar(String name) {
         Car car = new Car(name);
         carList.add(car);
