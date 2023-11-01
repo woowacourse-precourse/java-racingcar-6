@@ -12,6 +12,7 @@ public class Car {
         count = 0;
         name = inputName;
     }
+
     public Car(String inputName, int count) {
         this.count = count;
         name = inputName;
@@ -29,9 +30,9 @@ public class Car {
         count++;
     }
 
-    public static List<Car> strToCar(List<String> input){
+    public static List<Car> strToCar(List<String> input) {
         List<Car> cars = new ArrayList<>();
-        for(String player : input){
+        for (String player : input) {
             cars.add(new Car(player));
         }
         return cars;

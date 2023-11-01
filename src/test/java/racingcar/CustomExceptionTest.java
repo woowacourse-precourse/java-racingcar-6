@@ -2,20 +2,16 @@ package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+
 
 public class CustomExceptionTest {
 
-    private CustomException customException = new CustomException();
+    private final CustomException customException = new CustomException();
 
     @Test
     @DisplayName("이름 길이 5 초과 예외 처리")
@@ -35,12 +31,14 @@ public class CustomExceptionTest {
     }
 
     @Test
+    @DisplayName("숫자 변환 작동 테스트")
     public void testConvertStringToIntWithValidInput() {
         assertEquals(123, customException.convertStrToInt("123"));
     }
 
     @Test
+    @DisplayName("숫자 입력 오류 예외 처리")
     public void testConvertStringToIntWithInvalidInput() {
-        assertThrows(IllegalArgumentException.class, () ->customException.convertStrToInt("abc"));
+        assertThrows(IllegalArgumentException.class, () -> customException.convertStrToInt("abc"));
     }
 }

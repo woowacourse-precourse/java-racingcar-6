@@ -22,10 +22,11 @@ public class CustomException {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }
-    public int convertStrToInt(String s){
-        try{
+
+    public int convertStrToInt(String s) {
+        try {
             return Integer.parseInt(s);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("입력된 문자열이 정수 형식이 아닙니다.");
         }
     }

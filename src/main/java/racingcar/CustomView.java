@@ -15,7 +15,7 @@ public class CustomView {
         return strTrim(temp);
     }
 
-    public List<String> strTrim(String[] s){
+    public List<String> strTrim(String[] s) {
         List<String> players = new ArrayList<>();
         for (String tmp : s) {
             players.add(tmp.trim());
@@ -53,7 +53,7 @@ public class CustomView {
         System.out.print(gameResult);
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i) + ", ");
-            if (i >= winners.size()-1) {
+            if (i >= winners.size() - 1) {
                 System.out.print(winners.get(i));
             }
         }
