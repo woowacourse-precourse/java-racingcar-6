@@ -1,11 +1,9 @@
 package service;
 
-import model.CarInformation;
 import static model.Constants.CAR_NAME_MAXLENGTH;
 
 public class IllegalLogic {
 
-    CarInformation carInformation = new CarInformation();
     RacingCarGameLogic racingCarGameLogic = new RacingCarGameLogic();
     public void processingIllegalLogic(String inputString){
         String[] splitName=splitCarName(inputString);

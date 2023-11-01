@@ -10,12 +10,11 @@ import view.OutputPhrase;
 import static model.Constants.STANDARD_NUMBER_OF_ATTEMPTS;
 import static model.Constants.FORWARD;
 public class RacingCarGameLogic {
-
-    CarInformation carInformation = new CarInformation();
     OutputPhrase outputPhrase = new OutputPhrase();
     List<String> carNames = new ArrayList<>();
     List<Integer> carForwardCount = new ArrayList<>();
     public void insertCarName(String[] carName){
+        CarInformation carInformation = new CarInformation();
         carNames.addAll(Arrays.asList(carName));
         countInitialSettings(carNames.size());
         carInformation.setCarNames(carNames);
@@ -33,6 +32,7 @@ public class RacingCarGameLogic {
     }
 
     public void getCarInformation(){
+        CarInformation carInformation = new CarInformation();
         carForwardCount=carInformation.getCarForwardCount();
         carNames=carInformation.getCarNames();
     }
@@ -44,6 +44,7 @@ public class RacingCarGameLogic {
     }
 
     public void compareToFrontCount(int randomNumber,int index){
+        CarInformation carInformation = new CarInformation();
         carForwardCount=carInformation.getCarForwardCount();
         if(randomNumber>=STANDARD_NUMBER_OF_ATTEMPTS){
             carForwardCount.set(index,carForwardCount.get(index)+1);
@@ -59,6 +60,7 @@ public class RacingCarGameLogic {
     }
 
     public void countInitialSettings(int carNamesSize){
+        CarInformation carInformation = new CarInformation();
         for(int i=0;i<carNamesSize;i++){
             carForwardCount.add(0);
         }
