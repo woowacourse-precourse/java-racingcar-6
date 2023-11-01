@@ -1,10 +1,12 @@
 package racingcar.view;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.request.CarName;
 import racingcar.dto.request.CarNames;
 import racingcar.dto.request.TryCount;
 
@@ -17,12 +19,20 @@ class InputMapperTest {
     void inputToCarNames() {
         // Given
         String input = "car1,car2,car3";
+        CarName carName1 = mock(CarName.class);
+        CarName carName2 = mock(CarName.class);
+        CarName carName3 = mock(CarName.class);
+        when(carName1.name()).thenReturn("car1");
+        when(carName2.name()).thenReturn("car2");
+        when(carName3.name()).thenReturn("car3");
 
         // When
         CarNames carNames = inputMapper.toCarNames(input);
 
         // Then
-        assertEquals(List.of("car1", "car2", "car3"), carNames.getNames());
+        assertEquals(carName1.name(), carNames.getNames().get(0).name());
+        assertEquals(carName2.name(), carNames.getNames().get(1).name());
+        assertEquals(carName3.name(), carNames.getNames().get(2).name());
     }
 
     @Test
