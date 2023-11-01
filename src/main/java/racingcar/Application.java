@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +32,24 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int number = Integer.parseInt(Console.readLine());
+    }
+
+    public static int goStep(int step) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+
+        if(randomNumber < 4) {
+            return step;
+        } else {
+            return step + randomNumber;
+        }
+    }
+
+    public static String printStep(int step) {
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<step; i++) {
+            sb.append("-");
+        }
+
+        return sb.toString();
     }
 }
