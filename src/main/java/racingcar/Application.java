@@ -1,21 +1,21 @@
 package racingcar;
 
-import racingcar.controller.RacingCarController;
+import racingcar.controller.RacingGameController;
 import racingcar.io.CommandLineReader;
 import racingcar.io.CommandLineWriter;
 
-import racingcar.view.RacingCarView;
+import racingcar.view.RacingGameView;
 
 public class Application {
     public static void main(String[] args) {
-        RacingCarController racingCarController = createRacingCarController();
-        racingCarController.startRacing();
+        RacingGameController racingGameController = createRacingCarController();
+        racingGameController.startRacing();
     }
 
-    private static RacingCarController createRacingCarController() {
+    private static RacingGameController createRacingCarController() {
         CommandLineWriter commandLineWriter = new CommandLineWriter();
         CommandLineReader commandLineReader = new CommandLineReader();
-        RacingCarView racingCarView = new RacingCarView(commandLineReader, commandLineWriter);
-        return new RacingCarController(racingCarView);
+        RacingGameView racingGameView = new RacingGameView(commandLineReader, commandLineWriter);
+        return new RacingGameController(racingGameView);
     }
 }
