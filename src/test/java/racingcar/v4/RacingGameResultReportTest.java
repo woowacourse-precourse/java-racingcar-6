@@ -1,48 +1,55 @@
 package racingcar.v4;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RacingGameResultReportTest {
     private final PrintStream originalOut = System.out;
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private ByteArrayOutputStream outContent;
 
     @BeforeEach
     public void setUp() {
+        outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
     }
 
     @AfterEach
     public void restoreStream() {
         System.setOut(originalOut);
+        try {
+            outContent.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     void printCarPositionWithName() {
+        // 테스트 대상 메소드 실행
         RacingGameResultReport report = new RacingGameResultReport();
-        Map<String, Integer> racingStateMap = new HashMap<>();
-        racingStateMap.put("페라리", 3);
-        racingStateMap.put("벤츠", 2);
-        racingStateMap.put("레드불", 5);
-
+        Map<String, Integer> racingStateMap = new LinkedHashMap<>();
+        racingStateMap.put("벤츠", 1);
+        racingStateMap.put("레드불", 3);
+        racingStateMap.put("페라리", 2);
         report.printCarPositionWithName(racingStateMap);
 
-        String expectedOutput = "페라리 : ---" + System.lineSeparator() +
-                "벤츠 : --" + System.lineSeparator() +
-                "레드불 : -----" + System.lineSeparator();
-
-        assertThat(outContent.toString()).isEqualTo(expectedOutput);
+        // 테스트 결과 확인
+        String expected = "벤츠 : -\n" +
+                "레드불 : ---\n" +
+                "페라리 : --\n\n";
+        Assertions.assertThat(outContent.toString()).isEqualTo(expected);
     }
+
 
     @Test
     void announceWinners_단일우승() {

@@ -1,11 +1,10 @@
 package racingcar;
 
 
-import racingcar.v4.RacingGameProcessManager;
+import racingcar.v5.RacingGameProcessManagerV5;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGameProcessManager racingGameProcessManager = new RacingGameProcessManager();
-        racingGameProcessManager.start();
+        RacingGameProcessManagerV5.start();
     }
 }

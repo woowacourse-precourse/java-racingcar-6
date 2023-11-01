@@ -11,6 +11,18 @@ import java.util.Map;
 class ForwardTest {
 
     private Forward forward;
+    static class TestForward extends Forward {
+        private int fixedRandomNum;
+
+        public TestForward(int fixedRandomNum) {
+            this.fixedRandomNum = fixedRandomNum;
+        }
+
+        @Override
+        public int randomNums() {
+            return fixedRandomNum;
+        }
+    }
     @BeforeEach
     void setUp() {
         forward = new Forward();
@@ -45,27 +57,24 @@ class ForwardTest {
 
     @Test
     void updatePosition은_randomNums가_4이상일_때_차량의_위치를_1만큼_증가시킨다() {
-
-        Forward forward = new Forward();
-        forward.canForward(5);
+        TestForward testForward = new TestForward(4);
 
         Map<String, Integer> racingStateMap = new HashMap<>();
         racingStateMap.put("페라리", 0);
 
-        forward.updatePosition(racingStateMap, "페라리");
+        testForward.updatePosition(racingStateMap, "페라리");
 
         assertThat(racingStateMap.get("페라리")).isEqualTo(1);
     }
 
     @Test
     void updatePosition은_randomNums가_3이하일_때_차량의_위치를_변경하지_않는다() {
-        Forward forward = new Forward();
-        forward.canForward(3);
+        TestForward testForward = new TestForward(3);
 
         Map<String, Integer> racingStateMap = new HashMap<>();
         racingStateMap.put("벤츠", 0);
 
-        forward.updatePosition(racingStateMap, "벤츠");
+        testForward.updatePosition(racingStateMap, "벤츠");
 
         assertThat(racingStateMap.get("벤츠")).isEqualTo(0);
     }
