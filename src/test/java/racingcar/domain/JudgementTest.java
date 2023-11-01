@@ -31,5 +31,12 @@ class JudgementTest {
             judgement.validateCarNames(Arrays.asList("aaaaaaa", "bb", "cc"));
         });
     }
-    
+
+    @Test
+    void 횟수_숫자_아니면_오류발생_테스트() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            judgement.tryConvertToInteger("aaaa");
+        });
+    }
+
 }
