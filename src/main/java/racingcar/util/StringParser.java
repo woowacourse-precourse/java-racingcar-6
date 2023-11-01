@@ -15,7 +15,7 @@ public class StringParser {
      * @return 길이 1 이상의 List<String>
      */
     public static List<String> parseCarName(String str) {
-        if (str.endsWith(DELIMITER)) {
+        if (str.startsWith(DELIMITER) || str.endsWith(DELIMITER)) {
             throw new IllegalArgumentException(NAME_BLANK_MESSAGE);
         }
 
