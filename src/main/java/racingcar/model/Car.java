@@ -25,4 +25,22 @@ public class Car {
     private void moveForward() {
         this.carDistance.setDistance(carDistance.getDistance() + Constants.FORWARD.getNumber());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        if (!carName.equals(car.carName)) return false;
+        return carDistance.equals(car.carDistance);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = carName != null ? carName.hashCode() : 0;
+        result = 31 * result + (carDistance != null ? carDistance.hashCode() : 0);
+        return result;
+    }
 }
