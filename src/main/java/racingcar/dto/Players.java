@@ -9,26 +9,28 @@ public class Players {
     private List<Integer> forwardStepList = new ArrayList<>();
 
 
-    public List<String> getPlayersList(){
+    public List<String> getPlayersList() {
         return playersList;
     }
 
-    public void attemptListInit(){
+    public void attemptListInit() {
         playersList.forEach(i -> forwardStepList.add(0));
     }
 
-    public List<Integer> getForwardStepList(){
+    public List<Integer> getForwardStepList() {
         return forwardStepList;
     }
-    public void moveForwardStep(int index){
+
+    public void moveForwardStep(int index) {
         int fowardStepCount = forwardStepList.get(index);
         forwardStepList.set(index, ++fowardStepCount);
     }
+
     public Players(List<String> playersList) {
         this.playersList = playersList;
     }
 
-    public int getMaxStep(){
+    public int getMaxStep() {
         return forwardStepList.stream().mapToInt(i -> i).max().orElseThrow(IllegalArgumentException::new);
     }
 
@@ -36,7 +38,7 @@ public class Players {
     public String toString() {
         String result = "";
 
-        for(int index = 0; index < playersList.size() ; index++){
+        for (int index = 0; index < playersList.size(); index++) {
             result += playersList.get(index) + " : " + "-".repeat(forwardStepList.get(index)) + '\n';
         }
 

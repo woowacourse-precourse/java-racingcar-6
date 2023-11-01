@@ -12,8 +12,7 @@ public class RaceController {
     private static final OutputView outputView = new OutputView();
 
 
-
-    public void raceStart(){
+    public void raceStart() {
 
         Players players = inputView.getPlayersList();
         int attemptCount = inputView.getAttempt();
@@ -22,7 +21,8 @@ public class RaceController {
 
 
     }
-    private void raceSimulate(Players players, int attemptCount){
+
+    private void raceSimulate(Players players, int attemptCount) {
 
         players.attemptListInit();
         outputView.printFirstText();
@@ -30,7 +30,7 @@ public class RaceController {
         do {
             raceService.raceOneSimulate(players);
             outputView.printMiddleProcess(players);
-        }while(--attemptCount>0);
+        } while (--attemptCount > 0);
 
         outputView.printResult(players);
 

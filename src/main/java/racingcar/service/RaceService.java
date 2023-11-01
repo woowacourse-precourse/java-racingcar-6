@@ -15,7 +15,6 @@ public class RaceService {
 
     public void raceOneSimulate(Players players) {
 
-
         IntStream.range(0, players.getPlayersList().toArray().length).forEach(
                 index -> simulateOnePlayer(players, index)
         );
@@ -24,7 +23,7 @@ public class RaceService {
 
     private void simulateOnePlayer(Players players, int index) {
 
-        if(isMove(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER))){
+        if (isMove(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER))) {
             players.moveForwardStep(index);
         }
 
