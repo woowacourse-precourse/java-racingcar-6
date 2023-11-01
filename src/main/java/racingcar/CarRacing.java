@@ -6,11 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 
 public class CarRacing {
-    int attempCount;
+    int attemptCount;
     List<Car> cars;
 
     CarRacing() {
-        this.attempCount = 0;
+        this.attemptCount = 0;
         this.cars = new ArrayList<Car>();
     }
 
@@ -18,6 +18,10 @@ public class CarRacing {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+    }
+
+    void setAttemptCount(String count) {
+        attemptCount = Integer.parseInt(count);
     }
 
     boolean isValidCarNames(String[] carNames) {
@@ -42,6 +46,22 @@ public class CarRacing {
         return true;
     }
 
+    boolean isValidAttemptCount(String count) {
+        for (int i = 0; i < count.length(); i++) {
+            char c = count.charAt(i);
+            if (c < '0' || c > '9') {
+                throw new IllegalArgumentException("입력된 값은 숫자여야 합니다");
+            }
+        }
+
+        int stringToNum = Integer.parseInt(count);
+        if (stringToNum <= 0) {
+            throw new IllegalArgumentException("입력된 값은 0보다 커야 합니다.");
+        }
+
+        return true;
+    }
+
     void execute() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -52,5 +72,9 @@ public class CarRacing {
 
         System.out.println("시도할 회수는 몇회인가요?");
 
+        String count = Console.readLine();
+        if (isValidAttemptCount(count)) {
+            setAttemptCount(count);
+        }
     }
 }
