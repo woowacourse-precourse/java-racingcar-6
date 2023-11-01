@@ -34,6 +34,6 @@ public class OutputView {
                             .collect(Collectors.joining(DELIMITER)));
             return;
         }
-        System.out.println(FINAL_WINNER + winners.getWinners().get(0).getName());
+        System.out.println(FINAL_WINNER + winners.getOne());
     }
 }

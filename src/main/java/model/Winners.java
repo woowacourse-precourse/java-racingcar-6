@@ -39,4 +39,8 @@ public class Winners {
         return true;
     }
 
+    public String getOne(){
+        return winners.get(0).getName();
+    }
+
 }
