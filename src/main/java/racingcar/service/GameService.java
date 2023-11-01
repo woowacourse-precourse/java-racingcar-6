@@ -39,4 +39,23 @@ public class GameService {
         return randomNumber >= FORWARD_TRIGGER;
     }
 
+    public List<String> findWinners(Game game) {
+        int maxPosition = findMaxPosition(game.getRacingCarList());
+        return findCarsAtMaxPosition(game.getRacingCarList(), maxPosition);
+    }
+
+    private int findMaxPosition(List<RacingCar> racingCarList) {
+        return racingCarList.stream()
+            .mapToInt(RacingCar::getPosition)
+            .max()
+            .orElse(0);
+    }
+
+    private List<String> findCarsAtMaxPosition(List<RacingCar> racingCarList, int maxPosition) {
+        return racingCarList.stream()
+            .filter(car -> car.getPosition() == maxPosition)
+            .map(RacingCar::getName)
+            .toList();
+    }
+
 }
