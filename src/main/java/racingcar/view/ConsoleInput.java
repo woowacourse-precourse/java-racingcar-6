@@ -7,6 +7,7 @@ import racingcar.domain.Car;
 
 import static racingcar.validator.AttemptInputValidator.*;
 import static racingcar.view.constants.IOType.*;
+import static racingcar.validator.CarInputValidator.*;
 
 public class ConsoleInput {
 
@@ -24,9 +25,11 @@ public class ConsoleInput {
 
     private static List<Car> parseSentence(String sentence) {
         sentence = removeAllWhiteSpace(sentence);
-        return Arrays.stream(sentence.split(SPLIT_DELIMITER.getText()))
+        List<Car> carList = Arrays.stream(sentence.split(SPLIT_DELIMITER.getText()))
                 .map(Car::nameOf)
                 .toList();
+        duplicateNameValidate(carList);
+        return carList;
     }
 
     private static String removeAllWhiteSpace(String sentence) {
