@@ -21,13 +21,17 @@ public class InputView {
         }
     }
 
-    public void checkCarNameExceptions(String[] carNames) {
+    private void checkCarNameExceptions(String[] carNames) {
         Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
         carNameDuplicateException(carNames, uniqueNames);
 
         for (String carName : carNames) {
             carNameRullException(carName);
         }
+    }
+
+    public void testCarNameExceptions(String[] carNames) {
+        checkCarNameExceptions(carNames);
     }
 
     public String getCarNameInput() {
@@ -49,6 +53,10 @@ public class InputView {
         if (tryCount <= MagicVariable.PICK_NUM_MIN) {
             throw new IllegalArgumentException(MagicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
         }
+    }
+
+    public void testTryCountExceptions(int tryCount) {
+        checkTryCountExceptions(tryCount);
     }
 }
 

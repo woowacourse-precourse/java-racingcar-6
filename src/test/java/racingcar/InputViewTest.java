@@ -57,7 +57,7 @@ class InputViewTest {
     @DisplayName("자동차 이름 중복에 대한 예외 확인")
     void checkCarNameExceptions_중복확인() {
         String[] inputArr = {"da","da","bo","mi"};
-        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+        assertThatThrownBy(() ->  inputView.testCarNameExceptions(inputArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.CAR_DUPLICATE_ERROR_MESSAGE);
     }
@@ -66,7 +66,7 @@ class InputViewTest {
     @DisplayName("자동차 이름 대문자 입력에 대한 예외 확인")
     void checkCarNameExceptions_대문자불가확인() {
         String[] inputArr = {"Da","da","bo","mi"};
-        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+        assertThatThrownBy(() ->  inputView.testCarNameExceptions(inputArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.CAR_NAME_ERROR_MESSAGE);
     }
@@ -75,7 +75,7 @@ class InputViewTest {
     @DisplayName("자동차 이름 숫자 입력에 대한 예외 확인")
     void checkCarNameExceptions_숫자불가확인() {
         String[] inputArr = {"11","da","bo","mi"};
-        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+        assertThatThrownBy(() ->  inputView.testCarNameExceptions(inputArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.CAR_NAME_ERROR_MESSAGE);
     }
@@ -84,7 +84,7 @@ class InputViewTest {
     @DisplayName("자동차 이름 길이 초과에 대한 예외 확인")
     void checkCarNameExceptions_길이확인() {
         String[] inputArr = {"kimdabomi","da","bo","mi"};
-        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+        assertThatThrownBy(() ->  inputView.testCarNameExceptions(inputArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.CAR_NAME_ERROR_MESSAGE);
     }
@@ -93,7 +93,7 @@ class InputViewTest {
     @DisplayName("자동차 이름 길이 미만에 대한 예외 확인")
     void checkCarNameExceptions_길이확인2() {
         String[] inputArr = {"","da","bo","mi"};
-        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+        assertThatThrownBy(() ->  inputView.testCarNameExceptions(inputArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.CAR_NAME_ERROR_MESSAGE);
     }
@@ -102,7 +102,7 @@ class InputViewTest {
     @DisplayName("자동차 이름 공백 포함에 대한 예외 확인")
     void checkCarNameExceptions_공백포함불가확인() {
         String[] inputArr = {"kim"," da","bo","mi"};
-        assertThatThrownBy(() ->  inputView.checkCarNameExceptions(inputArr))
+        assertThatThrownBy(() ->  inputView.testCarNameExceptions(inputArr))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.CAR_NAME_ERROR_MESSAGE);
     }
@@ -111,7 +111,7 @@ class InputViewTest {
     @DisplayName("시도 횟수 범위에 대한 예외 확인")
     void checkTryCountExceptions_범위확인() {
         int tryCount = 0;
-        assertThatThrownBy(() ->  inputView.checkTryCountExceptions(tryCount))
+        assertThatThrownBy(() ->  inputView.testTryCountExceptions(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MagicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
     }
