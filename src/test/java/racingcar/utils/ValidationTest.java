@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -11,16 +11,16 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class ValidationTest {
     @Test
-    void checkIfNullOrBlankList_emptyList_ExceptionThrown() {
+    void ifNullOrBlankList_EmptyList_ExceptionThrown() {
         final List<String> emptyList = new ArrayList<>();
 
         assertThatThrownBy(() -> Validation.checkIfNullOrBlankList(emptyList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("입력값이 없거나 빈 공백만으로 이뤄져있습니다. 게임을 종료합니다.");
+                .hasMessage("입력값이 없거나 빈 공백으로 이뤄져있습니다. 게임을 종료합니다.");
     }
 
     @Test
-    void checkIfAnyBelowOneLength_elementLength0_ExceptionThrown() {
+    void ifAnyBelowOneLength_ElementLength0_ExceptionThrown() {
         final List<String> belowOneList = Arrays.asList("car", "", "fun");
 
         assertThatThrownBy(() -> Validation.checkIfAnyBelowOneLength(belowOneList))
@@ -29,8 +29,7 @@ public class ValidationTest {
     }
 
     @Test
-    void checkIfAnyOverFiveLength_elementLength6_ExceptionThrown() {
-        // 변수이름이 너무 특징적이지 않다...?
+    void ifAnyOverFiveLength_ElementLength6_ExceptionThrown() {
         final List<String> overFiveList = Arrays.asList("car", "raceis", "fun");
 
         assertThatThrownBy(() -> Validation.checkIfAnyOverFiveLength(overFiveList))
@@ -39,7 +38,7 @@ public class ValidationTest {
     }
 
     @Test
-    void checkIfAnyOverlapping_equalElement_ExceptionThrown() {
+    void ifAnyOverlapping_EqualElement_ExceptionThrown() {
         final List<String> overlappingList = Arrays.asList("start", "car", "race", "start");
 
         assertThatThrownBy(() -> Validation.checkIfAnyOverlapping(overlappingList))
@@ -48,7 +47,7 @@ public class ValidationTest {
     }
 
     @Test
-    void checkIfNullOrBlankString_emptyString_ExceptionThrown() {
+    void ifNullOrBlankString_EmptyString_ExceptionThrown() {
         final String emptyString = "";
 
         assertThatThrownBy(() -> Validation.checkIfNullOrBlankString(emptyString))
@@ -58,7 +57,7 @@ public class ValidationTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"Hello", "wooteco"})
-    void checkIfNotInteger_inputString_ExceptionThrown(String notInteger) {
+    void ifNotInteger_InputString_ExceptionThrown(String notInteger) {
         assertThatThrownBy(() -> Validation.checkIfNotInteger(notInteger))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 정수여야 합니다. 게임을 종료합니다.");
@@ -66,7 +65,7 @@ public class ValidationTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"-1", "0"})
-    void checkIfNotPositiveNumber_inputNegative_ExceptionThrown(String belowZero) {
+    void ifNotPositiveNumber_InputNegative_ExceptionThrown(String belowZero) {
         assertThatThrownBy(() -> Validation.checkIfNotPositiveNumber(belowZero))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 1이상이어야 합니다. 게임을 종료합니다.");

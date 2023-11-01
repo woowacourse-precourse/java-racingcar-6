@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public class Car {
     private String name;
@@ -12,10 +12,18 @@ public class Car {
         movingCount++;
     }
 
-    public String toString() {
+    public String getCarName() {
+        return name;
+    }
+
+    public int getMovingCount() {
+        return movingCount;
+    }
+
+    public String status() {
         StringBuilder movingMark = new StringBuilder();
         movingMark.append("-".repeat(Math.max(0, movingCount)));
 
-        return "name : " + movingMark;
+        return name + " : " + movingMark;
     }
 }

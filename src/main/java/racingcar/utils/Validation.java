@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +21,7 @@ public class Validation {
 
     public static void checkIfNullOrBlankList(final List<String> carNameList) {
         if (carNameList.isEmpty()) {
-            throw new IllegalArgumentException("입력값이 없거나 빈 공백만으로 이뤄져있습니다. 게임을 종료합니다.");
+            throw new IllegalArgumentException("입력값이 없거나 빈 공백으로 이뤄져있습니다. 게임을 종료합니다.");
         }
     }
 
