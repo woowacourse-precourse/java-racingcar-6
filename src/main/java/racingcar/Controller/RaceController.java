@@ -28,4 +28,18 @@ public class RaceController {
                 .map(Car::new)
                 .collect(Collectors.toList()));
     }
+
+    public void run() {
+        Cars cars = makeCars(carNames);
+
+        OutputView.printRaceProgressMsg();
+        for (int i = 0; i < tryCount; i++) {
+            cars.moveAll();
+            OutputView.printRaceProgress(cars);
+        }
+
+        List<Car> winners = cars.findWinners();
+        OutputView.printFinalWinnerMsg();
+        OutputView.printFinalWinner(winners);
+    }
 }
