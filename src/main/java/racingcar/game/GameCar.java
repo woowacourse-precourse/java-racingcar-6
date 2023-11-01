@@ -3,8 +3,8 @@ package racingcar.game;
 import racingcar.Object.Car;
 
 public class GameCar {
-    private Car car = new Car();
-    private String name;
+    private final Car car = new Car();
+    private final String name;
     private int position = 0;
 
     public GameCar(String name) {
@@ -16,6 +16,10 @@ public class GameCar {
     }
 
     public int getPosition() {
-        return position;
+        return this.position;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
