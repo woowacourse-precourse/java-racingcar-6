@@ -14,7 +14,6 @@ public class Validation {
         if (!isLengthNames(carNames)) {
             throw new IllegalArgumentException("5글자 이하만 가능");
         }
-
         return true;
     }
 
@@ -34,7 +33,6 @@ public class Validation {
                 return false;
             }
         }
-
         return true;
     }
 

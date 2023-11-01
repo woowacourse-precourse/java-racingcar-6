@@ -21,7 +21,6 @@ public class RacingGame {
     private void ready() {
         List<String> carNames = acceptApplicants();
         raceCount = assignRaceCount();
-
         racingCars = createRacingCars(carNames);
         track = new Track();
     }

@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Track {
-    private final int RANDOM_START = 0;
-    private final int RANDOM_END = 9;
+    private static final int RANDOM_START = 0;
+    private static final int RANDOM_END = 9;
 
     public Map<String, Integer> round(List<RacingCar> racingCars) {
         Map<String, Integer> roundResult = new HashMap<>();
