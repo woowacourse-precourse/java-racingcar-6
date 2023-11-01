@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.IOTest;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -104,12 +105,29 @@ public class InputViewTest extends IOTest {
 
     @DisplayName("경주 횟수 최소횟수 미만 예외 확인테스트")
     @ParameterizedTest
-    @ValueSource(ints = {0,-1})
-    void checkMinimumRacingCountExceptionTest(int testNumber){
+    @ValueSource(ints = {0, -1})
+    void checkMinimumRacingCountExceptionTest(int testNumber) {
         assertThatIllegalArgumentException().isThrownBy(() -> {
             InputView.checkMinimumRacingCount(testNumber);
         });
 
+    }
+
+    @DisplayName("자동차 이름 중복 예외 확인테스트")
+    @ParameterizedTest
+    @MethodSource("provideExceptionDuplicateCarNameList")
+    void checkForDuplicationExceptionTest(List<String> testInput) {
+        assertThatIllegalArgumentException().isThrownBy(() -> {
+            InputView.checkForDuplication(testInput);
+        });
+
+    }
+
+    static Stream<Arguments> provideExceptionDuplicateCarNameList() {
+        return Stream.of(
+                Arguments.of(Arrays.asList("a", "a", "c")),
+                Arguments.of(Arrays.asList("x", "z", "z"))
+        );
     }
 
 
