@@ -3,6 +3,7 @@ package racingcar.domain.system.game;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static racingcar.domain.system.game.RacingGameTest.GameTestFactory.getCoWinnerTestHost;
 import static racingcar.domain.system.game.RacingGameTest.GameTestFactory.getConsoleViewer;
+import static racingcar.domain.system.game.RacingGameTest.GameTestFactory.getMixedOrderCarNameReader;
 import static racingcar.domain.system.game.RacingGameTest.GameTestFactory.getTestCarManager;
 import static racingcar.domain.system.game.RacingGameTest.GameTestFactory.getTestCarNameReader;
 import static racingcar.domain.system.game.RacingGameTest.GameTestFactory.getTestCarPositionManager;
@@ -44,6 +45,9 @@ class RacingGameTest {
         CAR_C_POSITION};
     private static final int[] COWINNER_EXPECTED_POSITIONS = {COWINNER_CAR_A_POSITION,
         COWINNER_CAR_B_POSITION, COWINNER_CAR_C_POSITION};
+
+    private static final int[] MIXEDORDER_EXPECTED_POSITIONS = {COWINNER_CAR_B_POSITION,
+        COWINNER_CAR_A_POSITION, COWINNER_CAR_C_POSITION};
 
     @Test
     @DisplayName("게임을 시작한다.")
@@ -95,10 +99,40 @@ class RacingGameTest {
         }
     }
 
+    @Test
+    @DisplayName("입력 순서대로 공동 우승자를 출력하는 공동 우승자가 있는 게임을 시작한다.")
+    void checkInputOrderStart() {
+        // given
+        CarNameReader carNameReader = getMixedOrderCarNameReader();
+        TryCountReader tryCountReader = getTestTryCountReader();
+        Viewer viewer = getConsoleViewer();
+        Host host = getCoWinnerTestHost();
+        CarManager carManager = getTestCarManager();
+        CarPositionManager carPositionManager = getTestCarPositionManager();
+        Game game = new RacingGame(carNameReader, tryCountReader, viewer, host, carManager,
+            carPositionManager);
+
+        // when
+        game.start();
+
+        // then
+        List<SavedCar> cars = carManager.findAll();
+        List<SavedCarPosition> positions = carPositionManager.findAll(cars);
+        int idx = 0;
+        for (SavedCarPosition position : positions) {
+            assertEquals(COWINNER_EXPECTED_POSITIONS[idx++], position.getPosition());
+        }
+    }
+
+
     static class GameTestFactory {
 
         static CarNameReader getTestCarNameReader() {
             return () -> List.of(CAR_A_NAME, CAR_B_NAME, CAR_C_NAME);
+        }
+
+        static CarNameReader getMixedOrderCarNameReader() {
+            return () -> List.of(CAR_B_NAME, CAR_A_NAME, CAR_C_NAME);
         }
 
         static TryCountReader getTestTryCountReader() {
