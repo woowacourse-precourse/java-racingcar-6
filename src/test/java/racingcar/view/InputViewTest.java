@@ -32,6 +32,11 @@ class InputViewTest {
         output.reset();
     }
 
+    @AfterEach
+    public void closeConsole() {
+        camp.nextstep.edu.missionutils.Console.close();
+    }
+
     @Test
     void readCarNames_사용자가_입력한_자동차_이름을_문자열로_반환() {
         //given
