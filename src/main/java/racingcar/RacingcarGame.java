@@ -28,10 +28,13 @@ public class RacingcarGame {
         public static void startRace(List<Car> cars, int numOfTrial) {
             for (int i = 0; i < numOfTrial; i++) {
                 System.out.println();
-                for (Car car : cars) {
-                    car.move();
-                    car.finalresult();
-                }
+                raceResult(cars);
+            }
+        }
+        public static void raceResult(List<Car> cars {
+            for (Car car : cars) {
+                car.move();
+                car.finalresult();
             }
         }
     }
