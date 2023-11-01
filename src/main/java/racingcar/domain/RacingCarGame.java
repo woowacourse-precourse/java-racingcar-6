@@ -9,9 +9,11 @@ public class RacingCarGame {
     private Integer racingCnt;
     private UserInputHandler userInputHandler;
     private RoundManager roundManager;
+    private Referee racingReferee;
 
     public  RacingCarGame(){
         userInputHandler = new UserInputHandler();
+        racingReferee = new Referee();
     }
     public  void start(){
         setGame();
@@ -20,6 +22,8 @@ public class RacingCarGame {
             roundManager.roundPlay();
             roundManager.printRoundResult();
         }
+        racingReferee.findWinner(roundManager.getRacingCars());
+        System.out.println(racingReferee.getResult());
     }
 
     private void setGame(){
