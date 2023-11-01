@@ -43,6 +43,10 @@ public class InputValidator {
         if (input.contains(" ")) {
             throw new IllegalArgumentException("자동차 이름은 쉼표(,)로만 구분해야 합니다.");
         }
+        if (!input.matches("[a-zA-Z0-9, ]*")) {
+            throw new IllegalArgumentException("자동차 이름은 쉼표(,) 이외의 다른 문자로 구분되어서는 안 됩니다.");
+        }
+
     }
 
     public static void validateMovementString(String input) {

@@ -17,8 +17,9 @@ public class GameController {
 
     public void startGame() {
         String carNames = view.readCarNamesInput();
-        InputValidator.validateInputFormat(carNames);
         InputValidator.validateCarNamesSeparator(carNames);
+        InputValidator.validateInputFormat(carNames);
+
 
         List<String> carNameList = Arrays.asList(carNames.split(","));
         InputValidator.validateDuplicateCarNames(carNameList);
