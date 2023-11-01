@@ -11,28 +11,38 @@
     - 마지막 우승자 car리스트를 받아서 출력한다.
   - InputUser
     - 문제에 맞는 문구 출력과 사용자 입력을 받는다.
-      - carNameString
-      - inputroundLength(String)
-    - 입력받은 문자열로 car이름을 추출한 뒤 각 Car객체에 담아서 ArrayList로 생성 후 반환한다.
-    - 잘못된 사용자 입력을 확인해서 예외처리를 한다.
-      - carName 입력시
-          - car이름이 중복될 경우
-          - 이름이 5자 초과일 경우
-          - car개수가 1이하일 경우
-          - car이름이 공백일 경우
-      - roundLength 입력시
-          - 숫자가 아닐 경우
-          - 0이하일 경우
+  - GameViewMessage (enum)
+    - WRITE_CAR_NAME_MESSAGE
+    - WRITE_RACE_LENGTH_MESSAGE
+    - OUTPUT_FIRST_LINE_MESSAGE
+    - OUTPUT_WINNER_MESSAGE
+    - COLON_STRING
+    - SPACE_BAR
+  - ExceptionString (enum)
+    - INPUT_INTEGER_ROUND_ERROR_MESSAGE
+    - INPUT_STRING_ROUND_ERROR_MESSAGE
+    - CAR_NAME_OVER_LENGTH_ERROR_MESSAGE
+    - DUPLICATE_CAT_NAME_ERROR_MESSAGE
 #### [controller]
   - RacingGame
     - carNameString 입력을 ArrayList<Car>형태로 받아온다.
+    - 입력받은 문자열로 car이름을 추출한 뒤 각 Car객체에 담아서 ArrayList로 생성한다.
     - 라운드 횟수 입력을 받아온다.
-    - 라운드 횟수만큼 라운드를 진행한다.
-    - 우승자를 선정한다.
+    - 잘못된 사용자 입력을 확인해서 예외처리를 한다.
+        - carName 입력시
+            - car이름이 중복될 경우
+            - 이름이 5자 초과일 경우
+            - car개수가 1이하일 경우
+            - car이름이 공백일 경우
+        - roundLength 입력시
+            - 숫자가 아닐 경우
+            - 0이하일 경우
+    - 라운드를 진행한다.
   - Round
     - 각 carName마다 전진을 결정(desicionMove)한다.
     - OutputView를 실행한다.
     - 위 두 과정을 라운드 횟수만큼 반복한다.
+    - 모든 라운드가 끝나면 우승자를 선정한다.
     - goForward
       - 조건(decisionforward)에 따라 각 carName마다 raceLength에 step하나를 누적한다.
     - decisionforward
@@ -53,15 +63,3 @@
   - GameState
     - 필드 : Map(carName, stepDistance)
     - 각라운드당 게임 참여 중인 Car들의 display할 상태
-  - GameViewMessage (enum)
-    - WRITE_CAR_NAME_MESSAGE
-    - WRITE_RACE_LENGTH_MESSAGE
-    - OUTPUT_FIRST_LINE_MESSAGE
-    - OUTPUT_WINNER_MESSAGE
-    - COLON_STRING
-    - SPACE_BAR
-  - ExceptionString (enum)
-    - INPUT_INTEGER_ROUND_ERROR_MESSAGE
-    - INPUT_STRING_ROUND_ERROR_MESSAGE
-    - CAR_NAME_OVER_LENGTH_ERROR_MESSAGE
-    - DUPLICATE_CAT_NAME_ERROR_MESSAGE
