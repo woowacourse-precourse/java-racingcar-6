@@ -11,5 +11,10 @@ public class Application {
 
         String[] carName = str.split(",");
 		
+        Car[] car = new Car[carName.length]; 
+		
+		for(int i = 0; i < car.length; i++) {
+			car[i] = new Car(carName[i]);
+		}
     }
 }
