@@ -1,12 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import domain.Cars;
+import racingcar.domain.Cars;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import validator.NameValidator;
-import view.InputView;
+import racingcar.validator.NameValidator;
+import racingcar.view.InputView;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;

@@ -5,8 +5,8 @@ import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import validator.TryCountValidator;
-import view.InputView;
+import racingcar.validator.TryCountValidator;
+import racingcar.view.InputView;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

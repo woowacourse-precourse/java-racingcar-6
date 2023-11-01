@@ -1,4 +1,4 @@
-package validator;
+package racingcar.validator;
 
 public class TryCountValidator {
     private static final String TYPE_ERROR_MESSAGE = "[ERROR] 숫자만 입력해 주세요.";
