@@ -16,9 +16,9 @@ public class RacingGameController {
     private final TryCountValidator tryCountValidator = new TryCountValidator();
 
     public void play() {
-        List<String> carNameList = inputView.getCarNames();
-        validateCarNames(carNameList);
-        List<Car> carList = createCars(carNameList);
+        String[] carNames = inputView.getCarNames();
+        validateCarNames(carNames);
+        List<Car> carList = createCars(carNames);
 
         String tryCount = inputView.getTryCount();
         validateTryCount(tryCount);
@@ -43,16 +43,16 @@ public class RacingGameController {
         }
     }
 
-    private List<Car> createCars(List<String> carNameList) {
+    private List<Car> createCars(String[] carNames) {
         List<Car> cars = new ArrayList<>();
-        for (String carName : carNameList) {
+        for (String carName : carNames) {
             cars.add(new Car(carName));
         }
         return cars;
     }
 
 
-    public void validateCarNames(List<String> carNameList) {
+    public void validateCarNames(String[] carNameList) {
         carNameValidator.validateCarNameLength(carNameList);
         carNameValidator.validateCarNameDuplicate(carNameList);
     }
