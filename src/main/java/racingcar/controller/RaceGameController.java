@@ -17,12 +17,12 @@ public class RaceGameController {
     public void run() {
         int attemptCount = InputView.inputAttemptCount();
         OutputView.beforeRaceMessage();
-        startRace(attemptCount);
+        runRace(attemptCount);
         OutputView.displayScoreBoard(scoreBoardService.getScoreBoard());
         OutputView.displayWinners(scoreBoardService.findFinalRoundWinners());
     }
 
-    private void startRace(int attemptCount) {
+    private void runRace(int attemptCount) {
         for (int round = 1; round <= attemptCount; round++) {
             racingCarService.moveRacingCars();
             scoreBoardService.recordRound(round, racingCarService.convertToScoreDtoList());
