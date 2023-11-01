@@ -7,15 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Track {
-    private final List<RacingCar> racingCars;
     private final int RANDOM_START = 0;
     private final int RANDOM_END = 9;
 
-    public Track(List<RacingCar> racingCars) {
-        this.racingCars = racingCars;
-    }
-
-    public Map<String, Integer> round() {
+    public Map<String, Integer> round(List<RacingCar> racingCars) {
         Map<String, Integer> roundResult = new HashMap<>();
         racingCars.forEach(racingCar -> {
             int random = Randoms.pickNumberInRange(RANDOM_START, RANDOM_END);
@@ -25,9 +20,9 @@ public class Track {
         return roundResult;
     }
 
-    public List<String> selectWinners() {
+    public List<String> selectWinners(List<RacingCar> racingCars) {
         List<String> winners = new ArrayList<>();
-        int maxPosition = getMaxPosition();
+        int maxPosition = getMaxPosition(racingCars);
 
         racingCars.stream().filter(racingCar -> racingCar.getPosition() == maxPosition)
                 .forEach(winner -> {
@@ -36,7 +31,7 @@ public class Track {
         return winners;
     }
 
-    private int getMaxPosition() {
+    private int getMaxPosition(List<RacingCar> racingCars) {
         int maxPosition = 0;
         for (RacingCar racingCar : racingCars) {
             maxPosition = Math.max(maxPosition, racingCar.getPosition());
