@@ -1,15 +1,14 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class JudgementTest {
+class RoundPlayingTest {
 
     @Test
     void decideToMoveTest() {
-        Judgement judge = new Judgement();
+        RoundPlaying judge = new RoundPlaying();
         int lowNumber = 2;
         int highNumber = 4;
 
