@@ -28,9 +28,11 @@ class GameInputControllerTest extends IOTest {
     void requestNames_메서드로_자동차_이름_지정() {
         //given
         systemIn("seori,snow,joy");
+
         //when
         inputController.requestNames();
-        ArrayList<Car> cars = inputController.cars.getCarList();
+        ArrayList<Car> cars = inputController.getListOfCar();
+
         //then
         assertEquals(cars.size(), 3);
     }
@@ -39,9 +41,11 @@ class GameInputControllerTest extends IOTest {
     void requestTryNumber_메서드로_게임_진행_횟수_지정() {
         //given
         systemIn("2");
+
         //when
         inputController.requestTryNumber();
-        int chanceNumber = inputController.game.getChanceNumber();
+        int chanceNumber = inputController.getTryNumberOfGame();
+
         //then
         assertEquals(chanceNumber, 2);
     }
