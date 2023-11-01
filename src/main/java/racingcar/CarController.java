@@ -1,8 +1,9 @@
 package racingcar;
 
+import constant.UserResponeMessage;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-import racingcar.Constant.UserResponeMessage;
 
 public class CarController {
 

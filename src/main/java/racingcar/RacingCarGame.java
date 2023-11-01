@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.Constant.*;
+import constant.*;
 
 public class RacingCarGame {
     private UserInputHandler userInputHandler;

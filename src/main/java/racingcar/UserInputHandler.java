@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Constant.*;
+import constant.GameConfig;
 
 public class UserInputHandler {
 
