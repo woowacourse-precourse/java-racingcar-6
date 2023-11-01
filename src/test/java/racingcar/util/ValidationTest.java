@@ -43,7 +43,7 @@ public class ValidationTest {
     }
 
     @Test
-    void 이름이_하나_일_경우_예외_처리() {
+    void 이름이_1개_이하_일_경우_예외_처리() {
         validation = new Validation();
         var names = List.of("matia");
 
