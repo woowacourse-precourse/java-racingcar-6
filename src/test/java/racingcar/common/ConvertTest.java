@@ -33,4 +33,13 @@ class ConvertTest {
         assertThatThrownBy(() -> Convert.stringToInteger(wrongString))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("stringToInteger_테스트")
+    void stringToInteger_음수_테스트() {
+
+        String negative = "-1";
+        assertThatThrownBy(() -> Convert.stringToInteger(negative))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
