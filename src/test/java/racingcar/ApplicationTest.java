@@ -2,16 +2,17 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Validation;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Application.isCntValid;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    Validation validation = new Validation();
 
     @Test
     void 전진_정지() {
@@ -34,7 +35,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이동_횟수_예외_처리(){
-        boolean result = isCntValid("0");
+        boolean result = validation.isCntValid("0");
         assertThat(result).isEqualTo(false);
     }
 
