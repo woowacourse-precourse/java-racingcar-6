@@ -9,4 +9,12 @@ public class Car {
 		this.carName = carName;
 		moveCount = 0;
 	}
+
+	public boolean move(int random) {
+		if (random >= 4) {
+			moveCount++;
+			return true;
+		}
+		return false;
+	}
 }
