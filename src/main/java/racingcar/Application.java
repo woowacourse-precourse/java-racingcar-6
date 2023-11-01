@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Judgement;
 import racingcar.domain.NumberGenerator;
+import racingcar.domain.Output;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,14 @@ public class Application {
 
         NumberGenerator generator = new NumberGenerator();
         Judgement judgement = new Judgement();
+        Output output = new Output();
+
+        List<Integer> fowardCount = new ArrayList<>();
+        for(int i = 0; i < car.size(); i++){
+            fowardCount.add(0);
+        }
+
+        System.out.println("실행 결과");
 
         for(int i = 0; i < num; i++){
             List<Integer> computer = generator.createRandomNumber();
@@ -25,7 +34,24 @@ public class Application {
 
             List<Boolean> morethan4 = judgement.correctCount(computer);
             System.out.println(morethan4);
+
+            List<Integer> number = output.gameStart(computer, morethan4, fowardCount);
+            System.out.println(number);
+
+            output.log(car, fowardCount);
         }
+
+        List<String> winnerName = output.winner(car, fowardCount);
+
+        System.out.print("최종 우승자 : ");
+
+        for (int i = 0; i < winnerName.size(); i++){
+            System.out.print(winnerName.get(i));
+            if(i == winnerName.size() - 1) break;
+            System.out.print(", ");
+        }
+
+
     }
 
     public static List<String> askName(){
