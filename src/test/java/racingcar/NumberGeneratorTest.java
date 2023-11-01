@@ -28,15 +28,15 @@ public class NumberGeneratorTest {
         Assertions.assertThat(intList.contains(NumberGenerator.createRandomNumber())).isEqualTo(true);
     }
 
-//    @Test
-//    void 범위_밖_난수_생성() {
-//        final int MIN_RANGE = 10;
-//        final int MAX_RANGE = 19;
-//
-//        List<Integer> intList = IntStream.range(MIN_RANGE, MAX_RANGE)
-//                .boxed()
-//                .toList();
-//
-//        Assertions.assertThat(intList.contains(NumberGenerator.createRandomNumber())).isEqualTo(false);
-//    }
+    @Test
+    void 범위_밖_난수_생성() {
+        final int MIN_RANGE = 10;
+        final int MAX_RANGE = 19;
+
+        List<Integer> intList = IntStream.range(MIN_RANGE, MAX_RANGE)
+                .boxed()
+                .toList();
+
+        Assertions.assertThat(intList.contains(NumberGenerator.createRandomNumber())).isEqualTo(false);
+    }
 }
