@@ -16,7 +16,7 @@ public class Car {
     private Car() {
     }
 
-    Car(String name) {
+    public Car(String name) {
         this.name = name;
     }
 
