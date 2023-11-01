@@ -78,17 +78,23 @@ public class Race {
         }
     }
 
+    private StringBuilder printDash(StringBuilder stringBuilder, String player) {
+        for (int i = 0; i < playingStatus.get(player); i++) {
+            stringBuilder.append("-");
+        }
+        return stringBuilder;
+    }
+
     private void printEachRound() {
         for (String player : players) {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append(player).append(" : ");
-            for (int i = 0; i < playingStatus.get(player); i++) {
-                stringBuilder.append("-");
-            }
+            stringBuilder = printDash(stringBuilder, player);
             System.out.println(stringBuilder);
         }
         System.out.println();
     }
+
 
     private void findWinner() {
         StringBuilder stringBuilder = new StringBuilder();
