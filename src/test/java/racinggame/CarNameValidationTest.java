@@ -30,54 +30,48 @@ public class CarNameValidationTest {
     @DisplayName("0자의 자동차 이름 입력시 예외 발생")
     void zero_size_car_name_input_exception() {
         String carNames = GameDetail.CAR_SEPARATOR;
-        assertThatThrownBy(() -> {
-            Application.isValidCarNames(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Application.isValidCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("5자 초과의 자동차 이름 입력시 예외 발생")
     void oversize_car_name_input_exception() {
         String carNames = "abcdef";
-        assertThatThrownBy(() -> {
-            Application.isValidCarNames(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Application.isValidCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("자동차 이름 입력 없을 시 예외 발생")
     void no_car_name_input_exception() {
         String carNames = "";
-        assertThatThrownBy(() -> {
-            Application.isValidCarNames(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Application.isValidCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("특수문자로만 자동차 이름 입력시 예외 발생")
     void only_special_characters_car_name_input_exception() {
         String carNames = "###" + GameDetail.CAR_SEPARATOR + "@@@";
-        assertThatThrownBy(() -> {
-            Application.isValidCarNames(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Application.isValidCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("자동차 이름 하나만 입력시 예외 발생")
     void only_one_car_name_input_exception() {
         String carNames = "abc";
-        assertThatThrownBy(() -> {
-            Application.isValidCarNames(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Application.isValidCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("중복된 자동차 이름 존재시 예외 발생")
     void duplicate_car_name_input_exception() {
         String carNames = "a" + GameDetail.CAR_SEPARATOR + "a" + GameDetail.CAR_SEPARATOR + "b";
-        assertThatThrownBy(() -> {
-            Application.isValidCarNames(carNames);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Application.isValidCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
