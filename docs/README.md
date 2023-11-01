@@ -28,14 +28,16 @@ _환경설정_
 - GameConfigurations
 - InputConfigurations
 - ErrorMessages
+- Messages
 ### 🎮 controller : 
 _게임기_
 - GamePlayer(interface)
 - RacingCarPlayer
   - racing car 게임을 실행시킨다.
 ### 💾 model : 
-_자동차 데이터_
+_데이터 : 자동차, 시도 라운드_
 - Car
+- Round
 ### 🖥️ view
 _입,출력_
 - Printer : 출력기
