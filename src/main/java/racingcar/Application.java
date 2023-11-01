@@ -58,11 +58,12 @@ public class Application {
     }
 
     public static void startRacing(Map<String, Integer> carDistanceMap, Integer repeatCount) {
-        for (int i = 0; i < repeatCount; i++) {
 
-            if (repeatCount < 1) {
-                throw new IllegalArgumentException();
-            }
+        if (repeatCount < 1) {
+            throw new IllegalArgumentException();
+        }
+
+        for (int i = 0; i < repeatCount; i++) {
 
             carDistanceMap = movingCar(carDistanceMap);
 
