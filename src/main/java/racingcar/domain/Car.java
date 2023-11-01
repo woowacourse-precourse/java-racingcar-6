@@ -1,20 +1,26 @@
 package racingcar.domain;
 
-import static racingcar.domain.Verification.checkEqualsAndThrowException;
-import static racingcar.domain.Verification.throwCarNameLengthException;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
+    private static String carNames;
+    private static Integer move = 0;
 
-    public static List<String> carName(String input) {
-        List<String> carNames = new ArrayList<>();
-        for (String name : input.split(",")) {
-            carNames.add(name);
-            throwCarNameLengthException(name);
-            checkEqualsAndThrowException(carNames);
+    public Car(String carNames){
+        this.carNames = carNames;
+    }
+    public void moving(){
+        move+=1;
+    }
+
+    public static Integer getMove() {
+        return move;
+    }
+
+    public String toString(){
+        String gameResult = "";
+
+        for (int i = 0; i < move; i++) {
+            gameResult += "-";
         }
-        return carNames;
+        return carNames + " : " +gameResult;
     }
 }
