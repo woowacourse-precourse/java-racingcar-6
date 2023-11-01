@@ -1,4 +1,4 @@
-package racingcar.model.vo;
+package racingcar.model.result;
 
 import java.util.stream.IntStream;
 

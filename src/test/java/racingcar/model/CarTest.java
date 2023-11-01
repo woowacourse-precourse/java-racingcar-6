@@ -6,7 +6,10 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.vo.Name;
+import racingcar.model.rule.CarMovementStatus;
+import racingcar.model.rule.GameRuleValidator;
+import racingcar.model.vehicle.Car;
+import racingcar.model.vehicle.Name;
 
 public class CarTest {
     Car car;

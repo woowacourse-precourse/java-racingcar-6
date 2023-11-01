@@ -5,8 +5,8 @@ import racingcar.controller.GameController;
 import racingcar.controller.GameIOController;
 import racingcar.controller.IOController;
 import racingcar.controller.InputValidator;
-import racingcar.model.Cars;
-import racingcar.model.RacingCars;
+import racingcar.model.vehicle.Cars;
+import racingcar.model.vehicle.RacingCars;
 import racingcar.view.ConsoleView;
 import racingcar.view.IOView;
 

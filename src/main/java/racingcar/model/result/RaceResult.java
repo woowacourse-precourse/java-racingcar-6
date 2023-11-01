@@ -1,7 +1,6 @@
-package racingcar.model;
+package racingcar.model.result;
 
 import java.util.List;
-import racingcar.model.vo.RoundResult;
 
 public class RaceResult {
     private final List<RoundResult> results;

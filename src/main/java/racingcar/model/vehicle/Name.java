@@ -1,6 +1,6 @@
-package racingcar.model.vo;
+package racingcar.model.vehicle;
 
-import racingcar.model.GameRuleValidator;
+import racingcar.model.rule.GameRuleValidator;
 
 public record Name(String name) {
     public Name {

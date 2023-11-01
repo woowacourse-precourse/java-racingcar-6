@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.vehicle;
 
 public class Position {
     private Integer position;

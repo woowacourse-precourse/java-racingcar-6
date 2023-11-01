@@ -1,7 +1,7 @@
-package racingcar.model;
+package racingcar.model.vehicle;
 
-import racingcar.model.vo.Name;
-import racingcar.model.vo.RoundResult;
+import racingcar.model.rule.CarMovementStatus;
+import racingcar.model.result.RoundResult;
 
 public final class Car {
     private final Name name;

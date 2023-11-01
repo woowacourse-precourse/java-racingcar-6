@@ -1,12 +1,14 @@
-package racingcar.model;
+package racingcar.model.vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
-import racingcar.model.vo.Name;
-import racingcar.model.vo.RoundResult;
+import racingcar.model.rule.CarMovementStatus;
+import racingcar.model.result.RaceResult;
+import racingcar.model.rule.RandomNumberGenerator;
+import racingcar.model.result.RoundResult;
 
-public non-sealed class RacingCars implements Cars{
+public non-sealed class RacingCars implements Cars {
     private final List<Car> cars;
     public RacingCars(final List<Car> cars) {
         this.cars = List.copyOf(cars);

@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.model.GameRuleValidator;
+import racingcar.model.rule.GameRuleValidator;
 import racingcar.view.ConsoleView;
 
 public final class GameIOController implements IOController {

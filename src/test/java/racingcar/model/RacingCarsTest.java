@@ -10,7 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import racingcar.model.vo.Name;
+import racingcar.model.rule.CarMovementStatus;
+import racingcar.model.vehicle.Car;
+import racingcar.model.vehicle.Cars;
+import racingcar.model.vehicle.Name;
+import racingcar.model.vehicle.RacingCars;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RacingCarsTest {

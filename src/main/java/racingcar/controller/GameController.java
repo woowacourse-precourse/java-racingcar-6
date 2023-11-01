@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.stream.IntStream;
-import racingcar.model.Cars;
+import racingcar.model.vehicle.Cars;
 
 public final class GameController {
     private Cars cars;
