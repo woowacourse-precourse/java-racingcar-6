@@ -2,7 +2,9 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import racingcar.model.Car;
 
 public class InputManager {
     private final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -19,15 +21,19 @@ public class InputManager {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String tryCount = Console.readLine();
         Console.close();
+        isValidateTryCount(tryCount);
         return Integer.valueOf(tryCount);
     }
 
 
-    public Boolean isValidateCarName(String carName, Map<String, Integer> carPositions) {
-        if (isBlankCarName(carName) || isInvalidCarNameLength(carName) || isContainedCarName(carName, carPositions)) {
-            return false;
+    public void isValidateCarName(String carName, List<Car> cars) {
+        if (isBlankCarName(carName)){
+            throw new IllegalArgumentException("INVALID carName : carName is empty");
+        }else if (isInvalidCarNameLength(carName)){
+            throw new IllegalArgumentException("INVALID carName : carName length is over then 5");
+        }else if (isContainedCarName(carName, cars)) {
+            throw new IllegalArgumentException("INVALID carName : carName already exists.");
         }
-        return true;
     }
 
     private Boolean isBlankCarName(String carName) {
@@ -42,20 +48,20 @@ public class InputManager {
         return false;
     }
 
-    private Boolean isContainedCarName(String carName, Map<String, Integer> carPositions) {
-        return carPositions.containsKey(carName);
+    private Boolean isContainedCarName(String carName, List<Car> cars) {
+        return cars.stream().anyMatch(car -> car.getCarName().equals(carName));
     }
 
-    public Map<String, Integer> convertToCarMap(String[] carNames) {
-        Map<String, Integer> carMap = new LinkedHashMap<>();
-        for (String carName : carNames) {
-            if (!isValidateCarName(carName, carMap)) {
-                throw new IllegalArgumentException("Invalid CarName");
-            }
-            carMap.put(carName, 0);
-        }
-        return carMap;
-    }
+//    public Map<String, Integer> convertToCarMap(String[] carNames) {
+//        Map<String, Integer> carMap = new LinkedHashMap<>();
+//        for (String carName : carNames) {
+//            if (!isValidateCarName(carName, carMap)) {
+//                throw new IllegalArgumentException("Invalid CarName");
+//            }
+//            carMap.put(carName, 0);
+//        }
+//        return carMap;
+//    }
 
     public Boolean isValidateTryCount(String tryCount) {
         if (!isNumber(tryCount)) {

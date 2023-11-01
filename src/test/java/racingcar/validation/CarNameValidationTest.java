@@ -1,11 +1,13 @@
 package racingcar.validation;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 import racingcar.view.InputManager;
 
 public class CarNameValidationTest {
@@ -20,55 +22,55 @@ public class CarNameValidationTest {
     void validateCarNames_성공() {
         //given
         String input = "pobi";
-        Map<String, Integer> carPositions = new LinkedHashMap<>();
+        List<Car> cars = new ArrayList<>();
         //when
-        Boolean result = inputManager.isValidateCarName(input, carPositions);
-        //then
-        assertEquals(true,result);
+        assertDoesNotThrow(() -> {
+            inputManager.isValidateCarName(input,cars);
+        });
     }
 
     @Test
     void isValidateCarName_실패_이름이_없는_경우() {
         //given
         String input = "";
-        Map<String, Integer> carPositions = new LinkedHashMap<>();
+        List<Car> cars = new ArrayList<>();
         //when
-        Boolean result = inputManager.isValidateCarName(input, carPositions);
-        //then
-        assertEquals(false,result);
+        assertThatThrownBy(() -> inputManager.isValidateCarName(input, cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID carName : carName is empty");
     }
 
     @Test
     void isValidateCarName_실패_이름이_blank로만_이루어진_경우() {
         //given
         String input = "   ";
-        Map<String, Integer> carPositions = new LinkedHashMap<>();
+        List<Car> cars = new ArrayList<>();
         //when
-        Boolean result = inputManager.isValidateCarName(input, carPositions);
-        //then
-        assertEquals(false,result);
+        assertThatThrownBy(() -> inputManager.isValidateCarName(input, cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID carName : carName is empty");
     }
 
     @Test
     void isValidateCarName_실패_5자리_이상() {
         //given
         String input = "우아한테크코스";
-        Map<String, Integer> carPositions = new LinkedHashMap<>();
+        List<Car> cars = new ArrayList<>();
         //when
-        Boolean result = inputManager.isValidateCarName(input, carPositions);
-        //then
-        assertEquals(false,result);
+        assertThatThrownBy(() -> inputManager.isValidateCarName(input, cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID carName : carName length is over then 5");
     }
 
     @Test
     void isValidateCarName_이름이_이미_존재하는_경우() {
         //given
         String input = "pobi";
-        Map<String, Integer> carPositions = new LinkedHashMap<>();
-        carPositions.put("pobi",0);
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("pobi"));
         //when
-        Boolean result = inputManager.isValidateCarName(input, carPositions);
-        //then
-        assertEquals(false,result);
+        assertThatThrownBy(() -> inputManager.isValidateCarName(input, cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID carName : carName already exists.");
     }
 }
