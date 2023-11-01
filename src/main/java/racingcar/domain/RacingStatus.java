@@ -1,9 +1,11 @@
 package racingcar.domain;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
+import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 
 public class RacingStatus {
-    public Map<String, Integer> racingMoveCount() {
+    public LinkedHashMap<String, Integer> racingMoveCount() {
         RacingValue racingValue = new RacingValue();
         ForwardCarCondition forwardCarCondition = new ForwardCarCondition();
         PrintRacingRankStatus printRacingRankStatus = new PrintRacingRankStatus();
@@ -12,7 +14,7 @@ public class RacingStatus {
         int raceCount = racingValue.racingCount;
         System.out.println();
         System.out.println("실행 결과");
-        Map<String, Integer> result = racingValue.racingStatus;
+        LinkedHashMap<String, Integer> result = racingValue.racingStatus;
         for (int i = 0; raceCount > i; i++) {
             result = forwardCarCondition.racingCarCount();
             printRacingRankStatus.printRacingCar(result);

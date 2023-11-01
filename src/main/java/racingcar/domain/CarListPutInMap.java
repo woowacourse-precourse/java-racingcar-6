@@ -1,11 +1,11 @@
 package racingcar.domain;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CarListPutInMap {
-    private static final Map<String, Integer> carMap = new HashMap<>();
+    private final LinkedHashMap<String, Integer> carMap = new LinkedHashMap<>();
     Exception exception = new Exception();
 
     public void carListPutInMap(List<String> carList) {
