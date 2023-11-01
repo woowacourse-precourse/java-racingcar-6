@@ -19,11 +19,8 @@ public class Race {
     }
 
     public void setRace() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
-        String inputCarNames = Console.readLine();
-        String[] carNames = inputCarNames.split(",");
-        enrollCars(carNames); // 차량 정보 등록하기
 
+        enrollCars(); // 차량 정보 등록하기
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTrial = Console.readLine();
         int trial = Integer.parseInt(inputTrial); // String -> int 변경
@@ -38,7 +35,10 @@ public class Race {
         referee.announceWinner(scoreBoard);
     }
 
-    public void enrollCars(String[] carNames) {
+    public void enrollCars() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        String inputCarNames = Console.readLine();
+        String[] carNames = inputCarNames.split(",");
         for (String carName : carNames) {
             if (inputValidation.checkName(carName)) {
                 Car car = new Car(carName);
@@ -47,6 +47,8 @@ public class Race {
         }
         inputValidation.checkDuplicate(Arrays.asList(carNames));
     }
+
+
 
     public void startRace(Car car) {
         // 입력한 시도 횟수에 따른 경주 진행
