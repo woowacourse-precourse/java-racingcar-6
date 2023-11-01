@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,39 @@ public class Cars {
             raceResult.append(carResult).append("\n");
         }
         return raceResult.toString();
+    }
+
+    public String getWinners() {
+        return findWinnersString(findMaxPosition());
+    }
+
+    private int findMaxPosition() {
+        if (carList.isEmpty()) {
+            throw new IllegalArgumentException("우승자 없당");
+        }
+
+        int maxPosition = carList.get(0).getPosition();
+
+        for (Car car : carList) {
+            int carPosition = car.getPosition();
+            if (carPosition > maxPosition) {
+                maxPosition = carPosition;
+            }
+        }
+
+        return maxPosition;
+    }
+
+    private String findWinnersString(int maxPosition) {
+        List<String> winners = new ArrayList<>();
+
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return String.join(", ", winners);
     }
 
 }

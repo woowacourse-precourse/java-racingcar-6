@@ -19,6 +19,7 @@ public class CarGameController {
     public void runWholeGame(){
         Game game = init();
         playGame(game);
+        afterGame(game);
     }
     private void playGame(Game game){
         outputView.displayExecutionResultsStartView();
@@ -26,6 +27,9 @@ public class CarGameController {
             game.oneRace();
             outputView.displayExecutionResultsView(game.getCurrentCarPositions());
         }
+    }
+    private void afterGame(Game game){
+        outputView.displayWinnerView(game.getWinners());
     }
 
     private Game init(){

@@ -28,4 +28,8 @@ public class Game {
         return cars.oneRaceResult();
     }
 
+    public String getWinners(){
+        return cars.getWinners();
+    }
+
 }
