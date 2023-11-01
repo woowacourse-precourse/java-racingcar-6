@@ -22,8 +22,8 @@ public class InputView {
     private String[] parseToNames(String[] carNames) {
         validateDuplicateNames(carNames);
         return Arrays.stream(carNames)
-                .map(String::trim)
                 .peek(this::validateCarName)
+                .map(String::trim)
                 .toArray(String[]::new);
     }
 
