@@ -8,8 +8,10 @@ public class RacingCar {
         this.name = name;
     }
 
-    public void move(int distance) {
-        position += distance;
+    public void move(int radomValue) {
+        if(radomValue >= 4){
+            position++;
+        }
     }
 
     public String getName(){
