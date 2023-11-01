@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResultGenerator {
@@ -28,7 +29,18 @@ public class ResultGenerator {
     }
 
     public List<String> generateWinnerList(List<Car> carList) {
-        return null;
+        List<String> winnerList = new ArrayList<>();
+
+        int maxMovingDistance = getMaxMovingDistance(carList);
+
+        for (Car car : carList) {
+            int curLocation = car.getMovingDistance();
+            if (curLocation == maxMovingDistance) {
+                winnerList.add(car.getName());
+            }
+        }
+
+        return winnerList;
     }
 
     public void printFinalResult(List<String> winnerList) {
