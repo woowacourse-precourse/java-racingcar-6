@@ -10,16 +10,16 @@
           - 정상 조건
               - Console로 쉼표 기준으로 입력 받기
           - 예외 조건
-            - [X] 중복되는 이름이 있을 경우 예외 처리 (duplicateName)
+            - [X] 중복 되는 이름이 있을 경우 예외 처리 (duplicateName)
             - [X] 이름이 5글자 이상일 경우 예외 처리 (checkLength)
-            - [X] 쉼표를 안 넣었을 경우 예외 처리
+            - [X] 쉼표를 안 넣었을 경우 예외 처리 (checkExpression)
             - [X] 숫자 입력시 예외 처리 (isNumberic)
 
       2. 시도할 횟수 (inputCount)
          - 정상 조건
              - Console로 입력 받기
          - 예외 조건
-             - [X] 숫자가 아닌 경우 예외 처리 (checkisDigit)
+             - [X] 숫자가 아닌 경우 예외 처리 (checkIsDigit)
              - [X] 음수인 경우 예외 처리 (checkNegative)
 
    - 전진 조건(createRandom)
