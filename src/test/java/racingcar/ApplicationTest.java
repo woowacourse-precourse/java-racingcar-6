@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -111,6 +110,15 @@ class ApplicationTest extends NsTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> checkExpress(input));
         assertEquals("쉼표(,)를 넣어주세요.", exception.getMessage());
     }
+
+    @Test
+    void 입력_구분자포함_되지_않을경우_그대로_반환(){
+        String input = "1";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("1");
+    }
+
 
 
     @Override
