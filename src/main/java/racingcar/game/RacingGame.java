@@ -23,7 +23,14 @@ public class RacingGame {
 	}
 
 	public void progressGame(int turn) {
+		validateTurn(turn);
 		IntStream.range(0, turn).forEach(i -> progressTurn());
+	}
+
+	private void validateTurn(int turn) {
+		if (turn < 0) {
+			throw new IllegalArgumentException("올바른 turn 값이 아닙니다.");
+		}
 	}
 
 	private void progressTurn() {
