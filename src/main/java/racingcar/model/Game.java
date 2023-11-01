@@ -17,4 +17,8 @@ public class Game {
         tryCount--;
         return false;
     }
+
+    public int getTryCount() {
+        return tryCount;
+    }
 }
