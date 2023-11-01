@@ -1,9 +1,9 @@
 package racingcar;
 
-import racingcar.messages.Message;
 import racingcar.view.InputView;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,24 +13,27 @@ public class GameManager {
     private final List<Car> cars = new ArrayList<>();
     private int numOfExecutions;
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
 
     public void start() {
-        System.out.println(Message.GAME_START_NAME);
+        outputView.printNameInputPrompt();
+
         List<String> cars = inputView.readCars();
         for (String car : cars) {
             this.cars.add(new Car(car));
         }
 
-        System.out.println(Message.GAME_START_COUNT);
+        outputView.printNumOfExecutionsInputPrompt();
         this.numOfExecutions = inputView.readNumOfExecutions();
     }
 
     public void play() {
-        System.out.println(Message.GAME_RESULT);
+        outputView.printGameResult();
         for (int i = 0; i < numOfExecutions; i++) {
             runGame();
         }
     }
+
     protected void runGame() {
         for (Car car : cars) {
             int distance = Randoms.pickNumberInRange(0, 9);
@@ -38,7 +41,7 @@ public class GameManager {
                 car.move(distance);
             }
 
-            System.out.printf("%s : %s\n", car.getName(), DISTANCE_CHAR.repeat(car.getDistance()));
+            outputView.drawCarDistance(car);
         }
 
         System.out.print("\n");
@@ -46,10 +49,8 @@ public class GameManager {
 
     public void printResult() {
         List<Car> winners = getMaxDistanceCars();
-        String winnerNames = String.join(", ", winners.stream().map(Car::getName).toList());
-        System.out.printf("%s%s", Message.FINAL_WINNER, winnerNames);
+        outputView.printWinners(winners);
     }
-
 
     protected List<Car> getMaxDistanceCars() {
         int maxDistance = 0;
