@@ -15,7 +15,8 @@ public class Winner {
         }
         return winner;
     }
-    public String insertSeparator(List<String> winnerList){
+
+    public String insertSeparator(List<String> winnerList) {
         return String.join(", ", winnerList);
     }
 }

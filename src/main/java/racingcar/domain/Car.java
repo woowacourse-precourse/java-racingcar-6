@@ -3,17 +3,14 @@ package racingcar.domain;
 import java.util.List;
 
 public class Car {
-    String[] carNameArr;
 
-    public String[] correctCarName(String car) {
-        carNameArr = splitCarName(car);
+    public void correctCarName(String[] carNameArr) {
         for (int i = 0; i < carNameArr.length; i++) {
-            numberOfCharacters(i);
+            numberOfCharacters(carNameArr, i);
         }
-        return carNameArr;
     }
 
-    public void numberOfCharacters(int i) {
+    public void numberOfCharacters(String[] carNameArr, int i) {
         if (carNameArr[i].length() > 5) {
             throw new IllegalArgumentException();
         }
@@ -24,13 +21,13 @@ public class Car {
         return carName;
     }
 
-    public void forwardStrReset(List<String> forwardCountStr) {
+    public void forwardStrReset(List<String> forwardCountStr, String[] carNameArr) {
         for (int i = 0; i < carNameArr.length; i++) {
             forwardCountStr.add("");
         }
     }
 
-    public void forwardIntReset(List<Integer> forwardCountInt) {
+    public void forwardIntReset(List<Integer> forwardCountInt, String[] carNameArr) {
         for (int i = 0; i < carNameArr.length; i++) {
             forwardCountInt.add(0);
         }
