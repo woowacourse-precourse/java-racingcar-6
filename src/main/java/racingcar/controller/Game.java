@@ -52,6 +52,18 @@ public class Game {
         System.out.println();
     }
 
+    public void result() {
+        List<String> winners = getWinners();
+        StringBuilder winnersCsv = new StringBuilder();
+        winnersCsv.append(winners.get(0));
+        winners.stream().skip(1).forEach(winner -> {
+            winnersCsv.append(", ");
+            winnersCsv.append(winner);
+        });
+        System.out.println(PROMPT_RESULT + winnersCsv.toString());
+    }
+
+
     private void carForward(BiFunction<Integer, Integer, Integer> randomFunction) {
         for (Car car : this.cars) {
             car.forward(randomFunction);
@@ -63,5 +75,11 @@ public class Game {
         for (Car car : this.cars) {
             System.out.println(car);
         }
+    }
+
+    private List<String> getWinners() {
+        Optional<Car> winCar = cars.stream().max(new Car.Greater());
+        int max = winCar.map(Car::getDistance).orElse(0);
+        return cars.stream().filter(car -> max == car.getDistance()).map(Car::getName).toList();
     }
 }
