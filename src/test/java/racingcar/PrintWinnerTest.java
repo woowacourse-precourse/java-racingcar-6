@@ -31,5 +31,12 @@ class PrintWinnerTest {
         assertEquals(expected, result);
     }
 
+    @Test
+    void testWinnerListPrint_최종_우승자_명단_텍스트_반환() {
 
+        PrintWinner printWinner = new PrintWinner(racingCars);
+        String result = printWinner.winnerListPrint();
+
+        assertEquals("최종 우승자 : 우아한", result);
+    }
 }
