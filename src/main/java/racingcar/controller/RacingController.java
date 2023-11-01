@@ -43,6 +43,7 @@ public class RacingController {
     private void setCarList(Map<String, Integer> list) {
         List<String> nameList = new ArrayList<>(List.of(carNameInput.returnCarName()));
 
+        carNameValidator.checkAllBlankName(nameList);
         carNameValidator.checkDuplicatedCarName(nameList);
         for (String name : nameList) {
             carNameValidator.checkBlankCarName(name);

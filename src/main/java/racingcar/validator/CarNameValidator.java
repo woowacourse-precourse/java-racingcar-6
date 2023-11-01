@@ -23,4 +23,10 @@ public class CarNameValidator {
             throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다");
         }
     }
+
+    public void checkAllBlankName(List<String> list) {
+        if (list.isEmpty()) {
+            throw new IllegalArgumentException("모든 자동차 이름은 공백이거나 빈 값일 수 없습니다.");
+        }
+    }
 }
