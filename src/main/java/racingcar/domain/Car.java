@@ -2,34 +2,26 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Car implements Comparable<Car> {
+public class Car {
 
-    private static final String POSITION_REGEX = "-";
     private static final int MOVABLE_THRESHOLD = 3;
 
-    private int position;
+    private final Position position;
     private final Name name;
 
-    private Car(String name, int position) {
+    private Car(String name) {
         this.name = new Name(name);
-        this.position = position;
+        this.position = new Position();
     }
 
-    public static Car of(String name, int position) {
-        return new Car(name, position);
+    public static Car from(String name) {
+        return new Car(name);
     }
 
     public void move(int randomNumber) {
         if (isMovable(randomNumber)) {
-            this.position++;
+            position.increase();
         }
-    }
-    public Name getName() {
-        return name;
-    }
-
-    public boolean isSamePosition(Car otherCar) {
-        return this.position == otherCar.position;
     }
 
     private boolean isMovable(int randomNumber) {
