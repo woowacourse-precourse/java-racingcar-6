@@ -6,6 +6,7 @@ import racingcar.service.RacingcarGameServiceImpl;
 import racingcar.utility.RandomNumberGenerator;
 import racingcar.utility.RankingComputer;
 import racingcar.utility.TypeConverter;
+import racingcar.validation.InputFormatValidator;
 import racingcar.view.InputHandler;
 import racingcar.view.PrintHandler;
 import racingcar.view.Printer;
@@ -23,6 +24,8 @@ public class RacingcarGameController {
 
         Printer.printRoundChoiceMessage();
         String roundChoiceInputMessage = InputHandler.getInputMessage();
+        InputFormatValidator.validateNumberFormat(roundChoiceInputMessage);
+
         Printer.printLineBreak();
 
         int roundToRace = TypeConverter.convertStringToInt(roundChoiceInputMessage);
