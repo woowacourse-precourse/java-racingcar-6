@@ -15,13 +15,13 @@ public record CarName(String name) {
     }
 
     private static void validateName(String name) {
-        checkConditionAndThrow(name == null, NOT_NULL);
-        checkConditionAndThrow(name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH,
+        checkConditionAndThrowException(name == null, NOT_NULL);
+        checkConditionAndThrowException(name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH,
                 NOT_OVER_FIVE_OR_LESS_ZERO);
-        checkConditionAndThrow(!name.matches("^[a-zA-Z가-힣]*$"), NOT_KOREAN_OR_ENGLISH);
+        checkConditionAndThrowException(!name.matches("^[a-zA-Z가-힣]*$"), NOT_KOREAN_OR_ENGLISH);
     }
 
-    private static void checkConditionAndThrow(boolean condition, ExceptionMessage message) {
+    private static void checkConditionAndThrowException(boolean condition, ExceptionMessage message) {
         if (condition) {
             throw new IllegalArgumentException(message.getMessage());
         }
