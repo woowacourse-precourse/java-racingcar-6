@@ -5,7 +5,6 @@ import static model.utilityModel.isInValidName;
 import static model.number.BASE_NUMBER;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 public class racingGameModel {
     public ArrayList<racingCarInfo> racingCarInfos;
@@ -22,10 +21,14 @@ public class racingGameModel {
     public void updateRaceStatus(){
         for(racingCarInfo carInfo : racingCarInfos){
             int randomNumber = getRandomNumber();
-            if(randomNumber >= BASE_NUMBER){
-                carInfo.moveCount+=1;
-            }
+            carInfo.moveCount+=compareRandomToBase(randomNumber);
         }
+    }
+    private int compareRandomToBase(int radomNumber){
+        if(radomNumber>=BASE_NUMBER){
+            return 1;
+        }
+        return 0;
     }
     public List<String> getWinnerNames() {
         int max = findMaxCountOfCarInfos();
@@ -37,17 +40,17 @@ public class racingGameModel {
 
         return winnerNames;
     }
-    private void addWinnerIfMaxCount(List<String> winnerNames, racingCarInfo carInfo, int max) {
-        if (carInfo.moveCount == max) {
-            winnerNames.add(carInfo.name);
-        }
-    }
     private int findMaxCountOfCarInfos(){
         int maxCount = 0;
         for(racingCarInfo carInfo : racingCarInfos){
             maxCount=Math.max(maxCount,carInfo.moveCount);
         }
         return maxCount;
+    }
+    private void addWinnerIfMaxCount(List<String> winnerNames, racingCarInfo carInfo, int max) {
+        if (carInfo.moveCount == max) {
+            winnerNames.add(carInfo.name);
+        }
     }
 }
 
