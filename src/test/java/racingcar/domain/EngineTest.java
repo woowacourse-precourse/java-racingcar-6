@@ -16,7 +16,7 @@ class EngineTest {
 
     @Test
     void 전진_여부_결정_테스트() {
-        boolean result = engine.isMovingFoward();
+        boolean result = engine.isMovingForward();
         assertThat(result).isIn(true, false);
     }
 
