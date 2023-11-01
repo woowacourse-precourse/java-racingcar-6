@@ -7,8 +7,8 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printRoundResult(String result) {
-        System.out.println(result);
+    public static void printRoundResult(Car car) {
+        System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         System.out.println();
     }
 

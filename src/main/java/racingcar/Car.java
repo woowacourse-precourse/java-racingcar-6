@@ -26,8 +26,4 @@ public class Car {
     public static boolean isMovable() {
         return RandomNumberGenerator.generateRandomNumber() >= 4;
     }
-
-    public String makeMoveResult() {
-        return this.name + " : " + "-".repeat(this.position);
-    }
 }
