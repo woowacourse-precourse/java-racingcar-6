@@ -31,7 +31,7 @@
 * RacingController - 레이스 진행
 
 ### Model
-* Car - 자동차의 이름(String), 전진 횟수(Int) 저장
+* Car - 자동차의 이름(String), 전진 횟수(Int), 대시(-)(StringBuilder) 저장
 
 ### View
 * InputView - 입력
