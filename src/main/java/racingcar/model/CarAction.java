@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 
 public class CarAction {
+    private static final int MOVE_THRESHOLD = 4;
 
     public void moveCars() {
         for (int i = 0; i < Cars.countList.size(); i++) {
@@ -13,7 +14,7 @@ public class CarAction {
 
     private void carMoveOrStop(int carListIndex) {
         int randomNumber = createRandomNumber();
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_THRESHOLD) {
             carMoveOneStep(carListIndex);
         }
     }

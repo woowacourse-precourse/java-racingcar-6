@@ -25,10 +25,7 @@ public class GameController {
 
     private void playOneGame() {
         carAction.moveCars();
-        for (int i = 0; i < Cars.countList.size(); i++) {
-            SystemMessage.printOneGameResult(Cars.carList.get(i), Cars.countList.get(i));
-        }
-        System.out.println();
+        SystemMessage.printAllResult(Cars.carList, Cars.countList);
     }
 
     private void getCarName() {

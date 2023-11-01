@@ -7,7 +7,14 @@ public class SystemMessage {
         System.out.println("실행결과");
     }
 
-    public static void printOneGameResult(String carName, int moveCount) {
+    public static void printAllResult(List<String> carName, List<Integer> moveCount) {
+        for (int i = 0; i < carName.size(); i++) {
+            printOneGameResult(carName.get(i), moveCount.get(i));
+        }
+        System.out.println();
+    }
+
+    private static void printOneGameResult(String carName, int moveCount) {
         System.out.print(carName + " : ");
         for (int i = 0; i < moveCount; i++) {
             System.out.print("-");
