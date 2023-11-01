@@ -6,13 +6,14 @@ import racingcar.exception.InputException;
 import java.util.List;
 
 public class InputView {
-    InputException exceptionInstance=InputException.getinstance();
+    InputException exceptionInstance = InputException.getinstance();
+
     public InputView() {
     }
 
-    public List<String> carListInput(){
+    public List<String> carListInput() {
         String input = Console.readLine();
-        List<String> carList=exceptionInstance.carListException(input);
+        List<String> carList = exceptionInstance.carListException(input);
         return carList;
     }
 
