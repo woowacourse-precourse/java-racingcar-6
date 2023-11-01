@@ -31,7 +31,7 @@ public class InputManager {
     public int getRaceRound() {
         System.out.println("시도할 회수는 몇회인가요?");
         int raceRound = Integer.parseInt(Console.readLine());
-        validator.validateraceRound(raceRound);
+        validator.validateRaceRound(raceRound);
         return raceRound;
     }
 }
