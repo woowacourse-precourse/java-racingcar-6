@@ -1,12 +1,10 @@
 package racingcar.controller;
 
-import racingcar.domain.Cars;
-import racingcar.domain.GameStatus;
-import racingcar.domain.RandomNumbers;
-import racingcar.domain.Round;
+import racingcar.domain.*;
 import racingcar.service.RacingcarGameService;
 import racingcar.service.RacingcarGameServiceImpl;
 import racingcar.utility.RandomNumberGenerator;
+import racingcar.utility.RankingComputer;
 import racingcar.utility.TypeConverter;
 import racingcar.view.InputHandler;
 import racingcar.view.PrintHandler;
@@ -46,6 +44,8 @@ public class RacingcarGameController {
 
             gameStatus = round.checkIfGameIsOver(roundToRace);
         }
+
+        Winners winners = RankingComputer.computeWinners(cars);
     }
 
     private static void proceedEachRound(Cars cars) {
