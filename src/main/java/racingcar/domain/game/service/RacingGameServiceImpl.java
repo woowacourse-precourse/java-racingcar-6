@@ -53,9 +53,6 @@ public class RacingGameServiceImpl implements RacingGameService {
     }
 
     private boolean canMoveForward(final int number) {
-        if (number >= FORWARD_THRESHOLD.getConstant()) {
-            return true;
-        }
-        return false;
+        return number >= FORWARD_THRESHOLD.getConstant();
     }
 }
