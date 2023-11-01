@@ -34,8 +34,8 @@ public class RacingGameController {
     }
 
     public void ready() {
-        List<String> carList = getInputCarListAndCheckName();
-        int gameCnt = getInputGameCntAndCheckGameCnt();
+        List<String> carList = getInputCarListAndCheck();
+        int gameCnt = getInputGameCntAndCheck();
         racingDto = convertRacingDto(carList, gameCnt);
     }
 
@@ -68,7 +68,7 @@ public class RacingGameController {
         System.out.println("최종 우승자 : " + winnerList.stream().collect(Collectors.joining(", ")));
     }
 
-    public List<String> getInputCarListAndCheckName() {
+    public List<String> getInputCarListAndCheck() {
         String cars = racingUtils.getInputAnswerAndShowMessage(inputCarListMsg);
         List<String> carList = racingUtils.splitStringToList(cars);
         boolean isOverLen = racingUtils.isCheckStringLength(carList, checkLen);
@@ -78,7 +78,7 @@ public class RacingGameController {
         return carList;
     }
 
-    public int getInputGameCntAndCheckGameCnt() {
+    public int getInputGameCntAndCheck() {
         String gameCnt = racingUtils.getInputAnswerAndShowMessage(inputGameCntMsg);
         boolean isGameCountValid = racingUtils.isNumericOrNonNegative(gameCnt);
         if(isGameCountValid) {

@@ -12,7 +12,7 @@ public class RacingUtils {
 
     public String getInputAnswerAndShowMessage(String message) {
         System.out.println(message);
-        return Console.readLine();
+        return Console.readLine().replaceAll(" ", "");
     }
 
     public List<String> splitStringToList(String inputStr) {
