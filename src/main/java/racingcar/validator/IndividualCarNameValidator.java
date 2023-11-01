@@ -14,7 +14,7 @@ import racingcar.util.ErrorThrower;
 import racingcar.util.PatternChecker;
 
 public class IndividualCarNameValidator implements Validator<List<String>> {
-    private static final Pattern SPLIC_CAR_NAME_PATTERN =
+    private static final Pattern SPLIT_CAR_NAME_PATTERN =
             Pattern.compile(SPLIT_CAR_NAME_REGEX.getRegex());
     private static final Pattern SPLIT_CAR_NAME_LENGTH_PATTERN =
             Pattern.compile(SPLIT_CAR_NAME_LENGTH_REGEX.getRegex());
@@ -25,7 +25,7 @@ public class IndividualCarNameValidator implements Validator<List<String>> {
         String regexErrorMessage = SPLIT_CAR_REGEX_ERROR_MESSAGE.getMessage();
         String carUniqueErrorMessage = SPLIT_CAR_UNIQUE_ERROR_MESSAGE.getMessage();
 
-        List<String> invalidNames = checkInvalidNames(splitCarName, SPLIC_CAR_NAME_PATTERN);
+        List<String> invalidNames = checkInvalidNames(splitCarName, SPLIT_CAR_NAME_PATTERN);
 
         String message = String.format(regexErrorMessage,
                 String.join(delim, invalidNames));
