@@ -22,6 +22,6 @@ public class Car {
     }
 
     public Map.Entry<String, Integer> getStatus() {
-        return new SimpleEntry<>(this.name.name(), position.getPosition());
+        return new SimpleEntry<>(this.name.name(), position.position);
     }
 }
