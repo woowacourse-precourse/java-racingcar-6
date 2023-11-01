@@ -26,16 +26,15 @@ public class RacingController {
         return new RacingGame(carNames);
     }
 
-    private static GameTry inputGameTry() {
-        return new GameTry(InputView.inputTryNumber());
-    }
-
     private void race(RacingGame racingGame, GameTry targetGameTry) {
         OutputView.printMainMessage();
         while (racingGame.isContinue(targetGameTry.getGameTry())) {
             racingGame.race();
             OutputView.printCarsStatus(racingGame.getCars());
         }
-        ;
+    }
+
+    private static GameTry inputGameTry() {
+        return new GameTry(InputView.inputTryNumber());
     }
 }

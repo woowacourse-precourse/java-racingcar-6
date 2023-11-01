@@ -11,7 +11,6 @@ public class NickName {
 
     public NickName(String nickName) {
         this.nickName = validateName(nickName);
-
     }
 
     private String validateName(String nickName) {

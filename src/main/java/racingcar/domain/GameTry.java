@@ -17,7 +17,6 @@ public class GameTry {
         return targetGameTry;
     }
 
-
     private int parseInt(String inputTry) {
         try {
             return Integer.parseInt(inputTry);

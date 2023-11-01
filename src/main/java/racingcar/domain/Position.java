@@ -14,12 +14,12 @@ public class Position {
         this.position = position;
     }
 
-    public Position move() {
-        return new Position(position + 1);
-    }
-
     public int getPosition() {
         return position;
+    }
+
+    public Position move() {
+        return new Position(position + 1);
     }
 
     @Override
