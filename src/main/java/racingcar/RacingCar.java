@@ -38,4 +38,7 @@ public class RacingCar {
         return String.format(RESULT_OF_RACING_CAR_FORMAT, name, LOCATION_SIGN.repeat(location));
     }
 
+    public Integer getLocation() {
+        return location;
+    }
 }

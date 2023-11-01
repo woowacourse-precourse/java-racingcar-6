@@ -21,6 +21,10 @@ public class RacingCars {
         racingCars.stream().forEach(RacingCar::moveOrStay);
     }
 
+    private Integer findMaxLocation() {
+        return racingCars.stream().mapToInt(RacingCar::getLocation).max().getAsInt();
+    }
+
     @Override
     public String toString() {
         StringJoiner stringJoiner = new StringJoiner(System.lineSeparator());
