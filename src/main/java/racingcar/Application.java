@@ -29,5 +29,8 @@ public class Application {
 		for(int i = 0; i < Integer.parseInt(tryNum); i++) {
 			printGame(car);
 		}
+
+        Winner w = new Winner();
+        w.findWinner(car);
     }
 }
