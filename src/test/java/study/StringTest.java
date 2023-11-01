@@ -2,7 +2,6 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.in;
 
 import org.junit.jupiter.api.Test;
 
@@ -50,9 +49,10 @@ public class StringTest {
     }
 
     @Test
-    void 공백_포함() {
-        String input = "a \tn c \t\t\n";
-        System.out.print(input.trim());
-        System.out.println(input.isBlank());
+    void 공백으로만_이루어진_문자열() {
+        String input = " \t  \t \t\n";
+//        System.out.print(input.trim());
+//        System.out.println(input.isBlank());
+        assertThat(input.isBlank()).isEqualTo(true);
     }
 }
