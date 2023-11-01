@@ -28,7 +28,7 @@ public class RacingGame {
 
         for(String name : in.split(",")) {
             // 동일한 이름의 자동차 추가할 시 에러발생
-            if(names.contains(name)) throw new IllegalArgumentException();
+            if(names.contains(name)) throw new IllegalArgumentException("Error: 동일한 이름의 자동차 추가할 시");
             names.add(name);
             // 자동차 추가
             this.cars.add(new Car(name));
@@ -45,7 +45,7 @@ public class RacingGame {
             }
         }
         catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Error: playTime에 양수 아닌 값 입력 시");
         }
 
         print.runningResult();
