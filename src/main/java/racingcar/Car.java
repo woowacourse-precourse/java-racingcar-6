@@ -19,13 +19,15 @@ public class Car {
         return distance;
     }
 
-    public void move() {
-        this.distance++;
-    }
-
+    // 기능 3) 자동차의 이름이 유효한지 검증한다.
     private void validateName(String name) {
         if(name.length() > 5 || name.length() == 0) {
             throw new IllegalArgumentException();
         }
+    }
+
+    // 기능 8) 자동차의 이동 거리를 1만큼 증가시킨다.
+    public void move() {
+        this.distance++;
     }
 }
