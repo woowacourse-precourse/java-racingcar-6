@@ -59,4 +59,19 @@ public class FunctionUnitTest {
         assertThat(soloWinner).isEqualTo("woni");
     }
 
+    @Test
+    void 공동_우승자_선정() {
+        Winner winner = new Winner();
+
+        Car car1 = new Car("pobi", 3);
+        Car car2 = new Car("woni", 3);
+        Car car3 = new Car("jun", 1);
+
+        List<Car> testCarList = List.of(car1, car2, car3);
+
+        List<String> jointWinner = winner.determineWinner(testCarList);
+
+        OutputView.printWinner(jointWinner);
+    }
+
 }
