@@ -3,7 +3,7 @@ package racingcar.game;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.game.Car.Car;
 import racingcar.game.Car.CarFactory;
-import racingcar.User.User;
+import racingcar.utils.UserInputReciver;
 import racingcar.view.View;
 
 import java.util.Arrays;
@@ -14,21 +14,28 @@ import java.util.stream.Collectors;
 public class RacingGame {
     public static void run() {
         List<Car> cars = createCarsByInput();
-
         int turnCount = turnCountByInput();
         for (; turnCount > 0; turnCount--) {
             play(cars);
+            createTurnResultView(cars).print();
         }
+        createFinalResultView(cars).print();
     }
 
     private static List<Car> createCarsByInput() {
-        List<String> carNames = Arrays.asList(User.carNameByUserInput().split(","));
+        String message = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+        List<String> carNames = Arrays.asList(UserInputReciver.messageToUser(message).split(","));
         return CarFactory.createByNames(carNames);
     }
 
     private static int turnCountByInput() {
-        int turnCount = User.turnCountByUserInput();
-        return turnCount;
+        String message = "시도할 회수는 몇회인가요?";
+        String turnCount = UserInputReciver.messageToUser(message);
+        try {
+            return Integer.parseInt(turnCount);
+        } catch(Exception e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static List<Car> play(List<Car> cars) {
@@ -40,7 +47,7 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
-    private static View printTurnResult(List<Car> cars) {
+    private static View createTurnResultView(List<Car> cars) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars) {
             stringBuilder.append(car.getName());
@@ -51,15 +58,14 @@ public class RacingGame {
         return new View(stringBuilder.toString());
     }
 
-    private static View printFinalResultView(List<Car> cars) {
+    private static View createFinalResultView(List<Car> cars) {
         int maxDistance = cars.stream()
                 .map(Car::getMoveDistance)
                 .max(Comparator.naturalOrder())
                 .orElse(0);
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("최종우승자");
-
+        stringBuilder.append("최종 우승자 : ");
         cars.stream()
                 .filter(car -> car.getMoveDistance() == maxDistance)
                         .forEach(car -> stringBuilder.append(car.getName()));
