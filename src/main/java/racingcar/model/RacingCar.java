@@ -6,4 +6,8 @@ public class RacingCar {
     public RacingCar(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
