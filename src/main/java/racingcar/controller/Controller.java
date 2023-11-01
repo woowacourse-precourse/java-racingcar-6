@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.View.GameView;
+import racingcar.view.GameView;
 import racingcar.domain.RacingCars;
 
 public class Controller {
