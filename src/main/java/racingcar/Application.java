@@ -8,7 +8,6 @@ import racingcar.domain.CheckWinner;
 import racingcar.domain.InputCarName;
 import racingcar.domain.InputUser;
 import racingcar.domain.Race;
-import racingcar.domain.Validate;
 import racingcar.domain.View;
 
 public class Application {

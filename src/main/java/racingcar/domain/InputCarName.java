@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class InputCarName {
     private final List<Car> cars = new ArrayList<>();
-    Validate validate = new Validate();
+    ValidateCar validate = new ValidateCar();
 
     public List<Car> createCar() {
         List<String> carList;

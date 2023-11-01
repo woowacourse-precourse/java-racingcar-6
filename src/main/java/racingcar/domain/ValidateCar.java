@@ -1,10 +1,9 @@
 package racingcar.domain;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-public class Validate {
+public class ValidateCar {
     public void validateName(List<String> carName) {
         HashSet<String> names = new HashSet<>();
         carName.forEach(name -> {

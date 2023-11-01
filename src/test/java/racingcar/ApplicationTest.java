@@ -46,6 +46,22 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class));
     }
 
+    @Test
+    void 라운드에_대한_예외_처리_숫자인지_판단(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 라운드에_대한_예외_처리_1이상인지(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
