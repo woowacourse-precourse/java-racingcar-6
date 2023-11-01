@@ -11,8 +11,7 @@ import java.util.List;
 public class GameManager {
     private final UserInputHandler userInputHandler = new UserInputHandler();
     private final GameResultService gameResultService = new GameResultService();
-    private final GameProgressService gameProgressService = new GameProgressService
-            (AppConstants.RANDOM_BEGIN_RANGE,AppConstants.RANDOM_END_RANGE);
+    private final GameProgressService gameProgressService = new GameProgressService();
 
     public void start() {
         try

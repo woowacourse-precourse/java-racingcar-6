@@ -11,6 +11,11 @@ public class GameProgressService {
     private final int beginRange;
     private final int endRange;
 
+    public GameProgressService() {
+        this.beginRange = AppConstants.RANDOM_BEGIN_RANGE;
+        this.endRange = AppConstants.RANDOM_END_RANGE;
+    }
+
     public GameProgressService(int beginRange, int endRange) {
         this.beginRange = beginRange;
         this.endRange = endRange;
