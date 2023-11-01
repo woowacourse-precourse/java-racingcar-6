@@ -41,4 +41,14 @@ public class carRaceInputServiceTest {
         assertThat(carResult).contains("a", "b", "c", "d", "e");
         assertThat(carResult).containsExactly("a", "b", "c", "d", "e");
     }
+
+    @Test
+    void 게임_횟수_입력_후_검증_후_반환() {
+        String gameRound = "5";
+        InputStream readLine = new ByteArrayInputStream(gameRound.getBytes());
+        System.setIn(readLine);
+
+        int roundResult = View.carRaceInputService.getInstance().askUserGameRound();
+        assertThat(roundResult).isEqualTo(5);
+    }
 }
