@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Game {
 
+    private static final int RANDOM_NUMBER = 4;
+
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -26,7 +28,7 @@ public class Game {
     public void judgeMoving(List<Car> cars) {
         for (Car car : cars) {
             int randomNum = Randoms.pickNumberInRange(0, 9);
-            if (randomNum >= 4) {
+            if (randomNum >= RANDOM_NUMBER) {
                 car.moveForward();
             }
         }
