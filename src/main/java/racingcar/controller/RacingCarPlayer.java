@@ -1,15 +1,18 @@
 package racingcar.controller;
 
 import java.util.List;
+
 import racingcar.model.Car;
 import racingcar.service.CarsGenerator;
 import racingcar.service.JudgeMachine;
+import racingcar.service.Racing;
 import racingcar.view.Printer;
 import racingcar.view.Scanner;
 
 public class RacingCarPlayer implements GamePlayer {
     JudgeMachine judgeMachine;
     CarsGenerator carsGenerator;
+    Racing racing;
     Scanner scanner;
     Printer printer;
 
@@ -18,15 +21,15 @@ public class RacingCarPlayer implements GamePlayer {
         printer = new Printer();
         judgeMachine = new JudgeMachine();
         carsGenerator = new CarsGenerator();
+        racing = new Racing();
     }
 
     @Override
     public void run() {
         List<Car> carList = generateCars(inputCarNames());
         Integer numberOfRounds = inputNumberOfRounds();
-        race(numberOfRounds, carList);
-        List<Car> winningCars = judgeMachine.getWinningCars(carList);
-        printer.printResult(winningCars);
+        List<Car> winningCars = race(carList, numberOfRounds);
+        printResult(winningCars);
     }
 
     private List<Car> generateCars(List<String> carNames) {
@@ -37,27 +40,23 @@ public class RacingCarPlayer implements GamePlayer {
 
     private Integer inputNumberOfRounds() {
         printer.printInputNumberOfRoundsMessage();
-        Integer numberOfRounds = scanner.inputNumberOfRound();
-        return numberOfRounds;
+        return scanner.inputNumberOfRound();
     }
 
-    private void race(Integer numberOfRounds, List<Car> carList) {
+    public List<Car> race(List<Car> carList, Integer numberOfRounds) {
         printer.printRoundStateMessage();
         for (int round = 1; round <= numberOfRounds; round++) {
-            playARound(carList);
+            racing.playARound(carList);
             printer.printRoundState(carList);
         }
+        return judgeMachine.getWinningCars(carList);
     }
-
-    private void playARound(List<Car> carList) {
-        for (Car car : carList) {
-            car.move();
-        }
-    }
-
     private List<String> inputCarNames() {
         printer.printInputCarNamesMessage();
         List<String> carNames = scanner.inputCarNames();
         return carNames;
+    }
+    private void printResult(List<Car> winningCars) {
+        printer.printResult(winningCars);
     }
 }
