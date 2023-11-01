@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import static racingcar.model.CarNameValidator.validateCarNames;
+import static racingcar.utils.Constants.CAN_GO_NUMBER;
+import static racingcar.utils.Constants.INIT_START_POSITION;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,14 +31,14 @@ public class Cars {
         int max = cars.stream()
                 .mapToInt(Car::getDistance)
                 .max()
-                .orElse(0);
+                .orElse(INIT_START_POSITION);
         return max;
     }
 
     public void playOneGame() {
         for (Car car : cars) {
             int randomNumber = RandomNumberGenerator.makeNumber();
-            if (randomNumber >= 4) {
+            if (randomNumber >= CAN_GO_NUMBER) {
                 car.go();
             }
         }

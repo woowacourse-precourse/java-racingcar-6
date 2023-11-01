@@ -1,5 +1,10 @@
 package racingcar.model;
 
+import static racingcar.utils.Constants.BLANK_ERROR_MESSAGE;
+import static racingcar.utils.Constants.DUPLICATION_ERROR_MESSAGE;
+import static racingcar.utils.Constants.MAX_LENGTH;
+import static racingcar.utils.Constants.SIZE_ERROR_MESSAGE;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,8 +18,8 @@ public class CarNameValidator {
     }
 
     private static void validateNameSize(List<Car> carList) {
-        if (carList.stream().anyMatch(car -> car.getName().length() > 5)) {
-            throw new IllegalArgumentException("자동차 이름은 5글자가 넘으면 안됩니다.");
+        if (carList.stream().anyMatch(car -> car.getName().length() > MAX_LENGTH)) {
+            throw new IllegalArgumentException(SIZE_ERROR_MESSAGE);
         }
     }
 
@@ -24,13 +29,13 @@ public class CarNameValidator {
                 .collect(Collectors.toSet());
 
         if (carNames.size() != carList.size()) {
-            throw new IllegalArgumentException("자동차의 이름이 중복되면 안됩니다.");
+            throw new IllegalArgumentException(DUPLICATION_ERROR_MESSAGE);
         }
     }
 
     private static void validateBlankOrEmptyNames(List<Car> carList) {
         if (carList.stream().anyMatch(car -> car.getName().isBlank())) {
-            throw new IllegalArgumentException("자동차의 이름에 공백이 들어가면 안됩니다.");
+            throw new IllegalArgumentException(BLANK_ERROR_MESSAGE);
         }
     }
 }
