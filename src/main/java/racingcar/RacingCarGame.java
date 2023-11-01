@@ -14,8 +14,6 @@ public class RacingCarGame {
 
         inputTryCount();
 
-        outputView.printGameResultMsg();
-
         playRound(cars);
 
         announceWinners(cars);
@@ -28,6 +26,8 @@ public class RacingCarGame {
     }
 
     private void playRound(List<Car> cars) {
+        outputView.printGameResultMsg();
+
         int tryCount = user.getTryCount();
         while (tryCount > 0) {
             moveCars(cars);
