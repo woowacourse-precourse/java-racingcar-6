@@ -14,7 +14,7 @@ public class InputView {
     private static final String CAR_NAMES_DELIMITER = ",";
 
     public List<String> readCarNamesInput() {
-        String input = Console.readLine().trim();
+        String input = readLineAndTrim();
         List<String> carNames = Parser.parseCarNames(input, CAR_NAMES_DELIMITER);
 
         if(!InputValidator.isValidAllCarNameLength(carNames)) {
@@ -29,11 +29,15 @@ public class InputView {
     }
 
     public int readUserGameCountInput() {
-        String input = Console.readLine().trim();
+        String input = readLineAndTrim();
         if(InputValidator.isNumeric(input)) {
             return Integer.parseInt(input);
         }
 
         throw new IllegalArgumentException(INVALID_GAME_COUNT_INPUT_MESSAGE);
+    }
+
+    private static String readLineAndTrim() {
+        return Console.readLine().trim();
     }
 }
