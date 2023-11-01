@@ -13,17 +13,17 @@ import java.util.List;
 public class Simulator {
     private final Validator validator = new Validator();
     private List<Car> cars;
-    private int move;
+    private int trial;
 
     public void setRace(String userInput, int moveInput) {
         cars = Arrays.stream(userInput.split(","))
                 .map(String::trim).map(Car::new).toList();
         validator.validateTrial(moveInput);
-        this.move = moveInput;
+        this.trial = moveInput;
     }
 
     public List<Car> startRace() {
-        for (int i=0; i<move; ++i) {
+        for (int i = 0; i< trial; ++i) {
             eachCarForward();
             Output.printEmptySpace();
         }
