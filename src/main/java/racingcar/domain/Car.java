@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car {
+    private static final int MOVE_CONDITION = 4;
     private final String name;
     private int position;
 
@@ -15,5 +16,11 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public void move(int num) {
+        if (num >= MOVE_CONDITION) {
+            position++;
+        }
     }
 }

@@ -21,9 +21,15 @@ public class CarRaceGame {
         return instance;
     }
 
-    public void play() {
+    public void run() {
         createCars(InputView.getCarNames());
-        
+        play(InputView.getRound());
+    }
+
+    private void play(int round) {
+        for (int i = 0; i < round; i++) {
+            
+        }
     }
 
     private void createCars(Set<String> carNames) {
