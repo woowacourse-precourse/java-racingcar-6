@@ -49,8 +49,7 @@ public final class GameIOController implements IOController {
 
     public void showWinner(final List<String> message) {
         ioView.showHeadMessage(GameMessage.WINNER_HEAD_MESSAGE.toString());
-        String winnerNames = message.toString().replace("[", "")
-                .replace("]", "");
+        String winnerNames = String.join(", ",message);
         ioView.showSingleMessage(winnerNames);
     }
 }
