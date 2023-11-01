@@ -4,9 +4,9 @@ public class Car {
     String name;
     String stat;
 
-    public Car (String name, String stat){
+    public Car (String name){
         this.name = name;
-        this.stat = stat;
+        this.stat = "";
     }
 
     public String getName() {
@@ -15,6 +15,10 @@ public class Car {
 
     public String getStat() {
         return stat;
+    }
+
+    public void updateStat(){
+        this.stat += "-";
     }
 
 }
