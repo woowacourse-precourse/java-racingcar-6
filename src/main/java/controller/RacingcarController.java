@@ -24,6 +24,12 @@ public class RacingcarController {
     private  final RacingcarView racingcarView = new RacingcarView();
     private  final ErrorCheck errorCheck = new ErrorCheck();
 
+    /*
+     * 유저의 입력을 받고 이 값을 RacingInputCheck 에 넘겨주는 메서드
+     *
+     * @param void
+     * @return void
+     */
     public void run(){
         String car_names;
         String repeat;
@@ -34,23 +40,42 @@ public class RacingcarController {
         repeat = Console.readLine();
 
         racingcarView.printResultHead();
-        RacingInputCheck(car_names, repeat);
+        RacingInputManagement(car_names, repeat);
     }
 
-    public void RacingInputCheck(String car_names, String repeat){
-        RacingcarModel rm;
+    /*
+     * 유저의 Input String 값을 관리해서 처리해주는 메서드
+     *
+     * @param String car_names, String repeat
+     * @return void
+     */
+    public void RacingInputManagement(String car_names, String repeat){
         List<String> car_names_list = SliceByComma(car_names);
-        errorCheck.ErrorChecking(car_names_list, repeat);
 
-        rm = new RacingcarModel(car_names_list, repeat);
+        errorCheck.ErrorChecking(car_names_list, repeat);
+        RacingcarModelConstructor(car_names_list, repeat);
+    }
+
+    /*
+     * 유저의 Input 값들을 RacingcarModel 객체를 생성 후 실행해주는 메서드
+     *
+     * @param List<String> car_names_list, String repeat
+     * @return void
+     */
+    public void RacingcarModelConstructor(List<String> car_names_list, String repeat){
+        RacingcarModel rm = new RacingcarModel(car_names_list, repeat);
         rm.RacingStart();
     }
 
-
+    /*
+     * String 값을 공백을 제거하고 ',' 기준으로 나눠서 리스트로 변환해주는 메서드
+     *
+     * @param String car_names
+     * @return List<String>
+     */
     private List<String> SliceByComma(String car_names){
         car_names = car_names.replaceAll("\\s", "");
-        List<String> list = Arrays.asList(car_names.split(","));
-        return list;
+        return Arrays.asList(car_names.split(","));
     }
 
 
