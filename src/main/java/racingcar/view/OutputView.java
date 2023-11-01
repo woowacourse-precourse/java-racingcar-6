@@ -2,6 +2,8 @@ package racingcar.view;
 
 import racingcar.model.Car;
 
+import java.util.List;
+
 public class OutputView {
     private static final String ONE_STEP = "-";
 
@@ -23,5 +25,10 @@ public class OutputView {
 
     public void printSpaceMessage() {
         System.out.println();
+    }
+
+    public void printWinnerResultMessage(List<String> jointWinner) {
+        String result = String.join(", ", jointWinner);
+        System.out.println("최종 우승자 : " + result);
     }
 }
