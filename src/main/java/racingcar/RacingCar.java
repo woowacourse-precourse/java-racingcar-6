@@ -2,7 +2,7 @@ package racingcar;
 
 public class RacingCar {
     private String name;
-    private int count;
+    private String count;
 
     public String getName() {
         return name;
@@ -12,15 +12,15 @@ public class RacingCar {
         this.name = name;
     }
 
-    public int getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(String count) {
         this.count = count;
     }
 
-    public RacingCar(String name, int count) {
+    public RacingCar(String name, String count) {
         this.name = name;
         this.count = count;
     }
