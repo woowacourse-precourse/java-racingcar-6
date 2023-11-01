@@ -1,29 +1,28 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.model.Game;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class GameController {
-    private static ArrayList<Car> cars;
     private static ArrayList<String> winners;
     private Integer gameRound;
 
     public void play() {
-        readyGame();
+        Game game = readyGame();
         startGame();
         endGame();
     }
 
-    public void readyGame() {
-        String inputCarName = InputView.inputCarName();
-        cars = createCars(inputCarName);
-        gameRound = Integer.parseInt(InputView.inputGameRound());
-        System.out.println();
+    public Game readyGame() {
+        ArrayList<String> carNames = InputView.inputCarName();
+        int gameRound = InputView.inputGameRound();
+
+        return new Game(carNames, gameRound);
     }
 
     public void startGame() {
@@ -40,11 +39,6 @@ public class GameController {
     public void endGame() {
         findWinner();
         OutputView.printWinners();
-    }
-
-    public ArrayList<Car> createCars(String input) {
-        ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
-        return InputView.inputCars(carNames);
     }
 
 
