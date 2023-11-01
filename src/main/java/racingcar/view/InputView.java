@@ -38,7 +38,7 @@ public class InputView {
 
     private void isCorrectLength(String[] nameList) {
         for (int i = 0; i < nameList.length; i++) {
-            if (nameList[i].length() > 5 || nameList[i].isEmpty()) {
+            if (nameList[i].length() > 5 || nameList[i].isBlank()) {
                 throw new IllegalArgumentException();
             }
         }
