@@ -14,8 +14,8 @@ import static racingcar.view.ConsoleOutput.printProgressState;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.CarManager;
-import racingcar.domain.dto.FinalResult;
-import racingcar.domain.dto.ProgressState;
+import racingcar.dto.FinalResult;
+import racingcar.dto.ProgressState;
 
 public class RacingGameService {
     private static int playNumber = 0;

@@ -3,7 +3,7 @@ package racingcar.util;
 import static racingcar.constant.ConsoleOutputConstants.FINAL_WINNER;
 
 import racingcar.domain.Car;
-import racingcar.domain.dto.FinalResult;
+import racingcar.dto.FinalResult;
 
 public class ProgressMessageGenerator {
 
