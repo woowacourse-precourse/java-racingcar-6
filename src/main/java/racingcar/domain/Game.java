@@ -1,16 +1,19 @@
 package racingcar.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Game {
 
     private final List<Car> cars;
 
-    public Game(List<Car> cars) {
-        validateDuplicateCarName(cars);
-        this.cars = cars;
+    public Game(List<String> carNames) {
+        validateDuplicateCarName(carNames);
+        cars = carNames.stream()
+                .map(carName -> new Car(carName))
+                .toList();
     }
-
 
     public void playOnce(NumberGenerator numberGenerator) {
         cars.forEach(car -> {
@@ -32,14 +35,13 @@ public class Game {
                 .toList();
     }
 
-    public void validateDuplicateCarName(List<Car> cars) {
-        boolean isSameNameExists = cars.stream()
-                .map(Car::getName)
-                .distinct()
-                .count() < cars.size();
+    public void validateDuplicateCarName(List<String> carNames) {
+        Set<String> uniqueNames = new HashSet<>();
 
-        if (isSameNameExists) {
-            throw new IllegalArgumentException("같은 이름의 자동차가 있습니다");
+        for (String name : carNames) {
+            if (!uniqueNames.add(name)) {
+                throw new IllegalArgumentException("중복된 차 이름이 있습니다");
+            }
         }
     }
 
