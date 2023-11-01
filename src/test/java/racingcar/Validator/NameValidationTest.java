@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.Validator;
 
 import domain.Car;
 import domain.Cars;
@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class NameValidatorTest {
+public class NameValidationTest {
     @Test
     @DisplayName("자동차 이름 길이가 5보다 클 경우")
     void car_name_length_check() {
