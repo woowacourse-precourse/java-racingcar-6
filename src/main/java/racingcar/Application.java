@@ -6,27 +6,53 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
 
     public static Car[] car;
+    public static int Try;
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        start();
-        play();
-    }
-
-    public static void start(){
         makeCar();
-    }
-    public static void play(){
-        System.out.println("실행결과");
+        play();
+        findWinner();
     }
 
     public static void makeCar(){
         ArrayList<String> names = inputName();
-        int count = inputTry();
+        Try = inputTry();
         car = new Car[names.size()];
 
         for(int i = 0; i < names.size(); i++){
-            car[i] = new Car(names.get(i), count);
+            car[i] = new Car(names.get(i));
         }
+
+    }
+    public static void play(){
+        System.out.println("\n실행결과");
+
+        for(int i = 0; i < Try; i++){
+            for(int j = 0; j < car.length; j++){
+                System.out.print(car[j].name + " : ");
+                car[j].makeMove();
+                car[j].drawMove();
+            }
+            System.out.println();
+        }
+    }
+
+    public static void findWinner(){
+        int maxMove = 0;
+        ArrayList<String> winner = new ArrayList<>();
+        for(int i = 0; i < car.length; i++){
+            if(car[i].move > maxMove){
+                maxMove = car[i].move;
+            }
+        }
+
+        for(int i = 0; i < car.length; i++){
+            if(car[i].move == maxMove){
+                winner.add(car[i].name);
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", winner));
 
     }
 
