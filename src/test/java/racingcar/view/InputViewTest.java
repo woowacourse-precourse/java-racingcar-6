@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 public class InputViewTest {
     public static final String EMPTY_VALUE = "";
-    public static final String MINUS_VALUE = "-3";
     public static final String OVER_INT_VALUE = "2147483648";
     public static final String STRING_AND_NUMBER_VALUE = "errorValue123";
     public static final String STRING_VALUE = "errorValue";
@@ -72,16 +71,6 @@ public class InputViewTest {
         @Test
         public void 실행횟수_입력값_숫자형식예외_int범위외() {
             String input = OVER_INT_VALUE;
-            InputStream in = new ByteArrayInputStream(input.getBytes());
-            System.setIn(in);
-
-            Assertions.assertThatThrownBy(() -> inputView.readNumberInput())
-                    .isInstanceOf(IllegalArgumentException.class);
-        }
-
-        @Test
-        public void 실행횟수_입력값_숫자형식예외_음수() {
-            String input = MINUS_VALUE;
             InputStream in = new ByteArrayInputStream(input.getBytes());
             System.setIn(in);
 

@@ -4,7 +4,10 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
@@ -17,6 +20,20 @@ public class CarRaceTest {
     public static final int START_INCLUSIVE = 0;
     public static final int END_INCLUSIVE = 9;
     private static final int ONE_TIMES = 1;
+    public static final int MINUS_VALUE = -3;
+
+    @Test
+    public void 실행횟수_입력값_숫자형식예외_음수() {
+        List<Car> cars = List.of(
+                new Car("pobi"),
+                new Car("woni"),
+                new Car("java")
+        );
+        int iteration = MINUS_VALUE;
+
+        Assertions.assertThatThrownBy(() -> new CarRace(cars, iteration))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Nested
     class 우승자_구하기 {
