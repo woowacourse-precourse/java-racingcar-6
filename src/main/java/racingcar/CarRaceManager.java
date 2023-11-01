@@ -7,15 +7,12 @@ import java.util.List;
 
 public class CarRaceManager {
     private List<Car> racingCars = new ArrayList<>();
-    private final List<String> winnerList = new ArrayList<>();
-    private int carCount = 0;
 
     public CarRaceManager() {
     }
 
     public CarRaceManager(final List<Car> newRacingCars) {
         racingCars = newRacingCars;
-        carCount = racingCars.size();
     }
 
     private List<String> inputCarName() {
@@ -25,12 +22,24 @@ public class CarRaceManager {
     }
 
     public void createCarList() {
-        List<String> carNameList = inputCarName();
-        Validation.validateCarName(carNameList);
-        for (String carName : carNameList) {
-            Car newCar = new Car(carName);
-            racingCars.add(newCar);
-            carCount++;
+        List<String> carNames = inputCarName();
+        Validation.validateCarName(carNames);
+
+        for (final String carName : carNames) {
+            racingCars.add(new Car(carName));
+        }
+    }
+
+    public int getAttemptNumber() {
+        String input = Console.readLine().replaceAll(" ", "");
+        Validation.validateAttemptNumber(input);
+        return Integer.parseInt(input);
+    }
+
+    public void runRace(int attemptNumber) {
+        for (int i = 0; i < attemptNumber; i++) {
+            nthAttemptRace();
+            printAttemptResult();
         }
     }
 
@@ -50,31 +59,27 @@ public class CarRaceManager {
         System.out.println();
     }
 
-    public void winnerJudgment() {
-        int max = 0;
-        for (Car car : racingCars) {
-            if (car.getMovingCount() < max) {
-                continue;
-            } else if (car.getMovingCount() > max) {
-                winnerList.clear(); // 안에 뭐 있는지 확인  안해도 오류 안 나려나?
-                max = car.getMovingCount();
-            }
-            winnerList.add(car.getCarName());
-        }
-    }
+    public List<String> getWinners() {
+        int maxMovingCount = 0;
+        final List<String> winners = new ArrayList<>();
 
-    public List<String> getWinnerList() {
-        return winnerList;
+        for (Car car : racingCars) {
+            int movingCount = car.getMovingCount();
+            if (movingCount > maxMovingCount) {
+                maxMovingCount = movingCount;
+                winners.clear();
+            }
+
+            if (movingCount == maxMovingCount) {
+                winners.add(car.getCarName());
+            }
+        }
+
+        return winners;
     }
 
     public void printWinner() {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winnerList.size(); i++) {
-            if (i == winnerList.size() - 1) {
-                System.out.print(winnerList.get(i));
-            } else {
-                System.out.print(winnerList.get(i) + ", ");
-            }
-        }
+        final List<String> winners = getWinners();
+        System.out.print("최종 우승자: " + String.join(", ", winners));
     }
 }
