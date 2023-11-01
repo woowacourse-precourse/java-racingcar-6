@@ -18,6 +18,6 @@ public class Application {
         List<String> progressResults = racingGame.race(carNames, attemptCount);
 
         Winner winner = new Winner();
-        winner.findWinners(carNames, progressResults);
+        List<String> winners = winner.findWinners(carNames, progressResults);
     }
 }

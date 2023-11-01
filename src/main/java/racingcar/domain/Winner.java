@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
-    public void findWinners(List<String> carNames, List<String> progressResults) {
+    public List<String> findWinners(List<String> carNames, List<String> progressResults) {
         List<String> winner = new ArrayList<>();
         int maxProgress = findMaxProgress(progressResults);
 
@@ -15,6 +15,7 @@ public class Winner {
         }
 
         printResult(winner);
+        return winner;
     }
 
     public int findMaxProgress(List<String> progressResults) {
