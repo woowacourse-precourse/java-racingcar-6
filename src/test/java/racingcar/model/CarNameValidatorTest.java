@@ -1,6 +1,7 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,8 @@ public class CarNameValidatorTest {
         carList.add(Car.makeCarByName("Car2"));
         carList.add(Car.makeCarByName("Car3"));
 
-        CarNameValidator.validateCarNames(carList);
+        assertThatCode(() -> CarNameValidator.validateCarNames(carList))
+                .doesNotThrowAnyException();
     }
 
     @Test
@@ -24,8 +26,8 @@ public class CarNameValidatorTest {
         carList.add(Car.makeCarByName("Car1"));
         carList.add(Car.makeCarByName("Car123456"));
 
-        assertThrows(IllegalArgumentException.class,
-                () -> CarNameValidator.validateCarNames(carList));
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(carList))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -34,8 +36,8 @@ public class CarNameValidatorTest {
         carList.add(Car.makeCarByName("Car1"));
         carList.add(Car.makeCarByName("Car1"));
 
-        assertThrows(IllegalArgumentException.class,
-                () -> CarNameValidator.validateCarNames(carList));
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(carList))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -44,7 +46,7 @@ public class CarNameValidatorTest {
         carList.add(Car.makeCarByName(""));
         carList.add(Car.makeCarByName("  "));
 
-        assertThrows(IllegalArgumentException.class,
-                () -> CarNameValidator.validateCarNames(carList));
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(carList))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }

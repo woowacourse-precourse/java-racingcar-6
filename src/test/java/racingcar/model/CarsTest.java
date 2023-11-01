@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,9 @@ public class CarsTest {
         carList.add(Car.makeCarByName("cho"));
         carList.add(Car.makeCarByName("ho"));
         carList.add(Car.makeCarByName("yeon"));
+        for (Car car : carList) {
+            car.go();
+        }
 
         cars = new Cars(carList);
     }
@@ -25,36 +28,36 @@ public class CarsTest {
     void getCars_미리_세팅해놓은_Cars의_값과_같은지_확인() {
         List<Car> carList = cars.getCars();
 
-        List<String> carNames = carList.stream().map(Car::getName).collect(Collectors.toList());
+        List<String> carNames = carList.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
 
-        assertEquals(3, carList.size());
-        assertEquals(List.of("cho", "ho", "yeon"), carNames);
+        assertThat(carList).hasSize(3);
+        assertThat(carNames).containsExactly("cho", "ho", "yeon");
     }
 
     @Test
-    void getWinner_바로_우승자를_뽑으면_거리가_0이기_때문에_무승부() {
+    void getWinner_우승자가_여러명일경우_테스트() {
         List<String> winners = cars.getWinner();
 
-        assertEquals(3, winners.size());
+        assertThat(winners).hasSize(3);
     }
 
     @Test
-    void maxDistance_현재_거리가_0이므로_최대거리는_0() {
+    void maxDistance_최대_거리가_잘나오는지테스트() {
         int maxDistance = cars.maxDistance();
 
-        assertEquals(0, maxDistance);
+        assertThat(maxDistance).isOne();
     }
 
     @Test
-    void playOneGame_한_라운드의_게임을_진행하면_거리가_1또는_0이여야함() {
+    void playOneGame_한_라운드의_게임을_진행하면_거리가_2또는_1이여야함() {
         cars.playOneGame();
 
         List<Integer> distances = cars.getCars().stream()
                 .map(Car::getDistance)
                 .collect(Collectors.toList());
 
-        boolean isOneOrZero = distances.stream().allMatch(d -> d == 1 || d == 0);
-
-        assertEquals(true, isOneOrZero);
+        assertThat(distances).allMatch(d -> d == 2 || d == 1);
     }
 }

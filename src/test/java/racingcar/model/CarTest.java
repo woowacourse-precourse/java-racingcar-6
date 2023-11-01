@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +11,8 @@ public class CarTest {
         String carName = "ho";
         Car car = Car.makeCarByName(carName);
 
-        assertEquals(carName, car.getName());
-        assertEquals(0, car.getDistance());
+        assertThat(car.getName()).isEqualTo(carName);
+        assertThat(car.getDistance()).isZero();
     }
 
     @Test
@@ -20,16 +20,16 @@ public class CarTest {
         Car car = Car.makeCarByName("ho");
         car.go();
 
-        assertEquals(1, car.getDistance());
+        assertThat(car.getDistance()).isEqualTo(1);
     }
 
     @Test
     void go_메서드를_중복_호출_했을때_적용되는지_확인() {
-        Car car = Car.makeCarByName("Car3");
+        Car car = Car.makeCarByName("ho");
         car.go();
         car.go();
         car.go();
 
-        assertEquals(3, car.getDistance());
+        assertThat(car.getDistance()).isEqualTo(3);
     }
 }
