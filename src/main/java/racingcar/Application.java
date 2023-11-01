@@ -31,10 +31,28 @@ class Car {
 }
 
 class Race {
-    List<Car> cars;
+    private List<Car> cars;
 
     public Race(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public List<Car> getWinners() {
+        int maxPosition = 0;
+        List<Car> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            int currentPosition = car.getPosition();
+            if (currentPosition > maxPosition) {
+                maxPosition = currentPosition;
+                winners.clear();
+                winners.add(car);
+            } else if (currentPosition == maxPosition) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
     }
 
     public void runRace(int numAttempts) {
@@ -71,6 +89,21 @@ class Utils {
         }
         return carNames;
     }  
+
+    public static String formatWinners(List<Car> winners) {
+        if (winners.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < winners.size(); i++) {
+            builder.append(winners.get(i).getName());
+            if (i < winners.size() - 1) {
+                builder.append(", ");
+            }
+        }
+        return builder.toString();
+    } 
 }
 
 public class Application {
@@ -92,6 +125,8 @@ public class Application {
 
             Race race = new Race(cars);
             race.runRace(tryCount);
+            List<Car> winners = race.getWinners();
+            System.out.println("최종 우승자 : " + Utils.formatWinners(winners));
         } catch(IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
