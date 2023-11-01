@@ -7,6 +7,10 @@ import java.util.List;
  */
 public class Judgement {
     public int DistanceAdd(List<Integer> carNumbers, List<Integer> distanceNumbers) {
+        int result = 0;
+        for (int i = 0; i<carNumbers.size();i++){
+
+        }
         return 0;
     }
 
