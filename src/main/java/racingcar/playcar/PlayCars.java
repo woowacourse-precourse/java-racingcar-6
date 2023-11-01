@@ -21,6 +21,10 @@ public class PlayCars {
             throw new IllegalArgumentException("경주할 자동차 목록 입력에 문제가 있습니다.");
         }
 
+        if (ContainNotCharacter()) {
+            throw new IllegalArgumentException("경주할 자동차 목록 입력에 문제가 있습니다.");
+        }
+
         try {
             System.out.println("시도할 회수는 몇회인가요?");
             this.numberOfTry = Integer.parseInt(readLine());
@@ -69,5 +73,17 @@ public class PlayCars {
             System.out.printf("%s : %s%n", car, "-".repeat(carToDistance.get(car)));
         }
         System.out.println();
+    }
+
+    private boolean ContainNotCharacter() {
+        boolean result = false;
+
+        for (String car : cars) {
+            if (result) {
+                return true;
+            }
+            result = car.matches("[^a-zA-Z]+");
+        }
+        return result;
     }
 }
