@@ -10,4 +10,12 @@ public class RaceDto {
         this.cars = cars;
         this.attemptTimes = attemptTimes;
     }
+
+    public HashMap<String, Integer> getCars(){
+        return cars;
+    }
+
+    public int getAttemptTimes(){
+        return attemptTimes;
+    }
 }
