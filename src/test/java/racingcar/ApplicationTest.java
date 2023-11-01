@@ -51,8 +51,8 @@ class ApplicationTest extends NsTest {
 
         try (MockedStatic<Console> mockConsole = mockStatic(Console.class)) {
             mockConsole.when(() -> Console.readLine()).thenReturn(expected);
-            final String readCarNames = Application.readCarNames();
-            assertThat(readCarNames).contains(expected);
+            final String actual = Application.readCarNames();
+            assertThat(actual).contains(expected);
         }
     }
 
