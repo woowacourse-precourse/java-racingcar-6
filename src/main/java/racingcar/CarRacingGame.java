@@ -13,6 +13,10 @@ public class CarRacingGame {
     }
 
     public void playGame(int numberOfMoves) {
+        if (numberOfMoves <= 0) {
+            throw new IllegalArgumentException("이동할 횟수는 양수여야 합니다.");
+        }
+
         totalMoves = numberOfMoves;
 
         for (int move = 0; move < numberOfMoves; move++) {
@@ -23,6 +27,14 @@ public class CarRacingGame {
                 }
             }
         }
+    }
+
+    public int getTotalMoves() {
+        return totalMoves;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 
     public List<Car> determineWinners() {
