@@ -13,7 +13,7 @@ public class Application {
 
 class RacingCar {
     private String[] carNames;
-
+    private  Integer num;
     public RacingCar(){
         getCarNames();
     }
@@ -25,7 +25,8 @@ class RacingCar {
     }
 
     private void getNumberOfMove(){
-
+        System.out.println("시도할 회수는 몇회인가요?");
+        num = Integer.parseInt(Console.readLine());
     }
 
     private void generateRandomNumber(){
