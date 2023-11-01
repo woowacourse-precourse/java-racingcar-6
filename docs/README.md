@@ -9,9 +9,13 @@
     - [x] 무작위 값이 4 이상이면 전진한다. (Car.stepForward())
 - [x] 각 이동 시도마다 결과를 출력한다. (RacingGame.printRaceState())
 - [x] 우승자를 출력한다.(복수의 우승자가 나올 수 있음) (RacingGame.printWinners())
-- [ ] 경우에 따라 잘못된 형태의 문자열을 입력 받게 되면,
-  `IllegalArgumentException`을 발생시킨 후 프로그램을 종료한다.
-    - [ ] 시도 회수를 입력 받을 때 수가 아닌 형태일 때
+- [x] 경우에 따라 잘못된 형태의 문자열을 입력 받게 되면,
+  `IllegalArgumentException`을 발생시킨 후 프로그램을 종료한다. (InputValidator)
+  - [x] 적절한 이름 목록의 문자열을 받았는지 (InputValidator.validateNamesInput())
+    - [x] 이름의 글자 수가 1 이상 5 이하가 아닐 때
+    - [x] 문자열 시작이나 끝에 쉼표(,)가 있을 때
+  - [x] 적절한 시도 회수 문자열을 받았는지 (InputValidator.validateCountInput())
+    - [x] 시도 회수를 입력 받을 때 수가 아닌 형태일 때
 
 ## 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
