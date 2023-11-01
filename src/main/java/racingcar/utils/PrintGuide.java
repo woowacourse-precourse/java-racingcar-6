@@ -23,7 +23,7 @@ public class PrintGuide {
         stringBuilder.append(" : ");
         stringBuilder.append("-".repeat(car.getScore()));
 
-        System.out.println(sb);
+        System.out.println(stringBuilder);
     }
 
     public void printResult() {
