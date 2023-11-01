@@ -12,11 +12,14 @@ public class CarNameValidation {
 
     public static final String ERROR_ONE_MORE_FIVE_LESS = "[ERROR] 자동차 이름은 1자 이상 5자 이하로 입력해주세요.";
 
+    public static final String ERROR_DUPLICATE_CAR_NAME = "[ERROR] 자동차 이름은 중복되지 않게 입력해주세요.";
+
     public void validateCarNameAll(String userInput) {
         validateGap(userInput);
         validateLeastName(userInput);
         validateCommaDivision(userInput);
         validateNameLengthLimit(userInput);
+        validateDuplicateCarName(userInput);
     }
 
     public void validateGap(String userInput) {
@@ -43,6 +46,13 @@ public class CarNameValidation {
             if (carName.isEmpty() || carName.length() > 5) {
                 throw new IllegalArgumentException(ERROR_ONE_MORE_FIVE_LESS);
             }
+        }
+    }
+
+    public void validateDuplicateCarName(String userInput) {
+        List<String> carsName = Arrays.asList(userInput.split(","));
+        if (carsName.size() != carsName.stream().distinct().count()) {
+            throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME);
         }
     }
 }

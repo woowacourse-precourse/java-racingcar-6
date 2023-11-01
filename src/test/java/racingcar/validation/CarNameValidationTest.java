@@ -46,4 +46,14 @@ class CarNameValidationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 자동차 이름은 1자 이상 5자 이하로 입력해주세요.");
     }
+
+    @Test
+    void validateDuplicateCarName() {
+        CarNameValidation carNameValidation = new CarNameValidation();
+        String input = "car1,car5,car1";
+
+        assertThatThrownBy(() -> carNameValidation.validateDuplicateCarName(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 자동차 이름은 중복되지 않게 입력해주세요.");
+    }
 }
