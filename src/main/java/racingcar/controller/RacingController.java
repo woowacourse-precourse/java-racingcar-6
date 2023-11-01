@@ -12,7 +12,13 @@ public class RacingController {
     public void start() {
         set();
         race();
+        getWinners();
+    }
 
+    private void set() {
+        cars = new Cars(InputView.readCars());
+        TryCountValidator validator = new TryCountValidator(InputView.readTryCount());
+        tryCount = validator.tryCount;
     }
 
     private void race() {
@@ -25,9 +31,7 @@ public class RacingController {
         }
     }
 
-    private void set() {
-        cars = new Cars(InputView.readCars());
-        TryCountValidator validator = new TryCountValidator(InputView.readTryCount());
-        tryCount = validator.tryCount;
+    private void getWinners() {
+        OutputView.printWinners(cars.getWinners());
     }
 }
