@@ -22,6 +22,9 @@ public class InputController {
             throwError(INVALID_ATTEMPT_INPUT);
         }
 
+        if (inputToInt < 0)
+            throwError(INVALID_ATTEMPT_INPUT);
+
         return inputToInt;
     }
 }

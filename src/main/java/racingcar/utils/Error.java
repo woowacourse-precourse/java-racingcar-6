@@ -10,7 +10,7 @@ public class Error extends Throwable {
     final static HashMap<Integer, String> errors = new HashMap<>(){{
         put(INVALID_NAME_LENGTH, "이름의 길이는 1 이상 5 이하만 가능합니다.");
         put(DUPLICATE_NAME, "중복된 이름은 입력 불가능합니다.");
-        put(INVALID_ATTEMPT_INPUT, "숫자만 입력 가능합니다.");
+        put(INVALID_ATTEMPT_INPUT, "양의 정수만 입력 가능합니다.");
     }};
 
     public static void throwError(int errorCode){
