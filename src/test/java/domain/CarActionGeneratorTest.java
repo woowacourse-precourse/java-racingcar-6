@@ -25,18 +25,21 @@ public class CarActionGeneratorTest {
 
     @Test
     void getDriveorHalt_기능동작() {
-        assertThat(carActionGenerator.getDriveorHalt(FORWARD))
-                .isEqualTo(true);
-        assertThat(carActionGenerator.getDriveorHalt(STOP))
-                .isEqualTo(false);
-    }
-
-    @Test
-    void getRandomNumber_기능동작() {
-        int number;
+        int randomNumber;
+        boolean result;
 
         for (int i = 0; i < 10; i++) {
-            carActionGenerator.getRandomNumber();
+            result = carActionGenerator.getDriveOrHalt();
+            randomNumber = carActionGenerator.getNumber();
+
+            if (randomNumber >= FORWARD) {
+                assertThat(result).isEqualTo(true);
+            }
+
+            if (randomNumber < FORWARD) {
+                assertThat(result).isEqualTo(false);
+            }
         }
     }
+
 }
