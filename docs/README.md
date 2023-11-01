@@ -7,7 +7,7 @@
     getPosition 메서드 구현  
     getName 메서드 구현   
   - feat(Car): Implement Car class  
-- [ ] Race 클래스 구현
+- [x] Race 클래스 구현
   - Race 클래스 생성  
     생성자 정의  
     각 차량에 대한 이동 시도를 run 메서드로 구현   
