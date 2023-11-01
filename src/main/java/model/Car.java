@@ -2,6 +2,8 @@ package model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import config.GameProperty;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Car {
 
@@ -24,5 +26,11 @@ public class Car {
         }
     }
 
+    public Map<String, Object> getCarLocation() {
+        Map<String, Object> carInfo = new HashMap<>();
+        carInfo.put("name", this.name);
+        carInfo.put("location", this.location);
+        return carInfo;
+    }
 
 }
