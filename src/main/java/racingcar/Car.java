@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Car {
@@ -18,10 +19,14 @@ public class Car {
         return carName;
     }
 
-    public void drawCarRaceRoad(List<String> movement) {
-        for (int i = 0; i < forwardMovementNumber; i++) {
-            System.out.print('-');
-        }
+    public String drawCarRaceRoad() {
+        String road = "-";
+        return road.repeat(forwardMovementNumber);
+    }
+
+    public String printCarAndRaceRoad(String carName, String road) {
+        List<String> carAndRoad = Arrays.asList(carName, road);
+        return String.join(":", carAndRoad);
     }
 
     public int getForwardMovementNumber() {

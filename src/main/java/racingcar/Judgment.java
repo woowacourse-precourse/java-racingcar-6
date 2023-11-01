@@ -2,9 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Judgment {
     List<Car> cars = new ArrayList<Car>();
@@ -47,5 +45,11 @@ public class Judgment {
             getWinnerCarName.add(cars.get(index).carName);
         }
         return getWinnerCarName;
+    }
+
+    public void printRunResuEachCase(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.printCarAndRaceRoad(car.carName, car.drawCarRaceRoad()));
+        }
     }
 }

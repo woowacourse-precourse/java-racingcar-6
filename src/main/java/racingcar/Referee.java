@@ -6,10 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Referee {
-    String scan = Console.readLine();
 
     public int inputCycle() {
-        int cycle = Integer.parseInt(scan);
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        int cycle = Integer.parseInt(Console.readLine());
         return cycle;
     }
 
@@ -19,13 +19,14 @@ public class Referee {
     }
 
     public List<String> splitStringCarName() {
-        String carNameString = scan;
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        String carNameString = Console.readLine();
         String[] carNameStringSplit = carNameString.split(",");
         List<String> carNames = new ArrayList<String>(Arrays.asList(carNameStringSplit));
         return carNames;
     }
 
-    public List<Car> cars(List<String> carNamesList, Car car) {
+    public List<Car> cars(List<String> carNamesList) {
         List<Car> cars = new ArrayList<Car>();
         for (String carName : carNamesList) {
             cars.add(makeCar(carName));
