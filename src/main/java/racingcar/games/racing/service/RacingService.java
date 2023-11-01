@@ -29,6 +29,14 @@ public class RacingService {
                 .collect(Collectors.toList());
     }
 
+    public List<String> makeWinnerList() {
+        int maxPosition = getMaxPositionLength();
+        return cars.stream()
+                .filter(car -> car.getPositionLength() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
     private int getMaxPositionLength() {
         int maxLength = 0;
         for (Car car : cars) {
