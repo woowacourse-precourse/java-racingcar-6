@@ -24,22 +24,24 @@ public class Car {
         this.distance = updateDist;
     }
 
-    public String tryMove() {
-
-        StringBuilder sb = new StringBuilder();
+    public void tryMove() {
 
         int randNum = Randoms.pickNumberInRange(0, 9);
 
         if(randNum >= 4) {
             setDistance(this.distance + 1);
         }
+    }
+
+    public void printDistance() {
+
+        StringBuilder sb = new StringBuilder();
 
         for(int i=0; i<this.distance; i++) {
-
             sb.append("-");
         }
 
-        return sb.toString();
+        System.out.println(this.name + " : " + sb.toString());
     }
 
 }

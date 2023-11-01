@@ -34,9 +34,8 @@ public class RacingGame {
         System.out.println("\n실행 결과");
         for (int i=0; i < tryNum; i++) {
             for (Car car : carList) {
-                String score = car.tryMove();
-
-                System.out.println(car.getName() + " : " + score);
+                car.tryMove();
+                car.printDistance();
             }
             System.out.println();
         }
@@ -47,7 +46,6 @@ public class RacingGame {
         int winnerDistance = -1;
         List<String> winnerList = new ArrayList<>();
 
-        //모든 자동차를 돌면서, 리스트에는 가장 멀리 간 자동차만 저장될 수 있도록 함.
         for(Car car : carList) {
 
             if(car.getDistance() > winnerDistance) {
