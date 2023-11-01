@@ -24,8 +24,8 @@ public class CarRaceManagerTest {
 
         List<Car> racingCars = raceManager.readCarList();
         assertThat(racingCars).hasSize(carNames.size());
-        for (int i = 0; i < carNames.size(); i++) {
-            assertThat(racingCars.get(i).getCarName()).isEqualTo(carNames.get(i));
+        for (int index = 0; index < carNames.size(); index++) {
+            assertThat(racingCars.get(index).getCarName()).isEqualTo(carNames.get(index));
         }
     }
 }

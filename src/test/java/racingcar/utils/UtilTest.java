@@ -8,11 +8,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class UtilTest {
+    private final static int START_INCLUSIVE = 0;
+    private final static int END_INCLUSIVE = 9;
+
     @Test
     void randomNumberRangeTest_RandomNumber_True() {
         int randomNumber = Util.generateRandomNumber();
 
-        assertTrue(randomNumber >= 0 && randomNumber <= 9);
+        assertTrue(randomNumber >= START_INCLUSIVE && randomNumber <= END_INCLUSIVE);
     }
 
     @ParameterizedTest

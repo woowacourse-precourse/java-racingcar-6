@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Validation {
-    // 얘네도 객체를 생성해야하나.. static으로 해야하나
     public static void validateCarName(final List<String> carNameList) {
         checkIfNullOrBlankList(carNameList);
         checkIfAnyBelowOneLength(carNameList);
@@ -26,7 +25,7 @@ public class Validation {
     }
 
     public static void checkIfAnyBelowOneLength(final List<String> carNameList) {
-        for (String carName : carNameList) {
+        for (final String carName : carNameList) {
             if (carName.isEmpty()) {
                 throw new IllegalArgumentException("자동차 이름은 1자 이상이여야 합니다. 게임을 종료합니다.");
             }
@@ -34,7 +33,7 @@ public class Validation {
     }
 
     public static void checkIfAnyOverFiveLength(final List<String> carNameList) {
-        for (String carName : carNameList) {
+        for (final String carName : carNameList) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름이 5자를 초과하였습니다. 게임을 종료합니다.");
             }
@@ -55,8 +54,8 @@ public class Validation {
     }
 
     public static void checkIfNotInteger(final String attemptNumber) {
-        for (int i = 0; i < attemptNumber.length(); i++) {
-            if (!Character.isDigit(attemptNumber.charAt(i))) {
+        for (int index = 0; index < attemptNumber.length(); index++) {
+            if (!Character.isDigit(attemptNumber.charAt(index))) {
                 throw new IllegalArgumentException("시도 횟수는 정수여야 합니다. 게임을 종료합니다.");
             }
         }

@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class Car {
-    private String name;
+    private final String name;
     private int movingCount = 0;
 
     public Car(final String carName) {
@@ -21,9 +21,6 @@ public class Car {
     }
 
     public String status() {
-        StringBuilder movingMark = new StringBuilder();
-        movingMark.append("-".repeat(Math.max(0, movingCount)));
-
-        return name + " : " + movingMark;
+        return name + " : " + "-".repeat(movingCount);
     }
 }

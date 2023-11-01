@@ -17,7 +17,7 @@ public class RaceService {
     }
 
     public void runRace(final int attemptNumber) {
-        for (int i = 0; i < attemptNumber; i++) {
+        for (int nTimes = 0; nTimes < attemptNumber; nTimes++) {
             nthAttemptRace();
             printAttemptResult();
         }
