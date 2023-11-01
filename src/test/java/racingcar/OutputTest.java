@@ -29,4 +29,11 @@ class OutputTest {
         assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
     }
 
+    @Test //4번 기능 테스트
+    void printGuideTryCount() {
+        Output.printGuideTryCount();
+        String expectedOutput = "시도할 회수는 몇회인가요?";
+        assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
+    }
+
 }
