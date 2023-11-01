@@ -18,7 +18,7 @@ public class ConsoleOutputView implements OutputView {
         }
     }
 
-    private void outputCarNameAndPosition(List<Car> carList, int index){
+    private void outputCarNameAndPosition(List<Car> carList, int index) {
         for (Car car : carList) {
             System.out.println(car.getName() + " : " + "-".repeat(car.findPositionAt(index)));
         }
@@ -34,7 +34,7 @@ public class ConsoleOutputView implements OutputView {
             sb.append(",");
         }
 
-        if(sb.length() > 0) {
+        if (sb.length() > 0) {
             sb.deleteCharAt(sb.length() - 1);
         }
 
