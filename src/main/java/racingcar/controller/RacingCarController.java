@@ -18,7 +18,6 @@ public class RacingCarController {
 		outputController.printTryingCountsInputMessage();
 		TryingCounts tryingCounts = new TryingCounts();
 		Integer tryingCountsNumber = tryingCounts.getTryingCounts();
-		System.out.println(tryingCountsNumber);
 		CarMovementController carMovementController = new CarMovementController();
 		String racingCarResult = carMovementController.moveCars(carList, tryingCountsNumber);
 		outputController.printResult(racingCarResult);
