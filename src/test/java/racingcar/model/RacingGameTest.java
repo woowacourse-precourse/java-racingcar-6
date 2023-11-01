@@ -29,4 +29,18 @@ public class RacingGameTest {
 
         assertThat(numberList).hasSize(expectedList.size()).doesNotContainNull();
     }
+
+    @Test
+    void 단독_우승한_자동차_리스트_정상_출력() {
+        List<String> carList = new ArrayList<>(Arrays.asList("pobi", "woni", "jun"));
+        int size = carList.size();
+        movingCount.initMovingCount(size);
+        movingCount.addCount(0);
+        movingCount.addCount(1);
+        movingCount.addCount(1);
+        movingCount.addCount(2);
+        List<String> winnerList = new ArrayList<>(Arrays.asList("woni"));
+
+        assertThat(winnerList).isEqualTo(racingGame.extractResult(carList, size));
+    }
 }
