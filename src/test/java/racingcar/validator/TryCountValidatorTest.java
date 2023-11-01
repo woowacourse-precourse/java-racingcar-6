@@ -18,7 +18,7 @@ public class TryCountValidatorTest {
         String inputTryCount = "two";
         assertThatThrownBy(() -> TryCountValidator.validateTryCount(inputTryCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(MessageConstants.INVALID_NUMBER_FORMAT);
+                .hasMessageContaining(MessageConstants.INVALID_NUMBER_FORMAT_OR_OUT_OF_INT_RANGE);
     }
 
     @Test
@@ -35,5 +35,13 @@ public class TryCountValidatorTest {
         assertThatThrownBy(() -> TryCountValidator.validateTryCount(inputTryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(MessageConstants.INVALID_TRY_COUNT);
+    }
+
+    @Test
+    void 시도_횟수가_int_범위_초과한_경우_예외발생() {
+        String inputTryCount = "2147483648";
+        assertThatThrownBy(() -> TryCountValidator.validateTryCount(inputTryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(MessageConstants.INVALID_NUMBER_FORMAT_OR_OUT_OF_INT_RANGE);
     }
 }
