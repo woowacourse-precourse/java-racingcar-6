@@ -11,7 +11,7 @@ public class InputTurn {
         return inputToInt(Console.readLine());
     }
 
-    private static int inputToInt(String turnNum) {
+    public static int inputToInt(String turnNum) {
         TurnValidiator check = new TurnValidiator(turnNum);
         return Integer.parseInt(turnNum);
 

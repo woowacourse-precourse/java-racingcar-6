@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 import domain.Car;
 import domain.InputView.InputNames;
+import domain.InputView.InputTurn;
 import domain.InputView.NameValidiator;
 import org.junit.jupiter.api.Test;
 
@@ -60,6 +61,38 @@ public class Test1 {
         assertThrows(IllegalArgumentException.class, ()-> {
             InputNames check = new InputNames();
             check.ParsingInput("#,#");
+        });
+    }
+
+    @Test
+    void check_Not_Number1() {
+        assertThrows(IllegalArgumentException.class, ()-> {
+            InputTurn check = new InputTurn();
+            check.inputToInt("a");
+        });
+    }
+
+    @Test
+    void check_Not_Number2() {
+        assertThrows(IllegalArgumentException.class, ()-> {
+            InputTurn check = new InputTurn();
+            check.inputToInt("123,");
+        });
+    }
+
+    @Test
+    void check_Zero() {
+        assertThrows(IllegalArgumentException.class, ()-> {
+            InputTurn check = new InputTurn();
+            check.inputToInt("0");
+        });
+    }
+
+    @Test
+    void check_Negative_Number() {
+        assertThrows(IllegalArgumentException.class, ()-> {
+            InputTurn check = new InputTurn();
+            check.inputToInt("-1");
         });
     }
 
