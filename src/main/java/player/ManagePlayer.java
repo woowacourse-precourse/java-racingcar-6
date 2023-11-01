@@ -67,8 +67,8 @@ public class ManagePlayer implements Player {
             for (RacingPlayer racingPlayer : racingPlayerArr) {
                 racingPlayer.play();
             }
-            getRacingDistanceArrFromRacingPlayer();
-            sayingRacingDistance();
+            takeRacingDistanceArrFromRacingPlayer();
+            outputRacingDistance();
             tryingNum--;
         }
     }
@@ -76,9 +76,9 @@ public class ManagePlayer implements Player {
     /**
      * Description : McPlayer의 getracingPlayerArr()를 이용해 거리를 받아 RacingDistanceArr에 저장(갱신)
      *
-     * @Method : getRacingDistanceArr()
+     * @Method : takeRacingDistanceArrFromRacingPlayer()
      */
-    public void getRacingDistanceArrFromRacingPlayer() {
+    public void takeRacingDistanceArrFromRacingPlayer() {
         for (RacingPlayer racingPlayer : racingPlayerArr) {
             racingPlayerDistanceMap.put(racingPlayer.racerName, racingPlayer.getRunDistance());
         }
@@ -87,9 +87,9 @@ public class ManagePlayer implements Player {
     /**
      * Description : 각 레이싱플레이어(자동차) 이동 거리 출력
      *
-     * @Method :sayingRacingDistance()
+     * @Method :outputRacingDistance()
      */
-    public void sayingRacingDistance() {
+    public void outputRacingDistance() {
         for (String key : racingPlayerDistanceMap.keySet()) {
             display.output(key + BETWEEN_RACING_PLAYER_NAME);
             display.output(DISTANCE_BAR.repeat(racingPlayerDistanceMap.get(key)));

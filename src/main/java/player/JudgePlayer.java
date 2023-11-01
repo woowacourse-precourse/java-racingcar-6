@@ -30,8 +30,8 @@ public class JudgePlayer implements Player {
      */
     @Override
     public void play() {
-        judgingWinner();
-        sayingWinner();
+        judgeWinner();
+        outputWinner();
     }
 
     /**
@@ -46,9 +46,9 @@ public class JudgePlayer implements Player {
     /**
      * Description : racingPlayerDistanceMap에서 우승자를 가려내 racingWinnerArr에 넣음
      *
-     * @Method : judgingWinner()
+     * @Method : judgeWinner()
      */
-    public void judgingWinner() {
+    public void judgeWinner() {
         racingWinnerArr = new ArrayList<String>();
         Integer maxValue = Collections.max(racingPlayerDistanceMap.values());
 
@@ -62,9 +62,9 @@ public class JudgePlayer implements Player {
     /**
      * Description : racingWinnerArr에 들어 있는 우승자 출력
      *
-     * @Method : sayingWinner()
+     * @Method : outputWinner()
      */
-    public void sayingWinner() {
+    public void outputWinner() {
         display.output(FINAL_WINNER_COMMENT);
         String joinRacingWinnerArr = String.join(FINAL_WINNER_MIDDLE_COMMENT, racingWinnerArr);
         display.output(joinRacingWinnerArr);

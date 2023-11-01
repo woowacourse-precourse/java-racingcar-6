@@ -34,7 +34,7 @@ public class RacingPlayer implements Player {
      */
     @Override
     public void play() {
-        runingCarRandom();
+        runningCarRandom();
     }
 
     /**
@@ -42,7 +42,7 @@ public class RacingPlayer implements Player {
      *
      * @Method : runingCarRandom()
      */
-    private void runingCarRandom() {
+    private void runningCarRandom() {
         int randomNum = Utility.campPickNumberInRange();
         if (randomNum >= FORWARD_CONDITION_NUMBER) {
             runDistance += 1;

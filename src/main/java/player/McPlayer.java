@@ -14,7 +14,7 @@ import java.util.Arrays;
 import display.ConsoleDisplay;
 
 import static utility.Const.RACING_PLAYER_NAME_START_COMMENT;
-import static utility.Const.DIIVIDE_RACING_PLAYER_NAME;
+import static utility.Const.DIVIDE_RACING_PLAYER_NAME;
 import static utility.Const.TRYING_NUMBER_START_COMMENT;
 import static utility.Const.CHANGING_LINE;
 
@@ -37,30 +37,30 @@ public class McPlayer implements Player {
      */
     @Override
     public void play() {
-        sayingRacingPlayerStartCommment();
-        gettingRacingPlayerNameArr();
-        settingRacingPlayerArr();
-        sayingTryingNumStartCommment();
-        gettingTryingNum();
+        outputRacingPlayerStartCommment();
+        inputRacingPlayerNameArr();
+        setRacingPlayerArr();
+        outputTryingNumStartCommment();
+        inputTryingNum();
     }
 
     /**
      * Description : 레이싱플레이어(자동차) 이름을 입력받기 위한 게임 시작 문구 출력
      *
-     * @Method : sayingRacingPlayerStartCommment()
+     * @Method : outputRacingPlayerStartCommment()
      */
-    public void sayingRacingPlayerStartCommment() {
+    public void outputRacingPlayerStartCommment() {
         display.output(RACING_PLAYER_NAME_START_COMMENT);
     }
 
     /**
      * Description :  레이싱플레이어(자동차) 이름을 입력받음
      *
-     * @Method : gettingRacingPlayerNameArr()
+     * @Method : inputRacingPlayerNameArr()
      */
-    public void gettingRacingPlayerNameArr() {
+    public void inputRacingPlayerNameArr() {
         String RacingPlayers = display.input();
-        String[] RacingPlayersList = RacingPlayers.split(DIIVIDE_RACING_PLAYER_NAME);
+        String[] RacingPlayersList = RacingPlayers.split(DIVIDE_RACING_PLAYER_NAME);
         racingPlayerNameArr = new ArrayList<String>(Arrays.asList(RacingPlayersList));
         checkNameCondition();
     }
@@ -68,7 +68,7 @@ public class McPlayer implements Player {
     /**
      * Description :  레이싱플레이어(자동차) 이름 - "이름은 5자 이하만 가능" 조건 처리
      *
-     * @Method : ()
+     * @Method : checkNameCondition()
      */
     public void checkNameCondition() throws IllegalArgumentException {
         int NameLength = 5;
@@ -83,9 +83,9 @@ public class McPlayer implements Player {
     /**
      * Description :  레이싱플레이어(자동차) 객체를 생성
      *
-     * @Method : gettingRacingPlayerArr()
+     * @Method : setRacingPlayerArr()
      */
-    public void settingRacingPlayerArr() {
+    public void setRacingPlayerArr() {
         racingPlayerArr = new ArrayList<RacingPlayer>();
         for (String racingPlayerName : racingPlayerNameArr) {
             RacingPlayer newRacingPlayer = new RacingPlayer(racingPlayerName);
@@ -96,18 +96,18 @@ public class McPlayer implements Player {
     /**
      * Description : 시도할 횟수를 입력받기 위한 게임 시작 문구 출력
      *
-     * @Method : sayingTryingNumStartCommment()
+     * @Method : outputTryingNumStartCommment()
      */
-    public void sayingTryingNumStartCommment() {
+    public void outputTryingNumStartCommment() {
         display.output(TRYING_NUMBER_START_COMMENT);
     }
 
     /**
      * Description :  시도할 횟수를 입력받음
      *
-     * @Method : gettingTryingNum()
+     * @Method : inputTryingNum()
      */
-    public void gettingTryingNum() {
+    public void inputTryingNum() {
         tryingNum = Integer.parseInt(display.input());
         display.output(CHANGING_LINE);
     }
