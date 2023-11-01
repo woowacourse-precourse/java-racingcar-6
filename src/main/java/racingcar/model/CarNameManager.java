@@ -6,7 +6,7 @@ public class CarNameManager {
         if (isValidName(name)) {
             car.setCarName(name);
         } else {
-            throw new IllegalArgumentException("Invalid name format.");
+            throw new IllegalArgumentException("정상적이지 않은 이름입니다.");
         }
     }
 
