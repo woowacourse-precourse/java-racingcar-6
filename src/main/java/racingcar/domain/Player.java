@@ -16,7 +16,7 @@ public class Player {
     public void getCarNames() {
         System.out.println(ASK_CAR_NAME);
         String names = Console.readLine();
-            cars = splitString(names);
+        cars = splitString(names);
         for (String car : cars) {
             checkNames(car);
         }
