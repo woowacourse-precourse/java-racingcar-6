@@ -26,7 +26,6 @@ public class Racing {
        for(String name: cars){
            position.put(new Car(name), new ArrayList<>());
        }
-        position.forEach((k,v)-> System.out.println( k.getName()));
     }
     private void moveCar(){
         position.forEach((k,v)->v.add(k.moveForward(new Forward().isSuccess())));

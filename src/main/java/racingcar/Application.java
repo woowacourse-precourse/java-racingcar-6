@@ -10,9 +10,6 @@ public class Application {
         Input input = new Input();
         String carInput = Console.readLine();
         input.getCarInfo(carInput);
-//        for(String name: input.getCars()){
-//            System.out.println("1"+name);
-//        }
         System.out.println(Global.INPUT_EXECUTE_TIME);
         String executeTimeInput = Console.readLine();
         input.getInfoExecuteCountInfo(executeTimeInput);

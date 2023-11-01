@@ -7,14 +7,7 @@ public class Car {
       if(name.length()>Global.CAR_NAME_LIMIT){
           throw new IllegalArgumentException();
       }
-   /*   for (int i = 0; i < name.length(); i++) {
-          try{
-            int A =  Integer.parseInt(name.charAt(i)+"");
-            throw new IllegalArgumentException();
-          }catch(NumberFormatException e){
-            break;
-          }
-      }*/
+
       this.name = name;
   }
   public int moveForward(boolean isSuccess){

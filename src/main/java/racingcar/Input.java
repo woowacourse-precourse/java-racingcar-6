@@ -5,6 +5,7 @@ public class Input {
     private int executeCount;
     public void getCarInfo(String input){
         cars= input.split(",");
+
     }
     public void getInfoExecuteCountInfo(String input){
         executeCount=Integer.parseInt(input);
