@@ -3,6 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static racingcar.Util.Constants.DUPLICATED;
+import static racingcar.Util.Constants.HAS_BLANK;
+import static racingcar.Util.Constants.MORE_THAN_MAXLENGTH;
+import static racingcar.Util.Constants.UNVALID_NUMBER;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +22,7 @@ public class GameTest {
 
         assertThatThrownBy(() -> new Game(inputList, repitition))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된");
+                .hasMessage(DUPLICATED);
 
     }
 
@@ -29,7 +33,7 @@ public class GameTest {
 
         assertThatThrownBy(() -> new Game(inputList, repitition))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("제대로");
+                .hasMessage(HAS_BLANK);
 
     }
 
@@ -40,7 +44,7 @@ public class GameTest {
 
         assertThatThrownBy(() -> new Game(inputList, repitition))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("최대");
+                .hasMessage(MORE_THAN_MAXLENGTH);
 
     }
 
@@ -51,7 +55,7 @@ public class GameTest {
 
         assertThatThrownBy(() -> new Game(inputList, repitition))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자");
+                .hasMessage(UNVALID_NUMBER);
 
     }
 

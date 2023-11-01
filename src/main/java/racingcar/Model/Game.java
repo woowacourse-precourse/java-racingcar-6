@@ -75,8 +75,4 @@ public class Game {
             return car2.getDistance() - car1.getDistance();
         }
     };
-
-    public void addCar(Car car) {
-        carList.add(car);
-    }
 }
