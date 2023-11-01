@@ -3,7 +3,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -14,10 +13,10 @@ public class Application {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다");
             }
         }
-        // 이름에 대한 여러 예외들 처리 (5자 이하만 가능), 그냥 엔터를 쳤을 때는??
+        // 이름에 대한 여러 예외들 처리 (5자 이하만 가능), 그냥 엔터를 쳤을 때는??, 같은 이름 등
         System.out.println("시도할 횟수는 몇 회인가요?");
         String gameRoundString = Console.readLine();
-        // 숫자 아닌 경우 예외 처리 신경쓰자
+        // 숫자 아닌 경우 예외 처리 신경쓰자, 숫자라도 0, 음수 등 예외 처리
         int gameRound;
         try{
             gameRound = Integer.parseInt(gameRoundString);
@@ -64,7 +63,7 @@ public class Application {
 }
 
 class Car{
-    private String name;
+    private final String name;
     public int moveCount;
     Car(String name){
         this.name = name;
