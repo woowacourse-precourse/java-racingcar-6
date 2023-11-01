@@ -10,6 +10,7 @@ public class Input {
     public Cars readCars() {
         System.out.println(CAR_INPUT_MSG);
         String userInput = Console.readLine();
+        Valid.nameInput(userInput);
         String[] carNames = userInput.split(",");
         return Cars.generateCars(carNames);
     }
