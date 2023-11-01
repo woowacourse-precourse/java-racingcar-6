@@ -10,22 +10,22 @@ public class CarView {
     private static String OVERSIZE_OF_CAR_NAME = "차 이름이 5글자가 초과되었습니다.";
     private final CarViewValidation carViewValidation = new CarViewValidation();
 
-    public CarView(){
+    public CarView() {
         printStartMessage();
     }
-    public void printStartMessage(){
+    public void printStartMessage() {
         System.out.println(START_MESSAGE);
     }
 
-    public List<String> inputCarNames(){
+    public List<String> inputCarNames() {
         String CarNamesInput = Console.readLine();
         List<String> carNamesList = inputToCarList(CarNamesInput);
 
-        if(carViewValidation.isDuplicated(carNamesList)){
+        if(carViewValidation.isDuplicated(carNamesList)) {
             throw new IllegalArgumentException(DUPLICATION_OF_CAR_NAME);
         }
 
-        if(carViewValidation.greaterThanFiveLetter(carNamesList)){
+        if(carViewValidation.greaterThanFiveLetter(carNamesList)) {
             throw new IllegalArgumentException(OVERSIZE_OF_CAR_NAME);
         }
 
@@ -33,7 +33,7 @@ public class CarView {
 
     }
 
-    public List<String> inputToCarList(String CarNamesInput){
+    public List<String> inputToCarList(String CarNamesInput) {
         return List.of(CarNamesInput.split(CAR_NAME_SEPARATOR));
     }
 

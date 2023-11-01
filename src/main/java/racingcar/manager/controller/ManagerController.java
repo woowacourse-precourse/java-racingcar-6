@@ -1,7 +1,6 @@
 package racingcar.manager.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.manager.model.Car;
 import racingcar.manager.model.Manager;
@@ -16,41 +15,41 @@ public class ManagerController {
     private final UserController userController = new UserController();
 
 
-    public void run(){
+    public void run() {
         List<Car> cars = carController.getCars();
         Integer tryCount = userController.getUserTryCount();
 
         resultExecutionMessage();
-        executeRacing(cars,tryCount);
+        executeRacing(cars, tryCount);
         Manager manager = judgeWinnerCar(cars);
         finalWinner(manager);
     }
 
-    public int createRandomNumber(){
+    public int createRandomNumber() {
         return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE);
     }
 
-    public void executeRacing(List<Car> cars, Integer tryCount){
-        for(int i=0;i<tryCount;i++) {
+    public void executeRacing(List<Car> cars, Integer tryCount) {
+        for(int i = 0; i < tryCount; i++) {
             executeOneTry(cars);
             printTryResult(cars);
             finishOneTry();
         }
     }
-    public void executeOneTry(List<Car> cars){
-        for(Car car: cars){
+    public void executeOneTry(List<Car> cars) {
+        for(Car car : cars) {
             car.moveOrStop(createRandomNumber());
         }
     }
-    public void resultExecutionMessage(){
+    public void resultExecutionMessage() {
         managerView.printResultMessage();
     }
-    public void finishOneTry(){
+    public void finishOneTry() {
         managerView.printFinishOneTry();
     }
 
-    public void printTryResult(List<Car> cars){
-        for(Car car:cars){
+    public void printTryResult(List<Car> cars) {
+        for(Car car:cars) {
             String carName = car.getCarName();
             Integer moveCount = car.getMoveCount();
 
@@ -59,9 +58,9 @@ public class ManagerController {
         }
     }
 
-    public Manager judgeWinnerCar(List<Car> cars){
+    public Manager judgeWinnerCar(List<Car> cars) {
         Manager manager = new Manager();
-        for(Car car:cars) {
+        for(Car car : cars) {
             int moveCount = car.getMoveCount();
             String carName = car.getCarName();
             manager.judgeWinnerCar(carName, moveCount);
@@ -69,7 +68,7 @@ public class ManagerController {
         return manager;
     }
 
-    public void finalWinner(Manager manager){
+    public void finalWinner(Manager manager) {
         managerView.printFinalWinners(manager.getWinnerCars());
     }
 }

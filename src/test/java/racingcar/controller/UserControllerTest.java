@@ -14,12 +14,12 @@ public class UserControllerTest {
     private final UserController userController = new UserController();
 
     @AfterEach
-    void closeConsole(){
+    void closeConsole() {
         Console.close();
     }
 
     @Test
-    void 유저_시도_횟수_반환_검증_테스트(){
+    void 유저_시도_횟수_반환_검증_테스트() {
         String tryCount = "5";
 
         InputStream in = new ByteArrayInputStream(tryCount.getBytes());

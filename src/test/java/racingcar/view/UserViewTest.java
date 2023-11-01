@@ -15,12 +15,12 @@ public class UserViewTest {
     private final UserView userView = new UserView();
 
     @AfterEach
-    void closeConsole(){
+    void closeConsole() {
         Console.close();
     }
 
     @Test
-    void 숫자_이외_입력_들어올_시_예외_처리(){
+    void 숫자_이외_입력_들어올_시_예외_처리() {
         String inputCount = "2a";
         InputStream in = new ByteArrayInputStream(inputCount.getBytes());
         System.setIn(in);
@@ -29,7 +29,7 @@ public class UserViewTest {
     }
 
     @Test
-    void 문자열_정수로_바꾸기_테스트(){
+    void 문자열_정수로_바꾸기_테스트() {
         String inputCount = "234";
         Integer expectedResult = 234;
         assertThat(userView.stringToInt(inputCount)).isEqualTo(expectedResult);

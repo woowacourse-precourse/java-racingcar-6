@@ -6,7 +6,7 @@ import racingcar.manager.view.CarView;
 
 public class CarController {
     private final CarView carView = new CarView();
-    public List<Car> getCars(){
+    public List<Car> getCars() {
         List<String> carNames = carView.inputCarNames();
         return new Car().getCarList(carNames);
     }

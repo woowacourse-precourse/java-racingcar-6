@@ -9,20 +9,20 @@ public class ManagerView {
     private static String SPACE_DELIMITER = ", ";
 
 
-    public String getTotalMoveCount(int moveCount){
+    public String getTotalMoveCount(int moveCount) {
         return MOVING_CHARACTER.repeat(moveCount);
     }
 
-    public void printMovingMessage(String carName, String totalMoveCount){
+    public void printMovingMessage(String carName, String totalMoveCount) {
         System.out.println(carName + " : " + totalMoveCount);
     }
-    public void printResultMessage(){
+    public void printResultMessage() {
         System.out.println(EXECUTION_RESULT);
     }
-    public void printFinishOneTry(){
+    public void printFinishOneTry() {
         System.out.println();
     }
-    public void printFinalWinners(List<String> winnerCars){
+    public void printFinalWinners(List<String> winnerCars) {
         String finalWinners = String.join(SPACE_DELIMITER,winnerCars);
         System.out.print(FINAL_WINNERS + finalWinners);
     }

@@ -8,22 +8,22 @@ public class Manager {
 
     private List<String> winnerCars;
 
-    public Manager(){
+    public Manager() {
         this.maxMove = 0;
         this.winnerCars = new ArrayList<>();
     }
 
-    public List<String> getWinnerCars(){
+    public List<String> getWinnerCars() {
         return this.winnerCars;
     }
 
-    public void judgeWinnerCar(String carName, Integer moveCount){
-        if(moveCount>this.maxMove){
+    public void judgeWinnerCar(String carName, Integer moveCount) {
+        if(moveCount > this.maxMove) {
             this.maxMove = moveCount;
             this.winnerCars.clear();
             this.winnerCars.add(carName);
         }
-        else if(moveCount == this.maxMove){
+        else if(moveCount == this.maxMove) {
             this.winnerCars.add(carName);
         }
     }

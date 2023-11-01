@@ -11,7 +11,7 @@ public class CarTest {
     private final Car car = new Car();
 
     @Test
-    void 차량이_들어온_수에_따라_멈추거나_이동하는_기능_테스트(){
+    void 차량이_들어온_수에_따라_멈추거나_이동하는_기능_테스트() {
         int randomNumber = 5;
         int expectedMoveCount = car.getMoveCount()+1;
         car.moveOrStop(randomNumber);
@@ -19,7 +19,7 @@ public class CarTest {
     }
 
     @Test
-    void 차_이름에_따라_이동거리_초기화_후_리스트_반환_테스트(){
+    void 차_이름에_따라_이동거리_초기화_후_리스트_반환_테스트() {
         List<String> carNames = new ArrayList<>();
         carNames.add("pobi");
         carNames.add("woni");

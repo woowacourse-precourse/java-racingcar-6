@@ -24,20 +24,20 @@ public class ManagerViewTest {
     }
 
     @AfterEach
-    public void restoreStreams(){
+    public void restoreStreams() {
         System.setOut(System.out);
         output.reset();
     }
 
     @Test
-    void 차량_움직인_거리_출력_테스트(){
-        Integer moveCount = 5;
+    void 차량_움직인_거리_출력_테스트() {
+        int moveCount = 5;
         String stringMoveCount = managerView.getTotalMoveCount(moveCount);
         assertThat(stringMoveCount).isEqualTo("-----");
     }
 
     @Test
-    void 최종_우승자_출력_테스트(){
+    void 최종_우승자_출력_테스트() {
         List<String> winnerCars = new ArrayList<>();
         winnerCars.add("pobi");
         winnerCars.add("jun");

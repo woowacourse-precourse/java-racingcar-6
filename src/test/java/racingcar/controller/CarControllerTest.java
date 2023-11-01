@@ -15,11 +15,11 @@ public class CarControllerTest {
     private final CarController carController = new CarController();
 
     @AfterEach
-    void closeConsole(){
+    void closeConsole() {
         Console.close();
     }
     @Test
-    void 차량_리스트_반환_테스트(){
+    void 차량_리스트_반환_테스트() {
 
         String carNames = "pobi,woni,jun";
 

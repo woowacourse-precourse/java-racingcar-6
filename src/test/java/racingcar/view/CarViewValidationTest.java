@@ -11,7 +11,7 @@ public class CarViewValidationTest {
     private final CarViewValidation carViewValidation = new CarViewValidation();
 
     @Test
-    void 각_차량_이름_다섯_글자_이하인지_검증(){
+    void 각_차량_이름_다섯_글자_이하인지_검증() {
         List<String> input = new ArrayList<>();
 
         input.add("pobi");
@@ -21,7 +21,7 @@ public class CarViewValidationTest {
         assertThat(carViewValidation.greaterThanFiveLetter(input)).isFalse();
     }
     @Test
-    void 차량_입력_중_중복된_이름_존재하는지_검증(){
+    void 차량_입력_중_중복된_이름_존재하는지_검증() {
         List<String> input = new ArrayList<>();
 
         input.add("pobi");

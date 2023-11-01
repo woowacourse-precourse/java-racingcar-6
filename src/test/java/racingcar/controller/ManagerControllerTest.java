@@ -28,23 +28,23 @@ public class ManagerControllerTest {
     }
 
     @AfterEach
-    public void restoreStreams(){
+    public void restoreStreams() {
         System.setOut(System.out);
         output.reset();
     }
 
-    private boolean isRandomNumberInBound(int randomNumber){
+    private boolean isRandomNumberInBound(int randomNumber) {
         return randomNumber >= 0 && randomNumber <= 9;
     }
 
     @Test
-    void 난수_생성_범위_테스트(){
+    void 난수_생성_범위_테스트() {
         int randomNumber = managerController.createRandomNumber();
         assertThat(isRandomNumberInBound(randomNumber)).isTrue();
     }
 
     @Test
-    void 레이싱_실행_테스트(){
+    void 레이싱_실행_테스트() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("pobi",0));
         cars.add(new Car("woni",0));
@@ -59,7 +59,7 @@ public class ManagerControllerTest {
     }
 
     @Test
-    void 레이싱_1회_실행_후_차량_움직임_테스트(){
+    void 레이싱_1회_실행_후_차량_움직임_테스트() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("pobi",0));
         cars.add(new Car("woni",0));
@@ -77,7 +77,7 @@ public class ManagerControllerTest {
     }
 
     @Test
-    void 레이싱_실행_후_차량_움직임_출력_테스트(){
+    void 레이싱_실행_후_차량_움직임_출력_테스트() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("pobi",4));
         cars.add(new Car("woni",5));
@@ -87,7 +87,7 @@ public class ManagerControllerTest {
     }
 
     @Test
-    void 우승_차량_판단_테스트(){
+    void 우승_차량_판단_테스트() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("pobi",4));
         cars.add(new Car("woni",5));
@@ -100,7 +100,7 @@ public class ManagerControllerTest {
     }
 
     @Test
-    void 우승_차량_출력_테스트(){
+    void 우승_차량_출력_테스트() {
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("pobi",4));
         cars.add(new Car("woni",5));
