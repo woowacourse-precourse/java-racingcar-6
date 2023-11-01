@@ -14,14 +14,13 @@ public class GameCount {
         return GameCount.gameCount;
     }
 
-    public int setHighStep() {
-        for (int i = GameCount.gameCount; i > 0; i--) {
+    public void setHighStep() {
+        for (int i = GameCount.gameCount; i >= 0; i--) {
             if (cars.getCarsData().containsValue(i)) {
                 GameCount.highStep = i;
-                return GameCount.highStep;
+                break;
             }
         }
-        return GameCount.highStep;
     }
 
     public int getHighStep() {

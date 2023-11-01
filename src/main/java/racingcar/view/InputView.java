@@ -6,11 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
-    public List<String> joinCarsName() {
+    public static List<String> joinCarsName() {
         return Arrays.asList(Console.readLine().split(","));
     }
 
-    public String GameCount() {
+    public static String GameCount() {
         return Console.readLine();
     }
 }

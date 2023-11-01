@@ -46,8 +46,8 @@ public class RacingCarController {
         return cars;
     }
 
-    public int getHighStep() {
-        return gameCount.setHighStep();
+    public void getHighStep() {
+        gameCount.setHighStep();
     }
 
     public String getResult() {
