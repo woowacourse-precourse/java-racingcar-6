@@ -35,8 +35,7 @@ public class RacingGame {
         }
         validateDuplicate(carNames);
 
-        List<Car> cars = convertStringArrayToCarList(carNames);
-        return cars;
+        return convertStringArrayToCarList(carNames);
     }
 
     private void validateCarName(String carName) {
