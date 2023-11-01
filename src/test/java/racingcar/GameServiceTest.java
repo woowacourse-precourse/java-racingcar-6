@@ -70,7 +70,7 @@ public class GameServiceTest extends NsTest {
         Cars cars = gameService.makeCars(carNames);
 
         try(MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
-            mohck.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(forward, stop);
+            mock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(forward, stop);
 
             gameService.forwardStart(1);
 
