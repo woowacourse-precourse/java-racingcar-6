@@ -19,6 +19,7 @@ public class ErrorCheck {
     private final String LENGTH_ERROR = "자동차 이름 입력 길이가 잘못됨";
     private final String NOT_NUMBER_ERROR  = "반복 횟수가 숫자가 아님.";
     private final String DUPLICATE_ERROR = "이름이 중복됐음.";
+    private final String ZERO_REPEAT_ERROR = "반복 횟수가 0번임";
 
     private final int MAXIMUM_LENGTH = 5;
     private final int MINIMUM_LENGTH = 1;
@@ -43,6 +44,21 @@ public class ErrorCheck {
         if(isDuplicateName(car_names_list)){
             throw new IllegalArgumentException(DUPLICATE_ERROR);
         }
+
+        if(ZeroRepeat(repeat)){
+            throw new IllegalArgumentException(ZERO_REPEAT_ERROR);
+        }
+    }
+
+    /*
+     * 반복 횟수가 0번인지 판별해주는 메서드
+     *
+     * @param String repeat
+     * @return boolean
+     */
+
+    private boolean ZeroRepeat(String repeat){
+        return repeat.equals("0");
     }
 
     /*
