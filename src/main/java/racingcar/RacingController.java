@@ -36,6 +36,9 @@ public class RacingController {
     System.out.print("최종 우승자 : ");
     for (int i = 0; i < winnerList.size(); i++) {
       System.out.print(winnerList.get(i).getName());
+      if (i < winnerList.size() - 1) {
+        System.out.print(", ");
+      }
     }
   }
 }
