@@ -33,6 +33,8 @@ public class RacingCar {
             cars.move();
             racingCarView.printMoveResult(cars.getCars());
         }
+
+        racingCarView.printWinner(cars.getLeadingCar());
     }
 
     private List<String> inputCarName() {

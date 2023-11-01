@@ -51,4 +51,19 @@ public class RacingCarView {
         sb.append('\n');
         System.out.println(sb);
     }
+
+    public void printWinner(List<Car> winnerList) {
+        System.out.print("최종 우승자 : ");
+
+        StringBuilder sb = new StringBuilder();
+        for (Car winner : winnerList) {
+            sb.append(winner.getName()).append(", ");
+        }
+
+        // 마지막 쉼표 제거
+        String winnerString = sb.toString();
+        winnerString = winnerString.substring(0, winnerString.length() - 2);
+
+        System.out.println(winnerString);
+    }
 }
