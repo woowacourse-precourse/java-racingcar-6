@@ -1,10 +1,9 @@
 package racingcar.service;
 
-import racingcar.domain.Car;
-import racingcar.domain.Referee;
-
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.Referee;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.OutputView;
 
@@ -28,11 +27,13 @@ public class RaceGameService {
             outputView.printRaceResult(cars);
         }
     }
+
     public void race() {
         for (Car car : cars) {
             car.moveForwardCar(randomNumberGenerator.generateUniqueNumbers());
         }
     }
+
     public String getWinners(Referee referee) {
         return referee.determineWinners(cars);
     }

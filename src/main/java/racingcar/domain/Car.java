@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.util.RandomNumberGenerator;
-
 public class Car {
 
     private static final int MOVE_THRESHOLD = 4;

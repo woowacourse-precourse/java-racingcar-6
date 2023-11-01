@@ -9,32 +9,6 @@ import java.util.Set;
 public class InputView {
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
-    public String[] readCarName() {
-        String[] carNames = Console.readLine().split(",");
-        return parseToNames(carNames);
-    }
-
-    public int readProgressCount() {
-        String input = Console.readLine();
-        return parseToInt(input);
-    }
-
-    private String[] parseToNames(String[] carNames) {
-        validateDuplicateNames(carNames);
-        return Arrays.stream(carNames)
-                .peek(this::validateCarName)
-                .map(String::trim)
-                .toArray(String[]::new);
-    }
-
-    private void validateCarName(String carName) {
-        validateLength(carName);
-        validateIsNotEmpty(carName);
-        validateNoSpaces(carName);
-        validateFormat(carName);
-
-    }
-
     private static void validateDuplicateNames(String[] carNames) {
         Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
         if (uniqueNames.size() != carNames.length) {
@@ -80,6 +54,32 @@ public class InputView {
         if (progressCount <= 0) {
             throw new IllegalArgumentException("라운드 수는 1 이상의 정수여야 합니다.");
         }
+    }
+
+    public String[] readCarName() {
+        String[] carNames = Console.readLine().split(",");
+        return parseToNames(carNames);
+    }
+
+    public int readProgressCount() {
+        String input = Console.readLine();
+        return parseToInt(input);
+    }
+
+    private String[] parseToNames(String[] carNames) {
+        validateDuplicateNames(carNames);
+        return Arrays.stream(carNames)
+                .peek(this::validateCarName)
+                .map(String::trim)
+                .toArray(String[]::new);
+    }
+
+    private void validateCarName(String carName) {
+        validateLength(carName);
+        validateIsNotEmpty(carName);
+        validateNoSpaces(carName);
+        validateFormat(carName);
+
     }
 
 }
