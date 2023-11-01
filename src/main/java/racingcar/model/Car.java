@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String name;
     private int currentPosition;
@@ -16,6 +18,10 @@ public class Car {
 
     public int getCurrentPosition() {
         return currentPosition;
+    }
+
+    protected int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 }
