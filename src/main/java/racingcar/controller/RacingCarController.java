@@ -39,6 +39,13 @@ public class RacingCarController {
         if (!input.matches("\\d+")) {
             throw new IllegalArgumentException("회차는 숫자여야 합니다.");
         }
-        return Integer.parseInt(input);
+
+        int parsedValue = Integer.parseInt(input);
+
+        if (parsedValue <= 0) {
+            throw new IllegalArgumentException("회차는 0보다 커야 합니다.");
+        }
+
+        return parsedValue;
     }
 }
