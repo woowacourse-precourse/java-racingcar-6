@@ -21,6 +21,7 @@ public class Cars {
     }
 
     public void addCarsFromInput(String input) {
+        cars.clear();
         String[] names = input.split(DELIMITER);
         for (String name : names) {
             Car car = new Car(name.trim());
