@@ -18,6 +18,10 @@ public class GameView {
         System.out.println("실행 결과");
     }
 
+    public void gameFinalResultView(List<String> winnerList) {
+        System.out.println("최종 우승자 : " + String.join(", ", winnerList));
+    }
+
     public void playProgressView(List<Driver> driverList) {
         for (Driver driver : driverList) {
             driverProgressView(driver);

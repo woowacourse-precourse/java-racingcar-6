@@ -30,7 +30,9 @@ public class Game {
             play(driverList);
            gameView.playProgressView(driverList);
         }
+
         List<String> winnerList = driverService.getWinnerList(driverList);
+        gameView.gameFinalResultView(winnerList);
     }
 
 
