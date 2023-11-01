@@ -51,7 +51,7 @@ public class Validator {
                 nameLength(name.trim());
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException("오류입니다.");
+            throw new IllegalArgumentException("입력 값이 오류입니다.");
         }
         return true;
     }
@@ -61,7 +61,7 @@ public class Validator {
             isNull(input.trim());
             isNumber(input.trim());
         } catch (Exception e) {
-            throw new IllegalArgumentException("오류입니다.");
+            throw new IllegalArgumentException("입력 값이 오류입니다.");
         }
         return true;
     }
