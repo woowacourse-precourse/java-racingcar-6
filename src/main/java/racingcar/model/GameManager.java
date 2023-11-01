@@ -5,8 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
+    private final static int MOVE_CONDITION = 4;
+    private final static int MIN_VALUE = 0;
+    private final static int MAX_VALUE = 9;
+
     public void tryMoveCar(Car car) {
-        if (makeRandomNumber() > 4) {
+        if (makeRandomNumber() >= MOVE_CONDITION) {
             car.moveCar();
         }
     }
@@ -22,6 +26,6 @@ public class GameManager {
     }
 
     private int makeRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
     }
 }
