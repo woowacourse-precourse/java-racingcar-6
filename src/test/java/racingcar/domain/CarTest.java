@@ -21,6 +21,14 @@ class CarTest {
         assertThrows(IllegalArgumentException.class, () -> new Car(""));
         assertThrows(IllegalArgumentException.class, () -> new Car("VeryLongName"));
     }
+
+    @Test
+    @DisplayName("차의 초기 위치 확인")
+    void initPosition() {
+        assertEquals(0, car.getPosition());
+    }
+
+
     @Test
     @DisplayName("차의 이름 가져오기")
     void getName() {
