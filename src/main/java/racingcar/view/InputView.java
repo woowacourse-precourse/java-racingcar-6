@@ -23,29 +23,31 @@ public class InputView {
         this.emptyNameValidator = emptyNameValidator;
     }
 
-    public List<String> inputCarNames() {
+    public String inputCarNames() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
-        List<String> carNameList = List.of(readLine().split(","));
+        return readLine();
+    }
+
+    public List<String> parseCarNames(String input) {
+        List<String> carNameList = List.of(input.split(","));
         validateCarNames(carNameList);
         return carNameList;
     }
 
-    public int inputMoveCount() {
+    public String inputMoveCount() {
         System.out.println(INPUT_MOVE_COUNT_MESSAGE);
-        String input = readLine();
+        return readLine();
+    }
+
+    public int parseMoveCount(String input) {
         validateMoveCount(input);
-        int moveCount = parseInteger(input);
-        return moveCount;
+        return Integer.parseInt(input);
     }
 
     public void validateMoveCount(String input) {
         if (!isPositiveInteger(input)) {
             throw new IllegalArgumentException("error: 숫자가 아닌 값이 입력되었습니다.");
         }
-    }
-
-    private int parseInteger(String input) {
-        return Integer.parseInt(input);
     }
 
     private boolean isPositiveInteger(String input) {
