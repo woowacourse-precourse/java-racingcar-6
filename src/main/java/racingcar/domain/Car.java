@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import racingcar.constants.DomainConstant;
+import static racingcar.constants.DomainConstant.*;
+
 import racingcar.AppConfig;
 import racingcar.validator.Validator;
 
@@ -12,7 +13,7 @@ public class Car {
     public Car(String name) {
         validateCarName(name);
         this.name = name;
-        this.position = DomainConstant.INITIAL_POSITION;
+        this.position = INITIAL_POSITION;
     }
 
     public String getName() {
@@ -34,12 +35,12 @@ public class Car {
 
     private int calculateMoveDistance(int drivingSkill) {
         if (isSkillSufficient(drivingSkill)) {
-            return DomainConstant.WHEN_SUCCESS_MOVE_DISTANCE;
+            return WHEN_SUCCESS_MOVE_DISTANCE;
         }
-        return DomainConstant.WHEN_FAIL_MOVE_DISTANCE;
+        return WHEN_FAIL_MOVE_DISTANCE;
     }
 
     private boolean isSkillSufficient(int drivingSkill) {
-        return drivingSkill >= DomainConstant.SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE;
+        return drivingSkill >= SUFFICIENT_DRIVING_SKILL_CRITERIA_VALUE;
     }
 }
