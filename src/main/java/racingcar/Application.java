@@ -19,8 +19,6 @@ public class Application {
         List<String> car = inputCarNames();
 
         int tryCount = inputTryCount();
-        int maxPosition;
-
 
         validatePositiveTryCount(tryCount);
 
@@ -30,16 +28,7 @@ public class Application {
 
         getResult(car, tryCount, position);
 
-        maxPosition = position.stream()
-                .mapToInt(value -> value)
-                .max()
-                .orElseThrow();
-
-        for (int i = 0; i < car.size(); i++) {
-            if (position.get(i) == maxPosition) {
-                winners.add(car.get(i));
-            }
-        }
+        winners = getWinners(car, position);
 
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
@@ -100,6 +89,22 @@ public class Application {
         if (canMoveForward()) {
             position.set(index, position.get(index) + 1);
         }
+    }
+
+    private static List<String> getWinners(List<String> carNames, List<Integer> position) {
+        int maxPosition = position.stream()
+                .mapToInt(value -> value)
+                .max()
+                .orElseThrow();
+        List<String> winners = new ArrayList<>();
+
+        for (int i = 0; i < carNames.size(); i++) {
+            if (position.get(i) == maxPosition) {
+                winners.add(carNames.get(i));
+            }
+        }
+
+        return winners;
     }
 
     private static String getInput(String message) {
