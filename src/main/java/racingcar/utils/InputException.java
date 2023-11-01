@@ -1,14 +1,21 @@
-package racingcar.controller;
+package racingcar.utils;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InputException {
+    private Set<String> existCarNames = new HashSet<>();
     private final Parser parser = new Parser();
-    public void checkCarNames(String input){
-        checkEmpty(input);
-        List<String> carNameList = parser.parseCar(input);
-        checkCarNameDuplicated(carNameList);
-        checkOneByOne(carNameList);
+
+    public void checkCarNames(List<String> input){
+        for (String carName : input){
+            checkEmpty(carName);
+            checkCarNameLength(carName);
+            checkCarNameDuplicated(carName);
+            invalidSpace(carName);
+        }
+
     }
 
     public void checkNumberOfTry(String input){
@@ -22,13 +29,9 @@ public class InputException {
         }
     }
 
-    private void checkCarNameDuplicated(List<String> carNameList){
-        for (int i = 0; i < carNameList.size(); i++){
-            for (int j = 0; j < carNameList.size(); j++){
-                if (carNameList.get(i).equals(carNameList.get(j))){
-                    throw new IllegalArgumentException("자동차의 이름이 중복됩니다.");
-                }
-            }
+    private void checkCarNameDuplicated(String carName){
+        if(!existCarNames.add(carName)){
+            throw new IllegalArgumentException("자동차의 이름이 중복됩니다.");
         }
     }
 
