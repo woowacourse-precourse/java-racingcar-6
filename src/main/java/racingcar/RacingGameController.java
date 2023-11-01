@@ -9,6 +9,17 @@ import java.util.stream.Collectors;
 public class RacingGameController {
     private GameData gameData;
     private List<Car> cars;
+    public void startGame() {
+        initializeGameData();
+        initializeCars();
+        OutputView.printResultMsg();
+        while (!gameData.isRacesFinished()) {
+            playSingleRace();
+            gameData.nextRound();
+            OutputView.printRoundResultMsg(cars);
+        }
+        printWinners();
+    }
 
     // GameDate 초기화
     private void initializeGameData() {
@@ -46,6 +57,12 @@ public class RacingGameController {
         int maxPosition = cars.stream().mapToInt(Car::getPosition).max().getAsInt();
         //filter 통과한 객체들만 return
         return cars.stream().filter(car -> car.getPosition() == maxPosition).collect(Collectors.toList());
+    }
+
+    // 최종 우승자 출력
+    private void printWinners() {
+        List<Car> winners = findWinners();
+        OutputView.printWinners(winners);
     }
 
 
