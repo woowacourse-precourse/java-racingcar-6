@@ -24,6 +24,11 @@ public class Cars {
         return names.size() != cars.size();
     }
 
+    public void tryToMove(MovingStrategy movingStrategy) {
+        cars.stream()
+                .forEach((car) -> car.tryToMove(movingStrategy));
+    }
+
     public List<Car> getCars() {
         return cars;
     }

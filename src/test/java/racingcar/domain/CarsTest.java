@@ -64,11 +64,71 @@ public class CarsTest {
 
     @DisplayName("Cars 생성 예외 : Car 이름이 중복되면 IllegalArgumentException 발생")
     @ParameterizedTest
-    @CsvSource({"pobi,pobi,3","pobi,pobi  ,3","pobi,3,pobi","3,pobi,pobi"})
+    @CsvSource({"pobi,pobi,3", "pobi,pobi  ,3", "pobi,3,pobi", "3,pobi,pobi"})
     public void createCars_exception_nameDuplicated() throws Exception {
         //when, then
         assertThatThrownBy(() -> new Cars(List.of(name1, name1, name3)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복되는 이름이 존재합니다.");
+    }
+
+    @DisplayName("Cars 모든 Car 이동 : 생성된 숫자가 4 이상일 경우 모두 이동")
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    public void moveCar_whenValue_up4(int movableValue) throws Exception {
+        //given
+        int repeat = 3;
+        Cars cars = new Cars(List.of(name1, name2, name3));
+
+        //when
+        for (int i = 0; i < repeat; i++) {
+            cars.tryToMove(() -> movableValue);
+        }
+
+        //then
+        cars.getCars().stream()
+                .forEach((car) -> assertThat(
+                        car.getDistance()).isEqualTo(repeat)
+                );
+    }
+
+    @DisplayName("Cars 모든 Car 멈춤 : 생성된 숫자가 4 미만일 경우 모두 멈춤")
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    public void stopCar_whenValue_down4(int stopValue) throws Exception {
+        //given
+        int repeat = 3;
+        Cars cars = new Cars(List.of(name1, name2, name3));
+
+        //when
+        for (int i = 0; i < repeat; i++) {
+            cars.tryToMove(() -> stopValue);
+        }
+
+        //then
+        cars.getCars().stream()
+                .forEach((car) -> assertThat(
+                        car.getDistance()).isEqualTo(0)
+                );
+    }
+
+    @DisplayName("Cars 랜덤 이동 : 모든 Car들이 반복 범위 안에 존재")
+    @Test
+    public void moveCarInRandom() throws Exception {
+        //given
+        int repeat = 3;
+        Cars cars = new Cars(List.of(name1, name2, name3));
+        RandomMovingStrategy movingStrategy = new RandomMovingStrategy();
+
+        //when
+        for (int i = 0; i < repeat; i++) {
+            cars.tryToMove(movingStrategy);
+        }
+
+        //then
+        cars.getCars().stream()
+                .forEach((car) -> assertThat(
+                        car.getDistance()).isBetween(0, repeat)
+                );
     }
 }
