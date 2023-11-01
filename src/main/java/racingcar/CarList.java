@@ -15,13 +15,11 @@ public class CarList {
     public void playRound(
             MoveForwardConditioner moveForwardConditioner
     ) {
-        // 자동차 전진
         for (Car car : this.cars) {
             if (moveForwardConditioner.canMoveForward()) {
                 car.moveForward();
             }
         }
-        // 자동차 전진 show
         for (Car car : this.cars) {
             car.showCurrentMoveForward();
             showln("");
@@ -31,7 +29,6 @@ public class CarList {
 
     public String winningCars() {
         int maxCount = this.cars.get(0).getMoveForwardCount();
-        // car를 넣어서 value(전진횟수) 구하기, value(전진 횟수) 가장 많은 것을 구하기
         for (Car car : this.cars) {
             maxCount = getMaxCount(car, maxCount);
         }

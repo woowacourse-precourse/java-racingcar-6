@@ -13,7 +13,6 @@ public class RacingCarGame {
     private MoveForwardConditioner moveForwardConditioner;
 
 
-
     public void setup(
             MoveForwardConditioner moveForwardConditioner,
             InputArgumentsHandler inputArgumentsHandler
@@ -26,7 +25,6 @@ public class RacingCarGame {
     public void play() {
         showln("");
         showln("실행 결과");
-        // 입력받은 시도 횟수까지 시도함.
         for (int i = 0; i < numberOfAttempts; i++) {
             carList.playRound(moveForwardConditioner);
         }
