@@ -5,13 +5,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalArgumentExceptionType;
 
 class RandomMovingCarsTest {
 
+    @DisplayName("빈_리스트로_객체_생성_실패_테스트")
     @Test
-    void 빈_리스트로_객체_생성_실패_테스트() {
+    void creationWithEmptyListFailTest() {
         List<Car> Cars = List.of();
 
         assertThatThrownBy(() -> new Cars(Cars))
@@ -19,8 +21,9 @@ class RandomMovingCarsTest {
                 .hasMessage(IllegalArgumentExceptionType.EMPTY_CARS_ERROR_MESSAGE.getMessage());
     }
 
+    @DisplayName("중복_차량_이름으로_객체_생성_실패_테스트")
     @Test
-    void 중복_차량_이름으로_객체_생성_실패_테스트() {
+    void creationWithDuplicatedCarNameFailTest() {
         List<Car> Cars = List.of(
                 new RandomMovingCar("붕붕카"),
                 new RandomMovingCar("붕붕카")
@@ -32,8 +35,9 @@ class RandomMovingCarsTest {
 
     }
 
+    @DisplayName("객체_생성_성공_테스트")
     @Test
-    void 객체_생성_성공_테스트() {
+    void creationOfInstanceSuccessTest() {
         List<Car> Cars = List.of(
                 new RandomMovingCar("붕붕카"),
                 new RandomMovingCar("범퍼카")
@@ -42,8 +46,9 @@ class RandomMovingCarsTest {
         assertThatCode(() -> new Cars(Cars)).doesNotThrowAnyException();
     }
 
+    @DisplayName("차량이동_테스트")
     @Test
-    void 차량이동_테스트() {
+    void carMovingTest() {
             Car win1 = new AlwaysMovingCar("붕붕카");
             Car win2 = new AlwaysMovingCar("범퍼카");
             Car lose = new NeverMovingCar("불법카");

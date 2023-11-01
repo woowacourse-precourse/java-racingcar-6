@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalStateExceptionType;
 
@@ -27,8 +28,9 @@ class RacingGameStateTest {
         endedRacingGameState = new RacingGameState(true, rawCars);
     }
 
+    @DisplayName("완료_게임_진행_상태_조회_테스트")
     @Test
-    void 완료_게임_진행_상태_조회_테스트() {
+    void endedGameStateCheckTest() {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(endedRacingGameState.isEnd()).isEqualTo(true);
         softAssertions.assertThat(endedRacingGameState.getCarDistanceByIndex(0)).isEqualTo(alwaysMovingCar.getDistance());
@@ -39,8 +41,9 @@ class RacingGameStateTest {
         softAssertions.assertAll();
     }
 
+    @DisplayName("진행중_게임_승자_조회_실패_테스트")
     @Test
-    void 진행중_게임_승자_조회_실패_테스트() {
+    void playingGamesWinnerCheckFailTest() {
         IllegalStateException gameNotEndedException = IllegalStateExceptionType.GAME_NOT_ENDED_MESSAGE
                 .getException();
 

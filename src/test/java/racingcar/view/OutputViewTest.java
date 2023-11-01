@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalStateExceptionType;
 import racingcar.domain.AlwaysMovingCar;
@@ -55,20 +56,23 @@ class OutputViewTest {
         return captor.toString().trim();
     }
 
+    @DisplayName("게임_상태_출력_테스트")
     @Test
-    void 게임_상태_출력_테스트() {
+    void gameStateOutputTest() {
         outputView.printGameState(playingRacingGameState);
         assertThat(output()).contains("붕붕카 : -", "차차차 :");
     }
 
+    @DisplayName("최종_우승자_출력_성공_테스트")
     @Test
-    void 최종_우승자_출력_성공_테스트() {
+    void finalWinnerOutputSuccessTest() {
         outputView.printWinners(endedRacingGameState);
         assertThat(output()).contains("최종 우승자 : 붕붕카");
     }
 
+    @DisplayName("최종_우승자_출력_실패_테스트")
     @Test
-    void 최종_우승자_출력_실패_테스트() {
+    void finalWinnerOutputFailTest() {
         IllegalStateException exception = IllegalStateExceptionType
                 .GAME_NOT_ENDED_MESSAGE
                 .getException();

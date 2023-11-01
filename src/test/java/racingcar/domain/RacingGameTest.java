@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalArgumentExceptionType;
 import racingcar.constant.IllegalStateExceptionType;
@@ -26,15 +27,17 @@ class RacingGameTest {
 
     }
 
+    @DisplayName("이동_횟수_최소조건_실패_테스트")
     @Test
-    void 이동_횟수_최소조건_실패_테스트() {
+    void minimumAttemptFailTest() {
         assertThatThrownBy(() -> new RacingGame(cars, ZERO_ATTEMPT))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(IllegalArgumentExceptionType.ATTEMPT_COUNT_INIT_ERROR_MESSAGE.getMessage());
     }
 
+    @DisplayName("게임_진행_성공_테스트")
     @Test
-    void 게임_진행_성공_테스트() {
+    void proceedingGameSuccessTest() {
         RacingGame racingGame = new RacingGame(cars, ONE_ATTEMPT);
 
         SoftAssertions softAssertions = new SoftAssertions();
@@ -44,8 +47,10 @@ class RacingGameTest {
 
         softAssertions.assertAll();
     }
+
+    @DisplayName("게임_진행_실패_테스트")
     @Test
-    void 게임_진행_실패_테스트() {
+    void proceedingGameFailTest() {
         RacingGame racingGame = new RacingGame(cars, ONE_ATTEMPT);
         racingGame.proceed();
 

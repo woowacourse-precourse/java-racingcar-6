@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.constant.IllegalArgumentExceptionType;
 
@@ -25,8 +26,9 @@ class InputViewTest {
     }
 
 
+    @DisplayName("차량이름_입력_성공_테스트")
     @Test
-    void 차량이름_입력_성공_테스트() {
+    void carNameInputSuccessTest() {
         String carName1 = "pobi";
         String carName2 = "woni";
         String carName3 = "jyk";
@@ -41,16 +43,18 @@ class InputViewTest {
                 .hasSize(carNames.length);
     }
 
+    @DisplayName("시도횟수_입력_성공_테스트")
     @Test
-    void 시도횟수_입력_성공_테스트() {
+    void tryAmountInputSuccessTest() {
         int three = 3;
         setUp(new String[]{"" + three});
 
         assertThat(inputView.readAttemptCount()).isEqualTo(three);
     }
 
+    @DisplayName("시도횟수_입력_실패_테스트")
     @Test
-    void 시도횟수_입력_실패_테스트() {
+    void tryAmountInputFailTest() {
         String koreanThree = "삼";
         setUp(new String[]{koreanThree});
         IllegalArgumentException exception = IllegalArgumentExceptionType
