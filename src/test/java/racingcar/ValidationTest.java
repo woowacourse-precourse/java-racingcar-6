@@ -45,4 +45,12 @@ public class ValidationTest {
         );
     }
 
+    @Test
+    void 시도_회수가_정수가_아닌_경우() {
+        String repetitions = "2.3";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> checkIsPositiveInteger(repetitions))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
