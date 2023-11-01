@@ -47,7 +47,6 @@
      - int getNumberOfAttemptsFromInputString()
   2. 속성
      - int numberOfAttempts
-     - int numberOfCars
      - List\<Car> cars
 
 - NumberGenerator
