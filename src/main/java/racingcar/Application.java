@@ -26,6 +26,15 @@ public class Application {
         } catch (Exception e) {
             throw ee;
         }
+        System.out.println("\n실행결과");
+        raceCars(name, dis, n);
+    }
+
+    private static void raceCars(String[] name, int[] dis, int n) {
+        for (int i = 0; i < n; i++) {
+            raceSingleRound(name, dis);
+            System.out.println();
+        }
     }
 
 }
