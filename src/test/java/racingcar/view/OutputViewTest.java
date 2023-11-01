@@ -7,7 +7,6 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 
 @SuppressWarnings("NonAsciiCharacters")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -16,15 +15,15 @@ class OutputViewTest {
     void 포지션을_작대기로_변환하여_출력하라 () {
         //given
         String name = "pobi";
-        Car car = new Car(name);
+        int position = 5;
         //when
-        car.moveForward();
+        OutputView outputView = new OutputView();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
-        car.printCarResult();
+        outputView.printCarResult(name, position);
         String outputMessage = outputStream.toString();
         //then
-        assertThat(outputMessage).contains("pobi : -");
+        assertThat(outputMessage).contains("pobi : -----");
     }
 
 }
