@@ -2,7 +2,6 @@ package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,12 +16,11 @@ public class CarTest {
         car = new Car();
     }
 
-    @DisplayName("자동차 이름들 값 유무검사")
+    @DisplayName("4 이상이면 true, 아니면 false")
     @ParameterizedTest
-    @ValueSource(strings = {"잠온다,자고싶다", "","라라", " ","   ","라라, ","여섯글자인데, 붕붕이","다   섯"})
-    void validateCarNamesTest(String carName){
-        Assertions.assertThatThrownBy(() -> assertThat(car.validateCarName(carName)).isTrue())
-                .isInstanceOf(IllegalArgumentException.class);
+    @ValueSource(ints = {4,0,3,9})
+    void isStepForwardTest(int randomNumber){
+        assertThat(car.isStepForward(randomNumber)).isTrue();
     }
 
 }
