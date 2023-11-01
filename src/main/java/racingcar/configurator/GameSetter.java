@@ -48,11 +48,16 @@ public class GameSetter {
 
     public void inputCarToList(String carName) {
         validateNameLength(carName);
+        validateNullValue(carName);
         carList.addCar(new Car(carName));
     }
 
     public void validateNameLength(String carName) {
         if (carName.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException("이름은 5글자 이하로 입력해 주십시오.");
+    }
+
+    public void validateNullValue(String carName){
+        if (carName == "") throw new IllegalArgumentException("유효하지 않은 이름입니다.");
     }
 
     public int getCoin() {
