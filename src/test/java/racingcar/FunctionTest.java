@@ -57,7 +57,7 @@ public class FunctionTest {
     void findWinner() {
         List<Car> cars = Arrays.asList(new Car("son", 3), new Car("jun", 4), new Car("pobi", 4));
         List<String> winner = gameService.findWinner(cars);
-        assertThat(winner).containsExactly( "jun","pobi");
+        assertThat(winner).containsExactly("jun", "pobi");
     }
 
 }

@@ -2,10 +2,8 @@ package service;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.Car;
-import random.Random;
 import util.Validate;
 
-import javax.naming.NamingEnumeration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,12 +23,14 @@ public class GameService {
         attempt(cars, numberOfAttempts);
         getGameResult(cars);
     }
+
     public String getInputLineOfCarNames() {
         askForInputCarNames();
         String input = Console.readLine();
         validate.inputLineOfCarNames(input);
         return input;
     }
+
     public int getNumberOfAttempts() {
         askForNumbersOfAttempts();
         String input = Console.readLine();
@@ -70,6 +70,7 @@ public class GameService {
         }
         return maxPosition;
     }
+
     private void getGameResult(List<Car> cars) {
         String winner = String.join(",", findWinner(cars));
         printWinner(winner);

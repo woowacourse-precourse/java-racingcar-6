@@ -2,7 +2,6 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import domain.Car;
 import org.junit.jupiter.api.AfterEach;
@@ -68,14 +67,14 @@ public class ViewTest {
     void printOneRoundResult() {
         List<Car> cars = Arrays.asList(new Car("poni", 3), new Car("jun", 2));
         OutputView.printOneRoundResult(cars);
-        assertThat(output.toString()).contains("poni : ---","jun : --");
+        assertThat(output.toString()).contains("poni : ---", "jun : --");
     }
 
     @Test
     @DisplayName("자동차 이름과 전진 범위를 출력해주는 기능")
     void carToString() {
-        Car car = new Car("son",4);
-        String result  = car.toString();
-        assertEquals(result,"son : ----");
+        Car car = new Car("son", 4);
+        String result = car.toString();
+        assertEquals(result, "son : ----");
     }
 }

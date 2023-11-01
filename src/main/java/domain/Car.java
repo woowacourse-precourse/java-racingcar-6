@@ -7,7 +7,6 @@ public class Car {
     private int position = 0;
     private Random random = new Random();
 
-
     public Car(String name) {
         this.name = name;
     }
@@ -22,7 +21,7 @@ public class Car {
         this.random = random;
     }
 
-    public Car(String name,int position, Random random) {
+    public Car(String name, int position, Random random) {
         this.name = name;
         this.position = position;
         this.random = random;
@@ -33,6 +32,7 @@ public class Car {
             position++;
         }
     }
+
     private boolean isMove() {
         return 4 <= random.create();
     }
