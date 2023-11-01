@@ -5,15 +5,16 @@ import static racingcar.RandomNumberRange.*;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private CarName name;
     private int distance;
 
-    private Car(String name, int distance) {
+    private Car(CarName name, int distance) {
+        /*validateName(name);*/
         this.name = name;
         this.distance = distance;
     }
 
-    public static Car createCar(final String name, int distance) {
+    public static Car createCar(final CarName name, int distance) {
         return new Car(name, distance);
     }
 
@@ -42,7 +43,7 @@ public class Car {
         return name + " : " + "-".repeat(distance);
     }
 
-    public String getName() {
+    public CarName getName() {
         return this.name;
     }
 

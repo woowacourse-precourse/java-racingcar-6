@@ -19,8 +19,9 @@ public class OutputView {
         System.out.print(FINAL_WINNER);
     }
 
-    public static void printWinnerNames(List<String> winnerList) {
+    public static void printWinnerNames(List<CarName> winnerList) {
         String winners = winnerList.stream()
+                .map(CarName::getName)
                 .collect(Collectors.joining(", "));
 
         System.out.print(winners);

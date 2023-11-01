@@ -19,7 +19,7 @@ public class Cars {
 
     private static List<Car> putCarIntoList(List<String> names) {
         List<Car> cars = names.stream()
-                .map(name -> Car.createCar(name, 0))
+                .map(name -> Car.createCar(new CarName(name), 0))
                 .collect(Collectors.toList());
 
         return Collections.unmodifiableList(cars);
@@ -31,7 +31,7 @@ public class Cars {
         return List.of(names);
     }
 
-    public List<String> findWinnerCars() {
+    public List<CarName> findWinnerCars() {
         int maximumDistance = findMaximumDistance();
 
         return cars.stream()
