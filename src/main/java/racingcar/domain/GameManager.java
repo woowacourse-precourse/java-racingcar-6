@@ -47,7 +47,7 @@ public class GameManager {
     public void printWinner() {
         sortCars();
         List<String> winners = getWinnerList(cars);
-        IoManager.print("최종 우승자 : " + String.join(", ", winners));
+        IoManager.printWinner(winners);
     }
 
     public void sortCars() {
