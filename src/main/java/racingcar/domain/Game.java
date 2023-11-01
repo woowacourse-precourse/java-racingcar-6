@@ -5,6 +5,10 @@ import racingcar.exception.Validator;
 public class Game {
     int tryNumber;
 
+    public boolean isPlay(){
+        return tryNumber-- > 0;
+    }
+
     public void setTryNumber(String tryNumber) {
         Validator.empty(tryNumber);
         Validator.integer(tryNumber);
