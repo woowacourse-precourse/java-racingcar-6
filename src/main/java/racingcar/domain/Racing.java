@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Racing {
     private List<Car> cars;
-    private final int turn;
+    private int turn;
     private List<Integer> distanceRecord;
     public Racing(List<Car> cars, int turn) {
         this.cars = cars;
