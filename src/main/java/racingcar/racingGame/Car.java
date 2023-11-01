@@ -5,14 +5,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
 
     private String name;
-    private String distance;
+    private int distance;
 
     public Car(String name) {
         this.name = name;
-        this.distance = "";
+        this.distance = 0;
     }
 
-    public String getDistance() {
+    public int getDistance() {
         return distance;
     }
 
@@ -20,7 +20,7 @@ public class Car {
         return name;
     }
 
-    public void setDistance(String updateDist) {
+    public void setDistance(int updateDist) {
         this.distance = updateDist;
     }
 
@@ -29,10 +29,7 @@ public class Car {
         int randNum = Randoms.pickNumberInRange(0, 9);
 
         if(randNum >= 4) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.distance);
-            sb.append("-");
-            setDistance(sb.toString());
+            setDistance(this.distance + 1);
         }
     }
 

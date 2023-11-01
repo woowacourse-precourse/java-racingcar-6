@@ -22,7 +22,7 @@ public class Gamer {
 
         List<String> carNameList = new ArrayList<>();
 
-        String[] splitArr = inputCarName.split(", ");
+        String[] splitArr = inputCarName.split(",");
 
         for(String car: splitArr) {
             carNameList.add(car);
