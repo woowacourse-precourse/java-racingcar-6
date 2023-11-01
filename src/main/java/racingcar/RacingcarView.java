@@ -7,7 +7,7 @@ public class RacingcarView {
     public void GetMembers() {
         System.out.println(RacingcarModel.INPUT_USERS);
         String names = DealWithExceptionCase.IsNameValuable(Console.readLine());
-        for ( String name : names.split(",")) {
+        for (String name : names.split(",")) {
             RacingcarModel.members.put(name, 0);
         }
     }

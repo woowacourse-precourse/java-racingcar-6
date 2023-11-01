@@ -2,15 +2,24 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class DealWithExceptionCase {
 
     public static String IsNameValuable (String names) {
+        List<String> duplicateInspection = new ArrayList<String>();
+        for (String name : String.valueOf(names).split(",")) {
+//            System.out.println(duplicateInspection+name);
+            for (String nickname : duplicateInspection) {
+                if (nickname.equals(name)) throw new IllegalArgumentException();
+            }
+            duplicateInspection.add(name);
+        }
         for ( String name : String.valueOf(names).split(",")) {
             DealWithExceptionCase.IsVoidInName(name);
             DealWithExceptionCase.IsNameAccurate(name);
-            DealWithExceptionCase.IsNameDuplicate(name);
         }
         return names;
     }
@@ -20,18 +29,15 @@ public class DealWithExceptionCase {
             throw new IllegalArgumentException();
     }
 
-    public static void IsNameDuplicate(String name) {
-        if (DuplicateTest(name)) throw new IllegalArgumentException();
-    }
+//    public static void IsNameDuplicate(String name) {
+//        List<String> duplicateInspection = new ArrayList<String>();
+//        for (String nickname : duplicateInspection) {
+//            if (nickname.equals(name)) throw new IllegalArgumentException();
+//            duplicateInspection.add(name);
+//            System.out.println(duplicateInspection);
+//        }
+//    }
 
-    public static boolean DuplicateTest(String input) {
-
-        for (String nickname : RacingcarModel.duplicateInspection) {
-            if (nickname.equals(input)) return true;
-        }
-        RacingcarModel.duplicateInspection.add(input);
-        return false;
-    }
 
     public static void IsVoidInName(String name) {
         if (name.equals("") || !Pattern.matches(RacingcarModel.IS_NOT_IN_VOID, name))
