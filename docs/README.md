@@ -7,9 +7,9 @@
   - Car.getName()
 
 
-- [] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
-- [] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-- [] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
+- [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
+- [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
   - List<Car> stringToCar(String input)
   - Racing(List<Car> cars, Integer iterNum)
   

@@ -74,4 +74,16 @@ public class Racing {
         }
         return max;
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public int getThreshold() {
+        return threshold;
+    }
+
+    public int getIterNum() {
+        return iterNum;
+    }
 }
