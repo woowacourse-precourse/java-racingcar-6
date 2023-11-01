@@ -1,93 +1,60 @@
 # 기능 구현 
 
-## OutputView (View) 
-의존성 x
-- [x] 이름 입력 받는 문장 출력
-- [x] 시도할 회수 받는 문장 출력
-- [x] 실행 결과 출력 (컨트롤러로부터 데이터 받음)
-- [x] 최종 우승자 출력
-
-## InputView (View)
-의존성 x
-- [x] 이름 입력 받는 문장 출력
-- [x] 시도할 회수 받는 문장 출력
-- [x] 실행 결과 출력 (컨트롤러로부터 데이터 받음)
-- [x] 최종 우승자 출력
-
-## Car (Model)
-의존성 x
-- [x] 이름, 이동 횟수 저장
-- [x] 랜덤 값 생성 기능
-- [x] 값이 4이상인 경우 이동 횟수를 +1하는 기능
-- Car에서 random값을 만드는 것은 좋다.
-- 하지만 문제는 Random값의 Upper Bound와 LowerBound
-
-
-
-## CarController (Controller)
-Model과 View에 의존성을 가짐
-- [x] 자동차 리스트에 저장
-- [x] 시도 횟수 만큼 실행 결과 출력하기
-- [x] start() 함수 구현
-- [x] 사용자로부터 입력된 값의 유효성 검증
-- 이름은 5자 이하만 가능(양 옆 공백 제외 5자)
-- 이름 중복 불가능
-- 자동차가 한 대인 경우 불가능
-
-
-## CarDto
-View에서 출력을 하기 위해 Model의 정보를 넘겨주기 위함
-
 ---
+## Controller
+### Game
+- [x] 전체 게임을 진행하는 기능
+  - [x] View를 활용한 게임 진행기능
+  - [x] Validator를 활용한 검증 기능
+  - [x] Race를 활용한 자동차 경주 기능
+  - [x] View를 활용한 우승자 출력 기능
 
-# Test
-
-## CarView (View)
-- [ ] addCarMovingLine() test
-- [ ] printResult() test
-- [ ] printWinner() test
-- 공동 우승 출력 되도록 구현
-
-## Car (Model)
-- [ ] isMoving(), generateRandomNumber() test
-- 랜덤한 조건의 함수를 어떻게 테스트 하는지 공부 하기
-
-## CarController (Controller)
-- [ ] validInput() test
-- 이름은 5자 이하만 가능(양 옆 공백 제외 5자)
-- 이름 중복 불가능
-- 자동차가 한 대인 경우 불가능
-- [ ] carListMoving() test
-- 랜덤한 조건의 함수를 어떻게 테스트 하는지 공부 하기
-- [ ] converCarToCarDto() test
-- 객체의 타입 비교 어떻게 테스트 하는지 공부 하기
-- [ ] start() test
-- 가장 마지막에 테스트 하기
-
-
-
+### Race
+- [x] 주어진 라운드 수만큼 Race 진행하는 기능
+  - [x] 한 라운드 Race를 진행하고 출력하는 기능 
 ---
+## DTO
+### CarDto
+View에 모델의 정보를 알려주지 않기 위해 만든 Dto
+- [x] Car을 바탕으로 CarDto 생성하는 기능
+- [x] getter
+---
+## Model
+### Car 
+- [x] 값을 판단해서 이동하는 기능
+  - [x] 값이 기준치 이상인지 검증하는 기능 
 
-# Refactoring
+### Cars
+List<Car>을 Wrapping하는 일급 컬렉션
+- [x] 문자열을 바탕으로 List<Car> 생성하는 기능
+- [x] 사이즈 반환 기능
+- [x] 인덱스에 해당하는 Car 반환 기능
+- [x] List에 존재하는 모든 Car 값 판단하고 이동하는 기능
+---
+## Util
+### CarDtoConverter
+-[x] Cars에 해당하는List<CarDto> 반환하는 기능
 
-## CarView (View) -> InputView와 OutputView로 분리
-- [ ] InputView 기능 추가하고 OutputView와 분리하기
-- [ ] printWinner에서 max값 찾는 부분 함수로 추출하기
-- [ ] printResult에서 for-each 구문 함수로 추출하기
+### RandomNumber
+- [x] 난수 생성 범위 정의
+- [x] 난수 기준 정의
+- [x] 난수 생성 기능
 
-## Car (Model) 
-- [ ] getter 대체하기
-- [ ] RandomNumber클래스에 static을 활용해서 랜덤 숫자 생성 로직 분리
+### Validator
+- [x] 입력된 자동차 이름 유효성 검증
+  - [x] 자동차 두 대 이상인지 검증
+  - [x] 이름의 길이가 5이하인지 검증
+  - [x] 이름끼리 중복이 없는지 검증
+- [x] 입력된 시도할 회수 유효성 검증
+  - [x] 입력이 정수 형태 인지 검증
+  - [x] 입력이 0이 아닌지 검증
+---
+## View
+### InputView
+- [x] 자동차 이름 입력 받는 기능
+- [x] 시도할 회수 입력 받는 기능
 
-## CarController (Controller)
-- [ ] InputView 사용해서 입력 받도록 변경하기
-- [ ] start() 내부 for문 함수로 추출하기
-- [ ] validateInput() 로직 간단하게 변경하기
+### OutputView
+- [x] 이동거리 막대로 출력하는 기능
+- [x] 우승자 출력하는 기능
 
-## CarDto
-- [ ] getter 대체하기
-
-## carList -> Cars 일급 컬렉션 분리
-- CarController에 종속적이던 carList를 Cars로 Wrap하여서 의존성을 낮춤
-
-## Random number
