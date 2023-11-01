@@ -56,7 +56,7 @@ class RacingFormatterTest {
     }
 
     @Test
-    @DisplayName("전진 횟수가 0인 문자열 입력에 대한 예회 발생 검증")
+    @DisplayName("전진 횟수가 0인 문자열 입력에 대한 예외 발생 검증")
     void reformatZeroAttemptNumberTest() {
 
         RacingFormatter formatter = new RacingFormatter();
@@ -66,11 +66,21 @@ class RacingFormatterTest {
     }
 
     @Test
-    @DisplayName("전진 횟수가 0보다 작은 숫자 입력에 대한 예회 발생 검증")
+    @DisplayName("전진 횟수가 0보다 작은 수를 나타내는 문자열 입력에 대한 예외 발생 검증")
     void reformatNegativeAttemptNumberTest() {
         RacingFormatter formatter = new RacingFormatter();
 
         assertThatThrownBy(() -> formatter.reformatAttemptNumber("-1"))
-               .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("전진 횟수가 숫자가 아닌 문자열 입력에 대한 예외 발생 검증")
+    void reformatInvalidAttemptNumberTest() {
+        RacingFormatter formatter = new RacingFormatter();
+
+        assertThatThrownBy(() -> formatter.reformatAttemptNumber("1a"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
