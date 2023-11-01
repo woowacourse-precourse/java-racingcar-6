@@ -1,5 +1,7 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -35,18 +37,24 @@ public class CarTest extends NsTest {
 
     @Test
     void 공백이_포함된_차_이름_입력값_테스트() {
-        String testCarName = "우 아";
-
-        assertThatThrownBy(() -> CarFactory.createCar(testCarName))
-                .isInstanceOf(IllegalArgumentException.class);
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("우 아", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
     void 특수문자가_포함된_차_이름_입력값_테스트() {
-        String testCarName = "차!";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("차!", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
-        assertThatThrownBy(() -> CarFactory.createCar(testCarName))
-                .isInstanceOf(IllegalArgumentException.class);
+    @Test
+    void 차_이름을_입력하지_않은_입력값_테스트() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("", "1"))
+                .isInstanceOf(IllegalArgumentException.class));
     }
 
     @Override
