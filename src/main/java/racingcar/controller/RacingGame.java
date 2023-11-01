@@ -1,18 +1,15 @@
 package racingcar.controller;
 
-import racingcar.model.Attempts;
-import racingcar.model.Cars;
+import racingcar.model.GameSetting;
 import racingcar.model.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame implements Game {
-    private final Cars cars;
-    private final Attempts attempts;
 
+    private final GameSetting gameSetting;
     public RacingGame() {
-        cars = new Cars(collectCarNames());
-        attempts = new Attempts(collectNumberOfAttempts());
+        this.gameSetting = new GameSetting(collectCarNames(), collectNumberOfAttempts());
     }
 
     @Override
@@ -34,15 +31,15 @@ public class RacingGame implements Game {
     private void playRacingGame() {
         OutputView.printPlayResultMessage();
         int currentAttempt = 0;
-        while (attempts.getNumber() > currentAttempt) {
-            cars.everyCarMoveForwardByRandom();
-            OutputView.printPlayResult(cars.getCars());
+        while (gameSetting.getAttempts().getNumber() > currentAttempt) {
+            gameSetting.getCars().everyCarMoveForwardByRandom();
+            OutputView.printPlayResult(gameSetting.getCars().getCars());
             currentAttempt++;
         }
     }
 
     private void announceWinners() {
-        final Winners winners = new Winners(cars);
+        final Winners winners = new Winners(gameSetting.getCars());
         OutputView.printWinners(winners.getWinnersNames());
     }
 }
