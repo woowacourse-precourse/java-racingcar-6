@@ -19,7 +19,10 @@ public class RacingController {
 		carNames = inputView.inputCarNames();
 		outputView.printInputRaceCount();
 		racingCount = inputView.inputRacingCount();
+		racing();
 	}
 	
-	
+	public void racing() {
+		outputView.printMove(carNames);
+	}
 }
