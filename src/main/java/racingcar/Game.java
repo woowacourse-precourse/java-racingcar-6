@@ -51,11 +51,7 @@ public class Game {
 
         List<String> winnerList = getWinnerList(maxLen, carList);
 
-        for (String winner : winnerList) {
-            System.out.println(winner);
-        }
-
-//        outputView.printWinner(winnerList);
+        outputView.printWinnerList(winnerList);
     }
 
     private int checkMaxLen(LinkedHashMap<String, String> carList) {
