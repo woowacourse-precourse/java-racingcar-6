@@ -7,12 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Car {
-    String name;
-    int position;
+    private String name;
+    private int position;
 
     public Car(String name) {
         this.name = name;
         this.position = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void move(int randomValue) {
+        if (randomValue >= 4) {
+            position++;
+        }
     }
 }
 
@@ -21,6 +35,28 @@ class Race {
 
     public Race(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public void runRace(int numAttempts) {
+        for (int i = 0; i < numAttempts; i++) {
+            for (Car car : cars) {
+                int randomValue = Randoms.pickNumberInRange(0, 9);
+                car.move(randomValue);
+            }
+            printRaceState(); // 각 이동 후 경주 상태 출력
+        }
+    }
+
+    public void printRaceState() {
+        System.out.println("\n실행 결과");
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            for (int j = 0; j < car.getPosition(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
 
@@ -55,6 +91,7 @@ public class Application {
             int tryCount = Integer.parseInt(strTryCount);
 
             Race race = new Race(cars);
+            race.runRace(tryCount);
         } catch(IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
