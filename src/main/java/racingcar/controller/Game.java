@@ -9,9 +9,9 @@ import racingcar.view.OutputView;
 
 public class Game {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
-    private Long totalTurns;
+    private final Long totalTurns;
 
     private Long currentTurn;
 

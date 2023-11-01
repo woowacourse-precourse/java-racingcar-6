@@ -16,9 +16,10 @@ public record GameResult(List<String> winners) {
     private static List<String> findPlayersByPosition(List<Car> cars, Long position) {
         List<String> players = new ArrayList<>();
 
-        for(Car car : cars) {
-            if(car.getPosition() == position)
+        for (Car car : cars) {
+            if (car.getPosition() == position) {
                 players.add(car.getName());
+            }
         }
         return players;
     }
@@ -26,7 +27,7 @@ public record GameResult(List<String> winners) {
     private static Long findWinnerPosition(List<Car> cars) {
         Long position = Long.MIN_VALUE;
 
-        for(Car car : cars) {
+        for (Car car : cars) {
             if (car.getPosition() > position) {
                 position = car.getPosition();
             }
