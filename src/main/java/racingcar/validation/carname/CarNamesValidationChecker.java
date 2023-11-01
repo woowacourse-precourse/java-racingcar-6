@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.validation.carname;
 
 import java.util.List;
 import racingcar.validation.carname.CarNamesDuplicationChecker;
