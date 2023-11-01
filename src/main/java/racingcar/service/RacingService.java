@@ -5,9 +5,11 @@ import racingcar.repository.Car;
 import java.util.List;
 
 public interface RacingService {
-    public void race();
-    public List<Car> winners();
-    public List<List<Car>> results();
+    void race();
 
-    public void generateCar(String name);
+    List<Car> winners();
+
+    List<List<Car>> results();
+
+    void generateCar(String name);
 }

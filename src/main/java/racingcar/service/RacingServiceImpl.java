@@ -8,7 +8,7 @@ import java.util.List;
 public class RacingServiceImpl implements RacingService {
     private final RacingRepository racingRepository;
     private final RandomNumberGenerator randomNumberGenerator;
-    private final int MIN_NUMBER = 4;
+    private static int MIN_NUMBER = 4;
 
     public RacingServiceImpl(RacingRepository racingRepository, RandomNumberGenerator randomNumberGenerator) {
         this.racingRepository = racingRepository;
