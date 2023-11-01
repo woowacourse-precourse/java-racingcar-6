@@ -1,10 +1,23 @@
 package domain;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RacingGameStartManager {
     private static final int RACING_CAR_MAX_LENGTH = 5;
     private static final int RACING_CAR_MIN_LENGTH = 1;
+
+    // 경주에 참여할 자동차 Set 생성
+    public Set<RacingCar> createRacingCarSet(String[] inputRacingCarNames) {
+        Set<RacingCar> racingCarSet = new LinkedHashSet<>();
+
+        for (String racingCarName : inputRacingCarNames) {
+            validateRacingCarName(racingCarName, racingCarSet);
+            racingCarSet.add(new RacingCar(racingCarName, 0));
+        }
+
+        return racingCarSet;
+    }
 
     private void validateRacingCarName(String racingCarName, Set<RacingCar> racingCarSet) {
         if (!isRacingCarNameLengthInRange(racingCarName)) {
