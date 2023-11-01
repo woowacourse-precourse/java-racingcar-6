@@ -37,6 +37,10 @@ public class User {
             carList.add(car);
             carNameList.add(carName);
         }
+
+        if (carList.isEmpty()) {
+            throw new IllegalArgumentException("적절한 이름이 존재하지 않음");
+        }
         return carList;
     }
 
