@@ -6,20 +6,26 @@ import racingcar.ui.InputView;
 import racingcar.ui.OutputView;
 
 public class Game {
-    private final List<Car> cars;
-    private final int round;
+    public void playAllRound() {
+        List<Car> cars = setUpCars();
+        int round = setUpRound();
 
-    public Game() {
-        this.cars = setUpCars();
-        this.round = setUpRound();
+        for (int i = 0; i < round; i++) {
+            System.out.print(OutputView.NEW_LINE);
+            playOneRound(cars);
+        }
+
+        OutputView.printWinners(findWinners(cars));
     }
 
     private List<Car> setUpCars() {
         List<Car> cars = new ArrayList<>();
         List<String> separatedCarNames = Converter.separateCarNames(InputView.inputCarNames());
+
         for (String carName : separatedCarNames) {
             cars.add(new Car(carName));
         }
+
         return cars;
     }
 
@@ -27,16 +33,7 @@ public class Game {
         return Converter.convertRound(InputView.inputRound());
     }
 
-    public void playAllRound() {
-        for (int i = 0; i < round; i++) {
-            System.out.print(OutputView.NEW_LINE);
-            playOneRound();
-        }
-
-        OutputView.printWinners(findWinners(findMaxDistance()));
-    }
-
-    private void playOneRound() {
+    private void playOneRound(List<Car> cars) {
         for (Car car : cars) {
             int number = NumberGenerator.generate();
             car.move(number);
@@ -45,23 +42,28 @@ public class Game {
         }
     }
 
-    private int findMaxDistance() {
-        int maxDistance = 0;
-        for (Car car : cars) {
-            if (car.getDistance() >= maxDistance) {
-                maxDistance = car.getDistance();
-            }
-        }
-        return maxDistance;
-    }
-
-    private List<Car> findWinners(int maxDistance) {
+    private List<Car> findWinners(List<Car> cars) {
+        int maxDistance = findMaxDistance(cars);
         List<Car> winners = new ArrayList<>();
+
         for (Car car : cars) {
             if (car.getDistance() == maxDistance) {
                 winners.add(car);
             }
         }
+
         return winners;
+    }
+
+    private int findMaxDistance(List<Car> cars) {
+        int maxDistance = 0;
+
+        for (Car car : cars) {
+            if (car.getDistance() >= maxDistance) {
+                maxDistance = car.getDistance();
+            }
+        }
+
+        return maxDistance;
     }
 }
