@@ -70,11 +70,16 @@ public class Game {
     public List<String> parsingInput(String input) {
         String deleteSpaceInput = input.replace(" ", "");
         List<String> parsedInput = List.of(deleteSpaceInput.split(","));
+        validateInput(parsedInput);
         return parsedInput;
     }
 
-    public List<String> validateInput(List<String> parsedInput) {
-        return null;
+    public void validateInput(List<String> parsedInput) {
+        for( String data : parsedInput){
+            if(data.length() > 5){
+                throw new IllegalArgumentException(" player 이름이 5글자가 넘음 ");
+            }
+        }
     }
 
     public void validateInput(String inputPlaytime) {
