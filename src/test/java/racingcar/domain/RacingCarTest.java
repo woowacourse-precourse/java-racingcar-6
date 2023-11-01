@@ -24,7 +24,7 @@ class RacingCarTest {
     void tearDown() {
         System.setOut(originalOut);
     }
-    
+
     @Test
     void RacingCar_각_자동차의_현재_위치를_출력함() {
         Car car1 = new Car("car1");
@@ -38,5 +38,17 @@ class RacingCarTest {
         String expectedOutput = "car1 : -\ncar2 : -\ncar3 :";
 
         assertEquals(expectedOutput, outputContent.toString().trim());
+    }
+
+    @Test
+    void RacingCar_최대_움직인_거리를_찾음() {
+        Car car1 = new Car("MAX_DISTANCE_CAR1");
+        Car car2 = new Car("NORMAL_CAR1");
+        Car car3 = new Car("NORMAL_CAR2");
+        car1.canForward(Car.MIN_NUMBER_TO_MOVE);
+        racingCar = new RacingCar(List.of(car1, car2, car3));
+        int expectedDistance = 1;
+
+        assertEquals(expectedDistance, racingCar.findMaxDistance());
     }
 }
