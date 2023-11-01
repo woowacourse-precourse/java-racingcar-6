@@ -20,14 +20,16 @@ public class Race {
     }
 
     public void start() {
-        System.out.println("실행 결과");
-
         while (count > 0) {
             moveAndPrint();
             count--;
         }
+    }
 
-        printWinners();
+    public void result() {
+        if (count == 0) {
+            System.out.println("최종 우승자 : " + getWinners());
+        }
     }
 
     private void moveAndPrint() {
@@ -37,12 +39,10 @@ public class Race {
         System.out.println();
     }
 
-    private void printWinners() {
-        String winnerNames = cars.stream()
+    private String getWinners() {
+        return cars.stream()
                 .filter(car -> car.isWinner(cars))
                 .map(Car::toString)
                 .collect(Collectors.joining(", "));
-
-        System.out.println("최종 우승자 : " + winnerNames);
     }
 }
