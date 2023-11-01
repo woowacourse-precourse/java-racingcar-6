@@ -62,19 +62,19 @@ public class GameManager {
             throw new IllegalArgumentException("유저 입력값이 null이거나 비어있습니다.");
         }
         try {
-            int tryCount = Integer.parseInt(userInput);
+            tryCount = Integer.parseInt(userInput);
             if (tryCount < 1) {
                 throw new IllegalArgumentException("유저 입력값이 1보다 작습니다.");
             }
+            return true;
 
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("유저 입력값이 정수가 아닙니다.");
         }
 
-        return true;
     }
 
-    private static void printRacingCarsPosition() {
+    public static void printRacingCarsPosition() {
         for (RacingCar racingCar : racingCars) {
             System.out.println(racingCar.name + " : " + racingCar.position);
         }
@@ -89,6 +89,15 @@ public class GameManager {
         return racingCars;
     }
 
+    public static void makeRacingCarsMove() {
+        for (int i = 0; i < tryCount; i++) {
+            for (RacingCar racingCar : racingCars) {
+                racingCar.tryMove();
+            }
+            printRacingCarsPosition();
+        }
+    }
+
     public static void runGame() {
 
         printGameStartMessage();
@@ -98,12 +107,6 @@ public class GameManager {
         userInput = readUserInput();
         validateUserInputForTryCount(userInput);
         instantiateRacingCars();
-
-        for (int i = 0; i < tryCount; i++) {
-            for (RacingCar racingCar : racingCars) {
-                racingCar.tryMove();
-            }
-            printRacingCarsPosition();
-        }
+        makeRacingCarsMove();
     }
 }
