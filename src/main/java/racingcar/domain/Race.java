@@ -31,15 +31,9 @@ public class Race {
 
     public void getWinner(){
         InputOutputMessage.printWinner(new ArrayList<>(carList.stream()
-                .filter(car -> car.isWinner(max(getCarPosition())))
+                .filter(car -> car.hasWin(car.getPosition()))
                 .map(Car::getName)
                 .collect(Collectors.toList())
         ));
-    }
-
-    private List<Integer> getCarPosition(){
-        List<Integer> positions = new ArrayList<>();
-        carList.forEach(car -> positions.add(car.getPosition()));
-        return positions;
     }
 }
