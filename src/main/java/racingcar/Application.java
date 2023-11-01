@@ -15,20 +15,15 @@ public class Application {
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        List<String> car = new ArrayList<>();
+        List<String> car = inputCarNames();
         Long carNameSize;
         int tryCount;
         List<Integer> position = new ArrayList<>();
         int maxPosition;
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-
-        carNameSize = Arrays.stream(input.split(","))
+        carNameSize = car.stream()
                 .distinct()
                 .count();
-
-        car = Arrays.asList(input.split(","));
 
         for (String name : car) {
             if (!ALPHABET_AND_HANGUL_PATTERN.matcher(name).matches()) {
@@ -41,7 +36,7 @@ public class Application {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        input = Console.readLine();
+        String input = Console.readLine();
         if (!NUMBER_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException("시도할 회수는 숫자만 가능");
         }
@@ -91,5 +86,14 @@ public class Application {
                 System.out.print(", ");
             }
         }
+    }
+
+    private static List<String> inputCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
+
+        List<String> carNames = Arrays.asList(input.split(","));
+
+        return carNames;
     }
 }
