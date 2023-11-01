@@ -1,13 +1,25 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
         String[] carNames = getCarNames();
         int count = getCount();
 
+        int[] carProgress = new int[carNames.length];
+        System.out.println("");
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < count; i++) {
+            updateCarProgress(carNames, carProgress);
+            printCarProgress(carNames, carProgress);
+            System.out.println("");
+        }
+
     }
+
 
     private static String[] getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)");
@@ -28,5 +40,20 @@ public class Application {
         int count = Integer.parseInt(Console.readLine());
 
         return count;
+    }
+
+    private static void updateCarProgress(String[] carNames, int[] carProgress) {
+        for (int j = 0; j < carNames.length; j++) {
+            int random = Randoms.pickNumberInRange(0, 9);
+            if (random >= 4) {
+                carProgress[j]++;
+            }
+        }
+    }
+
+    private static void printCarProgress(String[] carNames, int[] carProgress) {
+        for (int t = 0; t < carNames.length; t++) {
+            System.out.println(carNames[t] + " : " + "-".repeat(carProgress[t]));
+        }
     }
 }
