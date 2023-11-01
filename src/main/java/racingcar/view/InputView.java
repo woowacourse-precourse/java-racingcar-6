@@ -61,15 +61,17 @@ public class InputView {
 
         playersInput.stream().forEach(player -> {
             if (player.length() >= 6) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("경주할 자동차 이름은 5자 이하만 가능합니다.");
             }
         });
 
     }
 
-    private void checkAttemptCount(String input) {
+    public void checkAttemptCount(String input) {
 
         checkInputNotNumber(input);
+
+        checkInputZero(input);
 
     }
 
@@ -77,9 +79,18 @@ public class InputView {
 
         for (char eachNumber : input.toCharArray()) {
 
-            if (eachNumber < 49 || eachNumber > 57) {
-                throw new IllegalArgumentException();
+            if (eachNumber < 48 || eachNumber > 57) {
+                throw new IllegalArgumentException("잘못된 숫자입니다.");
             }
+        }
+
+
+
+    }
+    private void checkInputZero(String input){
+
+        if(input.length() == 1 && input.charAt(0) =='0'){
+            throw new IllegalArgumentException("횟수가 0 번은 부적절합니다!");
         }
 
     }

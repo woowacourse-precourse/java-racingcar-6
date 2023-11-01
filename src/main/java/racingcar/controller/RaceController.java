@@ -19,10 +19,9 @@ public class RaceController {
 
         raceSimulate(players, attemptCount);
 
-
     }
 
-    private void raceSimulate(Players players, int attemptCount) {
+    public void raceSimulate(Players players, int attemptCount) {
 
         players.attemptListInit();
         outputView.printFirstText();
