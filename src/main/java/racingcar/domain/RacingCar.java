@@ -1,11 +1,7 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class RacingCar {
     public static String SYMBOL = "-";
-    public static int LOWER_BOUND_OF_NUMBER = 0;
-    public static int UPPER_BOUND_OF_NUMBER = 9;
     public static int MOVABLE_VALUE = 4;
     private String name;
     private int distance;
@@ -15,20 +11,19 @@ public class RacingCar {
         this.distance = 0;
     }
 
-    public void move() {
-        if (canMove()) {
+    public void move(int randomNumber) {
+        if (canMove(randomNumber)) {
             this.distance++;
         }
     }
 
-    private boolean canMove() {
-        return Randoms.pickNumberInRange(LOWER_BOUND_OF_NUMBER, UPPER_BOUND_OF_NUMBER) >= MOVABLE_VALUE;
+    private boolean canMove(int randomNumber) {
+        return randomNumber >= MOVABLE_VALUE;
     }
 
-    public void printCurrentDistance() {
-        String graph = SYMBOL.repeat(this.distance);
-        String result = String.format("%s : %s", this.name, graph);
-        System.out.println(result);
+    public String getDistanceGraph() {
+        String visualizedDistance = SYMBOL.repeat(this.distance);
+        return String.format("%s : %s", this.name, visualizedDistance);
     }
 
     public int getDistance() {
