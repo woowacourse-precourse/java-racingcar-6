@@ -11,12 +11,10 @@ public class Cars {
         this.carsList = (carsList);
     }
 
-    public int size() {
-        return carsList.size();
-    }
-
-    public Car getCarInIndex(int index) {
-        return carsList.get(index);
+    public void runCars() {
+        for (Car car : carsList) {
+            car.moveCar();
+        }
     }
 
     public List<String> getWinnerNameList() {
@@ -40,6 +38,6 @@ public class Cars {
     @Override
     public String toString() {
         return carsList.stream().map(Car::toString)
-                .collect(Collectors.joining("\n","","\n"));
+                .collect(Collectors.joining("\n", "", "\n"));
     }
 }

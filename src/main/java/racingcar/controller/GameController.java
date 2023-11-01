@@ -30,7 +30,7 @@ public class GameController {
     public void runRacing(int round, Cars cars) {
         OutputView.printGameRoundResultMessage();
         for (int i = 0; i < round; i++) {
-            gameManager.runRound(cars);
+            cars.runCars();
             OutputView.printInfomation(cars.toString());
         }
     }
