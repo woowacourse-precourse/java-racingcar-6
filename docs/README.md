@@ -12,15 +12,16 @@ MVC 패턴을 적용하여 기능을 구현하였으며, 클래스의 구성은 
 
 ```
 📁 main/java/racingcar
-    ㄴ☕ Application.java           (애플리케이션 시작 호출)
-    ㄴ☕ racingcarModel.java        (Model)
-    ㄴ☕ racingcarView.java         (View)
-    ㄴ☕ racingcarController.java   (Controller)
+    ㄴ☕ Application.java             (애플리케이션 시작 호출)
+    ㄴ☕ racingcarModel.java          (Model)
+    ㄴ☕ racingcarView.java           (View)
+    ㄴ☕ racingcarController.java     (Controller)
+    ㄴ☕ DealWithExceptionCase.java   (예외처리)
 ```
 
 ## 클래스 별 구성
 
-### 1. racingcarView
+### 1. RacingcarView
 
 다음과 같은 함수들로 구성되어 있습니다. 
 
@@ -56,13 +57,12 @@ IsMaxValue()
 
 - 이 때, winnerCount가 0이라면 이름만 출력, 이외에는 이름 앞에 SPOT (",") 를 출력하도록 합니다. 
 
-### 2. racingcarController
+### 2. RacingcarController
 
 다음과 같은 함수들로 구성되어 있습니다.
 
 ```java
 run() 
-IsNameAccurate() 
 RaceIndividually() 
 MoveForward() 
 GetMaxValues()
@@ -80,10 +80,6 @@ GetMaxValues()
   
   - `racingcarController` > `racingcarController()`
 
-#### `IsNameAccurate()`
-
-- 입력받은 이름이 정확한지를 검사합니다.
-
 #### `RaceIndividually()`
 
 - 🚨 각각 사용자에 대해 순서대로 `MoveForward()`를 수행합니다. 
@@ -100,7 +96,26 @@ GetMaxValues()
 
 - 🚨`racingcarView` 클래스의 `printResult()` 를 호출합니다. 
 
-### 3. racingcarModel
+### 4. DealWithExceptionCase
+
+다음과 같이 구성되어있습니다
+
+```java
+IsNameAccurate() 
+IsNameDuplicate()
+```
+
+#### `IsNameAccurate()`
+
+- 입력받은 이름이 정확한지를 검사합니다.
+
+#### `IsNameDuplicate()`
+
+- 입력받은 이름이 중복되는지를 검사합니다.
+
+
+
+### 3. RacingcarModel
 
 - racingcarModel은 다음과 같이 구성되어있습니다. 
   

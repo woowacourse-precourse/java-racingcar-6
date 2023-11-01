@@ -19,4 +19,6 @@ public class RacingcarModel {
     static int maxScore = 0;
     static int winnerCnt = 0;
     static List<String> duplicateInspection = new ArrayList<String>();
+    static String IS_IN_NUMBER = "^[\\D]*$";
+    static String IS_NOT_IN_VOID = "^[\\D]*$";
 }
