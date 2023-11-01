@@ -7,10 +7,14 @@ import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.UNCOMPETITIVE_CASE_MESSAGE;
 
 public class UserInputValidator {
-    public void validatePositiveNumber(Integer integer) {
-        if (integer < 1) {
+    public void validatePositiveNumber(Integer number) {
+        if (isNullOrLessThanOne(number)) {
             throw new NumberFormatException();
         }
+    }
+
+    private static boolean isNullOrLessThanOne(Integer number) {
+        return number == null || number < 1;
     }
 
     public void validateInputCarName(String name) {
