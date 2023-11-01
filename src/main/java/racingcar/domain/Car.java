@@ -21,8 +21,8 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber > STANDARD_NUMBER) {
-            this.position.move(MOVE_FORWARD);
+        if (randomNumber >= STANDARD_NUMBER) {
+            this.position.movePosition(MOVE_FORWARD);
         }
     }
 }
