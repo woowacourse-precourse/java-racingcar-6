@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.Model;
 
-import java.util.Objects;
+import racingcar.constant.Constant;
+import racingcar.constant.ErrorMessage;
 
 public class Car {
     private final String car;

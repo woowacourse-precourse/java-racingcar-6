@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import racingcar.constant.Constant;
+import racingcar.constant.ErrorMessage;
 
 public class InputRacingInformation {
     public List<String> InputCarNames() {

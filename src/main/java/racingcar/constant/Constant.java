@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public class Constant {
     public static final int MAX_CAR_NAME_COUNT = 5;

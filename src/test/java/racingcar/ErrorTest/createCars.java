@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.ErrorTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.Model.Car;
+import racingcar.Model.Cars;
 
 public class createCars {
 

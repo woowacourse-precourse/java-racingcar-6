@@ -1,8 +1,7 @@
-package racingcar;
+package racingcar.View;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
+import racingcar.constant.Constant;
 
 public class OutputView {
     public static void printWinners(List<String> winners) {
@@ -17,7 +16,7 @@ public class OutputView {
         }
     }
 
-    public static void printCarPosition(Car car, int position) {
+    public static void printCarPosition(String car, int position) {
         System.out.print(car + Constant.CAR_SEPERATE);
         print_position_bar(position);
         System.out.println();

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public class ErrorMessage {
     public static final String ERROR_CAR_NAME_LENGTH = "자동차 이름은 5자 이하로 작성해주세요.";

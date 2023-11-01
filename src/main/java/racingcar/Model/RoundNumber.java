@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.Model;
+
+import racingcar.constant.Constant;
+import racingcar.constant.ErrorMessage;
 
 public class RoundNumber {
 

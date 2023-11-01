@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -6,6 +6,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import racingcar.constant.Constant;
+import racingcar.View.InputRacingInformation;
+import racingcar.Model.Car;
+import racingcar.Model.Cars;
+import racingcar.Model.Cars_preparation;
+import racingcar.View.OutputView;
+import racingcar.Model.RoundNumber;
 
 public class race_controller {
     private int leadCarNumber;
@@ -50,7 +57,7 @@ public class race_controller {
         for (Entry<Car, Integer> carGoCountEntry : carAndPositionMap.entrySet()) {
             int newPosition = process(carGoCountEntry.getValue());
             carGoCountEntry.setValue(newPosition);
-            OutputView.printCarPosition(carGoCountEntry.getKey(), carGoCountEntry.getValue());
+            OutputView.printCarPosition(carGoCountEntry.getKey().toString(), carGoCountEntry.getValue());
         }
         System.out.println();
     }

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.ErrorTest;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -7,6 +7,8 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
+import racingcar.Model.Car;
 
 public class CarsTest extends NsTest {
     @Test
