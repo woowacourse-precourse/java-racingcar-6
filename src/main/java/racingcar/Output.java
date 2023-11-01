@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Output {
@@ -27,18 +28,14 @@ public class Output {
     }
 
     // 최종 우승자 출력
-    public void printWinner(List<Car> cars, int maxPosition) {
-
-        System.out.print("최종 우승자 : ");
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                System.out.print(car.getName());
-            }
+    public void printWinner(List<Car> winners) {
+        List<String> winnersNames = new ArrayList<>();
+        for (Car car : winners) {
+            winnersNames.add(car.getName());
         }
-        System.out.println();
-
+        String winnersString = String.join(",", winnersNames);
+        System.out.println("최종 우승자 : " + winnersString);
 
     }
-
 
 }

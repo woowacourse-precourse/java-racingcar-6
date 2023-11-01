@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
@@ -26,15 +27,25 @@ public class CarList {
         return this.cars;
     }
 
-    public int getMaxPositon() {
-        int maxDistance = 0;
+    private int getMaxPositon() {
+        int maxPosition = 0;
         for (Car car : cars) {
-            if (car.getPosition() > maxDistance) {
-                maxDistance = car.getPosition();
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
             }
         }
-        return maxDistance;
+        return maxPosition;
+    }
 
+    public List<Car> getCarsOnMaxPosition() {
+        int maxPositon = getMaxPositon();
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPositon) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 }
 
