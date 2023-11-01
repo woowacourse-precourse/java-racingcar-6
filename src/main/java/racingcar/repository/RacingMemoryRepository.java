@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 public class RacingMemoryRepository implements RacingRepository {
-    private static RacingMemoryRepository instance = new RacingMemoryRepository();
+    private final RacingMemoryRepository instance = new RacingMemoryRepository();
 
     public static RacingMemoryRepository getInstance() {
         return instance;
     }
 
-    private Map<Integer, List<Car>> raceResults = new HashMap<>();
-    private Map<String, Car> cars = new HashMap<>();
+    private final Map<Integer, List<Car>> raceResults = new HashMap<>();
+    private final Map<String, Car> cars = new HashMap<>();
     private int raceCount = 0;
 
     @Override
