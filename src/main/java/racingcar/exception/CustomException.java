@@ -25,15 +25,14 @@ public class CustomException {
             throw new IllegalArgumentException(ErrorMessages.INVALID_CAR_NAME_LENGTH.getMessage());
         }
     }
-
-    public static void numericValidator(String input) {
-
-        throw new IllegalArgumentException(ErrorMessages.INVALID_NUMERIC_INPUT.getMessage());
-
-    }
     public static void positiveValidator(int tryCount) {
         if (tryCount < 0) {
             throw new IllegalArgumentException(ErrorMessages.INVALID_NUMERIC_INPUT.getMessage());
+        }
+    }
+    public static void validateMinNotGreaterThanMax(int max, int min) {
+        if (min > max) {
+            throw new IllegalArgumentException(ErrorMessages.INVALID_MIN.getMessage());
         }
     }
 }

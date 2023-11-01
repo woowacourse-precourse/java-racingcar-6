@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import java.util.Random;
+import racingcar.exception.CustomException;
+import racingcar.message.ErrorMessages;
 
 public class RandomGenerator {
     private static final Random random = new Random();
@@ -11,9 +13,7 @@ public class RandomGenerator {
     }
 
     private static void validateInput(int min, int max) {
-        if (min > max) {
-            throw new IllegalArgumentException("최소값은 최대값보다 크지 않아야 합니다.");
-        }
+        CustomException.validateMinNotGreaterThanMax(max, min);
     }
 
     private static int generateRandomNumberInRange(int min, int max) {

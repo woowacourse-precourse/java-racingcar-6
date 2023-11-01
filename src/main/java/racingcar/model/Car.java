@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import static racingcar.util.Constants.GO_CONDITION;
+import static racingcar.util.Constants.ZERO;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.validate.CarValidateImpl;
@@ -13,11 +16,11 @@ public class Car {
     public Car(String name) {
         CarValidateImpl.createVaule(name);
         this.name = name;
-        this.position = 0;
+        this.position = ZERO;
     }
 
     public void go(int randomValue) {
-        if (randomValue >= 4) {
+        if (randomValue >= GO_CONDITION) {
             this.position++;
         }
     }

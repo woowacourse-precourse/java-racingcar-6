@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.util.Constants.ZERO;
+
 import racingcar.exception.CustomException;
 import racingcar.util.count.EqualityCheckerImpl;
 
@@ -26,6 +28,6 @@ public class TryCount {
     }
 
     public boolean isNotValid() {
-        return tryCount == 0;
+        return tryCount == ZERO;
     }
 }

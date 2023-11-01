@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.util.Constants.ONE;
+
 import racingcar.model.Car;
 import racingcar.model.CarDto;
 import racingcar.model.Cars;
@@ -53,7 +55,7 @@ public class CarController {
             return;
         }
         executeSingleRound();
-        executeRounds(currentRound + 1);
+        executeRounds(currentRound + ONE);
     }
 
     private void executeSingleRound() {
