@@ -11,7 +11,6 @@ import racingcar.dto.WinnerCarResponse;
 
 public class Referee {
 
-
     public String getWinnersCarName(Cars generatedCars) {
         WinnerCarResponse winner = judgeWinner(generatedCars);
         return winner.cars().stream()
@@ -20,21 +19,12 @@ public class Referee {
     }
 
     private WinnerCarResponse judgeWinner(Cars generatedCars) {
-        int maxCount = findMaxCarPosition(generatedCars);
+        int maxPosition = generatedCars.findMaxCarPosition().getCarPosition();
 
-        List<Car> carsList = generatedCars.getCarsList().stream()
-                .filter(x -> x.getCarPosition() == maxCount)
+        List<Car> winnerList = generatedCars.getCarsList().stream()
+                .filter(x -> x.getCarPosition() == maxPosition)
                 .toList();
-
-        return new WinnerCarResponse(carsList);
+        return new WinnerCarResponse(winnerList);
     }
 
-    private int findMaxCarPosition(Cars cars) {
-        List<Integer> list = cars.getCarsList().stream()
-                .map(Car::getCarPosition)
-                .sorted(Comparator.reverseOrder())
-                .toList();
-
-        return list.get(IntegerConstant.MAX_CAR_POSITION.getValue());
-    }
 }

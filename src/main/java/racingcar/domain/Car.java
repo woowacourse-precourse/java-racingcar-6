@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import racingcar.service.BasicMovementRule;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private final String carName;
     private final Position position;
@@ -20,16 +20,20 @@ public class Car {
         return position;
     }
 
+    public int getCarPosition() {
+        return position.getCarPosition();
+    }
+
     public void move(BasicMovementRule basicMovementRule, int randomNumber) {
         if (basicMovementRule.isMovingCondition(randomNumber)) {
             position.increase();
         }
     }
 
-    public int getCarPosition() {
-        return position.getCarPosition();
+    @Override
+    public int compareTo(Car otherCar) {
+        return this.position.getCarPosition() - otherCar.position.getCarPosition();
     }
-
     @Override
     public String toString() {
         return carName;

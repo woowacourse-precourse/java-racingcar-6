@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.dto.CarsGenerateDto;
+import racingcar.exception.CarListEmptyException;
 import racingcar.service.RandomNumberGenerator;
 import racingcar.service.BasicMovementRule;
 
@@ -28,6 +29,12 @@ public class Cars {
             carList.add(new Car(carName));
         }
         return new Cars(carList);
+    }
+
+    public Car findMaxCarPosition() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(CarListEmptyException::new);
     }
 
     public List<Car> getCarsList() {
