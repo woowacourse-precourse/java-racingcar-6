@@ -53,8 +53,9 @@ public class RacingGameController {
     }
 
     private void playOneRound() {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         for (Car car : cars.getCarList()) {
-            car.tryToMove(new RandomNumberGenerator());
+            car.tryToMove(randomNumberGenerator);
         }
         OutputController.printForwardStateMessage(cars);
     }
