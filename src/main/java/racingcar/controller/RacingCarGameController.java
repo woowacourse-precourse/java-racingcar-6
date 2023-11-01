@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.View.Output;
-import racingcar.View.Input;
+import racingcar.view.Output;
+import racingcar.view.Input;
 import racingcar.dto.CarNameRequst;
 import racingcar.dto.MoveCountRequest;
 

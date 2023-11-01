@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.View.Output;
+import racingcar.view.Output;
 import racingcar.dto.CarNameRequst;
 import racingcar.model.Car;
 import racingcar.util.NumberUtil;
