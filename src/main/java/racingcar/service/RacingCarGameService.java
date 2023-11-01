@@ -7,8 +7,6 @@ import racingcar.domain.Car;
 
 public class RacingCarGameService {
     CarService carService = new CarService();
-    String carName = "";
-    String inputStr = "";
 
     public void displayGameProgress(int attemptNum, List<Car> carList) {
         for(int i = 0; i < attemptNum; i++) {
