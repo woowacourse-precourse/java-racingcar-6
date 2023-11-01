@@ -18,21 +18,21 @@ public class CarUnitTest {
     }
 
     @Test
-    void determineWhetherToMove_자동차의_이동_성공() {
+    void canMoveForward_자동차의_이동_성공() {
         int moveCondition = 5;
         Car testCar = new Car("Test");
 
-        boolean moveTest = testCar.determineWhetherToMove(moveCondition);
+        boolean moveTest = testCar.canMoveForward(moveCondition);
 
         assertThat(moveTest).isEqualTo(true);
     }
 
     @Test
-    void determineWhetherToMove_자동차의_이동_실패() {
+    void canMoveForward_자동차의_이동_실패() {
         int stopCondition = 3;
         Car testCar = new Car("Test");
 
-        boolean stopTest = testCar.determineWhetherToMove(stopCondition);
+        boolean stopTest = testCar.canMoveForward(stopCondition);
 
         assertThat(stopTest).isEqualTo(false);
     }
