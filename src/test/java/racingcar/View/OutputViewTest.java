@@ -27,7 +27,7 @@ class OutputViewTest {
         System.setOut(new PrintStream(outputStream));
         outputView.printResult(raceResult);
         System.setOut(System.out);
-        String expectedOutput = OutputMessage.RESULT_MESSAGE+"\ncar1\ncar2\ncar3";
+        String expectedOutput = OutputMessage.RESULT_MESSAGE + "\ncar1\ncar2\ncar3";
 
         //then
         Assertions.assertThat(expectedOutput).isEqualTo(outputStream.toString().trim());
@@ -92,7 +92,7 @@ class OutputViewTest {
     @Test
     void printWinners() {
         //given
-        List<Car> raceResult = List.of(Car.create("car1"),Car.create("car3"));
+        List<Car> raceResult = List.of(Car.create("car1"), Car.create("car3"));
 
         //when
         System.setOut(new PrintStream(outputStream));

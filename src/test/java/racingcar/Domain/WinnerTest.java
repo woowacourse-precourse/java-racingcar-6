@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 class WinnerTest {
     @Test
     void testGetWinnersWithEmptyList() {
@@ -52,7 +53,7 @@ class WinnerTest {
 
         // Assert
         assertThat(winners).hasSize(2);
-        assertThat(winners).containsExactlyInAnyOrder(cars.get(0),cars.get(1));
+        assertThat(winners).containsExactlyInAnyOrder(cars.get(0), cars.get(1));
     }
 
     @Test

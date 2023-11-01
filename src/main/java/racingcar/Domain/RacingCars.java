@@ -33,8 +33,12 @@ public class RacingCars {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         RacingCars that = (RacingCars) o;
         return Objects.equals(cars, that.cars);
     }

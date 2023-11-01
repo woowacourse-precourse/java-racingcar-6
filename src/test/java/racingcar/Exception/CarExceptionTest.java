@@ -23,7 +23,8 @@ class CarExceptionTest {
 
     @ParameterizedTest
     @DisplayName("유효하지 않은 자동차 이름은 예외를 발생시켜야 합니다.")
-    @ValueSource(strings = {",", "car1, ,car3,car4", "car1,,car3,car4", "car1,car2,car343", "only1", " ", "", "car 1,car2",
+    @ValueSource(strings = {",", "car1, ,car3,car4", "car1,,car3,car4", "car1,car2,car343", "only1", " ", "",
+            "car 1,car2",
             "car1, car2", "car1,car1,car2"})
     void givenInvalidCarNames_shouldThrowExceptions(String carNames) {
         CarException carException = new CarException();
