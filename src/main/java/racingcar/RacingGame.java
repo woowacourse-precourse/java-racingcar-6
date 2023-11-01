@@ -37,4 +37,11 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
+    private static void printTurnResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getMoveDistance()));
+        }
+        System.out.println();
+    }
+
 }

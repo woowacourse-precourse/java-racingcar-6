@@ -11,6 +11,14 @@ public class Car {
         this.moveDistance = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveDistance() {
+        return moveDistance;
+    }
+
     public void move() {
         moveDistance += 1;
     }
