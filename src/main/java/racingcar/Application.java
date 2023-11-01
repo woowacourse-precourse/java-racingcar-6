@@ -11,13 +11,13 @@ public class Application {
         Registration registration = new Registration();
         List<Car> carList = registration.createCarList(registration.getCarNames(input));
 
-        System.out.println("횟수 입력");
+        System.out.println(messageContainer.getEnterTotalRounds());
         TotalRoundsConverter totalRoundsConverter = new TotalRoundsConverter();
         int totalRounds = totalRoundsConverter.convert(Console.readLine());
 
         System.out.println("\n실행 결과");
-
         NumberGenerator numberGenerator = new NumberGenerator();
+
         for (int i = 0; i < totalRounds; i++) {
             for (Car car : carList) {
                 car.moveForward(numberGenerator.pickNumberFrom0To9());
