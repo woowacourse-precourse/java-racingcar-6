@@ -21,6 +21,7 @@ public final class Input {
 
     public static int inputTrialAmount() {
         String trialAmount = Console.readLine();
+        validateNotBlank(trialAmount);
         try {
             return Integer.parseInt(trialAmount);
         } catch (InputIllegalArgumentException e) {
@@ -47,6 +48,12 @@ public final class Input {
         if (countNames != names.size()) {
             throw new InputIllegalArgumentException(InputError.EXCEEDED_MAXIMUM_ERROR, MAXIMUM_NAME_LENGTH,
                     MINIMUM_NAME_LENGTH);
+        }
+    }
+
+    private static void validateNotBlank(String trialAmount) {
+        if (trialAmount.isBlank()) {
+            throw new InputIllegalArgumentException(InputError.TRIAL_MUST_NOT_BLANK);
         }
     }
 }

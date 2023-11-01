@@ -5,7 +5,7 @@ public enum InputError {
     EXCEEDED_MAXIMUM_ERROR("이름의 길이는 최대 %s, 최소 %s 입니다."),
     MUST_BE_NUMBER("입력값은 숫자여야 합니다."),
     NOT_EXCEED_MINIMUM_AMOUNT("이름을 2개 이상은 입력해야 합니다."),
-    DOES_NOT_MATCH_WITH_TRIAL_AMOUNT("입력한 이름의 개수가 게임 ");
+    TRIAL_MUST_NOT_BLANK("횟수를 입력하지 않았습니다.");
 
     final String message;
 
