@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.RandomNumberGenerator;
+
 public class Car {
     private String name;
     private int distance;
@@ -8,30 +10,36 @@ public class Car {
         this.name = name;
     }
 
+    public void canIMove() {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        if (randomNumberGenerator.pickRandomNumber() >= 4) {
+            move();
+        }
+    }
+
+    public void move() {
+        distance += 1;
+    }
+
     public String getName() {
         return name;
     }
 
-    public int getDistance() {
-        return distance;
-    }
-
-    public int move() {
-        distance += 1;
-        return distance;
-    }
-
-    public int getMaxDistance(Car car, int max) {
-        if (car.distance > max) {
-            max = car.distance;
+    public int findMaxDistance(int max) {
+        if (distance > max) {
+            max = distance;
         }
         return max;
     }
 
-    public boolean isSameDistance(Car car, int maxDistance) {
-        if (car.distance == maxDistance) {
+    public boolean isSameDistance(int max) {
+        if (distance == max) {
             return true;
         }
         return false;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

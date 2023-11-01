@@ -1,64 +1,52 @@
 package racingcar.model;
 
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.validator.InputValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
-    RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-    List<Car> carList = new ArrayList<>();
-    List<String> winners = new ArrayList<>();
+    private List<Car> cars;
 
-    final int MOVING_FORWARD_NUMBER = 4;
-
-    private void moveForward(Car car) {
-        car.move();
+    public Cars(String carNames) {
+        List<String> splitedCarNameList = splitCarNames(carNames);
+        InputValidator.checkCarNameInputValidation(splitedCarNameList);
+        addCarNameAtCarNameList(splitedCarNameList);
     }
 
-    public List<String> splitCarNames(String carNames) {
+    private void addCarNameAtCarNameList(List<String> carNameList) {
+        cars = new ArrayList<>();
+        for (String carName : carNameList) {
+            cars.add(new Car(carName));
+        }
+    }
+
+    private List<String> splitCarNames(String carNames) {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    public void saveCarNameList(List<String> carNameList) {
-        for (String carName : carNameList) {
-            save(carName);
+    public void moveForwardByRandomNumber() {
+        for (Car car : cars) {
+            car.canIMove();
         }
     }
 
-    private void save(String carName) {
-        carList.add(new Car(carName));
-    }
-
-    public List<Car> game() {
-        for (int i = 0; i < carList.size(); i++) {
-            if (randomNumberGenerator.pickRandomNumber() >= MOVING_FORWARD_NUMBER) {
-                moveForward(carList.get(i));
-            }
-        }
-        return carList;
-    }
-
-    public List<String> getGameWinner() {
+    public List<String> sendRacingGameWinner() {
+        List<String> winners = new ArrayList<>();
         int max = 0;
-        int maxDistance = getMaxDistance(max);
-        addCarNameAtWinnersList(maxDistance);
-        return winners;
-    }
-
-    private void addCarNameAtWinnersList(int maxDistance) {
-        for (Car car : carList) {
-            if (car.isSameDistance(car, maxDistance)) {
+        for (Car car : cars) {
+            max = car.findMaxDistance(max);
+        }
+        for (Car car : cars) {
+            if (car.isSameDistance(max)) {
                 winners.add(car.getName());
             }
         }
+        return winners;
     }
 
-    private int getMaxDistance(int max) {
-        for (Car car : carList) {
-            max = car.getMaxDistance(car, max);
-        }
-        return max;
+    public List<Car> getCars() {
+        return cars;
     }
 }
