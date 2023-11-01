@@ -3,12 +3,18 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 
 public class GameFuctionTest {
     GameFunction gameFunction = new GameFunction();
+    UserInput userInput = new UserInput();
+    ValueCheck valueCheck = new ValueCheck();
 
     @Test
     void 사용자에게_자동차이름_입력받기(){
@@ -20,51 +26,62 @@ public class GameFuctionTest {
         assertThat(result).contains(expected);
     }
     @Test
-    void 구분자를_포함하는가(){
+    void 구분자를_포함하지_않으면_예외발생(){
 
-    }
-    @Test
-    void 구분자를_포함하지_않았을떄_(){
+        //UserInput userInput = new UserInput();
+
+        String input = "1";
+        InputStream readLine = new ByteArrayInputStream(input.getBytes());
+        System.setIn(readLine);
+
+        assertThatThrownBy(userInput::getCarNames)
+                .isInstanceOf(IllegalArgumentException.class);
 
     }
 
     @Test
     void 이름이_다섯자_이하인가(){
 
-    }
-    @Test
-    void 자동차_전진횟수_입력받기(){
+        //ValueCheck valueCheck = new ValueCheck();
+
+        List<String> input = new ArrayList<>(List.of("aaaaaa,bbbb"));
+        assertThatThrownBy(()-> valueCheck.sizeUnderFive(input))
+                .isInstanceOf(IllegalArgumentException.class);
 
     }
     @Test
-    void 이동횟수에_숫자를_입력했는가(){
+    void 자동차_전진횟수_숫자가_아닌경우_예외발생(){
+
+        String input = "a";
+        InputStream readLine = new ByteArrayInputStream(input.getBytes());
+        System.setIn(readLine);
+
+        assertThatThrownBy(userInput::getTurn)
+                .isInstanceOf(IllegalArgumentException.class);
+
 
     }
-    @Test
-    void 영에서_구사이_난수_발생(){
 
-    }
-
-    @Test
-    void 사_이상인_경우에_전진(){
-
-    }
     @Test
     void 매회차마다_차의_전진여부를_합산(){
+        List<Car> carList = new ArrayList<>();
+        List<Boolean> carCanGo = new ArrayList<>();
+
+        Car a = new Car("a");
+        Car b = new Car("b");
+        carList.add(a);
+        carList.add(b);
+
+        carCanGo.add(true);
+        carCanGo.add(false);
+
+        gameFunction.applyScore(carList, carCanGo);
+
+
+        assertThat(a.score).isEqualTo(1);
+        assertThat(b.score).isEqualTo(0);
 
     }
 
-    @Test
-    void 시도횟수만큼_반복하기(){
-
-    }
-    @Test
-    void 매_턴마다_게임_진행_출력하는_기능(){
-
-    }
-    @Test
-    void 우승자_출력하기(){
-
-    }
 
 }
