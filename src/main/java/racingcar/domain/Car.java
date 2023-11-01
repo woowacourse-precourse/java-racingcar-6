@@ -14,7 +14,7 @@ public class Car {
     public static final int MAX_CAR_NAME = 5;
 
     public Car(String carName) {
-        validateCarNumbers(carName);
+        validateCarLength(carName);
         this.carName = carName;
         this.location = 0;
     }
@@ -22,11 +22,6 @@ public class Car {
     // 전진 기능 -- > go 처럼 직관적인 이름도  괜찮을 듯
     public void forward() {
         this.location++;
-    }
-
-    // 후진 기능 --> 필요 없을 듯
-    public void backward() {
-        this.location--;
     }
 
     // car 중복 검사 --> contins 할 방법을 찾아야함
@@ -37,8 +32,8 @@ public class Car {
     }
 
 
-    // car 5대 이하 check
-    public void validateCarNumbers(String carName) {
+    // car 5자 이하 check
+    public void validateCarLength(String carName) {
         if ( carName.length() > MAX_CAR_NAME) {
             throw new IllegalArgumentException("이름은 최대 5자까지 가능합니다.");
         }
