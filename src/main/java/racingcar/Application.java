@@ -51,6 +51,7 @@ public class Application {
         List<String> carNames = toList(input);
 
         validateNamePattern(carNames);
+        validateNameLength(carNames);
         validateNoDuplicate(carNames);
 
         return carNames;
@@ -69,9 +70,7 @@ public class Application {
 
         for (int i = 0; i < tryCount; i++) {
             for (int j = 0; j < car.size(); j++) {
-                if (canMoveForward()) {
-                    position.set(j, position.get(j) + 1);
-                }
+                addPosition(position, j);
             }
 
             for (int j = 0; j < car.size(); j++) {
@@ -90,6 +89,12 @@ public class Application {
         return forwardRandomValue >= 4;
     }
 
+    private static void addPosition(List<Integer> position, int index) {
+        if (canMoveForward()) {
+            position.set(index, position.get(index) + 1);
+        }
+    }
+
     private static String getInput(String message) {
         System.out.println(message);
         return Console.readLine();
@@ -106,6 +111,14 @@ public class Application {
 
         if (input.contains(" ")) {
             throw new IllegalArgumentException("공백은 허용되지 않습니다.");
+        }
+    }
+
+    private static void validateNameLength(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차의 이름은 5자리 이하로 입력해주세요.");
+            }
         }
     }
 
