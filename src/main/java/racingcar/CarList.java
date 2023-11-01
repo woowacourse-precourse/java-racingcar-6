@@ -7,7 +7,7 @@ import java.util.Set;
 public class CarList {
 
     private final Map<String, Integer> carList;
-    private int max = 0;
+    private int max = -1;
 
     public CarList(String[] carArray) {
         carList = new HashMap<>();

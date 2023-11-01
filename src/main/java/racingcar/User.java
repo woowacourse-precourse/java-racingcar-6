@@ -21,6 +21,9 @@ public class User {
 
         try {
             count = Integer.parseInt(countStr);
+            if (count < 0) {
+                throw new Exception();
+            }
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
