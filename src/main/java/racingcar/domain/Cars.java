@@ -32,7 +32,7 @@ public class Cars {
                 .toList();
     }
 
-    public List<String> getWinnerNames(){
+    public List<String> getWinnerNames() {
         List<CarDto> carDtos = toDto();
 
         int maxPosition = findMaxPosition(carDtos);
