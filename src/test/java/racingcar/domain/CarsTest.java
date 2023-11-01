@@ -12,7 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import racingcar.dto.CarDto;
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResultDto;
 
 class CarsTest {
 
@@ -39,8 +39,8 @@ class CarsTest {
 
         cars.moveEachCar();
 
-        CarsDto carsDto = cars.toCarsDto();
-        List<CarDto> results = carsDto.roundResults();
+        RoundResultDto roundResultDto = cars.toRoundResultDto();
+        List<CarDto> results = roundResultDto.roundResults();
         assertThat(results.get(0).position()).isBetween(0, 1);
         assertThat(results.get(1).position()).isBetween(0, 1);
     }
@@ -67,13 +67,13 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("CarsDto 생성 확인")
-    void givenCars_whenToCarsDto_thenSuccess() {
+    @DisplayName("RoundResultDto 생성 확인")
+    void givenCars_whenToRoundResultDto_thenSuccess() {
         Cars cars = new Cars("pobi,woni");
 
-        CarsDto carsDto = cars.toCarsDto();
+        RoundResultDto roundResultDto = cars.toRoundResultDto();
 
-        List<CarDto> result = carsDto.roundResults();
+        List<CarDto> result = roundResultDto.roundResults();
         assertThat(result.get(0)).extracting("name").isEqualTo("pobi");
         assertThat(result.get(0)).extracting("position").isEqualTo(0);
         assertThat(result.get(1)).extracting("name").isEqualTo("woni");

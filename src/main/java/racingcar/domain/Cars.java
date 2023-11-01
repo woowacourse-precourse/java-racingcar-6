@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import racingcar.dto.CarDto;
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResultDto;
 
 public class Cars {
 
@@ -90,8 +90,8 @@ public class Cars {
                 });
     }
 
-    public CarsDto toCarsDto() {
-        return new CarsDto(getRoundResults());
+    public RoundResultDto toRoundResultDto() {
+        return new RoundResultDto(getRoundResults());
     }
 
     private List<CarDto> getRoundResults() {

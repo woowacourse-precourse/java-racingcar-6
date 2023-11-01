@@ -7,15 +7,15 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CarsDtoTest {
+class RoundResultDtoTest {
 
     @Test
     @DisplayName("라운드 결과 출력을 위한 실행 결과 DTO 생성")
-    void givenRoundResults_whenCreateCarsDto_thenReturnCorrectValue() {
+    void givenRoundResults_whenCreateRoundResultDto_thenReturnCorrectValue() {
         List<CarDto> roundResults = List.of(new CarDto("pobi", 3), new CarDto("woni", 4));
 
-        CarsDto carsDto = new CarsDto(roundResults);
-        List<CarDto> results = carsDto.roundResults();
+        RoundResultDto roundResultDto = new RoundResultDto(roundResults);
+        List<CarDto> results = roundResultDto.roundResults();
 
         assertThat(results.get(0)).extracting("name").isEqualTo("pobi");
         assertThat(results.get(0)).extracting("position").isEqualTo(3);

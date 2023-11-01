@@ -3,7 +3,7 @@ package racingcar.service;
 import java.util.List;
 
 import racingcar.domain.Cars;
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResultDto;
 import racingcar.util.TrialCountValidator;
 
 public class GameService {
@@ -21,8 +21,8 @@ public class GameService {
         cars.moveEachCar();
     }
 
-    public CarsDto getRoundResult(final Cars cars) {
-        return cars.toCarsDto();
+    public RoundResultDto getRoundResult(final Cars cars) {
+        return cars.toRoundResultDto();
     }
 
     public List<String> findWinnersName(final Cars cars) {

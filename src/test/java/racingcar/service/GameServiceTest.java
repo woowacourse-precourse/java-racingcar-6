@@ -10,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import racingcar.domain.Cars;
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResultDto;
 
 class GameServiceTest {
 
@@ -44,7 +44,7 @@ class GameServiceTest {
         Cars cars = new Cars("pobi,woni");
 
         gameService.moveCars(cars);
-        CarsDto result = gameService.getRoundResult(cars);
+        RoundResultDto result = gameService.getRoundResult(cars);
 
         assertThat(result.roundResults().size()).isEqualTo(2);
         assertThat(result.roundResults().get(0)).extracting("name").isEqualTo("pobi");

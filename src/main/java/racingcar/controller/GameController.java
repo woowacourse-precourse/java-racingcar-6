@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.List;
 
 import racingcar.domain.Cars;
-import racingcar.dto.CarsDto;
+import racingcar.dto.RoundResultDto;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -55,7 +55,7 @@ public class GameController {
     }
 
     private void printRoundResult(final Cars cars) {
-        CarsDto roundResult = gameService.getRoundResult(cars);
+        RoundResultDto roundResult = gameService.getRoundResult(cars);
         OutputView.printRoundResult(roundResult);
     }
 
