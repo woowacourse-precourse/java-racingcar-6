@@ -26,4 +26,9 @@ public class Round {
         }
         return false;
     }
+
+    @Override
+    public boolean equals(Object round) {
+        return (round instanceof Round) && (((Round) round).round == this.round);
+    }
 }
