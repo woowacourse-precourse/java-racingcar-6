@@ -11,7 +11,7 @@ public class RacingGame {
     private Integer count;
 
 
-    public void start(){
+    public void start() {
         OutputView.printCarNameInputMessage();
         createRacingCar(InputView.inputCarName());
 
@@ -20,7 +20,7 @@ public class RacingGame {
 
 
         OutputView.printRacingResultStartMessage();
-        for(int i =0 ; i<count ; i++){
+        for (int i = 0; i < count; i++) {
             racingCar.stopOrMoveForward();
             OutputView.printAllCarNowDistance(racingCar.distanceString());
         }
@@ -28,11 +28,11 @@ public class RacingGame {
         OutputView.printWinnerMessage(racingCar.determineWinner());
     }
 
-    private void createRacingCar(List<String> playerCarNameList){
+    private void createRacingCar(List<String> playerCarNameList) {
         racingCar = new RacingCar(playerCarNameList);
     }
 
-    private void initializeCount(Integer count){
+    private void initializeCount(Integer count) {
         this.count = count;
     }
 }
