@@ -1,0 +1,21 @@
+### 기능 목록
+
+- [x] 사용자에게 경주할 자동차 이름을 입력받는다. - InputView#getCarNames()
+  - [x] 아래의 경우 `IllegalArgumentException` 발생 후 프로그램은 종료된다.
+    - [x] 숫자가 입력된 경우
+    - [x] 쉼표(,) 외 특수문자가 입력된 경우
+    - [x] 공백이 입력된 경우
+    - [x] 자동차 이름이 5자 이하가 아닌 경우
+    - [x] 자동차 이름이 서로 중복인 경우
+- [x] 입력된 자동차 이름 개수만큼 자동차를 생성한다. - CarGenerator#createCar()
+- [x] 사용자에게 이동 횟수를 입력받는다. - InputView#getMoveCount()
+  - [x] 아래의 경우 `IllegalArgumentException` 발생 후 프로그램은 종료된다.
+    - [x] 입력된 값이 숫자가 아닌 경우
+- [x] 입력된 이동 횟수만큼 경주를 진행한다. - Racing#racing()
+  - [x] 각 자동차별로 0부터 9까지 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
+  - [x] 값이 4 이상인 경우 전진, 그렇지 않으면 멈춘다.- Judgment#isMoveOrStop()
+- [x] 각 회차별 경주 현황을 출력한다. - OutputView#displayRaceStatus()
+- [x] 모든 회차가 끝나면 결과를 비교하여 최종 우승자를 가린다. - Referee#determineWinner()
+  - [x] 누가 가장 많이 전진했는지 비교할 수 있다. 
+  - [x] 우승자는 가장 많이 전진한 자동차이다.
+- [x] 최종 우승자를 출력하고 게임은 종료된다. - OutputView#displayWinner()
