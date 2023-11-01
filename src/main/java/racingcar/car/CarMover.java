@@ -18,7 +18,7 @@ public class CarMover {
 	public void moveCars(List<Car> carList, Integer tryingCountsNumber,
 		CarMovementResultLogStorage carMovementResultLogStorage) {
 		updateCarMovements(carList, StartIndex);
-		carMovementWriter.writeMovementOfCars(carList, carMovementResultLogStorage);
+		carMovementWriter.writeMovementOfCars(carList, StartIndex, carMovementResultLogStorage);
 		tryingCountsNumber = tryingCountsNumber - RecursiveSteps;
 		if (tryingCountsNumber == EndOfRecursive) {
 			return;
