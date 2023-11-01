@@ -29,6 +29,7 @@ public class CarRacingGameService {
     }
 
     public void doRace() {
+        System.out.println("실행 결과");
         for (int i = 0; i < attemptCount; i++) {
             for (Car car : carRacing.getCarList()) {
                 carMoveService.move(car);
