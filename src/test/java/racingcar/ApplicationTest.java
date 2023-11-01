@@ -29,6 +29,12 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 같은_이름에_대한_예외_처리() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("nill,nill", "1"))
+                .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
     void 공동_우승자() {
         assertRandomNumberInRangeTest(
                 () -> {
@@ -36,6 +42,16 @@ class ApplicationTest extends NsTest {
                     assertThat(output()).contains("nill : ---", "wonil : ---", "최종 우승자 : nill, wonil");
                 },
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD);
+    }
+
+    @Test
+    void 시도_횟수_자연수_처리() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("nill,wonil", "1.5"))
+                .isInstanceOf(IllegalArgumentException.class));
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("nill,wonil", "0"))
+                .isInstanceOf(IllegalArgumentException.class));
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("nill,wonil", "-1"))
+                .isInstanceOf(IllegalArgumentException.class));
     }
 
     @Override
