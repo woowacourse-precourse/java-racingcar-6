@@ -16,9 +16,11 @@ public class NamedCarGameFactory implements GameFactory {
     public NamedCarGameFactory(String input, int iterNumber) {
         this.input = input;
         this.iterNumber = iterNumber;
+        String[] split = input.split(",");
+        validate(split);
     }
 
-    private void validate(String[] split) {
+    private static void validate(String[] split) throws IllegalArgumentException {
         boolean isInvalid = Arrays.stream(split).anyMatch(token -> token.length() > 5);
         if (isInvalid) {
             throw new IllegalArgumentException();
@@ -26,9 +28,8 @@ public class NamedCarGameFactory implements GameFactory {
     }
 
     @Override
-    public Game createGame() {
+    public Game createGame() throws IllegalArgumentException {
         String[] split = input.split(",");
-        validate(split);
         List<Car> cars = Arrays.stream(split)
                 .map(name -> new NamedCar(name))
                 .collect(Collectors.toList());
