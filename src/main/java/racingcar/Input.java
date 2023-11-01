@@ -7,20 +7,22 @@ import java.util.List;
 
 public class Input {
 
-    public static List<Integer> carname_input() {
-        List<Integer> carlist = new ArrayList<>();
+    public static List<Car>carname_input() {
 
+        List<Car> carlist = new ArrayList<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputcar = Console.readLine();
 
 
+
         String[] temp = inputcar.split(",");
 
-        for(int i =0; i<inputcar.length(); i++){
-            if(temp[i].length() >5){
+        for(int i =0; i<temp.length; i++){
+            if(temp[i].length()>5){
                 throw new IllegalArgumentException();
             }
-            carlist.add(Integer.parseInt(temp[i]));
+            Car car = new Car(temp[i]);
+            carlist.add(car);
         }
         return carlist;
     }
