@@ -26,6 +26,10 @@ public class RacingGame {
 
         int[] countsByName = MovementStatus.race(names, count);
 
+        if(count == 0) {
+            ServicePrinter.printRaceStatus(names, countsByName);
+        }
+
         int maxCount = Arrays.stream(countsByName).max().orElse(0);
 
         List<String> winners = WinnerSelector.getWinners(maxCount, names, countsByName);
