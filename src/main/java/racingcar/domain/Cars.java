@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Cars{
 
-    List<Car> carList;
+    private final List<Car> carList;
 
     public Cars(List<String> carList){
         this.carList = nameListIntoCarList(carList);
