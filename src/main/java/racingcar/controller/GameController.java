@@ -23,4 +23,10 @@ public class GameController {
         String inputCarString = inputController.inputNames();
         carNameList = inputController.stringToList(inputCarString);
     }
+    private void initCarList() {
+        for (int index = 0; index < carNameList.size(); index++) {
+            Car car = new Car(carNameList.get(index));
+            carList.add(car);
+        }
+    }
 }
