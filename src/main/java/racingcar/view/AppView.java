@@ -2,6 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class AppView {
@@ -26,9 +28,21 @@ public class AppView {
     }
 
     public static void outputStartRacing () {
+        outputLine("");
+        outputLine("실행 결과");
     }
 
     public static void outputScoreState (ArrayList<Car> carList) {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : carList) {
+            sb.append(car.name).append(" : ");
+            BigInteger score = car.score;
+            for (BigInteger j = BigInteger.ZERO; j.compareTo(score) < 0; j = j.add(BigInteger.ONE)) {
+                sb.append("-");
+            }
+            sb.append("\n");
+        }
+        outputLine(sb);
     }
 
     public static void outputFinish (Object winner) {

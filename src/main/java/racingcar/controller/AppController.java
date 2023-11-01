@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.InputValidate;
+import racingcar.model.Racing;
 import racingcar.model.ScoreBoardGenerator;
 import racingcar.view.AppView;
 
@@ -40,11 +41,19 @@ public class AppController {
     }
 
     public static void startRacing () {
+        AppView.outputStartRacing();
 
+        startTurnPlay();
     }
 
     public static void startTurnPlay () {
-
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(totalRound) < 0; i = i.add(BigInteger.ONE)) {
+            Racing.turnPlaying(cars);
+            AppView.outputScoreState(cars);
+        }
+        if (inputNumber.equals("0")) {
+            AppView.outputScoreState(cars);
+        }
     }
 
     public static void endRacing () {
