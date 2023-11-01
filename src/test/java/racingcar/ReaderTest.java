@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.ExceptionMessage.INVALID_ATTEMPT_TYPE;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -18,13 +19,15 @@ class ReaderTest {
     @Test
     void 문자_형태_시도_횟수_입력_시_예외_발생() {
         입력("no");
-        assertThatThrownBy(() -> Reader.attempts()).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Reader.attempts()).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_ATTEMPT_TYPE);
     }
 
     @Test
     void 실수_형태_시도_횟수_입력_시_예외_발생() {
         입력("1.23");
-        assertThatThrownBy(() -> Reader.attempts()).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Reader.attempts()).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_ATTEMPT_TYPE);
     }
 
     @Test

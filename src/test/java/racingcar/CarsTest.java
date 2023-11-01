@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,8 @@ class CarsTest {
     @Test
     void 지정한_길이를_초과한_이름의_자동차_생성_시_예외_발생() {
         Assertions.assertThatThrownBy(() -> 자동차들_생성(NAME_EXCEEDS_LENGTH_LIMIT))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(INVALID_CAR_NAME_LENGTH);
     }
 
     @Test
