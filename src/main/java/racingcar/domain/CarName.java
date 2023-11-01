@@ -22,4 +22,8 @@ public class CarName {
             throw new IllegalArgumentException("자동차 이름이 5글자를 초과했습니다.");
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }

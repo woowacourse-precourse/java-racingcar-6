@@ -36,6 +36,13 @@ public class Cars {
                 .orElseThrow(NoSuchElementException::new);
     }
 
+    public List<String> getSamePositionCarNames(final int carPosition) {
+        return cars.stream()
+                .filter(car -> car.isSamePosition(carPosition))
+                .map(Car::getName)
+                .toList();
+    }
+
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }

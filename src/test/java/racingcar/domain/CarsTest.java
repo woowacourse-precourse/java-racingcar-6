@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -102,5 +103,28 @@ class CarsTest {
 
         // then
         assertEquals(1, maxPosition);
+    }
+
+    @Test
+    @DisplayName("같은 위치에 있는 자동차들의 이름을 반환하는 테스트")
+    void getSamePositionCarNamesTest() {
+        // given
+        Cars cars = Cars.from(List.of(
+                Car.zeroPositionFrom("a"),
+                Car.zeroPositionFrom("b"),
+                Car.zeroPositionFrom("c")));
+        int oneCarPosition = 1;
+        cars.getCars().get(0).move(() -> true);
+        cars.getCars().get(1).move(() -> true);
+
+        // when
+        List<String> carNames = cars.getSamePositionCarNames(oneCarPosition);
+
+        // then
+        assertAll(() -> {
+            assertEquals(2, carNames.size());
+            assertEquals("a", carNames.get(0));
+            assertEquals("b", carNames.get(1));
+        });
     }
 }
