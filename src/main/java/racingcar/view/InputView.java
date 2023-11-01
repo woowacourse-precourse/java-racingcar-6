@@ -28,4 +28,10 @@ public class InputView {
         return carNameList;
     }
 
+    public Integer inputNumber() {
+        String num = Console.readLine();
+        Validator.InputRaceCount(num);
+        return Integer.valueOf(num);
+    }
+
 }
