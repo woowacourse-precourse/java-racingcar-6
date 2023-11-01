@@ -3,10 +3,14 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import racingcar.domain.RacingCar;
 import racingcar.validation.InputValidation;
 
 public class RacingGameService {
+
+    static final int LEAST_RANDOM_NUM = 4;
 
     InputValidation inputValidation = new InputValidation();
 
@@ -14,7 +18,9 @@ public class RacingGameService {
 
         inputValidation.validateCarName(userInput);
 
-        List<String> carNames = List.of(userInput.split(","));
+        List<String> carNames = Stream.of(userInput.split(","))
+                .map(String::trim)
+                .toList();
         List<RacingCar> racingCars = new ArrayList<>();
 
         for (String carName : carNames) {
@@ -37,7 +43,7 @@ public class RacingGameService {
         for (RacingCar racingCar : racingCars) {
             int randomNumber = generateRandomNumber();
 
-            if (randomNumber >= 4) {
+            if (randomNumber >= LEAST_RANDOM_NUM) {
                 racingCar.increaseForwardCount();
             }
         }
