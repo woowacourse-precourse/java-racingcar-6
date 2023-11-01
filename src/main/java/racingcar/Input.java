@@ -13,11 +13,13 @@ public class Input {
         return carName;
     }
 
+
     public static int getGameRoundNum() {
         String GameRoundNum = Console.readLine();
+        Exception.checkOnlyNumber(GameRoundNum);
+        Exception.ifUserZeroNumber(GameRoundNum);
         return Integer.parseInt(GameRoundNum);
     }
-
 
 }
 
