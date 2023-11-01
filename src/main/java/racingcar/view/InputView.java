@@ -10,10 +10,14 @@ public class InputView {
 		String line = Console.readLine();
 		String[] words = line.split(",");
 
+		trimNames(words);
+		return List.of(words);
+	}
+
+	private static void trimNames(String[] words) {
 		for (int i = 0; i < words.length; i++) {
 			words[i] = words[i].trim();
 		}
-		return List.of(words);
 	}
 
 	static public int readTurnCount() {
