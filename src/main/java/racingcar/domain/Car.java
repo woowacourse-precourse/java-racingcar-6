@@ -13,10 +13,6 @@ public class Car {
         distance++;
     }
 
-    public void stop(){
-
-    }
-
     public String getName() {
         return name;
     }
