@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CarTest {
     @Test
     @DisplayName("자동차를 처음 생성하면 자동차 이름을 세팅하고 위치는 0으로 세팅된다.")
@@ -18,8 +20,8 @@ public class CarTest {
         car.initGame(carName);
 
         // then
-        Assertions.assertThat(carName).isEqualTo(car.getName());
-        Assertions.assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(carName).isEqualTo(car.getName());
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @ParameterizedTest
@@ -34,7 +36,7 @@ public class CarTest {
         car.gameMovement(randomNumber);
 
         // then
-        Assertions.assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @ParameterizedTest
@@ -49,6 +51,6 @@ public class CarTest {
         car.gameMovement(randomNumber);
 
         // then
-        Assertions.assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 }

@@ -9,6 +9,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TransformUtilTest {
 
     @ParameterizedTest
@@ -19,7 +21,7 @@ public class TransformUtilTest {
         String dashes = TransformUtil.dashes(number);
 
         // then
-        Assertions.assertThat(number).isEqualTo(dashes.length());
+        assertThat(number).isEqualTo(dashes.length());
     }
     
     @Test
@@ -34,7 +36,7 @@ public class TransformUtilTest {
                 = TransformUtil.commasToList(data);
 
         // then
-        Assertions.assertThat(commasToList).containsExactlyElementsOf(expectedValues);
+        assertThat(commasToList).containsExactlyElementsOf(expectedValues);
     }
 
     @Test
@@ -48,7 +50,7 @@ public class TransformUtilTest {
         String transformToString = TransformUtil.commasToString(expectedValues);
 
         // then
-        Assertions.assertThat(data).isEqualTo(transformToString);
+        assertThat(data).isEqualTo(transformToString);
     }
 
 }

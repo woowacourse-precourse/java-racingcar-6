@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class RandomUtilTest {
 
     @Test
@@ -18,7 +20,7 @@ public class RandomUtilTest {
         Integer randomNumber = RandomUtil.getRandomNumber();
 
         // then
-        Assertions.assertThat(numbers).contains(randomNumber);
+        assertThat(numbers).contains(randomNumber);
     }
 
 }
