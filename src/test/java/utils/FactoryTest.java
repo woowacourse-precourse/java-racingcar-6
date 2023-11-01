@@ -12,8 +12,6 @@ public class FactoryTest {
 
     @Test
     void testCreateRandomDigit(){
-        //given
-
         //when
         int randomDigit = Factory.createRandomDigit();
         //then
