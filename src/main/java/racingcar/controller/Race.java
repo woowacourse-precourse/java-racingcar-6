@@ -1,4 +1,6 @@
-package racingcar.model;
+package racingcar.controller;
+
+import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,18 @@ public class Race {
 
     private List<Car> initializeCars(String[] names) {
         List<Car> carList = new ArrayList<>();
+        List<String> nameList = new ArrayList<>();
         for (String name : names) {
+            validateCars(nameList, name);
             carList.add(new Car(name));
+            nameList.add(name);
         }
         return carList;
+    }
+
+    private void validateCars(List<String> nameList, String name) {
+        if (name.length()>5) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        if (nameList.contains(name)) throw new IllegalArgumentException("중복된 이름은 불가능합니다.");
     }
 
     public void run() {
