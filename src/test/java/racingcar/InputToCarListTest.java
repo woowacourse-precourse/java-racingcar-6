@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.InputToCarList;
+import racingcar.view.OutputView;
 
 /* 테스트 케이스
    1. " ,1" : 성공 (공백은 안됩니다.)
@@ -28,8 +29,15 @@ class InputToCarListTest {
         //when
         List<Car> cars = instance.askCarName(input);
 
+        StringBuilder sb = new StringBuilder();
         //then
-        Assertions.assertThat(cars.toString()).isEqualTo("[이순신 : , 손흥민 : , 포비 : ]");
+        for (Car car : cars) {
+            sb.append(car.getName() + " ");
+        }
+
+        Assertions.assertThat(sb.toString()).isEqualTo("이순신 손흥민 포비 ");
+
+
     }
 
     @DisplayName("반환 타입은 List 이므로 isInstanceOf 의 값은 True 가 나올 것이다.")
