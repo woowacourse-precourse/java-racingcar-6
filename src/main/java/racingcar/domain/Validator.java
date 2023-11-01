@@ -6,11 +6,8 @@ public class Validator {
     private Validator() {
     }
 
-    public static boolean oneCarNames(String carNames) {
-        return carNames.split(",").length < 2;
-    }
-
-    public static boolean noName(String name) {
+    /* for carNames */
+    public static boolean isEmpty(String name) {
         return name == null || name.trim().isEmpty();
     }
 
@@ -23,6 +20,34 @@ public class Validator {
         }
     }
 
+    public static boolean isOneString(String carNames) {
+        return carNames.split(",").length < 2;
+    }
+
+    public static void checkCarNames(String carNames) {
+        if (Validator.isEmpty(carNames)) {
+            RacingGame.exception(ErrorMessage.NO_NAME);
+        } else if (Validator.isNumber(carNames)) {
+            RacingGame.exception(ErrorMessage.IS_NUMBER);
+        } else if (Validator.isOneString(carNames)) {
+            RacingGame.exception(ErrorMessage.ONE_NAME);
+        }
+    }
+
+    /* for Car.name */
+
+    public static boolean isShorterFive(String name) {
+        return name.length() > 5;
+    }
+
+    public static void checkNameRestriction(String name) {
+        if (!isShorterFive(name)) {
+            RacingGame.exception(ErrorMessage.NAME_RESTRICTION);
+        }
+    }
+
+    /* for numberOfAttempts */
+
     public static boolean isZero(int attempt) {
         return attempt == 0;
     }
@@ -31,25 +56,11 @@ public class Validator {
         return attempt < 0;
     }
 
-    public static boolean checkCarNames(String carNames) {
-        if (Validator.noName(carNames)) {
-            RacingGame.exception(ErrorMessage.NO_NAME);
-        } else if (Validator.isNumber(carNames)) {
-            RacingGame.exception(ErrorMessage.IS_NUMBER);
-        } else if (Validator.oneCarNames(carNames)) {
-            RacingGame.exception(ErrorMessage.ONE_NAME);
-        }
-
-        return true;
-    }
-
-    public static boolean checkAttempt(int numberOfAttempts) {
+    public static void checkAttempt(int numberOfAttempts) {
         if (Validator.isZero(numberOfAttempts)) {
             RacingGame.exception(ErrorMessage.IS_ZERO);
         } else if (Validator.isNegative(numberOfAttempts)) {
             RacingGame.exception(ErrorMessage.IS_NEGATIVE);
         }
-
-        return true;
     }
 }

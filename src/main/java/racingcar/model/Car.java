@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.domain.Validator;
+import racingcar.domain.ErrorMessage;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -7,9 +9,7 @@ public class Car {
     private int forwardCount;
 
     public Car(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("잘못된 입력입니다.");
-        }
+        Validator.checkNameRestriction(name);
         this.name = name;
     }
 

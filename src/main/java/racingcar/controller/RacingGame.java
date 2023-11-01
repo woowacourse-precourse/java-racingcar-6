@@ -27,7 +27,6 @@ public class RacingGame {
 
     public static void exception(String str) {
         Console.close();
-        Output.getError(str);
         throw new IllegalArgumentException(str);
     }
 }

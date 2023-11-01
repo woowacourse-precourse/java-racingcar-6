@@ -24,8 +24,4 @@ public class Output {
     public static void winnerMessage() {
         System.out.println(WINNER);
     }
-
-    public static void getError(String message) {
-        System.out.println(message);
-    }
 }
