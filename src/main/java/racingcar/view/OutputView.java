@@ -1,14 +1,19 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
+import java.util.List;
+import racingcar.domain.dto.GameResult;
 
 public class OutputView {
-    public void outputResult() {
+    public void outputResultString() {
         System.out.println("실행 결과");
     }
 
-    public void outputForwardResult(Car car) {
-        System.out.println(car.getName() + " : " + "-".repeat(car.getDistances()));
+    public void outputGameResult(List<GameResult> gameResults) {
+        gameResults
+                .forEach(gameResult -> {
+                    System.out.println(gameResult.getCarName() + " : " + "-".repeat(gameResult.getCarDistances()));
+                });
+
     }
 
 }

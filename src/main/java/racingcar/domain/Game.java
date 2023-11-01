@@ -1,6 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.domain.dto.GameResult.createGameResult;
+
+import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.dto.GameResult;
 
 public class Game {
     private List<Car> carList;
@@ -14,5 +18,19 @@ public class Game {
         game.count = count;
 
         return game;
+    }
+
+    public void playGame() {
+        updateCarsMove();
+    }
+
+    private void updateCarsMove() {
+        for (Car car : carList) {
+            car.moveForward();
+        }
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 }

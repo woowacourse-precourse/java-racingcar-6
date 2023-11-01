@@ -1,4 +1,4 @@
-package racingcar.controller;
+package racingcar.resolver;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
