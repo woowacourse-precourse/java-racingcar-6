@@ -18,8 +18,14 @@ public class Race {
         this.bestScore = 0;
     }
 
-    public void entry(Car car) {
+    private void entry(Car car) {
         cars.add(car);
+    }
+
+    public void entry(String[] names) {
+        for (String name : names) {
+            entry(new Car(name));
+        }
     }
 
     public void start() {

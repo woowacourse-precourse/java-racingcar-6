@@ -8,7 +8,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.constant.ExceptionType;
 import racingcar.constant.Game;
 import racingcar.constant.Validator;
-import racingcar.domain.Car;
 import racingcar.domain.Race;
 
 public class RacingGame {
@@ -29,7 +28,7 @@ public class RacingGame {
         int totalRound = roundInputRequest();
 
         race = new Race(totalRound);
-        entryCars(carNames);
+        race.entry(carNames);
 
         race.start();
         race.printWinner();
@@ -55,11 +54,5 @@ public class RacingGame {
         Validator.NUMBER.validate(input);
 
         return Integer.parseInt(input);
-    }
-
-    private void entryCars(String[] names) {
-        for (String name : names) {
-            race.entry(new Car(name));
-        }
     }
 }
