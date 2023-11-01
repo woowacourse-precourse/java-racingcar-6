@@ -9,6 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static racingcar.error.ErrorType.INVALID_ATTEMPT_COUNT_INPUT;
 
 class GameInputViewTest extends IOTest {
 
@@ -33,5 +34,53 @@ class GameInputViewTest extends IOTest {
 
         assertThat(output()).isEqualTo(GameInputView.INPUT_CAR_NAMES_MESSAGE);
         assertThat(t).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("시도 회수를 입력하라는 안내 문구가 출력되고 시도 회수(정수)를 입력하면, 입력된 시도 회수가 반환된다.")
+    @Test
+    void printMessageToInputAttemptCount_whenInputAttemptCount_thenReturnAttemptCount() {
+        int expectedResult = 5;
+        setInput(String.valueOf(expectedResult));
+
+        int actualResult = GameInputView.inputAttemptCount();
+
+        assertThat(output()).isEqualTo(GameInputView.INPUT_ATTEMPT_COUNT_MESSAGE);
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @DisplayName("시도 회수를 입력하라는 안내 문구가 출력되고 숫자가 아닌 값(문자)를 입력하면, 예외가 발생한다.")
+    @Test
+    void printMessageToInputAttemptCount_whenInputCharacters_thenReturnAttemptCount() {
+        setInput("woowa");
+
+        Throwable t = catchThrowable(GameInputView::inputAttemptCount);
+
+        assertThat(output()).isEqualTo(GameInputView.INPUT_ATTEMPT_COUNT_MESSAGE);
+        assertThat(t).isInstanceOf(IllegalArgumentException.class);
+        assertThat(t.getMessage()).isEqualTo(INVALID_ATTEMPT_COUNT_INPUT.getMessage());
+    }
+
+    @DisplayName("시도 회수를 입력하라는 안내 문구가 출력되고 정수가 아닌 값(유리수)를 입력하면, 예외가 발생한다.")
+    @Test
+    void printMessageToInputAttemptCount_whenInputRationalNumber_thenReturnAttemptCount() {
+        setInput("3.14");
+
+        Throwable t = catchThrowable(GameInputView::inputAttemptCount);
+
+        assertThat(output()).isEqualTo(GameInputView.INPUT_ATTEMPT_COUNT_MESSAGE);
+        assertThat(t).isInstanceOf(IllegalArgumentException.class);
+        assertThat(t.getMessage()).isEqualTo(INVALID_ATTEMPT_COUNT_INPUT.getMessage());
+    }
+
+    @DisplayName("시도 회수를 입력하라는 안내 문구가 출력되고 음의 정수를 입력하면, 예외가 발생한다.")
+    @Test
+    void printMessageToInputAttemptCount_whenInputMinusInteger_thenReturnAttemptCount() {
+        setInput("-1");
+
+        Throwable t = catchThrowable(GameInputView::inputAttemptCount);
+
+        assertThat(output()).isEqualTo(GameInputView.INPUT_ATTEMPT_COUNT_MESSAGE);
+        assertThat(t).isInstanceOf(IllegalArgumentException.class);
+        assertThat(t.getMessage()).isEqualTo(INVALID_ATTEMPT_COUNT_INPUT.getMessage());
     }
 }

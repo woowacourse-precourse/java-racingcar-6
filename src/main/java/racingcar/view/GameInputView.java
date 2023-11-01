@@ -10,6 +10,7 @@ import static racingcar.error.ErrorType.INVALID_CAR_NAME_LENGTH;
 public class GameInputView {
 
     public static final String INPUT_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public static final String INPUT_ATTEMPT_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     private static final String CAR_NAME_DELIMITER = ",";
 
@@ -20,6 +21,10 @@ public class GameInputView {
         return Arrays
                 .stream(carNames)
                 .toList();
+    }
+
+    public static int inputAttemptCount() {
+        return -1;
     }
 
     private static void validateAllStringsFiveOrLess(String... strings) {
