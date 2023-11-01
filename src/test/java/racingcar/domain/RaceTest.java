@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
+import racingcar.constant.Number;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,8 +10,8 @@ class RaceTest {
     @Test
     void 랜덤_숫자의_범위가_0에서_9사이임을_테스트한다() {
         Race race = new Race("3");
-        int min = Race.RANDOM_MIN_NUMBER;
-        int max = Race.RANDOM_MAX_NUMBER;
+        int min = Number.RANDOM_MIN_NUMBER;
+        int max = Number.RANDOM_MAX_NUMBER;
 
         int randomNumber = race.pickRandomNumber();
 
@@ -57,7 +58,7 @@ class RaceTest {
 
     @Test
     void trialNumber이_whitespace이면_에러를_던진다() {
-        String trialNumber = " 9";
+        String trialNumber = "9 0";
 
         assertThrows(IllegalArgumentException.class, () -> {
             new Race(trialNumber);

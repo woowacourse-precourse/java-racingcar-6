@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import racingcar.constant.Number;
 
 class CarTest {
     @Test
@@ -11,10 +11,10 @@ class CarTest {
         Car car = new Car(carName);
 
         int initialPosition = car.getPosition(); //초기 위치
-        int condition = Car.FORWARD_CONDITION_NUMBER;
+        int condition = Number.FORWARD_CONDITION_NUMBER;
 
         // Act
-        car.forwardOrStay(condition);
+        car.forwardIfConditionMet(condition);
 
         // Assert
         int expectedPosition = initialPosition + 1;
@@ -27,10 +27,10 @@ class CarTest {
         Car car = new Car(carName);
 
         int initialPosition = car.getPosition(); //초기 위치
-        int condition = Car.FORWARD_CONDITION_NUMBER - 1;
+        int condition = Number.FORWARD_CONDITION_NUMBER - 1;
 
         // Act
-        car.forwardOrStay(condition);
+        car.forwardIfConditionMet(condition);
 
         // Assert
         int expectedPosition = initialPosition;
