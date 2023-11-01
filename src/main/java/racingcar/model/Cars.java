@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.util.CarNameValidator;
-
 import java.util.ArrayList;
 import java.util.List;
 
