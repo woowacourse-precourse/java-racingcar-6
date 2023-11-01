@@ -11,7 +11,6 @@ public class OutputView {
     private static final String FINAL_WINNER_RESULT_STRING = "최종 우승자 :";
     private static final String FINAL_WINNER_STRING_JOIN_NAME_COMMA = ", ";
 
-
     private OutputView() {
     }
 
@@ -47,4 +46,5 @@ public class OutputView {
     public static String winnerPrintFormat(List<String> winners) {
         return FINAL_WINNER_RESULT_STRING + " " + String.join(FINAL_WINNER_STRING_JOIN_NAME_COMMA, winners);
     }
+
 }

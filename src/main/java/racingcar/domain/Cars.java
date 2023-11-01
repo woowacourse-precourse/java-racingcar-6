@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-import racingcar.Utils.ErrorMessage;
+import racingcar.utils.ErrorMessage;
 
 public class Cars {
     private final List<Car> cars;
     private static final int CAR_NAME_MIN_LENGTH = 5;
-    private static final int RANDOM_MOVE_NUMBER_MIN_SIZE= 0;
+    private static final int RANDOM_MOVE_NUMBER_MIN_SIZE = 0;
     private static final int RANDOM_MOVE_NUMBER_MAX_SIZE = 9;
+
     public Cars(List<Car> cars) {
         validateUserInput(cars);
         this.cars = cars;

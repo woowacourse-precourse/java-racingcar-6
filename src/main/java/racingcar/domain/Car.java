@@ -1,12 +1,7 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
-import racingcar.Utils.ErrorMessage;
+import racingcar.utils.ErrorMessage;
 
 public class Car {
     private final String name;
