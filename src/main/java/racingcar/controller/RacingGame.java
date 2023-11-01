@@ -17,7 +17,7 @@ public class RacingGame {
         carInformationList = new ArrayList<>();
     }
 
-    public void runRaceIterations(GameSettingsDto gameSettingsDto){
+    public List<CarDto> runRaceIterations(GameSettingsDto gameSettingsDto){
         setCarInformation(gameSettingsDto.getCarsName());
 
         OutputView.getInstance().printExecutionResultMessage();
@@ -25,6 +25,8 @@ public class RacingGame {
         for(int i = 0; i < gameSettingsDto.getRacingCount(); i++){
             startRacingGame();
         }
+
+        return carInformationList;
     }
 
     private void setCarInformation(List<String> carsName){

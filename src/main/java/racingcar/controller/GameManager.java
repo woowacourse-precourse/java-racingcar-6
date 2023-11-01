@@ -1,9 +1,13 @@
 package racingcar.controller;
 
+import racingcar.model.CarDto;
 import racingcar.model.GameSettingsDto;
+
+import java.util.List;
 
 public class GameManager {
     private GameSettingsDto gameSettingsDto;
+    private List<CarDto> carInformationList;
 
     private UserInput userInput;
     private RacingGame racingGame;
@@ -15,6 +19,6 @@ public class GameManager {
 
     public void startGame(){
         gameSettingsDto = userInput.readUserGameSettingInput();
-        racingGame.runRaceIterations(gameSettingsDto);
+        carInformationList = racingGame.runRaceIterations(gameSettingsDto);
     }
 }
