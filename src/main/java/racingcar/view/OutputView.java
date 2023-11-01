@@ -12,4 +12,8 @@ public class OutputView {
     public static void showRoundResultByCar(String carName, String positionToDash) {
         System.out.println(carName + " : " + positionToDash);
     }
+
+    public static void showGameWinner(String winners) {
+        System.out.println("최종 우승자 : " + winners);
+    }
 }
