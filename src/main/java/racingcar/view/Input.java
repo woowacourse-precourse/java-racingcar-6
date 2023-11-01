@@ -6,15 +6,17 @@ import java.util.List;
 import racingcar.utils.ValidationUtils;
 
 public class Input {
+  private static final String INPUT_CAR_NAMES_MESSAGE = "자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+  private static final String INPUT_TRY_COUNT_MESSAGE = "시도할 회수를 입력하세요.";
 
   public List<String> inputCarNames() {
-    String inputNames = readInput("자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+    String inputNames = readInput(INPUT_CAR_NAMES_MESSAGE);
     ValidationUtils.validateCarNames(inputNames);
     return Arrays.asList(inputNames.split(","));
   }
 
   public int inputTryCount() {
-    String inputNumber = readInput("시도할 회수를 입력하세요.");
+    String inputNumber = readInput(INPUT_TRY_COUNT_MESSAGE);
     ValidationUtils.validateUserInput(inputNumber);
     return Integer.parseInt(inputNumber);
   }
