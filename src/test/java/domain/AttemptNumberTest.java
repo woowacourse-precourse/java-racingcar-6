@@ -47,8 +47,8 @@ public class AttemptNumberTest extends NsTest {
     }
 
     @Test
-    void 시도횟수_예외_처리_음수() {
-        String attemptNumber = "-5";
+    void 시도횟수_예외_처리_공백() {
+        String attemptNumber = "1 2";
 
         assertThatThrownBy(() ->
                 attempt.validateAttemptNumber(attemptNumber))
@@ -57,13 +57,13 @@ public class AttemptNumberTest extends NsTest {
     }
 
     @Test
-    void 시도횟수_예외_처리_공백() {
-        String attemptNumber = "1 2";
+    void 시도횟수_예외_처리_음수() {
+        String attemptNumber = "-5";
 
         assertThatThrownBy(() ->
                 attempt.validateAttemptNumber(attemptNumber))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ExceptionMessage.NON_INTEGER_EXCEPTION);
+                .hasMessageContaining(ExceptionMessage.NON_POSITIVE_NUMBER_EXCEPTION);
     }
 
     @Override
