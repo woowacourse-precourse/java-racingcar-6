@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +50,20 @@ class ApplicationTest extends NsTest {
             nameLength(name.length());
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차의 이름은 다섯글자까지만 허용합니다.");
+    }
+
+    @Test
+    @DisplayName("이름이 공백일경우 예외처리")
+    public void nameBlankCheck() {
+        //given
+        String blankName = " ";
+        //when
+
+        //then
+        assertThatThrownBy(() -> new Car(blankName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("공백의 이름은 허용하지 않습니다.");
+
     }
 
     private void nameLength(int length) {
