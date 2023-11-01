@@ -19,7 +19,19 @@ public class Judgment {
             progress.moveProgressPrint(carList.get(i));
             i++;
         }
-
     }
-
+    public String carRaceWinner(List<Car> carList) {
+        int max = carList.get(0).getProgressNumber();
+        String winner = carList.get(0).getName();
+        for(int i=1; i<carList.size(); i++) {
+            if(carList.get(i).getProgressNumber()>max) {
+                max=carList.get(i).getProgressNumber();
+                winner = carList.get(i).getName();
+            }
+            else if (carList.get(i).getProgressNumber() == max){
+                winner+=(", "+carList.get(i).getName());
+            }
+        }
+        return winner;
+    }
 }
