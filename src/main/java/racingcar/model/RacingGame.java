@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -7,15 +8,31 @@ public class RacingGame {
     private int tryCount;
 
     public RacingGame(String carNames, int tryCount) {
-        // 생성자 로직
+        this.cars = new ArrayList<>();
+        for (String name : carNames.split(",")) {
+            cars.add(new Car(name));
+        }
+        this.tryCount = tryCount;
     }
 
     public void playOneRound() {
-        // 한 라운드를 진행하는 로직
+        for (Car car : cars) {
+            car.move();
+        }
     }
 
-    public void getWinners() {
-        // 우승자 결정 로직
-        return;
+    public List<Car> getWinners() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 }
