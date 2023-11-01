@@ -4,6 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
+    public static final int MIN_RANGE = 0;
+    public static final int MAX_RANGE = 9;
+    public static final int MOVE_STANDARD = 4;
+
     private String carName;
     private Integer position;
 
@@ -25,9 +29,9 @@ public class Car {
     }
 
     public int move() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
+        int randomNum = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
 
-        if (randomNum >= 4) {
+        if (randomNum >= MOVE_STANDARD) {
             position++;
         }
         return randomNum;
