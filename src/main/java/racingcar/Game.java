@@ -19,8 +19,8 @@ public class Game {
     private Integer moveNumber;
 
     public Game() {
-        carList = new ArrayList<>();
-        moveNumber = 0;
+        this.carList = new ArrayList<>();
+        this.moveNumber = 0;
     }
 
     public void run() {
