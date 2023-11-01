@@ -13,7 +13,7 @@ public class CarFactory {
     public List<Car> createCar() {
         IoManager.printEnterCarName();
         String nameString = IoManager.readLine();
-        List<String> nameList = stringtoListByComma(nameString);
+        List<String> nameList = stringToListByComma(nameString);
         checkDuplicatedName(nameList);
         return createCarList(nameList);
     }
@@ -26,7 +26,7 @@ public class CarFactory {
         return cars;
     }
 
-    public List<String> stringtoListByComma(String name) {
+    public List<String> stringToListByComma(String name) {
         return Arrays.stream(name.split(","))
                 .collect(Collectors.toList());
     }
