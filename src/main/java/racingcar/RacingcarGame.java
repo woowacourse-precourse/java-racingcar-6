@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingcarGame {
-        1
+        
 
         public void gameStart() {
                 List<Car> cars = CarInput.getCarsFromUser();
@@ -28,8 +28,8 @@ public class RacingcarGame {
         public class RaceManager {
                 public static void startRace(List<Car> cars, int numOfTrial) {
                         for (int i = 0; i < numOfTrial; i++) {
-                            System.out.println();
-                            raceResult(cars);
+                                System.out.println();
+                                raceResult(cars);
                         }
                 }
         }
