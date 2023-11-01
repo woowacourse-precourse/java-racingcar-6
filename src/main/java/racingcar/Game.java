@@ -26,6 +26,9 @@ public class Game {
             }
             printRoundResult(cars);
         }
+        int winningPosition = findWinningPosition(cars);
+        List<String> winners = findWinners(cars, winningPosition);
+        printWinners(winners);
     }
 
     public static void printRoundResult(List<Car> cars) {
