@@ -15,6 +15,5 @@ public class Referee {
                 Judgment.moveForward(i);
             }
         }
-        OutputView.gameResult();
     }
 }

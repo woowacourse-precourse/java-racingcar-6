@@ -20,6 +20,9 @@ public class RacingCarGameController {
         OutputView.printResultOfTheGame();
         for(int i = 0; i < NumberOfGameRepeat; i ++) {
             Referee.compare(Constant.BASE_NUMBER);
+            if (i != NumberOfGameRepeat - 1) {
+                OutputView.gameResult();
+            }
         }
     }
 
