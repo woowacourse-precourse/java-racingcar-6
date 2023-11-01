@@ -89,16 +89,12 @@ public class Application {
 
         for (Car car : carList) {
             String name = car.getName();
-            int movingCount = car.getMovingCount();
 
-            if (movingCount == maxCount) {
+            if (car.isWinner(maxCount)) {
                 winnerList.add(name);
                 continue;
             }
-
-            if (movingCount < maxCount) {
-                break;
-            }
+            break;
         }
         return winnerList;
     }

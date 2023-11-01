@@ -48,6 +48,13 @@ public class Car implements Comparable<Car> {
         return movingWay;
     }
 
+    public boolean isWinner(int maxCount) {
+        if (movingCount == maxCount) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public int compareTo(Car car) {
         return Integer.compare(movingCount, car.movingCount);
