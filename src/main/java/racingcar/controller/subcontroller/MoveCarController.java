@@ -42,6 +42,6 @@ public class MoveCarController {
     }
 
     private int inputAttemptToMoveCar() {
-        return inputView.inputTryToMoveCar();
+        return inputView.inputAttemptToMoveCar();
     }
 }
