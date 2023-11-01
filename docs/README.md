@@ -2,6 +2,10 @@
 
 ## 기능 목록
 - [O] 각 자동차에 이름을 입력한다. - CarGenerator#inputCarNames()
+    - [O] Null 입력 예외처리    - CarGenerator#validateCarNameNull()
+    - [O] 중복 입력 예외처리    - CarGenerator#validateCarNamedistint()
+    - [O] 길이 초과 예외처리    - CarGenerator#validateCarNamelength()
+    - [O] 공백 입력 예외처리    - CarGenerator#validateCarNameblank()
 - [O] 몇 회 이동할 것인지 입력한다. - NumberGenerator#goChance()
     - [O]숫자인가? 예외처리 진행.   - NumberGenerator#validateGameChanceNumbers()
 - [O] 0에서 9 사이의 임의의 수를 생성한다. - NumberGenerator#createRandomNumbers()
