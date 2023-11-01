@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -31,6 +32,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    // InputView class tests
     @Test
     void 입력한_자동차_이름_배열로_변환() {
         String input = "pobi,woni";
@@ -69,6 +71,24 @@ class ApplicationTest extends NsTest {
 
         assertThatThrownBy(() -> InputView.validNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    // Racing class tests
+    @Test
+    void 자동차_이름으로_기록지_생성_확인() {
+        String[] cars = {"pobi", "woni"};
+        Map<String, Integer> record = Racing.makeRecord(cars);
+
+        assertThat(record.get("pobi")).isEqualTo(0);
+        assertThat(record.get("woni")).isEqualTo(0);
+    }
+
+    @Test
+    void 승자_결정_확인() {
+        Map<String, Integer> record = Map.of("pobi", 5, "woni", 3);
+        String[] winners = Racing.decideWinner(record);
+
+        assertThat(winners).containsExactly("pobi");
     }
 
     @Override
