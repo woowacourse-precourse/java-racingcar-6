@@ -25,8 +25,24 @@ public class RacingCar {
                 .collect(Collectors.toList());
     }
 
+    public List<String>  determineWinner(){
+        List<String> winnerList = new ArrayList<>();
 
-    
+        Integer maxDistance = carList
+                .stream()
+                .max(Comparator.comparing(car -> car.measureDistance()))
+                .get()
+                .measureDistance();
+
+        carList.forEach(car ->{
+            if(car.measureDistance().equals(maxDistance)){
+                winnerList.add(car.getName());
+            }
+        });
+
+        return winnerList;
+    }
+
 
 
 }
