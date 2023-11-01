@@ -12,15 +12,15 @@ public class Car {
 	private int distance;
 	Validation validation;
 
+	// Car 클래스 생성
 	public Car(String name) {
 		validation = new Validation();
-		validation.validateCarName(name);
-		
+		validateAndSetName(name);
 		this.name = name;
 		this.distance = 0;
 	}
 
-	public void MoveCondition() {
+	public void MoveCondition() { // 전진 조건
 		int randomNumber = Randoms.pickNumberInRange(0, 9);
 
 		if (randomNumber >= 4) {
@@ -35,5 +35,10 @@ public class Car {
 
 	public String getName() {
 		return name;
+	}
+
+	private void validateAndSetName(String name) { // 이름 입력에 대한 예외처리
+		validation.validateCarName(name);
+		this.name = name;
 	}
 }
