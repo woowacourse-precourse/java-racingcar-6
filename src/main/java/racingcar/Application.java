@@ -66,6 +66,7 @@ public class Application {
         HowManyCars();
         HowManyMoves();
         MoveCars();
+        CheckMaxDistance();
         PresentWinner();
     }
 
@@ -117,13 +118,7 @@ public class Application {
         System.out.println();
     }
 
-    public static void PresentWinner() {
-        System.out.print("최종 우승자 : ");
-        CheckMax();
-        PrintWinner();
-    }
-
-    public static void CheckMax() {
+    public static void CheckMaxDistance() {
         List<Integer> Check = cars.getCarDistance();
         for (int Distance : Check) {
             if (Max_Distance < Distance) {
@@ -132,7 +127,8 @@ public class Application {
         }
     }
 
-    public static void PrintWinner() {
+    public static void PresentWinner() {
+        System.out.print("최종 우승자 : ");
         boolean SingleWinner = true;
         List<String> WinnerName = cars.getCarNames();
         List<Integer> WinnerDistance = cars.getCarDistance();
