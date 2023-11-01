@@ -7,7 +7,6 @@ import racingcar.model.Car;
 
 public class InputValidator {
 
-
     // 11. 자동차 이름이 5글자 이하인지 검사하는 메서드
     public static void validateCarNameLength(List<Car> carNames) {
         for(Car car: carNames) {
