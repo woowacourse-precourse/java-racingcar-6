@@ -30,10 +30,9 @@ public class racingcarGame {
     public void createListOfCars(List<String> names){
         listOfCars = new ArrayList<>();
         for(int i=0;i<names.size();i++){
-            if(names.get(i).length()>5){
-                throw new IllegalArgumentException();
-            }
-            listOfCars.add(Arrays.asList(names.get(i),""));
+            String name = names.get(i);
+            exception.checkStringLengthException(name);
+            listOfCars.add(Arrays.asList(name,""));
         }
     }
 

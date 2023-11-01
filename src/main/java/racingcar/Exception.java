@@ -8,4 +8,10 @@ public class Exception {
             throw new IllegalArgumentException();
         }
     }
+
+    void checkStringLengthException(String name){
+        if(name.length()>5){
+            throw new IllegalArgumentException();
+        }
+    }
 }
