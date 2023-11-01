@@ -91,8 +91,14 @@ public class Application {
         });
         System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
+    public static void run() throws IllegalArgumentException{
+        initCars();
+        racing();
+        showWinner();
+
+    }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-
+        run();
     }
 }
