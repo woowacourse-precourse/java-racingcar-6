@@ -40,5 +40,16 @@ public class PlayTest {
         // 유효하지 않은 입력 테스트
         assertThrows(IllegalArgumentException.class, () -> play.varifyCarNameBlank(invalidInput));
     }
+    @Test
+    void testVarifyTryNumberIsNumeric() {
+        String validInput = "5";
+        String invalidInput = "abc";
+
+        // 유효한 입력 테스트
+        play.varifyTryNumberIsNumeric(validInput);
+
+        // 유효하지 않은 입력 테스트
+        assertThrows(IllegalArgumentException.class, () -> play.varifyTryNumberIsNumeric(invalidInput));
+    }
 
 }
