@@ -56,7 +56,6 @@ public class RacingGame {
             int count = movingCount.getEachMovingCount(i);
             int target = numberList.get(i);
             String car = carList.get(i);
-
             int movingCount = evaluateMoving(target, count, i);
             outputView.showResult(car, movingCount);
         }
