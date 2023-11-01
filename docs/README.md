@@ -61,8 +61,8 @@
 ## Controller
 ### MainController
 > 전체 게임 진행을 관리하는 컨트롤러 객체
-- [ ] 사용자에게 자동차 이름과 이동 횟수를 입력받아 RacingCarGame을 생성하고 게임을 진행한다
-- [ ] RacingCarGame이 종료되면 우승자 목록을 요청하고 출력을 명령한다
+- [x] 사용자에게 자동차 이름과 이동 횟수를 입력받아 RacingCarGame을 생성하고 게임을 진행한다
+  - RacingCarGame이 종료되면 우승자 목록을 요청하고 출력을 명령한다
 
 ## View
 ### InputView
