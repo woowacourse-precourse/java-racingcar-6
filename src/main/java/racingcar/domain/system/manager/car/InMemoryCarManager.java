@@ -26,7 +26,8 @@ public class InMemoryCarManager implements CarManager {
     @Override
     public SavedCar save(BasicCar car) {
         validate(car);
-        CarKey key = CarKey.of(car.getCarName());
+        int inputOrderIdx = cars.size();
+        CarKey key = CarKey.of(car.getCarName(), inputOrderIdx + 1L);
         SavedCar savedCar = new SavedCar(car, key);
         cars.put(key, savedCar);
         return savedCar;
