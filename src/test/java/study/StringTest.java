@@ -2,12 +2,10 @@ package study;
 
 import domain.GameInput;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.io.ByteArrayInputStream;
-
 import org.junit.jupiter.api.Test;
 
 //테스트코드 작성방법

@@ -13,11 +13,11 @@ public class Car {
     }
     //객체 배열로 넣기 위해서 public 혹은 비지정 해야함
 
-    public void setCarname(String carName) {
+    public void setCarName(String carName) {
         carname = carName;
     }
 
-    public String getCarname() {
+    public String getCarName() {
         return carname;
     }
 

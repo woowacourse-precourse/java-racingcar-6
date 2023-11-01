@@ -35,7 +35,7 @@ public class ValidateWinner {
 
     private static void cars(int carnumbers, Car[] carslist) {
         for (int i = 0; i < carnumbers; i++) {
-            cars.add(carslist[i].getCarname());
+            cars.add(carslist[i].getCarName());
             setIntegerDistance(i, carslist);
         }
     }

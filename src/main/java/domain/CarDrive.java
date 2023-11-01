@@ -13,7 +13,7 @@ public class CarDrive {
         carslist = new Car[carnumbers];
         for (int i = 0; i < carnumbers; i++) {
             carslist[i] = new Car();
-            carslist[i].setCarname(carNames.get(i));
+            carslist[i].setCarName(carNames.get(i));
         }
     }
 
@@ -26,7 +26,7 @@ public class CarDrive {
 
     public static void outPutCars() {
         for (int i = 0; i < carnumbers; i++) {
-            GameOutput.carNameOutput(carslist[i].getCarname());
+            GameOutput.carNameOutput(carslist[i].getCarName());
             carslist[i].appendDistance();
             GameOutput.carDistance(carslist[i].getDistance());
         }
