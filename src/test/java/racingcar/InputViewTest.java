@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.util.CarNameValidator;
 import racingcar.util.CommonValidator;
 import racingcar.util.GameRoundValidator;
-import racingcar.view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;

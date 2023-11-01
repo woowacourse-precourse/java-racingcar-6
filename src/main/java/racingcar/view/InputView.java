@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
 import racingcar.util.CarNameValidator;
 import racingcar.util.CommonValidator;
 import racingcar.util.GameRoundValidator;
