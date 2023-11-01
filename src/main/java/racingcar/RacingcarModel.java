@@ -20,4 +20,6 @@ public class RacingcarModel {
     static int winnerCnt = 0;
     static String IS_IN_NUMBER = "^[\\d]*$";
     static String IS_NOT_IN_VOID = "^[\\S]*$";
+
+    static List<String> duplicateInspection = new ArrayList<String>();
 }
