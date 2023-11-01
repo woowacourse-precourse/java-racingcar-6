@@ -27,19 +27,29 @@ public class RacingInfo {
 
     public static RacingInfo enter() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = Arrays.stream(Console.readLine().split(","))
-                .map(String::trim).collect(Collectors.toList());
-        if (!validateCarName(carNames)) {
-            throw new IllegalArgumentException("중복되지 않는 자동차 이름을 입력해주세요.");
-        }
+        String carString = Console.readLine();
+        List<String> carNames = parseCarString(carString);
 
         System.out.println("시도할 회수는 몇회인가요?");
         int turn = Integer.parseInt(Console.readLine());
+
+        validateInputs(turn, carNames);
+        return new RacingInfo(carNames, turn);
+    }
+
+    private static List<String> parseCarString(String carString) {
+        return Arrays.stream(carString.split(","))
+                .map(String::trim).collect(Collectors.toList());
+    }
+
+    private static void validateInputs(int turn, List<String> carNames) {
         if (turn <= 0) {
             throw new IllegalArgumentException("0보다 큰 회수를 입력해주세요.");
         }
 
-        return new RacingInfo(carNames, turn);
+        if (!validateCarName(carNames)) {
+            throw new IllegalArgumentException("중복되지 않는 자동차 이름을 입력해주세요.");
+        }
     }
 
     private static boolean validateCarName(List<String> carList) {
