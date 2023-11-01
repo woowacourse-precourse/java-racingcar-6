@@ -26,6 +26,10 @@ public class Player {
         return playerName;
     }
 
+    public String getRawPlayerName() {
+        return playerName.getValue();
+    }
+
     public boolean isWinner() {
         return isWinner;
     }

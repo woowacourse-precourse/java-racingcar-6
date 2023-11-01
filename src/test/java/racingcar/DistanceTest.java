@@ -1,6 +1,5 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -12,8 +11,9 @@ public class DistanceTest {
 
     @Test
     void from은_숫자로_거리값을_받아_객체를_생성한다() {
-        Distance distance = Distance.from(1);
-        assertThat(distance).isInstanceOf(Distance.class);
+        int expectedValue = 5;
+        Distance distance = Distance.from(expectedValue);
+        assertEquals(expectedValue, distance.getValue());
     }
 
     @Test

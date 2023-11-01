@@ -46,8 +46,12 @@ public class PlayerMove {
         return distance;
     }
 
-    public Player getPlayer() {
-        return player;
+    public String getPlayerRawName() {
+        return player.getRawPlayerName();
+    }
+
+    public int getRawDistance() {
+        return distance.getValue();
     }
 
     @Override
