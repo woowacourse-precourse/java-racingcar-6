@@ -21,6 +21,6 @@ public class Car {
     }
 
     public boolean isPositionGreaterThan(int num) {
-        return false;
+        return position > num;
     }
 }
