@@ -15,9 +15,9 @@ public class RacingTest {
     @Test
     void 경주_자동차이름_반점_기준으로_구분() {
         String input = "pobi,woni,jun";
-        String[] lst = generateRacersFromNames(input);
+        String[] nameList = generateRacersFromNames(input);
 
-        Assertions.assertThat(lst).isEqualTo(new String[]{"pobi", "woni", "jun"});
+        Assertions.assertThat(nameList).isEqualTo(new String[]{"pobi", "woni", "jun"});
     }
 
     @Test
