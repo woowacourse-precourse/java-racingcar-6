@@ -45,5 +45,31 @@ public class Application {
         System.out.println("최종 우승자 : " + String.join(",", winners));
     }
 
+    public static void main(String[] args) {
+        Application carRace = new Application();
+
+        System.out.println("경주 할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분, 각 이름은 5자 이내)");
+        String carNames = Console.readLine();
+        String[] carNamesArray = carNames.split(",");
+        for (String carName : carNamesArray) {
+            String trimmedName = carName.trim();
+            if (trimmedName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이내여야 합니다.");
+            }
+            carRace.carNamesList.add(trimmedName);
+            carRace.scoreList.add(0);
+        }
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int rounds = Integer.parseInt(Console.readLine());
+        for (int i = 0; i < rounds; i++) {
+            carRace.roundResult();
+            carRace.displayResult();
+        }
+
+        carRace.findWinner();
+    }
+
+
 }
 
