@@ -3,12 +3,11 @@ package racingcar.util;
 
 public class InputValidation {
     private static final int MAX_NAME_LENGTH = 5;
-    // 자동차 이름 검증 ㄱ. 5자 이하 ㄴ. notNull
-    public void isVaildCarName(String carName) {
-        if (carName.isEmpty()) {
+    public void isVaildCarName(String inputCarNames, String[] arrCarNames) {
+        if (inputCarNames.isEmpty()) {
             throw new IllegalArgumentException("입력된 값이 없습니다.");
         }
-        if(isOverMaxlength(carName)) {
+        if(isOverMaxlength(arrCarNames)) {
             throw new IllegalArgumentException("자동차 이름은 5자 이내로 입력해야 합니다");
         }
     }
@@ -20,7 +19,6 @@ public class InputValidation {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
     }
-
     private boolean isNotIntType(String gameRound) {
         try{
             Integer.parseInt(gameRound);
@@ -29,7 +27,12 @@ public class InputValidation {
             return true;
         }
     }
-    private boolean isOverMaxlength(String name) {
-        return name.length() > 5;
+    private boolean isOverMaxlength(String[] arrCarNames) {
+        boolean result = false;
+        for (String carNames : arrCarNames) {
+            result = carNames.length() > 5;
+            return result;
+        }
+        return result;
     }
 }
