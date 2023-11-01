@@ -4,10 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcarv2.model.Car;
-import racingcarv2.model.Name;
-import racingcarv2.model.Position;
-import racingcarv2.model.RacingCars;
 
 public class RacingCarsTest {
     private RacingCars singleWinner = new RacingCars(Arrays.asList(

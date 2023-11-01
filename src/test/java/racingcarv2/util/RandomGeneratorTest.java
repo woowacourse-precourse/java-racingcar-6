@@ -3,7 +3,6 @@ package racingcarv2.util;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import racingcarv2.util.RandomGenerator;
 
 public class RandomGeneratorTest {
 

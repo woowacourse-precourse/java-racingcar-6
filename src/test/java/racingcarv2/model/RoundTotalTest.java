@@ -2,7 +2,6 @@ package racingcarv2.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcarv2.model.RoundTotal;
 
 public class RoundTotalTest {
     @Test

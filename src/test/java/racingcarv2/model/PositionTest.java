@@ -2,7 +2,6 @@ package racingcarv2.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcarv2.model.Position;
 
 public class PositionTest {
     private Position position;
