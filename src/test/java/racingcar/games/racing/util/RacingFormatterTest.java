@@ -64,4 +64,13 @@ class RacingFormatterTest {
         assertThatThrownBy(() -> formatter.reformatAttemptNumber("0"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("전진 횟수가 0보다 작은 숫자 입력에 대한 예회 발생 검증")
+    void reformatNegativeAttemptNumberTest() {
+        RacingFormatter formatter = new RacingFormatter();
+
+        assertThatThrownBy(() -> formatter.reformatAttemptNumber("-1"))
+               .isInstanceOf(IllegalArgumentException.class);
+    }
 }
