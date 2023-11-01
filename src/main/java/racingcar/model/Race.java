@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class Race {
     private final List<String> carNames;
@@ -38,5 +40,16 @@ public class Race {
         for (Car car : cars.values()) {
             randomAdvance(car);
         }
+    }
+
+    public List<String> getWinnerNames() {
+        return carNames.stream()
+                .collect(Collectors.groupingBy(
+                        this::getDistance,
+                        TreeMap::new,
+                        Collectors.toList()))
+                .lastEntry()
+                .getValue();
+
     }
 }

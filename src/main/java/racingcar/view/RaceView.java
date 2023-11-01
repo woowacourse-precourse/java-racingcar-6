@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.model.Race;
 
 public class RaceView {
@@ -15,5 +16,10 @@ public class RaceView {
             String renderedCarState = renderCarState(name, race.getDistance(name));
             System.out.println(renderedCarState);
         }
+    }
+
+    public void printWinner(Race race) {
+        List<String> winnerNames = race.getWinnerNames();
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }
