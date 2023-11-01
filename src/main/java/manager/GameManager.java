@@ -20,4 +20,10 @@ public class GameManager {
             car.tryMoving(randomNumberGenerator.generatingForCarTryMoving());
         }
     }
+
+    public void outputCurrentPosition() {
+        for (Car car: carList) {
+            System.out.println(car.getName() + ":" + "-".repeat(car.getPosition()));
+        }
+    }
 }
