@@ -3,7 +3,8 @@ package racingcar;
 import static racingcar.constants.BoundaryValues.*;
 
 public class Validation {
-    public static void checkCarNameInput(String Input){
+
+    public static void checkCarNameInput(String Input) {
         String userInput = Input.trim();
         checkEmpty(userInput);
         checkFirstComma(userInput, userInput.length() - 1);
@@ -11,7 +12,7 @@ public class Validation {
         checkConsecutiveCommas(userInput);
     }
 
-    public static void checkEmpty(String userInput){
+    public static void checkEmpty(String userInput) {
         if (userInput.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
         }
@@ -47,7 +48,7 @@ public class Validation {
         }
     }
 
-    public static void validateRound(String round){
+    public static void checkRound(String round) {
         if (round.isEmpty()) {
             throw new IllegalArgumentException("시도할 회수를 입력해주세요.");
         }

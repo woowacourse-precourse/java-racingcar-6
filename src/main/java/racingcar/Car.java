@@ -3,6 +3,7 @@ package racingcar;
 import static racingcar.Validation.*;
 
 public class Car {
+
     public String name;
     public int position;
 

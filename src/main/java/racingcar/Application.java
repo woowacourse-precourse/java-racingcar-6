@@ -7,11 +7,12 @@ import static racingcar.CarSet.*;
 import java.util.ArrayList;
 
 public class Application {
+
     public static void main(String[] args) {
         System.out.println(namingCarMessage);
         String carNames = getCarNames();
 
-        ArrayList<Car>  cars = setCar(carNames);
+        ArrayList<Car> cars = setCar(carNames);
 
         System.out.println(getCountsMessage);
         int counts = getCounts();
