@@ -10,6 +10,11 @@ public class OutputView {
     private static final String FINAL_WINNERS = "최종 우승자";
     private static final String DELIMITER = " : ";
     private static final String WINNERS_DELIMITER = ", ";
+    private static final String NEW_LINE = System.lineSeparator();
+
+    public static void printNewLine() {
+        System.out.print(NEW_LINE);
+    }
 
     public static void printAskCarNames() {
         System.out.println(ASK_CAR_NAMES);
@@ -20,17 +25,17 @@ public class OutputView {
     }
 
     public static void printExecutionResultText() {
+        printNewLine();
         System.out.println(EXECUTION_RESULT_TEXT);
     }
 
     public static void printRoundResult(Car car) {
         System.out.println(car.getName() + DELIMITER + MOVE.repeat(car.getPosition()));
-        System.out.println();
     }
 
     public static void printWinners(List<Car> cars) {
         List<String> winners = getWinnersName(cars);
-        System.out.println(FINAL_WINNERS + DELIMITER + String.join(WINNERS_DELIMITER, winners));
+        System.out.print(FINAL_WINNERS + DELIMITER + String.join(WINNERS_DELIMITER, winners));
     }
 
     private static List<String> getWinnersName(List<Car> cars) {
