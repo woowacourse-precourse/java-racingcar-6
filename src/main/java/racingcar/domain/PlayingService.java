@@ -9,10 +9,15 @@ public class PlayingService {
     private RoundPlaying master = new RoundPlaying();
     Map<String, Integer> cars = new HashMap<>();
 
+    private final String START_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private final String NUMBER_MSG = "시도할 회수는 몇회인가요?";
+
     public PlayingService() {
+        System.out.println(START_MSG);
         String names = Console.readLine();
         enterName(names);
 
+        System.out.println(NUMBER_MSG);
         String num = Console.readLine();
         number = new Number(num);
 
