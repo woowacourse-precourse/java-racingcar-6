@@ -36,7 +36,7 @@ public class MainController {
         outputView.printStartMessage();
         while (!race.isRaceOver()) {
             race.startCarRacing();
-            outputView.printCars(race.getParticipatingCars());
+            outputView.printCars(race.getParticipatingCars().getCars());
         }
     }
 
