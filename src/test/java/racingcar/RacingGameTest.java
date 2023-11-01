@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.constants.Messages;
 
 class RacingGameTest extends NsTest {
+
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -92,7 +93,8 @@ class RacingGameTest extends NsTest {
         assertRandomNumberInRangeTest(
             () -> {
                 run("hee,hee,hee,hee", "1");
-                assertThat(output()).contains("hee : -", "hee_2 : ", "hee_3 : ", "hee_4 : ", "최종 우승자 : hee");
+                assertThat(output()).contains("hee : -", "hee_2 : ", "hee_3 : ", "hee_4 : ",
+                    "최종 우승자 : hee");
             },
             MOVING_FORWARD, STOP
         );

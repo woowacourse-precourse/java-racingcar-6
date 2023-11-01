@@ -6,11 +6,13 @@ import racingcar.model.validator.CommonValidator;
 import racingcar.model.validator.InputValidator;
 
 public class RoundNumValidator implements InputValidator {
+
     private final int roundNum;
 
     public RoundNumValidator(String roundNum) {
         this.roundNum = Integer.parseInt(validate(roundNum));
     }
+
     @Override
     public String validate(String roundNum) {
         if (!CommonValidator.validateIsNumeric(roundNum)) {

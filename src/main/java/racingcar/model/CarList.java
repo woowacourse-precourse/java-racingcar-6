@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import racingcar.controller.RacingGameController;
 
 public class CarList {
+
     private final List<Car> carList = new ArrayList<>();
 
     public CarList(List<String> carNames) {

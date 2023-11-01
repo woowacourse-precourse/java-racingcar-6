@@ -5,6 +5,7 @@ import racingcar.util.GameUtil;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
+
     private CarList carList;
     private int roundNum;
     private static int maxPosition;

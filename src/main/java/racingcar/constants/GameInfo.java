@@ -1,6 +1,7 @@
 package racingcar.constants;
 
 public class GameInfo {
+
     public static final String SEPARATOR = ",";
     public static final String SEPARATOR_NAME = "쉼표";
     public static final String WINNER_SEPARATOR = ", ";

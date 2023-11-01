@@ -11,6 +11,8 @@ public class OutputView {
     }
 
     public static void printWinner(List<String> winners) {
-        System.out.println(Messages.OUTPUT_WINNER_PREFIX.getMessage() + String.join(GameInfo.WINNER_SEPARATOR, winners));
+        System.out.println(
+            Messages.OUTPUT_WINNER_PREFIX.getMessage() + String.join(GameInfo.WINNER_SEPARATOR,
+                winners));
     }
 }

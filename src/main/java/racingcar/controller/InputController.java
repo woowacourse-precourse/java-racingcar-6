@@ -11,7 +11,7 @@ public class InputController {
     public static CarList initCarList() {
         CarNameValidator carNameValidator = new CarNameValidator(InputView.inputCarNames());
         return new CarList((List<String>) carNameValidator.getValidatedInput());
-}
+    }
 
     public static int initRoundNum() {
         return (int) new RoundNumValidator(InputView.inputRoundNum()).getValidatedInput();
