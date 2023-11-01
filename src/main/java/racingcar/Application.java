@@ -13,7 +13,7 @@ public class Application {
     public static void checkError(String[] s) {
         for(String str : s) {
             if(str.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름이 5글자 이상입니다.");
+                throw new IllegalArgumentException("자동차 이름이 5글자 초과입니다.");
             }
         }
     }
