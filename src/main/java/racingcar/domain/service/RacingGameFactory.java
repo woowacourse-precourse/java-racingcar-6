@@ -4,13 +4,13 @@ import racingcar.domain.model.Cars;
 
 public class RacingGameFactory {
 
-    private final RandomMoveJudicator randomMoveJudicator;
+    private final RandomMoveJudge randomMoveJudge;
 
-    public RacingGameFactory(RandomMoveJudicator randomMoveJudicator) {
-        this.randomMoveJudicator = randomMoveJudicator;
+    public RacingGameFactory(RandomMoveJudge randomMoveJudge) {
+        this.randomMoveJudge = randomMoveJudge;
     }
 
     public RacingGame createRacingGame(Cars cars) {
-        return new RacingGame(cars, randomMoveJudicator);
+        return new RacingGame(cars, randomMoveJudge);
     }
 }

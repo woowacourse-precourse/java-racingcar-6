@@ -1,10 +1,6 @@
 package racingcar;
 
 import racingcar.controller.RacingGameController;
-import racingcar.domain.model.Cars;
-import racingcar.domain.service.RacingCarRandomGenerator;
-import racingcar.domain.service.RacingGame;
-import racingcar.domain.service.RandomMoveJudicator;
 import racingcar.view.ConsoleProvider;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

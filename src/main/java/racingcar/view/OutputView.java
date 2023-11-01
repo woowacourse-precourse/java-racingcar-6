@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.dto.CarProgressDTO;
+import racingcar.domain.dto.RacingCarProgressDTO;
 import racingcar.domain.dto.RacingCarWinnerDTO;
 
 public class OutputView {
@@ -12,7 +12,7 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printProgress(CarProgressDTO progress) {
+    public void printProgress(RacingCarProgressDTO progress) {
         for (String car : progress.cars()) {
             System.out.println(car);
         }

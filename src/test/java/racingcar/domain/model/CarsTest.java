@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import racingcar.domain.service.RandomMoveJudicator;
+import racingcar.domain.service.RandomMoveJudge;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarsTest {
@@ -27,7 +27,7 @@ class CarsTest {
 
     @Test
     void RandomMoveJudicator가_true일_시_move가_호출_되는지() {
-        RandomMoveJudicator judicatorMock = Mockito.mock(RandomMoveJudicator.class);
+        RandomMoveJudge judicatorMock = Mockito.mock(RandomMoveJudge.class);
         when(judicatorMock.canMove()).thenReturn(true);
 
         cars.moveAll(judicatorMock);

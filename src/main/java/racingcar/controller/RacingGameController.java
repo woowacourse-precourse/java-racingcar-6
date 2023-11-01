@@ -1,13 +1,13 @@
 package racingcar.controller;
 
-import racingcar.domain.dto.CarProgressDTO;
+import racingcar.domain.dto.RacingCarProgressDTO;
 import racingcar.domain.dto.RacingCarWinnerDTO;
 import racingcar.domain.model.AttemptsNumber;
 import racingcar.domain.model.Cars;
 import racingcar.domain.service.RacingCarRandomGenerator;
 import racingcar.domain.service.RacingGame;
 import racingcar.domain.service.RacingGameFactory;
-import racingcar.domain.service.RandomMoveJudicator;
+import racingcar.domain.service.RandomMoveJudge;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -17,7 +17,7 @@ public class RacingGameController {
     private final OutputView outputView;
 
     public RacingGameController(InputView inputView, OutputView outputView) {
-        this.racingGameFactory = new RacingGameFactory(new RandomMoveJudicator(new RacingCarRandomGenerator()));
+        this.racingGameFactory = new RacingGameFactory(new RandomMoveJudge(new RacingCarRandomGenerator()));
         this.inputView = inputView;
         this.outputView = outputView;
     }
@@ -32,7 +32,7 @@ public class RacingGameController {
         outputView.outputResultHeader();
         for (int i = 0; i < attemptsNumber.attempts(); i++) {
             racingGame.advance();
-            CarProgressDTO progress = racingGame.getProgressStatus();
+            RacingCarProgressDTO progress = racingGame.getProgressStatus();
             outputView.printProgress(progress);
         }
         RacingCarWinnerDTO winner = racingGame.determineWinner();

@@ -1,11 +1,11 @@
 package racingcar.domain.service;
 
-public class RandomMoveJudicator {
+public class RandomMoveJudge {
 
     private final RandomGenerator randomGenerator;
 
 
-    public RandomMoveJudicator(RandomGenerator randomGenerator) {
+    public RandomMoveJudge(RandomGenerator randomGenerator) {
         this.randomGenerator = randomGenerator;
     }
 

@@ -13,7 +13,7 @@ class RandomMoveJudicatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"4", "5", "6"})
     void 무작위_값이_4이상일_시_true_반환(int input) {
-        assertTrue(new RandomMoveJudicator(() -> input).canMove());
+        assertTrue(new RandomMoveJudge(() -> input).canMove());
     }
 
 }
