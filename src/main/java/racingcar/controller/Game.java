@@ -31,6 +31,14 @@ public class Game {
         round.setRound(roundInput);
     }
 
+    public boolean isRoundRemain() {
+        return round.isRemaining();
+    }
+
+    public void subtractOneRound() {
+        round.subtractOne();
+    }
+
     public void runSingleRound() {
         int size = race.getCarListSize();
         List<Integer> randomNumbers = randomGenerator.getNumbers(size);
@@ -52,11 +60,4 @@ public class Game {
         OutputView.printGameWinners(winners);
     }
 
-    public boolean isRoundRemain() {
-        return round.isRemaining();
-    }
-
-    public void subtractOneRound() {
-        round.subtractOne();
-    }
 }
