@@ -13,7 +13,7 @@ public class CarListMaker {
 	private static final String SplitingPoint = ",";
 
 	public List<Car> makeCarList() {
-		List<Car> carList = new ArrayList<Car>();
+		List<Car> carList = new ArrayList<>();
 		String carNamesString = inputController.scanCarNames();
 		try {
 			carNamesValidationChecker.checkCarNamesValidation(carNamesString);
