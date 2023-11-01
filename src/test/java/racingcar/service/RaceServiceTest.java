@@ -8,13 +8,14 @@ import org.mockito.MockitoAnnotations;
 import racingcar.model.Car;
 import racingcar.model.Race;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-class RaceServiceTest {
+class RaceServiceTest{
 
     @Mock
     private RandomNumberService randomNumberService;
@@ -28,21 +29,23 @@ class RaceServiceTest {
     }
 
     @Test
-    void executeRaceTest() {
-        // Given
-        Car car1 = mock(Car.class);
-        Car car2 = mock(Car.class);
-        List<Car> cars = Arrays.asList(car1, car2);
-        Race race = new Race(cars, 5);
-
+    void executeRoundTest() {
+        // Arrange
+        RandomNumberService randomNumberService = mock(RandomNumberService.class);
         when(randomNumberService.generateRandomNumber()).thenReturn(4);
 
-        // When
-        raceService.executeRace(race);
+        RaceService raceService = new RaceService(randomNumberService);
 
-        // Then
-        verify(car1, times(5)).move(anyBoolean());
-        verify(car2, times(5)).move(anyBoolean());
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("car1"));
+        Race race = new Race(cars, 5);
+
+        // Act
+        raceService.executeRound(race);
+        int actualPosition = cars.get(0).getPosition();
+
+        // Assert
+        assertEquals(1, actualPosition, "The car should move when the random number is 4.");
     }
 
     @Test
