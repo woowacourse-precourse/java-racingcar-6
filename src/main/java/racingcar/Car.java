@@ -14,9 +14,19 @@ public class Car {
 
     public void tryMove() {
 
-        if (pickNumberInRange(0, 9) >= 4) {
-            location += 1;
+        move(getMovable());
+    }
+
+    private void move(boolean movable) {
+
+        if (movable) {
+            this.location += 1;
         }
+    }
+
+    private boolean getMovable() {
+
+        return pickNumberInRange(0, 9) >= 4;
     }
 
     public void printProgress() {
