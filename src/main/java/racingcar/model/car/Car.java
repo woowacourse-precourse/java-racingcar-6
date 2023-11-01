@@ -4,7 +4,6 @@ package racingcar.model.car;
 public class Car {
 
     private static final int INITIAL_POSITION = 0;
-    private static final String colon = " : ";
     private final String carName;
     private int position;
 
@@ -31,9 +30,5 @@ public class Car {
         return position;
     }
 
-    @Override
-    public String toString() {
-        return this.getCarName() + colon;
-    }
 
 }

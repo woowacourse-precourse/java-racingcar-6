@@ -31,7 +31,7 @@ public class System {
     }
 
     private void inputCars() {
-        inputView.alertInputNames();
+        inputView.getInputNames();
         List<String> carNames = Arrays.stream(readLine().split(NAME_DELIMITER))
                 .collect(Collectors.toList());
         try {
@@ -39,7 +39,7 @@ public class System {
             cars = new Cars(carNames);
             validInput = false;
         } catch (Exception exception) {
-            inputView.printErrorMessage(exception.getMessage());
+            throw new IllegalArgumentException();
         }
     }
 
@@ -52,15 +52,14 @@ public class System {
     }
 
     private void inputCount() {
-        inputView.alertInputCountOfAttempt();
+        inputView.getInputCount();
         String attemptCountInput = readLine();
         try {
-            InputValidation.validateUserInputNumberRange(attemptCountInput);
-            InputValidation.validateUserInputNumberFormat(attemptCountInput);
+            InputValidation.validateCount(attemptCountInput);
             attemptCount = new AttemptCount(attemptCountInput);
             validInput = false;
         } catch (Exception exception) {
-            inputView.printErrorMessage(exception.getMessage());
+            throw new IllegalArgumentException();
         }
     }
 }
