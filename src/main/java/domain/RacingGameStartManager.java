@@ -28,6 +28,10 @@ public class RacingGameStartManager {
             throw new IllegalArgumentException("시도할 횟수는 정수만 입력할 수 있습니다.");
         }
 
+        if (!isRacingCarMoveNumPositive(racingCarMoveNum)) {
+            throw new IllegalArgumentException("시도할 횟수는 양수만 입력할 수 있습니다.");
+        }
+
         return racingCarMoveNum;
     }
 
@@ -49,5 +53,9 @@ public class RacingGameStartManager {
         return racingCarSet.stream()
                 .map(RacingCar::getName)
                 .noneMatch(name -> name.equals(racingCarName));
+    }
+
+    private boolean isRacingCarMoveNumPositive(int racingCarMoveNum) {
+        return racingCarMoveNum > 0;
     }
 }
