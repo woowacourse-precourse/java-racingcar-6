@@ -1,7 +1,19 @@
 package racingcar;
 
+import java.util.List;
+
 public class Application {
+
+    private static final Input input = new Input();
+    private static final RacingGame rg = new RacingGame();
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        List<Car> cars = input.getCars();
+
+        int times = input.getTimesToMove();
+
+        rg.race(cars, times);
+
     }
 }
