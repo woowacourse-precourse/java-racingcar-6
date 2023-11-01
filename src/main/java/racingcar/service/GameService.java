@@ -55,7 +55,7 @@ public class GameService {
 
     private List<Car> pickWinner(List<Car> carList, int maxMoveCount) {
         return carList.stream()
-                .filter(car -> car.moveCount() > maxMoveCount)
+                .filter(car -> car.moveCount() == maxMoveCount)
                 .collect(Collectors.toList());
     }
 }
