@@ -1,9 +1,11 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class Engine {
-    public boolean isMovingFoward() {
-        return false;
+    public boolean isMovingForward() {
+        final Judgement judgement = new Judgement();
+        final NumberGenerator generator = new NumberGenerator();
+
+        int randomNumber = generator.createRandomNumber();
+        return judgement.isFourOrMore(randomNumber);
     }
 }
