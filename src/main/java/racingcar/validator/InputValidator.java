@@ -1,6 +1,7 @@
 package racingcar.validator;
 
 import static racingcar.Config.MAXIMUM_CAR_NAME;
+import static racingcar.Config.ZERO;
 
 import java.util.List;
 import racingcar.model.Car;
@@ -23,6 +24,8 @@ public class InputValidator {
         for(int index=0; index<inputNum.length(); index++) {
             if (isInputNotDigit(inputNum, index)) {
                 throw new IllegalArgumentException("시도할 횟수는 숫자만 입력해야 합니다.");
+            } else if (inputNum.equals(ZERO)) {
+                throw new IllegalArgumentException("시도할 횟수는 1이상이어야 합니다.");
             }
         }
     }
