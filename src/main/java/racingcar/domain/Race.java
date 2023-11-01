@@ -1,15 +1,12 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Race {
 
     public Map<String, String> saveCarMap(String carNameString) {
 
-        Map<String, String> carMap = new HashMap<>();
+        Map<String, String> carMap = new LinkedHashMap<>();
 
         String[] carNameArray = carNameString.split(",");
         for (String carName : carNameArray) {
@@ -53,13 +50,12 @@ public class Race {
                 winnerCarNameList.add(carName);
             }
 
-            System.out.println(carName + " -- moveForwardCount = " + moveForwardCount);
+            // System.out.println(carName + " -- moveForwardCount = " + moveForwardCount);
         }
 
         // 최종 우승자 출력
-        for (String winnerCarName : winnerCarNameList) {
-            System.out.println("winnerCarName = " + winnerCarName);
-        }
+        String commaWinnerCarName = String.join(",", winnerCarNameList);
+        System.out.println("최종 우승자 : " + commaWinnerCarName);
     }
 
 }
