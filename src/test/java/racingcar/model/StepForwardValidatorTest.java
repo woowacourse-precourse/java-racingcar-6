@@ -11,7 +11,7 @@ import racingcar.util.StepForwardValidator;
 
 class StepForwardValidatorTest {
 
-    @DisplayName("무작위 숫자가 전진 해야하는 값일 경우 true를 반환한다.")
+    @DisplayName("무작위 숫자가 전진 값 이상일 경우 true를 반환한다.")
     @Test
     void success_isCarStepForward_true() {
         assertRandomNumberInRangeTest(
@@ -23,7 +23,7 @@ class StepForwardValidatorTest {
         );
     }
 
-    @DisplayName("무작위 숫자가 멈춤 하는 값일 경우 false를 반환한다.")
+    @DisplayName("무작위 숫자가 전진 값보다 작을 경우 false를 반환한다.")
     @Test
     void success_isCarStepForward_false() {
         assertRandomNumberInRangeTest(

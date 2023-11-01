@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RaceResultTexts;
 import racingcar.util.StringFormatter;
 
 class CarsPositionTest {
+
     @DisplayName("자동차 위치 생성 시 경주 자동차를 이용한다.")
     @Test
     void success_Create_Cars_Position() {
@@ -47,44 +49,49 @@ class CarsPositionTest {
         );
     }
 
-    @DisplayName("우승자를 안내 문구를 요청한다.")
-    @Test
-    void success_Get_Winner_Sole() {
-        // given
-        RacingCars racingCars = createRacingCars();
-        CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
-        String expectedWinner = "apple";
-        String expected = StringFormatter.winnerFormat(expectedWinner);
+    @Nested
+    @DisplayName("우승자 안내 문구를 요청한다.")
+    class getWinner {
 
-        // when // then
-        assertRandomNumberInRangeTest(
-                () -> {
-                    carsPosition.race();
-                    String result = carsPosition.getWinner();
-                    assertThat(result).isEqualTo(expected);
-                },
-                MOVING_FORWARD, STOP, STOP
-        );
-    }
+        @DisplayName("단독 우승자일 경우")
+        @Test
+        void success_Get_Winner_Sole() {
+            // given
+            RacingCars racingCars = createRacingCars();
+            CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
+            String expectedWinner = "apple";
+            String expected = StringFormatter.winnerFormat(expectedWinner);
 
-    @DisplayName("우승자를 안내 문구를 요청한다. 여러 명일 경우 쉼표를 이용하여 구분한다.")
-    @Test
-    void success_Get_Winner_Multi() {
-        // given
-        RacingCars racingCars = createRacingCars();
-        CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
-        String expectedWinners = "apple, bear";
-        String expected = StringFormatter.winnerFormat(expectedWinners);
+            // when // then
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        carsPosition.race();
+                        String result = carsPosition.getWinner();
+                        assertThat(result).isEqualTo(expected);
+                    },
+                    MOVING_FORWARD, STOP, STOP
+            );
+        }
 
-        // when // then
-        assertRandomNumberInRangeTest(
-                () -> {
-                    carsPosition.race();
-                    String result = carsPosition.getWinner();
-                    assertThat(result).isEqualTo(expected);
-                },
-                MOVING_FORWARD, MOVING_FORWARD, STOP
-        );
+        @DisplayName("공동 우승자일 경우")
+        @Test
+        void success_Get_Winner_Multi() {
+            // given
+            RacingCars racingCars = createRacingCars();
+            CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
+            String expectedWinners = "apple, bear";
+            String expected = StringFormatter.winnerFormat(expectedWinners);
+
+            // when // then
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        carsPosition.race();
+                        String result = carsPosition.getWinner();
+                        assertThat(result).isEqualTo(expected);
+                    },
+                    MOVING_FORWARD, MOVING_FORWARD, STOP
+            );
+        }
     }
 
     private RaceResultTexts createRaceResults() {
