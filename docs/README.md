@@ -3,7 +3,7 @@
 ## 기능 목록
 
 - [X] 0과 9 사이의 무작위 수를 생성한다. - NumberGenerator#createRandomNumber()
-- [ ] 무작위 수가 4 이상인지 확인하여 전진 여부를 판단한다. - Referee#checkMoveForward()
+- [X] 무작위 수가 4 이상인지 확인하여 전진 여부를 판단한다. - Referee#checkMoveForward()
 - [ ] 자동차가 각자의 조건에 따라 전진한다. - Trial#moveForward()
 - [ ] 최종 우승자를 판단한다. - Judgement#selectWinner()
 
