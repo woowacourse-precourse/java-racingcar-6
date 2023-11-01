@@ -40,7 +40,7 @@ public class InputValidator {
     }
 
     /**
-     * 문자열을 전달받아 0 ~ Integer.MAXVALUE 사이의 정수값인지 검증
+     * 문자열을 전달받아 1 ~ Integer.MAXVALUE 사이의 정수값인지 검증
      *
      * @param attemptCount - 시도 횟수로 변환될 문자열
      */
