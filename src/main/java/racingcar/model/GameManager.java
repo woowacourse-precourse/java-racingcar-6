@@ -1,18 +1,14 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameManager {
     public Cars createCars(List<String> carsName) {
-        List<Car> carsTempHolder = new ArrayList<>();
-        Cars cars;
-
-        for (String carName : carsName) {
-            Car car = new Car(carName);
-            carsTempHolder.add(car);
-        }
-        cars = new Cars(carsTempHolder);
-        return cars;
+        List<Car> carsTempHolder = carsName
+                .stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
+        return new Cars(carsTempHolder);
     }
 }

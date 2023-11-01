@@ -12,25 +12,20 @@ public class Cars {
     }
 
     public void runCars() {
-        for (Car car : carsList) {
-            car.moveCar();
-        }
+        carsList.forEach(Car::moveCar);
     }
 
     public List<String> getWinnerNameList() {
         List<String> result = new ArrayList<>();
-        for (Car car : carsList) {
-            car.addIfWinner(getMaxMoveInCars(), result);
-        }
+        carsList.forEach(car -> car.addIfWinner(getMaxMoveInCars(), result));
         return result;
     }
 
     private int getMaxMoveInCars() {
-        int maxMove = 0;
-        for (Car car : carsList) {
-            maxMove = Integer.max(maxMove, car.getMove());
-        }
-        return maxMove;
+        return carsList.stream()
+                .mapToInt(Car::getMove)
+                .max()
+                .orElse(0);
     }
 
     @Override
