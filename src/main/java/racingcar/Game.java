@@ -7,16 +7,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Game {
-    public static int MOVES;
+    public int winnerCount = 0;
+    public int outputCount = 0;
+    public int MOVES;
     public static int MAX_LENGTH_OF_NAME = 5;
     public static final String NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     public static final String MOVES_MESSAGE = "시도할 회수는 몇회인가요?\n";
     public static final String OUTPUT_MESSAGE = "\n실행 결과\n";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
-    List<String> nameList = new ArrayList<>();
-    List<Car> carList = new ArrayList<>();
-    static int winnerCount = 0;
-    static int outputCount = 0;
+    public List<String> nameList = new ArrayList<>();
+    public List<Car> carList = new ArrayList<>();
+
 
     public void getCarNames() {
         String input = Console.readLine();
