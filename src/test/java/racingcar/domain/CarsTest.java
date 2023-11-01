@@ -1,16 +1,10 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.errormessage.InputError;
 import racingcar.model.Car;
-import racingcar.view.CarsInputView;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,5 +55,21 @@ class CarsTest {
 
         // Then
         Assertions.assertThat(exception.getMessage()).isEqualTo(InputError.INPUT_NAME_LENGTH_ERROR_MESSAGE);
+    }
+
+    @DisplayName("이름_중복")
+    @Test
+    void isDuplicate() {
+        // Given
+        Car car1 = new Car("pobi",0);
+        Car car2 = new Car("pobi",0);
+        List<Car> inputCars = Arrays.asList(car1,car2);
+
+        // When
+        final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> new Cars(inputCars));
+
+        // Then
+        Assertions.assertThat(exception.getMessage()).isEqualTo(InputError.INPUT_DUPLICATE_NAME_ERROR_MESSAGE);
     }
 }
