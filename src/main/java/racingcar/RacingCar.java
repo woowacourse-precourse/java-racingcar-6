@@ -59,11 +59,22 @@ public class RacingCar {
         }
     }
 
+    public void printRoundResult() {
+
+        StringBuilder sb = new StringBuilder();
+        for (String player : playersMap.keySet()) {
+            sb.append(player).append(" : ").append(playersMap.get(player)).append("\n");
+        }
+
+        System.out.println(sb);
+    }
+
     public void play(){
         for(String car : playersMap.keySet()){
             int moveOrStop = getRandomValue();
             judgeMoveOrStop(car, moveOrStop);
         }
+        printRoundResult();
     }
 
     public void run(){
