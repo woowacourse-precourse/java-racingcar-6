@@ -15,6 +15,7 @@ public class Cars {
 
     public Cars(String[] names) {
         inputValidation = new InputValidation();
+        inputValidation.hasDuplicateNames(names);
         this.cars = Arrays.stream(names)
                 .map(this::createCar)
                 .collect(Collectors.toList());
