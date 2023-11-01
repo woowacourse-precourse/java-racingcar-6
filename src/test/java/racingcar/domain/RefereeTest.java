@@ -12,13 +12,13 @@ public class RefereeTest {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
         Cars cars = new Cars();
-        CarController carController = new CarController();
+        CarManager carManager = new CarManager();
         cars.setStatus(CarFactory.produceCars(carNameList));
-        carController.setStatus(cars, 1);
+        carManager.setStatus(cars, 1);
 
         assertRandomNumberInRangeTest(() -> {
                     //when
-                    carController.moveCars();
+                    carManager.moveCars();
                     //then
                     assertThat(Referee.findWinner(cars)).isEqualTo("pobi1");
                 },
@@ -31,13 +31,13 @@ public class RefereeTest {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
         Cars cars = new Cars();
-        CarController carController = new CarController();
+        CarManager carManager = new CarManager();
         cars.setStatus(CarFactory.produceCars(carNameList));
-        carController.setStatus(cars, 1);
+        carManager.setStatus(cars, 1);
 
         assertRandomNumberInRangeTest(() -> {
                     //when
-                    carController.moveCars();
+                    carManager.moveCars();
                     //then
                     assertThat(Referee.findWinner(cars)).isEqualTo("pobi1, pobi2, pobi3");
                 },

@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.domain.CarController;
 import racingcar.domain.CarFactory;
+import racingcar.domain.CarManager;
 import racingcar.domain.Cars;
 import racingcar.domain.Referee;
 import racingcar.view.Input;
@@ -9,12 +9,12 @@ import racingcar.view.Output;
 
 public class GameController {
 
-    private final CarController carController;
+    private final CarManager carManager;
 
     private final Cars cars;
 
     public GameController() {
-        carController = new CarController();
+        carManager = new CarManager();
         cars = new Cars();
     }
 
@@ -26,12 +26,12 @@ public class GameController {
 
     public void setConfiguration() {
         cars.setStatus(CarFactory.produceCars(Input.inputCarName()));
-        carController.setStatus(cars, Input.inputMoveChance());
+        carManager.setStatus(cars, Input.inputMoveChance());
     }
 
     public void startRacing() {
-        while (carController.checkMoveChance()) {
-            carController.moveCars();
+        while (carManager.checkMoveChance()) {
+            carManager.moveCars();
             Output.carStatusMessage(cars.getCarList());
         }
     }

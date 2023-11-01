@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import racingcar.domain.validator.Validator;
 
-public class CarController {
+public class CarManager {
     private Cars cars;
 
     private int moveChance;
