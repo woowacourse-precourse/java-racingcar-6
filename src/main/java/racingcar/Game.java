@@ -49,4 +49,10 @@ public class Game {
 
         return winner;
     }
+
+    private void displayWinners() {
+        List<String> winner = determineWinners();
+        System.out.print("최종 우승자: ");
+        System.out.println(String.join(", ", winner));
+    }
 }
