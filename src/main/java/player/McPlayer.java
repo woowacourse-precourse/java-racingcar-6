@@ -1,7 +1,7 @@
 /**
- * @Package_name   : player
+ * @Package_name : player
  * @Class_name : McPlayer
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
@@ -18,7 +18,7 @@ import static utility.Const.DIIVIDE_RACING_PLAYER_NAME;
 import static utility.Const.TRYING_NUMBER_START_COMMENT;
 import static utility.Const.CHANGING_LINE;
 
-public class McPlayer implements Player{
+public class McPlayer implements Player {
     // 입출력을 위한 display 객체
     ConsoleDisplay display = new ConsoleDisplay();
 
@@ -70,10 +70,10 @@ public class McPlayer implements Player{
      *
      * @Method : ()
      */
-    public void checkNameCondition() throws IllegalArgumentException{
+    public void checkNameCondition() throws IllegalArgumentException {
         int NameLength = 5;
-        for (String racingPlayerName : racingPlayerNameArr ){
-            if(racingPlayerName.length() > NameLength){
+        for (String racingPlayerName : racingPlayerNameArr) {
+            if (racingPlayerName.length() > NameLength) {
                 throw new IllegalArgumentException();
             }
         }
@@ -87,7 +87,7 @@ public class McPlayer implements Player{
      */
     public void settingRacingPlayerArr() {
         racingPlayerArr = new ArrayList<RacingPlayer>();
-        for (String racingPlayerName : racingPlayerNameArr ){
+        for (String racingPlayerName : racingPlayerNameArr) {
             RacingPlayer newRacingPlayer = new RacingPlayer(racingPlayerName);
             racingPlayerArr.add(newRacingPlayer);
         }

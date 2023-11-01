@@ -1,7 +1,7 @@
 /**
- * @Package_name   : racingCar
+ * @Package_name : racingCar
  * @Class_name : CarRace
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
@@ -17,7 +17,7 @@ public class CarRace {
      *
      * @Method : carRacing()
      */
-    public void carRacing(){
+    public void carRacing() {
         McPlayer mcPlayer = new McPlayer();
         JudgePlayer judgePlayer = new JudgePlayer();
         ManagePlayer managePlayer = new ManagePlayer(mcPlayer, judgePlayer);

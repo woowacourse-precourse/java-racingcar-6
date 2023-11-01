@@ -1,7 +1,7 @@
 /**
- * @Package_name   : racingCar
+ * @Package_name : racingCar
  * @Class_name : Application
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */

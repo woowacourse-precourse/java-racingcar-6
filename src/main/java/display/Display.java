@@ -1,7 +1,7 @@
 /**
- * @Package_name   : display
+ * @Package_name : display
  * @Interface_name : Display
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
@@ -11,17 +11,16 @@ public interface Display {
     /**
      * Description : String 입력
      *
-     * @Method : input()
      * @return : String
+     * @Method : input()
      */
     public String input();
 
     /**
      * Description : String 출력
      *
+     * @param : String print
      * @Method : output()
-     * @param  : String print
      */
     public void output(String print);
-
 }

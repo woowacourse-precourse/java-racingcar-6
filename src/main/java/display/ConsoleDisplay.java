@@ -1,16 +1,17 @@
 /**
- * @Package_name   : display
+ * @Package_name : display
  * @Interface_name : Display
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
 package display;
+
 import java.util.Scanner;
 
 import utility.Utility;
 
-public class ConsoleDisplay implements Display{
+public class ConsoleDisplay implements Display {
 
     /**
      * Description : String 콘솔 입력
@@ -23,6 +24,7 @@ public class ConsoleDisplay implements Display{
         String result = getConsoleInput();
         return result;
     }
+
     /**
      * Description : utility 이 입력
      *
@@ -33,7 +35,6 @@ public class ConsoleDisplay implements Display{
         String result = Utility.campReadline();
         return result;
     }
-
 
 
     /**
@@ -47,6 +48,7 @@ public class ConsoleDisplay implements Display{
         putConsoleOutput(print);
 
     }
+
     /**
      * Description : 실제 콘솔 출력
      *

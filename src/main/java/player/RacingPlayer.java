@@ -1,25 +1,28 @@
 /**
- * @Package_name   : player
+ * @Package_name : player
  * @Class_name : RacingPlayer
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
 package player;
 
 import static utility.Const.FORWARD_CONDITION_NUMBER;
+
 import utility.Utility;
 
-public class RacingPlayer implements Player{
+public class RacingPlayer implements Player {
     // 레이싱플레이어(자동차) 이름 변수
     public String racerName;
     // 레이싱플레이어(자동차)가 달린 거리 변수
     private int runDistance;
 
     // 기본생성자
-    public RacingPlayer(){}
+    public RacingPlayer() {
+    }
+
     // 이름 매개변수 생성자
-    public RacingPlayer(String racingPlayerName){
+    public RacingPlayer(String racingPlayerName) {
         racerName = racingPlayerName;
         runDistance = 0;
     }
@@ -39,9 +42,9 @@ public class RacingPlayer implements Player{
      *
      * @Method : runingCarRandom()
      */
-    private void runingCarRandom(){
+    private void runingCarRandom() {
         int randomNum = Utility.campPickNumberInRange();
-        if(randomNum >= FORWARD_CONDITION_NUMBER){
+        if (randomNum >= FORWARD_CONDITION_NUMBER) {
             runDistance += 1;
         }
     }
@@ -49,10 +52,10 @@ public class RacingPlayer implements Player{
     /**
      * Description :  레이싱플레이어(자동차)가 달린 거리 runDistance를 반환
      *
-     * @Method : getRunDistance()
      * @return : int
+     * @Method : getRunDistance()
      */
-    public int getRunDistance(){
+    public int getRunDistance() {
         return runDistance;
     }
 }

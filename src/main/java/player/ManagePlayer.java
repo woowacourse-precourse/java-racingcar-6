@@ -1,7 +1,7 @@
 /**
- * @Package_name   : player
+ * @Package_name : player
  * @Class_name : ManagePlayer
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
@@ -32,9 +32,11 @@ public class ManagePlayer implements Player {
     ArrayList<RacingPlayer> racingPlayerArr;
 
     //기본생성자
-    public ManagePlayer(){}
+    public ManagePlayer() {
+    }
+
     // 매개변수 생성자 (mcPlayer,judgePlayer)
-    public ManagePlayer(McPlayer mcPlayer, JudgePlayer judgePlayer){
+    public ManagePlayer(McPlayer mcPlayer, JudgePlayer judgePlayer) {
         this.mcPlayer = mcPlayer;
         this.judgePlayer = judgePlayer;
         racingPlayerDistanceMap = new HashMap<String, Integer>();
@@ -61,7 +63,7 @@ public class ManagePlayer implements Player {
 
         display.output(EXECUTION_COMMENT);
         int tryingNum = mcPlayer.getTryingNum();
-        while(tryingNum > 0) {
+        while (tryingNum > 0) {
             for (RacingPlayer racingPlayer : racingPlayerArr) {
                 racingPlayer.play();
             }

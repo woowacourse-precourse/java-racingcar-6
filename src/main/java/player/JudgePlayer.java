@@ -1,19 +1,20 @@
 /**
- * @Package_name   : player
+ * @Package_name : player
  * @Class_name : JudgePlayer
- *
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
 package player;
 
 import display.ConsoleDisplay;
+
 import static utility.Const.FINAL_WINNER_COMMENT;
 import static utility.Const.FINAL_WINNER_MIDDLE_COMMENT;
 
 import java.util.*;
 
-public class JudgePlayer implements Player{
+public class JudgePlayer implements Player {
     // 출력을 위한 display 객체
     ConsoleDisplay display = new ConsoleDisplay();
 

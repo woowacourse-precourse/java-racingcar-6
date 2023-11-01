@@ -1,7 +1,7 @@
 /**
- * @Package_name   : utility
- * @Class_name     : Const
- *
+ * @Package_name : utility
+ * @Class_name : Const
+ * <p>
  * Create Date : 2023-10-31
  * Create User : 정은채
  */
