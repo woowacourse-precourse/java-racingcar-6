@@ -28,11 +28,11 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
 
-        CarSimulate carSimulate = new CarSimulate();
         RandomNumberGenerator randNum = new RandomNumberGenerator();
+        CarSimulate carSimulate = new CarSimulate();
+
         for (int i = 0; i < time; i++) {
             for (int j = 0; j < track.size(); j++) {
-                randNum.generateRandomNumber();
                 int randomNumber = randNum.getRandomNumber();
                 carSimulate.goSimulate(randomNumber, j, track);
             }
@@ -41,7 +41,8 @@ public class Application {
         }
 
         Winner winner = new Winner();
-        List<Integer> result = winner.decisionWinner(track);
+        int bestRecord = winner.calculateBestRecord(track);
+        List<Integer> result = winner.findWinnerindex(track,bestRecord);
         winner.printResult(result, car);
     }
 }

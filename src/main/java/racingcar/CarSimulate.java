@@ -3,7 +3,6 @@ package racingcar;
 import java.util.List;
 
 public class CarSimulate {
-
     public void goSimulate(int randomNumber, int index, List<Integer> track) {
         if (randomNumber >= 4) {
             track.set(index, track.get(index) + 1);

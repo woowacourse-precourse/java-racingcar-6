@@ -12,7 +12,6 @@ public class SimulateTest {
     void GO_GO_GO_goSimulate_상황에_따라_트랙에_기록() {
         int[] inputRandNum={6,6,6};
         List<Integer> inputTrack = Arrays.asList(0,0,0);
-
         CarSimulate carSimulate = new CarSimulate();
         for(int i =0; i<inputTrack.size();i++){
             carSimulate.goSimulate(inputRandNum[i],i,inputTrack);
