@@ -14,6 +14,10 @@ public class Game {
         this.completedRounds = 0;
     }
 
+    public boolean hasRemainingRounds() {
+        return completedRounds < totalRounds;
+    }
+
     public void playOneRound() {
         cars.forEach(Car::moveIfPossible);
         completedRounds++;

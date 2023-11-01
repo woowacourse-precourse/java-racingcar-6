@@ -23,6 +23,7 @@ public class GameController {
 
     public void run() {
         initializeGame();
+        playGame();
     }
 
     private void initializeGame() {
@@ -41,5 +42,11 @@ public class GameController {
         outputView.displayInputNumberOfAttempts();
         String input = inputView.inputNumberOfAttempts();
         return NumberOfAttemptsInputConverter.convert(input);
+    }
+
+    private void playGame() {
+        while (game.hasRemainingRounds()) {
+            game.playOneRound();
+        }
     }
 }
