@@ -36,11 +36,11 @@
       - getMileage() : Mileage를 int로 리턴하는 함수
     
 
-- GameInfo : RacingCarDrivers, Round 를 관리하는 도메인
-  - RacingCarDrivers : 선수 명단을 String을 받아 RacingCarDrivers로 관리
-    - 입력한 선수 명단의 이름이 ***5를 초과 할 때 오류 발생***
-  - Round : 입력한 String 형태를 받아 Round 객체로 생성하여 관리
-    - 입력한 라운드의 수가 ***숫자가 아닐때, 1보다 작을 때*** 오류 발생
+
+- RacingCarDrivers : 선수 명단을 String을 받아 RacingCarDrivers로 관리
+  - 입력한 선수 명단의 이름이 ***5를 초과 할 때 오류 발생***
+- Round : 입력한 String 형태를 받아 Round 객체로 생성하여 관리
+  - 입력한 라운드의 수가 ***숫자가 아닐때, 1보다 작을 때*** 오류 발생
 
 
 - RoundResult : 라운드별 중간결과를 관리하는 도메인
@@ -63,6 +63,8 @@
 
 **error**
 - 입력에 대한 에러 세분화한 영역
-  > INPUT_UNDER_ONE_EXCEPTION("0 이하의 수가 입력되었습니다."),
-  > INVALID_NUMBER_FORMAT_EXCEPTION("올바른 숫자 입력 형식이 맞지 않습니다."),
-  > NAME_LENGTH_EXCEEDED_EXCEPTION("입력한 이름이 5글자 이상 입니다."),
+  >INPUT_UNDER_ONE_EXCEPTION("0 이하의 수가 입력되었습니다."),
+  >NAME_INPUT_NULL_EXCEPTION("이름 입력값이 비어있습니다."),
+  >INVALID_NUMBER_FORMAT_EXCEPTION("올바른 숫자 입력 형식이 맞지 않습니다."),
+  >ROUND_INPUT_NULL_EXCEPTION("라운드 숫자 입력값이 비어있습니다."),
+  >NAME_LENGTH_EXCEEDED_EXCEPTION("입력한 이름이 5글자 이상 입니다."),
