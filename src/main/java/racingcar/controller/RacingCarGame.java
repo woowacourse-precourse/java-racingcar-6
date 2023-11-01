@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.util.RandomGenerator;
+import racingcar.domain.Cars;
 import racingcar.domain.Validator;
 import racingcar.util.StringUtils;
 import racingcar.view.InputView;
@@ -11,51 +11,53 @@ import racingcar.view.OutputView;
 
 public class RacingCarGame {
 
-    private final List<Car> cars;
-    private final int MIN_RANGE_NUM = 0;
-    private final int MAX_RANGE_NUM = 9;
-
     public RacingCarGame() {
-        cars = new ArrayList<>();
     }
 
     public void play() {
-        StringUtils stringUtils = new StringUtils();
-        Validator validator = new Validator();
 
-        List<String> carNames = stringUtils.separateAndRemoveSpace(InputView.getCarNames());
-        validator.validateCarNames(carNames);
-        String rounds = InputView.getRounds();
-        validator.validateRounds(rounds);
+        Cars racingCars = createRacingCars();
+        int rounds = getRoundsToInt();
+        playByRound(racingCars, rounds);
 
-        createCar(carNames);
-        playByRound(Integer.valueOf(rounds));
     }
 
-    public void createCar(List<String> names) {
+    public Cars createRacingCars() {
+        StringUtils stringUtils = new StringUtils();
+        List<String> carNames = stringUtils.separateAndRemoveSpace(InputView.getCarNames());
+
+        Validator validator = new Validator();
+        validator.validateCarNames(carNames);
+
+        List<Car> cars = createCars(carNames);
+        return new Cars(cars);
+    }
+
+    public List<Car> createCars(List<String> names) {
+        List<Car> cars = new ArrayList<>();
         for (String name : names) {
             cars.add(new Car(name));
         }
+        return cars;
     }
 
-    public void playByRound(int rounds) {
+    public int getRoundsToInt() {
+        String rounds = InputView.getRounds();
+        Validator validator = new Validator();
+        validator.validateRounds(rounds);
+        return Integer.valueOf(rounds);
+    }
+
+    public void playByRound(Cars cars, int rounds) {
         OutputView.printResultMessage();
         for (int round = 0; round < rounds; round++) {
-            moveAllCars();
-            showAllCars();
+            cars.moveAllCars();
+            showAllCars(cars);
         }
     }
 
-    public void moveAllCars() {
-        RandomGenerator randomGenerator = new RandomGenerator();
-        for (Car car : cars) {
-            int randomNumber = randomGenerator.createRandomNumber(MIN_RANGE_NUM, MAX_RANGE_NUM);
-            car.move(randomNumber);
-        }
-    }
-
-    public void showAllCars() {
-        for (Car car : cars) {
+    public void showAllCars(Cars cars) {
+        for (Car car : cars.getCars()) {
             OutputView.printStatus(car.getName(), car.getPosition());
         }
         OutputView.printNewLine();
