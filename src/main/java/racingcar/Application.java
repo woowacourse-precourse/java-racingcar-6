@@ -8,8 +8,40 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
-        //기능별 구현 후 main함수 안쪽 구성하기
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carNames = Console.readLine();
+        validateCarNames(carNames); //자동차 이름이 유효한지 확인한다. 하단에 메소드 구현
+
+        //입력된 자동차들의 이름을 쉼표로 구분하여 배열에 저장한다
+        String[] carNameArray = carNames.split(",");
+
+        //시도 횟수를 정수로 변환 후 저장
+        System.out.println("시도할 회수는 몇회인가요?");
+        int tryCount = Integer.parseInt(Console.readLine());
+        //시도 횟수에 대한 예외처리를 추가
+        if (tryCount <= 0) {
+            //예외를 throw 후 프로그램 끝냄
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+
+        int carCount = carNameArray.length; //자동차 총 개수 구하기
+
+        //시도횟수, 자동차 수에 대해 2차원 배열을 만들어서 경주 결과를 저장한다
+        int[][] raceResults = new int[tryCount][carCount];
+
+        //시도횟수와 차 수만큼 random수를 생성
+        for (int i = 0; i < tryCount; i++) {
+            for (int j = 0; j < carCount; j++) {
+                int randomValue = Randoms.pickNumberInRange(0, 9);
+                raceResults[i][j] = randomValue;
+            }
+        }
+
+        printRaceResults(carNameArray, raceResults); //경주 결과를 출력하는 함수. 하단에 메소드 구현
+        printWinners(carNameArray, raceResults); //우승자 출력 함수. 하단에 메소드 구현
     }
+
+    //아래부터는 필요한 메소드들을 정의했습니다. 문제 조건(함수 하나당 하나의 일만 하기)에 맞춰 구현 중...
 
     //경주 결과를 출력하는 메소드
     public static void printRaceResults(String[] carNames, int[][] raceResults) {
