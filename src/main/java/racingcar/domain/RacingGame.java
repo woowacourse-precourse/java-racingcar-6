@@ -5,18 +5,14 @@ import java.util.List;
 
 public class RacingGame {
     private final List<Car> cars;
-    private final int totalAttempts;
 
-    public RacingGame(List<Car> cars, int totalAttempts) {
+    public RacingGame(List<Car> cars) {
         this.cars = new ArrayList<>(cars);
-        this.totalAttempts = totalAttempts;
     }
 
     public void startRace() {
-        for (int i = 0; i < totalAttempts; i++) {
-            for (Car car : cars) {
-                car.move();
-            }
+        for (Car car : cars) {
+            car.move();
         }
     }
 

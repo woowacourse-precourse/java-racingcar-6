@@ -20,17 +20,17 @@ public class RacingGameController {
         }
 
         List<Car> cars = initializeCars(carNames);
-        RacingGame racingGame = new RacingGame(cars, totalAttempts);
+        RacingGame racingGame = new RacingGame(cars);
 
-        for (int i = 0; i < totalAttempts; i++) {
-            RacingGameView.printRaceResult(generateRaceResultStrings(cars));
+        for (int attempt = 0; attempt < totalAttempts; attempt++) {
             racingGame.startRace();
-            System.out.println();
+            racingGame.calculateResult();
+            RacingGameView.printRaceResult(generateRaceResultStrings(cars));
         }
 
         RaceResult result = racingGame.calculateResult();
-        RacingGameView.printRaceResult(generateRaceResultStrings(cars));
         RacingGameView.printWinners(result.getWinners());
+
     }
 
     private List<Car> initializeCars(String[] carNames) {
