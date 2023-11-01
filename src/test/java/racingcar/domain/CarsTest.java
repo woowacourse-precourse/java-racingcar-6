@@ -54,8 +54,8 @@ public class CarsTest {
         carList.get(1).move(MOVABLE_NUMBER);
         carList.get(2).move(NON_MOVABLE_NUMBER);
 
-        List<String> winnerNames = cars.getWinnerNames();
-        List<String> expect = List.of("pobi", "crong");
+        List<Name> winnerNames = cars.getWinnerNames();
+        List<Name> expect = List.of(new Name("pobi"), new Name("crong"));
 
         assertThat(winnerNames).isEqualTo(expect);
     }

@@ -6,28 +6,18 @@ public class Car implements Comparable<Car> {
 
     private static final String NAME_DELIMITER = " : ";
     private static final String POSITION_REGEX = "-";
-    private static final String NAME_RANGE_EXCEPTION_MESSAGE = " 이름은 5자 이하만 가능합니다.";
-    private static final int NAME_MAX_LENGTH = 5;
-    private static final int NAME_MIN_LENGTH = 1;
     private static final int MOVABLE_THRESHOLD = 3;
 
     private int position;
-    private final String name;
+    private final Name name;
 
-    public Car(String name, int position) {
-        validateLengthOf(name);
-        this.name = name;
+    private Car(String name, int position) {
+        this.name = new Name(name);
         this.position = position;
     }
 
     public static Car of(String name, int position) {
         return new Car(name, position);
-    }
-
-    private void validateLengthOf(String name) {
-        if (name.length() > NAME_MAX_LENGTH || name.length() < NAME_MIN_LENGTH) {
-            throw new IllegalArgumentException(NAME_RANGE_EXCEPTION_MESSAGE);
-        }
     }
 
     public void move(int randomNumber) {
@@ -36,7 +26,7 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public String getName() {
+    public Name getName() {
         return name;
     }
 
@@ -63,7 +53,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(name);
+        StringBuilder sb = new StringBuilder(name.toString());
         sb.append(NAME_DELIMITER);
         sb.append(POSITION_REGEX.repeat(Math.max(0, position)));
         return sb.toString();

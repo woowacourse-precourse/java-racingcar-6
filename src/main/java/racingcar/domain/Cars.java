@@ -33,16 +33,16 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<String> getWinnerNames() {
+    public List<Name> getWinnerNames() {
         Car car = getMaxPositionCar();
-        return findSamePositionCar(car);
+        return findSamePositionCarNames(car);
     }
 
     private Car getMaxPositionCar() {
         return cars.stream().max(Car::compareTo).get();
     }
 
-    private List<String> findSamePositionCar(Car car) {
+    private List<Name> findSamePositionCarNames(Car car) {
         return cars.stream().filter(car::isSamePosition).map(Car::getName).toList();
     }
 
