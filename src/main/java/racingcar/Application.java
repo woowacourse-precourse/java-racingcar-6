@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Car;
-import racingcar.sevice.Race;
+import racingcar.service.Race;
 import racingcar.util.InputManager;
 import racingcar.util.OutputManager;
 

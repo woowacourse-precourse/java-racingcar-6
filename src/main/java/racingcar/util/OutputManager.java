@@ -20,15 +20,18 @@ public class OutputManager {
         System.out.println("실행 결과");
     }
 
+    // 공백 출력
     public static void displayBlankLine() {
         System.out.println();
     }
 
+    // 자동차의 위치를 "-"로 보여주는 메서드
     public static void displayCarPosition(Car car) {
         String position = "-".repeat(Math.max(0, car.getPosition()));
         System.out.println(car.getName() + " : " + position);
     }
 
+    // Race의 winners를 받아와 출력. 다수라면 ","로 구분
     public static void displayWinners(List<Car> winners) {
         String winnerNames = winners.stream()
                 .map(Car::getName)

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class InputManager {
 
+    // ","로 구분된 이름을 String array로 입력받는 메서드
     public static String[] getCarNames() {
         OutputManager.promptForCarNames();
 
@@ -19,6 +20,7 @@ public class InputManager {
         return carNames;
     }
 
+    // 시도 횟수를 입력받고 검증 후 return 하는 메서드
     public static int getTrials() {
         OutputManager.promptForTrials();
         String trialInput = Console.readLine();
@@ -28,6 +30,7 @@ public class InputManager {
         return Integer.parseInt(trialInput);
     }
 
+    // String array로 입력받은 자동차 이름을 List로 return하는 메서드
     public static List<Car> getCars() {
         String[] carNames = getCarNames();
         List<Car> cars = new ArrayList<>();
