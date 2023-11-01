@@ -13,7 +13,6 @@ public class GameStart {
     RacingGameLogic racingGameLogic = new RacingGameLogic();
     WinnerLogic winnerLogic = new WinnerLogic();
     InputPlayerData inputPlayerData = new InputPlayerData();
-
     SavaPlayersData savaPlayersData = new SavaPlayersData();
     InputTryCount inputTryCount = new InputTryCount();
 

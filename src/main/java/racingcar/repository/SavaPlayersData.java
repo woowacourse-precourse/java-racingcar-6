@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class SavaPlayersData {
     PlayerRepository playerRepository = new PlayerRepository();
+
     public Map<String, Integer> savePlayers(List<String> players) {
         Map<String, Integer> savePlayer = new LinkedHashMap<>();
         for (String playerName : players) {
