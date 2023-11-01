@@ -35,4 +35,15 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+    
+    //","기준으로 이름 구분..
+    @Test
+    void split_이름_구분() {
+    	String input = "pobi,woni";
+    	String[] result = input.split(",");
+    	
+    	assertThat(result).contains("woni","pobi");
+    	assertThat(result).contains("pobi","woni");
+    }
+    
 }
