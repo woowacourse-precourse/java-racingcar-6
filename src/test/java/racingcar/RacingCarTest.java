@@ -4,16 +4,22 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class RacingCarTest {
 
+    private RacingCar racingCar;
+
+    @BeforeEach
+    void 초기화() {
+        racingCar = new RacingCar("jihun");
+    }
+
     @Test
     void 자동차_생성() {
-        RacingCar racingCar = new RacingCar("jihun");
-
         assertEquals("jihun", racingCar.getName());
     }
 
@@ -26,7 +32,6 @@ class RacingCarTest {
     @CsvSource({"4", "5", "6", "7", "8", "9"})
     @ParameterizedTest
     void 랜덤값이_4이상이면_자동차_전진(int inputNumber) {
-        RacingCar racingCar = new RacingCar("jihun");
         racingCar.move(inputNumber);
 
         assertEquals(1, racingCar.getDistance());
@@ -35,7 +40,6 @@ class RacingCarTest {
     @CsvSource({"0", "1", "2", "3"})
     @ParameterizedTest
     void 랜덤값이_4미만이면_자동차_정지(int inputNumber) {
-        RacingCar racingCar = new RacingCar("jihun");
         racingCar.move(inputNumber);
 
         assertEquals(0, racingCar.getDistance());
@@ -43,12 +47,11 @@ class RacingCarTest {
 
     @Test
     void 같은_위치에_있는_자동차교_거리_비교() {
-        RacingCar racingCar = new RacingCar("jihun");
-        RacingCar racingCar2 = new RacingCar("pobi");
+        RacingCar otherCar = new RacingCar("pobi");
 
         racingCar.move(4);
-        racingCar2.move(5);
+        otherCar.move(5);
 
-        assertTrue(racingCar.isSameDistance(racingCar2));
+        assertTrue(racingCar.isSameDistance(otherCar));
     }
 }
