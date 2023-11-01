@@ -29,16 +29,16 @@ public class Attempt {
     }
 
     public String decideMoves() {
-        String moves = "";
+        StringBuilder moves = new StringBuilder();
         for (int i = 0; i < racingCars.isTotal(); i++) {
             if (isForward(randomNumbers.toIntByIndex(i))) {
-                moves += "1";
+                moves.append("1");
             }
             if (isStop(randomNumbers.toIntByIndex(i))) {
-                moves += "0";
+                moves.append("0");
             }
         }
-        return moves;
+        return moves.toString();
     }
 
     public void moveRacingCars(String moves) {
