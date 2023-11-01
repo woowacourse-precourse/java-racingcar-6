@@ -21,7 +21,6 @@ public class UserInput {
         if (carNameLength == 0 || carNameLength > 5) {
             throw new IllegalArgumentException("Car name must be 5 characters or less and greater than 0.");
         }
-
     }
 
     public int getAttemptNumber() {
