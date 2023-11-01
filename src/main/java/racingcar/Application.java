@@ -11,7 +11,6 @@ public class Application {
 
     public static void main(String[] args) {
 
-        // TODO: 프로그램 구현
         List<Car> carNameList = getCarNames();
         int tryingCount = getTryingNumber();
 
@@ -19,7 +18,7 @@ public class Application {
 
     }
 
-    public static List<Car> getCarNames(){
+    public static List<Car> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = readLine();
 
@@ -39,8 +38,8 @@ public class Application {
         return carNameList;
     }
 
-    public static void checkInputValue(List<String> splitList){
-        if (splitList.size() <= 1){
+    public static void checkInputValue(List<String> splitList) {
+        if (splitList.size() <= 1) {
             throw new IllegalArgumentException();
         }
     }
@@ -53,7 +52,7 @@ public class Application {
         return count;
     }
 
-    public static int checkTryingNumber(String input){
+    public static int checkTryingNumber(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException ex) {
