@@ -5,8 +5,8 @@ import static racingcar.common.exception.ErrorMessage.EMPTY_NAME;
 import static racingcar.common.exception.ErrorMessage.NAME_TOO_LONG;
 import static racingcar.common.exception.ErrorMessage.NULL_NAME;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.common.exception.CarException;
+import racingcar.util.RandomUtil;
 
 public class Car implements Comparable<Car> {
 
@@ -48,11 +48,7 @@ public class Car implements Comparable<Car> {
     }
 
     private boolean canMove() {
-        return generateRandomValue() >= MIN_RANDOM_VALUE_TO_MOVE;
-    }
-
-    private int generateRandomValue() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
+        return RandomUtil.generateRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) >= MIN_RANDOM_VALUE_TO_MOVE;
     }
 
     private void validateNameLength(final String name) {
