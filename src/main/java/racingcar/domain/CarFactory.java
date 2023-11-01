@@ -31,13 +31,13 @@ public class CarFactory {
                 .collect(Collectors.toList());
     }
 
-    public void checkDuplicatedName(List<String> names) {
+    private void checkDuplicatedName(List<String> names) {
         if (countDistinctListSize(names) != names.size()) {
             throw new IllegalArgumentException("중복된 이름");
         }
     }
 
-    public Long countDistinctListSize(List<String> list) {
+    private Long countDistinctListSize(List<String> list) {
         return list.stream().distinct().count();
     }
 }
