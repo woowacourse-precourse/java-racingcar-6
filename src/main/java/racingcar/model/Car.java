@@ -12,21 +12,20 @@ public class Car {
         this.location = new Location();
     }
 
-    public Location playGameOneRound() {
+    public String playGameOneRound() {
         location.stopOrMove();
-        return this.location;
+        return toResult();
+    }
+
+    private String toResult() {
+        return name.toString() + " : " + location.toString();
     }
 
     public Integer getCarLocationLength() {
         return location.getLocationLength();
     }
 
-    public CarName getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return name.toString() + " : " + location.toString();
+    public String getCarName() {
+        return name.getName();
     }
 }
