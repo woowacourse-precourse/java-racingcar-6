@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,6 +15,7 @@ public class RaceGameController {
     }
 
     public void play() {
-        inputView.getCarNameList();
+        List<String> carNameList = inputView.getCarNameList();
+        int roundTime = inputView.getRoundTime();
     }
 }

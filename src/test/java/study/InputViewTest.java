@@ -33,4 +33,15 @@ public class InputViewTest {
         assertThat(result).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
     }
 
+    @DisplayName("getRoundTime must be fail when input is not Integer type")
+    @Test
+    void getRoundTimeMustBeFail() {
+        String input = "A";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(() -> inputView.getRoundTime())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

@@ -14,4 +14,10 @@ public class InputView {
         InputValidator.verifyCarNames(carNameList);
         return carNameList;
     }
+
+    public int getRoundTime() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return Integer.parseInt(input);
+    }
 }
