@@ -12,9 +12,8 @@ public class RaceConsole {
                 s -> false,
                 s -> s.split(","));
 
-        int rounds = getInput("시도할 회수는 몇회인가요?",
-                s -> !s.matches("\\d+"),
-                Integer::parseInt);
+        int rounds = getInput("시도할 회수는 몇회인가요?", s -> !s.matches("\\d+"), Integer::parseInt);
+        System.out.println();
 
         CarRace race = new CarRace(carNames, rounds);
 
