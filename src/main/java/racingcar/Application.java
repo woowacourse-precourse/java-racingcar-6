@@ -15,13 +15,12 @@ public class Application {
         CarValidator carValidator = new CarValidator();
 
         InputView inputView = new InputView(inputValidator);
-        OutputView outputView = new OutputView();
-        Car car = new Car(carValidator);
 
+        Car car = new Car(carValidator);
         MovingCount movingCount = new MovingCount();
         RacingGame racingGame = new RacingGame(movingCount);
 
-        GameController gameController = new GameController(inputView, car, racingGame, outputView);
+        GameController gameController = new GameController(inputView, car, racingGame);
         gameController.play();
     }
 }
