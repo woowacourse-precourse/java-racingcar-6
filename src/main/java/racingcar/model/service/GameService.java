@@ -20,7 +20,6 @@ public class GameService {
     }
 
     public void nameCheck(List<String> carNames) {
-
         carNames.forEach(car -> {
             if (car.length() > NAME_LENGTH) {
                 throw new IllegalArgumentException("이름은 5자 이하여야 합니다");
@@ -48,14 +47,23 @@ public class GameService {
     }
 
     public int attemptValidCheck(String attemptCount) {
-        if (attemptCount.isEmpty()) {
-            throw new IllegalArgumentException("시도할 회수를 입력해주세요");
-        }
+        int attemptCountInt;
+        attemptCountInt = numericAttemptCheck(attemptCount);
+        negativeAttemptCheck(attemptCountInt);
+        return attemptCountInt;
+    }
 
+    private int numericAttemptCheck(String attemptCount) {
         try {
             return Integer.parseInt(attemptCount);
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
+    }
+
+    private void negativeAttemptCheck(int attemptNum) {
+        if (attemptNum < 0) {
+            throw new IllegalArgumentException("시도할 회수는 음수일 수 없습니다");
         }
     }
 }
