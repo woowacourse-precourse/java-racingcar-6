@@ -1,40 +1,64 @@
 package racingcar.input;
 
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.output.Output;
 
-import java.io.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InputTest {
     private Input input;
-    private InputStream inputStream;
-    private OutputStream outputStream;
-    private ByteArrayInputStream byteArrayInputStream;
-    private ByteArrayOutputStream byteArrayOutputStream;
-    private static final String USER_INPUT_MESSAGE = "테스트 사용자가 입력하는 인풋 메세지입니다.";
-    private static final String INPUT_HINT_MESSAGE = "테스트 인풋 안내 메세지입니다.";
+    private ByteArrayInputStream inputStream;
+    private ByteArrayOutputStream outputStream;
+    private static final String CAR_NAME_USER_INPUT = "pobi,wooni,jun";
+    private static final String ROUND_COUNT_USER_INPUT = "5";
+    private static final String CAR_NAMES_PROMPT = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String ROUND_COUNT_PROMPT = "시도할 회수는 몇회인가요?";
+
     @BeforeEach
     void setUp() {
         input = new Input(new Output());
-        inputStream = System.in;
-        outputStream = System.out;
-        byteArrayOutputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(byteArrayOutputStream));
+        outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+    }
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
+    }
+
+
+    @Test
+    void reaquestCarNames메소드로_인풋메세지출력과_입력한_메세지가_반환() {
+        inputStream = new ByteArrayInputStream(CAR_NAME_USER_INPUT.getBytes());
+        System.setIn(inputStream);
+
+        String inputReturn = input.requestCarNames();
+
+        assertThat(inputReturn).isEqualTo(CAR_NAME_USER_INPUT);
+        String printedOutput = outputStream.toString().trim();
+        assertThat(printedOutput).isEqualTo(CAR_NAMES_PROMPT);
     }
 
     @Test
-    void read메소드로_인풋메세지출력과_입력한_메세지가_반환() {
-        byteArrayInputStream = new ByteArrayInputStream(USER_INPUT_MESSAGE.getBytes());
-        System.setIn(byteArrayInputStream);
+    void reaquestRoundCount메소드로_인풋메세지출력과_입력한_메세지가_반환() {
+        inputStream = new ByteArrayInputStream(ROUND_COUNT_USER_INPUT.getBytes());
+        System.setIn(inputStream);
 
-        String inputReturn = input.read(INPUT_HINT_MESSAGE);
+        String inputReturn = input.requestRoundCount();
 
-        assertThat(inputReturn).isEqualTo(USER_INPUT_MESSAGE);
-        String printedOutput = byteArrayOutputStream.toString().trim();
-        assertThat(printedOutput).isEqualTo(INPUT_HINT_MESSAGE);
+        assertThat(inputReturn).isEqualTo(ROUND_COUNT_USER_INPUT);
+        String printedOutput = outputStream.toString().trim();
+        assertThat(printedOutput).isEqualTo(ROUND_COUNT_PROMPT);
     }
-
 }
