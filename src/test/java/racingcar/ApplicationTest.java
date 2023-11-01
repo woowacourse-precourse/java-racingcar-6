@@ -2,6 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.Controller.RacingGameController;
+import racingcar.Model.Car;
+import racingcar.View.RacingGameView;
+
+import java.util.Arrays;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +34,15 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 게임_횟수_음수_테스트() {
+        RacingGameController controller = new RacingGameController(Arrays.asList("pobi", "woni"), new RacingGameView());
+
+        assertThatThrownBy(() -> controller.startGame(-1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("게임 횟수는 1 이상이어야 합니다.");
     }
 
     @Override
