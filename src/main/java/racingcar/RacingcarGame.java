@@ -14,6 +14,13 @@ public class RacingcarGame {
         }
     }
 
+    private void runRounds(int tryCount) {
+        InputOutput.printResultMessage();
+        for (int i = 0; i < tryCount; i++) {
+            runRound(racingcars);
+        }
+    }
+
     private void runRound(List<Car> cars) {
         for (Car car : cars) {
             String name = car.getName();
