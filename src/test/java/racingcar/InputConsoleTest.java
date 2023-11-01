@@ -16,6 +16,12 @@ class InputConsoleTest extends NsTest {
         Assertions.assertThat(output()).contains("alpha", "bravo", "char", "5");
     }
 
+    @Test
+    public void 올바르지_않은_라운드_입력_테스트() throws Exception {
+        Assertions.assertThatThrownBy(() -> run("alpha,bravo,char", "sss"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     protected void runMain() {
         List<String> carNames = InputConsole.enterCarNames();
