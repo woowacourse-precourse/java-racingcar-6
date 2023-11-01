@@ -49,7 +49,23 @@ class ApplicationTest extends NsTest {
         assertThat(cars.get(3).getName()).isEqualTo("kkkkk");
     }
 
+    @Test
+    void 자동차_위치_증가_확인() {
+        String carName = "jimin";
+        Car car = new Car(carName);
 
+        car.move();
+        assertThat(car.getLocation()).isEqualTo(1);
+        car.move();
+        assertThat(car.getLocation()).isEqualTo(2);
+        car.move();
+        assertThat(car.getLocation()).isEqualTo(3);
+        car.move();
+        assertThat(car.getLocation()).isEqualTo(4);
+
+
+    }
+    
     @Override
     public void runMain() {
         Application.main(new String[]{});
