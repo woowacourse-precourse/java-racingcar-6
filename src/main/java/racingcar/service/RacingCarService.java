@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
+import racingcar.domain.RacingCarConst;
 import racingcar.util.GlobalExceptionHandler;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 
 import static java.util.Collections.max;
 
-public class RacingCarService {
+public class RacingCarService implements RacingCarConst {
 
     private final static GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler();
 
@@ -50,7 +51,7 @@ public class RacingCarService {
 
     private boolean goFront() {
         int randomNumber = getRandomNumber();
-        if (randomNumber>=4) {
+        if (randomNumber>=AHEAD_LIMIT) {
             return true;
         }
         return false;

@@ -1,6 +1,8 @@
 package racingcar.util;
 
-public class GlobalExceptionHandler {
+import racingcar.domain.RacingCarConst;
+
+public class GlobalExceptionHandler implements RacingCarConst {
 
     public boolean isValidCarArray(String carArray) {
         if (!",".contains(carArray)) {
@@ -10,7 +12,7 @@ public class GlobalExceptionHandler {
     }
 
     public boolean isValidCarName(String carName) {
-        if (carName.length()>5) {
+        if (carName.length()>CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
         return true;
