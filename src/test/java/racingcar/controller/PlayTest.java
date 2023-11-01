@@ -52,4 +52,13 @@ public class PlayTest {
         assertThrows(IllegalArgumentException.class, () -> play.varifyTryNumberIsNumeric(invalidInput));
     }
 
+    @Test
+    void testCreateResultMessage() {
+        String carName = "Car1";
+        play.racerInformation.put(carName, 3);
+
+        String resultMessage = play.creatResultMessage(new StringBuilder(), carName);
+        assertEquals("Car1 : ---", resultMessage);
+    }
+
 }
