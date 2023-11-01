@@ -85,4 +85,17 @@ public class Cars {
             }
         }
     }
+    public void printWinnerCar(){
+        if(winners.size() == 1){
+            System.out.println("최종 우승자 : " + winners.get(0)); // 승자가 한명일 때
+        }
+
+        if(winners.size() != 1){
+            String result = "";
+            for(int i = 0; i< winners.size(); i++){
+                result += winners.get(i);
+            }
+            System.out.println("최종 우승자 : " + result.substring(0, result.length() - 2)); //승자가 두명 이상일 떄
+        }
+    }
 }
