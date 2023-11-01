@@ -42,12 +42,32 @@ class ApplicationTest extends NsTest {
         }
     }
 
-    @Test
-    void 이름에_대한_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+    @Nested
+    @DisplayName("예외 처리에 대한 테스트")
+    class exceptionTest {
+        @Test
+        void 이름에_대한_예외_처리() {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                            .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+        @Test
+        void emptyNameCheck() {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException("", "1"))
+                            .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+        @Test
+        void negativeAttemptCheck() {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException("pobi", "-1"))
+                            .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
     }
 
     @Test
