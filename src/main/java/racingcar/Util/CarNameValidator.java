@@ -1,7 +1,6 @@
 package racingcar.Util;
 
 import java.util.ArrayList;
-import racingcar.Util.Rule;
 
 public class CarNameValidator {
     private final String NAMES_STRING;
@@ -22,9 +21,19 @@ public class CarNameValidator {
     }
 
     public void isRightNamesString() {
-        // String 형식 확인: 앞&뒤-문자, 중간-문자&구분자
+
         if (!Rule.namesStringPattern.matcher(NAMES_STRING).matches()) {
             throw new IllegalArgumentException(Rule.CAR_NAME_WRONG_ERROR);
+        }
+
+        String[] names = NAMES_STRING.split(Rule.DELIMETER);
+        for ( String name : names) {
+            if(name.length() > Rule.MAX_CARNAMESIZE) {
+                throw new IllegalArgumentException(Rule.CAR_NAME_SIZE_ERROR);
+            }
+            else {
+                System.out.println(name);
+            }
         }
     }
 
@@ -41,7 +50,7 @@ public class CarNameValidator {
     }
 
     public void isNotNumber() {
-        if (Rule.namesNouNumPattern.matcher(NAMES_STRING).find()) {
+        if (Rule.roundNumPattern.matcher(NAMES_STRING).find()) {
             throw new IllegalArgumentException(Rule.CAR_NAME_NUMBER_ERROR);
         }
     }
