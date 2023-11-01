@@ -28,6 +28,7 @@ public class User {
                 throw new IllegalArgumentException("중복된 이름 존재");
             }
 
+            carName = carName.trim();
             if (carName.length() == 0) {
                 continue;
             }
