@@ -20,21 +20,45 @@ public class MainController {
     }
 
     public void startGame() {
+        Car car = readCarsNameAndGetCar();
+        int count = readNumberOfAttemptsAndGetCount();
+        play(car, count);
+        calculateWinner(car);
+    }
+
+    private Car readCarsNameAndGetCar() {
         outputView.printCarsName();
         String carsName = inputView.readInputData();
-        validator.validateCarsName(carsName);
-        Car car = Car.of(carsName);
+        return validateCarsNameAndGetCar(carsName);
+    }
+
+    private int readNumberOfAttemptsAndGetCount() {
         outputView.printNumberOfAttempts();
         String numberOfAttempts = inputView.readInputData();
-        validator.validateNumberOfAttempts(numberOfAttempts);
-        int count = Integer.parseInt(numberOfAttempts);
+        return validateNumberOfAttemptsAndGetCount(numberOfAttempts);
+    }
+
+    private void play(Car car, int count) {
         outputView.printExecutionResult();
         while (count > 0) {
             gameService.handleCar(car);
             outputView.printExecutionResults(car);
             count--;
         }
+    }
+
+    private void calculateWinner(Car car) {
         gameService.calculateWinnerCar(car);
         outputView.printResults(car);
+    }
+
+    private Car validateCarsNameAndGetCar(String carsName) {
+        validator.validateCarsName(carsName);
+        return Car.of(carsName);
+    }
+
+    private int validateNumberOfAttemptsAndGetCount(String numberOfAttempts) {
+        validator.validateNumberOfAttempts(numberOfAttempts);
+        return Integer.parseInt(numberOfAttempts);
     }
 }
