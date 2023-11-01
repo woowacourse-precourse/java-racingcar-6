@@ -12,7 +12,7 @@ public class MainGame {
         inPutCarName.carNameValidator(carInfo);
 
         int tryNumber = inPutPlayNumber.inPutNumber();
-        InPutPlayNumber.playNumberValidator(tryNumber);
+        inPutPlayNumber.playNumberValidator(tryNumber);
 
         System.out.println(RESULT);
         for(int i = 0; i < tryNumber; i++) {
