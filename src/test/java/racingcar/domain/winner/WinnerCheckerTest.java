@@ -47,10 +47,8 @@ class WinnerCheckerTest {
         List<Car> cars = Arrays.asList(car1, car2, car3);
         WinnerChecker winnerChecker = new WinnerChecker(cars);
 
-        // When
         List<String> winners = winnerChecker.findWinners();
 
-        // Then
         assertThat(winners).containsExactlyInAnyOrder("car1", "car2", "car3");
     }
 }
