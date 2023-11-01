@@ -1,6 +1,7 @@
 package racingcar.Domain;
 
 public class Car {
+
     private static final int MOVE_THRESHOLD = 4;
     private static final int START_POSITION = 0;
     private static final int TICK = 1;
@@ -16,7 +17,8 @@ public class Car {
     }
 
     private void isValidName(String name) {
-        if(name.length() < MINIMUM_NAME_LENGTH || name.length() > MAXIMUM_NAME_LENGTH) {
+        if(name.length() < MINIMUM_NAME_LENGTH
+                || name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException(
                     "이름은 최소 "
                             + MINIMUM_NAME_LENGTH + "자에서 최대 "
