@@ -18,6 +18,7 @@ public class ResultPrinter {
 
     public void print(List<Car> cars) {
         List<String> winners = evaluator.getWinners(cars);
+
         if (winners.size() == SINGLE_WINNER_SIZE) {
             printSingle(winners.get(0));
         } else {

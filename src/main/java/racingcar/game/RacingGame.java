@@ -33,8 +33,10 @@ public class RacingGame {
                 movement.moveCar(car);
                 Console.move(car.getName(), car.toString());
             });
+
             Console.newLine();
         }
+
         printer.print(cars);
     }
 }

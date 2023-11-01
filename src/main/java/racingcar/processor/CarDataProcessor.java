@@ -6,6 +6,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Name;
 
 public class CarDataProcessor {
+
     private static final String SEPARATOR = ",";
     private final Request request;
 
