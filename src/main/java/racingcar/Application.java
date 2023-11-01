@@ -16,6 +16,8 @@ public class Application  {
             gameService.playRound();
         }
 
-
+        System.out.print("최종 우승자 : ");
+        String winners = gameService.getWinners();
+        System.out.println(winners);
     }
 }

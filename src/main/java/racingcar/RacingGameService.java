@@ -36,4 +36,20 @@ public class RacingGameService {
         System.out.println();
     }
 
+    String getWinners() {
+        int maxDistance = Integer.MIN_VALUE;
+        List<String> winners = new ArrayList<>();
+        for (String car : carMovements.keySet()) {
+            int distance = carMovements.get(car).length();
+            if (distance > maxDistance) {
+                maxDistance = distance;
+                winners.clear();
+                winners.add(car);
+            } else if (distance == maxDistance) {
+                winners.add(car);
+            }
+        }
+
+        return String.join(", ", winners);
+    }
 }
