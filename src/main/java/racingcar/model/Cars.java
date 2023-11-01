@@ -30,7 +30,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public int maxDistance() {
+    private int maxDistance() {
         Optional<Integer> maxPositionOptional = carList.stream()
                 .map(Car::position)
                 .max(Comparator.naturalOrder());
