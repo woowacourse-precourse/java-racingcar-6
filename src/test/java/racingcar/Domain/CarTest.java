@@ -19,6 +19,35 @@ public class CarTest {
     }
 
 
+    @Test
+    void 무작위_값이_4이상이라면_전진한다(){
+
+        String input = "apple";
+        Car car = new Car(input, 0);
+        Integer randomValue = car.createRandomValue();
+
+        if(car.checkRandomValueValidation(randomValue)) {
+
+            car.moveCar(randomValue);
+            assertThat(car.getPoint()).isEqualTo(randomValue);
+        }
+
+    }
+
+    @Test
+    void 무작위_값이_4미만이라면_정지한다(){
+
+        String input = "apple";
+        Car car = new Car(input, 0);
+        Integer randomValue = car.createRandomValue();
+
+        if(!car.checkRandomValueValidation(randomValue)) {
+            assertThat(car.getPoint()).isEqualTo(0);
+        }
+
+    }
+
+
 
 }
 
