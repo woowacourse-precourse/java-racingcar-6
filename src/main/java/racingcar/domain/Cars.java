@@ -4,6 +4,7 @@ import racingcar.controller.dto.Result;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cars {
 
@@ -37,6 +38,19 @@ public class Cars {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Cars cars1 = (Cars) object;
+        return Objects.equals(cars, cars1.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars);
     }
 
 }

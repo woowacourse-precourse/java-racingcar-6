@@ -42,6 +42,26 @@ class CarTest {
         );
     }
 
+    @Test
+    void 현재_위치가_최대값과_동일하면_우승자이다() {
+        // given
+        int maxPosition = 5;
+        Car car = new Car(new CarName("자동차1"), new Position(5));
+
+        // when, then
+        assertThat(car.isWinner(maxPosition)).isTrue();
+    }
+
+    @Test
+    void 현재_위치가_최대값과_동일하지_않으면_우승자가_아니다() {
+        // given
+        int maxPosition = 5;
+        Car car = new Car(new CarName("자동차1"), new Position(10));
+
+        // when, then
+        assertThat(car.isWinner(maxPosition)).isFalse();
+    }
+
     @ParameterizedTest(name = "{index}번째 NumberGeneratePolicy")
     @MethodSource("movableNums")
     void 정책에_따라서_움직일_수_있다면_위치를_하나_증가시킨다(NumberGeneratePolicy numberGeneratePolicy) {

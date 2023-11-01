@@ -32,6 +32,19 @@ class PositionTest {
     }
 
     @Test
+    void 위치를_증가시키면_위치가_하나_증가한다() {
+        // given
+        Position position = new Position(0);
+
+        // when
+        Position increase = position.increase();
+
+        // then
+        assertThat(increase).isEqualTo(new Position(1));
+    }
+
+
+    @Test
     void position_객체의_값이_같다면_동등성을_보장한다() {
         // given
         Position position1 = new Position(1);

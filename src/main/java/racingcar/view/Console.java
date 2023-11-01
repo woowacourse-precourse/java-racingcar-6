@@ -58,10 +58,6 @@ public class Console {
         return REGEX.matcher(value).matches();
     }
 
-    private String draw(int position) {
-        return CAR_SHAPE.repeat(position);
-    }
-
     public void printResultMessage() {
         output.println("\n실행 결과");
     }
@@ -73,6 +69,10 @@ public class Console {
 
     private void print(String carName, int position) {
         output.println(format("{0} : {1}", carName, draw(position)));
+    }
+
+    private String draw(int position) {
+        return CAR_SHAPE.repeat(position);
     }
 
     public void printWinners(List<Result> winners) {
