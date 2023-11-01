@@ -57,4 +57,17 @@ public class CarsTest {
                 MOVING_FORWARD, STOP
         );
     }
+
+    @Test
+    void 우승자_테스트() {
+        Cars cars = createCars(Arrays.asList("test1", "test2"));
+        Assertions.assertRandomNumberInRangeTest(
+                () -> {
+                    cars.moveAll();
+                    cars.moveAll();
+                    assertEquals(List.of("test1"), cars.getWinners());
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
+        );
+    }
 }
