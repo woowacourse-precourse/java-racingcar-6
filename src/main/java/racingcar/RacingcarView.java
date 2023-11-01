@@ -4,24 +4,25 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Iterator;
 
 public class RacingcarView {
-    public void GetMembersAndTurn() {
+    public void GetMembers() {
         System.out.println(RacingcarModel.INPUT_USERS);
-        for ( String name : String.valueOf(Console.readLine()).split(",")) {
-            DealWithExceptionCase.IsVoidInName(name);
-            DealWithExceptionCase.IsNameAccurate(name);
-            DealWithExceptionCase.IsNameDuplicate(name);
+        String names = DealWithExceptionCase.IsNameValuable(Console.readLine());
+        for ( String name : names.split(",")) {
             RacingcarModel.members.put(name, 0);
         }
+    }
+    public void GetTurn() {
         System.out.println(RacingcarModel.INPUT_TURNS);
         DealWithExceptionCase.IsTurnTypeInteger(Console.readLine());
     }
-
     public void StartRacing() {
+        System.out.println();
         System.out.println(RacingcarModel.RUN_RESULT);
         for (int i = 0; i < RacingcarModel.turn; i++) {
             RacingcarController.RaceIndividually();
         }
     }
+
     public static void printMemberStatus(String member) {
         System.out.print(member+ RacingcarModel.STATUS_COLONE);
         for (int i = 0; i < RacingcarModel.members.get(member); i++) {
@@ -29,6 +30,7 @@ public class RacingcarView {
         }
         System.out.println();
     }
+
     public static void printResult() {
         System.out.print(RacingcarModel.PRINT_WINNER);
         Iterator<String> keys = RacingcarModel.members.keySet().iterator();
@@ -36,6 +38,7 @@ public class RacingcarView {
             IsMaxValue(keys.next());
         }
     }
+
     public static void IsMaxValue(String member) {
         if (RacingcarModel.members.get(member).equals(RacingcarModel.maxScore)) {
             if (RacingcarModel.winnerCnt > 0) {
@@ -45,4 +48,5 @@ public class RacingcarView {
             RacingcarModel.winnerCnt += 1;
         }
     }
+
 }
