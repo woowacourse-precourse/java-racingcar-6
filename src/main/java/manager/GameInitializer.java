@@ -31,6 +31,12 @@ public class GameInitializer {
         }
 
         for (int i = 0; i < inputCarNameSplit.length; i++) {
+            if (inputCarNameSplit[i].isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+        }
+
+        for (int i = 0; i < inputCarNameSplit.length; i++) {
             carList.add(new Car(inputCarNameSplit[i]));
         }
 
@@ -40,14 +46,18 @@ public class GameInitializer {
     public Integer inputNumbersOfMatch() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputNumbersOfMatch = Console.readLine();
-        int NumbersOfMatch;
+        int numberOfMatch;
 
         try {
-            NumbersOfMatch = Integer.parseInt(inputNumbersOfMatch);
+            numberOfMatch = Integer.parseInt(inputNumbersOfMatch);
         } catch (Exception exception) {
             throw new IllegalArgumentException();
         }
 
-        return NumbersOfMatch;
+        if (numberOfMatch < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        return numberOfMatch;
     }
 }
