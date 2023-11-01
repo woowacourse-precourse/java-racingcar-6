@@ -8,8 +8,7 @@ import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationTest extends NsTest {
@@ -22,6 +21,34 @@ class ApplicationTest extends NsTest {
         // 예상하는 자동차 이름 리스트와 비교
         List<String> expectedCarNames = Arrays.asList("pobi", "woni", "jun");
         assertEquals(expectedCarNames, carNames);
+    }
+
+    @Test
+    void 유효한_자동차_이름_검증() {
+        String validInput = "pobi,woni,jun";
+        assertThatCode(() -> Application.validateInputCarName(validInput))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 자동차_이름_빈값_입력() {
+        String emptyInput = "";
+        assertThatThrownBy(() -> Application.validateInputCarName(emptyInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름_띄어쓰기() {
+        String spaceInput = "pobi, woni, jun";
+        assertThatThrownBy(() -> Application.validateInputCarName(spaceInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름_5자_초과() {
+        String longNamesInput = "pobi,woni,juneeeeeeeeee";
+        assertThatThrownBy(() -> Application.validateInputCarName(longNamesInput))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
