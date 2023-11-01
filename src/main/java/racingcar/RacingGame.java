@@ -32,6 +32,7 @@ public class RacingGame extends Game{
     }
 
     private void playRound() {
+        OutputHandler.printMessage("실행 결과");
         for (RacingCar car : cars) {
             car.move(Randoms.pickNumberInRange(0, 9));
             OutputHandler.printCarStatus(car.getName(), car.getPosition());
