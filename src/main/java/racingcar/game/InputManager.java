@@ -8,8 +8,10 @@ import java.util.regex.Pattern;
 
 public class InputManager {
     public static List<String> parseCarName(String inputAnswer){
+
         String[] splitAnswer = inputAnswer.split(",");
         List<String> carNames = new ArrayList<>(Arrays.asList(splitAnswer));
+
         for (String carName : carNames){
             if (!isStringLengthLessThanOrEqualToFive(carName)) {
                 throw new IllegalArgumentException("차 이름은 5글자 이하로 해주세요.");
@@ -35,5 +37,4 @@ public class InputManager {
             throw new IllegalArgumentException("숫자만 입력해 주세요.");
         }
     }
-
 }

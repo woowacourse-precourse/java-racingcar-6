@@ -23,6 +23,7 @@ public class GameManager {
             game.displayGameScore();
             System.out.println();
         }
+
         game.displayGameWinner();
     }
 }

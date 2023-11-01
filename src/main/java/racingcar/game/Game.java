@@ -1,11 +1,8 @@
 package racingcar.game;
 
-import racingcar.Object.Car;
-import racingcar.Object.Player;
 import racingcar.Object.RandomNumberGenerator;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
