@@ -110,20 +110,60 @@ public class CarTest {
     @DisplayName("자동차의 정보를 가져올 때")
     public class GetCarInfoTest {
 
-        private final String name = "pobi";
-        private final int position = 0;
-
         @Test
         @DisplayName("이름을 반환한다.")
         void 이름을_반환한다() {
             // given
-            var car = new Car(name, position);
+            var name = "pobi";
+            var car = new Car(name, 0);
 
             // when
             var actual = car.getName();
 
             // then
             assertThat(actual).isEqualTo(name);
+        }
+
+        @Test
+        @DisplayName("두 자동차의 위치가 같으면 true를 반환한다.")
+        void 두_자동차의_위치가_같으면_true를_반환한다() {
+            // given
+            var car = new Car("pobi", 1);
+            var other = new Car("woni", 1);
+
+            // when
+            var actual = car.isSamePosition(other);
+
+            // then
+            assertThat(actual).isTrue();
+        }
+
+        @Test
+        @DisplayName("두 자동차의 위치가 다르면 false를 반환한다.")
+        void 두_자동차의_위치가_다르면_false를_반환한다() {
+            // given
+            var car = new Car("pobi", 2);
+            var other = new Car("woni", 1);
+
+            // when
+            var actual = car.isSamePosition(other);
+
+            // then
+            assertThat(actual).isFalse();
+        }
+
+        @Test
+        @DisplayName("두 자동차의 위치 간 차이를 반환한다.")
+        void 두_자동차의_위치_간_차이를_반환한다() {
+            // given
+            var car = new Car("pobi", 2);
+            var other = new Car("woni", 1);
+
+            // when
+            var actual = car.compareTo(other);
+
+            // then
+            assertThat(actual).isEqualTo(1);
         }
     }
 }
