@@ -4,7 +4,7 @@ import racingcar.RacingcarGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class RacingcarGameController {
     InputView inputView;
@@ -37,7 +37,7 @@ public class RacingcarGameController {
         racingcarGame.setCars(inputView.getCarsName());
     }
 
-    private HashMap<String, Integer> ongoing() {
+    private Map<String, Integer> ongoing() {
         return racingcarGame.race();
     }
 }

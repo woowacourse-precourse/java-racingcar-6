@@ -26,9 +26,9 @@ public class RacingcarGame {
         this.tryCount = tryCount;
     }
 
-    public HashMap<String, Integer> race() {
+    public Map<String, Integer> race() {
         moveOrStop();
-        HashMap<String, Integer> raceResult = new HashMap<>();
+        Map<String, Integer> raceResult = new LinkedHashMap<>();
         for (Car car : cars.getRacingCars()) {
             raceResult.put(car.getName(), car.getDistance());
         }

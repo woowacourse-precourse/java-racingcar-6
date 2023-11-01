@@ -1,11 +1,11 @@
 package racingcar;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class ResultStringBuilder {
 
-    public String stringBuild(HashMap<String, Integer> result) {
+    public String stringBuild(Map<String, Integer> result) {
         Set<String> names = result.keySet();
         StringBuilder stringBuilder = new StringBuilder();
         for (String name : names) {
