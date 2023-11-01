@@ -30,7 +30,7 @@ class RaceServiceTest{
 
     @Test
     void executeRoundTest() {
-        // Arrange
+        // given
         RandomNumberService randomNumberService = mock(RandomNumberService.class);
         when(randomNumberService.generateRandomNumber()).thenReturn(4);
 
@@ -40,12 +40,12 @@ class RaceServiceTest{
         cars.add(new Car("car1"));
         Race race = new Race(cars, 5);
 
-        // Act
+        // when
         raceService.executeRound(race);
         int actualPosition = cars.get(0).getPosition();
 
-        // Assert
-        assertEquals(1, actualPosition, "The car should move when the random number is 4.");
+        // then
+        assertEquals(1, actualPosition, "자동차는 랜덤 생성 수가 4여야 전진합니다.");
     }
 
     @Test
