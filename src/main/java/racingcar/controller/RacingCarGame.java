@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import static racingcar.view.Input.askCarNames;
 import static racingcar.view.Input.askNumberOfGames;
+import static racingcar.view.Print.showGameResult;
 import static racingcar.view.Print.showGameWinner;
 import static racingcar.view.Print.showUser;
 import static racingcar.view.constant.ConstPrint.ASK_ATTEMPT;
@@ -31,6 +32,6 @@ public class RacingCarGame{
     private void playGame(){
         carService.generateRandomNumbers();
         carService.confirmRandomNumbers();
-        carService.callResultMethod();
+        showGameResult(carService.getParkingLot());
     }
 }
