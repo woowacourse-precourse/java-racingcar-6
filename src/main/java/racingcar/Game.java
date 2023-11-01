@@ -9,22 +9,31 @@ import java.util.List;
 
 public class Game {
 
+    public void start(){
+        List<String> carNames = playerInput();
+        Integer playtimes = inputPlayTimes();
+        List<Integer> cars = race(carNames, playtimes);
+        whoIsWinner(cars, carNames);
+
+    }
 
 
-    public List<String> whoIsWinner(List<Integer> cars, List<String> carNames){
+
+    public void whoIsWinner(List<Integer> cars, List<String> carNames){
         List<String> winners = new ArrayList<>();
         for (int i=0; i< compareMax(cars).size();i++){
             winners.add(carNames.get(compareMax(cars).get(i)));
         }
-        return winners;
+        String winnersList = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + winnersList);
     }
 
     public List<Integer> compareMax(List<Integer> cars){
         List<Integer> winners = new ArrayList<>();
         Integer Max = max(cars);
         for (int i=0; i<cars.size(); i++){
-            if(Max == cars.get(i)){
-                winners.add(cars.get(i));
+            if(Max.equals(cars.get(i))){
+                winners.add(i);  // 자동차의 인덱스를 추가
             }
         }
         return winners;
@@ -42,8 +51,11 @@ public class Game {
 
     public List<Integer> race(List<String> carNames, Integer playTimes){
         ArrayList cars = new ArrayList<>(Collections.nCopies(carNames.size(), 0));
+        System.out.println("");
+        System.out.println("실행 결과");
         for (int i=0 ; i < playTimes ; i++){
             raceEachTimes(cars);
+            showRacing(cars, carNames);
         }
         return cars;
     }
@@ -62,6 +74,14 @@ public class Game {
 
     public Integer creatRandomNum(){
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    public void showRacing(List<Integer> cars, List<String> carNames){
+        for(int i=0;i<cars.size();i++){
+            String dashes = "-".repeat(cars.get(i));
+            System.out.println(carNames.get(i) + " : " + dashes);
+        }
+        System.out.println("");
     }
 
     public Integer inputPlayTimes(){
