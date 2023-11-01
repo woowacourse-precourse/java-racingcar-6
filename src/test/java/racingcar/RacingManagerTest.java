@@ -98,6 +98,35 @@ public class RacingManagerTest {
                 .extracting(RacingCarSnapshot::name, RacingCarSnapshot::forwardCount)
                 .containsExactly(tuple("pobi", 2), tuple("woni", 1));
     }
+
+    @Test
+    void 가장_많이_앞으로간_차가_우승한다() {
+        String validCarsNameInput = "pobi,woni";
+        String validRacingCountInput = "3";
+
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(FORWARD, STOP, FORWARD, STOP, FORWARD, STOP);
+        RacingManager racingManager = new RacingManager(validCarsNameInput, validRacingCountInput, fixedNumberGenerator);
+        racingManager.startRace();
+
+        assertThat(racingManager.getRacingWinnerNames())
+                .hasSize(1)
+                .containsExactly("pobi");
+    }
+
+    @Test
+    void 우승자가_여러명일_경우_모두_출력된다() {
+        String validCarsNameInput = "pobi,woni,jun";
+        String validRacingCountInput = "2";
+
+        FixedNumberGenerator fixedNumberGenerator =
+                new FixedNumberGenerator(FORWARD, STOP, FORWARD, STOP, FORWARD, STOP);
+        RacingManager racingManager = new RacingManager(validCarsNameInput, validRacingCountInput, fixedNumberGenerator);
+        racingManager.startRace();
+
+        assertThat(racingManager.getRacingWinnerNames())
+                .hasSize(3)
+                .containsExactly("pobi", "woni", "jun");
+    }
 }
 
 class FixedNumberGenerator implements NumberGenerator {
