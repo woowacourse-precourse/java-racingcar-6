@@ -159,4 +159,19 @@ class GameManagerTest {
         GameManager.makeRacingCarsMove();
     }
 
+    @Test
+    void judgeWinner_메서드로_우승자_결정() {
+        // given
+        GameManager.racingCars = List.of(new RacingCar("pobi"), new RacingCar("woni"),
+                new RacingCar("crong"), new RacingCar("honux"));
+        GameManager.racingCars.get(0).position = 5;
+        GameManager.racingCars.get(1).position = 4;
+        GameManager.racingCars.get(2).position = 3;
+        GameManager.racingCars.get(3).position = 5;
+
+        // when
+
+        // then
+        assertThat(GameManager.judgeWinners()).isEqualTo(List.of("pobi", "honux"));
+    }
 }
