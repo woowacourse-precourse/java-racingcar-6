@@ -45,7 +45,8 @@ public class Game {
     private static void racing(String[] keys, Map<String, String> score) {
         //점수 증가
         for (String key : keys) {
-            if (Random.check()) {
+            int r = Random.make(0, 9);
+            if (Random.check(r)) {
                 score.put(key, score.get(key) + "-");
             }
         }
