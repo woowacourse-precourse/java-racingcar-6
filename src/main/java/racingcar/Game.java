@@ -29,6 +29,11 @@ import java.util.List;
 public class Game {
     private int counts;
     private String carNames;
+
+    public int getCounts() {
+        return counts;
+    }
+
     // 기능 5 작성: printExecuteText()
     public String printExecuteText() {
         return "실행 결과 \n";
@@ -51,9 +56,16 @@ public class Game {
     public void inputCounts() {
         counts = Integer.parseInt(Console.readLine());
     }
-    public boolean isCountsValid() {
-       return false;
+    public boolean isCountsInteger() {
+        try {
+            inputCounts();
+        } catch (IllegalFormatException illegalFormatException) {
+            return false;
+        }
+        return true;
     }
+
+
 
 
 
