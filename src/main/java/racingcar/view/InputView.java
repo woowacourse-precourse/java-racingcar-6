@@ -6,12 +6,15 @@ public class InputView {
 
     public static String[] inputCarList() {
         String input = Console.readLine();
-        return input.split(",");
+        return splitInput(input);
     }
 
     public static String inputGameRound() {
-        String input = Console.readLine();
-        return input;
+        return Console.readLine();
+    }
+
+    private static String[] splitInput(String input) {
+        return input.split(",");
     }
 
 }
