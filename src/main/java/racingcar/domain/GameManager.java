@@ -1,12 +1,15 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
     private static final String GAME_START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static int tryCount;
+    public static List<String> racingCarNames;
+    public static final List<RacingCar> racingCars = new ArrayList<RacingCar>();
 
     public GameManager() {
 
@@ -24,6 +27,7 @@ public class GameManager {
         return Console.readLine();
     }
 
+
     public static boolean validateRacingCarName(String racingCarName) {
         if (racingCarName == null || racingCarName.isEmpty()) {
             throw new IllegalArgumentException("racingcar 이름이 null이거나 비어있습니다.");
@@ -35,11 +39,19 @@ public class GameManager {
         return true;
     }
 
+    public static List<RacingCar> instantiateRacingCars() {
+
+        for (String racingCarName : racingCarNames) {
+            racingCars.add(new RacingCar(racingCarName));
+        }
+        return racingCars;
+    }
+
     public static boolean validateUserInput(String userInput) {
         if (userInput == null || userInput.isEmpty()) {
             throw new IllegalArgumentException("유저 입력값이 null이거나 비어있습니다.");
         }
-        List<String> racingCarNames = List.of(userInput.split(","));
+        racingCarNames = List.of(userInput.split(","));
         // if there is the same racingcar name, throw exception
         if (racingCarNames.stream().distinct().count() != racingCarNames.size()) {
             throw new IllegalArgumentException("중복된 racingcar 이름이 있습니다.");
@@ -48,6 +60,9 @@ public class GameManager {
         for (String racingcarName : racingCarNames) {
             validateRacingCarName(racingcarName);
         }
+
+        instantiateRacingCars();
+
         return true;
     }
 
@@ -67,6 +82,7 @@ public class GameManager {
 
         return true;
     }
+
 
     public static void runGame() {
 
