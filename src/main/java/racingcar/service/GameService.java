@@ -14,8 +14,10 @@ public class GameService {
     private final int START_RANGE = 1;
     private final int END_RANGE = 9;
     private final int MOVE_NUMBER = 1;
+    private final String SPLIT_COMMAS = ",";
+    private final int ZERO = 0;
     public List<String> splitCarNames(String input){
-        String [] carString = input.split(",");
+        String [] carString = input.split(SPLIT_COMMAS);
         List<String> carList = new ArrayList<String>(Arrays.asList(carString));
         return carList;
     }
@@ -40,7 +42,7 @@ public class GameService {
         return winnerNames;
     }
     public int getMaxLocation(List<Car> carList){
-        int max = 0;
+        int max = ZERO;
         for(Car car : carList){
             if(max < car.getCarLocation()){
                 max = car.getCarLocation();
