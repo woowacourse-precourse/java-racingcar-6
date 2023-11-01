@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 public class Refree {
@@ -7,14 +8,20 @@ public class Refree {
     public List<String> winners;
     public void playRace() {
         CarGenerator carGenerator = new CarGenerator();
+        winners = new ArrayList<>();
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carList = Console.readLine();
         cars = carGenerator.createCar(carList);
 
+        System.out.println("시도할 회수는 몇회인가요?");
         int moveNum = Integer.parseInt(Console.readLine());
+
+        System.out.println("실행 결과");
         for(int i = 0; i < moveNum; i++) {
             playTurn();
         }
+        System.out.println();
     }
     public Boolean isForward(int num) {
         return num >= 4;
@@ -44,13 +51,14 @@ public class Refree {
 
         for (Car car : cars) {
             if(max_count == car.forward_count) {
-                winners.add(car.name);
+                this.winners.add(car.name);
             }
         }
     }
 
     public void printWinners() {
-        String winnersName = String.join(",",winners);
+        System.out.print("최종 우승자 : ");
+        String winnersName = String.join(",",this.winners);
         System.out.println(winnersName);
     }
 

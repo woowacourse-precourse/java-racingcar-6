@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void printStatus() {
-        System.out.print(this.name);
+        System.out.print(this.name + " : ");
         for(int i = 0; i < this.forward_count; i++) {
             System.out.print('-');
         }
