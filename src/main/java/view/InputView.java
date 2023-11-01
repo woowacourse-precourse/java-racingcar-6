@@ -20,9 +20,8 @@ public class InputView {
      * @return 예외를 발생 시키지 않으면 true 리턴
      */
     public boolean validateCarNames(String carNames){
-        //TODO. 숫자만 있으면 안되는건가?
         String[] carNameArray = carNames.split(",");
-        if(carNameArray.length < GameConstant.CAR_MIN_LENGTH){
+        if(carNameArray.length < GameConstant.CAR_MIN_COUNT){
             throw new IllegalArgumentException(ErrorCodeConstant.CAR_MIN_LENGTH_ERROR);
         }
 
@@ -50,7 +49,12 @@ public class InputView {
 
         if(!tryCount.matches(REGEX)) {
             throw new IllegalArgumentException(ErrorCodeConstant.NUMBER_VALIDATION_ERROR);
-        } else if(Integer.parseInt(tryCount) > Integer.MAX_VALUE) {
+        }
+
+        int tryCountNumber = Integer.parseInt(tryCount);
+        if(tryCountNumber > Integer.MAX_VALUE) {
+            throw new IllegalArgumentException(ErrorCodeConstant.MAX_NUMBER_ERROR);
+        } else if (tryCountNumber == GameConstant.TRY_MIN_COUNT) {
             throw new IllegalArgumentException(ErrorCodeConstant.MAX_NUMBER_ERROR);
         }
 
