@@ -4,8 +4,8 @@ import java.util.List;
 
 public class OutputView {
 
-    public void printResult(RacingCars racingCars) {
-        for (RacingCar car : racingCars.getRacingCars()) {
+    public void printResult(List<RacingCar> racingCars) {
+        for (RacingCar car : racingCars) {
             System.out.println(car.getName() + " : " + convertDistanceToDash(car.getDistance()));
         }
         System.out.println();

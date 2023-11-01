@@ -13,7 +13,7 @@ public class Application {
         System.out.println("실행 결과");
         while (count > 0) {
             racingGame.play();
-            outputView.printResult(racingCars);
+            outputView.printResult(racingCars.getRacingCars());
             count--;
         }
 
