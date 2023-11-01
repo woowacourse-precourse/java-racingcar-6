@@ -9,7 +9,7 @@ import racingcar.view.OutputValues;
 import java.util.Arrays;
 
 public class CarRaceGameController {
-    public FacadeService facadeService;
+    public FacadeService facadeService = new FacadeService();
     public InputValues inputValues = new InputValues();
     public OutputValues outputValues = new OutputValues();
     public AddValueService addValueService = new AddValueService();
@@ -24,18 +24,17 @@ public class CarRaceGameController {
 
     public String[] addCarNames() {
         String carName = inputValues.getName();
-        System.out.println(carName);
-        return facadeService.addCarName(carName);
+        String[] carNames;
+        carNames = facadeService.addCarName(carName);
+        return carNames;
     }
 
     public void play() {
         addCarNames();
         tryCount();
-/*
 
-        printCarPosition(tryCount(), Arrays.toString(addCarNames()));
-        checkWinner();
-*/
+   /* printCarPosition(tryCount(), Arrays.toString(addCarNames()));
+        checkWinner();*/
     }
 
     public void printCarPosition(int count, String carNames) {
@@ -52,7 +51,8 @@ public class CarRaceGameController {
             carRaceGameService.getPosition(j);
         }
     }
-    public void checkWinner() {
-        outputValues.carRaceWinnerOutput(facadeService.findWinnerName());
+
+    public void checkWinner(String carNames) {
+        outputValues.carRaceWinnerOutput(facadeService.findWinnerName(carNames));
     }
 }

@@ -28,11 +28,12 @@ public class CarRaceGameService {
     public int[] getPosition(int carNameListIndex){
         carPosition[carNameListIndex] = position[carNameListIndex];
 
+
         return carPosition;
     }
 
-    public List<Integer> getAllPosition() {
-        allPosition = Arrays.stream(carPosition)
+    public List<Integer> getAllPosition(int carNameListIndex) {
+        allPosition = Arrays.stream(getPosition(carNameListIndex))
                 .boxed()
                 .collect(Collectors.toList());
         return allPosition;

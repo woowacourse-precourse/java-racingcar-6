@@ -9,7 +9,10 @@ public class VerificationService {
     }
 
     private Boolean nameRangeCheck(String carNames) {
+        System.out.println(carNames + " 검증 차 이름");
         int carNamesLength = carNames.length();
+        System.out.println(carNamesLength+"차량 이름 길이");
+        System.out.println(CarValue.CAR_NAME_MAXIMUM_RANGE.getValue());
 
         return carNamesLength < CarValue.CAR_NAME_MAXIMUM_RANGE.getValue();
     }
