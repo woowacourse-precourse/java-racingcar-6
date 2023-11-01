@@ -14,4 +14,10 @@ public class Output {
         }
         System.out.println();
     }
+
+    public void printWinner(Cars cars) {
+        List<String> winner = cars.getWinner();
+        String result = String.join(",", winner);
+        System.out.print("최종 우승자 : " + result);
+    }
 }
