@@ -34,4 +34,12 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 이름이 존재합니다.");
     }
+    @Test
+    @DisplayName("시도 횟수가 0일 경우에 대한 예외처리 테스트")
+    void validate_Trial_Num_When_Zero() {
+        String testTrialNumber = "0";
+        assertThatThrownBy(() -> validator.validateZeroTrialNumber(testTrialNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력값은 0보다 커야 합니다.");
+    }
 }
