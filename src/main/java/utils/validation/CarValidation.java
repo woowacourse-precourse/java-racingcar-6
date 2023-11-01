@@ -9,7 +9,7 @@ public class CarValidation {
     private static final int CAR_NAME_MAX_SIZE = 5;
     private static final String CAR_NAME_PATTERN = "^[a-zA-Zㄱ-ㅎ가-힣]*$";
 
-    public void carName(List<String> carNames) {
+    public static void carName(List<String> carNames) {
         carNames.forEach(
                 carName -> {
                     carNamesSize(carName);
@@ -32,7 +32,7 @@ public class CarValidation {
         }
     }
 
-    private void uniqueCarName(List<String> carNames) {
+    private static void uniqueCarName(List<String> carNames) {
         if (new HashSet<>(carNames).size() != carNames.size()) {
             throw new IllegalArgumentException();
         }
