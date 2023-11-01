@@ -13,7 +13,7 @@ public class TryCountValidator {
         try {
             return Integer.parseInt(inputTryCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(MessageConstants.INVALID_NUMBER_FORMAT);
+            throw new IllegalArgumentException(MessageConstants.INVALID_NUMBER_FORMAT_OR_OUT_OF_INT_RANGE);
         }
     }
 
