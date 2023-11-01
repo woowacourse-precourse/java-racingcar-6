@@ -176,7 +176,7 @@ Randoms.pickNumberInRange(0,9);
 ## 🚀 구현할 기능 목록
 
 경주 시작
-- [ ]  `Application`의 `main()` 에서 게임 시작
+- [x]  `Application`의 `main()` 에서 게임 시작
 
 사용자 입력 받기
 - [ ]  사용자 입력 안내 콘솔 출력
