@@ -8,19 +8,29 @@ import racingcar.view.OutputView;
 
 public class MainController {
 
-    private final InputController inputController = new InputController();
-    private final OutputView outputView = new OutputView();
+    private final InputController inputController;
+    private final OutputView outputView;
     private Game game;
     private TrialNumber trialNumber;
 
-    public void initGame() {
+    public MainController(InputController inputController, OutputView outputView) {
+        this.inputController = inputController;
+        this.outputView = outputView;
+    }
+
+    public void run() {
+        initGame();
+        playGame();
+    }
+
+    private void initGame() {
         List<String> carNames = inputController.getCarNames();
         int trialNumberInput = inputController.getTrialNumber();
         game = new Game(carNames);
         trialNumber = new TrialNumber(trialNumberInput);
     }
 
-    public void playGame() {
+    private void playGame() {
         outputView.printResultMessage();
         do {
             playSingleTrial();
