@@ -2,7 +2,6 @@ package racingcar.manager;
 
 import static racingcar.constant.InputStringConstant.INPUT_NAME_DIVIDER;
 import static racingcar.utils.validate.InputValidator.validateName;
-import static racingcar.utils.validate.InputValidator.validateRoundNum;
 
 import java.util.Arrays;
 import racingcar.utils.dto.Names;
@@ -22,7 +21,9 @@ public class IOManager {
     }
 
     public Names getNames() {
-        String[] inputNames = input.getNames().split(INPUT_NAME_DIVIDER.getValue());
+        String inputString = input.getNames();
+        InputValidator.validateInput(inputString);
+        String[] inputNames = inputString.split(INPUT_NAME_DIVIDER.getValue());
         validateName(inputNames);
         GameValidator.validateDuplicatedName(inputNames);
         return new Names(Arrays.stream(inputNames).toList());
