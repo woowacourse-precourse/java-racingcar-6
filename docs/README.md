@@ -12,12 +12,13 @@
 
 ## 🚘 Car_Method
 
-|          메서드명          |         역할         |  리턴  |
-|:----------------------:|:------------------:|:----:|
-|      Car(carName)      |        생성자         | void |
-|          move          |  position 하나 증가시킴  | void |
-|     getPosition()      |       Getter       | int  |
-| @override<br/>toString | 이름과 현재 position 출력 | void |
+|          메서드명          |         역할         |   리턴   |
+|:----------------------:|:------------------:|:------:|
+|      Car(carName)      |        생성자         |  void  |
+|        move ()         |  position 하나 증가시킴  |  void  |
+|     getPosition()      |       Getter       |  int   |
+|      getCarName()      |       Getter       | String |
+| @override<br/>toString | 이름과 현재 position 출력 |  void  |
 
 ## 🎮 Game_Method
 
