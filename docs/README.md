@@ -46,6 +46,7 @@
         - getName
         - getPosition
         - move
+        - createRandomNumber
     - Winner
         - getMaxPosition
         - getWinners

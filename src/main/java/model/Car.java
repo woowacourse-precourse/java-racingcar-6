@@ -21,10 +21,13 @@ public class Car {
     }
 
     public void move() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        if (createRandomNumber() >= 4) {
             this.position++;
         }
+    }
+
+    public int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 
