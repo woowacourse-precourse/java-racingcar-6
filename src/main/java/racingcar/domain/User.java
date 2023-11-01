@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.CarNameValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +10,13 @@ import java.util.List;
 public class User {
     public List<String> cars = new ArrayList<>();
     public int gameNumber;
+    CarNameValidator validator = new CarNameValidator();
 
     public User() {
+
+    }
+
+    public void InitialSetting() {
         InputCarName();
         CheckCarName();
         InputGameNumber();
@@ -23,19 +29,22 @@ public class User {
 
     public void CheckCarName() {
         for(int i=0; i<cars.size(); i++) {
-            CheckCarNameLength(cars.get(i));
+            validator.CheckCarNameLength(cars.get(i));
         }
-    }
-
-    public void CheckCarNameLength(String carName) {
-        if(carName.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자리 이하만 입력하세요.");
+        for(int i=0; i<cars.size(); i++) {
+            validator.CheckCarNameNumber(cars.get(i));
         }
+        validator.CheckCarNameDuplication(cars);
     }
 
     public void InputGameNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        gameNumber = Integer.parseInt(Console.readLine());
+        int gameNumberInput = Integer.parseInt(Console.readLine());
+        setGameNumber(gameNumberInput);
+    }
+
+    public void setGameNumber(int gameNumberInput) {
+        gameNumber = gameNumberInput;
     }
 
     public List<String> getCars() {
