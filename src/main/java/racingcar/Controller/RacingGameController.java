@@ -5,7 +5,9 @@ import racingcar.Model.RandomNumberGenerator;
 import racingcar.View.RacingGameView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -18,9 +20,14 @@ public class RacingGameController {
         cars = new ArrayList<>();
         this.randomNumberGenerator = randomNumberGenerator;
 
+        Set<String> uniqueCarNames = new HashSet<>();
+
         for (String carName : carNames) {
             if(carName.length()>5){
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+            if (!uniqueCarNames.add(carName)) {
+                throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
             }
             cars.add(new Car(carName));
         }

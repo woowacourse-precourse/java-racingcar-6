@@ -45,6 +45,15 @@ class Mytest extends NsTest {
 
 
     @Test
+    void 중복_이름_테스트() {
+        RacingGameView view = new RacingGameView();
+        String[] carNames = {"car1", "car2", "car1"};
+        assertThatThrownBy(() -> new RacingGameController(Arrays.asList(carNames), view, new RandomNumberGenertorImpI()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
+
+    @Test
     void 게임_횟수_음수_테스트() {
         RacingGameController controller = new RacingGameController(Arrays.asList("pobi", "woni"), new RacingGameView(),new RandomNumberGenertorImpI());
 
