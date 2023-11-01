@@ -44,7 +44,7 @@ public class Move {
             this.dist.add(0);
         }
 
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         int max = makeMovement();
         stringBuilder.append("최종 우승자 : ");
 
