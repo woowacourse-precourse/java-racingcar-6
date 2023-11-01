@@ -42,8 +42,8 @@ public class CarRacingGame {
         List<Car> winners = new ArrayList<>();
 
         Optional<Car> carWithMaximumDistance = cars
-                .stream()
-                .max(Comparator.comparing(Car::getDistance));
+            .stream()
+            .max(Comparator.comparing(Car::getDistance));
 
         winners.add(carWithMaximumDistance.get());
 
