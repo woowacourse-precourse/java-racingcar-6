@@ -113,4 +113,24 @@ public class RacingTest {
         racing.initPlayCount(5);
         assertThat(racing.getPlayCount()).isEqualTo(5);
     }
+
+
+
+    @Test
+    @DisplayName("getPlayResults 검증 테스트")
+    void getPlayResults_validate() {
+
+        String[] carNames = {"디", "레옹", "마틸다", "로즈", "고든"};
+        int playCount = 5;
+
+        racing.initParticipants(carNames);
+        racing.initPlayCount(playCount);
+
+        String result = String.join(
+                "\n",
+                racing.getPlayResults()
+        );
+
+        assertThat(result).contains("디 : ", "레옹 : ", "마틸다 : ", "로즈 : ", "고든 : ", "-");
+    }
 }
