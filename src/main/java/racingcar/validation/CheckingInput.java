@@ -1,18 +1,24 @@
 package racingcar.validation;
 
+import static racingcar.constants.ExceptionMessage.EXCEPTION_ATTEMT_DIGIT;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_ATTEMT_RANGE;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_CARS_COUNT;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_NAME_DUPLICATE;
+import static racingcar.constants.ExceptionMessage.EXCEPTION_NAME_LENGTH;
+
 import java.util.HashSet;
 
 public class CheckingInput {
 
     static void validateCarName(String carName) {
         if (carName.isEmpty() || carName.length() > 5) {
-            throw new IllegalArgumentException("이름은 1자 이상 5자 이하가 되어야 합니다.");
+            throw new IllegalArgumentException(EXCEPTION_NAME_LENGTH);
         }
     }
 
     static void validateCarNamesLength(int carNamesLength) {
         if (carNamesLength < 2) {
-            throw new IllegalArgumentException("참여 자동차가 2개 이상이어야 합니다.");
+            throw new IllegalArgumentException(EXCEPTION_CARS_COUNT);
         }
     }
 
@@ -21,20 +27,20 @@ public class CheckingInput {
 
         for (String carName : carNames) {
             if (!carNamesSet.add(carName)) {
-                throw new IllegalArgumentException("같은 이름이 두개 이상 있습니다.");
+                throw new IllegalArgumentException(EXCEPTION_NAME_DUPLICATE);
             }
         }
     }
 
     static void validateLetter(char letter) {
         if (letter < '0' || letter > '9') {
-            throw new IllegalArgumentException("입력된 값은 숫자여야 합니다");
+            throw new IllegalArgumentException(EXCEPTION_ATTEMT_DIGIT);
         }
     }
 
     static void validateCountValue(int countNum) {
         if (countNum <= 0) {
-            throw new IllegalArgumentException("입력된 값은 0보다 커야 합니다.");
+            throw new IllegalArgumentException(EXCEPTION_ATTEMT_RANGE);
         }
     }
 
