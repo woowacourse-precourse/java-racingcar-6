@@ -30,5 +30,12 @@ public class CarList {
         }
         return winners;
     }
+    public static String carListMoveCountString(){
+        String carListMoveCountString = "";
+        for (Car car : carList) {
+            carListMoveCountString += car.moveCountString() + '\n';
+        }
+        return carListMoveCountString;
+    }
 
 }

@@ -13,7 +13,7 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(0,9);
         if (randomNumber >= 4) moveCount++;
     }
-    public String gameResultString() {
+    public String moveCountString() {
         return name + " : " + "-".repeat(moveCount);
     }
 }
