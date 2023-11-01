@@ -44,5 +44,12 @@ public class ResultGenerator {
     }
 
     public void printFinalResult(List<String> winnerList) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("최종 우승자 : ");
+        String winners = String.join(",", winnerList);
+        sb.append(winners);
+
+        System.out.println(sb);
     }
 }
