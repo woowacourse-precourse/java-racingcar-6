@@ -27,6 +27,16 @@ public class GameController {
 
 		// positionList에 0값 추가하기
 		data.setInitPositionList(data.getCarList());
+		
+		int i = 0;
+		while (i < gameCount) {
+
+			ng.createRandomNumber(data);
+		
+			i++;
+		}
+
+		
 	}
 
 
