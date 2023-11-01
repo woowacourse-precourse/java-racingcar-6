@@ -2,26 +2,19 @@ package service;
 
 import camp.nextstep.edu.missionutils.Console;
 import model.CarList;
-import model.Message;
-import service.ProcessHelper;
 
 public class GameProcessor {
 
     private final ProcessHelper processHelper = new ProcessHelper();
-
-    public void namingCar(){
-
-        System.out.println(Message.GAMESTART);
-
+    private final Validation validation = new Validation();
+    public CarList namingCar(){
         String[] carNameArray = processHelper.commaSeperate(Console.readLine());
-
-        CarList carList = processHelper.makeCarList(carNameArray);
-
-
+        return processHelper.makeCarList(carNameArray);
     }
 
-    public void setRound(){
-        Console.readLine();
+    public int setRound(){
+        String roundInput = validation.roundInputValidation(Console.readLine());
+        return Integer.parseInt(roundInput);
     }
 
 
