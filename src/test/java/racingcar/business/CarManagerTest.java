@@ -104,6 +104,54 @@ class CarManagerTest {
         assertThat(distanceList).isEqualTo(expectedDistance);
     }
 
+    @Test
+    @DisplayName("가장 멀리간 자동차의 우승자 이름을 출력한다. - 1명 우승하는 경우")
+    void getWinnerNames_one() {
+        // given
+        setNames(Arrays.asList("pobi", "wooni", "kong")); // 자동차 이름 설정
+        List<Integer> expectedNumbers = Arrays.asList(5, 1, 1); // 각 자동차에 순서대로 주어질 숫자들
+
+        // when
+        runMatch(expectedNumbers);
+
+        // then
+        String expectWinner = "pobi";
+        String winnerNames = carManager.getWinnerNames();
+        assertThat(expectWinner).isEqualTo(winnerNames);
+    }
+
+    @Test
+    @DisplayName("가장 멀리간 자동차의 우승자 이름을 출력한다. - 2명 우승하는 경우")
+    void getWinnerNames_two() {
+        // given
+        setNames(Arrays.asList("pobi", "wooni", "kong")); // 자동차 이름 설정
+        List<Integer> expectedNumbers = Arrays.asList(5, 5, 1); // 각 자동차에 순서대로 주어질 숫자들
+
+        // when
+        runMatch(expectedNumbers);
+
+        // then
+        String expectWinner = "pobi, wooni";
+        String winnerNames = carManager.getWinnerNames();
+        assertThat(expectWinner).isEqualTo(winnerNames);
+    }
+
+    @Test
+    @DisplayName("가장 멀리간 자동차의 우승자 이름을 출력한다. - 모두 결과가 동일한 경우")
+    void getWinnerNames_all_same() {
+        // given
+        setNames(Arrays.asList("pobi", "wooni", "kong")); // 자동차 이름 설정
+        List<Integer> expectedNumbers = Arrays.asList(0, 0, 0); // 각 자동차에 순서대로 주어질 숫자들
+
+        // when
+        runMatch(expectedNumbers);
+
+        // then
+        String expectWinner = "pobi, wooni, kong";
+        String winnerNames = carManager.getWinnerNames();
+        assertThat(expectWinner).isEqualTo(winnerNames);
+    }
+
     private void setNames(List<String> nameList) {
         carManager.generateCarList(nameList);
     }
