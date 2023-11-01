@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GameProgressServiceTest {
     List<Car> cars;
     @BeforeEach
-    void init() {
+    void setUp() {
         this.cars= new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             this.cars.add(new Car("Car" + i));

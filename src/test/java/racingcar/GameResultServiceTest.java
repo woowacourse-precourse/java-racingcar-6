@@ -17,7 +17,7 @@ public class GameResultServiceTest {
     GameResultService gameResultService;
     List<Car> cars;
     @BeforeEach
-    void init() {
+    void setUp() {
         this.gameResultService = new GameResultService();
         this.cars= new ArrayList<>();
         for (int i = 0; i < 3; i++) {
