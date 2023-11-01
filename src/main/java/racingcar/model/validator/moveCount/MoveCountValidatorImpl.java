@@ -3,6 +3,10 @@ package racingcar.model.validator.moveCount;
 import static racingcar.util.GameConstants.MAXIMUM_MOVE_COUNT;
 import static racingcar.util.GameConstants.ZERO;
 
+/**
+ * {@code MoveCountValidator}의 구현부이다.
+ * 정해진 규칙에 따라 이동 횟수를 검증한다.
+ */
 public class MoveCountValidatorImpl implements MoveCountValidator{
     @Override
     public void validateType(Long input) {
