@@ -101,7 +101,7 @@ public class CarNamesInputValidatorTest {
         for (String s : input) {
             assertThatCode(() -> carNamesInputValidator.validate(s))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(CarNamesInputErrorMessage.INPUT_CAR_NAMES_DUPLICATED);
+                    .hasMessageContaining(CarNamesInputErrorMessage.INPUT_CAR_NAME_IS_DUPLICATED);
         }
     }
 }

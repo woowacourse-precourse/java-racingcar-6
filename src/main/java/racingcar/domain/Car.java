@@ -44,7 +44,7 @@ public class Car {
             stop();
             return;
         }
-        throw new IllegalArgumentException(CarGenerationErrorMessage.RANDOM_VALUE_NOT_IN_APPROPRIATE_RANGE);
+        throw new IllegalArgumentException(CarGenerationErrorMessage.RANDOM_VALUE_IS_NOT_IN_APPROPRIATE_RANGE);
     }
 
     private int makeRandomValue() {

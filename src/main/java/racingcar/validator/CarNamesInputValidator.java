@@ -9,9 +9,9 @@ public class CarNamesInputValidator {
     public void validate(String userInput) {
         isNotEmpty(userInput);
         containsDelimiter(userInput);
-        isEndsWithDelimiter(userInput);
+        isNotEndWithDelimiter(userInput);
         isEachCarNameLengthInAppropriateRange(userInput);
-        isDuplicated(userInput);
+        isNotDuplicated(userInput);
     }
 
     private void isNotEmpty(String userInput) {
@@ -26,7 +26,7 @@ public class CarNamesInputValidator {
         }
     }
 
-    private void isEndsWithDelimiter(String userInput) {
+    private void isNotEndWithDelimiter(String userInput) {
         if (userInput.endsWith(InputConstant.INPUT_CAR_NAMES_DELIMITER)) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
         }
@@ -56,7 +56,7 @@ public class CarNamesInputValidator {
         }
     }
 
-    private void isDuplicated(String userInput) {
+    private void isNotDuplicated(String userInput) {
         String[] carNames = userInput.split(InputConstant.INPUT_CAR_NAMES_DELIMITER);
         trimCarNames(carNames);
         throwExceptionIfCarNameIsDuplicated(carNames);
@@ -71,7 +71,7 @@ public class CarNamesInputValidator {
     private void throwExceptionIfCarNameIsDuplicated(String[] carNames) {
         long distinctCarNamesCount = Arrays.stream(carNames).distinct().count();
         if (distinctCarNamesCount < carNames.length) {
-            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_CAR_NAMES_DUPLICATED);
+            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_CAR_NAME_IS_DUPLICATED);
         }
     }
 
