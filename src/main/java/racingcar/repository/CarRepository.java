@@ -28,13 +28,11 @@ public class CarRepository {
         currentRacingRound = 0;
     }
 
-    public void race(int round) {
-        if (round > currentRacingRound) {
-            currentRacingRound++;
-            cars.forEach(Car::raceOneRound);
-            SingleRoundResultDto singleRoundResult = new SingleRoundResultDto(generateCarResults());
-            result.addSingleRoundResult(round, singleRoundResult);
-        }
+    public void race() {
+        currentRacingRound++;
+        cars.forEach(Car::raceOneRound);
+        SingleRoundResultDto singleRoundResult = new SingleRoundResultDto(generateCarResults());
+        result.addSingleRoundResult(currentRacingRound, singleRoundResult);
     }
 
     private List<Car.CarResultDto> generateCarResults() {

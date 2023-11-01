@@ -7,17 +7,14 @@ import racingcar.repository.CarRepository;
 
 public class RacingService {
     private final CarRepository carRepository;
-    private int currentRound;
 
     public RacingService(CarsDto carsDto, Client client) {
         this.carRepository = new CarRepository(carsDto, client);
-        currentRound = 0;
     }
 
     public ResultDto playCarRacing() {
         while (!carRepository.isFinalRound()) {
-            currentRound++;
-            carRepository.race(currentRound);
+            carRepository.race();
         }
         return carRepository.finishFinalRound();
     }

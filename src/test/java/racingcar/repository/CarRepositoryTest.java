@@ -50,7 +50,7 @@ class CarRepositoryTest {
     void checkIsFinalRound() {
         assertThat(carRepository.isFinalRound()).isFalse();
         for (int i = ONE_ROUND; i < TOTAL_ROUND + 1; i++) {
-            carRepository.race(i);
+            carRepository.race();
         }
         assertThat(carRepository.isFinalRound()).isTrue();
     }
@@ -60,7 +60,7 @@ class CarRepositoryTest {
     void calculateWinners() {
         Assertions.assertRandomNumberInRangeTest(
                 () -> {
-                    carRepository.race(ONE_ROUND);
+                    carRepository.race();
                     ResultDto result = carRepository.finishFinalRound();
                     assertThat(result.getFinalWinners())
                             .containsExactly("pobi", "jun");
