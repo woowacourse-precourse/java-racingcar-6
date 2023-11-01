@@ -1,6 +1,6 @@
 # 자동차 경주
 
-## 기능 목록 V4
+## 기능 목록 
 
 - [x] 경주에 참여하는 자동차를 생성한다.CreateCar
   - [x] 자동차 이름을 입력 받는다. CreateCar#inputCarNames()
