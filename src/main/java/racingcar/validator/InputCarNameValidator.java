@@ -8,7 +8,7 @@ public class InputCarNameValidator {
     private static final String OVER_FIVE_ERROR_MESSAGE = "자동차 이름은 최대 5글자 입니다.";
     private static final String NON_COMMA_ERROR_MESSAGE = "이름은 쉼표(,)로 구분해 주세요";
     private static final String INPUT_PATTERN_ERROR_MESSAGE = "이름 형식에 맞게 입력해주세요";
-    private static final String[] inputMark = {".", "/", "-","&"};
+    private static final String[] inputMark = {".", "/", "-", "&"};
     private static final String inputPattern = "^[가-힣\\w,]*$";
 
     public void validateNonInputCarName(String carName) {
