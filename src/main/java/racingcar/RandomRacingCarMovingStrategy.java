@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.util.Range;
 import racingcar.util.RangedRandomNumberPicker;
 
 public class RandomRacingCarMovingStrategy implements RacingCarMovingStrategy {
@@ -7,9 +8,9 @@ public class RandomRacingCarMovingStrategy implements RacingCarMovingStrategy {
     private final int movingStandard;
     private final RangedRandomNumberPicker rangedRandomNumberPicker;
 
-    public RandomRacingCarMovingStrategy(int movingStandard, int randomRangeStart, int randomRangeEnd) {
+    public RandomRacingCarMovingStrategy(int movingStandard, Range randomNumberRange) {
         this.movingStandard = movingStandard;
-        this.rangedRandomNumberPicker = new RangedRandomNumberPicker(randomRangeStart, randomRangeEnd);
+        this.rangedRandomNumberPicker = new RangedRandomNumberPicker(randomNumberRange);
     }
 
     @Override

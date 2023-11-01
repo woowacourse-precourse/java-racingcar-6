@@ -4,15 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RangedRandomNumberPicker {
 
-    private final int start;
-    private final int end;
+    private final Range randomNumberRange;
 
-    public RangedRandomNumberPicker(int start, int end) {
-        this.start = start;
-        this.end = end;
+    public RangedRandomNumberPicker(Range randomNumberRange) {
+        this.randomNumberRange = randomNumberRange;
     }
 
     public int pickNumber() {
-        return Randoms.pickNumberInRange(start, end);
+        return Randoms.pickNumberInRange(randomNumberRange.start(), randomNumberRange.end());
     }
 }
