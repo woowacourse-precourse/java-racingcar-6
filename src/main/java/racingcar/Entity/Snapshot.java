@@ -74,7 +74,7 @@ public class Snapshot {
         this.snapshots.add(order, new LinkedHashMap<>());
         Map<String, Integer> snapshot = this.snapshots.get(order);
         for (Car car : cars) {
-            snapshot.put(car.getName(), car.getStep());
+            snapshot.put(car.getName(), car.getLocation());
         }
     }
 }

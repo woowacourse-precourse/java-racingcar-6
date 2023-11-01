@@ -1,41 +1,27 @@
 package racingcar.Entity;
 
-import racingcar.Config;
-import racingcar.Util;
-
 public class Car {
     private final String name;
-    private int step;
+    private final Mover mover;
 
-    private Car(String name, int step) {
+    private Car(String name, int location) {
         this.name = name;
-        this.step = step;
+        this.mover = new LinearMover(location);
     }
 
-    public static Car createCar(String name, int step) {
-        return new Car(name, step);
+    public static Car createCar(String name, int location) {
+        return new Car(name, location);
     }
 
     public void run() {
-        if (isRunnable()) {
-            plusStep(Config.RUN_STEP);
-        }
+        mover.moveForward();
     }
 
-    private void plusStep(int number) {
-        this.step += number;
+    public String getName() {
+        return this.name;
     }
 
-    private boolean isRunnable(){
-        int number = Util.getRandomSingleDigit();
-        return Util.getBooleanByNumber(number);
-    }
-
-    String getName() {
-        return name;
-    }
-
-    int getStep() {
-        return step;
+    public int getLocation() {
+        return mover.getLocation();
     }
 }

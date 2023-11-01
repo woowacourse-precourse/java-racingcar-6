@@ -19,9 +19,9 @@ class CarTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     car.run();
-                    assertThat(car.getStep()).isEqualTo(1);
+                    assertThat(car.getLocation()).isEqualTo(1);
                     car.run();
-                    assertThat(car.getStep()).isEqualTo(2);
+                    assertThat(car.getLocation()).isEqualTo(2);
                 },
                 STOP, GO
         );
