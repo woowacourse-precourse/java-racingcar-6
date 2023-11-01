@@ -7,7 +7,7 @@ import racingcar.dto.Car;
 public class CarDaoImpl implements CarDao {
     private static CarDao instance = new CarDaoImpl();
     private List<Car> carLineup = new ArrayList<>();
-    private int totalTryCount = 0;
+    private int tryCount = 0;
 
     private CarDaoImpl() {}
 
@@ -18,7 +18,7 @@ public class CarDaoImpl implements CarDao {
     @Override
     public void init() {
         carLineup = new ArrayList<>();
-        totalTryCount = 0;
+        tryCount = 0;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public void insertTryCount(int tryCount) {
-        totalTryCount = tryCount;
+        this.tryCount = tryCount;
     }
 
     @Override
@@ -43,5 +43,15 @@ public class CarDaoImpl implements CarDao {
                 car.increaseMoveCount();
             }
         }
+    }
+
+    @Override
+    public void decreaseTryCount() {
+        tryCount--;
+    }
+
+    @Override
+    public int getTryCount() {
+        return tryCount;
     }
 }

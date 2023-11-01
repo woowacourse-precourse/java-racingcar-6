@@ -9,4 +9,6 @@ public interface CarDao {
     void insertTryCount(int tryCount);
     List<Car> selectAllCars();
     void increaseMoveCount(String carName);
+    void decreaseTryCount();
+    int getTryCount();
 }
