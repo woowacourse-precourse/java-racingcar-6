@@ -35,6 +35,10 @@ public class RacingGame {
     }
 
     private void validateRacingCars(List<RacingCar> racingCars) {
+        if (racingCars.isEmpty()) {
+            throw new IllegalArgumentException("자동차가 존재하지 않습니다.");
+        }
+
         long uniqueNameCount = racingCars.stream()
                 .map(RacingCar::getName)
                 .distinct()
