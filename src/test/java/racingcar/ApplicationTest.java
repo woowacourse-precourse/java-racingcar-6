@@ -50,27 +50,29 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining(ErrorMessage.GAME_NOT_FINISHED);
     }
 
-//    @Test
-//    void 우승자_판별_확인() {
-//        assertRandomNumberInRangeTest(
-//                () -> {
-//                    // given
-//                    CarInput carInput = CarInput.of("test1,test2,test3");
-//                    RacingGame racingGame = new RacingGame.Builder()
-//                            .carInput(carInput)
-//                            .tryCount(1)
-//                            .build();
-//
-//                    // when
-//                    racingGame.play();
-//                    printOutput();
-//
-//                    // then
-//                    assertThat(output()).contains(GameMessage.WINNER_FORMAT, "test1, test2");
-//                    },
-//                5,5,2
-//        );
-//    }
+    @Test
+    void 우승자_판별_확인() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    // given
+                    CarInput carInput = CarInput.of("test1,test2,test3");
+                    RacingGame racingGame = new RacingGame.Builder()
+                            .carInput(carInput)
+                            .tryCount(1)
+                            .build();
+
+                    // when
+                    racingGame.play();
+                    printOutput();
+
+                    // then
+                    String winnerMsg = String.format(GameMessage.WINNER_FORMAT, "test1, test2");
+                    assertThat(output()).contains(winnerMsg);
+
+                },
+                5,5,2
+        );
+    }
 
     @Test
     void 승자_판별_실패시_예외처리() {
