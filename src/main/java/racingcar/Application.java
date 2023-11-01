@@ -21,7 +21,7 @@ public class Application {
 
         askNumberOfRace();
         racingCarGame.generateCarList(carName, carList);
-        int numberOfRace = racingCarGame.getNumberOfRace();
+        int numberOfRace = racingCarGame.getCountOfRace();
 
         showResultOfEachRaceText();
         racingCarGame.repeatCarRace(carList, numberOfRace);

@@ -7,15 +7,22 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RacingCarGame {
+
+    ExceptionManager exceptionManager = new ExceptionManager();
+
     public RacingCarGame() {
     }
 
     public String getCarsName() {
-        return Console.readLine();
+        String carsName = Console.readLine();
+        exceptionManager.checkCarsNameException(carsName);
+        return carsName;
     }
 
     public String[] extractCarName(String carsName) {
-        return carsName.split(",");
+        String[] carName = carsName.split("\\s*,\\s*");
+        exceptionManager.checkCarNameException(carName);
+        return carName;
     }
 
     public void generateCarList(String[] carName, CustomArrayList<Car> carList) {
@@ -35,8 +42,10 @@ public class RacingCarGame {
         }
     }
 
-    public int getNumberOfRace() {
-        return Integer.parseInt(Console.readLine());
+    public int getCountOfRace() {
+        String countOfRace = Console.readLine();
+        exceptionManager.checkNumberOfRace(countOfRace);
+        return Integer.parseInt(countOfRace);
     }
 
     public void repeatCarRace(List<Car> carList, int numberOfRace) {
