@@ -1,7 +1,9 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+
 import java.util.List;
+
 import racingcar.util.StringHandler;
 
 public class InputView {
