@@ -1,12 +1,11 @@
 package racingcar.model;
 
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Validator {
 
-    //이름 중복여부 체크 로직 추가 필요
     public void validateCarName(List<String> carNameList) {
 
         for(String carName : carNameList) {
@@ -18,6 +17,16 @@ public class Validator {
             }
             if(carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+            }
+        }
+    }
+
+    public void isCarNameUnique(List<String> idList) {
+        Set<String> set = new HashSet<>();
+
+        for (String id : idList) {
+            if (!set.add(id)) {
+                throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
             }
         }
     }
