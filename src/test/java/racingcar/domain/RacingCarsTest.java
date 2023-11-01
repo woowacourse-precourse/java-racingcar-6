@@ -10,8 +10,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.DriveBehavior;
-import racingcar.domain.car.RandomDriveBehavior;
+import racingcar.domain.car.DriveStrategy;
+import racingcar.domain.car.RandomDriveStrategy;
 
 public class RacingCarsTest {
     @ParameterizedTest
@@ -30,7 +30,7 @@ public class RacingCarsTest {
     }
 
     static Stream<Arguments> provideCarsForException() {
-        DriveBehavior behavior = new RandomDriveBehavior(RandomDriveBehavior::generateRandomNumber);
+        DriveStrategy behavior = new RandomDriveStrategy(RandomDriveStrategy::generateRandomNumber);
 
         return Stream.of(
                 Arguments.of(List.of(Car.createOnStart(behavior, "car1"))),
@@ -39,7 +39,7 @@ public class RacingCarsTest {
     }
 
     static Stream<Arguments> provideCarsForNotException() {
-        DriveBehavior behavior = new RandomDriveBehavior(RandomDriveBehavior::generateRandomNumber);
+        DriveStrategy behavior = new RandomDriveStrategy(RandomDriveStrategy::generateRandomNumber);
 
         return Stream.of(
                 Arguments.of(

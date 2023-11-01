@@ -6,8 +6,8 @@ import racingcar.domain.RacingCars;
 import racingcar.domain.AttemptCount;
 import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.DriveBehavior;
-import racingcar.domain.car.RandomDriveBehavior;
+import racingcar.domain.car.DriveStrategy;
+import racingcar.domain.car.RandomDriveStrategy;
 
 public class GameService {
     private final RacingCars racingCars;
@@ -19,9 +19,9 @@ public class GameService {
     }
 
     public static GameService startGame(String[] carNames, int attemptCount) {
-        DriveBehavior randomDriveBehavior = new RandomDriveBehavior(RandomDriveBehavior::generateRandomNumber);
+        DriveStrategy randomDriveStrategy = new RandomDriveStrategy(RandomDriveStrategy::generateRandomNumber);
         List<Car> racingCars = Arrays.stream(carNames)
-                .map(carName -> Car.createOnStart(randomDriveBehavior, carName))
+                .map(carName -> Car.createOnStart(randomDriveStrategy, carName))
                 .toList();
 
         return new GameService(new RacingCars(racingCars), new AttemptCount(attemptCount));

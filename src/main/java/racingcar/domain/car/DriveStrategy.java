@@ -1,5 +1,5 @@
 package racingcar.domain.car;
 
-public interface DriveBehavior {
+public interface DriveStrategy {
     int determineDistance();
 }
