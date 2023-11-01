@@ -3,6 +3,7 @@ package racingcar.controller;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,4 +46,27 @@ public class RaceControllerTest {
 
         assertThat(winners).containsExactlyElementsOf(expectedWinners);
     }
+
+    @Test
+    void 유효한_시도_횟수_테스트() {
+        int validAttempts = 5;
+        List<Car> cars = new ArrayList<>();
+        RaceController raceController = new RaceController(cars);
+
+        boolean isValid = raceController.validateNumberOfAttempts(validAttempts);
+
+        assertThat(isValid).isTrue();
+    }
+
+    @Test
+    void 유효하지_않은_시도_횟수_테스트() {
+        int invalidAttempts = -1;
+        List<Car> cars = new ArrayList<>();
+        RaceController raceController = new RaceController(cars);
+
+        boolean isValid = raceController.validateNumberOfAttempts(invalidAttempts);
+
+        assertThat(isValid).isFalse();
+    }
+
 }
