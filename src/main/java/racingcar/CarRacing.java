@@ -76,5 +76,7 @@ public class CarRacing {
         if (isValidAttemptCount(count)) {
             setAttemptCount(count);
         }
+
+        System.out.println("\n실행 결과");
     }
 }
