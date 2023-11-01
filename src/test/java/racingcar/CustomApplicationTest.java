@@ -77,6 +77,14 @@ public class CustomApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 예외_테스트_잘못된_시도_횟수() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,juhan", "O"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
