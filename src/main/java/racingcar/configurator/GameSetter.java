@@ -21,17 +21,25 @@ public class GameSetter {
         this.coin = userView.inputCoinValue();
     }
 
+    public GameSetter(CarList carList, String inputValue, int coinValue){
+        this.carList = carList;
+        this.userView = new UserView();
+
+        this.userInputValue = inputValue;
+        this.coin = coinValue;
+    }
+
     public void registerCars() {
         int startNameIndex = 0;
-        int size = userInputValue.length();
+        int length = userInputValue.length();
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < length; i++) {
             if (userInputValue.charAt(i) == ',') {
                 String carName = userInputValue.substring(startNameIndex, i);
                 startNameIndex = i + 1;
                 inputCarToList(carName);
             }
-            if (i == size - 1) {
+            if (i == length - 1) {
                 String carName = userInputValue.substring(startNameIndex);
                 inputCarToList(carName);
             }
