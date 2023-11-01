@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private int position;
@@ -9,6 +11,13 @@ public class Car {
         //생성시 이름 철자 개수 제한
         if (name.length() > 5) {
             throw new IllegalArgumentException();   //종료 되로록 try/catch 사용 X
+        }
+    }
+
+    public void move() {
+        int randnum = Randoms.pickNumberInRange(0, 9);
+        if (randnum >= 4) {
+            position++;
         }
     }
 }
