@@ -13,7 +13,7 @@ public class Cars {
 
     private static final String NAME_DELIMITER = ",";
     private static final String NO_CAR_ERROR_MESSAGE = "자동차가 존재하지 않습니다.";
-    private static final String DUPLICATE_ERROR_MESSAGE = "자동차 이름이 중복됩니다.";
+    private static final String DUPLICATION_ERROR_MESSAGE = "자동차 이름이 중복됩니다.";
 
     private final List<Car> cars;
     private final RandomNumberGenerator randomNumberGenerator;
@@ -42,7 +42,7 @@ public class Cars {
 
     private void validateDuplication(final String names) {
         if (hasDuplicatedName(names)) {
-            throw new IllegalArgumentException(DUPLICATE_ERROR_MESSAGE);
+            throw new IllegalArgumentException(DUPLICATION_ERROR_MESSAGE);
         }
     }
 
