@@ -4,6 +4,7 @@ import static racingcar.constant.RacingMessage.getInputCarNameMessage;
 import static racingcar.constant.RacingMessage.getInputTryCountMessage;
 import static racingcar.constant.RacingMessage.getTryResultMessage;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.request.CarNames;
 import racingcar.dto.request.TryCount;
 import racingcar.dto.response.RacingStatus;
@@ -21,12 +22,12 @@ public class RacingView {
 
     public CarNames inputCarNames() {
         write(getInputCarNameMessage());
-        return inputMapper.readCarNames();
+        return inputMapper.toCarNames(getInput());
     }
 
     public TryCount inputTryCount() {
         write(getInputTryCountMessage());
-        return inputMapper.readTryCount();
+        return inputMapper.toTryCount(getInput());
     }
 
     public void startPrintTryResult() {
@@ -43,5 +44,9 @@ public class RacingView {
 
     private void write(String message) {
         System.out.println(message);
+    }
+
+    private String getInput() {
+        return Console.readLine();
     }
 }
