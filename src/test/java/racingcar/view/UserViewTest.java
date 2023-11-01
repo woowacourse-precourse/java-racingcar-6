@@ -14,13 +14,6 @@ public class UserViewTest {
     }
 
     @Test
-    public void testValidateNameLength() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            userView.validateNameLength("InvalidNameLength");
-        });
-    }
-
-    @Test
     public void testValidateNullValue() {
         assertThrows(IllegalArgumentException.class, () -> {
             userView.validateNullValue("");

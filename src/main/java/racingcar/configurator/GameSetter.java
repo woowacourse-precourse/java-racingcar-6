@@ -5,6 +5,8 @@ import racingcar.model.CarList;
 import racingcar.view.UserView;
 
 public class GameSetter {
+    static final int NAME_LENGTH_LIMIT = 5;
+
     private final CarList carList;
     private final UserView userView;
 
@@ -45,7 +47,12 @@ public class GameSetter {
     }
 
     public void inputCarToList(String carName) {
+        validateNameLength(carName);
         carList.addCar(new Car(carName));
+    }
+
+    public void validateNameLength(String carName) {
+        if (carName.length() > NAME_LENGTH_LIMIT) throw new IllegalArgumentException("이름은 5글자 이하로 입력해 주십시오.");
     }
 
     public int getCoin() {
