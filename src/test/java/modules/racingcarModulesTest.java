@@ -2,6 +2,10 @@ package modules;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class racingcarModulesTest {
@@ -14,5 +18,18 @@ public class racingcarModulesTest {
     }
 
     assertThat(result).isEqualTo(2);
+  }
+
+  @Test
+  void 우승자_리스트로_출력() {
+    HashMap<String, Integer> input = new HashMap<String, Integer>() {{
+      put("pobi", 5); put("woni", 4); put("jun", 5);
+    }};
+    List<String> result = new ArrayList<>() {{
+      add("pobi"); add("jun");
+    }};
+
+    List<String> input_result = racingcarModules.campion_racing(input);
+    assertThat(result).isEqualTo(input_result);
   }
 }
