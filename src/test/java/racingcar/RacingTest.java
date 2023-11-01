@@ -68,7 +68,7 @@ public class RacingTest {
 
     @Test
     @DisplayName("initParticipants 검증 테스트")
-    void initParticipants_success() {
+    void initParticipants_validate() {
 
         String[] carNames = {"디", "레옹", "마틸다", "로즈", "고든"};
 
@@ -108,7 +108,7 @@ public class RacingTest {
 
     @Test
     @DisplayName("initPlayCount 검증 테스트")
-    void initPlayCount_success() {
+    void initPlayCount_validate() {
 
         racing.initPlayCount(5);
         assertThat(racing.getPlayCount()).isEqualTo(5);
