@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CarNamesInput {
+	private static final int MAX_NAME_LENGTH = 5;
 	private final List<String> names = new ArrayList<>();
 
 	public CarNamesInput(String inputNames) {
@@ -36,7 +37,7 @@ public class CarNamesInput {
 	}
 
 	public void validateNameLength(String name) {
-		if (name.length() > 5) {
+		if (name.length() > MAX_NAME_LENGTH) {
 			throw new IllegalArgumentException();
 		}
 	}
