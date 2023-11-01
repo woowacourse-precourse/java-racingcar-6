@@ -46,7 +46,6 @@ public class User {
         Map<String, Integer> updatedPlayers = racingGameLogic.forwardLogic(playerRepository.getPlayers(), tryCount);
         List<String> winners = winnerLogic.finalWinner(updatedPlayers);
 
-        String result = String.join(",", winners);
-        System.out.println("최종 우승자 : " + result);
+        System.out.println("최종 우승자 : " + String.join(",", winners));
     }
 }
