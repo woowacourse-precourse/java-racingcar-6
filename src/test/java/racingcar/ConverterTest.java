@@ -10,7 +10,7 @@ class ConverterTest {
     @Test
     void delimitCarNames_메서드로_주어진_값을_구분() {
         String input = "aaa,bbb,ccc";
-        List<String> result = Converter.delimitCarNames(input);
+        List<String> result = Converter.separateCarNames(input);
 
         assertThat(result).contains("bbb", "ccc", "aaa");
         assertThat(result).containsExactly("aaa", "bbb", "ccc");
@@ -19,7 +19,7 @@ class ConverterTest {
     @Test
     void delimitCarNames_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
         String input = "aaa";
-        List<String> result = Converter.delimitCarNames(input);
+        List<String> result = Converter.separateCarNames(input);
 
         assertThat(result).containsExactly("aaa");
     }

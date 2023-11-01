@@ -10,9 +10,9 @@ public class Validator {
         }
     }
 
-    private static boolean isCarNamesOutOfLength(String[] delimitedCarNames) {
-        for (String delimitedCarName : delimitedCarNames) {
-            if (delimitedCarName.length() > CAR_NAME_LENGTH_MAX_LIMIT) {
+    private static boolean isCarNamesOutOfLength(String[] separatedCarNames) {
+        for (String carName : separatedCarNames) {
+            if (carName.length() > CAR_NAME_LENGTH_MAX_LIMIT) {
                 return true;
             }
         }

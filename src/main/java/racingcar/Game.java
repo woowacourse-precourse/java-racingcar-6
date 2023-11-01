@@ -16,9 +16,9 @@ public class Game {
 
     private List<Car> setUpCars() {
         List<Car> cars = new ArrayList<>();
-        List<String> delimitedCarNames = Converter.delimitCarNames(InputView.inputCarNames());
-        for (String delimitedCarName : delimitedCarNames) {
-            cars.add(new Car(delimitedCarName));
+        List<String> separatedCarNames = Converter.separateCarNames(InputView.inputCarNames());
+        for (String carName : separatedCarNames) {
+            cars.add(new Car(carName));
         }
         return cars;
     }

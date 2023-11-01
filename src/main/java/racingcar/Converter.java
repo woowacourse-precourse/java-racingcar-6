@@ -8,10 +8,10 @@ public class Converter {
     private static final String CAR_NAME_DELIMITER = ",";
     private static final String ONE_STEP = "-";
 
-    public static List<String> delimitCarNames(String carNames) {
-        String[] delimitedCarNames = carNames.split(CAR_NAME_DELIMITER);
-        Validator.validateCarNames(delimitedCarNames);
-        return new ArrayList<>(Arrays.asList(delimitedCarNames));
+    public static List<String> separateCarNames(String carNames) {
+        String[] separatedCarNames = carNames.split(CAR_NAME_DELIMITER);
+        Validator.validateCarNames(separatedCarNames);
+        return new ArrayList<>(Arrays.asList(separatedCarNames));
     }
 
     public static int convertRound(String round) {
