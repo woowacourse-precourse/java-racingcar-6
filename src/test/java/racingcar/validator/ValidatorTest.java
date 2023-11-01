@@ -54,4 +54,15 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NOT_NUMERIC.getMessage());
     }
+
+    @Test
+    void 시도할_회수가_양수가_아닐때_예외_발생() {
+        //given
+        String invalidCnt = "0";
+
+        // When and Then
+        assertThatThrownBy(() -> Validator.validateTryCnt(invalidCnt))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NOT_POSITIVE.getMessage());
+    }
 }
