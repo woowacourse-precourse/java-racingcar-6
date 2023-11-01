@@ -28,7 +28,7 @@ public class Start {
                 throw new IllegalArgumentException("음수를 입력할 수 없습니다.");
             }
             return result;
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
     }
