@@ -1,22 +1,26 @@
-package racingcar.service;
+package racingcar.domain;
 
 public class InputValidation {
 
-    public InputValidation(){}
-    public String[] splitNamesByComma(String InputCars) throws IllegalArgumentException{
+    public InputValidation() {
+    }
+
+    public String[] splitNamesByComma(String InputCars) throws IllegalArgumentException {
         String[] splitCarNames = InputCars.split(",");
 
+
         // 1-2. 자동차 이름은 5자가 넘어선 안된다
-        if(!isLimitFiveString(splitCarNames)) {
+        if (!isLimitFiveString(splitCarNames)) {
             throw new IllegalArgumentException();
         }
+
         return splitCarNames;
 
     }
 
-    public boolean isLimitFiveString(String[] CarNames)throws IllegalArgumentException {
-        for(int i=0;i<CarNames.length;i++) {
-            if (CarNames[i].length() > 5) {
+    public boolean isLimitFiveString(String[] splitCarNames) throws IllegalArgumentException {
+        for (int i = 0; i < splitCarNames.length; i++) {
+            if (splitCarNames[i].length() > 5) {
                 return false;
             }
         }

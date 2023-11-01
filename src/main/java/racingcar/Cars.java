@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar;
 
 import java.util.ArrayList;
 
@@ -9,19 +9,19 @@ public class Cars {
     public Cars() {
     }
 
-    public void setRaceCount(int raceCount){
+    public void setRaceCount(int raceCount) {
         this.RaceCount = raceCount;
     }
 
-    public int getRaceCount(){
+    public int getRaceCount() {
         return RaceCount;
     }
 
-    public ArrayList<String> getCarNames(){
+    public ArrayList<String> getCarNames() {
         return CarNames;
     }
 
-    public void setCarNames(ArrayList<String> carnames){
+    public void setCarNames(ArrayList<String> carnames) {
         this.CarNames = carnames;
     }
 

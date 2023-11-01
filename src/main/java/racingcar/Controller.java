@@ -1,39 +1,33 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Cars;
-import racingcar.service.*;
-import racingcar.view.SystemOutMessage;
+import racingcar.domain.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Controller {
     Cars cars = new Cars();
+    Game game = new Game();
     RacePreparation racepreparations = new RacePreparation();
     RaceStart raceStart = new RaceStart();
     RaceLog raceLog = new RaceLog();
     WinnerCalculator winnerCalculator = new WinnerCalculator();
 
-    public void raceGamePlay(){
-        readyRace();
-        startRace();
-        prizeWinner();
-    }
 
     // 1. 레이싱 게임을 위해 사용자에게 입력값을 받는다.
-    public void readyRace(){
+    public void readyRace() {
         // 1-1. 참가할 자동차 이름 받기
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        racepreparations.askCarNames();
+        cars.setCarNames(racepreparations.askCarNames());
 
         // 1-2. 레이싱 시도 횟수 받기
         System.out.println("시도할 회수는 몇회인가요?");
-        racepreparations.askExecuteCount();
+        cars.setRaceCount(racepreparations.askExecuteCount());
+
     }
 
     // 2. 레이스 경기를 시작한다
-    public void startRace(){
+    public void startRace() {
         ArrayList<String> carNameList = cars.getCarNames();
         int raceCount = cars.getRaceCount();
 
@@ -42,26 +36,31 @@ public class Controller {
         HashMap carLogs = raceLog.createEmptyRaceLog(carNameList);
 
 
-
-
-        while(raceCount > 0){
+        while (raceCount > 0) {
             // 2-2. 경주차마다 무작위 값을 구한다 - createRandomNumbers
-            HashMap<String,Integer> randomNumbers = raceStart.createRandomNumbers(carNameList);;
+            HashMap<String, Integer> randomNumbers = raceStart.createRandomNumbers(carNameList);
+            ;
 
             // 2-3. 무작위값에 따라 경주 기록을 업데이트한다.
             raceStart.updateRaceLog(carNameList, randomNumbers, carLogs, raceCount);
 
             // 2-4. 각 실행결과를 출력한다.
-            raceStart.showRaceLog(carNameList,carLogs);
+            raceStart.showRaceLog(carNameList, carLogs);
             raceCount -= 1;
         }
+
+        //게임 결과 저장
+        game.setRaceResult(carLogs);
     }
 
 
     // 3. 최종 우승자 출력
-    public void prizeWinner(){
-        SystemOutMessage.RaceResultMessage();
-        ArrayList<String> winnerNames = winnerCalculator.calculateWinner();
+    public void prizeWinner() {
+        HashMap<String, String> finalResult = game.getRaceResult();
+        ArrayList<String> carNames = cars.getCarNames();
+
+        System.out.print("최종 우승자 : ");
+        ArrayList<String> winnerNames = winnerCalculator.calculateWinner(finalResult, carNames);
 
         String winnersJoin = String.join(", ", winnerNames);
         System.out.println(winnersJoin);
