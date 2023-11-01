@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.Validation.*;
+import static racingcar.Random.*;
 
 public class Car {
 
@@ -13,6 +14,11 @@ public class Car {
 
         checkMaxNameLength(this.name);
         checkNameIsEmpty(this.name);
+    }
+
+    public void move() {
+        if (isGo())
+            position++;
     }
 
 }

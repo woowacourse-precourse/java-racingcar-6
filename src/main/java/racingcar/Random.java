@@ -10,7 +10,7 @@ public class Random {
         return Randoms.pickNumberInRange(minRandomNumber, maxRandomNumber);
     }
 
-    public static boolean isGo(int randomNumber) {
+    public static boolean isGo() {
         return getRandomNumber() >= goCondition;
     }
 
