@@ -20,12 +20,12 @@ public class Game {
         getWinners();
     }
 
-    private void askCarNames(){
+    public void askCarNames(){
         OutputView.askCarNames();
         cars = new Cars(InputView.readCarNames());
     }
 
-    private void askGameRounds(){
+    public void askGameRounds(){
         OutputView.askGameRounds();
         String input = InputView.readLine();
         InputValidator.inputMustHaveValue(input);
@@ -34,7 +34,7 @@ public class Game {
         InputView.close();
     }
 
-    private void racing(){
+    public void racing(){
         OutputView.startGameResult();
         IntStream.range(STARTING_POINT.getValue(), round).forEach(roundNumber -> {
             cars.roundRace();
@@ -42,7 +42,7 @@ public class Game {
         });
     }
 
-    private void getWinners(){
+    public void getWinners(){
         OutputView.finalGameResult(cars.winnersToString());
     }
 }
