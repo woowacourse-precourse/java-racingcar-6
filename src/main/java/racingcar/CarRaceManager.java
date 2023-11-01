@@ -60,6 +60,6 @@ public class CarRaceManager {
 
     public void printWinner() {
         final List<String> winners = getWinners();
-        System.out.print("최종 우승자: " + String.join(", ", winners));
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 }

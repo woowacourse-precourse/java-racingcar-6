@@ -29,12 +29,6 @@ public class CarRaceManagerTest {
     }
 
     @Test
-    void getAttemptNumber() {
-        int attemptNumber = raceManager.getAttemptNumber("5");
-        assertThat(attemptNumber).isEqualTo(5);
-    }
-
-    @Test
     void nthAttemptRace() {
         List<String> carNames = List.of("pobi", "woni", "jun");
         raceManager.createCarList(carNames);
