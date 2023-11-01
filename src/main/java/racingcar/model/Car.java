@@ -12,8 +12,9 @@ public class Car {
         this.location = new Location();
     }
 
-    public void playGameOneRound() {
+    public Location playGameOneRound() {
         location.stopOrMove();
+        return this.location;
     }
 
     public Integer getCarLocationLength() {

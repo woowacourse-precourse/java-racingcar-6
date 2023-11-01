@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
 
@@ -16,37 +17,43 @@ public class RacingGame {
     public String playGame(Attempt attempt) {
         String result = "";
         for (int i = 0; i < attempt.getCount(); i++) {
-            for (Car car : carGroup) {
-                car.playGameOneRound();
-                result += (car.toString() + System.lineSeparator());
-            }
-            result += System.lineSeparator();
+            result += playGameOneRound();
         }
         return result;
     }
 
-    public String determineWinner() {
-        String result = "";
-        int max = getMaxDistance();
-        // find winner with max distance
-        List<String> winnerList = new ArrayList<>();
-        for (Car car : carGroup) {
-            if (car.getCarLocationLength() == max) {
-                winnerList.add(car.getName().toString());
-            }
-        }
-        // return winner
-        return String.join(", ", winnerList);
+    private String playGameOneRound() {
+        return carGroup.stream()
+                .map(car -> {
+                    car.playGameOneRound();
+                    return car.toString();
+                })
+                .collect(Collectors.joining("\n", "", "\n\n"));
     }
 
-    private int getMaxDistance() {
-        int max = 0;
-        for (Car car : carGroup) {
-            int distance = car.getCarLocationLength();
-            if (distance > max) {
-                max = distance;
-            }
-        }
-        return max;
+    public String determineWinner() {
+        int max = findMaxDistance();
+        List<String> winnerList = findwinnerList(max);
+        return separateComma(winnerList);
+    }
+
+    private int findMaxDistance() {
+        return carGroup.stream()
+                .mapToInt(car -> car.getCarLocationLength())
+                .max()
+                .orElse(0);
+    }
+
+    private List<String> findwinnerList(int max) {
+        // find winner with max distance
+        return carGroup.stream()
+                .filter(car -> max == car.getCarLocationLength())
+                .map(car -> car.getName())
+                .map(carName -> carName.toString())
+                .collect(Collectors.toList());
+    }
+
+    private String separateComma(List<String> list) {
+        return String.join(",", list);
     }
 }
