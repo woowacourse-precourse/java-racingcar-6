@@ -19,15 +19,14 @@ public class GameController {
     private final UserInputManager userInputManager;
 
     List<String> carNames;
-    List<Integer> randomNumbers;
-    List<Integer> carBoost;
+    List<Integer> carBoosts;
     int attempt;
 
 
     public GameController() {   //생성자
-        this.userInputManager = new UserInputManager();
-        this.numberGenerator = new NumberGenerator();
-        this.judgement = new Judgement();
+        userInputManager = new UserInputManager();
+        numberGenerator = new NumberGenerator(cars.size());
+        judgement = new Judgement();
     }
 
     private void initializeGame() {
@@ -43,6 +42,11 @@ public class GameController {
     }
 
     public void conductRaces() {
+        carBoosts = numberGenerator.getRandomNumbers();
+        for (Car car : cars) {    //자동차 수치를 업데이트한다.
+            car.setCarRandomNumbers(carBoosts);
+        }
+
 
     }
 

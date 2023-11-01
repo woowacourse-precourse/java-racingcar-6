@@ -14,7 +14,7 @@ public class Car {
         carBoost = startBoost;
     }
 
-    void setCarRandomNumbers(List<Integer> carBoost) {
+    public void setCarRandomNumbers(List<Integer> carBoost) {
         for (int i = 0; i < cars.size(); i++) {
             cars.get(i).carBoost += carBoost.get(i);
         }
