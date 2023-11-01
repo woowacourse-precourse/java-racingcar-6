@@ -21,7 +21,7 @@ public class OutPutContentsContext {
     List<String> carNames = totalRoundRecord.getCarNames();
     List<String> list = new ArrayList<>();
     RoundContents roundContents = createRoundContents(eachRoundRecord, carNames, list);
-    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners, "최종 우승자 : ");
+    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners, VictoryMessages.VICTORY_MESSAGES.message());
 
     return OutPutContents.of(roundContents, finalWinnerContents);
   }
@@ -30,7 +30,7 @@ public class OutPutContentsContext {
       List<String> carNames,
       List<String> roundContent) {
     for (List<Integer> list : eachRoundRecord) {
-      StringJoiner stringJoiner = new StringJoiner("\n");
+      StringJoiner stringJoiner = new StringJoiner(PunctuationMarks.NEW_LINE.mark());
       IntStream.range(0, list.size())
           .forEach(i -> stringJoiner.add(roundResult(list, carNames, i)));
       roundContent.add(stringJoiner.toString());
@@ -39,7 +39,8 @@ public class OutPutContentsContext {
   }
 
   private static String roundResult(List<Integer> list, List<String> carNames, int i) {
-    return carNames.get(i) + " : " + "-".repeat(list.get(i));
+    String repeatedMinus = PunctuationMarks.MINUS.mark().repeat(list.get(i));
+    return String.join(PunctuationMarks.EMPTY_COLON_EMPTY.mark(), carNames.get(i), repeatedMinus);
   }
 
   private static FinalWinnerContents creteWinnerContents(FinalWinners winners, String winnerGuide) {
