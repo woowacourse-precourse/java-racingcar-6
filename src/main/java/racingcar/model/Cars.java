@@ -18,10 +18,10 @@ public class Cars {
     }
 
     private boolean validateCarNameDuplication(List<Car> carList, String carName) {
-        if (carList.stream().anyMatch(car -> car.getName().contains(carName)))
+        if (carList.stream().anyMatch(car -> car.getName().equals(carName)))
             throwError(DUPLICATE_NAME);
         return false;
-    }//수정필요
+    }
 
     public List<Car> getCarList() {
         return carList;
