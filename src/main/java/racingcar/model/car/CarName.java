@@ -1,6 +1,7 @@
 package racingcar.model.car;
 
 import racingcar.util.CarNameValidator;
+import racingcar.util.CommonValidator;
 
 public class CarName {
     private static final int LENGTH_LIMIT = 5;
@@ -13,7 +14,7 @@ public class CarName {
     }
 
     private void validateName(String carName) {
-        CarNameValidator.validateEmptyCheck(carName);
+        CommonValidator.validateBlankCheck(carName,"CARNAME");
         CarNameValidator.validateSpaceCheck(carName);
         CarNameValidator.validateLengthCheck(carName, LENGTH_LIMIT);
     }

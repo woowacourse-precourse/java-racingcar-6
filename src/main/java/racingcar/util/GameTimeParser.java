@@ -6,6 +6,7 @@ public class GameTimeParser {
     private static final char RIGHT_BOUND = '9';
 
     public static int parse(String userGameTimeInput) {
+        CommonValidator.validateBlankCheck(userGameTimeInput,"GAME_TIME");
         isNumberSequence(userGameTimeInput);
         return Integer.parseInt(userGameTimeInput);
     }

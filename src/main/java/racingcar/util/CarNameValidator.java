@@ -1,7 +1,6 @@
 package racingcar.util;
 
 import java.util.List;
-import java.util.Objects;
 
 public class CarNameValidator {
     private static final String SPACE = " ";
@@ -15,12 +14,6 @@ public class CarNameValidator {
     public static void validateLengthCheck(String carName, int legth) {
         if (carName.length() > legth) {
             throw new IllegalArgumentException(String.format("이름의 길이는 %d를 초과할 수 없습니다.", legth));
-        }
-    }
-
-    public static void validateEmptyCheck(String carName) {
-        if (Objects.isNull(carName) || carName.isEmpty()) {
-            throw new IllegalArgumentException("이름을 입력하지 않았습니다.");
         }
     }
 
