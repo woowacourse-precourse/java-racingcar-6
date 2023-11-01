@@ -16,14 +16,13 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
-
 
 
     @Test
@@ -56,8 +55,8 @@ class ApplicationTest extends NsTest {
     void 시도_횟수에_대한_예외_처리_빈_값인_경우() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", " "))
-                       .isInstanceOf(IllegalArgumentException.class)
-                       .hasMessage(ErrorMessage.INPUT_BLANK)
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(ErrorMessage.INPUT_BLANK)
         );
     }
 
