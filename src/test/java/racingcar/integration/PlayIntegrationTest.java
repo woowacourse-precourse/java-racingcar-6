@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.integration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
