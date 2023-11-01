@@ -6,7 +6,8 @@ public enum ErrorMessages {
     CONTAIN_WHITE_SPACE("이름에 공백이 포함되어 있습니다."),
     NOT_ENOUGH_CAR_NUMBER("대 이상의 이름을 입력해야 합니다."),
     CONTAIN_DUPLICATE_CARNAME("중복되는 이름이 있습니다."),
-    NOT_OVER_ZERO("0보다 큰 수를 입력해주세요");
+    NOT_OVER_ZERO("0보다 큰 수를 입력해주세요"),
+    WHOLE_EMPTY_NOT_ALLOW("이름은 공백이 될 수 없습니다.");
 
     private String description;
 

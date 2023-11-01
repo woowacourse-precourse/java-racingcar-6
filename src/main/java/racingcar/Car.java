@@ -22,6 +22,11 @@ public class Car {
     }
 
     private boolean validateName(String carName) {
+        if (carName.isEmpty()) {
+            errorType = ErrorMessages.WHOLE_EMPTY_NOT_ALLOW;
+            throw new IllegalArgumentException(errorType.getDescription());
+        }
+
         if (!(carName.length() <= CarConstants.LENGTH_CAR_NAME.getConst())) {
             errorType = ErrorMessages.OVER_LENGTH_CARNAME;
             throw new IllegalArgumentException(CarConstants.LENGTH_CAR_NAME.getConst() + errorType.getDescription());
