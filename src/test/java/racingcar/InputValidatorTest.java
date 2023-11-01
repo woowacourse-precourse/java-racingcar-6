@@ -22,7 +22,7 @@ public class InputValidatorTest {
 
     @ParameterizedTest
     @DisplayName("정수 입력이 아닐 경우 예외 발생")
-    @ValueSource(strings = {"1.1", "car", "3word"})
+    @ValueSource(strings = {"11.1", "car", "3word"})
     void inputMustBeInteger(String input){
         assertThatThrownBy(()-> InputValidator.inputMustBeInteger(input))
                 .isInstanceOf(IllegalArgumentException.class)
