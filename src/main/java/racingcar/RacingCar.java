@@ -2,8 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RacingCar {
     public boolean carMoveForward(){
@@ -27,7 +26,8 @@ public class RacingCar {
     }
 
     public int countDistance(String distance){
-        return (int) distance.chars().filter(c -> c== '-').count();
+        int totalDistance=  (int) distance.chars().filter(c -> equals("-")).count();
+        return totalDistance;
     }
 
     private static String[] splitCarNames(String carNames){

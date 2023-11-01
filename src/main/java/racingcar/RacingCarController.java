@@ -14,6 +14,8 @@ public class RacingCarController {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
+    private final Map<String, String> stringResultValueMap = new HashMap<>();
+
     public RacingCarController(RacingCar racingCar, RacingCarInput racingCarInput, ValidInputChecker validInputChecker){
         this.racingCar = racingCar;
         this.racingCarInput = racingCarInput;
@@ -29,35 +31,37 @@ public class RacingCarController {
         int tryCnt = racingCarInput.getTryCount();
 
         System.out.println(RESULT_MESSAGE);
-        printResult(tryCnt, carNameHashMap);
+        Map<String, String> stringMap = printResult(tryCnt, carNameHashMap);
 
-        List<String> winners = makeWinnerList(carNameHashMap);
+        List<String> winners = makeWinnerList(stringMap);
         printWinners(winners);
 
     }
 
-    private void makeResult( Map<String, String> carNameHashMap){
-        Map<String,String> stringResultMap = new HashMap<>();
-
+    private Map<String, String> makeResult(Map<String, String> carNameHashMap){
         for(String carName : carNameHashMap.keySet()){
             String distance = carNameHashMap.get(carName);
             if(racingCar.carMoveForward()){
                 distance += "-";
-                stringResultMap.put(carName,distance);
+                stringResultValueMap.put(carName,distance);
             }
             System.out.println(carName + " : " + distance);
         }
+        return stringResultValueMap;
     }
 
-    private void printResult(int tryCnt, Map<String, String> carNameHashMap){
-        for(int i=0; i<tryCnt; i++){
+    private Map<String, String> printResult(int tryCnt, Map<String, String> carNameHashMap){
+        for(int cnt=0; cnt<tryCnt; cnt++) {
             makeResult(carNameHashMap);
             System.out.println();
         }
+
+        return stringResultValueMap;
     }
 
     public int getMaxDistance(Map<String, Integer> integerValueMap){
         int maxValue = Integer.MIN_VALUE;
+
         for(Map.Entry<String, Integer> entry : integerValueMap.entrySet()){
             int nowValue = entry.getValue();
             if(nowValue > maxValue){
@@ -79,9 +83,9 @@ public class RacingCarController {
         return integerResultValueMap;
     }
 
-    public List<String> makeWinnerList(Map<String, String> stringValueMap){
+    public List<String> makeWinnerList(Map<String, String> stringMap){
         List<String> winnerList = new ArrayList<>();
-        Map<String, Integer> integerValueMap = makeIntegerValueMap(stringValueMap);
+        Map<String, Integer> integerValueMap = makeIntegerValueMap(stringMap);
 
         int maxDistance = getMaxDistance(integerValueMap);
 
