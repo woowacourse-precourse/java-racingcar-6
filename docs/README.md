@@ -24,3 +24,27 @@
 
 ### 6. 예외처리
 - [ ] 사용자가 잘못된 값을 입력하는 경우 IllegalArgumentException을 발생시킴
+
+
+---
+
+## MVC 패턴
+
+### model
+
+- Car class (데이터 필드 관리)
+- CarNameManager (이름 설정)
+- CarControlManager (자동차 조작)
+
+### view
+
+> 자동차 경주 게임을 시작합니다.
+  <br>참가할 자동차 이름을 입력하세요.(이름은 쉼표(,)로 구분)
+  <br>[입력 필드]  // 여기에 자동차 이름을 입력 (예: pobi,crong,honux)
+  <br>시도할 회수를 입력하세요.
+  <br>[입력 필드]  // 여기에 시도 횟수를 입력
+  <br>[시작 버튼]  // 게임 시작 버튼
+
+### controller
+
+### dto
