@@ -11,67 +11,59 @@ public class RacingGame {
 
     private List<Car> cars;
 
-    public RacingGame(String inputCarsString){
+    public RacingGame(String inputCarsString) {
         this.cars = this.createCars(inputCarsString);
     }
 
-    public List<Car> getCars(){
+    public List<Car> getCars() {
         return cars;
     }
 
-    private List<Car> createCars(String inputCarsString){
-
+    private List<Car> createCars(String inputCarsString) {
         List<String> carNames = new ArrayList<String>();
         Collections.addAll(carNames, inputCarsString.split(","));
 
         List<Car> carList = new ArrayList<>();
-        for(String name : carNames){
+        for (String name : carNames) {
             carList.add(new Car(name, 0));
         }
 
         return carList;
     }
 
-    public List<Car> racing(){
-
-        for(Car car : this.cars){
+    public List<Car> racing() {
+        for (Car car : this.cars) {
             car.move();
         }
 
         return this.cars;
     }
 
-    public List<String> findWinners(){
-
+    public List<String> findWinners() {
         Integer highestPoint = findHighestPoint();
         List<String> winnerList = findCarNames(highestPoint);
 
         return winnerList;
     }
 
-    private Integer findHighestPoint(){
+    private Integer findHighestPoint() {
         List<Integer> carPointList = new ArrayList<>();
-        for(Car car : this.cars){
+        for (Car car : this.cars) {
             carPointList.add(car.getPoint());
         }
-
         Integer highestPoint = Collections.max(carPointList);
 
         return highestPoint;
     }
 
-    private List<String> findCarNames(Integer highestPoint){
-
+    private List<String> findCarNames(Integer highestPoint) {
         List<String> names = new ArrayList<>();
-
-        for(Car car : this.cars){
-          if(car.point.equals(highestPoint)) {
-            names.add(car.name);
-          }
+        for (Car car : this.cars) {
+            if (car.point.equals(highestPoint)) {
+                names.add(car.name);
+            }
         }
 
         return names;
-
     }
-
 }
