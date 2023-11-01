@@ -19,11 +19,11 @@ public class RacingController {
         endGame();
     }
 
-    private void endGame() {
+    public void endGame() {
         OutputMessage.printResultOutputMessage(racingService.chooseWinner());
     }
 
-    private void playGame() {
+    public void playGame() {
         TryTime tryTime = InputMessage.printTryTimesInputMessage();
         OutputMessage.printPlayOutputMessage();
 
@@ -32,7 +32,7 @@ public class RacingController {
         }
     }
 
-    private void setGame() {
+    public void setGame() {
         List<String> carNames = InputMessage.printCarNameInputMessage();
         racingService.initializeGame(carNames);
     }
