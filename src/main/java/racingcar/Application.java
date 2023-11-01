@@ -11,7 +11,6 @@ public class Application {
         String[] inputs = inputCarName();
         Map<String, Integer> map = new LinkedHashMap<>();
 
-        // 횟수 입력
         int count = inputCount();
 
         int i = 0;
