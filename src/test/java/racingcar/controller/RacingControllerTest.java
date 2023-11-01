@@ -52,6 +52,34 @@ class RacingControllerTest extends NsTest {
         );
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"#", "!", "%", "&"})
+    void 횟수_특수문자_입력_예외_테스트(String input) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "\n", "\r", "\r\n", "-1"})
+    void 횟수_입력_예외_테스트(String input) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2", "3"})
+    void 횟수_정상_입력__테스트(String input) {
+        assertSimpleTest(
+                () -> {
+                    runException("pobi", input);
+                    assertThat(output()).contains("실행 결과");
+                }
+        );
+    }
 
     @Override
     protected void runMain() {
