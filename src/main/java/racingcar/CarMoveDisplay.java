@@ -3,14 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarMoveDisplay {
-//    private RaceInfo raceInfo;
 
-
-//    public CarMoveDisplay(RaceInfo raceInfo) {
-////        this.raceInfo = raceInfo;
-////        carRace();
-////        carRace(raceInfo);
-//    }
 
     public static void carRace(RaceInfo raceInfo) {
         System.out.println("실행 결과");
@@ -22,7 +15,6 @@ public class CarMoveDisplay {
                 }
                 racePrint(car);
             }
-
             System.out.println();
             i++;
         }

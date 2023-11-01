@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WinnerDisplay {
-//    private RaceInfo raceInfo;
 
-//    public WinnerDisplay(RaceInfo raceInfo) {
-//        this.raceInfo = raceInfo;
-//        winnerPrint(verifyWinner());
-//    }
 
     public static List<String> verifyWinner(RaceInfo raceInfo) {
         int maxCarDistance = 0;

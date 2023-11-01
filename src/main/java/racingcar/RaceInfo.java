@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RaceInfo {
-    private List<Car> carList = new ArrayList<>();
-
-    private int attemptCount;
+    private final List<Car> carList = new ArrayList<>();
+    private final int attemptCount;
 
     public RaceInfo(String[] carNames, String attemptCount) {
         validateInput(carNames, attemptCount);
