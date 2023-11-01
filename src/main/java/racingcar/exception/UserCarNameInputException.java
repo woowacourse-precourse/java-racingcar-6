@@ -2,8 +2,6 @@ package racingcar.exception;
 
 import java.util.List;
 
-import static java.lang.Character.isLetterOrDigit;
-
 public class UserCarNameInputException {
     private static final int MAX_LENGTH = 5;
     private static final int MIN_LENGTH = 1;

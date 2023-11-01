@@ -49,7 +49,6 @@ public class Cars {
         return mvpList;
     }
 
-
     public static LinkedHashMap<String, Integer> getForwardState(){
         LinkedHashMap<String, Integer> forwardState = new LinkedHashMap<>();
         for(Car car : cars){

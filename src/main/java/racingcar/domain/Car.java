@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.List;
 
 public class Car {
     private static final int CAN_GO_FORWARD_START = 4;
