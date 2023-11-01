@@ -9,6 +9,7 @@ import racingcar.util.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private List<Car> carList;
@@ -22,6 +23,7 @@ public class Game {
 
     // 게임 시작 전 설정
     public void setUp() {
+        setCarNames();
         setMoveCnt();
         System.out.println();
     }
@@ -57,5 +59,20 @@ public class Game {
 
     private boolean isMovable() {
         return Randoms.pickNumberInRange(0,9) >= 4;
+    }
+
+
+    private void setCarNames() {
+        System.out.println(Message.INPUT_CAR_NAMES);
+
+        String[] carNames = player.inputCarNames();
+
+        if (!Validator.validateCarNames(carNames)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAMES.getMessage());
+        }
+
+        for (String name : carNames) {
+            carList.add(new Car(name));
+        }
     }
 }
