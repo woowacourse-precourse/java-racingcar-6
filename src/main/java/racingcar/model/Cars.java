@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
@@ -17,7 +18,17 @@ public class Cars {
         return carsList.get(index);
     }
 
-    public int getMaxMoveInCars() {
+    public List<String> getWinnerNameList() {
+        List<String> result = new ArrayList<>();
+        for (Car car : carsList) {
+            if (car.getMove() == getMaxMoveInCars()) {
+                result.add(car.getName());
+            }
+        }
+        return result;
+    }
+
+    private int getMaxMoveInCars() {
         int maxMove = 0;
         for (Car car : carsList) {
             maxMove = Integer.max(maxMove, car.getMove());

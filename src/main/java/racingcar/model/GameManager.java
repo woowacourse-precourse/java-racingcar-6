@@ -27,16 +27,6 @@ public class GameManager {
         }
     }
 
-    public List<String> getWinnerNameList(int winMove, Cars cars) {
-        List<String> result = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.getCarInIndex(i).getMove() == winMove) {
-                result.add(cars.getCarInIndex(i).getName());
-            }
-        }
-        return result;
-    }
-
     private void tryMoveCar(Car car) {
         if (makeRandomNumber() >= MOVE_CONDITION) {
             car.moveCar();
