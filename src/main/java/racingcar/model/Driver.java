@@ -14,4 +14,12 @@ public class Driver {
         return name;
     }
 
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void move() {
+        this.moveCount += 1;
+    }
+
 }
