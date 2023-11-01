@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.view.InputView;
@@ -16,7 +17,7 @@ public class InputResolver {
 
         String[] splitCarNames = splitByComma(carNames);
         List<String> carNameList = removeDuplicates(splitCarNames);
-        return removeSpaceCarName(carNameList);
+        return removeSpace(carNameList);
     }
 
     private static String[] splitByComma(String carNames) {
@@ -29,13 +30,27 @@ public class InputResolver {
                 .toList();
     }
 
-    private List<String> removeSpaceCarName(List<String> splitInput) {
+    private List<String> removeSpace(List<String> splitInput) {
         return splitInput.stream()
                 .map(String::trim)
                 .toList();
     }
 
+    public int preprocessCount() {
+        String count = inputView.inputCount();
 
+        return stringToInt(count.trim());
+    }
 
+    private static int stringToInt(String trimInput) {
+        int count;
+        try {
+            count = Integer.parseInt(trimInput);
+        } catch (Exception e) {
+            Console.close();
+            throw new IllegalArgumentException("숫자가 아닌 값을 횟수 값으로 입력할 수 없습니다.");
+        }
+        return count;
+    }
 
 }
