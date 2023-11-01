@@ -84,4 +84,13 @@ public class RacingCarGameTest {
 
         assertThat(gameCount).isEqualTo(2);
     }
+    @Test
+    void printPlayerScore() {
+        RacingCarGame game = new RacingCarGame();
+        RacingCar racingCar = new RacingCar("dadi");
+        for (int i=0; i<3; i++) {
+            racingCar.move(4);
+        }
+        assertThat(game.printRacingCarScore(racingCar)).isEqualTo("dadi : ---");
+    }
 }
