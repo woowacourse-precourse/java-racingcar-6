@@ -10,10 +10,6 @@ import racingcar.view.Output;
 
 public class Controller {
 
-    public Controller() {
-
-    }
-
     public void run() {
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         Racing racing = new Racing(numberGenerator);
