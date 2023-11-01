@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class InputConsoleTest extends NsTest {
 
     @Test
-    public void 차_이름_입력_테스트() throws Exception {
-        run("alpha,bravo,char");
-        Assertions.assertThat(output()).contains("alpha", "bravo", "char");
+    public void 차_이름과_라운드_입력_테스트() throws Exception {
+        run("alpha,bravo,char", "5");
+        Assertions.assertThat(output()).contains("alpha", "bravo", "char", "5");
     }
 
     @Override
@@ -22,6 +22,9 @@ class InputConsoleTest extends NsTest {
         for (String carName : carNames) {
             System.out.println(carName);
         }
+
+        int round = InputConsole.enterRound();
+        System.out.println(round);
     }
 
 }
