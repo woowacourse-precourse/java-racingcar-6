@@ -7,6 +7,8 @@ import java.util.*;
 public class RacingGame {
 	private final List<RacingCar> cars = new ArrayList<>();
 
+	private static final int NAME_LENGTH_CHECK = 5;
+
 	public RacingGame() {
 
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -17,7 +19,7 @@ public class RacingGame {
 	public void addCar(String inputNames) {
 		String[] carNames = inputNames.split(",");
 		for (String name : carNames) {
-			if (name.length() <= 5) {
+			if (name.length() <= NAME_LENGTH_CHECK) {
 				cars.add(new RacingCar(name));
 			} else {
 				throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
