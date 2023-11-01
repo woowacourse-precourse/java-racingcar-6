@@ -15,7 +15,7 @@ public class RacingGame {
                 .toList();
     }
 
-    public static RacingGame from(String carNames) {
+    public static RacingGame init(String carNames) {
         List<CarName> list = Arrays.stream(carNames.split(","))
                 .map(CarName::new)
                 .toList();
@@ -62,6 +62,6 @@ public class RacingGame {
     }
 
     private String separateComma(List<String> list) {
-        return String.join(",", list);
+        return String.join(", ", list);
     }
 }

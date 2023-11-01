@@ -19,7 +19,7 @@ public class RacingGameController {
         // input car name
         String carNames = inputView.inputCarNames();
         hasComma(carNames);
-        RacingGame game = RacingGame.from(carNames);
+        RacingGame game = RacingGame.init(carNames);
 
         // input attempt
         Attempt attempt = Attempt.from(inputView.inputAttempts());
