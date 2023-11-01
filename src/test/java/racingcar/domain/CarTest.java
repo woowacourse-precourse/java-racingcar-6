@@ -45,7 +45,4 @@ class CarTest {
         assertThat(isWinner).isFalse();
     }
 
-    @Test
-    void getName() {
-    }
 }
