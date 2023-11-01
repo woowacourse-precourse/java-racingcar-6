@@ -26,7 +26,9 @@ public final class GameIOController implements IOController {
     public Integer getRoundNumber() {
         String userInput = ioView.readUserInput();
         inputValidator.validateSingleNumber(userInput);
-        return Integer.parseInt(userInput);
+        Integer roundNumber = Integer.parseInt(userInput);
+        GameRuleValidator.validateRoundNumber(roundNumber);
+        return roundNumber;
     }
 
     public List<String> getCarNames() {

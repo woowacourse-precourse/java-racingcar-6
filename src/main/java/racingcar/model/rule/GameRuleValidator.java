@@ -30,4 +30,8 @@ public final class GameRuleValidator implements GameRule {
                             RuleErrorMessage.DUPLICATED_NAME.getFormattedMessage(duplicateName));
                 });
     }
+
+    public static void validateRoundNumber(Integer roundNumber) {
+        if(roundNumber < MIN_RANGE_VALUE ) throw new IllegalArgumentException(RuleErrorMessage.WRONG_VALUE_OF_ROUND.getMessage());
+    }
 }
