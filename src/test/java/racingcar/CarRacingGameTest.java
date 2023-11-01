@@ -29,9 +29,10 @@ public class CarRacingGameTest {
     }
 
     @Test
-    @DisplayName("자동차 경주 게임 진행 - 0이상 3이하의 경우 자동차 전진")
+    @DisplayName("자동차 경주 게임 진행 - 0이상 3이하의 경우 자동차 멈춤")
     void 멈춤_조건에서_자동차_멈춤_여부_테스트() {
-        assertRandomNumberInRangeTest(() -> {
+        assertRandomNumberInRangeTest(
+                () -> {
                     int beforeMove = car.getMove(CAR_NAME);
 
                     game.playSet();
@@ -47,7 +48,8 @@ public class CarRacingGameTest {
     @Test
     @DisplayName("자동차 경주 게임 진행 - 4이상 9이하의 경우 자동차 전진")
     void 전진_조건에서_자동차_전진_여부_테스트() {
-        assertRandomNumberInRangeTest(() -> {
+        assertRandomNumberInRangeTest(
+                () -> {
                     int beforeMove = car.getMove(CAR_NAME);
 
                     game.playSet();
