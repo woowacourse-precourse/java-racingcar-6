@@ -82,6 +82,28 @@ public class CarRacing {
         }
     }
 
+    String getWinner() {
+        List<String> stepList = new ArrayList<>();
+
+        int max = 0;
+        for (Car car : cars) {
+            int carStep = car.getStep();
+            if (carStep > max) {
+                max = carStep;
+            }
+        }
+
+        for (Car car : cars) {
+            int carStep = car.getStep();
+            if (carStep == max) {
+                stepList.add(car.getName());
+            }
+        }
+
+        return String.join(", ", stepList);
+
+    }
+
     void execute() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -100,5 +122,6 @@ public class CarRacing {
         System.out.println("\n실행 결과");
         printStepResults();
 
+        System.out.println("최종 우승자 : " + getWinner());
     }
 }
