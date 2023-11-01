@@ -1,4 +1,4 @@
-package domain.gameInfo;
+package domain.gameInfoTest;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
