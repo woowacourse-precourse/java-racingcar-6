@@ -139,6 +139,13 @@ class CarTest extends NsTest {
         assertThat(compareResult).isEqualTo(expected);
     }
 
+    @Test
+    void 자동차_이름_문자열로_반환(){
+        String expected = "mooso";
+        Car givenCar = Car.fromString(expected);
+        String carNameString = givenCar.getCarNameString();
+        assertThat(carNameString).isEqualTo(expected);
+    }
     @Override
     protected void runMain() {
         // TODO Auto-generated method stub

@@ -63,4 +63,8 @@ public class Car {
     public void displayCarLocation() {
         OutputView.printFormatStatus(carName.getName(), carLocation.getStringPosition());
     }
+
+    public String getCarNameString() {
+        return this.carName.getName();
+    }
 }
