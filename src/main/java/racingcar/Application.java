@@ -7,7 +7,6 @@ import racingcar.model.RacingGame;
 import racingcar.validator.CarValidator;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
