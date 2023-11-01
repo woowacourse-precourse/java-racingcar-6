@@ -5,17 +5,8 @@ import racingcar.domain.RaceCount;
 import racingcar.domain.WinnerData;
 
 public class GameService {
-
-    private Cars getCars() {
-        return Cars.getInstance();
-    }
-
     public void initCarsFromInput(String inputCarNames) {
         getCars().addCarsFromInput(inputCarNames);
-    }
-
-    private RaceCount getRaceCount() {
-        return RaceCount.getInstance();
     }
 
     public void initRaceCountFromInput(String inputRaceCount) {
@@ -35,5 +26,13 @@ public class GameService {
     public String getWinnerNames() {
         WinnerData winnerData = getCars().pickWinners();
         return winnerData.concatWinnerNames();
+    }
+
+    private Cars getCars() {
+        return Cars.getInstance();
+    }
+
+    private RaceCount getRaceCount() {
+        return RaceCount.getInstance();
     }
 }

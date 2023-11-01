@@ -6,7 +6,7 @@ public enum ErrorMessage {
     PLAYER_NUMBER("최소 2명의 플레이어가 필요합니다."),
     COUNT_NUMBER_SIGN("시도 횟수는 양수여야 합니다.");
 
-    static private final String ERROR_FORMAT = "[ERROR] %s";
+    private static final String ERROR_FORMAT = "[ERROR] %s";
     private String errorMessage;
 
     ErrorMessage(String errorMessage) {

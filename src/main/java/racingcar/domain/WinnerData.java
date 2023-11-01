@@ -13,15 +13,15 @@ public class WinnerData {
         winnerNames = new ArrayList<>();
     }
 
+    public String concatWinnerNames() {
+        return String.join(DELIMITER, winnerNames);
+    }
+    
     protected int compareMoveCount(int moveCount) {
         return Integer.compare(winnerMoveCount, moveCount);
     }
 
     protected void addWinnerName(String name) {
         winnerNames.add(name);
-    }
-
-    public String concatWinnerNames() {
-        return String.join(DELIMITER, winnerNames);
     }
 }

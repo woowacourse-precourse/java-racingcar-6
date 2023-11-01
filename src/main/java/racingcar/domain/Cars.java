@@ -5,15 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Cars {
-    static private Cars singletonInstance;
-    static private final String DELIMITER = ",";
+    private static final String DELIMITER = ",";
+    private static Cars singletonInstance;
     private List<Car> cars;
 
     private Cars() {
         cars = new ArrayList<>();
     }
 
-    static public Cars getInstance() {
+    public static Cars getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new Cars();
         }
@@ -27,12 +27,6 @@ public class Cars {
             cars.add(car);
         }
         validatePlayerNumber();
-    }
-
-    private void validatePlayerNumber() {
-        if (cars.size() < 2) {
-            throw new IllegalArgumentException(ErrorMessage.PLAYER_NUMBER.toString());
-        }
     }
 
     public String runSingleRace() {
@@ -56,6 +50,12 @@ public class Cars {
             car = cars.get(++index);
         }
         return winnerData;
+    }
+
+    private void validatePlayerNumber() {
+        if (cars.size() < 2) {
+            throw new IllegalArgumentException(ErrorMessage.PLAYER_NUMBER.toString());
+        }
     }
 
     private WinnerData createWinnerData() {

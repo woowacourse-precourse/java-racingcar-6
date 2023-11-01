@@ -6,7 +6,7 @@ public enum Message {
     RACE_START("\n실행 결과"),
     WINNER("최종 우승자 : ");
 
-    String message;
+    private String message;
 
     Message(String message) {
         this.message = message;

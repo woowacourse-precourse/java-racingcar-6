@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class RaceCount {
-    static private RaceCount singletonInstance;
+    private static RaceCount singletonInstance;
     private int totalCount;
     private int currentCount;
 
@@ -9,11 +9,19 @@ public class RaceCount {
         currentCount = 0;
     }
 
-    static public RaceCount getInstance() {
+    public static RaceCount getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new RaceCount();
         }
         return singletonInstance;
+    }
+
+    public boolean equalsTotal() {
+        return (totalCount == currentCount);
+    }
+
+    public void up() {
+        currentCount++;
     }
 
     public void initTotalCountFromInput(String input) {
@@ -25,13 +33,5 @@ public class RaceCount {
         if (totalCount <= 0) {
             throw new IllegalArgumentException(ErrorMessage.COUNT_NUMBER_SIGN.toString());
         }
-    }
-
-    public boolean equalsTotal() {
-        return (totalCount == currentCount);
-    }
-
-    public void up() {
-        currentCount++;
     }
 }
