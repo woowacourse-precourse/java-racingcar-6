@@ -19,15 +19,14 @@ public class RacingGameController {
 
     public void init() {
         view = new View();
-
         carNameList = new CarNameList(getCarString());
-
         carNameList.NameExceptionCheck();
-
         tryNumber = getTryNumber();
-
         resultList = new ResultList(getResultList());
+        PlayingGame();
+    }
 
+    public void PlayingGame() {
         view.resultView();
         for (int i = 0; i < tryNumber; i++) {
             MovingCar();
