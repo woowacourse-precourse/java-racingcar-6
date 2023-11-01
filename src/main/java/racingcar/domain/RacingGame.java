@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 
+import static racingcar.util.Util.blankLine;
 import racingcar.service.RandomGenerator;
 import racingcar.view.Input.InputView;
 import racingcar.view.Output.OutputView;
@@ -17,41 +18,42 @@ public class RacingGame {
         this.randomGenerator = randomGenerator;
     }
 
-    public void goOrStop() {
-        String input = inputView.inputCarName();
-        cars = new Cars(inputView.convertInput(input)); // Car > Cars
-
-        int trialNumber = inputView.inputTrialNumber(); // 시도 횟수 입력 받기
+    public void race() {
+        getCar();
         blankLine();
+        int trialNumber = geteTrialNumber();
 
-        for (int i = 0; i < trialNumber; i++ ) {
+        while (trialNumber-- > 0) {
             moveCarIfRandomOver4();
             printResult();
             blankLine();
         }
-        Winner winner = new Winner(cars);
-        outputView.printWinner(winner.maxLocationCarName());
+        outputView.printWinner(new Winner(cars).maxLocationCarName());
+    }
+
+    public void getCar() {
+        String input = inputView.inputCarName();
+        cars = new Cars(inputView.convertInputCarName(input)); // Car > Cars
+    }
+
+    public int geteTrialNumber() {
+        return inputView.convertInputTrialNumber(); // 시도 횟수 입력 받기
     }
 
     public void moveCarIfRandomOver4() {
-        for (Car car : Cars.cars) {
-            if (randomGenerator.generateRandom()) {
-                car.forward();
-            }
-        }
+        Cars.cars.stream()
+                .filter(car -> randomGenerator.isForward() == true)
+                .forEach(car -> car.forward());
     }
 
     public void printResult() {
-        for (Car car : Cars.cars) {
-            System.out.print(car.carName + " : ");
-            for (int i = 0; i < car.location; i++) {
-                System.out.print("-");
-            }
-            blankLine();
-        }
+        Cars.cars.stream()
+                .forEach(car -> {
+                    String dashes = "-".repeat(car.location);
+                    System.out.println(car.carName + " : " + dashes);
+                    blankLine();
+                });
     }
 
-    public void blankLine() {
-        System.out.println();
-    }
+
 }
