@@ -1,13 +1,13 @@
 package racingcar.domain;
 
-import java.util.HashMap;
+import java.util.List;
 
 public class Trial {
-    public HashMap<String, Integer> moveForward(HashMap<String, Integer> distanceOfCars) {
-        for (String car : distanceOfCars.keySet()) {
-            Integer distance = distanceOfCars.get(car);
+    public List<Integer> moveForward(List<Integer> distanceOfCars) {
+        for (int i = 0; i < distanceOfCars.size(); i++) {
+            int distance = distanceOfCars.get(i);
             if (Referee.checkMoveForward()) {
-                distanceOfCars.replace(car, distance+1);
+                distanceOfCars.set(i, distance+1);
             }
         }
         return distanceOfCars;

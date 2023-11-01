@@ -1,43 +1,31 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
-import racingcar.domain.NumberGenerator;
-import racingcar.domain.Referee;
 import racingcar.domain.Trial;
 
 public class Application {
     public static void main(String[] args) {
-//        NumberGenerator generator = new NumberGenerator();
-//        int number = generator.createRandomNumber();
-//        System.out.println(number);
+        List<String> cars = askCars();
+        int trialCount = askCount();
+//        System.out.println(trialCount);
 
-//        boolean moving1 = Referee.checkMoveForward();
-//        boolean moving2 = Referee.checkMoveForward();
-//        System.out.println(moving1);
-//        System.out.println(moving2);
-
-        List<String> Cars = askCars();
-//        for (String car: Cars) {
-//            System.out.println(car);
-//        }
-
-        HashMap<String, Integer> distanceOfCars = getInitialDistances(Cars);
-        for (String key: distanceOfCars.keySet()) {
-            Integer value = distanceOfCars.get(key);
-            System.out.println("Key:" + key + ", Value:" + value);
+        List<Integer> distanceOfCars = getInitialDistances(cars);
+        for (int integer : distanceOfCars) {
+            System.out.println(integer);
         }
+
         Trial trial = new Trial();
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < trialCount; j++) {
             distanceOfCars = trial.moveForward(distanceOfCars);
+            //printCurrentTrial(distanceOfCars);
         }
-        for (String key: distanceOfCars.keySet()) {
-            Integer value = distanceOfCars.get(key);
-            System.out.println("Key:" + key + ", Value:" + value);
+        for (int integer : distanceOfCars) {
+            System.out.println(integer);
         }
+
     }
 
     public static List<String> askCars() {
@@ -45,23 +33,33 @@ public class Application {
         String input = Console.readLine();
         String[] inputArray = input.split(",");
 
-        List<String> Cars = new ArrayList<>();
+        List<String> cars = new ArrayList<>();
         for (int i = 0; i < inputArray.length; i++) {
             String car = inputArray[i];
             if (car.length() > 5) {
                 throw new IllegalArgumentException("유효하지 않은 입력입니다.");
             }
-            Cars.add(inputArray[i]);
+            cars.add(inputArray[i]);
         }
-        return Cars;
+        return cars;
     }
 
-    public static HashMap<String, Integer> getInitialDistances(List<String> Cars) {
-        HashMap<String, Integer> distanceOfCars = new HashMap<String, Integer>();
+    public static int askCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return Integer.parseInt(input);
+    }
 
-        for (String car: Cars) {
-            distanceOfCars.put(car, 0);
+    public static List<Integer> getInitialDistances(List<String> cars) {
+        List<Integer> distanceOfCars = new ArrayList();
+
+        for (String car: cars) {
+            distanceOfCars.add(0);
         }
         return distanceOfCars;
     }
+
+//    public static void printCurrentTrial(List<String> cars, List<Integer> distanceOfCars) {
+//
+//    }
 }
