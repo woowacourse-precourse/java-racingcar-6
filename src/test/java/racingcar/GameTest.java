@@ -45,4 +45,12 @@ public class GameTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void nameOverFive() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,donghaoh", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
