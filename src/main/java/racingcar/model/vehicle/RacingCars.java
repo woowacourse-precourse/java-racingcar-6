@@ -2,7 +2,6 @@ package racingcar.model.vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.model.rule.CarMovementStatus;
 import racingcar.model.result.RaceResult;
 import racingcar.model.rule.RandomNumberGenerator;
