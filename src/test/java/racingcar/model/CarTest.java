@@ -14,4 +14,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 1~5자 이하만 가능합니다.");
     }
+
+    @Test
+    void validateCarNames_should_throw_exception_when_duplicate_names_exist() {
+        assertThatThrownBy(() -> CarNameValidator.validateCarNames(List.of("pobi", "woni", "pobi")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
 }
