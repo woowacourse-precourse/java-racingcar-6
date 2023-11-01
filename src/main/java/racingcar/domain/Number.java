@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Number {
     List<Integer> randomNumbers = new ArrayList<>();
+    List<Integer> raceNumber = new ArrayList<>();
     int randomNumber;
 
     public List<Integer> random(int size) {
@@ -15,5 +16,13 @@ public class Number {
             randomNumbers.add(randomNumber);
         }
         return randomNumbers;
+    }
+    public List<Integer> compare(List<Integer> computerNumber) {
+        for (int i = 0; i < computerNumber.size(); i++) {
+            if (computerNumber.get(i) > 4) {
+                raceNumber.add(raceNumber.get(i) + 1);
+            }
+        }
+        return raceNumber;
     }
 }
