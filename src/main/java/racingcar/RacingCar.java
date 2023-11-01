@@ -2,6 +2,7 @@ package racingcar;
 
 public class RacingCar {
 
+    private static final int MOVING_POINT = 1;
     private static final int STARTING_POSITION = 0;
 
     private final String name;
@@ -17,7 +18,7 @@ public class RacingCar {
 
     public void race() {
         if (racingCarMovingStrategy.canMoveForward()) {
-            position += 1;
+            position += MOVING_POINT;
         }
     }
 
