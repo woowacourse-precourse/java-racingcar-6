@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
+    public static final int INIT_MOVE = 0;
     private String carName;
     private int move;
 
