@@ -23,11 +23,15 @@ class ValidatorTest {
 
     @Test
     @DisplayName("부적절한 자동차의 이름 예외 발생 테스트")
-    void isValidLength(String[] string) {
+    void isValidLength() {
+        List<String> testCaseList = Arrays.asList(new String[]{" ,a", " , ", "abc,pobito"});
+        for (String testCase : testCaseList) {
+            Assertions.assertThatThrownBy(() -> validator.validate(testCase, 0));
+        }
     }
 
     @Test
     @DisplayName("부적절한 시도 회수 예외 발생 테스트")
-    void isValidNumber(String string) {
+    void isValidNumber() {
     }
 }
