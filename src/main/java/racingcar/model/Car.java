@@ -1,12 +1,9 @@
 package racingcar.model;
 
+import racingcar.constant.ForwardInfoConstant;
 import racingcar.util.RandomUtil;
 
 public class Car {
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
-    private static final int REFERENCE_VALUE_MOVING_FORWARD = 4;
-
     private final String name;
     private Integer forwards;
 
@@ -16,8 +13,8 @@ public class Car {
     }
 
     public void moveForward() {
-        int randomNumber = RandomUtil.createRandomNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        if (randomNumber >= REFERENCE_VALUE_MOVING_FORWARD) {
+        int randomNumber = RandomUtil.createRandomNumberInRange(ForwardInfoConstant.MIN_RANDOM_NUMBER.getValue(), ForwardInfoConstant.MAX_RANDOM_NUMBER.getValue());
+        if (randomNumber >= ForwardInfoConstant.REFERENCE_VALUE_MOVING_FORWARD.getValue()) {
             this.forwards++;
         }
     }

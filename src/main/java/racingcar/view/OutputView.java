@@ -1,25 +1,20 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.constant.RaceInfoMessage;
 import racingcar.model.Car;
 
 public class OutputView {
-    private static final String EACH_FORWARD_INFORMATION = "-";
-    private static final String INPUT_CAR_NAMES_INFO = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String INPUT_MOVEMENT_TIME_INFO = "시도할 회수는 몇회인가요?";
-    private static final String EXECUTION_RESULTS_INFO = "\n실행 결과";
-    private static final String FINAL_WINNER_INFO = "최종 우승자 : ";
-
     public void printCarNamesInput() {
-        System.out.println(INPUT_CAR_NAMES_INFO);
+        System.out.println(RaceInfoMessage.INPUT_CAR_NAMES_INFO.getMessage());
     }
 
     public void printMovementInfoInput() {
-        System.out.println(INPUT_MOVEMENT_TIME_INFO);
+        System.out.println(RaceInfoMessage.INPUT_MOVEMENT_TIME_INFO.getMessage());
     }
 
     public void printExecutionResultsInfo() {
-        System.out.println(EXECUTION_RESULTS_INFO);
+        System.out.println(RaceInfoMessage.EXECUTION_RESULTS_INFO.getMessage());
     }
 
     public void printExecutionResultsOrder(List<Car> cars) {
@@ -31,14 +26,14 @@ public class OutputView {
     }
 
     public void printFinalWinners(List<String> finalWinners) {
-        StringBuilder winners = new StringBuilder(FINAL_WINNER_INFO);
+        StringBuilder winners = new StringBuilder(RaceInfoMessage.FINAL_WINNER_INFO.getMessage());
         winners.append(finalWinners.toString().substring(1, finalWinners.toString().length() - 1));
         System.out.println(winners);
     }
 
     private void printForwardInfo(Car car, StringBuilder executionResult) {
         executionResult.append(
-                        String.format("%s : %s", car.getName(), EACH_FORWARD_INFORMATION.repeat(car.getForwards())))
+                        String.format("%s : %s", car.getName(), RaceInfoMessage.EACH_FORWARD_INFORMATION.getMessage().repeat(car.getForwards())))
                 .append('\n');
     }
 }
