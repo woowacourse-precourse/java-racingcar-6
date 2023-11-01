@@ -13,10 +13,6 @@ public class RaceManagement {
         this.moveNumber = inputMoveNumber;
     }
 
-
-
-
-
     public void moveAllRound(){
         System.out.print("실행 결과\n");
         for (int moveIndex = 1; moveIndex <= moveNumber; moveIndex++) {
@@ -24,16 +20,13 @@ public class RaceManagement {
             printCurrentStatus();
             System.out.print("\n");
         }
-
         printFinalWinner();
-
     }
 
     public void moveOneRound(){
         for(Car car : CarArray){
             car.move();
         }
-
     }
 
     public void printCurrentStatus(){
@@ -64,5 +57,4 @@ public class RaceManagement {
         String result = winnner.substring(0, winnner.length() - 2); //마지막 쉼표 공백 제거
         System.out.print(result);
     }
-
 }

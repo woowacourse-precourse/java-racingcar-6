@@ -9,9 +9,4 @@ public class RaceStart {
 
         raceManagement.moveAllRound();
     }
-
-
-
-
-
 }

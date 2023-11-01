@@ -15,6 +15,4 @@ public class Car {
             location += 1;
         }
     }
-
-
 }
