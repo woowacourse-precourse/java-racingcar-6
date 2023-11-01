@@ -1,4 +1,4 @@
-package racingcar.domain.dto;
+package racingcar.dto;
 
 public class GameResult {
     private String carName;

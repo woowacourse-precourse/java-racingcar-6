@@ -2,10 +2,10 @@ package racingcar.service;
 
 
 import static racingcar.domain.Game.createGame;
-import static racingcar.domain.dto.GameResult.createGameResult;
+import static racingcar.dto.GameResult.createGameResult;
 
 import java.util.List;
-import racingcar.domain.dto.GameResult;
+import racingcar.dto.GameResult;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 

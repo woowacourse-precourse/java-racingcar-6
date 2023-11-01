@@ -1,9 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.domain.dto.GameResult;
+import racingcar.dto.GameResult;
 
 public class OutputView {
     public void outputResultString() {

@@ -3,7 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Game;
-import racingcar.domain.dto.GameResult;
+import racingcar.dto.GameResult;
 import racingcar.resolver.InputResolver;
 import racingcar.service.GameService;
 import racingcar.view.OutputView;
