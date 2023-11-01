@@ -1,13 +1,13 @@
-package racingcar.assist;
+package racingcar.validator;
 
-import racingcar.system.SystemConstant;
-
-import static racingcar.system.SystemMessage.*;
+import static racingcar.system.SystemMessage.CAR_NAME_DUPLICATED;
+import static racingcar.system.SystemMessage.COMPETITOR_NOT_EXIST;
+import static racingcar.system.SystemMessage.INPUT_OUT_OF_RANGE;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import racingcar.system.SystemConstant;
 
-public class InputValidator {
+public class CarValidator {
 
     public void validateCarNamesInput(List<String> carNameList) {
         for (String carName : carNameList) {
@@ -36,23 +36,4 @@ public class InputValidator {
         }
     }
 
-    public void validateRepeatTimesInput(String repeatTimesInput) {
-        int repeatTimes = Integer.parseInt(repeatTimesInput);
-        validateIsInputInteger(repeatTimesInput);
-        validateIsNumberPositive(repeatTimes);
-    }
-
-    private void validateIsInputInteger(String repeatTimesInput) {
-        try {
-            Integer.parseInt(repeatTimesInput);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(INPUT_POSITIVE_INTEGER_ONLY.getMessage());
-        }
-    }
-
-    private void validateIsNumberPositive(int repeatTimes) {
-        if (repeatTimes < 0) {
-            throw new IllegalArgumentException(INPUT_POSITIVE_INTEGER_ONLY.getMessage());
-        }
-    }
 }
