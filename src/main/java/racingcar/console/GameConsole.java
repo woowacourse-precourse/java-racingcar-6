@@ -4,35 +4,47 @@ import racingcar.console.game.Game;
 import racingcar.console.game.GameList;
 import racingcar.console.game.racingcar.RacingCarGame;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class GameConsole {
 
-    GameList target;
-    private final Map<GameList, Game> gameMap = new HashMap<>();
+    private GameList targetGameName;
+    private Game targetGame;
 
     public GameConsole() {
         init();
     }
 
+    public GameConsole(Game game) {
+        init();
+        targetGame = game;
+    }
+
     private void init() {
-        loadAllGame();
-        setDefaultGame(GameList.RACING_CAR);
+        setDefaultTarget(GameList.RACING_CAR);
+    }
+    private void setDefaultTarget(GameList defaultTargetGameName) {
+        this.targetGameName = defaultTargetGameName;
     }
 
-    private void loadAllGame() {
-        gameMap.put(GameList.RACING_CAR, new RacingCarGame());
-    }
-
-    private void setDefaultGame(GameList defaultTarget) {
-        target = defaultTarget;
-    }
-
-    public void start() {
-        Game targetGame = gameMap.get(target);
-        if (targetGame != null)
+    public Game start() {
+        targetGame = loadTargetGame();
+        if (targetGame != null) {
             targetGame.start();
+        }
+        return targetGame;
+    }
+
+    private Game loadTargetGame() {
+        return GameFactory.load(targetGameName);
+    }
+
+    public static class GameFactory {
+        public static Game load(GameList targetGameName) {
+            return switch (targetGameName) {
+                case RACING_CAR -> new RacingCarGame();
+                // 다른 게임들도 추가
+                default -> null;
+            };
+        }
     }
 
 }

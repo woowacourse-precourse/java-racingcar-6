@@ -2,6 +2,8 @@ package racingcar.console.game.racingcar.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static racingcar.console.game.racingcar.constants.GameConstants.*;
+
 public class Car {
 
     private final String name;
@@ -13,14 +15,13 @@ public class Car {
     }
 
     public void operate() {
-        if (Randoms.pickNumberInRange(0,9) > 3) {
+        if ( Randoms.pickNumberInRange(START_RANGE, END_RANGE) > MOVE_RANGE) {
             location += 1;
         }
     }
 
     public void indicateLocation() {
-        System.out.print(name + " : ");
-        System.out.println("-".repeat(location));
+        System.out.println(name + DELIMITER + INDICATOR.repeat(location));
     }
 
     public String getName() {

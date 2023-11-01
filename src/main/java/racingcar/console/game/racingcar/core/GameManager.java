@@ -22,7 +22,7 @@ public class GameManager {
     }
 
     public void registerCarList(String carListString) {
-        validator.carListValidate(carListString);
+        validator.validateCarList(carListString);
         addCarList(carListString);
     }
 
@@ -35,7 +35,7 @@ public class GameManager {
     }
 
     public void setTotalRound(String totalRoundString) {
-        validator.totalRoundValidate(totalRoundString);
+        validator.validateTotalRound(totalRoundString);
         gameConfig.setTotalRound(totalRoundString);
     }
 
@@ -43,7 +43,7 @@ public class GameManager {
         for (int i = 0; i < gameConfig.getTotalRound(); i++) {
             operateAllCars();
             indicateAllCars();
-            System.out.println();
+            printBlankLine();
         }
     }
 
@@ -59,19 +59,20 @@ public class GameManager {
         }
     }
 
+    private void printBlankLine() {
+            System.out.println();
+    }
+
     public void calculateWinners() {
         int maxDistance = findMaxDistance();
         findWinners(maxDistance);
     }
 
     private int findMaxDistance() {
-        int max = Integer.MIN_VALUE;
-        for (Car car : cars) {
-            if (car.getLocation() > max) {
-                max = car.getLocation();
-            }
-        }
-        return max;
+        return cars.stream()
+                .map(Car::getLocation)
+                .max(Integer::compareTo)
+                .orElse(0);
     }
 
     private void findWinners(int max) {
@@ -82,12 +83,28 @@ public class GameManager {
         }
     }
 
-    public String getWinners() {
+    public String forwardWinners() {
         String[] winnerNames = winners.stream()
                 .map(Car::getName)
                 .toArray(String[]::new);
 
         return String.join(", ", winnerNames);
+    }
+
+    public PlayerInputValidator getValidator() {
+        return validator;
+    }
+
+    public GameConfig getGameConfig() {
+        return gameConfig;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public List<Car> getWinners() {
+        return winners;
     }
 
 }

@@ -2,12 +2,8 @@ package racingcar.console.game.racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.console.game.Game;
-import racingcar.console.game.racingcar.car.Car;
 import racingcar.console.game.racingcar.constants.GameMessages;
 import racingcar.console.game.racingcar.core.GameManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingCarGame implements Game {
 
@@ -44,6 +40,6 @@ public class RacingCarGame implements Game {
 
     private void announceWinners() {
         System.out.print(GameMessages.TOTAL_WINNER);
-        System.out.println(gameManager.getWinners());
+        System.out.println(gameManager.forwardWinners());
     }
 }
