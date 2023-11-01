@@ -14,5 +14,11 @@ public class Application {
         for (String name : names) {
             cars.add(new Car(name));
         }
+        System.out.println("시도할 회수는 몇회인가요?");
+        int tryNumber = getTryNumber();
+    }
+
+    private static int getTryNumber() {
+        return getTryNumber();
     }
 }
