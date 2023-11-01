@@ -6,13 +6,11 @@ import java.util.LinkedHashMap;
 
 public class RacingGame {
 
-    private ArrayList<Car> cars = new ArrayList<Car>();
+    private final ArrayList<Car> cars = new ArrayList<>();
     RacingGameUtils racingGameUtils = new RacingGameUtils();
 
     public void createCars(String[] carNames) {
-        for (int carNumber = 0; carNumber < carNames.length; carNumber++)
-        {
-            String carName = carNames[carNumber];
+        for (String carName : carNames) {
             cars.add(new Car(carName));
         }
     }
@@ -25,7 +23,7 @@ public class RacingGame {
     }
 
      LinkedHashMap<String, Integer> getCurrentStatus() {
-         LinkedHashMap<String, Integer> currStatus = new LinkedHashMap<String, Integer>();
+         LinkedHashMap<String, Integer> currStatus = new LinkedHashMap<>();
          for (Car car : cars) {
              currStatus.put(car.getName(), car.getLocation());
          }
