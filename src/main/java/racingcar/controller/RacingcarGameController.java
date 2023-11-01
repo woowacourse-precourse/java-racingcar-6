@@ -46,6 +46,7 @@ public class RacingcarGameController {
         }
 
         Winners winners = RankingComputer.computeWinners(cars);
+        PrintHandler.printFinalResultOfGame(winners);
     }
 
     private static void proceedEachRound(Cars cars) {

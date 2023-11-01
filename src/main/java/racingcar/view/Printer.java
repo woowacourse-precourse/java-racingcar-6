@@ -24,4 +24,16 @@ public class Printer {
         System.out.printf("%s : %s\n", carName, dashPosition);
     }
 
+    public static void printWinnerHeadMessage() {
+        System.out.printf(WINNER_MESSAGE + " : ");
+    }
+
+    public static void printWinnerMessage(String carName) {
+        System.out.print(carName + ", ");
+    }
+
+    public static void printLastWinnerMessage(String carName) {
+        System.out.println(carName);
+    }
+
 }
