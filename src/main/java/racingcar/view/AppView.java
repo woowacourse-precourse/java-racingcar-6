@@ -23,7 +23,7 @@ public class AppView {
     }
 
     public static String inputNumberOfTurns () {
-        outputLine("시도할 횟수는 몇회인가요?");
+        outputLine("시도할 회수는 몇회인가요?");
         return Console.readLine();
     }
 
