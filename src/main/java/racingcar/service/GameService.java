@@ -19,8 +19,7 @@ public class GameService {
             System.out.println();
         }
 
-        List<Car> winners = getWinners();
-
+        GameOutputView.printCarsName(getWinners());
     }
 
     private void moveEachCar() {
