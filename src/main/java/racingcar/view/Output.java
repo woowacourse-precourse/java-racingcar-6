@@ -6,17 +6,21 @@ import racingcar.model.Car;
 
 public class Output {
 
+    public static void print(String str) {
+        System.out.println(str);
+    }
+
     public static void printRunResultNotice() {
-        System.out.println(Notice.RUN_RESULT);
+        print(Notice.RUN_RESULT);
     }
 
     public static void printRunResult(Car car) {
-        System.out.println(car.getName() + " : " + car.getPositionStatus());
+        print(car.getName() + " : " + car.getPositionStatus());
     }
 
     public static void printWinnerResult(List<String> winnerList) {
         String winnerNameStr = String.join(", ", winnerList);
-        System.out.println("최종 우승자 : " + winnerNameStr);
+        print("최종 우승자 : " + winnerNameStr);
     }
 
     public static void printBlankLine() {

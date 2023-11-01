@@ -3,7 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private Name name;
+    private final Name name;
     private int position = 0;
 
     public Car(String carName) {
@@ -13,16 +13,12 @@ public class Car {
     public void move() {
         int randomResult = Randoms.pickNumberInRange(0, 9);
         if (4 <= randomResult) {
-            addPosition();
+            movePosition();
         }
     }
 
     public String getName() {
         return this.name.getName();
-    }
-
-    private void addPosition() {
-        this.position++;
     }
 
     public int getPosition() {
@@ -32,5 +28,10 @@ public class Car {
     public String getPositionStatus() {
         return "-".repeat(Math.max(0, this.position));
     }
+
+    private void movePosition() {
+        this.position++;
+    }
+
 
 }

@@ -21,16 +21,6 @@ public class Cars {
         }
     }
 
-    private void validateDuplicateName(String[] carNameArr) {
-        long distinctCount = Arrays.stream(carNameArr)
-                                   .distinct()
-                                   .count();
-
-        if (distinctCount < carNameArr.length) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     public void run() {
         this.carList.forEach(car -> {
             car.move();
@@ -46,7 +36,17 @@ public class Cars {
         Output.printWinnerResult(this.winnerList);
     }
 
-    public void setWinnerList() {
+    private void validateDuplicateName(String[] carNameArr) {
+        long distinctCount = Arrays.stream(carNameArr)
+                                   .distinct()
+                                   .count();
+
+        if (distinctCount < carNameArr.length) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void setWinnerList() {
         setTopPosition();
 
         this.winnerList = this.carList.stream()
@@ -57,12 +57,11 @@ public class Cars {
 
     }
 
-    public void setTopPosition() {
+    private void setTopPosition() {
         this.topPosition = this.carList.stream()
                                        .mapToInt(Car::getPosition)
                                        .max()
                                        .orElse(0);
-        ;
     }
 
 }

@@ -1,11 +1,15 @@
 package racingcar.model;
 
 public class RunCount {
-    private int count;
+    private final int count;
 
     public RunCount(String inputRunCount) {
         this.count = convertStrToInt(inputRunCount);
         validatePositiveNumber(count);
+    }
+
+    public int getCount() {
+        return this.count;
     }
 
     private int convertStrToInt(String inputRunCount) {
@@ -21,9 +25,5 @@ public class RunCount {
         if (countNum <= 0) {
             throw new IllegalArgumentException();
         }
-    }
-
-    public int getCount() {
-        return this.count;
     }
 }

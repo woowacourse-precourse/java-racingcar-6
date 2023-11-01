@@ -4,13 +4,14 @@ public class Name {
     private final String name;
 
     public Name(String name) {
-        validate(name);
+        validateLength(name);
+        validateBlank(name);
+
         this.name = name.strip();
     }
 
-    private void validate(String name) {
-        validateLength(name);
-        validateBlank(name);
+    public String getName() {
+        return this.name;
     }
 
     private void validateLength(String name) {
@@ -23,9 +24,5 @@ public class Name {
         if (name.isBlank()) {
             throw new IllegalArgumentException();
         }
-    }
-
-    public String getName() {
-        return this.name;
     }
 }
