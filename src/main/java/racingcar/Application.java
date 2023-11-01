@@ -25,11 +25,12 @@ public class Application {
 
 
     private static void award() {
-        StringJoiner sj = new StringJoiner(", ");
-        countOfStep.entrySet().stream()
-                .filter(entry -> (entry.getValue() == maxStep))
-                .forEach(winnerEntry -> sj.add(winnerEntry.getKey()));
-        System.out.println("최종 우승자 : " + sj);
+        StringJoiner stringJoiner = new StringJoiner(", ");
+        countOfStep.forEach((key, value) -> {
+            if (value == maxStep)
+                stringJoiner.add(key);
+        });
+        System.out.println("최종 우승자 : " + stringJoiner);
     }
 
     private static void set() {
