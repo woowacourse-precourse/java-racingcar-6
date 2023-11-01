@@ -20,7 +20,7 @@ public class RandomMoveController {
 
     private Boolean isForward(int index) {
         int MOVEMENT_THRESHOLD = 4;
-        return randomNumbers.isGreaterEqualThan(index, MOVEMENT_THRESHOLD);
+        return randomNumbers.isGreaterEqualThanValueOf(index, MOVEMENT_THRESHOLD);
     }
 
 }

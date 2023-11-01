@@ -25,7 +25,7 @@ public class RandomNumbers {
         return randomValues;
     }
 
-    public Boolean isGreaterEqualThan(int index, int threshold) {
+    public Boolean isGreaterEqualThanValueOf(int index, int threshold) {
         return randomValues.get(index) >= threshold;
     }
 }
