@@ -30,7 +30,7 @@ public class GameController {
 
     private void doGame() {
         raceSimulator.simulate(this.carList.getCarList(), this.duration);
-        printer.printWinner(this.carList.getCarList());
+        printer.winner(this.carList.getCarList());
     }
 
     private void initGame() {

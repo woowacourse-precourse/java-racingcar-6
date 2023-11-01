@@ -32,7 +32,7 @@ public class RaceSimulator {
                 car.go();
             }
         }
-        printer.printCurrent(cars);
+        printer.current(cars);
     }
 
     private boolean canGo() {

@@ -18,14 +18,14 @@ public class Printer {
         return printer;
     }
 
-    public void printCurrent(List<Car> cars) {
+    public void current(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + car.getProgress());
         }
         System.out.println();
     }
 
-    public void printWinner(List<Car> cars) {
+    public void winner(List<Car> cars) {
         StringBuilder sb = new StringBuilder();
         Queue<Car> winners = getWinners(cars);
 
