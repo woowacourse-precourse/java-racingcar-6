@@ -1,8 +1,9 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.dto.CarStatus;
 import racingcar.dto.RaceStatus;
-import racingcar.dto.RacingGameStatus;
+import racingcar.dto.RacingGameResult;
 import racingcar.dto.WinnerNames;
 
 public class ConsoleOutputView implements OutputView {
@@ -31,15 +32,19 @@ public class ConsoleOutputView implements OutputView {
     }
 
     @Override
-    public void printRacingGameStatus(RacingGameStatus racingGameStatus) {
+    public void printRacingGameResult(RacingGameResult racingGameResult) {
         printResultMessage();
-        racingGameStatus.getRaceStatuses()
-                .forEach(this::printRaceStatus);
+        printRaceStatuses(racingGameResult.getRaceStatuses());
+        printWinnerNames(racingGameResult.getWinnerNames());
     }
 
     private void printResultMessage() {
         System.out.println();
         System.out.println(RESULT_MESSAGE);
+    }
+
+    public void printRaceStatuses(List<RaceStatus> raceStatuses) {
+        raceStatuses.forEach(this::printRaceStatus);
     }
 
     private void printRaceStatus(RaceStatus raceStatus) {
@@ -54,8 +59,7 @@ public class ConsoleOutputView implements OutputView {
         System.out.println(carStatusMessage);
     }
 
-    @Override
-    public void printWinnerNames(WinnerNames winnerNames) {
+    private void printWinnerNames(WinnerNames winnerNames) {
         String winnerNamesText = String.join(", ", winnerNames.getWinnerNames());
         String winnersMessage = String.format(WINNERS, winnerNamesText);
         System.out.println(winnersMessage);

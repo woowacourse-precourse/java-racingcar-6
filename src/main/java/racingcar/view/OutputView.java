@@ -1,14 +1,11 @@
 package racingcar.view;
 
-import racingcar.dto.RacingGameStatus;
-import racingcar.dto.WinnerNames;
+import racingcar.dto.RacingGameResult;
 
 public interface OutputView {
     void requestCarNames(String delimiterDescription, String delimiter);
 
     void requestRaceCount();
 
-    void printRacingGameStatus(RacingGameStatus racingGameStatus);
-
-    void printWinnerNames(WinnerNames winnerNames);
+    void printRacingGameResult(RacingGameResult racingGameResult);
 }
