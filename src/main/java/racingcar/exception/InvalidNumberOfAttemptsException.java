@@ -4,6 +4,6 @@ import racingcar.constants.ErrorMessage;
 
 public class InvalidNumberOfAttemptsException extends IllegalArgumentException {
     public InvalidNumberOfAttemptsException() {
-        throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBER_OF_ATTEMPTS);
+        super(ErrorMessage.INVALID_NUMBER_OF_ATTEMPTS);
     }
 }
