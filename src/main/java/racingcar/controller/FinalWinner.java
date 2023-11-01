@@ -1,7 +1,8 @@
-package racingcar.service;
+package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.TotalCar;
+import racingcar.service.Winner;
 import racingcar.util.Message;
 import racingcar.view.OutputView;
 

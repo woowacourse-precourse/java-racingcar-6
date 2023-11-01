@@ -15,7 +15,8 @@ public class TotalCar {
     public void moveDistance() {
         CarCondition condition = new CarCondition();
         for (Car c : carList) {
-            if (condition.isMove()) {
+            int seed = condition.makeRandom();
+            if (condition.isMove(seed)) {
                 c.updateDistance(1);
             }
         }

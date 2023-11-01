@@ -1,9 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.TotalCar;
-import racingcar.service.CarGame;
 import racingcar.service.CarsInputManage;
-import racingcar.service.FinalWinner;
 import racingcar.service.TryInputManage;
 import racingcar.util.Message;
 import racingcar.view.InputView;
