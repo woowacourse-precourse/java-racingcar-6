@@ -15,7 +15,7 @@ public class Client {
     public void run(GameInputController inputController, GameOutputController outputController) {
         makeFakeClient(inputController, outputController);
         readyForGame();
-        playingGame();
+        playGame();
     }
 
     public void readyForGame() {
@@ -24,7 +24,7 @@ public class Client {
         gameInputController.requestTryNumber();
     }
 
-    public void playingGame() {
+    public void playGame() {
         gameOutputController.readyForGame(gameInputController.sendGameInfo());
         gameOutputController.startGame();
         gameOutputController.printWinner();
