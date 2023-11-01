@@ -18,6 +18,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
+import racingcar.service.RacingGameService;
 
 
 @DisplayName("레이싱 게임 테스트")
@@ -30,10 +31,10 @@ class RacingGameTest {
         String carNameString = "beom,sic,test";
 
         // when
-        RacingGame racingGame = RacingGame.from(carNameString);
+        RacingGameService racingGameService = RacingGameService.from(carNameString);
 
         // then
-        List<Car> racingCarList = racingGame.getRacingCarList();
+        List<Car> racingCarList = racingGameService.getRacingCarList();
         assertAll(
                 () -> assertThat(racingCarList).isNotEmpty(),
                 () ->  assertThat(racingCarList).hasSize(3)
@@ -47,7 +48,7 @@ class RacingGameTest {
         // when
 
         // then
-        assertThatThrownBy(() -> RacingGame.from("")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> RacingGameService.from("")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
@@ -55,10 +56,10 @@ class RacingGameTest {
     @DisplayName("Racing Game play시 레이싱 게임에 참여하는 모든 자동차가 움직이거나 정지한 결과인 Result를 return 한다.")
     void play_AllCarsHaveMovedOrStopped(String inputNameString, int count, String[] names) {
         // given
-        RacingGame racingGame = RacingGame.from(inputNameString);
+        RacingGameService racingGameService = RacingGameService.from(inputNameString);
 
         // when
-        List<Result> results = racingGame.play();
+        List<Result> results = racingGameService.play();
 
         List<String> resultNames = results.stream()
                 .map(Result::name)
@@ -78,7 +79,7 @@ class RacingGameTest {
     void determineRaceWinners(String inputNameString, int[] randoms,
                               int expectedWinnerCount, String[] expectedWinners) {
         // given
-        RacingGame racingGame = RacingGame.from(inputNameString);
+        RacingGameService racingGameService = RacingGameService.from(inputNameString);
         MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class);
 
         // when
@@ -89,8 +90,8 @@ class RacingGameTest {
                 return randoms[callCount++];
             }
         });
-        racingGame.play();
-        List<String> winners = racingGame.determineRaceWinners();
+        racingGameService.play();
+        List<String> winners = racingGameService.determineRaceWinners();
 
         // then
         assertAll(
