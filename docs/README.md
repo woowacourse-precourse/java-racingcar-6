@@ -12,17 +12,18 @@
 ---
 1. **Car** : 경주 게임을 할 자동차 클래스
     1. 필드
-        1. String name : 자동차의 이름
-        2. int distance : 이동한 거리
+        1. **String name** : 자동차의 이름
+        2. **int distance** : 이동한 거리
     2. 생성자
         1. _(String name)_ : 이름을 받아서 새로운 Car 객체를 생성한다.
     3. 메서드
-        1. moveRandom() : 무작위의 이동거리를 distance에 더한다.
-        2. toString() : 출력할 내용을 설정한다.
-        3. compareTo() : 객체 간 비교를 이동한 거리로 하기 위해서 Comparable를 상속받아 오버라이딩한다.
+        1. _moveRandom()_ : 무작위의 이동거리를 distance에 더한다.
+        2. _toString()_ : 출력할 내용을 설정한다.
+        3. _compareTo()_ : 객체 간 비교를 이동한 거리로 하기 위해서 Comparable를 상속받아 오버라이딩한다.
+
 2. **RacingGame** : 경주 게임을 실행하는 클래스
     1. 필드
-        1. ArrayList<Car> racingCars : 경주에 참가하는 Car를 저장하여 관리한다. ArrayList를 사용한 근거는 다음과 같다.
+        1. **ArrayList<Car> racingCars** : 경주에 참가하는 Car를 저장하여 관리한다. ArrayList를 사용한 근거는 다음과 같다.
            >- 저장 후에 데이터를 변경할 일이 있는가? → No, 단, 데이터 정렬이 한 번 필요할 예정이다.
            >- 중복을 허용하는가? → No, 단 중복이 되면 예외 처리 후 프로그램이 종료된다.
            >- 저장 순서를 지키는가? → Yes
@@ -33,13 +34,13 @@
            > 이러한 근거를 볼 때 데이터를 처음에 삽입 후 마지막에 데이터 정렬만 한 번 할 정적인 데이터를 관리할 때는 ArrayList가 적합하다고 판단된다.
 
     2. 생성자
-        1. _(String cars)_ : splitNames를 실행합니다.
+        1. _(String cars)_ : splitCarNames를 실행합니다.
     3. 메서드
-        1. playGame(int step) : 시도할 횟수를 입력받아 게임을 실행한다.
-        2. executeStep() : 각 Car 객체에 대하여 moveRandom()을 실행한다.
-        3. printStep() : 하나의 실행에 대하여 결과를 출력한다.
-        4. printResult() : 레이싱 결과를 출력한다.
-        5. splitCarNames(String names) : 문자열을 입력받아서 Car 객체를 생성, racingCar에 저장한다.
+        1. _playGame(int step)_ : 시도할 횟수를 입력받아 게임을 실행한다.
+        2. _executeStep()_ : 각 Car 객체에 대하여 moveRandom()을 실행한다.
+        3. _printStep()_ : 하나의 실행에 대하여 결과를 출력한다.
+        4. _printResult()_ : 레이싱 결과를 출력한다.
+        5. _splitCarNames(String names)_ : 문자열을 입력받아서 Car 객체를 생성, racingCar에 저장한다.
 
 3. **ApplicationTest** : 각종 예외에 대하여 테스트 코드를 추가한다.
    1. _이름_정상_분리_ : 정상일 경우 이름이 정상적으로 분리되는지 확인
@@ -49,13 +50,13 @@
    5. _이름_중복_예외_ : 중복된 이름에 대한 예외 발생
    6. _횟수_입력_글자_예외_ : 횟수를 입력할 때 글자를 입력한 것에 대한 예외 발생
    7. _횟수_입력_음수_예외_ : 횟수를 입력할 때 음수를 입력한 것에 대한 예외 발생
-   8. _횟수_입력_0_예외 : 횟수를 입력할 때 0를 입력한 것에 대한 예외 발생
+   8. _횟수_입력_0_예외_ : 횟수를 입력할 때 0를 입력한 것에 대한 예외 발생
 
 ### 상수 및 문자열 관리
 
 ---
-1. Class InputException : 각종 에러에 대하여 static String으로 관리한다.
-2. Class ConstantNumber : 각종 상수를 관리한다.
+1. **Class InputException** : 각종 에러에 대하여 static String으로 관리한다.
+2. **Class ConstantNumber** : 각종 상수를 관리한다.
    1. MAX_NAME_LENGTH = 5 : 최대 이름 길이를 관리한다. 만약 초과한다면 예외 처리를 한다.
    2. STEP_PERCENTAGE = 4 : 하나의 시도에 전진할 확률을 설정한다. 0~9까지 하나씩 오를수록 대략 10%씩 확률이 감소한다.
 
