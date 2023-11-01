@@ -43,7 +43,11 @@ public class RacingController {
 
     private void findWinners(Cars cars) {
         List<String> winners = cars.findWinners();
-        outputView.racingWinners(winners);
+        if (winners.isEmpty()) {
+            Message.printNoWinner();
+        } else {
+            outputView.racingWinners(winners);
+        }
     }
 
     private String[] generateRacersFromNames(String input) {

@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import racingcar.util.RandomNumbersGenerator;
 import racingcar.validation.InputValidation;
+import racingcar.view.Message;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +33,9 @@ public class Cars {
 
     public List<String> findWinners() {
         final Car winner = findFrontPosition();
+        if (winner.getPosition() == 0) {
+            return Collections.emptyList();
+        }
         return findTiedWinners(winner);
     }
 
