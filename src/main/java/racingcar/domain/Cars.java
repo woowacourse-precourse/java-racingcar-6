@@ -5,11 +5,12 @@ import racingcar.validation.InputValidation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars;
     private InputValidation inputValidation;
 
     public Cars(String[] names) {
@@ -17,6 +18,10 @@ public class Cars {
         this.cars = Arrays.stream(names)
                 .map(this::createCar)
                 .collect(Collectors.toList());
+    }
+
+    public Cars(List<Car> cars) {
+        this.cars = cars;
     }
 
     private Car createCar(String name) {
@@ -54,6 +59,6 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return cars;
+        return Collections.unmodifiableList(cars);
     }
 }
