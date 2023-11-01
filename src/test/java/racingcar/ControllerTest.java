@@ -1,21 +1,11 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Arrays;
-
 
 public class ControllerTest {
     private Controller controller;
@@ -26,16 +16,22 @@ public class ControllerTest {
     }
 
     @Test
-    void 참가자_이름_입력(){
-        String input = "abc,def,,,";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
+    void 문자열_분할_case_1() {
+        String carNames = "car1,car2,car3";
 
-        System.setIn(in);
-        ArrayList<String> result = controller.getCarsNameInput();
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("car1", "car2", "car3"));
+        ArrayList<String> result = controller.splitCarNames(carNames);
 
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("abc", "def", "", "", ""));
-        assertIterableEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
+    }
 
-        System.setIn(System.in);
+    @Test
+    void 문자열_분할_case_2() {
+        String carNames = "car1,car2,,";
+
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("car1", "car2", "", ""));
+        ArrayList<String> result = controller.splitCarNames(carNames);
+
+        assertThat(result).isEqualTo(expected);
     }
 }
