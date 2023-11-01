@@ -4,6 +4,7 @@ import static racingcar.view.exception.InputException.PLAY_COUNT_VALUE_EXCEPTION
 
 public class PlayCount {
 
+    private static final String POSITIVE_NUMBERS = "0123456789";
     private static final int DEFAULT_ROUND = 0;
 
     private final int goal;
@@ -15,13 +16,16 @@ public class PlayCount {
     }
 
     public static PlayCount createDefault(final String goal) {
-        validate(goal);
+        validateIsPositiveNumber(goal);
         return new PlayCount(Integer.parseInt(goal), DEFAULT_ROUND);
     }
 
-    private static void validate(final String goal) {
-        if (!goal.matches("[0-9]+")) {
-            throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
+    private static void validateIsPositiveNumber(final String number) {
+        String[] numberValues = number.split("");
+        for (String numberValue : numberValues) {
+            if (!POSITIVE_NUMBERS.contains(numberValue)) {
+                throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
+            }
         }
     }
 
