@@ -7,12 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Calculate {
-    public HashMap<String,Integer> MappingNameAndCar(String carNames){
-        //쉼표로 구분
-        List<String> list = Arrays.asList(carNames.split(","));
+    public HashMap<String,Integer> MappingNameAndCar(List<String> carNames){
         HashMap<String, Integer> map = new HashMap<String, Integer>();
-        for(int i=0; i<list.size(); i++){
-            map.put(list.get(i),0);
+        for(int i=0; i<carNames.size(); i++){
+            map.put(carNames.get(i),0);
         }
 
         return map;
@@ -29,5 +27,22 @@ public class Calculate {
             }
         }
         return Racers;
+    }
+
+    //test용 overloading 함수, 랜덤기능을 제외하고 모든 user를 전진시킨다.
+    public HashMap<String, Integer> setCarPosition(){
+        int number;
+        HashMap<String, Integer> hashMap = new HashMap<String, Integer>() {{
+            put("pobi", 0);
+            put("woni", 0);
+            put("jun", 0);
+        }};
+
+        for (String key : hashMap.keySet()) {
+            int tmp = hashMap.get(key);
+            tmp++;
+            hashMap.replace(key,tmp);
+        }
+        return hashMap;
     }
 }

@@ -28,6 +28,7 @@ public class Output {
 
         ListIterator<Map.Entry<String,Integer>> itr = entries.listIterator(entries.size());
         Integer tmp = entries.get(entries.size()-1).getValue();
+        System.out.printf("%s",itr.previous().getKey());
 
         while(itr.hasPrevious()){
             if(tmp != itr.previous().getValue()){
@@ -35,7 +36,7 @@ public class Output {
             }
             else{
                 itr.next();
-                System.out.printf("%s",itr.previous().getKey());
+                System.out.printf(", %s",itr.previous().getKey());
             }
         }
     }
