@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class RacingTest {
+
     @Test
     public void testInsertCarName() {
         // 시뮬레이트할 입력
@@ -34,6 +35,7 @@ public class RacingTest {
             Application.insertCarName(input);
         });
     }
+
     @Test
     public void testInsertNumberOfMoves() {
         // 시뮬레이트할 입력
@@ -58,6 +60,7 @@ public class RacingTest {
             Application.insertNumberOfMoves(input);
         });
     }
+
     @Test
     public void testInsertNumberOfMoves_InvalidInput() {
         String input = "invalid";
@@ -73,6 +76,7 @@ public class RacingTest {
             Application.insertNumberOfMoves(0);
         });
     }
+
     @Test
     public void testGetWinner() {
         Car car1 = new Car("car1");
