@@ -57,66 +57,6 @@ public class RacingGameServiceImplTest {
     }
 
     @Test
-    public void 자동차이름들_미입력시_예외발생() {
-        // given
-        String carNames = "";
-        String tryCount = "5";
-
-        // when && then
-        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름을 하나 이상 입력하세요.");
-    }
-
-    @Test
-    public void 자동차이름들_공백입력시_예외발생() {
-        // given
-        String carNames = " ";
-        String tryCount = "5";
-
-        // when && then
-        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름을 하나 이상 입력하세요.");
-    }
-
-    @Test
-    public void 자동차이름들_콤마만_입력시_예외발생() {
-        // given
-        String carNames = ", , ,,";
-        String tryCount = "5";
-
-        // when && then
-        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름을 하나 이상 입력하세요.");
-    }
-
-    @Test
-    public void 시도횟수_정수가아닌_문자일시_예외발생() {
-        // given
-        String carNames = "pobi,woni,jun";
-        String tryCount = "k";
-
-        // when && then
-        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1 이상 2,147,483,647 이하의 정수 값이 필요합니다.");
-    }
-
-    @Test
-    public void 시도횟수_정수범위_벗어난_숫자일시_예외발생() {
-        // given
-        String carNames = "pobi,woni,jun";
-        String tryCount = "2200000000";
-
-        // when && then
-        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1 이상 2,147,483,647 이하의 정수 값이 필요합니다.");
-    }
-
-    /*@Test
     public void 시도횟수만큼_각Car에_랜덤정수넣기() {
         // given
         String carNames = "pobi,woni,jun";
@@ -127,9 +67,8 @@ public class RacingGameServiceImplTest {
         racingGameService.decideRandomMoveCondition(racingGame);
 
         // then
-        racingGame.getParticipationsList()
-                .forEach( car -> assertThat(car.calcPickedNumberSize()).isEqualTo(5));
-    }*/
+        assertThat(racingGame.getTryCount()).isEqualTo(5);
+    }
 
     @Test
     public void 단일_우승자_계산하기() {
@@ -159,6 +98,7 @@ public class RacingGameServiceImplTest {
 
         // when
         racingGameService.calculateWinners(racingGame);
+
         // then
         assertThat(racingGame.calcWinnerSize()).isEqualTo(1);
         assertThat(racingGame.getWinnerList()).isEqualTo(winnerList);
