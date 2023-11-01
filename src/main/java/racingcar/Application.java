@@ -13,6 +13,12 @@ public class Application {
         String names = Console.readLine();
         String[] cars = names.split(",");
 
+        for (String car : cars) {
+            if (car.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+
         int len = cars.length;
         int[] cars_move = new int[len];
 
@@ -34,7 +40,7 @@ public class Application {
             for (int j = 0; j < len; j++) {
                 System.out.print(cars[j] + " : ");
                 for (int k = 0; k < cars_move[j]; k++) {
-                    System.out.print("_");
+                    System.out.print("-");
                 }
                 System.out.println();
             }
@@ -42,8 +48,6 @@ public class Application {
         }
 
         int cnt = 0;
-        cars_move[1] = 10;
-        cars_move[2] = 10;
         System.out.println();
         System.out.print("최종 우승자 : ");
         List<Integer> maxIndices = findMaxIndices(cars_move);
