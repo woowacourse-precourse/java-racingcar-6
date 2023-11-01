@@ -1,13 +1,10 @@
 /*package controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import model.Car;
 
-import model.CarList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import view.UserView;
 
 import java.util.ArrayList;
 
