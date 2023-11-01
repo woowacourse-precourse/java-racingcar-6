@@ -46,9 +46,10 @@ public class InputView {
     public int inputTryCount() {
         System.out.println(INPUT_TRY_COUNT);
         String inputTryCount = readLine();
-        validateInputTryCount(inputTryCount);
+        String TryCountWithoutSpace = stringWithoutSpace(inputTryCount);
+        validateInputTryCount(TryCountWithoutSpace);
         System.out.println();
-        return Integer.parseInt(inputTryCount);
+        return Integer.parseInt(TryCountWithoutSpace);
     }
 
 
