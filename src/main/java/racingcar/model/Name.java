@@ -18,4 +18,10 @@ public class Name {
 
         this.name = unsure;
     }
+
+    @Override
+    public boolean equals(Object name) {
+        // and 단축평가 고려할 것
+        return (name instanceof Name) && (((Name) name).name.equals(this.name));
+    }
 }
