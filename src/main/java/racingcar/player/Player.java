@@ -9,7 +9,7 @@ public class Player {
         return parseCarNamesFromInput(inputValue);
     }
 
-    private String[] parseCarNamesFromInput(String inputValue) {
+    public String[] parseCarNamesFromInput(String inputValue) {
         final String separator = ",";
         String[] result = inputValue.split(separator);
         if (result.length == 0) {

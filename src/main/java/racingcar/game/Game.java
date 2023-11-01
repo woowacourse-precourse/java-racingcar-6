@@ -23,8 +23,8 @@ public class Game {
 
     // 게임 시작 전 설정
     public void setUp() {
-        setCarNames();
-        setMoveCnt();
+        setCarNames(player.inputCarNames());
+        setMoveCnt(player.inputMoveCnt());
         System.out.println();
     }
 
@@ -39,9 +39,8 @@ public class Game {
         }
     }
 
-    private void setMoveCnt() {
+    public void setMoveCnt(String inputMoveCnt) {
         System.out.println(Message.INPUT_MOVE_COUNT);
-        String inputMoveCnt = player.inputMoveCnt();
 
         if (!Validator.validateMoveCnt(inputMoveCnt)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MOVE_CNT.getMessage());
@@ -63,10 +62,8 @@ public class Game {
     }
 
 
-    private void setCarNames() {
+    private void setCarNames(String[] carNames) {
         System.out.println(Message.INPUT_CAR_NAMES);
-
-        String[] carNames = player.inputCarNames();
 
         if (!Validator.validateCarNames(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAMES.getMessage());
@@ -93,5 +90,9 @@ public class Game {
                 .collect(Collectors.joining(", "));
 
         System.out.println("최종 우승자 : " + winner);
+    }
+
+    public int getMoveCnt() {
+        return moveCnt;
     }
 }
