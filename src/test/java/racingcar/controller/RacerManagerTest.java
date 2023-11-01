@@ -1,11 +1,10 @@
 package racingcar.controller;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import org.junit.jupiter.api.Test;
 import racingcar.model.Racer;
-
 import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class RacerManagerTest {
 

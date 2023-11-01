@@ -1,9 +1,10 @@
 package racingcar.view;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import static org.assertj.core.api.Assertions.assertThat;
 
 class InputViewTest {
 

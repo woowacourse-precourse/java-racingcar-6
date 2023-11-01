@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -16,7 +15,6 @@ class OutputViewTest {
         // Given
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-
         OutputView outputView = new OutputView();
 
         // When
@@ -31,7 +29,6 @@ class OutputViewTest {
         // Given
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-
         OutputView outputView = new OutputView();
 
         // When
