@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameManager {
     CarFactory carFactory;
@@ -56,12 +57,11 @@ public class GameManager {
 
     public List<String> getWinnerList(List<Car> cars) {
         int firstWinnerPosition = cars.get(0).getPosition();
-        List<String> winners = new ArrayList<String>();
-        for (Car car : cars) {
-            if (car.getPosition() == firstWinnerPosition) {
-                winners.add(car.getCarName());
-            }
-        }
-        return winners;
+        return cars.stream()
+                .filter(car -> car.getPosition() == firstWinnerPosition)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
+
+
 }
