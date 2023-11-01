@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -46,12 +47,21 @@ class RacingCarTest {
     }
 
     @Test
-    void 같은_위치에_있는_자동차교_거리_비교() {
+    void 같은_위치에_있는_자동차_거리_비교() {
         RacingCar otherCar = new RacingCar("pobi");
 
         racingCar.move(4);
         otherCar.move(5);
 
         assertTrue(racingCar.isSameDistance(otherCar));
+    }
+
+    @Test
+    void 다른_위치에_있는_자동차_거리_비교() {
+        RacingCar otherCar = new RacingCar("pobi");
+
+        racingCar.move(4);
+
+        assertFalse(racingCar.isSameDistance(otherCar));
     }
 }
