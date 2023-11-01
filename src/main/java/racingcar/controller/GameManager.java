@@ -24,6 +24,7 @@ public class GameManager {
         }
         catch (Exception ex) {
             GameOutput.printErrorMessage(ex.getMessage());
+            throw ex;
         }
     }
 
