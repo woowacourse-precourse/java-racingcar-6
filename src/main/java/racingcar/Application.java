@@ -31,18 +31,7 @@ public class Application {
             cars.add(car);
         }
     }
-    private static String makeResultSign(int number) {
-        String resultSign="";
-        for (int i = 0; i<number; i++) {
-            resultSign+="-";
-        }
-        return resultSign;
-    }
-    private static void driveResult() {
-        for (Car car : cars ) {
-            System.out.println(car.getName()+" : "+makeResultSign(car.getDriveNum()));
-        }
-    }
+
     private static int getMaxScore() {
         int max = 0;
         int countPerson = 0;

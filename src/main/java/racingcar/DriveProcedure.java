@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static racingcar.Application.cars;
+
 public class DriveProcedure {
 
     public static void drive(Integer saveTrialNumber) {
@@ -30,6 +32,18 @@ public class DriveProcedure {
         for (Car car : cars) {
             Integer newDriveNum = createDriveCarNum();
             car.setDriveNum(newDriveNum);
+        }
+    }
+    private static String makeResultSign(int number) {
+        String resultSign="";
+        for (int i = 0; i<number; i++) {
+            resultSign+="-";
+        }
+        return resultSign;
+    }
+    private static void driveResult() {
+        for (Car car : cars ) {
+            System.out.println(car.getName()+" : "+makeResultSign(car.getDriveNum()));
         }
     }
 
