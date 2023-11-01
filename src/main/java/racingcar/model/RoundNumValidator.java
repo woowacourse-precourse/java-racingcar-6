@@ -14,8 +14,8 @@ public record RoundNumValidator(String roundNumString) {
     }
 
     private void checkInteger() {
-        if (!Constants.roundNumPattern.matcher(roundNumString).matches()) {
-            throw new IllegalArgumentException("1 이상의 숫자여야합니다");
+        if (!Constants.ROUND_NUM_PATTERN.matcher(roundNumString).matches()) {
+            throw new IllegalArgumentException(Constants.ROUND_NUM_ERROR);
         }
     }
 }
