@@ -16,9 +16,9 @@ public class RacingGame {
 
     private int remainingRounds;
 
-    public RacingGame(String[] names, int rounds) {
+    public RacingGame(List<String> names, int rounds) {
         this.cars = new ArrayList<>();
-        List.of(names).forEach(n -> cars.add(new Car(n)));
+        names.forEach(n -> cars.add(new Car(n)));
         this.remainingRounds = rounds;
     }
 
