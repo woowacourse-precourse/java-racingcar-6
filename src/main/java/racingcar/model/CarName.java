@@ -21,7 +21,7 @@ public class CarName {
     private void validateName(String name) {
         validateNull(name);
         validateNameLength(name);
-        validateNoSpaces(name);
+        validateNameHasNoSpace(name);
     }
 
     private void validateNull(String name) {
@@ -37,7 +37,7 @@ public class CarName {
         }
     }
 
-    private void validateNoSpaces(String name) {
+    private void validateNameHasNoSpace(String name) {
         if (name.contains(" ") || name.contains("\t")) {
             throw new HasSpaceException();
         }

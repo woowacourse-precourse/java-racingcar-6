@@ -26,7 +26,7 @@ public class CarNamesValidator extends UserInputValidator {
 
     public void validateCarName(String carName) {
         validateCarNameLength(carName);
-        validateCarNameNoSpaces(carName);
+        validateCarNameHasNoSpace(carName);
     }
 
     public void validateCarNameLength(String carName) {
@@ -36,7 +36,7 @@ public class CarNamesValidator extends UserInputValidator {
         }
     }
 
-    public void validateCarNameNoSpaces(String carName) {
+    public void validateCarNameHasNoSpace(String carName) {
         if (carName.contains(" ") || carName.contains("\t")) {
             throw new HasSpaceException();
         }
