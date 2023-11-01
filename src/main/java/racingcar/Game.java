@@ -48,16 +48,19 @@ public class Game {
         }
         return moves;
     }
+
     public void createCars(List<String> nameList) {
         for (String name : nameList) {
             carList.add(new Car(name));
         }
     }
+
     public void carMove(List<Car> carList) {
         for (Car car : carList) {
             car.move();
         }
     }
+
     public void printOutput() {
         for (Car car : carList) {
             System.out.print(car.name + " : ");

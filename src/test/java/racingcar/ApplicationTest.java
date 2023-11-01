@@ -17,11 +17,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -50,6 +50,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 자동차_이름_종결_쉼표_입력_예외_처리() {
         assertSimpleTest(() ->
@@ -57,6 +58,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 자동차_이름_시작_쉼표_입력_예외_처리() {
         assertSimpleTest(() ->
@@ -73,6 +75,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 시도_회수_숫자_이외_입력_예외_처리() {
         assertSimpleTest(() ->
@@ -83,13 +86,13 @@ class ApplicationTest extends NsTest {
 
     //기능 단위 테스트
     @Test
-    void 이름_입력_테스트(){
+    void 이름_입력_테스트() {
         final Game game = new Game();
         final String carName = "붕붕,타요,토마스";
 
         final List<String> nameList = game.getCarNames(carName);
 
-        assertThat(nameList).containsExactly("붕붕","타요","토마스");
+        assertThat(nameList).containsExactly("붕붕", "타요", "토마스");
     }
 
     @Override
