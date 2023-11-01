@@ -23,6 +23,7 @@ public class CarController {
         //경주할 자동차 이름을 입력
         outputView.printGameMessage(GAME_START);
         String carNames = Console.readLine();
+
         if(!inputView.isBlank(carNames) || !validateCarNameList(carNames)){
             throw new IllegalArgumentException();
         }
@@ -33,6 +34,7 @@ public class CarController {
         //시도할 회수 입력
         outputView.printGameMessage(TRY_COUNT);
         String tryCount = Console.readLine();
+
         if(!inputView.isBlank(tryCount) || !validateTryCount(tryCount)){
             throw new IllegalArgumentException();
         }
@@ -42,8 +44,10 @@ public class CarController {
         outputView.printGameMessage(PROGRESS_RESULT);
 
         //자동차 게임 실행
+        List<Car> racingGameResult = null;
         while (Game.tryCount > 0){
-            List<String> getRacingGameResultList = carGameService.runRacingGame(carList);
+            racingGameResult = carGameService.runRacingGame(carList);
+            List<String> getRacingGameResultList = carGameService.getRacingGameResultList(racingGameResult);
             for(String result : getRacingGameResultList){
                 outputView.print(result);
             }
@@ -51,7 +55,8 @@ public class CarController {
         }
 
         //최종 우승자 선정
-
+        String WinnerList = carGameService.getRacingGameWinner(racingGameResult);
+        outputView.print(WinnerList);
     }
 
     /**
