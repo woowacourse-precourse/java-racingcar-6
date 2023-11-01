@@ -1,15 +1,22 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.exception.InvalidCarNameException;
 
 public class Car {
     private final String name;
+    private final MoveStrategy moveStrategy;
     private int position = 0;
 
     public Car(String name) {
         validateName(name);
         this.name = name;
+        this.moveStrategy = new RandomMoveStrategy();
+    }
+
+    public Car(String name, MoveStrategy moveStrategy) {
+        validateName(name);
+        this.name = name;
+        this.moveStrategy = moveStrategy;
     }
 
     private void validateName(String name) {
@@ -33,7 +40,7 @@ public class Car {
     }
 
     private boolean isMovable() {
-        return Randoms.pickNumberInRange(0, 9) >= 4; // TODO: 상수 분리 방법 고민해보기
+        return moveStrategy.determineMovable();
     }
 
     public boolean isPosition(int position) {
