@@ -59,7 +59,7 @@ class RacingGameTest {
         RacingGameService racingGameService = RacingGameService.from(inputNameString);
 
         // when
-        List<Result> results = racingGameService.play();
+        List<Result> results = racingGameService.moveAllCars();
 
         List<String> resultNames = results.stream()
                 .map(Result::name)
@@ -90,7 +90,7 @@ class RacingGameTest {
                 return randoms[callCount++];
             }
         });
-        racingGameService.play();
+        racingGameService.moveAllCars();
         List<String> winners = racingGameService.determineRaceWinners();
 
         // then
