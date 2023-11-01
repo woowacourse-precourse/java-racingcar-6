@@ -12,8 +12,8 @@ public class Cars {
 
     public Cars(final String namesString) {
         String[] names = namesString.split(",");
+        validateUniqueCarName(names);
         for (String name : names) {
-            validateUniqueCarName(names);
             racingCars.add(new Car(name));
         }
     }
@@ -22,16 +22,6 @@ public class Cars {
         for (Car car : racingCars) {
             car.movePosition();
             OutputView.printString(car.getPositionString());
-        }
-    }
-
-    public static void validateUniqueCarName(String[] names) {
-        Set<String> set = new HashSet<>();
-        for (String name : names) {
-            set.add(name);
-        }
-        if (set.size() != names.length) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름을 중복되지 않게 지어주세요.");
         }
     }
 
@@ -48,4 +38,16 @@ public class Cars {
     private int getMaxScore() {
         return racingCars.stream().mapToInt(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
     }
+
+    private static void validateUniqueCarName(String[] names) {
+        Set<String> set = new HashSet<>();
+        for (String name : names) {
+            Name.validateCarNameValid(name);
+            set.add(name);
+        }
+        if (set.size() != names.length) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름을 중복되지 않게 지어주세요.");
+        }
+    }
+
 }
