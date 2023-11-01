@@ -45,6 +45,12 @@ public class Validator {
         }
     }
 
+    private void validateMovingTryCountNull(String input) {
+        if (input == null || input.isEmpty()) {
+            throw new IllegalArgumentException("시도하실 횟수를 정확하게 입력해 주세요.");
+        }
+    }
+
     private void validateOutOfMovingTryCountBoundary(String input) {
         int intInput = Integer.parseInt(input);
         if (intInput < 1 || intInput > 10) {
@@ -59,6 +65,7 @@ public class Validator {
     }
 
     public void validateInputMovingTryCount(String input) {
+        validateMovingTryCountNull(input);
         validateNumeric(input);
         validateOutOfMovingTryCountBoundary(input);
     }
