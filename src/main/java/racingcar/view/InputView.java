@@ -30,12 +30,14 @@ public class InputView {
     private void validateCarName(String carName) {
         validateLength(carName);
         validateIsNotEmpty(carName);
+        validateNoSpaces(carName);
 
     }
 
-    private void validateIsNotEmpty(String carName) {
-        if (carName.length() == 0) {
-            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+    private void validateDuplicateNames(String[] carNames) {
+        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
+        if (uniqueNames.size() != carNames.length) {
+            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
         }
     }
 
@@ -45,10 +47,15 @@ public class InputView {
         }
     }
 
-    private void validateDuplicateNames(String[] carNames) {
-        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
-        if (uniqueNames.size() != carNames.length) {
-            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+    private void validateIsNotEmpty(String carName) {
+        if (carName.length() == 0) {
+            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+        }
+    }
+
+    private void validateNoSpaces(String carName) {
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException("자동차 이름 사이에 공백이 있습니다.");
         }
     }
 
