@@ -22,6 +22,12 @@ public class Cars {
                 .toList();
     }
 
+    public List<CarState> collectAllCurrentState() {
+        return cars.stream()
+                .map(Car::summarizeCurrentState)
+                .toList();
+    }
+
     private void validateDuplicateName(List<String> names) {
         Set<String> nonDuplicateNames = new HashSet<>(names);
         if (nonDuplicateNames.size() != names.size()) {
