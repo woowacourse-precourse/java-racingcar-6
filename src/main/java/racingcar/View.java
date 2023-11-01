@@ -14,4 +14,15 @@ public class View {
         }
         System.out.println();
     }
+
+    static void printWinner(ArrayList<Car> winners) {
+        System.out.print("최종 우승자 : ");
+        for (Car winner : winners) {
+            System.out.print(winner.returnCarName());
+
+            if (winners.indexOf(winner) != winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
 }
