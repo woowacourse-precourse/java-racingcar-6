@@ -10,4 +10,8 @@ public class CarTest {
         Assertions.assertDoesNotThrow(() -> new Car("a"));
     }
 
+    @Test
+    void 자동차_이름이_5자_넘는_경우() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Car("abcdefg"));
+    }
 }

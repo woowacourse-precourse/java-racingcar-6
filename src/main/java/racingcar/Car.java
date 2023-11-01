@@ -2,12 +2,13 @@ package racingcar;
 
 public class Car {
     private final String name;
+    private String totalMove;
     private static final String MOVE = "-";
-    private String totalMove = "";
     private static final int LIMIT_NAME_LEN = 5;
 
     public Car(String name) {
         this.name = name;
+        this.totalMove = "";
         validateCarName();
     }
 
@@ -15,14 +16,12 @@ public class Car {
         return this.name;
     }
 
-    public int getTotalMove() {
+    public int getTotalMoveLen() {
         return totalMove.length();
     }
 
     public void validateCarName() {
-        if (name.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessages.BLANK_NAME_ERROR_MESSAGE);
-        }
+        InputValidator.blank(name);
         if (name.length() > LIMIT_NAME_LEN) {
             throw new IllegalArgumentException(ErrorMessages.TOO_LONG_CAR_NAME_ERROR_MESSAGE);
         }
