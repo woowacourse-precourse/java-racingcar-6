@@ -28,6 +28,7 @@ public class Validate {
             throw new IllegalArgumentException("자동차 이름 중복 허용 X");
         }
     }
+
     public void validateLengthCarsName(List<String> input) throws IllegalArgumentException {
         for (String s : input) {
             if (s.length() > 5) {
@@ -35,6 +36,7 @@ public class Validate {
             }
         }
     }
+
     public void validateBlankCarsName(List<String> input) throws IllegalArgumentException {
         for (String s : input) {
             if (s.contains(" ")) {
@@ -42,6 +44,7 @@ public class Validate {
             }
         }
     }
+
     public void validateIsNumber(String input) throws IllegalArgumentException {
         try {
             Integer.parseInt(input);

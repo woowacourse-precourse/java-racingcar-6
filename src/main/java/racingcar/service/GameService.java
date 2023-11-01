@@ -19,7 +19,7 @@ public class GameService {
         return game;
     }
 
-    public  List<String> getWinner(Game game) {
+    public List<String> getWinner(Game game) {
         List<Car> cars = game.getcarList();
         int maxPosition = getMaxPosition(cars);
         return getMaxPositionCars(cars, maxPosition);
