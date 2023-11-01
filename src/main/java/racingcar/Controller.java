@@ -10,7 +10,9 @@ import java.util.stream.IntStream;
 
 import static racingcar.view.InputView.readNames;
 import static racingcar.view.InputView.readTimes;
-import static racingcar.view.OutputView.*;
+import static racingcar.view.OutputView.printResult;
+import static racingcar.view.OutputView.printWinner;
+import static racingcar.view.OutputView.printResultHeader;
 
 class Controller {
 
