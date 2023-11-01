@@ -56,20 +56,13 @@ public class RacingGame {
 		StringBuffer stringBuffer = new StringBuffer();
 
 		for (Car car : cars) {
-			System.out.println(car.getName() + " : " + carProgress(stringBuffer, car.getPosition()));
+			System.out.println(car.getName() + " : " + carProgress(car.getPosition()));
 		}
 		System.out.println();
 	}
 
-	private String carProgress(StringBuffer stringBuffer, int position) {
-		for (int i = 0; i < position; i++) {
-			stringBuffer.append("-");
-		}
-
-		String carProgress = stringBuffer.toString();
-		stringBuffer.delete(0, stringBuffer.length());
-
-		return carProgress;
+	private String carProgress(int position) {
+		return "-".repeat(position);
 	}
 
 	private List<Car> getWinners(List<Car> cars) {
