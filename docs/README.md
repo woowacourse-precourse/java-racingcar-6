@@ -6,9 +6,9 @@
   - [x] 사용자로부터 이름을 입력받을 수 있다. - `UserInput#setCarNames`
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - `NameValidator#splitComma`
   - [x] 이름이 1자 이상 5자 이하인지 확인한다. - `NameValidator#correctNumberOfChar`
-  - [x] 이름이 대, 소문자 알파벳인지를 확인한다. - `NameValidator#checkAlphabets`
-  - [x] 이름이 중복되었는지 확인한다. - `NameValidator#hasUniqueName`
-  - [x] 자동차 수가 10대가 초과되는지 확인한다. `NameValidator#isUnderTen`
+  - [x] 이름이 대, 소문자 알파벳인지 확인한다. - `NameValidator#checkAlphabets`
+  - [x] 이름이 중복 되는지 확인한다. - `NameValidator#hasUniqueName`
+  - [x] 자동차 수가 10대가 초과 되는지 확인한다. `NameValidator#isUnderTen`
 - [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있다. - `UserInput#setRoundOfGame`
   - [x] 입력한 값이 1 이상 20 이하의 자연수인지 확인한다. - `RoundValidator#checkNaturalNumber`
 - [x] 0 에서 9 사이에서 무작위 값을 구한다. `RandomNumberGenerator#createRandomNumber`
@@ -34,7 +34,7 @@
   - 진행 횟수가 0 일 경우 애플리케이션을 종료한다.
   - 진행 횟수가 음수 일 경우 애플리케이션을 종료한다.
   - 진행 횟수가 20 초과 일 경우 애플리케이션을 종료한다.
-  - 진행 횟수 입력 시 숫자 외 문자 입력 시 애플리케이션을 종료한다.
+  - 진행 횟수 입력 시 숫자 외 문자를 입력할 경우 애플리케이션을 종료한다.
 
 ---
 
