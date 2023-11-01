@@ -4,6 +4,7 @@ import static view.guideMessage.PLEASE_INPUT_RACINGCAR_NAMES;
 import static view.guideMessage.PLEASE_INPUT_RACING_COUNT;
 import static model.utilityModel.splitByComma;
 import static model.utilityModel.stringToInt;
+import static model.utilityModel.getRandomNum;
 
 import model.racingGameModel;
 public class game {
