@@ -57,6 +57,9 @@ public class Cars {
         return forwardState;
     }
 
+    public List<Car> getCars(){
+        return cars;
+    }
 
 
 
