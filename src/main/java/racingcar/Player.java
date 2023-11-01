@@ -10,7 +10,7 @@ public class Player {
     public Player(){
     }
 
-    public List<String> getMember(String members){
+    public List<String> setMember(String members){
         StringTokenizer st = new StringTokenizer(members, ",");
         while(st.hasMoreTokens()){
             member.add(st.nextToken());

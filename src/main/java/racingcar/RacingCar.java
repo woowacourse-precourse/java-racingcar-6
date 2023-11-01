@@ -35,7 +35,7 @@ public class RacingCar {
     public void getUser(){
         System.out.println(carName);
 
-        players.getMember(Console.readLine());
+        players.setMember(Console.readLine());
     }
 
     public int getGameNum(){
