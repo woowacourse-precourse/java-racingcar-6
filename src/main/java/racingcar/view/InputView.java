@@ -36,6 +36,7 @@ public class InputView {
         String inputCount = Console.readLine();
         validationNull(inputCount);
         validationNumber(inputCount);
+        validationCount(inputCount);
         return Integer.parseInt(inputCount);
     }
 
@@ -45,9 +46,15 @@ public class InputView {
         }
     }
 
-    private static void validationNumber(String number) {
-        if (!Pattern.matches("^[0-9]*$", number)) {
+    private static void validationNumber(String input) {
+        if (!Pattern.matches("^[0-9]*$", input)) {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
+        }
+    }
+
+    private static void validationCount(String input) {
+        if(Integer.parseInt(input) < 1) {
+            throw new IllegalArgumentException("1이상 입력해야 합니다.");
         }
     }
 }
