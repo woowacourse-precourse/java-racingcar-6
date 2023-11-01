@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Racing;
+import racingcar.domain.Winner;
 import racingcar.domain.car;
 import racingcar.domain.cars;
 import racingcar.io.InputView;
@@ -18,12 +19,16 @@ public class Application {
         Racing racing = new Racing(inputView.readMoveTurnCount());
 
         outputView.print("\n실행 결과");
+        List<car> moveResult;
         for (int i = 0; i < Racing.getCount(); i++) {
-            List<car> moveResult = cars.tryToMove();
+            moveResult = cars.tryToMove();
             for (car car : moveResult) {
                 outputView.printCarPosition(car.getName(), car.getPosition());
             }
             outputView.printEnter();
         }
+        Winner winner = new Winner();
+        List<String> winners = winner.judgeWinner(cars.getCurrentStatus());
+        outputView.printWinners(winners);
     }
 }

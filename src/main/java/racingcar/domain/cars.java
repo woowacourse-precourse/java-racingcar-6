@@ -19,6 +19,10 @@ public class cars {
         for (car car : carList) {
             car.triesToMove();
         }
+        return getCurrentStatus();
+    }
+
+    public List<car> getCurrentStatus() {
         return Collections.unmodifiableList(carList);
     }
 }
