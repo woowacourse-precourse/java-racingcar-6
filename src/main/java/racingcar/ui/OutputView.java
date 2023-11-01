@@ -5,9 +5,9 @@ import racingcar.Car;
 import racingcar.Converter;
 
 public class OutputView {
-    public static final String COLON = " : ";
-    public static final String ENTER = "\n";
-    public static final String WINNER_MESSAGE = "최종 우승자";
+    public static final String NEW_LINE = "\n";
+    private static final String COLON = " : ";
+    private static final String WINNER_MESSAGE = "최종 우승자";
 
     public static void printGameResult(Car car, int distance) {
         String convertedDistance = Converter.convertDistance(distance);
@@ -18,7 +18,7 @@ public class OutputView {
         List<String> convertedWinners = Converter.convertWinners(winners);
         String winnersConvention = Converter.matchWinnersConvention(convertedWinners);
 
-        System.out.print(ENTER);
+        System.out.print(NEW_LINE);
         System.out.println(WINNER_MESSAGE + COLON + winnersConvention);
     }
 }

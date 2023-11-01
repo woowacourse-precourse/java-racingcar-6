@@ -29,7 +29,7 @@ public class Game {
 
     public void playAllRound() {
         for (int i = 0; i < round; i++) {
-            System.out.print(OutputView.ENTER);
+            System.out.print(OutputView.NEW_LINE);
             playOneRound();
         }
 
