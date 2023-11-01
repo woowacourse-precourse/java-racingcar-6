@@ -76,6 +76,12 @@ public class RacingCarServiceImpl implements RacingCarService {
     @Override
     public void announceWinner(List<Car> carList) {
 
+        int maxMovement = getMaxMovement(carList);
+
+        String winnerCarNames = getWinnerCarName(carList, maxMovement);
+
+        System.out.print(RacingCarVO.getFinalWinner());
+        System.out.print(winnerCarNames);
     }
 
     private void validateCarNames(String[] carNames) {
@@ -116,5 +122,32 @@ public class RacingCarServiceImpl implements RacingCarService {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    private int getMaxMovement(List<Car> carList) {
+
+        int maxMovement = Integer.MIN_VALUE;
+
+        for (Car car : carList) {
+            int currentMovementCounts = car.getCurrentMovementCounts();
+            maxMovement = Math.max(maxMovement, currentMovementCounts);
+        }
+
+        return maxMovement;
+    }
+
+    private String getWinnerCarName(List<Car> carList, int maxMovement) {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Car car : carList) {
+            if (car.getCurrentMovementCounts() == maxMovement) {
+                sb.append(car.getCarName()).append(",");
+            }
+        }
+
+        sb.deleteCharAt(sb.length() - 1);
+
+        return sb.toString();
     }
 }
