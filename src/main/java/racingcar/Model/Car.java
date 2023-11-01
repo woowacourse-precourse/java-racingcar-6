@@ -1,9 +1,11 @@
 package racingcar.Model;
 
+import static racingcar.Util.Constants.GO_OR_NOT;
+
 import racingcar.View.TextInterface;
 
 public class Car {
-    private String name;
+    private final String name;
     private int distance;
     TextInterface textInterface = new TextInterface();
 
@@ -12,22 +14,22 @@ public class Car {
         distance = 0;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     public void go(int num) {
-        if (num >= 4) {
+        if (num >= GO_OR_NOT) {
             distance++;
         }
         textInterface.printDistance(name, distance);
     }
 
-    public int getDistance() {
-        return distance;
-    }
-
-    public void win() {
+    public void printWinner() {
         textInterface.printWinner(name);
     }
 
-    public void jointWin() {
+    public void printJointWinner() {
         textInterface.printJointWinner(name);
     }
 }

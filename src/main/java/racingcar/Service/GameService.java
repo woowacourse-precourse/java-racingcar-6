@@ -6,10 +6,10 @@ import racingcar.Model.Game;
 import racingcar.View.TextInterface;
 
 public class GameService {
-    TextInterface textInterface = new TextInterface();
-    Game game;
+    private final TextInterface textInterface = new TextInterface();
+    private Game game;
 
-    public void enterInput() {
+    public void initGame() {
         game = new Game(enterCar(), enterRepetition());
     }
 
@@ -22,12 +22,13 @@ public class GameService {
         return Integer.parseInt(textInterface.enterRepetition());
     }
 
-
-    public void forward() {
-        game.forward();
+    public void startGame() {
+        textInterface.printExcution();
+        game.play();
     }
 
-    public void result() {
+    public void endGame() {
+        textInterface.printResult();
         game.result();
     }
 }
