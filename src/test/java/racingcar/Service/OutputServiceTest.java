@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Domain.Judge;
 
 public class OutputServiceTest {
 
@@ -14,7 +15,9 @@ public class OutputServiceTest {
     public void init() {
         InputService inputService = new InputService();
         CarService car = new CarService();
-        outputService = new OutputService(car, inputService);
+        Judge judge = new Judge();
+        judge.setInputService(inputService);
+        outputService = new OutputService(car, inputService,judge);
         inputService = outputService.getInputService();
 
         String inputCarname = "pobi,woni,jun";
@@ -57,5 +60,12 @@ public class OutputServiceTest {
                 isEqualTo("pobi : -\n"
                         + "woni : -\n"
                         + "jun : -\n");
+    }
+
+    @Test
+    @DisplayName("선정된 우승자를 출력하는 기능")
+    public void output5() {
+        assertThat(outputService.printWinner()).
+                isEqualTo("최종 우승자 : pobi, woni, jun");
     }
 }

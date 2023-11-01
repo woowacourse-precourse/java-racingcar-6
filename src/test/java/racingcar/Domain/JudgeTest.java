@@ -16,12 +16,13 @@ public class JudgeTest {
     public void init() {
         InputService inputService = new InputService();
         CarService car = new CarService();
+        Judge judge1 = new Judge();
 
-        outputService = new OutputService(car, inputService);
+        outputService = new OutputService(car, inputService,judge1);
         inputService = outputService.getInputService();
         judge.setCarservice(car);
         judge.setInputService(inputService);
-        
+
 
         String inputCarname = "pobi,woni,jun";
         inputService.inputCarname(inputCarname);

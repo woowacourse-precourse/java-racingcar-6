@@ -3,15 +3,19 @@ package racingcar.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Domain.Car;
+import racingcar.Domain.Judge;
 
 public class OutputService {
     private static CarService carService
             ;
     private static InputService inputService;
 
-    public OutputService(CarService car, InputService inputService) {
+    private static Judge judge;
+
+    public OutputService(CarService car, InputService inputService,Judge judge) {
         this.inputService=inputService;
         this.carService = car;
+        this.judge=judge;
     }
 
     public static CarService getCarService() {
@@ -68,5 +72,19 @@ public class OutputService {
                 .append(" : ")
                 .append(String.join("", car.getForwardStack()))
                 .append("\n");
+    }
+
+    public String printWinner() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        List<String> winners = judge.judgeWinner();
+        if (winners.size() > 1) {
+            sb.append(String.join(", ",winners));
+        } else if (winners.size()==1) {
+            sb.append(winners.get(0));
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
+
     }
 }
