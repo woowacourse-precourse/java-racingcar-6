@@ -17,6 +17,11 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String answer = Console.readLine();
         String[] carNames = answer.split(",");
+        for (String name : carNames) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("getCar");
+            }
+        }
         return carNames;
     }
 
@@ -25,7 +30,7 @@ public class Application {
         String answer = Console.readLine();
         //TODO: Max값 확인도 해야하지 않을까?
         if (!answer.matches("\\d+")) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException("getCount");
         }
         return Integer.parseInt(answer);
     }
