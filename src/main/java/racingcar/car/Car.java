@@ -1,4 +1,4 @@
-package Car;
+package racingcar.car;
 
 public interface Car {
     public void move();

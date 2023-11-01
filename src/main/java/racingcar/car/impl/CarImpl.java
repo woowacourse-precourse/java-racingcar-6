@@ -1,6 +1,6 @@
-package Car.impl;
+package racingcar.car.impl;
 
-import Car.Car;
+import racingcar.car.Car;
 
 public class CarImpl implements Car {
     private int movedDistance;
