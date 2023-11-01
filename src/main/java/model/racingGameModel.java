@@ -1,15 +1,19 @@
 package model;
 
-import static model.utilityModel.isValidName;
-import static model.number.MAX_NAME_LENGTH;
-
 import java.util.ArrayList;
 public class racingGameModel {
-    public ArrayList<String> racingCarNames = new ArrayList<>();
-    public int racingCount = 0;
-    public racingGameModel(ArrayList<String> inputRacingCarNames, int inputRacingCount) {
-        racingCarNames.addAll(inputRacingCarNames);
-        racingCount = inputRacingCount;
+    public ArrayList<racingCarInfo> racingCarInfos;
+    private int attemptCount = 0;
+    public racingGameModel(int attemptCount, String[] carNamesArray) {
+        this.attemptCount = attemptCount;
+
+        racingCarInfos = new ArrayList<racingCarInfo>();
+        int idx = 0;
+        for(String name : carNamesArray){
+            racingCarInfo carInfo = new racingCarInfo(name, idx);
+            racingCarInfos.add(carInfo);
+            idx++;
+        }
     }
 }
 
