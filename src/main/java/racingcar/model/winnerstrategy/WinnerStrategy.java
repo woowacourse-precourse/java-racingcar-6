@@ -4,5 +4,5 @@ import java.util.List;
 import racingcar.model.Cars;
 
 public interface WinnerStrategy {
-    List<String> judgeWinner(Cars cars);
+    List<String> findWinnerCarNames(Cars cars);
 }

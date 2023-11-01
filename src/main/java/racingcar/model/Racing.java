@@ -30,7 +30,7 @@ public class Racing {
 
     public List<String> generateWinnerNames() {
         RacingResult racingResult = new RacingResult(cars, new MaximumForwardStrategy());
-        return racingResult.determineWinnerNames();
+        return racingResult.judgeWinnerNames();
     }
 
     private void countMove() {

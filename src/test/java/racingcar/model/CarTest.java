@@ -20,7 +20,7 @@ public class CarTest {
     }
 
     @Test
-    void 전진횟수의_기본값은_0이다() {
+    void 자동차_생성시_전진횟수의_기본값은_0이다() {
         Car car = new Car("test");
 
         CarState state = car.summarizeState();

@@ -21,7 +21,7 @@ public class RacingResultTest {
         RacingResult result = new RacingResult(cars, new MaximumForwardStrategy());
 
         List<String> expectedWinnerName = List.of(winner.getName());
-        List<String> actualWinnerName = result.determineWinnerNames();
+        List<String> actualWinnerName = result.judgeWinnerNames();
         assertThat(actualWinnerName).isEqualTo(expectedWinnerName);
     }
 
@@ -36,7 +36,7 @@ public class RacingResultTest {
         RacingResult result = new RacingResult(cars, new MaximumForwardStrategy());
 
         List<String> expectedWinnerName = List.of(winner.getName(), coWinner.getName());
-        List<String> actualWinnerName = result.determineWinnerNames();
+        List<String> actualWinnerName = result.judgeWinnerNames();
         assertThat(actualWinnerName).containsExactlyInAnyOrderElementsOf(expectedWinnerName);
     }
 }
