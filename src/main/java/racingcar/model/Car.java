@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private Name name;
@@ -21,5 +23,17 @@ public class Car {
 
     public boolean isNamesake(Car car) {
         return this.name.equals(car.name);
+    }
+
+    /**
+     * 10번 중 6번 꼴로 전진한다.
+     * @return 전진한 경우 true를, 그렇지 않은 경우 false를 반환한다.
+     */
+    public boolean drive() {
+        int picked = Randoms.pickNumberInRange(0, 9);
+        if (picked >= 4) {
+            return distance.increaseByOne();
+        }
+        return false;
     }
 }
