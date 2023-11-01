@@ -1,12 +1,12 @@
 package racingcar.validator;
 
-import racingcar.constants.ValidatorConstant;
+import static racingcar.constants.ValidatorConstant.*;
 
 public class CarValidator implements Validator {
     @Override
     public void validate(String name) {
         if (isBlank(name) || isValidCarNameLength(name)) {
-            throw new IllegalArgumentException(ValidatorConstant.CAR_NAME_ERROR_MESSAGE);
+            throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
         }
     }
 
@@ -15,6 +15,6 @@ public class CarValidator implements Validator {
     }
 
     private boolean isValidCarNameLength(String name) {
-        return name.length() > ValidatorConstant.MAX_CAR_NAME_LENGTH;
+        return name.length() > MAX_CAR_NAME_LENGTH;
     }
 }
