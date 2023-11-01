@@ -51,4 +51,18 @@ class CarTest {
         // then
         assertEquals(1, car.getPosition());
     }
+
+    @Test
+    @DisplayName("이동 변수가 거짓인 경우 이동하지 않는다")
+    void canNotMoveTest() {
+        // given
+        Car car = Car.zeroPositionFrom("T");
+        MovingStrategy strategy = () -> false;
+
+        // when
+        car.move(strategy);
+
+        // then
+        assertEquals(0, car.getPosition());
+    }
 }
