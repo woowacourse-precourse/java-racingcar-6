@@ -11,6 +11,8 @@ public class Application {
         String[] cars = Console.readLine().split(",");
 
         // TODO: 시도할 회수 입력 받기
+        System.out.println("시도할 회수는 몇회인가요?");
+        int gameCount = Integer.parseInt(Console.readLine());
 
         // TODO: 전진 및 멈춤 로직
 
