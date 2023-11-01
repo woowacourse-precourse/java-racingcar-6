@@ -1,7 +1,9 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,6 +25,13 @@ class RacingCarsTest {
     void 자동차_생성() {
         RacingCars racingCars = new RacingCars("car1,car2");
         assertThat(racingCars).isNotNull();
+    }
+
+    @Test
+    void 자동차의_이름은_중복되어선_안된다() {
+        assertThatThrownBy(() -> new RacingCars("car1,car2,car1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_DUPLICATED);
     }
 
 }
