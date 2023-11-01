@@ -5,6 +5,7 @@ import racingcar.domain.Attempt;
 import racingcar.domain.Cars;
 import racingcar.domain.MovingStrategy;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -30,13 +31,16 @@ public class RacingCarGame {
         race(cars, attempt);
     }
 
-    private void race(Cars cars, Attempt attempt) {
-        for (int i = 0; i < attempt.count(); i++) {
-            cars.tryToMove(movingStrategy);
-        }
+    private List<String> readCarNames() {
+        return carNamesToNameList(readExistLine());
     }
 
-    private static List<String> readCarNames() {
-        return carNamesToNameList(readExistLine());
+    private void race(Cars cars, Attempt attempt) {
+        OutputView.printStartToShowResult();
+
+        for (int i = 0; i < attempt.count(); i++) {
+            cars.tryToMove(movingStrategy);
+            OutputView.printMovingResults(cars);
+        }
     }
 }
