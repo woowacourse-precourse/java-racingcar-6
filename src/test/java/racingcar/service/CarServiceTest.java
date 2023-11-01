@@ -63,7 +63,7 @@ class CarServiceTest {
 
         //then
         assertThat(car1.getForward()).isEqualTo(1);
-        assertThat(car2.getStop()).isEqualTo(2);
+        assertThat(car2.getForward()).isEqualTo(2);
     }
 
     @Test

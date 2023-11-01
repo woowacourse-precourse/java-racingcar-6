@@ -3,7 +3,7 @@ package racingcar.model;
 import static racingcar.util.Constants.ATTEMPTS_SIZE;
 
 public class Game {
-    int attempts;
+    private int attempts;
 
 
     public void createAttempts(String input){

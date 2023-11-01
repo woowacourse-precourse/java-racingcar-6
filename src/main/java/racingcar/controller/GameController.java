@@ -9,8 +9,8 @@ import java.util.List;
 public class GameController {
     private final CarService carService = new CarService();
     private final GameService gameService = new GameService();
-    List<Car> cars;
-    int attempts;
+    private List<Car> cars;
+    private int attempts;
 
     public void run(){
         initGame();
@@ -25,5 +25,6 @@ public class GameController {
 
     private void startGame(){
         gameService.racing(attempts, cars);
+        gameService.winnerPrint(cars);
     }
 }

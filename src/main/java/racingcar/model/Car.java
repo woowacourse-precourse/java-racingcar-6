@@ -4,17 +4,12 @@ import static racingcar.util.Constants.MAX_NAME_SIZE;
 import static racingcar.util.Constants.MIN_NAME_SIZE;
 
 public class Car {
-    // 전진 후진
-    String name;
-    int forward = 0;
-    int stop = 0;
+    private String name;
+    private int forward = 0;
+    private int stop = 0;
 
     public void increaseForward(){
         forward++;
-    }
-
-    public void increaseStop(){
-        stop++;
     }
 
     public void printForward(){
