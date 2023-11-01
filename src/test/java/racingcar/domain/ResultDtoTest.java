@@ -22,9 +22,9 @@ class ResultDtoTest {
     void addData() {
         // given
         resultDto = new ResultDto(BigInteger.valueOf(TOTAL_ROUND));
-        Car pobiCar = Car.createCar(generateId(), "pobi");
-        Car woniCar = Car.createCar(generateId(), "woni");
-        Car junCar = Car.createCar(generateId(), "jun");
+        Car pobiCar = Car.createCar("pobi");
+        Car woniCar = Car.createCar("woni");
+        Car junCar = Car.createCar("jun");
 
         // when
         for (int i = FIRST_ROUND; i < TOTAL_ROUND + 1; i++) {
@@ -35,10 +35,6 @@ class ResultDtoTest {
             SingleRoundResultDto singleRoundResult = new SingleRoundResultDto(carResults);
             resultDto.addSingleRoundResult(BigInteger.valueOf(i), singleRoundResult);
         }
-    }
-
-    private static BigInteger generateId() {
-        return idProvider = idProvider.add(BigInteger.ONE);
     }
 
     @Test

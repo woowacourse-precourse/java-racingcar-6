@@ -13,7 +13,6 @@
   - [x] 4 이상의 결과가 나온 수만큼 이동 거리가 1씩 증가된다. - Car$raceOneRound()
   - [x] 자동차 결과는 DTO로 포장해서 반환한다. - Car$createCarResultDto()
 - [x] 자동차들은 리포지토리에 의해 관리된다.
-  - [x] 자동차 이름이 중복되더라도 id 식별자에 의해 관리된다.
 - [x] 리포지토리는 결과를 DTO 형식으로 반환한다.
   - [x] 결과 DTO는 내부에 각 라운드 별 DTO를 담고 있다.
   - [x] 라운드 별 DTO는 자동차별 결과 DTO를 담고 있다.
@@ -75,11 +74,9 @@
 - ResultDto result
 - List<Car> cars
 - BigInteger currentRacingRound
-- BigInteger idProvider
 
 ### Behavior
 - `construct`(CarsDto, Client)
-  - `private` void idGenerate()
 - void race() 
   - `private` List<Car.CarResultDto> generateCarResults()
 - ResultDto finishFinalRound()
@@ -88,7 +85,6 @@
 
 ## 6. Car
 ### State
-- BigInteger id
 - String name
 - BigInteger distance
 - CarResultDto
@@ -97,7 +93,7 @@
   - String toString()
 
 ### Behavior
-- Car createCar(BigInteger id, String name)
+- Car createCar(String name)
 - void raceOneRound()
 - CarResultDto createCarResultDto()
 

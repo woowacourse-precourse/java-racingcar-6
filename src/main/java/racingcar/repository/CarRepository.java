@@ -14,7 +14,6 @@ public class CarRepository {
     private final ResultDto result;
     private final List<Car> cars;
     private BigInteger currentRacingRound;
-    private static BigInteger idProvider = BigInteger.ZERO;
 
     public CarRepository(CarsDto carsDto, Client client) {
 
@@ -24,15 +23,10 @@ public class CarRepository {
         cars = new ArrayList<>(numberOfCars);
         for (int i = 0; i < numberOfCars; i++) {
             String singleCarName = carsDto.getSingleCarName(i);
-            cars.add(Car.createCar(idProvider, singleCarName));
-            idGenerate(); // id는 0부터 1씩 증가한다.
+            cars.add(Car.createCar(singleCarName));
         }
 
         currentRacingRound = BigInteger.ZERO;
-    }
-
-    private static void idGenerate() {
-        idProvider = idProvider.add(BigInteger.ONE);
     }
 
     public void race(BigInteger round) {

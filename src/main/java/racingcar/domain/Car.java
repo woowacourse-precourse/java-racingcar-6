@@ -11,17 +11,15 @@ import static racingcar.util.Consts.MOVEMENT_CRITERIA;
 import static racingcar.util.Consts.SINGLE_MOVEMENT_DISTANCE;
 
 public class Car {
-    private final BigInteger id;
     private final String name;
     private BigInteger distance;
 
-    private Car(BigInteger id, String name) {
-        this.id = id;
+    private Car(String name) {
         this.name = name;
     }
 
-    public static Car createCar(BigInteger id, String name) {
-        Car car = new Car(id, name);
+    public static Car createCar(String name) {
+        Car car = new Car(name);
         car.distance = BigInteger.ZERO;
         return car;
     }

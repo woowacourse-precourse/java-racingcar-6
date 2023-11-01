@@ -4,14 +4,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.TestConsts;
 
-import java.math.BigInteger;
-
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
-
-    private static final BigInteger TEMP_ID = BigInteger.ZERO;
 
     @Test
     @DisplayName("차를 생성하는 기능 확인")
@@ -20,7 +16,7 @@ class CarTest {
         String carName = "abc";
 
         // when
-        Car createdCar = Car.createCar(TEMP_ID, carName);
+        Car createdCar = Car.createCar(carName);
 
         // then
         assertThat(createdCar).isNotNull();
@@ -31,7 +27,7 @@ class CarTest {
     @DisplayName("자동차는 상태를 CarResultDto에 담아서 반환한다.")
     void carResultDtoTest() {
         // given
-        Car myCar = Car.createCar(TEMP_ID, "kyeo");
+        Car myCar = Car.createCar("kyeo");
 
         // when
         Car.CarResultDto carResultDto = myCar.createCarResultDto();
@@ -45,7 +41,7 @@ class CarTest {
     @Test
     @DisplayName("랜덤의 결과가 4 이상이면 한 칸씩 전진한다.")
     void movingCar() {
-        Car myCar = Car.createCar(TEMP_ID, "kyeo");
+        Car myCar = Car.createCar("kyeo");
         assertRandomNumberInRangeTest(
                 () -> {
                     myCar.raceOneRound();
@@ -66,7 +62,7 @@ class CarTest {
     @Test
     @DisplayName("랜덤의 결과가 3 이하면 움직이지 않는다.")
     void stoppedCar() {
-        Car myCar = Car.createCar(TEMP_ID, "kyeo");
+        Car myCar = Car.createCar("kyeo");
         assertRandomNumberInRangeTest(
                 () -> {
                     myCar.raceOneRound();
