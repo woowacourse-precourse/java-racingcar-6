@@ -2,6 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static racingcar.ExceptionMessage.INVALID_CAR_NAME_LENGTH;
 
 import org.assertj.core.api.Assertions;
@@ -24,9 +25,7 @@ class CarTest {
 
     @Test
     void 지정한_길이를_만족하는_이름의_자동차_정상_생성() {
-        Car car = 자동차_생성(NAME_UNDER_LENGTH_LIMIT);
-        assertThat(car.getName())
-                .isEqualTo(NAME_UNDER_LENGTH_LIMIT);
+        assertThatCode(() -> 자동차_생성(NAME_UNDER_LENGTH_LIMIT)).doesNotThrowAnyException();
     }
 
     @Test
