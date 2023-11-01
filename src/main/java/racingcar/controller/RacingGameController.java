@@ -1,28 +1,52 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.domain.car.Cars;
 import racingcar.domain.round.GameRound;
+import racingcar.utils.RandomNumber;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGameController {
 
     private Cars cars;
     private GameRound gameRound;
-
-    public RacingGameController() {
-    }
+    private final RandomNumber randomNumber = new RandomNumberGenerator();
 
     public void run() {
-        initCarNames(InputView.readCarName());
-        initGameRound(InputView.readGameRound());
+        initCarNames();
+        initGameRound();
+
+        OutputView.printGameResultMessage();
+        printGameContinuable();
+
+
     }
 
-    private void initCarNames(final List<String> names) {
-        cars = new Cars(names);
+    private void printGameContinuable() {
+        while (gameRound.isContinuable()) {
+            playGame();
+            OutputView.printCarStatuses(cars.getCarStatus());
+        }
     }
 
-    private void initGameRound(final int count) {
-        gameRound = new GameRound(count);
+    private void playGame() {
+        cars.checkCarIsMovable();
+        gameRound.isCountDecrease();
+    }
+
+
+//    private void announceWinners() {
+//        final List<String> winnerNames = gameService.getWinnerNames();
+//        outputView.printMessageOfWinners(winnerNames);
+//    }
+
+
+    private void initCarNames() {
+        cars = new Cars(InputView.readCarName(), randomNumber);
+    }
+
+    private void initGameRound() {
+        gameRound = new GameRound(InputView.readGameRound());
     }
 }
