@@ -1,5 +1,7 @@
 package model;
 
+import static model.ErrorMessage.INVALID_NAME_LENGTH;
+
 public class Name {
 
     private static final int MAX_NAME_LENGTH = 5;
@@ -17,7 +19,7 @@ public class Name {
 
     private static void validateLength(final String value) {
         if (!isLengthValid(value)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH.getMessage());
         }
     }
 
