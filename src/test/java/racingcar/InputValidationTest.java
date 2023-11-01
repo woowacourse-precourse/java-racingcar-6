@@ -2,6 +2,9 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -18,6 +21,23 @@ public class InputValidationTest {
         //when, then
         assertThatThrownBy(() -> iv.checkNameLength(input))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 중복되는_자동차_이름_처리() {
+
+        //given
+        String[] names = {"pobi", "pobi", "woni"};
+        List<String> result = new ArrayList<>();
+
+        //when
+        for (String name : names) {
+            name = iv.checkDuplicateName(name);
+            result.add(name);
+        }
+
+        //then
+        assertThat(result).contains("pobi", "pobi2");
     }
 
     @Test
