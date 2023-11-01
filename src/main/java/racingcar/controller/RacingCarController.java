@@ -19,11 +19,11 @@ public class RacingCarController {
         String carNames = racingCarView.promptForNames();
         carService.setCars(carNames);
         Integer totalRounds = Integer.parseInt(racingCarView.promptForNumbers());
-        startRace(totalRounds, carService);
-        finishRace(carService);
+        startRace(totalRounds);
+        finishRace();
     }
 
-    private void startRace(Integer totalRounds, CarService carService){
+    private void startRace(Integer totalRounds){
         racingCarView.printRaceStart();
         for (int i = 0; i < totalRounds; i++) {
             for (Car car : carService.cars) {
@@ -34,7 +34,7 @@ public class RacingCarController {
         }
     }
 
-    private void finishRace(CarService carService){
+    private void finishRace(){
         racingCarView.printRaceWinner(carService.getWinnerNames());
     }
 }
