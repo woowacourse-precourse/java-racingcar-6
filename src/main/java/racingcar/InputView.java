@@ -6,7 +6,7 @@ import java.util.List;
 public class InputView {
     private static final String CAR_NAMES_DELIMITER = ",";
 
-    public static List<Car> inputCarsInfo() {
+    public static List<Car> inputCarNames() {
         return getCarNames();
     }
 

@@ -5,7 +5,7 @@ import java.util.List;
 public class RacingGame {
     public void startGame() {
         OutputView.printAskCarNames();
-        List<Car> cars = InputView.inputCarsInfo();
+        List<Car> cars = InputView.inputCarNames();
 
         OutputView.printAskRound();
         int round = InputView.inputRound();
