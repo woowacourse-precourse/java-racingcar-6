@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.utils.RandomNumber;
+import racingcar.utils.RandomUtils;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -18,7 +18,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (RandomNumber.isMove(randomNumber)) {
+        if (RandomUtils.isMove(randomNumber)) {
             this.position++;
         }
     }
