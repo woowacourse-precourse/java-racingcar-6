@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import static racingcar.utils.Validation.*;
 import static racingcar.message.InformationMessage.*;
@@ -17,24 +19,23 @@ public class InputView {
         String carsString = Console.readLine();
         validateNoComma(carsString); //쉼표 없으면 오류
         String[] carList = carsString.split(",");
-        //1자리수~5자리수 사이로 입력 요청
-        validateNameLength(carList);
+        validateNameLength(carList);//1자리수~5자리수 사이로 입력 요청
+        validateSameName(carList);//차 이름 중복 여부 확인
         return carList;
     }
-    public static ArrayList<Car> CarNames(){
-        for(String car : InputCarNames()){
+    public static ArrayList<Car> CarNames() {
+        for (String car : InputCarNames()) {
             Car c = new Car(car);
             cars.add(c); // Car 형태로 빈 어레이 리스트에 담기
         }
         return cars;
     }
 
-    public static Integer InputPlayTime(){
-        System.out.println(ASK_Play_Turn_MESSAGE);
-        String inputNumber = Console.readLine();
-        validateNaturalNumber(inputNumber);
-        return Integer.parseInt(inputNumber);
-    }
-
+        public static Integer InputPlayTime () {
+            System.out.println(ASK_Play_Turn_MESSAGE);
+            String inputNumber = Console.readLine();
+            validateNaturalNumber(inputNumber);
+            return Integer.parseInt(inputNumber);
+        }
 
 }
