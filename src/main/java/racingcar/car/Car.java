@@ -1,17 +1,18 @@
 package racingcar.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private Integer location;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    public Car(String name){
+    public Car(String name, RandomNumberGenerator randomNumberGenerator){
         this.name = name;
         this.location = 0;
+        this.randomNumberGenerator = randomNumberGenerator;
     }
     public void move(){
-        if(Randoms.pickNumberInRange(0,9) >= 4){
+        if(randomNumberGenerator.generate() >= 4){
             location += 1;
         }
     }

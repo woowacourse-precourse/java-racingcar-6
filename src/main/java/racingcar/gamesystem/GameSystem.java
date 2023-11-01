@@ -2,6 +2,7 @@ package racingcar.gamesystem;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.broadcaster.Broadcaster;
+import racingcar.car.WoowahanRandomNumberGenerator;
 import racingcar.race.Race;
 
 import java.util.Arrays;
@@ -16,10 +17,11 @@ public class GameSystem {
         System.out.println("시도할 회수는 몇회인가요?");
         String userInputRoundNumber = Console.readLine();
         validateRoundNumber(userInputRoundNumber);
-        Integer roundNumber = Integer.parseInt(userInputRoundNumber);
+        int roundNumber = Integer.parseInt(userInputRoundNumber);
 
         Race race = new Race();
-        race.addCars(carNames);
+        WoowahanRandomNumberGenerator woowahanRandomNumberGenerator = new WoowahanRandomNumberGenerator();
+        race.addCars(carNames, woowahanRandomNumberGenerator);
 
         System.out.println();
         System.out.println("실행 결과");

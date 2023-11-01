@@ -1,6 +1,7 @@
 package racingcar.race;
 
 import racingcar.car.Car;
+import racingcar.car.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +14,12 @@ public class Race {
     public Race(){
         cars = new ArrayList<>();
     }
-    public void addCar(String carName){
-        cars.add(new Car(carName));
+    public void addCar(String carName, RandomNumberGenerator randomNumberGenerator){
+        cars.add(new Car(carName, randomNumberGenerator));
     }
-    public void addCars(List<String> carNames){
+    public void addCars(List<String> carNames, RandomNumberGenerator randomNumberGenerator){
         for(String carName : carNames){
-            addCar(carName);
+            addCar(carName, randomNumberGenerator);
         }
     }
     public void moveCars(){
