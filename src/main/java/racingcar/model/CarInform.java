@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.constant.CarInformConstant;
+import racingcar.constant.SeparatorConstant;
 
 public class CarInform {
     private String carName;
@@ -20,7 +21,7 @@ public class CarInform {
     }
 
     public String makeRacingResult() {
-        return carName + " : " + dash;
+        return carName + SeparatorConstant.NAME_DASH_SEPARATOR.getValue() + dash;
     }
 
     public int getDashLen() {

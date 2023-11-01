@@ -2,6 +2,7 @@ package racingcar.constant;
 
 public enum SeparatorConstant {
     NAME_SEPARATOR(","),
+    NAME_DASH_SEPARATOR(" : "),
     WINNER_SEPARATOR(", ");
 
     private final String value;
