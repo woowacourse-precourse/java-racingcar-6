@@ -30,6 +30,55 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 이름에_대한_예외_처리2(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh,,hh","1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("-", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",pobi,java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리5() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,,java", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리6() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("\n", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리7() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리8() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh=", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {

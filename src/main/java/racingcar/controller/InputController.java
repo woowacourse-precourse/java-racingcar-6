@@ -4,7 +4,6 @@ import racingcar.model.Cars;
 import racingcar.validator.NameValidator;
 import racingcar.validator.NumValidator;
 import racingcar.view.InputView;
-import java.util.ArrayList;
 
 
 public class InputController {
