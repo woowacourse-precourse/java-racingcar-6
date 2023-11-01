@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.domain.CarPlayer;
 import racingcar.exception.InvalidCountException;
 import racingcar.exception.InvalidNameException;
+import racingcar.util.NumberSelector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,5 +34,15 @@ public class GameService {
             players.add(player);
         }
         return players;
+    }
+
+    public void updateCarScore(List<CarPlayer> players){
+        NumberSelector numberSelector = new NumberSelector();
+
+        for(CarPlayer player : players){
+            if(numberSelector.pickRandomNumber()>3){
+                player.setScore();
+            }
+        }
     }
 }
