@@ -74,6 +74,10 @@ public class RacingcarGame {
         }
     }
 
+    private void initializeWinners() {
+        winners = new ArrayList<>();
+    }
+
     private void setWinner(Car car) {
         int moveCount = car.getMoveCount();
         String name = car.getName();
@@ -88,9 +92,5 @@ public class RacingcarGame {
 
     private void printWinners() {
         InputOutput.printWinners(winners);
-    }
-
-    private void initializeWinners() {
-        winners = new ArrayList<>();
     }
 }
