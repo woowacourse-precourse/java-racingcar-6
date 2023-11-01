@@ -6,7 +6,6 @@ import java.util.List;
 public class Game {
 
     private static final int RANDOM_NUMBER = 4;
-
     private final InputView inputView;
     private final OutputView outputView;
 

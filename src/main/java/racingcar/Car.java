@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private String name;
     private int movingCnt;
 
@@ -17,10 +17,12 @@ public class Car implements Comparable<Car>{
     public void moveForward() {
         movingCnt++;
     }
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    public int getMovingCnt(){
+
+    public int getMovingCnt() {
         return this.movingCnt;
     }
 
