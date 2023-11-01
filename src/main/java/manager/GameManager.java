@@ -24,7 +24,7 @@ public class GameManager {
 
     public void outputCurrentPosition() {
         for (Car car: carList) {
-            System.out.println(car.getName() + ":" + "-".repeat(car.getPosition()));
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
     }
 
