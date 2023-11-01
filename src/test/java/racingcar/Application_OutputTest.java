@@ -1,22 +1,23 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.game.TextResourceManager.GAME_STAGE_VIEW_HEADER;
+import static racingcar.game.TextResourceManager.INPUT_NAMES_TEXT;
+import static racingcar.game.TextResourceManager.INPUT_TRIAL_TEXT;
 
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("애플리케이션이 요구사항대로 출력되고 있는지 테스트")
 public class Application_OutputTest extends MyApplicationTest {
-
-    private static final String INPUT_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String INPUT_TRIALS = "시도할 회수는 몇회인가요?";
-    private static final String EXECUTION_RESULT = "실행 결과";
 
     @Test
     void 게임_시작_직후에_자동차_이름_입력_문구_출력() {
         run("pobi,woni", "10");
         assertThat(outputs())
                 .first()
-                .isEqualTo(INPUT_NAMES);
+                .isEqualTo(INPUT_NAMES_TEXT);
 
     }
 
@@ -24,14 +25,14 @@ public class Application_OutputTest extends MyApplicationTest {
     void 자동차_이름_입력_문구와_시도할_횟수_입력_문구_출력() {
         run("pobi,woni", "10");
         assertThat(outputs())
-                .contains(INPUT_NAMES, INPUT_TRIALS);
+                .contains(INPUT_NAMES_TEXT, INPUT_TRIAL_TEXT);
     }
 
     @Test
     void 실행결과를_출력() {
         run("pobi,woni", "10");
         assertThat(outputs())
-                .contains(EXECUTION_RESULT);
+                .contains(GAME_STAGE_VIEW_HEADER);
     }
 
     @Test

@@ -3,15 +3,18 @@ package racingcar;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
+import static racingcar.game.TextResourceManager.GAME_WINNER_VIEW_TAG;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.Configuration;
 
+@DisplayName("애플리케이션의 도메인 기능이 제대로 동작하는지 테스트")
 public class Application_ResultAccuracyTest extends MyApplicationTest {
     private List<String> winners;
 
@@ -55,7 +58,7 @@ public class Application_ResultAccuracyTest extends MyApplicationTest {
 
     void getWinners() {
         Optional<String> resultString = outputs().stream()
-                .filter(output -> output.contains("최종 우승자"))
+                .filter(output -> output.contains(GAME_WINNER_VIEW_TAG))
                 .findFirst();
 
         if (resultString.isEmpty()) {

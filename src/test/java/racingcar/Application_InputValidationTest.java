@@ -2,14 +2,15 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.game.TextResourceManager.GAME_STAGE_VIEW_HEADER;
+import static racingcar.game.TextResourceManager.GAME_WINNER_VIEW_TAG;
 
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("애플리케이션의 입력 유효성 검증기능을 테스트")
 public class Application_InputValidationTest extends MyApplicationTest {
-
-    private static final String EXECUTION_RESULT = "실행 결과";
-    private static final String FINAL_WINNER = "최종 우승자";
 
     @Test
     void 자동차_이름을_빈_문자열로_주면_프로그램_종료() {
@@ -51,8 +52,8 @@ public class Application_InputValidationTest extends MyApplicationTest {
         assertThatThrownBy(callable)
                 .isInstanceOf(IllegalArgumentException.class);
         assertThat(outputs())
-                .doesNotContain(EXECUTION_RESULT)
-                .noneMatch(s -> s.contains(FINAL_WINNER));
+                .doesNotContain(GAME_STAGE_VIEW_HEADER)
+                .noneMatch(s -> s.contains(GAME_WINNER_VIEW_TAG));
     }
 
 }
