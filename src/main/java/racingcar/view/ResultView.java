@@ -7,7 +7,7 @@ import racingcar.domain.Car;
 public class ResultView {
     private static final String POSITION_INDICATOR = "-";
     private static final String MESSAGE_WINNER = "최종 우승자 : ";
-    private static final String MESSAGE_RACE_START = "\n실행 결과 : ";
+    private static final String MESSAGE_RACE_START = "\n실행 결과";
 
     public void printRaceStart() {
         System.out.println(MESSAGE_RACE_START);
