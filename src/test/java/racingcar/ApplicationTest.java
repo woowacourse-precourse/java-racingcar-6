@@ -6,7 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -30,7 +29,7 @@ class ApplicationTest extends NsTest {
             "hyo,mk,jay,hyo",                                    // 2. 이름 중복 시 예외 처리
             "pobi,javaji"                                        // 3. 이름 길이 예외처리
     })
-    void 이름_중복에_대한_예외_처리(String name) {
+    void 이름에_대한_예외_처리(String name) {
         DealWithExceptionCase IsNameValuable = new DealWithExceptionCase();
         assertThatThrownBy(() -> IsNameValuable.IsNameValuable(name))
                 .isInstanceOf(IllegalArgumentException.class);

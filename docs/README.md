@@ -19,6 +19,8 @@ MVC 패턴을 적용하여 기능을 구현하였으며, 클래스의 구성은 
     ㄴ☕ DealWithExceptionCase.java   (예외처리)
 ```
 
+<br>
+
 ## 클래스 별 구성
 
 ### 1. RacingcarView
@@ -26,18 +28,25 @@ MVC 패턴을 적용하여 기능을 구현하였으며, 클래스의 구성은 
 다음과 같은 함수들로 구성되어 있습니다. 
 
 ```java
-GetMembersAndTurn() 
+GetMembers()
+GetTurn()
 StartRacing()  
 printMemberStatus() 
 printResult()
 IsMaxValue()
 ```
 
-#### `GetMembersAndTurn()`
+#### `GetMembers()`
 
-- 멤버 이름과 시도횟수를 입력받습니다.
+- 참여자의 이름을 입력받습니다.
 
-- 🚨 `racingcarController` > `IsNameAccurate()` 를 호출해 이름의 정확성을 검증합니다.
+- 🚨 `DealWithExceptionCase` > `IsNameValuable()` 를 호출해 이름의 정확성을 검증합니다.
+
+#### `GetTurn()`
+
+- 시도횟수를 입력받습니다.
+
+- 🚨 `DealWithExceptionCase` > `IsTurnTypeInteger()` 를 호출해 시도횟수의 정확성을 검증합니다.
 
 #### `StartRacing()`
 
@@ -56,6 +65,8 @@ IsMaxValue()
 - 멤버를 순회하며 최댓값과 동일한 값을 가진 key들 (멤버이름)을 모두 출력하면서 winnerCount에도 1을 더합니다.
 
 - 이 때, winnerCount가 0이라면 이름만 출력, 이외에는 이름 앞에 SPOT (",") 를 출력하도록 합니다. 
+
+<br>
 
 ### 2. RacingcarController
 
@@ -96,24 +107,43 @@ GetMaxValues()
 
 - 🚨`racingcarView` 클래스의 `printResult()` 를 호출합니다. 
 
+<br>
+
 ### 4. DealWithExceptionCase
 
 다음과 같이 구성되어있습니다
 
 ```java
-IsNameAccurate() 
+IsNameValuable() 
+LengthTest()
 IsNameDuplicate()
+IsVoidInName()
+IsTurnTypeInteger()
 ```
 
-#### `IsNameAccurate()`
+#### `IsNameValuable()`
 
-- 입력받은 이름이 정확한지를 검사합니다.
+- 🚨`LengthTest()`, `IsNameDuplicate()` , `IsVoidInName()` 를 호출해 검사하며 입력받은 문자열이 사용할 수 있는 것인지를 검증합니다.
+
+#### `LengthTest()`
+
+- 이름의 길이가 5 이하인지 검사합니다.
 
 #### `IsNameDuplicate()`
 
 - 입력받은 이름이 중복되는지를 검사합니다.
 
+#### `IsVoidInName()`
 
+- 이름이 공백으로만 이루어져 있거나, "" 인 경우 `IllegalArgumentException()` 을 발생시킵니다.
+
+#### `IsTurnTypeInteger()`
+
+- 입력받은 시도횟수가 정수형인지를 검사합니다.
+
+- 정수형 이외의 문자가 들어있으면 `IllegalArgumentException()` 을 발생시킵니다.
+
+<br>
 
 ### 3. RacingcarModel
 
@@ -122,3 +152,5 @@ IsNameDuplicate()
   - 게임에 사용되는 상수들과 변수
   
   - 유저들의 게임진행도를 저장하는 해쉬맵
+  
+  - 입력받은 유저 이름의 중복을 검증하는 용도의 리스트
