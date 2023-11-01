@@ -41,4 +41,28 @@ public class RacingGame {
     protected boolean isFinished() {
         return remainingRounds == 0;
     }
+
+    protected List<String> getWinners() {
+        if (!isFinished()) {
+            return null;
+        }
+        int maxPosition = 0;
+        List<String> winners = new ArrayList<>();
+        cars.forEach(car -> updateWinnersByPosition(car, maxPosition, winners));
+        return winners;
+    }
+    private int updateWinnersByPosition(Car car, int currentMaxPosition, List<String> winners) {
+        int carPosition = car.getPosition();
+
+        if (carPosition > currentMaxPosition) {
+            winners.clear();
+            winners.add(car.getName());
+            return carPosition;
+        } else if (car.getPosition() == currentMaxPosition) {
+            winners.add(car.getName());
+            return currentMaxPosition;
+        } else {
+            return currentMaxPosition;
+        }
+    }
 }
