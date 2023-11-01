@@ -9,6 +9,7 @@ import racingcar.validator.Validator;
 public class InputView {
 
     public static final String INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public static final String INPUT_MOVE_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     private final Validator duplicateNameValidator;
     private final Validator characterLimitValidator;
@@ -27,6 +28,33 @@ public class InputView {
         List<String> carNameList = List.of(readLine().split(","));
         validateCarNames(carNameList);
         return carNameList;
+    }
+
+    public int inputMoveCount() {
+        System.out.println(INPUT_MOVE_COUNT_MESSAGE);
+        String input = readLine();
+        validateMoveCount(input);
+        int moveCount = parseInteger(input);
+        return moveCount;
+    }
+
+    public void validateMoveCount(String input) {
+        if (!isPositiveInteger(input)) {
+            throw new IllegalArgumentException("error: 숫자가 아닌 값이 입력되었습니다.");
+        }
+    }
+
+    private int parseInteger(String input) {
+        return Integer.parseInt(input);
+    }
+
+    private boolean isPositiveInteger(String input) {
+        try {
+            int num = Integer.parseInt(input);
+            return num > 0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public void validateCarNames(List<String> carNameList) {
