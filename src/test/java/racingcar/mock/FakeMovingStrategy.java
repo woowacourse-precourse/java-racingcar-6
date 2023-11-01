@@ -1,6 +1,6 @@
 package racingcar.mock;
 
-import racingcar.RacingCarMovingStrategy;
+import racingcar.model.movingstrategy.RacingCarMovingStrategy;
 
 public class FakeMovingStrategy {
 
