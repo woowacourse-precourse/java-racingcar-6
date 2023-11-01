@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 
 public class racingcarException {
-  public static void exception_len_0(String[] name_list) {
-    if (name_list.length < 2) {
+  public static void exception_len_0(String[] carNames) {
+    if (carNames.length < 2) {
       System.out.println("exception_len_0의 if문 안에 들어옴");
       throw new IllegalArgumentException();
     }
