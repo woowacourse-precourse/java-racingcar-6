@@ -13,12 +13,19 @@ public class RacingCarGame {
     private final User user = new User();
     private final OutputView outputView = new OutputView();
 
-    public void startGame() {
 
+    public void readyGame() {
+        inputView.printCarNameInputMsg();
+        user.inputCarName();
+
+        inputView.printTryCountInputMsg();
+        user.inputTryCount();
+    }
+
+    public void startGame() {
         List<Car> cars = createCars();
 
-        inputTryCount();
-
+        outputView.printGameResultMsg();
         playRound(cars);
 
         announceWinners(cars);
@@ -31,8 +38,6 @@ public class RacingCarGame {
     }
 
     private void playRound(List<Car> cars) {
-        outputView.printGameResultMsg();
-
         int tryCount = user.getTryCount();
         while (tryCount > 0) {
             moveCars(cars);
@@ -41,15 +46,7 @@ public class RacingCarGame {
         }
     }
 
-    private void inputTryCount() {
-        inputView.printTryCountInputMsg();
-        user.inputTryCount();
-    }
-
     private List<Car> createCars() {
-        inputView.printCarNameInputMsg();
-        user.inputCarName();
-
         List<String> carNames = user.getCarNames();
         return carNames.stream()
                 .map(Car::new)
