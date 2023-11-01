@@ -8,6 +8,12 @@ public class TryCountValidator {
     private static final String INPUT_TRYCOUNT_NOTHING_EXCEPTION = "아무것도 입력하지 않았습니다. 1 이상의 숫자를 입력해주세요.";
     private static final String INPUT_TRYCOUNT_NUMERIC_EXCEPTION = "1 이상의 자연수만 입력해주세요";
 
+    public static void validateInput(String tryCount) {
+        validateInputTryCount(tryCount);
+        validateInputTryCountNothing(tryCount);
+        validateInputTryCountNumeric(tryCount);
+    }
+
     public static void validateInputTryCount(String tryCount) {
         int inputTryCount = Integer.parseInt(tryCount);
         if (inputTryCount == 0) {
