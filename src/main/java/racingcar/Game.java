@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class Game {
     private final User user = new User();
     private int numberOfTurns;
-    private List<Car> cars = new ArrayList<>();;
+    private List<Car> cars = new ArrayList<>();
 
     public void start() {
         initializeGame();

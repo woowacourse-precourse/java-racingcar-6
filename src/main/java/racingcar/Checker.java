@@ -1,4 +1,5 @@
 package racingcar;
+
 import java.util.*;
 
 public class Checker {
@@ -6,6 +7,7 @@ public class Checker {
         checkNameLength(carNames);
         checkNameDuplication(carNames);
     }
+
     private static void checkNameLength(List<String> carNames) {
         for (String name : carNames) {
             if (name.length() > 5) {
