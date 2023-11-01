@@ -17,6 +17,7 @@ public class RaceController {
     public static void race() {
         List<Car> cars = setCars();
         int totalRound = setTotalRound();
+        OutputView.printResultTitle();
         int round = START_ROUND;
         while (round <= totalRound) {
             doRound(cars);

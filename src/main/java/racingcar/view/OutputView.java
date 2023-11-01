@@ -6,6 +6,10 @@ import java.util.Queue;
 import racingcar.model.Car;
 
 public class OutputView {
+    public static void printResultTitle() {
+        System.out.println("실행 결과");
+    }
+
     public static void printRaceStatus(List<Car> cars) {
         StringBuilder status = new StringBuilder();
         for (Car car : cars) {
