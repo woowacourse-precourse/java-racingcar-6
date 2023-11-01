@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,7 +22,7 @@ class InputManagerTest {
     }
 
     @Test
-    void inputTryCountTest() {
+    void inputTryCountTest_유효성체크_성공() {
         //given
         String input = "5";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -31,6 +32,30 @@ class InputManagerTest {
         //then
         Integer expected = 5;
         assertEquals(expected, result);
+    }
+
+    @Test
+    void inputTryCountTest_유효성체크_실패_숫자가_아닌_경우() {
+        //given
+        String input = "A";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        //when
+        assertThatThrownBy(() -> inputManager.inputTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID tryCount : non-numeric characters");
+    }
+
+    @Test
+    void inputTryCountTest_유효성체크_실패_1보다_작은_경우() {
+        //given
+        String input = "0";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        //when
+        assertThatThrownBy(() -> inputManager.inputTryCount())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("INVALID tryCount : number less than 1");
     }
 
     @Test
