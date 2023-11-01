@@ -8,6 +8,6 @@ public class PlaceTest {
     public void 전진_테스트(){
         Place place = new Place();
         place.moveForward();
-        assertThat(place.getNowPlace()).isEqualTo("-");
+        assertThat(place.getMoveCount()).isEqualTo(1);
     }
 }

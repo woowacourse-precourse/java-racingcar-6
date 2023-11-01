@@ -1,14 +1,13 @@
 package model;
 
 public class Place {
-    final static String ONE_PLACE = "-";
-    String nowPlace = "";
+    int moveCount;
 
     public void moveForward() {
-        this.nowPlace = this.nowPlace + ONE_PLACE;
+        this.moveCount++;
     }
 
-    public String getNowPlace() {
-        return nowPlace;
+    public int getMoveCount() {
+        return moveCount;
     }
 }

@@ -20,14 +20,14 @@ public class Winners {
         return maxPlace;
     }
     public void searchMaxPlace(List<Car> cars) {
-        maxPlace = cars.stream().map(car -> car.getNowPlace().length())
+        maxPlace = cars.stream().map(car -> car.getNowPlace())
                 .max(Integer::compareTo)
                 .orElse(0);
     }
 
     public void searchWinners(List<Car> cars) {
         winners = cars.stream().filter(car ->
-                        car.getNowPlace().length() == maxPlace)
+                        car.getNowPlace()== maxPlace)
                 .collect(Collectors.toList());
     }
 

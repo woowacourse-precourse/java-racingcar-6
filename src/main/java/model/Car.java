@@ -15,8 +15,8 @@ public class Car {
     }
 
 
-    public String getNowPlace() {
-        return place.getNowPlace();
+    public int getNowPlace() {
+        return place.getMoveCount();
     }
 
     public void tryMove(int randomNumber) {
