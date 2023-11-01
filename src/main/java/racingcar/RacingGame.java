@@ -7,6 +7,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
+    private static final int ADVANCE_TRIGGER = 4;
+    private static final int CAR_MAX_COUNT = Integer.MAX_VALUE;
+    private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int MAX_GAME_TIMES = Integer.MAX_VALUE;
 
     LinkedHashMap<String, String> racingProgress;
     Integer gameTimes;
@@ -33,9 +37,11 @@ public class RacingGame {
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
-
+        if (readlineCarNames.length > CAR_MAX_COUNT) {
+            throw new IllegalArgumentException(CAR_MAX_COUNT + "개 이하의 자동차 이름을 입력해 주세요.");
+        }
         for (String readlineCarName : readlineCarNames) {
-            if (readlineCarName.length() > 5) {
+            if (readlineCarName.length() > CAR_NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException("자동차의 이름은 각 5글자 이내여야 합니다.");
             } else {
                 racingProgress.put(readlineCarName, "");
@@ -54,18 +60,18 @@ public class RacingGame {
             String readlineGameTimes = Console.readLine();
             gameTimes = Integer.parseInt(readlineGameTimes);
         } catch (Exception e) {
-            throw new IllegalArgumentException(Integer.MAX_VALUE + "이하의 자연수만 입력하세요.");
+            throw new IllegalArgumentException(MAX_GAME_TIMES + "이하의 자연수만 입력하세요.");
         }
 
-        if (gameTimes <= 0) {
-            throw new IllegalArgumentException(Integer.MAX_VALUE + "이하의 자연수만 입력하세요.");
+        if (gameTimes <= 0 || gameTimes > MAX_GAME_TIMES) {
+            throw new IllegalArgumentException(MAX_GAME_TIMES + "이하의 자연수만 입력하세요.");
         }
         return gameTimes;
     }
 
     private LinkedHashMap<String, String> eachRace() {
         racingProgress.forEach((carName, driveLength) -> {
-            if (Randoms.pickNumberInRange(1, 9) >= 4) {
+            if (Randoms.pickNumberInRange(1, 9) >= ADVANCE_TRIGGER) {
                 racingProgress.put(carName, racingProgress.get(carName) + "-");
             }
             System.out.println(carName + " : " + racingProgress.get(carName));
