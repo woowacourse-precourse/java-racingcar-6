@@ -75,9 +75,9 @@ public class CarTest {
 
     @Test
     public void 유효한_이름_길이_검증() throws Exception{
-        String[] names = {"brian", "poby", "andres"};
+        String name = "andres";
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputValidator.validateNameLength(names);
+            InputValidator.validateNameLength(name);
         });
     }
 

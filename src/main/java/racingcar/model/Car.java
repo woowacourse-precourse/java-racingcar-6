@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.validator.InputValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Car {
     private final List<String> position;
 
     public Car(String name) {
+        InputValidator.validateNameLength(name);
         this.name = name;
         position = new ArrayList<>();
     }
