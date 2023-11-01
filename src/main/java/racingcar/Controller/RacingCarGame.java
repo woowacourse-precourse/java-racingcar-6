@@ -25,13 +25,16 @@ public class RacingCarController {
 
             for (int i = 0; i < trialCount; i++) {
                 RacingCarService racingCarService = new RacingCarService();
-                racingCarService.playAndSelectWinners(race);
+                racingCarService.playRace(race);
 
-                // 각 자동차의 이동 출력
                 OutputView.gameResultMessage();
                 for (Car car : race.getCars()) {
-                    OutputView.printMovementIndicator(car.getCarName(), car.getCarPosition());
+                    OutputView.printMovementCount(car.getCarName(), car.getCarPosition());
                 }
+
+                List<String> winners = racingCarService.selectWinners(race);
+                
+                OutputView.printSelectWinner(winners);
             }
 
         } catch (IllegalArgumentException e) {
