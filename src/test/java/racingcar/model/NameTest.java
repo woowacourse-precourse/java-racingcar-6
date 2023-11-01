@@ -76,4 +76,15 @@ class NameTest {
         // 널
         assertNotEquals(null, n1);
     }
+
+    @Test
+    void toString_형식_테스트() {
+        Name n1 = new Name("픽업 트럭");
+        Name n2 = new Name("스포츠 카");
+        Name n3 = new Name("자전거");
+
+        assertEquals(n1.toString(), "픽업 트럭");
+        assertEquals(n2.toString(), "스포츠 카");
+        assertEquals(n3.toString(), "자전거");
+    }
 }
