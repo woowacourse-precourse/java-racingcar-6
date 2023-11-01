@@ -2,7 +2,6 @@ package racingcar;
 
 import racingcar.controller.RoundCountHandler;
 import racingcar.controller.ErrorMessage;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -37,7 +36,7 @@ public class RoundCountHandlerTest {
     @Test
     public void testHandleNonNumericInput() {
         try {
-            roundCountHandler.handle("invalidInput");
+            roundCountHandler.handle("absy");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             assertEquals(ErrorMessage.NON_NUMERIC_MESSAGE, e.getMessage());
