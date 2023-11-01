@@ -18,6 +18,6 @@ public class ValidatorTest {
 
         assertThatThrownBy(() -> Validator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 이름은 5자 이하만 가능합니다.");
+                .hasMessageContaining("[ERROR] 자동차 이름은 5자 이하만 가능합니다.");
     }
 }
