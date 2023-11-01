@@ -6,7 +6,7 @@ public class TryCountValidator {
         try {
             Integer.parseInt(tryCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자가 아닙니다");
+            throw new IllegalArgumentException("시도 횟수는 Integer 범위의 값만 가능합니다.");
         }
     }
 
