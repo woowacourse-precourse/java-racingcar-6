@@ -20,8 +20,9 @@ public class RacingGame {
 
     public void race() {
         getCar();
-        blankLine();
         int trialNumber = geteTrialNumber();
+        outputView.printResult();
+        blankLine();
 
         while (trialNumber-- > 0) {
             moveCarIfRandomOver4();
@@ -50,8 +51,7 @@ public class RacingGame {
         Cars.cars.stream()
                 .forEach(car -> {
                     String dashes = "-".repeat(car.location);
-                    System.out.println(car.carName + " : " + dashes);
-                    blankLine();
+                    outputView.printResultFormat(car.carName, dashes);
                 });
     }
 
