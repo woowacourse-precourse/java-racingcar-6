@@ -43,7 +43,7 @@ class RacingFormatterTest {
     }
 
     @Test
-    @DisplayName("전 횟수를 정상적인 숫자로 변환하는 검증")
+    @DisplayName("전진 횟수를 정상적인 숫자로 변환하는 검증")
     void reformatNormalAttemptNumberTest() {
         //given
         RacingFormatter formatter = new RacingFormatter();
@@ -53,5 +53,15 @@ class RacingFormatterTest {
 
         //then
         assertThat(result).isEqualTo(123);
+    }
+
+    @Test
+    @DisplayName("전진 횟수가 0인 문자열 입력에 대한 예회 발생 검증")
+    void reformatZeroAttemptNumberTest() {
+
+        RacingFormatter formatter = new RacingFormatter();
+
+        assertThatThrownBy(() -> formatter.reformatAttemptNumber("0"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
