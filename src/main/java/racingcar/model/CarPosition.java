@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Position {
+public class CarPosition {
 
     private static final int MIN_POSITION_VALUE = 0;
     private static final int MOVE_FORWARD_STEP = 1;
@@ -8,7 +8,7 @@ public class Position {
 
     private int position;
 
-    public Position(final int position) {
+    public CarPosition(final int position) {
         validate(position);
         this.position = position;
     }
@@ -19,8 +19,8 @@ public class Position {
         }
     }
 
-    public static Position withZero() {
-        return new Position(INITIAL_STEP);
+    public static CarPosition withZero() {
+        return new CarPosition(INITIAL_STEP);
     }
 
     public void moveForward() {
