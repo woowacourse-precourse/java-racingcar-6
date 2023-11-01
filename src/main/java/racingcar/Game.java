@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Game {
+    public static final int CAR_INDEX_HAVING_MAX_COUNT = 0;
     private final List<Car> carList;
     private final int racingCount;
 
@@ -56,7 +57,7 @@ public class Game {
 
     private int getMaxCount() {
         carList.sort(Collections.reverseOrder());
-        Car maxCountCar = carList.get(0);
+        Car maxCountCar = carList.get(CAR_INDEX_HAVING_MAX_COUNT);
         return maxCountCar.getMovingCount();
     }
 

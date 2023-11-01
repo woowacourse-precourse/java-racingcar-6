@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+    public static final int MAXIMUM_CAR_NAME_LENGTH = 5;
+    public static final int INIT_MOVING_COUNT = 0;
+
     public String inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 김표(,) 기준으로 구분)");
         return Console.readLine();
@@ -17,7 +20,7 @@ public class User {
         String[] carNameArray = carNames.split(",");
 
         for (String carName : carNameArray) {
-            if (carName.length() > 5) {
+            if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("5자 이하 이름만 가능");
             }
 
@@ -29,7 +32,7 @@ public class User {
                 continue;
             }
 
-            Car car = new Car(carName, 0);
+            Car car = new Car(carName, INIT_MOVING_COUNT);
             carList.add(car);
             carNameList.add(carName);
         }

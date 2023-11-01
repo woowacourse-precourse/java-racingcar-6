@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
+    public static final int BASELINE_NUMBER_FOR_UPDATE = 4;
     private final String name;
     private int movingCount;
 
@@ -25,7 +26,7 @@ public class Car implements Comparable<Car> {
     }
 
     public int updateMovingCountOrNot(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= BASELINE_NUMBER_FOR_UPDATE) {
             return ++movingCount;
         }
         return movingCount;
