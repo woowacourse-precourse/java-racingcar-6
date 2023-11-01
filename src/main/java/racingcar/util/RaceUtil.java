@@ -20,5 +20,21 @@ public class RaceUtil {
         }
     }
 
-   
+    public static List<String> getWinner(List<Car> cars) {
+        List<String> result = new ArrayList<>();
+        int maxNum = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() > maxNum) {
+                maxNum = car.getPosition();
+            }
+        }
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxNum) {
+                result.add(car.getName());
+            }
+        }
+        return result;
+    }
 }
