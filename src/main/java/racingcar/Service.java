@@ -40,6 +40,9 @@ public class Service {
             }
             printCurrentPositions(cars);
         }
+
+        List<String> winners = determineWinners(cars);
+        printWinners(winners);
     }
 
     private static void printCurrentPositions(List<Car> cars) {
@@ -53,7 +56,7 @@ public class Service {
         System.out.println();
     }
 
-    static List<String> determineWinners(List<Car> cars) {
+    private static List<String> determineWinners(List<Car> cars) {
         int maxPosition = 0;
         for (Car car : cars) {
             maxPosition = Math.max(maxPosition, car.getPosition());
@@ -68,7 +71,7 @@ public class Service {
         return winners;
     }
 
-    static void printWinners(List<String> winners) {
+    private static void printWinners(List<String> winners) {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
