@@ -18,19 +18,26 @@ public class RacingGame {
 
 	private List<Car> initialize(List<String> names) {
 		List<Car> cars = new ArrayList<>();
-		names.forEach(name -> cars.add(Car.from(name)));
+		names.forEach(
+			name -> cars.add(Car.from(name)
+			));
 		return cars;
 	}
 
 	public void progressGame(int turn) {
 		validateTurn(turn);
-		IntStream.range(0, turn).forEach(i -> progressTurn());
+		IntStream.range(0, turn)
+			.forEach(i -> progressTurn());
 	}
 
 	private void validateTurn(int turn) {
-		if (turn < 0) {
+		if (isCollectTurnRange(turn)) {
 			throw new IllegalArgumentException("올바른 turn 값이 아닙니다.");
 		}
+	}
+
+	private boolean isCollectTurnRange(int turn) {
+		return turn < 0;
 	}
 
 	private void progressTurn() {
