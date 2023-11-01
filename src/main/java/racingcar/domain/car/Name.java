@@ -19,19 +19,19 @@ public record Name(
 
     private void validateNullity(final String name) {
         if (name == null) {
-            throw new IllegalArgumentException(ErrorConsts.NULL_NAME.getMessage());
+            throw new IllegalArgumentException(ErrorConsts.NULL_CAR_NAME.getMessage());
         }
     }
 
     private void validateBlank(final String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException(ErrorConsts.BLANK_NAME.getMessage());
+            throw new IllegalArgumentException(ErrorConsts.BLANK_CAR_NAME.getMessage());
         }
     }
 
     private void validateLength(final String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorConsts.LONG_NAME.getFormattedMessage(MAX_NAME_LENGTH));
+            throw new IllegalArgumentException(ErrorConsts.LONG_CAR_NAME.getFormattedMessage(MAX_NAME_LENGTH));
         }
     }
 }

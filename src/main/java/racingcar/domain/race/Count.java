@@ -1,5 +1,7 @@
 package racingcar.domain.race;
 
+import racingcar.constants.ErrorConsts;
+
 public record Count(
         int count
 ) {
@@ -15,7 +17,7 @@ public record Count(
 
     private void validateMin(final int count) {
         if (count < MIN_COUNT) {
-            throw new IllegalArgumentException("레이스 횟수는 1 이상이어야 합니다.");
+            throw new IllegalArgumentException(ErrorConsts.INSUFFICIENT_RACE_COUNT.getFormattedMessage(MIN_COUNT));
         }
     }
 }
