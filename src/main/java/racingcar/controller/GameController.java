@@ -49,7 +49,7 @@ public class GameController {
 
     public int getTrialNumber() {
         String input = view.inputTrialNumber();
-        trialNumberValidator.validateTrialNumber(input);
+        trialNumberValidator.validateTrialNumberInput(input);
         return Integer.parseInt(input);
     }
 

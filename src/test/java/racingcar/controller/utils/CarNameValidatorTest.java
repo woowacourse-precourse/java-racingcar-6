@@ -3,9 +3,6 @@ package racingcar.controller.utils;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class CarNameValidatorTest {
 
     @Test
