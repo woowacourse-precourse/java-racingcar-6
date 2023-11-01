@@ -40,6 +40,6 @@ public class RacingGameService {
 
         Integer maxPosition = cars.stream().max(Comparator.comparingInt(Car::getPosition)).get().getPosition();
         List<String> result = cars.stream().filter(car -> car.getPosition() == maxPosition).map(Car::getName).collect(Collectors.toList());
-        System.out.println(String.join(", ", result));
+        System.out.println("최종 우승자 : " + String.join(", ", result));
     }
 }
