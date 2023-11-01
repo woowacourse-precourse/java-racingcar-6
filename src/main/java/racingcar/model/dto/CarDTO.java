@@ -14,6 +14,10 @@ public class CarDTO {
         this.dist = dist;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return String.format("%s : %s", name, "-".repeat(dist));
