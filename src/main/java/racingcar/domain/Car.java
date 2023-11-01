@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     String name;
@@ -10,7 +12,11 @@ public class Car {
     }
 
     public void randomMove() {
-        //TODO 직진 여부 판단
+        int random = Randoms.pickNumberInRange(0,9);
+        if(random >= 4){
+            location++;
+        }
+
     }
 
     public String getName() {

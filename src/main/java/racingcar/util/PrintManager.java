@@ -1,5 +1,9 @@
 package racingcar.util;
 
+import racingcar.domain.Car;
+
+import java.util.List;
+
 public class PrintManager {
 
     public static void printInputCarName() {
@@ -14,8 +18,11 @@ public class PrintManager {
         System.out.println(MessageEnum.PLAY_RESULT.getMessage());
     }
 
-    public static void printGameResult() {
-        //TODO 게임 결과 한 줄 출력
+    public static void printGameResult(Car car) {
+        System.out.print(car.getName() + " : ");
+        for(int i = 0 ; i < car.getLocation(); i++)
+            System.out.print("-");
+        System.out.println();
     }
 
     public static void printFinalResult() {

@@ -28,7 +28,7 @@ public class RacingGame {
     private static void moveCars() {
         for(Car car : players){
             car.randomMove();
-            PrintManager.printGameResult();
+            PrintManager.printGameResult(car);
         }
     }
 }
