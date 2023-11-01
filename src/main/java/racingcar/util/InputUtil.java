@@ -6,35 +6,54 @@ public class InputUtil {
         return validateCarName(carName);
     }
 
+    public static int getRaceLap(String raceLap) {
+        return validateLap(raceLap);
+    }
+
+    private static int validateLap(String raceLap) {
+        if (!isValidLap(raceLap)) {
+            throw new IllegalArgumentException(Constants.LAP_NOT_POSITIVE_INTEGER_EXCEPTION);
+        }
+        return Integer.parseInt(raceLap);
+    }
+
     private static String[] validateCarName(String carName) {
         String[] carNameStrings = carName.split(",");
 
-        for (String carNameStr : carNameStrings) {
-            if (carNameStr.length() > 5 || carNameStr.isEmpty()) {
-                throw new IllegalArgumentException(Constants.CAR_NAME_LONGER_THAN_5_EXCEPTION);
-            }
-        }
+        isMinimum2Car(carNameStrings);
+        areCarNameLongerThan5(carNameStrings);
 
         return carNameStrings;
     }
 
-    public static int getRaceLap(String raceLap) {
-        return validateRaceLap(raceLap);
+    private static void areCarNameLongerThan5(String[] carNameStrings) {
+        for (String carNameStr : carNameStrings) {
+            if (carNameStr.length() > Constants.MINIMUM_CAR_NAME_LENGTH) {
+                throw new IllegalArgumentException(Constants.CAR_NAME_LONGER_THAN_5_EXCEPTION);
+            }
+        }
     }
 
-    private static int validateRaceLap(String raceLap) {
-        int lap;
+    private static void isMinimum2Car(String[] carNameStrings) {
+        if (carNameStrings.length < Constants.MINIMUM_CAR_INPUT) {
+            throw new IllegalArgumentException(Constants.MINIMUM_CAR_COUNT_EXCEPTION);
+        }
+    }
 
+    private static boolean isValidLap(String raceLap) {
+        return isLapInteger(raceLap) && isPositiveInteger(raceLap);
+    }
+
+    private static boolean isPositiveInteger(String raceLap) {
+        return Integer.parseInt(raceLap) > 0;
+    }
+
+    private static boolean isLapInteger(String raceLap) {
         try {
-            lap = Integer.parseInt(raceLap);
+            Integer.parseInt(raceLap);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Constants.LAP_NO_INTEGER_INPUT_EXCEPTION);
+            return false;
         }
-
-        if (lap <= 0) {
-            throw new IllegalArgumentException(Constants.LAP_NOT_POSITIVE_INTEGER_EXCEPTION);
-        }
-
-        return lap;
+        return true;
     }
 }
