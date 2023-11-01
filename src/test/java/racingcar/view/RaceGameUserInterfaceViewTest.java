@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
  * Tests class RaceGameUserInterfaceView method function correctly
  */
 class RaceGameUserInterfaceViewTest {
+
     private static ByteArrayOutputStream outputMessage;
 
     /**

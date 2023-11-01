@@ -7,6 +7,7 @@ import java.util.List;
  * Stores the states of race game
  * <p>
  * This class has totalRound and userCarDistance which has (car name, distance) pair
+ *
  * @author WorldBestProgrammer
  */
 public class RaceGameStateModel {
@@ -18,7 +19,7 @@ public class RaceGameStateModel {
      * Initializes totalRound and userCarDistance
      *
      * @param totalRound Total number of round
-     * @param userCars List of car names
+     * @param userCars   List of car names
      */
     public RaceGameStateModel(int totalRound, List<String> userCars) {
         this.totalRound = totalRound;
@@ -68,7 +69,7 @@ public class RaceGameStateModel {
     /**
      * Updates distance of car
      *
-     * @param key Car name
+     * @param key      Car name
      * @param newValue New distance value of car name
      */
     public void updateUserDistance(String key, int newValue) {

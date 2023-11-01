@@ -24,7 +24,7 @@ public class JudgeMovement {
      * Judges whether number is more than criteria
      *
      * @param randomNumber Number to be compared with criteria
-     * @param criteria Criteria number
+     * @param criteria     Criteria number
      * @return true if randomNumber is more than criteria, else false
      */
     public static boolean goFlag(int randomNumber, int criteria) {

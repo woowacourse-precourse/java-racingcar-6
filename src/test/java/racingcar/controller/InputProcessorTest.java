@@ -53,23 +53,23 @@ class InputProcessorTest {
 
         // List 공백 검사
         assertThrows(IllegalArgumentException.class,
-            () -> InputProcessor.userCarInputProcessor(""));
+                () -> InputProcessor.userCarInputProcessor(""));
 
         // List 공백 검사
         assertThrows(IllegalArgumentException.class,
-            () -> InputProcessor.userCarInputProcessor(","));
+                () -> InputProcessor.userCarInputProcessor(","));
 
         // 공백 원소 검사
         assertThrows(IllegalArgumentException.class,
-            () -> InputProcessor.userCarInputProcessor(", 가나"));
+                () -> InputProcessor.userCarInputProcessor(", 가나"));
 
         // 5자 초과 검사
         assertThrows(IllegalArgumentException.class,
-            () -> InputProcessor.userCarInputProcessor("가나라마바사, 가나"));
+                () -> InputProcessor.userCarInputProcessor("가나라마바사, 가나"));
 
         // 중복 검사
         assertThrows(IllegalArgumentException.class,
-            () -> InputProcessor.userCarInputProcessor("가나, 가나"));
+                () -> InputProcessor.userCarInputProcessor("가나, 가나"));
 
     }
 
@@ -89,6 +89,6 @@ class InputProcessorTest {
     void totalRoundInputProcessorErrorTest() {
         // then
         assertThrows(IllegalArgumentException.class,
-            () -> InputProcessor.totalRoundInputProcessor("안"));
+                () -> InputProcessor.totalRoundInputProcessor("안"));
     }
 }

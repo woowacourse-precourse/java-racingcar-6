@@ -52,7 +52,7 @@ public class Application {
     /**
      * Updates distance when the car can go
      *
-     * @param userCars List of car names
+     * @param userCars           List of car names
      * @param raceGameStateModel Model storing state of race game
      */
     private static void updateUserCarDistance(List<String> userCars,

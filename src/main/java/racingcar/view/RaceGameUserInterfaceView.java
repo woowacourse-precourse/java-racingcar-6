@@ -28,6 +28,7 @@ public class RaceGameUserInterfaceView {
 
     /**
      * Gets input
+     *
      * @return Input value
      */
     public static String getInput() {
