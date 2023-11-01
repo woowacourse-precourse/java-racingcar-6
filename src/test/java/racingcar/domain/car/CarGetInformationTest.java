@@ -1,10 +1,9 @@
-package racingcar.car;
+package racingcar.domain.car;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.strategy.MoveForwardOnceRandomlyStrategy;
+import racingcar.domain.car.strategy.MoveForwardOnceRandomlyStrategy;
 import racingcar.dto.CarInformationDto;
 
 public class CarGetInformationTest {
@@ -22,8 +21,8 @@ public class CarGetInformationTest {
         int position = carInformationDto.position();
 
         // then
-        Assertions.assertEquals(position, 0);
-        Assertions.assertEquals(name, carName);
+        Assertions.assertEquals(0, position);
+        Assertions.assertEquals(carName, name);
     }
 
 }

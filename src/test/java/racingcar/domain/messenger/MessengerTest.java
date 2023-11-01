@@ -1,10 +1,9 @@
-package racingcar.messenger;
+package racingcar.domain.messenger;
 
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Messenger;
 import racingcar.dto.CarInformationDto;
 import racingcar.dto.CarNamesDto;
 import racingcar.dto.CarsInformationDto;
@@ -21,7 +20,7 @@ public class MessengerTest {
         String string = messenger.getRequestCarNames();
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -32,7 +31,7 @@ public class MessengerTest {
         String string = messenger.getRequestRoundCount();
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -43,7 +42,7 @@ public class MessengerTest {
         String string = messenger.getPlayResultMessage();
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -64,7 +63,7 @@ public class MessengerTest {
         String string = messenger.getRoundResult(carsInformationDto);
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -80,7 +79,7 @@ public class MessengerTest {
         String string = messenger.getWinners(carNamesDto);
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
     @Test
@@ -96,7 +95,7 @@ public class MessengerTest {
         String string = messenger.getWinners(carNamesDto);
 
         // then
-        Assertions.assertEquals(string, expectedString);
+        Assertions.assertEquals(expectedString, string);
     }
 
 }
