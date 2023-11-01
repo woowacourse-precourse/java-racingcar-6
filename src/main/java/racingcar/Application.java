@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import carnameinputprocess.CarNameInputProcess;
+import racingprocess.RacingProcess;
 
 public class Application {
     public static void main(String[] args) {
@@ -12,9 +13,11 @@ public class Application {
         CarNameInputProcess test = new CarNameInputProcess(input);
 
         System.out.println("시도할 회수는 몇회인가요?");
+
         String count = Console.readLine();
         System.out.println();
         System.out.println("실행 결과");
+        RacingProcess rp = new RacingProcess(count, input);
 
 
 
