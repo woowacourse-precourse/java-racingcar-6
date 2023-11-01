@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarConverter;
 import racingcar.domain.Race;
+import racingcar.util.RandomGenerator;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
@@ -13,7 +14,7 @@ public class Application {
         int tryCount = InputView.inputTryCount();
 
         List<Car> cars = CarConverter.convertToCars(carNames);
-        Race race = new Race(cars, tryCount);
+        Race race = new Race(cars, tryCount, new RandomGenerator());
         race.run();
 
         List<Car> winners = race.getWinners();
