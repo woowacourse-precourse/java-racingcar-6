@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 public class RacingReferee {
 
+    private RacingReferee() {
+    }
+
     public static void printWinnersName(List<RacingCar> racingCars) {
         final int winnerPosition = getWinnerPosition(racingCars);
         System.out.println(getWinnersName(racingCars, winnerPosition));
