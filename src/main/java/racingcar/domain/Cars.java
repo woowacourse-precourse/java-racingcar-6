@@ -12,11 +12,16 @@ public class Cars {
     private final List<Car> carList;
 
     public Cars(List<String> carNameList) {
-        CarNameValidator.validateDuplicatedName(carNameList);
-        CarNameValidator.validateNameLength(carNameList);
+        validate(carNameList);
         this.carList = carNameList.stream()
                 .map(Car::new)
                 .toList();
+    }
+
+    private static void validate(List<String> carNameList) {
+        CarNameValidator.validateWhiteSpace(carNameList);
+        CarNameValidator.validateDuplicatedName(carNameList);
+        CarNameValidator.validateNameLength(carNameList);
     }
 
     public static Cars from(List<String> carNameList) {

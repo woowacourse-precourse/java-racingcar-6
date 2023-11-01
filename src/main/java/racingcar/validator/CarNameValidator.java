@@ -11,6 +11,12 @@ public class CarNameValidator {
         throw new AssertionError();
     }
 
+    public static void validateWhiteSpace(List<String> carNameList) {
+        if (carNameList.stream().anyMatch(name -> name.trim().isEmpty())) {
+            throw ExceptionMessage.NAME_BLANK.getException();
+        }
+    }
+
     public static void validateDuplicatedName(List<String> carNameList) {
         if (distinctCountOf(carNameList) != carNameList.size()) {
             throw ExceptionMessage.NAME_DUPLICATION.getException();
