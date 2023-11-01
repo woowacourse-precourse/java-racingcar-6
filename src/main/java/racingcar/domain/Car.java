@@ -4,9 +4,8 @@ public class Car {
     private final String name;
     private int score;
 
-    public Car(String name, int score) {
+    public Car(String name) {
         this.name = name;
-        this.score = score;
     }
 
     public void go(){
