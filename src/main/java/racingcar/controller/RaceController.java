@@ -3,6 +3,7 @@ package racingcar.controller;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.util.UserInput;
@@ -56,15 +57,17 @@ public class RaceController {
 
     public static List<Car> getWinners(List<Car> cars) {
         List<Car> winners = new ArrayList<>();
-        int winnerLocation = 0;
-        for (Car car : cars) {
-            winnerLocation = Math.max(winnerLocation, car.location);
-        }
+        int winnerLocation = findWinnerLocation(cars);
         for (Car car : cars) {
             if (car.location == winnerLocation) {
                 winners.add(car);
             }
         }
         return winners;
+    }
+
+    public static int findWinnerLocation(List<Car> cars) {
+        Collections.sort(cars);
+        return cars.get(0).location;
     }
 }
