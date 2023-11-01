@@ -25,4 +25,12 @@ public class Car {
         }
         System.out.println(runResult.toString());
     }
+
+    public int getDistance() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
