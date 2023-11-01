@@ -4,12 +4,16 @@ import racingcar.constants.ErrorConsts;
 
 public final class Count {
     private static final int MIN_COUNT = 1;
-    private final int count;
+    private int count;
 
     public Count(String count) {
         final int parsedCount = parseToInt(count);
         validate(parsedCount);
         this.count = parsedCount;
+    }
+
+    public void decrease() {
+        this.count--;
     }
 
     private void validate(final int count) {
