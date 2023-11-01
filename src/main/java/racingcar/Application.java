@@ -34,7 +34,7 @@ public class Application {
 
     public static void moveAllCars(List<Car> cars){
         for(int i=0;i<cars.size();i++){
-            cars.get(i).move();
+            cars.get(i).tryToMove();
         }
 
     }

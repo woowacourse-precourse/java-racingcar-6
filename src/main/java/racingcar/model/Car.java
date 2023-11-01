@@ -11,11 +11,15 @@ public class Car {
         this.raceStatus = 0;
     }
 
-    public void move() {
+    public void tryToMove() {
         int randResult = Randoms.pickNumberInRange(0, 9);
         if (randResult >= 4) {
-            raceStatus+= 1;
+            move();
         }
+    }
+
+    private void move(){
+        raceStatus+= 1;
     }
 
 }
