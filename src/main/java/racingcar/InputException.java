@@ -2,7 +2,9 @@ package racingcar;
 
 public class InputException {
 
-    private static Integer saveTrialNumber(String trialNumberInput) {
+
+
+    public static Integer isNumberFormat(String trialNumberInput) {
         try {
             Integer trialNumber = Integer.valueOf(trialNumberInput);
             return trialNumber;

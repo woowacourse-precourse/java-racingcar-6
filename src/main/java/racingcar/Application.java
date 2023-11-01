@@ -78,4 +78,8 @@ public class Application {
         }
     }
 
+    private static Integer saveTrialNumber(String trialNumberInput) {
+        return InputException.isNumberFormat(trialNumberInput);
+    }
+
 }
