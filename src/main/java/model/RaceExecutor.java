@@ -18,7 +18,7 @@ public class RaceExecutor {
         this.names = raceDto.getCars().keySet().stream().toList();
     }
 
-    public void attemptAndPrintResult(){
+    public void execute(){
         for (int i = 0; i < raceDto.getAttemptTimes(); i++) {
             singleAttempt();
             printAttemptResult();
