@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class Race {
 
@@ -29,18 +30,23 @@ public class Race {
 
     public static List<String> getWinners(List<HashMap<String, Integer>> raceResult) {
         List<String> winners = new ArrayList<>();
-        int maxPosition = 0;
-        for (HashMap<String, Integer> result : raceResult) {
-            for (String carName : result.keySet()) {
-                if (result.get(carName) > maxPosition) {
-                    maxPosition = result.get(carName);
-                    winners.clear();
-                    winners.add(carName);
-                } else if (result.get(carName) == maxPosition) {
-                    winners.add(carName);
-                }
+
+        HashMap<String, Integer> lastRaceResult = raceResult.get(raceResult.size() - 1);
+        int maxScore = Integer.MIN_VALUE;
+        Set<String> maxScoreKeys = lastRaceResult.keySet();
+
+        for (String key : maxScoreKeys) {
+            int value = lastRaceResult.get(key);
+
+            if (value > maxScore) {
+                maxScore = value;
+                winners.clear();
+                winners.add(key);
+            } else if (value == maxScore) {
+                winners.add(key);
             }
         }
+
         return winners;
     }
 }
