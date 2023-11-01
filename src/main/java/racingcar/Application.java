@@ -49,9 +49,31 @@ public class Application {
         }
     }
 
+    public static void playRacing(List<RacingCar> cars, int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            moveRacingCar(cars);
+            System.out.println();
+        }
+    }
+
+    public static void moveRacingCar(List<RacingCar> cars) {
+        int randNum;
+
+        for (RacingCar nowCar : cars) {
+            randNum = Randoms.pickNumberInRange(0, 9);
+
+            nowCar.simulate(randNum);
+        }
+    }
+
     public static void main(String[] args) {
         List<String> carNames = readCarNameList();
         List<RacingCar> racingCars = registerRacingCars(carNames);
         int tryCount = readTryCount();
+
+        System.out.println();
+        System.out.println("실행 결과");
+
+        playRacing(racingCars, tryCount);
     }
 }
