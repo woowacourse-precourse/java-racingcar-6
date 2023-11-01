@@ -26,6 +26,20 @@ public class RacingGame {
 //        printWinner();
     }
 
+    public List<Car> getWinner() {
+        if(!isGameOver()) {
+            throw new IllegalStateException(ErrorMessage.GAME_NOT_FINISHED);
+        }
+        Integer maxPosition = cars.stream().map(Car::getPosition).max(Integer::compareTo).get();
+        return this.cars.stream().filter(car -> car.atPosition(maxPosition)).toList();
+    }
+
+    private void printWinner() {
+        List<Car> winners = getWinner();
+        String winnerMsg = GameMessage.getWinnerMessage(winners);
+        System.out.println(winnerMsg);
+    }
+
     private void playOneRound() {
         for(Car car : cars) {
             moveIfAble(car);
