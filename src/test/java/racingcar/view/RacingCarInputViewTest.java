@@ -18,6 +18,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.dto.UserCarNameDto;
 
 public class RacingCarInputViewTest {
 
@@ -52,7 +53,8 @@ public class RacingCarInputViewTest {
     public void inputCarNamesTest(String names, List<String> expected) {
         System.setIn(generateUserInput(names));
         RacingCarInputView racingCarInputView = new RacingCarInputView();
-        List<String> carNames = racingCarInputView.inputCarNames();
+        UserCarNameDto userCarNameDto = racingCarInputView.inputCarNames();
+        List<String> carNames = userCarNameDto.carNames();
         for (int i = 0; i < carNames.size(); i++) {
             assertThat(carNames.get(i)).isEqualTo(expected.get(i));
         }

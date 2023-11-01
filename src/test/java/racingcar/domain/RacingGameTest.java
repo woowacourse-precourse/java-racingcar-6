@@ -6,13 +6,14 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.UserCarNameDto;
 
 public class RacingGameTest {
 
     @DisplayName("레이싱 게임을 생성한다.")
     @Test
     void createTest() {
-        Cars cars = Cars.from(List.of("pobi", "woni", "jun"), new FixedCarEngine(true));
+        Cars cars = Cars.from(new UserCarNameDto(List.of("pobi", "woni", "jun")), new FixedCarEngine(true));
         AttemptCounts attemptCounts = AttemptCounts.from("1");
         assertThatCode(() -> RacingGame.of(cars, attemptCounts))
                 .doesNotThrowAnyException();
@@ -21,7 +22,7 @@ public class RacingGameTest {
     @DisplayName("레이싱 경기를 한 회 진행하고 해당 회의 결과를 반환한다.")
     @Test
     void playTest() {
-        Cars cars = Cars.from(List.of("pobi", "woni", "jun"), new FixedCarEngine(true));
+        Cars cars = Cars.from(new UserCarNameDto(List.of("pobi", "woni", "jun")), new FixedCarEngine(true));
         AttemptCounts attemptCounts = AttemptCounts.from("1");
         RacingGame racingGame = RacingGame.of(cars, attemptCounts);
         assertThat(racingGame.isRemainAttemptCounts()).isTrue(); // 시도 횟수 1 남아있으므로 true.
