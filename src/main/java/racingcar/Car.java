@@ -19,4 +19,10 @@ public class Car {
 		if(Randoms.pickNumberInRange(0,9) >= 4)
 			advance++;
 	}
+    public void printAdvance() {
+		System.out.print(getName() + " : ");
+		for(int i = 0; i < getAdvance(); i++)
+			System.out.print("-");
+		System.out.println();
+	}
 }
