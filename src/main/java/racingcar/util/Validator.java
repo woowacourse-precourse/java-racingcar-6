@@ -37,4 +37,11 @@ public class Validator {
             throw new IllegalArgumentException(",로 문장이 마쳐졌습니다.");
         }
     }
+
+    public static void validateDuplicateNames(List<String> names) {
+        Set<String> nameSet = new HashSet<>(names);
+        if (nameSet.size() < names.size()) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
+    }
 }
