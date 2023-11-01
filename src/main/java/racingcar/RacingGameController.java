@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +26,17 @@ public class RacingGameController {
         cars = new ArrayList<>();
         for (String name : gameData.getCarNames()) {
             cars.add(new Car(name.trim()));
+        }
+    }
+
+    // 한 라운드를 진행
+    private void playSingleRace() {
+        int randomRoundValue = Randoms.pickNumberInRange(0, 9); //0 ~ 9 사이의 랜덤한 값을 생성
+
+        for (Car car : cars) {
+            if (randomRoundValue >= 4) {  //4이상이면 전진.
+                car.move();
+            }
         }
     }
 
