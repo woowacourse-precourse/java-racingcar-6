@@ -1,8 +1,5 @@
 package racingcar.model;
 
-import static racingcar.common.Constant.RAND_NUM_MAX_RANGE;
-import static racingcar.common.Constant.RAND_NUM_MIN_RANGE;
-
 import racingcar.util.NumberGenerator;
 
 public class RandomSingleNumber {
@@ -12,13 +9,17 @@ public class RandomSingleNumber {
         this.number = number;
     }
 
-    public static RandomSingleNumber create() {
-        int number = NumberGenerator.getRandomDigit(RAND_NUM_MIN_RANGE, RAND_NUM_MAX_RANGE);
+    public static RandomSingleNumber of(int min, int max) {
+        int number = NumberGenerator.getRandomDigit(min, max);
 
         return new RandomSingleNumber(number);
     }
 
     public boolean isAtLeast(int threshold) {
         return this.number >= threshold;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }
