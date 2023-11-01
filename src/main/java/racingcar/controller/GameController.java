@@ -58,6 +58,10 @@ public class GameController {
         if(carName.stream().anyMatch(name -> name.length() >= 5)) {
             throw new IllegalArgumentException("입력한 자동차 이름중에 5자가 넘는 이름이 있습니다.");
         }
+
+        if(carName.size() <= 1) {
+            throw new IllegalArgumentException("게임을 시작할 인원이 부족합니다.");
+        }
     }
 
     private void moveCars() {
