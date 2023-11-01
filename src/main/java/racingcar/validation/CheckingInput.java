@@ -9,7 +9,6 @@ import static racingcar.constants.ExceptionMessage.EXCEPTION_NAME_LENGTH;
 import java.util.Arrays;
 
 public class CheckingInput {
-
     static void validateCarName(String carName) {
         if (carName.isEmpty() || carName.length() > 5) {
             throw new IllegalArgumentException(EXCEPTION_NAME_LENGTH);
@@ -30,7 +29,6 @@ public class CheckingInput {
         if (duplicated) {
             throw new IllegalArgumentException(EXCEPTION_NAME_DUPLICATE);
         }
-
     }
 
     static void validateLetter(char letter) {
@@ -52,7 +50,6 @@ public class CheckingInput {
 
         validateCarNamesLength(carNames.length);
         validateNamesDuplicate(carNames);
-
     }
 
     public static void checkInputCount(String count) {
@@ -63,6 +60,5 @@ public class CheckingInput {
 
         int countNum = Integer.parseInt(count);
         validateCountValue(countNum);
-
     }
 }

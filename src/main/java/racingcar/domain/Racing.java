@@ -53,13 +53,9 @@ public class Racing {
     }
 
     String getWinners() {
-
         int max = getMaxSteps();
         List<String> winnerList = getWinnerList(max);
 
         return String.join(", ", winnerList);
-
     }
-
-
 }

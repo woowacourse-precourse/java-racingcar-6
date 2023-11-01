@@ -5,5 +5,4 @@ public class SystemMessage {
     public static final String PLEASE_INPUT_ATTEMPT_NUMBER = "시도할 회수는 몇회인가요?";
     public static final String RACING_RESULT = "실행 결과";
     public static final String RACING_WINNER = "최종 우승자";
-
 }
