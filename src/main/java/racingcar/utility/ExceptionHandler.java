@@ -41,7 +41,7 @@ public class ExceptionHandler {
 
     public void isNaturalNumber(int inputValue) {
         if (inputValue == 0) {
-            throw new IllegalArgumentException(Error.IS_NOT_NATURAL_NUMBER);
+            throw new IllegalArgumentException(Error.NUMERIC_INPUT);
         }
     }
 

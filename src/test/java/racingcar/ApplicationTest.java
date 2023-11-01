@@ -40,7 +40,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("GameService - setCarName")
+    @DisplayName("GameService - setCarName (carName is valid value)")
     @Test
     void 유효한_자동차_이름() {
         // given
@@ -53,7 +53,7 @@ class ApplicationTest extends NsTest {
         Assertions.assertThat(car.getCarName().containsAll(carNames));
     }
 
-    @DisplayName("GameService - setCarName")
+    @DisplayName("GameService - setCarName (carName is duplicated)")
     @Test
     void 중복된_자동차_이름_예외_처리() {
         // given
@@ -66,7 +66,7 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining(Error.DUPLICATED_NAME);
     }
 
-    @DisplayName("GameService - setCarName")
+    @DisplayName("GameService - setCarName (inputValue is contain blank)")
     @Test
     void 공백_입력_예외_처리() {
         // given
@@ -79,7 +79,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("GameService - setCarName")
+    @DisplayName("GameService - setCarName (When InputValue is divided with Spaces)")
     @Test
     void 쉼표로_구분하지_않고_공백으로_구분했을_경우() {
         // given
@@ -92,7 +92,7 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining(Error.NOT_ALLOW_SPACES);
     }
 
-    @DisplayName("GameService - setTryNumber")
+    @DisplayName("GameService - setTryNumber (attempt == 1)")
     @Test
     void 시도_횟수가_자연수() {
         // given
@@ -101,7 +101,47 @@ class ApplicationTest extends NsTest {
         // when
         assertThatCode(() -> {
             run("poni,woni", attemp);
-        }).doesNotThrowAnyException();
+        }).doesNotThrowAnyException(); // then
+    }
+
+    @DisplayName("GameService - setTryNumber (attempt == 0)")
+    @Test
+    void 시도_횟수가_자연수가_아닐_때_예외_처리() {
+        // given
+        String attemp = "-1";
+
+        // when
+        assertThatThrownBy(() -> runException("poni,woni", attemp))
+                // then
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(Error.NUMERIC_INPUT);
+
+    }
+
+    @DisplayName("GameService - setTryNumber (attempt == 0)")
+    @Test
+    void 시도_횟수가_0일_때_예외_처리() {
+        // given
+        String attemp = "0";
+
+        // when
+        assertThatThrownBy(() -> runException("poni,woni", attemp))
+                // then
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(Error.NUMERIC_INPUT);
+
+    }
+
+    @DisplayName("Judgement - findWinner")
+    @Test
+    void 승자_판단() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("hyun,a", "3");
+                    assertThat(output()).contains("hyun : ---", "a : ", "최종 우승자 : hyun");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
+        );
     }
 
 
