@@ -19,4 +19,13 @@ public class CarRacingInputServiceTest {
         assertThat(carNames).contains("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k");
     }
 
+    @Test
+    void 레이싱_진행_횟수_입력() {
+        String input = "10";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Integer attemptCount = carRacingInputService.inputAttemptCount();
+
+        assertThat(attemptCount).isEqualTo(10);
+    }
+
 }
