@@ -27,7 +27,7 @@ public class RacingGameStart {
     }
 
 
-    private static RacingCar[] createRacingCars(String carNames) {
+    public static RacingCar[] createRacingCars(String carNames) {
 
         String[] carNamesList = carNames.split(",");
         RacingCar[] racingCars = new RacingCar[carNamesList.length];
