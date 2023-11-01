@@ -44,10 +44,11 @@
 
 ## `Attempts`
 
-`int attemps`를 래핑한 클래스
+`int attempts`를 래핑한 클래스
 
 - [Exception] 문자가 들어오면 `IllegalArgumentsException`을 발생시킨다.
 - [Exception] 공백 혹은 빈 문자열이 들어오면 `IllegalArgumentsException`을 발생시킨다.
+- [Exception] 음수가 들어오면 `IllegalArgumentsException`을 발생시킨다.
 - `attemps`를 반환할 수 있다.
 
 ---
