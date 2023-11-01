@@ -31,7 +31,7 @@ public class RacingGame {
     }
 
     private void startRace() {
-        System.out.println("\n실행 결과");
+        System.out.println(System.lineSeparator() + "실행 결과");
         for (int currentMoveNum = 0; racingSetting.isInRange(currentMoveNum); currentMoveNum++) {
             moveCars();
             printMovingResult();
