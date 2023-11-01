@@ -8,7 +8,8 @@ import racingcar.view.CarView;
 import racingcar.view.ResultView;
 
 public class GameController {
-    private GameController() {}
+    private GameController() {
+    }
 
     private static List<Car> cars;
 
@@ -23,7 +24,7 @@ public class GameController {
 
     private static void moveCar(int inputMoveCount) {
         for (int tryCount = 0; tryCount < inputMoveCount; tryCount++) {
-            for (Car car:cars) {
+            for (Car car : cars) {
                 car.move();
             }
 
