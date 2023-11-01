@@ -5,8 +5,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class DataConverter {
+
     Car car = Car.getInstance();
+
     RacingData racingData = RacingData.getInstance();
+
+
 
     public List<String> changeInputStringToList (String userInputCarString) {
 
@@ -21,6 +25,7 @@ public class DataConverter {
 
         return changeStringToList;
     }
+
 
     public int changeInputStringToInteger (String userInputLoopCount) {
 
