@@ -1,51 +1,45 @@
 package study;
 
+import domain.GameInput;
+
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.io.ByteArrayInputStream;
+
 import org.junit.jupiter.api.Test;
 
+//테스트코드 작성방법
+//https://velog.io/@dgh06175/Java-JUnit5-%EA%B3%BC-AssertJ-%EB%A1%9C-%EB%8B%A8%EC%9C%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0
 public class StringTest {
 
     @Test
-    void split_메서드로_주어진_값을_구분() {
-        String input = "1,2";
-        String[] result = input.split(",");
-
-        assertThat(result).contains("2", "1");
-        assertThat(result).containsExactly("1", "2");
+    void userGameTries_테스트(){
+        System.setIn(new ByteArrayInputStream("123".getBytes()));
+        assertThat(GameInput.userGameTries()).isEqualTo(123);
     }
-
     @Test
-    void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
-        String input = "1";
-        String[] result = input.split(",");
-
-        assertThat(result).contains("1");
+    void userGameTries_오류_테스트(){
+        System.setIn(new ByteArrayInputStream("asdf".getBytes()));
+        assertThatThrownBy(() -> GameInput.userGameTries())
+                .isInstanceOf(IllegalArgumentException.class);
     }
-
     @Test
-    void substring_메서드로_특정_구간_값을_반환() {
-        String input = "(1,2)";
-        String result = input.substring(1, 4);
-
-        assertThat(result).isEqualTo("1,2");
+    void userCarNameInput_테스트(){
+        System.setIn(new ByteArrayInputStream("1234,asdfg,asdf".getBytes()));
+        assertThat(GameInput.userCarNameInput()).asList();
     }
-
     @Test
-    void charAt_메서드로_특정_위치의_문자_찾기() {
-        String input = "abc";
-        char charAtElement = input.charAt(0);
-        assertThat(charAtElement).isEqualTo('a');
+    void userCarNameInput_문자열_테스트(){
+        System.setIn(new ByteArrayInputStream("1234,asdfg,asdf".getBytes()));
+        assertThat(GameInput.userCarNameInput()).contains("1234,asdfg,asdf");
     }
-
     @Test
-    void charAt_메서드_사용시_문자열의_길이보다_큰_숫자_위치의_문자를_찾을_때_예외_발생() {
-        String input = "abc";
-
-        assertThatThrownBy(() -> input.charAt(5))
-                .isInstanceOf(StringIndexOutOfBoundsException.class)
-                .hasMessageContaining("String index out of range: 5");
+    void userCarNameInput_오류_테스트(){
+        System.setIn(new ByteArrayInputStream("1234,asdfg,asdf,asdfgk".getBytes()));
+        assertThatThrownBy(() -> GameInput.userCarNameInput())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
