@@ -2,7 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Application {
@@ -64,6 +66,19 @@ public class Application {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public static void winnerOf() {
+        List<String> winners = new ArrayList<>();
+        int max = -1;
+        String[] carName = cars.keySet().toArray(new String[cars.size()]);
+        for (int i = 0; i < carName.length; i++) {
+            int count = cars.get(carName[i]);
+            if (count >= max) {
+                max = count;
+                winners.add(carName[i]);
+            }
+        }
     }
 
 }
