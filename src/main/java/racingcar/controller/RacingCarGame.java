@@ -26,7 +26,7 @@ public class RacingCarGame {
         List<Car> cars = createCars();
 
         outputView.printGameResultMsg();
-        playRound(cars);
+        playRacing(cars);
 
         announceWinners(cars);
     }
@@ -37,7 +37,7 @@ public class RacingCarGame {
         outputView.printWinnersName(winners);
     }
 
-    private void playRound(List<Car> cars) {
+    private void playRacing(List<Car> cars) {
         int tryCount = user.getTryCount();
         while (tryCount > 0) {
             moveCars(cars);
