@@ -5,6 +5,8 @@ import java.util.List;
 
 public final class Convertor {
 
+    private static final String INVALID_VALUE_TO_PARSE_INT_EXCEPTION_MESSAGE = "숫자로 형변환할 수 없는 값입니다.";
+
     public static List<String> split(String string, String delimiter) {
         String[] strings = string.split(delimiter);
         return Arrays.stream(strings)
@@ -21,7 +23,7 @@ public final class Convertor {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("유효하지 않은 값입니다.");
+            throw new IllegalArgumentException(INVALID_VALUE_TO_PARSE_INT_EXCEPTION_MESSAGE);
         }
     }
 
