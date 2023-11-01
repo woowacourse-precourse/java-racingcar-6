@@ -44,14 +44,13 @@ public class RacingCarGameLogic {
     }
 
     public void compareToFrontCount(int randomNumber,int index){
-        CarInformation carInformation = new CarInformation();
-        carForwardCount=carInformation.getCarForwardCount();
+        getCarInformation();
         if(randomNumber>=STANDARD_NUMBER_OF_ATTEMPTS){
             carForwardCount.set(index,carForwardCount.get(index)+1);
         }
     }
 
-    private String convertCountToDash(int count){
+    public String convertCountToDash(int count){
         String dash="";
         for(int i=0;i<count;i++){
             dash+=FORWARD;
