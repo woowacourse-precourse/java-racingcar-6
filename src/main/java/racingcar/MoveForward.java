@@ -17,7 +17,7 @@ public class MoveForward {
         }
     }
 
-    static List<Boolean> moveCars(Car[] carArr) {      // 각 차를 이동 여부 결정
+    static List<Boolean> moveCars(Car[] carArr) {
         List<Boolean> moveArr = new ArrayList<Boolean>();
         boolean isMove;
         for (Car car: carArr) {
@@ -30,14 +30,14 @@ public class MoveForward {
         return moveArr;
     }
 
-    static void printCars(Car[] carArr) {      // 각 차의 실황 출력
+    static void printCars(Car[] carArr) {
         for (Car car: carArr) {
             String tempScore = "-".repeat(car.score);
             System.out.printf("%s : %s \n", car.name, tempScore);
         }
     }
 
-    static boolean getRandomNumber() {     // 전진 여부 구하기
+    static boolean getRandomNumber() {
         int num = Randoms.pickNumberInRange(0, 9);
         if (num >= 4) {
             return true;

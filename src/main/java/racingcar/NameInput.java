@@ -6,13 +6,13 @@ public class NameInput {
 
     static String[] nameArr;
 
-    static void getNameInput() {   // 이름을 입력받는 함수
+    static void getNameInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         nameArr = input.split(",");
     }
 
-    static void checkNameInput() throws IllegalArgumentException {     // 이름을 체크하는 함수
+    static void checkNameInput() throws IllegalArgumentException {
         for (String name: nameArr) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
@@ -20,7 +20,7 @@ public class NameInput {
         }
     }
 
-    static Car[] setNameInput() {     // 이름으로 Car 인스턴스를 생성하는 함수
+    static Car[] setNameInput() {
         int n = nameArr.length;
         Car[] carArr = new Car[n];
         for (int idx = 0; idx < n; idx++) {

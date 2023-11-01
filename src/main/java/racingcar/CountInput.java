@@ -6,13 +6,13 @@ public class CountInput {
 
     static private int count;
 
-    static String getCountInput() { // 회차 입력 받는 메서드
+    static String getCountInput() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         return input;
     }
 
-    static void checkCountInput(String input) throws IllegalArgumentException { // 입력값을 검사하는 메서드
+    static void checkCountInput(String input) throws IllegalArgumentException {
         try {
             count = Integer.parseInt(input);
         } catch (NumberFormatException e) {
