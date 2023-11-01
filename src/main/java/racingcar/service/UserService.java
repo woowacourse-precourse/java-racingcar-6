@@ -9,17 +9,25 @@ import java.util.List;
 
 public class UserService {
     private final int MAX_NAME_SIZE = 5;
-    private static UserService INSTANCE;
+    private volatile static UserService INSTANCE;
 
     private UserService() {
     }
 
     public static UserService getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new UserService();
+            synchronized (UserService.class) {
+                createInstance();
+            }
         }
 
         return INSTANCE;
+    }
+
+    private static void createInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new UserService();
+        }
     }
 
     public List<Car> getCars() {

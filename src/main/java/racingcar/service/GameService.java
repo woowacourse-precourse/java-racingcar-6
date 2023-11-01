@@ -9,17 +9,25 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class GameService {
-    private static GameService INSTANCE;
+    private volatile static GameService INSTANCE;
 
     private GameService() {
     }
 
     public static GameService getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new GameService();
+            synchronized (GameService.class) {
+                createInstance();
+            }
         }
 
         return INSTANCE;
+    }
+
+    private static void createInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new GameService();
+        }
     }
 
     public String doTurns(List<Car> cars, final int tries) {

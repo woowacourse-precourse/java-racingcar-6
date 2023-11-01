@@ -8,7 +8,7 @@ import racingcar.view.GameView;
 import java.util.List;
 
 public class GameController {
-    private static GameController INSTANCE;
+    private volatile static GameController INSTANCE;
     private final GameService gameService;
     private final UserService userService;
     private final GameView gameView;
@@ -21,10 +21,18 @@ public class GameController {
 
     public static GameController getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new GameController();
+            synchronized (GameController.class) {
+                createInstance();
+            }
         }
 
         return INSTANCE;
+    }
+
+    private static void createInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new GameController();
+        }
     }
 
     public void race() {
