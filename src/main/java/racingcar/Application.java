@@ -58,6 +58,14 @@ public class Application {
         return maxIndex;
     }
 
+    static List<String> findWinnerIndex(List<Car> carArr, List<Integer> maxIndex){
+        List<String> winnerArr = new ArrayList<>();
+        for (int value: maxIndex){
+            winnerArr.add(carArr.get(value).name);
+        }
+        return winnerArr;
+    }
+
     public static void main(String[] args) {
         String[] cars = splitCarName(inputCarName());
         List<Car> carArr = new ArrayList<>();
@@ -65,5 +73,15 @@ public class Application {
             createCars(cars, carArr);
         }
         int number = inputNumber();
+
+        //게임 진행
+        for (int i = 0; i < number; i++){
+            for (Car car: carArr) {
+                car.moveForward();
+                car.printState();
+            }
+        }
+
+        //우승자 출력
     }
 }
