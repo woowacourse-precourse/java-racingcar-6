@@ -4,9 +4,7 @@
 
 - 프로젝트 진행 상황
 - 특징
-- 게임 방법
 - 테스트
-- 기타 정보
 
 ## **자동차 경주 프로젝트 진행 상황**
 
@@ -57,37 +55,39 @@
         - [x] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
             - [x] 예외 발생시 `IllegalArgumentException` 에러 적용후 종료
             - [x] 입력시 요구사항을 지키는 입력인지 체크하는 기능
-              - [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. - carNameCheck()
-              - [x] 몇번의 이동을 할것인가 입력(올바른 정수 입력 확인) - inputNumberCheck()
+                - [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. - carNameCheck()
+                - [x] 몇번의 이동을 할것인가 입력(올바른 정수 입력 확인) - inputNumberCheck()
 
 ### **문서**
 
-- [ ] README.md 작성
-
-- [ ] changelog.md 작성
-
-- [ ] todo.md 작성
+- [x] README.md 작성
 
 ## 특징
 
 - 객체지향 프로그래밍에 맞춰 설계
     1. 기능을 가지고 있는 클래스를 인스턴스화 한다.
-
-    - 기능을 가진 클래스들을 만든다
-    - 인스턴스화 한다
+       - 기능을 가진 클래스들을 만든다
+       - 인스턴스화 한다
 
     2. 역할에 맞는 필요한 기능을 인스턴스가 수행하게 한다.
     3. 각 결과를 종합한다.
 
-## 게임 방법
-
 ## 테스트
 
-- CarController
-    - .
-- RacingRuleMaker
-    - .
-- ReadRacingResult
-    - .
+- CarControllerTest
+    - gameStartTest
+    - isForwardTest
+    - isBiggerThanFourTest
+- RacingRuleMakerTest
+    - namingCar
+    - inputRacingRoundTest
+- ReadRacingResultTest
+    - readHashMap
+    - judgmentWinnerTest
+- ErrorCheckTest
+    - carNameCheckTest
+    - isNoValueTest
+    - biggerThanFiveTest
+    - inputNumberCheckTest
 
-## 기타 정보
+ 
