@@ -24,7 +24,7 @@ public class OutputView {
         }
     }
 
-    public static void finalWinner(List<Car> winners) {
+    public static String finalWinnerString(List<Car> winners) {
         StringBuilder result = new StringBuilder("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             result.append(winners.get(i).getName());
@@ -33,6 +33,12 @@ public class OutputView {
             }
         }
 
-        System.out.println(result.toString());
+        return result.toString();
+    }
+
+    public static void finalWinner(List<Car> winners) {
+        String finalWinner = finalWinnerString(winners);
+
+        System.out.println(finalWinner);
     }
 }
