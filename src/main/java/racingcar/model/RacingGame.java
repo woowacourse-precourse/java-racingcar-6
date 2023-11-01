@@ -24,7 +24,7 @@ public class RacingGame {
 
         racingCarList = new ArrayList<>();
         Arrays.stream(carNames)
-                .forEach(name -> racingCarList.add(Car.from(name)));
+                .forEach(name -> racingCarList.add(Car.from(StringUtil.removeLeadingAndTrailingWhitespace(name))));
     }
 
     public static RacingGame from(final String inputNameString) {
