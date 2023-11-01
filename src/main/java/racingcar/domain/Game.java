@@ -14,21 +14,21 @@ public class Game {
     private static Map<String, Integer> cars;
     private static int gameCount;
 
-    public void gameStart(){
-        gameInput();
-        gameResult();
+    public void run(){
+        input();
+        showResult();
 
         String winner = findWinner(cars);
         OutputView.winnerView(winner);
     }
 
-    private void gameInput(){
+    private void input(){
         User user = new User();
         cars = user.getCars(InputView.inputCarName());
         gameCount = user.getGameCount(InputView.inputGameCount());
     }
 
-    private void gameResult(){
+    private void showResult(){
         OutputView.gameResultStart();
 
         Car car = new Car();
