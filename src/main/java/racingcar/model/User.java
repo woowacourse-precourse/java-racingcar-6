@@ -3,7 +3,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class User {
     private Integer tryCount;
-    public Integer getUserInputForTryCount() {
+    public Integer getUserInputForTryCount() throws IllegalArgumentException {
         System.out.println("시도할 회수는 몇회인가요?");
         this.tryCount = Integer.parseInt(Console.readLine());
         return tryCount;
