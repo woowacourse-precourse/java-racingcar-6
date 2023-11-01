@@ -1,6 +1,7 @@
 package racingcar;
 
 public class RacingInfo {
+
     String[] carNames;
     int racingTimes;
 
