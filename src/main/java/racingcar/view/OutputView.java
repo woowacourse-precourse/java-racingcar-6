@@ -18,14 +18,19 @@ public class OutputView {
     }
 
     private String buildCarsOutput(List<Car> participatingCars) {
-        return participatingCars.stream()
-                .map(this::formatCarOutput)
-                .collect(Collectors.joining());
+        StringBuilder builder = new StringBuilder();
+        for (Car car : participatingCars) {
+            builder.append(formatCarOutput(car));
+        }
+        return builder.toString();
     }
 
+
     private String formatCarOutput(Car car) {
-        return String.format(Util.CAR_NAME_AND_POSITION_FORMAT, car.getName(),
-                getCarMovement(car.getLocation()));
+        StringBuilder builder = new StringBuilder();
+        builder.append(car.getName()).append(" : ");
+        builder.append(getCarMovement(car.getLocation())).append(System.lineSeparator());
+        return builder.toString();
     }
 
     private void printOutput(String output) {
