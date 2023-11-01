@@ -1,4 +1,5 @@
 # 🚀 기능 요구 사항
+
 ## 초간단 자동차 경주 게임을 구현한다.
 
 - 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
@@ -10,9 +11,31 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
+## 📂 디렉토리 구조
+
+```
+  ├─main
+  │  └─java
+  │      └─racingcar
+  │          ├─constant
+  │          ├─controller
+  │          ├─model
+  │          ├─util
+  │          └─view
+  └─test
+  └─java
+  ├─racingcar
+  │  ├─controller
+  │  └─model
+  └─study
+  ```
+
 ## 기능 목록
+
 ### 입력
+
 `camp.nextstep.edu.missionutils`에서 제공하는 `Console` API 사용할것
+
 - [x] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)을 입력 받는다.
   ````
     ex) pobi, woni, jun
@@ -20,29 +43,30 @@
 - [x] 시도할 회수(몇 번의 이동을 할 것인지)를 입력받는다.
 
 ### 로직
+
 - [x] 0에서 9사이에서 무작위 값을 구한다.(`camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` API 사용할것)
-  - [x] 구한 무작위 값이 4 이상이면 전진시킨다.
+    - [x] 구한 무작위 값이 4 이상이면 전진시킨다.
 - [x] 우승자를 선출한다.(우승자는 여러 명일 수 있다.)
-  - [x] 가장 많이 전진한 자동차를 판별한다.
+    - [x] 가장 많이 전진한 자동차를 판별한다.
 - [x] 사용자가 잘못된 값을 입력할 경우 ````IllegalArgumentException````을 발생시킨 후 애플리케이션은 종료되어야 한다.
-  - [x] 각 자동차의 이름이 5자를 초과한 경우 `IllegalArgumentException`발생시킨다.
-  - [x] 중복된 자동차의 이름이 존재하는 경우 `IllegalArgumentException`발생시킨다.
-  - [x] 시도할 회수가 0보다 큰 정수가 아니라면 `IllegalArgumentException`발생시킨다.
+    - [x] 각 자동차의 이름이 5자를 초과한 경우 `IllegalArgumentException`발생시킨다.
+    - [x] 중복된 자동차의 이름이 존재하는 경우 `IllegalArgumentException`발생시킨다.
+    - [x] 시도할 회수가 0보다 큰 정수가 아니라면 `IllegalArgumentException`발생시킨다.
 
 ### 출력
+
 - [x] 각 차수별 실행 결과를 출력한다.
     ````     
-      pobi : ----
-      woni : ---
-      jun : ----
-    
-      pobi : -----
-      woni : ----
-      jun : -----
+    pobi : ----
+    woni : ---
+    jun : ----
+  
+    pobi : -----
+    woni : ----
+    jun : -----
     ````
 
 - [x] 자동차 경주 게임 완료 후 우승자를 출력한다. / 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
   ````
-      최종 우승자 : pobi, jun
+    최종 우승자 : pobi, jun
   ````
-
