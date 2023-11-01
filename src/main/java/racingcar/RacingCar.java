@@ -8,8 +8,6 @@ public class RacingCar {
 	private int position;
 
 	private static final int RANDOM_NUMBER_CHECK = 4;
-	private static final int MIN_RANDOM_RANGE = 0;
-	private static final int MAX_RANDOM_RANGE = 9;
 
 	public RacingCar(final String name) {
 		this.name = name;
@@ -30,9 +28,9 @@ public class RacingCar {
 		}
 	}
 
-	public int generateRandomNumber() {
-		return Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
-	}
+//	public int generateRandomNumber() {
+//		return Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
+//	}
 
 	public void printProgress() {
 		System.out.print(name + " : ");

@@ -5,15 +5,17 @@ import camp.nextstep.edu.missionutils.*;
 
 public class RacingController {
 	private final RacingGame racingGame;
+	private final RandomNumberGeneratorImpl randomNumberGenerator;
 
-	public RacingController(RacingGame racingGame) {
+	public RacingController(RacingGame racingGame, RandomNumberGeneratorImpl randomNumberGenerator) {
 		this.racingGame = racingGame;
+		this.randomNumberGenerator = randomNumberGenerator;
 	}
 
 	public void runGame() {
 		int tryCount = getTryCount();
 		System.out.println("\n실행 결과");
-		racingGame.runRacing(tryCount);
+		racingGame.runRacing(tryCount, randomNumberGenerator);
 		printResults();
 	}
 
