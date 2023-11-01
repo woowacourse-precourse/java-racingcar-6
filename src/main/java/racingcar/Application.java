@@ -48,7 +48,5 @@ public class Application {
         List<Car> cars = createCars(carNamesInput);
 
         Game.playGame(cars, attempts);
-        Game.printRoundResult(cars);
-
     }
 }
