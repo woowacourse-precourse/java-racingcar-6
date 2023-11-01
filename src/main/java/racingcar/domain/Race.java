@@ -31,10 +31,11 @@ public class Race {
         checkTrialNumberIsNumber(trialNumber);
         checkTrialNumberIsNonNegative(trialNumber);
     }
+
     public void checkTrialNumberIsNumber(String trialNumber) {
-        try{
+        try {
             Integer.parseInt(trialNumber);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TRIALNUMBER_IS_NOT_NUMBER_MESSAGE);
         }
     }
@@ -46,7 +47,7 @@ public class Race {
     }
 
     public void checkTrialNumberIsEmpty(String trialNumber) {
-        if (trialNumber == null || trialNumber.replace(" ","").isEmpty()) {
+        if (trialNumber == null || trialNumber.replace(" ", "").isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TRIALNUMBER_IS_NOT_NUMBER_MESSAGE);
         }
     }
