@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Car;
 import racingcar.model.BadInputException;
+import racingcar.model.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -55,8 +55,15 @@ public class RacingGame {
 
     private void inputAttemptCount() {
         String count = InputView.attemptCount();
-        BadInputException.checkNumber(count);
+
+        checkNaturalNumber(count);
+
         setAttemptCount(Integer.parseInt(count));
+    }
+
+    private void checkNaturalNumber(String count) {
+        BadInputException.checkNumber(count);
+        BadInputException.isPositiveNum(Integer.parseInt(count));
     }
 
     private void setAttemptCount(int attemptCount) {
