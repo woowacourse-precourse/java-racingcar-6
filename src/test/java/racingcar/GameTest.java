@@ -37,4 +37,12 @@ public class GameTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void nameLastComma() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
