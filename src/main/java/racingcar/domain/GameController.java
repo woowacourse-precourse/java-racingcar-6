@@ -17,6 +17,7 @@ public class GameController implements GameControllable {
                 moveOrNot(car);
                 System.out.println(car.status());
             }
+            System.out.println();
         }
     }
 
