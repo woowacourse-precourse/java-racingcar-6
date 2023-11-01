@@ -93,7 +93,7 @@
 
 ### WinningCarsOutput
 > 우승한 자동차들에 대한 출력을 가지고 있는 객체
-- [ ] `생성` - CarDto 리스트를 받아 생성한다
+- [x] `생성` - CarDto 리스트를 받아 생성한다
 
 ### PlayResultOutput
 > 게임 진행 결과에 대한 출력을 가지고 있는 객체
