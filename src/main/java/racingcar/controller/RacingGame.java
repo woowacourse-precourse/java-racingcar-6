@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import racingcar.model.car.CarManager;
+import racingcar.model.car.Movable;
+import racingcar.model.car.RandomMovable;
 import racingcar.model.cycle.RaceCount;
 import racingcar.model.race.Racing;
 import racingcar.view.InputView;
@@ -28,6 +30,6 @@ public class RacingGame {
         final CarManager carManager = new CarManager(inputView.enterCarNames());
         final RaceCount raceCount = new RaceCount(inputView.enterRacingCount());
 
-        return new Racing(carManager, raceCount);
+        return new Racing(carManager, raceCount, new RandomMovable());
     }
 }

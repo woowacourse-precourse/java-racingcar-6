@@ -5,6 +5,8 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import racingcar.model.car.Car;
 import racingcar.model.car.CarManager;
+import racingcar.model.car.Movable;
+import racingcar.model.car.RandomMovable;
 import racingcar.model.cycle.RaceCount;
 
 public class Racing {
@@ -13,17 +15,20 @@ public class Racing {
 
     private final RaceCount raceCount;
 
-    public Racing(final String cars, final String raceCount) {
-        this(new CarManager(cars), new RaceCount(raceCount));
+    private final Movable strategy;
+
+    public Racing(final String cars, final String raceCount, final Movable strategy) {
+        this(new CarManager(cars), new RaceCount(raceCount), strategy);
     }
 
-    public Racing(final CarManager carManager, final RaceCount raceCount) {
+    public Racing(final CarManager carManager, final RaceCount raceCount, final Movable strategy) {
         this.carManager = carManager;
         this.raceCount = raceCount;
+        this.strategy = strategy;
     }
 
     public void start(final Consumer<List<Car>> printSingleRaceResult) {
-        this.raceCount.runActionInLoop(printSingleRaceResult, this.carManager::move);
+        this.raceCount.runActionInLoop(printSingleRaceResult, () -> this.carManager.move(new RandomMovable()));
     }
 
     public void getWinner(final Consumer<List<Car>> printFinalRaceResult) {
@@ -36,6 +41,10 @@ public class Racing {
 
     public RaceCount getRaceCount() {
         return raceCount;
+    }
+
+    public Movable getStrategy() {
+        return strategy;
     }
 
     @Override

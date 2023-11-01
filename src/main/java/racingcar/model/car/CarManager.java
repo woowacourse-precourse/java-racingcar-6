@@ -36,9 +36,9 @@ public class CarManager {
                 .toList();
     }
 
-    public List<Car> move() {
+    public List<Car> move(final Movable strategy) {
         this.cars.forEach(car ->
-                car.move(new Movable().isMove()));
+                car.move(strategy.isMove()));
 
         return this.getCars();
     }
