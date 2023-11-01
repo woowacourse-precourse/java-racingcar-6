@@ -46,4 +46,18 @@ class CarTest {
             new Car("A");
         });
     }
+
+    @Test
+    @DisplayName("같은 이름을 가진 객체를 하나로 만드는지 확인")
+    public void testEqualsAndHashCode() {
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car1");
+
+        assertEquals(car1, car3);
+        assertNotEquals(car1, car2);
+
+        assertEquals(car1.hashCode(), car3.hashCode());
+        assertNotEquals(car1.hashCode(), car2.hashCode());
+    }
 }
