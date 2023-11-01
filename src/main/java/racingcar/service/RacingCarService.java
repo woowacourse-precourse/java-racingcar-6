@@ -4,7 +4,6 @@ import racingcar.domain.RacingCar;
 
 import java.util.ArrayList;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.util.constant.ProductConstant.*;
 import static racingcar.util.parsing.Parsing.parsingMembersByComma;
 import static racingcar.util.parsing.Parsing.parsingMembersByRacingCar;
@@ -12,15 +11,14 @@ import static racingcar.util.validate.InputValidate.*;
 
 public class RacingCarService {
 
-    public ArrayList<RacingCar> initRacingCarMembers() {
-        String input = readLine();
+    public ArrayList<RacingCar> initRacingCarMembers(String input) {
         validateNameFormat(input);
         String[] strings = parsingMembersByComma(input);
         return parsingMembersByRacingCar(strings);
     }
 
-    public int initNumberOfAttempts() {
-        int numberOfAttempts = validateInputNumberFormat(readLine());
+    public int initNumberOfAttempts(String input) {
+        int numberOfAttempts = validateInputNumberFormat(input);
         System.out.println();
         validateInputNumberRange(numberOfAttempts);
         return numberOfAttempts;
@@ -47,16 +45,14 @@ public class RacingCarService {
         System.out.println(racingCar.getUsername() + " : " + racingCar.getCurrentLocation());
     }
 
-    public void getFinalWinner(ArrayList<RacingCar> racingCars) {
+    public ArrayList<String> getFinalWinner(ArrayList<RacingCar> racingCars) {
         ArrayList<String> finalWinners = new ArrayList<>();
 
         int maxDistance = findMaxDistance(racingCars);
-        findWinners(racingCars, finalWinners, maxDistance);
-
-        printWinners(finalWinners);
+        return findWinners(racingCars, finalWinners, maxDistance);
     }
 
-    private void printWinners(ArrayList<String> finalWinners) {
+    public void printWinners(ArrayList<String> finalWinners) {
         String winners = String.join(", ", finalWinners);
         if(finalWinners.size() > FINAL_WINNER_COUNT) {
             winners = validatePrintWinners(winners);
@@ -64,13 +60,14 @@ public class RacingCarService {
         System.out.println(FINAL_WINNERS + " : " + winners);
     }
 
-    private void findWinners(ArrayList<RacingCar> racingCars, ArrayList<String> finalWinners, int maxDistance) {
+    private ArrayList<String> findWinners(ArrayList<RacingCar> racingCars, ArrayList<String> finalWinners, int maxDistance) {
         for (RacingCar racingCar : racingCars) {
             int racingCarLocation = racingCar.getCurrentLocation().length();
             if (maxDistance == racingCarLocation) {
                 finalWinners.add(racingCar.getUsername());
             }
         }
+        return finalWinners;
     }
 
     private int findMaxDistance(ArrayList<RacingCar> racingCars) {
