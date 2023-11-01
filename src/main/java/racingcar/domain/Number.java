@@ -9,7 +9,7 @@ public class Number {
     }
 
     private void validateSize(String num) {
-        if (num.length() > 2) {
+        if (num.length() > 1) {
             throw new IllegalArgumentException("0~9 사이 숫자를 입력해주세요!");
         }
     }
