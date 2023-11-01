@@ -11,6 +11,8 @@ import static racingcar.util.Validator.ErrorMessage.START_ZERO_EXCEPTION;
 import java.util.Arrays;
 
 public class Validator {
+    private static final String REGEX_RACE_COUNT = "([1-9])+[0-9]*";
+    private static final String REGEX_NAMES_FORMAT = "([\\w가-힣]{1,5},?)+";
     private static final String COMMA = ",";
     private static final String ZERO_STRING = "0";
     private static final int ZERO_INT = 0;
@@ -45,7 +47,7 @@ public class Validator {
     }
 
     private boolean isInvalidRaceCountFormat(String raceCount) {
-        return !raceCount.matches("[0-9]+");
+        return !raceCount.matches(REGEX_RACE_COUNT);
     }
 
     public void validateNames(String names) {
@@ -66,8 +68,8 @@ public class Validator {
     }
 
     private boolean isInvalidNamesFormat(String names) {
-        // 입력의 형태가 조근의 형식대로 이루어졌는지 확인
-        return !names.matches("([\\w가-힣]{1,5},?)+");
+        // 입력의 형태가 조건의 형식대로 이루어졌는지 확인
+        return !names.matches(REGEX_NAMES_FORMAT);
     }
 
     enum ErrorMessage {
