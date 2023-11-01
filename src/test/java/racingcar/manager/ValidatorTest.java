@@ -31,4 +31,10 @@ public class ValidatorTest {
                 .hasMessageContaining("중복된 이름이 있습니다.");
     }
 
+    @Test
+    void RaceRoundInput_숫자가_아닌_경우_예외_처리() {
+        assertThatThrownBy(() -> Validator.validateRaceRoundInput("abc"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("레이스 라운드는 숫자만 입력 가능합니다.");
+    }
 }
