@@ -29,7 +29,21 @@ class RacingCarServiceTest {
     }
 
     @Test
-    void startRace() {
+    void 자동차_경주_객체_생성하기() {
+        final String racingCount = "4";
+        Car one = new Car("one");
+        Car two = new Car("two");
+        Car three = new Car("three");
+        Car four = new Car("four");
+        List<Car> racingCarList = new ArrayList<Car>(Arrays.asList(one, two, three, four));
+        Racing racingGame = null;
+
+        if (globalExceptionHandler.isValidRacingCount(racingCount)) {
+            racingGame = new Racing(racingCarList, Integer.parseInt(racingCount));
+        }
+
+        Racing result = new Racing(Arrays.asList(one, two, three, four), 4);
+        assertThat(racingGame).usingRecursiveComparison().isEqualTo(result);
     }
 
     @Test
