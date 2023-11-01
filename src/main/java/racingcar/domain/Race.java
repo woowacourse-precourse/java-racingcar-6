@@ -15,7 +15,7 @@ public class Race {
         this.trialCnt = 0;
     }
 
-    public void playRaceGame () {
+    public void playRaceGame() {
         OutputView.printGameResultInfo();
         while (trialCnt < trialNum) {
             playUnitRaceGame();

@@ -32,7 +32,7 @@ public final class OutputView {
         System.out.println(OutputMessage.WINNER_INFO_MESSAGE.getValue()
                 + OutputMessage.NAME_POSITION_DELIMITER.getValue()
                 + winners.stream().
-                        map(Car::getName).
-                        collect(Collectors.joining(", ")));
+                map(Car::getName).
+                collect(Collectors.joining(", ")));
     }
 }

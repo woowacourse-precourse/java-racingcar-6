@@ -19,7 +19,8 @@ public class InputValidate {
     }
 
     private void validateLength(String[] carNames) {
-        if (Arrays.stream(carNames).anyMatch(carName -> carName.length() > ConstNumber.CAR_NAME_MAX_LENGTH.getValue())) {
+        if (Arrays.stream(carNames)
+                .anyMatch(carName -> carName.length() > ConstNumber.CAR_NAME_MAX_LENGTH.getValue())) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_LENGTH_EXCEPTION_MESSAGE.getValue());
         }
     }
