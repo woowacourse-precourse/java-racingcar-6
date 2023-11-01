@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RacingGame {
-
     private List<String> carNameList;
     private List<Car> cars;
     private int repetitions;
@@ -48,23 +47,21 @@ public class RacingGame {
     private String findWinner() {
         int winnerPosition = getWinnerPosition();
 
-        ArrayList<String> winnerList = new ArrayList<>();
-        for (Car car : cars) {
-            if (winnerPosition == car.getPosition()) {
-                winnerList.add(car.getName());
-            }
-        }
+        List<String> winnerList = cars.stream()
+                .filter(car -> car.getPosition() == winnerPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
         return winnerListToString(winnerList);
     }
 
-    private int getWinnerPosition() {
-        int winnerPosition = -1;
-        for (Car car : cars) {
-            winnerPosition = Math.max(winnerPosition, car.getPosition());
-        }
 
-        return winnerPosition;
+    private int getWinnerPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .reduce(-1, Integer::max);
     }
+
 
     private String winnerListToString(List<String> winnerList) {
         return String.join(", ", winnerList);
