@@ -15,8 +15,8 @@ class StartConditionTest {
         String[] result = startCondition.inputCarName();
 
         assertThat(result).contains("po", "ta", "to");
-        assertThat(result).containsExactly("po", "ta", "to");*/
-    }
+        assertThat(result).containsExactly("po", "ta", "to");
+    }*/
 
     @Test
     void 다섯자_넘는_이름_종료() {
@@ -27,6 +27,10 @@ class StartConditionTest {
     }
 
     @Test
-    void inputAttemptNumber() {
+    void 숫자가_아니면_종료() {
+        StartCondition startCondition = new StartCondition();
+
+        assertThatThrownBy(() -> startCondition.checkAttemptNumber("potato"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
