@@ -23,7 +23,7 @@ public class RacingGameStart {
         //runRace 메소드를 호출하여 자동차 객체 배열과 실행 횟수(num)를 전달하고, 게임의 진행 상황을 출력합니다.
         runRace(racingCars, num);
         //게임이 종료된 후, 우승자(들)의 이름을 출력합니다.
-        printWinners(racingCars);
+        System.out.print(printWinners(racingCars));
     }
 
 
@@ -59,11 +59,11 @@ public class RacingGameStart {
         }
     }
 
-    private static void printWinners(RacingCar[] racingCars) {
+    public static String printWinners(RacingCar[] racingCars) {
 
         PrintWinner printWinner = new PrintWinner(racingCars);
 
-        System.out.print(printWinner.winnerListPrint());
+        return printWinner.winnerListPrint();
     }
 
     public static void checkNameLength(String name) {
