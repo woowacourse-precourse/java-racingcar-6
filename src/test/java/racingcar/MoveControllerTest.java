@@ -42,7 +42,7 @@ public class MoveControllerTest {
     }
 
     @Test
-    void 가장_많이_이동한_자동차_이름_찾기(){
+    void 가장_많이_이동한_자동차_이름_찾기() {
         //given
         List<String> cars = List.of("carA", "carB", "carC");
         List<StringBuilder> moves = List.of(
@@ -52,7 +52,7 @@ public class MoveControllerTest {
         );
 
         //when
-        List<String> winners =  List.of("carB", "carC");
+        List<String> winners = List.of("carB", "carC");
 
         //then
         assertThat(String.join(",", moveController.findWinner(cars, moves)))
