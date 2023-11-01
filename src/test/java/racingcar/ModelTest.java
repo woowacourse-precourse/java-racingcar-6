@@ -3,6 +3,7 @@ package racingcar;
 import Model.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -74,5 +75,23 @@ class ModelTest {
 
         race.maxPosition();
         assertThat(maxPosition).isEqualTo(race.getMaxPosition());
+    }
+
+    @Test
+    void testRaceResult() {
+        List<String> name = Arrays.asList("pobi","woni","jun","han");
+        Race race = new Race(name);
+        List<String> winner = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            race.playRound();
+        }
+        for (Car car : race.getCars()) {
+            if (race.getMaxPosition() == car.getPosition()) {
+                winner.add(car.getName());
+            }
+        }
+
+        assertThat(race.getWinner()).isEqualTo(winner);
     }
 }
