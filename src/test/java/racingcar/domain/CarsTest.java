@@ -28,7 +28,6 @@ class CarsTest extends NsTest {
             assertThat(output()).contains("car1", "car2");
         }
 
-
         @Test
         @DisplayName("자동차 움직이기 테스트")
         void testMoveCars() {
@@ -51,6 +50,14 @@ class CarsTest extends NsTest {
             assertThatThrownBy(() -> runException("Test,Test", "1"))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage("자동차 이름은 중복될 수 없음.");
+        }
+
+        @Test
+        @DisplayName("자동차 이름 입력 예외 테스트")
+        void testExceptionInput(){
+            assertThatThrownBy(() -> runException("Test1,Test2,,,,,", "1"))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage("자동차 이름은 빈칸일 수 없음.");
         }
     }
 
