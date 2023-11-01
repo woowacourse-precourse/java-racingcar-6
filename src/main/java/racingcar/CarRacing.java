@@ -84,10 +84,11 @@ public class CarRacing {
         }
     }
 
-    public void getCarNamesArray() {
+    public List<String> getCarNamesArray(String carNames) {
         String[] carNamesStringArray = carNames.split(",");
         carNamesArray = Arrays.asList(carNamesStringArray);
         validateCarNamesArray(carNamesArray);
+        return carNamesArray;
     }
 
     public void validateCarNamesArray(List<String> carNamesArray) {
@@ -131,7 +132,7 @@ public class CarRacing {
     }
 
     public void getCarArray() {
-        getCarNamesArray();
+        getCarNamesArray(carNames);
         for (String carName : carNamesArray) {
             Car car = new Car(carName);
             carArray.add(car);

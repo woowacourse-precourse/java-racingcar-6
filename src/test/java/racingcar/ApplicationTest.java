@@ -1,6 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -87,7 +90,18 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void
+    void getCarNamesArray_메서드의_동작_확인() {
+        // given
+        CarRacing carRacing = new CarRacing();
+        String carNames = "pobi,kyu,joa";
+        List<String> carNamesArray = new ArrayList<>();
+
+        // when
+        carNamesArray = carRacing.getCarNamesArray(carNames);
+
+        // then
+        assertThat(carNamesArray).containsExactly("pobi", "kyu", "joa");
+    }
 
     @Override
     public void runMain() {
