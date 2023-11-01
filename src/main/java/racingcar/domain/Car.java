@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.InputConstant.CAR_NAME_HIGH_BOUND;
+
 import racingcar.constant.ErrorMessage;
 
 public class Car {
@@ -11,7 +13,7 @@ public class Car {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_NULL_MESSAGE.getMessage());
         }
 
-        if (name.length() > 5) {
+        if (name.length() > CAR_NAME_HIGH_BOUND.getValue()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_SIZE_ERROR.getMessage());
         }
 
