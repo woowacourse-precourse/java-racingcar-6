@@ -158,4 +158,28 @@ public class InputTest {
             assertEquals(INVALID_DUPLICATE_CAR_NAME_RANGE_MESSAGE, illegalArgumentException.getMessage());
         }
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {""})
+    void canProcessGeneralCarNameInputException(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getCarName();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(GENERAL_INPUT_ERROR, illegalArgumentException.getMessage());
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {""})
+    void canProcessGeneralTryNumberInputException(String userInput) {
+        InputStream userInputStream = generateByteArrayInputStream(userInput);
+        System.setIn(userInputStream);
+        try {
+            getTryNumber();
+        } catch (IllegalArgumentException illegalArgumentException) {
+            assertEquals(GENERAL_INPUT_ERROR, illegalArgumentException.getMessage());
+        }
+    }
 }
