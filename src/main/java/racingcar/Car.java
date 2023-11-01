@@ -9,8 +9,8 @@ public class Car {
         this.carName = carName;
     }
 
-    public CarStatusDto move() {
-        if (RandomNumberMaker.makeRandomNumber() >= 4) {
+r    public CarStatusDto move(int randomNumber) {
+        if (randomNumber >= 4) {
             position++;
         }
         return new CarStatusDto(carName, position);

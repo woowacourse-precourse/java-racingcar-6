@@ -17,7 +17,7 @@ public class Cars {
 
     public List<CarStatusDto> moveAllCars() {
         return this.cars.stream()
-                .map(car -> car.move())
+                .map(car -> car.move(RandomNumberMaker.makeRandomNumber()))
                 .collect(Collectors.toList());
     }
 
