@@ -20,9 +20,12 @@ public class Logic {
 
         Long tryCount = Input.getTryCount(); //2번 기능
 
-        for(int i = 0; i < tryCount; i++) {
+        Output.printResultMessage();
+
+        for(Long i = 0L; i < tryCount; i++) {
             List<Car> cars = createCars(carNames);
             moveCars(cars); //3번 기능
+            Output.printResult(cars); //6번 기능
         }
     }
 
