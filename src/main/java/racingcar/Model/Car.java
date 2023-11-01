@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.Model;
+
+import racingcar.Utils.GameConstants;
 
 public class Car {
     private String name;

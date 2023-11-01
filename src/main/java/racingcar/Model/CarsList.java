@@ -1,12 +1,13 @@
-package racingcar;
+package racingcar.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Utils.GameConstants;
 
 public class CarsList {
     private List<Car> carsList = new ArrayList<>();
 
-    CarsList() {
+    public CarsList() {
 
     }
 

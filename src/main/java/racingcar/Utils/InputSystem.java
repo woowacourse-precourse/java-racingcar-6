@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Utils;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -6,9 +6,8 @@ public class InputSystem {
 
     public static String[] inputCars() throws IllegalArgumentException {
         var text = Console.readLine();
-        var texts = text.split(GameConstants.STRING_SPLIT_TEXT, -1);
 
-        return texts;
+        return text.split(GameConstants.STRING_SPLIT_TEXT, -1);
     }
 
     public static Integer inputRaceCount() throws IllegalArgumentException {

@@ -1,7 +1,13 @@
-package racingcar;
+package racingcar.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.Model.Car;
+import racingcar.Model.CarsList;
+import racingcar.Utils.GameConstants;
+import racingcar.Utils.InputSystem;
+import racingcar.Utils.RandomNumber;
+import racingcar.View.TextView;
 
 public class GameController {
     private CarsList list;
@@ -9,7 +15,7 @@ public class GameController {
     private List<String> winnerList = new ArrayList<>();
     private int raceCount = 0;
 
-    GameController() {
+    public GameController() {
         list = new CarsList();
     }
 

@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.Controller.GameController;
+
 public class Application {
     static GameController gameController;
 

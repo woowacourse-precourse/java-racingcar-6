@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.View;
+
+import racingcar.Utils.GameConstants;
 
 public class TextView {
     public static void PrintInputCarNameMessage() {
