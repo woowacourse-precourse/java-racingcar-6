@@ -21,5 +21,10 @@ public class carRaceInputService {
         return StringModifier.getInstance().separateCarNamesBySeparator(input, carRaceInputService.SEPARATOR);
     }
 
+    public int askUserGameRound() {
+        String input = Console.readLine();
+        return GameRoundValidator.getInstance().validateGameRoundAndReturn(input);
+    }
+
 
 }
