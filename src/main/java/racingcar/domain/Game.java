@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.common.ExceptionMessages.NOT_NUMERIC_INPUT_EXCEPTION;
-import static racingcar.common.ExceptionMessages.SMALLER_THAN_ZERO_EXCEPTION;
+import static racingcar.common.Validator.isGreaterThanZero;
+import static racingcar.common.Validator.isNumericInput;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
@@ -39,21 +39,6 @@ public class Game {
             car.move(randomNumber);
         }
         gameResult = carList.getResultOfRound();
-    }
-
-    private void isNumericInput(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NOT_NUMERIC_INPUT_EXCEPTION);
-        }
-    }
-
-    private void isGreaterThanZero(String input) {
-        int chance = Integer.parseInt(input);
-        if(chance <= 0) {
-            throw new IllegalArgumentException(SMALLER_THAN_ZERO_EXCEPTION);
-        }
     }
 
     public boolean stillInPlaying(int round) {
