@@ -11,22 +11,22 @@ import racingcar.dto.response.WinnerNames;
 
 public class RacingView {
 
-    private final InputView inputView;
+    private final InputMapper inputMapper;
     private final OutputMaker outputMaker;
 
-    public RacingView(InputView inputView, OutputMaker outputMaker) {
-        this.inputView = inputView;
+    public RacingView(InputMapper inputMapper, OutputMaker outputMaker) {
+        this.inputMapper = inputMapper;
         this.outputMaker = outputMaker;
     }
 
     public CarNames inputCarNames() {
         write(getInputCarNameMessage());
-        return inputView.readCarNames();
+        return inputMapper.readCarNames();
     }
 
     public TryCount inputTryCount() {
         write(getInputTryCountMessage());
-        return inputView.readTryCount();
+        return inputMapper.readTryCount();
     }
 
     public void startPrintTryResult() {
