@@ -35,6 +35,43 @@ public class GameController {
         }
         System.out.print(winner.get(winner.size()-1));
     }
+    //  부가적으로 필요한 함수들
+    public void printProcessGame(){
+        for (Car car : cars){
+            if (choiceGoStop()) {
+                int count = car.getCount();
+                count++;
+                car.setCount(count);
+            }
+            System.out.print(car.getName() + " : ");
+            view.printSlash(car.getCount());
+        }
+        System.out.println(); //개행넣기.
+    }
+    public boolean choiceGoStop(){
+        int randNum = Randoms.pickNumberInRange(0,9);
+        return randNum>=4;
+    }
 
+    public List<String> getWinner(){
+        List<String> winner = new ArrayList<>();
+        int maxCount = findMaxCount();
+        for (Car car : cars){
+            if(maxCount == car.getCount()){
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
+
+    public int findMaxCount(){
+        int maxCount = 0;
+        for (Car car : cars){
+            if(maxCount<car.getCount()){
+                maxCount=car.getCount();
+            }
+        }
+        return maxCount;
+    }
 
 }
