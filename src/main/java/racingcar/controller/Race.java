@@ -26,7 +26,7 @@ public class Race {
     }
 
     private void validateCars(List<String> nameList, String name) {
-        if (name.length()>5) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        if (name.length() > 5) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         if (nameList.contains(name)) throw new IllegalArgumentException("중복된 이름은 불가능합니다.");
     }
 

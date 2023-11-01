@@ -50,13 +50,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    public void 자동차_객체_생성() {
+    void 자동차_객체_생성() {
         Car car = new Car("pobi");
         assertEquals("pobi", car.getName());
     }
 
     @Test
-    public void 우승자_출력() {
+    void 우승자_출력() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "2");
