@@ -78,13 +78,10 @@ public class RacingGame {
 	}
 
 	private void printWinners(List<Car> winners) {
-		List<String> winnerNameList = new ArrayList<>();
+		String winnerNames = winners.stream()
+			.map(Car::getName)
+			.collect(Collectors.joining(","));
 
-		for (Car winner : winners) {
-			winnerNameList.add(winner.getName());
-		}
-
-		String winnerNames = String.join(",", winnerNameList);
 		System.out.println("최종 우승자 : " + winnerNames);
 	}
 
