@@ -3,7 +3,7 @@ package racingcar.model;
 public class RacingCar {
     private static final String NAME_LENGTH_VALIDATE = "이름은 1자 이상 5자 이하만 가능합니다.";
     private static final int MOVE_STANDARD = 4;
-    private static final String COLON = ":";
+    private static final String COLON = " : ";
     private static final String MOVE_COUNT_STRING = "-";
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
