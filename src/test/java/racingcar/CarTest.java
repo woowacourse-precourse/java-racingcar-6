@@ -33,4 +33,12 @@ public class CarTest {
         car.moveForward(5);
         assertThat(car.isSamePosition(1)).isTrue();
     }
+
+    @Test
+    @DisplayName("자동차 정지 테스트")
+    void checkNoMoveAvailable() {
+        Car car = new Car("mason");
+        car.moveForward(3);
+        assertThat(car.isSamePosition(0)).isTrue();
+    }
 }
