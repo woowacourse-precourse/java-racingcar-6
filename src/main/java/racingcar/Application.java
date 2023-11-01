@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("이름 입력");
+        MessageContainer messageContainer = new MessageContainer();
+        System.out.println(messageContainer.getEnterCarNames());
         String input = Console.readLine();
         Registration registration = new Registration();
         List<Car> carList = registration.createCarList(registration.getCarNames(input));
@@ -14,10 +15,9 @@ public class Application {
         TotalRoundsConverter totalRoundsConverter = new TotalRoundsConverter();
         int totalRounds = totalRoundsConverter.convert(Console.readLine());
 
-        NumberGenerator numberGenerator = new NumberGenerator();
-        MessageContainer messageContainer = new MessageContainer();
-
         System.out.println("\n실행 결과");
+
+        NumberGenerator numberGenerator = new NumberGenerator();
         for (int i = 0; i < totalRounds; i++) {
             for (Car car : carList) {
                 car.moveForward(numberGenerator.pickNumberFrom0To9());

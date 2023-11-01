@@ -40,7 +40,7 @@
 
 
 ## 안내 메시지를 출력한다.
-- [ ] 자동차 이름 입력 안내 문구를 리턴한다 - MessageContainer#enterCarNames()
+- [X] 자동차 이름 입력 안내 문구를 리턴한다 - MessageContainer#getEnterCarNames()
 - [ ] 시도 횟수 입력 안내 문구를 리턴한다 - MessageContainer#enterTotalRounds()
 - [ ] 실행 결과 문구를 리턴한다 - MessageContainer#executionResult()
 
