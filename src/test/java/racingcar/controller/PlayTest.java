@@ -29,4 +29,16 @@ public class PlayTest {
 
     }
 
+    @Test
+    void testVarifyCarNameBlank() {
+        String validInput = "Car1,Car2,Car3";
+        String invalidInput = "";
+
+        // 유효한 입력 테스트
+        play.varifyCarNameBlank(validInput);
+
+        // 유효하지 않은 입력 테스트
+        assertThrows(IllegalArgumentException.class, () -> play.varifyCarNameBlank(invalidInput));
+    }
+
 }
