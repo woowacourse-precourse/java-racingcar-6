@@ -28,6 +28,7 @@ public class Application {
         }
         System.out.println("\n실행결과");
         raceCars(name, dis, n);
+        determineWinners(name, dis);
     }
 
     private static void raceCars(String[] name, int[] dis, int n) {
@@ -53,4 +54,20 @@ public class Application {
         System.out.println();
     }
 
+    private static void determineWinners(String[] name, int[] dis) {
+        int maxDis = 0;
+        for (int i = 0; i < dis.length; i++) {
+            maxDis = Math.max(maxDis, dis[i]);
+        }
+
+        String winMembers = "";
+        for (int i = 0; i < dis.length; i++) {
+            if (dis[i] == maxDis) {
+                winMembers += name[i] + ",";
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        System.out.println(winMembers.substring(0, winMembers.length() - 1));
+    }
 }
