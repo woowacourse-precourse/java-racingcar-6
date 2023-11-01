@@ -31,6 +31,70 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_길이가_5글자_이상_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("banana,jajava"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_구분이_띄움표시_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("bana jaja"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_구분이_콤마외의_문자_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("bana-jaja"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_입력_빈칸_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",jaja"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+    @Test
+    void 이름_중복_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi,java"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_입력_마지막에_콤마로_끝났는지_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,bee,sudo,java,"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_0번_이하_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_숫자외_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "f"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
