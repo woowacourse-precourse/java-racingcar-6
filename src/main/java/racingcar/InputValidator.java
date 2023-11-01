@@ -1,7 +1,7 @@
 package racingcar;
 
 public class InputValidator {
-    public void setRacingCars(String input) {
+    public void insertRacingCars(String input) {
         if (!isRightRacingCarsComma(input)) {
             throw new IllegalArgumentException("잘못된 입력 형식입니다.");
         }
@@ -10,7 +10,7 @@ public class InputValidator {
         }
     }
 
-    public void setMoveNum(String input) {
+    public void insertMoveNum(String input) {
         if (!isRightMoveNum(input)) {
             throw new IllegalArgumentException("하나의 자연수를 입력하십시오.");
         }

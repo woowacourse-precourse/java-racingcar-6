@@ -11,7 +11,7 @@ class InputValidatorTest {
         String input = ",ABC,BBB,,";
 
         Assertions.assertThatThrownBy(() -> {
-            inputValidator.setRacingCars(input);
+            inputValidator.insertRacingCars(input);
         }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("잘못된 입력 형식입니다.");
     }
 
@@ -21,7 +21,7 @@ class InputValidatorTest {
         String input = "red,green,blue,rainbow";
 
         Assertions.assertThatThrownBy(() -> {
-            inputValidator.setRacingCars(input);
+            inputValidator.insertRacingCars(input);
         }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("이름이 5자 초과인 자동차가 존재합니다.");
     }
 
@@ -31,7 +31,7 @@ class InputValidatorTest {
         String input = "12,32";
 
         Assertions.assertThatThrownBy(() -> {
-            inputValidator.setMoveNum(input);
+            inputValidator.insertMoveNum(input);
         }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("하나의 자연수를 입력하십시오.");
     }
 }

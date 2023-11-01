@@ -8,16 +8,16 @@ public class RacingCarGame {
     private int moveCnt;
     private InputValidator inputValidator = new InputValidator();
 
-    public void setRacingCars(String line) {
-        inputValidator.setRacingCars(line);
+    public void insertRacingCars(String line) {
+        inputValidator.insertRacingCars(line);
         String[] split = line.split(",");
         for (int i = 0; i < split.length; i++) {
             cars.add(new RacingCar(split[i]));
         }
     }
 
-    public void setMoveCnt(String line) {
-        inputValidator.setMoveNum(line);
+    public void insertMoveCnt(String line) {
+        inputValidator.insertMoveNum(line);
         moveCnt = Integer.parseInt(line);
     }
 

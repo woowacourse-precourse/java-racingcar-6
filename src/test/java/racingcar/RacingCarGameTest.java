@@ -13,7 +13,7 @@ class RacingCarGameTest {
         String input = "red,green,blue";
         RacingCarGame racingCarGame = new RacingCarGame();
 
-        racingCarGame.setRacingCars(input);
+        racingCarGame.insertRacingCars(input);
 
         List<RacingCar> cars = racingCarGame.getCars();
         Assertions.assertThat(cars.size()).isEqualTo(3);
@@ -28,7 +28,7 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame();
 
         Assertions.assertThatThrownBy(() -> {
-            racingCarGame.setRacingCars(input);
+            racingCarGame.insertRacingCars(input);
         }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("잘못된 입력 형식입니다.");
     }
 
@@ -38,7 +38,7 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame();
 
         Assertions.assertThatThrownBy(() -> {
-            racingCarGame.setRacingCars(input);
+            racingCarGame.insertRacingCars(input);
         }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("이름이 5자 초과인 자동차가 존재합니다.");
     }
 
@@ -46,7 +46,7 @@ class RacingCarGameTest {
     public void 사용자에게_이동_횟수_입력을_받는_기능() {
         String input = "6";
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.setMoveCnt(input);
+        racingCarGame.insertMoveCnt(input);
 
         int moveCnt = racingCarGame.getMoveCnt();
 
@@ -59,7 +59,7 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame();
 
         Assertions.assertThatThrownBy(() -> {
-            racingCarGame.setMoveCnt(input);
+            racingCarGame.insertMoveCnt(input);
         }).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("하나의 자연수를 입력하십시오.");
         ;
     }
@@ -70,7 +70,7 @@ class RacingCarGameTest {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.setRacingCars(input);
+        racingCarGame.insertRacingCars(input);
         racingCarGame.getCars().get(0).moveForward();
         racingCarGame.getCars().get(0).moveForward();
         racingCarGame.getCars().get(1).moveForward();
@@ -86,7 +86,7 @@ class RacingCarGameTest {
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.setRacingCars(input);
+        racingCarGame.insertRacingCars(input);
         racingCarGame.getCars().get(0).moveForward();
         racingCarGame.getCars().get(1).moveForward();
 
