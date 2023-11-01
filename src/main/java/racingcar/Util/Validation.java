@@ -1,5 +1,9 @@
 package racingcar.Util;
 
+import racingcar.Model.Car;
+
+import java.util.List;
+
 public class Validation {
 
     public static String validationEmpty(String input) {
@@ -29,5 +33,11 @@ public class Validation {
         }
 
         return name;
+    }
+
+    public static void validationDuplication(List<Car> cars) {
+        if (cars.size() != cars.stream().map(Car::getName).distinct().count()) {
+            ErrorCollection.IllegalDuplicationInput();
+        }
     }
 }
