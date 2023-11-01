@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.view.Output;
 
 public class Game {
@@ -10,17 +11,17 @@ public class Game {
         List<Car> carList = gameManager.carSetting();
         int totalTryCount = gameManager.tryCountSetting();
 
-        runGame(carList, totalTryCount);
+        runGameForTryCount(carList, totalTryCount);
 
         Output.printGameWinnerMessage(String.join(", ", gameManager.checkWinner(carList)));
     }
 
-    private void runGame(List<Car> carList, int totalTryCount) {
+    private void runGameForTryCount(List<Car> carList, int totalTryCount) {
         Output.printResultMessage();
 
-        for (int tryCount = 0; tryCount < totalTryCount; tryCount++) {
+        IntStream.range(0, totalTryCount).forEach(tryCount -> {
             carList.forEach(Car::move);
             Output.printGameProgress(carList);
-        }
+        });
     }
 }
