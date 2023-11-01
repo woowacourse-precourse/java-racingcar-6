@@ -2,6 +2,12 @@ package racingcar.util;
 
 public class ValidateTryCount {
 
+    public static int validateInputValue(String InputTryCount) {
+        int tryCount = IsNumber(InputTryCount);
+        IsPositive(tryCount);
+        return tryCount;
+    }
+
     private static int IsNumber(String InputTryCount) {
 
         int tryCount;
