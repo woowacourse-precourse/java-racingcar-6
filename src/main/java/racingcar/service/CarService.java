@@ -14,9 +14,18 @@ public class CarService {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
+    public int countCommas(String input){
+        int count = 0;
+        for(int i = 0; i < input.length(); i++){
+            if(input.charAt(i) == ',')
+                count++;
+        }
+        return count;
+    }
     public List<String> checkCarsNameLength(String input_cars_name){
         String[] cars_name = input_cars_name.split(",");
-        if(cars_name.length == 0){
+        int count_Commas = countCommas(input_cars_name);
+        if(cars_name.length != count_Commas + 1){
             throw new IllegalArgumentException("입력값이 없습니다. 자동차 이름을 입력해주세요.");
         }
 

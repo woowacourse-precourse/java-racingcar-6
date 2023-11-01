@@ -16,6 +16,7 @@ class CarServiceTest {
         // given
         String name1 = "";
         String name2 = ",";
+        String name3 = "car1,";
 
         // then
         assertThrows(IllegalArgumentException.class, () -> {
@@ -24,8 +25,10 @@ class CarServiceTest {
         assertThrows(IllegalArgumentException.class, () -> {
             carService.checkCarsNameLength(name2);
         });
+        assertThrows(IllegalArgumentException.class, () -> {
+            carService.checkCarsNameLength(name3);
+        });
     }
-
 
 
 }
