@@ -100,8 +100,8 @@ public class Application {
         if (decideWinner) {
             System.out.println("최종 우승자 : "+ winners.get(0));
         } else {
-            String winnerList = String.join(", ",winners);
-            System.out.print("최종 우승자 : "+winnerList);
+            String winnerNames = String.join(", ",winners);
+            System.out.println("최종 우승자 : "+winnerNames);
         }
     }
     private static Integer saveTrialNumber(String trialNumberInput) {
