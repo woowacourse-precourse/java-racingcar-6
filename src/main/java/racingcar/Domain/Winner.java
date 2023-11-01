@@ -24,18 +24,16 @@ public class Winner {
     }
 
     private void checkWinnersDistance() {
-        for (Car car : this.cars) {
-            if (car.getMovingDistance() > winnersDistance) {
-                winnersDistance = car.getMovingDistance();
-            }
-        }
+        this.winnersDistance = this.cars.stream()
+                .mapToInt(Car::getMovingDistance)
+                .max()
+                .orElse(0);
     }
 
     private void checkWinner() {
-        for (Car car : this.cars) {
-            if (car.getMovingDistance() == winnersDistance) {
-                this.winners.add(car.getName());
-            }
-        }
+        this.cars.stream()
+                .filter(car -> car.getMovingDistance() == this.winnersDistance)
+                .map(Car::getName)
+                .forEach(this.winners::add);
     }
 }

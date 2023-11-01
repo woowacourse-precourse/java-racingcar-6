@@ -7,6 +7,7 @@ import static racingcar.common.RacingCarConstant.SPEED_LOWER_LIMIT;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Race {
 
@@ -36,14 +37,11 @@ public class Race {
     }
 
     private void printResult() {
-        for (Car car : this.cars) {
+        this.cars.forEach(car -> {
             System.out.print(car.getName() + COLON);
-
-            for (int i = 0; i < car.getMovingDistance(); i++) {
-                System.out.print(DASH);
-            }
+            IntStream.range(0, car.getMovingDistance()).forEach(i -> System.out.print(DASH));
             System.out.println();
-        }
+        });
         System.out.println();
     }
 
