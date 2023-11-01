@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -16,6 +17,7 @@ public class Application {
             }
             System.out.println("");
         }
+
         List<String> winners = determineWinners(cars);
         System.out.print("최종 우승자: " + String.join(", ", winners));
     }
@@ -26,10 +28,21 @@ public class Application {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            try {
+                validateCarName(carName);
+                cars.add(new Car(carName.trim()));
+            } catch (IllegalArgumentException e) {
+                System.out.println("유효하지 않은 자동차 이름입니다. 프로그램을 종료합니다.");
+                System.exit(1);
+            }
         }
 
         return cars;
+    }
+    private static void validateCarName(String carName) {
+        if (carName.trim().isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+        }
     }
     private static int getNumAttempts() {
         while (true) {
@@ -41,6 +54,7 @@ public class Application {
             }
         }
     }
+
     private static int parseNumAttempts(String input) {
         try {
             int numAttempts = Integer.parseInt(input);
@@ -54,6 +68,7 @@ public class Application {
         }
         return 0;
     }
+
     private static List<String> determineWinners(List<Car> cars) {
         int maxPosition = 0;
         List<String> winners = new ArrayList<>();
@@ -67,7 +82,6 @@ public class Application {
                 winners.add(car.getName());
             }
         }
-
         return winners;
     }
 }
@@ -80,6 +94,7 @@ class Car {
         this.name = name;
         this.position = 0;
     }
+
     public String getName() {
         return name;
     }
@@ -87,6 +102,7 @@ class Car {
     public int getPosition() {
         return position;
     }
+
     public void moveForwardOrStop() {
         int randomValue = Randoms.pickNumberInRange(0, 9);
         if (randomValue >= 4) {
