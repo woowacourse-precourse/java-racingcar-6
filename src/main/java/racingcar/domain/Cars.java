@@ -43,4 +43,13 @@ public class Cars {
             runCount--;
         }
     }
+
+    public void showBestDriver() {
+        int winnerCount = cars.size();
+        String[] winnerCarNames = new String[winnerCount];
+        for (int i = 0; i < winnerCount; i++) {
+            winnerCarNames[i] = cars.get(i).getName();
+        }
+        OutputView.printFinalWinner(winnerCarNames);
+    }
 }

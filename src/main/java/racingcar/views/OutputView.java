@@ -20,4 +20,8 @@ public class OutputView {
     public static void printResultMessage() {
         System.out.println("실행 결과");
     }
+
+    public static void printFinalWinner(String[] winnerCarNames) {
+        System.out.println("최종 우승자 : " + String.join(", ", winnerCarNames));
+    }
 }
