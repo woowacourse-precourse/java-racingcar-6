@@ -10,27 +10,24 @@ import java.util.List;
 public class RacingService {
 
     private final RacingRepository racingRepository;
+    private final Validation validation;
 
-    public RacingService(RacingRepository racingRepository) {
+    public RacingService(RacingRepository racingRepository, Validation validation) {
         this.racingRepository = racingRepository;
+        this.validation = validation;
     }
 
     public void saveCars(String carsName) {
         String[] cars = carsName.split(",");
         for (String car : cars) {
-            /**
-             * car 검증로직
-             */
+            car = car.trim();
+            validation.validateCarName(car);
             racingRepository.saveCar(new Car(car));
         }
     }
 
     public void saveAttempts(String attempt) {
-
-        /**
-         * attempt 검증로직
-         */
-
+        validation.validateAttempts(attempt);
         racingRepository.saveAttempts(Integer.parseInt(attempt));
     }
 
