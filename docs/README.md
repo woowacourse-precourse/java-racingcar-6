@@ -38,7 +38,7 @@
     - 게임이 한 사이클을 돌릴 `tryOneCycle()`
 
 
-- 잘못된 값을 검증할 클래스 `Validation`
+- 검햐 클래스 `Validation`
     - 사용자의 이름 길이를 검증할 `ValidateLengthOfName()`
     - 사용자가 잘못된 값을 입력했는지 검증할 `isNotNumber()`
     - 이름의 마지막이 comma로 끝났는지 검증할 `endsWithComma()`
