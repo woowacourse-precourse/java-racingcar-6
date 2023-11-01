@@ -11,7 +11,7 @@ public final class Input {
 
     public static final Pattern REMOVE_REGEX_PATTERN = Pattern.compile("\\s");
     public static final String DIVIDING_STANDARD = ",";
-    public static final int MAXIMUM_NAME_LENGTH = 6;
+    public static final int MAXIMUM_NAME_LENGTH = 5;
     public static final int MINIMUM_NAME_LENGTH = 0;
 
     public static List<String> inputNames() {
@@ -41,7 +41,7 @@ public final class Input {
 
     private static void validateNameLength(List<String> names) {
         int countNames = (int) names.stream()
-                .filter(name -> name.length() < MAXIMUM_NAME_LENGTH && name.length() != MINIMUM_NAME_LENGTH)
+                .filter(name -> name.length() <= MAXIMUM_NAME_LENGTH && name.length() != MINIMUM_NAME_LENGTH)
                 .count();
 
         if (countNames != names.size()) {
