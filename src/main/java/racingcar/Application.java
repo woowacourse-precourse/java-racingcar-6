@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -28,6 +30,9 @@ public class Application {
     public static List<String> getCarList(){
 
         String carInput = Console.readLine();
+        if(!Pattern.compile("^[a-zA-Z,]{1,5}(,[a-zA-Z,]{1,5})*$").matcher(carInput).matches()){
+            throw new IllegalArgumentException();
+        }
 
         return new ArrayList<>(Arrays.asList(carInput.split(",")));
     }
@@ -35,6 +40,9 @@ public class Application {
     public static int getGameRound(){
         String input = Console.readLine();
 
+        if(!Pattern.compile("^[0-9]+$").matcher(input).matches()){
+            throw new IllegalArgumentException();
+        }
         return Integer.parseInt(input);
     }
 
