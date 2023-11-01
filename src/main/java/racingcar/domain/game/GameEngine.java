@@ -2,7 +2,7 @@ package racingcar.domain.game;
 
 import java.util.List;
 import racingcar.domain.car.CarInfo;
-import racingcar.domain.car.CarMovement;
+import racingcar.domain.car.CarMovementDecider;
 import racingcar.dto.Car;
 import racingcar.view.OutputView;
 
@@ -10,9 +10,18 @@ public class GameEngine {
     private static final CarInfo carInfo = CarInfo.getInstance();
 
     public void processTurn() {
-        carInfo.getAllCarInfo().stream()
-                .map(currentCar -> (new CarMovement(currentCar)).car())
-                .forEach(OutputView::printStatusOfRaceCar);
+        for (Car currentCar : carInfo.getAllCarInfo()) {
+            CarMovementDecider decider = new CarMovementDecider(currentCar);
+
+            printStatusOfRaceCar(currentCar.name(), decider.decideMovement());
+        }
+    }
+
+    private void printStatusOfRaceCar(String name, Integer position) {
+        if (position != null) {
+            String messageToPrint = name + " : " + "-".repeat(position);
+            OutputView.printOutputMessage(messageToPrint);
+        }
     }
 
     public List<Car> findWinner() {

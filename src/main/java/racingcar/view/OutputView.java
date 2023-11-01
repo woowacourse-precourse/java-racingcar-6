@@ -26,8 +26,8 @@ public class OutputView {
         System.out.println(OUTPUT_MESSAGE_OF_RESULT);
     }
 
-    public static void printStatusOfRaceCar(Car car) {
-        System.out.println(car.name() + " : " + "-".repeat(car.position()));
+    public static void printOutputMessage(String message) {
+        System.out.println(message);
     }
 
     public static void printGameWinner(List<Car> winnerCar) {
