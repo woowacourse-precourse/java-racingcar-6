@@ -12,6 +12,11 @@ public class InputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         List<String> car_name = List.of(Console.readLine().split(","));
+
+        if (car_name.size() < 2) {
+            throw new IllegalArgumentException("자동차 이름을 두 개 이상 입력하세요.");
+        }
+
         car_name.stream().forEach(name -> cars.add(new Car(name)));
     }
 
