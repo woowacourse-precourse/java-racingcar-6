@@ -1,8 +1,11 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class RacingStatus {
 
@@ -42,5 +45,33 @@ public class RacingStatus {
 
 	public int getTryNumber() {
 		return tryNumber;
+	}
+
+	public List<String> findMaxValueFromCarStatus() {
+		List<String> maxKeys = new ArrayList<>();
+		int maxValue = Integer.MIN_VALUE;
+
+		roofFindMaxValue(maxKeys, maxValue);
+
+		return maxKeys;
+	}
+
+	private void roofFindMaxValue(List<String> maxKeys, int maxValue) {
+		for (Map.Entry<String, Integer> entry : this.carStatus.entrySet()) {
+			int value = entry.getValue();
+			maxValue = getMaxValue(maxKeys, maxValue, entry, value);
+		}
+	}
+
+	private static int getMaxValue(List<String> maxKeys, int maxValue, Entry<String, Integer> entry,
+		int value) {
+		if (value > maxValue) {
+			maxKeys.clear();
+			maxKeys.add(entry.getKey());
+			maxValue = value;
+		} else if (value == maxValue) {
+			maxKeys.add(entry.getKey());
+		}
+		return maxValue;
 	}
 }
