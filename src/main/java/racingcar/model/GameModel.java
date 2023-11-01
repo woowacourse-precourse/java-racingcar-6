@@ -20,6 +20,9 @@ public class GameModel {
 
     public ArrayList<CarData> aggregateRoundScore() {
         ArrayList<CarData> roundScore = new ArrayList<>();
+
+        this.raceTimes--;
+        
         for (Car car : this.scoreBoard) {
             car.move();
             CarData roundData = car.getData();
@@ -51,7 +54,7 @@ public class GameModel {
 
 
     public boolean raceTimeRemain() {
-        return this.raceTimes-- > 0;
+        return this.raceTimes > 0;
     }
 
 
