@@ -40,8 +40,9 @@
 |Game|유효성검사|자동차 이름이 중복되는지 검사|checkDuplicationName||
 |Car|유효성 검사|자동차 이름 검사|checkValidCarName||
 |Car|유효성 검사|입력한 자동차 이름이 0글자이거나 혹은 5글자를 초과하는지 검사|checkLengthOfName||
-|Game|생성|시도할 횟수를 가진 라운드 횟수 지정|initRound||
+|Game|생성|시도할 횟수를 가진 라운드 횟수 지정|setRound||
 |Game|유효성 검사|입력한 시도 횟수가 숫자인지 확인|checkNumberOfTry||
+|Game|생성|라운드 설정|initRound||
 |Game|생성|게임 시작|startGame||
 |Round|생성|라운드 시작|startRound||
 |Round|이동|자동차 전진|moveForward||
