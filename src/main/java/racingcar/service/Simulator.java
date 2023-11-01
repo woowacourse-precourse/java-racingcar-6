@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import static racingcar.constant.PositionConstant.FORWARD_THRESHOLD;
+
 import racingcar.domain.Car;
 import racingcar.utils.RandomNumberGenerator;
 import racingcar.utils.Validator;
@@ -38,7 +40,7 @@ public class Simulator {
 
     private boolean canForward() {
         int randomNumber = RandomNumberGenerator.getRandomNumber();
-        return randomNumber >= 4;
+        return randomNumber >= FORWARD_THRESHOLD.getValue();
     }
 
 }
