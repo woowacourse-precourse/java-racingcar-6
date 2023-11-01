@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,9 +11,9 @@ public class Application {
         String input = scanner.nextLine();
         input = input.trim();
 
-        String[] values = input.split(",");
+        String[] carNames = input.split(",");
 
-        for (String value : values) {
+        for (String value : carNames) {
             if (value.trim().length() > 5) {
                 throw new IllegalArgumentException("길이가 5 이상인 값이 감지되었습니다: " + value);
             }
@@ -23,6 +24,16 @@ public class Application {
 
         if (raceCount <= 0) {
             throw new IllegalArgumentException("횟수는 양수여야 합니다.");
+        }
+
+        for (String carName : carNames){
+            int moveCnt = 0;
+            for (int i=0; i<raceCount; i++){
+                int threshold = Randoms.pickNumberInRange(0,9);
+                if (threshold >= 4){
+                    moveCnt++;
+                }
+            }
         }
 
     }
