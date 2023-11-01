@@ -10,6 +10,7 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        // try-catch로 예외처리를 할 경우, 주어진 테스트코드가 실패함.
         CarService carService = new CarService();
         TryCountService tryCountService = new TryCountService();
 
