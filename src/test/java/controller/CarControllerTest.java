@@ -7,10 +7,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import racingcar.controller.CarController;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class CarControllerTest {
+    private CarController carController = new CarController();
     @Test
     void 우승자_검증() {
         List<Car> carsTemp = new ArrayList<>();
@@ -24,8 +26,9 @@ public class CarControllerTest {
 
         testCarA.forward();
 
-        String winner = cars.getWinner(carsTemp);
+        String winner =  carController.getWinner(cars);
 
         assertThat(winner).isEqualTo(testCarA.getMember());
     }
+
 }

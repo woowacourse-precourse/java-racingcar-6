@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import racingcar.util.Validate;
 
 public class Cars{
@@ -22,29 +23,28 @@ public class Cars{
         return cars.size();
     }
 
-    public String getWinner(List<Car> cars) {
-        List<String> winner = new ArrayList<>();
-        int max = getMaxPosition(cars);
-
-        for(Car carItem : cars) {
-            if(carItem.getPosition() == max) {
-                winner.add(carItem.getMember());
-            }
-        }
-
-        return String.join(", ", winner);
+    /**
+     * 우승자의 이름들를 반환하는 함수
+     *
+     * @param position : Car member 들의 이름을 구하기 위한 조건 
+     * @return List<String> : member 들의 이름
+     */
+    public List<String> getWinner(int position) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == position)
+                .map(Car::getMember)
+                .collect(Collectors.toList());
     }
 
-    // 모든 자동차들 중 가장 높은 position 값 반환
-    private int getMaxPosition(List<Car> cars) {
-        int maxPosition = Integer.MIN_VALUE;
-
-        for(Car car : cars) {
-            if(car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-            }
-        }
-
-        return maxPosition;
+    /**
+     * 현재 멤버들 중 가장 많이 전진한 position 값 반환
+     * 
+     * @return int: Cars의 멤버 중 가장 높은 position을 반환
+     */
+    public int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 }

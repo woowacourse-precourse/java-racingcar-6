@@ -38,11 +38,21 @@ public class CarController {
 
             attemptForwardAndOutputResult(forwardAttempt, cars);
 
-            output.winners(cars.getWinner(cars.getCars()));
+            String winner = getWinner(cars);
+
+            output.winners(winner);
         }
         finally {
             Console.close();
         }
+    }
+
+    public String getWinner(Cars cars) {
+        int max = cars.getMaxPosition();
+
+        List<String> winner = cars.getWinner(max);
+
+        return String.join(", ", winner);
     }
 
     // 입력받은 자동차들 String -> Cars 변환
