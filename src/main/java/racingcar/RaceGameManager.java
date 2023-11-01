@@ -6,12 +6,9 @@ public class RaceGameManager {
     Car[] car;
     NumberGenerator Generator = new NumberGenerator();
 
-    public RaceGameManager(Car[] car) {
-        this.car = car;
-    }
+    public RaceGameManager(Car[] car) { this.car = car; }
 
-    public void noticeResult(String[] carNameList) { // 레이싱 실행 결과 출력
-
+    public void noticeResult(String[] carNameList) { // 모든 자동차의 진행 상태 출력
         for (int j = 0; j < carNameList.length; j++) {
             car[j].randomNumber = Generator.createRandomNumber();
             car[j].moveForward(car[j].randomNumber);
@@ -21,7 +18,7 @@ public class RaceGameManager {
 
     }
 
-    public void displayCarStatus(Car[] car, int j){
+    public void displayCarStatus(Car[] car, int j) { // 자동차의 진행 상태 출력("-"로)
         System.out.print(car[j].carName + " : ");
         for (int i = 0; i < car[j].forwardCount; i++) {
             System.out.print('-');
@@ -33,8 +30,11 @@ public class RaceGameManager {
         WinnerManager winnerManager = new WinnerManager(car);
         ArrayList<String> winnersList = winnerManager.returnWinnerList();
         System.out.print("최종 우승자 : ");
-        for (String winner : winnersList) {
-            System.out.print(winner + ",");
+        for (int i = 0; i < winnersList.size(); i++) {
+            System.out.print(winnersList.get(i));
+            if (i < winnersList.size() - 1) { // 마지막 요소 출력시 쉼표 안나오게 하기
+                System.out.print(", ");
+            }
         }
     }
 }
