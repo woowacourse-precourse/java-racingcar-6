@@ -25,6 +25,11 @@ public class Game {
         inputTimes();
         startGame();
         calculateWinner();
+        outputResult();
+    }
+
+    private void outputResult() {
+        Output.gameResult(result);
     }
 
     private void calculateWinner() {
