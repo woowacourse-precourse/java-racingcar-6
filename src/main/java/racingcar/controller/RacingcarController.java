@@ -4,6 +4,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Race;
 import racingcar.service.RacingcarService;
 import racingcar.util.CarNameParser;
+import racingcar.util.RacingcarRoundConvertor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,7 +27,7 @@ public class RacingcarController {
         List<Car> cars = Car.createCars(carNames);
 
         String roundInput = inputView.readRound();
-        int rounds = Integer.parseInt(roundInput);
+        int rounds = RacingcarRoundConvertor.convert(roundInput);
 
         return new Race(cars, rounds);
     }
