@@ -12,7 +12,7 @@ public class UserInputHandler {
 
     private String[] makeSeparationNames(String names) {
 
-        return names.split(",");
+        return names.split(",", -1);
     }
 
     public int inputRacingNumber() {

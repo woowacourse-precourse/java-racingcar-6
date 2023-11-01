@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Cars {
     private ArrayList<Car> cars;
