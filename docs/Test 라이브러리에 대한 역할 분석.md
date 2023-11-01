@@ -36,7 +36,7 @@ NsTest 라이브러리를 살펴보겠습니다.
 ```
 
 - **command()**  
-String[] 문자열 배열을 `/n` 요소로 이어 붙여 byte[] 배열 형태로 반환합니다.  
+String[] 문자열 배열을 `\n` 요소로 이어 붙여 byte[] 배열 형태로 반환합니다.  
 `InputSteam` 가운데 `ByteArrayInputStream` 으로 입력을 세팅합니다.
 ```java
     private void command(final String... args) {
@@ -54,7 +54,7 @@ String[] 문자열 배열을 `/n` 요소로 이어 붙여 byte[] 배열 형태�
 ### Assertions 테스트
 `camp.nextstep.edu.missionutils.test.Assertions`
 ### assertSimpleTest
-해당 executable 람다식이 1초(`SIMPLE_TEST_TIMEOUT`) 만에 실행이 되는지 확인
+해당 executable 람다식이 1초(`SIMPLE_TEST_TIMEOUT`) 만에 실행이 되는지 확인합니다.
 ```java
     public static void assertSimpleTest(final Executable executable) {
         assertTimeoutPreemptively(SIMPLE_TEST_TIMEOUT, executable);
@@ -93,8 +93,12 @@ String[] 문자열 배열을 `/n` 요소로 이어 붙여 byte[] 배열 형태�
 ```
 
 ### assertRandomTest
-mockStatic을 사용하여 전역으로 Radndom클래스를 mock으로 관리하고,
-executable 테스트 실행합니다. 입력 받은 값을 배열로 만들어서 random 값을 제공합니다.  
+mockStatic을 사용하여 전역으로 Radndom 클래스를 mock으로 관리합니다.  
+
+
+- **MockedStatic**: static 함수를 가짜로 사용하기 위한 Mock에서 제공하는 기능
+- when(Verification)이 사용된다면 thenReturn(파라미터로 넣었던 value들)
+- **assertTimeoutPreemptively**: executable이 주어진 시간 안에 실행이 완료되는지 확인
 
 ```java
     private static <T> void assertRandomTest(
