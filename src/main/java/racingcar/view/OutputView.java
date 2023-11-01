@@ -18,16 +18,17 @@ public class OutputView {
             System.out.print("-");
         }
     }
-    public void printWinner(List<String> winner){
+
+    public void printWinner(List<String> winner) {
         System.out.print("최종 우승자 : ");
 
-        if(winner.size()==1){
+        if (winner.size() == 1) {
             System.out.println(winner.get(0));
             return;
         }
 
         System.out.print(winner.get(0));
-        for (int i=1; i<winner.size(); i++){
+        for (int i = 1; i < winner.size(); i++) {
             System.out.print(", ");
             System.out.print(winner.get(i));
         }
