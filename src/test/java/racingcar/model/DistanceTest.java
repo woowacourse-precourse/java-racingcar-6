@@ -79,4 +79,17 @@ class DistanceTest {
             assertTrue((d2.compareTo(d1) * d3.compareTo(d1)) > 0);
         }
     }
+
+    @Test
+    void toString_문자열_형식_검사(){
+        Distance d1 = new Distance(0);
+        Distance d2 = new Distance(1);
+        Distance d3 = new Distance(2);
+        Distance d4 = new Distance(3);
+
+        assertEquals(d1.toString(), "");
+        assertEquals(d2.toString(), "-");
+        assertEquals(d3.toString(), "--");
+        assertEquals(d4.toString(), "---");
+    }
 }
