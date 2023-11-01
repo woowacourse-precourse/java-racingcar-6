@@ -44,10 +44,18 @@ public class CarTest {
     }
 
     @Test
-    public void 중복_이름_검증(){
+    public void 중복_이름_검증() throws Exception{
         String[] names = {"brian", "poby", "brian"};
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             InputValidator.validateDuplicateName(names);
+        });
+    }
+
+    @Test
+    public void 유효한_이름_검증() throws Exception{
+        String[] names = {"brian", "poby", "yoo~!"};
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            InputValidator.validateName(names);
         });
     }
 }
