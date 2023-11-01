@@ -9,7 +9,7 @@ class CarDtoTest {
 
     @Test
     @DisplayName("라운드 결과 출력을 위한 레코드")
-    void givenNameAndPosition_whenCreateRoundResult_thenReturnCorrectValue() {
+    void givenNameAndPosition_whenCreateCarDto_thenReturnCorrectValue() {
         String name = "pobi";
         int position = 3;
 
