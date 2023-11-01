@@ -27,7 +27,7 @@ public class CarService {
         return raceResults;
     }
 
-    private String getRaceResult(List<Car> cars) {
+    public String getRaceResult(List<Car> cars) {
         StringBuilder raceResult = new StringBuilder();
 
         for (Car car : cars) {
