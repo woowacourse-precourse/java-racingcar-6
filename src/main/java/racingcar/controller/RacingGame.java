@@ -15,6 +15,15 @@ public class RacingGame {
         OutputView.printCarNameInputMessage();
         createRacingCar(InputView.inputCarName());
 
+        OutputView.printRacingCountInputMessage();
+        initializeCount(InputView.inputRacingCount());
+
+
+        OutputView.printRacingResultStartMessage();
+        for(int i =0 ; i<count ; i++){
+            racingCar.stopOrMoveForward();
+            OutputView.printAllCarNowDistance(racingCar.distanceString());
+        }
 
     }
 
@@ -22,5 +31,7 @@ public class RacingGame {
         racingCar = new RacingCar(playerCarNameList);
     }
 
-    
+    private void initializeCount(Integer count){
+        this.count = count;
+    }
 }
