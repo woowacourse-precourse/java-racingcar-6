@@ -10,6 +10,8 @@
     - [O]숫자인가? 예외처리 진행.   - NumberGenerator#validateGameChanceNumbers()
 - [O] 0에서 9 사이의 임의의 수를 생성한다. - NumberGenerator#createRandomNumbers()
     - [O] 숫자가 4 이상인 경우 전진 - ActionCars#goCar()
+    
+- [O] 결과 출력 변수 초기화 -ActionCars#resetCountResult()
 
 - [ ] 입력에 대한 출력.
     - 차 이름 입력 안내문 - InputView#printCarNamesInformation()

@@ -15,5 +15,16 @@ public class ActionCars {
         String change = countResult.get(carNum);
         change += "-";
         countResult.set(carNum, change); 
-    }   
+    }
+    
+    public void resetCountResult(){
+        int num = racinggame.getCarNumbers();
+        List<String> countResult = new ArrayList<String>();
+
+        for(int i = 0 ; i < num;i++){
+            countResult.add("");
+        }
+
+        racinggame.setCountResult(countResult);
+    }
 }
