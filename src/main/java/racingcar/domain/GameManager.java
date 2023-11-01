@@ -39,13 +39,6 @@ public class GameManager {
         return true;
     }
 
-    public static List<RacingCar> instantiateRacingCars() {
-
-        for (String racingCarName : racingCarNames) {
-            racingCars.add(new RacingCar(racingCarName));
-        }
-        return racingCars;
-    }
 
     public static boolean validateUserInput(String userInput) {
         if (userInput == null || userInput.isEmpty()) {
@@ -87,6 +80,14 @@ public class GameManager {
         }
     }
 
+
+    public static List<RacingCar> instantiateRacingCars() {
+
+        for (String racingCarName : racingCarNames) {
+            racingCars.add(new RacingCar(racingCarName));
+        }
+        return racingCars;
+    }
 
     public static void runGame() {
 
