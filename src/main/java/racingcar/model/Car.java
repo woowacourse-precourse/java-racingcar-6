@@ -24,7 +24,7 @@ public class Car {
     }
     private static void checkWord(String name){
         if (name.length() > 5 || name.matches("[^a-zA-Z]+")) {
-                throw new IllegalArgumentException("길이 5초과 혹은 영어 문자 이외 입력");
+                throw new IllegalArgumentException("String index out of range: 5 or non-English value ");
         }
     }
 }

@@ -17,12 +17,12 @@ public class User {
     }
     private static void checkNumber(String number){
         if (number.matches("[^0-9]+")){
-            throw new IllegalArgumentException("숫자 이외의 값 입력");
+            throw new IllegalArgumentException("non-numeric value");
         }
     }
     private static void checkParticipants(int participants){
         if (participants < 2){
-            throw new IllegalArgumentException("참가자 수 부족 게임 종료");
+            throw new IllegalArgumentException("Not enough participants");
         }
     }
     public static Car[] registerCars(String[] names){
