@@ -23,8 +23,9 @@ public class RacingGame {
         int remainingRace = getRaceCount();
         OutputView.printConsole();
         do {
-            printGameResult(cars);
-        } while (remainingRace-- > 1);
+            race(cars);
+            remainingRace--;
+        } while (remainingRace == 0);
         printGameWinner(cars);
     }
 
@@ -40,7 +41,7 @@ public class RacingGame {
         return raceCount.getCount();
     }
 
-    private void printGameResult(List<Car> cars) {
+    private void race(List<Car> cars) {
         gameResultMaker.makeGameResult(cars);
         OutputView.printGameResult(cars);
     }
