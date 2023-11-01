@@ -13,7 +13,10 @@ public class Game {
     }
 
     public void run() {
+        List<Car> carEntry = setCars();
         System.out.println("실행 결과");
+        raceStart(carEntry);
+        checkWinners(carEntry);
 
     }
 
@@ -27,7 +30,7 @@ public class Game {
 
     private void raceStart(List<Car> carEntry) {
         for (int i = 0; i < round; i++) {
-            for(int j = 0;j<carEntry.size();j++){
+            for (int j = 0; j < carEntry.size(); j++) {
                 carEntry.get(i).onceRoundStart();
                 carEntry.get(i).printCarState();
             }
@@ -35,7 +38,31 @@ public class Game {
         }
     }
 
-    private void checkWinners(){
+    private void checkWinners(List<Car> carEntry) {
+        List<Integer> distances = new ArrayList<>();
+        int winnerDistance = 0;
+        for (int i = 0; i < carEntry.size(); i++) {
+            int carDistance = carEntry.get(i).finalDistance();
+            distances.add(carDistance);
+            if (carDistance > winnerDistance) {
+                winnerDistance = carDistance;
+            }
+        }
+
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < distances.size(); i++) {
+            if (distances.get(i) == winnerDistance) {
+                winners.add(carNames.get(i));
+            }
+        }
+
+        System.out.println("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
 
     }
 }
