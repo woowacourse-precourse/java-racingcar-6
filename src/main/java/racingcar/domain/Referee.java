@@ -22,8 +22,8 @@ public class Referee{
         String[] player = Console.readLine().split(",");
 
         for (String name : player) {
-            Judgment.isOverFiveLength(name); // 자동차 이름 길이가 5를 초과하는지 확인
-            addGroup(name);
+             // 자동차 이름 길이가 5를 초과하는지 확인
+            addGroup(Judgment.isOverFiveLength(name));
         }
     }
 

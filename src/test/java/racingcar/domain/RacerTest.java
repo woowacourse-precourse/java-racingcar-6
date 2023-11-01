@@ -12,17 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class RacerTest{
     private Racer racer;
 
+    @BeforeEach
+    void setUp(){
+        racer = new Racer("pobi", 3);
+    }
+
     @Test
     void Player가_제대로된_값을_출력하는지_확인() {
-
-        racer = new Racer("pobi", 3);
 
         assertThat(racer.printDistance()).isEqualTo("pobi : ---");
     }
 
     @Test
     void 값에_따라_distance가_제대로_증가하는지_확인(){
-        racer = new Racer("pobi", 3);
         racer.moveForward(5);
 
         assertThat(racer.getDistance()).isEqualTo(4);
@@ -30,7 +32,6 @@ class RacerTest{
 
     @Test
     void 값이_작을경우_distance가_증가하는지_확인(){
-        racer = new Racer("pobi", 3);
         racer.moveForward(2);
 
         assertThat(racer.getDistance()).isEqualTo(3);
