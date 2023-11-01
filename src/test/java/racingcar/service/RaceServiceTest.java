@@ -38,4 +38,20 @@ class RaceServiceTest {
         raceService.moveCarByLogic(race);
         Assertions.assertThat(RaceService.remainRound).isEqualTo(2);
     }
+
+    @Test
+    void 우승한_차를_찾아내준다(){
+        Race race = new Race(cars, 3);
+        RaceService raceService = new RaceService(race.getRaceRound());
+        raceService.moveCarByLogic(race);
+        raceService.moveCarByLogic(race);
+        raceService.moveCarByLogic(race);
+
+        List<String> winner = RaceService.findWinner(race);
+        Assertions.assertThat(winner.size()).isBetween(1,3);
+        for (String championCarName : winner) {
+            System.out.println(championCarName);
+        }
+
+    }
 }

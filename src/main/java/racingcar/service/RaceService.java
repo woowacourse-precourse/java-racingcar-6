@@ -4,6 +4,7 @@ import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.utility.RandomUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RaceService {
@@ -23,5 +24,23 @@ public class RaceService {
             }
         }
         remainRound--;
+    }
+
+    public static List<String> findWinner(Race race){
+        List<Car> carRepository = race.getCarRepository();
+        List<String> champions = new ArrayList<>();
+        int maxAdvance = -1;
+        for (Car car : carRepository) {
+            if(car.getAdvanceNum() > maxAdvance){
+                maxAdvance = car.getAdvanceNum();
+            }
+        }
+
+        for (Car car : carRepository) {
+            if(car.getAdvanceNum() == maxAdvance){
+                champions.add(car.getName());
+            }
+        }
+        return champions;
     }
 }
