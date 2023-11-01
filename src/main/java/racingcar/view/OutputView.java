@@ -46,6 +46,10 @@ public class OutputView {
         System.out.print("\n");
     }
 
+    public void announceSoloWinner(String winnerName) {
+        System.out.println("최종 우승자 : " + winnerName);
+    }
+
     private void printCarCurrentPosition(String carName, int currentPosition) {
         System.out.print(carName + " : ");
         IntStream.rangeClosed(1, currentPosition)
