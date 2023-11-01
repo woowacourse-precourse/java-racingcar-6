@@ -11,6 +11,12 @@ public class Cars {
         this.cars = cars;
     }
 
+    public void moveAll() {
+        for (Car car : cars) {
+            car.moveForward();
+        }
+    }
+
     private int findFastestPosition() {
         int fastestPosition = 0;
 
