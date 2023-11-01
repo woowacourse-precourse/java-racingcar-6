@@ -15,7 +15,7 @@ class OpportunityValidatorTest {
         String ex3 = "0";
         OpportunityValidator opportunityValidator = new OpportunityValidator();
 
-        // When
+        // When and Then
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> opportunityValidator.validateOpportunity(ex1))
                 .withMessage("시도 횟수는 1 이상이어야 합니다.");
@@ -25,8 +25,5 @@ class OpportunityValidatorTest {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> opportunityValidator.validateOpportunity(ex3))
                 .withMessage("시도 횟수는 1 이상이어야 합니다.");
-
-        // Then
-        assertEquals(true, true);
     }
 }
