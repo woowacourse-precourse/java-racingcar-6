@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import net.bytebuddy.pool.TypePool;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,10 +14,26 @@ public class Application {
         String input= Console.readLine();
         String[] carNames=input.split(",");
         List<String> cars=new ArrayList<>();
-        Collections.addAll(cars, carNames);
+        for (String car: cars){
+            if(car.isEmpty()){
+                throw new IllegalArgumentException();
+            }
+            if(car.length()>5){
+                throw new IllegalArgumentException();
+            }
+        }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int tryCount=Integer.parseInt(Console.readLine());
+        int tryCount;
+        try {
+            tryCount=Integer.parseInt(Console.readLine());
+        }catch(NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+
+        if(tryCount<1){
+            throw new IllegalArgumentException();
+        }
 
         for (int i=1;i<tryCount+1;i++){
             for (String car : cars){
