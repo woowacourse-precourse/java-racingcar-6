@@ -47,7 +47,7 @@
 **[ Controller ]**
 -
 
-- [ ]  **RacingCarController**
+- [x]  **RacingCarController**
 
 사용자 입력을 받아 경주를 시작하고 결과를 출력
 
