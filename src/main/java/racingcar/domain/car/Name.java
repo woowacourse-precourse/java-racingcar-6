@@ -12,6 +12,11 @@ public record Name(
         name = name.trim();
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     private void validate(final String name) {
         validateNullity(name);
         validateBlank(name);
