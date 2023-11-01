@@ -7,6 +7,9 @@ public class ValidationUtil {
     }
 
     public static void validateCarName(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 최소 1자 이상이어야 합니다.");
+        }
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 최대 5자까지 가능합니다.");
         }
