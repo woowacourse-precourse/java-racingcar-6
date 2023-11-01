@@ -116,6 +116,21 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
+    @Test
+    void 자동차_위치_증가() {
+        String[] names = {
+                "abc", "def", "ghi"
+        };
+        CarList carList = new CarList(names);
+        carList.plusOnePosition(0);
+        carList.plusOnePosition(0);
+        assertThat(carList.getPosition(0) == 2);
+        assertThat(carList.getPosition(1) == 0);
+        assertThat(carList.getPosition(2) == 0);
+
+    }
+
     @Test
     void 자동차_최대_위치_탐색_1명() {
         String[] names = {
