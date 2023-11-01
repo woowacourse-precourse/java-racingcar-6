@@ -2,9 +2,9 @@ package racingcar;
 
 public class Validate {
 
-    public static void validateInputCars(String inputCarsName) {
+    public static void InputCars(String inputCarsName) {
         if (inputCarsName.isEmpty()) {
-            throw new IllegalArgumentException("공백은 입력하실 수 없습니다.");
+            throw new IllegalArgumentException("공백만은 입력하실 수 없습니다.");
         }
 
         if (!inputCarsName.contains(",")) {
@@ -20,7 +20,7 @@ public class Validate {
     }
 
 
-    public static void validateInputNumber(int inputTryNumber) {
+    public static void InputNumber(int inputTryNumber) {
 
         String inputNumberString = Integer.toString(inputTryNumber);
 

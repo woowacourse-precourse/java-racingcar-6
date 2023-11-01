@@ -8,7 +8,7 @@ public class GameUtil {
 
     public static Map<String, Integer> Savecars(String inputCarsName) {
 
-        // 입력받은 자동차 이름을 분할하여 저장
+
         String[] cars = inputCarsName.split(",");
         Map<String, Integer> carsList = new LinkedHashMap<>();
 
@@ -23,11 +23,11 @@ public class GameUtil {
 
         // 랜덤 숫자를 뽑아서 값을 조정하고 Map에 저장
         for (String car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9); // 0부터 9까지의 랜덤 숫자
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
             int currentValue = carsList.get(car);
 
             if (randomNumber >= 4) {
-                carsList.put(car, currentValue + 1); // 랜덤 숫자가 4 이상일 경우 +1을 해서 저장
+                carsList.put(car, currentValue + 1);
             }
         }
         return carsList;
@@ -43,11 +43,16 @@ public class GameUtil {
             if (dashes > maxDashes) {
                 maxDashes = dashes;
                 mostDashesCar.clear(); // 최대값이 변경되면 리스트 초기화
-                mostDashesCar.add(entry.getKey()); // 새로운 최대값의 키 추가
+                mostDashesCar.add(entry.getKey());
             } else if (dashes == maxDashes) {
-                mostDashesCar.add(entry.getKey()); // 같은 최대값을 가진 키 추가
+                mostDashesCar.add(entry.getKey());
             }
         }
+
+        if (maxDashes == 0) {
+            mostDashesCar.clear();
+        }
+
         return mostDashesCar;
     }
 

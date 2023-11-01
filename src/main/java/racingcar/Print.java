@@ -23,6 +23,7 @@ public class Print {
     }
 
     public static void PrintWinner(List<String> mostDashesCar) {
+
         // 최종적으로 가장 많은 "-" 값을 가진 key(자동차) 출력
         if (!mostDashesCar.isEmpty()) {
             String winnerCars = String.join(", ", mostDashesCar);
