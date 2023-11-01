@@ -12,7 +12,7 @@ public class Result {
         for (Car car : carList) {
             result.append(car.getCarName()).append(" : ");
             result.append(printDistance(car.getDistance()));
-            result.append(System.lineSeparator());
+            result.append("\n");
         }
         System.out.println(result);
     }

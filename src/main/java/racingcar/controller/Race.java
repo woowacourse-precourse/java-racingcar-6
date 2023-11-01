@@ -21,8 +21,7 @@ public class Race {
     }
 
     public void goCycle(int cycle) {
-        System.out.println();
-        System.out.println("실행 결과");
+        System.out.println("\n" + "실행 결과");
         for (int i = 0; i < cycle; i++) {
             goForward();
             Result.printResult(carList);

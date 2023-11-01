@@ -50,11 +50,11 @@ public class ResultTest {
         result.printResult(carList);
 
         assertThat(result1.toString()).isEqualTo("car1 : -----" +
-                System.lineSeparator() + "car2 : -------------" +
-                System.lineSeparator() + "car3 : -------" +
-                System.lineSeparator() + "car4 : --" +
-                System.lineSeparator() + "car5 : " +
-                System.lineSeparator() + System.lineSeparator()
+                "\n" + "car2 : -------------" +
+                "\n" + "car3 : -------" +
+                "\n" + "car4 : --" +
+                "\n" + "car5 : " +
+                "\n" + "\n"
         );
     }
 
