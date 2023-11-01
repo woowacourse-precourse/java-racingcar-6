@@ -12,7 +12,7 @@ public class RacingCarGameTest {
     @Test
     void setPlayers_사용자_1명_설정할_수_있다() {
         RacingCarGame game = new RacingCarGame();
-        game.setPlayers("dadi");
+        game.setRacingCars("dadi");
         ArrayList<RacingCar> racingCars = game.getRacingCars();
 
         assertThat(racingCars).hasSize(1);
@@ -21,7 +21,7 @@ public class RacingCarGameTest {
     @Test
     void setPlayers_사용자_여러명_설정할_수_있다() {
         RacingCarGame game = new RacingCarGame();
-        game.setPlayers("dadi,dodi");
+        game.setRacingCars("dadi,dodi");
         ArrayList<RacingCar> racingCars = game.getRacingCars();
 
         assertThat(racingCars).hasSize(2);
@@ -32,13 +32,13 @@ public class RacingCarGameTest {
     void setPlayers_입력값_없으면_예외_처리() {
         RacingCarGame game = new RacingCarGame();
 
-        assertThatThrownBy(() -> game.setPlayers(""))
+        assertThatThrownBy(() -> game.setRacingCars(""))
                 .isInstanceOf(IllegalArgumentException.class);
     }
     @Test
     void setPlayers_콤마_2개_연속_처리() {
         RacingCarGame game = new RacingCarGame();
-        game.setPlayers("dadi,,dodi");
+        game.setRacingCars("dadi,,dodi");
         ArrayList<RacingCar> racingCars = game.getRacingCars();
 
         assertThat(racingCars).hasSize(2);
@@ -48,7 +48,7 @@ public class RacingCarGameTest {
     @Test
     void setPlayers_공백_처리() {
         RacingCarGame game = new RacingCarGame();
-        game.setPlayers("  dadi, ,dodi  ");
+        game.setRacingCars("  dadi, ,dodi  ");
         ArrayList<RacingCar> racingCars = game.getRacingCars();
 
         assertThat(racingCars).hasSize(2);
@@ -59,7 +59,7 @@ public class RacingCarGameTest {
     void setPlayers_글자수_5이상_예외_처리() {
         RacingCarGame game = new RacingCarGame();
 
-        assertThatThrownBy(() -> game.setPlayers("dodi, dadidudedo"))
+        assertThatThrownBy(() -> game.setRacingCars("dodi, dadidudedo"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
     @Test
