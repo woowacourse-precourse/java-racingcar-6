@@ -1,6 +1,8 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +17,7 @@ public class CarsTest {
 
     private Car c1;
     private Car c2;
+    private static final String POSITION_STAMP = "-";
 
     @BeforeEach
     void testInit() {
@@ -32,6 +35,7 @@ public class CarsTest {
     @DisplayName("경주 단일 우승자 테스트")
     void checkFindWinner() {
         Cars cars = new Cars(Arrays.asList(c1, c2));
+
         List<Car> winners = cars.findWinners();
         assertThat(winners).containsExactly(c1);
     }
@@ -49,5 +53,17 @@ public class CarsTest {
 
         List<Car> winners = cars.findWinners();
         assertThat(winners).containsExactly(c1, c3);
+    }
+
+    @Test
+    @DisplayName("전체 경주 결과 확인 테스트")
+    void checkGetRaceProgress() {
+        Cars cars = new Cars(Arrays.asList(c1, c2));
+
+        List<String> raceProgress = cars.getRaceProgress(POSITION_STAMP);
+        assertAll(
+                () -> assertEquals("mason : ---", raceProgress.get(0)),
+                () -> assertEquals("mark : -", raceProgress.get(1))
+        );
     }
 }
