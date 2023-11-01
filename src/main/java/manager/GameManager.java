@@ -4,6 +4,7 @@ import custom_object.Car;
 
 import utility.RandomNumberGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
@@ -25,5 +26,22 @@ public class GameManager {
         for (Car car: carList) {
             System.out.println(car.getName() + ":" + "-".repeat(car.getPosition()));
         }
+    }
+
+    public void outputWinner() {
+        List<String> winnerCarNameList = new ArrayList<>();
+        int topPositionLength = 0;
+
+        for (Car car: carList) {
+            if (car.getPosition() == topPositionLength) {
+                winnerCarNameList.add(car.getName());
+            } else if (car.getPosition() > topPositionLength) {
+                topPositionLength = car.getPosition();
+                winnerCarNameList.clear();
+                winnerCarNameList.add(car.getName());
+            }
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ",winnerCarNameList));
     }
 }
