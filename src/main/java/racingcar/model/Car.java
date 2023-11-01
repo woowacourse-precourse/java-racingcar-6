@@ -8,6 +8,11 @@ public class Car {
         this.carName = carName;
     }
 
+    public Car(String carName, Integer advanceCount) {
+        this.carName = carName;
+        this.advanceCount = advanceCount;
+    }
+
     public void advanceIfRandomIsAtLeastFour(Integer randomNum){
         if(randomNum >= 4 ){
             this.advanceCount++;

@@ -12,14 +12,12 @@ public class InputManager {
     public List<Car> inputCarNames() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String[] carNames = Console.readLine().split(",");
-        Console.close();
         return convertToCarList(carNames);
     }
 
     public Integer inputTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
         String tryCount = Console.readLine();
-        Console.close();
         isValidateTryCount(tryCount);
         return Integer.valueOf(tryCount);
     }
