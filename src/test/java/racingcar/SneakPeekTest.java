@@ -36,5 +36,7 @@ public class SneakPeekTest {
     > Task :test
     BUILD SUCCESSFUL in 1s
     */
+    // assert 사용이 안됨. NsTest를 상속받아서 3회차에
+    // assertSimpleTest를 활용하는 방법을 해보자. + junit5버전의 어노테이션도 재 확인
   }
 }
