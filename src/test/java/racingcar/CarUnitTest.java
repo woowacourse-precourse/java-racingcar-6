@@ -14,7 +14,7 @@ public class CarUnitTest {
 
         String result = testCar.getCurrentStatus();
 
-        assertThat(result).startsWith("Test").endsWith("-").contains(":");
+        assertThat(result).isEqualTo("Test : ---");
     }
 
     @Test
