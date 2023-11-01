@@ -31,8 +31,46 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
+
+
 }
+
+class RaceTest {
+
+    @Test
+    void testAccelerateItem() {
+        // 아이템 "가속" 테스트
+        Race race = new Race(new String[]{"CarA"}, 1, 4, 3, 2, 2, 1);
+        race.startRaceWithItems();
+
+        int[] carProgress = race.getCarProgress();
+        assertThat(carProgress).containsExactly(1);
+    }
+
+    @Test
+    void testStopItem() {
+        // 아이템 "정지" 테스트
+        Race race = new Race(new String[]{"CarA"}, 1, 4, 3, 2, 2, 1);
+        race.startRaceWithItems();
+
+        int[] carProgress = race.getCarProgress();
+        assertThat(carProgress).containsExactly(0);
+    }
+
+    @Test
+    void testChangePositionItem() {
+        // 아이템 "위치 변경" 테스트
+        Race race = new Race(new String[]{"CarA", "CarB"}, 1, 4, 3, 2, 2, 1);
+        race.startRaceWithItems();
+
+        int[] carProgress = race.getCarProgress();
+        assertThat(carProgress).contains(1, 0); // "CarA"는 1, "CarB"는 0일 것
+    }
+}
+
+
