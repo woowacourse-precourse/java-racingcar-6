@@ -23,7 +23,7 @@ public class User {
     public void exceed5Digits(List<String> userInputCarNames) {
         for(String carName : userInputCarNames) {
             if(carName.length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("차 이름이 5자를 초과하였습니다.");
             }
         }
     }
