@@ -8,14 +8,14 @@ import racingcar.view.OutputView;
 
 import java.util.stream.IntStream;
 
-
 public class Controller {
     private Cars cars;
     private int numberOfTrial;
+
     public void run() {
         setCars();
         setTrialNumber();
-        play();
+        playRacing();
         showWinners();
     }
 
@@ -31,14 +31,12 @@ public class Controller {
         numberOfTrial = Service.setTrialNumber(trialNumber);
     }
 
-    public void play() {
+    private void playRacing() {
         OutputView.printPlayResult();
         IntStream.range(0, numberOfTrial).forEach(i -> cars.playRacing());
     }
 
-    public void showWinners() {
+    private void showWinners() {
         cars.showWinners();
     }
-
-
 }

@@ -3,7 +3,6 @@ package racingcar.utils;
 import java.util.regex.Pattern;
 
 public class TrialNumberValidator {
-
     public static final Pattern roundNumPattern = Pattern.compile("^[1-9][0-9]*$");
     public final String ROUND_NUM_STRING;
 
