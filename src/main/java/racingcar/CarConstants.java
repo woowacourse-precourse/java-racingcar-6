@@ -1,9 +1,9 @@
 package racingcar;
 
 public class CarConstants {
-    public final int GO = 5;
-    public final String MESSAGE_INPUT_CARS_NAME="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public final String MESSAGE_INPUT_REPEAT_NUMBER="시도할 회수는 몇회인가요?";
+    public static final int GO = 5;
+    public static final String MESSAGE_INPUT_CARS_NAME="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public static final String MESSAGE_INPUT_REPEAT_NUMBER="시도할 회수는 몇회인가요?";
     public static final String WINNER_MESSAGE = "최종 우승자: ";
     public static final String EXECUTION_RESULT_MESSAGE = "실행결과: ";
     public static final String INVALID_INPUT_MESSAGE = "잘못된 문자를 입력하였습니다.";
