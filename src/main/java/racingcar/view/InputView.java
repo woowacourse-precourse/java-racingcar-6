@@ -15,7 +15,7 @@ public class InputView {
         return validation.validateCarNames(carNames);
     }
     public Integer inputTryCount(){
-        System.out.println(InputMessage.INPUT_TRYCOUNT);
+        System.out.println(InputMessage.INPUT_TRYCOUNT.getMsg());
         Integer tryCount = Integer.valueOf(Console.readLine());
 
         return validation.validateTryCount(tryCount);
