@@ -6,22 +6,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RacingSystem {
-//    public static ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();
 
     EvaluateSystem raceCount = new EvaluateSystem();
 
     public void run() {
-        System.out.printf("자동차 이름은 쉼표(,)를 기준으로 구분하여 작성 부탁 드리며, 이름은 5자 이하로 작성 요망 : ");
+        System.out.printf("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) : ");
         String carNameInput = Console.readLine();
         String[] nameList = carNameInput.split(",");
         ErrorCheckingSystem errorCheck = new ErrorCheckingSystem();
-        errorCheck.errorSystem(nameList);
-        int inputCount = errorCheck.numberCheck(moveInput());
-        sequenceSystem(inputCount, nameList);
+
+        if (errorCheck.errorSystem(nameList)) {
+            int inputCount = errorCheck.numberCheck(moveInput());
+            sequenceSystem(inputCount, nameList);
+        }
+
     }
 
     public String moveInput() {
-        System.out.printf("몇 번의 이동을 하게 만들 건가요?: ");
+        System.out.printf("시도할 회수는 몇회인가요? : ");
         String carNameInput = Console.readLine();
         return carNameInput;
     }
