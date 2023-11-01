@@ -17,8 +17,10 @@ public class RacingCar {
     }
 
     public void startGame() {
-        carList = CarGenerator.createCarList();
-        leftRound = UserInput.setRoundOfGame();
+        CarGenerator carGenerator = new CarGenerator();
+        carList = carGenerator.createCarList();
+        UserInput userInput = new UserInput();
+        leftRound = userInput.setRoundOfGame();
         System.out.println("\n실행 결과");
         while (leftRound > 0) {
             playRound(carList);
@@ -31,7 +33,8 @@ public class RacingCar {
 
     public void playRound(List<Car> carList) {
         for (Car car : carList) {
-            int power = RandomNumberGenerator.createRandomNumber();
+            RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+            int power = randomNumberGenerator.createRandomNumber();
             if (car.canAccelerate(power)) {
                 car.accelerate();
             }
