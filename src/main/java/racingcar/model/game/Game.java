@@ -11,12 +11,12 @@ public class Game {
     private final GameTime gameTime;
     private final Cars cars;
 
-    public Game(int gameTime, List<String> carNames) {
+    public Game(final int gameTime, final List<String> carNames) {
         this.gameTime = new GameTime(gameTime);
         this.cars = new Cars(makeCars(carNames));
     }
 
-    private List<Car> makeCars(List<String> carName) {
+    private List<Car> makeCars(final List<String> carName) {
         CarNameValidator.validateUniqueNameCheck(carName);
         return carName
                 .stream()

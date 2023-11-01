@@ -12,7 +12,7 @@ public class GameTime {
         this.totalGameName = gameTime;
     }
 
-    private void validateGameTime(int gameTime) {
+    private void validateGameTime(final int gameTime) {
         if (gameTime < MINIMUM || gameTime > MAXIMUM) {
             throw new IllegalArgumentException(String.format("이동 횟수는 %d부터 %d까지 가능합니다.", MINIMUM, MAXIMUM));
         }

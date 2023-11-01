@@ -5,13 +5,13 @@ public class GameTimeParser {
     private static final char LEFT_FIRST_BOUND = '1';
     private static final char RIGHT_BOUND = '9';
 
-    public static int parse(String userGameTimeInput) {
-        CommonValidator.validateBlankCheck(userGameTimeInput,"GAME_TIME");
+    public static int parse(final String userGameTimeInput) {
+        CommonValidator.validateBlankCheck(userGameTimeInput, "GAME_TIME");
         isNumberSequence(userGameTimeInput);
         return Integer.parseInt(userGameTimeInput);
     }
 
-    private static void isNumberSequence(String userGameTimeInput) {
+    private static void isNumberSequence(final String userGameTimeInput) {
         validateNumber(userGameTimeInput.charAt(0), LEFT_FIRST_BOUND, RIGHT_BOUND);
         for (int i = 1; i < userGameTimeInput.length(); i++) {
             char currentChar = userGameTimeInput.charAt(i);

@@ -13,8 +13,8 @@ public class CarName {
         this.carName = carName;
     }
 
-    private void validateName(String carName) {
-        CommonValidator.validateBlankCheck(carName,"CARNAME");
+    private void validateName(final String carName) {
+        CommonValidator.validateBlankCheck(carName, "CARNAME");
         CarNameValidator.validateSpaceCheck(carName);
         CarNameValidator.validateLengthCheck(carName, LENGTH_LIMIT);
     }

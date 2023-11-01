@@ -12,8 +12,8 @@ public class InputView {
         return inputCarName;
     }
 
-    private static void validateCarNameInput(String inputCarName) {
-        CommonValidator.validateBlankCheck(inputCarName,"carNames");
+    private static void validateCarNameInput(final String inputCarName) {
+        CommonValidator.validateBlankCheck(inputCarName, "carNames");
         CarNameValidator.validateSpaceCheck(inputCarName);
     }
 

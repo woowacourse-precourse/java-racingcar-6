@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.model.game.Game;
 import racingcar.model.car.dto.GameResult;
+import racingcar.model.game.Game;
 import racingcar.util.CarNamesSeperator;
 import racingcar.util.GameTimeParser;
 import racingcar.view.InputView;

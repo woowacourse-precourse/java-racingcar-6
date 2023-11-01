@@ -4,7 +4,7 @@ public class GameResult {
     private final String name;
     private final int position;
 
-    public GameResult(String name, int position) {
+    public GameResult(final String name, final int position) {
         this.name = name;
         this.position = position;
     }
