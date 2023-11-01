@@ -1,6 +1,7 @@
-package racingcar.model;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.Car;
 
 public class GoStopDecider {
 

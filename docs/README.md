@@ -20,26 +20,25 @@
 1. Model
 - 자동차 (Car)
   - data: 이동 거리, 이름(5글자 이하로 제한)
-- 가말아 (GoStopDecider)
-  - data: 시도 횟수, 가or멈춰
-- 우승결정자 (ChampionDecider)
+- 전진 또는 정지 (GoStopDecider)
+  - data: 시도 횟수, 전진 또는 정지
+- 우승결정자 (WinnerDecider)
   - data: 우승한 사람
-  - 어떤 기능? 이동거리를 비교하여 우승자를 판별
-- 자동차 이름 슬라이서 (NameSlicer)
+  - 기능: 이동거리를 비교하여 우승자를 판별
+- 자동차 이름 파싱 (NameSlicer)
   - data: 쉼표로 구분된 자동차 이름
   - 기능? 쉼표로 이름을 분리하여 이름별 자동차 인스턴스를 생성
 2. View
 
-- InputView
-1. 자동차 이름 입력
-2. 시도횟수 입력
+- InputView 
+  - 자동차 이름 입력
+  - 시도횟수 입력
 
-        근데 InputView에서 입력 받은 값은 어떻게 모델로 넘겨줘야 되지?
-        -> Controller단에서 넘겨줘야 한다고 생각.
 - OutputView
 
   - 시작과 끝 메시지 출력
   - 자동차이름 : 이동거리 출력
   - 이때 자동차 이름과 이동거리는 인스턴스마다 달라진다. 컨트롤러를 통해서 받아올 수 있도록 하자.
-2. Controller 
-- 모델과 뷰를 이어준다.
+3. Controller 
+   - 모델과 뷰를 이어준다.
+   - 뷰에서 모델의 데이터에 접근할 때 Controller를 통한다.
