@@ -16,7 +16,14 @@ public class RacingCarMachineConsoleUI implements RacingCarMachineUI {
 
     @Override
     public List<String> inputCarNames() {
-        return Arrays.stream(readLine().split(",")).toList();
+        return Arrays.stream(readLine().split(","))
+                .map(String::trim) // 입력된 이름의 앞뒤 공백을 제거
+                .peek(name -> {
+                    if (name.length() > 5) {
+                        throw new IllegalArgumentException("차 이름은 5자를 초과할 수 없습니다: " + name);
+                    }
+                })
+                .toList();
     }
 
     @Override
