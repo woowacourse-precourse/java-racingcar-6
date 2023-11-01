@@ -48,17 +48,17 @@ public class Application {
             if (moveCount == 1) {
                 Car winner = cars.get(0);
                 System.out.println("최종 우승자 : " + winner.getName());
-            }
-            List<Car> winners = new ArrayList<>();
-            for (Car car : cars) {
-                if (car.getPosition() == cars.stream().mapToInt(Car::getPosition).max().getAsInt()) {
-                    winners.add(car);
+            }else {
+                List<Car> winners = new ArrayList<>();
+                for (Car car : cars) {
+                    if (car.getPosition() == cars.stream().mapToInt(Car::getPosition).max().getAsInt()) {
+                        winners.add(car);
+                    }
+
                 }
-
+                // 우승자를 출력합니다.
+                System.out.println("최종 우승자 : " + String.join(", ", (CharSequence) winners));
             }
-            // 우승자를 출력합니다.
-            System.out.println("최종 우승자 : " + String.join(", ", (CharSequence) winners));
-
         }
     }
 }
