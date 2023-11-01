@@ -9,8 +9,12 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    public Car(String name) {
+    private Car(String name) {
         this.name = name;
+    }
+
+    public static Car from(String name) {
+        return new Car(name);
     }
 
     private static boolean isPossibleToMoveBy(MoveChecker moveChecker) {
