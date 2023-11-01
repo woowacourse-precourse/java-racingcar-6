@@ -26,16 +26,18 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
+        System.out.println();
 
         System.out.println("실행 결과");
         for (int i = 0; i < numberofRepeat; i++) {
             for (RacingCar car : racingCars) {
                 car.move(car.rollDice());
-                System.out.println(car.name + " : " + car.showMoveCount());
+                System.out.println(car.name + " : " + car.showMoveBar());
             }
             System.out.println();
         }
 
+        System.out.print("최종 우승자 :");
         int maxCount = 0;
         ArrayList<RacingCar> winner = new ArrayList<>();
         for (RacingCar car : racingCars) {
@@ -46,7 +48,6 @@ public class Application {
                 winner.add(car);
             }
         }
-        System.out.print("최종 우승자 :");
         StringBuilder winners = new StringBuilder();
         for (RacingCar car : winner) {
             winners.append(" ").append(car.name).append(",");
