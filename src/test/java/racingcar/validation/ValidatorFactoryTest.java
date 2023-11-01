@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ValidatorFactoryTest {
 
-    @DisplayName("클래스에 맞는 검증기 가져오는지 테스트")
+    @DisplayName("클래스에 맞는 검증기 반환")
     @ParameterizedTest(name = "{index} {0}, {1}")
     @MethodSource("checkValidatorParametersProvider")
     void checkValidatorFactory(Class<?> clazz, Validator validator) {

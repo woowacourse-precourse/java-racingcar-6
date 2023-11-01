@@ -29,7 +29,7 @@ class RacingCarApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("단독 우승자 출력 테스트")
+    @DisplayName("단독 우승자 출력")
     @Test
     void checkSoloWinner() {
         assertRandomNumberInRangeTest(
@@ -43,7 +43,7 @@ class RacingCarApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("잘못된 입력시 예외 테스트")
+    @DisplayName("잘못된 입력시 예외")
     @ParameterizedTest(name = "{displayName}: cars:{0}, round:{1}")
     @CsvSource(value = {"1,2,3|-1", "43,동글,동글|12", "a,b,c,,|1", "9|x"}, delimiter = '|')
     void checkException(String cars, String round) {

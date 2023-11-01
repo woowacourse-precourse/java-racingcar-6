@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarValidatorTest {
 
-    @DisplayName("클래스 지원 테스트")
+    @DisplayName("Car 클래스 지원")
     @Test
     void checkSupport() {
         Validator carValidator = new CarValidator();

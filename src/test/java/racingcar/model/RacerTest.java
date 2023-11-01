@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacerTest {
 
-    @DisplayName("올바른 이름 입력 체크")
+    @DisplayName("올바른 이름 입력")
     @ParameterizedTest(name = "{displayName}: {0}, {1}")
     @ValueSource(strings = {"12,345,675", "212 ,34, 5533", "ad,d dk,i"})
     void checkValidate(String value) {
@@ -29,7 +29,7 @@ class RacerTest {
         assertThat(racer.toString()).contains(excepted);
     }
 
-    @DisplayName("전진 테스트")
+    @DisplayName("전진 하는 경우")
     @ParameterizedTest(name = "{displayName}: racer: {0}, round: {1}")
     @MethodSource("MoveForwardParametersProvider")
     void checkMoveForward(String value, Integer round, String expected) {
@@ -42,7 +42,7 @@ class RacerTest {
         assertThat(result.toIntermediateResult()).contains(expected);
     }
 
-    @DisplayName("전진 하지 못하는 테스트")
+    @DisplayName("정지 하는 경우")
     @ParameterizedTest(name = "{displayName}: racer: {0}, round: {1}")
     @MethodSource("CanNotMoveParametersProvider")
     void checkCanNotMove(String value, Integer round, String expected) {

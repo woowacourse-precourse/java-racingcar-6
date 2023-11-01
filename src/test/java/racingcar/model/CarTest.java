@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
 
-    @DisplayName("올바른 자동차 이름 테스트")
+    @DisplayName("올바른 자동차 이름")
     @ParameterizedTest(name = "{displayName} value = {0}")
     @ValueSource(strings = {"soul", "bb", "k", "동 글"})
     void checkCorrectName(String name) {

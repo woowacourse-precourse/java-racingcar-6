@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class AcceleratorTest {
 
-    @DisplayName("이동 가능하다면 True, 이동 불가하다면 False 반환 테스트")
+    @DisplayName("이동 가능하다면 True, 이동 불가하다면 False 반환")
     @ParameterizedTest(name = "{displayName}")
     @MethodSource("parametersProvider")
     void checkCanMoveForward(NumberGenerator numberGenerator, boolean expected) {

@@ -12,14 +12,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RacerValidatorTest {
 
-    @DisplayName("클래스 지원 테스트")
+    @DisplayName("Racer 클래스 지원")
     @Test
     void checkSupport() {
         Validator validator = new RacerValidator();
         assertThat(validator.support(Racer.class)).isTrue();
     }
 
-    @DisplayName("잘못된 참가자 입력 체크")
+    @DisplayName("잘못된 구분자 입력시 예외")
     @ParameterizedTest(name = "{displayName}: {0}")
     @NullSource
     @ValueSource(strings = {"", ",", ",car", ",,,,,", ",,dk", "a,b,c,,", "ㄱ,ㄴ,,,"})
@@ -28,7 +28,7 @@ class RacerValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("중복된 이름 체크")
+    @DisplayName("중복된 이름 입력시 예외")
     @ParameterizedTest(name = "{displayName}: {0}")
     @ValueSource(strings = {"ad,k,la,a,la", "l,l", "qwe,kz,pi,pi", "a, a,a ", "ba,l, ba"})
     void checkUnique(String value) {
