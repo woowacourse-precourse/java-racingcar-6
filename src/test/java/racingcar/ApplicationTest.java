@@ -85,10 +85,10 @@ class ApplicationTest extends NsTest {
     }
     
     @Test @DisplayName("우승자 찾기_findWinner()")
-    void testFindWinner() {
+    void testFindWinner1() {
         
         List<Car> cars = new ArrayList<>();
-        List<String> winner = new ArrayList<>();
+        List<String> winner;
         Car car1 = new Car("이름1");
         Car car2 = new Car("이름2");
         car1.addScore();
@@ -101,6 +101,23 @@ class ApplicationTest extends NsTest {
         assertThat(winner.get(0)).isEqualTo("이름1");
     }
     
+    @Test @DisplayName("우승자_찾기_여러명_findWinner()")
+    void testFindWinner2() {
+        List<Car> cars = new ArrayList<>();
+        List<String> winner;
+        Car car1 = new Car("이름1");
+        Car car2 = new Car("이름2");
+        car1.addScore();
+        car2.addScore();
+
+        cars.add(car1);
+        cars.add(car2);
+
+        winner = executor.findWinner(cars);
+
+        assertThat(winner).containsExactly("이름1", "이름2");
+
+    }
     
 
     @Override
