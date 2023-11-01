@@ -13,8 +13,8 @@ public class CarNamesInput {
         this.carNames = carNames;
     }
 
-    public static CarNamesInput parse(String rawString) {
-        return new CarNamesInput(Arrays.asList(rawString.split(SPLIT_DELIMETER, SPLIT_LIMIT)));
+    public static CarNamesInput parse(String input) {
+        return new CarNamesInput(Arrays.asList(input.split(SPLIT_DELIMETER, SPLIT_LIMIT)));
     }
 
     public List<String> carNames() {
