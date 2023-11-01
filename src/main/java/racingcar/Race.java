@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Race {
     private List<Car> cars = new ArrayList<>();
-    public void playRounds(int turn) {
+    public void playRounds() {
         for (Car car : cars) {
-            //각 car에 전진여부
-
+            int randomNumber = NumberGenerator.createRandomNumber();
+            moveIfAble(car, randomNumber);
         }
     }
 
