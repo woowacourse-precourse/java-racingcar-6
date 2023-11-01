@@ -39,4 +39,7 @@ public class GameService {
                 .collect(Collectors.joining(", "));
     }
 
+    public void setCars(Cars cars){
+        this.cars = cars;
+    }
 }
