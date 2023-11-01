@@ -5,6 +5,12 @@ import java.util.Comparator;
 import java.util.List;
 
 public class RacingCarGame {
+    private final Player player;
+
+    public RacingCarGame(Player player) {
+        this.player = player;
+    }
+
     public List<RacingCar> createRacingCars(List<String> carNames) {
         List<RacingCar> racingCars = new ArrayList<>();
 
@@ -17,7 +23,6 @@ public class RacingCarGame {
 
     public void roundStart(List<RacingCar> cars) {
         for (RacingCar car : cars) {
-            car.makeRandomNumber();
             car.goOrStop();
         }
     }
@@ -64,7 +69,6 @@ public class RacingCarGame {
     }
 
     public void init() {
-        Player player = new Player();
         List<RacingCar> cars = createRacingCars(player.inputNames());
         int numberOfRounds = player.inputNumberOfRounds();
         System.out.println();
