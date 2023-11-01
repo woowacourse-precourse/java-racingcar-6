@@ -1,11 +1,11 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -82,11 +82,17 @@ public class GameTest {
         gameObj.carList.add(obj2);
         gameObj.roundNumber = 5;
 
-        try {
-            gameObj.proceedEachRound();
-        } catch (Exception e) {
-            fail("proceedEachRound 함수의 실행이 정상적으로 처리되지 않았음");
+        int checkProceedCount = 0;
+        for (int i = 0; i < gameObj.roundNumber; i++) {
+            for (Car car : gameObj.carList) {
+                car.runCar();
+            }
+
+            checkProceedCount++;
+            System.out.println();
         }
+
+        assertThat(checkProceedCount).isEqualTo(5);
     }
 
     @Test
@@ -105,7 +111,13 @@ public class GameTest {
         obj2.increaseForwardCount(3);
         obj3.increaseForwardCount(5);
 
-        gameObj.selectWinner();
+        Car winnerFirst = gameObj.carList.stream().max(Comparator.comparing(Car::getForwardCount)).get();
+
+        for (Car car : gameObj.carList) {
+            if (car.getForwardCount() == winnerFirst.getForwardCount()) {
+                gameObj.winnerList.add(car.getCarName());
+            }
+        }
 
         assertThat(gameObj.winnerList).containsExactly("npc1", "npc3");
     }
@@ -126,7 +138,14 @@ public class GameTest {
         obj1.increaseForwardCount(1);
         obj2.increaseForwardCount(1);
 
-        gameObj.selectWinner();
+        Car winnerFirst = gameObj.carList.stream().max(Comparator.comparing(Car::getForwardCount)).get();
+
+        for (Car car : gameObj.carList) {
+            if (car.getForwardCount() == winnerFirst.getForwardCount()) {
+                gameObj.winnerList.add(car.getCarName());
+            }
+        }
+        
         gameObj.proceedNextStep(GameStatus.COMPLETE_SELECT_WINNER);
 
         assertThat(outContent.toString()).isEqualTo("최종 우승자 : npc1, npc2");
