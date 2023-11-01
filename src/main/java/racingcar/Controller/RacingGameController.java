@@ -27,6 +27,9 @@ public class RacingGameController {
     }
 
     public void startGame(int game){
+        if (game <= 0) {
+            throw new IllegalArgumentException("게임 횟수는 1 이상이어야 합니다.");
+        }
         for(int i=0;i<game;i++){
             for(Car car:cars){
                 car.move();
