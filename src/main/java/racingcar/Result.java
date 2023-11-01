@@ -5,9 +5,7 @@ import static java.util.stream.Collectors.toList;
 import java.util.List;
 import java.util.Map;
 
-public class Output {
-    public static final String RACING_RESULT = "실행 결과";
-
+public class Result {
     private static final String IS = " : ";
     private static final String BAR = "-";
     private static final String COMMA_AND_BLANK = ", ";
