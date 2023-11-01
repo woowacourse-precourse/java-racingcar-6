@@ -31,4 +31,10 @@ class Validator {
             }
         }
     }
+
+    void validateRaceCountRange(int raceCount) {
+        if (raceCount == 0 || raceCount > 100) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상 100 이하만 가능합니다.");
+        }
+    }
 }

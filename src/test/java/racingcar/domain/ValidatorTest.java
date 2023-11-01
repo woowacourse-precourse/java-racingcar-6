@@ -16,7 +16,7 @@ class ValidatorTest {
     }
 
     @Test
-    void 이름의_수가_2미만일_경우_예외가_발생한다() {
+    void 이름의_수가_2_미만일_경우_예외가_발생한다() {
         List<String> names = List.of("a");
 
         assertThatThrownBy(() -> validator.validateSize(names))
@@ -24,7 +24,7 @@ class ValidatorTest {
     }
 
     @Test
-    void 이름의_수가_100초과일_경우_예외가_발생한다() {
+    void 이름의_수가_100_초과일_경우_예외가_발생한다() {
         List<String> names = Collections.nCopies(101, "a");
 
         assertThatThrownBy(() -> validator.validateSize(names))
@@ -60,6 +60,22 @@ class ValidatorTest {
         List<String> names = List.of("a", "a");
 
         assertThatThrownBy(() -> validator.validateDuplicate(names))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_횟수가_0일_경우_예외가_발생한다() {
+        int raceCount = 0;
+
+        assertThatThrownBy(() -> validator.validateRaceCountRange(raceCount))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도_횟수가_100_초과일_경우_예외가_발생한다() {
+        int raceCount = 101;
+
+        assertThatThrownBy(() -> validator.validateRaceCountRange(raceCount))
             .isInstanceOf(IllegalArgumentException.class);
     }
 }

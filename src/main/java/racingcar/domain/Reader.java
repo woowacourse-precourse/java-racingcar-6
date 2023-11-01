@@ -27,4 +27,14 @@ class Reader {
             throw new IllegalArgumentException();
         }
     }
+
+    int readOneNumber() {
+        try {
+            int number = Integer.parseInt(readLine());
+            validator.validateRaceCountRange(number);
+            return number;
+        } catch (Exception ex) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
