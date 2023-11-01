@@ -19,4 +19,12 @@ public class UserInput {
 
         return carNameString;
     }
+
+    public static String userRaceCountInput() {
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String raceCount = Console.readLine();
+
+        return raceCount;
+    }
 }

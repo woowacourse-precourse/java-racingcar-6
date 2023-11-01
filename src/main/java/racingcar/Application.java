@@ -13,11 +13,11 @@ public class Application {
         // 사용자가 자동차 이름을 입력
         String carNameString = UserInput.userCarNameInput();
 
+        // 사용자가 반복할 레이스 횟수를 입력
+        String raceCount = UserInput.userRaceCountInput();
+
         Race race = new Race();
         Map<String, String> carMap = race.saveCarMap(carNameString); // 입력받은 car 이름을 Map에 저장한다.
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        String raceCount = Console.readLine();
 
         // 레이스 진행
         System.out.println();
