@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class CarFactory {
 
-    public List<Car> createCar() {
+    public List<Car> createCars() {
         IoManager.printEnterCarName();
         String nameString = IoManager.readLine();
         List<String> nameList = stringToListByComma(nameString);

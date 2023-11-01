@@ -20,7 +20,7 @@ public class GameManager {
     }
 
     public void gameStart() {
-        cars = carFactory.createCar();
+        cars = carFactory.createCars();
         receiveRoundTryCount();
         proceedRound();
         printWinner();
