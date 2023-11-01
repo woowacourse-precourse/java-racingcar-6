@@ -31,7 +31,6 @@ public class Application {
 
     public static boolean same (String[] car){
         Set<String> set = new HashSet<>();
-
         for(String element : car){
             if(!set.add(element)) {
                 return true;
