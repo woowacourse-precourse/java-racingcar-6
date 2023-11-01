@@ -15,7 +15,7 @@ public class InputView {
     public InputView(InputViewValidator inputViewValidator){
         this.inputViewValidator = inputViewValidator;
     }
-    public List<String> InputCarNames(){
+    public List<String> inputCarNames(){
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
         String carNamesString = Console.readLine();
         inputViewValidator.validateCarNames(carNamesString);
@@ -23,7 +23,7 @@ public class InputView {
         return carNameList;
     }
 
-    public Integer InputTotalRoundNumber(){
+    public Integer inputTotalRoundNumber(){
         System.out.println(INPUT_TOTAL_ROUND_NUMBER_MESSAGE);
         String totalRoundNumberString = Console.readLine();
         inputViewValidator.validateTotalRoundNumber(totalRoundNumberString);

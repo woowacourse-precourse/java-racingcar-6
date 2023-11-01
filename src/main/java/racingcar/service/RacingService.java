@@ -19,12 +19,12 @@ public class RacingService {
         this.outputView = outputView;
     }
     public void initRacing(){
-        List<String> carNameList = inputView.InputCarNames();
+        List<String> carNameList = inputView.inputCarNames();
         List<Car> cars = carNameList.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
 
-        Integer totalRound = inputView.InputTotalRoundNumber();
+        Integer totalRound = inputView.inputTotalRoundNumber();
         racing = new Racing(cars,totalRound);
     }
 
