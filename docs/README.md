@@ -51,6 +51,7 @@
         - getMaxPosition
         - getWinners
 - constants
+    - Constants
     - ErrorMessages
     - InputMessages
     - OutputMessages
