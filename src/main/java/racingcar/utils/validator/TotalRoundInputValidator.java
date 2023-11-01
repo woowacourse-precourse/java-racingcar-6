@@ -22,14 +22,14 @@ public class TotalRoundInputValidator {
     private static void validateInteger(String target) {
         try {
             Integer.parseInt(target);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(TotalRoundInputExceptionMessage.NOT_INTEGER.getError());
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException(TotalRoundInputExceptionMessage.NOT_INTEGER.getError(), exception);
         }
     }
 
     private static void validateRange(String target) {
         int totalRound = Integer.parseInt(target);
-        
+
         if (totalRound < ConfigurationConstants.TOTAL_ROUND_MIN_LIMIT
                 || totalRound > ConfigurationConstants.TOTAL_ROUND_MAX_LIMIT) {
             throw new IllegalArgumentException(TotalRoundInputExceptionMessage.OUT_OF_RANGE.getError());
