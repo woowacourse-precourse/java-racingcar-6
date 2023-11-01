@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static String[] inputCars() {
@@ -37,6 +38,16 @@ public class Application {
     public static int tryTime(){
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(Console.readLine());
+    }
+
+    //전진 조건 함수
+    public static boolean isGo(){
+        int randomNum = Randoms.pickNumberInRange(0,9);
+        if(randomNum>=4){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
