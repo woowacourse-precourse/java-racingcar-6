@@ -4,7 +4,7 @@
 - [ ] 대회를 진행할 수 있다. Refree#playRace()
   - [X] n개의 자동차를 생성한다. - CarGenerator#createCar()
   - [X] 0 ~ 9 사이 무작위 값을 생성한다. NumberGenerator#createRandomNumber()
-  - [ ] 자동차가 전진할 수 있는지 알 수 있다. Refree#isForward()
+  - [X] 자동차가 전진할 수 있는지 알 수 있다. Refree#isForward()
   - [X] 자동차의 이름과 전진 상황을 출력할 수 있다 - Car#printStatus()
   - [X] 자동차는 전진할 수 있다. Car#moveForward()
 - [ ] 대회의 우승자를 판단할 수 있다. Refree#getWinner()
