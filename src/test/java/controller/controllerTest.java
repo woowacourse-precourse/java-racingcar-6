@@ -36,7 +36,7 @@ class controllerTest extends NsTest {
                     AssertionsForClassTypes.assertThat(output()).contains("");
                 },
                 // given
-                8, 1, 1, 8, 1, 1, 8, 1,1
+                8, 1, 1, 8, 1, 1, 8, 1, 1
         );
 
         raceController.raceSimulate(new Players(Arrays.asList(player1, player2, player3)), attemptCount);

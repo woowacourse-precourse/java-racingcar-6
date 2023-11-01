@@ -85,11 +85,11 @@ public class InputView {
         }
 
 
-
     }
-    private void checkInputZero(String input){
 
-        if(input.length() == 1 && input.charAt(0) =='0'){
+    private void checkInputZero(String input) {
+
+        if (input.length() == 1 && input.charAt(0) == '0') {
             throw new IllegalArgumentException("횟수가 0 번은 부적절합니다!");
         }
 

@@ -24,7 +24,7 @@ class InputViewTest extends NsTest {
     @DisplayName("이름이 6자리 이상일 때")
     @Test
     void validateNameSixWords() {
-        List<String> players = List.of("robin","kelvin");
+        List<String> players = List.of("robin", "kelvin");
 
         raceService.raceOneSimulate(new Players(players));
 
