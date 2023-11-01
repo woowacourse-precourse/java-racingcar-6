@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private String name;
 
     private int location;
@@ -33,5 +33,10 @@ public class Car {
     public void printLocation() {
         String locationBar = "-".repeat(getLocation());
         System.out.println(getName() + " : " + locationBar);
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return this.getLocation() - car.getLocation();
     }
 }

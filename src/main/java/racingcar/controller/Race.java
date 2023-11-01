@@ -1,6 +1,10 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.RacingGroup;
 import racingcar.service.Register;
@@ -12,6 +16,7 @@ public class Race {
     int chance;
 
     private final String ASK_CHANCE_MESSAGE = "시도할 횟수를 입력해주세요.";
+    private final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public Race() {
         this.register = new Register();
@@ -23,6 +28,29 @@ public class Race {
         while (chance-- > 0) {
             race();
         }
+        printResult();
+    }
+
+    private void printResult() {
+        String winners = findWinners();
+        System.out.println(WINNER_MESSAGE + winners);
+    }
+
+    private String findWinners() {
+        int winnersLocation = getWinnersLocation();
+        List<String> winners = new ArrayList<>();
+        for (Car car : racingGroup.getCars()) {
+            if (winnersLocation == car.getLocation()) {
+                winners.add(car.getName());
+            }
+        }
+        return String.join(",", winners);
+    }
+
+    private int getWinnersLocation() {
+        List<Car> cars = racingGroup.getCars();
+        Collections.sort(cars, Comparator.comparing(Car::getLocation).reversed());
+        return cars.get(0).getLocation();
     }
 
     private void race() {
