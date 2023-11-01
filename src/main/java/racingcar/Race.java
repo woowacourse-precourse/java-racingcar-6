@@ -26,4 +26,14 @@ public class Race {
         }
     }
 
+    public int getMaxDistance() {
+        int max = 0;
+        for (Car car : cars) {
+            if (car.getDistance() > max) {
+                max = car.getDistance();
+            }
+        }
+        return max;
+    }
+
 }
