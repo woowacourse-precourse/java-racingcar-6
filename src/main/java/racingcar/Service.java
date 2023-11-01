@@ -30,4 +30,24 @@ public class Service {
         }
         return cars;
     }
+
+    static void raceCars(List<Car> cars, int tryCount){
+        for (int i = 0; i < tryCount; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+            printCurrentPositions(cars);
+        }
+    }
+
+    private static void printCurrentPositions(List<Car> cars) {
+        for (Car car : cars) {
+            StringBuilder currentPosition = new StringBuilder();
+            for (int j = 0; j < car.getPosition(); j++) {
+                currentPosition.append("-");
+            }
+            System.out.println(car.getName() + ": " + currentPosition);
+        }
+        System.out.println();
+    }
 }

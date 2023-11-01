@@ -8,7 +8,6 @@ public class Application {
         int tryCount = Service.getTryCountFromUser();
 
         List<Car> cars = Service.createCars(carNames);
+        Service.raceCars(cars, tryCount);
     }
-
-
 }
