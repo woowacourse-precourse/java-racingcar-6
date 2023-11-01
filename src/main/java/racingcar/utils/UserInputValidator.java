@@ -41,8 +41,8 @@ public class UserInputValidator {
 
     private void checkCountNumber(String count) {
         try {
-            int i = Integer.parseInt(count);
-        } catch (IllegalArgumentException e) {
+            Integer.parseInt(count);
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(RacingCarException.INVALID_NUMBER_MSG);
         }
     }
