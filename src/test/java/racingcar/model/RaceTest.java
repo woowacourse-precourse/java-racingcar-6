@@ -33,4 +33,19 @@ class RaceTest {
             Race race = new Race(new Round(2), entry);
         });
     }
+
+    @Test
+    void isFinished_테스트() {
+        Car c1 = new Car(new Name("a"));
+        Car c2 = new Car(new Name("b"));
+        Entry entry = new Entry();
+        entry.join(c1);
+        entry.join(c2);
+
+        Race r1 = new Race(new Round(1), entry);
+        Race r2 = new Race(new Round(0), entry);
+
+        assertFalse(r1.isFinished());
+        assertTrue(r2.isFinished());
+    }
 }
