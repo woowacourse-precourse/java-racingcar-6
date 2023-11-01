@@ -39,4 +39,13 @@ public class GameController {
         initCarList();
         initTryCount();
     }
+    public void playGame() {
+        outputController.printStart();
+        for (int count = 0; count < tryCount; count++) {
+            runGame.iteration(carList);
+            outputController.printResultByIteration(carList);
+        }
+        winnerList = judgement.findWinner(carList);
+        outputController.printWinner(winnerList);
+    }
 }
