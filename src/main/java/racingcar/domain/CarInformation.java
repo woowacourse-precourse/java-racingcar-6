@@ -3,8 +3,8 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarInformation {
-    private final String name;
-    private int position = 0;
+    public final String name;
+    public int position = 0;
 
     public CarInformation(String name){
         if (name == null || name.isEmpty() || name.length() > 5) {
