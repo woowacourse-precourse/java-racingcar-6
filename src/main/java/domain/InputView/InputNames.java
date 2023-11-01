@@ -19,6 +19,7 @@ public class InputNames {
 
         check.checkDuplicate(InputCarNamesArray);
         check.checkEmptyorLongNames(InputCarNamesArray);
+        check.checkRightName(InputCarNamesArray);
 
         return InputCarNamesArray;
 
