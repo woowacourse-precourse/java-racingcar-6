@@ -7,10 +7,12 @@ public class RacingCarGame {
 
     private List<String> carNameList;
     private List<Car> carList;
+    private int movingCount;
 
     public RacingCarGame() {
         carNameList = new ArrayList<>();
         carList = new ArrayList<>();
+        movingCount = 0;
     }
 
     public void splitCarName(String carName) {
@@ -28,11 +30,19 @@ public class RacingCarGame {
         }
     }
 
+    public void saveMovingCount(int movingCount) {
+        this.movingCount = movingCount;
+    }
+
     public List<String> getCarNameList() {
         return carNameList;
     }
 
     public List<Car> getCarList() {
         return carList;
+    }
+
+    public int getMovingCount() {
+        return movingCount;
     }
 }
