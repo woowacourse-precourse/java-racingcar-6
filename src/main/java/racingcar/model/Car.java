@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private final String name;
     private int position;
+    private static final int MOVE_STANDARD = 4;
 
 
     public Car(String name) {
@@ -14,7 +15,7 @@ public class Car {
 
     public void move() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVE_STANDARD) {
             position++;
         }
     }
