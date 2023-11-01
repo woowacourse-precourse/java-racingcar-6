@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.controller;
 
+import racingcar.view.GameView;
 import racingcar.model.Game;
 
 public class GameController {

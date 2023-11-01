@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.utils.ExceptionHandler;
 import racingcar.model.Game;
 
 public class GameView {
