@@ -1,12 +1,17 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.GameController;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Winner;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FunctionUnitTest {
@@ -26,7 +31,7 @@ public class FunctionUnitTest {
     @Test
     void 자동차_전진() {
         List<Car> carList = cars.setPlayer(RAW_CAR_NAME);
-        carList = cars.raceCars(carList/*, TRY_COUNT*/);
+        carList = cars.raceCars(carList);
 
         carList.forEach(car -> System.out.println(car.getCarName() + " " + car.getMove()));
     }
@@ -36,9 +41,22 @@ public class FunctionUnitTest {
         List<Car> carList = cars.setPlayer(RAW_CAR_NAME);
         GameController gameController = new GameController();
 
-        gameController.race(carList, TRY_COUNT);
-
         OutputView.executeResult(carList);
+    }
+
+    @Test
+    void 우승자_선정() {
+        Winner winner = new Winner();
+
+        Car car1 = new Car("pobi", 3);
+        Car car2 = new Car("woni", 4);
+        Car car3 = new Car("jun", 1);
+
+        List<Car> testCarList = List.of(car1, car2, car3);
+
+        String soloWinner = winner.determineWinner(testCarList).get(0);
+
+        assertThat(soloWinner).isEqualTo("woni");
     }
 
 }
