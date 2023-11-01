@@ -9,4 +9,12 @@ public class Car {
         this.carName = carName;
         this.movingCount = movingCount;
     }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getMovingCount() {
+        return movingCount;
+    }
 }

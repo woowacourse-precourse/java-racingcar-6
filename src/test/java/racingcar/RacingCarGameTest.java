@@ -21,4 +21,25 @@ class RacingCarGameTest {
 
         assertThat(racingCarGame.getCarNameList()).isEqualTo(carNameList);
     }
+
+
+    @Test
+    @DisplayName("자동차 생성 테스트")
+    void 자동차_생성_테스트() {
+        List<String> players = Arrays.asList("pobi", "jun", "wooni");
+        String name = String.join(",", players);
+
+        racingCarGame.splitCarName(name);
+        racingCarGame.createCar();
+
+        List<Car> car = racingCarGame.getCarList();
+
+        assertThat(car.size()).isEqualTo(players.size());
+
+        for (int i = 0; i < players.size(); i++) {
+            Car oneCar = car.get(i);
+            String onePlayer = players.get(i);
+            assertThat(oneCar.getCarName()).isEqualTo(onePlayer);
+        }
+    }
 }
