@@ -39,9 +39,9 @@ class PrintUtilTest {
     @ParameterizedTest
     @MethodSource("provideGameResult")
     void 게임_결과_출력(Map<String, String> result) {
-        printResultMsg();
-        printGameResultMsg(result);
-        printFinalResultMsg();
+        printResultMessage();
+        printGameResultMessage(result);
+        printFinalResultMessage();
 
         String expectedResult = generateExpectedGameResult(result);
 
@@ -51,7 +51,7 @@ class PrintUtilTest {
     @ParameterizedTest
     @MethodSource("provideOneWinner")
     void 게임_우승자_한명_출력(Map<String, String> result, List<String> winner) {
-        printWinnerMsg(result, winner);
+        printWinnerMessage(result, winner);
 
         expectedResult.append("최종 우승자 : woni");
 
@@ -61,7 +61,7 @@ class PrintUtilTest {
     @ParameterizedTest
     @MethodSource("provideTwoWinner")
     void 게임_우승자_두명_출력(Map<String, String> result, List<String> winner) {
-        printWinnerMsg(result, winner);
+        printWinnerMessage(result, winner);
 
         assertThat(out.toString()).isEqualTo("최종 우승자 : pobi, woni");
     }
@@ -69,7 +69,7 @@ class PrintUtilTest {
     @ParameterizedTest
     @MethodSource("provideThreeWinner")
     void 게임_우승자_세명_출력(Map<String, String> result, List<String> winner) {
-        printWinnerMsg(result, winner);
+        printWinnerMessage(result, winner);
 
         assertThat(out.toString()).isEqualTo("최종 우승자 : pobi, woni, jun");
     }

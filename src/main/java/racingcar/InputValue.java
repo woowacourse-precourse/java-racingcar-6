@@ -11,10 +11,10 @@ public class InputValue {
     public static String[] carNameList;
 
     public static void inputSettingValue() {
-        printNameOfCarInputMsg();
+        printNameOfCarInputMessage();
         carNameList = inputNameOfCars();
 
-        printMoveCountInputMsg();
+        printMoveCountInputMessage();
         movingCount = inputMovingCount();
     }
 

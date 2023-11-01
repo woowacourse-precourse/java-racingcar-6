@@ -9,30 +9,30 @@ import static racingcar.MessageConst.*;
 public class PrintUtil {
     private static StringBuilder finalWinner, gameResult;
 
-    public static void printNameOfCarInputMsg() {
+    public static void printNameOfCarInputMessage() {
         System.out.println(NAMES_OF_CARS_INPUT_MESSAGE);
     }
 
-    public static void printMoveCountInputMsg() {
+    public static void printMoveCountInputMessage() {
         System.out.println(MOVE_COUNT_INPUT_MESSAGE);
     }
 
-    public static void printResultMsg() {
+    public static void printResultMessage() {
         gameResult = new StringBuilder();
         gameResult.append(LINE_BREAK).append(RESULT_MESSAGE).append(LINE_BREAK);
     }
 
-    public static void printGameResultMsg(Map<String, String> raceScore) {
+    public static void printGameResultMessage(Map<String, String> raceScore) {
 
         raceScore.forEach((Key, Value) -> gameResult.append(Key).append(" : ").append(Value).append(LINE_BREAK));
         gameResult.append("\n");
     }
 
-    public static void printFinalResultMsg() {
+    public static void printFinalResultMessage() {
         System.out.print(gameResult);
     }
 
-    public static void printWinnerMsg(Map<String, String> raceScore, List<String> winner) {
+    public static void printWinnerMessage(Map<String, String> raceScore, List<String> winner) {
         finalWinner = new StringBuilder();
         finalWinner.append(WINNER_MESSAGE);
 

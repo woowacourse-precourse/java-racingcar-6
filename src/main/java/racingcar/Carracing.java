@@ -19,13 +19,13 @@ public class Carracing {
 
         inputSettingValue();
 
-        printResultMsg();
+        printResultMessage();
 
         initializerStartPoint(carNameList);
         for (int i = 0; i < movingCount; i++) {
             goStop();
         }
-        printFinalResultMsg();
+        printFinalResultMessage();
         chooseWinner();
     }
 
@@ -36,7 +36,7 @@ public class Carracing {
 
             move(carName, randomNumber);
         }
-        printGameResultMsg(raceScore);
+        printGameResultMessage(raceScore);
     }
 
     public static void move(String carName, int randomNumber) {
@@ -61,7 +61,7 @@ public class Carracing {
 
         sortRanking(winner);
 
-        printWinnerMsg(raceScore, winner);
+        printWinnerMessage(raceScore, winner);
     }
 
     public static List<String> sortRanking(List<String> winner) {
