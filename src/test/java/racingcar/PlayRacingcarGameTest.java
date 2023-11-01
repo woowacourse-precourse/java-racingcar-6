@@ -1,41 +1,18 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+
+import camp.nextstep.edu.missionutils.test.NsTest;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class PlayRacingcarGameTest extends NsTest {
 
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-
-    @Test
-    void movingforward_or_stop() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "2");
-                    assertThat(output()).contains("pobi : -- ", "woni : - ", "최종 우승자 : pobi");
-                    },
-                    MOVING_FORWARD, STOP
-        );
-    }
-
     /* 자동차 이름 입력 테스트 */
-    @Test
-    void namingTest_fail_less_than_5_length_limit_of_characters() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, javaji", "1"))
-                    .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
     @Test
     void namingTest_fail_no_name() {
         assertSimpleTest(() ->
@@ -52,6 +29,22 @@ public class PlayRacingcarGameTest extends NsTest {
         );
     }
 
+    @Test
+    void namingTest_fail_less_than_5_length_limit_of_characters() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, javaji", "1"))
+                    .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void namingTest_validate_duplicate_names() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi,luna", "5"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     /* 시도 횟수 입력 테스트 */
     @Test
     void inputnumberTest_fail_no_number() {
@@ -62,70 +55,89 @@ public class PlayRacingcarGameTest extends NsTest {
     }
 
     @Test
-    void inputnumberTest_fail_wrong_number() {
+    void inputnumberTest_fail_input_zero() {
 
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, woni, java", "0"))
+                assertThatThrownBy(() -> runException("pobi, woni, luna", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void inputnumberTest_fail_input_wrong_number() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, woni, luna", "!"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
 
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, woni, java", "!"))
+                assertThatThrownBy(() -> runException("pobi, woni, luna", "5회"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
-
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi, woni, java", "5회"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-
     }
 
-
-
-
-
-
-
     @Test
-    void split_메서드로_주어진_값을_구분() {
-        String input = "1,2";
+    void inputnumberTest_fail_negative_number() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, woni", "-2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    /* 문자열 분리 기능 실행 테스트 */
+    @Test
+    void stringTest_check_fuction_of_split() {
+        String input = "pobi,woni,luna";
         String[] result = input.split(",");
 
-        assertThat(result).contains("2", "1");
-        assertThat(result).containsExactly("1", "2");
+        assertThat(result).contains("luna","woni","pobi");
+        assertThat(result).containsExactly("pobi","woni","luna");
     }
 
     @Test
-    void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
-        String input = "1";
+        void stringTest_check_fuction_of_split_no_delimiter() {
+        String input = "luna";
         String[] result = input.split(",");
 
-        assertThat(result).contains("1");
+        assertThat(result).contains("luna");
+    }
+
+    /* 전진 or 정지 기능 실행 테스트 */
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
+    @Test
+    void positionTest_movingforward_or_stop() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : -- ", "woni : - ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
+        );
     }
 
     @Test
-    void substring_메서드로_특정_구간_값을_반환() {
-        String input = "(1,2)";
-        String result = input.substring(1, 4);
+    void positionTest_move_forward() {
+        Car car = new Car("testcar");
+        car.moveForward();
 
-        assertThat(result).isEqualTo("1,2");
+        int positionLength = 0;
+        if (car.getPositionDistance() != 0) {
+            positionLength = car.getPositionDistance();
+        }
+        assertThat(positionLength).isEqualTo(1);
     }
 
     @Test
-    void charAt_메서드로_특정_위치의_문자_찾기() {
-        String input = "abc";
-        char charAtElement = input.charAt(0);
-        assertThat(charAtElement).isEqualTo('a');
-    }
+    void positionTest_stop() {
+        Car car = new Car("testcar");
+        car.moveForward();
 
-    @Test
-    void charAt_메서드_사용시_문자열의_길이보다_큰_숫자_위치의_문자를_찾을_때_예외_발생() {
-        String input = "abc";
-
-        assertThatThrownBy(() -> input.charAt(5))
-                .isInstanceOf(StringIndexOutOfBoundsException.class)
-                .hasMessageContaining("String index out of range: 5");
+        int positionLength = 0;
+        if (car.getPositionDistance() != 0) {
+            positionLength = car.getPositionDistance();
+        }
+        assertThat(positionLength).isEqualTo(0);
     }
 
     @Override
