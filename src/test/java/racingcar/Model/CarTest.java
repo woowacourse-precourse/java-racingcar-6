@@ -6,11 +6,21 @@ import org.junit.jupiter.api.Test;
 import racingcar.Controller.RacingGame;
 import racingcar.View.SystemIn;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
     public Car car;
+
+    @Test
+    @DisplayName("자동차 이름 정상값")
+    void correctInput() {
+        String name = "abcd";
+        car = new Car("abcd");
+
+        assertThat(car.getName()).isEqualTo("abcd");
+    }
 
     @Test
     @DisplayName("자동차 이름 5글자 초과 시")
