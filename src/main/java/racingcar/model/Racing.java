@@ -55,6 +55,14 @@ public class Racing {
         return RacingStatus.from(this);
     }
 
+    public Integer getMaxTryCount() {
+        return maxTryCount;
+    }
+
+    public Integer getCurrentTryCount() {
+        return currentTryCount;
+    }
+
     public Boolean isFinished() {
         return maxTryCount == currentTryCount;
     }
