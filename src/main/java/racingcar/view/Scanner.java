@@ -44,7 +44,7 @@ public class Scanner {
     }
 
     private Boolean isInvalidNumber(String inputString) {
-        validate(isNoInput(inputString),"라운드 수 입력 없음");
+        validate(isNoInput(inputString));
         return (inputString.charAt(0) < '0' || inputString.charAt(0) > '9');
     }
     private void validate(Boolean condition) {
