@@ -9,11 +9,13 @@ import java.util.stream.Collectors;
 
 public class InputCarName {
     private final List<Car> cars = new ArrayList<>();
+    Validate validate = new Validate();
 
     public List<Car> createCar() {
         List<String> carList;
         String[] carName = Console.readLine().split(",");
         carList = Arrays.stream(carName).map(String::trim).collect(Collectors.toList());
+        validate.validateName(carList);
         carList.forEach(name -> cars.add(new Car(name)));
         return cars;
     }
