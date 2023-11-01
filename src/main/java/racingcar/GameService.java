@@ -1,7 +1,6 @@
 package racingcar;
 
 import racingcar.domain.Cars;
-import racingcar.domain.dto.CarRecord;
 import racingcar.domain.dto.RoundResult;
 
 import java.util.ArrayList;

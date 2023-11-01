@@ -1,10 +1,5 @@
 package racingcar.vaildator;
 
-import racingcar.Constant;
-import racingcar.view.InputView;
-
-import java.util.List;
-
 import static racingcar.Constant.*;
 
 public class InputValidator {

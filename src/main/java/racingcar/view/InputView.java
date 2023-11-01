@@ -1,12 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.vaildator.InputValidator;
-
-import javax.xml.validation.Validator;
-
-import static racingcar.Constant.EXCEPTION_MESSAGE;
-import static racingcar.Constant.IS_NOT_POSITIVE_INTEGER;
 import static racingcar.vaildator.InputValidator.*;
 
 public class InputView {
