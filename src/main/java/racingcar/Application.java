@@ -31,6 +31,7 @@ class RacingCar {
         String names = Console.readLine();
         carNames = names.split(",");
         for (int i = 0; i < carNames.length; i++) {
+            if(carNames[i].length()>5) throw new IllegalArgumentException();
             carNames[i] = carNames[i].trim() + " : ";
         }
     }
