@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class RaceGameManager {
     Car[] car;
-
+    NumberGenerator Generator = new NumberGenerator();
     public RaceGameManager(Car[] car) {
         this.car = car;
     }
 
-    public void noticeRaceResult(String[] carNameList, NumberGenerator Generator) { // 레이싱 실행 결과 출력
+    public void noticeResult(String[] carNameList) { // 레이싱 실행 결과 출력
 
         for (int j = 0; j < carNameList.length; j++) {
             car[j].randomNumber = Generator.createRandomNumber();
