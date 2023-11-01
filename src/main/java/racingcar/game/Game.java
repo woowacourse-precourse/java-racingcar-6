@@ -9,10 +9,10 @@ import java.util.List;
 public class Game {
     User user = new User();
     public void GameSet(){
-        String[] carList = user.carNameInput();
+        List<String> carList = user.carNameInput();
         List<Car> carList1 = new ArrayList<>();
         for (String i:carList) {
-            carList1.add(new Car(i));
+            carList1.add(new Car(i,0));
         }
         int round = user.gameRoundInput();
         for(int i=0;i<round;i++){

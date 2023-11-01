@@ -2,9 +2,12 @@ package racingcar.user;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.in;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ValidatorTest {
@@ -20,9 +23,10 @@ class ValidatorTest {
     }
     @Test
     void 이름_중복_체크(){
-        String[] input = {"aaa","aaaa","aaa"};
+        String input = "aaa,aaaa,aaa";
+        List<String> test = List.of(input.split(","));
         assertThrows(IllegalArgumentException.class,()->{
-            validator.duplicatedNameCheck(input);
+            validator.duplicatedNameCheck(test);
         });
     }
     @Test
@@ -32,5 +36,10 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class,()->{
             validator.gameRoundCheck(input);
         });
+    }
+    @Test
+    void carNameCheck() {
+        String input = "ccccc";
+        assertDoesNotThrow(() -> validator.carNameCheck(input));
     }
 }

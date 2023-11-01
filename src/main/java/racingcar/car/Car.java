@@ -26,8 +26,8 @@ public class Car {
     public int pickRandomNum(){
         return Randoms.pickNumberInRange(NumConstant.start,NumConstant.end);
     }
-    public Car(String name){
+    public Car(String name,int score){
         this.name = name;
-        this.score = 0;
+        this.score = score;
     }
 }

@@ -5,10 +5,11 @@ import racingcar.car.Car;
 import java.util.List;
 
 public class User extends Validator{
-    public String[] carNameInput(){
+    public List<String> carNameInput(){
         System.out.println(MessageConstant.GAME_START_MESSAGE.getMessage());
         String input = Console.readLine();
-        String[] carNames = input.split(",");
+        List<String> carNames = List.of(input.split(","));
+
         for(String i:carNames){
             carNameCheck(i);
         }

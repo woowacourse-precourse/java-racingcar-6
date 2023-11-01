@@ -1,6 +1,7 @@
 package racingcar.user;
 
 import java.util.HashSet;
+import java.util.List;
 
 public class Validator {
     public static final String isNum = "^[1-9][0-9]*$";
@@ -15,7 +16,7 @@ public class Validator {
         }
     }
 
-    public void duplicatedNameCheck(String[] input) throws IllegalArgumentException {
+    public void duplicatedNameCheck(List<String> input) throws IllegalArgumentException {
         HashSet<String> duplicateCheck = new HashSet<>();
         for (String i : input) {
             if (!duplicateCheck.add(i)) {
