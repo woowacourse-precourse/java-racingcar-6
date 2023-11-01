@@ -26,15 +26,14 @@ public class RacingGame {
 
         progressCarGame(userGameNumber);
     }
-
+    // 입력받은 Car name으로 Car 객체를 생성함
     public void settingCar(String[] carArray) {
-
         for (String element : carArray) {
             Car car = new Car(element);
             carList.add(car);
         }
     }
-
+    //
     public void progressCarGame(int userGameNumber) {
         int num = 0;
         while (true) {
