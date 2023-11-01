@@ -48,10 +48,11 @@ public class Application {
     private static void finalResult(List<String> cars, List<Integer> forwards) {
         System.out.print("최종 우승자 : ");
         int carMax = Collections.max(forwards);
+        int carCount = 0;
         for(int i = 0; i < forwards.size(); i++) {
             //가장 큰 car 찾기
             if(carMax == forwards.get(i)) {
-                System.out.print(cars.get(i) + " ");
+                System.out.print(cars.get(i) + ",");
             }
         }
     }
