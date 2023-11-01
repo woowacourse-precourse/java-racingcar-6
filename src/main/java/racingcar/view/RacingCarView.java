@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.constants.GameMessage;
+import racingcar.dto.input.RacingCarsDto;
 import racingcar.io.CommandLineReader;
 import racingcar.io.CommandLineWriter;
 
@@ -10,5 +12,11 @@ public class RacingCarView {
     public RacingCarView(CommandLineReader commandLineReader, CommandLineWriter commandLineWriter) {
         this.commandLineReader = commandLineReader;
         this.commandLineWriter = commandLineWriter;
+    }
+
+    public RacingCarsDto inputCarName() {
+        commandLineWriter.writeLine(GameMessage.INPUT_CAR_NAME);
+        String input = commandLineReader.readLine();
+        return new RacingCarsDto(input);
     }
 }
