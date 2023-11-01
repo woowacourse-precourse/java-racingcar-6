@@ -23,6 +23,7 @@ public class GameSystem {
     private void saveCarInputs(InputView input, OutputView output) {
         CarsInputManage carManage = new CarsInputManage();
         output.write(Message.NAME_MESSAGE);
+        output.write(Message.LINE);
         totalCar = carManage.makeCars(input);
     }
 

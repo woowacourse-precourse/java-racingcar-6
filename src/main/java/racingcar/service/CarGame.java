@@ -14,6 +14,7 @@ public class CarGame {
 
     public void run(int attempt, TotalCar totalCar) {
         output.write(Message.RESULT_MESSAGE);
+        output.write(Message.LINE);
         for (int move = 0; move < attempt; move++) {
             saveResult(totalCar);
             showResult(totalCar);
