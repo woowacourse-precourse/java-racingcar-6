@@ -1,22 +1,19 @@
 package racingcar.controller;
 
-
-import static racingcar.view.OutputString.printStatus;
-
 import java.util.ArrayList;
 import racingcar.model.Car;
 import racingcar.model.FindWinner;
-import racingcar.view.OutputString;
+import racingcar.view.OutPutString;
 
 public class Result {
 
     public Result(ArrayList<Car> classList, int count) {
-        OutputString.printResult(); // 실행결과
+        OutPutString.printResult(); // 실행결과
 
         printRound(classList, count); // 라운드출력
 
         FindWinner findWinner = new FindWinner(classList);
-        OutputString.printWinner(findWinner.getWinner());
+        OutPutString.printWinner(findWinner.getWinner());
     }
 
     private void printRound(ArrayList<Car> classList, int count) {
@@ -29,7 +26,7 @@ public class Result {
     private void round(ArrayList<Car> classList) {
         for (Car car : classList) {
             car.moveOrStop();
-            printStatus(car.getName(), car.getPosition());
+            OutPutString.printStatus(car.getName(), car.getPosition());
         }
     }
 

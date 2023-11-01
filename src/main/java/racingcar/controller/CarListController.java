@@ -3,8 +3,8 @@ package racingcar.controller;
 import static racingcar.model.InputToName.Separator;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
+
 import racingcar.model.Car;
 import racingcar.model.InputToName;
 import racingcar.model.NameToClass;
@@ -16,22 +16,24 @@ public class CarListController {
     final NameToClass classList;
 
     public CarListController() {
+
         String input = Console.readLine();
         validateInput(input);
 
         nameList = new InputToName(input);
 
         classList = new NameToClass(nameList.getNameList());
+
     }
 
     private void validateInput(String input) {
-        if (input.trim().isEmpty()
-            || input.isBlank()
-            || input.startsWith(Separator)
-            || input.endsWith(Separator)
-        ) {
+        if (input.isBlank() ||
+            input.startsWith(Separator) ||
+            input.endsWith(Separator) ||
+            input.contains(" ")) {
 
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("비정상적인 입력");
+
         }
 
     }

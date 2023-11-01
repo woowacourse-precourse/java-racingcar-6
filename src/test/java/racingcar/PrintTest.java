@@ -12,7 +12,7 @@ public class PrintTest extends ApplicationTest {
     private static final int STOP = 3;
 
     @Test
-    void TestWinners() {
+    void testWinners() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
@@ -23,7 +23,7 @@ public class PrintTest extends ApplicationTest {
     }
 
     @Test
-    void TestAtLeastOneWinner() {
+    void testAtLeastOneWinner() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");

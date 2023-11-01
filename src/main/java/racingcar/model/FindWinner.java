@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class FindWinner {
 
-    private StringBuilder winnerList = new StringBuilder();
+    private final StringBuilder winnerList = new StringBuilder();
 
     public FindWinner(ArrayList<Car> classList) {
+
         int threshold = -1;
 
         for (Car car : classList) {
@@ -19,7 +20,6 @@ public class FindWinner {
 
             } else if (position == threshold) {
                 winnerList.append(", ").append(car.getName());
-
             }
 
         }

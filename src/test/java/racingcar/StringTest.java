@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class StringTest extends ApplicationTest {
 
     @Test
-    void TestExceptionOverNameLength() {
+    void testExceptionOverNameLength() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("pobiaa,woni,pobi"))
               .isInstanceOf(IllegalArgumentException.class)
@@ -16,7 +16,7 @@ public class StringTest extends ApplicationTest {
     }
 
     @Test // 테스트 코드에서는 빈 문자열을 "\n" 으로 표현함.
-    void TestExceptionEmpty() {
+    void testExceptionEmpty() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("\n"))
                   .isInstanceOf(IllegalArgumentException.class)
@@ -24,7 +24,7 @@ public class StringTest extends ApplicationTest {
     }
 
     @Test
-    void TestExceptionOnlySpace() {
+    void testExceptionSpace() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException(" "))
                  .isInstanceOf(IllegalArgumentException.class)
@@ -32,7 +32,7 @@ public class StringTest extends ApplicationTest {
     }
 
     @Test
-    void TestExceptionOnlyComma() {
+    void testExceptionOnlyComma() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException(","))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -40,7 +40,7 @@ public class StringTest extends ApplicationTest {
     }
 
     @Test
-    void TestExcetionStartAndEndWithComma() {
+    void testExcetionStartAndEndWithComma() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException(",pobi,"))
                .isInstanceOf(IllegalArgumentException.class)
@@ -48,7 +48,7 @@ public class StringTest extends ApplicationTest {
     }
 
     @Test
-    void TestExceptionConsecutiveCommas() {
+    void testExceptionConsecutiveCommas() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("pobi,,woni"))
               .isInstanceOf(IllegalArgumentException.class)
@@ -56,7 +56,7 @@ public class StringTest extends ApplicationTest {
     }
 
     @Test
-    void TestExcetionNameStartAndEndWithSpace() {
+    void testExcetionSpaceInNames() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("pobi, woni ,"))
              .isInstanceOf(IllegalArgumentException.class)

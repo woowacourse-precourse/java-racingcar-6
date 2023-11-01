@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class CountTest extends ApplicationTest {
 
     @Test
-    void TestExceptionNonNumeric() {
+    void testExceptionNonNumeric() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "a"))
                        .isInstanceOf(IllegalArgumentException.class)
@@ -16,7 +16,7 @@ public class CountTest extends ApplicationTest {
     }
 
     @Test
-    void TestExceptionNegative() {
+    void testExceptionNegative() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "-1"))
                       .isInstanceOf(IllegalArgumentException.class)
@@ -24,7 +24,7 @@ public class CountTest extends ApplicationTest {
     }
 
     @Test
-    void TestExceptionZero() {
+    void testExceptionZero() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("pobi,woni", "0"))
                   .isInstanceOf(IllegalArgumentException.class)
@@ -32,7 +32,7 @@ public class CountTest extends ApplicationTest {
     }
 
     @Test
-    void TestExceptionEmpty() {
+    void testExceptionEmpty() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "\n"))
                       .isInstanceOf(IllegalArgumentException.class)
