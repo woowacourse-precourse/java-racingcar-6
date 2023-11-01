@@ -27,11 +27,7 @@ public class Car implements Comparable<Car>{
     }
 
     private String printMoving() {
-        StringBuilder moving = new StringBuilder();
-        for(int i = 0; i < totalForward; i++) {
-            moving.append('-');
-        }
-        return moving.toString();
+        return "-".repeat(Math.max(0, totalForward));
     }
 
     @Override
@@ -41,12 +37,6 @@ public class Car implements Comparable<Car>{
 
     @Override
     public int compareTo(Car other) {
-        if (this.totalForward > other.getTotalForward()) {
-            return 1;
-        } else if (this.totalForward < other.getTotalForward()) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Integer.compare(this.totalForward, other.getTotalForward());
     }
 }
