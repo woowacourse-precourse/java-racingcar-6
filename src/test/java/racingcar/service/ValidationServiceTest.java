@@ -1,6 +1,5 @@
-package racingcar.validation;
+package racingcar.service;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Driver;
 

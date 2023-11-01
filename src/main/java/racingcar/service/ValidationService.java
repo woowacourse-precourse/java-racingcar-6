@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.service;
 
 import racingcar.model.Driver;
 
