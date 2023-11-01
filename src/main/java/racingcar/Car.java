@@ -4,7 +4,7 @@ public class Car {
 
     public static final int MAX_CAR_NAME_LENGTH = 5;
 
-    private String name;
+    private final String name;
     private Integer move;
 
     public Car(String name) {
