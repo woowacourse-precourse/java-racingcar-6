@@ -2,16 +2,15 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import static racingcar.config.CarMoveRuleConfig.setCustomCarMoveRule;
+import static util.RacingCarTestUtil.moveCar;
+import static util.RacingCarTestUtil.setAlwaysCarMoveRule;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import racingcar.model.car.Car;
-import racingcar.model.car.CarMoveRule;
 import racingcar.model.car.CarName;
 import racingcar.model.car.Cars;
 import racingcar.model.race.result.RaceResult;
@@ -19,7 +18,10 @@ import racingcar.model.winner.Winners;
 import racingcar.view.ResultView;
 
 /**
- * docs/README.md <br/><br/> 요구사항 4 <br/><br/> 4-1. 자동차별로 전진한 거리를 비교해 우승자 결정 <br/> 4-2. 우승자 출력 <br/>
+ * <p>docs/README.md
+ * <h2>요구사항 4
+ * <p>4-1. 자동차별로 전진한 거리를 비교해 우승자 결정
+ * <p>4-2. 우승자 출력
  */
 class WinnersTest extends NsTest {
 
@@ -27,8 +29,7 @@ class WinnersTest extends NsTest {
     void 우승자_결정() {
         // given
         /* 항상 전진하는 규칙 적용 */
-        CarMoveRule alwaysGo = () -> true;
-        setCustomCarMoveRule(alwaysGo);
+        setAlwaysCarMoveRule();
 
         Car zeus = Car.from("zeus");
         Car blue = Car.from("blue");
@@ -56,8 +57,7 @@ class WinnersTest extends NsTest {
     void 우승자_결과_출력() {
         // given
         /* 항상 전진하는 규칙 적용 */
-        CarMoveRule alwaysMove = () -> true;
-        setCustomCarMoveRule(alwaysMove);
+        setAlwaysCarMoveRule();
 
         Car zeus = Car.from("zeus");
         Car blue = Car.from("blue");
@@ -81,10 +81,6 @@ class WinnersTest extends NsTest {
 
         // then
         assertThat(output()).contains(expected);
-    }
-
-    private void moveCar(Car car, int distance) {
-        IntStream.range(0, distance).forEach(i -> car.goOrStop());
     }
 
     @Override

@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.model.car.CarName.NAME_DUPLICATED;
 import static racingcar.model.car.CarName.NAME_LENGTH_LIMIT_EXCEEDED;
 import static racingcar.util.Validator.EMPTY;
-import static util.TestUtil.setInput;
+import static util.RacingCarTestUtil.setInput;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +20,10 @@ import racingcar.model.car.Cars;
 import racingcar.view.InputView;
 
 /**
- * docs/README.md <br/><br/> 요구사항 2, 5 <br/><br/> 2-1. 자동차 이름 입력 <br/> 5-2. 이름 입력 예외 발생 <br/>
+ * <p>docs/README.md
+ * <h2>요구사항 2, 5
+ * <p>2-1. 자동차 이름 입력
+ * <p>5-2. 이름 입력 예외 발생
  */
 class CarNameInputTest {
 

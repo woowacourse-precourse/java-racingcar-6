@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import static racingcar.model.race.GameCount.GAME_COUNT_OUT_OF_RANGE;
 import static racingcar.util.Validator.NO_DIGIT;
-import static util.TestUtil.setInput;
+import static util.RacingCarTestUtil.setInput;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -15,10 +15,12 @@ import racingcar.model.race.GameCount;
 import racingcar.view.InputView;
 
 /**
- * docs/README.md <br/><br/> 요구사항 3, 5 <br/><br/> 3-1. 횟수 입력 <br/> 5-1. 횟수 입력 예외 발생 <br/>
+ * <p>docs/README.md
+ * <h2>요구사항 3, 5
+ * <p>3-1. 횟수 입력
+ * <p>5-1. 횟수 입력 예외 발생
  */
 class GameCountInputTest {
-
 
     InputView inputView = new InputView();
 
