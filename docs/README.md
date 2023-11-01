@@ -52,5 +52,8 @@
 
 ## 예외 처리
 
-- 자동차 이름 입력 창에서 입력값의 길이가 5를 초과할 시 IllegalArgumentException 발생
-- 시도할 회수 입력 창에서 입력값이 양의 정수가 아닐 시 IllegalArgumentException 발생
+- 자동차 이름 입력
+    - 각 자동차 이름의 길이가 5를 초과할 시 IllegalArgumentException 발생
+    - 중복된 자동차 이름이 존재할 시 IllegalArgumentException 발생
+- 시도할 회수 입력
+    - 입력값이 양의 정수가 아닐 시 IllegalArgumentException 발생
