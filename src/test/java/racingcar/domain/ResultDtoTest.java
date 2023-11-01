@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.util.TestConsts.TOTAL_ROUND;
 
 class ResultDtoTest {
 
-    public static final int TOTAL_ROUND = 3;
     public static final int FIRST_ROUND = 1;
     public static final int SECOND_ROUND = 2;
     public static final int THIRD_ROUND = 3;
@@ -78,7 +78,6 @@ class ResultDtoTest {
                 .isNull();
         assertThat(resultDto.getSingleRoundResultDto(ONE_HUNDREDTH_ROUND))
                 .isNull();
-
     }
 
     @Test

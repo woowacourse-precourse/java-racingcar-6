@@ -45,8 +45,7 @@ class RacingServiceTest {
     @Test
     @DisplayName("playCarRacing()은 ResultDto를 반환하고, 그 안에는 차들의 이동한 거리 정보가 들어가있다.")
     void playMovingCarRacing() {
-        assertRandomNumberInRangeTest(
-                () -> {
+        assertRandomNumberInRangeTest(() -> {
                     ResultDto result = racingService.playCarRacing();
                     SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(TEMP_CLIENT_ROUND_VALUE);
 
@@ -63,8 +62,7 @@ class RacingServiceTest {
     @Test
     @DisplayName("playCarRacing()은 ResultDto를 반환하고, 그 안에는 차들이 이동하지 않으면 정지한 거리 정보가 들어있다.")
     void playStoppedCarRacing() {
-        assertRandomNumberInRangeTest(
-                () -> {
+        assertRandomNumberInRangeTest(() -> {
                     ResultDto result = racingService.playCarRacing();
                     SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(TEMP_CLIENT_ROUND_VALUE);
 

@@ -31,8 +31,7 @@ public class OutputView {
         int finalRound = resultDto.getFinalRound();
 
         while (round <= finalRound) {
-            SingleRoundResultDto singleRoundResultDto = resultDto
-                    .getSingleRoundResultDto(round);
+            SingleRoundResultDto singleRoundResultDto = resultDto.getSingleRoundResultDto(round);
             printCarResultsPerSingleRound(singleRoundResultDto);
             round ++;
             System.out.print(Sentence.ALIGN_LINE.getMessage());

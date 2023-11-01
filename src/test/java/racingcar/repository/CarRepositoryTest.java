@@ -7,15 +7,15 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.CarsDto;
 import racingcar.domain.Client;
 import racingcar.domain.ResultDto;
-import racingcar.util.TestConsts;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.util.TestConsts.TEMP_CLIENT_ROUND;
+import static racingcar.util.TestConsts.TOTAL_ROUND;
+import static racingcar.util.TestConsts.FORWARD;
+import static racingcar.util.TestConsts.STOP;
+import static racingcar.util.TestConsts.ONE_ROUND;
 
 class CarRepositoryTest {
-
-    private static final String TEMP_CLIENT_ROUND = "3";
-    private static final int TOTAL_ROUND = 3;
-    private static final int ONE_ROUND = 1;
 
     private CarRepository carRepository;
 
@@ -58,13 +58,11 @@ class CarRepositoryTest {
     @Test
     @DisplayName("리포지토리에서 최종 라운드 결과를 반환하기 전에 최종 우승자들도 계산해서 ResultDto를 반환한다.")
     void calculateWinners() {
-        Assertions.assertRandomNumberInRangeTest(
-                () -> {
+        Assertions.assertRandomNumberInRangeTest(() -> {
                     carRepository.race();
                     ResultDto result = carRepository.finishFinalRound();
-                    assertThat(result.getFinalWinners())
-                            .containsExactly("pobi", "jun");
-                }, TestConsts.FORWARD, TestConsts.STOP, TestConsts.FORWARD
+                    assertThat(result.getFinalWinners()).containsExactly("pobi", "jun");
+                }, FORWARD, STOP, FORWARD
         );
     }
 }

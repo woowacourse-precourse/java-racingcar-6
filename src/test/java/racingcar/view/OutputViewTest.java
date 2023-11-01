@@ -19,18 +19,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class OutputViewTest {
 
-    public static final String ROUND_USER_INPUTTED = "1";
+    public static final String TEMP_CLIENT_ROUND = "1";
     OutputView outputView = new OutputView();
     private OutputStream captor;
 
     @BeforeEach
     @DisplayName("Test 내부에서 콘솔 출력값을 검증하기 위해 세팅한 메서드(NsTest 참고)")
-     void init() {
+    void init() {
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
     }
 
-    private final String output() {
+    private String output() {
         return captor.toString().trim();
     }
 
@@ -53,10 +53,9 @@ class OutputViewTest {
     @Test
     void printResult() {
         CarsDto carsDto = new CarsDto("pobi,woni,jun");
-        Client client = new Client(ROUND_USER_INPUTTED);
+        Client client = new Client(TEMP_CLIENT_ROUND);
         RacingService racingService = new RacingService(carsDto, client);
-        assertRandomNumberInRangeTest(
-                () -> {
+        assertRandomNumberInRangeTest(() -> {
                     ResultDto resultDto = racingService.playCarRacing();
                     outputView.printResult(resultDto);
                     assertThat(output()).contains("실행 결과", "pobi : ", "woni : ", "jun : -", "최종 우승자 : jun");
@@ -68,10 +67,9 @@ class OutputViewTest {
     @DisplayName("아무도 한 칸도 전진하지 않았으면 우승자가 없는 것으로 간주한다.(요구 사항 외의 사항)")
     void printNoneFinalWinners() {
         CarsDto carsDto = new CarsDto("pobi,woni,jun");
-        Client client = new Client(ROUND_USER_INPUTTED);
+        Client client = new Client(TEMP_CLIENT_ROUND);
         RacingService racingService = new RacingService(carsDto, client);
-        assertRandomNumberInRangeTest(
-                () -> {
+        assertRandomNumberInRangeTest(() -> {
                     ResultDto resultDto = racingService.playCarRacing();
                     outputView.printResult(resultDto);
                     assertThat(output()).contains("실행 결과", "pobi : ", "woni : ", "jun : ", "최종 우승자 :");

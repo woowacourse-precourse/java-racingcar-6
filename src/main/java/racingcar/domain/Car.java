@@ -36,13 +36,13 @@ public class Car {
     public record CarResultDto(String name, int distance) {
 
         @Override
-            public String toString() {
-                StringBuilder resultExpression = new StringBuilder(name);
-                resultExpression.append(Sentence.COLON_FOR_LIST.getMessage());
-                for (long i = 0; i < distance; i++) {
-                    resultExpression.append("-");
-                }
-                return resultExpression.toString();
+        public String toString() {
+            StringBuilder resultExpression = new StringBuilder(name);
+            resultExpression.append(Sentence.COLON_FOR_LIST.getMessage());
+            for (long i = 0; i < distance; i++) {
+                resultExpression.append("-");
             }
+            return resultExpression.toString();
         }
+    }
 }
