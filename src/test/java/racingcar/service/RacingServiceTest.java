@@ -10,10 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RacingServiceTest {
+
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
 
     RacingService racingService = RacingService.getInstance();
     CarRepository carRepository = CarRepository.getInstance();
@@ -42,9 +46,26 @@ class RacingServiceTest {
     }
 
     @Test
-    @DisplayName("주어진 횟수 동안 전진,멈춤 테스트")
+    @DisplayName("랜덤 값에 따른 전진,멈춤 테스트")
     void processRound() {
-        // TODO: 테스트코드 작성
+        carRepository.createCars(carNames);
+
+        List<Car> expectedCars = new ArrayList<>();
+        expectedCars.add(new Car("pobi"));
+        expectedCars.add(new Car("woni"));
+        expectedCars.get(0).moveForward(MOVING_FORWARD);
+        expectedCars.get(1).moveForward(STOP);
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    List<Car> processedCars = racingService.processRound();
+                    for (int i=0; i<processedCars.size(); i++) {
+                        assertEquals(expectedCars.get(i).getName(), processedCars.get(i).getName());
+                        assertEquals(expectedCars.get(i).getMoveCount(), processedCars.get(i).getMoveCount());
+                    }
+                },
+                MOVING_FORWARD, STOP
+        );
     }
 
     @Test
