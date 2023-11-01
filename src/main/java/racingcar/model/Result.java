@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Result {
-		private final List<Car> winners = new ArrayList<>();
+		private final List<String> winners = new ArrayList<>();
 		
-		public List<Car> getWinner(){
+		public List<String> getWinners(){
 			int maxPosition = 0;
 			for (Car car : winners) {
 				if (car.getPosition() > maxPosition) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.model.Car;
 import racingcar.model.RacingCount;
+import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -24,5 +25,9 @@ public class RacingController {
 	
 	public void racing() {
 		outputView.printMove(carNames);
+	}
+	
+	public void finish() {
+		outputView.printResult();
 	}
 }
