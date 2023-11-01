@@ -2,8 +2,6 @@ package racingcar.exception;
 
 import racingcar.exception.constant.ErrorMessageConstant;
 
-import java.util.List;
-
 public class TryCountInputErrorException implements InputErrorException{
     private final static String NUMBER_REGULAR_EXPRESSION = "\\d+";
 

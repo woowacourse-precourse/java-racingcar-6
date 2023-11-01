@@ -1,11 +1,8 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
 import racingcar.model.dto.CarStatusDto;
-import racingcar.util.NumberGenrator;
-import racingcar.util.RandomNumberGenrator;
 import racingcar.util.TransferUtil;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -21,7 +18,6 @@ public class GameController {
         Cars cars = new Cars(transferUtil.transferStringToListString(printInputCarNames()));
         int tryCount = printInputTryCount();
         printEmptyLine();
-
         playingGame(cars, tryCount);
         endGame(cars);
     }

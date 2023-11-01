@@ -4,7 +4,6 @@ import racingcar.model.dto.CarStatusDto;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameResult {
     private final Cars cars;
