@@ -4,26 +4,23 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class GameInput {
 
-    public static String inputCarsName() {
-        return Console.readLine();
+    public static String[] CarsName() {
+        String carsName = Console.readLine();
+        String[] names = splitNamesByComma(carsName);
+        InputValidator.carsName(carsName, names);
+        return names;
     }
 
-    public static int raceTime() throws IllegalArgumentException {
+    private static String[] splitNamesByComma(String names) {
+        return names.split(",");
+    }
+
+
+    public static int raceTime() {
         String raceTimeString = Console.readLine();
-        if (!isStringConvertToInteger(raceTimeString)) {
-            throw new IllegalArgumentException();
-        }
+        InputValidator.isStringConvertToInteger(raceTimeString);
         return Integer.valueOf(raceTimeString);
     }
 
-    private static boolean isStringConvertToInteger(String raceTimeString) {
-        char[] raceTimeCharArray = raceTimeString.toCharArray();
-        for (char raceTimeChar : raceTimeCharArray) {
-            if (raceTimeChar < '0' || raceTimeChar > '9') {
-                return false;
-            }
-        }
-        return true;
-    }
 
 }
