@@ -36,7 +36,7 @@ public class Game {
     // (6) 프로그램을 실행하면 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
     //   를 출력하는 기능 -> printStartGameText()
     public String printStartGameText() {
-        return "";
+        return "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분) \n";
     }
     public boolean isCarNameLengthFive(String carName) {
         return carName.length() <= 5;
