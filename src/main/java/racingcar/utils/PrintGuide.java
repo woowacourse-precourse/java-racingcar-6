@@ -12,21 +12,25 @@ public class PrintGuide {
     public void printInputCarName() {
         System.out.println(INPUT_CAR_NAME_MSG);
     }
-    public void printInputCount () {
+
+    public void printInputCount() {
         System.out.println(INPUT_COUNT_MSG);
     }
+
     public void printRaceRound(Car car) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(car.getName());
-        sb.append(" : ");
-        sb.append("-".repeat(car.getScore()));
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(car.getName());
+        stringBuilder.append(" : ");
+        stringBuilder.append("-".repeat(car.getScore()));
 
         System.out.println(sb);
     }
-    public void printResult () {
+
+    public void printResult() {
         System.out.println(RESULT_MSG);
     }
-    public void printWinner (Winner winner) {
+
+    public void printWinner(Winner winner) {
         System.out.println(WINNER_MSG + String.join(", ", winner.getName()));
     }
 }
