@@ -19,13 +19,13 @@ public class RacingGameController {
     public void init(){
         view = View.getInstance();
 
-        carNameList = CarNameList.getInstance(getCarString());
+        carNameList = new CarNameList(getCarString());
 
         carNameList.NameExceptionCheck();
 
         tryNumber = getTryNumber();
 
-        resultList = ResultList.getInstance(getResultList());
+        resultList = new ResultList(getResultList());
 
         view.resultView();
         for(int i=0; i<tryNumber; i++){
