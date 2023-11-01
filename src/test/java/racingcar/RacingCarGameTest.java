@@ -9,9 +9,17 @@ import java.io.PrintStream;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RacingCarGameTest {
+    private RacingCarGame racingCarGame;
+
+    @BeforeEach
+    public void 초기값_설정() {
+        racingCarGame = new RacingCarGame();
+    }
+
     @AfterEach
     public void 콘솔_입력_초기화() {
         Console.close();
@@ -22,7 +30,6 @@ class RacingCarGameTest {
         String input = "red,green,blue";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.insertRacingCars();
 
         List<RacingCar> cars = racingCarGame.getCars();
@@ -37,7 +44,6 @@ class RacingCarGameTest {
         String input = "red,,green,blue";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        RacingCarGame racingCarGame = new RacingCarGame();
 
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.insertRacingCars();
@@ -49,7 +55,6 @@ class RacingCarGameTest {
         String input = "red,green,blue,rainbow";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        RacingCarGame racingCarGame = new RacingCarGame();
 
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.insertRacingCars();
@@ -61,7 +66,6 @@ class RacingCarGameTest {
         String input = "6";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.insertMoveCnt();
 
         int moveCnt = racingCarGame.getMoveCnt();
@@ -74,7 +78,6 @@ class RacingCarGameTest {
         String input = "6,9";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        RacingCarGame racingCarGame = new RacingCarGame();
 
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.insertMoveCnt();
@@ -89,7 +92,6 @@ class RacingCarGameTest {
         System.setIn(in);
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.insertRacingCars();
         racingCarGame.getCars().get(0).moveForward();
         racingCarGame.getCars().get(0).moveForward();
@@ -107,7 +109,6 @@ class RacingCarGameTest {
         System.setIn(in);
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        RacingCarGame racingCarGame = new RacingCarGame();
         racingCarGame.insertRacingCars();
         racingCarGame.getCars().get(0).moveForward();
         racingCarGame.getCars().get(1).moveForward();

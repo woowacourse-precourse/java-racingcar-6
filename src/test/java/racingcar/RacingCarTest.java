@@ -4,12 +4,19 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class RacingCarTest {
+    private RacingCar racingCar;
+
+    @BeforeEach
+    public void 초기값_설정() {
+        racingCar = new RacingCar("dummy");
+    }
+
     @Test
     public void 전진할_수_있는지_알아보는_기능_0_9사이에서_4이상일_경우에만_전진_가능하다() {
-        RacingCar racingCar = new RacingCar("dummy");
         double error = 0.05;
         int tryCnt = 100000;
         int trueCnt = 0;
@@ -30,7 +37,6 @@ class RacingCarTest {
 
     @Test
     public void 자동차를_전진하는_기능() {
-        RacingCar racingCar = new RacingCar("dummy");
         int initialDistance = racingCar.getMoveDistance();
 
         for (int i = 0; i < 6; i++) {
@@ -42,7 +48,6 @@ class RacingCarTest {
 
     @Test
     public void 자동차_위치를_출력하는_기능() {
-        RacingCar racingCar = new RacingCar("dummy");
         String moveString = "";
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
