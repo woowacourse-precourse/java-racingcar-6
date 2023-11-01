@@ -7,6 +7,7 @@ import static model.utilityModel.stringToInt;
 //import static model.utilityModel.stringArrayToStringArrayList;
 
 import model.racingGameModel;
+import view.raceStatus;
 
 public class game {
     public void gameStart(){
@@ -21,6 +22,17 @@ public class game {
         userInput = userInputController.userInput();
         int attemptCount = stringToInt(userInput);
         //racingGameModel class 인스턴스 초기화
-        racingGameModel racingGameModel = new racingGameModel(attemptCount,carNamesArray);
+        racingGameModel racingGameModel = new racingGameModel(carNamesArray);
+        //랜덤값에 따라 게임 현황 업데이트 및 출력
+        startRacing(attemptCount, racingGameModel);
+    }
+    private void startRacing(int attemptCount, racingGameModel racingGameModel){
+        raceStatus raceStatus = new raceStatus();
+
+        for(int i = 0;i<attemptCount;i++){
+            racingGameModel.updateRaceStatus();
+            raceStatus.printRaceStatus(racingGameModel);
+            System.out.println();
+        }
     }
 }

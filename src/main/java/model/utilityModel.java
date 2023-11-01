@@ -31,7 +31,7 @@ public class utilityModel {
     public static int stringToInt(String string){
         return Integer.parseInt(string);
     }
-    public static int getRandomNum() {
+    public static int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 }
