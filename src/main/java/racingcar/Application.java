@@ -1,15 +1,17 @@
 package racingcar;
 
-import model.Car;
-
+import racingcar.cotroller.Race;
+import racingcar.cotroller.SetRace;
+import racingcar.model.Car;
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
         SetRace set = new SetRace();
-        Race race = new Race();
         List<Car> cars = set.createCar();
         int number = set.inputMovement();
+
+        Race race = new Race();
         race.raceCar(cars,number);
     }
 }

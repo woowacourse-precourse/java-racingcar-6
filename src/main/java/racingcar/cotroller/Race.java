@@ -1,11 +1,8 @@
-package racingcar;
+package racingcar.cotroller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import model.Car;
+import racingcar.model.Car;
 
 public class Race {
     int max = 0;
@@ -16,7 +13,7 @@ public class Race {
             for (Car car : cars) {
                 int move = car.moveForward();
                 String position = car.getPosition();
-                System.out.println(car.getName() + " : " + move + position);
+                System.out.println(car.getName() + " : " + position);
             }
             times--;
         }
