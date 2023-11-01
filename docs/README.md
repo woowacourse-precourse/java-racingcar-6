@@ -55,6 +55,11 @@
 - [x] 게임이 종료되었는지를 반환한다.
 - [x] 게임 결과를 반환한다.
 
+### RandomNumberGenerator
+```
+외부 라이브러리인 Randoms를 테스트에서 제어하기 위한 인터페이스
+```
+
 ### RacingGameController
 ```
 레이싱 게임의 컨트롤러 레이어
