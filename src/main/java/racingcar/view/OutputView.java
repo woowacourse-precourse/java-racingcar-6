@@ -33,7 +33,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printFinalWinner(String winners) {
-        System.out.println(FINAL_WINNER + COLON + winners);
+    public static void printFinalWinner(String winner) {
+        System.out.println(FINAL_WINNER + COLON + winner);
     }
 }

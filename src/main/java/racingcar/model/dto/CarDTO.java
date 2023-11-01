@@ -1,8 +1,8 @@
 package racingcar.model.dto;
 
 public class CarDTO {
-    private String name;
-    private int moveCount;
+    private final String name;
+    private final int moveCount;
 
     public CarDTO(String name, int moveCount) {
         this.name = name;

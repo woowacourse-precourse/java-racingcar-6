@@ -17,8 +17,12 @@ public class Car {
         return new Car(name);
     }
 
-    public CarDTO toDto() {
+    public CarDTO toDTO() {
         return new CarDTO(this.name, this.moveCount);
+    }
+
+    public boolean isSameMoveCount(int moveCount) {
+        return this.moveCount == moveCount;
     }
 
     public void move(int randomNumber) {

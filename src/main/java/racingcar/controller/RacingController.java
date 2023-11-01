@@ -21,6 +21,9 @@ public class RacingController {
 
         OutputView.printStartRacing();
         repeatRace(cars, racingCount);
+
+        String winner = racingService.winnerToString();
+        OutputView.printFinalWinner(winner);
     }
 
     private List<Car> inputCar() {
@@ -46,7 +49,7 @@ public class RacingController {
         for (int i = 0; i < racingCount; i++) {
             racingService.race();
             OutputView.carResult(cars.stream()
-                    .map(Car::toDto)
+                    .map(Car::toDTO)
                     .collect(Collectors.toList())
             );
         }

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
+import racingcar.model.dto.CarDTO;
 
 public class RacingService {
     private final CarService carService;
@@ -26,5 +27,21 @@ public class RacingService {
     public void race() {
         List<Car> cars = carService.findCars();
         cars.forEach(car -> car.move(Randoms.pickNumberInRange(1, 9)));
+    }
+
+    public List<String> getWinner() {
+        int maxMoveCount = carService.getMaxMoveCount();
+
+        return carService.findCars()
+                .stream()
+                .filter(car -> car.isSameMoveCount(maxMoveCount))
+                .map(Car::toDTO)
+                .map(CarDTO::getName)
+                .collect(Collectors.toList());
+    }
+
+    public String winnerToString() {
+        List<String> winner = getWinner();
+        return String.join(",", winner);
     }
 }

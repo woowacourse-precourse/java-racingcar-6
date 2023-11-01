@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.dto.CarDTO;
 
 public class CarService {
 
@@ -14,5 +15,12 @@ public class CarService {
 
     public List<Car> findCars() {
         return new ArrayList<>(cars);
+    }
+
+    public int getMaxMoveCount() {
+        return cars.stream()
+                .map(Car::toDTO)
+                .mapToInt(CarDTO::getMoveCount)
+                .max().orElseThrow(IllegalStateException::new);
     }
 }
