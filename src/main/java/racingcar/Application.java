@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -32,24 +33,12 @@ public class Application {
         racingGame(times);
     }
 
-    // 레이싱 게임 출력
-    public void racingGame(int times) {
-        int count = 0;
-        while (times > count) {
-            randomNum();
-            System.out.println();
-            count++;
-        }
-
-    }
-
     // 난수 생성 및 게임 진행
     public void randomNum() {
-        carScore = new ArrayList<>(carList.size());
         for (int i = 0; i < carList.size(); i++) {
             int num = Randoms.pickNumberInRange(0, 9);
             if (num >= 4) {
-                carScore.set(i, carScore.get(i) + num);
+                carScore.set(i, carScore.get(i) + 1);
             }
             // 레이싱 진행상황
             String progress = "";
@@ -60,7 +49,21 @@ public class Application {
         }
     }
 
+    // 레이싱 게임 출력
+    public void racingGame(int times) {
+        int count = 0;
+        carScore = new ArrayList<>(Collections.nCopies(carList.size(), 0));
+        while (times > count) {
+            randomNum();
+            System.out.println();
+            count++;
+        }
+    }
+
     // 우승자 출력
+    public void gameResult() {
+
+    }
 
     public static void main(String[] args) {
         Application application = new Application();
