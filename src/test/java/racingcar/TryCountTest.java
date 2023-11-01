@@ -38,4 +38,10 @@ public class TryCountTest {
                 .hasMessageContaining("이하의 수여야 합니다.");
     }
 
+    @Test
+    void 시도_횟수_문자_입력_테스트() {
+        assertThatThrownBy(() -> new TryCount("three"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자를 입력해주세요.");
+    }
 }

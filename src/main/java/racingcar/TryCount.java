@@ -21,6 +21,7 @@ public class TryCount {
     private void validate(String refinedInput) {
         checkBlank(refinedInput);
         checkLength(refinedInput);
+        int count = checkNumber(refinedInput);
     }
 
     private String refine(String input) {
@@ -43,6 +44,15 @@ public class TryCount {
         }
     }
 
+    private int checkNumber(String answer) {
+        int ans;
+        try {
+            ans = Integer.parseInt(answer);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+        return ans;
+    }
 
     public int getTryCount() {
         return tryCount;
