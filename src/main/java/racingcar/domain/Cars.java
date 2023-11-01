@@ -15,6 +15,7 @@ public class Cars {
     }
 
     private List<Car> stringToList(String carsName) {
+        blankCheck(carsName);
         String[] result = carsName.split(",");
         Set<String> uniqueCarsName = new HashSet<>();
 
@@ -28,6 +29,13 @@ public class Cars {
                 })
                 .map(Car::new)
                 .toList();
+    }
+
+    private void blankCheck(String carsName) {
+        if (carsName.isEmpty() || carsName.equals(",")) {
+            throw new IllegalArgumentException(ErrorMessage.VALIDATE_NO_CAR_NAME
+                    .getMessage());
+        }
     }
 
     private static void uniqueCarName(String carName, Set<String> uniqueCarsName) {
