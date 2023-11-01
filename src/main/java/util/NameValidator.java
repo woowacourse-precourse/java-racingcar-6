@@ -4,17 +4,17 @@ import racingcar.CarConstants;
 
 public class NameValidator {
 
-        public static boolean isValidInput(String input) {
+        public static void isValidInput(String input) {
             String[] names = input.split(",");
             for (String name : names) {
-                if (name.trim().isEmpty())
-                    return false;
+                if (name.isEmpty())
+                    throw new IllegalArgumentException(CarConstants.INVALID_INPUT_MESSAGE+"trim");
                 if(!isValidLength(name))
-                    return false;
+                    throw new IllegalArgumentException(CarConstants.INVALID_INPUT_LENGTH_ERROR_MESSAGE);
                 if(!isAlphabet(name))
-                    return false;
+                   throw new IllegalArgumentException(CarConstants.INVALID_INPUT_MESSAGE);
             }
-            return true;
+
         }
     public static boolean isValidLength(String name) {
         if(name.length() > CarConstants.MAX_NAME_LENGTH)
@@ -28,6 +28,15 @@ public class NameValidator {
     public static boolean isAlphabet(String name) {
         for (char c : name.toCharArray()) {
             if (!Character.isLetter(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isNumeric(String str) {
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
                 return false;
             }
         }
