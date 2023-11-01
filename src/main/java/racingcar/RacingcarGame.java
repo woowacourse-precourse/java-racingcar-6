@@ -27,6 +27,10 @@ public class RacingcarGame {
             decideMoveCar();
             printMoveCarResult();
         }
+
+        // 우승자 결정 및 출력
+        List<String> winner = decideWinner();
+        printWinnerResult(winner);
     }
 
     /**
@@ -79,5 +83,28 @@ public class RacingcarGame {
             System.out.println(String.format(Constant.RESULT_CAR_MESSAGE, car.getName(), moves));
         }
         System.out.println();
+    }
+
+    /**
+     * 우승자 결정
+     */
+    public List<String> decideWinner(){
+        List<String> winner = new ArrayList<>();
+        Collections.sort(racingcars); // 정렬
+        int maxMoveCount = racingcars.get(0).getMoveCount();
+        for (Racingcar car : racingcars){
+            if (car.getMoveCount()==maxMoveCount){
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
+
+    /**
+     *  우승자 출력
+     */
+    public void printWinnerResult(List<String> winner){
+        String winners = String.join(", ", winner);
+        System.out.println(String.format(Constant.RESULT_WINNER_MESSAGE, winners));
     }
 }
