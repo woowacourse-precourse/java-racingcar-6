@@ -4,7 +4,6 @@ import racingcar.model.*;
 import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
-
     private static final String RESULT = "실행 결과";
 
     private RacingCarGameView racingCarGameView;

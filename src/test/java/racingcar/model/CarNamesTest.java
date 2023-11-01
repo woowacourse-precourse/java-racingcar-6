@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarNamesTest {
-
     @Test
     public void 차_이름_검증_테스트() {
         //given
@@ -37,5 +36,4 @@ public class CarNamesTest {
             }).isInstanceOf(IllegalArgumentException.class);
         }
     }
-
 }

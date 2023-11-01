@@ -21,6 +21,7 @@ public class RacingResult {
     public Map<String, Integer> getResult() {
         return Collections.unmodifiableMap(result);
     }
+
     public Set<String> getNames() {
         return result.keySet();
     }

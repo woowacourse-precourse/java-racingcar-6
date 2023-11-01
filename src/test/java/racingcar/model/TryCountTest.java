@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TryCountTest {
-
     @Test
     public void 시도횟수_검증_테스트() {
         //given
@@ -20,5 +19,4 @@ public class TryCountTest {
             new TryCount(maxValue);
         }).isInstanceOf(IllegalArgumentException.class);
     }
-
 }

@@ -1,7 +1,6 @@
 package racingcar.model;
 
 public class TryCount {
-
     private int tryCount;
 
     public TryCount(int count) {
