@@ -11,6 +11,14 @@ public class Car {
         this.position = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     public void moveOrNot() {
         int randInt = Randoms.pickNumberInRange(0, 9);
         if (randInt >= 4) {
@@ -19,6 +27,7 @@ public class Car {
     }
 
     public void printPosition() {
-        System.out.print(name + " : " + "-".repeat(position) + "\n");
+        System.out.println(name + " : " + "-".repeat(position));
     }
+
 }
