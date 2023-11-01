@@ -26,4 +26,11 @@ class CarTest {
         Assertions.assertEquals(1, car.getPosition());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "def", "ghi"})
+    void 차이름_테스트(String input) {
+        Car car = new Car(input, new RandomGenerator());
+        Assertions.assertEquals(input, car.getCarName());
+    }
+
 }
