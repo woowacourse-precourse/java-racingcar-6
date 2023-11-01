@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RacingCar {
 
     private final String carName;
@@ -19,10 +21,13 @@ public class RacingCar {
     }
 
     public void moveForwordOrNot() {
-
+        if (canMoveForward()) {
+            this.currentPosition += 1;
+        }
     }
 
     private boolean canMoveForward() {
-        return false;
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        return randomNumber >= 4;
     }
 }
