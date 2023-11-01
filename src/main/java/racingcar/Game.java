@@ -16,13 +16,12 @@ public class Game {
         UserInputHandler inputHandler = new UserInputHandler();
 
         String[] carNames = inputHandler.inputNames();
+        ExceptionInput.checkNameLength(carNames);
 
-        if(!ExceptionInput.checkNameLength(carNames)) {
-            throw new IllegalArgumentException();
-        }
         createCars(carNames);
 
         int playNum = inputHandler.inputRacingNumber();
+        ExceptionInput.checkRacingNumber(playNum);
 
         System.out.println(Constants.PRINT_GROUND_RESULT);
 
