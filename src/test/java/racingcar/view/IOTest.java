@@ -1,9 +1,11 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class IOTest {
@@ -15,6 +17,11 @@ public abstract class IOTest {
         outputStreamCaptor = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStreamCaptor);
         System.setOut(printStream);
+    }
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
     }
 
     protected void allocateSystemIn(String input) {
