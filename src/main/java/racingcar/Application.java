@@ -25,7 +25,7 @@ public class Application {
         System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 
-    private static List<Car> inputCarNames() {
+    static List<Car> inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = Console.readLine().split(",");
         List<Car> cars = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Application {
         return cars;
     }
 
-    private static void validateCarNameFromEmpty(String carName) {
+    static void validateCarNameFromEmpty(String carName) {
         if (carName.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
