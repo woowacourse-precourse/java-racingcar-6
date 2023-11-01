@@ -13,6 +13,7 @@ public class OutputView {
     private final static String DELIMITER = " : ";
     private final static String CAR_POSITION = "-";
     private final static String WINNERS_DELIMITER = ", ";
+    private final static String RED_LIGHT = "빨간 불 입니다!! [이동하는 차량이 없습니다.] ";
 
     public void printGameResult(List<Car> list, Referee referee) {
 
@@ -60,7 +61,7 @@ public class OutputView {
     }
 
     public static String redLight() {
-        return "빨간 불 입니다...";
+        return RED_LIGHT;
     }
 }
 
