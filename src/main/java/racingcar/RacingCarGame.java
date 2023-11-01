@@ -69,8 +69,6 @@ public class RacingCarGame {
                 System.out.print(", ");
             }
         }
-
-        System.out.println();
     }
 
     public void printCarsLocation() {

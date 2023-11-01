@@ -114,6 +114,6 @@ class RacingCarGameTest {
 
         racingCarGame.printWinner();
 
-        Assertions.assertThat(out.toString()).isEqualTo("최종 우승자 : red, green\n");
+        Assertions.assertThat(out.toString()).isEqualTo("최종 우승자 : red, green");
     }
 }
