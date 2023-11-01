@@ -8,7 +8,7 @@ public class OutputView {
     private static final String FORWARD_SYMBOL = "-";
     private static final String GAME_RESULT = "실행결과";
     private static final String MVP = "최종 우승자 : ";
-    private static final String Comma = ", ";
+    private static final String COMMA = ", ";
 
     public static void printResult() {
         System.out.println();
@@ -16,7 +16,7 @@ public class OutputView {
     }
 
     public static void printMVP(List<String> mvpList) {
-        System.out.println(MVP + String.join(Comma, mvpList));
+        System.out.println(MVP + String.join(COMMA, mvpList));
     }
 
     public static void carPosition(int forward) {
