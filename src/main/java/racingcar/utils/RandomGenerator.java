@@ -1,7 +1,6 @@
 package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.enums.Common;
 
 /*
  * Car 랑 generateRandomNumber 는 관련이 없는거 같아서 나누었습니다.

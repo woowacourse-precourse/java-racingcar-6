@@ -1,9 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.enums.Common;
 import racingcar.testConstants.TestConstants;
 
 import static org.assertj.core.api.Assertions.assertThat;
