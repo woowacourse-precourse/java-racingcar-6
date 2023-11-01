@@ -38,15 +38,13 @@ public class Car {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof Car car))
-            return super.equals(obj);
+        if (!(obj instanceof Car car)) return super.equals(obj);
 
-        if (!name.equals(car.name))
-            return false;
+        if (!name.equals(car.name)) return false;
         return distance == car.distance;
     }
 
-    public static List<Car> parseCars(String string) throws IllegalArgumentException{
+    public static List<Car> parseCars(String string) throws IllegalArgumentException {
         String[] carNames = string.split(",");
         ArrayList<Car> list = new ArrayList<>();
 
