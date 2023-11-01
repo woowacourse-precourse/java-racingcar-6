@@ -35,7 +35,7 @@ public class GameView {
         return carList;
     }
 
-    public void printSlash(int num){
+    public void printDash(int num){
         for (int i=0;i<num;i++){
             System.out.print("-");
         }

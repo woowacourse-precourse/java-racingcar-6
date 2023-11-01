@@ -46,7 +46,7 @@ public class GameController {
                 car.setCount(count);
             }
             System.out.print(car.getName() + " : ");
-            view.printSlash(car.getCount());
+            view.printDash(car.getCount());
         }
         System.out.println(); //개행넣기.
     }
