@@ -36,7 +36,7 @@ public class OutputView {
 		return carPosition.toString();
 	}
 
-	public static void printRoundStatus(RaceStatus raceStatus) {
+	public static void printLapStatus(RaceStatus raceStatus) {
 		List<RacingCar> cars = raceStatus.getCars();
 		cars.forEach(car -> {
 			printMessage(car.getName() + " : " + printCarPosition(car.getPosition()));
