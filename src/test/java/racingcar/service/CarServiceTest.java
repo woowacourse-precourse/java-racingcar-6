@@ -12,7 +12,7 @@ class CarServiceTest {
 
     @Test
     @DisplayName("List에 담긴 차 이름들로 차 객체가 담긴 List가 생성된다.")
-    public void testRegisterCarList() {
+    void testRegisterCarList() {
         CarService carService = new CarService();
 
         List<String> carNameList = Arrays.asList("Car1", "Car2", "Car3");

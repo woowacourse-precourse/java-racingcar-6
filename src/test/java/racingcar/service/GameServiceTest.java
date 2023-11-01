@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.domain.Car.createCarByCarName;
 import static racingcar.domain.Game.createGame;
 
-import java.util.stream.Stream;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,12 +18,11 @@ import racingcar.domain.Game;
 import racingcar.dto.CarResult;
 
 class GameServiceTest {
-    private CarService carService;
     private GameService gameService;
 
     @BeforeEach
     void setup() {
-        carService = new CarService();
+        CarService carService = new CarService();
         gameService = new GameService(carService);
     }
 
