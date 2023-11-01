@@ -23,6 +23,7 @@ import racingcar.support.validator.TryCountValidator;
 
 public abstract class BasicGame implements Game {
 
+    private static final String CRLF = "";
 
     private final CarNameReader carNamesReader;
     private final TryCountReader tryCountReader;
@@ -113,6 +114,11 @@ public abstract class BasicGame implements Game {
             String position = getPositionPrint(DASH, positionResult);
             viewer.print(onRaceCar.getCarName(), position);
         }
+        divideRoundResult();
+    }
+
+    private void divideRoundResult() {
+        viewer.print(CRLF);
     }
 
     private String getPositionPrint(PrintType printType, Long count) {
