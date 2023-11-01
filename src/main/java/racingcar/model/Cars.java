@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -39,12 +38,13 @@ public class Cars {
     }
 
     public RacingResult race(final CarSpeedGenerator speedGenerator) {
-        final List<RaceScore> scores = new ArrayList<>();
+        moveForward(speedGenerator);
+        return RacingResult.from(List.copyOf(cars));
+    }
 
+    private void moveForward(final CarSpeedGenerator speedGenerator) {
         for (final Car car : cars) {
             car.moveForward(speedGenerator.generate());
-            scores.add(RaceScore.from(car));
         }
-        return RacingResult.from(scores);
     }
 }

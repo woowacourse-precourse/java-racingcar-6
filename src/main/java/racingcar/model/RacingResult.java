@@ -10,11 +10,20 @@ public class RacingResult {
 
     private final List<RaceScore> scores;
 
-    private RacingResult(final List<RaceScore> scores) {
-        this.scores = scores;
+    private RacingResult(final List<Car> scores) {
+        this.scores = mapCarsToScores(scores);
     }
 
-    public static RacingResult from(final List<RaceScore> scores) {
+    private List<RaceScore> mapCarsToScores(final List<Car> cars) {
+        final List<RaceScore> scores = new ArrayList<>();
+
+        for (final Car car : cars) {
+            scores.add(RaceScore.from(car));
+        }
+        return scores;
+    }
+
+    public static RacingResult from(final List<Car> scores) {
         return new RacingResult(scores);
     }
 
