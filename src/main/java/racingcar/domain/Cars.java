@@ -4,8 +4,8 @@ import static racingcar.domain.constant.CarConstant.INIT_POSITION;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.domain.dto.CarRacingResponse;
+import racingcar.domain.dto.CarStatus;
+import racingcar.domain.dto.CarsStatus;
 import racingcar.utill.NumberGenerator;
 
 public class Cars {
@@ -17,27 +17,25 @@ public class Cars {
         this.numberGenerator = numberGenerator;
     }
 
-    public List<CarRacingResponse> decisionCarsMove() {
-        List<CarRacingResponse> carsResponses = new ArrayList<>();
+    public CarsStatus decisionCarsMove() {
+        List<CarStatus> carsResponses = new ArrayList<>();
 
         for (Car car : cars) {
             int carPosition = car.move(numberGenerator.generateNumber());
             String carName = car.getName();
-            carsResponses.add(CarRacingResponse.of(carName, carPosition));
+            carsResponses.add(CarStatus.of(carName, carPosition));
         }
 
-        return carsResponses;
+        return CarsStatus.from(carsResponses);
     }
 
-    public String decisionWinner() {
-        return String.join(", ", findWinner());
-    }
-
-    private List<String> findWinner() {
-        return cars.stream()
+    public String findWinner() {
+        List<String> winners = cars.stream()
                 .filter(car -> car.isSamePosition(findMaxPosition()))
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
+
+        return String.join(", ", winners);
     }
 
     private int findMaxPosition() {

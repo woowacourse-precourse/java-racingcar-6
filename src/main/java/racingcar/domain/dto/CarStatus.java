@@ -1,16 +1,16 @@
 package racingcar.domain.dto;
 
-public class CarRacingResponse {
+public class CarStatus {
     private final String name;
     private final int position;
 
-    public CarRacingResponse(String name, int position) {
+    public CarStatus(String name, int position) {
         this.name = name;
         this.position = position;
     }
 
-    public static CarRacingResponse of(String carName, int carPosition) {
-        return new CarRacingResponse(carName, carPosition);
+    public static CarStatus of(String carName, int carPosition) {
+        return new CarStatus(carName, carPosition);
     }
 
     public String getName() {

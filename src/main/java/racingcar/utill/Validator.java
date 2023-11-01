@@ -8,9 +8,8 @@ import static racingcar.utill.constant.ExceptionConstant.NULL_INPUT_EXCEPTION_ME
 import static racingcar.utill.constant.ValidatorConstant.CAR_NAME_MAX_SIZE;
 import static racingcar.utill.constant.ValidatorConstant.NATURAL_NUMBER_PATTERN;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.regex.Matcher;
-import racingcar.domain.Car;
 
 public final class Validator {
 
@@ -20,13 +19,29 @@ public final class Validator {
         }
     }
 
-    public static void validateCarName(String carName) {
+    public static void validateCarsName(String carsName) {
+        String[] splitCarsName = carsName.split(",", -1);
+        for (String split : splitCarsName) {
+            validateCarName(split);
+        }
+        Validator.validateDuplicatedCarName(splitCarsName);
+    }
+
+    private static void validateCarName(String carName) {
         if (carName.isBlank()) {
             throw new IllegalArgumentException(BLANK_INPUT_EXCEPTION_MESSAGE);
         }
 
         if (carName.length() > CAR_NAME_MAX_SIZE) {
             throw new IllegalArgumentException(CAR_NAME_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private static void validateDuplicatedCarName(String[] carsName) {
+        Object[] noDuplicateCarsName = Arrays.stream(carsName).distinct().toArray();
+
+        if (noDuplicateCarsName.length != carsName.length) {
+            throw new IllegalArgumentException(DUPLICATE_NAME_EXCEPTION);
         }
     }
 
@@ -39,14 +54,6 @@ public final class Validator {
 
         if (!attemptNumberMatcher.matches()) {
             throw new IllegalArgumentException(ATTEMPT_NUMBER_EXCEPTION_MESSAGE);
-        }
-    }
-
-    public static void validateDuplicatedCarName(List<Car> carList) {
-        List<Car> noDuplicateList = carList.stream().distinct().toList();
-
-        if (carList.size() != noDuplicateList.size()) {
-            throw new IllegalArgumentException(DUPLICATE_NAME_EXCEPTION);
         }
     }
 }

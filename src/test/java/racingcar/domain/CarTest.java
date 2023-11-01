@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class CarTest {
 
     @Test
-    void stopOrMoveDecisionTest() {
+    void moveTest() {
         //given
         Car car = new Car("hoho");
         Position position = new Position();

@@ -2,14 +2,10 @@ package racingcar.utill;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.utill.Validator.validateAttemptNumber;
-import static racingcar.utill.Validator.validateCarName;
-import static racingcar.utill.Validator.validateDuplicatedCarName;
+import static racingcar.utill.Validator.validateCarsName;
 import static racingcar.utill.Validator.validateNullInput;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 
 class ValidatorTest {
 
@@ -23,16 +19,16 @@ class ValidatorTest {
     }
 
     @Test
-    void ValidateCarNameTest() {
+    void ValidateCarsNameTest() {
         //given
-        String blank1 = "";
-        String blank2 = " ";
+        String blank = "a,,";
+        String duplicate = "a,a,a,a,a,a,a";
         String sixLength = "aaaaaa";
 
         //when, then
-        assertThrows(IllegalArgumentException.class, () -> validateCarName(blank1));
-        assertThrows(IllegalArgumentException.class, () -> validateCarName(blank2));
-        assertThrows(IllegalArgumentException.class, () -> validateCarName(sixLength));
+        assertThrows(IllegalArgumentException.class, () -> validateCarsName(blank));
+        assertThrows(IllegalArgumentException.class, () -> validateCarsName(duplicate));
+        assertThrows(IllegalArgumentException.class, () -> validateCarsName(sixLength));
     }
 
     @Test
@@ -50,20 +46,5 @@ class ValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> validateAttemptNumber(floatNumber));
     }
 
-    @Test
-    void validateDuplicatedCarNameTest() {
-        //given
-        List<Car> testCarList = new ArrayList<>();
-        Car winnerCar = new Car("zizi");
-        winnerCar.move(5);
-        testCarList.add(winnerCar);
-        testCarList.add(new Car("hoho"));
-        testCarList.add(new Car("haha"));
-        testCarList.add(new Car("haha"));
-
-        //when, then
-        assertThrows(IllegalArgumentException.class, () -> validateDuplicatedCarName(testCarList));
-
-    }
 
 }
