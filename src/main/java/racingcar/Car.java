@@ -15,7 +15,7 @@ public class Car {
         return this.name;
     }
 
-    private void moveForward() {
+    public void moveForward() {
         if(Randoms.pickNumberInRange(0, 9) >= 4) {
             this.position += "-";
         }
