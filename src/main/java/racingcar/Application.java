@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -37,14 +39,28 @@ public class Application {
     }
 
     public static void game(){
-        int count1 = 0;
-        int count2 = 0;
-        int count3 = 0;
-
         String[] cars = Application.carName();
         int tryNum = Application.moveCount();
 
+        // 자동차의 수에 따라 count 배열을 초기화
+        int[] counts = new int[cars.length];
+
         System.out.println("실행 결과");
+        for (int j = 0; j < tryNum; j++){
+            moveCars(cars, counts);
+        }
+
+        int maxCount = Arrays.stream(counts).max().getAsInt();
+        List<String> winners = new ArrayList<>();
+
+        for (int i = 0; i < cars.length; i++){
+            if (counts[i] == maxCount){
+                winners.add(cars[i]);
+            }
+        }
+
+        System.out.println("최종 우승자: " + String.join(", ", winners));
+        /*
         for (int j = 0; j < tryNum; j ++){
             for (int i = 0; i < cars.length; i++) {
                 if (i == 0) {
@@ -74,7 +90,8 @@ public class Application {
                 }
             }
         }
-
+         */
+        /*
         if (count1 > count2){
             if (count1 > count3){
                 System.out.println("최종 우승자 : " + cars[0]);
@@ -100,5 +117,19 @@ public class Application {
                 System.out.println("최종 우승자 : " + cars[2]);
             }
         }
+
+         */
+    }
+    public static void moveCars(String[] cars, int[] counts){
+        for (int i = 0; i < cars.length; i++){
+            int randomNumber = Randoms.pickNumberInRange(0,9);
+            if (randomNumber < 4) {
+                System.out.println(cars[i] + " : " + "-".repeat(counts[i]));
+            } else {
+                counts[i] += 1;
+                System.out.println(cars[i] + " : " + "-".repeat(counts[i]));
+            }
+        }
+        System.out.println();
     }
 }
