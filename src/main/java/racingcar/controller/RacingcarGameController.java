@@ -29,16 +29,22 @@ public class RacingcarGameController {
     }
 
     private static void playRacingcarGame(String carChoiceInputMessage, int roundToRace) {
+        GameStatus gameStatus = PLAYING;
+
         RacingcarGameService racingcarGameService = new RacingcarGameServiceImpl();
         Cars cars = racingcarGameService.generateCarsToRace(carChoiceInputMessage);
 
         Printer.printResultHeadMessage();
 
         while (gameStatus.isGamePlaying()) {
-            RandomNumbers randomNumbers = new RandomNumbers(RandomNumberGenerator.generateRandomNumbers(cars.size()));
-            racingcarGameService.playOneRound(cars, randomNumbers);
-            PrintHandler.printResultOfGame(cars);
+            proceedEachRound(racingcarGameService, cars, gameStatus);
         }
+    }
+
+    private static void proceedEachRound(RacingcarGameService racingcarGameService, Cars cars, GameStatus gameStatus) {
+        RandomNumbers randomNumbers = new RandomNumbers(RandomNumberGenerator.generateRandomNumbers(cars.size()));
+        racingcarGameService.playOneRound(cars, randomNumbers);
+        PrintHandler.printResultOfGame(cars);
     }
 
 }
