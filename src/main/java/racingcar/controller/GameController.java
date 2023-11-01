@@ -13,8 +13,7 @@ public class GameController {
     private final User user = new User();
     private List<Car> cars;
 
-    public void startNewGame() {
-        Integer tryCount = user.getUserInputForTryCount();
+    public void run() {
         String[] carNames = user.getUserInputForCarNames();
 
         cars = CarCreator.createCars(carNames);
