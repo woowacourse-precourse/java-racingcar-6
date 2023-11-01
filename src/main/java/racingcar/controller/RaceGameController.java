@@ -14,6 +14,6 @@ public class RaceGameController {
     }
 
     public void play() {
-
+        inputView.getCarNameList();
     }
 }
