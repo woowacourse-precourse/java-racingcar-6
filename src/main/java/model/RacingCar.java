@@ -2,11 +2,11 @@ package model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Racingcar {
+public class RacingCar {
     private String name;
     private int position;
 
-    public Racingcar(String name) {
+    public RacingCar(String name) {
         this.name = name;
         this.position = 0;
     }
