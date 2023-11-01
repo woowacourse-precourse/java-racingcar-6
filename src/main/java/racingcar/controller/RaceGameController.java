@@ -24,6 +24,7 @@ public class RaceGameController {
                 .map(Car::new).toList();
         int roundTime = inputView.getRoundTime();
 
+        outputView.printResultMessage();
         while (roundTime-- > 0) {
             carList.forEach(car -> {
                 int randomNumber = RandomNumber.generateRandomNumber();
