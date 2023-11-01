@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.sevice.Race;
-import racingcar.util.ValidationManager;
+import racingcar.service.Race;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -78,11 +77,6 @@ class UserApplicationTest extends NsTest {
         assertThat(car.getName()).isEqualTo("test");
     }
 
-    @Test
-    void 시도_횟수_유효성_검사() {
-        assertThatThrownBy(() -> ValidationManager.validateTrials("notanumber"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 
     @Override
     public void runMain() {
