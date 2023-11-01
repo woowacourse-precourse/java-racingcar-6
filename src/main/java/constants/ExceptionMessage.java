@@ -1,6 +1,7 @@
 package constants;
 
 public class ExceptionMessage {
+
     // 이름 목록 입력 예외 메세지
     public final static String EMPTY_INPUT = "입력된 값이 없습니다.";
     public final static String ENDS_WITH_COMMA = "마지막이 쉼표로 끝납니다.";

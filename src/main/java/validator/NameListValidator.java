@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class NameListValidator {
-    public List<String> getValidatedValue(String nameListInput){
+
+    public List<String> getValidatedValue(String nameListInput) {
         validate(nameListInput);
         return splitAndTrim(nameListInput, Constants.NAME_DELIMITER);
     }
 
-    private void validate(String nameListInput){
+    private void validate(String nameListInput) {
         validateNotEmpty(nameListInput);
         validateNotEndsWithComma(nameListInput);
         validateContainsRepeatingCommas(nameListInput);
@@ -55,16 +56,16 @@ public class NameListValidator {
         }
     }
 
-    private void validateNameDuplication(List<String> names){
+    private void validateNameDuplication(List<String> names) {
         HashSet<String> nameSet = new HashSet<>();
-        for(String name : names){
-            if(!nameSet.add(name)){
+        for (String name : names) {
+            if (!nameSet.add(name)) {
                 throw new IllegalArgumentException(ExceptionMessage.DUPLICATED_NAME);
             }
         }
     }
 
-    public List<String> splitAndTrim(String input, String delimiter){
+    public List<String> splitAndTrim(String input, String delimiter) {
         return Arrays.stream(input.split(delimiter))
                 .map(String::trim)
                 .collect(Collectors.toList());

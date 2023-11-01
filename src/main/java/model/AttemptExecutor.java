@@ -1,12 +1,10 @@
 package model;
 
 import java.util.List;
-import view.OutputView;
 
 public class AttemptExecutor {
 
     private final AdvanceDecider advanceDecider = new AdvanceDecider();
-    private final OutputView outputView = new OutputView();
     private final RaceDto raceDto;
     private final List<String> carNames;
 

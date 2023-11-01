@@ -1,7 +1,6 @@
 package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashMap;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class AttemptExecutorTest {
 
     @Test
-    public void execute_한번_실행된_후에_전진_문자열이_0또는1만큼_늘어났나(){
+    public void execute_한번_실행된_후에_전진_문자열이_0또는1만큼_늘어났나() {
         HashMap<String, String> hs = new HashMap<>();
         hs.put("aa", "");
         hs.put("bb", "-");
@@ -18,7 +17,7 @@ class AttemptExecutorTest {
 
         attemptExecutor.execute();
 
-        assertThat(hs.get("aa").length()).isBetween(0,1);
-        assertThat(hs.get("bb").length()).isBetween(1,2);
+        assertThat(hs.get("aa").length()).isBetween(0, 1);
+        assertThat(hs.get("bb").length()).isBetween(1, 2);
     }
 }

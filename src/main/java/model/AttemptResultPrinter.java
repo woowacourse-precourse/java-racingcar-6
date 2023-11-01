@@ -4,11 +4,12 @@ import java.util.List;
 import view.OutputView;
 
 public class AttemptResultPrinter {
+
     private final RaceDto raceDto;
     private final OutputView outputView = new OutputView();
     private final List<String> carNames;
 
-    public AttemptResultPrinter(RaceDto raceDto){
+    public AttemptResultPrinter(RaceDto raceDto) {
         this.raceDto = raceDto;
         this.carNames = raceDto.getCarNameList();
     }

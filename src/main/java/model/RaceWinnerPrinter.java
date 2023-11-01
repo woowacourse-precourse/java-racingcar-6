@@ -11,7 +11,7 @@ public class RaceWinnerPrinter {
     private final OutputView outputView = new OutputView();
     private final RaceDto raceDto;
 
-    public RaceWinnerPrinter(RaceDto raceDto){
+    public RaceWinnerPrinter(RaceDto raceDto) {
         this.raceDto = raceDto;
     }
 
@@ -52,7 +52,7 @@ public class RaceWinnerPrinter {
         return winnerNames;
     }
 
-    private String format(List<String> winnerNames){
+    private String format(List<String> winnerNames) {
         return String.join(", ", winnerNames);
     }
 }

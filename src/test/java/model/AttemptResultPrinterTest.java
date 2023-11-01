@@ -1,7 +1,6 @@
 package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -15,7 +14,7 @@ class AttemptResultPrinterTest {
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
 
     @BeforeEach
-    void setUpStream(){
+    void setUpStream() {
         System.setOut(new PrintStream(output));
     }
 
@@ -25,7 +24,7 @@ class AttemptResultPrinterTest {
     }
 
     @Test
-    public void print_출력값이_정해진_형식을_맞추는지(){
+    public void print_출력값이_정해진_형식을_맞추는지() {
         HashMap<String, String> hs = new HashMap<>();
         hs.put("aa", "---");
         hs.put("bb", "--");
