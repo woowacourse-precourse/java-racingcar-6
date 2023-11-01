@@ -14,7 +14,7 @@ public class GameTest {
     private final static String SPLITTER = ",";
 
     @Test
-    public void 이름이_5글자가_넘어가는_경우_예외_발생() {
+    void 이름이_5글자가_넘어가는_경우_예외_발생() {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("A".repeat(MAX_NAME_LENGTH + 1));
@@ -24,7 +24,7 @@ public class GameTest {
     }
 
     @Test
-    public void 이름이_5글자_이하인_경우_정상적으로_자동차가_등록() {
+    void 이름이_5글자_이하인_경우_정상적으로_자동차가_등록() {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("A".repeat(MAX_NAME_LENGTH));
@@ -34,12 +34,19 @@ public class GameTest {
     }
 
     @Test
-    public void 이름이_공백인_경우_예외_발생() {
+    void 이름이_공백인_경우_예외_발생() {
         String blank = " ";
 
         List<String> splitStringBySplitter = Parser.splitStringBySplitter(blank, SPLITTER);
         for (String name : splitStringBySplitter) {
             assertThrows(IllegalArgumentException.class, () -> new Car(name));
         }
+    }
+
+    @Test
+    void 시도_횟수가_숫자가_아닌_경우_예외가_던져지는지() {
+        String invalidInput = "not_number";
+
+        assertThrows(IllegalArgumentException.class, () -> Parser.stringToInteger(invalidInput));
     }
 }
