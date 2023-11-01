@@ -14,7 +14,8 @@ public class MovementCondition {
     }
 
     public static MovementCondition generate() {
-        int generatedNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER.getValue(), MAX_RANDOM_NUMBER.getValue());
+        int generatedNumber = Randoms.pickNumberInRange
+                (MIN_RANDOM_NUMBER.getValue(), MAX_RANDOM_NUMBER.getValue());
         return new MovementCondition(generatedNumber);
     }
 
