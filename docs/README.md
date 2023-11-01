@@ -12,7 +12,12 @@
     - [ ] 숫자가 4 이상인 경우 전진 - ActionCars#goCar()
     - [ ] 숫자가 4 미만인 경우 정지 - ActionCars#stopCar()
 
-
+- [ ] 입력에 대한 출력. - InputView#printInputInformation()
+    - 차 이름 입력 안내문 - InputView#printCarNamesInformation()
+    - 회수 입력 안내문  - InputView#printGameChanceInformation()
+- [ ] 결과에 대한 출력. - OutputView#printResultInformation()
+    - 실행 결과 안내문 - OutputView#printInformation()
+    - 각 실행 결과 출력 - OutputView#printResultGame()
 
 ## 기능 요구 사항
 
