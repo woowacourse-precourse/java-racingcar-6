@@ -16,7 +16,7 @@ public class RacingGame {
 
     public String playGame(Attempt attempt) {
         String result = "";
-        for (int i = 0; i < attempt.getCount(); i++) {
+        for (int i = 0; i < attempt.getIterateCount(); i++) {
             result += playGameOneRound();
         }
         return result;

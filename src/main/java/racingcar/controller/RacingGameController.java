@@ -1,12 +1,10 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.RacingGame;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
-import racingcar.validation.AttemptValidator;
 import racingcar.validation.NameValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -15,16 +13,12 @@ public class RacingGameController {
 
     private NameValidator nameValidator;
     private CarNameMapper carNameMapper;
-    private AttemptValidator attemptValidator;
-    private AttemptMapper attemptMapper;
     private InputView inputView;
     private OutputView outputView;
 
     public RacingGameController() {
         this.nameValidator = new NameValidator();
         this.carNameMapper = new CarNameMapper();
-        this.attemptValidator = new AttemptValidator();
-        this.attemptMapper = new AttemptMapper();
         this.inputView = new InputView();
         this.outputView = new OutputView();
     }
@@ -35,8 +29,7 @@ public class RacingGameController {
         RacingGame game = makeCar(carNames);
 
         // input attempt event
-        String attempts = inputView.inputAttempts();
-        Attempt attempt = setAttempts(attempts);
+        Attempt attempt = Attempt.from(inputView.inputAttempts());
 
         // start event
         outputView.printResultMessage();
@@ -59,15 +52,6 @@ public class RacingGameController {
         RacingGame game = new RacingGame();
         game.init(carNameGroup);
         return game;
-    }
-
-    public Attempt setAttempts(String attemptStr) {
-        // validate
-        attemptValidator.validate(attemptStr);
-        // convert String to Attempt
-        Attempt attempt = attemptMapper.toAttempt(attemptStr);
-        // save attempts
-        return attempt;
     }
 
     public String determineWinner(RacingGame game) {
