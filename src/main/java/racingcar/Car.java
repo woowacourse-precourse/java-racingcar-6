@@ -19,15 +19,12 @@ public class Car {
         String[] carNameArray = getCarName().split(",");
         List <String> carNameList = new ArrayList<>();
         carNameList.addAll(Arrays.asList(carNameArray));
-        if(!isNameLength(carNameList)){
-            throw new IllegalArgumentException();
-        }
         return carNameList;
     }
     private String getCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        if(!isContainComma(input)){
+        if(!isContainComma(input) || !isNameLength(input)){
             throw new IllegalArgumentException();
         }
         return input;
@@ -38,13 +35,13 @@ public class Car {
             return true;
         }
     }
-    private boolean isNameLength(List<String> carNameList){
-        for(int i = 0; i < carNameList.size(); i++){
-            String length = carNameList.get(i);
-            if(length.length() < 4){
-                return true;
+    private boolean isNameLength(String input){
+        String[] carLength = input.split(",");
+        for(int i = 0; i < carLength.length; i++){
+            if(carLength[i].length() > 5){
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
