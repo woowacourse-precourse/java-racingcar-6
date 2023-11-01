@@ -136,7 +136,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_별_최대_위치_탐색_다수() {
+    void 자동차_최대_위치_탐색_다수() {
         String[] names = {
                 "abc", "def", "ghi"
         };
