@@ -38,40 +38,40 @@ public class InputView {
         return cars;
     }
 
-    public static void validInputBlank(String input){
+    private static void validInputBlank(String input){
         if(input.isBlank()) throw new IllegalArgumentException(BLANK_STRING);
     }
 
-    public static void validCarNameLength(ArrayList<String> cars) {
+    private static void validCarNameLength(ArrayList<String> cars) {
         for(String car : cars){
             if(car.length() > 5) throw new IllegalArgumentException(REQUIRE_LENGTH_UNDER_FIVE);
         }
     }
 
-    public static void validCarNameBlank(ArrayList<String> cars) {
+    private static void validCarNameBlank(ArrayList<String> cars) {
         for(String car : cars){
             if (car.contains(" ")) throw new IllegalArgumentException(REQUIRE_NOT_BLANK);
         }
     }
 
-    public static void validCarsDuplicate(ArrayList<String> cars){
+    private static void validCarsDuplicate(ArrayList<String> cars){
         HashSet<String> set = new HashSet<>(cars);
         if(set.size() != cars.size()) throw new IllegalArgumentException(REQUIRE_NOT_DUPLICATE);
     }
 
-    public static void validInputGameRound(String input) {
+    private static void validInputGameRound(String input) {
         validInputBlank(input);
         validInputInteger(input);
         validNotUnderZero(Integer.parseInt(input));
     }
 
-    public static void validInputInteger(String input){
+    private static void validInputInteger(String input){
         for(int i=0; i<input.length(); i++) {
             if(!Character.isDigit(input.charAt(i))) throw new IllegalArgumentException(REQUIRE_INTEGER_TYPE);
         }
     }
 
-    public static void validNotUnderZero(int num){
+    private static void validNotUnderZero(int num){
         if(num<=0) throw new IllegalArgumentException(REQUIRE_OVER_ONE);
     }
 }
