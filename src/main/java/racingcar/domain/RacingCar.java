@@ -4,6 +4,7 @@ public class RacingCar {
     private Integer countAdvance = 0;
     private final String NAME;
     private final String ROAD = "-";
+    private final String SEPARATOR = " : ";
 
     public RacingCar(String name) {
         this.NAME = name;
@@ -19,7 +20,11 @@ public class RacingCar {
         }
     }
 
-    public String getAdvancedRoad() {
+    private String getAdvancedRoad() {
         return ROAD.repeat(Math.max(0, countAdvance));
+    }
+
+    public String getRacingResult() {
+        return NAME + SEPARATOR + getAdvancedRoad();
     }
 }

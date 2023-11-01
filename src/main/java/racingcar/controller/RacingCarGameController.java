@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.RacingCar;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarGameController {
     /** Main properties */
@@ -59,6 +60,7 @@ public class RacingCarGameController {
     }
 
     private static void startRace() {
+        OutputView.printMsgResult();
         for (int i = 0; i < countGame; i++) {
             raceRoad();
         }
@@ -69,7 +71,9 @@ public class RacingCarGameController {
             Integer randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
 
             car.advance(randomNumber);
+            OutputView.printRacingResult(car.getRacingResult());
         }
+        System.out.println();
     }
 
     public static void startGame() {
