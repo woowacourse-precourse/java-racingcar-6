@@ -16,6 +16,12 @@ public class Application {
         return carNames;
     }
 
+    public static int readTryCount() {
+        System.out.println("시도할 회수");
+
+        return validateTryCount(Console.readLine().trim());
+    }
+
     public static List<RacingCar> registerRacingCars(List<String> carNames) {
         List<RacingCar> racingCars = new ArrayList<>(Collections.emptyList());
 
@@ -35,8 +41,17 @@ public class Application {
         }
     }
 
+    public static int validateTryCount(String tryCount) {
+        try {
+            return Integer.parseInt(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void main(String[] args) {
         List<String> carNames = readCarNameList();
         List<RacingCar> racingCars = registerRacingCars(carNames);
+        int tryCount = readTryCount();
     }
 }
