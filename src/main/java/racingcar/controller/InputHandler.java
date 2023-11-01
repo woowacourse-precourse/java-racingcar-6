@@ -2,14 +2,13 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.validator.InputValidator;
 
 public class InputHandler {
 
     public static List<String> parseCarName(String input) {
         List<String> carNames = new ArrayList<>();
-//        if (isValidInput()) {
-//            splitInput(carNames, input);
-//        }
+        InputValidator.validateName(input);
         splitInput(carNames, input);
 
         return carNames;
@@ -17,8 +16,7 @@ public class InputHandler {
 
     public static int triesCount(String input) {
         int tries = 0;
-
-        //validateInput();
+        InputValidator.validateNumber(input);
         tries = Integer.parseInt(input);
         return tries;
     }
