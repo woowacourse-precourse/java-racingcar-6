@@ -19,13 +19,13 @@ public class InputViewTest {
     @Test
     void 올바른_시도횟수_입력_테스트() {
         setSystemInToCustomInput("5");
-        assertThatNoException().isThrownBy(() -> InputView.getTrialNumber());
+        assertThatNoException().isThrownBy(InputView::getTrialNumber);
     }
 
     @Test
     void 올바른_자동차이름_입력_테스트() {
         setSystemInToCustomInput("song, jone , jason");
-        assertThatNoException().isThrownBy(() -> InputView.getCarsFromUser());
+        assertThatNoException().isThrownBy(InputView::getCarsFromUser);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class InputViewTest {
     @Test
     void 자동차이름_입력값_공백_예외처리_테스트() {
         setSystemInToCustomInput("song, , jason");
-        assertThatThrownBy(() -> InputView.getCarsFromUser()).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(InputView::getCarsFromUser).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
