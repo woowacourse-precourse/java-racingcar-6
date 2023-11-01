@@ -38,5 +38,6 @@ public class Game {
             printer.printBlankLine();
         }
         List<Car> winners = referee.judgeWinner(player.getCars());
+        printer.printWinnerResult(winners);
     }
 }
