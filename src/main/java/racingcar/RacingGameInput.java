@@ -11,6 +11,9 @@ public class RacingGameInput {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
+        if (cars.isBlank()){
+            throw new IllegalArgumentException("자동차의 이름을 입력하지 않았습니다.");
+        }
         List<String> carNameList = Arrays.asList(cars.split(","));
         for (String carName: carNameList) {
             if (carName.length() > 5) {
