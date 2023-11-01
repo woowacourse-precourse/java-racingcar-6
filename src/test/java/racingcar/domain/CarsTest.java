@@ -20,11 +20,11 @@ class CarsTest {
     @DisplayName("자동차가 하나도 존재하지 않는 경우 예외 발생")
     void validCarsTest() {
         List<Car> cars = List.of(
-                Car.of(CarName.from("a")),
-                Car.of(CarName.from("bb")),
-                Car.of(CarName.from("ccc")),
-                Car.of(CarName.from("dddd")),
-                Car.of(CarName.from("eeeee")));
+                Car.zeroPositionFrom("a"),
+                Car.zeroPositionFrom("bb"),
+                Car.zeroPositionFrom("ccc"),
+                Car.zeroPositionFrom("dddd"),
+                Car.zeroPositionFrom("eeeee"));
 
         // expected
         assertDoesNotThrow(() -> Cars.from(cars));

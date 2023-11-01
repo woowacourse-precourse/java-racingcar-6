@@ -16,7 +16,7 @@ class CarTest {
     @DisplayName("자동차 이름이 null인 경우 예외 발생")
     void carNameBlankExceptionTest(final String name) {
         // expected
-        assertThrows(IllegalArgumentException.class, () -> Car.of(CarName.from(name)));
+        assertThrows(IllegalArgumentException.class, () -> Car.zeroPositionFrom(name));
     }
 
     @Test
@@ -26,7 +26,7 @@ class CarTest {
         final String name = "car name test";
 
         // expected
-        assertThrows(IllegalArgumentException.class, () -> Car.of(CarName.from(name)));
+        assertThrows(IllegalArgumentException.class, () -> Car.zeroPositionFrom(name));
     }
 
     @ParameterizedTest
@@ -34,6 +34,6 @@ class CarTest {
     @DisplayName("올바른 이름인 경우 정상 동작")
     void validCarTest(final String name) {
         // expected
-        assertDoesNotThrow(() -> Car.of(CarName.from(name)));
+        assertDoesNotThrow(() -> Car.zeroPositionFrom(name));
     }
 }
