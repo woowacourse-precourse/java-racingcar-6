@@ -36,7 +36,7 @@ public class Car {
     }
 
     private String makePositionString(String string) {
-        for (int i = 0; i < position.getPosition(); i++) {
+        for (int i = 0; i < position.makeInt(); i++) {
             string += "-";
         }
         return string;
