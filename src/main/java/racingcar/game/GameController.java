@@ -10,6 +10,8 @@ import racingcar.view.ResultView;
 
 public class GameController {
     private static final Pattern NON_DIGIT = Pattern.compile("^(-|0|\\D)");
+    private static final String EMPTY_INPUT_MOVE_TRY_VALUE_MESSAGE = "이동 횟수가 입력되지 않았습니다.";
+    private static final String NON_DIGIT_MOVE_TRY_VALUE_MESSAGE = "이동 횟수는 숫자만 입력 가능합니다.";
 
     private GameController() {
     }
@@ -20,7 +22,7 @@ public class GameController {
         CarView.printCarCreateMessage();
         inputCarName();
         CarView.printCarMoveMessage();
-        moveCar(inputMoveCount());
+        printMoveResult(inputMoveCount());
         ResultView.printWinnerMessage(cars);
     }
 
@@ -42,17 +44,17 @@ public class GameController {
 
     private static void validateEmptyInputMoveCount(String inputMoveCount) {
         if (inputMoveCount.length() == 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(EMPTY_INPUT_MOVE_TRY_VALUE_MESSAGE);
         }
     }
 
     private static void validateDigitInputMoveCount(String inputMoveCount) {
         if (NON_DIGIT.matcher(inputMoveCount).find()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NON_DIGIT_MOVE_TRY_VALUE_MESSAGE);
         }
     }
 
-    private static void moveCar(int inputMoveCount) {
+    private static void printMoveResult(int inputMoveCount) {
         ResultView.printResultCoverMessage();
 
         for (int tryCount = 0; tryCount < inputMoveCount; tryCount++) {
