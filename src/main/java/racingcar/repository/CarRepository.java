@@ -18,6 +18,10 @@ public class CarRepository {
         Cars.add(new Car(carName));
     }
 
+    public void save(Car car) {
+        Cars.add(car);
+    }
+
     public List<Car> getCars() {
         return Cars;
     }

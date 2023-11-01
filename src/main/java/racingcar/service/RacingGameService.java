@@ -46,7 +46,6 @@ public class RacingGameService {
         }
 
     }
-
     public void proceedRace() {
         int round = roundRepository.getRound();
         List<Car> cars = carRepository.getCars();

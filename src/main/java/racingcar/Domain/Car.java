@@ -12,6 +12,11 @@ public class Car {
         this.displacement = "";
     }
 
+    public Car(String name, String displacement) {
+        this.name = name;
+        this.displacement = displacement;
+    }
+
     public void runRace() {
         OperationStatus nextMovement = decide_movement();
         if(nextMovement == OperationStatus.MOVEMENT) {
