@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.domain.data.Cars;
+import racingcar.domain.data.RoundCount;
 import racingcar.output.Output;
 
 public class RoundManager {

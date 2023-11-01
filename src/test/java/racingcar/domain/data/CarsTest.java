@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.data;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -11,6 +11,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import racingcar.domain.ForwardChecker;
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.RandomNumberGenerator;
 
 class CarsTest {
 

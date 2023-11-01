@@ -9,6 +9,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import racingcar.domain.data.CarName;
+import racingcar.domain.data.CarNames;
+import racingcar.domain.data.Cars;
+import racingcar.domain.data.Winners;
 
 class WinnerPickerTest {
 

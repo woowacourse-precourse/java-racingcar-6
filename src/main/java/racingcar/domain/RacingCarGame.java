@@ -1,5 +1,9 @@
 package racingcar.domain;
 
+import racingcar.domain.data.CarNames;
+import racingcar.domain.data.Cars;
+import racingcar.domain.data.RoundCount;
+import racingcar.domain.data.Winners;
 import racingcar.input.Input;
 import racingcar.input.InputParser;
 import racingcar.input.InputValidator;
@@ -40,7 +44,7 @@ public class RacingCarGame {
 
     private void runRounds(Cars cars, RoundCount roundCount) {
         output.printEnter();
-        output.print("실행결과");
+        output.print("실행 결과");
         RoundManager roundManager = new RoundManager(cars, roundCount, new RandomNumberGenerator(), output);
         roundManager.runRounds();
     }

@@ -1,4 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.data;
+
+import racingcar.constants.Message;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -25,7 +27,7 @@ public class CarNames {
 
     private void validateCarNames(final List<CarName> names) {
         if (hasDuplicates(names)) {
-            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+            throw new IllegalArgumentException(Message.DUPLICATED_CAR_NAME);
         }
     }
 

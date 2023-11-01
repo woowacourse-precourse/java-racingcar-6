@@ -1,5 +1,10 @@
 package racingcar.domain;
 
+import racingcar.domain.data.Car;
+import racingcar.domain.data.CarNames;
+import racingcar.domain.data.Cars;
+import racingcar.domain.data.Winners;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

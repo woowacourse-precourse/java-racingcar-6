@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.data;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -28,6 +28,6 @@ class CarNameTest {
     void 유효한_자동차_이름_생성() {
         assertThatThrownBy(() -> CarName.from(LONG_CAR_NAME))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름이 5자를 초과입니다.");
+                .hasMessageContaining("자동차 이름이 5자를 초과합니다.");
     }
 }

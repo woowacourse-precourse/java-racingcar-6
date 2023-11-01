@@ -1,5 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.data;
 
+import racingcar.constants.Message;
 import java.util.Objects;
 
 public class CarName {
@@ -17,15 +18,15 @@ public class CarName {
 
     private void validateName(final String name) {
         if (name == null) {
-            throw new IllegalArgumentException("자동차 이름이 잘못되었습니다.");
+            throw new IllegalArgumentException(Message.INVALID_CAR_NAME);
         }
 
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름이 잘못되었습니다.");
+            throw new IllegalArgumentException(Message.INVALID_CAR_NAME);
         }
 
         if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름이 5자를 초과입니다.");
+            throw new IllegalArgumentException(Message.OVER_LENGTH_CAR_NAME);
         }
     }
 

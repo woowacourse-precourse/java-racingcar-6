@@ -5,6 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.data.Car;
+import racingcar.domain.data.CarNames;
+import racingcar.domain.data.Cars;
+import racingcar.domain.data.RoundCount;
 import racingcar.output.Output;
 
 class RoundManagerTest {

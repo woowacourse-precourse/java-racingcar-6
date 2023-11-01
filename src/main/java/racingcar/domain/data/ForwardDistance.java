@@ -1,11 +1,13 @@
-package racingcar.domain;
+package racingcar.domain.data;
+
+import racingcar.constants.GameOption;
 
 public class ForwardDistance {
 
     private int distance;
 
     public ForwardDistance() {
-        this.distance = 0;
+        this.distance = GameOption.START_FORWARD_DISTANCE;
     }
 
     public void increase() {

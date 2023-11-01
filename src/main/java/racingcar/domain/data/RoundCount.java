@@ -1,4 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.data;
+
+import racingcar.constants.Message;
 
 public class RoundCount {
     private final int roundCount;
@@ -15,11 +17,11 @@ public class RoundCount {
         try {
             int count = Integer.parseInt(roundCount);
             if (count <= 0) {
-                throw new IllegalArgumentException("라운드 횟수는 1 이상이어야 합니다.");
+                throw new IllegalArgumentException(Message.ROUND_COUNT_AT_LEAST_ONE);
             }
             return count;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("라운드 횟수가 숫자가 아닙니다.");
+            throw new IllegalArgumentException(Message.ROUND_COUNT_NOT_NUMBER);
         }
     }
 }

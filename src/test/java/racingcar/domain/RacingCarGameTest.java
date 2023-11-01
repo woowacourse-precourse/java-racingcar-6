@@ -1,22 +1,21 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.mockStatic;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.mockito.MockedStatic;
 import racingcar.input.Input;
 import racingcar.output.Output;
-
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.mockStatic;
+
 
 class RacingCarGameTest {
 
@@ -53,7 +52,7 @@ class RacingCarGameTest {
         String printedOutput = getPrintedOutput();
 
         assertThat(printedOutput)
-                .contains("실행결과", "pobi : ", "wooni : ", "jun : -", "pobi : ", "wooni : -", "jun : --", "최종 우승자 : jun");
+                .contains("실행 결과", "pobi : ", "wooni : ", "jun : -", "pobi : ", "wooni : -", "jun : --", "최종 우승자 : jun");
     }
 
     private void setInput(String userInput) {

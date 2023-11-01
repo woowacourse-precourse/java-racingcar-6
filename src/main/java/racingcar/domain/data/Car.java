@@ -1,4 +1,7 @@
-package racingcar.domain;
+package racingcar.domain.data;
+
+import racingcar.domain.ForwardChecker;
+import racingcar.domain.NumberGenerator;
 
 public class Car implements Comparable<Car> {
 

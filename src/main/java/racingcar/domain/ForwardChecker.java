@@ -1,7 +1,9 @@
 package racingcar.domain;
 
+import racingcar.constants.GameOption;
+
 public class ForwardChecker {
     public Boolean checkIfForward(int number) {
-        return number >= 4;
+        return number >= GameOption.FORWARD_THRESHOLD;
     }
 }
