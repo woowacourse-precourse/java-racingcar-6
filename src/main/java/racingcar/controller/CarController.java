@@ -1,8 +1,14 @@
-package racingcar;
+package racingcar.controller;
 
-import constant.UserResponeMessage;
+import racingcar.View.Output;
+import racingcar.dto.CarNameRequst;
+import racingcar.model.Car;
+import racingcar.util.NumberUtil;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CarController {
@@ -13,40 +19,37 @@ public class CarController {
         this.operatedCars = new ArrayList<Car>();
     }
 
-    public void initializeOperatedCars(String[] carNames){
+    public void initializeOperatedCars(List<CarNameRequst> carNames){
         this.operatedCars = createCars(carNames);
     }
 
-    public ArrayList<Car> createCars(String[] names){
-        ArrayList<Car> newCars = new ArrayList<>();
-        ArrayList<String> existNames = this.getNames();
+    public ArrayList<Car> createCars(List<CarNameRequst> names){
 
-        for(String name : names){
-            if(existNames.contains(name) || getNames(newCars).contains(name)){
+        Set<String> uniqueNames = new HashSet<>();
+        List<String> existNames = this.getNames();
+        List<Car> newCars = new ArrayList<>();
+
+        for (CarNameRequst nameRequest : names) {
+            String name = nameRequest.getName();
+            if (existNames.contains(name) || uniqueNames.contains(name)) {
                 throw new IllegalArgumentException("중복된 이름은 추가할 수 없습니다.");
             }
-            Car car = new Car(name);
-            newCars.add(car);
+            uniqueNames.add(name);
+            newCars.add(new Car(name));
         }
-        return newCars;
+
+        return (ArrayList<Car>) newCars;
     }
 
-    public void grantForwardChanceForCars(){
+    public void round(){
         for(Car car : this.operatedCars){
             car.tryForwardChance();
         }
-    }
-
-    public void printRoundResult(){
-        for(Car car : this.operatedCars){
-            car.printForawrdSituation();
-        }
-        System.out.println();
+        Output.printRoundResult(this.operatedCars);
     }
 
     public void determineWinner(){
-        Judge judge = new Judge();
-        int maxValue = judge.getMaximumNum(getOperatedCarPositions());
+        int maxValue = NumberUtil.getMaximumNum(getOperatedCarPositions());
         ArrayList<Car> winners = getNameOfWinners(maxValue);
         printWinners(winners);
     }
@@ -76,23 +79,13 @@ public class CarController {
     }
 
     private void printWinners(ArrayList<Car> winners){
-        System.out.print(UserResponeMessage.FINAL_WINNER_MESSAGE);
+        Output.printFinalWinner();
         if(winners.size() == 1){
-            printSingleWinner(winners.get(0));
+            Output.printSingleWinner(winners.get(0));
         }
         else{
-            printMultiWinner(winners);
+            Output.printMultiWinner(winners);
         }
     }
 
-    private void printSingleWinner(Car winner){
-        System.out.print(winner.getName());
-    }
-
-    private void printMultiWinner(ArrayList<Car> winners){
-        for(int i=0; i<winners.size() -1; i++){
-            System.out.print(winners.get(i).getName()+", ");
-        }
-        System.out.print(winners.get(winners.size() -1).getName());
-    }
 }

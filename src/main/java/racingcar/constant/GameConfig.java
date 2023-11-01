@@ -1,4 +1,4 @@
-package constant;
+package racingcar.constant;
 
 public enum GameConfig {
     CAR_NAME(5, ",");

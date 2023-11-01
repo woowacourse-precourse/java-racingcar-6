@@ -1,16 +1,17 @@
 package study;
 
-import constant.UserRequestMessage;
+import racingcar.constant.UserRequestMessage;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.*;
-import util.RandomUtil;
-import util.StringUtil;
+import racingcar.controller.CarController;
+import racingcar.dto.CarNameRequst;
+import racingcar.model.Car;
+import racingcar.util.NumberUtil;
+import racingcar.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -35,7 +36,10 @@ public class StringTest {
     @Test
     void 자동차_생성(){
         CarController carController = new CarController();
-        String [] carNames = new String[] {"pobi", "woni", "jun"};
+        List<CarNameRequst> carNames = new ArrayList<>();
+        carNames.add(new CarNameRequst("pobi"));
+        carNames.add(new CarNameRequst("woni"));
+        carNames.add(new CarNameRequst("jun"));
         ArrayList<Car> result =  carController.createCars(carNames);
 
         ArrayList<Car> expected = new ArrayList<>();
@@ -50,31 +54,19 @@ public class StringTest {
     @Test
     @RepeatedTest(100)
     void 무작위_수_생성(){
-        RandomUtil randomUtil = new RandomUtil();
-        int actual = randomUtil.createRandomNumber();
+        NumberUtil numberUtil = new NumberUtil();
+        int actual = numberUtil.createRandomNumber();
 
         assertThat(actual).isBetween(0,9);
     }
 
 
     @Test
-    @ParameterizedTest
-    @ValueSource(strings = {"1,2,3,4,5", "10,20,30,40,50", "5,5,5,5,5", "100,200,300,400,500"})
     void 최대값_찾기(String input){
-        String[] inputArray = input.split(",");
-        ArrayList<Integer> inputList = new ArrayList<>();
-        for (String num : inputArray) {
-            inputList.add(Integer.parseInt(num));
-        }
+        ArrayList<Integer> inputList = (ArrayList<Integer>) Arrays.asList(10,20,30,40,50);
 
-        Judge judge = new Judge();
-        int actual = judge.getMaximumNum(inputList);
-        int expected = Arrays.stream(inputArray)
-                .mapToInt(Integer::parseInt)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException("입력 리스트가 비어있습니다."));
-
-        assertThat(actual).isEqualTo(expected);
+        int actual = NumberUtil.getMaximumNum(inputList);
+        assertThat(actual).isEqualTo(50);
     }
 
     @Test

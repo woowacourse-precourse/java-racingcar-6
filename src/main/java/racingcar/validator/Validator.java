@@ -1,24 +1,27 @@
-package racingcar;
+package racingcar.validator;
 
-public class InputValidator {
+public class Validator {
 
-    public void validateLength(String input, int limitLength){
+    public static boolean validateLength(String input, int limitLength){
         if(input.length() > limitLength){
             throw new IllegalArgumentException("제한 길이를 초과하였습니다.");
         }
+        return true;
     }
 
-    public void validateNull(String input){
+    public static boolean validateNull(String input){
         if(input.equals("") || input == null){
             throw new IllegalArgumentException("입력하지 않았습니다.");
         }
+        return true;
     }
 
-    public void validNumberic(String input){
+    public static boolean validNumberic(String input){
         try{
             Integer.parseInt(input);
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("입력값이 숫자가 아닙니다.");
         }
+        return true;
     }
 }

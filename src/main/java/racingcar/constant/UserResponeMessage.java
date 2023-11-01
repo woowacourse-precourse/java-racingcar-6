@@ -1,4 +1,4 @@
-package constant;
+package racingcar.constant;
 
 public enum UserResponeMessage {
     EXECUTION_RESULT_MESSAGE("실행 결과"),

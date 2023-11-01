@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.model;
 
-import util.RandomUtil;
+import racingcar.util.NumberUtil;
 
 public class Car {
     private String name;
@@ -24,7 +24,7 @@ public class Car {
     }
 
     public void tryForwardChance(){
-        int randomNumber = RandomUtil.createRandomNumber();
+        int randomNumber = NumberUtil.createRandomNumber();
         if(randomNumber >= 4){
             this.forward();
         }

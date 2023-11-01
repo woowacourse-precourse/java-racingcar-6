@@ -1,4 +1,4 @@
-package util;
+package racingcar.util;
 
 public class StringUtil {
 
