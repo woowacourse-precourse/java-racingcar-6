@@ -61,7 +61,7 @@ public class RacingCarService {
         System.out.println(FINAL_WINNERS + " : " + winners);
     }
 
-    private List<String> findWinners(List<RacingCar> racingCars, List<String> finalWinners, int maxDistance) {
+    public List<String> findWinners(List<RacingCar> racingCars, List<String> finalWinners, int maxDistance) {
         for (RacingCar racingCar : racingCars) {
             int racingCarLocation = racingCar.getCurrentLocation().length();
             if (maxDistance == racingCarLocation) {
@@ -71,7 +71,7 @@ public class RacingCarService {
         return finalWinners;
     }
 
-    private int findMaxDistance(List<RacingCar> racingCars) {
+    public int findMaxDistance(List<RacingCar> racingCars) {
         int maxDistance = START_NUMBER;
         for (RacingCar racingCar : racingCars) {
             int racingCarLocation = racingCar.getCurrentLocation().length();
