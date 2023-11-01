@@ -1,5 +1,7 @@
 package model;
 
+import static model.ErrorMessage.DUPLICATED_CAR_NAME;
+
 import model.dto.MoveResult;
 import java.util.Comparator;
 import java.util.List;
@@ -48,7 +50,7 @@ public class Cars {
             .count();
 
         if (distinctSize != values.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(DUPLICATED_CAR_NAME.getMessage());
         }
     }
 
