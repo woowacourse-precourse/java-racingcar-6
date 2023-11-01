@@ -21,5 +21,5 @@
 ## 예외 처리
 | 조건 | 예외 | 출력 |
 | --- | --- | --- |
-| 자동차 이름이 1글자 미만이다 | IllegalArgumentException | 자동차의 이름은 최소 1글자 이상 입력해주세요 |
+| 자동차 이름이 1글자 미만이다 | IllegalArgumentException | 자동차의 이름을 1글자 이상 입력해주세요 |
 | 자동차의 이름이 5글자를 초과한다 | IllegalArgumentException | 자동차의 이름을 5글자 이하로 입력해주세요 |
