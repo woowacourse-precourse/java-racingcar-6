@@ -6,7 +6,7 @@ import racingcar.utility.TypeConverter;
 import racingcar.view.InputHandler;
 import racingcar.view.Printer;
 
-public class RacingcarController {
+public class RacingcarGameController {
 
     public static void startRacingcarGame() {
         Printer.printCarChoiceMessage();
