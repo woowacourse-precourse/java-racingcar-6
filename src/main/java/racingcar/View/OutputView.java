@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.View;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -13,7 +13,6 @@ public class OutputView {
         System.out.println(GAME_RESULT_MESSAGE);
         for (int i=0 ; i < roundTrialNum; i++) {
             printCarsResult(cars);
-            System.out.println("/n");
         }
     }
 
@@ -25,12 +24,13 @@ public class OutputView {
         }
     }
 
-    public String printCarResult(String name, int position) {
+    public void printCarResult(String name, int position) {
         StringBuilder sb = new StringBuilder(name + " : ");
         for (int i = 0; i < position; i++) {
             sb.append("-");
         }
-    return sb.toString();}
+        System.out.println(sb.toString());
+    }
 
     public void printWinners(ArrayList<String> winners) {
         System.out.print(WINNER_GUIDE_MESSAGE + winners.stream()
