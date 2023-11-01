@@ -49,4 +49,9 @@ public class Refree {
         }
     }
 
+    public void printWinners() {
+        String winnersName = String.join(",",winners);
+        System.out.println(winnersName);
+    }
+
 }
