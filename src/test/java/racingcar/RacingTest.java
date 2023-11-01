@@ -73,6 +73,33 @@ public class RacingTest {
             Application.insertNumberOfMoves(0);
         });
     }
+    @Test
+    public void testGetWinner() {
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        car1.move(5);
+        car2.move(3);
+        List<Car> cars = Arrays.asList(car1, car2);
 
+        List<String> winners = Application.getWinner(cars);
+
+        assertEquals(1, winners.size());
+        assertTrue(winners.contains("car1"));
+    }
+
+    @Test
+    public void testGetWinner_MultipleWinners() {
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        car1.move(3);
+        car2.move(3);
+        List<Car> cars = Arrays.asList(car1, car2);
+
+        List<String> winners = Application.getWinner(cars);
+
+        assertEquals(2, winners.size());
+        assertTrue(winners.contains("car1"));
+        assertTrue(winners.contains("car2"));
+    }
 
 }
