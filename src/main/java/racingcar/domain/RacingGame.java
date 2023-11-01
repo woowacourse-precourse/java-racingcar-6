@@ -12,4 +12,9 @@ public class RacingGame {
         this.cars = cars;
         this.numberOfRepetition = numberOfRepetition;
     }
+    private void moveOrStop() {
+        for (Car car : cars) {
+            car.move(Randoms.pickNumberInRange(0, 9));
+        }
+    }
 }
