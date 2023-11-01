@@ -17,7 +17,7 @@ public class UserInput {
         return List.of(input.split(","));
     }
 
-    public static int inputNumberOfGames() {
+    public static int inputCountOfGames() {
         System.out.println(INPUT_NUMBER_MESSAGE);
         String input = Console.readLine();
 

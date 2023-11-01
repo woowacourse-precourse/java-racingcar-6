@@ -54,7 +54,7 @@ public class RacingGame {
 
     private void gameLogic() {
         setCars(UserInput.inputNames());
-        count = UserInput.inputNumberOfGames();
+        count = UserInput.inputCountOfGames();
         System.out.println(RESULT_OF_GAME_MESSAGE);
         while (count > END_OF_GAME) {
             moveCar();
