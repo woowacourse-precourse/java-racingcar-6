@@ -7,7 +7,7 @@ import java.util.List;
 public final class InputView extends ConsoleWriter {
 
     public List<String> readParticipantCarNames() {
-        this.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        PrintMessage.PRINT_GAME_START.invoke(this::println);
 
         final var input = Console.readLine();
 
@@ -15,7 +15,7 @@ public final class InputView extends ConsoleWriter {
     }
 
     public int readExtractLapCount() {
-        this.println("시도할 회수는 몇회인가요?");
+        PrintMessage.PRINT_TRY_COUNT.invoke(this::println);
 
         return convertStringToInt(Console.readLine());
     }
