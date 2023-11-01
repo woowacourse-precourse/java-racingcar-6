@@ -17,11 +17,13 @@ public class RacingGameController {
 
     public void play() {
         String[] carNames = InputView.getCarNames();
-        validateCarNames(carNames);
+        validateCarNameLength(carNames);
+        validateCarNameDuplicate(carNames);
         List<Car> carList = createCars(carNames);
 
         String tryCount = InputView.getTryCount();
-        validateTryCount(tryCount);
+        validateTryCountNumber(tryCount);
+        validateTryCountMin(tryCount);
         int tryCountNumber = Integer.parseInt(tryCount);
 
         startRace(carList, tryCountNumber);
@@ -49,17 +51,6 @@ public class RacingGameController {
             cars.add(new Car(carName));
         }
         return cars;
-    }
-
-
-    public void validateCarNames(String[] carNames) {
-        validateCarNameLength(carNames);
-        validateCarNameDuplicate(carNames);
-    }
-
-    public void validateTryCount(String tryCount) {
-        validateTryCountNumber(tryCount);
-        validateTryCountMin(tryCount);
     }
 
 }
