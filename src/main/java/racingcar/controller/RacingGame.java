@@ -84,9 +84,4 @@ public class RacingGame implements Game {
 
         gameOutput.print(MESSAGES.END2 + " : "+ String.join(", ", winnerNames));
     }
-
-    @Override
-    public boolean isGameEnd() {
-        return stage.equals(STAGES.END);
-    }
 }
