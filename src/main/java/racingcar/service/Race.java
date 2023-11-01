@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.console.Input;
 import racingcar.entity.Car;
 
@@ -28,6 +29,16 @@ public class Race {
     }
 
     private void startRace(int rounds) {
-
+        for (int i = 0; i < rounds; i++) {
+            moveCars();
+        }
     }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            car.move(randomNumber);
+        }
+    }
+
 }
