@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 import racingcar.utils.PrintGuide;
 
 public class Game {
@@ -26,16 +27,18 @@ public class Game {
         printGuide.printInputCount();
         countInput = Integer.parseInt(Console.readLine());
         printGuide.printResult();
-        game(carsList, countInput);
 
+        printGuide.printWinner(game(carsList, countInput));
     }
 
-    private void game(List<Car> cars, int count){
+    private Winner game(List<Car> cars, int count){
         while(count-- > 0){
             cars.stream().forEach(car -> race(car));
             cars.stream().forEach(car -> result(car));
             System.out.println();
         }
+        Winner winner = findWinner(carsList);
+        return winner;
     }
 
     private void race(Car car){
@@ -48,5 +51,21 @@ public class Game {
 
     private void result(Car car){
         printGuide.printRaceRound(car);
+    }
+
+    private Winner findWinner(List<Car> carsList) {
+        int highestScore = carsList.stream()
+                .mapToInt(Car::getScore)
+                .max()
+                .orElse(0);
+
+        ArrayList<String> winnerNames = new ArrayList<>();
+        for (Car car : carsList) {
+            if (car.getScore() == highestScore) {
+                winnerNames.add(car.getName());
+            }
+        }
+
+        return new Winner(winnerNames, highestScore);
     }
 }
