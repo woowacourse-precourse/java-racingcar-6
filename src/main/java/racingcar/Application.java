@@ -2,11 +2,11 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import modules.racingcarModules;
+import views.InputViews;
 
 public class Application {
   public static void main(String[] args) {
-    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String names = Console.readLine();
+    String names = InputViews.read_car_names();
     String[] names_list = names.split(",");
     racingcarModules.checked_car_name(names_list);
 
