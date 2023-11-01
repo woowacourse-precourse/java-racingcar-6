@@ -6,6 +6,16 @@ import static racingcar.util.Constants.MIN_NAME_SIZE;
 public class Car {
     // 전진 후진
     String name;
+    int forward = 0;
+    int stop = 0;
+
+    public void increaseForward(){
+        forward++;
+    }
+
+    public void increaseStop(){
+        stop++;
+    }
 
     public void createCar(String name){
         validateSize(name);
@@ -20,5 +30,11 @@ public class Car {
 
     public String getName(){
         return name;
+    }
+    public int getForward(){
+        return forward;
+    }
+    public int getStop(){
+        return stop;
     }
 }

@@ -40,11 +40,28 @@ class CarServiceTest {
 
         //when
         final List<Car> cars = carService.setCars(input);
-
-        //then
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
+
+        //then
         assertThat(car1.getName()).isEqualTo("pobi");
         assertThat(car2.getName()).isEqualTo("woni");
+    }
+
+    @Test
+    void 차_전진_후진_테스트(){
+        //given
+        final String input = "pobi,woni";
+
+        //when
+        final List<Car> cars = carService.setCars(input);
+        Car car1 = cars.get(0);
+        Car car2 = cars.get(1);
+        car1.increaseForward();
+        car2.increaseStop();
+
+        //then
+        assertThat(car1.getForward()).isEqualTo(1);
+        assertThat(car2.getStop()).isEqualTo(1);
     }
 }
