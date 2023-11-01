@@ -20,4 +20,17 @@ public class RacingTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    @DisplayName("initParticipants 이름 길이 부족 실패 테스트")
+    void initParticipants_name_length_lack_fail() {
+
+        Racing racing = new Racing();
+        String[] carNames = {"", "레옹", "인텔리제이"};
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> racing.initParticipants(carNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
