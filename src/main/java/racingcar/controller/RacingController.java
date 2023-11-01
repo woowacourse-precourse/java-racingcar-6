@@ -36,4 +36,8 @@ public class RacingController {
         List<String> carNames = InputMessage.printCarNameInputMessage();
         racingService.initializeGame(carNames);
     }
+
+    public void cleanUp() {
+        racingService.removeAll();
+    }
 }

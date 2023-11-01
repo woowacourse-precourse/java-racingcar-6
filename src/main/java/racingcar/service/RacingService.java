@@ -60,4 +60,9 @@ public class RacingService {
     private boolean isBiggerThanFour(int number) {
         return number >= MAX_BIGGER_NUMBER;
     }
+
+    public void removeAll() {
+        resultRepository.clean();
+        carRepository.clean();
+    }
 }
