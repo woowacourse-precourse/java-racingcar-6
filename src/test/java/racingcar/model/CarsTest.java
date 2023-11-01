@@ -11,14 +11,14 @@ import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 
 class CarsTest {
-    List<Car> carList;
     Cars cars;
     NumberGenerator numberGenerator;
 
     @BeforeEach
     void setUp() {
-         carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
-         cars = new Cars(carList);
+         cars = new Cars(
+                 List.of(new Car("pobi"), new Car("woni"), new Car("jun"))
+         );
         numberGenerator = new RandomNumberGenerator();
     }
 
