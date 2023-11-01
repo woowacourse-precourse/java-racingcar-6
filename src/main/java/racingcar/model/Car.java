@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private static final int MOVE_FORWARD_CRITERION = 4;
@@ -13,6 +15,9 @@ public class Car {
     }
 
     public void moveForwardRandomly() {
+        if (Randoms.pickNumberInRange(0, 9) >= MOVE_FORWARD_CRITERION) {
+            this.position++;
+        }
     }
 
     public boolean isPositionGreaterThan(int num) {
