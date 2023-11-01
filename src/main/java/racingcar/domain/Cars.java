@@ -19,6 +19,9 @@ public class Cars {
     }
 
     private static List<Car> parseInput(String input) {
+        if (input.contains(",,")) {
+            throw new IllegalArgumentException("자동차 이름은 빈칸일 수 없음.");
+        }
         String[] names = input.split(",");
         List<Car> carList = new ArrayList<>();
         Set<String> nameSet = new HashSet<>();
