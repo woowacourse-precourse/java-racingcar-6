@@ -1,13 +1,15 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.common.Constants;
 
 public class NameSeparator {
 
     public static List<String> separateNamesByComma(String inputNames) {
-        return null;
+        Validator.validateInputNames(inputNames);
+        return Arrays.stream(inputNames.split(Constants.COMMA))
+                .toList();
     }
 
 }
