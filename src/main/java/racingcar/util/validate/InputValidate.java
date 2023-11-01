@@ -14,6 +14,7 @@ public class InputValidate {
 
     static public int validateInputNumberFormat(String input) {
         try {
+
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INPUT_VALID_NUMBER);
@@ -21,7 +22,7 @@ public class InputValidate {
     }
 
     static public void validateInputNumberRange(int number) {
-        if (number < MINIMUM_NUMBER_VALUE) {
+        if (number < MINIMUM_NUMBER_VALUE || number > MAXIMUM_NUMBER_VALUE) {
             throw new IllegalArgumentException(INPUT_VALID_NUMBER_RANGE);
         }
     }
