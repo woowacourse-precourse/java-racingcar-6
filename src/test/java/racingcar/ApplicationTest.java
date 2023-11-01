@@ -40,7 +40,7 @@ class ApplicationTest extends NsTest {
     void 입력받은_자동차_이름_구분_테스트() {
         String input = "pobi,woni,jun";
         assertThat(Application.getCarNamesFromInput(input)).isEqualTo(
-                List.of("pobi", "woni", "jun"));
+                Map.of("pobi", 0, "woni", 0, "jun", 0));
     }
 
     @Test
@@ -69,6 +69,28 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, STOP
         );
 
+    }
+
+    @Test
+    void 단독_우승자_테스트(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "3");
+                    assertThat(output()).contains("최종 우승자 : pobi");
+                },
+                9,1,2,9,1,2,9,1,2
+        );
+    }
+
+    @Test
+    void 공동_우승자_테스트(){
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "3");
+                    assertThat(output()).contains("최종 우승자 : pobi, woni");
+                },
+                9,9,2,9,9,2,9,9,2
+        );
     }
 
     @Override
