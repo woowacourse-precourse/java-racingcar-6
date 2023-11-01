@@ -21,3 +21,4 @@
 
 ### 결과
 - [ ] 가장 많은 전진을 기록한 레이싱카를 우승자로 선정(중복 가능) -Game#determineWinners
+- [ ] 우승자 출력한다. -Game#displayWinners
