@@ -8,14 +8,14 @@ public class InputValidatorTest {
     public void 입력값이_빈_값인_경우() {
         assertThrows(IllegalArgumentException.class, () -> InputValidator.isNullOrIsEmpty(null));
         assertThrows(IllegalArgumentException.class, () -> InputValidator.isNullOrIsEmpty(""));
-        InputValidator.includeNumberOrSymbol("pobi");
+        InputValidator.isNullOrIsEmpty("pobi");
     }
 
     @Test
     public void 쉼표_외_숫자나_기호가_있는_경우() {
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.includeNumberOrSymbol("*"));
-        assertThrows(IllegalArgumentException.class, () -> InputValidator.includeNumberOrSymbol("123"));
-        InputValidator.includeNumberOrSymbol("pobi, woni");
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.includeNumberOrSymbolExceptComma("*"));
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.includeNumberOrSymbolExceptComma("123"));
+        InputValidator.includeNumberOrSymbolExceptComma("pobi, woni");
     }
 
     @Test

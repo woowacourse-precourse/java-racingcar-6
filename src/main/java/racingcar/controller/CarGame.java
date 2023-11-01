@@ -34,7 +34,7 @@ public class CarGame {
     private String checkCarNamesInput(String input) {
         try {
             InputValidator.isNullOrIsEmpty(input);
-            InputValidator.includeNumberOrSymbol(input);
+            InputValidator.includeNumberOrSymbolExceptComma(input);
             InputValidator.includeSpace(input);
             List<String> carNameList = splitCarNames(input);
             CarValidator.isOnlyLowerCase(carNameList);

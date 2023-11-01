@@ -9,7 +9,7 @@ public class InputValidator {
         }
     }
 
-    public static void includeNumberOrSymbol(String input) {
+    public static void includeNumberOrSymbolExceptComma(String input) {
         if (!Pattern.matches("^[a-z|A-Z|,|\\s]*$", input)) {
             throw new IllegalArgumentException("쉼표 외 특수 기호 혹은 숫자가 포함되어 있습니다.");
         }
