@@ -29,4 +29,14 @@ class RandomTest {
         assertThat(b).isTrue();
     }
 
+    @Test
+    void 숫자_4미만인_경우(){
+        //given
+        int number = 3;
+        //when
+        boolean b = Random.check(number);
+        //then
+        assertThat(b).isFalse();
+    }
+
 }
