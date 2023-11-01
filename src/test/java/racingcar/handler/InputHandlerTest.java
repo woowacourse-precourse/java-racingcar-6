@@ -52,7 +52,7 @@ class InputHandlerTest {
     @DisplayName("시도횟수 입력값 타입 변환 테스트")
     void convertAttemptsToInt() {
         String inputAttempts = "5";
-        int attempts = inputHandler.parseToInt(inputAttempts);
+        int attempts = inputHandler.toInt(inputAttempts);
 
         assertThat(attempts).isEqualTo(Integer.parseInt(inputAttempts));
     }
@@ -62,7 +62,7 @@ class InputHandlerTest {
     void convertAttemptsToIntExceptionTest() {
         String alphabetAttempts = "a";
 
-        assertThatThrownBy(() -> inputHandler.parseToInt(alphabetAttempts))
+        assertThatThrownBy(() -> inputHandler.toInt(alphabetAttempts))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

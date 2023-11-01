@@ -19,7 +19,7 @@ public class InputHandler {
         return nameList;
     }
 
-    public int parseToInt(String inputAttempts) {
+    public int toInt(String inputAttempts) {
         validateNull(inputAttempts);
 
         try {

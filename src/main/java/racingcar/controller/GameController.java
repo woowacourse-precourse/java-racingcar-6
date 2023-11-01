@@ -49,7 +49,7 @@ public class GameController {
     }
 
     private int convertToInt(String attemptsInput) {
-        return inputHandler.parseToInt(attemptsInput);
+        return inputHandler.toInt(attemptsInput);
     }
 
     private void playGame(int maxAttempts, Cars cars) {
