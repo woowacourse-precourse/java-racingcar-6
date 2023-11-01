@@ -3,18 +3,18 @@ package racingcar.domain.dto;
 public class CarRecord {
 
     private String carName;
-    private int number_of_step;
+    private int numberOfStep;
 
-    public CarRecord(String carName, int number_of_step){
+    public CarRecord(String carName, int numberOfStep){
         this.carName = carName;
-        this.number_of_step = number_of_step;
+        this.numberOfStep = numberOfStep;
     }
 
     public String getCarName() {
         return carName;
     }
 
-    public int getNumber_of_step() {
-        return number_of_step;
+    public int getNumberOfStep() {
+        return this.numberOfStep;
     }
 }

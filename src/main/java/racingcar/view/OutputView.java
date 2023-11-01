@@ -32,7 +32,7 @@ public class OutputView {
     private void printRound(RoundResult roundResult){
         List<CarRecord> round = roundResult.getRound();
         for (CarRecord carRecord : round) {
-            System.out.println(carRecord.getCarName() + delimiter + calculateNumberOfHyphen(carRecord.getNumber_of_step()));
+            System.out.println(carRecord.getCarName() + delimiter + calculateNumberOfHyphen(carRecord.getNumberOfStep()));
         }
         System.out.println();
     }
