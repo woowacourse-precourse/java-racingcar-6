@@ -32,7 +32,8 @@ public class GameController {
 		while (i < gameCount) {
 
 			ng.createRandomNumber(data);
-		
+			referee.goStop(data);
+			printer.displayResult(data);
 			i++;
 		}
 
