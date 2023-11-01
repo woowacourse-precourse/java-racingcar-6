@@ -21,7 +21,7 @@ public class RacingGameController {
         output.askForAllCarNames();
         String allCarNames = input.getAllCarNames();
         CarList cars = new CarList(allCarNames);
-        output.askForNumberOfRuns();
+        output.askForNumberOfRounds();
         int numberOfRounds = input.getNumberOfRounds();
 
         if (numberOfRounds > 0) {
