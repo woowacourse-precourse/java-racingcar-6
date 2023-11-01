@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -32,5 +34,18 @@ public class CarTest {
         assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
+    }
+
+    @DisplayName("차량이 전진 혹은 멈출 수 있는지 여부 테스트")
+    @Test
+    void 차량이_전진_혹은_멈출수_있는지_테스트() {
+        // given
+        Car car = new Car("woowa");
+
+        // when, then
+        for (int i = 0; i < 10000000; i++) {
+            assertThatNoException().isThrownBy(car::moveOrStop);
+        }
+        assertThat(car.getDistance()).isGreaterThan(0);
     }
 }
