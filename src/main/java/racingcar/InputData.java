@@ -24,7 +24,7 @@ public class InputData {
 
     }
 
-    private final String CAR_REGEX = "^[a-zA-Z]${1,5}";
+    private final String CAR_REGEX = "^[a-zA-Z]{1,5}$";
 
     private ArrayList<String> car = new ArrayList<>();
     private int executionTime;
