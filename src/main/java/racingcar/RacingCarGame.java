@@ -13,7 +13,8 @@ public class RacingCarGame {
     ArrayList<RacingCar> winners = new ArrayList<>();
 
     void startGame() {
-        setPlayers();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        setPlayers(readLine());
         setGameCount();
         for (int i = 0; i < gameCount; i++) {
             playGame();
@@ -23,10 +24,8 @@ public class RacingCarGame {
         printWinners();
     }
 
-    void setPlayers() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] items = readLine().split(",");
-        for (String item : items) {
+    void setPlayers(String items) {
+        for (String item : items.split(",")) {
             if (item.length() > 5) {
                 throw new IllegalArgumentException();
             }
