@@ -22,6 +22,7 @@ public class Winner {
             if (racingCar.getPosition() > max) {
                 winners.clear();
                 winners.add(racingCar.getName());
+                max = racingCar.getPosition();
             } else if (racingCar.getPosition() == max) {
                 winners.add(racingCar.getName());
             }
@@ -48,6 +49,6 @@ public class Winner {
     }
 
     private String viewJointWinner() {
-        return String.join(",",winner);
+        return String.join(", ",winner);
     }
 }
