@@ -1,15 +1,10 @@
-package inputprocess;
+package carnameinputprocess;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import camp.nextstep.edu.missionutils.Console;
-import org.assertj.core.internal.ErrorMessages;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-import static org.junit.jupiter.api.Assertions.*;
 
 class InputProcessTest {
 
@@ -51,6 +46,4 @@ class InputProcessTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("문자열이 5자를 넘었습니다.");
     }
-
-
 }
