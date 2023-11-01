@@ -15,8 +15,8 @@ class RefereeTest {
     void selectWinnerListByDistanceDescending() {
         //given
         List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
-        Car car = list.get(1);
         Referee referee = new Referee();
+        Car car = list.get(1);
 
         //when
         car.accel();
@@ -47,13 +47,13 @@ class RefereeTest {
         List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
         Referee referee = new Referee();
         Car car = list.get(1);
-
         car.accel();
         OutputView outputView = new OutputView();
-//        when
+
+        //when
         String winnerName = outputView.getWinnerNames(referee.selectWinnerList(list));
 
-//        then
+        //then
         Assertions.assertThat(winnerName).isEqualTo("최종 우승자 : 홍길동");
     }
 }
