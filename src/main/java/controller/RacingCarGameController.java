@@ -1,12 +1,14 @@
-package racingcar;
+package controller;
 
 import constant.*;
+import racingcar.CarController;
+import racingcar.UserInputHandler;
 
-public class RacingCarGame {
+public class RacingCarGameController {
     private UserInputHandler userInputHandler;
     private CarController carController;
     private int moveCount;
-    RacingCarGame(){
+    RacingCarGameController(){
 
         this.userInputHandler = new UserInputHandler();
         this.carController = new CarController();
