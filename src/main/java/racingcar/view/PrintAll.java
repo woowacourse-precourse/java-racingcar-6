@@ -18,9 +18,9 @@ public class PrintAll {
     }
 
     public void printProgress(List<Car> CarList){
-        //for문으로 리스트 전체 출력 =>service에서 출력?
+
         for(Car car : CarList){
-            System.out.print(car + " : ");
+            System.out.print(car.getName() + " : ");
             printBar(car);
         }
         System.out.println(" ");
@@ -29,6 +29,7 @@ public class PrintAll {
         for (int i=0;i<car.getProgressbar(); i++){
             System.out.print("-");
         }
+        System.out.println();
     }
 
     public void outputFinalPrint(List<String> nameList){

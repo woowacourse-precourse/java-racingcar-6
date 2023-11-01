@@ -49,9 +49,8 @@ public class Controller {
     public void run(CarList carListNew, int tryNumber) {
         this.tryNumber = tryNumber;
         this.carListNew = carListNew;
-        System.out.println(tryNumber);
+        System.out.println();
         printAll.outputResultPrint(); //실행 결과
-        System.out.println(tryNumber);
 
         //List<Car> CarList = saveCarList.entireCarList();
         //System.out.println(getCarName.get(0).getName());
@@ -66,17 +65,16 @@ public class Controller {
 
                 //System.out.println("for문 car");
                 boolean trueOrFalse = getRandomNumber.getTrueOrFalse();
-                System.out.println(trueOrFalse);
                 updateProgress.plusOrNot(car, trueOrFalse);
             }
             printAll.printProgress(carListNew.getCarList()); // 이부분이 안되고있음(racingcar.domain.Car@61a485d2 : racingcar.domain.Car@39fb3ab6 : - )
 
-            System.out.println("전 tryNumber수는" + tryNumber);
+            //System.out.println("전 tryNumber수는" + tryNumber);
             tryNumber--;
-            System.out.println("후 tryNumber수는" + tryNumber);
+            //System.out.println("후 tryNumber수는" + tryNumber);
         }
         //Winner;
-        winner.finalResult(carListNew.getCarList());
+        winner.finalResult(carListNew.getCarList()); //수정해야함.
 
     }
 }
