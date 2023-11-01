@@ -10,6 +10,7 @@ public class Race {
             int randomNumber = NumberGenerator.createRandomNumber();
             moveIfAble(car, randomNumber);
         }
+        displayRoundResults();
     }
 
     private void moveIfAble(Car car, int randomNumber) {
@@ -19,6 +20,8 @@ public class Race {
     }
 
     private void displayRoundResults() {
-        // 각 라운드 결과를 출력
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
     }
 }
