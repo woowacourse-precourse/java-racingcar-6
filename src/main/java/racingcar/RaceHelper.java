@@ -12,4 +12,20 @@ public class RaceHelper {
                 .map(carName -> new Car(carName))
                 .collect(Collectors.toList());
     }
+
+    public static String getWinners(List<Car> cars) {
+        Integer maxMoveCount = cars
+                .stream()
+                .map(car -> car.getState().length())
+                .reduce(0, Integer::max);
+
+        List<String> winners = cars
+                .stream()
+                .filter(car -> car.getState().length() == maxMoveCount)
+                .map(car -> car.getName())
+                .collect(Collectors.toList());
+
+        return String.join(", ", winners);
+
+    }
 }

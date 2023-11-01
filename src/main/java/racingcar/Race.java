@@ -33,6 +33,10 @@ public class Race {
         }
     }
 
+    public void printFinalResult() {
+        String winners = RaceHelper.getWinners(cars);
+    }
+
     private void randomMove() {
         cars.forEach(car -> {
             boolean moveForward = RandomUtil.trueOrFalse(MIN_NUMBER, MAX_NUMBER, MIN_FORWARD_NUMBER);
