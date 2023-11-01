@@ -20,13 +20,13 @@ public class Exception {
                 .ifPresent(name -> throwIllegalArgumentException());
     }
 
-    public static void checkIntegerNumber(Integer integer) {
+    public static void checkInteger(Integer integer) {
         if (isNull(integer)) {
             throwIllegalArgumentException();
         }
     }
 
-    public static void checkPositiveNumber(Integer number) {
+    public static void checkPositive(Integer number) {
         if (number <= 0) {
             throwIllegalArgumentException();
         }

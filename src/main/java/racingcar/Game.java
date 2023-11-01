@@ -3,8 +3,8 @@ package racingcar;
 import static racingcar.Constants.*;
 import static racingcar.Exception.checkCarNameLengthOver;
 import static racingcar.Exception.checkEmptyCarName;
-import static racingcar.Exception.checkIntegerNumber;
-import static racingcar.Exception.checkPositiveNumber;
+import static racingcar.Exception.checkInteger;
+import static racingcar.Exception.checkPositive;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -57,8 +57,8 @@ public class Game {
         String readLine = Console.readLine();
         moveNumber = convertStringToInteger(readLine);
 
-        checkIntegerNumber(moveNumber);
-        checkPositiveNumber(moveNumber);
+        checkInteger(moveNumber);
+        checkPositive(moveNumber);
     }
 
     private void race() {
@@ -76,7 +76,7 @@ public class Game {
         List<String> winnerNames = pickWinner();
 
         System.out.print(ALERT_WINNER_IS);
-        String result = writeWinner(winnerNames);
+        String result = arrangeWinner(winnerNames);
         System.out.println(result);
     }
 
@@ -118,7 +118,7 @@ public class Game {
         return winnerNames;
     }
 
-    private String writeWinner(List<String> winnerNames) {
+    private String arrangeWinner(List<String> winnerNames) {
         return String.join(WINNER_DIVISION, winnerNames);
     }
 }
