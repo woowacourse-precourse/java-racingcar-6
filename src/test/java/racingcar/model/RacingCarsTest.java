@@ -4,12 +4,15 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static racingcar.constant.ErrorMessage.CAR_NAME_BLANK_OR_NULL;
 import static racingcar.constant.ErrorMessage.CAR_NAME_DUPLICATED;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingCarsTest extends NsTest {
 
@@ -44,6 +47,14 @@ class RacingCarsTest extends NsTest {
         assertThatThrownBy(() -> new RacingCars("car1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {" ", ""})
+    void 입력한_자동차_이름은_공백이거나_빈칸일_수_없다(String inputCarNames) {
+        assertThatThrownBy(() -> new RacingCars(inputCarNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_BLANK_OR_NULL);
     }
 
     @Test
