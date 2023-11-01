@@ -1,39 +1,19 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CarRaceManager {
     private List<Car> racingCars = new ArrayList<>();
 
-    public CarRaceManager() {
+    public List<Car> getRacingCars() {
+        return racingCars;
     }
 
-    public CarRaceManager(final List<Car> newRacingCars) {
-        racingCars = newRacingCars;
-    }
-
-    private List<String> inputCarName() {
-        String input = Console.readLine().replaceAll(" ", "");
-        String[] carNameArray = input.split(",");
-        return Arrays.asList(carNameArray);
-    }
-
-    public void createCarList() {
-        List<String> carNames = inputCarName();
-        Validation.validateCarName(carNames);
-
-        for (final String carName : carNames) {
+    public void createCarList(List<String> inputCarNames) {
+        for (final String carName : inputCarNames) {
             racingCars.add(new Car(carName));
         }
-    }
-
-    public int getAttemptNumber() {
-        String input = Console.readLine().replaceAll(" ", "");
-        Validation.validateAttemptNumber(input);
-        return Integer.parseInt(input);
     }
 
     public void runRace(int attemptNumber) {

@@ -1,42 +1,64 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CarRaceManagerTest {
+    private CarRaceManager raceManager;
+
+    @BeforeEach
+    void setUp() {
+        raceManager = new CarRaceManager();
+    }
+
     @Test
-    public void winnerJudgmentTest() {
-        // given
-        Car car1 = new Car("seungji");
-        Car car2 = new Car("sook");
-        Car car3 = new Car("won");
+    void createCarList() {
+        List<String> carNames = List.of("pobi", "woni", "jun");
 
-        for (int i = 0; i < 1; i++) {
-            car1.moveForward();
+        raceManager.createCarList(carNames);
+
+        List<Car> racingCars = raceManager.getRacingCars();
+        assertThat(racingCars).hasSize(carNames.size());
+        for (int i = 0; i < carNames.size(); i++) {
+            assertThat(racingCars.get(i).getCarName()).isEqualTo(carNames.get(i));
         }
-        for (int i = 0; i < 2; i++) {
-            car2.moveForward();
+    }
+
+    @Test
+    void getAttemptNumber() {
+        int attemptNumber = raceManager.getAttemptNumber("5");
+        assertThat(attemptNumber).isEqualTo(5);
+    }
+
+    @Test
+    void nthAttemptRace() {
+        List<String> carNames = List.of("pobi", "woni", "jun");
+        raceManager.createCarList(carNames);
+
+        raceManager.nthAttemptRace();
+
+        List<Car> racingCars = raceManager.getRacingCars();
+        for (Car car : racingCars) {
+            int movingCount = car.getMovingCount();
+            assertThat(movingCount).isGreaterThanOrEqualTo(0);
+            assertThat(movingCount).isLessThanOrEqualTo(1);
         }
-        for (int i = 0; i < 3; i++) {
-            car3.moveForward();
-        }
+    }
 
-        List<Car> exampleRacingCars = new ArrayList<>();
-        exampleRacingCars.add(car1);
-        exampleRacingCars.add(car2);
-        exampleRacingCars.add(car3);
+    @Test
+    void getWinners() {
+        List<String> carNames = List.of("pobi", "woni", "jun");
+        raceManager.createCarList(carNames);
 
-        CarRaceManager exampleRaceManager = new CarRaceManager(exampleRacingCars);
+        raceManager.getRacingCars().get(0).moveForward();
+        raceManager.getRacingCars().get(2).moveForward();
 
-        // when
-        exampleRaceManager.winnerJudgment();
-
-        // then
-        List<String> winners = exampleRaceManager.getWinnerList();
-        assertEquals(1, winners.size());
-        assertEquals("won", winners.get(0));
+        List<String> winners = raceManager.getWinners();
+        assertThat(winners).contains("pobi", "jun");
+        assertThat(winners).doesNotContain("woni");
     }
 }
