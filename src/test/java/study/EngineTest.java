@@ -9,8 +9,9 @@ import racingcar.domain.Engine;
 @DisplayName("엔진 객체 테스트")
 public class EngineTest {
 
+    @DisplayName("성공 : 엔진이 생성하는 무작위 값은 0~9 이다.")
     @Test
-    void createRandomMethod_메서드_사용시_0에서_9사이의_값만_생성된다() {
+    void test1() {
         Engine engine = new Engine();
         for (int i = 0; i < 1000; i++) {
             int randomNumber = engine.createRandomNumber();
