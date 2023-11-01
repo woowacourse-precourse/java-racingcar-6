@@ -51,13 +51,21 @@
 
 
 # 설계 구조
-- MainController : 데이터 전달 및 중계 역할
-- RacingService : 레이싱과 관련된 비즈니스 로직 관리
-- InputView : 입력과 관련된 책임 관리
-- OutputView : 출력과 관련된 책임 관리
-- GameData : 개임을 진행하는데 필요한 데이터를 관리
-  - RacerList : 레이싱 리스트 관련 메서드 및 데이터 관리
-  - Racer : 레이싱 선수와 관련된 메서드 및 데이터 관리
+- Application : 애플리케이션 실행을 관리한다.
+- MainController : 데이터 전달 및 중계 역할을 한다.
+- view
+  - InputView : 입력과 관련된 책임 관리한다.
+  - OutputView : 출력과 관련된 책임 관리한다.
+- domain
+  - Car : 인스턴스 변수로 `CarName` , `Position` 을 가지고 있으며 자동차의 역할을 한다.
+  - CarName : `String` 으로 자동차 이름을 가지고 있다. 자동차 이름에 대한 검증을 관리한다.
+  - Cars : `List<Car>` 를 가지고 있는 일급 컬렉션으로 자동차 이름들을 관리
+  - Position : `int` 로 자동차 위치 정보를 가지고 있다. 위치에 대한 검증을 관리한다.
+  - TrialCount : 시도 횟수의 원시값 포장이다. 초기화시 음수 여부를 검증한다.
+- message
+  - ErrorMessage : 에러 메시지를 관리한다.
+  - ViewMessage : 출력 메시지를 관리한다.
+- Utils : 공용되는 Util 기능 메서드를 관리한다.
 
 # 확장 가능성
 - [X] 승리 조건의 변경 (특정 위치까지 먼저 도달한 자동차가 승리)
