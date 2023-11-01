@@ -1,6 +1,7 @@
 package model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import constants.GameConstant;
 
 public class Car {
     String name;
@@ -18,6 +19,19 @@ public class Car {
      */
     public int getRandomNumber(){
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    /**
+     * 랜덤 수 전진 판단하기
+     * 무작위 값이 4 이상일 경우 한칸 전진 한다.
+     *
+     * @return 4 이상일 경우 true, 아닐 경우 false
+     */
+    public boolean isStepForward(int randomNumber){
+        if(randomNumber < GameConstant.MIN_STEP_COUNT){
+            return false;
+        }
+        return true;
     }
 
 
