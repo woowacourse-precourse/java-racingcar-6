@@ -1,10 +1,10 @@
 package racingcar.utils;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -13,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class UserInputManagerTest {
-    private UserInputManager userInputManager;
     private final InputStream originalSystemIn = System.in;
-
     int attempt;
+    private UserInputManager userInputManager;
+
     @BeforeEach
     void setUp() {
         userInputManager = new UserInputManager();

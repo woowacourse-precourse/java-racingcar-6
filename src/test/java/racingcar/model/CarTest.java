@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
 
-    private String carName = "pobi";
+    private final String carName = "pobi";
     private int carBoost;
     private Car car;
 
@@ -25,7 +25,7 @@ class CarTest {
         car.moveForward(carBoost);
 
         //then (기능 작동 후 검증)
-        assertThat(car.getCarBoost()).isEqualTo(1);    //랜덤값 개수를 검증
+        assertThat(car.getCarScore()).isEqualTo(1);    //랜덤값 개수를 검증
 
     }
 
@@ -38,7 +38,7 @@ class CarTest {
         car.moveForward(carBoost);
 
         //then (기능 작동 후 검증)
-        assertThat(car.getCarBoost()).isEqualTo(0);    //랜덤값 개수를 검증
+        assertThat(car.getCarScore()).isEqualTo(0);    //랜덤값 개수를 검증
 
     }
 

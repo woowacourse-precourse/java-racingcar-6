@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Judgement {
-    private int highScore;
     List<String> winnerList;
+    private int highScore;
 
     List<Integer> isNumberMoreThan4(List<Integer> carRandomNumbers) {
         for (int i = 0; i < carRandomNumbers.size(); i++) {
@@ -21,10 +21,10 @@ public class Judgement {
 
     public List<String> determineWinner(List<Car> sortedCars) {
         winnerList = new ArrayList<>();
-        highScore = sortedCars.get(0).getCarBoost();
+        highScore = sortedCars.get(0).getCarScore();
 
         for (int i = 0; i < sortedCars.size(); i++) {
-            if (highScore == sortedCars.get(i).getCarBoost()) {
+            if (highScore == sortedCars.get(i).getCarScore()) {
                 winnerList.add(sortedCars.get(i).getCarName());
             }
         }

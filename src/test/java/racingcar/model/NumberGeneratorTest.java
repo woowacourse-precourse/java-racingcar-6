@@ -19,7 +19,7 @@ class NumberGeneratorTest {
 
         //then (기능 작동 후 검증)
         assertThat(carRandomNumbers).hasSize(numOfCars);    //랜덤값 개수를 검증
-        assertThat(carRandomNumbers).allMatch(num -> num >=0 && num<=9);    //랜덤값이 0에서 9까지 검증
+        assertThat(carRandomNumbers).allMatch(num -> num >= 0 && num <= 9);    //랜덤값이 0에서 9까지 검증
     }
 
 }

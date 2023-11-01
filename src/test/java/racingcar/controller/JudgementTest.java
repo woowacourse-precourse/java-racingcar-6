@@ -13,11 +13,11 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class JudgementTest {
+    List<Integer> updatedNumbers;
+    List<String> winnerList;
     private Judgement judgement;
     private int highScore;
     private List<Car> cars;
-    List<Integer> updatedNumbers;
-    List<String> winnerList;
 
     @BeforeEach
     void setUp() {
@@ -52,7 +52,7 @@ class JudgementTest {
 
 
         sortedCars = cars.stream()
-                .sorted((car1, car2) -> Integer.compare(car2.getCarBoost(), car1.getCarBoost())) // GameController의 내림차순으로 Car 객체정렬
+                .sorted((car1, car2) -> Integer.compare(car2.getCarScore(), car1.getCarScore())) // GameController의 내림차순으로 Car 객체정렬
                 .collect(Collectors.toList());
 
         winnerList = judgement.determineWinner(sortedCars);

@@ -5,34 +5,31 @@ import racingcar.model.Car;
 import java.util.List;
 
 public class RaceView {
-    private StringBuilder sb;
-    private int carBoost;
-    private String carName;
-    private final String executionResult = "실행 결과";
     private final String finalWinner = "최종 우승자 : ";
+    private StringBuilder sb;
+    private int carScore;
+    private String carName;
 
     public void displayRaceResults(List<Car> cars) {
-        System.out.println(executionResult);
+        sb = new StringBuilder();
         for (Car car : cars) {
-            sb = new StringBuilder();
-
             carName = car.getCarName();
-            carBoost = car.getCarBoost();
+            carScore = car.getCarScore();
 
             sb.append(carName).append(" : ");
-            carBoostToBar(carBoost);
-            System.out.println(sb);
+            carScoreToBar(carScore);
         }
-        sb.append("\n");
+        System.out.println(sb);
     }
 
-    public void carBoostToBar(int carBoost) {
-        sb.append("-".repeat(Math.max(0, carBoost))).append("\n");
+    public void carScoreToBar(int carScore) {
+        sb.append("-".repeat(Math.max(0, carScore))).append("\n");
     }
 
     public void displayWinner(List<String> raceWinner) {
         sb = new StringBuilder();
-        sb.append(finalWinner).append(raceWinner);
+        String winners = String.join(", ", raceWinner);
+        sb.append(finalWinner).append(winners);
         System.out.print(sb);
     }
 
