@@ -11,6 +11,9 @@ public class RandomNumbersGenerator {
     private static final int MIN = 0;
     private static final int MAX = 9;
 
+    private RandomNumbersGenerator() {
+    }
+
     public static List<Integer> generate(int limitSize) {
         return IntStream.range(0, limitSize)
                 .map(i -> Randoms.pickNumberInRange(MIN, MAX))

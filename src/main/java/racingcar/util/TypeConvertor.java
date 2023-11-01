@@ -10,6 +10,9 @@ public class TypeConvertor {
 
     private static final String REGEX = ",";
 
+    private TypeConvertor() {
+    }
+
     public static List<String> stringToStringList(String input) {
         return Arrays.stream(input.split(REGEX))
                 .collect(Collectors.toList());
