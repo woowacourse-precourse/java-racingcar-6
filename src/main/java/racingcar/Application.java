@@ -1,12 +1,7 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeSet;
-
 public class Application {
   static HostReception host = new HostReception();
-  static TreeSet<RacingCar> car;
 
   static int round;
 

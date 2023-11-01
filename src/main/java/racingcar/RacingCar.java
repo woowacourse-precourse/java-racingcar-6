@@ -1,12 +1,8 @@
 package racingcar;
 
-import java.util.List;
-import java.util.TreeSet;
-
 public class RacingCar implements Comparable {
   String name;
   int advance;
-  static List<RacingCar> carOrder;
 
   public RacingCar(String name) {
     this.name = name;
