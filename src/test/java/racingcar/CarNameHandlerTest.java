@@ -2,9 +2,9 @@ package racingcar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Iterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.Iterator;
 import racingcar.controller.CarNameHandler;
 import racingcar.controller.ErrorMessage;
 
