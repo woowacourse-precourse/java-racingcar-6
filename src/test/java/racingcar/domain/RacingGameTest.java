@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -13,23 +14,42 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
 class RacingGameTest {
     private RacingGame racingGame;
+    private final int NUM_OF_CARS = 3;
+    private List<String> cars;
+    List<String> resultList;
 
     @BeforeEach
     void setUp() {
         racingGame = new RacingGame();
+        cars = new ArrayList<>(3);
+        cars.add("pobi");
+        cars.add("woni");
+        cars.add("jin");
+        resultList = racingGame.initResultList(NUM_OF_CARS);
     }
 
     @Test
     void initResultList_초기화_여부_확인_테스트() {
-        int numOfCars = 5;
-        List<String> result = racingGame.initResultList(numOfCars);
-        assertThat(result).isEqualTo(Arrays.asList("","","","",""));
+        assertThat(resultList).isEqualTo(Arrays.asList("","",""));
+    }
+
+    @Test
+    void 랜덤값_3이하_경주_자동차_이동_테스트() {
+        String resultMove = racingGame.decideMoveByRandValue(2,0,resultList);
+        assertThat(resultMove).isEqualTo("");
+    }
+
+    @Test
+    void 랜덤값_4이상_경주_자동차_이동_테스트() {
+        String resultMove = racingGame.decideMoveByRandValue(2,0,resultList);
+        assertThat(resultMove).isEqualTo("");
     }
 
 

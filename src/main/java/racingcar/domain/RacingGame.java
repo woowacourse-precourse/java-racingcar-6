@@ -28,19 +28,20 @@ public class RacingGame {
         return initList;
     }
 
-    public List<String> move(List cars,List resultList) {
+    public void move(List cars,List resultList) {
         int randNum;
         for (int i = 0; i < cars.size(); i++) {
             randNum = Randoms.pickNumberInRange(RAND_NUM_MIN, RAND_NUM_MAX);
             decideMoveByRandValue(randNum,i, resultList);
         }
-        return resultList;
     }
 
-    public void decideMoveByRandValue(int randNum, int index, List<String> resultList) {
+    public String decideMoveByRandValue(int randNum, int index, List<String> resultList) {
         if (randNum >= RAND_NUM_THRESHOLD) {
             resultList.set(index, resultList.get(index) + "-");
+            return resultList.get(index) + "-";
         }
+        return resultList.get(index);
     }
 
     public List<String> chooseWinners(List<String> winner, List<String> resultList, List<String> cars) {
