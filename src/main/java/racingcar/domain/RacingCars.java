@@ -9,7 +9,7 @@ import racingcar.enums.RegexPattern;
 public class RacingCars {
     private final List<Car> cars;
     private static final Pattern CAR_NAME_REGEX = Pattern.compile(RegexPattern.CAR_NAME.getPattern());
-    private static String message = "";
+    private String message = "";
 
     public RacingCars(final List<String> carNames) {
         validateMinCars(carNames);
@@ -21,13 +21,20 @@ public class RacingCars {
         return cars;
     }
 
+    public static int getMaxPosition(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
     private List<Car> convertStringToCar(final List<String> carNames) {
         return carNames.stream()
                 .map(Car::new)
                 .toList();
     }
 
-    private static void validateMinCars(List<String> carNames) {
+    private void validateMinCars(List<String> carNames) {
         int minCars = GameCondition.MIN_CARS.getValue();
         message = ErrorMessage.INVALID_MIN_CARS.getMessage();
         if (carNames.size() < minCars) {
@@ -35,25 +42,36 @@ public class RacingCars {
         }
     }
 
-    private static void validateCarNames(List<String> carNames) {
+    private void validateCarNames(List<String> carNames) {
+        validateDuplicateCarNames(carNames);
         for (String carName : carNames) {
             validateCarName(carName);
             validateCarNameSize(carName);
         }
     }
 
-    private static void validateCarName(String carName) {
+    private void validateCarName(String carName) {
         message = ErrorMessage.INVALID_CAR_NAME.getMessage();
         if (!CAR_NAME_REGEX.matcher(carName).matches() || carName.contains(" ")) {
             throw new IllegalArgumentException(message);
         }
     }
 
-    private static void validateCarNameSize(String carName) {
+    private void validateCarNameSize(String carName) {
         int maxCarNameSize = GameCondition.MAX_CAR_NAME_SIZE.getValue();
         message = ErrorMessage.INVALID_CAR_NAME_SIZE.getMessage();
         if (carName.length() > maxCarNameSize) {
             throw new IllegalArgumentException(String.format(message, maxCarNameSize));
         }
+    }
+
+    private void validateDuplicateCarNames(List<String> carNames) {
+        if(isDuplicateCarNames(carNames)) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAMES.getMessage());
+        }
+    }
+
+    private boolean isDuplicateCarNames(List<String> carNames) {
+        return carNames.size() == carNames.stream().distinct().count();
     }
 }
