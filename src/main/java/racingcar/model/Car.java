@@ -3,13 +3,13 @@ package racingcar.model;
 public class Car {
 
     private final String name;
-    private int status = 0;
+    private String status;
 
     public Car(String name) {
         this.name = name;
     }
 
     public void moveForward() {
-        status++;
+        this.status += "-";
     }
 }
