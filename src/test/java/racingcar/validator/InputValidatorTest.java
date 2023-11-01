@@ -20,6 +20,18 @@ public class InputValidatorTest {
     }
 
     @Test
+    void validateCarNameLength_InvalidName_ExceptionThrown() {
+        // Arrange
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("");
+        List<Car> carNames = Arrays.asList(car1, car2);
+
+        // Act & Assert
+        assertThatThrownBy(() -> InputValidator.validateCarNameLength(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void validateCarNameLength_InvalidNames_ExceptionThrown() {
         // Arrange
         List<Car> carNames = Arrays.asList(new Car("Car1"), new Car("Car22"), new Car("Car333"));
@@ -48,5 +60,15 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateTrialNumber(inputNum))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도할 횟수는 숫자만 입력해야 합니다.");
+    }
+
+    @Test
+    void validateTrialNumber_ZeroInput_ExceptionThrown() {
+        // Arrange
+        String inputNum = "0";
+
+        // Act & Assert
+        assertThatThrownBy(() -> InputValidator.validateTrialNumber(inputNum))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
