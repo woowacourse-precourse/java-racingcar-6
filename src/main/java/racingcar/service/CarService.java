@@ -15,12 +15,12 @@ public class CarService {
     }
 
     public List<String> checkCarsNameLength(String input_cars_name){
-        if(input_cars_name.isEmpty()){
+        String[] cars_name = input_cars_name.split(",");
+        if(cars_name.length == 0){
             throw new IllegalArgumentException("입력값이 없습니다. 자동차 이름을 입력해주세요.");
         }
 
         List<String> final_cars_name = new ArrayList<>();
-        String[] cars_name = input_cars_name.split(",");
         for(String name : cars_name){
             String striped_name = name.strip();
 
