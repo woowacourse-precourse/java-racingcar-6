@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Input;
-import racingcar.util.Recorder;
 import racingcar.view.InputMessage;
 import racingcar.view.OutputMessage;
 
