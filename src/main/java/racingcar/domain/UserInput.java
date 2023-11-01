@@ -24,6 +24,14 @@ public class UserInput {
 
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return Console.readLine();
+        String inputRaceCount = Console.readLine();
+
+        try {
+            Integer.parseInt(inputRaceCount);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("시도할 회수는 숫자로 입력해 주세요.");
+        }
+
+        return inputRaceCount;
     }
 }
