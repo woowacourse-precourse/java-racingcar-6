@@ -186,3 +186,14 @@
 - RandomNumberGeneratorTest
   -  void 범위_숫자_확인_테스트()
      - 0부터 9까지 숫자가 발생하는 지 검증
+
+### Service
+- GameServiceTest
+  - public void 레이스_시작_테스트()
+    - 올바른 반환값으로 정상적으로 레이스가 시작되는지 검증
+  - public void 라운드_진행_테스트()
+    - 라운드가 진행되는지 검증
+  -  public void 우승자_선택_테스트()
+    - 우승자가 정상적으로 선택되는지 검증"
+  -  public void DTO_변환_테스트()
+    - DTO 변환이 정확한지 검증
