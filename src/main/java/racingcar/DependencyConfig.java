@@ -20,6 +20,6 @@ public class DependencyConfig {
     }
 
     private RacingService racingService() {
-        return new RacingService();
+        return RacingService.getInstance();
     }
 }

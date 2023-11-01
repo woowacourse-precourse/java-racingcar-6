@@ -11,6 +11,15 @@ import java.util.List;
 
 public class RacingService {
 
+    private static final RacingService instance = new RacingService();
+
+    public static RacingService getInstance() {
+        return instance;
+    }
+
+    private RacingService() {
+    }
+
     public List<RacingResult> race(Circuit circuit) {
         List<MoveCondition> moveConditions = generateMoveConditions(circuit.getCircuitSize());
         List<Car> racedCars = circuit.raceCars(moveConditions);
