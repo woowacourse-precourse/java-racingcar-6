@@ -82,8 +82,7 @@ public class RacingGame {
 
         winners = new ArrayList<>();
         int maxPos = 0;
-        int carPos = 0;
-
+        int carPos;
         for (Car car : cars) {
             carPos = car.getPosition();
             if (carPos > maxPos) {
