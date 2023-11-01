@@ -5,12 +5,12 @@ import static racingcar.global.constant.ErrorMessage.NAME_LENGTH_ERROR_MESSAGE;
 import static racingcar.global.constant.ErrorMessage.TRIAL_FORMAT_ERROR_MESSAGE;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Validator {
 
     private static final String ZERO = "0";
+    private static final String TRIAL_PATTERN = "^(0|[1-9]+[0-9]*)$";
+    private static final String NAME_PATTERN = "^[a-zA-Z]*$";
 
     public static boolean validateCarName(List<String> nameList) {
         for (String name : nameList) {
@@ -21,16 +21,14 @@ public class Validator {
     }
 
     public static boolean validateTrialNumber(String trial) {
-        if (!trial.matches("^(0|[1-9]+[0-9]*)$") || trial.equals(ZERO)) {
+        if (!trial.matches(TRIAL_PATTERN) || trial.equals(ZERO)) {
             throw new IllegalArgumentException(TRIAL_FORMAT_ERROR_MESSAGE);
         }
         return true;
     }
 
     private static boolean validateIfItIsEnglish(String name) {
-        Pattern pattern = Pattern.compile("^[a-zA-Z]*$");
-        Matcher matcher = pattern.matcher(name);
-        if (!matcher.find()) {
+        if (!name.matches(NAME_PATTERN)) {
             throw new IllegalArgumentException(NAME_FORMAT_ERROR_MESSAGE);
         }
         return true;
