@@ -10,13 +10,21 @@ public class CarNameVerifier {
 
     public CarNameVerifier(String input){
         this.carNames = List.of(input.trim().split(","));   //배열을 만든 후 리스트 생성
-        validateNull();
+        verifyNull();
     }
 
-    private void validateNull(){
+    private void verifyNull(){
         if(this.carNames.isEmpty()){
             throw new IllegalArgumentException(ExceptionMsg.NULL_INPUT.getMessage());
         }
+    }
+
+    private void verifyRangeOut(){
+        this.carNames.forEach(carName ->{
+            if(carName.length() > 5) {
+                throw new IllegalArgumentException(ExceptionMsg.OVER_FIVE_CAR_NAME.getMessage());
+            }
+        });
     }
 
 }
