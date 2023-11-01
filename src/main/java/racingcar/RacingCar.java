@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,6 +48,16 @@ public class RacingCar {
         }
     }
 
+    public int getRandomValue(){
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public void play(){
+        for(String car : playersMap.keySet()){
+            int moveOrStop = getRandomValue();
+        }
+    }
+
     public void run(){
         System.out.println(Notification.inputCarsName);
         initPlayer(Console.readLine());
@@ -55,6 +66,8 @@ public class RacingCar {
         int numOfRounds = checkRoundsInput(Console.readLine());
 
         System.out.println(Notification.result);
-
+        for (int i = 0; i < numOfRounds; i++) {
+            play();
+        }
     }
 }
