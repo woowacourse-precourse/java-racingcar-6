@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 class Printer {
     private static final String START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
@@ -13,11 +15,16 @@ class Printer {
         System.out.println(COUNT_MESSAGE);
     }
 
-    void printResult() {
+    void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }
 
     void printBlankLine() {
         System.out.println();
+    }
+
+    void printRaceResult(List<Car> cars) {
+        cars.forEach(
+            car -> System.out.printf("%s : %s\n", car.name(), "-".repeat(car.moveCount())));
     }
 }

@@ -27,9 +27,11 @@ public class Game {
     }
 
     private void race() {
-        printer.printResult();
+        printer.printResultMessage();
         for (int i = 0; i < raceCount; i++) {
             player.moveCars();
+            printer.printRaceResult(player.getCars());
+            printer.printBlankLine();
         }
     }
 }

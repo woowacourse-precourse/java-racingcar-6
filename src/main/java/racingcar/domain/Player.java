@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.List;
 
 class Player {
@@ -29,5 +30,9 @@ class Player {
             return car.movedCar();
         }
         return car;
+    }
+
+    List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 }
