@@ -15,7 +15,7 @@ public class OutputView {
     private static final String LOCATION_RESULT_TITLE = "%n실행 결과%n".formatted();
     private static final String CAR_RESULT_FORMAT = "%s : %s%n";
     private static final String POSITION_CHARACTER = "-";
-    private static final String NEW_NINE = "%n".formatted();
+    private static final String NEW_LINE = "%n".formatted();
     private static final String WINNER_PREFIX = "최종 우승자 : ";
     private static final String WINNER_DELIMITER = ", ";
 
@@ -35,12 +35,16 @@ public class OutputView {
 
     public void printRacingResult(RacingResultDto resultDto) {
         resultDto.cars().forEach(this::printCarResult);
-        print(NEW_NINE);
+        print(NEW_LINE);
     }
 
     private void printCarResult(CarDto carDto) {
-        String carResult = CAR_RESULT_FORMAT.formatted(carDto.name(), makePositionFormat(carDto.position()));
+        String carResult = makeCarResult(carDto);
         print(carResult);
+    }
+
+    private String makeCarResult(CarDto carDto) {
+        return CAR_RESULT_FORMAT.formatted(carDto.name(), makePositionFormat(carDto.position()));
     }
 
     private String makePositionFormat(int position) {
@@ -53,7 +57,7 @@ public class OutputView {
 
     private String makeWinnerFormat(List<String> names) {
         return names.stream()
-                .collect(joining(WINNER_DELIMITER, WINNER_PREFIX, NEW_NINE));
+                .collect(joining(WINNER_DELIMITER, WINNER_PREFIX, NEW_LINE));
     }
 
     private void print(String message) {
