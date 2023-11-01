@@ -35,12 +35,14 @@ public class InputValidator {
     }
 
     private boolean isNull (String inputStr) {
-        return inputStr == null || inputStr == "" || inputStr == "\n";
+        return inputStr == null || inputStr.equals("") || inputStr.equals("\n");
     }
     private boolean isTooLongString (String inputStr) {
         String[] inputStringArray = inputStr.split(",");
         for(String str : inputStringArray) {
-            if (str.length() > 5) return true;
+            if (str.length() > 5) {
+                return true;
+            }
         }
         return false;
     }
@@ -48,14 +50,18 @@ public class InputValidator {
         String[] inputStringArray = inputStr.split(",");
         Set<String> nameSet = new HashSet<>(Arrays.asList(inputStringArray));
 
-        if(nameSet.size() != inputStringArray.length) return true;
+        if(nameSet.size() != inputStringArray.length) {
+            return true;
+        }
         return false;
     }
 
     private boolean hasSpace (String inputStr) {
         char[] inputArr = inputStr.toCharArray();
         for (char input: inputArr) {
-            if (input == ' ') return true;
+            if (input == ' ') {
+                return true;
+            }
         }
         return false;
     }
