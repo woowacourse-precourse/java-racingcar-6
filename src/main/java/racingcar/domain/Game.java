@@ -41,7 +41,6 @@ public class Game {
 
         while (curTrialCount < totalTrialCount) {
             attemptTrial();
-            curTrialCount++;
         }
     }
 
