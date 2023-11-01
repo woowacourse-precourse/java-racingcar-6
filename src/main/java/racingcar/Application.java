@@ -102,13 +102,7 @@ public class Application {
     }
 
     private static void printWinners(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 
     private static String getInput(String message) {
@@ -120,6 +114,9 @@ public class Application {
         return Arrays.asList(input.split(","));
     }
 
+    /**
+     *  검증 메서드
+     */
     private static void validateBlank(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException("공백은 허용되지 않습니다.");
