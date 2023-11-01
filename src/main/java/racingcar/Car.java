@@ -24,7 +24,7 @@ public class Car {
     }
 
     public static boolean shouldMove() {
-        return GameUtil.generateRandomNumber() >= 4;
+        return RandomNumberGenerator.generateRandomNumber() >= 4;
     }
 
 
