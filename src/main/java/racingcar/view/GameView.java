@@ -12,14 +12,20 @@ public class GameView {
     }
 
     public static int getRacingTimes() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String input = readLine();
+        int times = 0;
 
         try {
-            return Integer.parseInt(input);
+            System.out.println("시도할 회수는 몇회인가요?");
+            times = Integer.parseInt(readLine());
         } catch (Exception e) {
-            throw new IllegalArgumentException("숫자를 입력해주세요. (입력 : " + input + ")");
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
+
+        if (times < 0) {
+            throw new IllegalArgumentException("회수는 양수로 입력해주세요.");
+        }
+
+        return times;
     }
 
     public static void printGames(int times, List<Car> participants) {
