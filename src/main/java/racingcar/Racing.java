@@ -9,8 +9,8 @@ public class Racing {
 
     public static final int MAX_CARNAME_LENGTH = 5;
     public static final int STOP_CAR_NUM = 3;
-    private List<Car> carList;
-    private int tryCount;
+    List<Car> carList;
+    int tryCount;
     
     public Racing() {
         carList = new ArrayList<>();
