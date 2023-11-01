@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.game.Simulator;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Simulator simulator = new Simulator();
+
+        simulator.getUserInput();
+        simulator.simulateSeveralTimes();
+        simulator.printWinners();
     }
 }
