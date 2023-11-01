@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    private List<Car> cars;
-    private int tryCount;
+    private final List<Car> cars = new ArrayList<>();
+    private final int tryCount;
 
     public RacingGame(String carNames, int tryCount) {
-        this.cars = new ArrayList<>();
-        for (String name : carNames.split(",")) {
+        String[] names = carNames.split(",");
+        for (String name : names) {
             cars.add(new Car(name));
         }
         this.tryCount = tryCount;
@@ -22,17 +22,37 @@ public class RacingGame {
     }
 
     public List<Car> getWinners() {
-        int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(0);
-
         List<Car> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition();
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 winners.add(car);
             }
         }
         return winners;
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
+
+    public int getTryCount() {
+        return tryCount;
+    }
+
+    public List<String> getCarPositions() {
+        List<String> positions = new ArrayList<>();
+        for (Car car : cars) {
+            StringBuilder positionString = new StringBuilder(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                positionString.append("-");
+            }
+            positions.add(positionString.toString());
+        }
+        return positions;
     }
 }
