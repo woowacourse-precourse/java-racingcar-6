@@ -24,7 +24,7 @@ public class IOManager {
     public Names getNames() {
         String[] inputNames = input.getNames().split(INPUT_NAME_DIVIDER.getValue());
         validateName(inputNames);
-
+        GameValidator.validateDuplicatedName(inputNames);
         return new Names(Arrays.stream(inputNames).toList());
     }
 
