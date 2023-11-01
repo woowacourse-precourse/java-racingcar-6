@@ -51,7 +51,7 @@ class RefereeTest {
         car.accel();
         OutputView outputView = new OutputView();
 //        when
-        String winnerName = outputView.winnerName(referee.selectWinnerList(list));
+        String winnerName = outputView.getWinnerNames(referee.selectWinnerList(list));
 
 //        then
         Assertions.assertThat(winnerName).isEqualTo("최종 우승자 : 홍길동");
