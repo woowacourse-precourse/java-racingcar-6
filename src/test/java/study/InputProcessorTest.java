@@ -63,9 +63,9 @@ public class InputProcessorTest {
     @ParameterizedTest
     @ValueSource(strings = {"-1","0"})
     void test5(String minusNumber) {
-        System.setIn(new ByteArrayInputStream(minusNumber.toString().getBytes()));
+        System.setIn(new ByteArrayInputStream(minusNumber.getBytes()));
         InputProcessor inputProcessor = new InputProcessor();
-        assertThatThrownBy(()->inputProcessor.getRound())
+        assertThatThrownBy(inputProcessor::getRound)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
