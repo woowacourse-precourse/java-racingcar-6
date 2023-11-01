@@ -2,10 +2,12 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
     private static final String DUPLICATE_NAME = "자동차의 이름은 중복될 수 없습니다.";
+    private static final int DEFAULT_POSITION_VALUE = 0;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -30,6 +32,24 @@ public class Cars {
             carDtos.add(carDto);
         }
         return carDtos;
+    }
+
+    public List<Car> findWinners() {
+        int maxPosition = getMaxPosition();
+        return getWinners(maxPosition);
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(DEFAULT_POSITION_VALUE);
+    }
+
+    private List<Car> getWinners(int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
     private Movement getRandomMovement() {

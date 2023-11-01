@@ -14,6 +14,10 @@ public class Game {
         return new RoundResult(cars.getCarDtos());
     }
 
+    public List<Car> getWinners() {
+        return cars.findWinners();
+    }
+
     private Cars initCars(List<String> carNames) {
         List<Car> carsWithName = createCarsWithName(carNames);
         return new Cars(carsWithName);
