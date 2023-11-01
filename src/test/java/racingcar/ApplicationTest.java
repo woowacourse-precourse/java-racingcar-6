@@ -95,6 +95,16 @@ class ApplicationTest extends NsTest {
         assertThat(nameList).containsExactly("붕붕", "타요", "토마스");
     }
 
+    @Test
+    void 시도_회수_입력_테스트() {
+        final Game game = new Game();
+        final String moves = "10";
+
+        final int MOVES = game.getNumberOfMoves(moves);
+
+        assertThat(MOVES).isEqualTo(10);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
