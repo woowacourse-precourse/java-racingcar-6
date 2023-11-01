@@ -1,9 +1,12 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Set;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -37,12 +40,25 @@ public class Application {
             }
         }
 
+        validateCarNames(cars);
+
         return cars;
     }
 
     private static void validateCarName(String carName) {
         if (carName.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+        }
+    }
+
+    private static void validateCarNames(List<Car> cars) {
+        Set<String> uniqueCarNames = new HashSet<>();
+        for (Car car : cars) {
+            String carName = car.getName();
+            if (uniqueCarNames.contains(carName)) {
+                throw new IllegalArgumentException("중복된 자동차 이름입니다.");
+            }
+            uniqueCarNames.add(carName);
         }
     }
 
