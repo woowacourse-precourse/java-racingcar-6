@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class CarsTest {
 
@@ -36,4 +38,13 @@ class CarsTest {
 
     }
 
+    @DisplayName("자동차 이름 1개 라도 입력 안하면 오류 처리")
+    @ParameterizedTest
+    @ValueSource(strings = {"", ","})
+    void test4(String carsName) {
+        assertThatThrownBy(() -> new Cars(carsName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("레이싱에 필요한 자동차 이름이 없습니다.");
+
+    }
 }
