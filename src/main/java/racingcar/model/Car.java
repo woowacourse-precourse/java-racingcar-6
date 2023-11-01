@@ -8,4 +8,12 @@ public class Car {
         this.carName = name;
         this.carCurrentLocation = 0;
     }
+
+    public void moveFowardCar() {
+        carCurrentLocation++;
+    }
+
+    public void setCarName(String name) {
+        this.carName = name;
+    }
 }
