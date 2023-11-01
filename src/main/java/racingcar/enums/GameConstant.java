@@ -6,7 +6,7 @@ public enum GameConstant {
     MAXIMUM_LENGTH_OF_CAR_NAME("5"),
     NUMBERS("(+|-)?[0-9]+"),
     POSITIVE_NUMBERS("+?[0-9]+"),
-    DIVIDER(",");
+    DELIMITER(",");
 
     private final String content;
 
