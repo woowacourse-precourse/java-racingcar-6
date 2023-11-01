@@ -9,17 +9,22 @@ public class Winner {
     private List<String> winnerCarList = new ArrayList<>();
 
     public List<String> determineWinner(List<Car> carList) {
-       int maxMove = carList.stream()
-               .mapToInt(Car::getMove)
-               .max()
-               .orElse(0);
+        int maxMove = getMaxMoveCount(carList);
+        return getWinnerCarNameList(carList, maxMove);
+    }
 
-       winnerCarList = carList.stream()
-               .filter(car -> car.getMove() == maxMove)
-               .map(Car::getCarName)
-               .toList();
+    private int getMaxMoveCount(List<Car> carList) {
+        return carList.stream()
+                .mapToInt(Car::getMove)
+                .max()
+                .orElse(0);
+    }
 
-        return winnerCarList;
+    private List<String> getWinnerCarNameList(List<Car> carList, int maxMove) {
+        return carList.stream()
+                .filter(car -> car.getMove() == maxMove)
+                .map(Car::getCarName)
+                .toList();
     }
 
 }
