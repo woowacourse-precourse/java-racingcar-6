@@ -20,4 +20,18 @@ class CarTest {
         assertThat(car.getMoveForwardCount()).isEqualTo(0);
     }
 
+    @Test
+    void 자동차_이동한_경우_현재_상태_반환() {
+        Car car = Car.createFromName("pobi");
+        car.moveForward(4);
+        assertThat(car.getCurrentCondition()).isEqualTo("pobi : -");
+    }
+
+    @Test
+    void 자동차_이동하지_못한_경우_현재_상태_반환() {
+        Car car = Car.createFromName("pobi");
+        car.moveForward(3);
+        assertThat(car.getCurrentCondition()).isEqualTo("pobi : ");
+    }
+
 }
