@@ -16,21 +16,21 @@ public class Car {
      * 랜덤 숫자를 뽑고 랜덤 숫자가 4 이상이라면 전진
      */
     public void playRound() {
-        pickRandomNumber();
+        pickRandomNumber(0,9);
         if (checkRandomNumber()) {
             forward();
         }
     }
 
-    private void pickRandomNumber() {
-        this.randomNumber = Randoms.pickNumberInRange(0, 9);
+    public void pickRandomNumber(int startRange, int endRange) {
+        this.randomNumber = Randoms.pickNumberInRange(startRange, endRange);
     }
 
-    private boolean checkRandomNumber() {
+    public boolean checkRandomNumber() {
         return this.randomNumber >= 4;
     }
 
-    private void forward() {
+    public void forward() {
         this.forwardMovementState += "-";
     }
 
