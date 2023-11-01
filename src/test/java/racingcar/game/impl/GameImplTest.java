@@ -22,4 +22,15 @@ class GameImplTest {
         Assertions.assertNotEquals(4, na.getMovedDistance());
         Assertions.assertNotEquals(4, ne.getMovedDistance());
     }
+
+    @Test
+    void end() {
+        Car ne = new NamedCar("네로");
+        Car na = new NamedCar("나로");
+        final Game game = new GameImpl(
+                List.of(ne, na), 3
+        );
+        game.play();
+        game.end();
+    }
 }
