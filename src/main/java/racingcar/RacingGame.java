@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.InputReader.*;
+import static racingcar.MessagePrinter.*;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -19,35 +20,29 @@ public class RacingGame {
 
 
     public void play() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        askCarNameList();
         carNameList = inputCarNames();
         cars = new ArrayList<>();
         for (String car : carNameList) {
             cars.add(new Car(car));
         }
-        System.out.println("시도할 회수는 몇회인가요?");
+        askRepetitions();
         repetitions = inputRepetitions();
 
-        System.out.println("실행 결과");
+        printResultMessage();
         for (int i = 0; i < repetitions; i++) {
             moveForward();
-            printCurrentPosition();
+            printCurrentPosition(cars);
         }
 
         String winner = findWinner();
-        System.out.println("최종 우승자 : " + winner);
+        printWinnerMessage(winner);
     }
 
     private void moveForward() {
         for (Car car : cars) {
             car.moveOrNot();
         }
-    }
-    private void printCurrentPosition() {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
-        }
-        System.out.println();
     }
 
     private String findWinner() {
