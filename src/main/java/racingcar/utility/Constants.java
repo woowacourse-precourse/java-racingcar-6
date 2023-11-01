@@ -8,6 +8,7 @@ public final class Constants {
     public static final int MIN_RANDOM_NUMBER = 0;
     public static final int MAX_RANDOM_NUMBER = 9;
     public static final int MIN_REQUIRED_ADVANCEMENT = 4;
+    public static final int MIN_ADVANCEMENT_COUNT = 0;
 
     //예외처리 정규표현식 패턴
     public static final String IMPROPER_COMMA_POSITION_PATTERN = "^(,.*|.*,,.*|.*,)$"; //문자열 처음 또는 끝에서 comma가 나오거나 문자열 내에서 2번 연속 나오는 경우
