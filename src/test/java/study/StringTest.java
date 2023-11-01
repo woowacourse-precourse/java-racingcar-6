@@ -10,7 +10,7 @@ public class StringTest {
     @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
-        String[] result = input.split(",");
+        String[] result = input.split(",", 0);
 
         assertThat(result).contains("2", "1");
         assertThat(result).containsExactly("1", "2");
@@ -19,7 +19,7 @@ public class StringTest {
     @Test
     void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
         String input = "1";
-        String[] result = input.split(",");
+        String[] result = input.split(",", 0);
 
         assertThat(result).contains("1");
     }
