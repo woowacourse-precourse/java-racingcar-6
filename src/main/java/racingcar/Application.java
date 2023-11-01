@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.domain.Movement;
 
 import java.util.*;
 
@@ -19,6 +20,7 @@ public class Application {
         //각 자동차 이름과
         //각 자동차 전진횟수를 리스트로 선언 -> "-"를 담는 리스트와 회수 count 리스트를 별도로 생성
         List<String> carNameList = new ArrayList<>(Arrays.asList(carNameArr));
+
         List<String> forwardCountStr = new ArrayList<>();
         List<Integer> forwardCountInt = new ArrayList<>();
         //전진횟수를 모두 ""으로 초기화
@@ -31,20 +33,8 @@ public class Application {
         attempt = Console.readLine();
 
         System.out.println("\n실행 결과");
-        for (int i = 0; i < Integer.parseInt(attempt); i++) {
-            //n회 시도 - 자동차 수 만큼 반복
-            for (int j = 0; j < carNameList.size(); j++) {
-                //전진
-                if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    forwardCountStr.set(j, forwardCountStr.get(j) + "-");
-                    forwardCountInt.set(j, forwardCountInt.get(j) + 1);
-                }
-            }
-            for (int k = 0; k < carNameList.size(); k++) {
-                System.out.println(String.format("%s : %s", carNameList.get(k), forwardCountStr.get(k)));
-            }
-            System.out.print("\n");
-        }
+        Movement moving = new Movement();
+        moving.forwardOrStop(attempt, carNameList, forwardCountStr, forwardCountInt);
 
         System.out.print("최종 우승자 : ");
         List<String> winner = new ArrayList<>();
