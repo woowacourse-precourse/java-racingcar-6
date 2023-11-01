@@ -11,6 +11,11 @@ BoundaryValue.java
   - minRandomNumber
   - maxRandomNumber
 
+GetInput.java
+- 사용자 입력 받기
+  - 경주할 자동차 이름
+  - 시도할 회수
+
 Application.java
 - 전반적인 게임 진행 개요
     - 시작 문구 출력 - Stationary의 namingCarMessage
