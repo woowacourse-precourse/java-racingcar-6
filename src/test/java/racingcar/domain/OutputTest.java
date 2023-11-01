@@ -1,11 +1,14 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,6 +24,7 @@ public class OutputTest {
     }
 
     @Test
+    @DisplayName("자동차이름 입력요구 출력")
     void printInputCarNameMessageTest() {
         //given
         output.printInputCarNameMessage();
@@ -32,6 +36,7 @@ public class OutputTest {
     }
 
     @Test
+    @DisplayName("게임횟수 입력요구 출력")
     void printInputGameCountMessageTest() {
         //given
         output.printInputGameCountMessage();
@@ -43,6 +48,7 @@ public class OutputTest {
     }
 
     @Test
+    @DisplayName("실행결과 출력")
     void printResultMessageTest() {
         //given
         output.printResultMessage();
@@ -53,4 +59,33 @@ public class OutputTest {
         assertThat(outputStream.toString()).contains("실행 결과");
     }
 
+    @Test
+    @DisplayName("Cars의 move()결과 출력")
+    void printMoveResultTest() {
+        //given
+        List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
+        CarNames carNames = new CarNames(carNameList);
+        Cars cars = new Cars(carNames);
+
+        //when
+        output.printMoveResult(cars);
+
+        //then
+        assertThat(outputStream.toString()).contains("test1 : \ntest2 : \ntest3 : ");
+    }
+
+    @Test
+    @DisplayName("우승자 명단 출력")
+    void printWinner() {
+        //given
+        List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
+        CarNames carNames = new CarNames(carNameList);
+        Cars cars = new Cars(carNames);
+
+        //when
+        output.printWinner(cars);
+
+        //then
+        assertThat(outputStream.toString()).contains("최종 우승자 : test1, test2, test3");
+    }
 }
