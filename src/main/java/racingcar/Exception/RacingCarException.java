@@ -1,22 +1,41 @@
 package racingcar.Exception;
 
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.IntStream;
 
-public class Exception {
+public class RacingCarException {
 
-    public void validateNonDigitCharacter(String count) {
+    public void validateGameCount(String count) {
+
+        if(count.isEmpty()){
+            throw new IllegalArgumentException("빈칸은 입력 하실 수 없습니다.");
+        }
+
         IntStream.range(0, count.length()).filter(i -> !Character.isDigit(count.charAt(i))).forEach(i -> {
-            throw new IllegalArgumentException("숫자만 입력");
+            throw new IllegalArgumentException("숫자만 입력 가능 합니다.");
         });
-    }
 
-    public void validateMinimumValue(int cnt) {
+        if(Objects.equals(count, "")){
+            throw new IllegalArgumentException("숫자만 입력 가능 합니다.");
+        }
+
+        int cnt = Integer.parseInt(count);
+
         if (cnt < 1) {
             throw new IllegalArgumentException("1보다 작은 수 는 입력 하실 수 없습니다.");
         }
+
     }
+
+//    public void validateMinimumValue(int cnt) {
+//        if (cnt < 1) {
+//            throw new IllegalArgumentException("1보다 작은 수 는 입력 하실 수 없습니다.");
+//        }
+//    }
 
     public void validateCarName(List<String> carName) {
         carName.stream().filter(String::isEmpty).forEach(s -> {
@@ -30,12 +49,19 @@ public class Exception {
         carName.stream().filter(s -> s.length() > 4).forEach(s -> {
             throw new IllegalArgumentException("5자 이상의 자동차 이름은 입력 할 수 없습니다.");
         });
+
+        Set<String> carNameSet = new HashSet<>(carName);
+
+        validateDuplicates(carName.size(),carNameSet.size());
+
+
     }
 
-    public void validateDuplicates(int carName,int carNameSet){
-        if(carName != carNameSet){
+    private void validateDuplicates(int carName, int carNameSet) {
+        if (carName != carNameSet) {
             throw new IllegalArgumentException("자동차 이름이 중복 되었습니다.");
         }
     }
+
 
 }
