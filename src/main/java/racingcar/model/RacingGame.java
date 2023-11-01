@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.validator.RacingGameValidator;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -13,10 +14,12 @@ public class RacingGame {
     private static final int STANDARD_NUMBER = 4;
     private final MovingCount movingCount;
     private final OutputView outputView;
+    private final RacingGameValidator racingGameValidator;
 
-    public RacingGame(MovingCount movingCount, OutputView outputView) {
+    public RacingGame(MovingCount movingCount, OutputView outputView, RacingGameValidator racingGameValidator) {
         this.movingCount = movingCount;
         this.outputView = outputView;
+        this.racingGameValidator = racingGameValidator;
     }
 
     public List<String> playRacingGame(List<String> carList, String attempt) {
@@ -83,6 +86,7 @@ public class RacingGame {
 
     public List<Integer> extractResultList() {
         List<Integer> resultList = movingCount.getMovingCount();
+        racingGameValidator.validateGameTerminated(resultList);
         return resultList;
     }
 }
