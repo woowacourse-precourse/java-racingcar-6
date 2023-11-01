@@ -10,6 +10,9 @@ public class Game {
     User user; //사용자 객체
     String[] carName; //자동차 명
     int[] score; //go 점수 반영
+    List<Integer> max_index = new ArrayList<>(); //최댓값 보유 인덱스 저장을 위한 리스트
+
+    int tryNum;//시도 횟수
     List<Integer> computer = new ArrayList<>();
     public Game(User user){
         this.user = user;
@@ -17,47 +20,58 @@ public class Game {
 
     public void gameStart(){
 
-        System.out.println("시도할 회수는 몇회인가요?");
+
+        setDefaultValue();
+        runGame();
+
+        System.out.println();
+
+        getWinner(carName,score);
+    }
+
+    private void setDefaultValue(){
         carName = user.getCarName();
-
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryNum =user.getTryNum();
+        tryNum =user.getTryNum();
         score = new int[carName.length];
+    }
 
+    private void runGame() {
+        System.out.println("실행결과");
         for(int i = 0; i < tryNum; i++){
             int[] goCount = setRandomCount(carName.length); //0~9까지 랜덤한 숫자 반영
             score = countScore(score,goCount);//랜덤한 숫자 추출하여 0,1 반영
             printresult(carName, score);
         }
-
-        System.out.println();
-        System.out.println("실행결과");
-
-
-        getWinner(carName,score);
     }
 
+
     private void getWinner(String[] carName, int[] score) {
-        int[] temp_score = score.clone();//최댓값 계산을 위한 임시 배열
-        List<Integer> max_index = new ArrayList<>(); //최댓값 보유 인덱스 저장을 위한 리스트
 
-        Arrays.sort(temp_score);//배열 정렬하여 최댓값 마지막 인덱스에
-        int max_score = temp_score[temp_score.length-1]; // 최댓값 저장
-        for(int i = 0; i <score.length; i++){
 
-            System.out.println(score[i]);
-            if (score[i] == max_score) max_index.add(i); // 최댓값에 해당하는 인덱스 저장
-        }
+        int max_score = getMaxScore();
+        setMaxIndex(max_score);
 
         System.out.print("최종 우승자 : ");
         if(max_index.size() > 1){
-            for(int i = 0; i<max_index.size();i++) {
-                System.out.print(carName[max_index.get(i)]);
-            }
+            String result = Arrays.toString(carName);
+            System.out.print(result.substring(1,result.length()-1));
         }
         else {
             System.out.println(carName[max_index.get(0)]);
         }
+    }
+
+    private void setMaxIndex(int max_score) {
+        for(int i = 0; i <score.length; i++){
+            System.out.println(score[i]);
+            if (score[i] == max_score) max_index.add(i); // 최댓값에 해당하는 인덱스 저장
+        }
+    }
+
+    private int getMaxScore(){
+        int[] temp_score = score.clone();//최댓값 계산을 위한 임시 배열
+        Arrays.sort(temp_score);//배열 정렬하여 최댓값 마지막 인덱스에
+        return temp_score[temp_score.length-1]; // 최댓값 반환
 
     }
 
