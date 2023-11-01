@@ -1,12 +1,10 @@
 package racingcar.manager;
 
-import static racingcar.constant.OutputStringConstant.INIT_SHOW_RESULT;
-import static racingcar.constant.OutputStringConstant.SHOW_WINNER;
+import static racingcar.constant.InputStringConstant.INPUT_NAME_DIVIDER;
 import static racingcar.validate.InputValidator.validateName;
 import static racingcar.validate.InputValidator.validateRoundNum;
 
 import java.util.Arrays;
-import org.assertj.core.util.Strings;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
@@ -21,7 +19,7 @@ public class IOManager {
     }
 
     public Names getNames() {
-        String[] inputNames = input.getNames().split(",");
+        String[] inputNames = input.getNames().split(INPUT_NAME_DIVIDER.getValue());
         validateName(inputNames);
 
         return new Names(Arrays.stream(inputNames).toList());
