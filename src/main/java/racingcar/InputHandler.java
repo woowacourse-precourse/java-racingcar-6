@@ -3,8 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {
-    static Racer[] createRacerFromInput() {
-        String input = Console.readLine();
+    static Racer[] createRacerFromInput(String input) {
 
         String[] names = input.split(",");
 
