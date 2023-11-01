@@ -30,18 +30,18 @@ public class Round {
     }
 
     private void showResult() {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder results = new StringBuilder();
         for (Car car : cars.getCars()) {
-            builder.append(car.getName()).append(" : ");
-            builder.append(getCarMoveHistory(car));
+            results.append(car.getName()).append(" : ");
+            results.append(getCarMoveHistory(car)).append(NEW_LINE);
         }
-        OutputHandler.showMessage(builder.toString());
+        OutputHandler.showMessageWithNewLine(results.toString());
     }
 
     private String getCarMoveHistory(Car car) {
         StringBuilder history = new StringBuilder();
         for (int i = 0; i < car.getMoveCount(); i++) {
-            history.append(MOVE_VALUE).append(NEW_LINE);
+            history.append(MOVE_VALUE);
         }
 
         return history.toString();
