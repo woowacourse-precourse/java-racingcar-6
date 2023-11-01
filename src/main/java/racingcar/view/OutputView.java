@@ -11,6 +11,14 @@ public class OutputView {
     public static void printHead() {
         System.out.println("실행 결과");
     }
+
+    public static void printScore(List<Car> cars) {
+        for (Car car : cars) {
+            printCarScore(car);
+        }
+        System.out.println();
+    }
+
     private static void printPosition(Car car) {
         for (int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
