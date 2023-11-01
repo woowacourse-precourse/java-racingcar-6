@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MoveForward {
 
-    static void totalGame(Car[] carArr, int n) {
+    static void totalGame(List<Car> carArr, int n) {
         System.out.println("실행 결과");
         int i = 0;
         while (i < n) {
@@ -17,7 +17,7 @@ public class MoveForward {
         }
     }
 
-    static List<Boolean> moveCars(Car[] carArr) {
+    static List<Boolean> moveCars(List<Car> carArr) {
         List<Boolean> moveArr = new ArrayList<Boolean>();
         boolean isMove;
         for (Car car: carArr) {
@@ -30,7 +30,7 @@ public class MoveForward {
         return moveArr;
     }
 
-    static void printCars(Car[] carArr) {
+    static void printCars(List<Car> carArr) {
         for (Car car: carArr) {
             String tempScore = "-".repeat(car.score);
             System.out.printf("%s : %s \n", car.name, tempScore);

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class RacingCarTest {
     @Test
     void 자동차_이름_입력_유효성_검사() {
-        String[] invalidNames = {"blackpink", "rose", "lisa", "jenny", "jisoo"};
+        List<String> invalidNames = Arrays.asList("blackpink", "rose", "lisa", "jenny", "jisoo");
         NameInput.setNameArr(invalidNames);
         assertThrows(IllegalArgumentException.class, () -> NameInput.checkNameInput());
     }
@@ -36,9 +36,9 @@ public class RacingCarTest {
     @Test
     void 전진_방식_유효성_검사() {
         Car jennyCar = new Car("jenny", 0);
-        Car[] carArr = {jennyCar};
-
+        List<Car> carArr = Arrays.asList(jennyCar);
         List<Boolean> moveArr = MoveForward.moveCars(carArr);
+
         if (moveArr.get(0) == true) {
             assertEquals(1, jennyCar.getScore());
         } else {
@@ -48,12 +48,12 @@ public class RacingCarTest {
 
     @Test
     void 우승자_선정_방식_검사() {
-        Car[] carArr = {
+        List<Car> carArr = Arrays.asList(
                 new Car("jenny", 1),
                 new Car("rose", 2),
                 new Car("lisa", 3),
                 new Car("jisoo", 3)
-        };
+        );
         SelectWinner.selectWinner(carArr);
         assertEquals(new ArrayList<String>(Arrays.asList("lisa", "jisoo")), SelectWinner.getWinners());
     }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SelectWinner {
     static private List<String> winners;
-    static void selectWinner(Car[] carArr) {
+    static void selectWinner(List<Car> carArr) {
         int max = 0;
         winners = new ArrayList<String>();
         for (Car car: carArr) {
@@ -36,4 +36,5 @@ public class SelectWinner {
     public static void setWinners(List<String> winners) {
         SelectWinner.winners = winners;
     }
+
 }

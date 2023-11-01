@@ -1,15 +1,19 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class NameInput {
 
-    static String[] nameArr;
+//    static String[] nameArr;
+    static List<String> nameArr;
 
     static void getNameInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-        nameArr = input.split(",");
+        nameArr = Arrays.asList(input.split(","));
     }
 
     static void checkNameInput() throws IllegalArgumentException {
@@ -20,20 +24,20 @@ public class NameInput {
         }
     }
 
-    static Car[] setNameInput() {
-        int n = nameArr.length;
-        Car[] carArr = new Car[n];
+    static List<Car> setNameInput() {
+        int n = nameArr.size();
+        List<Car> carArr = new ArrayList<Car>();
         for (int idx = 0; idx < n; idx++) {
-            carArr[idx] = new Car(nameArr[idx], 0);
+            carArr.add(new Car(nameArr.get(idx), 0));
         }
         return carArr;
     }
 
-    public static String[] getNameArr() {
+    public static List<String> getNameArr() {
         return nameArr;
     }
 
-    public static void setNameArr(String[] nameArr) {
+    public static void setNameArr(List<String> nameArr) {
         NameInput.nameArr = nameArr;
     }
 }
