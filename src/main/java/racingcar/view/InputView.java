@@ -22,7 +22,6 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
-
     public int inputAttemptsNumber() {
         String input = Console.readLine();
         int attempts;

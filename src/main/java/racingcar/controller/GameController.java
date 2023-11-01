@@ -27,16 +27,22 @@ public class GameController {
     }
 
     private void startGame() {
-        outputView.printStartGame();
         createCars();
+        int attempts = readAttemptsNumber();
     }
 
     private void createCars() {
+        outputView.printStartGame();
         List<String> carNames = inputView.inputCarNames();
 
         for (String carName : carNames) {
             cars.add(Car.makeCar(carName));
         }
+    }
+
+    private int readAttemptsNumber() {
+        outputView.printAskAttemptsNumber();
+        return inputView.inputAttemptsNumber();
     }
 
     public void findWinner() {
