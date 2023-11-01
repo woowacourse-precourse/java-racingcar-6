@@ -19,14 +19,6 @@ public class Car {
         position += STEP_SIZE;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
     private void validateCarNameLength(String carName) {
         if (!isCarNameLengthInRange(carName)) {
             throw new IllegalArgumentException(Error.CAR_NAME_LENGTH_ERROR.getMessage());
@@ -36,5 +28,13 @@ public class Car {
     private boolean isCarNameLengthInRange(String carName) {
         return carName.length() <= NumberConstant.MAX_CAR_NAME_LENGTH
                 && carName.length() != NumberConstant.MIN_CAR_NAME_LENGTH;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
