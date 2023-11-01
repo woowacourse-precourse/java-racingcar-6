@@ -11,7 +11,7 @@ public class Car {
     }
 
     public boolean canMoveForward(int randomNumber) {
-        if (randomNumber <= 4) {
+        if (randomNumber >= 4) {
             return true;
         }
         return false;
