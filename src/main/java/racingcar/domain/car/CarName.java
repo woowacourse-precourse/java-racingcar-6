@@ -17,6 +17,10 @@ public class CarName {
         return value;
     }
 
+    public static CarName clone(CarName carName) {
+        return new CarName(carName.value);
+    }
+
     private void validate(String target) {
         validateLength(target);
     }
@@ -30,4 +34,10 @@ public class CarName {
     private boolean isInvalidLength(String name) {
         return name.length() > MAX_LENGTH || name.length() < MIN_LENGTH;
     }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
 }
