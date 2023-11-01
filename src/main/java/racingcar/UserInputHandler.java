@@ -22,7 +22,8 @@ public class UserInputHandler {
     }
 
     public String getUserInput() {
-        return Console.readLine();
+        String userInput = Console.readLine();
+        return userInput;
     }
 
     private String[] userInputSplit(String userInput) {

@@ -14,6 +14,12 @@ public class GamePlayController {
         outputHandler = new OutputHandler();
     }
 
+    public void gameStart() {
+        initGameSetting();
+        playAllGame();
+        endGame();
+    }
+
     private void initGameSetting() {
         String userCarInput = userInputHandler.getUserInput();
         List<Car> cars = userInputHandler.getCarsInput(userCarInput);
