@@ -1,25 +1,23 @@
 package racingcar.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
+
 
 class WinnersTest {
     @DisplayName("car1, car2가 우승해 우승자 이름이 일치하는지 확인")
     @Test
     void 우승자_이름_테스트() {
-        Car car1 = Car.createCar("car1");
-        Car car2 = Car.createCar("car2");
-        car1.move(() -> true);
-        car2.move(() -> true);
-        Cars cars = Cars.from(Arrays.asList(car1.getName(), car2.getName()));
-        Winners winners = Winners.from(cars);
+        Cars cars1 = Cars.from(Arrays.asList("pobi", "jd"));
+        cars1.startRace(() -> true);
+        Winners winners1 = Winners.from(cars1);
+        String winnerName1 = winners1.getWinnerName();
 
-        String winnerName = winners.getWinnerName();
-
-        assertEquals("Car1", "Car2", winnerName);
+        assertThat(winnerName1).isEqualTo("pobi, jd");
     }
 }

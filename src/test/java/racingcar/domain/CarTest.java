@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +20,7 @@ class CarTest {
     @ParameterizedTest
     @MethodSource("nameInputTestSource")
     void 자동차_생성_테스트(String inputName) {
-        assertThatIllegalArgumentException().isThrownBy(() -> Car.createCar(inputName));
+        assertThatIllegalArgumentException().isThrownBy(() -> Car.from(inputName));
     }
 
     private static Stream<Arguments> nameInputTestSource() {
@@ -36,50 +35,44 @@ class CarTest {
 
     @DisplayName("자동차의 랜덤 수가 4 이상일 경우 한 칸 이동한다.")
     @ParameterizedTest
-    @CsvSource(value = {"0, false",
-            "1, false",
-            "2, false",
-            "3, false",
-            "4, true",
-            "5, true",
-            "6, true",
-            "7, true",
-            "8, true",
-            "9, true"})
-    void 자동차_이동_테스트(int value, boolean expected) {
-        Car car = Car.createCar("pobi");
-        int initialPosition = car.getPosition();
-        MovableStrategy movableStrategy = FixMoveStrategy.createStrategy(value);
-
+    @CsvSource(value = {"0, 0",
+            "1, 0",
+            "2, 0",
+            "3, 0",
+            "4, 1",
+            "5, 1",
+            "6, 1",
+            "7, 1",
+            "8, 1",
+            "9, 1"})
+    void 자동차_이동_테스트(int value, int expectedPosition) {
+        Car car = Car.from("pobi");
+        MovableStrategy movableStrategy = FixMoveStrategy.from(value);
         car.move(movableStrategy);
 
-        if (expected) {
-            Assertions.assertEquals(initialPosition + 1, car.getPosition());
-        } else {
-            Assertions.assertEquals(initialPosition, car.getPosition());
-        }
+        assertThat(car.getPosition()).isEqualTo(expectedPosition);
     }
 
-    @DisplayName("1등한 자동차인지 확인")
+    @DisplayName("")
     @Test
-    void 우승_테스트() {
-        int targetPosition = 5;
-        Car car = Car.createCar("Car");
+    void _테스트() {
+        int targetTopPosition = 5;
+        Car car = Car.from("Car");
         car.move(() -> true);
         car.move(() -> true);
         car.move(() -> true);
         car.move(() -> true);
         car.move(() -> true);
-        assertTrue(car.isWinner(targetPosition));
+        assertTrue(car.isTopPosition(targetTopPosition));
     }
 
     @DisplayName("1등한 자동차가 아닌지 확인")
     @Test
     void 우승_실패_테스트() {
         int targetPosition = 5;
-        Car car = Car.createCar("Car");
+        Car car = Car.from("Car");
         car.move(() -> true);
         car.move(() -> true);
-        assertFalse(car.isWinner(targetPosition));
+        assertFalse(car.isTopPosition(targetPosition));
     }
 }
