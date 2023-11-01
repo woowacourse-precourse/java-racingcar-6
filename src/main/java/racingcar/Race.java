@@ -11,10 +11,11 @@ public class Race {
     private final Car car;
     private int inputMove;
 
-    private int randomNum;
-
     public Race() {
         car = new Car();
+        inputMove();
+        startRace();
+        endRace();
     }
 
     public void inputMove() {
@@ -23,8 +24,7 @@ public class Race {
     }
 
     public boolean isGo() {
-        randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
             return true;
         }
         return false;
