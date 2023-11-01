@@ -58,16 +58,24 @@ public class Application {
             System.out.println();
             count++;
         }
+        gameResult();
     }
 
     // 우승자 출력
     public void gameResult() {
-
+        int max = Collections.max(carScore);
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < carScore.size(); i++) {
+            if (max == carScore.get(i)) {
+                winners.add(carList.get(i));
+            }
+        }
+        String result = String.join(", ", winners);
+        System.out.println("최종 우승자 : " + result);
     }
 
     public static void main(String[] args) {
         Application application = new Application();
         application.carName();
-
     }
 }
