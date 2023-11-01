@@ -128,24 +128,22 @@ public class Application {
     }
 
     private static void validateCarNames(List<String> carNames) {
-        validateNamePattern(carNames);
-        validateNameLength(carNames);
+        for (String carName : carNames) {
+            validateNamePattern(carName);
+            validateNameLength(carName);
+        }
         validateNoDuplicate(carNames);
     }
 
-    private static void validateNameLength(List<String> carNames) {
-        for (String carName : carNames) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자리 이하로 입력해주세요.");
-            }
+    private static void validateNameLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차의 이름은 5자리 이하로 입력해주세요.");
         }
     }
 
-    private static void validateNamePattern(List<String> carNames) {
-        for (String carName : carNames) {
-            if (!ALPHABET_AND_HANGUL_PATTERN.matcher(carName).matches()) {
-                throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능");
-            }
+    private static void validateNamePattern(String carName) {
+        if (!ALPHABET_AND_HANGUL_PATTERN.matcher(carName).matches()) {
+            throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능합니다.");
         }
     }
 
