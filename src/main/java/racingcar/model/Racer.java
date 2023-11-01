@@ -41,8 +41,8 @@ public class Racer {
     }
 
     public Result getWinner() {
-        Integer highPosition = racer.stream().
-                max(orderStrategy)
+        Integer highPosition = racer.stream()
+                .max(orderStrategy)
                 .map(Car::getCurrentPosition)
                 .orElseThrow();
         return Result.of(racer.stream()
