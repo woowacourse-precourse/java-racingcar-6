@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -15,16 +14,19 @@ public class GameController {
 
     public void play() {
         List<String> carNames = inputCarNames();
-        String stringNumber = InputView.askTryNumber();
-
-        validateTryNumberType(stringNumber);
-        int tryNumber = Integer.parseInt(stringNumber);
+        int tryNumber = getTryNumber();
 
         Cars cars = new Cars(carNames);
         Game game = new Game(tryNumber);
 
         performRound(cars, game);
         sortFinalWinner(cars);
+    }
+
+    private int getTryNumber() {
+        String stringNumber = InputView.askTryNumber();
+        validateTryNumberType(stringNumber);
+        return Integer.parseInt(stringNumber);
     }
 
     private static void validateTryNumberType(String stringNumber) {
