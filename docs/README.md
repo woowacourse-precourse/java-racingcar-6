@@ -16,7 +16,7 @@
     - domain#Judgment#checkCarName()
 - [ ] 몇 번의 이동할것인지 입력하기 + 1이상의 자연수만 입력하나 확인한다.
     - domain#InputView#scan()
-    - Create#howManyTimesGameStart()
+    - domain#Create#howManyTimesGameStart()
 - [ ] 입력된 자동차 인스턴스마다 move를 실행한다. 이때 0~9 임의의 숫자를 생성한다. 임의의 숫자가 4이상일때 전진하게 한다.
     - game#Car#move()
     - domain#Create#generateRandomNumbers()
