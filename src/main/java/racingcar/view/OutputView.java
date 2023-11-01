@@ -7,7 +7,7 @@ public class OutputView {
   public void printCarStatus(List<Car> cars) {
     for (Car car : cars) {
       String movement = car.getMovement();
-      System.out.println(car.getName() + ":" + movement);
+      System.out.println(car.getName() + " : " + movement);
     }
   }
 
@@ -22,7 +22,7 @@ public class OutputView {
         }
         winnerNames.append(winner.getName());
       }
-      System.out.println("최종 우승자: " + winnerNames.toString());
+      System.out.println("최종 우승자 : " + winnerNames.toString());
     }
   }
 }

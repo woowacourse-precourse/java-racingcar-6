@@ -40,7 +40,7 @@ public class Car {
   public String getMovement() {
     StringBuilder movement = new StringBuilder();
     for (int i = 0; i < position; i++) {
-      movement.append(" -");
+      movement.append("-");
     }
     return movement.toString();
   }
