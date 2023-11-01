@@ -7,7 +7,6 @@ import racingcar.model.Racer;
 import java.util.List;
 
 class RacerManagerTest {
-
     @Test
     void 쉼표_기준으로_이름_분리_확인() {
         // Given
