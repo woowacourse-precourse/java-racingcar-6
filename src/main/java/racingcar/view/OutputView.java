@@ -12,6 +12,7 @@ public class OutputView {
     private final static String FINAL_WINNER = "최종 우승자";
     private final static String DELIMITER = " : ";
     private final static String CAR_POSITION = "-";
+    private final static String WINNERS_DELIMITER = ", ";
 
     public void printGameResult(List<Car> list, Referee referee) {
 
@@ -35,7 +36,7 @@ public class OutputView {
         for (int i = 1; i < sortedCarList.size(); i++) {
 
             if (baseScore.equals(sortedCarList.get(i).getDistance())) {
-                baseName += ", " + sortedCarList.get(i).getName();
+                baseName += WINNERS_DELIMITER + sortedCarList.get(i).getName();
             }
         }
         return FINAL_WINNER + DELIMITER + baseName;
