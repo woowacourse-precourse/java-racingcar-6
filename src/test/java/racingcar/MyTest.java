@@ -12,6 +12,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
@@ -55,7 +56,8 @@ class MyTest extends NsTest {
     }
 
     @Test
-    void 방장_사기_맵_세_차수_실행한다() {
+    @DisplayName("혼자 우승")
+    void 방장_사기_맵입니다() {
         try (MockedStatic<Console> console = mockStatic(Console.class);
              MockedStatic<Randoms> random = mockStatic(Randoms.class)) {
             when(Console.readLine()).thenReturn("방장,유저1,유저2", "3");
@@ -102,7 +104,8 @@ class MyTest extends NsTest {
                 Game game = new Game();
             }
         })
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 이름입니다.");
     }
 
     @Override
