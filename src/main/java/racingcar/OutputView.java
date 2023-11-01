@@ -1,6 +1,7 @@
 package racingcar;
 
 import static racingcar.constant.Constants.INPUT_NAMES;
+import static racingcar.constant.Constants.INPUT_TIMES;
 
 public class OutputView {
 
@@ -16,4 +17,7 @@ public class OutputView {
         println(INPUT_NAMES);
     }
 
+    public void counting() {
+        println(INPUT_TIMES);
+    }
 }
