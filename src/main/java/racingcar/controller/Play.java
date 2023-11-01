@@ -78,6 +78,20 @@ public class Play {
         return resultMessage;
     }
 
+    public void championMessage(){
+        StringBuilder tempChampoinMessage = new StringBuilder();
+        tempChampoinMessage.append(CHAMPION_MESSAGE);
+        // 최대 숫자 찾는 기능
+        int champoinNumber = forwrdMax();
+        //우승자 찾는 기능(findChampoin)
+        findChampoin(tempChampoinMessage, champoinNumber);
+        //끝트머리 글자자르는 기능
+        deleteEndSuplus(tempChampoinMessage);
+
+        String champoinMessage = tempChampoinMessage.toString();
+        System.out.println(champoinMessage);
+    }
+
 
 
     //예외처리
