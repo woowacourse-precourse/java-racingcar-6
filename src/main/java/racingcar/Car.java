@@ -7,8 +7,12 @@ import java.util.List;
 
 public class Car {
     private List<String> car;
-    private static final HashMap<String, Integer> carDist = new HashMap<>();
+    private HashMap<String, Integer> carDist = new HashMap<>();
     private String userInput;
+
+    public Car(){
+        inputCar();
+    }
 
     public void inputCar(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -32,7 +36,6 @@ public class Car {
     }
 
     public HashMap<String, Integer> getCarDist() {
-        System.out.println(carDist);
         return carDist;
     }
 }

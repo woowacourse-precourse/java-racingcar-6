@@ -8,14 +8,18 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Race {
+    private final Car car;
     private int inputMove;
 
     private int randomNum;
 
+    public Race() {
+        car = new Car();
+    }
+
     public void inputMove() {
         System.out.println("시도할 회수는 몇회인가요?");
         inputMove = Integer.parseInt(Console.readLine());
-        System.out.println(inputMove);
     }
 
     public boolean isGo() {
@@ -25,9 +29,22 @@ public class Race {
         }
         return false;
     }
+    public void startRace(){
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < inputMove; i++){
+            racingCar();
+        }
+    }
 
-    public String endRace() {
-        Car car = new Car();
+    private void racingCar(){
+        for (String carName : car.getCar()){
+            if (isGo()){
+                car.goCar(carName);
+            }
+        }
+    }
+
+    public void endRace() {
         int maxValue = Collections.max(car.getCarDist().values());
 
         List<String> maxValueKeys = new ArrayList<>();
@@ -36,6 +53,7 @@ public class Race {
                 maxValueKeys.add(entry.getKey());
             }
         }
-        return String.join(",",maxValueKeys);
+
+        System.out.println("최종 우승자 : " + String.join(",",maxValueKeys));
     }
 }
