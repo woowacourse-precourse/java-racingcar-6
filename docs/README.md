@@ -18,8 +18,8 @@
 
 ## 2. 입출력 관련
 ### 1) 콘솔 입력 ConsoleScanner
-- [ ] 자동차 이름을 입력받는 기능 - readCarName()
-- [ ] 횟수를 입력받는 기능 - readRound()
+- [x] 자동차 이름을 입력받는 기능 - readCarName()
+- [x] 횟수를 입력받는 기능 - readRound()
 
 ### 2) 콘솔 출력 ConsolePrinter
 - [x] 자동차 이름 입력 메시지 출력 - printCarNameMessage()
