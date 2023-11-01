@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -34,7 +35,20 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    public void carMoveTest() {
+    void 횟수_이름이_유효하지_않을_때_예외_처리() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            runException("car1,car2,car3", "not a number");
+        });
+        System.out.println("예외가 발생해서 테스트가 성공했습니다.");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            runException("car1,car2,car3", "-1");
+        });
+        System.out.println("예외가 발생해서 테스트가 성공했습니다.");
+    }
+
+    @Test
+    public void tryMove_메서드_이동횟수_증가_유지() {
         Car car = new Car("test");
         int initialMoveCount = car.getMoveCount();
         car.tryMove();

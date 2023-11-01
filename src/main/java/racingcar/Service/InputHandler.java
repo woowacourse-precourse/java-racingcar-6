@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Service;
 
 import java.util.*;
 import camp.nextstep.edu.missionutils.Console;
@@ -24,6 +24,18 @@ public class InputHandler {
 
     public int getRaceCountFromUser() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        validateRaceCount(input);
+        return Integer.parseInt(input);
+    }
+    private void validateRaceCount(String input) {
+        try {
+            int raceCount = Integer.parseInt(input);
+            if (raceCount < 0) {
+                throw new IllegalArgumentException("시도할 회수는 음수가 될 수 없습니다.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 회수는 숫자여야 합니다.");
+        }
     }
 }
