@@ -1,21 +1,21 @@
 package racingcar.service;
 
-import racingcar.repository.CarsRepository;
+import racingcar.domain.Cars;
 import racingcar.repository.WinnerRepository;
 
 public class WinnerDetector {
     private final PrintService print = new PrintService();
-    private final CarsRepository carsRepo = new CarsRepository();
     private final WinnerRepository winnerRepo = new WinnerRepository();
+    private final Cars cars = Cars.create();
 
     public void findNum() {
-        winnerRepo.saveNum(carsRepo.findMaxPosition());
+        winnerRepo.saveNum(cars.findMaxPosition());
     }
 
     public void findName() {
-        for (int i = 0; i < carsRepo.size(); i++) {
-            if (winnerRepo.isWinner(carsRepo.getPosition(i))) {
-                winnerRepo.add(carsRepo.getName(i));
+        for (int i = 0; i < cars.size(); i++) {
+            if (winnerRepo.isWinner(cars.getPosition(i))) {
+                winnerRepo.add(cars.getName(i));
             }
         }
     }

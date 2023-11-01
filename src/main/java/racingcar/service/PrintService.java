@@ -1,10 +1,10 @@
 package racingcar.service;
 
-import racingcar.repository.CarsRepository;
+import racingcar.domain.Cars;
 
 public class PrintService {
 
-    private final CarsRepository carsRepo = new CarsRepository();
+    private final Cars cars = Cars.create();
 
     // 공통처리
     public void questionCarName() {
@@ -22,8 +22,8 @@ public class PrintService {
     // 값마다 다른것
     public void racing(int size) {
         for (int i = 0; i < size; i++) {
-            name(carsRepo.getName(i));
-            position(carsRepo.getPosition(i));
+            name(cars.getName(i));
+            position(cars.getPosition(i));
             spaceSkip();
         }
         spaceSkip();

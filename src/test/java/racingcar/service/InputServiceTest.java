@@ -4,19 +4,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Cars;
 import racingcar.domain.GameNum;
-import racingcar.repository.CarsRepository;
 
 class InputServiceTest {
 
     private final InputService inputService = new InputService();
-    private final CarsRepository carsRepository = new CarsRepository();
+    private final Cars cars = Cars.create();
 
     @Test
     void 이름이_올바르게_입력된_경우() {
         String input = "a,b,c";
         inputService.carsName(input);
-        assertThat(carsRepository.size()).isEqualTo(3);
+        assertThat(cars.size()).isEqualTo(3);
     }
 
     @Test

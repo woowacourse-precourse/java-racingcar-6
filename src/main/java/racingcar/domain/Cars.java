@@ -9,14 +9,17 @@ public class Cars {
     private static final List<Car> carList = new ArrayList<>();
 
     public void init(String[] carArr) {
+        carList.clear();
         for (String carName : carArr) {
             carList.add(Car.from(carName, 0));
         }
         validateDuplicateName();
     }
 
+    private Cars() {
+    }
+
     public static Cars create() {
-        carList.clear();
         return new Cars();
     }
 
