@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         List<Car> cars = inputCarNames();
+        int numAttempts = getNumAttempts();
     }
 
     private static List<Car> inputCarNames() {
@@ -19,6 +20,29 @@ public class Application {
         }
 
         return cars;
+    }
+    private static int getNumAttempts() {
+        while (true) {
+            System.out.println("시도 할 횟수를 입력하세요.");
+            String input = Console.readLine();
+            int numAttempts = parseNumAttempts(input);
+            if (numAttempts > 0) {
+                return numAttempts;
+            }
+        }
+    }
+    private static int parseNumAttempts(String input) {
+        try {
+            int numAttempts = Integer.parseInt(input);
+            if (numAttempts <= 0) {
+                System.out.println("시도 횟수는 1 이상이어야 합니다.");
+                throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+            }
+            return numAttempts;
+        } catch (NumberFormatException e) {
+            System.out.println("유효한 숫자를 입력하세요.");
+        }
+        return 0;
     }
 }
 
