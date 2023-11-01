@@ -32,6 +32,7 @@ public class Car {
         return name;
     }
 
+    @Override
     public String toString() {
         String distanceInDash = "";
 
@@ -41,5 +42,4 @@ public class Car {
 
         return String.format("%s : %s", name, distanceInDash);
     }
-
 }

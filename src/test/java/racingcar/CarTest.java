@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CarTest {
-
     @Test
     void 현재_상태를_실행_결과와_같이_출력() {
         Car testCar = new Car("jun");

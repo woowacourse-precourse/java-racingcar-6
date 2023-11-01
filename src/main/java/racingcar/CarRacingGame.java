@@ -118,5 +118,4 @@ public class CarRacingGame {
 
         this.numberOfAttempts = input;
     }
-
 }
