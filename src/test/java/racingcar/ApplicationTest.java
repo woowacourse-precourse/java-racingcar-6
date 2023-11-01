@@ -31,6 +31,18 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, STOP,
                 MOVING_FORWARD, MOVING_FORWARD);
     }
+
+    @DisplayName("자동차 전진 테스트")
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    void MoveCarIfRanNumOver4(int num) {
+        // given
+        final Car car = new Car();
+        // when
+        car.moveForward(num);
+        // then
+        assertThat(car.getTotalMove()).isEqualTo(1);
+    }
     }
 
     @Test
