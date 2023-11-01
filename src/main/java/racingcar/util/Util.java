@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Comparator;
 import java.util.List;
 import java.util.StringJoiner;
-import java.util.stream.Collectors;
 import racingcar.model.CarModel;
 
 public class Util {
@@ -25,6 +24,7 @@ public class Util {
         for (CarModel winner : winners) {
             result.add(winner.getName());
         }
+
         return result.toString();
     }
 
