@@ -20,8 +20,8 @@ class CarTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "leeseori, 이름은 공백 하여 최소 1자 이상 5자 이하만 가능합니다.",
-            "'', 이름은 공백 하여 최소 1자 이상 5자 이하만 가능합니다.",
+            "leeseori, 이름은 공백을 제거하여 최소 1자 이상 5자 이하만 가능합니다.",
+            "'', 이름은 공백을 제거하여 최소 1자 이상 5자 이하만 가능합니다.",
     })
     void 이름을_잘못_입력하는_경우(String input, String exceptionMessage) {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
