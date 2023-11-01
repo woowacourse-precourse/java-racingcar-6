@@ -1,15 +1,21 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.StaticRacingCar.decideWinner;
 import static racingcar.StaticRacingCar.eachRoundResult;
+import static racingcar.StaticRacingCar.toArrayWinner;
+import static racingcar.util.print.constants.RacingGameConstants.WINNER;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.StaticRacingCar.NumberGenerator;
 import racingcar.StaticRacingCar.User;
 import racingcar.car.Car;
+import racingcar.util.print.WinnerPrinter;
 
 public class NewRacingCarTest {
     static List<Car> racingCarList;
@@ -74,6 +80,28 @@ public class NewRacingCarTest {
                 "B : -" + "\n"
                 + "C : -" + "\n";
         assertThat(result).isEqualTo(expectedOutputResult);
+    }
+
+    @Test
+    void decideWinnerTest() {
+        // given
+        initializeCars();
+
+        // when
+        for (Car car : racingCarList) {
+            car.move(NumberGenerator.generateNumber());
+        }
+        List<Car> winner = decideWinner(racingCarList);
+        String[] winnerName = toArrayWinner(winner);
+
+        String InputWinnerNames = "최종 우승자 : " + String.join(", ", winnerName);
+
+        String expectedOutputResult = "최종 우승자 : A, B, C";
+
+        // then
+
+        assertThat(InputWinnerNames).isEqualTo(expectedOutputResult);
+
     }
 }
 
