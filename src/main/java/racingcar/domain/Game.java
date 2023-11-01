@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import static racingcar.constant.GameMessage.COLON;
 import static racingcar.constant.GameMessage.DASH;
-import static racingcar.constant.GameMessage.DELIMITER_WINNER;
 import static racingcar.constant.GameNumber.STOP_ATTEMPT_NUMBER;
 
 import java.util.ArrayList;
@@ -12,15 +11,17 @@ import racingcar.view.OutputView;
 public class Game {
     private final List<Car> cars;
     private int attemptNumber;
+    private Umpire umpire;
 
     public Game(List<Car> cars, int attemptNumber) {
         this.cars = cars;
         this.attemptNumber = attemptNumber;
+        umpire = new Umpire(cars);
     }
 
     public void startRacing() {
         playRacing();
-        showWinner();
+        umpire.showWinner();
     }
 
     public void playRacing() {
@@ -40,32 +41,6 @@ public class Game {
         }
 
         return roundResult;
-    }
-
-    public void showWinner() {
-        OutputView.printFinalWinner(findWinner());
-    }
-
-    public int findMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
-        }
-
-        return maxPosition;
-    }
-
-    public String findWinner() {
-        List<String> winners = new ArrayList<>();
-        int maxPosition = findMaxPosition();
-
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
-
-        return String.join(DELIMITER_WINNER, winners);
     }
 
     public void moveCar() {
