@@ -16,10 +16,10 @@ public class RacingGame {
     private final MessagePrinter messagePrinter;
     private final Referee referee;
 
-    public RacingGame() {
+    public RacingGame(Referee referee) {
         this.validator = Validator.getInstance();
         this.messagePrinter = MessagePrinter.getInstance();
-        this.referee = new Referee();
+        this.referee = referee;
         this.cars = init();
     }
 
