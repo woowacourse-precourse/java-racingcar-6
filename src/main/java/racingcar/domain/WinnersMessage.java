@@ -16,4 +16,12 @@ public class WinnersMessage {
         return message;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof WinnersMessage winnersMessage) {
+            return message.equals(winnersMessage.message);
+        }
+        return false;
+    }
+
 }
