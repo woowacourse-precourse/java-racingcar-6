@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.domain.car.validator.CarNamesValidator;
 import racingcar.dto.CarDto;
@@ -29,5 +30,23 @@ public class Cars {
 
     public void checkCarIsMovable() {
         cars.forEach(car -> car.moveForward(randomNumber));
+    }
+
+    public List<String> getGameWinner() {
+        final int longestPosition = getLongestPosition();
+        return cars.stream()
+                .filter(car -> car.isSamePosition(longestPosition))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getLongestPosition() {
+        return Collections.max(this.getCurrentPosition());
+    }
+
+    private List<Integer> getCurrentPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .toList();
     }
 }

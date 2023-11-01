@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.domain.car.Cars;
 import racingcar.domain.round.GameRound;
 import racingcar.utils.RandomNumber;
@@ -17,10 +18,13 @@ public class RacingGameController {
         initCarNames();
         initGameRound();
 
-        OutputView.printGameResultMessage();
+        printGameResultMessage();
         printGameContinuable();
+        printGameWinner();
+    }
 
-
+    private void printGameResultMessage() {
+        OutputView.printGameResultMessage();
     }
 
     private void printGameContinuable() {
@@ -35,12 +39,10 @@ public class RacingGameController {
         gameRound.isCountDecrease();
     }
 
-
-//    private void announceWinners() {
-//        final List<String> winnerNames = gameService.getWinnerNames();
-//        outputView.printMessageOfWinners(winnerNames);
-//    }
-
+    private void printGameWinner() {
+        final List<String> winnerNames = cars.getGameWinner();
+        OutputView.printGameWinnerMessage(winnerNames);
+    }
 
     private void initCarNames() {
         cars = new Cars(InputView.readCarName(), randomNumber);
