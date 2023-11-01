@@ -32,7 +32,8 @@ public class Application {
 
         for (String carName : carNames) {
             try {
-                validateCarName(carName);
+                validateCarNameFromEmpty(carName);
+                validateCarNameFromLength(carName);
                 cars.add(new Car(carName.trim()));
             } catch (IllegalArgumentException e) {
                 System.out.println("유효하지 않은 자동차 이름입니다. 프로그램을 종료합니다.");
@@ -40,18 +41,22 @@ public class Application {
             }
         }
 
-        validateCarNames(cars);
+        validateCarNameFromDuplicate(cars);
 
         return cars;
     }
 
-    private static void validateCarName(String carName) {
+    private static void validateCarNameFromEmpty(String carName) {
         if (carName.trim().isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
-
-    private static void validateCarNames(List<Car> cars) {
+    private static void validateCarNameFromLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+        }
+    }
+    private static void validateCarNameFromDuplicate(List<Car> cars) {
         Set<String> uniqueCarNames = new HashSet<>();
         for (Car car : cars) {
             String carName = car.getName();
