@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ThresholdScoreMoveRuleTest {
     private NumberGenerator getTargetNumber(int number) {
-        return new RandomNumberGenerator() {
+        return new NumberGenerator() {
             @Override
             public int generate() {
                 return number;
