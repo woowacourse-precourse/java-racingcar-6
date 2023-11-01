@@ -52,9 +52,9 @@ public class CustomView {
     public void printGameResult(List<String> winners) {
         System.out.print(gameResult);
         for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i >= winners.size()) {
-                System.out.print(", ");
+            System.out.print(winners.get(i) + ", ");
+            if (i >= winners.size()-1) {
+                System.out.print(winners.get(i));
             }
         }
     }
