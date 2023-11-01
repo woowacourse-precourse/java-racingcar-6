@@ -23,7 +23,7 @@ public class Number {
         } catch (NumberFormatException e) {
             return false;
         }
-        return false;
+        return true;
     }
 
     private void validateNumber(String num) {
