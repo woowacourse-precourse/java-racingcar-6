@@ -11,7 +11,7 @@ public class RacingGame {
         Cars cars = Cars.from(InputView.inputCarName());
         Round round = Round.from(InputView.inputRound());
         GameAdmin gameAdmin = GameAdmin.from(round);
-        gameAdmin.startGame(cars, RandomMoveStrategy.createStrategy());
+        gameAdmin.startGame(cars, new RandomMoveStrategy());
         gameAdmin.presentWinner(cars);
     }
 }

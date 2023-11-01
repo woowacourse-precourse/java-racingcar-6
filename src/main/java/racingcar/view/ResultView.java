@@ -17,7 +17,7 @@ public class ResultView {
 
     public static void showRoundResult(Cars cars) {
         cars.stream().forEach(car ->
-            System.out.println(car.getName() + NANE_COLON + POSITION_STATUS.repeat(car.getPosition())));
+                System.out.println(car.getName() + NANE_COLON + POSITION_STATUS.repeat(car.getPosition())));
 
         System.out.println();
     }

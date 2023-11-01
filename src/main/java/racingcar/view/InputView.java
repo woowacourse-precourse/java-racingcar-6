@@ -29,6 +29,5 @@ public class InputView {
         } catch(NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-
     }
 }

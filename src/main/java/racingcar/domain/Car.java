@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import racingcar.utils.GameRules;
 
-import java.util.Objects;
-
 public class Car {
     private final String name;
     private int position;
@@ -13,7 +11,7 @@ public class Car {
         this.position = GameRules.START_POSITION.getValue();
     }
 
-    public static Car createCar(String name) {
+    public static Car from(String name) {
         isNotNull(name);
         isOverSize(name);
         return new Car(name);
@@ -37,8 +35,8 @@ public class Car {
         }
     }
 
-    public boolean isWinner(int position) {
-        return this.position == position;
+    public boolean isTopPosition(int topPosition) {
+        return this.position == topPosition;
     }
 
     public String getName() {

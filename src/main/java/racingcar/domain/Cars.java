@@ -7,9 +7,11 @@ import java.util.stream.Stream;
 
 public class Cars {
     private final List<Car> cars;
+
     private Cars(final List<Car> cars) {
         this.cars = cars;
     }
+
     public static Cars from(List<String> carNames) {
         return new Cars(createCars(carNames));
     }
@@ -17,7 +19,7 @@ public class Cars {
     private static List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            cars.add(Car.createCar(carName));
+            cars.add(Car.from(carName));
         }
         return cars;
     }

@@ -17,9 +17,9 @@ public class Winners {
     }
 
     public String getWinnerName() {
-        int fastestCar = findFastestCar();
+        int fastestCarPosition = findFastestCar();
         return cars.stream()
-                .filter(car -> car.isWinner(fastestCar))
+                .filter(car -> car.isTopPosition(fastestCarPosition))
                 .map(Car::getName)
                 .collect(Collectors.joining(WINNER_DELIMITER));
     }
@@ -31,5 +31,4 @@ public class Winners {
                 .collect(Collectors.toList());
         return carRanks.get(0);
     }
-
 }
