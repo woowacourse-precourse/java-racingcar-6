@@ -18,7 +18,7 @@ public class RacingGameValidatorTest {
     }
 
     @Test
-    void 모든_자동차가_아무도_전진하지_않음() {
+    void 모든_자동차가_한번도_전진하지_않음() {
         List<Integer> resultList = new ArrayList<>(Arrays.asList(0, 0, 0));
 
         assertThatThrownBy(() -> racingGameValidator.validateGameTerminated(resultList))
