@@ -23,8 +23,8 @@ class ApplicationTest extends NsTest {
         String userInput = "pobi,jun" ;
         List<String> input = inputUser.getNames(userInput);
 
-        assertThat(input).contains("pobi", "jun");
-        assertThat(input).containsExactly("jun", "pobi");
+        assertThat(input).contains("jun", "pobi");
+        assertThat(input).containsExactly("pobi", "jun");
     }
     @Test
     void 전진_정지() {

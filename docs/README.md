@@ -14,7 +14,6 @@
   - [O] 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료한다. inputUser#getNumber
 - [O] 우승자가 누구인지 알려준다 Cars#printWinner
   - [O] 우승자가 여러명일 경우 쉼표를 이용해 출력한다
-- [ ] move 테스트케이스
 - [O] randomNum 테스트케이스
 
 
