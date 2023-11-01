@@ -16,14 +16,14 @@ public class RaceView {
                 .map(String::strip)
                 .toList();
 
-        validateNames(inputNames);
+        validateDuplicateName(inputNames);
 
         return inputNames.stream()
                 .map(RaceView::toRacer)
                 .toList();
     }
 
-    private static void validateNames(List<String> inputNames) {
+    private static void validateDuplicateName(List<String> inputNames) {
         long distinctCount = inputNames.stream()
                 .distinct()
                 .count();
