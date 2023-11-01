@@ -22,7 +22,7 @@ public class Race{
                 if(randomNumber>=4){
                     car.position++;
                 }
-                //실행값 출력
+
                 View.printCarMove(car.getCarName(), car.getCarPosition());
             }
             System.out.println();
