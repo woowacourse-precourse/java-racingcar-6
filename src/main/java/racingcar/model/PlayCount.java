@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static racingcar.view.exception.InputException.PLAY_COUNT_VALUE_EXCEPTION;
 
+import java.util.List;
+
 public class PlayCount {
 
     private static final String POSITIVE_NUMBERS = "0123456789";
@@ -21,12 +23,13 @@ public class PlayCount {
     }
 
     private static void validateIsPositiveNumber(final String number) {
-        String[] numberValues = number.split("");
-        for (String numberValue : numberValues) {
+        List<String> numberValues = List.of(number.split(""));
+
+        numberValues.forEach(numberValue -> {
             if (!POSITIVE_NUMBERS.contains(numberValue)) {
                 throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
             }
-        }
+        });
     }
 
     public void endOneRound() {
