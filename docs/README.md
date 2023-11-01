@@ -11,4 +11,4 @@
   - [x] 자동차를 전진 - `Car#moveForward`
       - [x] 0에서 9 사이의 무작위 값이 4 이상인 경우 전진
   - [x] 자동차 이름과 이동 횟수 반환 - `Car#getCurrentCondition`
-- [ ] 우승자를 판단하는 기능 - `Referee#determineWinners`
+- [x] 우승자를 판단하는 기능 - `Referee#determineWinners`

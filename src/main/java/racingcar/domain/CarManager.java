@@ -29,4 +29,10 @@ public class CarManager {
         this.maxCount = Math.max(count, this.maxCount);
     }
 
+    public List<Car> getWinners() {
+        return cars.stream()
+                .filter(car -> car.getMoveForwardCount() == maxCount)
+                .toList();
+    }
+
 }

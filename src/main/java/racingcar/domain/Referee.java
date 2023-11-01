@@ -5,7 +5,10 @@ import java.util.List;
 public class Referee {
 
     public List<String> determineWinners(CarManager carManager) {
-        return null;
+        List<Car> winners = carManager.getWinners();
+        return winners.stream()
+                .map(Car::getName)
+                .toList();
     }
 
 }

@@ -16,6 +16,10 @@ public class Car {
         return new Car(name);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getMoveForwardCount() {
         return moveForwardCount;
     }
