@@ -1,6 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class User {
 
@@ -20,7 +23,7 @@ public class User {
     public static int trialNumber;
 
 
-    public int setTrialCount() {
+    public int setTrialNumber() {
         System.out.println(TRIAL_MESSAGE);
         String inputCountsByClient = Console.readLine();
         int attemptCounts;
@@ -29,8 +32,22 @@ public class User {
             attemptCounts = Integer.parseInt(inputCountsByClient);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            attemptCounts = setTrialCount();
+            attemptCounts = setTrialNumber();
         }
         return attemptCounts;
+    }
+
+    public List<String> setCarName() {
+        System.out.println(INPUT_CAR_NAME_MESSAGE);
+        String carNames = Console.readLine();
+        List<String> carNameList = Arrays.stream(carNames.split(OPERATOR))
+                .collect(Collectors.toList());
+        try {
+            Validation.checkException(carNameList);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            carNameList = setCarName();
+        }
+        return carNameList;
     }
 }

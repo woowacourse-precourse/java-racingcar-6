@@ -18,4 +18,13 @@ public class Winner {
         // 최종 우승자가 한명인지 다수인지 판단하는 기능 메서드
     }
 
+
+    public List<String> decideWinners() {
+        cars.sort(Comparator.comparing(Car::getPosition).reversed());
+        final int winnerPosition = cars.get(0).getPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == winnerPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 }
