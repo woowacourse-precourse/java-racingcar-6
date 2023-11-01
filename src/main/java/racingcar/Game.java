@@ -26,10 +26,8 @@ public class Game {
         //라운드 입력
         int round = inputView.readRound();
         outputView.printExecutionResultString();
-        for(int i=0; i<round; i++){
-            RoundResult roundResult = gameService.forward();
-            outputView.printRoundResult(roundResult);
-        }
+        List<RoundResult> roundResults = gameService.forwardStart(round);
+        outputView.printRoundResult(roundResults);
 
         List<String> winners = gameService.selectWinners();
         outputView.printWinners(winners);

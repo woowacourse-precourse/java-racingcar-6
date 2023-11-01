@@ -10,15 +10,10 @@ public class OutputView {
     private final static String delimiter = " : ";
     private final static String forwardMark = "-";
 
-    public void printRoundResult(RoundResult roundResult) {
-        List<CarRecord> round = roundResult.getRound();
-
-        for (CarRecord carRecord : round) {
-            System.out.println(carRecord.getCarName() + delimiter + calculateNumberOfHyphen(carRecord.getNumber_of_step()));
+    public void printRoundResult(List<RoundResult> roundResult) {
+        for(RoundResult result : roundResult){
+            printRound(result);
         }
-
-        System.out.println();
-
     }
 
     public void printWinners(List<String> winners) {
@@ -32,6 +27,14 @@ public class OutputView {
 
     private String calculateNumberOfHyphen(int numberOfStep) {
         return forwardMark.repeat(numberOfStep);
+    }
+
+    private void printRound(RoundResult roundResult){
+        List<CarRecord> round = roundResult.getRound();
+        for (CarRecord carRecord : round) {
+            System.out.println(carRecord.getCarName() + delimiter + calculateNumberOfHyphen(carRecord.getNumber_of_step()));
+        }
+        System.out.println();
     }
 
 }
