@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import domain.InputUser;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -11,7 +14,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    @Test
+    void split_메서드로_주어진_값을_구분() {
+        InputUser inputUser = new InputUser();
+        String userInput = "1,2" ;
+        List<String> input = inputUser.getNames(userInput);
 
+        assertThat(input).contains("2", "1");
+        assertThat(input).containsExactly("1", "2");
+    }
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
