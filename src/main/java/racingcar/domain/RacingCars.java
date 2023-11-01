@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.exception.CarNameDuplicationException;
 
 public class RacingCars implements Iterable<Car> {
 
@@ -18,6 +20,14 @@ public class RacingCars implements Iterable<Car> {
         return cars.iterator();
     }
 
+    public void checkNameDuplication(List<Car> cars) {
+        List<Car> distinctCars = cars.stream()
+                .distinct()
+                .toList();
+        if (distinctCars.size() != cars.size()) {
+            throw new CarNameDuplicationException();
+        }
+    }
 
     public String showCarsStates() {
         StringBuilder racingStates = new StringBuilder();
