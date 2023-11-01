@@ -14,6 +14,9 @@ public class OutputView {
     private static final String NEW_LINE = System.lineSeparator();
     private static final int INIT_POSITION = 0;
 
+    private OutputView() {
+        throw new IllegalArgumentException();
+    }
 
     public static void printNewLine() {
         System.out.print(NEW_LINE);
