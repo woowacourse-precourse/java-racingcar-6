@@ -41,4 +41,13 @@ public class CarTest {
         car.moveForward(3);
         assertThat(car.isSamePosition(0)).isTrue();
     }
+
+    @Test
+    @DisplayName("이동 위치 비교 테스트")
+    void checkFindFasterPosition() {
+        Car car = new Car("mason");
+        car.moveForward(5);
+        car.moveForward(5);
+        assertThat(car.findFasterPosition(1)).isEqualTo(2);
+    }
 }
