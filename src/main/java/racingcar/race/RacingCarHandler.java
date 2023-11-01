@@ -22,11 +22,15 @@ class RacingCarHandler implements Handler<RacingInfo>{
 
     private void moveCar(final List<CarInfo> carInfoList) {
         for (CarInfo carInfo : carInfoList) {
-            if(Randoms.pickNumberInRange(0,9)>=4)
-                carInfo.increaseMoveCnt();
-            System.out.println(carInfo);
+            moveCarAndPrint(carInfo);
         }
         System.out.println();
+    }
+
+    private static void moveCarAndPrint(CarInfo carInfo) {
+        if(Randoms.pickNumberInRange(0,9)>=4)
+            carInfo.increaseMoveCnt();
+        System.out.println(carInfo);
     }
 
 }
