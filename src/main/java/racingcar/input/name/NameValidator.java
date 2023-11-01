@@ -1,9 +1,11 @@
 package racingcar.input.name;
 
-import java.util.Optional;
+import racingcar.constant.ErrorMessage;
 
 public class NameValidator {
-    public static boolean hasValidCharacters(String input) {
-        return Optional.ofNullable(input).map(s -> s.matches("[A-Za-z,]+")).orElse(false);
+    public static void isValid(String name) {
+        if(!(NameLengthValidator.hasValidLength(name) && NameCharacterValidator.hasValidCharacters(name))) {
+            throw new IllegalArgumentException(ErrorMessage.getErrorMessage("name"));
+        }
     }
 }

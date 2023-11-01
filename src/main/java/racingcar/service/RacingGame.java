@@ -3,16 +3,10 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.stream.Collectors;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
 import racingcar.input.count.CountValidator;
-import racingcar.input.name.NameCounter;
 import racingcar.input.name.NameValidator;
 
 public class RacingGame {
@@ -32,13 +26,7 @@ public class RacingGame {
         String[] names = inputNames.split(",");
         int[] countsByName = new int[names.length];
         for(String name : names) {
-            if(!NameValidator.hasValidCharacters(name)) {
-                throw new IllegalArgumentException(getErrorMessage("name"));
-            }
-
-            if(name.length() > 5) {
-                throw new IllegalArgumentException(getErrorMessage("name"));
-            }
+           NameValidator.isValid(name);
         }
 
         // 횟수 입력 문구 출력
