@@ -16,10 +16,22 @@ public class RacingcarController {
     }
 
     public void startGame() {
+        setCars();
+        setRound();
+        printRunResult();
+    }
+
+    private void setCars() {
         outputView.inputCarName();
         carMapper.setCars(inputView.carName());
+    }
+
+    private void setRound() {
         outputView.inputRoundNumber();
         carMapper.setRound(inputView.roundNumber());
+    }
+
+    private void printRunResult() {
         outputView.outputRunResult();
     }
 
