@@ -94,15 +94,17 @@ class InputValidatorTest {
         }
 
         @Test
-        @DisplayName("[Exception] 중복 이름 입력으로 예외를 던진다.")
-        void Given_Duplicated_When_ValidateDuplicated_Then_ThrowException() {
+        @DisplayName("[Exception] 최소 시도 횟수 미만의 정수로, 예외를 던진다..")
+        void Given_LowerBound_When_ValidateRoundCount_Then_ThrowException() {
             // given
-            List<String> duplicatedCarNames = DUPLICATED_CAR_NAMES_LIST.getCarNamesList();
+            final int invalidRoundCountA = 0;
+            final int invalidRoundCountB = -50;
+            final int invalidRoundCountC = -21474837647;
 
             // when &&then
-            assertThatThrownBy(() -> InputValidator.validateDuplicated(duplicatedCarNames))
+            assertThatThrownBy(() -> InputValidator.validateRoundCount(invalidRoundCountA))
                     .isInstanceOf(RacingCarException.class)
-                    .hasMessageContaining(ErrorMessage.DUPLICATED.getMessage());
+                    .hasMessageContaining(ErrorMessage.INVALID_ROUND_COUNT.getMessage());
         }
     }
 }
