@@ -236,26 +236,28 @@ classDiagram
     }
 
     class ConstantsHandler {
-        - VALID_CAR_NAMES_LENGTH: int
-        - MIN_TRY_COUNT: int
-        - INIT_POSITION: int
-        - MIN_RANDOM_NUMBER: int
-        - MAX_RANDOM_NUMBER: int
-        - NUMBER_POSSIBLE_TO_FORWARD: int
-        - JOIN_MARK: String
-        - POINT_MARK: String
-        - SPLIT_DELIMITER: String
+        + VALID_CAR_NAMES_LENGTH: int
+        + MIN_TRY_COUNT: int
+        + INIT_POSITION: int
+        + MIN_RANDOM_NUMBER: int
+        + MAX_RANDOM_NUMBER: int
+        + NUMBER_POSSIBLE_TO_FORWARD: int
+        + JOIN_MARK: String
+        + POINT_MARK: String
+        + SPLIT_DELIMITER: String
     }
 
     class ErrorHandler {
         <<enumeration>>
-        - INVALID_NUMBER: ErrorHandler
-        - INVALID_INPUT: ErrorHandler
-        - INVALID_ENGLISH_KOREAN: ErrorHandler
-        - INVALID_LENGTH: ErrorHandler
-        - INVALID_RANGE: ErrorHandler
-        - MAX_VALUE_MISSING: ErrorHandler
-        - DUPLICATE_NUMBER: ErrorHandler
+        + INVALID_NUMBER: ErrorHandler
+        + INVALID_INPUT: ErrorHandler
+        + INVALID_ENGLISH_KOREAN: ErrorHandler
+        + INVALID_LENGTH: ErrorHandler
+        + INVALID_RANGE: ErrorHandler
+        + MAX_VALUE_MISSING: ErrorHandler
+        + DUPLICATE_NUMBER: ErrorHandler
+        - errorMessage: String
+        + getException(): RuntimeException
     }
 
 InputHandler <|-- ConsoleInput
@@ -274,6 +276,7 @@ CarGameService --> CarStatusGroup
 CarGameService --> CarStatus
 CarGameService --> CarNames
 CarStatusGroup --> CarStatus : Contains
+CarStatusGroup --> RandomNumber
 CarStatus --> CarName
 CarStatus --> CarPosition
 ```
