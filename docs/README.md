@@ -4,13 +4,8 @@
 
 ### Application
     프로그램의 Entry Class다.
-- [ ] RacingGamePlayer 객체를 초기화하고 실행한다.
-
-### RacingGamePlayer
-    게임의 진행을 관리하는 클래스다.
-- [ ] RacingGame, RacingGameBridge 객체를 멤버로 갖는다.
-- [ ] RacingGame 객체를 초기화하고 실행한다.
-- [ ] RacingGame의 상태를 기반으로 RacingGameBridge에 메소드를 호출하여 유저 입출력을 처리한다.
+- [ ] RacingGameBridge 객체를 초기화한다.
+- [ ] RacingGameBridge 가 제공하는 API를 통해 게임을 실행하고, 결과를 출력한다.
 
 ## racingcar.game Package
 
