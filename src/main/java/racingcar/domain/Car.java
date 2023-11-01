@@ -4,24 +4,25 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private int moveCount = 0;
-    private String name= "";
+    private String name = "";
 
     public Car(String name) {
         this.name = name;
     }
 
-    public void tryToMove(){
-        if (compare(generateRandomNumber())){
+    public void tryToMove() {
+        if (compare(generateRandomNumber())) {
             moveCount++;
         }
     }
 
-    private int generateRandomNumber(){
+    private int generateRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber;
     }
-    private boolean compare(int x){
-        return x >=4;
+
+    private boolean compare(int x) {
+        return x >= 4;
     }
 
     public int getMoveCount() {
