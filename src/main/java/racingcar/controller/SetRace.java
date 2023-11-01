@@ -14,11 +14,11 @@ public class SetRace {
         if (input.contains(",")) {
             String[] carNames = input.split(",");
             for (String carName : carNames) {
-                if (carName.length() > 5){
+                if (carName.length() > 5) {
+                    throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+                } else {
                     Car car = new Car(carName);
                     carsList.add(car);
-                } else {
-                    throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
                 }
             }
         } else {
