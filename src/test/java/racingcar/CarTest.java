@@ -43,6 +43,11 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 1~5자이고 공백이 없으며 특수 기호를 포함할 수 없습니다.");
 
+    }
+
+    @Test
+    @DisplayName("게임 참여 자동차 중복 테스트")
+    void createCarsWithDuplicateNames() {
         assertThatThrownBy(() -> Car.createCars(Arrays.asList("car1", "car1")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
