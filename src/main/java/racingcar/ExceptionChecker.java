@@ -47,13 +47,13 @@ public class ExceptionChecker {
         try {
             Integer.parseInt(strTries);
         } catch (IllegalArgumentException ex) {
-            throw new IllegalArgumentException("입력한 횟수가 정수가 아니므로 프로그램을 종료합니다.");
+            throw new IllegalArgumentException("입력한 회수가 정수가 아니므로 프로그램을 종료합니다.");
         }
     }
 
     public void lessThanZero(String strTries) throws IllegalArgumentException {
         if (Integer.parseInt(strTries) < 0) {
-            throw new IllegalArgumentException("입력한 횟수가 음수이므로 프로그램을 종료합니다.");
+            throw new IllegalArgumentException("입력한 회수가 음수이므로 프로그램을 종료합니다.");
         }
     }
 

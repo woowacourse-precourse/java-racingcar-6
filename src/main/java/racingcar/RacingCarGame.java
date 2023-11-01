@@ -16,7 +16,7 @@ public class RacingCarGame {
     }
 
     public void playRacingCar() {
-        racingCar.printResultText();
+        racingCar.startPrintResult();
         for (int i = 0; i < racingCar.numberOfTries; i++) {
             for (int j = 0; j < racingCar.carName.size(); j++) {
                 System.out.println(racingCar.printMovement(j, carName));

@@ -14,7 +14,7 @@ public class RacingCar {
         System.out.println();
     }
 
-    public void printResultText() {
+    public void startPrintResult() {
         System.out.printf("%n실행결과%n");
     }
 
@@ -70,12 +70,12 @@ public class RacingCar {
     }
 
     public String printWinner(List<Integer> winnerIndexList, List<String> carNameList) {
-        String result = "최종 우승자 : ";
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
         for (int i = 0; i < winnerIndexList.size() - 1; i++) {
-            result += carNameList.get(winnerIndexList.get(i)) + ", ";
+            result.append(carNameList.get(winnerIndexList.get(i))).append(", ");
         }
-        result += carNameList.get(winnerIndexList.get(winnerIndexList.size() - 1));
-        return result;
+        result.append(carNameList.get(winnerIndexList.get(winnerIndexList.size() - 1)));
+        return result.toString();
     }
 
     public String printFinalWinner(List<Integer> movementSoFar, List<String> carNameList) {

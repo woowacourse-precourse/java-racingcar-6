@@ -14,7 +14,7 @@ public class InputView {
     }
 
     public static List<String> stringToList(String strCarName) {
-        List<String> carNameList = new ArrayList<String>();
+        List<String> carNameList = new ArrayList<>();
         if (strCarName.contains(",")) {
             carNameList = Arrays.asList(strCarName.split(","));
         } else if (!strCarName.contains(",")) {
