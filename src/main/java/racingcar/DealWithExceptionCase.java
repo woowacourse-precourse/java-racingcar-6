@@ -6,13 +6,13 @@ public class DealWithExceptionCase {
         if (name.length() > 5)
             throw new IllegalArgumentException();
     }
-    public static void IsNameDuplicate(String name) {
-        if (RacingcarModel.duplicateInspection.contains(name))
-            throw new IllegalArgumentException();
-        else {
-            RacingcarModel.duplicateInspection.add(name);
-        }
-    }
+//    public static void IsNameDuplicate(String name) {
+//        if (RacingcarModel.duplicateInspection.contains(name))
+//            throw new IllegalArgumentException();
+//        else {
+//            RacingcarModel.duplicateInspection.add(name);
+//        }
+//    }
     public static void IsVoidInName(String name) {
         if (name.equals("") || Pattern.matches(RacingcarModel.IS_NOT_IN_VOID, name))
             throw new IllegalArgumentException();
