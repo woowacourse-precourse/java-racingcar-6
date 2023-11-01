@@ -20,7 +20,6 @@ public class StringTest {
     void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
         String input = "1";
         String[] result = input.split(",");
-
         assertThat(result).contains("1");
     }
 
