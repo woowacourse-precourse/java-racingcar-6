@@ -23,8 +23,7 @@ public class Application {
 
         for(int i = 0; i < carName.length; i++) {
             if(carName[i].length() > 5) {
-                System.out.println("자동차 이름은 5자를 초과할 수 없습니다. 다시 입력하세요.");
-                return input();
+                throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
             }
         }
 
@@ -36,8 +35,7 @@ public class Application {
             try {
                 Number_of_races = Integer.parseInt(readLine());
             } catch (NumberFormatException e) {
-                System.out.println("잘못된 입력입니다. 다시 입력하세요.");
-                return splitName(inputname);
+                throw new IllegalArgumentException("잘못된 입력입니다");
             }
         }
 
