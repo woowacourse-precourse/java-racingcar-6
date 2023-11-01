@@ -39,6 +39,32 @@ public class Application {
             }
         }
     }
+    public static void determineWinners(String[] splitCarNames, String[] processCar) {
+        int maxDistance = 0;
+        java.util.List<String> winners = new java.util.ArrayList<>();
+
+        for (int i = 0; i < splitCarNames.length; i++) {
+            if (processCar[i].length() > maxDistance) {
+                maxDistance = processCar[i].length();
+                winners.clear();
+                winners.add(splitCarNames[i]);
+            } else if (processCar[i].length() == maxDistance) {
+                winners.add(splitCarNames[i]);
+            }
+        }
+
+        printWinners(winners);
+    }
+    public static void printWinners(java.util.List<String> winners) {
+        System.out.println("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i < winners.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
         printCarNamePrompt();
         String inputCarNames = getUserInput();
@@ -56,5 +82,6 @@ public class Application {
             printProcessCar(splitCarNames, processCar);
         }
 
+        determineWinners(splitCarNames, processCar);
     }
 }
