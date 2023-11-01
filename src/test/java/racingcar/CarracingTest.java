@@ -32,7 +32,7 @@ class CarracingTest {
     void 자동차_출발점_위치(String[] names) {
         setInstance();
         Map<String, String> nameList;
-        nameList = carracing.setInitStartPoint(names);
+        nameList = carracing.initializerStartPoint(names);
 
         boolean checkSetInitStartPoint = checkNull(nameList);
 

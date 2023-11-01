@@ -21,7 +21,7 @@ public class Carracing {
 
         printResultMsg();
 
-        setInitStartPoint(carNameList);
+        initializerStartPoint(carNameList);
         for (int i = 0; i < movingCount; i++) {
             goStop();
         }
@@ -45,7 +45,7 @@ public class Carracing {
         }
     }
 
-    public static Map<String, String> setInitStartPoint(String[] carNameList) {
+    public static Map<String, String> initializerStartPoint(String[] carNameList) {
 
         raceScore = new LinkedHashMap<>();
 
@@ -59,7 +59,7 @@ public class Carracing {
     public static void chooseWinner() {
         List<String> winner = new ArrayList<>(raceScore.keySet());
 
-        winner = sortRanking(winner);
+        sortRanking(winner);
 
         printWinnerMsg(raceScore, winner);
     }
