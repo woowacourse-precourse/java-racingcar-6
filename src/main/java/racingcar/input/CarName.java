@@ -1,9 +1,9 @@
 package racingcar.input;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.Arrays;
 import java.util.List;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class CarName {
 
