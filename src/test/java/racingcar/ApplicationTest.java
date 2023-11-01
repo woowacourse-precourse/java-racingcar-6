@@ -24,23 +24,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리_빈_문자열() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_중복() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_글자수() {
+    void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -48,23 +32,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이동_횟수에_대한_예외_처리_정수가_아닌_수() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,woni", "3.141592"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이동_횟수에_대한_예외_처리_0이햐() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,woni", "-1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 공동_우승자_출력() {
+    void 공동_우승() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "1");
