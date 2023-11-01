@@ -5,11 +5,10 @@ import java.util.ArrayList;
 
 
 public class EvaluateSystem {
-    public ArrayList<Integer> racingCondition(int inputCount) {
+    public ArrayList<Integer> racingCondition() {
         ArrayList<Integer> racingInProcess = new ArrayList<>();
-        for (int i = 0; i < inputCount; i++) {
-            racingInProcess.add(Randoms.pickNumberInRange(0,9));
-        }
+
+        racingInProcess.add(Randoms.pickNumberInRange(0,9));
         return racingInProcess;
     }
     public static void winnerDisplay(ArrayList<ArrayList<Integer>> RecordList, String[] name) {
