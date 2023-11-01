@@ -19,12 +19,10 @@
     - getTryCount 시도 횟수
     - getCarNameInput 자동차 이름
     - 예외
-      - 자동차 이름
-        - 쉼표로 구분, 5자 이하 소문자만 가능
-        - 공백 입력 불가
-        - 중복값 입력 불가
-      - 시도 횟수
-        - 1이상의 자연수
+      - checkCarNameExceptions 자동차 이름
+        - carNameRullException 쉼표로 구분, 5자 이하 소문자만 가능, 공백 입력 불가
+        - carNameDuplicateException 중복값 입력 불가
+      - checkTryCountExceptions 시도 횟수는 1이상의 자연수만 가능
   - OutputView 결과
     - printRace 게임 진행 출력
     - printWinners 공동 우승일 경우 쉼표로 구분
