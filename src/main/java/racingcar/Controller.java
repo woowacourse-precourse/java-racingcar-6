@@ -99,7 +99,13 @@ class Game {
     }
 
     private static ArrayList<String> stringToArrayList(String carStr) {
-        return new ArrayList<>(Arrays.asList(carStr.split(",")));
+        ArrayList<String> carNameLengthCheck = new ArrayList<>(Arrays.asList(carStr.split(",")));
+        for(String s : carNameLengthCheck){
+            if(s.length() > 5){
+                throw new IllegalArgumentException();
+            }
+        }
+        return carNameLengthCheck;
     }
 
     static void checkException(final String str){
