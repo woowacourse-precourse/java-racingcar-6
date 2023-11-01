@@ -5,7 +5,14 @@ public class RacingCar {
     private int distance = 0;
 
     public RacingCar(String name) {
+        validateCarName(name);
         this.name = name;
+    }
+
+    private void validateCarName(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
     }
 
     public void drive(int number) {

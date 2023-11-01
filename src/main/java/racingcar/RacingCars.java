@@ -8,8 +8,10 @@ import java.util.List;
 public class RacingCars {
     private List<RacingCar> racingCars = new ArrayList<>();
 
-    void add (RacingCar car) {
-        racingCars.add(car);
+    public RacingCars(String[] carNames) {
+        for (String carName : carNames) {
+            racingCars.add(new RacingCar(carName));
+        }
     }
 
     public void turnOn() {
