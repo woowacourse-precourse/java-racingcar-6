@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingcarTest extends NsTest {
 
-    /* 자동차 이름 입력 테스트 */
     @Test
     void namingTest_fail_no_name() {
         assertSimpleTest(() ->
@@ -45,7 +44,6 @@ public class RacingcarTest extends NsTest {
         );
     }
 
-    /* 시도 횟수 입력 테스트 */
     @Test
     void inputnumberTest_fail_no_number() {
         assertSimpleTest(() ->
@@ -83,7 +81,6 @@ public class RacingcarTest extends NsTest {
         );
     }
 
-    /* 문자열 분리 기능 실행 테스트 */
     @Test
     void stringTest_check_fuction_of_split() {
         String input = "pobi,woni,luna";
@@ -101,7 +98,6 @@ public class RacingcarTest extends NsTest {
         assertThat(result).contains("luna");
     }
 
-    /* 전진 or 정지 기능 실행 테스트 */
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
