@@ -42,10 +42,13 @@ public class RacingCarGame implements Game {
         }
     }
 
-    public void goAhead(Car car, int randomNumber) {
+    public boolean goAhead(Car car, int randomNumber) {
         if (randomNumber >= criterion) {
             car.move();
+            return true;
         }
+
+        return false;
     }
 
     public void validateAttempts(String attempts) {
