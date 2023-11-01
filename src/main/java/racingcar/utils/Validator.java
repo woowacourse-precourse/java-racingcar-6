@@ -1,6 +1,5 @@
 package racingcar.utils;
 
-import java.math.BigInteger;
 import java.util.List;
 
 public class Validator {
@@ -19,8 +18,7 @@ public class Validator {
         checkNull(input);
 
         List<String> carNames = Parser.parseStringToList(input);
-        carNames.stream()
-                .forEach(Validator::checkValidLength);
+        carNames.forEach(Validator::checkValidLength);
     }
 
     public static void validateRoundNumber(String input) {
@@ -56,9 +54,5 @@ public class Validator {
         if (inputNumber < MIN_ROUND_VALUE) {
             throw new IllegalArgumentException(NEGATIVE_NUMBER_ERROR_MESSAGE);
         }
-    }
-
-    private static void checkNumberBound(String input) {
-
     }
 }

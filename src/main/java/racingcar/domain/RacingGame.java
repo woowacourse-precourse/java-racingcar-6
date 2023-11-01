@@ -7,7 +7,6 @@ import racingcar.utils.Runner;
 import racingcar.utils.Validator;
 import racingcar.utils.io.InputManager;
 import racingcar.utils.io.OutputManager;
-
 import java.util.ArrayList;
 import java.util.List;
 

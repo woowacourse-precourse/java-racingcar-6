@@ -1,7 +1,6 @@
 package racingcar.utils.io;
 
 import racingcar.domain.Car;
-
 import java.util.List;
 
 public class OutputManager {

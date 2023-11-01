@@ -9,14 +9,15 @@ public class Runner {
     }
 
     public static void runRound(List<Car> cars) {
-        cars.stream()
-                .forEach(car -> {
-                    int random = RandomNumberGenerator.generateRandomNumber();
-                    MoveStatus moveStatus = MoveDecider.decideToMove(random);
+        cars.forEach(Runner::runRoundForACar);
+    }
 
-                    if (moveStatus == MoveStatus.MOVE) {
-                        car.moveForward();
-                    }
-                });
+    private static void runRoundForACar(Car car) {
+        int random = RandomNumberGenerator.generateRandomNumber();
+        MoveStatus moveStatus = MoveDecider.decideToMove(random);
+
+        if (moveStatus == MoveStatus.MOVE) {
+            car.moveForward();
+        }
     }
 }
