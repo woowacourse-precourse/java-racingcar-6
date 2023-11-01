@@ -24,7 +24,7 @@ public class Validator {
     }
 
     private void throwErrorIfCarNameHasBlank(String carName){
-        if (carName.contains(" ")){
+        if (isCarNameContainsBlank(carName)){
             throw new IllegalArgumentException("자동차 이름에 공백이 존재합니다.");
         }
     }
