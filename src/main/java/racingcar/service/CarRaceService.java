@@ -8,6 +8,7 @@ import racingcar.util.Validator;
 
 public class CarRaceService {
 
+    private static final int INIT_MOVE_COUNT = 0;
 
     private final RaceService raceService = new RaceService();
     private final Validator validator = new Validator();
@@ -15,7 +16,7 @@ public class CarRaceService {
 
     public void initCarInfo(List<String> carNames, List<Car> cars) {
         for (String carName : carNames) {
-            cars.add(new Car(carName, 0));
+            cars.add(new Car(carName, INIT_MOVE_COUNT));
         }
     }
 
