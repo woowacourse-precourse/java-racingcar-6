@@ -32,7 +32,7 @@ public class Application {
         String[] cars = inputCarName.split(",");
 
         if(cars.length<2){
-          throw new IllegalArgumentException("자동차는 최소 2대 이상 이어야 합니다. 이름은 쉼표(,) 기준으로 구분합니다.");
+            throw new IllegalArgumentException("자동차는 최소 2대 이상 이어야 합니다. 이름은 쉼표(,) 기준으로 구분합니다.");
         }
 
         return cars;
@@ -41,7 +41,7 @@ public class Application {
     public static void inputCarNameValidation(String[] inputCarNameSplit){
         for (String car : inputCarNameSplit){
             if(car.length()>5){
-              throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         }
     }
