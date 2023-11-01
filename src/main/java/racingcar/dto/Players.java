@@ -22,10 +22,14 @@ public class Players {
     }
     public void moveForwardStep(int index){
         int fowardStepCount = forwardStepList.get(index);
-        forwardStepList.set(index, fowardStepCount++);
+        forwardStepList.set(index, ++fowardStepCount);
     }
     public Players(List<String> playersList) {
         this.playersList = playersList;
+    }
+
+    public int getMaxStep(){
+        return forwardStepList.stream().mapToInt(i -> i).max().orElseThrow(IllegalArgumentException::new);
     }
 
     @Override

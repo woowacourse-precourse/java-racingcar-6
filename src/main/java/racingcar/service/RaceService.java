@@ -31,6 +31,7 @@ public class RaceService {
     }
 
     private boolean isMove(int randomValue) {
+
         if (randomValue >= STANDARD_NUMBER) {
             return true;
         }

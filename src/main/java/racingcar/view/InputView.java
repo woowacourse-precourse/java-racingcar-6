@@ -40,6 +40,8 @@ public class InputView {
 
         int attemptCount = Integer.parseInt(Console.readLine());
 
+        Console.close();
+
         return attemptCount;
     }
 

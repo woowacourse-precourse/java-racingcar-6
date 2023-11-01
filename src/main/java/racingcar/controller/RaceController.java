@@ -8,7 +8,7 @@ import racingcar.view.OutputView;
 public class RaceController {
 
     private static final RaceService raceService = new RaceService();
-
+    private static final OutputView outputView = new OutputView();
 
 
 
@@ -24,12 +24,14 @@ public class RaceController {
     private void raceSimulate(Players players, int attemptCount){
 
         players.attemptListInit();
+        outputView.printFirstText();
 
         do {
             raceService.raceOneSimulate(players);
-            OutputView.printMiddleProcess(players);
-        }while(attemptCount-->0);
+            outputView.printMiddleProcess(players);
+        }while(--attemptCount>0);
 
+        outputView.printResult(players);
 
     }
 
