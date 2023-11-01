@@ -24,6 +24,46 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 최종우승자_2명이상(){
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun", "2");
+                assertThat(output()).contains("pobi : --", "woni : --", "jun : ", "최종 우승자 : pobi, woni");
+            },
+            MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 전진조건_만족_여부(){
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun,jay,poy,woy,jai,poi,qoy", "1");
+                assertThat(output()).contains("pobi : ", "woni : ", "jun : ", "jay : ",
+                        "poy : -", "woy : -", "jai : -", "poi : -", "qoy : -");
+            },
+            0,1,2,3,4,5,6,7,8,9
+        );
+    }
+
+    @Test
+    void 빈문자열_입력_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도회수_숫자_입력_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "k"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
