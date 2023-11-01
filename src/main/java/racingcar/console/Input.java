@@ -5,7 +5,9 @@ import camp.nextstep.edu.missionutils.Console;
 public class Input {
     public static String getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine();
+        String carNames = Console.readLine();
+        validateCarNames(carNames);
+        return carNames;
     }
 
     public static int getRounds() {
@@ -13,6 +15,12 @@ public class Input {
         return Integer.parseInt(Console.readLine());
     }
 
-    // TODO: valdiation for car names, rounds
+    private static void validateCarNames(String names) {
+        for (String name : names.split(",")) {
+            if (name.trim().length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        }
+    }
 }
 
