@@ -22,15 +22,6 @@ public class ValidatorTest {
     }
 
     @Test
-    void 문자열을_정수로_바꿀수_없는_경우_예외_발생() {
-        String input = "a";
-
-        assertThatThrownBy(() -> Validator.validateTryCount(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 숫자를 입력하세요.");
-    }
-
-    @Test
     void 같은_이름이_2개_이상_존재하는_경우_예외_발생() {
         List<String> input = new ArrayList<>();
         input.add("A");
@@ -41,5 +32,23 @@ public class ValidatorTest {
         assertThatThrownBy(() -> Validator.validateCarsName(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 같은 이름이 존재합니다.");
+    }
+
+    @Test
+    void 문자열을_정수로_바꿀수_없는_경우_예외_발생() {
+        String input = "a";
+
+        assertThatThrownBy(() -> Validator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 숫자를 입력하세요.");
+    }
+
+    @Test
+    void 시도_횟수가_음수인_경우() {
+        String input = "-1";
+
+        assertThatThrownBy(() -> Validator.validateTryCount(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 시도 횟수가 0보다 작습니다.");
     }
 }

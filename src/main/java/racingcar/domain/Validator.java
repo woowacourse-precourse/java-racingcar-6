@@ -8,6 +8,7 @@ public class Validator {
     private final static String NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
     private final static String ALREADY_EXISTS_NAME_ERROR_MESSAGE = "[ERROR] 같은 이름이 존재합니다.";
     private final static String TRY_COUNT_ERROR_MESSAGE = "[ERROR] 숫자를 입력하세요.";
+    private final static String TRY_COUNT_NEGATIVE_NUMBER_ERROR_MESSAGE = "[ERROR] 시도 횟수가 0보다 작습니다.";
 
     public static void validateCarsName(List<String> names) {
         for (int i = 0; i < names.size(); i++) {
@@ -26,10 +27,17 @@ public class Validator {
     }
 
     public static void validateTryCount(String tryCountString) {
+        // 숫자가 아닌 경우
         try {
             Integer.parseInt(tryCountString);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(TRY_COUNT_ERROR_MESSAGE);
+        }
+
+        // 음수인 경우
+        int tryCount = Integer.parseInt(tryCountString);
+        if (tryCount < 0) {
+            throw new IllegalArgumentException(TRY_COUNT_NEGATIVE_NUMBER_ERROR_MESSAGE);
         }
     }
 }
