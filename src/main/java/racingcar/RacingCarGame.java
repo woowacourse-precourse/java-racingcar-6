@@ -13,6 +13,7 @@ public class RacingCarGame {
     public RacingCarGame() {
         carNameList = new ArrayList<>();
         carList = new ArrayList<>();
+        carMovingCountList = new ArrayList<>();
         movingCount = 0;
     }
 
@@ -36,7 +37,7 @@ public class RacingCarGame {
     }
 
     public void saveCarMovingCount() {
-        carMovingCountList = new ArrayList<>();
+        carMovingCountList.clear();
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
             int carMovingCount = car.getMovingCount();
