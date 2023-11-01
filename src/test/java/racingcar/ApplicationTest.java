@@ -24,6 +24,39 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 중복_우승자() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 여러_시도() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "2");
+                    assertThat(output()).contains("pobi : -", "woni : ", "pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, STOP, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 사람이_셋() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,test", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "test : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
