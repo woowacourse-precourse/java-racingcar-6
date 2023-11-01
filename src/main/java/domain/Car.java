@@ -2,6 +2,8 @@ package domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static domain.Constants.*;
+
 public class Car {
 
     private final String name;
@@ -26,8 +28,8 @@ public class Car {
     }
 
     private boolean RandomNumberGenerator() {
-        int num = Randoms.pickNumberInRange(0, 9);
-        return (num >= 4);
+        int num = Randoms.pickNumberInRange(RANDOM_START_NUM, RANDOM_END_NUM);
+        return (num >= GO_NUMBER);
     }
 
 
