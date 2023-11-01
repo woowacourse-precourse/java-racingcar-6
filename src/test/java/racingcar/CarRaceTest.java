@@ -14,6 +14,8 @@ public class CarRaceTest {
         assertThrows(IllegalArgumentException.class, () -> new CarRace(name, 5));
         String[] names = {"1234,5678"};
         assertThrows(IllegalArgumentException.class, () -> new CarRace(names, -1));
+
+        assertThrows(IllegalArgumentException.class, () -> new CarRace(null, 6));
     }
 
 }
