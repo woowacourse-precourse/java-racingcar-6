@@ -48,13 +48,20 @@ public class InputView {
     }
 
     public static int inputAttemptCount() {
-        while (true) {
-            try {
-                System.out.println("시도할 회수는 몇회인가요?");
-                return Integer.parseInt(Console.readLine());
-            } catch (NumberFormatException e) {
-                System.out.println("시도할 횟수는 숫자여야 합니다.");
+        System.out.println("시도할 회수는 몇회인가요?");
+        String attemptInput = Console.readLine();
+        return validateAttempt(attemptInput);
+    }
+
+    private static int validateAttempt(String attemptInput) {
+        try {
+            int attemptCount = Integer.parseInt(attemptInput);
+            if (attemptCount <= 0) {
+                throw new IllegalArgumentException("시도할 회수는 양수여야 합니다.");
             }
+            return attemptCount;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 회수는 숫자여야 합니다.");
         }
     }
 }
