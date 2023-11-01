@@ -1,7 +1,5 @@
 package racingcar.service;
 
-import racingcar.object.TryCount;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class TryCountService {
@@ -27,9 +25,8 @@ public class TryCountService {
         return int_try_count;
     }
 
-    public TryCount inputTryCount(){
+    public int inputTryCount(){
         String input_try_count = readLine();
-        int count = convert_StringToPositiveInt(input_try_count);
-        return TryCount.createTryCount(count);
+        return convert_StringToPositiveInt(input_try_count);
     }
 }

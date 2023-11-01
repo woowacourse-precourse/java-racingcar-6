@@ -1,7 +1,6 @@
 package racingcar;
 
 import racingcar.object.Car;
-import racingcar.object.TryCount;
 import racingcar.service.CarService;
 import racingcar.service.TryCountService;
 
@@ -16,13 +15,16 @@ public class Application {
 
         carService.printGuide_InputCarsName();
         List<Car> carList = carService.inputCarsName();
-        tryCountService.printGuide_InputTryCount();
-        TryCount tryCount = tryCountService.inputTryCount();
 
-        for(int i = 0; i < tryCount.getCount(); i++) {
+        tryCountService.printGuide_InputTryCount();
+        int tryCount = tryCountService.inputTryCount();
+
+        while(tryCount > 0){
             carService.moveCars(carList);
             carService.printCarStatus(carList);
+            tryCount--;
         }
+
         carService.printWinners(carList);
     }
 }
