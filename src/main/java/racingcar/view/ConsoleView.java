@@ -54,7 +54,7 @@ public class ConsoleView {
 
     private void validateNumberOfAttempts(String input) {
         if (!input.matches("\\d+") || Integer.parseInt(input) <= 0) {
-            throw new IllegalArgumentException("정수를 입력해주세요.");
+            throw new IllegalArgumentException("올바른 회수가 아닙니다.");
         }
     }
 }
