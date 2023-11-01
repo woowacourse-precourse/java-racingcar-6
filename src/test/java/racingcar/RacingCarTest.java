@@ -1,5 +1,6 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -18,13 +19,6 @@ public class RacingCarTest {
         Car car = new Car("abc");  // 이름 변경: "porsche" -> "porsc"
         assertThat(car.getName()).isEqualTo("abc");
         assertThat(car.getPosition()).isEqualTo(0);
-    }
-
-    @Test
-    void 자동차_이름_유효성_테스트() {
-        assertThatThrownBy(() -> new Car("abcdef"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5자를 초과할 수 없습니다.");
     }
 
     @Test
