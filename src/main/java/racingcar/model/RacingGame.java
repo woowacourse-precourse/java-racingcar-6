@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
 
@@ -23,11 +24,9 @@ public class RacingGame {
     }
 
     public String playGame(Attempt attempt) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < attempt.getIterateCount(); i++) {
-            sb.append(playGameOneRound());
-        }
-        return sb.toString();
+        return IntStream.range(0, attempt.getIterateCount())
+                .mapToObj(i -> playGameOneRound())
+                .collect(Collectors.joining());
     }
 
     private String playGameOneRound() {
