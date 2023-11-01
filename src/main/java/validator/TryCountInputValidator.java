@@ -1,7 +1,15 @@
 package validator;
 
 public class TryCountInputValidator {
-    public void vaildInputNumber(String number) {
+    public int vaildInputNumber(String number) {
+        vaildInputOnlyNumber(number);
+        vaildInputEmpty(number);
+        validPositiveNumber(number);
+        int intNumber = Integer.parseInt(number);
+        return intNumber;
+    }
+
+    public void vaildInputOnlyNumber(String number) {
         for (char c : number.toCharArray()) {
             if (!Character.isDigit(c)) {
                 throw new IllegalArgumentException("숫자만 입력할 수 있어요.");
@@ -18,7 +26,7 @@ public class TryCountInputValidator {
     public void validPositiveNumber(String number) {
         int intNumber = Integer.parseInt(number);
         if (intNumber <= 0) {
-            throw new IllegalArgumentException("0회는 입력할 수 없습니다.");
+            throw new IllegalArgumentException("0과 음수는 입력할 수 없습니다.");
         }
     }
 }
