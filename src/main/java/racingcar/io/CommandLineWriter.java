@@ -1,7 +1,6 @@
 package racingcar.io;
 
 public class CommandLineWriter {
-
     public void write(String message) {
         System.out.print(message);
     }

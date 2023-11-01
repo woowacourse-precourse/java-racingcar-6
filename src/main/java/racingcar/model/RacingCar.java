@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constants.GameMessage;
 import racingcar.util.RandomNumber;
 
@@ -15,6 +14,7 @@ public class RacingCar {
         this.racingCarName = racingCarName;
         this.advanceMarking = "";
     }
+
     public void advance() {
         this.advanceMarking += GameMessage.ADVANCE_MARK;
     }
@@ -22,6 +22,7 @@ public class RacingCar {
         Integer randomNumber = RandomNumber.createRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         return randomNumber >= ADVANCE_THRESHOLD;
     }
+
     public String getAdvanceMarking() {
         return advanceMarking;
     }

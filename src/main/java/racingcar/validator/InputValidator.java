@@ -15,11 +15,13 @@ public class InputValidator {
             throw new InvalidNumberOfAttemptsException();
         }
     }
+
     public static void validateRacingCars(String message) {
         if (!isLowerThanFive(message) || !hasMoreThanTwoStrings(message)) {
             throw new InvalidRacingCarsException();
         }
     }
+
     public static boolean isLowerThanFive(String message) {
         String[] parts = message.split(",");
         for (String part : parts) {
@@ -29,6 +31,7 @@ public class InputValidator {
         }
         return true;
     }
+
     public static boolean hasMoreThanTwoStrings(String message) {
         return message.split(",").length >= 2;
     }

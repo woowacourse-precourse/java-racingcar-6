@@ -16,11 +16,13 @@ public class RacingGameController {
     public RacingGameController(RacingGameView racingGameView) {
         this.racingGameView = racingGameView;
     }
+
     public void startRacing() {
         RacingCarsDto racingCarsDto = racingGameView.inputCarName();
         NumberOfAttemptsDto numberOfAttemptsDto = racingGameView.inputNumberOfAttempts();
         playRacing(racingCarsDto, numberOfAttemptsDto);
     }
+
     private void playRacing(RacingCarsDto racingCarsDto, NumberOfAttemptsDto numberOfAttemptsDto) {
         racingGameView.printResultMessage();
         RacingCars racingCars = racingCarsDto.toRacingCars();

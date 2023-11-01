@@ -16,17 +16,20 @@ public class RacingCars {
     private RacingCars(List<RacingCar> racingCars) {
         this.racingCars = racingCars;
     }
+
     public static RacingCars from(List<RacingCar> racingCars) {
         return new RacingCars(racingCars);
     }
+
     public ResultOfGameDto getWinners() {
         List<RacingCar> cars = getMostAdvancedRacingCar();
         List<String> winners = converListRacingCarToListString(cars);
         ResultOfGameDto resultOfGameDto = createWinnersOfGame(winners);
         return resultOfGameDto;
     }
+
     public List<ResultOfTurnDto> getTotalResultOfTurn() {
-        List<ResultOfTurnDto> resultOfTurnDtos = new ArrayList<ResultOfTurnDto>();
+        List<ResultOfTurnDto> resultOfTurnDtos = new ArrayList<>();
         for (RacingCar racingCar : racingCars) {  // getter 안쓸수 있는 방향으로 리팩토
             if (racingCar.canAdvance()) {
                 racingCar.advance();
@@ -36,6 +39,7 @@ public class RacingCars {
        }
         return resultOfTurnDtos;
     }
+
     public List<RacingCar> getMostAdvancedRacingCar() {
         List<RacingCar> cars = racingCars;
         Integer maxAdvanceMarkingLength = findMaxAdvanceMarkingLength(cars);
@@ -43,12 +47,14 @@ public class RacingCars {
                 .filter(car -> car.getAdvanceMarking().length() == maxAdvanceMarkingLength)
                 .collect(Collectors.toList());
     }
+
     private Integer findMaxAdvanceMarkingLength(List<RacingCar> cars) {
         return cars.stream()
                 .mapToInt(car -> car.getAdvanceMarking().length())
                 .max()
                 .orElse(-1);
     }
+
     public List<String> converListRacingCarToListString(List<RacingCar> racingCars) {
         return racingCars
                 .stream()

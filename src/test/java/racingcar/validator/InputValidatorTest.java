@@ -26,6 +26,7 @@ public class InputValidatorTest {
         // then
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.INVALID_RACING_CARS);
     }
+
     @Test
     @DisplayName("시도횟수가 유효한지 확인한다.")
     void checkInvalidNumberOfAttempts() {
