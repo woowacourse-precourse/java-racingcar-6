@@ -19,7 +19,7 @@ public class Application {
 
         Car car = new Car(carValidator);
         MovingCount movingCount = new MovingCount();
-        RacingGame racingGame = new RacingGame(movingCount);
+        RacingGame racingGame = new RacingGame(movingCount, outputView);
 
         GameController gameController = new GameController(inputView, car, racingGame, outputView);
         gameController.play();
