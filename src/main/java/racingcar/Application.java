@@ -1,5 +1,7 @@
 package racingcar;
 
+import org.mockito.internal.matchers.Null;
+import racingcar.service.VerificationService;
 import racingcar.view.InputValues;
 import racingcar.view.OutputValues;
 
@@ -7,11 +9,9 @@ import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) {
-        OutputValues outputValues = new OutputValues();
-        outputValues.carMovementOutput(3);
-        outputValues.carRaceWinnerOutput("test");
-        outputValues.runResultOutput();
-        System.out.println(outputValues.carMovementOutput(3));
+        VerificationService verificationService = new VerificationService();
+
+        verificationService.countTypeCheck(null);
         // TODO: 프로그램 구현
     }
 }

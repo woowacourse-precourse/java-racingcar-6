@@ -84,7 +84,7 @@ Service
     1-2. nameRangeCheck(String carNames) 
     - carNames 글자수 검증후 통과 = true, 실패 = false 리턴 
 
-    1-3. nullValueCheck(String Value)
+    1-3. nullValueCheck(String value)
     - null 검증후 통과 = true, 실패 = false 리턴
 
     1-4. countTypeCheck(String count)
