@@ -15,7 +15,8 @@ public class Car {
 
     public void setCars() {
         String inputValue = InputUserCar.inputName();
-        InputValidation.checkCarNames(inputValue);
+        InputValidation.checkCarNamesOverMax(inputValue);
+        InputValidation.checkCarNamesHasBlank(inputValue);
         carSetting = new CarSetting(inputValue);
     }
 

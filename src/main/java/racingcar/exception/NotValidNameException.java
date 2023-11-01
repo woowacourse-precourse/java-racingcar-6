@@ -6,7 +6,7 @@ public class NotValidNameException extends CustomException {
     }
 
     public NotValidNameException() {
-        super(ErrorCode.CAR_NAME_WITHIN_FIVE_LETTERS);
+        super(ErrorCode.CAR_NAME_OVER_FIVE_LETTERS);
     }
 
     @Override
