@@ -11,12 +11,13 @@ import org.assertj.core.util.Sets;
 
 public class Race {
     private final List<String> carNames;
-    private final Map<String, Car> cars = new HashMap<>();
+    private final Map<String, Car> cars;
 
     public Race(List<String> carNames) {
         validateCarNames(carNames);
 
         this.carNames = carNames;
+        cars = new HashMap<>();
         for (String name : carNames) {
             cars.put(name, new Car(name));
         }
