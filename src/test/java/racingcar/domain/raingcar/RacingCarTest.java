@@ -3,6 +3,8 @@ package racingcar.domain.raingcar;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingCarTest {
 
@@ -14,19 +16,20 @@ class RacingCarTest {
         });
     }
 
-    @DisplayName("자동차 이름 입력이 없는 경우 IllegalArgumentException 발생")
+    @DisplayName("자동차 이름 공백일 경우 IllegalArgumentException 발생")
     @Test
     void carNameMinSizeTest() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-           new RacingCar("");
+            new RacingCar("");
         });
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"가나다", "!@#", "가ab", "!ab"})
     @DisplayName("자동차 이름이 영어가 아닌 경우 IllegalArgumentException 발생")
-    @Test
-    void carNameEnglishTest() {
+    void carNameEnglishTest(String value) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new RacingCar("가나다");
+            new RacingCar(value);
         });
     }
 

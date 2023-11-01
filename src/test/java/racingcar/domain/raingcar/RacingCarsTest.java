@@ -1,9 +1,13 @@
 package racingcar.domain.raingcar;
 
 import java.util.List;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class RacingCarsTest {
 
@@ -24,17 +28,16 @@ class RacingCarsTest {
         });
     }
 
+    @ParameterizedTest
+    @MethodSource("getValues")
     @DisplayName("자동차 이름 입력 시, RacingCars 객체 생성 테스트")
-    @Test
-    void fromNames() {
-        // Arrange
-        String[] inputs = new String[]{"pobi", "woni", "jun"};
+    void fromNames(String[] inputs) {
 
         // Act
         RacingCars cars = RacingCars.fromNames(inputs);
 
         // Assert
-        Assertions.assertEquals(cars.getCars().size(), inputs.length);
+        Assertions.assertEquals(inputs.length, cars.getSize());
     }
 
     @DisplayName("레이싱 카 후보 중 가장 많이 전진한 자동차의 위치 반환 테스트")
@@ -52,5 +55,16 @@ class RacingCarsTest {
 
         // Assert
         Assertions.assertEquals(9, cars.getMaxPosition());
+    }
+
+    private static Stream<Arguments> getValues() {
+        return Stream.of(
+                Arguments.of(
+                        (Object) new String[]{"pobi", "woni", "jun"}
+                ),
+                Arguments.of(
+                        (Object) new String[]{"pobi"}
+                )
+        );
     }
 }
