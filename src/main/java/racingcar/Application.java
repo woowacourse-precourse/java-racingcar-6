@@ -9,12 +9,20 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
 		String tryNum = Console.readLine();
 
-        String[] carName = str.split(",");
-		
+        String[] carName = str.split(",");	
         Car[] car = new Car[carName.length]; 
 		
 		for(int i = 0; i < car.length; i++) {
 			car[i] = new Car(carName[i]);
+		}
+
+        System.out.println();
+		System.out.println("실행 결과");
+		
+		for(int i = 0; i < Integer.parseInt(tryNum); i++) {
+			//매 경주 시도마다 Car의 name, advance 출력
+
+			System.out.println();
 		}
     }
 }
