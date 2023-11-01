@@ -15,8 +15,20 @@ public class RacingCar {
         this.name = name;
     }
 
+    public void start() {
+
+    }
+
+    public boolean isSameLap(int lap) {
+        return this.lap == lap;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getLap() {
+        return lap;
     }
 
     private void validateName(String name) {
