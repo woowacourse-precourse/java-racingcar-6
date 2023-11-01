@@ -19,7 +19,7 @@ public class OutputView {
         System.out.println(car.getCarName() + CAR_NAME_MESSAGE + CAR_POSITION_MESSAGE.repeat(car.getPosition()));
     }
 
-    public void printLineChange(){
+    public void printLineChange() {
         System.out.println();
     }
 
