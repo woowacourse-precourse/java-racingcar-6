@@ -4,8 +4,8 @@
 
 ### Application
     프로그램의 Entry Class다.
-- [ ] RacingGameBridge 객체를 초기화한다.
-- [ ] RacingGameBridge 가 제공하는 API를 통해 게임을 실행하고, 결과를 출력한다.
+- [x] RacingGameBridge 객체를 초기화한다.
+- [x] RacingGameBridge 가 제공하는 API를 통해 게임을 실행하고, 결과를 출력한다.
 
 ## racingcar.game Package
 

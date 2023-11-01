@@ -1,7 +1,12 @@
 package racingcar;
 
+import racingcar.game.io.RacingGameBridge;
+import racingcar.game.io.RacingGameResponder;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RacingGameBridge racingGameBridge = new RacingGameBridge();
+        racingGameBridge.initializeGame();
+        racingGameBridge.runGame();
     }
 }
