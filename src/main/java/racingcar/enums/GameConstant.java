@@ -4,6 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum GameConstant {
+    TRUE("true"),
+    FALSE("false"),
     MAXIMUM_LENGTH_OF_CAR_NAME("5"),
     DELIMITER(",");
 
