@@ -18,7 +18,7 @@ class ValidationTest {
     void 숫자가0이하이면에러발생(){
         Integer number = 0;
 
-        assertThatThrownBy(()->validation.validTryCount(number))
+        assertThatThrownBy(()->validation.validateTryCount(number))
                 .isInstanceOf(IllegalArgumentException.class);
     }
     @Test

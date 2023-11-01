@@ -9,7 +9,7 @@ public class OutputView {
     public void printWinner(List<String> winner){
         System.out.println(OutputMessage.WINNER + String.join(InputMessage.CARS_DELIMITER.getMsg(), winner));
     }
-    public void printEachFoward(String carName,Integer carPlace){
+    public void printEachForward(String carName,Integer carPlace){
         String carPlaceHyphen = OutputMessage.CAR_FORWARD_PLACE.getMsg();
         System.out.println(carName + " : "+ carPlaceHyphen.repeat(carPlace));
     }

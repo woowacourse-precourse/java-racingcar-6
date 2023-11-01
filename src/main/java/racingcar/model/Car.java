@@ -2,11 +2,11 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import static racingcar.utils.Constants.*;
+
+
 public class Car {
-    private final static Integer SET_PLACE = 0;
-    private final static Integer MIN_RANDOM_NUM = 0;
-    private final static Integer MAX_RANDOM_NUM = 9;
-    private final static Integer MAX_CANNOT_FORWARD_NUM = 3;
+
     private int place = SET_PLACE;
     private final String name;
 

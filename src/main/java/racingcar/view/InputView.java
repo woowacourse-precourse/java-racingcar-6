@@ -18,6 +18,6 @@ public class InputView {
         System.out.println(InputMessage.INPUT_TRYCOUNT);
         Integer tryCount = Integer.valueOf(Console.readLine());
 
-        return validation.validTryCount(tryCount);
+        return validation.validateTryCount(tryCount);
     }
 }

@@ -2,10 +2,11 @@ package racingcar.utils;
 
 import java.util.List;
 
+import static racingcar.utils.Constants.MAX_CAR_NAME_LENGTH;
+import static racingcar.utils.Constants.MIN_TRY_COUNT;
+
 public class Validation {
-    private static final Integer MAX_CAR_NAME_LENGTH = 5;
-    public static final Integer MIN_TRY_COUNT = 1;
-    public Integer validTryCount(Integer tryCount){
+    public Integer validateTryCount(Integer tryCount){
         if (tryCount < MIN_TRY_COUNT){
             throw new IllegalArgumentException("시도할 회수는 " + MIN_TRY_COUNT + " 이상이어야 합니다.");
         }

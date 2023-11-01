@@ -26,7 +26,7 @@ public class GameController {
     private void forwardCars(List<Car> cars){
         for(Car car: cars){
             car.forward();
-            outputView.printEachFoward(car.getName(), car.getPlace());
+            outputView.printEachForward(car.getName(), car.getPlace());
         }
     }
 }
