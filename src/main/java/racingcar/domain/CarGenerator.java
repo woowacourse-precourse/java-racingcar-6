@@ -12,7 +12,7 @@ public class CarGenerator {
     RacingGame racinggame = new RacingGame();
     
     public void inputCarNames(){
-        List<Object> carNames = new ArrayList<Object>();
+        List<String> carNames = new ArrayList<String>();
         String input = Console.readLine();
         carNames = Arrays.asList(input.split(","));
 
@@ -53,7 +53,7 @@ public class CarGenerator {
         }
     }
 
-    private void validateCarNameDistint(List<Object> input){
+    private void validateCarNameDistint(List<String> input){
         long inputCarName= input.stream().distinct().count();
         if(input.size()!= inputCarName){
             throw new IllegalArgumentException("중복값 입력");

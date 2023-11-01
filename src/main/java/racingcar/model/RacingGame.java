@@ -5,12 +5,12 @@ import java.util.List;
 
 public class RacingGame {
     
-    private static List<Object> carNames = new ArrayList<Object>();
+    private static List<String> carNames = new ArrayList<String>();
     private static List<String> countResult = new ArrayList<String>();
     private static int gameChance;
     private static int randomNumber;
 
-    public void setCarNames(List<Object> carNames){
+    public void setCarNames(List<String> carNames){
         RacingGame.carNames = carNames;
     }
 
@@ -26,7 +26,7 @@ public class RacingGame {
         RacingGame.randomNumber = randomNumber;
     }
 
-    public List<Object> getCarNames(){
+    public List<String> getCarNames(){
         return carNames;
     }
 
