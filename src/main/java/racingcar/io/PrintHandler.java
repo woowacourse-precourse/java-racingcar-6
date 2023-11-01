@@ -31,7 +31,7 @@ public class PrintHandler {
     public static void resultRunning(List<Car> cars) {
         for (Car car : cars) {
             System.out.printf(car.getName() + RESULT_SEPARATOR);
-            printDash(car.getLocation());
+            printLocation(car.getLocation());
             System.out.println();
         }
         System.out.println();
@@ -47,7 +47,7 @@ public class PrintHandler {
         }
     }
 
-    private static void printDash(int location) {
+    private static void printLocation(int location) {
         for (int i = 0; i < location; i++) {
             System.out.print(RESULT_LOCATION_EXPRESSION);
         }
