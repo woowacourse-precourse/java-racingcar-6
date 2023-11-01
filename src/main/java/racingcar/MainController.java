@@ -5,6 +5,7 @@ import java.util.List;
 public class MainController {
 
     private final InputController inputController = new InputController();
+    private final OutputView outputView = new OutputView();
     private Game game;
     private TrialNumber trialNumber;
 
@@ -16,6 +17,11 @@ public class MainController {
     }
 
     public void playGame() {
-        RoundResult roundResult = game.race();
+        outputView.printResultMessage();
+        do {
+            RoundResult roundResult = game.race();
+            outputView.printRoundResult(roundResult);
+            trialNumber.subtractOne();
+        } while (!trialNumber.isZero());
     }
 }
