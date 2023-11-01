@@ -1,7 +1,7 @@
 package racingcar.util;
 
 public class InputValidator {
-	public void isValidName(String userInput) {
+	public static void isValidName(String userInput) {
 		if (userInput == null || userInput.isEmpty()) {
 			throw new IllegalArgumentException("자동차 이름이 입력되지 않음.");
 		}
