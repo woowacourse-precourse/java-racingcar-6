@@ -16,17 +16,25 @@ public class Racing {
     }
 
     private void validate(List<Car> cars) {
-        if (isNotValidateSize(cars)) {
+        validateSize(cars.size());
+        validateNames(cars);
+    }
+
+    private void validateSize(int size) {
+        if (isNotValidateSize(size)) {
             String exceptionMessage = "레이싱에 참여하는 차는 최소 %d대 이상이어야 합니다".formatted(MIN_COUNT_OF_CARS);
             throw new IllegalArgumentException(exceptionMessage);
         }
+    }
+
+    private boolean isNotValidateSize(int size) {
+        return size < MIN_COUNT_OF_CARS;
+    }
+
+    private void validateNames(List<Car> cars) {
         if (isOverlappedName(cars)) {
             throw new IllegalArgumentException("레이싱에 참여하는 차 이름이 겹치면 안됩니다");
         }
-    }
-
-    private boolean isNotValidateSize(List<Car> cars) {
-        return cars.size() < MIN_COUNT_OF_CARS;
     }
 
     private boolean isOverlappedName(List<Car> cars) {
