@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.math.BigInteger;
 import java.util.List;
 
 public class RacingCarGameController {
@@ -58,9 +59,19 @@ public class RacingCarGameController {
     protected static int parseNumOfMoves(String userInput) {
         try {
             return Integer.parseInt(userInput);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        } catch (NumberFormatException e) {
+            String errorMessage = processNumberFormatException(userInput);
+            throw new IllegalArgumentException(errorMessage);
         }
+    }
+
+    private static String processNumberFormatException(String userInput) {
+        try {
+            new BigInteger(userInput);
+        } catch (NumberFormatException ne) {
+            return "숫자를 입력해주세요.";
+        }
+        return Integer.MAX_VALUE + "보다 작은 수를 입력해주세요.";
     }
 
     private static void printResults(List<Result> results) {
