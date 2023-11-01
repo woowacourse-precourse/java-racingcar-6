@@ -40,10 +40,27 @@ public class GameService {
     }
 
     public String[] getCarName() {
-        View.inputCars();
-        String input = Console.readLine();
-        return input.split(",");
+        String[] carNames;
+        while (true) {
+            View.inputCars();
+            String input = Console.readLine();
+            carNames = input.split(",");
+            boolean allNamesValid = true;
+            for (String name : carNames) {
+                if (name.length() > 5) {
+                    allNamesValid = false;
+                    break;
+                }
+            }
+            if (allNamesValid) {
+                break; // 모든 이름이 5자 이하이면 입력 종료
+            } else {
+                System.out.println("모든 자동차 이름은 5자 이하이어야 합니다. 다시 입력하세요.");
+            }
+        }
+        return carNames;
     }
+
 
     private int getTryCount() {
         View.inputTryCount();
