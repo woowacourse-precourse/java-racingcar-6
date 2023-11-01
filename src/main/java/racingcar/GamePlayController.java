@@ -5,9 +5,13 @@ import java.util.List;
 public class GamePlayController {
     private GameSetting gameSetting;
     private UserInputHandler userInputHandler;
+    private Judge judge;
+    private OutputHandler outputHandler;
 
     public GamePlayController() {
         userInputHandler = new UserInputHandler();
+        judge = new Judge();
+        outputHandler = new OutputHandler();
     }
 
     private void initGameSetting() {
@@ -18,4 +22,11 @@ public class GamePlayController {
         gameSetting = new GameSetting(repeatNumber, cars);
     }
 
+    private void playSubGame() {
+        List<Car> cars = gameSetting.getCars();
+        for (Car car : cars) {
+            car.move(judge);
+            outputHandler.printSubResult(car);
+        }
+    }
 }

@@ -11,4 +11,12 @@ public class GameSetting {
         this.repeatNumber = repeatNumber;
         this.cars = cars;
     }
+
+    public Integer getRepeatNumber() {
+        return repeatNumber;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
