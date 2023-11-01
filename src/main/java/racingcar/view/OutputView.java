@@ -26,7 +26,7 @@ public class OutputView {
     }
 
     public void printResults(Car car) {
-        // TODO
-        System.out.println();
+        List<String> names = car.getNames();
+        System.out.print("최종 우승자 : " + String.join(", ", names));
     }
 }
