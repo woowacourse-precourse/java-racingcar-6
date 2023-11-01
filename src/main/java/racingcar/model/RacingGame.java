@@ -21,6 +21,8 @@ public class RacingGame {
         referee.decideWinner(cars.getCarList());
         List<CarName> winnerNames = referee.getWinnerNames();
 
-        return winnerNames.stream().map(carName -> carName.name()).toList();
+        return winnerNames.stream()
+                .map(carName -> carName.name())
+                .toList();
     }
 }
