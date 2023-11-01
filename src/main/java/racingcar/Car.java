@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {//TEST
+public class Car {//TESTFILE
     private String name;
     private int distance;
 
