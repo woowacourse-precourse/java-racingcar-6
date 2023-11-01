@@ -1,5 +1,7 @@
 package utils.validation;
 
+import utils.message.ErrorMessage;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -22,19 +24,19 @@ public class CarValidation {
 
     private static void carNamesSize(String carName) {
         if (!(carName.length() >= CAR_NAME_MIN_SIZE && carName.length() <= CAR_NAME_MAX_SIZE)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_SIZE.getMessage());
         }
     }
 
     private static void carNamePattern(String carName) {
         if (!Pattern.matches(CAR_NAME_PATTERN, carName)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_PATTERN.getMessage());
         }
     }
 
     private static void uniqueCarName(List<String> carNames) {
         if (new HashSet<>(carNames).size() != carNames.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_UNIQUE.getMessage());
         }
     }
 

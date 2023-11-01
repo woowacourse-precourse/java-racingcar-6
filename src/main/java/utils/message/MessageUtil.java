@@ -1,6 +1,4 @@
-package utils;
-
-import java.util.Map;
+package utils.message;
 
 public class MessageUtil {
     public void gameStart() {
