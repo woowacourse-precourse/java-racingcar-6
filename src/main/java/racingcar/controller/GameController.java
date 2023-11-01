@@ -16,13 +16,13 @@ public class GameController {
 
     public void startGame() {
         raceGame.setInputCarName(inputView.enterCarName());
-        saveCarNames();
+        saveCarNames(raceGame);
         raceGame.setRaceNumber(Integer.parseInt(inputView.enterRaceNumber()));
         carRacingController.playGame(raceGame);
         outputView.printRaceWiner(convertListToString(raceGame));
     }
 
-    public void saveCarNames() {
+    public void saveCarNames(RaceGame raceGame) {
         List<String> carNames = convertStringToIntList(raceGame.getInputCarName());
         carNameValidator.toValidateCarName(carNames);
 
