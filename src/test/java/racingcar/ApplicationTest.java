@@ -64,6 +64,24 @@ class ApplicationTest extends NsTest {
         assertEquals("숫자만 입력하세요", exception.getMessage());
     }
 
+    public void isNumberic(String input){
+        for(int i=0; i<input.length(); i++){
+            char c = input.charAt(i);
+
+            if(Character.isDigit(c)){
+                throw new IllegalArgumentException("문자만 입력하세요");
+            }
+        }
+    }
+
+    @Test
+    void 숫자_입력시_예외처리(){
+        String input = "1234";
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> isNumberic(input));
+        assertEquals("문자만 입력하세요", exception.getMessage());
+    }
+
 
     @Override
     public void runMain() {
