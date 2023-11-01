@@ -9,17 +9,17 @@ import racingcar.util.Validation;
 public class RacingGame {
     private final CarInfo carInfo = new CarInfo();
 
-    private int convertStringToInt(String num) {
-        Validation.checkTryNumber(num);
-        return Integer.parseInt(num);
-    }
-
     private void tryMove() {
         int carNum = carInfo.getCarName().size();
         for(int i = 0; i < carNum; i++) {
             int randomNum = Randoms.pickNumberInRange(0,9);
             carInfo.updateCarStatus(carInfo.isMove(randomNum), i);
         }
+    }
+
+    public int convertStringToInt(String num) {
+        Validation.checkTryNumber(num);
+        return Integer.parseInt(num);
     }
 
     public void racingStart() {
