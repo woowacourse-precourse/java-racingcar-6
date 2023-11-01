@@ -1,10 +1,11 @@
-package racingcar;
+package racingcar.model;
 
 import static java.util.Arrays.asList;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.exception.RacingCarException;
 
 public class User {
 

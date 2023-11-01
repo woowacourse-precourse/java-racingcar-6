@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.exception;
 
 public class RacingCarException {
     public static final String INVALID_CAR_NAME_LENGTH_MSG = "자동차 이름을 5자 이하로 입력해주세요.";
