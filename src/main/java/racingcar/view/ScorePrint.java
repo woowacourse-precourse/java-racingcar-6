@@ -9,6 +9,7 @@ public class ScorePrint {
             carNamePrint(carsName.get(carNumber));
             carMoveDistance(currentLocation[carNumber]);
         }
+        System.out.println();
     }
 
     private static void carNamePrint(String name) {
@@ -20,6 +21,6 @@ public class ScorePrint {
             System.out.print("-");
             distance--;
         }
-        System.out.println('\n');
+        System.out.println();
     }
 }
