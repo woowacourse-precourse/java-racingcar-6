@@ -1,11 +1,10 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidatorTest {
@@ -20,23 +19,56 @@ public class ValidatorTest {
     }
 
     @Test
-    void String_이름에_대한_입력오류_처리(){
+    void String_이름에_대한_공백_처리(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> validator.checkStringCarNames("pobi,"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    /*
     @Test
-    void 이름에_대한_5글자초과_처리(){
+    void List_이름에_대한_5글자초과_처리(){
+        List<String> input = List.of("pobi","javaij");
+
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> validator.ch)
+                assertThatThrownBy(() -> validator.checkListCarNames(input))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-     */
+    @Test
+    void List_이름에_대한_중복_처리(){
+        List<String> input = List.of("pobi","pobi");
 
+        assertSimpleTest(()->
+                assertThatThrownBy(()->validator.checkListCarNames(input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
+    @Test
+    void List_이름에_대한_공백_처리(){
+        List<String> input = List.of("pobi,bba i,javai");
+
+        assertSimpleTest(()->
+                assertThatThrownBy(()->validator.checkListCarNames(input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_빈문자_처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->validator.checkTrial(""))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수_문자_처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->validator.checkTrial("A"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
