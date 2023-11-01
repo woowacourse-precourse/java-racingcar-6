@@ -6,15 +6,11 @@ import static racingcar.common.exception.ErrorMessage.NAME_TOO_LONG;
 import static racingcar.common.exception.ErrorMessage.NULL_NAME;
 
 import racingcar.common.exception.CarException;
-import racingcar.util.RandomUtil;
 
 public class Car implements Comparable<Car> {
 
     private static final int MAX_LENGTH_OF_NAME = 5;
     private static final int MIN_RANDOM_VALUE_TO_MOVE = 4;
-    private static final int MIN_RANDOM_VALUE = 0;
-    private static final int MAX_RANDOM_VALUE = 9;
-
     private final String name;
     private Integer movedCount;
 
@@ -29,8 +25,8 @@ public class Car implements Comparable<Car> {
         return new Car(name);
     }
 
-    public Result move() {
-        if(canMove()) movedCount++;
+    public Result moveOrStop(int randomValue) {
+        if(canMove(randomValue)) movedCount++;
         return new Result(name, movedCount);
     }
 
@@ -47,8 +43,8 @@ public class Car implements Comparable<Car> {
         return cmpCar.getMovedCount()- this.getMovedCount();
     }
 
-    private boolean canMove() {
-        return RandomUtil.generateRandomValue(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE) >= MIN_RANDOM_VALUE_TO_MOVE;
+    private boolean canMove(int randomValue) {
+        return randomValue >= MIN_RANDOM_VALUE_TO_MOVE;
     }
 
     private void validateNameLength(final String name) {
