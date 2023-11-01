@@ -10,7 +10,7 @@ public class GameService {
     }
 
     public void initRaceCountFromInput(String inputRaceCount) {
-        getRaceCount().initTotalCountFromInput(inputRaceCount);
+        getRaceCount().initializeFromInput(inputRaceCount);
     }
 
     public boolean isAllRaceDone() {

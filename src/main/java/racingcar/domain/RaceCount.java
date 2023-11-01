@@ -6,7 +6,6 @@ public class RaceCount {
     private int currentCount;
 
     private RaceCount() {
-        currentCount = 0;
     }
 
     public static RaceCount getInstance() {
@@ -24,9 +23,11 @@ public class RaceCount {
         currentCount++;
     }
 
-    public void initTotalCountFromInput(String input) {
+    public void initializeFromInput(String input) {
         totalCount = Integer.parseInt(input);
         validateTotalCount();
+
+        currentCount = 0;
     }
 
     private void validateTotalCount() {
