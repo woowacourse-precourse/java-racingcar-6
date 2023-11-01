@@ -28,6 +28,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 객체_전진_테스트() {
+        Car car = new Car("test");
+        car.tryMove(4);
+        assertThat(car.getMoveCount()).isEqualTo(1);
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
@@ -36,7 +43,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 횟수_이름이_유효하지_않을_때_예외_처리() {
+    void 횟수_입력이_유효하지_않을_때_예외_처리() {
         assertThrows(IllegalArgumentException.class, () -> {
             runException("car1,car2,car3", "not a number");
         });
