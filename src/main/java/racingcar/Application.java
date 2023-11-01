@@ -29,6 +29,8 @@ public class Application {
         for (RacingCar racingCar : racingCarSet) {
             int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
             racingGamePlayManager.moveOrStayRacingCars(racingCar, pickNumberInRange);
+            String moveResult = racingGamePlayManager.getMoveResult(racingCar);
+            System.out.println(moveResult);
         }
 
     }
