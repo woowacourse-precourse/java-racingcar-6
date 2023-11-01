@@ -1,5 +1,5 @@
 package racingcar;
 
-public class Car {
+public class Racing {
 
 }
