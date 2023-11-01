@@ -43,13 +43,27 @@ class InputTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Cars(carNames));
     }
 
-    @ParameterizedTest
     @DisplayName("시도 횟수 숫자 아닌 입력 처리 테스트")
-    @ValueSource(strings = {"test"})
-    public void getAttemptCountFromStringTest(String incorrectAttemptCountInput) {
+    public void getAttemptCountFromStringTest() {
         //given
         InputController inputController = new InputController();
+        String incorrectAttemptCountInput = "test";
         ByteArrayInputStream testIn = new ByteArrayInputStream(incorrectAttemptCountInput.getBytes());
+
+        //when
+        System.setIn(testIn);
+
+        //then
+        Assertions.assertThrows(IllegalArgumentException.class,
+                inputController::getAttemptCountFromUserInput);
+    }
+
+    @DisplayName("음수 시도 횟수 입력 처리 테스트")
+    public void getNegativeAttemptCountFromStringTest() {
+        //given
+        InputController inputController = new InputController();
+        String negativeAttemptCountInput = "-1";
+        ByteArrayInputStream testIn = new ByteArrayInputStream(negativeAttemptCountInput.getBytes());
 
         //when
         System.setIn(testIn);
