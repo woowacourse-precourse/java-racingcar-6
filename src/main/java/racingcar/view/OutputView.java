@@ -44,9 +44,9 @@ public class OutputView {
         winnerRacingCar.append(FINAL_WINNER)
                 .append(COLON_SIGN);
 
-        for (int i = 0; i < winners.size(); i++) {
-            winnerRacingCar.append(winners.get(i));
-            if (isJointWinner(i, winners)) {
+        for (int carIdx = 0; carIdx < winners.size(); carIdx++) {
+            winnerRacingCar.append(winners.get(carIdx));
+            if (isJointWinner(carIdx, winners)) {
                 winnerRacingCar.append(COMMA_SIGN);
             }
         }
