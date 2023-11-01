@@ -2,10 +2,12 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class CarNameValidator extends Validator {
-    private static final String VALID_SEPARATOR_REGEXP = "[a-zA-Z가-힣0-9]+";
+    private static final Pattern VALID_CAR_NAME_REGEXP = Pattern.compile("[a-zA-Z가-힣0-9]+");
     private static final String NAME_SEPARATOR = ",";
     private static final int MAX_NAME_LENGTH = 5;
 
@@ -23,10 +25,14 @@ public class CarNameValidator extends Validator {
      */
     private String[] validateSeparator(String inputCarNames) {
         if (!Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
-                .allMatch(carName -> carName.matches(VALID_SEPARATOR_REGEXP))) {
+                .allMatch(carName -> isValidCarName(carName))) {
             throw new IllegalArgumentException(ErrorMessage.NOT_COMMA_ERROR.getErrorMessage());
         }
         return inputCarNames.split(NAME_SEPARATOR);
+    }
+    private boolean isValidCarName(String carName) {
+        Matcher matcher = VALID_CAR_NAME_REGEXP.matcher(carName);
+        return matcher.matches();
     }
 
     /***
@@ -47,8 +53,6 @@ public class CarNameValidator extends Validator {
     private boolean isNameOverLength(String[] carNames) {
         return Arrays.stream(carNames).allMatch(name -> name.length() <= MAX_NAME_LENGTH);
     }
-
-    // 중복된 이름이 있는지
 
     /***
      * 차 이름중에 중복된 이름이 있는지 확인하는 메서드
