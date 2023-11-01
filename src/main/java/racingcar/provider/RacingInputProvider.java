@@ -9,6 +9,8 @@ import racingcar.domain.Car;
 
 public class RacingInputProvider {
 
+	private static final int MAX_CAR_NAME_LENGTH = 5;
+
 	public RacingInputProvider() {
 	}
 
@@ -17,6 +19,11 @@ public class RacingInputProvider {
 
 		return Arrays.stream(carNames.split(","))
 			.map(Car::new)
+			.filter(car -> {
+				if (car.getName().length() > MAX_CAR_NAME_LENGTH)
+					throw new IllegalArgumentException("자동차 이름은 5글자가 최대입니다.");
+				return true;
+			})
 			.collect(Collectors.toList());
 	}
 
@@ -28,8 +35,17 @@ public class RacingInputProvider {
 	}
 
 	public int getInputTryCount() {
+		int tryCount;
+
 		System.out.println("시도할 회수는 몇회인가요?");
-		int tryCount = Integer.parseInt(Console.readLine());
+		try {
+			tryCount = Integer.parseInt(Console.readLine());
+			if (tryCount <= 0) {
+				throw new IllegalArgumentException("시도 횟수는 0 이상 정수만 가능합니다.");
+			}
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("시도 횟수는 0 이상 정수만 가능합니다.");
+		}
 		System.out.println();
 
 		return tryCount;

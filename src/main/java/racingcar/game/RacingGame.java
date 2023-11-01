@@ -9,8 +9,6 @@ import racingcar.service.RacingService;
 
 public class RacingGame {
 
-	private static final int MAX_CAR_NAME_LENGTH = 5;
-
 	private final RacingInputProvider racingInputProvider;
 	private final RacingOutputProvider racingOutputProvider;
 	private final RacingService racingService;
