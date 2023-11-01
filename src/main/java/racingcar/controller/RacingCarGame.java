@@ -4,8 +4,10 @@ import racingcar.domain.Attempt;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
 
-import static racingcar.util.GameReader.readAttemptCount;
-import static racingcar.util.GameReader.readCarNames;
+import java.util.List;
+
+import static racingcar.util.GameInputReader.*;
+import static racingcar.util.InputConvertUtils.carNamesToNameList;
 
 public class RacingCarGame {
 
@@ -14,6 +16,10 @@ public class RacingCarGame {
         Cars cars = new Cars(readCarNames());
 
         InputView.printDemandAttemptCount();
-        Attempt attempt = new Attempt(readAttemptCount());
+        Attempt attempt = new Attempt(readInt());
+    }
+
+    private static List<String> readCarNames() {
+        return carNamesToNameList(readExistLine());
     }
 }

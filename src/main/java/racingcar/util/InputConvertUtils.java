@@ -7,7 +7,7 @@ public class InputConvertUtils {
 
     public static final String SPLITTER = ",";
 
-    public static List<String> carNamesToList(String names) {
+    public static List<String> carNamesToNameList(String names) {
         return Arrays.stream(names.split(SPLITTER))
                 .map(String::trim)
                 .toList();

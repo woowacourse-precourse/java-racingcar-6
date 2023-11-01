@@ -22,7 +22,7 @@ public class InputConvertUtilsTest {
         String input = name1 + DELIMITER + name2 + DELIMITER + name3WithSpaces;
 
         //when
-        List<String> names = InputConvertUtils.carNamesToList(input);
+        List<String> names = InputConvertUtils.carNamesToNameList(input);
 
         //then
         assertThat(names).containsExactly(name1, name2, name3);
