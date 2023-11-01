@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Judgement {
     List<Car> cars = new ArrayList<>();
-    int maxDistance = 0;
+    public int maxDistance = 0;
     List<String> winners = new ArrayList<>();
 
     public void makeJudge(List<Car> cars) {
         this.cars = cars;
-        findMaxDistance();
+        findMaxDistance(this.cars);
         judgeWinners();
         printWinners();
     }
 
-    public void findMaxDistance() {
+    public void findMaxDistance(List<Car> cars) {
         for (int i = 0; i < cars.size(); i++) {
             int distance = (cars.get(i)).status.length();
             if (distance > maxDistance) {
