@@ -12,11 +12,10 @@ public class Input {
     public static final int MIN_LENGTH = 1;
 
     public static List<Car> inputCarNames(String input) {
-        List<Car> carList = Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(","))
                 .filter(name -> validateCarName(name))
                 .map(name -> new Car(name))
                 .collect(Collectors.toList());
-        return carList;
     }
 
     private static boolean validateCarName(String name) {

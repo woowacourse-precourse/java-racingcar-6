@@ -18,16 +18,12 @@ public class Racing {
     }
 
     public void playRacing() {
-        System.out.println("");
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (int i = 0; i < tryCount; i++) {
             tryOnce();
             printResult();
         }
-
-        Integer maxValue = getMaxPosition();
-
-        winnerList = selectWinner(maxValue);
+        winnerList = selectWinner(getMaxPosition());
     }
 
     private Integer getMaxPosition() {
@@ -50,9 +46,7 @@ public class Racing {
 
     public void printResult() {
         playerList.stream()
-                .forEach(car -> {
-                    System.out.println(car.getCarName() + " : " + "-".repeat(car.getPosition()));
-                });
+                .forEach(car -> System.out.println(car.getCarName() + " : " + "-".repeat(car.getPosition())));
         System.out.println("");
     }
 

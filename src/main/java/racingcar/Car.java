@@ -24,13 +24,8 @@ public class Car {
         return position;
     }
 
-    public void setPosition(Integer position) {
-        this.position = position;
-    }
-
     public int move() {
         int randomNum = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
-
         if (randomNum >= MOVE_STANDARD) {
             position++;
         }
