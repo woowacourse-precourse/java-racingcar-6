@@ -9,6 +9,7 @@ public class OutputView {
     private static final String INPUT_GAME_PROGRESS_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String GAME_PROCESS_MESSAGE = "\n실행 결과";
     private static final String GAME_WINNER_MESSAGE_FORMAT = "최종 우승자 : %s";
+    private static final String MULTIPLE_GAME_WINNER_DELIMITER = ", ";
 
     public void printGameStartMessage() {
         System.out.println(GAME_START_MESSAGE);
@@ -33,6 +34,6 @@ public class OutputView {
     }
 
     public void printGameWinners(List<String> winners) {
-        System.out.printf(GAME_WINNER_MESSAGE_FORMAT, String.join(", ", winners));
+        System.out.printf(GAME_WINNER_MESSAGE_FORMAT, String.join(MULTIPLE_GAME_WINNER_DELIMITER, winners));
     }
 }
