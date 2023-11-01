@@ -95,4 +95,23 @@ class CarCollectionTest extends NsTest {
 
     }
 
+    @Test
+    void 문자열로_자동차_담기_성공() {
+        assertThatCode(() -> {
+            CarCollection givenCarCollect = CarCollection.initCarCollect();
+            givenCarCollect.addFromString("mooso");
+            givenCarCollect.addFromString("woni");
+            givenCarCollect.addFromString("pobi");
+            givenCarCollect.addFromString("jun");
+        }).doesNotThrowAnyException();
+    }
+
+    @Test
+    void 문자열로_자동차_담기_실패() {
+        assertThatThrownBy(() -> {
+            CarCollection givenCarCollect = CarCollection.initCarCollect();
+            givenCarCollect.addFromString("moosoo");
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR]");
+    }
 }
