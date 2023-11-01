@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import modules.racingcarModules;
-import modules.racingcarException;
 
 public class Application {
   public static void main(String[] args) {
