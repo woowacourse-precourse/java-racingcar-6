@@ -16,12 +16,8 @@ public class Cars {
     }
 
     public void race() {
-        for (Car car : cars) {
-            Movement movement = getRandomMovement();
-            car.move(movement);
-        }
+        cars.forEach(car -> car.move(getRandomMovement()));
     }
-
     public List<CarDto> getCarDtos() {
         return Util.carsToCarDtos(Collections.unmodifiableList(cars));
     }
