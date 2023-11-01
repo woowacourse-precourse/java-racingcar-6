@@ -6,6 +6,10 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Score {
+
+    private static final int CRITERIA = 4;
+    private static final int MOVE = 1;
+
     public List<Integer> score;
     private int max;
 
@@ -18,7 +22,7 @@ public class Score {
     }
 
     public boolean randNum(){
-        if(Randoms.pickNumberInRange(0,9)>=4){
+        if(Randoms.pickNumberInRange(0,9)>=CRITERIA){
             return true;
         }
         return false;
@@ -26,7 +30,7 @@ public class Score {
 
     public void countScore(boolean win, int memberNum){
         if(win) {
-            score.set(memberNum, score.get(memberNum)+1);
+            score.set(memberNum, score.get(memberNum)+MOVE);
         }
     }
 
