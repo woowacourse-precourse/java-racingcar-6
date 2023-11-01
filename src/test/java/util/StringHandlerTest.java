@@ -13,7 +13,7 @@ public class StringHandlerTest {
     void 문자열을_콤마_기준으로_리스트로_변환시킨다() {
         String input = "abc,def,ghi";
 
-        List<String> stringList = StringHandler.stringToList(input);
+        List<String> stringList = StringHandler.separatedStringToList(input, ",");
 
         Assertions.assertThat(stringList.get(0)).isEqualTo("abc");
     }
@@ -22,9 +22,9 @@ public class StringHandlerTest {
     void 리스트를_콤파_기준으로_분리된_문자열로_변환시킨다() {
         List<Car> cars = List.of(new Car("abc",0), new Car("def",0));
 
-        String output = StringHandler.listToString(cars);
+        String output = StringHandler.listToStringSplitBy(cars, ", ");
 
-        Assertions.assertThat(output).isEqualTo("abc,def");
+        Assertions.assertThat(output).isEqualTo("abc, def");
     }
 
     @Test
