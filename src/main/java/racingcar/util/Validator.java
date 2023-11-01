@@ -25,4 +25,10 @@ public class Validator {
             throw new IllegalArgumentException("유효하지 않은 이름 입력(길이 초과)");
         }
     }
+
+    private static void validateNoSpacesBetweenNames(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException("유효하지 않은 이름 입력(이름 사이 공백)");
+        }
+    }
 }
