@@ -4,7 +4,7 @@ import static racingcar.Constants.*;
 import static racingcar.Exception.checkCarNameLengthOver;
 import static racingcar.Exception.checkEmptyCarName;
 import static racingcar.Exception.checkInteger;
-import static racingcar.Exception.checkPositive;
+import static racingcar.Exception.checkWithinRange;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -58,7 +58,7 @@ public class Game {
         moveNumber = convertStringToInteger(readLine);
 
         checkInteger(moveNumber);
-        checkPositive(moveNumber);
+        checkWithinRange(moveNumber);
     }
 
     private void race() {

@@ -26,8 +26,11 @@ public class Exception {
         }
     }
 
-    public static void checkPositive(Integer number) {
+    public static void checkWithinRange(Integer number) {
         if (number <= 0) {
+            throwIllegalArgumentException();
+        }
+        if (number > 100) {
             throwIllegalArgumentException();
         }
     }
