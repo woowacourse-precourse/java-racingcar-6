@@ -13,8 +13,10 @@
 
 ## 폴더 별 기능
 * model : 데이터 생성 및 처리 영역
-  * Car, ChallengeNumber
+  * Car
 * service : 기능 생성 영역
   * Input, Output, Random, Move 
-* exception : 예외 처리 영역 
+* exception : 예외 처리 영역
+  * CheckException 
 * view : 화면 입력 및 출력 영역
+  * RacingCar 
