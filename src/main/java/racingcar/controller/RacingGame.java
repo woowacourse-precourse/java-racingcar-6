@@ -22,7 +22,7 @@ public class RacingGame {
         OutputView.printRacingResultStartMessage();
         for (int i = 0; i < count; i++) {
             racingCar.stopOrMoveForward();
-            OutputView.printAllCarNowDistance(racingCar.distanceString());
+            OutputView.printAllCarNowDistance(racingCar.makeDistanceString());
         }
 
         OutputView.printWinnerMessage(racingCar.determineWinner());

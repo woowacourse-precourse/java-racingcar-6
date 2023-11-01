@@ -30,7 +30,7 @@ public class RacingCar {
         carList.forEach(racingCar -> racingCar.stopOrMoveForward());
     }
 
-    public List<String> distanceString() {
+    public List<String> makeDistanceString() {
         return carList
                 .stream()
                 .map(Car::distanceConvertString)
