@@ -26,4 +26,13 @@ public class Game {
         System.out.println(INIT_TRIALNUMBER_TEXT);
         return InputHandler.getTrialNumberFromInput();
     }
+
+    public void run(List<Car> carList, int trialNumber) {
+        System.out.println(TRIAL_RESULT);
+        while (trialNumber > 0) {
+            doTrial(carList);
+            OutputHandler.printEachResult(carList);
+            trialNumber--;
+        }
+    }
 }
