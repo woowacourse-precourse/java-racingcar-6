@@ -5,7 +5,7 @@ import racingcar.view.OutputView;
 
 public class OutputController {
     public static void printWinnersMessage(Cars cars) {
-        System.out.println(OutputView.WinnersMessage(cars));
+        System.out.println(OutputView.winnersMessage(cars));
     }
 
     public static void printForwardStateMessage(Cars cars) {

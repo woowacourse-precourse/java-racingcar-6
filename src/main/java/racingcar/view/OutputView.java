@@ -30,7 +30,7 @@ public class OutputView {
     }
 
     // 최종 우승자 출력 화면 템플릿 생성
-    public static String WinnersMessage(Cars winners) {
+    public static String winnersMessage(Cars winners) {
         return winnersToString(winners);
     }
 
