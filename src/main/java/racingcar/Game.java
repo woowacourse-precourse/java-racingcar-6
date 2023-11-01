@@ -17,6 +17,10 @@ public class Game {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String carInput = Console.readLine();
         String[] carNames = carInput.split(",");
+        // 최소 자동차 2대
+        if (carNames.length<2){
+            throw new IllegalArgumentException();
+        }
         for(String name : carNames){
             Car car = new Car(name.trim());
             CarList.add(car);
