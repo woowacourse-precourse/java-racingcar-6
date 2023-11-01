@@ -12,20 +12,21 @@ import racingcar.view.OutputView;
 
 public class Start {
 
-    private Move move;
-    private CarName carName;
-    private CarCreator carCreator;
-    private OutputView outputView;
-    private AttemptNumber attemptNumber;
+
+    private final Move move;
+    private final CarName carName;
+    private final CarCreator carCreator;
+    private final OutputView outputView;
+    private final AttemptNumber attemptNumber;
 
 
-    public Start(Move move, CarName carName, CarCreator carCreator,
-            OutputView outputView, AttemptNumber attemptNumber) {
-        this.move = move;
-        this.carName = carName;
-        this.carCreator = carCreator;
-        this.outputView = outputView;
-        this.attemptNumber = attemptNumber;
+    public Start() {
+        this.carName = new CarName();
+        this.carCreator = new CarCreator();
+        this.outputView = new OutputView();
+        this.attemptNumber = new AttemptNumber();
+        List<Car> cars = carCreator.createCars(carName.rangeCarList, 0);
+        this.move = new Move(cars);
     }
 
 
