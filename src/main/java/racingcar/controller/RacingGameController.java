@@ -1,4 +1,4 @@
-package racingcar.domain.controller;
+package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.RacingCar;
