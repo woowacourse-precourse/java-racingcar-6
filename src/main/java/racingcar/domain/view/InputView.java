@@ -8,11 +8,15 @@ public class InputView {
 
     public static String inputCarNameList() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
-        return Console.readLine();
+        return getReadLine();
     }
 
     public static String inputAttemptNumber() {
         System.out.println(INPUT_ATTEMPT_NUMBER_MESSAGE);
+        return getReadLine();
+    }
+
+    private static String getReadLine() {
         return Console.readLine();
     }
 }
