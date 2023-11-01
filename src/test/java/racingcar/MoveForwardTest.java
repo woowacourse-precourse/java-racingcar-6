@@ -1,70 +1,70 @@
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mockStatic;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import java.time.Duration;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.MockedStatic;
-import org.mockito.Mockito;
 import racingcar.factories.CarFactory;
-import racingcar.factories.CarRecordFactory;
-import racingcar.underhood.CarRecord;
+import racingcar.underhood.Car;
 import racingcar.underhood.GameRule;
 
 public class MoveForwardTest {
 
-    static GameRule rule;
+    static GameRule rule = new GameRule(0, 9);
     static String[] names;
-    CarRecord carRecord;
-    MockedStatic<RandomNumberGenerator> mocked;
-
-    @BeforeAll
-    static void setNames() {
-        names = new String[] {"Max", "Lando", "Lewis", "Oscar", "Alex", "Sainz", "Kevin"};
-        rule = new GameRule(0, 9);
-    }
-
-    @AfterEach
-    void clean() {
-        mocked.close();
-    }
+    Car car;
 
     @BeforeEach
     void setCarRecordWithDefaultNames() {
-        carRecord = CarRecordFactory.createEmptyCarRecord(rule);
-        for (int i = 0; i < names.length; i++) {
-            carRecord.register(CarFactory.car(rule, names[i]));
+        car = CarFactory.car(rule, "M240i");
+    }
+
+    @Test
+    void 이동거리_0() {
+        assertInDifferentThread(() -> {
+            assertWithMockedRandomNumberGenerator(3, () -> {
+                car.moveForward();
+                assertThat(car.getDistance()).isEqualTo(0);
+            });
+        });
+    }
+
+    @Test
+    void 이동거리_1() {
+        assertInDifferentThread(() -> {
+            assertWithMockedRandomNumberGenerator(6, () -> {
+                car.moveForward();
+                assertThat(car.getDistance()).isEqualTo(1);
+            });
+        });
+    }
+
+    /**
+     * 전달받은 FunctionalInterface를 별도의 스레드에서 실행한다.
+     */
+    static void assertInDifferentThread(final Executable executable) {
+        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(1L), executable::execute);
+    }
+
+    /**
+     * 전달받은 FunctionalInterface는 RandomNumberGenerator가 randomNumber를 반환하는 환경에서 실행된다.
+     */
+    static void assertWithMockedRandomNumberGenerator(
+            int randomNumber, final Executable executable) {
+        try (final MockedStatic<RandomNumberGenerator> mocked = mockStatic(RandomNumberGenerator.class);) {
+            // given
+            mocked.when(() -> RandomNumberGenerator.pickRandomNumber(any()))
+                    .thenReturn(randomNumber);
+            // when && then
+            executable.execute();
+        } catch (Throwable e) {
+            Assertions.fail(e.getMessage());
         }
-        mocked = Mockito.mockStatic(RandomNumberGenerator.class);
-    }
-
-    @Test
-    void 모든_자동차_1회_전진_이동거리_4미만() {
-        // given
-        int distance = 3;
-        // when
-        moveAllCarsForGivenDistance(distance);
-        // then
-        assertThat(carRecord.getLeadingCarRecord().toString())
-                .isEqualTo(String.join(", ", names));
-    }
-
-    @Test
-    void 모든_자동차_1회_전진_이동거리_4이상() {
-        // given
-        int distance = 7;
-        // when
-        moveAllCarsForGivenDistance(distance);
-        // then
-        assertThat(carRecord.getLeadingCarRecord().toString())
-                .isEqualTo(String.join(", ", names));
-    }
-
-    void moveAllCarsForGivenDistance(int distance) {
-        mocked.when(() -> RandomNumberGenerator.pickRandomNumber(rule))
-                .thenReturn(distance);
-        carRecord.moveForwardAllCars();
     }
 }
