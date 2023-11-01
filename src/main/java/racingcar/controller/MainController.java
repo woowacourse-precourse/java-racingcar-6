@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import static racingcar.controller.ControlConfig.createResultController;
 import static racingcar.controller.ControlConfig.createSettingController;
 import static racingcar.view.Parameter.Output.CARS;
 
@@ -31,7 +32,7 @@ public final class MainController {
         return Map.ofEntries(
                 Map.entry(GameState.SETTING, param -> createSettingController()),
                 Map.entry(GameState.PLAYING, ControlConfig::createPlayController),
-                Map.entry(GameState.FINISH, ControlConfig::createResultController)
+                Map.entry(GameState.FINISH, param -> createResultController())
         );
     }
 

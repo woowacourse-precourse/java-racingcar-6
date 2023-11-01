@@ -15,8 +15,4 @@ public class CarService {
     public void moveAllCarByRandom() {
         cars.cars().forEach(car -> car.move(moveRule));
     }
-
-    public Cars findWinners() {
-        return cars.getWinningCars();
-    }
 }

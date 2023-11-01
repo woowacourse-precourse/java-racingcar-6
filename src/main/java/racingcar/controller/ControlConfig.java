@@ -25,11 +25,7 @@ final class ControlConfig {
         return null;
     }
 
-    static Controller createResultController(Object param) {
-        if (param instanceof Cars cars) {
-            return new ResultController(new ResultOutputView(),
-                    new CarService(cars, new ThresholdScoreMoveRule(new RandomNumberGenerator())));
-        }
-        return null;
+    static Controller createResultController() {
+        return new ResultController(new ResultOutputView());
     }
 }
