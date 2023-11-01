@@ -28,6 +28,15 @@ public class ValidationTest {
     }
 
     @Test
+    void 자동차_이름이_빈_문자열인_경우() {
+        String carNames = "pobi,,jun";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> carNamesValidation(carNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 시도_회수가_음수인_경우() {
         String repetitions = "-5";
         assertSimpleTest(() ->
