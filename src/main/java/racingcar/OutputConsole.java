@@ -22,8 +22,7 @@ public class OutputConsole {
         for (Status status : statuses) {
             sb.append(status.getName())
                     .append(PARTITION)
-            .append(DISTANCE.repeat(Math.max(0, status.getDistance())))
-            .append(NEWLINE_CHARACTER);
+            .append(DISTANCE.repeat(Math.max(0, status.getDistance())));
             System.out.println(sb);
             sb.setLength(0);
         }
@@ -36,8 +35,7 @@ public class OutputConsole {
         }
         sb.append(WINNER_MESSAGE)
                 .append(PARTITION)
-                .append(String.join(", ", winnerNames))
-                .append(NEWLINE_CHARACTER);
+                .append(String.join(", ", winnerNames));
         System.out.println(sb);
         sb.setLength(0);
     }
