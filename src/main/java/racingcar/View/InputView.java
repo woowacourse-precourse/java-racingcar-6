@@ -24,6 +24,8 @@ public class InputView {
         System.out.println(TRY_COUNT_INPUT_GUIDE);
         String userInput = Console.readLine();
 
+        checkTryCountValidation(userInput);
+
         Integer tryCount = Integer.parseInt(userInput);
 
         return tryCount;
@@ -55,8 +57,23 @@ public class InputView {
 
 
     private void checkTryCountValidation(String tryCount){
-
+        checkInputIsBlank(tryCount);
+        checkInputIsInteger(tryCount);
+        checkTryCountRange(tryCount);
+    }
+    private void checkInputIsInteger(String input){
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
     }
 
+    private void checkTryCountRange(String input){
+        Integer tryCount = Integer.parseInt(input);
+        if(tryCount <= 0){
+            throw new IllegalArgumentException();
+        }
+    }
 
 }
