@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.dto.InputDto;
 import racingcar.view.GameOutputView;
 
 public class GameService {
@@ -10,10 +11,10 @@ public class GameService {
     public GameService() {
     }
 
-    public void processStart(List<String> carNames, int tryNum) {
+    public void processStart(InputDto inputDto) {
         List<Car> cars = new ArrayList<>();
-        setCars(carNames, cars);
-        for (int i = 0; i < tryNum; i++) {
+        setCars(inputDto.carNames(), cars);
+        for (int i = 0; i < inputDto.tryNum(); i++) {
             moveEachCar(cars);
             GameOutputView.printRacingProcess(cars);
             System.out.println();

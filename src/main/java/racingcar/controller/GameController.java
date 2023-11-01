@@ -3,6 +3,7 @@ package racingcar.controller;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.List;
+import racingcar.dto.InputDto;
 import racingcar.service.GameService;
 import racingcar.utils.InputValidator;
 import racingcar.view.GameInputView;
@@ -18,7 +19,9 @@ public class GameController {
         List<String> carNames = enterCarNames();
         int tryNum = enterTryNum();
 
-        gameService.processStart(carNames, tryNum);
+        InputDto inputDto = new InputDto(carNames, tryNum);
+
+        gameService.processStart(inputDto);
     }
 
     private List<String> enterCarNames() {
