@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GameManager {
@@ -18,6 +17,9 @@ public class GameManager {
             move(carList, randomNumbers);
             user.listOfResult(carList);
         }
+
+        List<String> winners = getWinners(carList);
+        user.printWinners(winners);
     }
 
     public List<Car> listOfCars(List<String> carNames) {
@@ -34,5 +36,24 @@ public class GameManager {
         for (int i = 0; i < carList.size(); i++) {
             if(randomNumbers.get(i) >= 4) carList.get(i).addMove();
         }
+    }
+
+    public List<String> getWinners(List<Car> carList) {
+        List<String> winners = new ArrayList<>();
+        int maxDistance = 0;
+
+        for (Car car : carList) {
+            int distance = car.getDistance();
+
+            if (distance > maxDistance) {
+                maxDistance = distance;
+                winners.clear();
+                winners.add(car.getName());
+            } else if (distance == maxDistance) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
     }
 }
