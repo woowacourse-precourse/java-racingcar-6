@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import static racingcar.constant.GameConstant.RANDOM_MAX_NUM;
-import static racingcar.constant.GameConstant.RANDOM_MIN_NUM;
-import static racingcar.constant.GameConstant.SCORE_BOUND;
+import static racingcar.constant.GameNumConstant.RANDOM_MAX_NUM;
+import static racingcar.constant.GameNumConstant.RANDOM_MIN_NUM;
+import static racingcar.constant.GameNumConstant.SCORE_BOUND;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
