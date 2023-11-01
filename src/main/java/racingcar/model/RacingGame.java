@@ -22,7 +22,7 @@ public class RacingGame {
         int size = carList.size();
         movingCount.initMovingCount(size);
         System.out.println("\n실행 결과");
-        for(int i = 0; i < attemptCount; i++) {
+        for (int i = 0; i < attemptCount; i++) {
             extractRandomNumber(carList);
         }
         List<String> winnerList = extractResult(carList, size);
@@ -45,8 +45,7 @@ public class RacingGame {
             int count = movingCount.getEachMovingCount(i);
             if (numberList.get(i) >= STANDARD_NUMBER) {
                 System.out.println(carList.get(i) + " : " + MOVING_INDICATORS.repeat(movingCount.addCount(i)));
-            }
-            else {
+            } else {
                 System.out.println(carList.get(i) + " : " + MOVING_INDICATORS.repeat(count));
             }
         }
