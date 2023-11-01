@@ -12,6 +12,12 @@ public class InputException {
         checkNameLength(newCarName);
         checkOnlyInt(newCarName);
         checkExistCar(newCarName);
+        checkNameNonEmpty(newCarName);
+    }
+    private static void checkNameNonEmpty(String newCarName) { // 이름이 공백인 경우 예외처리
+        if (newCarName.equals("") == true) {
+            throw new IllegalArgumentException();
+        }
     }
     private static void checkNameLength(String newCarName) { // 이름 길이 5자 초과 예외처리
         if (newCarName.length() > MAX_LENGTH) {
