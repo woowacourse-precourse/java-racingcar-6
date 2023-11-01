@@ -24,6 +24,14 @@ public class Game {
         return new Game();
     }
 
+    public void run() {
+        makeCarList(InputCarName());
+        InputTryCount();
+        System.out.println("\n실행 결과");
+        processRound();
+        printWinner();
+    }
+
     public List<String> InputCarName() {
         String inputValue = InputView.inputCarName();
         List<String> CarNameList = ValidateCarName.validateInputValue(inputValue);
