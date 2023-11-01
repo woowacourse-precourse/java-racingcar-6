@@ -10,6 +10,12 @@ public class CarNameValidator {
 
     private final static int LENGTH_STANDARD = 5;
 
+    public void checkCarCount(String[] carNameInput) {
+        if (carNameInput.length == 0) {
+            throw new IllegalArgumentException("At least one car required");
+        }
+    }
+
     public void checkCarName(String name) {
         checkLength(name);
         checkNonBlank(name);
