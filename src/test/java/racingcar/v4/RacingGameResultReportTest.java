@@ -11,7 +11,6 @@ import java.io.PrintStream;
 import java.util.*;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RacingGameResultReportTest {
     private final PrintStream originalOut = System.out;

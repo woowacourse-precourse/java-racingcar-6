@@ -23,6 +23,7 @@ public class CreateCar {
         }
         return new ArrayList<>(Arrays.asList(inputCarNames.split(",")));
     }
+
     public List<String> trimCarNames(List<String> carNames) {
         List<String> trimmedCarNames = new ArrayList<>();
         for (String carName : carNames) {
@@ -31,7 +32,7 @@ public class CreateCar {
         return trimmedCarNames;
     }
 
-    public void validateCarNameLength(List<String> carNames) {
+    public void validateCarNameLength(List<String> carNames){
         for (String carName : carNames) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");

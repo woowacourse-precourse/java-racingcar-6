@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class RacingGameProcessManager {
     public static void start() {
-        try {
             CreateCar createCar = new CreateCar();
             String inputCarNames = createCar.inputCarNames();
             List<String> validatedCarNames = createCar.validateCarNames(inputCarNames);
@@ -25,8 +24,5 @@ public class RacingGameProcessManager {
             }
             report.announceWinners(racingStateMap);
 
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

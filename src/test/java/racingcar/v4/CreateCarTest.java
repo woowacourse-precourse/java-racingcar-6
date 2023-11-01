@@ -64,7 +64,7 @@ class CreateCarTest {
     }
 
     @Test
-    void 자동차_이름이_5자_이하인_경우_예외가_발생하지_않는다() {
+    void 자동차_이름이_5자_이하인_경우_예외가_발생하지_않는다() throws Exception {
         CreateCar createCar = new CreateCar();
         List<String> carNames = Arrays.asList("벤츠", "페라리", "레드불");
         createCar.validateCarNameLength(carNames);
