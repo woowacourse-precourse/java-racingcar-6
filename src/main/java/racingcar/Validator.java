@@ -15,7 +15,7 @@ public class Validator {
         }
     }
 
-    static void carNames(String[] carNames) throws IllegalArgumentException {
+    static List<String> carNames(String[] carNames) throws IllegalArgumentException {
         List<String> uniqueCarNames = new ArrayList<>();
         for (String carName : carNames) {
             carName = carName.trim();
@@ -33,6 +33,7 @@ public class Validator {
             }
             uniqueCarNames.add(carName);
         }
+        return uniqueCarNames;
     }
 
     static int tryCountInput(String tryCountString) throws IllegalArgumentException {

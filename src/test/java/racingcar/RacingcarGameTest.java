@@ -60,8 +60,8 @@ public class RacingcarGameTest {
     @Test
     void 차_이름_좌우에_공백이_있을_때_통과() {
         final String carNamesWithComma = "car1 , car2, car3 ";
-        final String[] carNamesExpect = {"car1", "car2", "car3"};
-        final String[] carNames = racingcarGame.getCarNames(carNamesWithComma);
+        final List<String> carNamesExpect = List.of("car1", "car2", "car3");
+        final List<String> carNames = racingcarGame.getCarNames(carNamesWithComma);
         assertThat(carNames).isEqualTo(carNamesExpect);
     }
 

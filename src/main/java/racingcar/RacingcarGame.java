@@ -17,7 +17,7 @@ public class RacingcarGame {
 
     private void set() throws IllegalArgumentException {
         String carNamesWithComma = View.getCarNamesWithComma();
-        String[] carNames = getCarNames(carNamesWithComma);
+        List<String> carNames = getCarNames(carNamesWithComma);
         String tryCountString = View.getTryCount();
         tryCount = getTryCount(tryCountString);
         makeCars(carNames);
@@ -29,11 +29,11 @@ public class RacingcarGame {
         printWinners();
     }
 
-    public String[] getCarNames(String carNamesWithComma) throws IllegalArgumentException {
+    public List<String> getCarNames(String carNamesWithComma) throws IllegalArgumentException {
         Validator.carNamesString(carNamesWithComma);
-        String[] carNames = carNamesWithComma.split(",");
-        Validator.carNames(carNames);
-        return carNames;
+        String[] carNamesArray = carNamesWithComma.split(",");
+        List<String> carNamesList = Validator.carNames(carNamesArray);
+        return carNamesList;
     }
 
     public int getTryCount(String tryCountString) throws IllegalArgumentException {
@@ -42,7 +42,7 @@ public class RacingcarGame {
         return tryCount;
     }
 
-    public void makeCars(String[] carNames) {
+    public void makeCars(List<String> carNames) {
         for (String carName : carNames) {
             Car car = new Car(carName);
             racingcars.add(car);
