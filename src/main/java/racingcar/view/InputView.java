@@ -25,7 +25,7 @@ public class InputView {
         return attemptCount;
     }
 
-    private void validateAttemptCount(int attemptCount) {
+    private void validateAttemptCount(final int attemptCount) {
         if (attemptCount < 1) {
             throw new IllegalArgumentException(ERROR_MESSAGE_ATTEMPT_COUNT);
         }
