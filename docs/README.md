@@ -13,7 +13,7 @@
     - [x] 무작위 값이 4 이상인지 여부를 반환한다. - Car#isMoveForward()
 - [x] 레이싱 게임에 참여할 자동차를 추가한다. - RacingGame#addCar()
 - [x] 레이싱 게임은 자동차를 이동시킨다. - RacingGame#moveCar()
-    - [x] 0에서 9 사이의 무작위 값을 구해 반환한다. - NumberGenerator#createRandomNumber()
+    - [x] 0에서 9 사이의 무작위 값을 구해 반환한다. - RandomNumberGenerator#createRandomNumber()
 - [x] 레이싱 게임 라운드 결과를 반환한다. - RacingGame#getResult()
 - [x] 레이싱 게임 우승자를 반환한다. - RacingGame#getWinners()
 - [x] 레이싱 게임을 시작한다. - RacingGameController#play()
