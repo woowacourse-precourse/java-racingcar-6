@@ -17,7 +17,7 @@ public class RacingGame {
 
     private int cnt;
     private List<Car> carList;
-    private List<Map<String, String>> result = new ArrayList<>();
+    private final List<Map<String, String>> result = new ArrayList<>();
 
     /**
      * 메인 함수에서 호출하는 게임 실행 메서드
