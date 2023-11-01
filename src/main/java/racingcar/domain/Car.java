@@ -2,14 +2,14 @@ package racingcar.domain;
 
 
 public class Car {
-    String carName;
-    int distance = 0;
+    private String carName;
+    private int distance = 0;
 
     public Car(String carName) {
         this.carName = carName;
     }
 
-    public void move(Car name) {
+    public void move() {
         this.distance += 1;
     }
 

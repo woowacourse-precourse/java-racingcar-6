@@ -49,7 +49,7 @@ public class CarManager {
 
         for (Car carName : cars) {
             if (randomNumberGenerator.isNumberThanEqualFour()) {
-                carName.move(carName);
+                carName.move();
             }
         }
     }
