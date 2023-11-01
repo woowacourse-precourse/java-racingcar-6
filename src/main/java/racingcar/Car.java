@@ -21,7 +21,7 @@ public class Car {
         return new Car(carName, FIELD);
     }
 
-    public String myCurrentStatus(){
+    public String myCurrentStatus() {
         StringBuilder sb = new StringBuilder();
         sb.append(carName).append(" : ").append(SCORE_GRAPH.repeat(score));
 
@@ -31,20 +31,20 @@ public class Car {
     public void roundStart() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
 
-        if(randomNumber >= MOVE_POSSIBLE_NUMBER){
+        if (randomNumber >= MOVE_POSSIBLE_NUMBER) {
             plusScore();
         }
     }
 
-    private void plusScore(){
+    private void plusScore() {
         score++;
     }
 
-    public int nowScore(){
+    public int nowScore() {
         return score;
     }
 
-    public String myName(){
+    public String myName() {
         return carName;
     }
 

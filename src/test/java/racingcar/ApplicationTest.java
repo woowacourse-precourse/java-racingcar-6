@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -81,7 +82,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 라운드_범위_초과_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("do,fo", String.valueOf(Integer.MAX_VALUE+1)))
+                assertThatThrownBy(() -> runException("do,fo", String.valueOf(Integer.MAX_VALUE + 1)))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -93,7 +94,6 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
 
 
     @Override

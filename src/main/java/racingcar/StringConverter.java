@@ -1,27 +1,20 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class StringConverter {
-    private final IllegalCheck illegalCheck = new IllegalCheck();
+    private static final IllegalCheck illegalCheck = new IllegalCheck();
     private final String ERROR_MESSAGE = "잘못된 값이 입력되었습니다.";
 
     public int stringToInteger() {
         String inputLine = Console.readLine();
-
-        if(!illegalCheck.blankCheck(inputLine)){
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-
-        if (!inputLine.chars().allMatch(illegalCheck::availableConvertInteger)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-
-        long integerRangeCheck = Long.parseLong(inputLine);
-
-        if (!illegalCheck.integerRangeOverCheck(integerRangeCheck)) {
+        if (!integerIllegalcheckfilter(inputLine).stream()
+                .allMatch(filter -> filter.test(inputLine))) {
             throw new IllegalArgumentException(ERROR_MESSAGE);
         }
 
@@ -32,19 +25,33 @@ public class StringConverter {
         String inputLine = Console.readLine();
         List<String> splittedNames = Arrays.stream(inputLine.split(separator)).toList();
 
-        if(!illegalCheck.blankCheck(inputLine)){
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-
-        if (splittedNames.stream().anyMatch(illegalCheck::stringLengthOverCheck)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-
-        if(illegalCheck.duplicateNameCheck(splittedNames)){
+        if (!namesIllegalcheckfilter(splittedNames, inputLine).stream()
+                .allMatch(filter -> filter.test(inputLine))) {
             throw new IllegalArgumentException(ERROR_MESSAGE);
         }
 
         return splittedNames;
     }
 
+    public List<Predicate<String>> integerIllegalcheckfilter(String inputLine) {
+        List<Predicate<String>> filterList = new ArrayList<>();
+
+        filterList.add((s) -> illegalCheck.blankCheck(inputLine));
+        filterList.add((s) -> inputLine.chars()
+                .allMatch(illegalCheck::availableConvertInteger));
+        filterList.add((s) -> illegalCheck.integerRangeOverCheck(Long.parseLong(inputLine)));
+
+        return filterList.stream().collect(Collectors.toUnmodifiableList());
+    }
+
+    public List<Predicate<String>> namesIllegalcheckfilter(List<String> splittedNames, String inputLine) {
+        List<Predicate<String>> filterList = new ArrayList<>();
+
+        filterList.add((s) -> illegalCheck.blankCheck(inputLine));
+        filterList.add((s) -> splittedNames.stream()
+                .allMatch(illegalCheck::stringLengthOverCheck));
+        filterList.add((s) -> illegalCheck.duplicateNameCheck(splittedNames));
+
+        return filterList.stream().collect(Collectors.toUnmodifiableList());
+    }
 }

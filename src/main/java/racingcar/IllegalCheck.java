@@ -15,24 +15,24 @@ public class IllegalCheck {
         return false;
     }
 
-    public boolean blankCheck(String inputLine){
-        if(inputLine.length() == 0){
+    public static boolean blankCheck(String inputLine) {
+        if (inputLine.length() == 0) {
             return false;
         }
 
-        if(!middleBlankCheck(inputLine)){
+        if (!middleBlankCheck(inputLine)) {
             return false;
         }
 
         return true;
     }
 
-    public boolean middleBlankCheck(String inputLine){
-        if(inputLine.length() != inputLine.trim().length()){
+    public static boolean middleBlankCheck(String inputLine) {
+        if (inputLine.length() != inputLine.trim().length()) {
             return false;
         }
 
-        if(inputLine.contains(" ")){
+        if (inputLine.contains(" ")) {
             return false;
         }
 
@@ -40,7 +40,11 @@ public class IllegalCheck {
     }
 
     public boolean stringLengthOverCheck(String splittedName) {
-        return splittedName.length() > STRING_MAX_LENGTH;
+        if (splittedName.length() > STRING_MAX_LENGTH) {
+            return false;
+        }
+
+        return true;
     }
 
     public boolean availableConvertInteger(int thisChar) {
@@ -51,14 +55,14 @@ public class IllegalCheck {
         return true;
     }
 
-    public boolean duplicateNameCheck(List<String> splittedNames){
+    public boolean duplicateNameCheck(List<String> splittedNames) {
         int splittedNamesSize = splittedNames.size();
         int splittedNamesFilteredSize = splittedNames.stream()
                 .distinct()
                 .toList()
                 .size();
 
-        if(splittedNamesSize == splittedNamesFilteredSize){
+        if (splittedNamesSize != splittedNamesFilteredSize) {
             return false;
         }
 
