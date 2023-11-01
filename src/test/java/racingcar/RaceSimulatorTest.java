@@ -14,7 +14,7 @@ class RaceSimulatorTest {
     void simulateRaceTest() {
         // Given
         Driver driver = new Driver();
-        String drivers = "BTS, 손흥민, 봉준호, 김태훈";
+        String drivers = "BTS,손흥민,봉준호,김태훈";
         Map<String, String> driverRoster = driver.makeDriverRoster(drivers);
         int opportunity = 5;
         RaceSimulator raceSimulator = new RaceSimulator();
