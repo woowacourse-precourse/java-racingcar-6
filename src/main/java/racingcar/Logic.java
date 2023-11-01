@@ -8,6 +8,9 @@ public class Logic {
 
     public static void doGame() {
         Output.printGuideCarName(); //4번 기능
+
         List<String> carNames = Input.getCarNames(); //1번 기능
+
+        Output.printGuideTryCount(); //5번 기능
     }
 }
