@@ -31,4 +31,25 @@ public class RacingGame {
         return tryCount;
     }
 
+    public List<Car> getWinners() {
+        int maxDistance = getMaxDistance();
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxDistance) {
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
+    private int getMaxDistance() {
+        int max = -1;
+        for (Car car : cars) {
+            max = Math.max(max, car.getPosition());
+        }
+        return max;
+    }
+
+
 }
+
