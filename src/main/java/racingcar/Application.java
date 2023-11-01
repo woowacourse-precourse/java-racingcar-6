@@ -4,45 +4,56 @@ import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        List<Car> cars = new ArrayList<Car>();
         List<String> names = askName();
-        for (int i = 0; i < names.size(); i++) {
-            cars.add(new Car(names.get(i)));
-        }
+        List<Car> cars = initializeCars(names);
 
-        int n = askCount();
-        System.out.println();
-        System.out.println("실행 결과");
+        int rounds = askCount();
+        displayGameHeader();
 
-        for (int i = 0; i < n; i++) {
-            play(cars);
-        }
-
+        playGame(cars, rounds);
         printResult(cars);
     }
 
-    public static void play(List<Car> cars) {
-        for (int i = 0; i < cars.size(); i++) {
-            cars.get(i).tryToMove();
+    private static List<Car> initializeCars(List<String> names) {
+        List<Car> cars = new ArrayList<>();
+        for (String name : names) {
+            cars.add(new Car(name));
         }
+        return cars;
+    }
 
-        // 결과출력
-        for (int i = 0; i < cars.size(); i++) {
-            System.out.print(cars.get(i).getName() + " : ");
-            for (int j = 0; j < cars.get(i).getMoveCount(); j++) {
-                System.out.print("-");
-            }
+    private static void playGame(List<Car> cars, int rounds) {
+        for (int i = 0; i < rounds; i++) {
+            playRound(cars);
+            displayRoundResults(cars);
+        }
+    }
+
+    private static void playRound(List<Car> cars) {
+        for (Car car : cars) {
+            car.tryToMove();
+        }
+    }
+
+    private static void displayRoundResults(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            displayCarPosition(car);
             System.out.println();
         }
         System.out.println();
+    }
+
+    private static void displayCarPosition(Car car) {
+        for (int j = 0; j < car.getMoveCount(); j++) {
+            System.out.print("-");
+        }
     }
 
     public static List<String> askName() {
@@ -51,11 +62,16 @@ public class Application {
         validateNames(names);
         return new ArrayList<>(Arrays.asList(names));
     }
+
     private static void validateNames(String[] names) {
         for (String name : names) {
-            if (name.trim().isEmpty() || name.contains(" ") || name.length() > 5) {
-                throw new IllegalArgumentException("잘못된 이름이 포함되어 있습니다. 이름을 다시 입력하세요.");
-            }
+            validateName(name);
+        }
+    }
+
+    private static void validateName(String name) {
+        if (name.trim().isEmpty() || name.contains(" ") || name.length() > 5) {
+            throw new IllegalArgumentException("잘못된 이름이 포함되어 있습니다. 이름을 다시 입력하세요.");
         }
     }
 
@@ -64,10 +80,13 @@ public class Application {
         return Integer.parseInt(readLine());
     }
 
-    public static void printResult(List<Car> cars) {
-        List<String> winners = findWinners(cars);
+    private static void displayGameHeader() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
 
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+    public static void printResult(List<Car> cars) {
+        System.out.println("최종 우승자 : " + String.join(", ", findWinners(cars)));
     }
 
     private static List<String> findWinners(List<Car> cars) {
@@ -83,12 +102,10 @@ public class Application {
         return winners;
     }
 
-    private static int findMaxMoveCount(List<Car> cars) {
+    public static int findMaxMoveCount(List<Car> cars) {
         int maxValue = Integer.MIN_VALUE;
         for (Car car : cars) {
-            if (car.getMoveCount() > maxValue) {
-                maxValue = car.getMoveCount();
-            }
+            maxValue = Math.max(maxValue, car.getMoveCount());
         }
         return maxValue;
     }
