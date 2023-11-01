@@ -52,7 +52,7 @@ public class CarTest {
                 .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
     }
 
-    @DisplayName("Car eqauls 동작 확인. 이름이 같으면 같은 Car이다.")
+    @DisplayName("Car eqauls 동작 확인 : 이름이 같으면 같은 Car이다.")
     @Test
     public void createCar_equals_true() throws Exception {
         //given, when
@@ -63,7 +63,7 @@ public class CarTest {
         assertThat(car1).isEqualTo(car2);
     }
 
-    @DisplayName("Car eqauls 동작 확인. 이름이 다르면 다른 Car이다.")
+    @DisplayName("Car eqauls 동작 확인 : 이름이 다르면 다른 Car이다.")
     @Test
     public void createCar_equals_false() throws Exception {
         //given, when
@@ -72,5 +72,39 @@ public class CarTest {
 
         //then
         assertThat(car1).isNotEqualTo(car2);
+    }
+
+    @DisplayName("Car 이동 : 생성된 숫자가 4 이상일 경우 이동")
+    @ParameterizedTest
+    @ValueSource(ints = {4,5,6,7,8,9})
+    public void moveCar_whenValue_up4(int movableValue) throws Exception {
+        //given
+        int repeat = 3;
+        Car car = new Car(name1);
+
+        //when
+        for (int i = 0; i < repeat; i++) {
+            car.tryToMove(() -> movableValue);
+        }
+
+        //then
+        assertThat(car.getDistance()).isEqualTo(repeat);
+    }
+
+    @DisplayName("Car 멈춤 : 숫자가 4 미만일 경우 멈춤")
+    @ParameterizedTest
+    @ValueSource(ints = {0,1,2,3})
+    public void stopCar_whenValue_down4(int stopValue) throws Exception {
+        //given
+        int repeat = 3;
+        Car car = new Car(name1);
+
+        //when
+        for (int i = 0; i < repeat; i++) {
+            car.tryToMove(() -> stopValue);
+        }
+
+        //then
+        assertThat(car.getDistance()).isEqualTo(0);
     }
 }

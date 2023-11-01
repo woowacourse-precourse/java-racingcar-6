@@ -4,12 +4,15 @@ import java.util.Objects;
 
 public class Car {
     public static final int MAX_NAME_LENGTH = 5;
+    public static final int STANDARD_MOVING_CAR = 4;
 
     private String name;
+    private int distance;
 
     public Car(String name) {
         validateName(name);
         this.name = name;
+        this.distance = 0;
     }
 
     private void validateName(String name) {
@@ -27,6 +30,24 @@ public class Car {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
         }
+    }
+
+    public void tryToMove(MovingStrategy strategy) {
+        if (isMovable(strategy)) {
+            move();
+        }
+    }
+
+    private static boolean isMovable(MovingStrategy strategy) {
+        return strategy.generateValue() >= STANDARD_MOVING_CAR;
+    }
+
+    private void move() {
+        distance++;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 
     public String getName() {

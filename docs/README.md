@@ -19,12 +19,21 @@
 - [ ] 예외 메시지 정리하기
 
 ## 경주 기능 구현
-- [ ] Car, Cars 이동 기능 구현
-- [ ] OutputView 전진하는 자동차 출력 기능 구현
+- [x] Car 이동 기능 구현
+  - 함수형 인터페이스 MovingStrategy 생성
+  - MovingStrategy를 구현하고 0-9 랜덤으로 숫자를 생성하는 RandomMovingStrategy 추가
+  - Car 클래스에 distance필드 추가 및 tryToMove메서드 구현
+  - RacingCarGame의 MovingStrategy를 설정하는 GameConfig 파일 생성
+- [ ] Cars 이동 기능 구현
+  - Car들이 모두 이동을 시도하는 기능 구현
+- [ ] 자동차 경주 기능 구현
+  - 각 자동차가 주어진 시도회수만큼 이동을 시도하는 기능 구현
+- [ ] 전진하는 자동차 출력 기능 구현
+  - OutPutView에 출력 기능 구현
+  - Car, Cars에 toString() 추가
 ## 우승자 출력 기능 구현
 - [ ] 경주 결과 도출하는 기능 구현
 - [ ] OutputView 경주 결과 출력 기능 구현
-
 
 
 
