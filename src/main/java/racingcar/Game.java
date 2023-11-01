@@ -1,68 +1,82 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    User user = new User();
 
-    private List<Car> createCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-        return cars;
+
+    public void gameStart() {
+        List<Car> cars = CarInput.getCarsFromUser();
+        int numOfTrial = trialInput.getTrialFromUser();
+        RaceManager.startRace(cars, numOfTrial);
+        resultOutput.printResult(cars);
     }
 
-    private void printDash(Long totalMovements) {
-        for (int i = 0; i < totalMovements; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
 
-    private void eachRound(List<Car> cars) {
-        for (Car car : cars) {
-            car.moveForward();
-            System.out.print(car.getCarName() + " : ");
-            printDash(car.getTotalMovements());
+    public class trialInput {
+        public static int getTrialFromUser() {
+            System.out.println("시도 할 횟수는 몇회인가요?");
+            String userInput = Console.readLine();
+            int numofTrial = Trial.validatenumOfTrial(userInput);
+            return numofTrial;
         }
     }
 
-    private Long findMax(List<Car> cars) {
-        Long max = 0L;
-        for (Car car : cars) {
-            if (max < car.getTotalMovements()) {
-                max = car.getTotalMovements();
+    public class RaceManager {
+        public static void startRace(List<Car> cars, int numOfTrial) {
+            for (int i = 0; i < numOfTrial; i++) {
+                System.out.println();
+                raceResult(cars);
             }
         }
-        return max;
     }
 
-    private List<String> findWinner(List<Car> cars) {
-        List<String> winner = new ArrayList<>();
-        Long max = findMax(cars);
+    public static void raceResult(List<Car> cars) {
         for (Car car : cars) {
-            if (max.equals(car.getTotalMovements())) {
-                winner.add(car.getCarName());
-            }
+            car.move();
+            car.finalresult();
         }
-        return winner;
     }
 
-    public void play() {
-        List<String> carNames = user.giveCarName();
-        Long repeat = user.numberOfRepeats();
-        List<Car> cars = createCars(carNames);
+    public class CarInput {
+        public static List<Car> getCarsFromUser() {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            String userInput = Console.readLine();
+            List<String> names = Name.validateNames(userInput);
 
-        for (int round = 0; round < repeat; round++) {
-            eachRound(cars);
-            System.out.println();
+            List<Car> cars = Car.createCars(names);
+            return cars;
+
         }
+    }
 
-        List<String> winner = findWinner(cars);
-        System.out.print("최종 우승자 : ");
+    public class Trial {
+        public static int validatenumOfTrial(String userInput) {
+            int numofTrial = validateInputTrial(userInput);
+            return numofTrial;
+        }
+    }
 
-        System.out.print(String.join(", ", winner));
+    private static int validateInputTrial(String userInput) {
+        int numofTrial;
+        try {
+            numofTrial = Integer.parseInt(userInput);
+            if (numofTrial <= 0) {
+                throw new IllegalArgumentException("숫자 1 이상 입력하세요.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하세요.");
+        }
+        return numofTrial;
+    }
+
+    public class resultOutput {
+        public static void printResult(List<Car> cars) {
+            List<String> winner = Winner.getwinner(cars);
+            System.out.println("\n최종 우승자 : " + String.join(", ",winner));
+        }
     }
 }
