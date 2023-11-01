@@ -8,7 +8,6 @@ import racingcar.model.Car;
 import racingcar.view.OutputView;
 
 public class RacingController {
-
     public static final int CONDITION_RANGE_MIN = 0;
     public static final int CONDITION_RANGE_MAX = 9;
     public static final int MOVE_LIMIT = 4;

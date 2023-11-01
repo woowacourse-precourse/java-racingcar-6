@@ -5,6 +5,7 @@ import java.util.List;
 import org.mockito.internal.util.collections.ListUtil.Converter;
 
 public class StringToListConverter implements Converter<String, List<String>> {
+
     @Override
     public List<String> convert(String from) {
         String[] names = from.split(",");
