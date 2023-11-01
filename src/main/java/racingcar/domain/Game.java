@@ -14,6 +14,17 @@ public class Game {
     View view = new View();
 
     public Game() {
+        initializeGame();
+    }
+
+    private void initializeGame() {
+        view.printStartMessage();
+        String carNames = getCarNames();
+        List<String> carNameList = splitCarNames(carNames);
+        Validator.validateLenOfCarNames(carNameList);
+        Validator.validateNumOfCars(carNameList);
+        cars = makeCarNameList(carNameList);
+        attempts = getAttempts();
     }
 
     private String getCarNames() {
@@ -38,4 +49,6 @@ public class Game {
         Validator.validateNumOfAttempts(attempts);
         return attempts;
     }
+
+
 }
