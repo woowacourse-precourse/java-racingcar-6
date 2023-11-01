@@ -4,11 +4,16 @@ public class GameCount {
 
     private static final int MIN_GANE_COUNT = 1;
     private static final int MAX_GAME_COUNT = 20;
+
     private final int count;
 
     public GameCount(int count) {
         validate(count);
         this.count = count;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void validate(int count){
