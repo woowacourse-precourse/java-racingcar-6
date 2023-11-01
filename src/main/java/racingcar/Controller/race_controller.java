@@ -15,7 +15,7 @@ import racingcar.View.OutputView;
 import racingcar.Model.RoundNumber;
 
 public class race_controller {
-    private int leadCarNumber;
+    private int leadCarPosition;
     private Cars cars;
     private int[] storage;
     private final Cars_preparation carAndPositionMap;
@@ -95,14 +95,14 @@ public class race_controller {
 
     private void leadPosition(Cars_preparation carGoCountMap){
         for(Entry<Car, Integer> entry : carGoCountMap.entrySet()){
-            if(this.leadCarNumber < entry.getValue()){
-                this.leadCarNumber = entry.getValue();
+            if(this.leadCarPosition < entry.getValue()){
+                this.leadCarPosition = entry.getValue();
             }
         }
     }
 
     private void who_win(Cars_preparation carGoCountMap){
         leadPosition(carGoCountMap);
-        OutputView.printWinners(carGoCountMap.getWinners(leadCarNumber));
+        OutputView.printWinners(carGoCountMap.getWinners(leadCarPosition));
     }
 }

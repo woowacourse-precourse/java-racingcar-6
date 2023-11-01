@@ -18,10 +18,10 @@ public class Cars_preparation {
         return carAndPositionMap.entrySet();
     }
 
-    public List<String> getWinners(int leadCarNumber) {
+    public List<String> getWinners(int leadCarPosition) {
         List<String> win_person = new ArrayList<>();
         for (Entry<Car, Integer> entry : carAndPositionMap.entrySet()) {
-            if (entry.getValue() == leadCarNumber) {
+            if (entry.getValue() == leadCarPosition) {
                 win_person.add(entry.getKey().toString());
             }
         }
