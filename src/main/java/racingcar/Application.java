@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -25,6 +27,15 @@ public class Application {
         }
     }
 
+    private static List<Car> createCars(String carNamesInput) {
+        String[] carNames = carNamesInput.split(",");
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName.trim()));
+        }
+        return cars;
+    }
+
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         String carNamesInput = scanner.nextLine();
@@ -34,5 +45,7 @@ public class Application {
         String attemptsInput = scanner.nextLine();
         int attempts = parseAttempts(attemptsInput); // 문자열을 숫자로 변환할 수 있는지 검증
         validateAttempts(attempts); // 변환된 숫자를 검증
+
+        List<Car> cars = createCars(carNamesInput);
     }
 }
