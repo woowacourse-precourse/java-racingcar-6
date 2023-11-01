@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoveForward {
 
@@ -15,12 +17,17 @@ public class MoveForward {
         }
     }
 
-    static void moveCars(Car[] carArr) {      // 각 차를 이동 여부 결정
+    static List<Boolean> moveCars(Car[] carArr) {      // 각 차를 이동 여부 결정
+        List<Boolean> moveArr = new ArrayList<Boolean>();
+        boolean isMove;
         for (Car car: carArr) {
-            if (getRandomNumber()) {
+            isMove = getRandomNumber();
+            if (isMove) {
                 car.score += 1;
             }
+            moveArr.add(isMove);
         }
+        return moveArr;
     }
 
     static void printCars(Car[] carArr) {      // 각 차의 실황 출력
