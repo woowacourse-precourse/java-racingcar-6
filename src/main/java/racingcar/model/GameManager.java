@@ -21,4 +21,10 @@ public class GameManager {
         car.setCarName(name);
         cars.add(car);
     }
+
+    public void moveAllCars() {
+        for (Car car : cars) {
+            controlManager.moveFowardCar(car);
+        }
+    }
 }
