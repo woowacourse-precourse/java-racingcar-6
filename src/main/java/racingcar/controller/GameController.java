@@ -1,8 +1,5 @@
 package racingcar.controller;
 
-import static racingcar.common.Constant.RAND_NUM_MAX_RANGE;
-import static racingcar.common.Constant.RAND_NUM_MIN_RANGE;
-
 import racingcar.controller.dto.request.CarNameDto;
 import racingcar.controller.dto.request.RaceCountDto;
 import racingcar.controller.dto.response.GameResultDto;
@@ -10,17 +7,19 @@ import racingcar.controller.dto.response.RaceResultDto;
 import racingcar.model.Cars;
 import racingcar.model.GameResult;
 import racingcar.model.RacingGame;
-import racingcar.model.RandomSingleNumber;
+import racingcar.util.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
+    private final NumberGenerator numberGenerator;
 
-    public GameController(InputView inputView, OutputView outputView) {
+    public GameController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.numberGenerator = numberGenerator;
     }
 
     public void run() {
@@ -31,7 +30,6 @@ public class GameController {
 
     private GameResult inGame(RacingGame racingGame) {
         repeatPlayGame(racingGame);
-
         return racingGame.getGameResult();
     }
 
@@ -49,9 +47,7 @@ public class GameController {
         outputView.printExecutionResultMessage();
 
         for (int round = 1; round <= racingGame.getRaceCount(); round++) {
-            RandomSingleNumber number = RandomSingleNumber.of(RAND_NUM_MIN_RANGE, RAND_NUM_MAX_RANGE);
-            racingGame.playGame(number);
-
+            racingGame.playGame(numberGenerator);
             outputView.printRaceResult(new RaceResultDto(racingGame.getCarList()));
         }
     }

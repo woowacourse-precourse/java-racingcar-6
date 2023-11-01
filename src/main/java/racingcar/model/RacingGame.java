@@ -1,8 +1,10 @@
 package racingcar.model;
 
 import java.util.List;
+import racingcar.util.NumberGenerator;
 
 public class RacingGame {
+
     private static final int MOVE_THRESHOLD = 4;
     private final Cars cars;
     private final int raceCount;
@@ -16,9 +18,11 @@ public class RacingGame {
         return new RacingGame(cars, raceCount);
     }
 
-    public void playGame(RandomSingleNumber number) {
+    public void playGame(NumberGenerator numberGenerator) {
         for (Car car : cars.getCarList()) {
-            if (number.isAtLeast(MOVE_THRESHOLD)) {
+            int number = numberGenerator.getRandomDigit();
+
+            if (number >= MOVE_THRESHOLD) {
                 car.move();
             }
         }
