@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.dto.RacingResultDto;
 import racingcar.dto.RacingRoundResultDto;
+import racingcar.dto.UserCarNameDto;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarInputView;
 import racingcar.view.RacingCarOutputView;
@@ -26,9 +26,9 @@ public class RacingController {
     }
 
     private void initializeGameByUserInput() {
-        List<String> carNames = racingCarInputView.inputCarNames();
+        UserCarNameDto userCarNameDto = racingCarInputView.inputCarNames();
         String attemptCounts = racingCarInputView.inputAttemptCounts();
-        racingCarService.initializeRacingGame(carNames, attemptCounts);
+        racingCarService.initializeRacingGame(userCarNameDto, attemptCounts);
     }
 
     private void raceAndPrintEachResult() {
