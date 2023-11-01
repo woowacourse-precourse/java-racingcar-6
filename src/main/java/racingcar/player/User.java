@@ -18,7 +18,7 @@ public class User {
         return this.forwardDistance;
     } //getter
 
-    public void forward(){
+    public void forward() {
         forwardDistance++;
     }
 }

@@ -3,14 +3,13 @@ package racingcar.player;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.View.Input;
-import racingcar.View.error.InputException;
 
 public class UserList {
     private final List<User> UserList = new ArrayList<>();// 리스트 변수 재할당 방지를 위해 final로 선언
 
     public List<User> inputUser() {
 
-        String names[] = inputUserName();
+        String[] names = inputUserName();
 
         for (String name : names) {
             User user = new User(name);

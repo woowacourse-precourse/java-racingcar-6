@@ -23,32 +23,32 @@ public class Game {
 
         while (count != RoundCount) {
 
-            for (int i = 0; i < UserList.size(); i++) {
-                onlyOnePlayer(UserList.get(i));
+            for (User user1 : UserList) {
+                onlyOnePlayer(user1);
             }
 
             count++;
-            print.printResult(UserList);
+            print.Result(UserList);
             System.out.println();
 
         }
 
-        print.printFinalWinner(UserList);
+        print.FinalWinner(UserList);
 
     }
 
     private static void onlyOnePlayer(User user) {
         GetRandomNumber getRandomNumber = new RandomGenerator();
         int Number = getRandomNumber.GeneratorRandomNumber();
-        if(Number >= 4) {
+        if (Number >= 4) {
             user.forward();
         }
     }
 
-    private int inputRoundCount(){
+    private int inputRoundCount() {
         Input input = new Input();
         System.out.println("시도할 회수는 몇회인가요?");
-        int count =  input.inputInteger();
+        int count = input.inputInteger();
         input.verifyRoundCount(count);
         return count;
     }

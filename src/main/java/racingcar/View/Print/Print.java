@@ -6,11 +6,11 @@ import racingcar.player.User;
 import racingcar.player.UserList;
 
 public class Print {
-    public void printResult(List<User> user) {
+    public void Result(List<User> user) {
 
         for (int i = 0; i < user.size(); i++) {
             String dashes = changeFrowardCharacter(user.get(i));
-            System.out.print(user.get(i).getUserName() + " " +":" + " ");
+            System.out.print(user.get(i).getUserName() + " " + ":" + " ");
             System.out.println(dashes);
         }
 
@@ -25,10 +25,10 @@ public class Print {
         return dashes;
     }
 
-    public void printFinalWinner(List<User> user) {
+    public void FinalWinner(List<User> user) {
         FindWinner findWinner = new FindWinner();
 
-        List<String>maxScoreUserNames = findWinner.findWinner(user);
+        List<String> maxScoreUserNames = findWinner.findWinner(user);
 
         String result = "";
 
