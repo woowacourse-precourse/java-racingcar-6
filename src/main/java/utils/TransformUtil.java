@@ -1,10 +1,9 @@
 package utils;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class TransformUtil {
-    public String dashes(Integer carRunCnt) {
+    public static String dashes(Integer carRunCnt) {
         StringBuilder dashes = new StringBuilder();
 
         if (carRunCnt != null && carRunCnt > 0) {
@@ -14,11 +13,11 @@ public class TransformUtil {
         return dashes.toString();
     }
 
-    public String commasToString(List<String> winnerData) {
+    public static String commasToString(List<String> winnerData) {
         return String.join(",", winnerData);
     }
 
-    public List<String> commasToList(String carData) {
+    public static List<String> commasToList(String carData) {
         return List.of(carData.split("\\s*,\\s*"));
     }
 
