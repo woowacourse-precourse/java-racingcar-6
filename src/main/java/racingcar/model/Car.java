@@ -7,6 +7,14 @@ public class Car {
     private int position;
     private final String name;
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public Car(String name) {
         this.name = name;
         this.position = 0;

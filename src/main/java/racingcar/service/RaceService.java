@@ -43,6 +43,6 @@ public class RaceService {
     }
 
     private void closeGame() {
-
+        OuterView.printWinner(racingCars.getWinners(racingCars.getMaxPosition()));
     }
 }
