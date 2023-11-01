@@ -1,8 +1,7 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-
 import java.util.List;
+import racingcar.model.Car;
 
 public class GameViewer {
     private List<Car> cars;
@@ -20,11 +19,10 @@ public class GameViewer {
     }
 
     private String getCarPositionString(int position) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < position; i++) {
-            sb.append("-");
-        }
-        return sb.toString();
+        String s = "-";
+        s = s.repeat(position);
+        
+        return s;
     }
 
     public void displayGameWinner(String winner) {
