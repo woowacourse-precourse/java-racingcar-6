@@ -1,13 +1,9 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private static final int MINIMUM_RANDOM_NUMBER = 0;
-    private static final int MAXIMUM_RANDOM_NUMBER = 9;
-    private static final int STANDARD_NUMBER = 4;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -27,9 +23,9 @@ public class Cars {
         return copyList(cars);
     }
 
-    public void race() {
+    public void race(ForwardStrategy forwardStrategy) {
         cars.forEach(car -> {
-            if (Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER) >= STANDARD_NUMBER) {
+            if (forwardStrategy.canMoveForward()) {
                 car.moveForward();
             }
         });
