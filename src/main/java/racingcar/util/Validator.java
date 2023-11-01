@@ -16,6 +16,15 @@ public class Validator {
         validateDuplicateName(carsName);
     }
 
+    public void validateNumberOfAttempts(String numberOfAttempts) {
+        try {
+            int count = Integer.parseInt(numberOfAttempts);
+            validateMinimumLimit(count);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 회수는 숫자만 입력 가능합니다.");
+        }
+    }
+
     private void validateIsBlank(String carsName) {
         if (carsName.isBlank()) {
             throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
