@@ -5,12 +5,23 @@ import racingcar.domain.RacingCar;
 import java.util.List;
 
 public class OutputView {
-    public static void outputRaceRoundResult(List<RacingCar> cars) {
+    public static void outputAllRoundResult(List<List<RacingCar>> allRoundResult) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("\n실행 결과\n");
+
+        for(List<RacingCar> round : allRoundResult) {
+            builder.append(outputRoundResult(round) + "\n");
+        }
+
+        System.out.println(builder.toString());
+    }
+
+    private static String outputRoundResult(List<RacingCar> cars) {
         StringBuilder builder = new StringBuilder();
         for(RacingCar car : cars) {
             builder.append(car.toString() + "\n");
         }
-        System.out.println(builder.toString());
+        return builder.toString();
     }
 
     public static void outputWinners(List<String> winners) {

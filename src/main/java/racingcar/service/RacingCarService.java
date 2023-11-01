@@ -20,22 +20,24 @@ public class RacingCarService {
     }
 
     public List<RacingCar> racingGame(List<RacingCar> cars, int raceCount) {
-        List<RacingCar> racedCars = cars;
-        System.out.println("\n실행 결과");
+        List<List<RacingCar>> allRoundResult = new ArrayList<List<RacingCar>>();
+        allRoundResult.add(cars);
+
         while(raceCount > 0) {
-            racedCars = raceRound(racedCars);
+            List<RacingCar> beforeRace = allRoundResult.get(allRoundResult.size()-1);
+            List<RacingCar> roundResult = raceRound(beforeRace);
+            allRoundResult.add(roundResult);
             raceCount--;
         }
-        return racedCars;
+
+        OutputView.outputAllRoundResult(allRoundResult);
+        return allRoundResult.get(allRoundResult.size()-1);
     }
 
     private List<RacingCar> raceRound(List<RacingCar> cars) {
-        List<RacingCar> racedRoundCars = cars.stream()
+        return cars.stream()
                 .map(car -> car.move(Randoms.pickNumberInRange(0,9)))
                 .collect(Collectors.toList());
-
-        OutputView.outputRaceRoundResult(racedRoundCars);
-        return racedRoundCars;
     }
 
     public void calculateRacingWinner(List<RacingCar> racedCars) {
