@@ -1,8 +1,11 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.*;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -36,7 +39,25 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+    @Test
+    public void InputCarName() {
+        String testData = "Car1,Car2,Car3";
+        InputStream originalSystemIn = System.in;
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(testData.getBytes());
+        System.setIn(inputStream);
 
+        String inputCarName = inputCarName();
+        System.out.println("inputCarName = " + inputCarName);
+
+        assertThat(inputCarName).isEqualTo("Car1,Car2,Car3");
+
+        System.setIn(originalSystemIn);
+    }
+    private String inputCarName(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
+        return input;
+    }
 
     @Test
     void inputCarNameSplit_정상케이스() {
@@ -91,6 +112,27 @@ class ApplicationTest extends NsTest {
         assertThat(cars).hasSize(3)
             .contains(entry("테스트1", 0), entry("테스트2", 0), entry("테스트3", 0))
             .doesNotContainEntry("테스트4", 0);
+    }
+
+    @Test
+    void InputAttempts() {
+        String testData = "5";
+        InputStream originalSystemIn = System.in;
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(testData.getBytes());
+        System.setIn(inputStream);
+
+        String attempts = inputAttempts();
+        System.out.println("inputCarName = " + attempts);
+
+        assertThat(attempts).isEqualTo("5");
+
+        System.setIn(originalSystemIn);
+    }
+
+    private String inputAttempts(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        return input;
     }
 
     @Test
