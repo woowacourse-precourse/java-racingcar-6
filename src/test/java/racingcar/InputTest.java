@@ -67,6 +67,14 @@ public class InputTest {
                 .hasMessageContaining("공백이 존재해선 안됩니다.");
     }
 
+    @Test
+    @DisplayName("자동차 이름 입력 시 중복된 이름을 입력하면 IllegalArgumentException 예외 발생 테스트")
+    void validateDuplicateCarName_test(){
+        assertThatThrownBy(() -> getCarNameList_test("pobi,pobi,woni "))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 이름을 사용하였습니다.");
+    }
+
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
