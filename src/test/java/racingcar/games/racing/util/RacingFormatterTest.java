@@ -32,4 +32,13 @@ class RacingFormatterTest {
         assertThatThrownBy(() -> formatter.reformatCarNames("해광isTheBest,poby"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("자동차 이름들 중 0글자인 입력에 대한 예외 발생 검증")
+    public void reformatZeroLetterCarName() {
+        RacingFormatter formatter = new RacingFormatter();
+
+        assertThatThrownBy(() -> formatter.reformatCarNames("poby,,해광"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
