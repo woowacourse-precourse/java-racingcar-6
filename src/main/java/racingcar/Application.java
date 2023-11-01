@@ -33,6 +33,25 @@ public class Application {
         for (String carName : carList) {
             carMovement(carMap, carName, tryNum);
         }
+        List<String> winner = new ArrayList<>();
+        int highestValue = 0;
+        for (String carName : carList) {
+            int carValue = carMap.get(carName);
+            if (carValue > highestValue) {
+                highestValue = carValue;
+                winner.clear();
+                winner.add(carName);
+            } else if (carValue == highestValue) {
+                winner.add(carName);
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winner.size(); i++) {
+            System.out.print(winner.get(i));
+            if (i != winner.size() - 1) {
+                System.out.print(", ");
+            }
+        }
     }
 
     public static void carMovement(Map<String, Integer> carMap, String carName, int count) {
