@@ -15,24 +15,24 @@ public class Application {
 
     public static void main(String[] args) {
         List<Integer> position = new ArrayList<>();
-        List<String> car = inputCarNames();
+        List<String> cars = inputCarNames();
         int tryCount = inputTryCount();
 
         validatePositiveTryCount(tryCount);
-        for (int i = 0; i < car.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             position.add(0);
         }
-        getResult(car, tryCount, position);
-        List<String> winners = getWinners(car, position);
+        getResult(cars, tryCount, position);
+        List<String> winners = getWinners(cars, position);
         printWinners(winners);
     }
 
     private static List<String> inputCarNames() {
         String input = getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         validateBlank(input);
-        List<String> carNames = toList(input);
-        validateCarNames(carNames);
-        return carNames;
+        List<String> cars = toList(input);
+        validateCarNames(cars);
+        return cars;
     }
 
     private static int inputTryCount() {
@@ -42,19 +42,19 @@ public class Application {
         return Integer.parseInt(input);
     }
 
-    private static void getResult(List<String> carNames, int tryCount, List<Integer> position) {
+    private static void getResult(List<String> cars, int tryCount, List<Integer> position) {
         System.out.println("실행결과");
         for (int i = 0; i < tryCount; i++) {
-            for (int j = 0; j < carNames.size(); j++) {
+            for (int j = 0; j < cars.size(); j++) {
                 updatePosition(position, j);
             }
-            printResult(carNames, position);
+            printResult(cars, position);
         }
     }
 
-    private static void printResult(List<String> carNames, List<Integer> position) {
-        for (int j = 0; j < carNames.size(); j++) {
-            System.out.print(carNames.get(j) + " : ");
+    private static void printResult(List<String> cars, List<Integer> position) {
+        for (int j = 0; j < cars.size(); j++) {
+            System.out.print(cars.get(j) + " : ");
             for (int k = 0; k < position.get(j); k++) {
                 System.out.print("-");
             }
@@ -63,9 +63,9 @@ public class Application {
         System.out.println();
     }
 
-    private static List<String> getWinners(List<String> carNames, List<Integer> position) {
+    private static List<String> getWinners(List<String> cars, List<Integer> position) {
         int maxPosition = getMaxPosition(position);
-        return getWinnerNames(carNames, position, maxPosition);
+        return getWinnerNames(cars, position, maxPosition);
     }
 
     private static void printWinners(List<String> winners) {
@@ -99,11 +99,11 @@ public class Application {
                 .orElseThrow();
     }
 
-    private static List<String> getWinnerNames(List<String> carNames, List<Integer> position, int maxPosition) {
+    private static List<String> getWinnerNames(List<String> cars, List<Integer> position, int maxPosition) {
         List<String> winners = new ArrayList<>();
-        for (int i = 0; i < carNames.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             if (position.get(i) == maxPosition) {
-                winners.add(carNames.get(i));
+                winners.add(cars.get(i));
             }
         }
         return winners;
@@ -115,31 +115,31 @@ public class Application {
         }
     }
 
-    private static void validateCarNames(List<String> carNames) {
-        carNames.forEach(carName -> {
-            validateNamePattern(carName);
-            validateNameLength(carName);
+    private static void validateCarNames(List<String> cars) {
+        cars.forEach(name -> {
+            validateNamePattern(name);
+            validateNameLength(name);
         });
-        validateNoDuplicate(carNames);
+        validateNoDuplicate(cars);
     }
 
-    private static void validateNameLength(String carName) {
-        if (carName.length() > 5) {
+    private static void validateNameLength(String name) {
+        if (name.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5자리 이하로 입력해주세요.");
         }
     }
 
-    private static void validateNamePattern(String carName) {
-        if (!ALPHABET_AND_HANGUL_PATTERN.matcher(carName).matches()) {
+    private static void validateNamePattern(String name) {
+        if (!ALPHABET_AND_HANGUL_PATTERN.matcher(name).matches()) {
             throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능합니다.");
         }
     }
 
-    private static void validateNoDuplicate(List<String> carNames) {
-        long distinctCount = carNames.stream()
+    private static void validateNoDuplicate(List<String> cars) {
+        long distinctCount = cars.stream()
                 .distinct()
                 .count();
-        if (carNames.size() != distinctCount) {
+        if (cars.size() != distinctCount) {
             throw new IllegalArgumentException("[중복 불가] 자동차 이름은 서로 다르게 입력해주세요.");
         }
     }
