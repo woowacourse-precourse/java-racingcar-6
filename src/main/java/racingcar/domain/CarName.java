@@ -6,9 +6,13 @@ public class CarName {
 
     private final String name;
 
-    public CarName(final String name) {
+    private CarName(final String name) {
         validateName(name);
         this.name = name;
+    }
+
+    public static CarName from(final String name) {
+        return new CarName(name);
     }
 
     private void validateName(final String name) {

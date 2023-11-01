@@ -49,7 +49,7 @@ class WinnerPickerTest {
 
             //then
             assertThat(winners.getWinnersName().getCarNames().size()).isEqualTo(1);
-            assertThat(winners.getWinnersName().getCarNames()).contains(new CarName(CAR3_NAME));
+            assertThat(winners.getWinnersName().getCarNames()).contains(CarName.from(CAR3_NAME));
         }
     }
 
@@ -70,7 +70,7 @@ class WinnerPickerTest {
 
             //then
             assertThat(winners.getWinnersName().getCarNames().size()).isEqualTo(2);
-            assertThat(winners.getWinnersName().getCarNames()).contains(new CarName(CAR3_NAME), new CarName(CAR4_NAME));
+            assertThat(winners.getWinnersName().getCarNames()).contains(CarName.from(CAR3_NAME), CarName.from(CAR4_NAME));
         }
     }
 }

@@ -11,7 +11,7 @@ public class CarNames {
 
     public CarNames(final List<String> names) {
         List<CarName> carNameList = names.stream()
-                .map(CarName::new)
+                .map(CarName::from)
                 .toList();
 
         validateCarNames(carNameList);

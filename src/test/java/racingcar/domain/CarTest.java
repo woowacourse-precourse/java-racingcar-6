@@ -15,7 +15,7 @@ class CarTest {
 
     @BeforeEach
     void setUp() {
-        car1 = new Car(new CarName(CAR1_NAME));
+        car1 = new Car(CarName.from(CAR1_NAME));
         numberGenerator = () -> FORWARD;
         forwardChecker = new ForwardChecker();
     }
