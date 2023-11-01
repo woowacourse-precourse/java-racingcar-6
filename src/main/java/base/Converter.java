@@ -1,4 +1,4 @@
-package basis;
+package base;
 
 import static constant.Constant.STOP_SYMBOL;
 import static constant.ErrorMessage.NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE;

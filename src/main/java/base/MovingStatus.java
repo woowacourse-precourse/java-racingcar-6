@@ -1,4 +1,4 @@
-package basis;
+package base;
 
 import static constant.Constant.MAXIMUM_RANGE;
 import static constant.Constant.MINIMUM_RANGE;

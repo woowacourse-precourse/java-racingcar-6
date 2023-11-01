@@ -3,7 +3,7 @@ package io;
 import static constant.Constant.ATTEMPTS_NUMBER_REQUEST_MESSAGE;
 import static constant.Constant.CAR_NAME_REQUEST_MESSAGE;
 
-import basis.Converter;
+import base.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
 

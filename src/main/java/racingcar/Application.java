@@ -1,9 +1,9 @@
 package racingcar;
 
-import basis.Converter;
-import basis.MovingStatus;
-import basis.Race;
-import basis.WinnerResult;
+import base.Converter;
+import base.MovingStatus;
+import base.Race;
+import base.WinnerResult;
 import io.UserInput;
 import validation.UserInputValidator;
 

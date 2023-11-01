@@ -1,4 +1,4 @@
-package basis;
+package base;
 
 import static constant.Constant.RUN_RESULT_START_MESSAGE;
 import static constant.Constant.WINNER_RESULT_MESSAGE;

@@ -1,4 +1,4 @@
-package basis;
+package base;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
@@ -102,3 +102,5 @@ class ConverterTest extends NsTest {
         );
     }
 }
+
+//TODO: 유저인풋테스트 등으로 좀 넘기기
