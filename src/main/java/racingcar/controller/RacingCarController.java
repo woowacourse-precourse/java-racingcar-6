@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import static racingcar.utils.Console.println;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
@@ -72,27 +71,10 @@ public class RacingCarController {
     }
 
     private List<String> getWinners(List<Car> cars) {
-        List<String> winners = new ArrayList<>();
-        int maxPosition = getMaxPosition(cars);
-
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
-
-        return winners;
-    }
-
-    private int getMaxPosition(List<Car> cars) {
-        int maxPosition = 0;
-
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-            }
-        }
-
-        return maxPosition;
+        int maxPosition = RacingCars.getMaxPosition(cars);
+        return cars.stream()
+                .filter(car -> car.isMaxPosition(maxPosition))
+                .map(Car::getName)
+                .toList();
     }
 }
