@@ -8,5 +8,6 @@ public class MessageConstants {
     public static final String INVALID_CAR_NAME_FOR_DUPLICATE_NAME = "이름은 중복될 수 없습니다.";
     public static final String INVALID_TRY_COUNT = "1회 이상 입력해주세요.";
     public static final String INVALID_NUMBER_FORMAT = "숫자를 입력해 주세요";
+    public static final String EMPTY_CAR_LIST = "경주할 자동차가 없습니다.";
     public static final String FINAL_WINNERS = "최종 우승자 : ";
 }
