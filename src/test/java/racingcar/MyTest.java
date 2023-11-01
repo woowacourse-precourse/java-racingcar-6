@@ -3,8 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.utils.Validation;
 
 public class MyTest {
@@ -36,5 +38,26 @@ public class MyTest {
         car.moveForward();
         String result = car.toString();
         assertThat(result).isEqualTo("abc : --");
+    }
+
+    @Test
+    void getBiggestDistCars() {
+        String input = "abc,cde,qwe,ert";
+        Cars cars = new Cars(input);
+        cars.moveForwardValueOf(2);
+        cars.moveForwardValueOf(2);
+        cars.moveForwardValueOf(2);
+        cars.moveForwardValueOf(3);
+        cars.moveForwardValueOf(3);
+        cars.moveForwardValueOf(3);
+        cars.moveForwardValueOf(1);
+        cars.moveForwardValueOf(1);
+        cars.moveForwardValueOf(0);
+        List<Car> biggestDistCars = cars.getBiggestDistCars();
+        StringBuilder result = new StringBuilder();
+        for (Car car : biggestDistCars) {
+            result.append(car);
+        }
+        assertThat(result.toString()).isEqualTo("qwe : ---ert : ---");
     }
 }
