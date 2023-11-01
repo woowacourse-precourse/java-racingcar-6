@@ -42,7 +42,7 @@ final class SettingController implements Controller {
         String[] names = parameter.get(CAR_NAMES).trim().split(String.valueOf(DELIMITER));
 
         List<Car> cars = Arrays.stream(names)
-                .map(Car::new)
+                .map(name -> new Car.CarBuilder(name).build())
                 .toList();
 
         return new Cars(cars);

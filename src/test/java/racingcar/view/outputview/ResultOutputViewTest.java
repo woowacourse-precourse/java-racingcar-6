@@ -44,7 +44,7 @@ class ResultOutputViewTest {
     @DisplayName("우승자가 jun 한명만 나와야한다")
     void RacingOutputViewTest() {
         //given
-        Car car3 = new Car("jun");
+        Car car3 = new Car.CarBuilder("jun").build();
 
         Map<String, Object> model = new HashMap<>();
         //when
