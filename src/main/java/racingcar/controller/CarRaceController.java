@@ -9,9 +9,9 @@ import java.util.List;
 
 public class CarRaceController {
 
-    private CarRaceModel model;
+    private final CarRaceModel model;
 
-    private CarRaceView view;
+    private final CarRaceView view;
 
     public CarRaceController(CarRaceModel model, CarRaceView view) {
         this.model = model;

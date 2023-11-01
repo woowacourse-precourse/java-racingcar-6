@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRaceModel {
-    private List<String> results;
 
+    private List<String> results;
 
     public void initialize(List<String> carNames) {
         results = CarNameColon(carNames);
