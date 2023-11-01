@@ -18,8 +18,12 @@
 - [x] 각 자동차에 이름을 부여한다.
     - [x] 이름이 5자 초과일 경우 `IllegalArgumentException`이 발생한다.
     - [x] 중복된 이름일 경우 `IllegalArgumentException`이 발생한다.
+    - [x] 앞과 뒷자리가 쉼표(,)일 경우 `IllegalArgumentException`이 발생한다.
+    - [x] 이름이 빈칸일 경우 `IllegalArgumentException`이 발생한다.
+    - [x] 이름에 공백이 포함될 경우 `IllegalArgumentException`이 발생한다.
 - [x] 사용자는 몇 번의 이동을 할 것인지 입력한다.
     - [x] 입력이 숫자가 아닐 경우 `IllegalArgumentException`이 발생한다.
+    - [x] 입력이 음수일 경우 `IllegalArgumentException`이 발생한다.
 
 ### 출력 기능
 - [x] 각 차수별 실행 결과를 출력한다.
