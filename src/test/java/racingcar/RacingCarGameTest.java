@@ -28,4 +28,11 @@ public class RacingCarGameTest {
         assertThat(racingCars.get(0).getName()).isEqualTo("dadi");
         assertThat(racingCars.get(1).getName()).isEqualTo("dodi");
     }
+    @Test
+    void setPlayers_입력값_없으면_예외_처리() {
+        RacingCarGame game = new RacingCarGame();
+
+        assertThatThrownBy(() -> game.setPlayers(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
