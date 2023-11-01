@@ -26,6 +26,22 @@ public class Car {
         return name+" : "+"-".repeat(score);
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 
 
 
