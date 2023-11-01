@@ -1,8 +1,10 @@
 package racingcar.service;
 
+import racingcar.domain.CarPlayer;
 import racingcar.exception.InvalidCountException;
 import racingcar.exception.InvalidNameException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameService {
@@ -20,5 +22,16 @@ public class GameService {
         } catch (NumberFormatException e) {
             throw new InvalidCountException("입력한 값이 숫자가 아닙니다.");
         }
+    }
+
+    public List<CarPlayer> saveCarNames(List<String> carList){
+        List<CarPlayer> players = new ArrayList<>();
+        int id = 1;
+
+        for (String name : carList) {
+            CarPlayer player = new CarPlayer(id++, name);
+            players.add(player);
+        }
+        return players;
     }
 }
