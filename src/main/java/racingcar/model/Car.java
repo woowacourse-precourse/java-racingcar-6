@@ -3,7 +3,6 @@ package racingcar.model;
 import org.junit.platform.commons.util.StringUtils;
 
 public class Car {
-    public static final int FORWARD_NUM = 4;
     public static final int MAX_LENGTH = 5;
 
     private final String name;
@@ -24,9 +23,7 @@ public class Car {
         return name;
     }
 
-    public void move(int randNum) {
-        if (randNum >= FORWARD_NUM) {
-            this.poisiton++;
-        }
+    public void move() {
+        this.poisiton++;
     }
 }
