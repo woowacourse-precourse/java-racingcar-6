@@ -1,7 +1,10 @@
 package racingcar.controller;
 
+import java.util.List;
+
 import racingcar.model.Car;
 import racingcar.model.CarForward;
+import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -23,7 +26,7 @@ public class GameController {
             OutputView.printForwardResult();
         }
 
-
+        List<String> winners = Winner.compareWinner();
 
         OutputView.printWinners();
     }
