@@ -61,7 +61,7 @@ public class GameService {
 
     public void winnerList() {
         List<Car> winners = cars.stream()
-                        .filter(car -> car.getMove() == findMaxValue()).toList();
+                .filter(car -> car.getMove() == findMaxValue()).toList();
 
         String printWinners = winners.stream()
                 .map(Car::getName)

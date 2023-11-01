@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.service.GameService;
+
 public class GameController {
     private final GameService gameService = new GameService();
 
@@ -9,7 +10,7 @@ public class GameController {
         finish(runChance);
     }
 
-    public int start(){
+    public int start() {
         gameService.enterCar();
         int runChance = gameService.enterChance();
         return runChance;
