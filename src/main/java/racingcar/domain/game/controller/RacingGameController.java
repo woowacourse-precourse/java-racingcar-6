@@ -23,14 +23,8 @@ public class RacingGameController {
     }
 
     public void run() {
-        String carsUserInput = getUserInputWithValidation(OutputView::printCarNameInputMessage,
-                InputValidator::validateNullOrEmptyInput);
-        Cars cars = generateCars(carsUserInput);
-
-        String trialUserInput = getUserInputWithValidation(OutputView::printTrialInputMessage,
-                InputValidator::validateNullOrEmptyInput,
-                InputValidator::validateInputIsNumeric);
-        Trial trial = new Trial(Utils.stringToInt(trialUserInput));
+        Cars cars = getCarsFromUserInput();
+        Trial trial = generateTrialFromUserInput();
 
         startGame(cars, trial);
     }
@@ -54,7 +48,20 @@ public class RacingGameController {
         return userInput;
     }
 
-    private Cars generateCars(String carsUserInput) {
+    private Trial generateTrialFromUserInput() {
+        String trialUserInput = getUserInputWithValidation(
+                OutputView::printTrialInputMessage,
+                InputValidator::validateNullOrEmptyInput,
+                InputValidator::validateInputIsNumeric
+        );
+        return new Trial(Utils.stringToInt(trialUserInput));
+    }
+
+    private Cars getCarsFromUserInput() {
+        String carsUserInput = getUserInputWithValidation(
+                OutputView::printCarNameInputMessage,
+                InputValidator::validateNullOrEmptyInput
+        );
         List<String> carNames = Utils.parseNames(carsUserInput);
         List<Car> carList = carNames.stream()
                 .map(Car::new)
