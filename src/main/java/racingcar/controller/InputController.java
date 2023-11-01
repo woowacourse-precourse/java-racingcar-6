@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.List;
 
 public class InputController {
@@ -11,6 +9,11 @@ public class InputController {
         List<String> carNameList = parser.parseCar(input);
         checkCarNameDuplicated(carNameList);
         checkOneByOne(carNameList);
+    }
+
+    public void checkNumberOfTry(String input){
+        checkEmpty(input);
+        checkChar(input);
     }
 
     private void checkEmpty(String input) {
@@ -56,6 +59,14 @@ public class InputController {
         for (String carName : carNameList){
             checkEmpty(carName);
             checkCarNameLength(carName);
+        }
+    }
+
+    private void checkChar(String input){
+        try{
+            Integer.parseInt(input);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException("숫자를 옳바르게 입력해주세요");
         }
     }
 }
