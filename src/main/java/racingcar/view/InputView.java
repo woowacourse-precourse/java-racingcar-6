@@ -6,18 +6,19 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingCount;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 
 public class InputView {
 
-	public List<Car> inputCarNames() {
-		//자동차 이름 입력
-		String nameInput = Console.readLine();
-		//쉼표(,) 기준으로 구분
-		return Arrays.stream(nameInput.split(",")).map(Car::new).toList();
-	}
+	public static String inputCarNames() {
+        return Console.readLine();
+    }
 
-	public RacingCount inputRacingCount() {
-		String input = Console.readLine();
-		return new RacingCount(Integer.parseInt(input));
-	}
+	public static int inputMoveCount() {
+		try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("반복 횟수는 자연수여야 합니다.");
+        }
+    }
 }
