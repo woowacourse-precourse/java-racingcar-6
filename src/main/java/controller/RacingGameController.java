@@ -14,14 +14,13 @@ import view.OutputView;
 
 public class RacingGameController {
 
-    private final InputView inputView = new InputView();
 
     public void play() {
-        String[] carNames = inputView.getCarNames();
+        String[] carNames = InputView.getCarNames();
         validateCarNames(carNames);
         List<Car> carList = createCars(carNames);
 
-        String tryCount = inputView.getTryCount();
+        String tryCount = InputView.getTryCount();
         validateTryCount(tryCount);
         int tryCountNumber = Integer.parseInt(tryCount);
 
