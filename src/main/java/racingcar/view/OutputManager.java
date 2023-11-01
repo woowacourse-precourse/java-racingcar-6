@@ -9,6 +9,7 @@ public class OutputManager {
         carStatus.forEach((key, value) -> {
             System.out.println(String.format("%s : %s", key, "-".repeat(value)));
         });
+        System.out.println();
     }
 
     public void printWinners(List<String> winners){
