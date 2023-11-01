@@ -62,6 +62,7 @@ public class RacingCarGameTest {
         carList.add(C);
         racingcarGame = new RacingcarGame(carList,5, -1);
         System.out.println();
+        System.out.println(racingcarGame.totalGameCount+" "+racingcarGame.furthestDistance);
         racingcarGame.doGame(0);
         System.out.println();
         System.out.println();
