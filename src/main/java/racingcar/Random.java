@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import static racingcar.Stationary.*;
+import static racingcar.constants.BoundaryValues.*;
 
 public class Random {
     public static int getRandomNumber() {
