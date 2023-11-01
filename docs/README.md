@@ -6,7 +6,7 @@
   - [x] 사용자로부터 이름을 입력받을 수 있다. - `UserInput#setCarNames`
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - `NameValidator#splitComma`
   - [x] 이름이 1자 이상 5자 이하인지 확인한다. - `NameValidator#correctNumberOfChar`
-  - [x] 이름이 대, 소문자 알파벳인지 확인한다. - `NameValidator#checkAlphabets`
+  - [x] 이름이 대, 소문자 알파벳인지 확인한다. - `NameValidator#hasOnlyAlphabets`
   - [x] 이름이 중복 되는지 확인한다. - `NameValidator#hasUniqueName`
   - [x] 자동차 수가 10대가 초과 되는지 확인한다. `NameValidator#isUnderTen`
 - [x] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있다. - `UserInput#setRoundOfGame`
