@@ -4,19 +4,22 @@ import racingcar.Service.GameService;
 
 public class GameController {
     GameService gameService = new GameService();
-    public void run(){
+
+    public void run() {
         init();
         start();
         end();
     }
-    private void init(){
-        gameService.enterCar();
-        gameService.enterRepetition();
+
+    private void init() {
+        gameService.enterInput();
     }
-    private void start(){
+
+    private void start() {
         gameService.forward();
     }
-    private void end(){
+
+    private void end() {
         gameService.result();
     }
 }

@@ -8,21 +8,26 @@ import racingcar.View.TextInterface;
 public class GameService {
     TextInterface textInterface = new TextInterface();
     Game game;
-    public void enterCar(){
+
+    public void enterInput() {
+        game = new Game(enterCar(), enterRepetition());
+    }
+
+    private List<String> enterCar() {
         String userInput = textInterface.enterPlayer();
-        List<String> carNames = Arrays.asList(userInput.split(","));
-        game = new Game(carNames);
+        return Arrays.asList(userInput.split(","));
     }
 
-    public void enterRepetition(){
-        int repetition = Integer.parseInt(textInterface.enterRepetition());
-        game.setRepetition(repetition);
+    private int enterRepetition() {
+        return Integer.parseInt(textInterface.enterRepetition());
     }
 
-    public void forward(){
+
+    public void forward() {
         game.forward();
     }
-    public void result(){
+
+    public void result() {
         game.result();
     }
 }
