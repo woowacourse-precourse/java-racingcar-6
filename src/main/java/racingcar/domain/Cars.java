@@ -14,7 +14,12 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public ForwardDistance getMaxForwardDistance() {
+    public void runRound(NumberGenerator numberGenerator, ForwardChecker forwardChecker) {
+        for (Car car : cars) {
+            car.runRound(numberGenerator, forwardChecker);
+        }
+    }
+    public int getMaxForwardDistance() {
         return Collections.max(cars).getForwardDistance();
     }
 
