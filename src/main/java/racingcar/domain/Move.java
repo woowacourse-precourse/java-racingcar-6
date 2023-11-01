@@ -3,6 +3,10 @@ package racingcar.domain;
 public class Move {
     private StringBuilder move;
 
+    public Move(StringBuilder move) {
+        this.move = move;
+    }
+
     public Move() {
         this.move = new StringBuilder();
     }
