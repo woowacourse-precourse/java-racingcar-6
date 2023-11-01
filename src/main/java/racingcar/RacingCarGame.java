@@ -1,7 +1,5 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +8,7 @@ public class RacingCarGame {
     private int moveCnt;
     private InputValidator inputValidator = new InputValidator();
 
-    public void setRacingCarsByConsole() {
-        String line = readLine();
+    public void setRacingCars(String line) {
         inputValidator.setRacingCars(line);
         String[] split = line.split(",");
         for (int i = 0; i < split.length; i++) {
@@ -19,8 +16,7 @@ public class RacingCarGame {
         }
     }
 
-    public void setMoveCntByConsole() {
-        String line = readLine();
+    public void setMoveCnt(String line) {
         moveCnt = Integer.parseInt(line);
     }
 
