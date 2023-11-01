@@ -15,11 +15,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -28,6 +28,32 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 레이싱_게임_테스트1() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,kyle", "3");
+                    assertThat(output()).contains("pobi : ---", "woni : -", "kyle : --", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
+    void 레이싱_게임_테스트2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,kyle", "3");
+                    assertThat(output()).contains("pobi : ", "woni : ", "kyle : ", "최종 우승자 : pobi, woni, kyle");
+                },
+                STOP, STOP, STOP,
+                STOP, STOP, STOP,
+                STOP, STOP, STOP
         );
     }
 
