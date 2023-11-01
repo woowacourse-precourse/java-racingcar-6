@@ -1,7 +1,5 @@
 package racingcar.util;
 
-import racingcar.model.Car;
-
 public class CarNameValidator {
     private final static int MAXCARNAME = 5;
 

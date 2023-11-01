@@ -17,10 +17,10 @@ public class GameController {
 
     public static void startGame() { // 뷰는 컨트롤러에만 의존한다.
         carsList = Cars.generateCar(InputView.generateCarNameInput());
-        tryCount= InputView.generateTryCountInput();
+        tryCount = InputView.generateTryCountInput();
         OutputView.processResult();
         while (tryCount-- > 0) {
-            for (Car car: carsList) {
+            for (Car car : carsList) {
                 GameNumber gameNumber = new GameNumber();
                 int length = car.checkProcess(gameNumber.generateRandomNumber());
                 String process = makeProcessBar(length);
@@ -29,7 +29,7 @@ public class GameController {
             System.out.println();
 
         }
-        winnerList=findWinners(carsList);
+        winnerList = findWinners(carsList);
         OutputView.GameResult();
         for (int i = 0; i < winnerList.size(); i++) {
             System.out.println(winnerList.get(i).getName());
