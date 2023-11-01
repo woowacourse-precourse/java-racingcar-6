@@ -19,5 +19,12 @@ public class Application {
             racingCars.add(new RacingCar(racingCarName));
         }
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        int numberofRepeat;
+        try {
+            numberofRepeat = Integer.valueOf(readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
