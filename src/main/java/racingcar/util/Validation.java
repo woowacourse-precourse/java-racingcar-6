@@ -11,13 +11,13 @@ public class Validation {
     private static final String ERROR_NUMBER_RANGE = "음수는 입력 불가합니다.";
 
     public static void validateNameInput(String input) {
-        validateStringNull(input);
+        validateNameNull(input);
         List<String> list = Cars.convertStringToList(input);
         validateNameLength(list);
         validateNameDuplicate(list);
     }
 
-    private static void validateStringNull(String input) {
+    private static void validateNameNull(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException(ERROR_NULL);
         }
