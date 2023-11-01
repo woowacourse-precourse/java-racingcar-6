@@ -11,15 +11,6 @@ class CarNameValidatorTest {
     private final int NAME_LIMIT = 5;
 
     @ParameterizedTest
-    @CsvSource(value = {"''", "NULL"}, nullValues = {"NULL"})
-    void 이름_유효성_검사_null(String name) {
-
-        assertThatThrownBy(() -> CarNameValidator.validateEmptyCheck(name))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("이름을 입력하지 않았습니다.");
-    }
-
-    @ParameterizedTest
     @CsvSource(value = {"길이초초과과", "길이상당히초과"})
     void 이름_유효성_검사_length(String name) {
         assertThatThrownBy(() -> CarNameValidator.validateLengthCheck(name, NAME_LIMIT))

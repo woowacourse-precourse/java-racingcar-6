@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.CarNameValidator;
+import racingcar.util.CommonValidator;
 
 public class InputView {
     public static String inputCarName() {
@@ -12,7 +13,7 @@ public class InputView {
     }
 
     private static void validateCarNameInput(String inputCarName) {
-        CarNameValidator.validateEmptyCheck(inputCarName);
+        CommonValidator.validateBlankCheck(inputCarName,"carNames");
         CarNameValidator.validateSpaceCheck(inputCarName);
     }
 
