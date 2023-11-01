@@ -35,6 +35,7 @@ public class CarController {
     }
 
     private void racing(Integer tryNum) {
+        outputView.printRacingResult();
         while(tryNum --> 0) {
             carService.tryRacing();
             outputView.printCarRacingStatus(carService.getRacingResult());
