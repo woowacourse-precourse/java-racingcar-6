@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 public class ProgramTest {
 
-    RacingProgram racingProgram = new RacingProgram();
     CarRepository carRepository = new CarRepository();
 
     @Test
