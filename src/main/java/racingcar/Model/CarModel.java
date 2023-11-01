@@ -16,7 +16,9 @@ public class CarModel {
         carRaceString += "-";
     }
 
-    public String getRaceString(){
-        return carRaceString;
+    public String printRacing(){
+        if(carRaceString.equals(""))
+            return carName + " : ." + "\n";
+        return carName + " : " + carRaceString + "\n";
     }
 }

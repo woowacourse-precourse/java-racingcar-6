@@ -7,7 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.Model.CarModel;
 
-public class inputView {
+public class InputView {
 
     public static List<CarModel> getCarNameFromUser(){
         String input = Console.readLine();
