@@ -16,7 +16,6 @@ public class Car {
 
 
     public static void validateCarName(String carName) {
-        carName = carName.trim();
         if (carName.length() == 0 || carName.length() > 5) {
             throw new IllegalArgumentException();
         }
