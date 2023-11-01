@@ -15,10 +15,10 @@ public class OutputInterface implements Output {
     private View gameStageView;
     private View gameWinnerView;
 
-    public OutputInterface(Output out) {
+    public OutputInterface(Output out,View gameStageView,View gameWinnerView) {
         this.out = out;
-        gameStageView = new SimpleHeaderView(out, GAME_STAGE_VIEW_HEADER);
-        gameWinnerView = new SimpleTagView(out, GAME_WINNER_VIEW_TAG);
+        this.gameStageView = gameStageView ;
+        this.gameWinnerView = gameWinnerView;
     }
 
     public void printStage(Game game) {
