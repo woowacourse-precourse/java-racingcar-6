@@ -1,15 +1,11 @@
 package racingcar.view;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-import java.io.Console;
+import static org.junit.jupiter.api.Assertions.*;
+
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import racingcar.Car;
 
