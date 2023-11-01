@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import org.assertj.core.error.uri.ShouldHaveUserInfo;
+import racingcar.util.GamePrinter;
+import racingcar.util.RacingCarConstant;
 import racingcar.util.UserInputUtil;
 
 import java.util.List;
@@ -26,10 +28,15 @@ public class GameManager {
     }
 
     private void playGame() {
-
+        System.out.println(RacingCarConstant.RESULT_HEADER_MESSAGE);
+        for (int i = 0; i < tries; i++) {
+            racingCarManager.playOneRound();
+            GamePrinter.printRoundResult(racingCarManager.getCars());
+        }
     }
 
     private void endGame() {
-
+        List<String> winners = racingCarManager.findWinners();
+        GamePrinter.printWinners(winners);
     }
 }

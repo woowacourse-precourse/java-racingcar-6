@@ -9,9 +9,23 @@ public class RacingCarManager {
 
     public RacingCarManager(List<String> carNames) {
         this.cars = new ArrayList<>();
-
-        for (String carName: carNames) {
+        for (String carName : carNames) {
             cars.add(new RacingCar(carName));
         }
+    }
+
+    public void playOneRound() {
+        for (RacingCar car : cars) {
+            car.move();
+        }
+    }
+
+    public List<RacingCar> getCars() {
+        return cars;
+    }
+
+    public List<String> findWinners() {
+        RacingCarRankingManager rankingManager = new RacingCarRankingManager();
+        return rankingManager.getWinners(cars);
     }
 }
