@@ -7,15 +7,18 @@ import static racingcar.view.output.Output.printStatusMessage;
 
 import java.util.Map;
 import racingcar.domain.car.Cars;
+import racingcar.util.RandomGenerator;
 import racingcar.view.output.OutputMessage;
 
 public class CarController {
     public static final String MERGING_STANDARD = ", ";
     private int trialAmount;
     private final Cars cars;
+    private final RandomGenerator randomGenerator;
 
-    public CarController(Cars cars) {
+    public CarController(Cars cars, RandomGenerator randomGenerator) {
         this.cars = cars;
+        this.randomGenerator = randomGenerator;
     }
 
     public void run() {
@@ -34,7 +37,7 @@ public class CarController {
         printMessage(OutputMessage.EXECUTION_RESULT);
 
         for (int trial = 0; trial < trialAmount; trial++) {
-            cars.randomCarMove();
+            cars.randomCarMove(randomGenerator);
             Map<String, String> carStatus = cars.generateCarStatus();
 
             printStatusMessage(OutputMessage.PROGRESS_RESULT, carStatus);

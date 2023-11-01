@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.RandomGenerator;
 import racingcar.view.input.error.InputError;
 import racingcar.view.input.error.InputIllegalArgumentException;
 
@@ -46,10 +46,10 @@ public class Cars {
                 .orElseThrow(() -> new IllegalArgumentException(CARS_ARE_EMPTY));
     }
 
-    public void randomCarMove() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    public void randomCarMove(RandomGenerator randomGenerator) {
+        ;
         for (Car car : cars) {
-            if (randomNumberGenerator.isCanMove()) {
+            if (randomGenerator.isCanMove()) {
                 car.moveCar();
             }
         }

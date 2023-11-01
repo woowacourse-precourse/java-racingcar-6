@@ -5,6 +5,8 @@ import static racingcar.view.output.Output.printMessage;
 
 import racingcar.controller.CarController;
 import racingcar.domain.car.Cars;
+import racingcar.util.RandomGenerator;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.output.OutputMessage;
 
 public class Application {
@@ -13,8 +15,9 @@ public class Application {
 
         printMessage(OutputMessage.PLEASE_ENTER_CAR_NAME);
         Cars cars = new Cars(inputNames());
+        RandomGenerator randomGenerator = new RandomNumberGenerator();
 
-        CarController carController = new CarController(cars);
+        CarController carController = new CarController(cars, randomGenerator);
         carController.run();
     }
 }
