@@ -12,6 +12,7 @@ public class Checker{
     }
 
     public void checkMembers(String carName){
+        carName=carName.trim();
         if(carName.length()>5 || carName.length()<1){
             throw new IllegalArgumentException("잘못된 값 입력");
         }

@@ -3,14 +3,15 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Checker;
+import racingcar.domain.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -34,12 +35,52 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void test_makeMembers() {// 정상
+        String input = "pobi,woni";
+        Game game = new Game();
+        game.makeMembers(input);
+    }
 
-//    @Test
-//    void 이름으로_리스트생성(){
-//        List<Car> cars = new ArrayList<>();
-//
-//    }
+    @Test
+    void test_makeMembers2() {
+        String input = "pobi,,woni";
+        Game game = new Game();
+
+        assertThatThrownBy(() -> game.makeMembers(input))
+                .hasMessageContaining("잘못된 값 입력");
+    }
+
+    @Test
+    void test_makeMembers3() {
+        String input = "pobi, ,woni";
+        Game game = new Game();
+
+        assertThatThrownBy(() -> game.makeMembers(input))
+                .hasMessageContaining("잘못된 값 입력");
+    }
+
+    @Test
+    void test_makeAttempts(){
+        String input = "3";
+        Game game = new Game();
+        game.makeAttempts(input);
+    }
+
+    @Test
+    void test_makeAttempts2(){
+        String input = "a";
+        Game game = new Game();
+        assertThatThrownBy(() -> game.makeAttempts(input))
+                .hasMessageContaining("잘못된 값 입력");
+    }
+    @Test
+    void test_makeAttempts3(){
+        String input = "";
+        Game game = new Game();
+        assertThatThrownBy(() -> game.makeAttempts(input))
+                .hasMessageContaining("잘못된 값 입력");
+    }
 
     @Override
     public void runMain() {

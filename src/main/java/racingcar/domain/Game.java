@@ -16,9 +16,9 @@ public class Game{
     static String winners = "최종 우승자 :";
     public void run(){
         setInputMembers();
-        makeMembers();
+        makeMembers(inputMembers);
         setAttempts();
-        makeAttempts();
+        makeAttempts(inputAttempts);
         startAttempts();
         setMaxDistance();
         createWinners();
@@ -26,23 +26,22 @@ public class Game{
     }
     public void setInputMembers(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        inputMembers = Console.readLine(); //서로 다른 3자리의 수
-        //1.members를 분리하여 리스트에 저장
+        inputMembers = Console.readLine();
     }
-    public void makeMembers(){
+    public void makeMembers(String inputMembers){
         for(String member:inputMembers.split(",")) {
             checker.checkMembers(member);
             Car car = new Car(member);
-            members.add(car);
+            this.members.add(car);
         }
     }
     public void setAttempts(){
         System.out.println("시도할 회수는 몇회인가요?");
-        inputAttempts = Console.readLine();
-        checker.checkAttempts(inputAttempts);
+        this.inputAttempts = Console.readLine();
     }
-    public void makeAttempts(){
-        attempts = Integer.parseInt(inputAttempts);
+    public void makeAttempts(String inputAttempts){
+        checker.checkAttempts(inputAttempts);
+        this.attempts = Integer.parseInt(inputAttempts);
     }
     public void startAttempts(){
         System.out.println("실행 결과");
