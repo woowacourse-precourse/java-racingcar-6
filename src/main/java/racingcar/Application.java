@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class Application {
 
     private static List<Car> getCarList(String carNames) {
         List<Car> carList = new ArrayList<>();
+        List<String> carNameList = new ArrayList<>();
         String[] carNameArray = carNames.split(",");
 
         for (String carName : carNameArray) {
@@ -47,8 +49,13 @@ public class Application {
                 continue;
             }
 
+            if (carNameList.contains(carName)) {
+                throw new IllegalArgumentException("중복된 이름 존재");
+            }
+
             Car car = new Car(carName);
             carList.add(car);
+            carNameList.add(carName);
         }
         return carList;
     }
