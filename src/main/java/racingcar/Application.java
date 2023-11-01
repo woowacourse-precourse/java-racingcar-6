@@ -89,8 +89,11 @@ public class Application {
             System.out.println("시도할 회수는 몇회인가요?");
             String InputMoves = Console.readLine();         //자동차 이동횟수 입력 받음
             Total_Moves = Integer.parseInt((InputMoves));
+            if(Total_Moves <= 0)
+                throw new IllegalArgumentException("You should input positive integer!");
+
         } catch (Exception e) {                             //잘못된 입력에 대한 예외처리
-            throw new IllegalArgumentException("You should input integer");
+            throw new IllegalArgumentException("You should input positive integer!");
         }
     }
 
