@@ -2,6 +2,8 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class InputView {
@@ -18,6 +20,7 @@ public class InputView {
     }
 
     private String[] parseToNames(String[] carNames) {
+        validateDuplicateNames(carNames);
         return Arrays.stream(carNames)
                 .map(String::trim)
                 .peek(this:: validateCarName)
@@ -26,11 +29,19 @@ public class InputView {
 
     private void validateCarName(String carName) {
         validateLength(carName);
+
     }
 
     private void validateLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+        }
+    }
+
+    private void validateDuplicateNames(String[] carNames) {
+        Set<String> uniqueNames = new HashSet<>(Arrays.asList(carNames));
+        if (uniqueNames.size() != carNames.length) {
+            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
         }
     }
 
