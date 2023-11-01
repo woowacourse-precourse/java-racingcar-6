@@ -38,12 +38,6 @@ public class Cars {
         return maxForward;
     }
 
-    protected void setFindMax(){
-        for (Car car : cars){
-            findMax.put(car.getName(), car.getForward());
-        }
-    }
-
     public static List<String> getMVP(){
         int maxForward = findMaxForward();
         List<String> mvpList = new ArrayList<>();
