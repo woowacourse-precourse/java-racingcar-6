@@ -10,6 +10,7 @@ import racingcar.input.count.CountReader;
 import racingcar.input.count.CountValidator;
 import racingcar.input.name.NameReader;
 import racingcar.input.name.NameValidator;
+import racingcar.output.DriverProgress;
 import racingcar.output.ServicePrinter;
 
 public class RacingGame {
@@ -22,27 +23,15 @@ public class RacingGame {
 
         // 예외 처리
         String[] names = NameReader.read();
-        int[] countsByName = new int[names.length];
-
         // 횟수 입력 문구 출력
         servicePrinter.printInputMessage();
 
         // 횟수 입력 받기
         int count = CountReader.read();
 
-        System.out.print(ServiceMessage.OUTPUT.serviceMessage);
-        int totalName = names.length;
-        while(count-- > 0) {
-            for(int t = 0; t < totalName; t++) {
-                String key = names[t];
-                if(RacingCarController.isMoveForward()) {
-                    countsByName[t]++;
-                }
-                System.out.println(key + " : " + "-".repeat(countsByName[t]));
-            }
-            System.out.println();
-        }
+        servicePrinter.printOutputMessage();
 
+        int[] countsByName = DriverProgress.race(names, count);
         // 최대 전진 횟수 찾기
         int maxCount = Arrays.stream(countsByName).max().orElse(-1);
 
