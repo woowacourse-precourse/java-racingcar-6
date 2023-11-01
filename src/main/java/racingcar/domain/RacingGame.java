@@ -38,9 +38,10 @@ public class RacingGame {
             System.out.println();
 
             WinnerCalculator winnerCalculator = new WinnerCalculator(cars, winnerList);
+            String result = winnerCalculator.makeWinnerString();
 
 
-
+            OutputView.consoleLine(result);
 
 
 

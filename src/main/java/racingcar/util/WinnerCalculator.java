@@ -17,20 +17,22 @@ public class WinnerCalculator {
         this.winnerList = winnerList;
     }
 
-    public String makeWinnerString(List<Integer> winnerNumber){
-        String result;
-        if (winnerNumber.size() == 1) {
-            Car winner = cars.get(winnerNumber.get(0));
-            winner.printName();
-        } else if (winnerNumber.size() > 1) {
-            for (int i = 0; i < winnerNumber.size() - 1; i++) {
-                Car winner = cars.get(winnerNumber.get(i));
-                winner.printName();
-                OutputView.console(GameMessage.INSERT_REST_MULTIPLE_WINNER);
-            }
-            cars.get(winnerNumber.get(winnerNumber.size()));
-        }
+    public String makeWinnerString(){
+        String result = GameMessage.INSERT_GAME_RESULT_MESSAGE;
+        int winnerSize = winnerList.size();
+        if (this.winnerList.size() == 1) {
+            return GameMessage.INSERT_GAME_RESULT_MESSAGE + cars.get(winnerList.get(0)).getName();
 
+
+        } else if (this.winnerList.size() > 1) {
+
+            for (int i = 0; i < winnerSize - 1; i++) {  //4
+                result += cars.get(winnerList.get(i)).getAnswer();
+            }
+            result += cars.get(winnerList.get(winnerSize-1)).getName();
+            return result;
+
+        }
         return result;
     }
 }
