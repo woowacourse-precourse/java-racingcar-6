@@ -19,16 +19,16 @@ public class Game {
         List<Car> carList = cars.getCarList();
         for (int i = 0; i < attempsNumber; i++) {
             for (int carIdx = 0; carIdx < carList.size(); carIdx++) {
-                runCar(carList.get(carIdx));
+                int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_LOWER_BOUND, RANDOM_NUMBER_HIGHER_BOUND);
+
+                processCarMovement(carList.get(carIdx), randomNumber);
             }
             printOneRoundResult(carList);
             System.out.println();
         }
     }
 
-    public void runCar(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_LOWER_BOUND, RANDOM_NUMBER_HIGHER_BOUND);
-
+    public void processCarMovement(Car car, int randomNumber) {
         if (isRunnable(randomNumber)) {
             car.setDrawingMovement(car.getDrawingMovement() + "-");
             car.setNumberOfMoves(car.getNumberOfMoves() + 1);
