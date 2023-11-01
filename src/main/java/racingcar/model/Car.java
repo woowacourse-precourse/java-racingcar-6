@@ -23,11 +23,7 @@ public class Car {
     public void tryToMove(NumberGenerator numberGenerator) {
         int randomNumber = numberGenerator.generateInteger();
         if (randomNumber >= RacingGameConstants.MOVABLE_THRESHOLD) {
-            moveOneStep();
+            position++;
         }
-    }
-
-    public void moveOneStep() {
-        position++;
     }
 }
