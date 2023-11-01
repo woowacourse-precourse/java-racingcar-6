@@ -17,18 +17,17 @@ public class User {
     Validation validation = new Validation();
 
     private String input() {
-        String input = validation.nullStringInput(Console.readLine().trim());
-        return input;
+        return validation.nullStringInput(Console.readLine().trim());
     }
 
     public void parseCarNamesInput() {
         String input = input();
         String[] arr = input.split(",");
-        carNames= validation.carNameInputValidation(Arrays.asList(arr));
+        carNames= validation.carNameValidator(Arrays.asList(arr));
     }
 
     public void attemptCountInput() {
-        attemptCount = Integer.parseInt(input());
+        attemptCount = validation.isNumberValidation(input());
     }
 
     public void startRace() {
