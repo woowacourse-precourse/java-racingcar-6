@@ -26,16 +26,12 @@ public class ControlGame {
         systemMessage.printRound();
         String inputRoundNumber = Console.readLine();
         roundNumber = StringToInt.stringToInt(inputRoundNumber);
-        // 메세지 불러와, 입력 받아, 처리해
-        // 메세지 불러와, 입력 받아
     }
 
     public void PlayGame() {
-
         systemMessage.printPlay();
         System.out.println();
         int countRound = 0;
-        // List<Integer> scoreList=new ArrayList<>();
 
         GenerateRandomNumber generator = new GenerateRandomNumber();
         int randomNumber;
@@ -43,16 +39,13 @@ public class ControlGame {
         boolean verify;
 
         while (countRound < roundNumber) {
-
             for (int i = 0; i < playerName.size(); i++) {
                 scoreList.add(0);
             }
 
             for (int i = 0; i < playerName.size(); i++) {
                 randomNumber = generator.generateRandomNumber();
-                // System.out.println(randomNumber);
                 verify = VerifyRandomNumber.verifyRandomNumber(randomNumber);
-                // System.out.println(verify);
                 if (verify) {
                     int currentScore = scoreList.get(i);
                     scoreList.set(i, currentScore + 1);
@@ -60,7 +53,6 @@ public class ControlGame {
             }
 
             for (int i = 0; i < playerName.size(); i++) {
-                // String buffer = playerName.get(i) + systemMessage.printSymbolA();
                 System.out.print(playerName.get(i) + systemMessage.printSymbolA());
                 for (int j = 0; j < scoreList.get(i); j++) {
                     System.out.print(systemMessage.printSymbolB());
@@ -71,12 +63,6 @@ public class ControlGame {
 
             countRound++;
         }
-
-        // 이름 랭스만큼
-        // 랜덤수 생성
-        // 검증
-        // 전진
-        // 전진 값 저장
     }
 
     public void EndGame() {

@@ -1,7 +1,6 @@
 package racingcar.view;
 
 public class PrintMessage {
-    
     String text;
 
     public void printStart(){

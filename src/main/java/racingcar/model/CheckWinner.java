@@ -5,7 +5,6 @@ import java.util.List;
 
 public class CheckWinner {
     
-
     public static List<Integer> checkWinner(List<Integer> scoreList){
         List<Integer> winnerIndex = new ArrayList<>();
         int mx = 0;
@@ -20,8 +19,6 @@ public class CheckWinner {
                 winnerIndex.add(i);
             }
         }
-
-
 
         return winnerIndex;
     }
