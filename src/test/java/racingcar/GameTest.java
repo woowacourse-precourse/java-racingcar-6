@@ -109,4 +109,11 @@ public class GameTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void roundNumberTooBig() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,dong", "12823748270234"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
