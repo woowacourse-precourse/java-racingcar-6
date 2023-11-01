@@ -15,34 +15,34 @@ import racingcar.global.utils.console.ConsoleUtil;
 
 public class RacingController {
 
-	private final ClientService clientService;
-	private final RacingService racingService;
+    private final ClientService clientService;
+    private final RacingService racingService;
 
-	public RacingController(ClientService clientService, RacingService racingService) {
-		this.clientService = clientService;
-		this.racingService = racingService;
-	}
+    public RacingController(ClientService clientService, RacingService racingService) {
+        this.clientService = clientService;
+        this.racingService = racingService;
+    }
 
-	public void run() {
-		List<RacingCar> racingCars = getCars();
-		int numberOfAttempt = getNumberOfAttempt();
-		RacingCarManager racingCarManager = new RacingCarManager(numberOfAttempt, new RacingCarList(racingCars));
-		racingService.startRacing(racingCarManager);
-		ConsoleUtil.outputWinners(racingCarManager.getWinnersName());
-	}
+    public void run() {
+        List<RacingCar> racingCars = getCars();
+        int numberOfAttempt = getNumberOfAttempt();
+        RacingCarManager racingCarManager = new RacingCarManager(numberOfAttempt, new RacingCarList(racingCars));
+        racingService.startRacing(racingCarManager);
+        ConsoleUtil.outputWinners(racingCarManager.getWinnersName());
+    }
 
-	private int getNumberOfAttempt() {
-		ConsoleUtil.commonOutputLine(OUTPUT_NUMBER_OF_ATTEMPTS.getComment());
-		int numberOfAttempt = clientService.getNumberOfAttempt();
-		ConsoleUtil.commonOutputLine(EMPTY.getComment() + OUTPUT_RESULT.getComment());
-		return numberOfAttempt;
-	}
+    private int getNumberOfAttempt() {
+        ConsoleUtil.commonOutputLine(OUTPUT_NUMBER_OF_ATTEMPTS.getComment());
+        int numberOfAttempt = clientService.getNumberOfAttempt();
+        ConsoleUtil.commonOutputLine(EMPTY.getComment() + OUTPUT_RESULT.getComment());
+        return numberOfAttempt;
+    }
 
-	private List<RacingCar> getCars() {
-		ConsoleUtil.commonOutputLine(OUTPUT_CARS_NAME.getComment());
-		List<String> carsName = clientService.getCarsName();
-		return carsName.stream()
-				.map(RacingCar::new)
-				.toList();
-	}
+    private List<RacingCar> getCars() {
+        ConsoleUtil.commonOutputLine(OUTPUT_CARS_NAME.getComment());
+        List<String> carsName = clientService.getCarsName();
+        return carsName.stream()
+                .map(RacingCar::new)
+                .toList();
+    }
 }

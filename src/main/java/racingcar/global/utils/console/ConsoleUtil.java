@@ -6,21 +6,21 @@ import racingcar.global.utils.constant.OutputType;
 
 public class ConsoleUtil {
 
-	private static final String SPLITTER = ", ";
+    private static final String SPLITTER = ", ";
 
-	private ConsoleUtil() {
-	}
+    private ConsoleUtil() {
+    }
 
-	public static void commonOutputLine(String output) {
-		System.out.println(output);
-	}
+    public static void commonOutputLine(String output) {
+        System.out.println(output);
+    }
 
-	public static void outputWinners(List<String> winners) {
-		String result = String.join(SPLITTER, winners);
-		System.out.println(OutputType.OUTPUT_WINNER.getComment() + result);
-	}
+    public static void outputWinners(List<String> winners) {
+        String result = String.join(SPLITTER, winners);
+        System.out.println(OutputType.OUTPUT_WINNER.getComment() + result);
+    }
 
-	public static String input() {
-		return Console.readLine();
-	}
+    public static String input() {
+        return Console.readLine();
+    }
 }
