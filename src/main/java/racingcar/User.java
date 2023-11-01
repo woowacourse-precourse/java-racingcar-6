@@ -2,16 +2,37 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class User {
-    public String[] initGame() {
+    Exception exception = new Exception();
+    public List<String> setCar() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String nameInput = Console.readLine();
-        return nameInput.split(",");
+        List<String> carNames = List.of(nameInput.split(","));
+        exception.isValidName(carNames);
+
+        return carNames;
     }
 
     public int setMoves() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String userInput = Console.readLine();
-        return Integer.parseInt(userInput);
+        String input = Console.readLine();
+        exception.isValidNumber(input);
+
+        return Integer.parseInt(input);
+    }
+
+    public void printResult (Car car) {
+        String stringBuilder = car.getName() + " : " +
+                "-".repeat(car.getDistance());
+        System.out.println(stringBuilder);
+        System.out.println();
+    }
+
+    public void listOfResult (List<Car> carList) {
+        for (Car car : carList) {
+            printResult(car);
+        }
     }
 }
