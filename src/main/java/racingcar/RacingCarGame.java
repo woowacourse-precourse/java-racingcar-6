@@ -71,14 +71,14 @@ public class RacingCarGame {
         }
     }
 
-    String printPlayerScore(RacingCar player) {
-        StringBuffer playerScore = new StringBuffer();
-        playerScore.append(player.getName());
-        playerScore.append(" : ");
-        for (int i = 0; i < player.getScore(); i++) {
-            playerScore.append("-");
+    String printPlayerScore(RacingCar racingCar) {
+        StringBuffer racingCarScore = new StringBuffer();
+        racingCarScore.append(racingCar.getName());
+        racingCarScore.append(" : ");
+        for (int i = 0; i < racingCar.getScore(); i++) {
+            racingCarScore.append("-");
         }
-        return playerScore.toString();
+        return racingCarScore.toString();
     }
 
     void computeWinners() {
