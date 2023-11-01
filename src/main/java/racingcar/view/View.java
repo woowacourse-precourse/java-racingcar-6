@@ -22,6 +22,7 @@ public class View implements ViewInterface{
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCarNames = Console.readLine();
         String[] carNames = inputCarNames.split(",");
+        validateLength(carNames);
         carService.createCar(carNames);
 
     }
@@ -64,6 +65,15 @@ public class View implements ViewInterface{
             System.out.print(car.getName() + " : " + str.repeat(car.getDistance()));
             System.out.println();
         }
+    }
+
+    private void validateLength(String[] carNames){
+        for(String carName : carNames){
+            if(carName.length()>5){
+                throw new IllegalArgumentException();
+            }
+        }
+
     }
 
 

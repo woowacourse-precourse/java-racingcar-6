@@ -7,7 +7,7 @@ import racingcar.model.Car;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarService {
+public class CarService implements  CarServiceInterface{
 
     private final CarRepositoryInterface carRepository;
 
@@ -17,13 +17,15 @@ public class CarService {
 
     private  Car car;
 
+
+    @Override
     public void createCar(String[] cars){
         for(String carName : cars){
             car = Car.createCar(carName);
             carRepository.saveCar(car);
         }
     }
-
+    @Override
     public void movieCar(){
         List<Car> cars = getCars();
         for(int index=0; index<cars.size(); index++){
@@ -34,11 +36,12 @@ public class CarService {
         }
     }
 
+    @Override
     public List<Car> getCars(){
         List<Car> cars = carRepository.getCars();
         return cars;
     }
-
+    @Override
     public List<Car> finalResult(){
         List<Car> cars = carRepository.getCars();
         List<Car> maxDistanceCars = maxDistanceCar(cars);
