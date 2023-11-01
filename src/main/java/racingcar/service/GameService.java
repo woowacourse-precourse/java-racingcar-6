@@ -3,7 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.validation.Validation;
-import racingcar.view.InputView;
+import racingcar.view.InPutView;
 import racingcar.view.OutPutView;
 import racingcar.constant.Constant;
 
@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class GameService {
-    private final InputView inputView = new InputView();
+    private final InPutView inputView = new InPutView();
     private final OutPutView outPutView = new OutPutView();
     private final Validation validation = new Validation();
     private final List<Car> cars = new ArrayList<>();
