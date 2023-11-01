@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.controller.util.PlayRule;
 import racingcar.model.Cars;
 import racingcar.view.RacingView;
 
@@ -15,6 +16,8 @@ public class GameController {
     private int tryNum;
     private List<Cars> carsList;
 
+    private PlayRule rules;
+
     public GameController(RacingView racingView) {
         this.racingView = racingView;
     }
@@ -23,6 +26,8 @@ public class GameController {
     public void gameStart() throws IOException {
         List<String> resultList = racingView.gameStart();
         this.carsList = new ArrayList<>();
+
+        this.rules= new PlayRule();
 
         int index = 0;
         for (String car : resultList) {
@@ -42,22 +47,11 @@ public class GameController {
         int carNum = this.carsList.size();
         for (int i = 0; i < tryNum; i++) {
 //            다이스 회전 돌고 결과 저장
-            playDices(this.carsList);
+            rules.playDices(this.carsList);
             showLoad(this.carsList, carNum);
         }
-        String result = getResult(this.carsList);
+        String result = rules.getResult(this.carsList);
         racingView.showResult(result);
-    }
-
-    public void playDices(List<Cars> carsList) {
-//        전체 차량 1회 다이스
-        for (Cars car : carsList) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
-            if (randomNumber >= MIN_RUNNING_SIZE){
-                car.upLoadState();
-            }
-        }
-        System.out.println();
     }
 
     public void showLoad(List<Cars> carsList, int theNumOfCar) {
@@ -69,25 +63,5 @@ public class GameController {
             locations.add(car.getLoadState());
         }
         racingView.showLoad(names, locations, theNumOfCar);
-    }
-
-    public String getResult(List<Cars> carsList) {
-        String winner = "";
-        int bestRecord = 0;
-        int thisRecord;
-
-        for (Cars car : carsList) {
-            thisRecord = car.getLength();
-//            기존 기록과 공동일 경우
-            if (thisRecord == bestRecord) {
-                winner = winner.concat(", " + car.getName());
-            }
-//            기존 기록을 능가하는 경우
-            if (thisRecord > bestRecord) {
-                bestRecord = thisRecord;
-                winner = car.getName();
-            }
-        }
-        return winner;
     }
 }
