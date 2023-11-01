@@ -33,5 +33,6 @@ public class RacingCarGameController {
 
     public void end() {
         OutputView.displayWinner();
+        OutputView.displayGetWinner(cars.getWinner());
     }
 }
