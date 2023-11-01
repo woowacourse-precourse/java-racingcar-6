@@ -29,7 +29,7 @@ public class RacingcarModulesTest {
       add("pobi"); add("jun");
     }};
 
-    List<String> input_result = RacingcarModules.campion_racing(input);
+    List<String> input_result = RacingcarModules.winner_racing(input);
     assertThat(result).isEqualTo(input_result);
   }
 }

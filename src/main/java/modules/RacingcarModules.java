@@ -37,7 +37,7 @@ public class RacingcarModules {
     return RacingcarModules.checked_random_num_over_4(random_num);
   }
 
-  public static List<String> campion_racing(HashMap<String, Integer> car_situations) {
+  public static List<String> winner_racing(HashMap<String, Integer> car_situations) {
     List<String> champion_member = new ArrayList<>();
     var top_score = 0;
     for (String car_name : car_situations.keySet()) {

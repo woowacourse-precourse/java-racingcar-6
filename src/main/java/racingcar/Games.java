@@ -29,7 +29,7 @@ public class Games {
       }
       System.out.println();
     }
-    List<String> champion_member = RacingcarModules.campion_racing(car_situations);
-    OutputViews.final_winner(champion_member);
+    List<String> winner_member = RacingcarModules.winner_racing(car_situations);
+    OutputViews.final_winner(winner_member);
   }
 }
