@@ -52,9 +52,9 @@ public class RacingGameController {
     }
 
 
-    public void validateCarNames(String[] carNameList) {
-        validateCarNameLength(carNameList);
-        validateCarNameDuplicate(carNameList);
+    public void validateCarNames(String[] carNames) {
+        validateCarNameLength(carNames);
+        validateCarNameDuplicate(carNames);
     }
 
     public void validateTryCount(String tryCount) {
