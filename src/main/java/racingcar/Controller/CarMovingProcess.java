@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarMovingProcess {
-
-    Car car = Car.getInstance();
+    
     RacingData racingData = RacingData.getInstance();
 
 
@@ -24,20 +23,6 @@ public class CarMovingProcess {
 
         racingData.setForwardPointList(forwardCountList);
         return forwardCountList;
-    }
-
-    public void upDateForwardCountList(){
-
-        int updateCount = 0;
-
-        List<Integer> forwardCountList = racingData.getForwardPointList();
-
-        for (int i = 0; i < car.getPassedTestList().size(); i++) {
-            updateCount = forwardCountList.get(i) + moveOrNot();
-            forwardCountList.set(i,updateCount);
-        }
-
-        racingData.setForwardPointList(forwardCountList);
     }
 
 
@@ -56,6 +41,7 @@ public class CarMovingProcess {
         return forwardCountList;
     }
 
+
     public int makeRandomNum() {
 
        int randomNum = Randoms.pickNumberInRange(0,9);
@@ -63,6 +49,7 @@ public class CarMovingProcess {
        return randomNum;
 
     }
+
 
     public int moveOrNot() {
 
