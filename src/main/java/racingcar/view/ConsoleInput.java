@@ -1,9 +1,9 @@
 package racingcar.view;
 
-import static racingcar.view.ConsoleInputValidator.validateCarNames;
-import static racingcar.view.ConsoleInputValidator.validateInputIsNumber;
-import static racingcar.view.ConsoleInputValidator.validateInputString;
-import static racingcar.view.ConsoleInputValidator.validatePlayNumber;
+import static racingcar.validator.ConsoleInputValidator.validateCarNames;
+import static racingcar.validator.ConsoleInputValidator.validateInputIsNumber;
+import static racingcar.validator.ConsoleInputValidator.validateInputString;
+import static racingcar.validator.ConsoleInputValidator.validatePlayNumber;
 
 import java.util.Arrays;
 import java.util.List;
