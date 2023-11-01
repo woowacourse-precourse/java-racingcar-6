@@ -15,7 +15,8 @@ public class Application {
 
     public static void run(){
         RacingReferee referee = set();
-        RacingController racingController = new RacingController(referee);
+        Integer racingRound = InputService.requestRacingRound();
+        RacingController racingController = new RacingController(referee, racingRound);
 
         racingController.play();
         racingController.end();
@@ -23,8 +24,7 @@ public class Application {
 
     public static RacingReferee set(){
         ArrayList<Car> cars = InputService.requestRacingCars();
-        Integer racingRound = InputService.requestRacingRound();
 
-        return new RacingReferee(cars, racingRound);
+        return new RacingReferee(cars, 4);
     }
 }

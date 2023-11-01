@@ -1,11 +1,11 @@
 package racingcar.domain;
 
 public class Car {
-    private final String NAME;
+    private String name;
     private int position = 0;
 
     public Car(String name) {
-        this.NAME = name;
+        this.name = name;
     }
 
     public void go() {
@@ -13,7 +13,10 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return this.position;
     }
 
+    public String getName(){
+        return this.name;
+    }
 }
