@@ -44,4 +44,12 @@ public class TryCountTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자를 입력해주세요.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "0", "00", "0000000000"})
+    void 시도_횟수_음수_그리고_0_입력_테스트(String tryCount) {
+        assertThatThrownBy(() -> new TryCount(tryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이상이어야 합니다.");
+    }
 }
