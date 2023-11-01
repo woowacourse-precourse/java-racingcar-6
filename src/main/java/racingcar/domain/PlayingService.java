@@ -6,7 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class PlayingService {
     private Number number;
-    Map<String, Integer> playerAndScore = new HashMap<>();
+    Map<String, Integer> cars = new HashMap<>();
 
     public PlayingService() {
         String names = Console.readLine();
@@ -20,7 +20,7 @@ public class PlayingService {
         String[] name = names.split(",");
         for (String s : name) {
             s = s.strip();
-            playerAndScore.put(s, 0);
+            cars.put(s, 0);
         }
     }
 }
