@@ -15,7 +15,8 @@ public class GameController {
     }
 
     private void initializeGame() {
-        car.initializeCar();;
+        car.initializeCar();
+        ;
         inputData.inputExecutionTime();
         executionTime = inputData.returnExecutionTime();
 
@@ -26,7 +27,18 @@ public class GameController {
         }
         displayResult();
 
+    }
 
+    private void moveCarByTime() {
+        int carCount = car.getCarCount();
+        ArrayList<String> carName = car.getCarName();
+        for (int carIndex = START; carIndex < carCount; carIndex++) {
+            car.updateCarPosition(carName.get(carIndex), randomNumber.getMovement());
+        }
+    }
+
+    private void displayResult() {
+        outputGame.printWinner(car.getWinner());
     }
 
 
