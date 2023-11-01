@@ -11,8 +11,6 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    private static final int INITIALIZE_POSITION = 0;
-
     private final InputView inputView;
     private final OutputView outputView;
     private final NumberGenerator randomNumberGenerator = new RandomNumberGenerator();
@@ -24,7 +22,7 @@ public class GameController {
 
     public List<Car> InitializeCars(List<String> carNames) {
         return carNames.stream()
-                .map(carName -> new Car(carName,INITIALIZE_POSITION))
+                .map(carName -> new Car(carName))
                 .toList();
     }
 
