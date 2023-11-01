@@ -101,6 +101,11 @@ public class Application {
         return winnerCars;
     }
 
+    private static void printWinners(ArrayList<String> winnerCars) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winnerCars));
+    }
+
     public static void main(String[] args) {
         String[] carNamesArray = inputNames();
         Car[] cars = new Car[carNamesArray.length];
@@ -112,5 +117,6 @@ public class Application {
         cars = moveForwardAll(cars, tryCount);
 
         ArrayList<String> winnerCars = findWinners(cars);
+        printWinners(winnerCars);
     }
 }
