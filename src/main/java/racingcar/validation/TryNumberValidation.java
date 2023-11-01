@@ -8,7 +8,7 @@ public class TryNumberValidation {
 
     public TryNumberValidation(String input) {
         validateBlank(input);
-        validateIsNumber(input);
+        validateNonNumericInput(input);
         this.input = input;
     }
 
@@ -17,8 +17,7 @@ public class TryNumberValidation {
             throw new IllegalArgumentException(ErrorMessage.EMPTY_INPUT.getMessage());
         }
     }
-
-    private void validateIsNumber(String input){
+    private void validateNonNumericInput(String input){
         String regExp = "^[0-9]+$";
         if (!input.matches(regExp)){
             throw new IllegalArgumentException(ErrorMessage.NOT_NUMBER.getMessage());

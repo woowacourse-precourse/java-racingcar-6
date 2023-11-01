@@ -19,7 +19,7 @@ public class CarRace {
         return randomNumber;
     }
 
-    private boolean moveCondition(int min, int max) {
+    private boolean shouldMoveForward(int min, int max) {
         if (randomGenerator(min, max) >= Numbers.MOVE_POSITION_NUMBER.getNumber()){
             return true;
         }
@@ -27,11 +27,11 @@ public class CarRace {
     }
     public void moveForward(int min, int max) {
         cars.stream()
-                .filter(car -> moveCondition(min, max))
+                .filter(car -> shouldMoveForward(min, max))
                 .forEach(car -> car.updatePosition());
     }
 
-    public void printPlayers() {
+    public void printPlayersWithPositions() {
         moveForward(Numbers.RANDOM_START_NUMBER.getNumber() , Numbers.RANDOM_END_NUMBER.getNumber());
         cars.stream()
                 .map(car -> car.getName() + " : " + car.getPosition())

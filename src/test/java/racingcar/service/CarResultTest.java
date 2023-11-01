@@ -7,9 +7,6 @@ import racingcar.model.Car;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarResultTest {
 
@@ -22,7 +19,7 @@ class CarResultTest {
                 new Car("jun", "--")
         );
         CarResult result = new CarResult(cars);
-        List<String> maxPlayer = result.getMaxPlayer();
+        List<String> maxPlayer = result.findMaxPlayers();
         Assertions.assertThat("woni").contains(maxPlayer);
     }
 
@@ -35,7 +32,7 @@ class CarResultTest {
                 new Car("jun", "--")
         );
         CarResult result = new CarResult(cars);
-        List<String> maxPlayer = result.getMaxPlayer();
+        List<String> maxPlayer = result.findMaxPlayers();
         Assertions.assertThat(2).isEqualTo(maxPlayer.size());
     }
 

@@ -22,18 +22,17 @@ public class RacingController {
         endGame();
     }
 
-    private void startGame() {
-        OutputView.printStartMessage();
-        String [] players = InputView.getPlayerInput();
-        OutputView.printTryNumberMessage();
-        setPlayerNames(players);
-    }
-
-    private void setPlayerNames(String [] players) {
+    private void assignPlayersToCars(String [] players) {
         List<Car> carList = Arrays.stream(players)
                 .map(player -> new Car(player , ""))
                 .collect(Collectors.toList());
         cars = new Cars(carList);
+    }
+    private void startGame() {
+        OutputView.printStartMessage();
+        String [] players = InputView.getPlayerInput();
+        OutputView.printTryNumberMessage();
+        assignPlayersToCars(players);
     }
     private void playGame() {
         int tryNumber = InputView.getTryNumberInput();
@@ -41,9 +40,8 @@ public class RacingController {
         CarRace carRace = new CarRace(cars.getCars());
 
         IntStream.range(0, tryNumber)
-                .forEach(index -> carRace.printPlayers());
+                .forEach(index -> carRace.printPlayersWithPositions());
     }
-
     private void endGame() {
         OutputView.printWinnerMessage();
         CarResult result = new CarResult(cars.getCars());

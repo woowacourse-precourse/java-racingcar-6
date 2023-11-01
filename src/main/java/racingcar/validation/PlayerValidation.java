@@ -18,7 +18,6 @@ public class PlayerValidation {
             throw new IllegalArgumentException(ErrorMessage.EMPTY_INPUT.getMessage());
         }
     }
-
     private void validateLength(String input) {
         if (input.length() > PLAYER_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.LENGTH_OVER_5.getMessage());
