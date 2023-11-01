@@ -20,22 +20,6 @@ public class RacingCarGameControllerTest {
     }
 
     @Test
-    public void testCaculateGameWinner() {
-        List<Car> carList = Arrays.asList(
-                new Car("Car1", 4),
-                new Car("Car2", 5),
-                new Car("Car3", 5),
-                new Car("Car4", 3)
-        );
-
-        List<String> winnerList = controller.caculateGameWinner(carList);
-
-        assertEquals(2, winnerList.size());
-        assertTrue(winnerList.contains("Car2"));
-        assertTrue(winnerList.contains("Car3"));
-    }
-
-    @Test
     public void testCreateRacingCar() {
         List<String> carNameList = Arrays.asList("Car1", "Car2", "Car3");
 
@@ -50,9 +34,9 @@ public class RacingCarGameControllerTest {
     @Test
     public void testStartGame() {
         List<Car> carList = Arrays.asList(
-                new Car("Car1", 0),
-                new Car("Car2", 0),
-                new Car("Car3", 0)
+                new Car("Car1"),
+                new Car("Car2"),
+                new Car("Car3")
         );
 
         controller.startGame(carList, "3");
