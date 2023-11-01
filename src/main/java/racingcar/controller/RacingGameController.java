@@ -41,7 +41,7 @@ public class RacingGameController {
         return carNames.stream().map(carName -> new RacingCarDto(carName, 0)).toList();
     }
 
-    public RacingGameRs startSingleGame(RacingGameRq racingGameRq) {
+    private RacingGameRs startSingleGame(RacingGameRq racingGameRq) {
         RacingGameRs racingGameRs = racingGame.startGame(racingGameRq);
         outputView.printExecutionResult(racingGameRs.getRacingCarDtoList());
         return racingGameRs;
