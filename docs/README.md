@@ -16,13 +16,13 @@
     - [x] 공동 우승자와 단독 우승자의 경우를 각각 고려한다.
 ### Validation
 - 사용자의 입력에 대한 유효성 검사가 필요하다
-  - [ ] 자동차 이름(`InputCarNames()`)
+  - [x] 자동차 이름(`InputCarNames()`)
     - 자동차 이름들(`carNameList`)은 쉼표(,)를 기준으로 구분되어야 한다.
       - 자동차 이름(`Car.name`)은 
         - 빈 칸이면 안된다.
         - 5자 이하만 가능하다.
         - 중복된 이름이 있어선 안된다.
-  - [ ] 라운드 수(`InputTotalRoundNumber`)
+  - [x] 라운드 수(`InputTotalRoundNumber`)
     - 총 `round` 수는 
       - 빈 칸이면 안된다.
       - 음수가 아닌 정수 타입이어야 한다.
