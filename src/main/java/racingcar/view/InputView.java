@@ -11,8 +11,12 @@ public class InputView {
         return Console.readLine();
     }
 
-    public int readTryGame(){
+    public int readTryGame() {
         System.out.println(tryGame);
-        return Integer.parseInt(Console.readLine());
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("올바른 숫자를 입력하세요.");
+        }
     }
 }
