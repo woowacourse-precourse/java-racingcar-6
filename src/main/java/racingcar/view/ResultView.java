@@ -14,7 +14,7 @@ public class ResultView {
     private static final String MOVE_SYMBOL = "-";
     private static final String WORD_SEPARATOR = " : ";
     private static final String WINNER_TAG_MESSAGE = "최종 우승자";
-    private static final String NAME_SEPARATOR = ",";
+    private static final String NAME_SEPARATOR = ", ";
 
     public static void printResultCoverMessage() {
         System.out.println();
