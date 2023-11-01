@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
     static Racer[] createRacerFromInput() {
 
@@ -21,6 +22,13 @@ public class Application {
             return attemptCount;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("정수형 입력이 필요합니다.");
+        }
+    }
+
+
+    static void attemptOnceWithRacer(Racer racer){
+        if (Randoms.pickNumberInRange(0,9) >= 4) {
+            racer.increaseProgress();
         }
     }
 
