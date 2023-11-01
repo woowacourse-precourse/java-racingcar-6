@@ -73,6 +73,8 @@ public class RacingGame {
 
     public List<String> extractResult(List<String> carList, int size) {
         List<Integer> resultList = extractResultList();
+        racingGameValidator.validateGameTerminated(resultList);
+
         List<String> winnerList = new ArrayList<>();
         int max = Collections.max(resultList);
 
@@ -86,7 +88,6 @@ public class RacingGame {
 
     public List<Integer> extractResultList() {
         List<Integer> resultList = movingCount.getMovingCount();
-        racingGameValidator.validateGameTerminated(resultList);
         return resultList;
     }
 }
