@@ -3,9 +3,57 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.generic.RacerProgress;
 
 public class StringTest {
+
+    @Test
+    void 정말로문자열붙이기보다스트링빌더가빠를까() {
+        List<RacerProgress> progresses = new ArrayList<>();
+        for (int i = 0; i < 100_000; i++) {
+            progresses.add(
+                    new RacerProgress(
+                            "유니코드" + String.valueOf(Randoms.pickNumberInRange(1, 9)) + Randoms.pickNumberInRange(1, 9)
+                                    + Randoms.pickNumberInRange(
+                                    1, 9),
+                            Randoms.pickNumberInRange(1, 9)));
+        }
+
+        List<String> result1list = new ArrayList<>();
+        long beforeTime = System.currentTimeMillis();
+
+        for (RacerProgress progress : progresses) {
+            result1list.add(
+                    progress.name() + " : " + "-".repeat(progress.mileage()));
+        }
+
+        long afterTime = System.currentTimeMillis();
+        long secDiffTime = (afterTime - beforeTime);
+        System.out.println("1번 시간차이(m) : " + secDiffTime);
+
+        System.out.println("================================================");
+
+        List<String> result2list = new ArrayList<>();
+
+        long beforeTime2 = System.currentTimeMillis();
+
+        for (RacerProgress progress : progresses) {
+            result2list.add(
+                    new StringBuffer()
+                            .append(progress.name())
+                            .append(" : ")
+                            .append("-".repeat(progress.mileage()))
+                            .toString());
+        }
+
+        long afterTime2 = System.currentTimeMillis();
+        long secDiffTime2 = (afterTime2 - beforeTime2);
+        System.out.println("2번 시간차이(m) : " + secDiffTime2);
+    }
 
     @Test
     void split_메서드로_주어진_값을_구분() {
