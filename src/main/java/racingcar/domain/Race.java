@@ -14,6 +14,10 @@ public class Race {
         this.cars = new Cars();
     }
 
+    public Cars getCars() {
+        return cars;
+    }
+
     public void advanceFullRound(int attemptCount) {
         for (int round = ZERO; round < attemptCount; round++) {
             advanceOneRound();
