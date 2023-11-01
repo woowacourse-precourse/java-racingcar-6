@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.service.CarService;
 
 public class CarTest {
 
@@ -45,5 +46,18 @@ public class CarTest {
 
         // then
         assertThat(car.getRoundResult()).isEqualTo("brian : ---");
+    }
+
+    @Test
+    public void 이름_반환() throws Exception{
+        // given
+        CarService carService = new CarService();
+        carService.setCars("brian");
+
+        // when
+        Car car = carService.cars.get(0);
+
+        // then
+        assertThat(car.getName()).isEqualTo("brian");
     }
 }
