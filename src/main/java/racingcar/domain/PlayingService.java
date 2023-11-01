@@ -2,8 +2,6 @@ package racingcar.domain;
 
 import java.util.LinkedHashMap;
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
-import java.util.ArrayList;
 
 public class PlayingService {
     private final Number number;
@@ -28,7 +26,6 @@ public class PlayingService {
             cars = master.playRound(cars);
             System.out.println();
         }
-
         findWinner();
     }
 
