@@ -9,17 +9,13 @@ public class Executor {
     
     // 모든 자동차들에 대해 한 번의 시도를 진행 후 출력
     public void doGame(List<Car> cars) {
-        
         cars.forEach(car -> {
             if(rollDice() > 3) {
                 car.addScore();
             }
             System.out.println(car.getName() + " : " + "-".repeat(car.getScore()));
-            
         });
-        
         System.out.println();
-        
     }
     
     private int rollDice() {
