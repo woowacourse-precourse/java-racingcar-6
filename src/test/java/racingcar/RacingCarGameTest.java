@@ -50,4 +50,25 @@ class RacingCarGameTest {
         racingCarGame.saveMovingCount(movingCount);
         assertThat(racingCarGame.getMovingCount()).isEqualTo(movingCount);
     }
+
+    @Test
+    @DisplayName("자동차 전진 횟수 저장 테스트")
+    void 자동차_전진_횟수_저장_테스트() {
+        List<String> players = Arrays.asList("pobi", "jun", "wooni");
+        String name = String.join(",", players);
+
+        racingCarGame.splitCarName(name);
+        racingCarGame.createCar();
+
+        racingCarGame.saveCarMovingCount();
+
+        List<Integer> carMovingCountList = racingCarGame.getCarMovingCountList();
+
+        assertThat(carMovingCountList.size()).isEqualTo(players.size());
+
+        for (int i = 0; i < carMovingCountList.size(); i++) {
+            int movingCount = carMovingCountList.get(i);
+            assertThat(movingCount).isEqualTo(0);
+        }
+    }
 }

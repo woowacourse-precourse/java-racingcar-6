@@ -55,4 +55,8 @@ public class RacingCarGame {
     public int getMovingCount() {
         return movingCount;
     }
+
+    public List<Integer> getCarMovingCountList() {
+        return carMovingCountList;
+    }
 }
