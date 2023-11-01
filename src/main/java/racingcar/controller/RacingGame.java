@@ -28,16 +28,16 @@ public class RacingGame {
     }
 
     private String[] checkValid(String carNames) {
-        Exception.isFrontSpace(carNames); // 글자 앞에 공백 있는지 확인
-
         String[] names = carNames.split(",");
-        checkNumber(names); // 이름이 숫자인지
+
+        Exception.checkMinimumParticipants(names); // 2명 이상인지 확인
         Exception.isSpace(names); // 이름에 공백이 포함되어 있는지 확인
+        checkLength(names); // 5글자 이하 확인
 
         return names;
     }
 
-    private void checkNumber(String[] names) {
+    private void checkLength(String[] names) {
         for (String name : names) {
             Exception.checkNameLength(name);
         }
