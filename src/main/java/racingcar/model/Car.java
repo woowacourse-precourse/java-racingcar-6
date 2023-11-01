@@ -1,9 +1,13 @@
 package racingcar.model;
 
-import racingcar.utils.Util;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.stream.IntStream;
 
 public class Car {
-  //  public static final String ROUND_RESULT_DELIMITER = " : ";
+    public static final int MIN_RANDOM_NUM = 0;
+    public static final int MAX_RANDOM_NUM = 9;
+    public static final String DASH = "-";
     public static final int GO_NUM = 4;
     private final String NAME;
     private int position = 0;
@@ -13,9 +17,13 @@ public class Car {
     }
 
     public void move() {
-        if (Util.getRandomNum() >= GO_NUM) {
+        if (getRandomNum() >= GO_NUM) {
             position++;
         }
+    }
+
+    private int getRandomNum() {
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
     }
 
     public String getName() {
@@ -31,7 +39,13 @@ public class Car {
     }
 
     public String getRoundResult() {
-        return NAME + " : " + Util.repeatDash(position);
+        return NAME + " : " + repeatDash(position);
+    }
+
+    private String repeatDash(int num) {
+        StringBuilder dashes = new StringBuilder();
+        IntStream.range(0, num).forEach(i -> dashes.append(DASH));
+        return dashes.toString();
     }
 
 }

@@ -3,9 +3,9 @@ package racingcar.model;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static racingcar.utils.Util.getMax;
 
 public class Cars {
     private final ArrayList<Car> CARS = new ArrayList<>();
@@ -28,6 +28,10 @@ public class Cars {
                 .map(Car::getName)
                 .collect(Collectors.toList())
         ));
+    }
+
+    private int getMax(ArrayList<Integer> integers) {
+        return Collections.max(integers);
     }
 
     private void move() {
