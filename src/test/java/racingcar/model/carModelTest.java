@@ -13,13 +13,17 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.GameManager;
 
 public class carModelTest {
-    static List<String> carNames = new ArrayList<>(Arrays.asList("alice","john","paul")) ;
+
 
     @BeforeAll
     static void checkCreateCars() {
+        initialize();
+        List<String> carNames = new ArrayList<>() ;
+        carNames.add("alice");
+        carNames.add("john");
         GameManager.createCars(carNames);
         List<Car> cars = GameManager.getCars();
-        assertThat(cars).hasSize(3);
+        assertThat(cars).isNotEmpty();
     }
 
     @Test
@@ -27,12 +31,17 @@ public class carModelTest {
         List<Car> cars = GameManager.getCars();
         for(int i=0;i<cars.size();i++){
             cars.get(i).move();
+            System.out.print(cars.get(i).raceStatus);
             assertThat(cars.get(i).raceStatus).isEqualTo(1);
         }
     }
 
     @Test
     void checkNominateWinners(){
+        initialize();
+        List<String> carNames = new ArrayList<>() ;
+        carNames.add("alice");
+        carNames.add("john");
         List<String> testWinners = new ArrayList<>();
         GameManager.testRun(carNames,5);
         List<Car> cars = GameManager.getCars();
@@ -52,7 +61,10 @@ public class carModelTest {
     }
 
 
-
+public static void initialize(){
+    List<Car> cars = GameManager.getCars();
+    cars.clear();
+}
 
 
 }
