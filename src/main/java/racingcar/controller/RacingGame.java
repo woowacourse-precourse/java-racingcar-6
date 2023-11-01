@@ -1,24 +1,43 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.constant.NumberConstant;
+import racingcar.model.Cars;
 import racingcar.model.TryCount;
-import racingcar.service.CarsService;
+import racingcar.util.Utils;
 import racingcar.view.OutputView;
 
 public class RacingGame {
 
-    private final CarsService carsService;
+    private final Cars cars;
     private final int tryCount;
 
-    public RacingGame(CarsService carsService, TryCount tryCount) {
-        this.carsService = carsService;
+    public RacingGame(Cars cars, TryCount tryCount) {
+        this.cars = cars;
         this.tryCount = tryCount.getTryCount();
     }
 
     public void run() {
         for (int i = 0; i < tryCount; i++) {
-            carsService.moveCars();
-            OutputView.printCarNameAndPosition(carsService.getCarNamePositionMap());
+            moveCars();
+            OutputView.printCarNameAndPosition(cars.getCarNamePositionMap());
         }
-        OutputView.printVictoryCarNames(carsService.getCarNamesAtPosition(carsService.getMaxPosition()));
+        OutputView.printVictoryCarNames(getVictoryCarName());
+    }
+
+    public List<String> getVictoryCarName() {
+        return cars.getCarNamesAtPosition(cars.getMaxPosition());
+    }
+
+    public void moveCars() {
+        for (int index = 0; index < cars.size(); index++) {
+            moveCarOrNot(index, Utils.getRandomNumber());
+        }
+    }
+
+    public void moveCarOrNot(int index, int randomValue) {
+        if (randomValue >= NumberConstant.TARGET_NUMBER) {
+            cars.moveCar(index);
+        }
     }
 }
