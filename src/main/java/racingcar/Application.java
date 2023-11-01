@@ -12,9 +12,8 @@ public class Application {
             cars.add(new Car(delimitedCarNames.get(i)));
         }
         int attempts = Converter.convertAttempts(InputView.inputAttempts());
-        NumberGenerator numberGenerator = new NumberGenerator();
 
-        GamePlayer gamePlayer = new GamePlayer(cars, attempts, numberGenerator);
+        GamePlayer gamePlayer = new GamePlayer(cars, attempts);
         gamePlayer.play();
     }
 }
