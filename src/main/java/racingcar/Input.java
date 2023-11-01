@@ -2,12 +2,23 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.HashSet;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 public class Input {
 
     static boolean isOutOfRange(long tryNumber) {
         return (tryNumber > 2000000000 || tryNumber < 0);
+    }
+     static  boolean containsDuplicates(String[] carNames) {
+        Set<String> duplicateChecker = new HashSet<>();
+        for (String carName : carNames) {
+            if (!duplicateChecker.add(carName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     static String[] getCarName() {
@@ -22,6 +33,9 @@ public class Input {
             Exception.generateInvalidCarNumberException();
         }
         String[] carNames = carNameInput.split(",");
+        if (containsDuplicates(carNames)) {
+            Exception.generateInvalidDuplicateCarNameException();
+        }
         return (carNames);
         }
 
