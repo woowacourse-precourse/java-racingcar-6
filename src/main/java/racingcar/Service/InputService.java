@@ -3,30 +3,33 @@ package racingcar.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.Domain.Car;
 
 
 public class InputService {
     String inputCarname;
-    ArrayList<String> Cars = new ArrayList<>();
+    ArrayList<String> CarNames = new ArrayList<>();
+    ArrayList<Car> cars = new ArrayList<>();
     String inputTryNum;
 
     public List<String> SplitCarname(String inputCarname) {
-        Cars = new ArrayList<>(Arrays.asList(inputCarname.split(",")));
-        return Cars;
+        CarNames = new ArrayList<>(Arrays.asList(inputCarname.split(",")));
+        return CarNames;
     }
+
 
     public String inputCarname(String name) {
         this.inputCarname = name;
         return inputCarname;
     }
 
-    public List<String> getCars() {
-        return Cars;
+    public List<String> getCarNames() {
+        return CarNames;
     }
 
     public boolean valideFivename(String name) {
-        Cars = (ArrayList<String>) SplitCarname(name);
-        return Cars.stream().noneMatch(this::isNameOverFiveChars);
+        CarNames = (ArrayList<String>) SplitCarname(name);
+        return CarNames.stream().noneMatch(this::isNameOverFiveChars);
     }
 
     private boolean isNameOverFiveChars(String name) {
@@ -43,5 +46,14 @@ public class InputService {
             throw new IllegalArgumentException("자동차 이름은 5자 이내로 입력해 주세요");
         }
 
+    }
+
+    public List<Car> makeCarArray() {
+        for (int i = 0; i < this.CarNames.size(); i++) {
+            Car car = new Car();
+            car.setName(CarNames.get(i));
+            cars.add(car);
+        }
+        return cars;
     }
 }

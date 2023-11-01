@@ -15,6 +15,8 @@ public class InputServiceTest {
     public void init() {
         //given
         inputService = new InputService();
+        name = "pobi,woni,jun";
+        inputService.SplitCarname(name);
     }
 
     @Test
@@ -25,7 +27,7 @@ public class InputServiceTest {
         //then
         assertThat(inputService.inputCarname(name)).isEqualTo(name);
         assertThat(inputService.SplitCarname(name)).contains("pobi", "woni", "jun");
-        assertThat(inputService.getCars().get(0)).isEqualTo("pobi");
+        assertThat(inputService.getCarNames().get(0)).isEqualTo("pobi");
     }
 
     @Test
@@ -52,4 +54,10 @@ public class InputServiceTest {
         assertThatThrownBy(() -> inputService.throwException(name)).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    @DisplayName("split한 이름으로 Car 객체 배열 생성")
+    public void input5() {
+        assertThat(inputService.makeCarArray().size())
+                .isEqualTo(3);
+    }
 }

@@ -40,7 +40,7 @@ public class OutputService {
     }
 
     public String printCar() {
-        List<String> cars = inputService.getCars();
+        List<String> cars = inputService.getCarNames();
         String result = String.join(" :\n", cars);
         if (!cars.isEmpty()) {
             result += " :\n";
@@ -49,6 +49,8 @@ public class OutputService {
     }
 
     public String printForwardStatus() {
+
+        return null;
 
     }
 }
