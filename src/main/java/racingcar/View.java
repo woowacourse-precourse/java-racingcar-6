@@ -4,11 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-public class InputOutput {
+public class View {
 
     private static final String UNIT_MOVE_BLOCK = Constant.UNIT_MOVE_BLOCK;
 
-    static String getCarNames() {
+    static String getCarNamesWithComma() {
         System.out.println(Constant.ASK_TRYCOUNT_MESSAGE);
         String cars = Console.readLine();
         return cars;
