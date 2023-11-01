@@ -9,14 +9,14 @@ public class OutputView {
     public static final String WINNER_GUIDE_MESSAGE = "최종 우승자 : ";
     public static final String GAME_RESULT_MESSAGE = "실행 결과";
 
-    public void printRounds(int roundTrialNum, Cars cars) {
+    public static void printRounds(int roundTrialNum, Cars cars) {
         System.out.println(GAME_RESULT_MESSAGE);
         for (int i=0 ; i < roundTrialNum; i++) {
             printCarsResult(cars);
         }
     }
 
-    public void printCarsResult(Cars cars){
+    public static void printCarsResult(Cars cars){
         for (Car car : cars.getCarList()){
             String name = car.getName();
             int position = car.genPosition();
@@ -24,7 +24,7 @@ public class OutputView {
         }
     }
 
-    public void printCarResult(String name, int position) {
+    public static void printCarResult(String name, int position) {
         StringBuilder sb = new StringBuilder(name + " : ");
         for (int i = 0; i < position; i++) {
             sb.append("-");
@@ -32,7 +32,7 @@ public class OutputView {
         System.out.println(sb.toString());
     }
 
-    public void printWinners(ArrayList<String> winners) {
+    public static void printWinners(ArrayList<String> winners) {
         System.out.print(WINNER_GUIDE_MESSAGE + winners.stream()
                 .collect(Collectors.joining((", "))));
     }
