@@ -30,12 +30,11 @@ public class Application {
         Integer tryCount = Integer.parseInt(tryCountInput);
         Validator.validateWithinRange(tryCount);
 
-
         // 게임 생성
         Game game = new Game(cars);
 
         // 게임 진행
-        for(int i=0; i<tryCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             game.play();
             printScoreBoard(cars);
         }

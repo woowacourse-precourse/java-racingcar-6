@@ -19,7 +19,7 @@ public class Game {
     public void play() {
         for (Car car : cars) {
             int i = Randoms.pickNumberInRange(0, 9);
-            if (i>=4) {
+            if (i >= 4) {
                 car.upScore();
             }
         }
@@ -27,6 +27,7 @@ public class Game {
 
     /**
      * 스코어가 최대인 자동차를 찾아 반환합니다.
+     *
      * @return (Car) 점수 최대인 자동차 (동점이 있을 경우 여러개)
      */
     public ArrayList<Car> pickWinners() {
