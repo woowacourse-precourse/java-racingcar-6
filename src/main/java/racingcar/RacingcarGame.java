@@ -13,4 +13,16 @@ public class RacingcarGame {
             racingcars.add(car);
         }
     }
+
+    private void runRound(List<Car> cars) {
+        for (Car car : cars) {
+            String name = car.getName();
+            if (Random.isNumOverFour()) {
+                car.moveForward();
+            }
+            int moveCount = car.getMoveCount();
+            InputOutput.printRoundResult(name, moveCount);
+        }
+        System.out.println();
+    }
 }
