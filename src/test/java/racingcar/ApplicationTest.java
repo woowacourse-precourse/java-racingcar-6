@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -13,6 +14,8 @@ import static org.assertj.core.api.Assertions.*;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    InputManager inputManager = new InputManager();
+    Executor executor = new Executor();
 
     @Test
     void 전진_정지() {
@@ -33,7 +36,7 @@ class ApplicationTest extends NsTest {
         );
     }
     
-    @Test @DisplayName("띄어쓰기로_이름_구분한_경우")
+    @Test @DisplayName("띄어쓰기로_입력한_경우")
     void testCarName1() {
 
         assertSimpleTest(() ->
@@ -41,17 +44,33 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
 
         );
+    }
+    
+    @Test @DisplayName("이름이_같은_경우")
+    void testCarName2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("자동차,자동차,자동차", "5"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                );
+    }
+    
+    @Test @DisplayName("이름을_구분자로_구분하나_makeCars()")
+    void testMakeCars() {
+        
+        String input = "이름1,이름2";
+        List<Car> cars = inputManager.makeCars(input);
+        List<String> output = new ArrayList<>();
+        
+        cars.forEach(
+                car -> output.add(car.getName())
+        );
+        assertThat(output).contains("이름2", "이름1");
+        assertThat(output).containsExactly("이름1", "이름2");
         
     }
     
-    @Test @DisplayName("차_아름이_5글자가_넘어가는_경우")
-    void testCarName2() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("thisIsName,isThatName", "5"))
-                        .isInstanceOf(IllegalArgumentException.class)
-                
-        );
-    }
+    
+    
     
 
     @Override
