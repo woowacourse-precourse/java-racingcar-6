@@ -28,5 +28,6 @@ public class RacingcarController {
       outputView.printTrial(cars, locations);
       trialNum--;
     }
+    outputView.printWinner(racingcarGame.evaluateWinner(cars, locations));
   }
 }
