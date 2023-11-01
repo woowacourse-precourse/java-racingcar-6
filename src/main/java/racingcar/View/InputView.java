@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class InputView {
-
+    public static final int MAX_TRY_COUNT = 99;
     private final PrintStream printStream;
 
 
@@ -49,5 +49,18 @@ public class InputView {
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
-    //회수 입력? 횟수 범위 추가 100 정도?
+    public int inputMaxTryCount() {
+        printStream.println("시도할 회수는 몇회인가요?");
+        String value = Console.readLine();
+
+        if (isInvalidTryCount(value)) {
+            throw new IllegalArgumentException("올바른 숫자를 입력하세요. 100회 미만의 회수를 시도해주세요.");
+        }
+
+        return Integer.parseInt(value);
+    }
+
+    private static boolean isInvalidTryCount(String value) {
+        return !(value.matches("\\d+") && Integer.parseInt(value) <= MAX_TRY_COUNT);
+    }
 }

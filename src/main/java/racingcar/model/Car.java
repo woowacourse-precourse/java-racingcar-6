@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Car {
+    public static final int MOVE_THRESHOLD = 4;
     public static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
@@ -15,7 +16,24 @@ public class Car {
         this.position = 0;
     }
 
+    public void move(int moveValue) {
+        if (isMovable(moveValue)) {
+            position++;
+        }
+    }
+
     private boolean hasOverLengthName(String name) {
         return name.length() > MAX_NAME_LENGTH;
+    }
+
+    private boolean isMovable(int number) {
+        return number >= MOVE_THRESHOLD;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public int getPosition() {
+        return position;
     }
 }

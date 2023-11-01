@@ -2,6 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        // view 가져오고
+        // NuumberGenerator 변경 pickNumberInRange 0 ~ 9
     }
 }
