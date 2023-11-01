@@ -48,6 +48,14 @@ public class InputTest {
     }
 
     @Test
+    void 시도_횟수_0번_입력시_예외_처리() {
+        String gameRound = "0";
+        assertThrows(IllegalArgumentException.class, () -> {
+            UserInputGameRound.processInput(gameRound);
+        });
+    }
+
+    @Test
     void 공백_시도_횟수_입력시_예외_처리() {
         String gameRound = " ";
         assertThrows(IllegalArgumentException.class, () -> {
@@ -56,8 +64,8 @@ public class InputTest {
     }
 
     @Test
-    void 시도_횟수_0번_입력시_예외_처리() {
-        String gameRound = "0";
+    void 시도_횟수_앞_뒤_공백_포함_공백_제거() {
+        String gameRound = " 3";
         assertThrows(IllegalArgumentException.class, () -> {
             UserInputGameRound.processInput(gameRound);
         });
