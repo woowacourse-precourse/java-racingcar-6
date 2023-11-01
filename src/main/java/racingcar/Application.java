@@ -11,7 +11,8 @@ public class Application {
     public static void main(String[] args) {
         new RacingCarGame(
                 new Console(
-                        new MissionUtilsInput(), new PrintStreamOutput()
+                        new MissionUtilsInput(),
+                        new PrintStreamOutput()
                 ),
                 new RacingCarGameMovingPolicy(),
                 new RandomNumberGeneratePolicy()

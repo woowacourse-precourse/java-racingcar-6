@@ -63,7 +63,7 @@ public class Console {
     }
 
     public void printResultMessage() {
-        output.println("실행 결과");
+        output.println("\n실행 결과");
     }
 
     public void print(List<Result> results) {
