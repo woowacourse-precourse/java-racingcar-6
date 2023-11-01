@@ -10,8 +10,14 @@ public class RacingGameController {
     private final RacingGameView racingGameView = new RacingGameView();
 
     private int gameAttempts;
+
+    public void runCarGame(){
+        gameInit();
+        gameStart();
+        gameEnd();
+    }
     // game start
-    public void gameInit() throws IllegalArgumentException{
+    private void gameInit() throws IllegalArgumentException{
         // 사용자 이름 입력
         racingGameView.printInputPlayersMsg();
         String nameInput = Console.readLine();
@@ -22,7 +28,7 @@ public class RacingGameController {
         String attempts = Console.readLine();
         setGameAttempts(racingGameService.attemptParseToInt(attempts));
     }
-    public void gameStart(){
+    private void gameStart(){
         // game attempt 만큼 진행
         racingGameView.printInitResultMsg();
         for (int attempt =0; attempt <gameAttempts; attempt++){
@@ -30,11 +36,11 @@ public class RacingGameController {
         }
 
     }
-    public void setGameAttempts(int gameAttempts) {
+    private void setGameAttempts(int gameAttempts) {
         this.gameAttempts = gameAttempts;
     }
     // game end
-    public void gameEnd(){
+    private void gameEnd(){
         racingGameView.printResultMsg(racingGameService.findWinners());
     }
 }
