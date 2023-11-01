@@ -48,4 +48,10 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void stringLengthTest() {
+        String[] carNames = {"pobi", "woni", "jun"};
+        assertThat(carNames.length).isEqualTo(3);
+    }
+
 }
