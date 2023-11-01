@@ -30,4 +30,7 @@ public class Console {
         consoleWriter.println(lapResult);
     }
 
+    public void finalWinnersPrint(final String finalWinningCarNames) {
+        consoleWriter.finalWinnersPrint(finalWinningCarNames);
+    }
 }
