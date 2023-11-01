@@ -21,7 +21,6 @@
 - [ ] RacingGameBridge를 통해 입출력을 처리한다.
   - [ ] RacingGameBridge의 입력은 검증하지 않는다.
 - [x] 0~9 사이의 정수를 랜덤하게 생성하여 진행 여부를 결정하고, cars의 상태를 수정한다.
-- [ ] 객체 초기화 여부를 알려주는 메소드를 갖는다.
 - [ ] 게임 종료 여부를 알려주는 메소드를 갖는다.
 
 ## racingcar.game.io package
