@@ -11,11 +11,29 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
 
-    @DisplayName("잘못된 자동차 이름의 길이인 경우 예외 발생")
+    @DisplayName("잘못된 길이의 자동차 이름인 경우 예외 발생")
     @ParameterizedTest(name = "{displayName} value = {0}")
     @NullSource
-    @ValueSource(strings = {"myCarIsKia", "myName", " ", "k!#", "%^"})
+    @ValueSource(strings = {"myCarIsKia", "myName"})
     void checkValidateLength(String name) {
+        assertThatThrownBy(() -> Car.ofStartingPoint(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("잘못된 타입의 자동차 이름인 경우 예외 발생")
+    @ParameterizedTest(name = "{displayName} value = {0}")
+    @NullSource
+    @ValueSource(strings = {"k!#", "^w^", ",,", ",,,"})
+    void checkValidateType(String name) {
+        assertThatThrownBy(() -> Car.ofStartingPoint(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("자동차 이름이 공백인 경우 예외 발생")
+    @ParameterizedTest(name = "{displayName} value = {0}")
+    @NullSource
+    @ValueSource(strings = {"", "  ", "      "})
+    void checkValidateSpace(String name) {
         assertThatThrownBy(() -> Car.ofStartingPoint(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
