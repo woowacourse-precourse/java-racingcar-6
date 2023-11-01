@@ -15,7 +15,7 @@ public class Validator {
         }
     }
 
-    static List<String> carNames(String[] carNames) throws IllegalArgumentException {
+    static List<String> carNamesArray(String[] carNames) throws IllegalArgumentException {
         List<String> uniqueCarNames = new ArrayList<>();
         for (String carName : carNames) {
             carName = carName.trim();

@@ -32,7 +32,7 @@ public class RacingcarGame {
     public List<String> getCarNames(String carNamesWithComma) throws IllegalArgumentException {
         Validator.carNamesString(carNamesWithComma);
         String[] carNamesArray = carNamesWithComma.split(",");
-        List<String> carNamesList = Validator.carNames(carNamesArray);
+        List<String> carNamesList = Validator.carNamesArray(carNamesArray);
         return carNamesList;
     }
 
