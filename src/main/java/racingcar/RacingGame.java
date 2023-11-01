@@ -2,6 +2,7 @@ package racingcar;
 
 import static racingcar.InputReader.*;
 import static racingcar.MessagePrinter.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
