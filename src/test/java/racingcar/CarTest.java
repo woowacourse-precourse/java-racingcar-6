@@ -27,4 +27,14 @@ class CarTest {
         //then
         assertThat(carDistance).isEqualTo(0);
     }
+
+    @Test
+    void 차가_움직이면_distance_추가() {
+        //given
+        Car car = new Car("testCar");
+        //when
+        car.move();
+        //then
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
 }
