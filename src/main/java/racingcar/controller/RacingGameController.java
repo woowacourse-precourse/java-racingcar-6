@@ -12,6 +12,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGameController {
+    private static final String DELIMITER = ",";
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -47,7 +48,7 @@ public class RacingGameController {
 
     private void initializeCar(final RacingGame racingGame) {
         final String carName = inputView.readCarName();
-        final String[] carNames = carName.split(",");
+        final String[] carNames = carName.split(DELIMITER);
         for (final String name : carNames) {
             final Car car = new Car(name, RandomNumberGenerator.getInstance());
             racingGame.addCar(car);
