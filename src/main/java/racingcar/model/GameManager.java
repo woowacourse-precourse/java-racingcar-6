@@ -16,4 +16,9 @@ public class GameManager {
         return new GameManager();
     }
 
+    public void addCar(String name) {
+        Car car = new Car(name);
+        car.setCarName(name);
+        cars.add(car);
+    }
 }
