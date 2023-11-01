@@ -8,4 +8,8 @@ public class InputView {
         String[] split = namesOfCars.split(",");
         return new RacingCars(Arrays.asList(split));
     }
+
+    public AttemptNumber attemptNumber(String count) {
+        return new AttemptNumber(count);
+    }
 }

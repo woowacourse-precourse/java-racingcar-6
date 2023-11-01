@@ -15,6 +15,8 @@ public class Game {
         RacingCars racingCars = inputView.inputNameOfRacingCars(nameOfCars);
 
         // 시도할 횟수를 입력받는다.
+        String count = Console.readLine();
+        AttemptNumber attemptNumber = inputView.attemptNumber(count);
 
         // 게임을 시작한다. (로직을 진행한다)
 
