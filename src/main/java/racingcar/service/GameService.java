@@ -43,7 +43,7 @@ public class GameService {
 
     public StringBuilder printStick(int index) {
         StringBuilder sb = new StringBuilder();
-        sb.append("-".repeat(Math.max(Constant.DEFAULT_MOVE, cars.get(index).getMove())));
+        sb.append("-".repeat(cars.get(index).getMove()));
         return sb;
     }
 
