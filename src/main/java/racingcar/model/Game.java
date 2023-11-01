@@ -25,4 +25,19 @@ public class Game {
             cars.add(car);
         }
     }
+
+    public void showCarAdvancedResult(int tryCount) {
+        for(int i = 0; i < tryCount; i++) {
+            for(Car car : cars) {
+                int randomNumber = makeRandomNumber();
+
+                car.advance(randomNumber);
+
+                OutputView.outputCarRunResult(car.getName(), car.getAdvanceCount());
+            }
+            System.out.println("");
+        }
+    }
+
+
 }
