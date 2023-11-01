@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.controller.ProgressController;
 import racingcar.controller.InitController;
-import racingcar.dto.GameSettingDto;
+import racingcar.dto.InitDto;
 import racingcar.repository.CarRepositoryImpl;
 import racingcar.repository.Repository;
 import racingcar.service.InputService;
@@ -16,9 +16,9 @@ public class Application {
         InputService inputService = new InputServiceImpl(repository);
 
         InitController initController = new InitController(inputService);
-        GameSettingDto gameSettingDto = initController.gameInit();
+        InitDto initDto = initController.gameInit();
 
-        RacingService racingService = new RacingServiceImpl(gameSettingDto.getCars(), gameSettingDto.getTimes(), repository);
+        RacingService racingService = new RacingServiceImpl(initDto.getCars(), initDto.getTimes(), repository);
 
         ProgressController progressController = new ProgressController(racingService);
         progressController.gameProgress();

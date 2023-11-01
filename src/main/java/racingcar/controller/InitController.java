@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Car;
-import racingcar.dto.GameSettingDto;
+import racingcar.dto.InitDto;
 import racingcar.service.InputService;
 
 import java.util.List;
@@ -13,10 +13,10 @@ public class InitController {
         this.inputService = inputService;
     }
 
-    public GameSettingDto gameInit() {
+    public InitDto gameInit() {
         List<Car> cars = inputService.inputCarName();
         int times = inputService.inputTimes();
-        return new GameSettingDto(cars, times);
+        return new InitDto(cars, times);
     }
 
 }
