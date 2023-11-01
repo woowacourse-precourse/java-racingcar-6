@@ -9,5 +9,6 @@ public class Cars {
 
     public Cars(final List<String> names) {
         names.forEach(name -> cars.add(new Car(name)));
+        CarNamesValidator.validateCarNames(names);
     }
 }
