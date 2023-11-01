@@ -6,6 +6,7 @@ import model.Car;
 import util.ReformatHandler;
 import util.Validator;
 import view.InputView;
+import view.OutputView;
 
 public class GameController {
 
@@ -27,6 +28,15 @@ public class GameController {
             this.gameTimes = ReformatHandler.stringToNum(gameTimeString);
         } else {
             throw new IllegalArgumentException();
+        }
+    }
+
+    public void proceedingGame() {
+        for (int i = 0; i < this.gameTimes; i++) {
+            for (Car car : this.carList) {
+                car.moveCar();
+            }
+            OutputView.printProceeding(this.carList);
         }
     }
 
