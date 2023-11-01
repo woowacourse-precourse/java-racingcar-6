@@ -10,18 +10,21 @@ import racingcar.model.result.RoundResult;
 
 public non-sealed class RacingCars implements Cars {
     private final List<Car> cars;
+
     public RacingCars(final List<Car> cars) {
         this.cars = List.copyOf(cars);
     }
+
     public RacingCars() {
         this.cars = new ArrayList<>();
     }
+
     public RacingCars applyNames(final List<String> names) {
         List<Car> newCars = new ArrayList<>(this.cars);
-        for (String name : names) {
-            Name carName = new Name(name);
-            newCars.add(Car.applyName(carName));
-        }
+        names.stream()
+                .map(Name::new)
+                .map(Car::applyName)
+                .forEach(newCars::add);
         return new RacingCars(newCars);
     }
 
