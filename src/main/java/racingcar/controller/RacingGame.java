@@ -11,9 +11,9 @@ public class RacingGame {
     public RacingGame() {
     }
 
-    public void startGame() {
+    public void start() {
         ready();
-        game.start();
+        game.startGame();
         game.printWinners();
     }
 
