@@ -30,6 +30,10 @@ public class ResultMessage {
         }
     }
 
+    public static void printExceptionCase(String exceptionMessage){
+        System.out.println(exceptionMessage);
+    }
+
     private static void printScoreBar(Car car){
         for (int count=0; count < car.getLocation();count++){
             System.out.print("-");

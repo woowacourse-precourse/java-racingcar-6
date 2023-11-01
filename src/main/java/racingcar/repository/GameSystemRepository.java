@@ -21,9 +21,4 @@ public class GameSystemRepository {
         return gameSystem.compareAttemptNumToFinal();
     }
 
-    //for test code
-    public void clearStore(){
-        store.clear();
-    }
-
 }

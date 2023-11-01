@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import racingcar.domain.GameSystem;
 import racingcar.repository.CarRepository;
 import racingcar.service.GameService;
+import racingcar.utils.Checker;
 import racingcar.utils.Parser;
 import racingcar.view.RequestMessage;
 import racingcar.view.ResultMessage;
@@ -14,8 +15,10 @@ import java.util.List;
 public class Controller {
 
     private final CarRepository carRepository = new CarRepository();
+    private final Checker checker = new Checker();
     private final GameService gameService = new GameService();
     private final Parser parser = new Parser();
+
     public void run(){
         saveCarName(getCarNameInput());
         playGame(startGame());
@@ -47,12 +50,35 @@ public class Controller {
 
     private List<String> getCarNameInput(){
         RequestMessage.setCarName();
-        return parser.stringCarNameToArrayList(Console.readLine());
+        String playerInputNameString=Console.readLine();
+        List <String> playerInputName = parser.stringCarNameToArrayList(playerInputNameString);
+        return validatePlayerInputName(playerInputNameString, playerInputName);
+    }
+
+    private List<String> validatePlayerInputName(String playerInputNameString, List<String> playerInputName){
+        try{
+            checker.inputCarName(playerInputNameString, playerInputName);
+            return playerInputName;
+        } catch (IllegalArgumentException e){
+            ResultMessage.printExceptionCase(e.getMessage());
+            throw new IllegalArgumentException();
+        }
     }
 
     private int getAttemptNumFinal(){
         RequestMessage.setAttemptNum();
-        return parser.stringAttemptNumToInt(Console.readLine());
+        String playerInput = Console.readLine();
+        return parser.stringAttemptNumToInt(validatePlayerInputAttemptFinal(playerInput));
+    }
+
+    private String validatePlayerInputAttemptFinal(String playerInput){
+        try{
+            checker.inputAttemptFinal(playerInput);
+            return playerInput;
+        } catch (IllegalArgumentException e){
+            ResultMessage.printExceptionCase(e.getMessage());
+            throw new IllegalArgumentException();
+        }
     }
     //TODO : validator 확인
     //TODO : 기능 테스트 작성
