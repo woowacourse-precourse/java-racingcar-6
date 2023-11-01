@@ -67,7 +67,7 @@ public class RacingTest {
     }
 
     @Test
-    @DisplayName("initParticipants 성공 테스트")
+    @DisplayName("initParticipants 검증 테스트")
     void initParticipants_success() {
 
         String[] carNames = {"디", "레옹", "마틸다", "로즈", "고든"};
@@ -107,7 +107,7 @@ public class RacingTest {
     }
 
     @Test
-    @DisplayName("initPlayCount 성공 테스트")
+    @DisplayName("initPlayCount 검증 테스트")
     void initPlayCount_success() {
 
         racing.initPlayCount(5);
