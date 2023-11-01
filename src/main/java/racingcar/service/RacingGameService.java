@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.service;
 
 import static racingcar.domain.CarManager.getFinalWinner;
 import static racingcar.domain.CarManager.makeCarList;
