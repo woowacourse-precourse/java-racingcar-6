@@ -1,8 +1,10 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.enums.Common;
+import racingcar.testConstants.TestConstants;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -12,8 +14,6 @@ class CarTest {
 
     private Car car;
     private final String inputNames = "isaac";
-    private final int MOVE_FORWARD = Common.STANDARD_NUMBER.getIntValue();
-    private final int STOP = Common.STANDARD_NUMBER.getIntValue() - 1;
 
     @BeforeEach
     @Test
@@ -21,7 +21,7 @@ class CarTest {
         car = new Car(inputNames);
         assertRandomNumberInRangeTest(() -> {
             car.moveForwardByRandom();
-        }, MOVE_FORWARD);
+        }, TestConstants.MOVE_FORWARD);
     }
 
     @Test
@@ -40,13 +40,13 @@ class CarTest {
         assertRandomNumberInRangeTest(() -> {
             car.moveForwardByRandom();
             assertThat(car.getDistance()).isEqualTo(1);
-        }, MOVE_FORWARD);
+        }, TestConstants.MOVE_FORWARD);
 
         Car car2 = new Car(inputNames);
         assertRandomNumberInRangeTest(() -> {
             car2.moveForwardByRandom();
             assertThat(car2.getDistance()).isEqualTo(0);
-        }, STOP);
+        }, TestConstants.STOP);
     }
 
     @Test

@@ -3,9 +3,9 @@ package racingcar.view;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.enums.Common;
 import racingcar.model.Cars;
 import racingcar.model.Winners;
+import racingcar.testConstants.TestConstants;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -17,8 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class OutputViewTest {
     private PrintStream standardOut;
     private OutputStream captor;
-    private static final int MOVE_FORWARD = Common.STANDARD_NUMBER.getIntValue();
-    private static final int STOP = Common.STANDARD_NUMBER.getIntValue() - 1;
 
     private Cars cars;
     private Winners winners;
@@ -31,7 +29,7 @@ class OutputViewTest {
             cars.everyCarMoveForwardByRandom();
             cars.everyCarMoveForwardByRandom();
 
-        }, MOVE_FORWARD, STOP, MOVE_FORWARD, STOP);
+        }, TestConstants.MOVE_FORWARD, TestConstants.STOP, TestConstants.MOVE_FORWARD, TestConstants.STOP);
 
         winners = new Winners(cars);
 

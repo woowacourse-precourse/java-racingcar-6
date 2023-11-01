@@ -3,6 +3,7 @@ package racingcar.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.enums.Common;
+import racingcar.testConstants.TestConstants;
 
 import java.util.stream.Collectors;
 
@@ -15,9 +16,6 @@ class CarsTest {
     private Cars cars;
     private final String inputNames = "isaac,han";
 
-    private static final int MOVE_FORWARD = Common.STANDARD_NUMBER.getIntValue();
-    private static final int STOP = Common.STANDARD_NUMBER.getIntValue() - 1;
-
     @BeforeEach
     @Test
     void init() {
@@ -26,7 +24,7 @@ class CarsTest {
         assertRandomNumberInRangeTest(() -> {
             cars.everyCarMoveForwardByRandom();
             cars.everyCarMoveForwardByRandom();
-        }, MOVE_FORWARD, MOVE_FORWARD, MOVE_FORWARD, MOVE_FORWARD);
+        }, TestConstants.MOVE_FORWARD, TestConstants.MOVE_FORWARD, TestConstants.MOVE_FORWARD, TestConstants.MOVE_FORWARD);
     }
 
     @Test
@@ -38,7 +36,7 @@ class CarsTest {
             cars.everyCarMoveForwardByRandom();
             assertThat(cars.getCars().get(0).getDistance()).isEqualTo(2);
             assertThat(cars.getCars().get(1).getDistance()).isEqualTo(0);
-        }, MOVE_FORWARD, STOP, MOVE_FORWARD, STOP);
+        }, TestConstants.MOVE_FORWARD, TestConstants.STOP, TestConstants.MOVE_FORWARD, TestConstants.STOP);
     }
 
 
