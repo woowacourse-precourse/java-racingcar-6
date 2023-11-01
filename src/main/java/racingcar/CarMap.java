@@ -18,20 +18,20 @@ public class CarMap {
         return map;
     }
 
-    public LinkedHashMap<String, Integer> judgeResult_madeHashMap() {
+    public LinkedHashMap<String, Integer> updateMap() {
         RandomValue randomValue = new RandomValue();
-        LinkedHashMap<String, Integer> updatedMap = map;
+        LinkedHashMap<String, Integer> mapUpdate = map;
 
         for (String key : carList) {
             boolean isAdvance = randomValue.forwardDecision();
             if (isAdvance) {
                 int value = map.get(key);
                 value++;
-                updatedMap.put(key, value);
+                mapUpdate.put(key, value);
             }
 
         }
-        this.map = updatedMap;
-        return updatedMap;
+        this.map = mapUpdate;
+        return mapUpdate;
     }
 }
