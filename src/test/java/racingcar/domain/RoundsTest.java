@@ -3,8 +3,9 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.TestCommon;
 
-class RoundsTest {
+class RoundsTest extends TestCommon {
     private Rounds rounds = new Rounds();
 
     @Test

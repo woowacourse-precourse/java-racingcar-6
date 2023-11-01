@@ -4,9 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.TestCommon;
 import racingcar.constants.RandomNumber;
 
-class NumberGeneratorTest {
+class NumberGeneratorTest extends TestCommon {
     private Integer randomNumber;
 
     @BeforeEach

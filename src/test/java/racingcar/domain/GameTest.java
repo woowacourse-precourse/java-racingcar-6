@@ -3,54 +3,16 @@ package racingcar.domain;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.TestCommon;
 
-class GameTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-    private static final String NEW_LINE = System.lineSeparator();
-
-    private final PrintStream originalOutput = System.out;
-    private OutputStream outputCaptor;
+class GameTest extends TestCommon {
     private Game game;
-
-    private void setInputs(final String... args) {
-        final byte[] buf = String.join("\n", args).getBytes();
-        System.setIn(new ByteArrayInputStream(buf));
-    }
-
-    private String getOutput() {
-        return outputCaptor.toString();
-    }
-
-    private static String makeString(String... args) {
-        StringBuilder output = new StringBuilder();
-        for (String arg : args) {
-            output.append(arg);
-        }
-
-        return output.toString();
-    }
 
     @BeforeEach
     void testInit() {
-        outputCaptor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputCaptor));
-
         game = new Game(new Cars(), new Rounds());
-    }
-
-    @AfterEach
-    void testCleanUp() {
-        System.setOut(originalOutput);
-        Console.close();
     }
 
     @Test
