@@ -20,8 +20,24 @@ class ValidationTest extends NsTest {
     checkNameValidation("pobi,pobi", "같은 이름을 가진 자동차가 있습니다.");
   }
 
+  @Test
+  void 시도_유효성_테스트() {
+    // 숫자가 아닌 입력값
+    checkAttemptValidation("abc", "시도할 회수는 숫자여야 합니다.");
+    // 0 이하의 숫자
+    checkAttemptValidation("-1", "시도할 회수는 양수여야 합니다.");
+    // 공백 포함
+    checkAttemptValidation(" 5 ", "시도할 회수는 숫자여야 합니다.");
+  }
+
   private void checkNameValidation(String names, String expectedMessage) {
     assertThatThrownBy(() -> runException(names, "1"))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(expectedMessage);
+  }
+
+  private void checkAttemptValidation(String attempt, String expectedMessage) {
+    assertThatThrownBy(() -> runException("pobi", attempt))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(expectedMessage);
   }
@@ -31,4 +47,3 @@ class ValidationTest extends NsTest {
     Application.main(new String[]{});
   }
 }
-
