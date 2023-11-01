@@ -3,8 +3,8 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Round;
-import racingcar.repository.CarAdmin;
-import racingcar.view.outputView;
+import racingcar.repository.CarManager;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +12,20 @@ import java.util.List;
 public class Game {
     private static final int START_NUMBER = 0;
     private static final int END_NUMBER = 9;
+    private static final int MOVE_FORWARD_STEP = 1;
     private static final int LIMIT_MOVE_MIN = 4;
     private int maxDistance = 0;
-    private final CarAdmin carAdmin;
+    private final CarManager carManager;
     private final Round round;
 
-    public Game(CarAdmin carAdmin, Round round) {
-        this.carAdmin = carAdmin;
+    public Game(CarManager carManager, Round round) {
+        this.carManager = carManager;
         this.round = round;
     }
 
-    public void roundProcess(){
-        while (round.checkGameEndState()){
-            movePosition();
+    public void start(){
+        while (round.isGameInProgress()){
+            playRound();
             System.out.println();
             round.riseRound();
         }
@@ -32,12 +33,12 @@ public class Game {
     }
 
     private void printGameWinners(){
-        outputView.printGameWinners(getWinners());
+        OutputView.printGameWinners(getWinners());
     }
     private List<String> getWinners() {
         List<String> winners = new ArrayList<>();
 
-        for (Car car : carAdmin.getCars()) {
+        for (Car car : carManager.getCars()) {
             updateWinners(car, winners);
         }
         return winners;
@@ -51,18 +52,18 @@ public class Game {
             winners.add(car.getCarName());
         }
     }
-    private void printRoundProcess(String car, int pos){
-        outputView.printGameResult(car, pos);
+    private void printRoundProcess(String car, int position){
+        OutputView.printGameResult(car, position);
     }
-    private void movePosition(){
-        for (Car car : carAdmin.getCars()) {
-            checkLimitMin(car);
+    private void playRound(){
+        for (Car car : carManager.getCars()) {
+            moveCar(car);
             printRoundProcess(car.getCarName(), car.getPosition());
         }
     }
-    private void checkLimitMin(Car car){
+    private void moveCar(Car car){
         if(getRandomNumber() >= LIMIT_MOVE_MIN){
-            car.addDistance(1);
+            car.increasePosition(MOVE_FORWARD_STEP);
         }
     }
     private int getRandomNumber(){

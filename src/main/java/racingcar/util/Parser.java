@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Parser {
     private static final int CAR_NAME_LENGTH_MAX = 5;
-    private static final String space = " ";
+    private static final String SPACE = " ";
 
     public int changeStringToInteger(String str) throws IllegalArgumentException{
         checkEmptyException(str);
@@ -43,7 +43,7 @@ public class Parser {
         }
     }
     private void checkSpaceException(String str) throws IllegalArgumentException{
-        if(str.contains(space)){
+        if(str.contains(SPACE)){
             throw new IllegalArgumentException("공백없이 입력하세요.");
         }
     }

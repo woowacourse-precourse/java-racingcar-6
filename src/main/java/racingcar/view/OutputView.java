@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 
-public class outputView {
+public class OutputView {
     public static void printTitle(){
         System.out.println("\n실행 결과");
     }
@@ -25,7 +25,7 @@ public class outputView {
         }
     }
     private static void printCarName(String carName){
-        System.out.print(carName + " : ");
+        System.out.printf("%s : ", carName);
     }
     private static void printRoundResult(int pos){
         for(int i=0; i < pos; i++){

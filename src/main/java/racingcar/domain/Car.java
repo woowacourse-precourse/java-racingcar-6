@@ -7,8 +7,8 @@ public class Car {
     public Car(String name){
         this.name = name;
     }
-    public void addDistance(int pos){
-        this.position += pos;
+    public void increasePosition(int distance){
+        this.position += distance;
     }
     public String getCarName(){
         return name;

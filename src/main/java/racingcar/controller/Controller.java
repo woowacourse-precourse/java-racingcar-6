@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.view.InputView;
-import racingcar.view.outputView;
-import racingcar.repository.CarAdmin;
+import racingcar.view.OutputView;
+import racingcar.repository.CarManager;
 import racingcar.util.Parser;
 import racingcar.domain.Car;
 import racingcar.domain.Round;
@@ -13,25 +13,25 @@ import java.util.List;
 
 public class Controller {
     private final Parser parser = new Parser();
-    private final CarAdmin carAdmin = new CarAdmin();
+    private final CarManager carManager = new CarManager();
     private Round round;
 
     public void run(){
         createCars(inputCarNames());
         setRound();
-        outputView.printTitle();
-        setGameClass();
+        OutputView.printTitle();
+        startGame();
     }
-    private void setGameClass(){
-        Game game = new Game(carAdmin, round);
-        game.roundProcess();
+    private void startGame(){
+        Game game = new Game(carManager, round);
+        game.start();
     }
     private void setRound() {
         round = new Round(inputRacingRound()); //라운드 생성
     }
     private void createCars(List<String> carNames) {
         for (String carName : carNames) {
-            carAdmin.createCar(new Car(carName)); //자동차별 객체 생성
+            carManager.createCar(new Car(carName)); //자동차별 객체 생성
         }
     }
     private List<String> inputCarNames(){
