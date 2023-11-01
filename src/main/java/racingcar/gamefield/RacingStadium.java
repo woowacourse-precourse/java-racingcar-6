@@ -48,7 +48,7 @@ public class RacingStadium {
     }
 
     private void tryGoForward(Car car) {
-        if (numberComparator.isNumberOverWinNumber(WIN_NUMBER_AT_LEAST)) {
+        if (numberComparator.isNumberOverWinNumber()) {
             car.goForward();
             displayBoard.updateCurrentCarPosition(car);
         }

@@ -1,5 +1,7 @@
 package racingcar.assist;
 
+import static racingcar.system.SystemConstant.WIN_NUMBER_AT_LEAST;
+
 public class NumberComparator {
 
     private RandomNumberGenerator randomNumberGenerator;
@@ -8,8 +10,8 @@ public class NumberComparator {
         randomNumberGenerator = new RandomNumberGenerator();
     }
 
-    public boolean isNumberOverWinNumber(int winNumber){
+    public boolean isNumberOverWinNumber(){
         int carTrialRandomNumber = randomNumberGenerator.generateRandomIntNumberInRange();
-        return carTrialRandomNumber >= winNumber;
+        return carTrialRandomNumber >= WIN_NUMBER_AT_LEAST;
     }
 }
