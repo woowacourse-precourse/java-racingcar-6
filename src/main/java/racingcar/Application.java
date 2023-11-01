@@ -14,10 +14,13 @@ public class Application {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+$");
 
     public static void main(String[] args) {
-        List<String> car = inputCarNames();
-        int tryCount = inputTryCount();
         List<Integer> position = new ArrayList<>();
+        List<String> winners = new ArrayList<>();
+        List<String> car = inputCarNames();
+
+        int tryCount = inputTryCount();
         int maxPosition;
+
 
         validatePositiveTryCount(tryCount);
 
@@ -27,8 +30,11 @@ public class Application {
 
         getResult(car, tryCount, position);
 
-        List<String> winners = new ArrayList<>();
-        maxPosition = position.stream().mapToInt(v -> v).max().orElseThrow();
+        maxPosition = position.stream()
+                .mapToInt(value -> value)
+                .max()
+                .orElseThrow();
+
         for (int i = 0; i < car.size(); i++) {
             if (position.get(i) == maxPosition) {
                 winners.add(car.get(i));
@@ -50,9 +56,7 @@ public class Application {
 
         List<String> carNames = toList(input);
 
-        validateNamePattern(carNames);
-        validateNameLength(carNames);
-        validateNoDuplicate(carNames);
+        validateCarNames(carNames);
 
         return carNames;
     }
@@ -115,6 +119,12 @@ public class Application {
         if (input.contains(" ")) {
             throw new IllegalArgumentException("공백은 허용되지 않습니다.");
         }
+    }
+
+    private static void validateCarNames(List<String> carNames) {
+        validateNamePattern(carNames);
+        validateNameLength(carNames);
+        validateNoDuplicate(carNames);
     }
 
     private static void validateNameLength(List<String> carNames) {
