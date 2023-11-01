@@ -1,6 +1,6 @@
 package racingcar.utils;
 
-public class ValidateUtil {
+public class ValidationUtil {
 
     public void validateCarName(String carName) {
         if (carName.length() > 5) {
