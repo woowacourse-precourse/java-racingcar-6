@@ -25,7 +25,18 @@ public class PrintManager {
         System.out.println();
     }
 
-    public static void printFinalResult() {
-        //TODO 게임 결과 출력
+    public static void printSeparateStage() {
+        System.out.println();
     }
+
+    public static void printFinalResult(List<Car> winnerList) {
+        System.out.print(MessageEnum.FINAL_WINNER.getMessage());
+        for(int i = 0 ; i < winnerList.size() -1; i++) {
+            System.out.print(winnerList.get(i).getName() + ", ");
+        }
+        System.out.println(winnerList.get(winnerList.size() -1).getName());
+
+    }
+
+
 }
