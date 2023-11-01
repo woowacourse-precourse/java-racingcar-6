@@ -31,6 +31,62 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차이름_공백_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_첫문자쉼표_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",test1", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_마지막문자쉼표_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("test1,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_연속쉼표_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("test1,,test2", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_중복_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("test1,test1", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_하나_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("test1", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차이름_5자리초과_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("test123456", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 라운드수_숫자아닌경우_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("test1,test2", "text"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
