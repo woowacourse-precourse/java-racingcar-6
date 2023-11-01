@@ -20,6 +20,17 @@ public class StartCondition {
     }
 
     public int inputAttemptNumber() {
-        return 0;
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        checkAttemptNumber(input);
+        return Integer.parseInt(input);
+    }
+
+    private void checkAttemptNumber(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
