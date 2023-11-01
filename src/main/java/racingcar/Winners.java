@@ -6,7 +6,7 @@ public class Winners {
 
     private final List<RaceScore> highScores;
 
-    public Winners(final List<RaceScore> highScores) {
+    private Winners(final List<RaceScore> highScores) {
         this.highScores = highScores;
     }
 
