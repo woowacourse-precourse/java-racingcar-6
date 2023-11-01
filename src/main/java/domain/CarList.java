@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class CarList {
     private final ArrayList<Car> cars= new ArrayList<>();
 
-    public CarList(ArrayList<String> cars)
+    public CarList(String [] cars)
     {
         for (String car: cars){
             this.cars.add(new Car(car));
@@ -26,6 +26,7 @@ public class CarList {
     public HashMap<String, Integer> getTurnPositions() {
         HashMap<String, Integer> turnResult = new HashMap<>();
         for(Car car : cars){
+            car.go();
             turnResult.put(car.getName(), car.getPosition());
         }
         return turnResult;

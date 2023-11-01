@@ -7,11 +7,11 @@ import domain.Car;
 
 public class OutputCars {
 
-    public static void printTurnResult(HashMap<String, String> TurnResult)
+    public static void printTurnResult(HashMap<String, Integer> TurnResult)
     {
-        for(Map.Entry<String, String> entry : TurnResult.entrySet())
+        for(Map.Entry<String, Integer> entry : TurnResult.entrySet())
         {
-            System.out.printf("%s : %s%n", entry.getKey(), entry.getValue());
+            System.out.printf("%s : %s%n", entry.getKey(), printPosition(entry.getValue()));
         }
         System.out.println();
 
