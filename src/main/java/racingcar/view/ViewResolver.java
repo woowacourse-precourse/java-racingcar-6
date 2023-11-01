@@ -5,17 +5,19 @@ import static racingcar.constant.Constant.ENTER;
 import static racingcar.constant.Constant.MINUS_SIGN;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.dto.RacingCarDto;
 
 public class ViewResolver {
 
     public String singleGameResult(List<RacingCarDto> singleGameResult) {
-        StringBuilder resolvedGameResult = new StringBuilder();
-        singleGameResult.forEach(result -> {
-            resolvedGameResult.append(result.getCarName()).append(COLON);
-            resolvedGameResult.append(MINUS_SIGN.repeat(Math.max(0, result.getPosition()))).append(ENTER);
-        });
-        return resolvedGameResult.toString();
+        return singleGameResult.stream()
+                .map(this::singleGameResultFormat).collect(Collectors.joining());
+    }
+
+    private String singleGameResultFormat(RacingCarDto result) {
+        return result.getCarName() + COLON + MINUS_SIGN.repeat(Math.max(0, result.getPosition()))
+                + ENTER;
     }
 
     public List<String> winners(List<RacingCarDto> racingCarDtos) {
