@@ -11,11 +11,9 @@ public class Cars {
     public Cars(final List<CarName> carNames) {
         CarNamesValidator.validateCarNames(carNames);
 
-        List<Car> carList = carNames.stream()
+        this.carList = carNames.stream()
                 .map(Car::new)
                 .toList();
-
-        this.carList = carList;
     }
 
     public void updatePosition() {

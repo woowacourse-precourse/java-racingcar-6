@@ -37,8 +37,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinners(List<String> winnerNames) {
-        String result = winnerNames.stream()
+    public void printWinners(List<String> winners) {
+        String result = winners.stream()
                 .collect(Collectors.joining(COMMA_SEPARATOR));
 
         System.out.print(WINNER_INFO_MESSAGE + SEPARATOR_COLON + result);
