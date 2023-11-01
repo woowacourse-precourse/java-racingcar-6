@@ -1,6 +1,6 @@
-package racingcar.Model;
+package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.View.RacingGameView;
+import racingcar.view.RacingGameView;
 
 import java.util.List;
 import java.util.stream.Collectors;

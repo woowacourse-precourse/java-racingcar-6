@@ -1,9 +1,9 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import java.util.List;
 
-import racingcar.Model.RacingGame;
-import racingcar.View.RacingGameView;
+import racingcar.model.RacingGame;
+import racingcar.view.RacingGameView;
 
 public class Application {
     public static void main(String[] args) {
