@@ -48,4 +48,21 @@ class RaceTest {
         assertFalse(r1.isFinished());
         assertTrue(r2.isFinished());
     }
+
+    @Test
+    void next_테스트() {
+        Car c1 = new Car(new Name("a"));
+        Car c2 = new Car(new Name("b"));
+        Entry entry = new Entry();
+        entry.join(c1);
+        entry.join(c2);
+        Race race = new Race(new Round(3), entry);
+
+        race.next();
+        assertFalse(race.isFinished());
+        race.next();
+        assertFalse(race.isFinished());
+        race.next();
+        assertTrue(race.isFinished());
+    }
 }
