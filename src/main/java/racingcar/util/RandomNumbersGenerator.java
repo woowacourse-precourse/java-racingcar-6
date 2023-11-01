@@ -13,8 +13,8 @@ public class RandomNumbersGenerator {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
             if (randomNumber >= RacingConstant.FORWARD_NUMBER.getValue()) {
                 car.goToPosition();
-                }
             }
         }
     }
+}
 
