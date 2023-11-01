@@ -7,7 +7,7 @@ public class Trial {
         for (int i = 0; i < distanceOfCars.size(); i++) {
             int distance = distanceOfCars.get(i);
             if (Referee.checkMoveForward()) {
-                distanceOfCars.set(i, distance+1);
+                distanceOfCars.set(i, distance + 1);
             }
         }
         return distanceOfCars;
