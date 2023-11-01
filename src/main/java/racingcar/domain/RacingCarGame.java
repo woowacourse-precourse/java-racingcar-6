@@ -12,7 +12,6 @@ public class RacingCarGame {
 	private static final String DELIMITER = ",";
 	private static final int MAX_NUMBER = 9;
 	private int numberOfAttempts;
-	private int numberOfCars;
 	private List<Car> cars;
 
 	private static List<Car> getCarsFromInputString() {
@@ -90,5 +89,17 @@ public class RacingCarGame {
 			System.out.printf(", %s", winners.get(i));
 		}
 		System.out.println();
+	}
+
+	public void startGame() {
+		cars = getCarsFromInputString();
+		numberOfAttempts = getNumberOfAttemptsFromInputString();
+		for (int i = 0; i < numberOfAttempts; i++) {
+			for (Car car : cars) {
+				attemptMove(car);
+			}
+			printCurrentState();
+		}
+		printWinners();
 	}
 }
