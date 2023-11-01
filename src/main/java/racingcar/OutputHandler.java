@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class OutputHandler {
@@ -13,10 +14,13 @@ public class OutputHandler {
 
     public static void printFinalResult(List<String> nameList) {
         System.out.print(Constants.FINAL_WINNER_MESSAGE);
-        for (int index = 0; index < nameList.size(); index++) {
-            System.out.print(nameList.get(index));
-            if (index + 1 < nameList.size()) {
-                System.out.print(", ");
+        Iterator<String> iterator = nameList.iterator();
+
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            System.out.print(element);
+            if (iterator.hasNext()) {
+                System.out.print(Constants.COMMA+Constants.BLANK);
             }
         }
         System.out.println();
