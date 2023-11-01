@@ -3,6 +3,13 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
+    public static void printGame(Car[] c) {
+		for(int i = 0; i < c.length; i++) {
+			c[i].addAdvance();
+			c[i].printAdvance();
+		}
+		System.out.println();
+	}
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String str = Console.readLine();
@@ -20,9 +27,7 @@ public class Application {
 		System.out.println("실행 결과");
 		
 		for(int i = 0; i < Integer.parseInt(tryNum); i++) {
-			//매 경주 시도마다 Car의 name, advance 출력
-
-			System.out.println();
+			printGame(car);
 		}
     }
 }
