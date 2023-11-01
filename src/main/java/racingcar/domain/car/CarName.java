@@ -1,9 +1,7 @@
 package racingcar.domain.car;
 
-import java.util.List;
 import java.util.Objects;
 import racingcar.util.Err;
-import racingcar.util.StringUtils;
 
 public class CarName {
     private static final int CAR_NAME_MAX_LENGTH = 5;
@@ -21,21 +19,11 @@ public class CarName {
     private void validateCarNameLength(String name) {
         validateCarNameMinLength(name);
         validateCarNameMaxLength(name);
-        validateUniqueCarCount(name);
     }
 
     private void validateCarNameMinLength(String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(Err.INVALID_CAR_NAME_MIN_LENGTH.getMessage());
-        }
-    }
-
-    private void validateUniqueCarCount(String name) {
-        List<String> carNames = StringUtils.splitStringToList(name);
-        int uniqueCarNameCount = (int) carNames.stream().distinct().count();
-
-        if (uniqueCarNameCount != carNames.size()) {
-            throw new IllegalArgumentException(Err.INSUFFICIENT_CAR_COUNT.getMessage());
         }
     }
 
