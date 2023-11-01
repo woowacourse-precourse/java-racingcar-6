@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.exception.InsufficientCarCountException;
 import racingcar.exception.InsufficientRaceCountException;
 
@@ -39,9 +38,9 @@ public class Game {
     }
 
     public GameResult play() {
-        IntStream.rangeClosed(1, raceCount)
-                .peek(i -> this.race())
-                .forEach(i -> currentRace++);
+        for (; currentRace <= raceCount; currentRace++) {
+            race();
+        }
 
         List<CarSnapshot> winners = determineWinners();
         return new GameResult(history, winners);
