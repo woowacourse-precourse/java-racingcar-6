@@ -31,4 +31,28 @@ class RoundTest {
         assertFalse(r1.decreaseByOne());
         assertTrue(r2.decreaseByOne());
     }
+
+    @Test
+    void Round_equals_테스트() {
+        Round r1 = new Round(0);
+        Round r2 = new Round(0);
+        Round r3 = new Round(0);
+        Round r4 = new Round(0);
+
+        // 반사성
+        assertTrue(r1.equals(r1));
+
+        // 대칭성
+        if (r1.equals(r2)) {
+            assertTrue(r2.equals(r1));
+        }
+
+        // 추이성
+        if (r1.equals(r2) && r2.equals(r3)) {
+            assertTrue(r1.equals(r3));
+        }
+
+        // 널
+        assertNotEquals(null, r1);
+    }
 }
