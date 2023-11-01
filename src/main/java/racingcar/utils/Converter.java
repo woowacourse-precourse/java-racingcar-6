@@ -7,8 +7,10 @@ import racingcar.domain.Car;
 
 public class Converter {
 
+    private static final String DELIMITER = ",";
+
     public static List<String> convertStringToList(String carNames) {
-        return Arrays.stream(carNames.split(","))
+        return Arrays.stream(carNames.split(DELIMITER))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
