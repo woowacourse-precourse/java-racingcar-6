@@ -16,8 +16,8 @@ public class CarTest {
     }
 
     @Test
-    void 자동차이름_숫자_포함_경우(){
-        String carNumeric= "자동차1";
+    void 자동차이름_숫자_포함_경우() {
+        String carNumeric = "자동차1";
 
         assertThatThrownBy(() -> new Car(carNumeric))
                 .isInstanceOf(IllegalArgumentException.class)

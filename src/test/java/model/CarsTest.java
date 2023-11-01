@@ -12,7 +12,7 @@ import racingcar.model.Cars;
 
 public class CarsTest {
     @Test
-    void 자동차이름_중복(){
+    void 자동차이름_중복() {
         List<Car> cars = new ArrayList<>();
         Car test = new Car("test");
         Car duplicated = new Car("test");
@@ -26,7 +26,7 @@ public class CarsTest {
     }
 
     @Test
-    void 자동차_하나만_입력_경우(){
+    void 자동차_하나만_입력_경우() {
         List<Car> cars = new ArrayList<>();
         Car car = new Car("test");
 

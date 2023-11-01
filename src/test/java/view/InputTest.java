@@ -52,7 +52,7 @@ public class InputTest {
     }
 
     @Test
-    void 자동차이름_마지막_쉼표_경우(){
+    void 자동차이름_마지막_쉼표_경우() {
         String comma = "test,test1,";
 
         assertThatThrownBy(() -> Validate.lastCharIsComma(comma))
@@ -61,7 +61,7 @@ public class InputTest {
     }
 
     @Test
-    void 구분자_쉼표_아닌_경우(){
+    void 구분자_쉼표_아닌_경우() {
         String delimiterNonComma = "김.정민.테스트";
 
         assertThatThrownBy(() -> Validate.inputStringNotContainsComma(delimiterNonComma))

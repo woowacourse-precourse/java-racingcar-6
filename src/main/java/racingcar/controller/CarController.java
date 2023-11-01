@@ -41,8 +41,7 @@ public class CarController {
             String winner = getWinner(cars);
 
             output.winners(winner);
-        }
-        finally {
+        } finally {
             Console.close();
         }
     }
@@ -74,7 +73,7 @@ public class CarController {
     private Cars listToCarModel(List<String> carList) {
         List<Car> cars = new ArrayList<>();
 
-        for(String name: carList) {
+        for (String name : carList) {
             cars.add(new Car(name));
         }
 
@@ -83,7 +82,7 @@ public class CarController {
 
     // 시도횟수 console 출력 및 유효성 검사
     private String inputForForwardAndReturnStringType() {
-        String attemptsForward  = input.promptForAttempts();
+        String attemptsForward = input.promptForAttempts();
 
         Validate.inputIsNull(attemptsForward);
 

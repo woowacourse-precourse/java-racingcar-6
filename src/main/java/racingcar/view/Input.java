@@ -5,7 +5,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.NoSuchElementException;
 
 public class Input {
-    public Input() {}
+    public Input() {
+    }
+
     public String promptForCarNames() {
         String cars;
 
@@ -13,7 +15,7 @@ public class Input {
 
         try {
             cars = Console.readLine();
-        } catch(NoSuchElementException exception) {
+        } catch (NoSuchElementException exception) {
             throw new IllegalArgumentException("자동차 이름을 입력하세요.");
         }
 
@@ -27,7 +29,7 @@ public class Input {
 
         try {
             move = Console.readLine();
-        } catch(NoSuchElementException exception) {
+        } catch (NoSuchElementException exception) {
             throw new IllegalArgumentException("시도할 횟수를 입력하세요");
         }
 

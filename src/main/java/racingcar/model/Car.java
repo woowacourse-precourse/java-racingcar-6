@@ -17,11 +17,11 @@ public class Car {
         this.position = 0;
     }
 
-    public String getMember(){
+    public String getMember() {
         return this.member;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
