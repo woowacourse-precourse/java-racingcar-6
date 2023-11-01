@@ -1,8 +1,9 @@
 package racingcar;
 
-import racingcar.cotroller.Race;
-import racingcar.cotroller.SetRace;
+import racingcar.controller.Race;
+import racingcar.controller.SetRace;
 import racingcar.model.Car;
+
 import java.util.List;
 
 public class Application {
