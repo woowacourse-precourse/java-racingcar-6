@@ -1,11 +1,13 @@
 package racingcar.service;
 
+import java.util.List;
 import racingcar.domain.AttemptCounts;
 import racingcar.domain.CarEngine;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingGame;
 import racingcar.dto.RacingResultDto;
 import racingcar.dto.RacingRoundResultDto;
+import racingcar.dto.UserAttemptCountsDto;
 import racingcar.dto.UserCarNameDto;
 
 public class RacingCarService {
@@ -16,8 +18,11 @@ public class RacingCarService {
         this.carEngine = carEngine;
     }
 
-    public void initializeRacingGame(UserCarNameDto userCarNameDto, String attemptCounts) {
-        this.racingGame = RacingGame.of(Cars.from(userCarNameDto, this.carEngine), AttemptCounts.from(attemptCounts));
+    public void initializeRacingGame(UserCarNameDto userCarNameDto, UserAttemptCountsDto userAttemptCountsDto) {
+        List<String> inputCarNames = userCarNameDto.carNames();
+        String inputAttemptCounts = userAttemptCountsDto.attemptCounts();
+        this.racingGame = RacingGame.of(Cars.from(inputCarNames, this.carEngine),
+                AttemptCounts.from(inputAttemptCounts));
     }
 
     public RacingRoundResultDto race() {
