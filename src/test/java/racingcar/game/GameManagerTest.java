@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.*;
 import static racingcar.game.constant.CarExceptionMessage.*;
 import static racingcar.game.constant.RoundExceptionMessage.*;
 
@@ -43,14 +44,28 @@ class GameManagerTest {
         assertRoundExceptionCase("101", OUT_OF_RANGE);
     }
 
+    @Test
+    void 총_이동_횟수만큼_게임을_진행() {
+        manager.setCars("hwang,jung,seop");
+        manager.setRound("6");
+
+        int raceCount=0;
+        while (manager.isGameOngoing()) {
+            manager.raceOneRound();
+            raceCount++;
+        }
+
+        assertThat(raceCount).isEqualTo(6);
+    }
+
     private void assertCarExceptionCase(String carNames, String errorMessage) {
-        Assertions.assertThatThrownBy(() -> manager.setCars(carNames))
+        assertThatThrownBy(() -> manager.setCars(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(errorMessage);
     }
 
     private void assertRoundExceptionCase(String movingCount, String errorMessage) {
-        Assertions.assertThatThrownBy(() -> manager.setRound(movingCount))
+        assertThatThrownBy(() -> manager.setRound(movingCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(errorMessage);
     }
