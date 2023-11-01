@@ -37,12 +37,9 @@ public class Util {
     }
 
     public static List<CarDto> carsToCarDtos(List<Car> cars) {
-        List<CarDto> carDtos = new ArrayList<>();
-        for (Car car : cars) {
-            CarDto carDto = Util.carToCarDto(car);
-            carDtos.add(carDto);
-        }
-        return carDtos;
+        return cars.stream()
+                .map(Util::carToCarDto)
+                .collect(Collectors.toList());
     }
 
     private Util() {

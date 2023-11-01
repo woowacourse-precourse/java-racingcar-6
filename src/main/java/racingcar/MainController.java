@@ -19,12 +19,15 @@ public class MainController {
     public void playGame() {
         outputView.printResultMessage();
         do {
-            RoundResult roundResult = game.race();
-            outputView.printRoundResult(roundResult);
-            trialNumber.subtractOne();
+            playSingleTrial();
         } while (!trialNumber.isZero());
 
-        List<CarDto> winners = game.getWinners();
-        outputView.printWinners(winners);
+        outputView.printWinners(game.getWinners());
+    }
+
+    private void playSingleTrial() {
+        RoundResult roundResult = game.race();
+        outputView.printRoundResult(roundResult);
+        trialNumber.subtractOne();
     }
 }
