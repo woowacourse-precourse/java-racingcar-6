@@ -26,4 +26,15 @@ public class OutputView {
         System.out.println();
     }
 
+
+    public static void printWinner(List<Car> WinnerList) {
+
+        System.out.print("최종 우승자 : ");
+
+        for (Car car : WinnerList) {
+            System.out.print(car.getName() + ", ");
+        }
+
+        System.out.println();
+    }
 }
