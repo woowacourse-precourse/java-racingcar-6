@@ -14,6 +14,6 @@ public class Message {
     }
 
     public static void printWinnerMessage() {
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
     }
 }
