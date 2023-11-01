@@ -25,13 +25,13 @@ class OutputViewTest {
     }
 
     @Test
-    void printResult() {
+    void 실행_결과_메세지_출력() {
         OutputView.printResult();
         assertEquals("\n실행 결과\n", outputStreamCaptor.toString());
     }
 
     @Test
-    void printGameResult() {
+    void 단일_레이스_결과_출력() {
         CarModel[] testCars = new CarModel[2];
 
         testCars[0] = new CarModel("pobi");
@@ -46,7 +46,7 @@ class OutputViewTest {
     }
 
     @Test
-    void printWinners() {
+    void 우승자_출력() {
         String[] winnerTestCase1 = {"pobi", "woni"};
 
         OutputView.printWinners(winnerTestCase1);
