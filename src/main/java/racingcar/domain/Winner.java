@@ -15,7 +15,4 @@ public class Winner {
         return name;
     }
 
-    public int getScore() {
-        return score;
-    }
 }
