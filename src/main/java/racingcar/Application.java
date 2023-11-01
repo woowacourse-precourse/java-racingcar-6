@@ -11,6 +11,14 @@ public class Application {
         }
     }
 
+    private static int parseAttempts(String attemptsInput) {
+        try {
+            return Integer.parseInt(attemptsInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+        }
+    }
+
     private static void validateAttempts(int attempts) {
         if (attempts < 1) {
             throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
@@ -23,7 +31,8 @@ public class Application {
         validateCarNames(carNamesInput);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int attempts = scanner.nextInt();
-        validateAttempts(attempts);
+        String attemptsInput = scanner.nextLine();
+        int attempts = parseAttempts(attemptsInput); // 문자열을 숫자로 변환할 수 있는지 검증
+        validateAttempts(attempts); // 변환된 숫자를 검증
     }
 }
