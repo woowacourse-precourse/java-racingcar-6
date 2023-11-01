@@ -29,6 +29,7 @@ public class GameController {
     private void startGame() {
         createCars();
         int attempts = readAttemptsNumber();
+        startRacing(attempts);
     }
 
     private void createCars() {
@@ -43,6 +44,19 @@ public class GameController {
     private int readAttemptsNumber() {
         outputView.printAskAttemptsNumber();
         return inputView.inputAttemptsNumber();
+    }
+
+    private void startRacing(int attempts) {
+        while (attempts > 0) {
+            moveCars();
+            attempts--;
+        }
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
     }
 
     public void findWinner() {

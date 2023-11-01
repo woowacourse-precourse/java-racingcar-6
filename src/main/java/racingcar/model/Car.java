@@ -1,6 +1,9 @@
 package racingcar.model;
 
+import racingcar.utils.RandomNumberGenerator;
+
 public class Car {
+    private final static int MOVE_THRESHOLD = 4;
     private final String name;
     private int position;
 
@@ -22,5 +25,13 @@ public class Car {
     }
 
     public void move() {
+        if (canMove()) {
+            position++;
+        }
+    }
+
+    private boolean canMove() {
+        int randomNumber = RandomNumberGenerator.generateRandomNumber();
+        return randomNumber >= MOVE_THRESHOLD;
     }
 }
