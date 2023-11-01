@@ -1,7 +1,5 @@
 package racingcar.playcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -21,14 +19,14 @@ public class PlayCars {
     }
 
     public void input() {
-        try () {
+        try {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             this.cars = Arrays.asList(readLine().split(","));
         } catch (Exception e) {
             throw new IllegalArgumentException("경주할 자동차 목록 입력에 문제가 있습니다.");
         }
 
-        try () {
+        try {
             System.out.println("시도할 회수는 몇회인가요?");
             this.numberOfTry = Integer.parseInt(readLine());
         } catch (Exception e) {
@@ -39,18 +37,6 @@ public class PlayCars {
         this.carToDistance = this.cars.stream().collect(Collectors.toMap(car -> car, car -> 0));
     }
 
-    public void eachTry() {
-        for (String car : cars) {
-            if (runOrStop()) {
-                carToDistance.put(car, carToDistance.get(car) + 1);
-            }
-        }
-    }
-
-    private boolean runOrStop() {
-        return pickNumberInRange(0, 9) >= 4;
-    }
-
     public void getResult() {
         System.out.println("실행 결과");
         for (int i = 0; i < numberOfTry; i++) {
@@ -58,13 +44,12 @@ public class PlayCars {
         }
     }
 
-    private void eachCurrent() {
-        eachTry();
-
+    public void eachTry() {
         for (String car : cars) {
-            System.out.printf("%s : %s%n", car, "-".repeat(carToDistance.get(car)));
+            if (runOrStop()) {
+                carToDistance.put(car, carToDistance.get(car) + 1);
+            }
         }
-        System.out.println();
     }
 
     public void getWinner() {
@@ -76,5 +61,18 @@ public class PlayCars {
             }
         }
         System.out.printf("최종 우승자 : %s", String.join(", ", winners));
+    }
+
+    private boolean runOrStop() {
+        return pickNumberInRange(0, 9) >= 4;
+    }
+
+    private void eachCurrent() {
+        eachTry();
+
+        for (String car : cars) {
+            System.out.printf("%s : %s%n", car, "-".repeat(carToDistance.get(car)));
+        }
+        System.out.println();
     }
 }
