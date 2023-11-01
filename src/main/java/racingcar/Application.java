@@ -12,7 +12,7 @@ public class Application {
 
     private static final Pattern ALPHABET_AND_HANGUL_PATTERN = Pattern.compile("^[a-zA-Z가-힣]+$");
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+$");
-    private static final int MIN_MOVE_VALUE = 4;
+    private static final int MIN_VALUE_TO_MOVE_CAR = 4;
     private static final int NAME_MAX_LENGTH = 5;
 
     public static void main(String[] args) {
@@ -72,7 +72,7 @@ public class Application {
 
     private static boolean canMoveForward() {
         int forwardRandomValue = Randoms.pickNumberInRange(0, 9);
-        return forwardRandomValue >= MIN_MOVE_VALUE;
+        return forwardRandomValue >= MIN_VALUE_TO_MOVE_CAR;
     }
 
     private static void moveCars(List<String> cars, List<Integer> position) {
