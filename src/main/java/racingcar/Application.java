@@ -26,6 +26,7 @@ public class Application {
         int racingCarMoveNum = racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum);
 
         // 경주 진행
+        System.out.println("실행 결과");
         for (int i = 0; i < racingCarMoveNum; i++) {
             for (RacingCar racingCar : racingCarSet) {
                 int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
@@ -33,6 +34,7 @@ public class Application {
                 String moveResult = racingGamePlayManager.getMoveResult(racingCar);
                 System.out.println(moveResult);
             }
+            System.out.println();
         }
 
         // 경주 최종 우승자 발표
