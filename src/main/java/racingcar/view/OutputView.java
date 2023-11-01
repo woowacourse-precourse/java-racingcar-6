@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.dto.CarDto;
+
 import java.util.List;
 
 public class OutputView {
@@ -13,8 +15,8 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printProgress(String name, int position) {
-        System.out.println(name + SEPARATOR + PROGRESS_CHARACTER.repeat(position));
+    public static void printProgress(CarDto carDto) {
+        System.out.println(carDto.getName() + SEPARATOR + PROGRESS_CHARACTER.repeat(carDto.getPosition()));
     }
 
     public static void printLine() {

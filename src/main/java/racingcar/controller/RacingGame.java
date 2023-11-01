@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.GameAttemptCount;
+import racingcar.dto.CarDto;
 import racingcar.view.OutputView;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public class RacingGame {
 
     public void printAllProgress() {
         for (Car car : cars.getCars()) {
-            printProgress(car.getName(), car.getPosition());
+            printProgress(CarDto.from(car));
         }
         printLine();
     }
