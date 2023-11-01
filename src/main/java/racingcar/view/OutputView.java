@@ -21,7 +21,7 @@ public class OutputView {
         System.out.println(INPUT_GAME_TRY_COUNTS_MESSAGE);
     }
 
-    public static void printExecutionResultMessage() {
+    public void printExecutionResultMessage() {
         System.out.println();
         System.out.println(EXECUTION_RESULT_MESSAGE);
     }
@@ -43,7 +43,7 @@ public class OutputView {
         System.out.println(FINAL_WINNER_MESSAGE + joinCarNames(winnersNameResponse.getWinnersName()));
     }
 
-    private static String joinCarNames(List<String> carNames) {
+    private String joinCarNames(List<String> carNames) {
         return String.join(DELIMITER, carNames);
     }
 }

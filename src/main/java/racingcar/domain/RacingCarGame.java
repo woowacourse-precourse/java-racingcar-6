@@ -10,16 +10,18 @@ import racingcar.view.OutputView;
 import racingcar.util.CarFactory;
 
 public class RacingCarGame {
+    private static InputView inputView;
     private static OutputView outputView;
 
     public RacingCarGame() {
+        inputView = new InputView();
         outputView = new OutputView();
     }
 
     public void play() {
-        Cars cars = CarFactory.generate(InputView.inputCarNames());
-        TryCount tryCount = InputView.inputTryCount();
-        OutputView.printExecutionResultMessage();
+        Cars cars = CarFactory.generate(inputView.inputCarNames());
+        TryCount tryCount = inputView.inputTryCount();
+        outputView.printExecutionResultMessage();
 
         List<List<CarPositionResponse>> executionResults = new ArrayList<>();
 
