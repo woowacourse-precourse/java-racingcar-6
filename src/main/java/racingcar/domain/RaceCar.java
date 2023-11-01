@@ -5,7 +5,7 @@ public class RaceCar {
     private static final int START_CONDITION_NUM = 4;
     private static final int END_CONDITION_NUM = 9;
     private static final int INCREASE_ONE_COUNT = 1;
-    private String nameOfCar;
+    private String name;
     private Integer cntMovement;
     private StringBuilder moveStateStr;
 
@@ -14,7 +14,7 @@ public class RaceCar {
     }
 
     public RaceCar(String nameOfRaceCar) {
-        nameOfCar = nameOfRaceCar;
+        name = nameOfRaceCar;
         cntMovement = 0;
         moveStateStr = new StringBuilder();
     }
@@ -56,7 +56,7 @@ public class RaceCar {
      */
     @Override
     public String toString() {
-        return nameOfCar;
+        return name;
     }
 
     public String toStringMoveState() {
