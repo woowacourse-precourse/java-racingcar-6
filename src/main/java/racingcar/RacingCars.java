@@ -31,7 +31,7 @@ public class RacingCars {
         }
     }
 
-    public List<String> getWinners() {
+    public List<String> findWinners() {
         int maxDistance = 0;
         List<String> winners = new ArrayList<>();
 

@@ -17,6 +17,6 @@ public class Application {
             count--;
         }
 
-        outputView.printWinners(racingCars.getWinners());
+        outputView.printWinners(racingCars.findWinners());
     }
 }
