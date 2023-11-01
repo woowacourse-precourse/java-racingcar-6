@@ -11,7 +11,7 @@ public class RacingCars {
         String[] carNames = nameInput.split(",", -1);
 
         for (String carName : carNames) {
-            racingCars.add(new RacingCar(carName));
+            racingCars.add(new RacingCar(carName.trim()));
         }
     }
 
