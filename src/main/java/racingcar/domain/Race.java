@@ -35,9 +35,9 @@ public class Race {
         System.out.println(ROUND_RESULT_MESSAGE);
         for (int i = 0; i < numberOfRound.getNumberOfRound(); ++i) {
             roundStart();
-            Referee.announceRoundResult(cars.getCars());
+            Referee.announceRoundResult(cars);
         }
-        Referee.announceWinners(cars.getCars());
+        Referee.announceWinners(cars);
     }
 
     private void roundStart() {
