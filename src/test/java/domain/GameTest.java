@@ -10,7 +10,9 @@ import static org.mockito.Mockito.when;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.domain.Attempt;
@@ -21,6 +23,9 @@ import racingcar.domain.Umpire;
 
 public class GameTest extends NsTest {
     private static final int NOT_MOVE = 0;
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+    private final String[] names = new String[] {"pobi", "woni", "jun"};
 
     @Test
     void 자동차_이름을_쉼표로_구분하여_입력받기() {
@@ -53,23 +58,39 @@ public class GameTest extends NsTest {
     }
 
     @Test
+    void 먀먀() {
+        List<Car> cars = Arrays.stream(names)
+                .map(Car::new)
+                .collect(Collectors.toList());
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Umpire umpire = new Umpire(cars);
+                    String winnerResult = umpire.findWinner();
+
+                    assertEquals("pobi, woni", winnerResult);
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 우승자_찾기() {
-        List<Car> cars = new ArrayList<>();
-        cars.add(new Car("pobi"));
-        cars.add(new Car("woni"));
-        cars.add(new Car("jun"));
+        List<Car> cars = Arrays.stream(names)
+                .map(Car::new)
+                .collect(Collectors.toList());
 
-        Umpire umpire = new Umpire(cars);
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Umpire umpire = new Umpire(cars);
+                    Game game = new Game(cars, 1);
+                    game.play();
+                    String winnerResult = umpire.findWinner();
 
-        cars.get(0).move();
-        cars.get(1).move();
-        cars.get(2).move();
-        cars.get(0).move();
-        cars.get(1).move();
-
-        String winnerResult = umpire.findWinner();
-
-        assertEquals("pobi, woni", winnerResult);
+                    assertEquals("pobi, woni", winnerResult);
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
     }
 
     @Test
