@@ -28,4 +28,16 @@ public class Race {
     public boolean isFinished() {
         return roundLeft.equals(new Round(0));
     }
+
+    /**
+     * 경주의 한 라운드를 진행한다.
+     */
+    public void next() {
+        if (isFinished()) {
+            return;
+        }
+
+        entry.driveAll();
+        roundLeft.decreaseByOne();
+    }
 }
