@@ -40,7 +40,7 @@ public class RacingCarGameUtils {
     return randomList;
   }
 
-  public static StringJoiner joinStringWithComma(List<String> winnerList) {
+  public static StringJoiner joinStringWithComma(final List<String> winnerList) {
     StringJoiner joiner = new StringJoiner(", ");
     for (String index : winnerList) {
       joiner.add(index);

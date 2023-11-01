@@ -12,13 +12,13 @@ import racingcar.exception.RacingCarGameException;
 public class RacingCarNameValidator implements Validator<String> {
 
   @Override
-  public void validate(String data) {
+  public void validate(final String data) {
     validateNull(data);
     validateLength(data);
     validateElement(data);
   }
 
-  private void validateNull(String data) {
+  private void validateNull(final String data) {
     if (StringUtils.isBlank(data)) {
       Console.close();
       throw new RacingCarGameException(EMPTY_CAR_NAME);
