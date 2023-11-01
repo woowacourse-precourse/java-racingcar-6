@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,6 +18,10 @@ public class Cars {
         return cars;
     }
 
+    public void addCars(Car... carArray) {
+        cars.addAll(Arrays.asList(carArray));
+    }
+
     public void initializeCar(String carNamesInput) {
         List<String> carNames = ParserUtils.namesParser(carNamesInput);
 
@@ -27,7 +32,7 @@ public class Cars {
     private void addCarsFromNames(List<String> carNames) {
         for (String carName : carNames) {
             Car car = new Car(carName);
-            cars.add(car);
+            addCars(car);
         }
     }
 
