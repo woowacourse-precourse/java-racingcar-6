@@ -2,15 +2,12 @@ package racingcar.controller;
 
 
 import racingcar.domain.Cars;
-import racingcar.util.RandomNumber;
 import racingcar.domain.UserInputRoundNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class RacingGame {
     private Cars cars;
