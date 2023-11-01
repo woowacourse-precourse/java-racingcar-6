@@ -26,7 +26,7 @@ public class RacingCarGame {
 
     private void announceWinners(List<Car> cars) {
         Judge judge = new Judge(cars);
-        List<Car> winners = judge.decideWinner();
+        List<Car> winners = judge.decideWinners();
         outputView.printWinnersName(winners);
     }
 

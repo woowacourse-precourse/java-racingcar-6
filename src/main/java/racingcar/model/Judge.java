@@ -11,7 +11,7 @@ public class Judge {
         this.cars = cars;
     }
 
-    public List<Car> decideWinner() {
+    public List<Car> decideWinners() {
         return cars.stream()
                 .filter(car -> car.getPosition() == getMaxPosition())
                 .toList();

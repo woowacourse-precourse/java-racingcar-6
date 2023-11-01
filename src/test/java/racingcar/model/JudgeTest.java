@@ -29,7 +29,7 @@ class JudgeTest {
         car2.move();
 
         // When
-        List<Car> winners = judge.decideWinner();
+        List<Car> winners = judge.decideWinners();
 
         // Then
         assertThat(winners).hasSize(2);
@@ -44,7 +44,7 @@ class JudgeTest {
         car2.move();
 
         // When
-        List<Car> winners = judge.decideWinner();
+        List<Car> winners = judge.decideWinners();
 
         // Then
         assertThat(winners).hasSize(1);
