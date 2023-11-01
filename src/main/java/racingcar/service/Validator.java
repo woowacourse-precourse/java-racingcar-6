@@ -20,7 +20,7 @@ public class Validator {
                 && hasNotContainSpace(carList) && streamDuplicateCheck(carList);
     }
 
-    private static boolean isValidNameLength(String[] carList) {
+    public static boolean isValidNameLength(String[] carList) {
         for (String carName : carList) {
             if (carName.length() > MAX_NAME_LENGTH) {
                 OutputView.showError(OVER_MAX_NAME_LENGTH);
@@ -30,7 +30,7 @@ public class Validator {
         return true;
     }
 
-    private static boolean hasNotContainSpace(String[] carList) {
+    public static boolean hasNotContainSpace(String[] carList) {
         for (String carName : carList) {
             if (carName.equals("") || carName.contains(" ")) {
                 OutputView.showError(NAME_NULL_ERROR);
@@ -40,7 +40,7 @@ public class Validator {
         return true;
     }
 
-    private static boolean streamDuplicateCheck(String[] carList) {
+    public static boolean streamDuplicateCheck(String[] carList) {
         if (carList.length != Arrays.stream(carList).distinct().count()) {
             OutputView.showError(DUPLICATED_NAME_ERROR);
             return false;
@@ -48,7 +48,7 @@ public class Validator {
         return true;
     }
 
-    private static boolean isValidListLength(String[] carList) {
+    public static boolean isValidListLength(String[] carList) {
         if(carList.length <= MIN_CAR_LIST) {
             OutputView.showError(NOT_VALID_LIST_LENGTH);
             return false;
