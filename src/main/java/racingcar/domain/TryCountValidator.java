@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class TryCountValidator {
-    private final int tryCount;
+    public final int tryCount;
 
     public TryCountValidator(String input){
         tryCount = convertStringToInt(input);
