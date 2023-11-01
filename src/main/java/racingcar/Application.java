@@ -10,11 +10,5 @@ public class Application {
         Integer round = RoundNumberInput.roundNumInput();
         List<Car> cars = Cars.buildCar(carNames);
         GameStarter.gameIniter(cars, round);
-
-
-
-
-
-
     }
 }
