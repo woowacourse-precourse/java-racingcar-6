@@ -19,10 +19,10 @@ class CarTest {
     @Test
     void 자동차_정지() {
         // given
-        int number = 3;
+        boolean isMove = false;
 
         // when
-        car.move(number);
+        car.move(isMove);
 
         // then
         assertThat(car.getPosition()).isEqualTo(0);
@@ -31,10 +31,10 @@ class CarTest {
     @Test
     void 자동차_전진() {
         // given
-        int number = 4;
+        boolean isMove = true;
 
         // when
-        car.move(number);
+        car.move(isMove);
 
         // then
         assertThat(car.getPosition()).isEqualTo(1);

@@ -3,7 +3,6 @@ package racingcar.domain;
 public class Car {
 
     public static final int INIT_POSITION = 0;
-    private static final int MIN_MOVE_NUMBER = 4;
 
     private final CarName CarName;
     private int position;
@@ -13,10 +12,14 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
-    public void move(int number) {
-        if (number >= MIN_MOVE_NUMBER) {
-            position++;
+    public void move(boolean isMove) {
+        if (isMove) {
+            increasePosition();
         }
+    }
+
+    private int increasePosition() {
+        return position++;
     }
 
     public boolean isSamePosition(int position) {

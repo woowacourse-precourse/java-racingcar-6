@@ -9,16 +9,21 @@ import static racingcar.view.OutputView.printResult;
 import java.util.List;
 import racingcar.common.exception.CustomErrorException;
 import racingcar.common.response.ErrorCode;
+import racingcar.domain.condition.MoveCondition;
+import racingcar.domain.condition.RandomMoveCondition;
 import racingcar.dto.CarInfo;
 
 public class RacingGame {
 
     private final Cars cars;
     private final RaceCount raceCount;
+    private final MoveCondition condition;
+
 
     public RacingGame() {
         this.cars = createCars();
         this.raceCount = createRaceCount();
+        this.condition = new RandomMoveCondition();
     }
 
     public void run() {
@@ -29,7 +34,7 @@ public class RacingGame {
     private void playGame() {
         while (!raceCount.isEnd()) {
             raceCount.reduceCount();
-            cars.racing();
+            cars.racing(condition);
             printCarsStatus();
         }
     }
