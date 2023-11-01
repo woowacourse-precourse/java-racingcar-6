@@ -12,7 +12,12 @@ public class CarNameValidator {
         }
 
         List<String> carNames = splitByComma(carNamesInput);
-        
+
+        for (String carName : carNames) {
+            if (isInvalidCarName(carName)) {
+                throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
+            }
+        }
         return carNames;
     }
 
@@ -21,6 +26,10 @@ public class CarNameValidator {
                 .splitAsStream(input)
                 .map(String::trim)
                 .collect(Collectors.toList());
+    }
+
+    private static boolean isInvalidCarName(String carName) {
+        return carName.isEmpty() || carName.length() > 5;
     }
 
     private static boolean isNotSplitByComma(String carName) {
