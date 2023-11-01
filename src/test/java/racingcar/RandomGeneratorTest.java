@@ -1,10 +1,11 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.consts.GameConstant.MAX_NUMBER_RANDOM_RANGE;
+import static racingcar.consts.GameConstant.MIN_NUMBER_RANDOM_RANGE;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.consts.GameConstant;
 import racingcar.util.RandomGenerator;
 
 public class RandomGeneratorTest {
@@ -15,8 +16,8 @@ public class RandomGeneratorTest {
         int generatedNumber;
         for (int i = 0; i < 100; i++) {
             generatedNumber = RandomGenerator.generate();
-            assertThat(generatedNumber >= GameConstant.MIN_NUMBER_RANDOM_RANGE.get()
-                    && generatedNumber <= GameConstant.MAX_NUMBER_RANDOM_RANGE.get()).isTrue();
+            assertThat(generatedNumber >= MIN_NUMBER_RANDOM_RANGE.get()
+                    && generatedNumber <= MAX_NUMBER_RANDOM_RANGE.get()).isTrue();
         }
     }
 }

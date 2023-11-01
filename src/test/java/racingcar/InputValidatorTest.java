@@ -1,10 +1,13 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.consts.ErrorMessages.DUPLICATION_CAR_NAME_MESSAGE;
+import static racingcar.consts.ErrorMessages.WRONG_CAR_NAME_LENGTH_MESSAGE;
+import static racingcar.consts.ErrorMessages.WRONG_CAR_TYPES_MESSAGE;
+import static racingcar.consts.ErrorMessages.WRONG_NUMBER_OF_ATTEMPT_MESSAGE;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.consts.ErrorMessages;
 import racingcar.domain.InputValidator;
 
 public class InputValidatorTest {
@@ -17,7 +20,7 @@ public class InputValidatorTest {
 
         assertThatThrownBy(() -> inputValidator.validateCarNames(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.DUPLICATION_CAR_NAME_MESSAGE.get());
+                .hasMessageContaining(DUPLICATION_CAR_NAME_MESSAGE.get());
     }
 
     @Test
@@ -27,7 +30,7 @@ public class InputValidatorTest {
 
         assertThatThrownBy(() -> inputValidator.validateCarNames(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.WRONG_CAR_TYPES_MESSAGE.get());
+                .hasMessageContaining(WRONG_CAR_TYPES_MESSAGE.get());
     }
 
     @Test
@@ -38,10 +41,10 @@ public class InputValidatorTest {
 
         assertThatThrownBy(() -> inputValidator.validateCarNames(playerInput1))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.WRONG_CAR_NAME_LENGTH_MESSAGE.get());
+                .hasMessageContaining(WRONG_CAR_NAME_LENGTH_MESSAGE.get());
         assertThatThrownBy(() -> inputValidator.validateCarNames(playerInput2))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.WRONG_CAR_NAME_LENGTH_MESSAGE.get());
+                .hasMessageContaining(WRONG_CAR_NAME_LENGTH_MESSAGE.get());
     }
 
     @Test
@@ -52,10 +55,10 @@ public class InputValidatorTest {
 
         assertThatThrownBy(() -> inputValidator.validateNumberOfAttempt(playerInput1))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
+                .hasMessageContaining(WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
         assertThatThrownBy(() -> inputValidator.validateNumberOfAttempt(playerInput2))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
+                .hasMessageContaining(WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
     }
 
     @Test
@@ -65,6 +68,6 @@ public class InputValidatorTest {
 
         assertThatThrownBy(() -> inputValidator.validateNumberOfAttempt(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessages.WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
+                .hasMessageContaining(WRONG_NUMBER_OF_ATTEMPT_MESSAGE.get());
     }
 }
