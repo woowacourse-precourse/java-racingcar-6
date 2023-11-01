@@ -12,8 +12,10 @@ public class OutputView {
         for (Car car : carList) {
             System.out.println(car.getName()+" : "+"-".repeat(car.getPosition()));
         }
+        System.out.print("\n");
     }
-    public static void printWinner(){
-        System.out.print("최종 우승자 : ");
+
+    public static void printWinners(String name){
+        System.out.print("최종 우승자 : "+ name);
     }
 }
