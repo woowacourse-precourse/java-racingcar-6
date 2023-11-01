@@ -6,7 +6,7 @@ public class TotalRoundValidator implements Validator {
     @Override
     public void validate(String totalRound) {
         if (isBlank(totalRound) || isNotNumeric(totalRound)) {
-            throw new IllegalArgumentException(ValidatorConstant.TotalRoundErrorMessage);
+            throw new IllegalArgumentException(ValidatorConstant.TOTAL_ROUND_ERROR_MESSAGE);
         }
     }
 

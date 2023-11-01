@@ -20,7 +20,7 @@ public class CarValidatorTest {
     void testCarNameIsNullOrEmpty(String name) {
         IllegalArgumentException carNameError =
                 Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
-        assertThat(carNameError.getMessage()).isEqualTo(ValidatorConstant.carNameErrorMessage);
+        assertThat(carNameError.getMessage()).isEqualTo(ValidatorConstant.CAR_NAME_ERROR_MESSAGE);
     }
 
     @Test
@@ -30,6 +30,6 @@ public class CarValidatorTest {
 
         IllegalArgumentException carNameError =
                 Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
-        assertThat(carNameError.getMessage()).isEqualTo(ValidatorConstant.carNameErrorMessage);
+        assertThat(carNameError.getMessage()).isEqualTo(ValidatorConstant.CAR_NAME_ERROR_MESSAGE);
     }
 }

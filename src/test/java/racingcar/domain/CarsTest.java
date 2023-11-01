@@ -32,7 +32,7 @@ public class CarsTest {
     void testCarNamesContainsNameLengthOverThanMaxLength() {
         IllegalArgumentException carsNameError =
                 assertThrows(IllegalArgumentException.class, () -> new Cars("tiger,eagle,leopard"));
-        assertThat(carsNameError.getMessage()).isEqualTo(ValidatorConstant.carNameErrorMessage);
+        assertThat(carsNameError.getMessage()).isEqualTo(ValidatorConstant.CAR_NAME_ERROR_MESSAGE);
     }
 
     @Test

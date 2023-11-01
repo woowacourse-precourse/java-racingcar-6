@@ -19,6 +19,6 @@ public class TotalRoundValidatorTest {
     void testCarNameGreaterThanFive(String totalRound) {
         IllegalArgumentException totalRoundError =
                 Assertions.assertThrows(IllegalArgumentException.class, () -> totalRoundValidator.validate(totalRound));
-        assertThat(totalRoundError.getMessage()).isEqualTo(ValidatorConstant.TotalRoundErrorMessage);
+        assertThat(totalRoundError.getMessage()).isEqualTo(ValidatorConstant.TOTAL_ROUND_ERROR_MESSAGE);
     }
 }
