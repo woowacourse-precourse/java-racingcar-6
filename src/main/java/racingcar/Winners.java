@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Winners {
 
+	private static final String NULL_EXCEPTION = "참가 차량이 없습니다.";
+
 	private final List<Car> winners;
 	private final int maxPosition;
 
@@ -46,7 +48,7 @@ public class Winners {
 
 	private void validateCars(List<Car> cars) {
 		if (cars.isEmpty()) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(NULL_EXCEPTION);
 		}
 	}
 }
