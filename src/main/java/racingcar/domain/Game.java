@@ -13,13 +13,14 @@ public class Game {
         Validator validator = new Validator();
         reader = new Reader(validator);
         printer = new Printer();
-        player = new Player(reader);
+        player = new Player();
         referee = new Referee();
     }
 
     public void start() {
         printer.printStartMessage();
-        player.createCars();
+        List<String> names = reader.readNames();
+        player.createCars(names);
         printer.printCountMessage();
         readRaceCount();
         printer.printBlankLine();

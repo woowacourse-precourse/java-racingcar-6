@@ -8,15 +8,13 @@ class Player {
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 9;
     public static final int CAN_MOVE_NUMBER = 4;
-    private final Reader reader;
     private List<Car> cars;
 
-    Player(Reader reader) {
-        this.reader = reader;
+    Player() {
     }
 
-    void createCars() {
-        cars = reader.readNames().stream()
+    void createCars(List<String> names) {
+        cars = names.stream()
             .map(name -> new Car(name, 0))
             .toList();
     }
