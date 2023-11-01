@@ -15,11 +15,7 @@ public class InputView {
 
     static public int getTryNumber() {
         try {
-            String input = readLine();
-            if (!input.matches("\\d+")) {
-                throw new IllegalArgumentException("Invalid try number");
-            }
-            return Integer.parseInt(input);
+            return Integer.parseInt(readLine());
         } catch (Exception e) {
             throw new IllegalArgumentException("Invalid try number");
         }

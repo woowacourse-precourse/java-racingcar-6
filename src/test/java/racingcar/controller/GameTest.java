@@ -19,7 +19,7 @@ public class GameTest {
 
     @BeforeEach
     public void constructGame() {
-        cars = new ArrayList<Car>();
+        cars = new ArrayList<>();
         outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
     }
@@ -37,11 +37,6 @@ public class GameTest {
         game.init();
         assertThat(outputStreamCaptor.toString())
                 .isEqualTo("경주할 자동차 이름을 입력하세요.\n시도할 회수는 몇회인가요?\n\n");
-        try {
-            System.in.reset();
-        } catch (Exception e) {
-            System.out.println();
-        }
     }
 
     @Test
@@ -56,7 +51,7 @@ public class GameTest {
 
     @Test
     public void testGameResult() {
-        ArrayList<Car> cars = new ArrayList<Car>();
+        ArrayList<Car> cars = new ArrayList<>();
         cars.add(new Car("tobi", 2));
         cars.add(new Car("ksh", 1));
         game = new Game(cars, 2);
