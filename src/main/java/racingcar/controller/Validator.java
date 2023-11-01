@@ -9,4 +9,12 @@ public class Validator {
                 throw new IllegalArgumentException();
         }
     }
+
+    public static int validateInputAttemptNum(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

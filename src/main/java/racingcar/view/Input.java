@@ -7,4 +7,7 @@ public class Input {
         return Console.readLine();
     }
 
+    public static String inputAttemptNum() {
+        return Console.readLine();
+    }
 }
