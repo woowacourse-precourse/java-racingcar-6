@@ -1,5 +1,16 @@
 package view;
 
+/*
+ * 클래스 이름 : RacingcarModel
+ *
+ * 버전 정보 : Java 17
+ *
+ * 최종 수정날짜 : 2023-11-01
+ *
+ * 내용 : 상수를 관리하는 클래스
+ *
+ * 작성자 : 문재경
+ */
 public class Constant {
     // 게임 시작
     public static String START_GAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"; // 게임 시작 멘트

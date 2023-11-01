@@ -8,7 +8,17 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
+/*
+ * 클래스 이름 : RacingcarController
+ *
+ * 버전 정보 : Java 17
+ *
+ * 최종 수정날짜 : 2023-11-01
+ *
+ * 내용 : 사용자의 Input 값을 받고 이를 원하는 데이터로 처리하는 클래스
+ *
+ * 작성자 : 문재경
+ */
 
 public class RacingcarController {
     private  final RacingcarView racingcarView = new RacingcarView();

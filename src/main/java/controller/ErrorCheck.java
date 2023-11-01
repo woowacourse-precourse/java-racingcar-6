@@ -4,6 +4,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/*
+ * 클래스 이름 : ErrorCheck
+ *
+ * 버전 정보 : Java 17
+ *
+ * 최종 수정날짜 : 2023-11-01
+ *
+ * 내용 : 사용자의 Input 값의 오류를 처리하는 클래스
+ *
+ * 작성자 : 문재경
+ */
 public class ErrorCheck {
     private final String LENGTH_ERROR = "자동차 이름 입력 길이가 잘못됨";
     private final String NOT_NUMBER_ERROR  = "반복 횟수가 숫자가 아님.";

@@ -4,7 +4,17 @@ import static view.Constant.*;
 
 import java.util.List;
 
-
+/*
+ * 클래스 이름 : RacingcarView
+ *
+ * 버전 정보 : Java 17
+ *
+ * 최종 수정날짜 : 2023-11-01
+ *
+ * 내용 : 사용자가 보는 모든 보이는 부분을 관리하는 클래스
+ *
+ * 작성자 : 문재경
+ */
 public class RacingcarView {
     public static void requestCarNamesMessage(){
         System.out.println(START_GAME);

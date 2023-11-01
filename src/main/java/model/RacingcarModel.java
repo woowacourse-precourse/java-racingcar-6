@@ -6,7 +6,17 @@ import view.RacingcarView;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
+ * 클래스 이름 : RacingcarModel
+ *
+ * 버전 정보 : Java 17
+ *
+ * 최종 수정날짜 : 2023-11-01
+ *
+ * 내용 : 사용자의 Input 값에 따라 자동차 경주 알고리즘을 돌리는 클래스
+ *
+ * 작성자 : 문재경
+ */
 public class RacingcarModel {
     private  List<String> car_names;
     private  int repeat;
