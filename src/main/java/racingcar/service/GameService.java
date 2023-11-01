@@ -7,6 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameService {
+    private static final int CAR_NAME_MAX_NUMBER = 5;
+    private static final int MOVE_MIN_NUMBER = 4;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+
     public List<Car> createCars(String inputCarNames) {
         List<String> carNames = Arrays.stream(inputCarNames.split(",")).toList();
         List<Car> cars = carNames.stream()
@@ -18,7 +23,7 @@ public class GameService {
     }
 
     private boolean validateCarName(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > CAR_NAME_MAX_NUMBER) {
             throw new IllegalArgumentException("자동차의 이름이 5자를 초과합니다.");
         }
 
@@ -35,11 +40,11 @@ public class GameService {
     }
 
     private int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
     private boolean moveForwardOrNot(int number) {
-        return number >= 4;
+        return number >= MOVE_MIN_NUMBER;
     }
 
     public List<Car> getWinners(List<Car> cars) {
