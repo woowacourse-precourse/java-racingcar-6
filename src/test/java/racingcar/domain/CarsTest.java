@@ -13,14 +13,14 @@ public class CarsTest {
     @DisplayName("Cars 객체 생성 성공 케이스")
     void CARS_객체_생성_성공() {
         String names = "현대,기아,쉐보레";
-        assertThat(Cars.of(RacingCarGameUtil.splitName(names))).isInstanceOf(Cars.class);
+        assertThat(Cars.from(RacingCarGameUtil.splitName(names))).isInstanceOf(Cars.class);
     }
 
     @Test
     @DisplayName("Cars 객체 생성 실패 케이스")
     void CARS_객체_생성_실패() {
         String names = "현대,기아,쉐보레,이것은 자동차가 아닙니다.";
-        assertThatThrownBy(() -> Cars.of(RacingCarGameUtil.splitName(names)))
+        assertThatThrownBy(() -> Cars.from(RacingCarGameUtil.splitName(names)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("잘못된 입력 값 입니다.");
     }
