@@ -5,47 +5,28 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import racingcar.view.InputView;
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.OutView;
 
 public class GameService {
     private List<Car> cars = new ArrayList<>();
-    private int tryCount = 0;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int MIN_RANDOM_NUMBER = 0;
 
-    public void initGame() {
-        // 사용자에게 carNames를 입력받아 cars를 초기화
-        String rawInputStringCarNames = InputView.requestInputCarNames();
-        Set<String> carNames = convertInputToCarNameSet(rawInputStringCarNames);
+    public void initGame(Set<String> carNames) {
         for(String carName : carNames) {
             cars.add(new Car(carName));
         }
-
-        // 사용자에게 tryCount를 입력받아 tryCount를 초기화
-        String rawInputStringTryCount = InputView.requestInputTryCount();
-        tryCount = convertInputToTryCount(rawInputStringTryCount);
     }
 
     public void playGame() {
-        for(int i = 0; i < tryCount; i++) {
-            for(Car car : cars) {
-                int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-                car.move(randomNumber);
-            }
-
-            OutView.printMoveResult(cars);
+        for(Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            car.move(randomNumber);
         }
     }
 
-    public void endGame() {
-        List<Car> winners = getWinners();
-        OutView.printWinners(winners);
-    }
-
-    private Set<String> convertInputToCarNameSet(String rawInputString) {
+    public Set<String> convertInputCarNamesToSet(String rawInputString) {
         Set<String> carNameSet = new HashSet<>();
         String[] splitedInputString = rawInputString.split(",");
 
@@ -65,11 +46,11 @@ public class GameService {
         return carNameSet;
     }
 
-    private int convertInputToTryCount(String rawInputString){
+    public int convertInputTryCountToInt(String inputTryCount){
         int tryCount;
 
         try{
-            tryCount = Integer.parseInt(rawInputString);
+            tryCount = Integer.parseInt(inputTryCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도 횟수는 숫자만 입력 가능합니다.");
         }
@@ -81,7 +62,7 @@ public class GameService {
         return tryCount;
     }
 
-    private List<Car> getWinners(){
+    public List<Car> getWinners(){
         List<Car> winners = new ArrayList<>();
         int maxPosition = 0;
 
@@ -89,12 +70,17 @@ public class GameService {
             if(car.getPosition() > maxPosition){
                 maxPosition = car.getPosition();
                 winners.clear();
-                winners.add(car);
-            } else if(car.getPosition() == maxPosition){
+            }
+
+            if(car.getPosition() == maxPosition){
                 winners.add(car);
             }
         }
 
         return winners;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
