@@ -23,9 +23,10 @@
 |:--------------------------:|:---------------------------:|:--------------------------------:|
 |        startGame()         |    게임을 시작, 사용자에게 입력값을 받음    |               void               |
 |         runGame()          | 게임 단계별 진행<br/>중간 결과 밑 결과 출력 |               void               |
+| setPlayingCar(parsedInput) |        게임 시작시 차량을 세팅        |               void               |
 |    parsingInput(Input)     |        사용자의 입력값을 파싱         |          List\<String\>          |
 | validateInput(parsedInput) |       파싱된 데이터들의 유효성검사       |               void               |
 |                            |                             | 🚨 IllegalArgumentException 발생가능 |
-|    compareCarPosition()    |      어느 차가 가장 멀리있는지 확인      |           List\<int\>            |
+|    compareCarPosition()    |      어느 차가 가장 멀리있는지 확인      |               void               |
 
 
