@@ -15,7 +15,7 @@ public class GameUtils {
     }
 
     public int setTrialNumber() {
-        return Integer.parseInt(systemMessage.getTrialNumber());
+        return isTrialValid(systemMessage.getTrialNumber());
     }
 
     public List<Car> convertCarList(String[] carList) {
@@ -38,20 +38,20 @@ public class GameUtils {
         }
         StringBuilder winner = new StringBuilder();
         int max = countMax(cars);
-        for (int index = 0; index < cars.size(); index++) {
-            if (cars.get(index).getCount() == max) {
-                this.appendString(winner, cars, index);
+        for (Car car : cars) {
+            if (car.getCount() == max) {
+                this.appendString(winner, car);
             }
         }
         System.out.println("최종 우승자 : " + winner);
     }
 
-    private void appendString(StringBuilder winner, List<Car> cars, int index) {
+    private void appendString(StringBuilder winner, Car car) {
         if (!winner.isEmpty()) {
             winner.append(", ");
-            winner.append(cars.get(index).getName());
+            winner.append(car.getName());
         } else {
-            winner.append(cars.get(index).getName());
+            winner.append(car.getName());
         }
     }
 
@@ -81,5 +81,13 @@ public class GameUtils {
 
     private boolean isValid(String car) {
         return car.length() <= 5;
+    }
+
+    private int isTrialValid(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(Constants.TRIAL_ERROR);
+        }
     }
 }
