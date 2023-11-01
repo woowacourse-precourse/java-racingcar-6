@@ -1,22 +1,21 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.Constants;
 import racingcar.model.Car;
-import racingcar.model.RoundNumber;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.IntStream;
 
 public class Utils {
     public static List<String> toList(String carNames) {
-        return Arrays.asList(carNames.split("\\s*,\\s*", -1));
+        return Arrays.asList(carNames.split(Constants.DIVIDE_BY_COMMA, -1));
     }
 
     public static String convertDistanceToSymbol(int distance) {
         StringBuilder result = new StringBuilder();
-        IntStream.range(0, distance).forEach(i -> result.append("-"));
+        IntStream.range(0, distance).forEach(i -> result.append(Constants.DISTANCE_CHARACTER));
         return result.toString();
     }
 
@@ -25,7 +24,7 @@ public class Utils {
     }
 
     public static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
     }
 
     public static int getMaxDistance(List<Car> cars) {

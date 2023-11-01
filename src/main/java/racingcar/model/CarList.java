@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.constant.Constants;
 import racingcar.util.Utils;
 import racingcar.validator.CarNameValidator;
 import racingcar.view.OutputView;
@@ -37,6 +38,6 @@ public class CarList {
        OutputView.printWinner(cars.stream()
                .filter(car -> car.isWinner(maxDistance))
                .map(Car::getName)
-               .collect(Collectors.joining(", ")));
+               .collect(Collectors.joining(Constants.VALUE_SEPARATOR)));
     }
 }

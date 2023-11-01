@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.model.RoundNumber;
+import racingcar.constant.Constants;
 
 public class RoundNumberValidator {
     private String roundNumber;
@@ -17,13 +17,13 @@ public class RoundNumberValidator {
 
     private void isEmpty() {
         if (roundNumber.isEmpty()) {
-            throw new IllegalArgumentException("라운드 회수를 입력해주셔야 합니다.");
+            throw new IllegalArgumentException(Constants.ROUND_NUMBER_EMPTY_ERROR);
         }
     }
 
     private void isNumeric() {
-        if (!roundNumber.matches("[1-9][0-9]*")) {
-            throw new IllegalArgumentException("시도 회수는 1 이상의 정수를 입력해주셔야 합니다.");
+        if (!roundNumber.matches(Constants.VALID_NUMBER)) {
+            throw new IllegalArgumentException(Constants.ROUND_NUMBER_INVALID_ERROR);
         }
     }
 }

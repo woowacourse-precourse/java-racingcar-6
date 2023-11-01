@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.constant.Constants;
 import racingcar.util.Utils;
 
 public class Car {
@@ -12,13 +13,13 @@ public class Car {
     }
 
     public void getResult() {
-        if (Utils.getRandomNumber() > 3) {
-            this.distance += 1;
+        if (Utils.getRandomNumber() > Constants.THRESHOLD) {
+            this.distance += Constants.MOVE_AMOUNT;
         }
     }
 
     public String getRoundResult() {
-        return name + " : " + Utils.convertDistanceToSymbol(distance);
+        return name + Constants.KEY_VALUE_SEPARATOR + Utils.convertDistanceToSymbol(distance);
     }
 
     public int getDistance() {

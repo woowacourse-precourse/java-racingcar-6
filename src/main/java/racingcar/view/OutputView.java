@@ -1,14 +1,12 @@
 package racingcar.view;
 
-import racingcar.model.Car;
+import racingcar.constant.Constants;
 
 import java.util.List;
 
 public class OutputView {
-    private static final String ROUND_RESULT = "실행 결과";
-
     public static void printRoundResultMessage() {
-        System.out.println(ROUND_RESULT);
+        System.out.println(Constants.ROUND_RESULT);
     }
 
     public static void printRoundResult(List<String> roundResults) {
@@ -16,6 +14,6 @@ public class OutputView {
     }
 
     public static void printWinner(String winner) {
-        System.out.println("최종 우승자 : " + winner);
+        System.out.println(Constants.WINNER + Constants.KEY_VALUE_SEPARATOR + winner);
     }
 }

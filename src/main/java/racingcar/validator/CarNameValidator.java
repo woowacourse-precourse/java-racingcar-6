@@ -1,9 +1,9 @@
 package racingcar.validator;
 
+import racingcar.constant.Constants;
 import racingcar.util.Utils;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class CarNameValidator {
     private final String carNames;
@@ -13,7 +13,6 @@ public class CarNameValidator {
         this.carNames = carNames;
         this.carNameList = Utils.toList(carNames);
         validate();
-
     }
 
     public void validate() {
@@ -23,21 +22,20 @@ public class CarNameValidator {
     }
 
     public void isNameWithinRange() {
-        if (carNameList.stream().anyMatch(name -> name.length() > 5 || name.isEmpty())) {
-            throw new IllegalArgumentException("자동차의 이름은 1~5자이어야 합니다.");
+        if (carNameList.stream().anyMatch(name -> name.length() > Constants.NAME_MIN_LENGTH || name.isEmpty())) {
+            throw new IllegalArgumentException(Constants.NAME_OUT_OF_RANGE_ERROR);
         }
     }
 
     public void isNameValid() {
-        Pattern pattern = Pattern.compile(".*[^a-zA-Z0-9 ,].*");
-        if (pattern.matcher(carNames).matches()) {
-            throw new IllegalArgumentException("쉼표 외의 특수문자를 입력하시면 안됩니다.");
+        if (carNames.matches(Constants.INVALID_CHARACTER)) {
+            throw new IllegalArgumentException(Constants.NAME_INVALID_ERROR);
         }
     }
 
     public void isNameDuplicated() {
         if (carNameList.stream().distinct().count() != carNameList.size()) {
-            throw new IllegalArgumentException("자동차의 이름은 중복되지 않아야 합니다.");
+            throw new IllegalArgumentException(Constants.NAME_DUPLICATE_ERROR);
         }
     }
 }
