@@ -12,7 +12,7 @@ public class RacingGameController {
 
     public void run() {
         Cars cars = new Cars(inputView.requestCarNames());
-        TryCount tryCount = inputView.requestTryCount();
+        TryCount tryCount = new TryCount(inputView.requestTryCount());
         outputView.printResult();
 
         for (int i = 0; i < tryCount.getCount(); i++) {

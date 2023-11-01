@@ -13,9 +13,9 @@ public class InputView {
         return carNames;
     }
 
-    public TryCount requestTryCount() {
+    public String requestTryCount() {
         System.out.println(INPUT_TRY_COUNT);
-        TryCount tryCount = new TryCount(Console.readLine());
+        String tryCount = Console.readLine();
         System.out.println();
         return tryCount;
     }
