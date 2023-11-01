@@ -12,10 +12,12 @@ public class Input {
     }
 
     public String getCars() {
+        cars = Console.readLine();
         return cars;
     }
 
     public int getTrys() {
+        trys = Integer.parseInt(Console.readLine());
         return trys;
     }
 

@@ -7,34 +7,29 @@ import java.io.InputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class InputTest {
-
-    private Input input;
 
     private static InputStream setReadLine(String readLine) {
         return new ByteArrayInputStream(readLine.getBytes());
     }
-    @BeforeEach
-    void given() {
-        input = new Input("I love pobi", 3);
-    }
 
     @Test
     @DisplayName("Car 테스트")
-    void testCar() {
-        InputStream pobi = setReadLine("I love pobi\3");
-        System.setIn(pobi);
+    @ValueSource(strings = {"I love pobi", "3"})
+    void testCar(String input) {
 
-        String actualCars = input.getCars();
+        InputStream inputStream = setReadLine(input);
+        System.setIn(inputStream);
+
         String expectCars = "I love pobi";
-
-        int actualTrys = input.getTrys();
         int expectTrys = 3;
 
-        assertEquals(expectCars, actualCars);
-        assertEquals(expectTrys, actualTrys);
-    }
+        Input userInput = new Input("I love pobi", 3);
 
+        assertEquals(expectCars, userInput.getCars());
+        assertEquals(expectTrys, userInput.getTrys());
+    }
 
 }
