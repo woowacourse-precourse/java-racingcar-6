@@ -38,11 +38,11 @@ public class RacingCarService implements RacingCarConst {
     }
 
     public Racing startRace(String racingCount, List<Car> racingCarList) {
+        Racing racingGame = null;
         if (globalExceptionHandler.isValidRacingCount(racingCount)) {
-            final Racing racingGame = new Racing(racingCarList, Integer.parseInt(racingCount));
-            return racingGame;
+            racingGame = new Racing(racingCarList, Integer.parseInt(racingCount));
         }
-        return null;
+        return racingGame;
     }
 
     private int getRandomNumber() {
