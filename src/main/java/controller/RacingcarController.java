@@ -11,8 +11,8 @@ import java.util.List;
 
 
 public class RacingcarController {
-    private  RacingcarView racingcarView = new RacingcarView();
-    private  ErrorCheck errorCheck = new ErrorCheck();
+    private  final RacingcarView racingcarView = new RacingcarView();
+    private  final ErrorCheck errorCheck = new ErrorCheck();
 
     public void run(){
         String car_names;
@@ -38,7 +38,7 @@ public class RacingcarController {
 
 
     private List<String> SliceByComma(String car_names){
-        //car_names = car_names.replaceAll("\\s", "");
+        car_names = car_names.replaceAll("\\s", "");
         List<String> list = Arrays.asList(car_names.split(","));
         return list;
     }
