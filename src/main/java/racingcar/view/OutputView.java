@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import java.util.List;
 
@@ -10,6 +9,15 @@ public class OutputView {
             System.out.println(car.getName() + ": " + car.getPositionBar());
         }
         System.out.println();
+
+    }
+
+    public static String getRoundResults(List<Car> cars) {
+        StringBuilder roundResult = new StringBuilder();
+        for (Car car : cars) {
+            roundResult.append(car.getName()).append(": ").append(car.getPositionBar()).append("\n");
+        }
+        return roundResult.toString();
     }
 
     public static void printWinners(List<String> winners) {
