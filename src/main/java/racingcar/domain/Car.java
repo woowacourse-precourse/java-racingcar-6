@@ -1,25 +1,23 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
+import racingcar.constant.Number;
+
 public class Car {
-    public static final int INITIAL_POSITION = 0;
-    public static final int FORWARD_CONDITION_NUMBER = 4;
-    public static final int VALID_CAR_NAME_MAX_LENGTH = 5;
+
     private final String name;
     private int position;
 
-
     public Car(String name) {
-        checkCarNameEmpty(name);
-        checkCarNameLengthValid(name);
-        checkCarNameContainsWhiteSpace(name);
+        validate(name);
 
         this.name = name;
-        this.position = INITIAL_POSITION;
+        this.position = Number.INITIAL_POSITION;
     }
 
-    public void forwardOrStay(int condition) {
-        if (condition >= FORWARD_CONDITION_NUMBER) {
-            position++;
+    public void forwardIfConditionMet(int forwardCondition) {
+        if (forwardCondition >= Number.FORWARD_CONDITION_NUMBER) {
+            this.position++;
         }
     }
 
@@ -31,21 +29,27 @@ public class Car {
         return position;
     }
 
+    public void validate(String name) {
+        checkCarNameEmpty(name);
+        checkCarNameLengthValid(name);
+        checkCarNameContainsWhiteSpace(name);
+    }
+
     public void checkCarNameLengthValid(String carName) {
-        if (carName.length() > VALID_CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException();
+        if (carName.length() > Number.VALID_CAR_NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LENGTH_MESSAGE);
         }
     }
 
     public void checkCarNameEmpty(String carName) {
         if (carName == null || carName.trim().isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_EMPTY_MESSAGE);
         }
     }
 
     public void checkCarNameContainsWhiteSpace(String carName) {
         if (carName.length() != carName.replace(" ", "").length()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_CONTAINS_WHITE_SPACE_MESSAGE);
         }
     }
 
