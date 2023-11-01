@@ -33,7 +33,7 @@ public class InputHandler {
 
     public static String[] splitToArray(String input) {
         validateCarNames(input);
-        return input.split(",");
+        return input.split(COMMA);
     }
 
     public static int convertToNumber(String input) {
