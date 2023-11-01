@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.dto.CarOutputRequestDto;
@@ -56,21 +57,16 @@ public class Controller {
     }
 
     private List<CarWinnerDto> mapToCarWinnersDtoList(List<Long> winners) {
-        List<CarWinnerDto> carWinnerDtoList = new ArrayList<>();
-        for (Long id : winners) {
-            Car winnerCar = carService.findCarById(id);
-            carWinnerDtoList.add(new CarWinnerDto(winnerCar.getName()));
-        }
-        return carWinnerDtoList;
+        return winners.stream()
+                .map(c -> new CarWinnerDto(carService.findCarById(c).getName()))
+                .collect(Collectors.toList());
     }
 
     private List<CarOutputRequestDto> mapToCarRequestDtoList(List<Long> carsIdList) {
-        List<CarOutputRequestDto> carDtoList = new ArrayList<>();
-        for (Long id : carsIdList) {
-            Car findCar = carService.findCarById(id);
-            carDtoList.add(new CarOutputRequestDto(findCar.getName(), findCar.getPosition()));
-        }
-        return carDtoList;
+        return carsIdList.stream()
+                .map(c -> new CarOutputRequestDto(carService.findCarById(c).getName(),
+                        carService.findCarById(c).getPosition()))
+                .collect(Collectors.toList());
     }
 
     private void moveCarsForwardOrNotByRandomNumber(List<Long> carsIdList) {
