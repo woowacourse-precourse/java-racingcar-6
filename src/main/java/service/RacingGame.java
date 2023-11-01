@@ -6,7 +6,6 @@ import model.Round;
 import model.RoundSet;
 
 public class RacingGame {
-
     private final GameProcessor gameProcessor = new GameProcessor();
 
     public RoundSet gameStart(){
@@ -27,8 +26,4 @@ public class RacingGame {
         System.out.print(Message.GAMEEND.getStr());
         System.out.println(gameProcessor.winnerJudgement(roundSet.getCarList()));
     }
-
-
-
-
 }

@@ -43,7 +43,6 @@ class ApplicationTest extends NsTest {
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP,
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP,
                 STOP, STOP, STOP, STOP
-
         );
     }
 

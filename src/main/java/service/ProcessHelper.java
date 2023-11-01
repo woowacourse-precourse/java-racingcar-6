@@ -8,11 +8,10 @@ import java.util.List;
 import java.util.Random;
 
 public class ProcessHelper {
-
     private final Validation validation = new Validation();
-
     public void addCarToCarList(){
     }
+
     public String[] commaSeperate(final String input){
         String[] inputArray = input.split(",");
         validation.carNameValidation(inputArray);

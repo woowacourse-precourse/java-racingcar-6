@@ -3,11 +3,12 @@ package service;
 import java.util.HashSet;
 
 public class Validation {
+    private final HashSet<String> SET = new HashSet<>();
+    private final String PATTERN = "^[0-9]*$";
 
     public void carNameValidation(final String[] inputArray){
-        HashSet<String> set = new HashSet<>();
         for(String str: inputArray){
-            if (!set.add(str)) {
+            if (!SET.add(str)) {
                 throw new IllegalArgumentException("중복된 이름이 있습니다.");
             }
             if (str.length() > 5 || str.length() <= 0){
@@ -18,10 +19,8 @@ public class Validation {
             }
         }
     }
-
     public String roundInputValidation(final String roundInput){
-        String pattern = "^[0-9]*$";
-        if(!roundInput.matches(pattern)){
+        if(!roundInput.matches(PATTERN)){
             throw new IllegalArgumentException("횟수 입력은 숫자로만 하세요.");
         }
         if(Integer.parseInt(roundInput) <= 0){

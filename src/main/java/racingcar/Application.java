@@ -9,9 +9,7 @@ public class Application {
         RacingGame racingGame = new RacingGame();
 
         RoundSet roundSet = racingGame.gameStart();
-
         roundSet = racingGame.gameProcess(roundSet);
-
         racingGame.printWinner(roundSet);
     }
 }

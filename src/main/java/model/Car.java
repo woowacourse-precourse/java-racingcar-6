@@ -1,10 +1,8 @@
 package model;
 
 public class Car {
-
     private final String carName;
     private int forwardCount;
-
     public Car(String carName){
         this.carName = carName;
         this.forwardCount = 0;
@@ -17,7 +15,7 @@ public class Car {
         this.forwardCount += 1;
     }
     public int getForwardCount(){
-        return  this.forwardCount;
+        return this.forwardCount;
     }
 
 
