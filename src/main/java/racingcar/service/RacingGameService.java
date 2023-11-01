@@ -18,11 +18,6 @@ public class RacingGameService {
 
     private int highDistance = 0;
 
-    public RacingGameService() {
-    }
-    public RacingGameService(InputView inputView, OutputView outputView) {
-    }
-
     public int getPlayCount() {
         outputView.countMessage();
         return inputView.playCount();
@@ -64,7 +59,7 @@ public class RacingGameService {
         outputView.blank();
     }
 
-    private List<String> checkWinner(RacingGame racingGame) {
+    List<String> checkWinner(RacingGame racingGame) {
         List<String> winnerList = new ArrayList<>();
 
         List<Car> carList = racingGame.getCarList();
@@ -81,7 +76,7 @@ public class RacingGameService {
         outputView.winnerMessage(winnerList);
     }
 
-    private Integer makeRandomPower() {
+    Integer makeRandomPower() {
         return Randoms.pickNumberInRange(NUMBER_RANGE_START, NUMBER_RANGE_END);
     }
 }

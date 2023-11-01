@@ -1,18 +1,14 @@
 package racingcar.utils;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ValidationTest {
 
-    private Validation validation;
-
-    @BeforeEach
-    void 초기세팅() {
-        validation = new Validation();
-    }
+    private Validation validation = new Validation();
 
     @Test
     void 횟수_입력이_숫자여야_한다() {
