@@ -1,6 +1,6 @@
 # 기능 목록
 
-- [ ] 자동차 생성한다.
+- [ ] 자동차 생성한다. Game.makeCarNameList()
    - [ ] 이름은 5글자 이하만 입력받는다. Validator.validateLenOfCarNames()
    - [ ] 자동차는 최소 2대 이상 입력받는다. Validator.validateNumOfCars()
 - [ ] 시도할 회수를 입력받는다. Game.getAttempts()
