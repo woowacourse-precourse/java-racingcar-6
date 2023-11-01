@@ -1,9 +1,9 @@
 package racingcar.view.Output;
 
-public class OutputView {
-    private final String RACE_REULT= "실행 결과";
-    private final String FINAL_WINNER = "최종 우승자 : ";
+import static racingcar.view.PrintMessage.FINAL_WINNER;
+import static racingcar.view.PrintMessage.RACE_REULT;
 
+public class OutputView {
     // 결과 출력
     public void printResult() {
         System.out.println(RACE_REULT);
@@ -13,5 +13,4 @@ public class OutputView {
     public void printWinner(String winner) {
         System.out.println(String.format("%s%s",FINAL_WINNER ,winner));
     }
-
 }

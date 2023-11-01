@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Car;
 
+import static racingcar.view.PrintMessage.INPUT_CAR_NAME;
+import static racingcar.view.PrintMessage.INPUT_TRIAL_NUMBER;
+
 /* 자동차 입력 받는 클래스
 *  입력만 받기
 * */
 public class InputView {
-    private final String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"; // 삼수
-    private final String  INPUT_TRIAL_NUMBER = "시도할 회수는 몇회인가요?"; //  삼수
-
     private InputParser inputParser;
     private InputValidator inputValidator;
     // 생성자
@@ -26,7 +26,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public List<Car> convertInput(String input) {
+    public List<Car> convertInputCarName(String input) {
         inputValidator.isNull(input.replace(" ",""));
 
         return inputParser.convertCarList(input);
