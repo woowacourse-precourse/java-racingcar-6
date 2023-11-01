@@ -21,4 +21,7 @@ public class OutputView {
         System.out.println(car.getName() + " : " + ONE_STEP.repeat(car.getCurrentPosition()));
     }
 
+    public void printSpaceMessage() {
+        System.out.println();
+    }
 }
