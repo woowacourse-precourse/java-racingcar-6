@@ -5,7 +5,8 @@ import java.util.HashMap;
 import camp.nextstep.edu.missionutils.Console;
 
 public class PlayingService {
-    private Number number;
+    private final Number number;
+    private RoundPlaying master = new RoundPlaying();
     Map<String, Integer> cars = new HashMap<>();
 
     public PlayingService() {
@@ -14,6 +15,10 @@ public class PlayingService {
 
         String num = Console.readLine();
         number = new Number(num);
+
+        for (int i = 0; i < number.number; i++) {
+            cars = master.playRound(cars);
+        }
     }
 
     void enterName(String names) {
