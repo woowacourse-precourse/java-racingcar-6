@@ -9,7 +9,6 @@ public class CarController {
 
     public void setStatus(Cars cars, int moveChance) {
         this.cars = cars;
-
         Validator.moveNumber(moveChance);
         this.moveChance = moveChance;
     }
