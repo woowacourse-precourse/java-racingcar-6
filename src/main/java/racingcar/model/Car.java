@@ -5,7 +5,7 @@ public class Car {
     private int carCurrentPosition;
 
     public Car(String name) {
-        this.carName = name;
+        this.carName = "";
         this.carCurrentPosition = 0;
     }
 
@@ -15,6 +15,10 @@ public class Car {
 
     public void setCarName(String name) {
         this.carName = name;
+    }
+
+    public String getCarName() {
+        return carName;
     }
 
     public int getCarCurrentPosition() {
