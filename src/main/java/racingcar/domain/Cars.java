@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.exception.RacingCarExceptionMessage.DUPLICATED_CAR_NAMES;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static final String DUPLICATED_CAR_NAMES_EXCEPTION = "각 자동차의 이름은 고유해야 합니다.";
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
@@ -24,7 +25,7 @@ public class Cars {
                 .distinct()
                 .count();
         if (distinctCount != carNames.size()) {
-            throw new IllegalArgumentException(DUPLICATED_CAR_NAMES_EXCEPTION);
+            throw new IllegalArgumentException(DUPLICATED_CAR_NAMES.getMessage());
         }
     }
 

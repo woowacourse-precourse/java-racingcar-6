@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.exception.RacingCarExceptionMessage.ATTEMPT_COUNTS_NOT_IN_RANGE;
+import static racingcar.exception.RacingCarExceptionMessage.ATTEMPT_COUNTS_NOT_NUMBER;
+
 public class AttemptCounts {
     private static final int MIN_ATTEMPT_NUMBER = 1;
     private static final int MAX_ATTEMPT_NUMBER = 200_000_000;
-    private static final String ATTEMPT_NOT_POSITIVE_NUMBER_EXCEPTION = "시도 횟수는 1 이상 2억 이하의 숫자만 입력 가능합니다.";
-    private static final String ATTEMPT_NOT_NUMBER_EXCEPTION = "입력값이 숫자가 아닙니다.";
     private int attemptCounts;
 
     private AttemptCounts(int attemptCounts) {
@@ -19,7 +20,7 @@ public class AttemptCounts {
 
     private static void validateAttemptCounts(int attemptCounts) {
         if (attemptCounts < MIN_ATTEMPT_NUMBER || MAX_ATTEMPT_NUMBER < attemptCounts) {
-            throw new IllegalArgumentException(ATTEMPT_NOT_POSITIVE_NUMBER_EXCEPTION);
+            throw new IllegalArgumentException(ATTEMPT_COUNTS_NOT_IN_RANGE.getMessage());
         }
     }
 
@@ -28,7 +29,7 @@ public class AttemptCounts {
         try {
             attemptNumber = Integer.parseInt(attempt);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ATTEMPT_NOT_NUMBER_EXCEPTION);
+            throw new IllegalArgumentException(ATTEMPT_COUNTS_NOT_NUMBER.getMessage());
         }
         return attemptNumber;
     }

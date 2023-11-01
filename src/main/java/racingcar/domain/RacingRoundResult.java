@@ -1,10 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.exception.RacingCarExceptionMessage.NOT_AVAILABLE_CAR_LIST;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingRoundResult {
-    private static final String NOT_AVAILABLE_CAR_LIST_EXCEPTION = "올바르지 않은 자동차 리스트입니다.";
     private final List<Car> cars;
 
     private RacingRoundResult(List<Car> cars) {
@@ -36,6 +37,6 @@ public class RacingRoundResult {
         return this.cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow(() -> new IllegalArgumentException(NOT_AVAILABLE_CAR_LIST_EXCEPTION));
+                .orElseThrow(() -> new IllegalArgumentException(NOT_AVAILABLE_CAR_LIST.getMessage()));
     }
 }
