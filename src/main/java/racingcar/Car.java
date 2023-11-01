@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Map.Entry;
 
 public class Car {
 
@@ -40,7 +39,7 @@ public class Car {
     }
 
     public void printSticks() {
-        System.out.print(this.name+ " : ");
+        System.out.print(this.name + " : ");
         for (int i = 0; i < this.distance; i++) {
             System.out.print("-");
         }

@@ -61,12 +61,12 @@ public class RacingGame {
             throw new IllegalArgumentException("숫자를 입력해주세요. (입력 : " + input + ")");
         }
     }
+
     private void checkWinner() {
         for (Car participant : participants) {
             if (Car.maxDistance == participant.getDistance()) {
                 winners.add(participant.getName());
             }
         }
-
     }
 }
