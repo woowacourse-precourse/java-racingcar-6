@@ -22,13 +22,9 @@ public class Application {
         List<String> forwardCountStr = new ArrayList<>();
         List<Integer> forwardCountInt = new ArrayList<>();
         //전진횟수를 모두 ""으로 초기화
-        for (int i = 0; i < carNameArr.length; i++) {
-            forwardCountStr.add("");
-        }
+        cars.forwardStrReset(forwardCountStr);
         //전진횟수를 모두 0으로 초기화
-        for (int i = 0; i < carNameArr.length; i++) {
-            forwardCountInt.add(0);
-        }
+        cars.forwardIntReset(forwardCountInt);
 
         String attempt;
         System.out.println("시도할 회수는 몇회인가요?");

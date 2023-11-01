@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Car {
     String[] carNameArr;
 
@@ -22,5 +24,19 @@ public class Car {
     public String[] splitCarName(String cars) {
         String[] car = cars.split(",");
         return car;
+    }
+
+    public List<String> forwardStrReset(List<String> forwardCountStr) {
+        for (int i = 0; i < carNameArr.length; i++) {
+            forwardCountStr.add("");
+        }
+        return forwardCountStr;
+    }
+
+    public List<Integer> forwardIntReset(List<Integer> forwardCountInt) {
+        for (int i = 0; i < carNameArr.length; i++) {
+            forwardCountInt.add(0);
+        }
+        return forwardCountInt;
     }
 }
