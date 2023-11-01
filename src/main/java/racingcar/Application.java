@@ -16,18 +16,9 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         List<String> car = inputCarNames();
-        Long carNameSize;
         int tryCount;
         List<Integer> position = new ArrayList<>();
         int maxPosition;
-
-        carNameSize = car.stream()
-                .distinct()
-                .count();
-
-        if (car.size() != carNameSize) {
-            throw new IllegalArgumentException("중복 이름 불가");
-        }
 
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
@@ -88,6 +79,7 @@ public class Application {
         List<String> carNames = toList(input);
 
         validateCarNames(carNames);
+        validateNoDuplicate(carNames);
 
         return carNames;
     }
@@ -106,6 +98,15 @@ public class Application {
             if (!ALPHABET_AND_HANGUL_PATTERN.matcher(carName).matches()) {
                 throw new IllegalArgumentException("차 이름은 영어 또는 한글만 가능");
             }
+        }
+    }
+
+    private static void validateNoDuplicate(List<String> carNames) {
+        long distinctCount = carNames.stream()
+                .distinct()
+                .count();
+        if (carNames.size() != distinctCount) {
+            throw new IllegalArgumentException("[중복 불가] 자동차 이름은 서로 다르게 입력해주세요.");
         }
     }
 }
