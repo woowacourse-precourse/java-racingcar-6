@@ -23,14 +23,12 @@ public class Validator {
         }
     }
 
-    public int playTimes(final String input) {
+    public void playTimes(final String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException("시도 횟수는 1자리 이상의 숫자이어야 합니다.");
         }
-        try {
-            return Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자 입력값이어야 합니다.");
+        if (!input.matches("\\d+")) {
+            throw new IllegalArgumentException("시도 횟수는 숫자로 입력하여야 합니다.");
         }
     }
 
