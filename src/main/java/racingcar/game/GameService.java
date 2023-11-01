@@ -3,19 +3,20 @@ package racingcar.game;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Cars;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class GameService {
     public static int Num_For_Win = 4;
 
     public void playRound(Cars cars) {
-        Map<String, Integer> state = cars.getState();
-        state.replaceAll((name, score) -> {
-            if (isWin()) {
-                score += 1;
-            }
-            return score;
-        });
+        List<String> names = cars.getName();
+        List<Integer> scores = cars.getScore();
+        IntStream.range(0, names.size())
+                .filter(i -> isWin())
+                .forEach(i -> scores.set(i, scores.get(i) + 1));
+
     }
 
     public boolean isWin() {

@@ -3,7 +3,8 @@ package racingcar.model;
 import java.util.*;
 
 public class Cars {
-    private final Map<String, Integer> state = new HashMap<>();
+    private final List<String> names = new ArrayList<>();
+    private final List<Integer> scores = new ArrayList<>();
 
     public static Cars generateCars(String[] carNames) {
         Cars cars = new Cars();
@@ -14,27 +15,24 @@ public class Cars {
     }
 
     public void addCar(String carName) {
-        state.put(carName, 0);
+        names.add(carName);
+        scores.add(0);
     }
 
     public List<String> getWinner() {
         List<String> winner = new ArrayList<>();
         int highScore = getHighScore();
-
-        for (Map.Entry<String, Integer> entry : state.entrySet()) {
-            String name = entry.getKey();
-            Integer score = entry.getValue();
-            if (score.equals(highScore)) {
-                winner.add(name);
+        for (int i = 0; i < scores.size(); i++) {
+            if (scores.get(i) == highScore) {
+                winner.add(names.get(i));
             }
         }
-        Collections.sort(winner);
         return winner;
     }
 
     public int getHighScore() {
         int highScore = Integer.MIN_VALUE;
-        for (int score : state.values()) {
+        for (int score : scores) {
             if (score > highScore) {
                 highScore = score;
             }
@@ -42,17 +40,11 @@ public class Cars {
         return highScore;
     }
 
-    public Map<String, Integer> getState() {
-        return state;
-    }
-
     public List<String> getName() {
-        List<String> carNames = new ArrayList<>(state.keySet());
-        Collections.sort(carNames);
-        return carNames;
+        return names;
     }
 
-    public int getScore(String name) {
-        return state.get(name);
+    public List<Integer> getScore() {
+        return scores;
     }
 }

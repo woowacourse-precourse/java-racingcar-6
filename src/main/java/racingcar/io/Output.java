@@ -6,9 +6,11 @@ import java.util.List;
 
 public class Output {
     public void printResult(Cars cars) {
-        List<String> carNames = cars.getName();
-        for (String name : carNames) {
-            int score = cars.getScore(name);
+        List<String> names = cars.getName();
+        List<Integer> scores = cars.getScore();
+        for (int i = 0; i < names.size(); i++) {
+            String name = names.get(i);
+            int score = scores.get(i);
             String reach = "-".repeat(score);
             System.out.println(name + " : " + reach);
         }
