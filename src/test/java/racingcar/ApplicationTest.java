@@ -30,8 +30,19 @@ class ApplicationTest extends NsTest {
                 run("pobi,woni,jun", "2");
                 assertThat(output()).contains("pobi : --", "woni : --", "jun : ", "최종 우승자 : pobi, woni");
             },
-            MOVING_FORWARD,MOVING_FORWARD,STOP,MOVING_FORWARD,MOVING_FORWARD,STOP
+            MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
 
+    @Test
+    void 전진조건_만족_여부(){
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni,jun,jay,poy,woy,jai,poi,qoy", "1");
+                assertThat(output()).contains("pobi : ", "woni : ", "jun : ", "jay : ",
+                        "poy : -", "woy : -", "jai : -", "poi : -", "qoy : -");
+            },
+            0,1,2,3,4,5,6,7,8,9
         );
     }
 
