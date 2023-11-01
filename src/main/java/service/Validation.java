@@ -1,9 +1,15 @@
 package service;
 
+import java.util.HashSet;
+
 public class Validation {
 
     public void carNameValidation(final String[] inputArray){
+        HashSet<String> set = new HashSet<>();
         for(String str: inputArray){
+            if (!set.add(str)) {
+                throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            }
             if (str.length() > 5 || str.length() <= 0){
                 throw new IllegalArgumentException("이름을 5자 이하, 1자 이상으로 입력하세요.");
             }
