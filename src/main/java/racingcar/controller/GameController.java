@@ -36,7 +36,7 @@ public class GameController {
       System.out.println();
     }
 
-    String winners = race.getWinners();
+    List<String> winners = race.getWinners();
     outputView.printWinners(winners);
   }
 }
