@@ -40,6 +40,10 @@ public class RacingService {
 
     private String[] validateCarName(String carNames) {
         String[] nameList = carNames.split(",");
+        if (nameList.length < 1) {
+            throw new IllegalArgumentException();
+        }
+
         for (String name : nameList) {
             validate(name);
         }
@@ -48,7 +52,7 @@ public class RacingService {
     }
 
     private void validate(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (name.length() < 1 || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
