@@ -39,4 +39,14 @@ public class PlayRule {
         }
         return winner;
     }
+
+    public int getRound(String s){
+        return Integer.parseInt(s);
+    }
+
+    public List<Cars> addCar(String name, List<Cars> list){
+        Cars newCar = new Cars(name, "");
+        list.add(newCar);
+        return list;
+    }
 }

@@ -36,9 +36,10 @@ public class RacingView {
         }
     }
 
-    public void showLoad(List<String> name, List<String> location, int theNumOfCar) {
+    public void showLoad(List<String> name, List<String> location) {
 //        자동차 별 진척 상황 시각화
-        for (int i = 0; i < theNumOfCar; i++) {
+        int theNumOf = name.size();
+        for (int i = 0; i < theNumOf; i++) {
             System.out.println(name.get(i) + " : " + location.get(i));
         }
     }
@@ -57,7 +58,7 @@ public class RacingView {
         }
     }
 
-    public void showResult(String winner){
-        System.out.println("최종 우승자 : " + winner); 
+    public void showResult(String winner) {
+        System.out.println("최종 우승자 : " + winner);
     }
 }
