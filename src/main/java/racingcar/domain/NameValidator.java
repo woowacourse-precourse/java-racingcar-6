@@ -45,4 +45,10 @@ public class NameValidator {
         }
         return true;
     }
+
+    public static void isUnderTen(List<String> carNameList) {
+        if (carNameList.size() > 10) {
+            throw new IllegalArgumentException("자동차의 수가 10대를 초과하여 게임을 종료합니다.");
+        }
+    }
 }
