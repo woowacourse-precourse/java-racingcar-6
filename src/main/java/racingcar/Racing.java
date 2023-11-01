@@ -22,10 +22,12 @@ public class Racing {
         inputCarName();
         System.out.println("시도할 회수는 몇회인가요?");
         inputTryCount();
+        System.out.println("실행 결과");
         for(int i = 0; i < tryCount; i++) {
             startMatch();
+            showMatchResult();
         }
-
+        
     }
 
     public void inputCarName() {
@@ -71,5 +73,17 @@ public class Racing {
             return true;
         else
             return false;
+    }
+    
+    public void showMatchResult() {
+        StringBuilder sb = new StringBuilder();
+        for(Car car : carList) {
+            sb.append(car.getCarName());
+            sb.append(" : ");
+            sb.append("-".repeat(car.getMovement()));
+            sb.append("\n");
+        }
+        sb.append("\n");
+        System.out.println(sb);
     }
 }
