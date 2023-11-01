@@ -34,11 +34,4 @@ class CarsTest {
                 5, 4, 3
         );
     }
-
-    @Test
-    void 실행_결과를_응답한다() {
-        String carNames = "pobi,woni,jun";
-        Cars cars = new Cars(carNames);
-        assertThat(cars.result()).isEqualTo("pobi : \nwoni : \njun : ");
-    }
 }

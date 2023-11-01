@@ -19,7 +19,12 @@ public class Game {
     public void play() {
         Cars cars = inputView.inputCarName();
         int count = inputView.inputCount();
-        outputView.play(cars, count, numberGenerator);
+
+        outputView.printResultGuide();
+        for (int i = 0; i < count; i++) {
+            cars.forward(numberGenerator);
+            outputView.printResult(cars);
+        }
         outputView.printWinner(cars);
     }
 }

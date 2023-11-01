@@ -7,15 +7,15 @@ import racingcar.util.NumberGenerator;
 
 public class Cars {
     private static final String DELIMITER = ",";
-    private static final String SINGLE_BLANK = " ";
-    private static final String COLON = ":";
-    private static final String HYPHEN = "-";
-    private static final String NEWLINE = "\n";
 
     private final List<Car> cars;
 
     public Cars(String carNames) {
         cars = stringToCarList(carNames);
+    }
+
+    public Cars(List<Car> cars) {
+        this.cars = cars;
     }
 
     private List<Car> stringToCarList(String carNames) {
@@ -28,22 +28,12 @@ public class Cars {
         cars.forEach(car -> car.forward(numberGenerator));
     }
 
-    public String result() {
-        return cars.stream()
-                .map(this::formatCarResult)
-                .collect(Collectors.joining(NEWLINE));
-    }
-
-    private String formatCarResult(Car car) {
-        return car.getName() + SINGLE_BLANK + COLON + SINGLE_BLANK + HYPHEN.repeat(car.getPoint());
-    }
-
-    public String judgeWinner() {
+    public Cars judgeWinner() {
         int maxPoint = findMaxPoint();
-        return cars.stream()
+        List<Car> winners = cars.stream()
                 .filter(car -> car.getPoint() == maxPoint)
-                .map(Car::getName)
-                .collect(Collectors.joining(DELIMITER+SINGLE_BLANK));
+                .toList();
+        return new Cars(winners);
     }
 
     private int findMaxPoint() {
