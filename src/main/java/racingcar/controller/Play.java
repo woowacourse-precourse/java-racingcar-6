@@ -92,6 +92,13 @@ public class Play {
         System.out.println(champoinMessage);
     }
 
+    public int forwrdMax(){
+        int forwrdMax = Integer.MIN_VALUE;
+        for(String carName: racerInformation.keySet()){
+            forwrdMax = Math.max(forwrdMax, racerInformation.get(carName));
+        }
+        return forwrdMax;
+    }
 
 
     //예외처리
