@@ -2,7 +2,7 @@ package racingcar.race;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import racingcar.Input.RaceStartCommand;
+import racingcar.IO.Input.RaceStartCommand;
 import racingcar.race.move.CarRaceRecord;
 import racingcar.race.move.Go;
 import racingcar.race.move.MoveContext;

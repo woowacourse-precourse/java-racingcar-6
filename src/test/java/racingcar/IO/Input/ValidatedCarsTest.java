@@ -1,10 +1,12 @@
-package racingcar.Input;
+package racingcar.IO.Input;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.IO.Input.UnValidatedCars;
+import racingcar.IO.Input.ValidatedCars;
 
 class ValidatedCarsTest {
 

@@ -1,4 +1,6 @@
-package racingcar.output.contents;
+package racingcar.IO.output.contents;
+
+import static racingcar.IO.PunctuationMarks.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,8 @@ public class OutPutContentsContext {
     List<String> carNames = totalRoundRecord.getCarNames();
     List<String> list = new ArrayList<>();
     RoundContents roundContents = createRoundContents(eachRoundRecord, carNames, list);
-    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners, VictoryMessages.VICTORY_MESSAGES.message());
+    FinalWinnerContents finalWinnerContents = creteWinnerContents(winners,
+        VictoryMessages.VICTORY_MESSAGES.message());
 
     return OutPutContents.of(roundContents, finalWinnerContents);
   }
@@ -30,7 +33,7 @@ public class OutPutContentsContext {
       List<String> carNames,
       List<String> roundContent) {
     for (List<Integer> list : eachRoundRecord) {
-      StringJoiner stringJoiner = new StringJoiner(PunctuationMarks.NEW_LINE.mark());
+      StringJoiner stringJoiner = new StringJoiner(NEW_LINE.mark());
       IntStream.range(0, list.size())
           .forEach(i -> stringJoiner.add(roundResult(list, carNames, i)));
       roundContent.add(stringJoiner.toString());
@@ -39,16 +42,16 @@ public class OutPutContentsContext {
   }
 
   private static String roundResult(List<Integer> list, List<String> carNames, int i) {
-    String repeatedMinus = PunctuationMarks.MINUS.mark().repeat(list.get(i));
-    return String.join(PunctuationMarks.EMPTY_COLON_EMPTY.mark(), carNames.get(i), repeatedMinus);
+    String repeatedMinus = MINUS.mark().repeat(list.get(i));
+    return String.join(EMPTY_COLON_EMPTY.mark(), carNames.get(i), repeatedMinus);
   }
 
   private static FinalWinnerContents creteWinnerContents(FinalWinners winners, String winnerGuide) {
     if (winners.isMultipleWinners()) {
-      StringJoiner stringJoiner = new StringJoiner(", ");
+      StringJoiner stringJoiner = new StringJoiner(COMMA_SPACE.mark());
       winners.getWinners().forEach(stringJoiner::add);
       return FinalWinnerContents.of(winnerGuide + stringJoiner);
     }
-    return FinalWinnerContents.of(winnerGuide + String.join("", winners.getWinners()));
+    return FinalWinnerContents.of(winnerGuide + String.join(EMPTY.mark(), winners.getWinners()));
   }
 }

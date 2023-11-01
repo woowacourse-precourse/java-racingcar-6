@@ -1,4 +1,4 @@
-package racingcar.Input;
+package racingcar.IO.Input;
 
 public class InputEndedEvent {
 

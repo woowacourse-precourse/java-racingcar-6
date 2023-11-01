@@ -1,4 +1,4 @@
-package racingcar.output.contents;
+package racingcar.IO.output.contents;
 
 import java.util.List;
 

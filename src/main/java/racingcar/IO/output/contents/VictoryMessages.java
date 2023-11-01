@@ -1,4 +1,4 @@
-package racingcar.output.contents;
+package racingcar.IO.output.contents;
 
 public enum VictoryMessages {
   VICTORY_MESSAGES("최종 우승자 : ");

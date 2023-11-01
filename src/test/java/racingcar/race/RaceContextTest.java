@@ -5,10 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.Input.RaceStartCommand;
-import racingcar.Input.UnValidatedCars;
-import racingcar.Input.ValidatedCars;
-import racingcar.Input.ValidatedRoundCount;
+import racingcar.IO.Input.RaceStartCommand;
+import racingcar.IO.Input.UnValidatedCars;
+import racingcar.IO.Input.ValidatedCars;
+import racingcar.IO.Input.ValidatedRoundCount;
 
 class RaceContextTest {
 

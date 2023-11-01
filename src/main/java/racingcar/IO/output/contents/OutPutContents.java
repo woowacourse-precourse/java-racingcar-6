@@ -1,4 +1,4 @@
-package racingcar.output.contents;
+package racingcar.IO.output.contents;
 
 public class OutPutContents {
 

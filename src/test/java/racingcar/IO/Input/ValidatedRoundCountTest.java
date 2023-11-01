@@ -1,9 +1,10 @@
-package racingcar.Input;
+package racingcar.IO.Input;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.IO.Input.ValidatedRoundCount;
 
 class ValidatedRoundCountTest {
 

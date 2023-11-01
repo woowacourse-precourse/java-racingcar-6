@@ -1,8 +1,8 @@
 package racingcar;
 
-import racingcar.Input.InputContext;
-import racingcar.Input.RaceStartCommand;
-import racingcar.output.OutPutContext;
+import racingcar.IO.Input.InputContext;
+import racingcar.IO.Input.RaceStartCommand;
+import racingcar.IO.output.OutPutContext;
 import racingcar.race.OutPutCommand;
 import racingcar.race.RaceContext;
 

@@ -1,10 +1,10 @@
-package racingcar.output;
+package racingcar.IO.output;
 
 import static java.lang.System.*;
 
+import racingcar.IO.output.contents.OutPutContents;
+import racingcar.IO.output.contents.OutPutContentsContext;
 import racingcar.race.OutPutCommand;
-import racingcar.output.contents.OutPutContents;
-import racingcar.output.contents.OutPutContentsContext;
 
 public class OutPutContext {
   private OutPutContext() {
