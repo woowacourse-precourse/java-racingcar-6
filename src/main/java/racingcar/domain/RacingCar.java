@@ -27,4 +27,12 @@ public class RacingCar {
     public String getRacingResult() {
         return NAME + SEPARATOR + getAdvancedRoad();
     }
+
+    public Integer getCountAdvance() {
+        return countAdvance;
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
 }

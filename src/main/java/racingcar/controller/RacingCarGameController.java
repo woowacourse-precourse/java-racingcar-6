@@ -13,6 +13,7 @@ public class RacingCarGameController {
     private static List<String> racingCarNames;
     private static Integer countGame;
     private static final List<RacingCar> racingCars = new ArrayList<>();
+    private static final List<String> winnerList = new ArrayList<>();
 
     /** Contant properties */
     private static final Integer RACING_CAR_NAME_LENGTH = 5;
@@ -20,6 +21,7 @@ public class RacingCarGameController {
     private static final Integer END_INCLUSIVE = 9;
     private static final String ERR_RACING_CAR_NAME_LENGTH = "길이 조건이 맞지 않습니다!";
     private static final String ERR_CONUT_OF_GAME_IS_NUMBER = "시도할 횟수 입력 시 숫자를 입력해주세요!";
+    private static final String WINNERS_NAME_SEPARATOR = ", ";
 
 
     private RacingCarGameController() {
@@ -59,13 +61,6 @@ public class RacingCarGameController {
         }
     }
 
-    private static void startRace() {
-        OutputView.printMsgResult();
-        for (int i = 0; i < countGame; i++) {
-            raceRoad();
-        }
-    }
-
     private static void raceRoad() {
         for (RacingCar car : racingCars) {
             Integer randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
@@ -74,6 +69,61 @@ public class RacingCarGameController {
             OutputView.printRacingResult(car.getRacingResult());
         }
         System.out.println();
+    }
+
+    private static void startRace() {
+        OutputView.printMsgResult();
+        for (int i = 0; i < countGame; i++) {
+            raceRoad();
+        }
+    }
+
+    private static Integer getWinnerCountAdvance() {
+        Integer max = 0;
+
+        for (RacingCar car : racingCars) {
+            if (car.getCountAdvance() > max) {
+                max = car.getCountAdvance();
+            }
+        }
+        return max;
+    }
+
+    private static void saveWinnerName(Integer maxCount) {
+        for (RacingCar car : racingCars) {
+            if (car.getCountAdvance().equals(maxCount)) {
+                winnerList.add(car.getNAME());
+            }
+        }
+    }
+
+    private static String getWinnersNameString() {
+        StringBuilder winnersName = new StringBuilder();
+        int i = 1;
+
+        for (String name : winnerList) {
+            winnersName.append(name);
+            if (winnerList.size() != i) {
+                winnersName.append(WINNERS_NAME_SEPARATOR);
+            }
+            i++;
+        }
+        return winnersName.toString();
+    }
+
+    private static String processWinnerString() {
+        if (winnerList.size() == 1) {
+            return winnerList.get(0);
+        }
+        return getWinnersNameString();
+    }
+
+    private static void endRace() {
+        Integer maxCount = getWinnerCountAdvance();
+
+        saveWinnerName(maxCount);
+
+        OutputView.printWinner(processWinnerString());
     }
 
     public static void startGame() {
@@ -86,5 +136,7 @@ public class RacingCarGameController {
         generateRacingCars();
 
         startRace();
+
+        endRace();
     }
 }
