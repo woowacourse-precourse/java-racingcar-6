@@ -17,4 +17,17 @@ public class PlayTest {
             assertThat(result).isLessThanOrEqualTo(9);
         }
     }
+
+    @Test
+    public void testJudgeMoveOrStop(){
+
+        test.playersMap.put("go", "");
+        test.playersMap.put("stop", "");
+
+        test.judgeMoveOrStop("go", 4);
+        test.judgeMoveOrStop("stop", 3);
+
+        assertThat(test.playersMap.get("go")).isEqualTo("-");
+        assertThat(test.playersMap.get("stop")).isEqualTo("");
+    }
 }

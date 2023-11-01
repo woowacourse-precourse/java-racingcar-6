@@ -52,9 +52,17 @@ public class RacingCar {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public void judgeMoveOrStop(String car, int moveOrStop){
+        if (moveOrStop >= 4) {
+            String roundResult = new StringBuilder(playersMap.get(car)).append("-").toString();
+            playersMap.put(car, roundResult);
+        }
+    }
+
     public void play(){
         for(String car : playersMap.keySet()){
             int moveOrStop = getRandomValue();
+            judgeMoveOrStop(car, moveOrStop);
         }
     }
 
