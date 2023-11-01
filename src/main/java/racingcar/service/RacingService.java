@@ -10,14 +10,14 @@ import racingcar.exception.InvalidNameException;
 import racingcar.util.NumberPicker;
 
 public class RacingService {
-    public void validateNames(List<String> racerList) {
+    public void validateNames(List<String> racersList) {
         Set<String> nameSet = new HashSet<>();
 
-        if (racerList.size() == 1) {
+        if (racersList.size() == 1) {
             throw new InvalidNameException("혼자서 게임을 진행할 수 없습니다.");
         }
 
-        for (String name : racerList) {
+        for (String name : racersList) {
             if (name.isEmpty() || name.length() > 5) {
                 throw new InvalidNameException("이름은 공백일 수 없으며, 5자를 초과할 수 없습니다.");
             }
@@ -43,12 +43,12 @@ public class RacingService {
         }
     }
 
-    public List<RacingPlayer> storeCarNames(List<String> racerList) {
+    public List<RacingPlayer> storeRacerNames(List<String> racersList) {
         List<RacingPlayer> players = new ArrayList<>();
 
-        for (String name : racerList) {
-            RacingPlayer player = new RacingPlayer(name);
-            players.add(player);
+        for (String name : racersList) {
+            RacingPlayer racer = new RacingPlayer(name);
+            players.add(racer);
         }
 
         return players;

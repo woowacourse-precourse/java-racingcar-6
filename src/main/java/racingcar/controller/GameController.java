@@ -13,11 +13,11 @@ public class GameController {
     private final RacingService racingService = new RacingService();
 
     public void runGame() {
-        String cars = inputView.inputCarNames();
-        List<String> racerList = racingService.racerNameStringToList(cars);
-        racingService.validateNames(racerList);
+        String racer = inputView.inputCarNames();
+        List<String> racersList = racingService.racerNameStringToList(racer);
+        racingService.validateNames(racersList);
 
-        List<RacingPlayer> playersList = racingService.storeCarNames(racerList);
+        List<RacingPlayer> playersList = racingService.storeRacerNames(racersList);
 
         String countInput = inputView.inputAttemptCount();
         racingService.validateCount(countInput);
