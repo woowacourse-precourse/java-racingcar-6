@@ -30,6 +30,38 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    
+    @Test
+    void 이름이_영어가_아닌_경우_예외_처리() {
+    	assertSimpleTest(() ->
+        assertThatThrownBy(() -> runException("pobi,한국", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+    	);
+    }
+    
+    @Test
+    void 이동_횟수가_숫자가_아닌_경우_예외_처리() {
+    	assertSimpleTest(() ->
+        assertThatThrownBy(() -> runException("pobi,jun", "a"))
+                .isInstanceOf(IllegalArgumentException.class)
+    	);
+    }
+    
+    @Test
+    void 이름이_한개만_적힌_경우_예외_처리() {
+    	assertSimpleTest(() -> 
+    	assertThatThrownBy(() -> runException("pobi","1"))
+    		.isInstanceOf(IllegalArgumentException.class)
+    	);
+    }
+    
+    @Test
+    void 이동_횟수가_0으로_시작했을_경우() {
+    	assertSimpleTest(() -> 
+    	assertThatThrownBy(() -> runException("pobi","1"))
+    	.isInstanceOf(IllegalArgumentException.class)
+    			);
+    }
 
     @Override
     public void runMain() {
