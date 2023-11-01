@@ -22,14 +22,14 @@ public class RaceInitializer {
     }
 
     public RaceDto initRace(){
-        HashMap<String, Integer> carNames = initCarNames();
+        HashMap<String, String> carNames = initCarNames();
         int attemptTimes = getAndValidateAttempts();
         return new RaceDto(carNames, attemptTimes);
     }
 
-    private HashMap<String, Integer> initCarNames(){
-        HashMap<String, Integer> cars = new HashMap<>();
-        getAndValidateNames().forEach( e -> cars.put(e, 0));
+    private HashMap<String, String> initCarNames(){
+        HashMap<String, String> cars = new HashMap<>();
+        getAndValidateNames().forEach( e -> cars.put(e, ""));
         return cars;
     }
 
