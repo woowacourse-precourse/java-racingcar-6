@@ -25,7 +25,7 @@ public class GameController {
     public void gameHandler() {
         try {
             List<Car> cars = new ArrayList<>();
-            List<String> carNames = initSetting();
+            List<String> carNames = inputCarNames();
             Integer gameRound = getTotalGameRound();
             initCarInfo(carNames, cars);
             notifyBeforeResult();
@@ -45,7 +45,7 @@ public class GameController {
         return carRaceService.convertGameRoundToNumber(inputView.inputGameRound());
     }
 
-    private List<String> initSetting() {
+    private List<String> inputCarNames() {
         outputView.printInitGame();
         return carRaceService.extractSeperator(inputView.inputCarName());
     }
