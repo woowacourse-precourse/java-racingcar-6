@@ -7,7 +7,7 @@ import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.UNCOMPETITIVE_CASE_MESSAGE;
 
 public class UserInputValidator {
-    public void checkPositiveNumber(Integer integer) {
+    public void validatePositiveNumber(Integer integer) {
         if (integer < 1) {
             throw new NumberFormatException();
         }
