@@ -37,7 +37,7 @@ public class CarGame {
             InputValidator.includeNumberOrSymbolExceptComma(input);
             InputValidator.includeSpace(input);
             List<String> carNameList = splitCarNames(input);
-            CarValidator.isOnlyLowerCase(carNameList);
+            CarValidator.checkUpperCase(carNameList);
             CarValidator.checkCarNameLength(carNameList);
             CarValidator.checkDuplicateCarName(carNameList);
         } catch (IllegalArgumentException e) {

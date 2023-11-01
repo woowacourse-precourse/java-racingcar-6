@@ -11,9 +11,9 @@ public class CarValidatorTest {
     @Test
     public void 대문자가_포함된_경우() {
         List<String> carNameList1 = Arrays.asList("Pobi","woni");
-        assertThrows(IllegalArgumentException.class, () -> CarValidator.isOnlyLowerCase(carNameList1));
+        assertThrows(IllegalArgumentException.class, () -> CarValidator.checkUpperCase(carNameList1));
         List<String> carNameList2 = Arrays.asList("pobi","woni");
-        CarValidator.isOnlyLowerCase(carNameList2);
+        CarValidator.checkUpperCase(carNameList2);
     }
 
     @Test

@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 public class CarValidator {
-    public static void isOnlyLowerCase(List<String> carNameList) {
+    public static void checkUpperCase(List<String> carNameList) {
         for (String carName : carNameList) {
             if (!Pattern.matches("^[a-z|,]*$", carName)) {
                 throw new IllegalArgumentException("소문자로 입력하세요.");
