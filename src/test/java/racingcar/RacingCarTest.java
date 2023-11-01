@@ -22,8 +22,8 @@ public class RacingCarTest {
         차이름들 = sb.toString();
     }
 
-    static class RacingCar{
-        public static void play(){
+    static class RacingCar {
+        public static void play() {
             List<Car> cars = CarList.inputCarList(차이름들).getCarList();
             int raceCount = RacingCount.inputRaceCount(경주_횟수).getRaceCount();
 
@@ -36,7 +36,7 @@ public class RacingCarTest {
     }
 
     @Test
-    void 테스트_최대_범위(){
+    void 테스트_최대_범위() {
         차이름_n개_입력하라(10);
 
         RacingCar.play();

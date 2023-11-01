@@ -15,7 +15,7 @@ public class CheckMoveAndStop {
         return new CheckMoveAndStop(cars, raceCount);
     }
 
-    private CheckMoveAndStop(List<Car> cars, int raceCount){
+    private CheckMoveAndStop(List<Car> cars, int raceCount) {
         OutputCarRace.print(MessageType.OUTPUT_RACE_START_PRINT);
 
         for (int race = 0; race < raceCount; race++) {
@@ -37,7 +37,7 @@ public class CheckMoveAndStop {
     private void UpdateMaxDistance(Car car) {
         StringBuilder driving = car.getDriving();
 
-        if(this.maxDistance < driving.length()){
+        if (this.maxDistance < driving.length()) {
             this.maxDistance = driving.length();
         }
     }
@@ -48,7 +48,7 @@ public class CheckMoveAndStop {
                 car.getDriving()));
     }
 
-    public int getMaxDistance(){
+    public int getMaxDistance() {
         return this.maxDistance;
     }
 }

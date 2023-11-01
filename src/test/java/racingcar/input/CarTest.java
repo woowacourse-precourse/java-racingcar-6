@@ -33,12 +33,12 @@ public class CarTest {
         }
 
         public void moveCar() {
-            if(isMove()){
+            if (isMove()) {
                 move();
             }
         }
 
-        private boolean isMove(){
+        private boolean isMove() {
             int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
 
             return randomNumber >= MOVE_CONDITION;
@@ -72,7 +72,7 @@ public class CarTest {
     }
 
     @Test
-    void 차_이동_가능여부_확인(){
+    void 차_이동_가능여부_확인() {
         차객체.moveCar();
     }
 

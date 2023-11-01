@@ -16,20 +16,20 @@ public class WinnerTest extends PrintTest {
     private static List<Car> 우승자들 = new ArrayList<>();
     private static int 우승거리 = 0;
 
-    public void 우승자들_입력(){
+    public void 우승자들_입력() {
         우승자들.add(Car.inputCarname("pobi1"));
         우승자들.add(Car.inputCarname("pobi2"));
     }
 
-    public static class Winner{
+    public static class Winner {
         private List<Car> cars;
         private int maxDistance;
 
-        public static Winner inputWinner(final List<Car> cars, final int maxDistance){
+        public static Winner inputWinner(final List<Car> cars, final int maxDistance) {
             return new Winner(cars, maxDistance);
         }
 
-        private Winner(final List<Car> cars, final int maxDistance){
+        private Winner(final List<Car> cars, final int maxDistance) {
             this.cars = cars;
             this.maxDistance = maxDistance;
         }
@@ -55,7 +55,7 @@ public class WinnerTest extends PrintTest {
     }
 
     @Test
-    void 우승자를_출력(){
+    void 우승자를_출력() {
         우승자들_입력();
         Winner winners = Winner.inputWinner(우승자들, 우승거리);
 

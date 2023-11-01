@@ -9,11 +9,11 @@ public class Winner {
     private List<Car> cars;
     private int maxDistance;
 
-    public static Winner inputWinner(final List<Car> cars, final int maxDistance){
+    public static Winner inputWinner(final List<Car> cars, final int maxDistance) {
         return new Winner(cars, maxDistance);
     }
 
-    private Winner(final List<Car> cars, final int maxDistance){
+    private Winner(final List<Car> cars, final int maxDistance) {
         this.cars = cars;
         this.maxDistance = maxDistance;
     }

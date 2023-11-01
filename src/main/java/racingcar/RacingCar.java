@@ -9,7 +9,7 @@ import racingcar.input.RacingCount;
 import racingcar.input.Winner;
 
 public class RacingCar {
-    public static void play(){
+    public static void play() {
         List<Car> cars = CarList.inputCarList(readLine()).getCarList();
         int raceCount = RacingCount.inputRaceCount(readLine()).getRaceCount();
 

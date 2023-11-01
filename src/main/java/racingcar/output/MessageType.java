@@ -8,16 +8,15 @@ public enum MessageType {
     OUTPUT_RACE_START_PRINT("\n실행 결과 \n"),
     OUTPUT_IMPLEMENTATION_RESULT_PRINT("%s : %s \n"),
     OUTPUT_RACE_END_PRINT("%s"),
-    OUTPUT_WINNERS_PRINT("최종 우승자 : %s")
-    ;
+    OUTPUT_WINNERS_PRINT("최종 우승자 : %s");
 
     private final String value;
 
-    MessageType(String value){
+    MessageType(String value) {
         this.value = value;
     }
 
-    public String getValue(){
+    public String getValue() {
         return value;
     }
 }

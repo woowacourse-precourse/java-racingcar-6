@@ -13,14 +13,14 @@ public class CheckMoveAndStopTest {
     private static List<Car> 우승자들 = new ArrayList<>();
     private static int 경주_횟수 = 2;
 
-    public void 차량이름을_입력하라(){
+    public void 차량이름을_입력하라() {
         우승자들.add(Car.inputCarname("pobi1"));
         우승자들.add(Car.inputCarname("pobi2"));
         우승자들.add(Car.inputCarname("pobi3"));
         우승자들.add(Car.inputCarname("pobi4"));
     }
 
-    static class CheckMoveAndStop{
+    static class CheckMoveAndStop {
         private int maxDistance = 0;
         private StringBuilder raceResult = new StringBuilder();
 
@@ -28,7 +28,7 @@ public class CheckMoveAndStopTest {
             return new CheckMoveAndStop(cars, raceCount);
         }
 
-        private CheckMoveAndStop(List<Car> cars, int raceCount){
+        private CheckMoveAndStop(List<Car> cars, int raceCount) {
             OutputCarRace.print(MessageType.OUTPUT_RACE_START_PRINT);
 
             for (int race = 0; race < raceCount; race++) {
@@ -50,7 +50,7 @@ public class CheckMoveAndStopTest {
         private void UpdateMaxDistance(Car car) {
             StringBuilder driving = car.getDriving();
 
-            if(this.maxDistance < driving.length()){
+            if (this.maxDistance < driving.length()) {
                 this.maxDistance = driving.length();
             }
         }
@@ -61,13 +61,13 @@ public class CheckMoveAndStopTest {
                     car.getDriving()));
         }
 
-        public int getMaxDistance(){
+        public int getMaxDistance() {
             return this.maxDistance;
         }
     }
 
     @Test
-    void 차량_이동(){
+    void 차량_이동() {
         차량이름을_입력하라();
 
         CheckMoveAndStop.run(우승자들, 경주_횟수);
