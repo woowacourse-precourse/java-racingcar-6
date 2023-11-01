@@ -11,4 +11,9 @@ public class GameController {
         play();
         showWinner();
     }
+
+    public void set() {
+        racingCars = InputController.setRacingCars();
+        roundNum = InputController.setRoundNum();
+    }
 }
