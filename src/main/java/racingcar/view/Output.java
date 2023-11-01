@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.domain.Winner;
+
 public class Output {
 
     public static void printCarsNameInputMessage() {
@@ -8,5 +10,9 @@ public class Output {
 
     public static void printRoundInputMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    public static void printWinners(final Winner winner) {
+        System.out.println("최종 우승자 : " + winner);
     }
 }
