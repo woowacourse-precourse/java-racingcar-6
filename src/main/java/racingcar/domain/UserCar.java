@@ -10,16 +10,10 @@ import racingcar.view.InputView;
 public class UserCar {
     public Map<String, Integer> car;
     private UserCarService userCarService = new UserCarService();
-
-    /*public UserCar(){
-        inputCarName();
-    }*/
-    public void inputCarName(){
-        Map<String, Integer> resource = InputView.inputCarNameView();
-        if(userCarService.checkCorrectName(resource)){
-            this.car = resource;
-        };
+    public UserCar(){
     }
-
+    public UserCar(Map<String, Integer> resource){
+        this.car = resource;
+    }
 }
 
