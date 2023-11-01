@@ -11,7 +11,7 @@ public class GameService {
     public Game createGame() {
         String[] carNames = getCarName();
         int tryCount = getTryCount();
-        System.out.println("");
+        System.out.println(" ");
         Car[] cars = createCars(carNames);
         return new Game(cars, tryCount);
     }
