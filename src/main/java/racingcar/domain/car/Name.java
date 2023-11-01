@@ -9,6 +9,7 @@ public record Name(
 
     public Name {
         validate(name);
+        name = name.trim();
     }
 
     private void validate(final String name) {
