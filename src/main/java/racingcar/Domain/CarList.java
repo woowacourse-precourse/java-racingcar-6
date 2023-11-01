@@ -48,7 +48,7 @@ public class CarList {
         }
     }
 
-    private List<Car> getCars() {
+    public List<Car> getCars() {
         return this.cars;
     }
 }
