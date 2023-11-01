@@ -89,3 +89,15 @@
 - [x] https://gist.github.com/stephenparish/9941e89d80e2bc58a153 에 있는 커밋 메시지 컨벤션을 지키자!
 
 ## <span style="background-color:#E8D595"> **6. 결과**
+
+- 자동차 경주 작동 결과
+
+![Animation2](https://github.com/woowacourse-precourse/java-racingcar-6/assets/105053478/56539588-070e-4a32-93ce-4b1ee5406199)
+
+- 혼자 자동차 경주 시도
+
+![Animation2](https://github.com/woowacourse-precourse/java-racingcar-6/assets/105053478/30cdcab2-5dcd-49a4-8b5f-c4147f98d276)
+
+- 자동차 이름 6글자일 경우
+
+![Animation2](https://github.com/woowacourse-precourse/java-racingcar-6/assets/105053478/1efcad35-f4ad-473a-94a4-b05622c7e206)
