@@ -7,6 +7,7 @@ public class Car {
     private int ranNumber;
 
     public Car(String name){
+
         this.name = name;
     }
 
@@ -14,15 +15,18 @@ public class Car {
         move += 1;
     }
 
-    public String ReturnCarName(){
+    public String ReturnCarName() {
         return name;
+
     }
     public int ReturnRanNum(){
+
         return ranNumber;
     }
 
-    public int ReturnMove(){
+    public int ReturnMove() {
         return move;
+
     }
 
 
