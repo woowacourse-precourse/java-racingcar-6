@@ -25,6 +25,7 @@ public class GameController {
     public void start() {
         setCarList();
         moveCars();
+        printWinnersResult();
     }
 
     private boolean isMove() {
@@ -46,6 +47,9 @@ public class GameController {
             carList.carList().forEach(car -> car.move(isMove()));
             outputView.printCarResult(carList.carList());
         }
+    }
+
+    private void printWinnersResult() {
         outputView.printWinners(carList.getWinners());
     }
 
