@@ -17,4 +17,12 @@ public class InputHandler {
         );
         return ret;
     }
+
+    public static int getInteger() {
+        String input = Console.readLine();
+        Validation.validateIsNumber(input);
+        int tryCount = Integer.parseInt(input);
+        Validation.validateNaturalNumber(tryCount);
+        return tryCount;
+    }
 }
