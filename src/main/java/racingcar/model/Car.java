@@ -11,10 +11,13 @@ public class Car {
         this.forwardCount = new ForwardCount();
     }
 
-    public void move(Integer randomValue) {
+    public Boolean move(Integer randomValue) {
         if (randomValue >= 4) {
             forwardCount.increaseCount();
+            return true;
         }
+
+        return false;
     }
 
     public String getForwardResultMessage() {
