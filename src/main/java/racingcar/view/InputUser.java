@@ -15,8 +15,6 @@ public class InputUser {
     private String carNameString;
     private String inputRoundLength;
     private ArrayList<String> carNameArray;
-    private static final int RANDOM_MAX_INT = 9;
-    private static final int RANDOM_MIN_INT = 0;
     private static final String SEPARATOR = ",";
     private InputException inputException;
 
@@ -29,12 +27,16 @@ public class InputUser {
     }
 
     public void inputCarNameString() {
+        inputUserCarNameString();
+        carNameArray = splitToArray(carNameString);
+        inputException.checkInputCarNameArrayError(carNameArray);
+    }
+
+    public void inputUserCarNameString(){
         displaywriteCarNameMessage();
         carNameString = Console.readLine();
-        carNameArray = splitToArray(carNameString);
-        //Exception 확인
-
     }
+
 
     public ArrayList<Car> returnCar() {
         ArrayList<Car> carArrayList = new ArrayList<>();
@@ -51,7 +53,8 @@ public class InputUser {
     public int inputRoundLength(){
         displaywriteRaceLengthMessage();
         inputRoundLength=Console.readLine();
-        //Exception
+
+        inputException.checkInputRoundError(inputRoundLength);
         return Integer.parseInt(inputRoundLength);
     }
 
