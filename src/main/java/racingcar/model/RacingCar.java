@@ -18,6 +18,7 @@ public class RacingCar {
     }
 
     private void validateName(String name) {
+        if (name.isEmpty() || name.contains(" ")) throw new IllegalArgumentException(NAME_LENGTH_VALIDATE);
         if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH)
             throw new IllegalArgumentException(NAME_LENGTH_VALIDATE);
     }
