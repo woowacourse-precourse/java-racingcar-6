@@ -11,4 +11,12 @@ public class MovingCount {
             movingCount.add(i, 0);
         }
     }
+
+    public int getEachMovingCount(int index) {
+        return movingCount.get(index);
+    }
+
+    public List<Integer> getMovingCount() {
+        return this.movingCount;
+    }
 }
