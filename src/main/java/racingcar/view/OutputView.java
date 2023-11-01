@@ -37,8 +37,7 @@ public class OutputView {
     }
 
     public static void printWinners(List<Car> cars) {
-        List<String> winners = getWinnersName(cars);
-        System.out.print(FINAL_WINNERS + DELIMITER + String.join(WINNERS_DELIMITER, winners));
+        System.out.print(FINAL_WINNERS + DELIMITER + String.join(WINNERS_DELIMITER, getWinnersName(cars)));
     }
 
     private static List<String> getWinnersName(List<Car> cars) {
