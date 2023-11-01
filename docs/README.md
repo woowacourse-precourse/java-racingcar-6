@@ -1,7 +1,7 @@
 # 간단한 자동차 경주 게임
 
 ## 기능 목록
-- [ ] 각 자동차에 이름을 입력한다. - CarGenerator#inputCarNames()
+- [O] 각 자동차에 이름을 입력한다. - CarGenerator#inputCarNames()
 - [O] 몇 회 이동할 것인지 입력한다. - NumberGenerator#goChance()
     - [O]숫자인가? 예외처리 진행.   - NumberGenerator#validateGameChanceNumbers()
 - [O] 0에서 9 사이의 임의의 수를 생성한다. - NumberGenerator#createRandomNumbers()
