@@ -37,8 +37,8 @@
 - 잘못된 값을 검증할 클래스 `Validation`
     - 사용자의 이름 길이를 검증할 `ValidateLengthOfName()`
     - 사용자가 잘못된 값을 입력했는지 검증할 `isNotNumber()`
-    - 이름의 마지막이 comma로 끝났는지 검증할 `endsWithComma`
-    - 비어있는 문자열인지 검증할 `isEmpty`
+    - 이름의 마지막이 comma로 끝났는지 검증할 `endsWithComma()`
+    - 비어있는 문자열인지 검증할 `isEmpty()`
     - 잘못의 예)
         - 이름을 0자 미만, 6자 이상 입력했는지?
         - 이름 마지막이 comma 로 끝났는지?
@@ -62,4 +62,4 @@
     - 전체 레이싱 경기(시작메시지 출력 ~ 우승자 출력)을 담당할 `racingGame()`
 - 유틸리티 클래스 `Utils`
     - String을 콤마를 기준으로 Arraylist로 바꿔줄 `splitCarName()`
-    - 문자열이 길이를 반환할 `checkSize`
+    - 문자열이 길이를 반환할 `checkSize()`
