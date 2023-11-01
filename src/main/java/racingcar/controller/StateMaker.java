@@ -6,7 +6,7 @@ import racingcar.model.Racer;
 public class StateMaker {
 
     public static Racer getGoOrStop(Racer racer) {
-        if (decideGoOrStop() == true){
+        if (decideGoOrStop() == true) {
             racer.goState();
         } else {
             racer.stopState();
