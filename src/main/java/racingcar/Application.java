@@ -14,15 +14,12 @@ public class Application {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+$");
 
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         List<String> car = inputCarNames();
         int tryCount = inputTryCount();
         List<Integer> position = new ArrayList<>();
         int maxPosition;
 
-        if (tryCount <= 0) {
-            throw new IllegalArgumentException("1 이상의 양수만 입력 가능.");
-        }
+        validatePositiveTryCount(tryCount);
 
         for (int i = 0; i < car.size(); i++) {
             position.add(0);
@@ -124,6 +121,12 @@ public class Application {
     private static void validateInputIsNumber(String input) {
         if (!NUMBER_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException("시도할 회수는 숫자만 가능");
+        }
+    }
+
+    private static void validatePositiveTryCount(int tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException("1 이상의 양수만 입력 가능.");
         }
     }
 }
