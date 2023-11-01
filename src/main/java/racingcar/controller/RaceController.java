@@ -24,10 +24,19 @@ public class RaceController {
 
     public void startGame() {
         Race race = getRaceInput();
-        playRace(race);
+        executeAllRounds(race);
         endRace(race);
     }
-    
+
+    private void executeAllRounds(Race race) {
+        int totalRounds = race.getTotalRounds();
+
+        for (int i = 0; i < totalRounds; i++) {
+            raceService.executeRound(race);
+            ResultView.printRoundResult(race.getCars());
+        }
+    }
+
     private Race getRaceInput() {
         List<String> carNames = validationService.validateCarsRange(InputView.getCarNames());
         int rounds = validationService.validateRoundType(InputView.getRounds());
@@ -35,11 +44,6 @@ public class RaceController {
         validationService.validateRoundRange(rounds);
         List<Car> cars = CarFactoryService.createCars(carNames);
         return new Race(cars, rounds);
-    }
-
-    private void playRace(Race race) {
-        raceService.executeRace(race);
-        ResultView.printRoundResult(race.getCars());
     }
 
     private void endRace(Race race) {
