@@ -1,13 +1,9 @@
 package racingcar;
 
-// import camp.nextstep.edu.missionutils.Console;
-
-import java.util.Random;
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         int numberOfCars = 3;
 
@@ -15,7 +11,7 @@ public class Application {
 
 
             System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n ");
-            String getcarNames = scanner.nextLine();
+            String getcarNames = Console.readLine();
             carNames = getcarNames.split("\\s*,\\s*");
         
             for (String name : carNames) {
@@ -31,19 +27,35 @@ public class Application {
             }
 
         System.out.print("시도할 회수는 몇회인가요?\n ");
-        int numberOfMoves = scanner.nextInt();
-        scanner.close();
-
+        int numberOfMoves = Integer.parseInt(Console.readLine());
+        
         int[] carPositions = new int[numberOfCars];
-        Random random = new Random();
+        
+        for (int move = 0; move < numberOfMoves; move++) {
+            for (int car = 0; car < numberOfCars; car++) {
+                int randomValue = GenerateRandomeNumber.generateNumber();
+                if (randomValue >= 4) {
+                    carPositions[car]++;
+                    
+                }
+            }
+        }
+
+        System.out.println("실행 결과\n");
 
         for (int move = 0; move < numberOfMoves; move++) {
             for (int car = 0; car < numberOfCars; car++) {
-                int randomValue = random.nextInt(10);
+                int randomValue = GenerateRandomeNumber.generateNumber();
                 if (randomValue >= 4) {
                     carPositions[car]++;
                 }
             }
+
+            for (int car = 0; car < numberOfCars; car++) {
+                String positionIndicator = new String(new char[carPositions[car]]).replace('\0', '-');
+                System.out.println(carNames[car] + " : " + positionIndicator);
+            }
+            System.out.println(" ");
         }
 
         int maxPosition = -1;
@@ -62,11 +74,7 @@ public class Application {
                 winners.append(carNames[car]);
             }
         }
-
-        System.out.println("실행 결과\n");
-        for (int car = 0; car < numberOfCars; car++) {
-            System.out.println(carNames[car] + ": " + new String(new char[carPositions[car]]).replace('\0', '-'));
-        }
+        
         System.out.println("최종 우승자 : " + winners);
     }
 }
