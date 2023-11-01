@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 import java.util.stream.Collectors;
@@ -46,5 +47,18 @@ public class Cars {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
+    }
+
+    public void forward() {
+        cars.stream()
+                .forEach(car -> randomForward(car));
+    }
+
+    private void randomForward(Car car) {
+        int randomValue = Randoms.pickNumberInRange(1, 9);
+
+        if (randomValue >= 4) {
+            car.forward();
+        }
     }
 }

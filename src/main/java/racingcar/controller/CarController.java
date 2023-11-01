@@ -104,22 +104,14 @@ public class CarController {
         return result;
     }
 
-    private void forward(Car car) {
-        int randomValue = Randoms.pickNumberInRange(1, 9);
 
-        if (randomValue >= 4) {
-            car.forward();
-        }
-    }
 
     private void attemptForwardAndOutputResult(int forwardAttempt, Cars cars) {
         // 전진 시도 횟수만큼 전진
         for (int forward = 0; forward < forwardAttempt; forward++) {
 
-            // 각 자동차들 마다 forward()를 통하여 랜덤으로 생성한 값이 4 이상인 경우 전진
-            cars.getCars()
-                    .stream()
-                    .forEach(car -> forward(car));
+            // 각 자동차들 마다 랜덤으로 생성한 값이 4 이상인 경우 전진
+            cars.forward();
 
             // 전진이 완료된 이후 현재 위치 정보 출력
             forwardResultOutput(cars);
