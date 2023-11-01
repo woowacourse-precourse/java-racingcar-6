@@ -10,9 +10,9 @@ import racingcar.view.ExceptionMessage;
 public class Car {
     public static final int NAME_MAX_LENGTH = 5;
     public static final int NAME_MIN_LENGTH = 1;
+    public static final String LOCATION = "-";
     private String name;
     private int location = 0;
-    public static final String LOCATION = "-";
 
     public Car(String name) {
         validateName(name);

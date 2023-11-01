@@ -2,7 +2,6 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class RaceService {
@@ -12,7 +11,7 @@ public class RaceService {
 
     public List<Car> getWinner(List<Car> cars) {
         int highestLocation = cars.stream().mapToInt(Car::getLocation).max().getAsInt();
-        return cars.stream().filter(car -> car.getLocation() == highestLocation).collect(Collectors.toList());
+        return cars.stream().filter(car -> car.getLocation() == highestLocation).toList();
     }
 
     public void runRace(List<Car> cars) {

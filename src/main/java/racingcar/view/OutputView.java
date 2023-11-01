@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class OutputView {
@@ -17,7 +16,7 @@ public class OutputView {
     }
 
     public void displayResults(List<Car> cars) {
-        List<String> winnersNames = cars.stream().map(Car::getName).collect(Collectors.toList());
+        List<String> winnersNames = cars.stream().map(Car::getName).toList();
         String winnerNamesMessage = String.join(NAME_DELIMITER, winnersNames);
         System.out.print(FINAL_WINNER + LOCATION_AND_NAME_DELIMITER + winnerNamesMessage);
     }
