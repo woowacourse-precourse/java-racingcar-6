@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.service.GameService;
 import racingcar.domain.TryCount;
 import racingcar.domain.Winner;
@@ -10,30 +11,38 @@ import java.util.List;
 
 public class GameController {
 
-    private GameService gameService;
-    private int tryCount;
+    private List<Car> cars;
+    private TryCount tryCount;
+    private final GameService gameService;
+
+    public GameController() {
+        GameService gameService = new GameService();
+        this.gameService = gameService;
+    }
 
     public void gameStart() {
         gameSetInput();
-        playRacing();
+
+        for (int i = 0; i < tryCount.getTryCount(); i++) {
+            playRacing();
+        }
+
         showWinnerCars();
     }
 
     private void gameSetInput() {
         List<String> carNames = InputView.inputCarNames();
-        GameService.createCar(carNames);
-        TryCount tryCount = InputView.inputTryCount();
+        this.cars = GameService.createCar(carNames);
+        this.tryCount = InputView.inputTryCount();
     }
 
     private void playRacing() {
-        for (int i=0; i<tryCount; i++) {
-            gameService.moveCar();
-            OutputView.showCarNameAndPosition(gameService.getCars());
-        }
+        gameService.moveCar(cars);
+        OutputView.showCarNameAndPosition(cars);
     }
 
     private void showWinnerCars() {
-        Winner winner = gameService.findWinners();
+        Winner winner = gameService.findWinners(cars);
         OutputView.finalWinnerMessage(winner);
     }
 }
