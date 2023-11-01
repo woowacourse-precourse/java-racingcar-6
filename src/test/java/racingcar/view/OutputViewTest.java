@@ -62,4 +62,21 @@ class OutputViewTest {
         Assertions.assertThat(outputView.getWinnerNames(carList))
                 .isEqualTo("최종 우승자 : 홍길동, 포비");
     }
+
+    @DisplayName("자동차 마일리지로 변경 ")
+    @Test
+    void distanceToPosition() {
+
+        //given
+        addCars();
+        moveCar(1);
+        moveCar(1);
+        moveCar(1);
+        Car car = carList.get(1);
+
+        //then
+        Assertions.assertThat(OutputView.distanceToPosition(car))
+                .isEqualTo("---");
+    }
+
 }
