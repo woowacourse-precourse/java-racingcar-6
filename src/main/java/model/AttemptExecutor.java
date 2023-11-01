@@ -10,18 +10,12 @@ public class AttemptExecutor {
     private final RaceDto raceDto;
     private final List<String> carNames;
 
-    AttemptExecutor(RaceDto raceDto) {
+    public AttemptExecutor(RaceDto raceDto) {
         this.raceDto = raceDto;
         this.carNames = raceDto.getCarNameList();
     }
 
     public void execute() {
-        for (int i = 0; i < raceDto.getAttemptTimes(); i++) {
-            singleAttempt();
-        }
-    }
-
-    private void singleAttempt() {
         for (String carName : carNames) {
             moveCarAtIfPossible(carName);
         }

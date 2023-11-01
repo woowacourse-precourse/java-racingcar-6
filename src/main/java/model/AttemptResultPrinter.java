@@ -6,16 +6,18 @@ import view.OutputView;
 public class AttemptResultPrinter {
     private final RaceDto raceDto;
     private final OutputView outputView = new OutputView();
+    private final List<String> carNames;
 
-    AttemptResultPrinter(RaceDto raceDto){
+    public AttemptResultPrinter(RaceDto raceDto){
         this.raceDto = raceDto;
+        this.carNames = raceDto.getCarNameList();
     }
 
-    private void printAttemptResult(RaceDto raceDto) {
-        List<String> carNames = raceDto.getCarNameList();
+    public void print() {
         for (String carName : carNames) {
             outputView.printAttemptResult(carName, getMovementString(carName));
         }
+        outputView.printNewLine();
     }
 
     private String getMovementString(String name) {
