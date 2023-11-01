@@ -1,11 +1,13 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.constants.MessageConstants;
 
 public class RaceTest {
     private Race race;
@@ -53,7 +55,16 @@ public class RaceTest {
 
         List<String> winners = race.getWinners();
         List<String> anticipation = Arrays.asList("red", "blue");
-
         assertThat(winners).isEqualTo(anticipation);
     }
+
+    @Test
+    void 차_리스트가_비어있을_때_예외발생() {
+        race = new Race(Arrays.asList(), 3);
+        assertThatThrownBy(() -> {
+            race.getWinners();
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(MessageConstants.EMPTY_CAR_LIST);
+    }
 }
+
