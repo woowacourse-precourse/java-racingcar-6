@@ -1,5 +1,6 @@
 package study;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -46,6 +47,18 @@ public class StringTest {
         assertThatThrownBy(() -> input.charAt(5))
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
+    }
+
+    @Test
+    void length_문자열_길이_테스트() {
+        String input = "asdfg";
+        assertThat(input.length()).isEqualTo(5);
+    }
+
+    @Test
+    void equals_같은_내용의_문자열인지_테스트() {
+        String input = "문자열";
+        assertThat(input.equals("문자열")).isEqualTo(true);
     }
 
 }
