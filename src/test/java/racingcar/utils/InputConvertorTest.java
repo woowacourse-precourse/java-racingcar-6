@@ -48,6 +48,16 @@ class InputConvertorTest {
     }
 
     @Test
+    @DisplayName("한글, 영어, 숫자 이외의 이름 형식은 예외를 발생한다.")
+    void invalidNameInputTest() {
+        String invalidName = "~ ,";
+
+        assertThatThrownBy(() -> InputConvertor.separateInputToNames(invalidName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("적절하지 않은 이름 형식입니다.");
+    }
+
+    @Test
     @DisplayName("시도 횟수 입력 시, int로 변환한다.")
     void parseTryCountTest() {
         String inputTry = "12";
