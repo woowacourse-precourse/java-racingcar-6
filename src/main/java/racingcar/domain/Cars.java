@@ -66,14 +66,18 @@ public class Cars {
     }
 
     public List<String> findWinners() {
-        int maxDistance = carList.stream()
-                .max(Comparator.comparingInt(Car::getDistance))
-                .orElseThrow(NoSuchElementException::new)
-                .getDistance();
+        int maxDistance = findMaxDistance();
 
         return carList.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
                 .toList();
+    }
+
+    private int findMaxDistance() {
+        return carList.stream()
+                .max(Comparator.comparingInt(Car::getDistance))
+                .orElseThrow(NoSuchElementException::new)
+                .getDistance();
     }
 }
