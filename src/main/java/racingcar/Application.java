@@ -10,7 +10,6 @@ public class Application {
         String carNames = Console.readLine();
         String[] carNameList = carNames.split(",");
         Vector<Car> cars = new Vector<Car>();
-        try{
             for(String carName:carNameList){
                 if(carName.equals("")) throw new IllegalArgumentException();
                 Car car = new Car(carName);
@@ -31,14 +30,12 @@ public class Application {
             for(int i=cars.size()-1;i>=0;i--){
                 if(cars.get(i).getLength()<winnersLength)cars.remove(cars.get(i));
             }
-            String winnerList="최종 우승자: ";
+            String winnerList="최종 우승자 : ";
             for(Car car:cars){
                 winnerList = winnerList+car.getName()+", ";
             }
             winnerList = winnerList.substring(0,winnerList.length()-2);
             System.out.println(winnerList);
-        }catch (IllegalArgumentException e){
-        }
 
     }
 
