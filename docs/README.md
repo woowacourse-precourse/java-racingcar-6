@@ -40,29 +40,25 @@
 
 - [x] TransferUtil
   - [x] String -> List<String>으로 변환 기능
-  - [x] String -> List<Car>으로 변환 기능
+  - [x] CarStatusDto를 각 출력 값에 맞게 변환
 
 ### MODEL
 - [x] Car
   - [x] 이름과 현재 위치 담을 생성자
   - [x] 랜덤한 수를 받아 전진할지 , 가만있을지 구분
   - [x] 위치 하나 전진하는 메소드
-  - [x] 이름과 현재 위치를 출력할 메소드
-  - [x] 이름의 Getter
+  - [x] 이름과 position의 Getter
 
-- [ ] Cars
-  - [x] 게임 진행 시 생선된 자동차 목록을 담을 List<Car> 생성자
-  - [ ] 우승 차 찾아서 반환
-
-- [ ] Game
-  - [ ] Cars, numbergenerator, 시도 횟수 생성자
-  - [ ] 시도 횟수 만큼 car move
+- [x] Cars
+  - [x] 게임 진행 시 생선된 자동차 목록을 담을 List<Car>, RandomNumberGenerator 생성자
+  - [x] 우승 포지션 찾아서 반환
+  - [x] 각 자동차 움직이기
+  - [x] 각 자동차의 현재 상태 Dto로 전달
 
 - [x] GameResult
   - [x] 우승 객체를 담을 List<Car>, 가정 전진해 있는 winPosition 생성자
-  - [x] winPosition 찾는 메소드
   - [x] winPosition에 있는 Car를 winnerCarList에 추가하는 메소드
-  - [x] 우승 차들 이름 String으로 제공하는 메소드
+  - [x] 우승 차들 이름 Dto로 전달
 
 ### VIEW
 - [x] InputView (ErrorException으로 입력 값 검증)
@@ -87,7 +83,7 @@
     - [x] 게임 종료 메소드 실행
 
   - [x] 게임 진행 (시도 회수 만큼 반복) 
-    - [x] RandomGenerator를 사용해 각 시도 회수 만큼 자동차 전진
+    - [x] 각 시도 회수 만큼 자동차 전진
     - [x] OutputView로 자동차의 이름과 현재 위치 출력
 
   - [x] 게임 종료
@@ -98,7 +94,6 @@
 ## 리팩토링
 
 ### 상수
-- [ ] 상수 따로 관리
-  - [ ] 에러 메시지 상수
+- [x] 상수 따로 관리
+  - [x] 에러 메시지 상수
   - [x] 자동차에 필요한 상수
-  - [ ] 게임에 필요한 상수
