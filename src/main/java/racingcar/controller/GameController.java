@@ -3,7 +3,6 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.Game;
 import racingcar.model.GameFactory;
-import racingcar.model.strategy.MoveStrategy;
 import racingcar.util.CarNamesInputConverter;
 import racingcar.util.NumberOfAttemptsInputConverter;
 import racingcar.view.InputView;
@@ -12,13 +11,13 @@ import racingcar.view.OutputView;
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final MoveStrategy moveStrategy;
+    private final GameFactory gameFactory;
     private Game game;
 
-    public GameController(InputView inputView, OutputView outputView, MoveStrategy moveStrategy) {
+    public GameController(InputView inputView, OutputView outputView, GameFactory gameFactory) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.moveStrategy = moveStrategy;
+        this.gameFactory = gameFactory;
     }
 
     public void run() {
@@ -30,7 +29,7 @@ public class GameController {
     private void initializeGame() {
         List<String> carNames = inputCarNames();
         int numberOfAttempts = inputNumberOfAttempts();
-        this.game = GameFactory.createGame(carNames, numberOfAttempts, moveStrategy);
+        this.game = gameFactory.createGame(carNames, numberOfAttempts);
     }
 
     private List<String> inputCarNames() {
