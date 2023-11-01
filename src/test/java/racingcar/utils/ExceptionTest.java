@@ -16,7 +16,8 @@ public class ExceptionTest {
         List<String> list = parser.stringCarNameToArrayList(input);
 
         Assertions.assertThatThrownBy(() -> checker.inputCarName(input, list))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("최소");
     }
 
     @Test
@@ -25,7 +26,8 @@ public class ExceptionTest {
         List<String> list = parser.stringCarNameToArrayList(input);
 
         Assertions.assertThatThrownBy(() -> checker.inputCarName(input, list))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("최대");
     }
 
     @Test
@@ -34,7 +36,8 @@ public class ExceptionTest {
         List<String> list = parser.stringCarNameToArrayList(input);
 
         Assertions.assertThatThrownBy(() -> checker.inputCarName(input, list))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백");
     }
 
     @Test
@@ -43,7 +46,18 @@ public class ExceptionTest {
         List<String> list = parser.stringCarNameToArrayList(input);
 
         Assertions.assertThatThrownBy(() -> checker.inputCarName(input, list))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복");
+    }
+
+    @Test
+    public void finalValueExceptionTest(){
+        String input="d,f,";
+        List<String> list = parser.stringCarNameToArrayList(input);
+
+        Assertions.assertThatThrownBy(() -> checker.inputCarName(input, list))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("마지막");
     }
 
     @Test
@@ -51,6 +65,7 @@ public class ExceptionTest {
         String input="d";
 
         Assertions.assertThatThrownBy(() -> checker.inputAttemptFinal(input))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자");
     }
 }
