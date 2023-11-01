@@ -18,4 +18,7 @@ public class Car {
         return moveCnt;
     }
 
+    public void moveCar() {
+        moveCnt++;
+    }
 }
