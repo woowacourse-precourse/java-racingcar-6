@@ -17,7 +17,7 @@ public class Cars {
         return loadState;
     }
 
-    public String upLoadState() {
+    public String drive() {
         return this.loadState = this.loadState.concat("-");
     }
 

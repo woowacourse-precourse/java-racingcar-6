@@ -13,7 +13,7 @@ public class PlayRule {
         for (Cars car : carsList) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
             if (randomNumber >= MIN_RUNNING_SIZE) {
-                car.upLoadState();
+                car.drive();
             }
         }
         System.out.println();
