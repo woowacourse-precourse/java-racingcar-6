@@ -2,7 +2,6 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
@@ -13,12 +12,6 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         this.cars = copyList(cars);
-    }
-
-    public static Cars of(String names, String delimiter) {
-        return new Cars(Arrays.stream(names.split(delimiter))
-                .map(Car::new)
-                .toList());
     }
 
     private List<Car> copyList(List<Car> cars) {

@@ -4,13 +4,14 @@ import java.util.List;
 import racingcar.model.AttemptCount;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.CarsFactory;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Game {
     public void start() {
         String inputNames = InputView.inputNames();
-        Cars cars = Cars.of(inputNames, ",");
+        Cars cars = CarsFactory.createCars(inputNames);
 
         String inputAttemptCount = InputView.inputAttemptCount();
         AttemptCount attemptCount = AttemptCount.from(inputAttemptCount);
