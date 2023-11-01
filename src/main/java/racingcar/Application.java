@@ -27,12 +27,23 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNumber = Integer.parseInt(Console.readLine()); // 시도할 회수를 담는 tryNumber 변수를 생성
 
+        if(tryNumber < 0){
+            throw new IllegalArgumentException();
+        }
+
         System.out.println();
         System.out.println("실행 결과");
 
         boolean racingStatus = true; // 자동차 경주의 진행 여부를 확인하기 위한 racingStatus 변수를 생성
 
         while(racingStatus){
+            if(tryNumber == 0){
+                System.out.print("최종 우승자 : ");
+                System.out.println(printCarData.printWinRacingCar(racingCarNames, tryNumber));
+                racingStatus = false;
+                continue;
+            }
+
             for(String carName : racingCarNames.keySet()){
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
                 int currentNumber = racingCarData.updateRacingCarDistance(randomNumber); // 랜덤으로 생성한 수가 4 이상이면 1, 그렇지 않으면 0을 리턴
