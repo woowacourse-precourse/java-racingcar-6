@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Car{
+public class Car {
 
     private int length;
     private String name;

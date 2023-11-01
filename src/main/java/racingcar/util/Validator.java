@@ -13,6 +13,7 @@ public class Validator {
             throw new IllegalArgumentException("입력 값이 정수가 아닙니다.");
         }
     }
+
     public static List<String> validateCarNameInput(String input) {
         checkIsEmptyInput(input);
         checkInputFormat(input);
