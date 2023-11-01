@@ -1,12 +1,14 @@
 package racingcar.exception;
 
+import org.mockito.internal.matchers.Null;
+
 import java.util.Arrays;
 
 public class CarNameException {
 
     public static void carNameLengthException(String name){
 
-        if (name.length() > 5 || name.length() < 1){
+        if (name.length() > 5 || name.length() == 0){
             throw new IllegalArgumentException("이름은 1이상 5이하의 길이만 가능합니다.");
         }
 

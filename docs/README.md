@@ -26,7 +26,7 @@
 
 ### 테스트 코드 ###
 
-[-] 자동차 이름이 1글자 이상 5글자 이하 인지 확인 -CarNameExceptionTest / 자동차이름길이확인()
+[o] 자동차 이름이 1글자 이상 5글자 이하 인지 확인 -CarNameExceptionTest / 자동차이름길이확인()
 
 [-] 자동차 이름이 각각 다른 이름인지 중복 확인 -CarNameExceptionTest / 자동차이름중복확인()
 
