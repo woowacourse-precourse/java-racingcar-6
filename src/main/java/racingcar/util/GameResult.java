@@ -19,4 +19,8 @@ public class GameResult {
     public StringBuilder getGameResult() {
         return gameResult;
     }
+
+    public void setZeroLengthToClear() {
+        gameResult.setLength(0);
+    }
 }
