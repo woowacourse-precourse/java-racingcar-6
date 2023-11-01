@@ -38,5 +38,16 @@ public class OutputView {
         }
         return FINAL_WINNER + baseName;
     }
+
+    public static String countToMileage(Car car) {
+        String Mileage = "-";
+
+        Integer distance1 = car.getDistance();
+
+        for (int i = 0; i < distance1; i++) {
+            Mileage += Mileage;
+        }
+        return Mileage;
+    }
 }
 

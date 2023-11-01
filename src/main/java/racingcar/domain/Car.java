@@ -8,7 +8,6 @@ public class Car {
 
     private final String name;
     private Integer distance = 0;
-    private String mileage = "";
 
     public Car(String name) {
         validationNameLength(name);
@@ -28,12 +27,11 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.name + " : " + this.mileage;
+        return this.name + " : ";
     }
 
-    public Integer accel() {
-        this.mileage += "-";
-        return this.distance++;
+    public void accel() {
+        distance++;
     }
 
     public String getName() {
