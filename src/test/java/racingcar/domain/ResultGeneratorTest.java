@@ -11,7 +11,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
 class ResultGeneratorTest {
     private ResultGenerator resultGenerator;
     private final PrintStream standardOut = System.out;
