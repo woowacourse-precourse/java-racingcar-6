@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import racingcar.constants.DomainConstant;
+import static racingcar.constants.DomainConstant.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -36,11 +37,10 @@ public class Cars implements Iterable<Car> {
     private List<String> parsedCarsName(String carsName) {
         String[] splitCarsName = splitCarsName(carsName);
         return stringArrayToStringList(splitCarsName);
-
     }
 
     private String[] splitCarsName(String inputValue) {
-        return inputValue.split(DomainConstant.CAR_NAME_SEPARATOR);
+        return inputValue.split(CAR_NAME_SEPARATOR);
     }
 
     private List<String> stringArrayToStringList(String[] strings) {
