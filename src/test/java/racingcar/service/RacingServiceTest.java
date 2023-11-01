@@ -7,7 +7,6 @@ import racingcar.domain.Car;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,6 +26,7 @@ public class RacingServiceTest {
     void restoresStreams() {
         System.setOut(System.out);
     }
+
     @Test
     void stringToList_쉼표를_구분자로_리스트_변환() {
         String input = "pobi,woni,jun";
