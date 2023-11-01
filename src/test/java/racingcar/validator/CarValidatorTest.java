@@ -14,6 +14,17 @@ import static org.mockito.Mockito.when;
 class CarValidatorTest {
 
     @Test
+    void 이름이_하나도_없는_경우_예외_발생() {
+        String[] carNames = new String[0];
+        CarValidator carValidator = new CarValidator();
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> carValidator.checkCarCount(carNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("At least one car required")
+        );
+    }
+
+    @Test
     void 이름이_기준_길이_초과하는_경우_예외_발생() {
         String inputCarName = "다섯글자 넘는 자동차 이름";
         CarValidator carValidator = new CarValidator();
