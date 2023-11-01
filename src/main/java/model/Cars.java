@@ -62,7 +62,7 @@ public class Cars {
         return findSameMoveCountCars(maxMoveCar.getMoveCount());
     }
 
-    private List<Car> findSameMoveCountCars(final MoveCount moveCount) {
+    private List<Car> findSameMoveCountCars(final Count moveCount) {
         return cars.stream()
             .filter(car -> car.hasSameMoveCount(moveCount))
             .collect(Collectors.toList());

@@ -3,24 +3,24 @@ package model;
 public class Car {
 
     private final Name name;
-    private final MoveCount moveCount;
+    private final Count moveCount;
 
-    private Car(final Name name, final MoveCount moveCount) {
+    private Car(final Name name, final Count moveCount) {
         this.name = name;
         this.moveCount = moveCount;
     }
 
     public static Car from(final String value) {
         Name name = Name.from(value);
-        MoveCount count = MoveCount.initialMoveCount();
+        Count count = Count.initialCount();
         return new Car(name, count);
     }
 
     public void moveForward() {
-        moveCount.moveForward();
+        moveCount.addCount();
     }
 
-    public boolean hasSameMoveCount(final MoveCount count) {
+    public boolean hasSameMoveCount(final Count count) {
         return moveCount.equals(count);
     }
 
@@ -29,10 +29,10 @@ public class Car {
     }
 
     public int getMoveCountValue() {
-        return moveCount.getMoveCount();
+        return moveCount.getCount();
     }
 
-    public MoveCount getMoveCount() {
+    public Count getMoveCount() {
         return moveCount;
     }
 }
