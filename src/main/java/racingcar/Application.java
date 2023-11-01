@@ -4,6 +4,16 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.*;
 
+class Car {
+    String name;
+    int moveForwardCount;
+
+    Car(String name) {
+        this.name = name;
+        this.moveForwardCount = 0;
+    }
+}
+
 public class Application {
     private static final int MAX_NAME_SIZE = 5;
 
@@ -27,5 +37,9 @@ public class Application {
 
     public static void main(String[] args) {
         String[] carNamesArray = inputNames();
+        Car[] cars = new Car[carNamesArray.length];
+        for (int i = 0;  i < cars.length; i++) {
+            cars[i] = new Car(carNamesArray[i]);
+        }
     }
 }
