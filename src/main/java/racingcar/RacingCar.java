@@ -1,15 +1,18 @@
 package racingcar;
 
-import racingcar.input.RacingInfoUserInput;
 import racingcar.input.UserInput;
 import racingcar.race.Handler;
-import racingcar.race.RacingInfoHandler;
 import racingcar.vo.RacingInfo;
 
 public class RacingCar {
 
-    private final UserInput<RacingInfo> racingInfoInput = new RacingInfoUserInput();
-    private final Handler<RacingInfo> racingInfoHandler = new RacingInfoHandler();
+    private final UserInput<RacingInfo> racingInfoInput;
+    private final Handler<RacingInfo,RacingInfo> racingInfoHandler;
+
+    public RacingCar(UserInput<RacingInfo> racingInfoInput, Handler<RacingInfo,RacingInfo> racingInfoHandler) {
+        this.racingInfoInput = racingInfoInput;
+        this.racingInfoHandler = racingInfoHandler;
+    }
 
     public void run() {
         final RacingInfo racingInfo = racingInfoInput.input();
