@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -13,8 +14,19 @@ public class Application {
         }
     }
 
+    public static String getWinnerList(int winnerScore) {
+        List<String> winnerList = new ArrayList<>();
+        for (int i = 0; i < carScore.size(); i++) {
+            if (carScore.get(i) == winnerScore) {
+                winnerList.add(carName.get(i));
+            }
+        }
+        return String.join(", ", winnerList);
+    }
+
     // 자동차별로 점수를 저장할 변수
     static List<Integer> carScore = new ArrayList<>();
+    static List<String> carName = new ArrayList<>();
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -22,7 +34,6 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String strName = Console.readLine();
         String[] sepStr = strName.split(",");
-        List<String> carName = new ArrayList<>();
 
         // 이름이 6자 이상인 경우 예외 발생
         for (int i = 0; i < sepStr.length; i++) {
@@ -65,6 +76,19 @@ public class Application {
             }
             System.out.println();
         }
+
+        // 최종 우승자 출력(2명 이상인 경우 쉼표로 구분)
+        System.out.print("최종 우승자 : ");
+        int winnerScore = Collections.max(carScore);
+        int countWinner = Collections.frequency(carScore, winnerScore);
+        int winnerIndex = carScore.indexOf(winnerScore);
+        if (countWinner == 1) {
+            System.out.println(carName.get(winnerIndex));
+        } else {
+            String winners = getWinnerList(winnerScore);
+            System.out.println(winners);
+        }
+
 
     }
 }
