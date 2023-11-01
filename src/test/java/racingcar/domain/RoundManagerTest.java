@@ -2,12 +2,11 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.output.Output;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class RoundManagerTest {
 
@@ -25,7 +24,7 @@ class RoundManagerTest {
         cars = new Cars(carNames);
         numberGenerator = () -> FORWARD;
         RoundCount roundCount = new RoundCount("3");
-        roundManager = new RoundManager(cars, roundCount, numberGenerator, new ForwardChecker());
+        roundManager = new RoundManager(cars, roundCount, numberGenerator, new Output());
     }
 
     @Test
