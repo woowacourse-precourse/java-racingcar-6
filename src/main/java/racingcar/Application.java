@@ -55,7 +55,12 @@ public class Application {
         }
         System.out.println();
     }
-
+    private static void moveCars() {
+        carsMap.forEach((key, value) ->{
+            if(isForward())
+                carsMap.put(key, value + 1);
+        });
+    }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
