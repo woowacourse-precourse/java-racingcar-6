@@ -68,6 +68,11 @@ public class Application {
 
     private static void announceWinner(List<Car> cars) {
         int maxPosition = getMaxPosition(cars);
+        List<String> winners = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     private static int getMaxPosition(List<Car> cars) {
