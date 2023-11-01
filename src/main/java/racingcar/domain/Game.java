@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.view.Input;
 import racingcar.view.Output;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Game {
         this.attemptCount = numberOfAttempts;
     }
 
+    /** carNames를 입력하면 이름들 사이의 공백은 제외하고 입력처리됨. */
     private void initializeCars(String carNames) {
         String[] names = carNames.split(",");
         for (String name : names) {

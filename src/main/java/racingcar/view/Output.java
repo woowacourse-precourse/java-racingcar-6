@@ -25,6 +25,7 @@ public class Output {
         System.out.print(WINNER);
     }
 
+    // 가독성을 위해 사용
     public static void newLine() {
         System.out.println();
     }
