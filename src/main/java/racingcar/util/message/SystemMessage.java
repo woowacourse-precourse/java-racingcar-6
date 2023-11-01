@@ -23,4 +23,7 @@ public enum SystemMessage {
         print.accept(message);
     }
 
+    public String getMessage() {
+        return message;
+    }
 }
