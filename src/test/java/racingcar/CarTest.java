@@ -44,4 +44,24 @@ class CarTest {
         Car car = new Car("car");
         assertThat(car.getName()).isEqualTo("car");
     }
+    @Test
+    @DisplayName("자동차 움직임 테스트")
+    void move(){
+        Car car = new Car("car");
+        int randomNumber = car.getRandomNumber();
+        car.move(randomNumber);
+        if(randomNumber<4){
+            assertThat(car.getPosition()).isEqualTo(0);
+        }
+        if(randomNumber>=4){
+            assertThat(car.getPosition()).isEqualTo(1);
+
+        }
+    }
+    @Test
+    void 랜덤값_뽑기(){
+        Car car = new Car("car");
+        int randomNumber = car.getRandomNumber();
+        System.out.println(randomNumber);
+    }
 }
