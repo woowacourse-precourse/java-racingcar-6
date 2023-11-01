@@ -1,10 +1,11 @@
 package service;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import domain.Car;
+import random.Random;
 import util.Validate;
 
+import javax.naming.NamingEnumeration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,28 +38,18 @@ public class GameService {
         return Integer.parseInt(input);
     }
 
-    private void attemptOneRound(List<Car> cars) {
+    public void attemptOneRound(List<Car> cars) {
         cars.forEach(car -> {
-            if (isMove()) {
-                car.moveForward();
-            }
+            car.move();
         });
     }
 
-    private boolean isMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
-    }
 
-    private void attempt(List<Car> cars, int numberOfAttempts) {
+    public void attempt(List<Car> cars, int numberOfAttempts) {
         for (int i = 0; i < numberOfAttempts; i++) {
             attemptOneRound(cars);
             printOneRoundResult(cars);
         }
-    }
-
-    private void printOneRoundResult(List<Car> cars) {
-        cars.forEach(car -> System.out.println(car.toString()));
-        System.out.println();
     }
 
     private List<String> findWinner(List<Car> cars) {

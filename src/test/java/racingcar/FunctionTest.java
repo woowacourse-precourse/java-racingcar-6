@@ -1,27 +1,46 @@
 package racingcar;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import random.Random;
+import service.CarService;
 import service.GameService;
-import view.InputView;
+import util.Parser;
+import java.util.Arrays;
+import java.util.List;
 
-import java.io.*;
+import static org.assertj.core.api.Assertions.*;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FunctionTest {
     GameService gameService = new GameService();
+    CarService carService = new CarService();
+
     @Test
-    void 연산자_에러테스트() { // 고쳐야됨
-        String input = "abd,def";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        String result = gameService.getInputLineOfCarNames();
-        assertThat(result).isEqualTo("abd,def");
+    @DisplayName("한줄로 받은 이름들을 , 를 기준으로 나누는 기능")
+    void split() { // 고쳐야됨
+        String input = "pobi,jun,son";
+        List<String> result = Parser.split(input);
+        assertThat(result).containsExactly("pobi", "jun", "son");
+    }
+
+    @Test
+    @DisplayName("각 자동차를 생성하는 기능")
+    void createCars() {
+        List<String> carNames = Arrays.asList("pobi", "jun", "son");
+        List<Car> cars = carService.createCars(carNames);
+        assertThat(cars).extracting(Car::getName)
+                .usingRecursiveComparison()
+                .isEqualTo(carNames);
+    }
+
+    @Test
+    @DisplayName("자동차가 전진인지 정지인지 판별해주는 기능")
+    void isMove() {
+        Car car = new Car("pobi", 2, new Random(5,6));
+        car.move();
+        assertThat(car.getPosition()).isEqualTo(3);
     }
 
 }
