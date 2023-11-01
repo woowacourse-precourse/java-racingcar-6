@@ -11,7 +11,7 @@ public class RacingWinners {
         this.racingWinners = new ArrayList<>(racingWinners);
     }
 
-    public String showRacingWinnersNamesSplitByComma() {
+    public String showNamesSplitByComma() {
         List<String> carNames = racingWinners.stream()
                                              .map(Car::showName)
                                              .toList();

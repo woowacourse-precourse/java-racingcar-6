@@ -35,7 +35,7 @@ public class CarRacingApplication {
 
             racingController.playRacingWith(racingCars);
 
-            RoundResultOutputView.output(racingCars.showRacingStates());
+            RoundResultOutputView.output(racingCars.showCarsStates());
         }
 
     }
@@ -50,7 +50,7 @@ public class CarRacingApplication {
 
     private String getRacingWinnersFrom(RacingCars racingCars) {
         RacingWinners racingWinners = getWinnersFrom(racingCars);
-        return racingWinners.showRacingWinnersNamesSplitByComma();
+        return racingWinners.showNamesSplitByComma();
     }
 
 }

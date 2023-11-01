@@ -15,7 +15,7 @@ public class CarFactoryController {
         List<CarName> carNames = Arrays.stream(carNamesString.split(","))
                                        .map(CarName::new)
                                        .toList();
-        return carFactory.createCarsWithNames(carNames);
+        return carFactory.createCarsWith(carNames);
     }
 
 

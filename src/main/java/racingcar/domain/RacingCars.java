@@ -19,7 +19,7 @@ public class RacingCars implements Iterable<Car> {
     }
 
 
-    public String showRacingStates() {
+    public String showCarsStates() {
         StringBuilder racingStates = new StringBuilder();
 
         cars.forEach(car ->

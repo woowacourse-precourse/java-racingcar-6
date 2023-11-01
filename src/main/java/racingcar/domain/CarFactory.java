@@ -6,14 +6,14 @@ import racingcar.vo.CarName;
 public class CarFactory {
 
 
-    public RacingCars createCarsWithNames(List<CarName> names) {
+    public RacingCars createCarsWith(List<CarName> names) {
         List<Car> cars = names.stream()
-                              .map(this::createCarWithName)
+                              .map(this::createCarWith)
                               .toList();
         return new RacingCars(cars);
     }
 
-    public Car createCarWithName(CarName name) {
+    public Car createCarWith(CarName name) {
         return new Car(name);
     }
 
