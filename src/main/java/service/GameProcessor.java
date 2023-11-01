@@ -1,11 +1,9 @@
 package service;
 
 import camp.nextstep.edu.missionutils.Console;
-import model.Car;
-import model.CarList;
-import model.Round;
-import model.RoundSet;
+import model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameProcessor {
@@ -23,16 +21,42 @@ public class GameProcessor {
     }
 
     public RoundSet printRoundResult(RoundSet roundSet){
-
         for(int i = 0; i < roundSet.getRound(); i ++){
             List<Car> carListTmp = processHelper.raceCars(roundSet.getCarList());
             processHelper.printRaceResultByRound(carListTmp);
+            System.out.println();
         }
         return roundSet;
     }
 
-    public void winnerJudgement(List<Car> carList){
+    public StringBuilder winnerJudgement(List<Car> carList){
+        CarScore carScore = new CarScore();
+        for(Car car : carList){
+           carScore.addCarScore(car.getForwardCount());
+        }
 
+        List<Integer> maxIndices = new ArrayList<>();
+        int maxValue = Integer.MIN_VALUE;
+        for (int i = 0; i < carScore.getCarScore().size(); i++) {
+            int currentValue = carScore.getCarScore().get(i);
+            if (currentValue > maxValue) {
+                maxValue = currentValue;
+                maxIndices.clear();
+                maxIndices.add(i);
+            } else if (currentValue == maxValue) {
+                maxIndices.add(i);
+            }
+        }
 
+        StringBuilder winner = new StringBuilder();
+        for(Integer tmpIndex : maxIndices){
+            if(winner.isEmpty()){
+                winner.append(carList.get(tmpIndex).getCarName());
+            }
+            else if(!winner.isEmpty()){
+                winner.append(", ").append(carList.get(tmpIndex).getCarName());
+            }
+        }
+        return winner;
     }
 }

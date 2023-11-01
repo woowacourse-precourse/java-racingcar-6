@@ -10,7 +10,8 @@ public class Application {
 
         RoundSet roundSet = racingGame.gameStart();
 
-        racingGame.gameProcess(roundSet);
+        roundSet = racingGame.gameProcess(roundSet);
 
+        racingGame.printWinner(roundSet);
     }
 }
