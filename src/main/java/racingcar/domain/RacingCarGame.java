@@ -8,12 +8,18 @@ import racingcar.message.GameMessage;
 public class RacingCarGame {
     private Integer racingCnt;
     private UserInputHandler userInputHandler;
+    private RoundManager roundManager;
 
     public  RacingCarGame(){
         userInputHandler = new UserInputHandler();
     }
     public  void start(){
         setGame();
+        System.out.println("\n"+GameMessage.PROGRESS_RESULT.getMessage());
+        while(racingCnt-- > 0) {
+            roundManager.roundPlay();
+            roundManager.printRoundResult();
+        }
     }
 
     private void setGame(){
@@ -27,6 +33,7 @@ public class RacingCarGame {
         for (String name: carNames){
             racingCars.add(new Car(name));
         }
+        roundManager = new RoundManager(racingCars);
     }
     private void setRacingCnt(){
         racingCnt = userInputHandler.getRacingCnt();
