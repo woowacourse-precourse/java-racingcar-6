@@ -11,5 +11,7 @@ public class RacingController {
         HashMap<String, String> car = RacingService.enterCarName(Console.readLine());
         RacingView.enterRoundMessage();
         Integer round = RacingService.enterRoundNumber(Console.readLine());
+        RacingView.startRoundMessage();
+        RacingService.racingGame(car, round);
     }
 }
