@@ -29,7 +29,31 @@
 
 ## Progress class
 > 기본 생성자에서 입력 문구 출력과 입력문을 실행
-> 
+> 기본 생성자에서 실행 구문 출력과, 입력문 실행 -> repeatCircuit 함수 실행 -> 최종 우승자 출력
+> ```java
+> //레이스를 시작할 때 자동차 이름을 입력받는 함수
+> public static String startComment()
+> ```
+> ```java
+> //레이스를 몇 번 실행할지 결정하는 함수
+> public static int inputNumberComment()
+> ```
+> ```java
+> //변수가 정수로만 이루어져 있는지 판별하는 함수
+> static boolean isNumeric(String str)
+> ```
+> ```java
+> //자동차 배열리스트를 생성하는 함수 (+입력에 대한 예외처리)
+> public static ArrayList<Car> makeCarList()
+> ```
+> ```java
+> //number만큼의 경주 반복 결과
+> public static ArrayList <Car> repeatCircuit()
+> ```
+> ```java
+> //우승자를 출력하기 위한 함수
+> public static String printWinner()
+> ```
 > 
 
 
