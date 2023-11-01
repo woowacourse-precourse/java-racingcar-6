@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -27,14 +28,12 @@ public class Cars {
     }
 
     public List<Car> getLeadingCar() {
-        int maxCount = 0;
-        for (Car car: cars) {
-            maxCount = Math.max(car.getCount(), maxCount);
-        }
+        Collections.sort(cars);
+        int maxCount = cars.get(0).getCount();
 
         List<Car> leadingCar = new ArrayList<>();
         for (Car car: cars) {
-            if (maxCount == car.getCount()) {
+            if (car.getCount() == maxCount) {
                 leadingCar.add(car);
             }
         }

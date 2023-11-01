@@ -17,8 +17,8 @@ public class Converter {
     public static List<Car> nameListToCarList(List<String> nameList) {
         List<Car> carList = new ArrayList<>();
 
-        for (String name : nameList) {
-            carList.add(new Car(name));
+        for (int i = 0; i < nameList.size(); i++) {
+            carList.add(new Car(i, nameList.get(i)));
         }
 
         return carList;

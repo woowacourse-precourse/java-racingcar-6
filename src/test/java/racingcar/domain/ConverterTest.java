@@ -28,7 +28,7 @@ public class ConverterTest {
 
         List<Car> result = Converter.nameListToCarList(input);
 
-        assertThat(result).containsExactly(new Car("가나다라마바사"), new Car("abc"));
+        assertThat(result).extracting("name").containsExactly("가나다라마바사", "abc");
         assertThat(result.size()).isEqualTo(2);
     }
 }
