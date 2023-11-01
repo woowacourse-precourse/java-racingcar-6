@@ -16,6 +16,7 @@ public class GameTest {
     Game game;
     ArrayList<Car> cars;
     ByteArrayOutputStream outputStreamCaptor;
+
     @BeforeEach
     public void constructGame() {
         cars = new ArrayList<Car>();

@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.function.BiFunction;
 
 public class Car {
@@ -11,6 +12,14 @@ public class Car {
     private static final int RANDOM_LOWER_BOUND = 0;
     private static final int RANDOM_UPPER_BOUND = 9;
     private static final int FORWARD_CONDITION = 4;
+
+    static public class Greater implements Comparator<Car> {
+
+        @Override
+        public int compare(Car car1, Car car2) {
+            return car1.getDistance() - car2.getDistance();
+        }
+    }
 
 
     public Car(String name, int distance) {

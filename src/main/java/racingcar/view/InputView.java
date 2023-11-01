@@ -9,16 +9,19 @@ public class InputView {
         try {
             return readLine().split(",");
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid car name");
         }
     }
 
     static public int getTryNumber() {
-
         try {
-            return Integer.parseInt(readLine());
+            String input = readLine();
+            if (!input.matches("\\d+")) {
+                throw new IllegalArgumentException("Invalid try number");
+            }
+            return Integer.parseInt(input);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid try number");
         }
     }
 }
