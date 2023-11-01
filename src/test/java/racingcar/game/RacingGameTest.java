@@ -42,12 +42,4 @@ public class RacingGameTest {
         assertTrue(winners instanceof List<String>);
         assertFalse(winners.isEmpty());
     }
-
-    Car initializeCarForTesting(String name, int pos) {
-        Car car = new Car(name);
-        for (int i = 0; i < pos; i++) {
-            car.proceedSingleUnit();
-        }
-        return car;
-    }
 }
