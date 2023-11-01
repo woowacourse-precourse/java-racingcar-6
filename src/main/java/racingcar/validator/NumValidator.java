@@ -8,6 +8,7 @@ public class NumValidator {
     public NumValidator(String num) {
         try {
             NUM = num;
+            validateStartZero();
             int numInt = Integer.parseInt(NUM);
             validateIsInt(numInt);
         } catch (NumberFormatException e) {
@@ -16,8 +17,14 @@ public class NumValidator {
     }
     //숫자인지 확인
     public void validateIsInt(int numInt){
-        if(numInt<1|| numInt>9){
+        if(numInt<1){
             throw new IllegalArgumentException(NUMBER_ERROR);
         }
+    }
+    public void validateStartZero(){
+        if (NUM.startsWith("0")) {
+            throw new IllegalArgumentException(NUMBER_ERROR);
+        }
+
     }
 }

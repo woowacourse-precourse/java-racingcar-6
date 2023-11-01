@@ -79,7 +79,48 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
+    @Test
+    void 이름에_대한_예외_처리9() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리10() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "01"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 숫자에_대한_예외_처리4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java,dh", "abcd"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
