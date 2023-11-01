@@ -8,4 +8,8 @@ public class Cars {
     public Cars(ArrayList<Car> cars) {
         this.cars = cars;
     }
+
+    public static Cars of(ArrayList<Car> cars) {
+        return new Cars(cars);
+    }
 }

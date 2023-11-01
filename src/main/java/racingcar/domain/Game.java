@@ -10,12 +10,14 @@ import static racingcar.util.ErrorInstruction.TRIAL_COUNT_ERROR_MESSAGE;
 import static racingcar.views.InputView.readUserInput;
 
 public class Game {
+    private Race race;
     private void inputCarName() {
         try {
             OutputView.printCarNameInputInstruction();
             String userInput = readUserInput();
             String[] carNames = userInput.split(",");
             ArrayList<Car> cars = makeCarList(carNames);
+            race = new Race(Cars.of(cars));
         } catch (IllegalArgumentException exception) {
             OutputView.printErrorMessage(exception);
             inputCarName();
@@ -51,5 +53,6 @@ public class Game {
         inputCarName();
         getMoveCount();
         OutputView.printEmptyLine();
+        OutputView.printResultMessage();
     }
 }

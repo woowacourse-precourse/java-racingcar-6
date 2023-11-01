@@ -16,4 +16,8 @@ public class OutputView {
     public static void printEmptyLine() {
         System.out.println();
     }
+
+    public static void printResultMessage() {
+        System.out.println("실행 결과");
+    }
 }
