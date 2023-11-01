@@ -9,11 +9,12 @@ public class PlayingService {
     private Car carsName;
 
     public void generateGame() {
-        enterName();
+        String names = Console.readLine();
+        enterName(names);
     }
 
-    private void enterName() {
-        String[] name = Console.readLine().split(",");
+    void enterName(String names) {
+        String[] name = names.split(",");
         Map<String, Integer> playerAndScore = new HashMap<>();
         for (String s : name) {
             s = s.strip();
