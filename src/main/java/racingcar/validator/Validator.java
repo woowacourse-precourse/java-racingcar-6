@@ -27,23 +27,23 @@ public class Validator {
         }
     }
 
-    public static boolean isNumeric(String input){
+    private static boolean isNumeric(String input){
         return input.chars().allMatch(Character::isDigit);
     }
 
-    public static boolean isPositive(String input){
+    private static boolean isPositive(String input){
         return Integer.parseInt(input) > 0;
     }
 
-    public static boolean isFiveOrLessCharacter(List<String> names) {
+    private static boolean isFiveOrLessCharacter(List<String> names) {
         return names.stream().allMatch(name -> name.length() <= 5);
     }
 
-    public static boolean isHasEmpty(List<String> names) {
+    private static boolean isHasEmpty(List<String> names) {
         return names.stream().allMatch(name -> !name.contains(" "));
     }
 
-    public static boolean isHasBlank(List<String> names) {
+    private static boolean isHasBlank(List<String> names) {
         return names.stream().allMatch(name -> !name.isEmpty());
     }
 }
