@@ -98,7 +98,7 @@ class CarNamesInputValidatorTest {
         }
 
         @ParameterizedTest
-        @ValueSource(strings = "pobi,jun,K!ING,pobi")
+        @ValueSource(strings = {"pobi,jun,K!ING,pobi", "준기,준기", " !, !", "포비,준,포비,포비"})
         @DisplayName("[실패 테스트] 중복 이름 존재")
         void duplicateTest(String input) {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
