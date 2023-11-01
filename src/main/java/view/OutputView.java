@@ -1,6 +1,7 @@
 package view;
 
 import constants.OutputMessage;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,5 +20,9 @@ public class OutputView {
 
     public void printAttemptResult(String name, String movement){
         System.out.printf("%s : %s\n", name, movement);
+    }
+
+    public void printWinner(String winnerName){
+        System.out.printf("최종 우승자 : %s\n", winnerName);
     }
 }
