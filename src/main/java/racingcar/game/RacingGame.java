@@ -47,7 +47,7 @@ public final class RacingGame {
             System.out.println(racingStatus.getRaceProgress(cars.carList()));
         }
     }
-    
+
     private void announceWinners() {
         List<Car> winnerList = cars.findWinners();
         System.out.println(racingStatus.getWinners(winnerList));
