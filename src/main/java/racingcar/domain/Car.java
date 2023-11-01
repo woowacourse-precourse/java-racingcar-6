@@ -1,18 +1,18 @@
 package racingcar.domain;
 
 public class Car {
-    private final String name;
-    private int position = 0;
+    private String name;
+    private int progress;
 
     public Car(String name) {
         this.name = name;
     }
     public void forward() {
-        position++;
+        progress++;
     }
     public String viewProgress() {
         String result = "";
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < progress; i++) {
             result += "-";
         }
         return result;
@@ -20,7 +20,7 @@ public class Car {
     public String getName() {
         return name;
     }
-    public int getPosition() {
-        return position;
+    public int getProgress() {
+        return progress;
     }
 }
