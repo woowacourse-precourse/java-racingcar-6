@@ -10,8 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class RacingCarGameUtilsTest {
+
   @Test
   @DisplayName("[Success] 들어온 문자열에 대해 ','로 나누어 리스트를 만들어 반환한다.")
   void 쉼표로_분리된_문자열을_나눈다() {
@@ -54,17 +57,20 @@ class RacingCarGameUtilsTest {
     assertThat(actualList.size()).isEqualTo(carCount);
   }
 
-  @Test
+  @ParameterizedTest
   @DisplayName("[Success] 우승자 목록을 바탕으로 우승자 출력 포맷을 생성한다.")
-  void 우승자_리스트_값을_하나의_문자열로() {
+  @CsvSource({
+      "우승자1, 우승자1",
+      "'우승자1,우승자2', '우승자1, 우승자2'"
+  })
+  void testJoinStringWithComma(String winnersInput, String expectedOutput) {
     // given
-    List<String> winnerList = Arrays.asList("우승자1", "우승자2");
+    List<String> winners = Arrays.asList(winnersInput.split(","));
 
     // when
-    String actual = joinStringWithComma(winnerList).toString();
-    String expected = "우승자1, 우승자2";
+    String actual = RacingCarGameUtils.joinStringWithComma(winners).toString();
 
     // then
-    assertThat(actual).isEqualTo(expected);
+    assertThat(actual).isEqualTo(expectedOutput);
   }
 }
