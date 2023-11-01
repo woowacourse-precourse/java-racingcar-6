@@ -9,6 +9,7 @@ public class UserInput {
     public static void getCarName() {
         String carsInput = Console.readLine();
         List<String> cars = Arrays.asList(carsInput.split(","));
+        ExceptionControl.checkCarNameInput(cars);
     }
 
     public static void getGameCount() {
