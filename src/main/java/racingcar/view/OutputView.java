@@ -4,8 +4,11 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class OutputView {
+    public void printResultComment() {
+        System.out.println("\n실행 결과");
+    }
+
     public void printRacing(List<Car> cars) {
-        System.out.print("실행 결과\n");
         for (Car car : cars) {
             printCarPosition(car);
             System.out.print("\n");

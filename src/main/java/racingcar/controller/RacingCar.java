@@ -27,6 +27,7 @@ public class RacingCar {
     public void startRacing() {
         Cars cars = getCars();
         String trial = getTrial();
+        outputView.printResultComment();
         for (int i = 0; i < Integer.parseInt(trial); i++) {
             racingService.playRacing(cars);
             outputView.printRacing(cars.getCars());
