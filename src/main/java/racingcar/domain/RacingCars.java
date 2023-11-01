@@ -72,6 +72,6 @@ public class RacingCars {
     }
 
     private boolean isDuplicateCarNames(List<String> carNames) {
-        return carNames.size() == carNames.stream().distinct().count();
+        return carNames.size() != carNames.stream().distinct().count();
     }
 }
