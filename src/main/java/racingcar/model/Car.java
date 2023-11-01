@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.exception.ErrorCode;
 import racingcar.model.intgenerator.IntGenerator;
 import racingcar.model.intgenerator.RandomIntGenerator;
 
@@ -35,7 +36,7 @@ public class Car {
 
     private void validateNameLength(String name) {
         if (name.length() > MAXIMUM_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(ErrorCode.INVALID_NAME_LENGTH.getMessage());
         }
     }
 

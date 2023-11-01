@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.exception.ErrorCode;
 
 public class InputView {
     private static final String QUESTION_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -23,21 +24,21 @@ public class InputView {
     private List<String> convertInputCarNamesToList(String inputCarNames) {
         List<String> carNames = Arrays.stream(inputCarNames.split(","))
                 .map(String::trim)
-                .peek(this::checkCarNameNotEmpty)
+                .peek(this::validateCarNameNotEmpty)
                 .toList();
-        checkCarNamesNotEmpty(carNames);
+        validateCarNamesNotEmpty(carNames);
         return carNames;
     }
 
-    private void checkCarNameNotEmpty(String carName) {
+    private void validateCarNameNotEmpty(String carName) {
         if (carName.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름은 앞뒤 공백을 제외한 1자 이상으로 입력해야 합니다.");
+            throw new IllegalArgumentException(ErrorCode.EMPTY_NAME.getMessage());
         }
     }
 
-    private void checkCarNamesNotEmpty(List<String> carNames) {
+    private void validateCarNamesNotEmpty(List<String> carNames) {
         if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해야 합니다.");
+            throw new IllegalArgumentException(ErrorCode.EMPTY_NAME_LIST.getMessage());
         }
     }
 
@@ -45,7 +46,7 @@ public class InputView {
         try {
             return Integer.parseInt(inputTryCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도할 횟수는 정수로 입력해야 합니다.");
+            throw new IllegalArgumentException(ErrorCode.NON_INT_TRY_COUNT.getMessage());
         }
     }
 }

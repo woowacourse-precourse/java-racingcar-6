@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.exception.ErrorCode;
 import racingcar.model.intgenerator.CustomIntGenerator;
 
 public class CarsTest {
@@ -16,7 +17,7 @@ public class CarsTest {
 
         assertThatThrownBy(() -> new Cars(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름은 중복될 수 없습니다.");
+                .hasMessageContaining(ErrorCode.DUPLICATE_NAME.getMessage());
     }
 
     @ParameterizedTest

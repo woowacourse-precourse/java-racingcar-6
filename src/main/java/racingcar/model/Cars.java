@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.exception.ErrorCode;
 import racingcar.model.intgenerator.IntGenerator;
 
 public class Cars {
@@ -35,7 +36,7 @@ public class Cars {
     private void validateDuplicateName(List<String> names) {
         Set<String> nonDuplicateNames = new HashSet<>(names);
         if (nonDuplicateNames.size() != names.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(ErrorCode.DUPLICATE_NAME.getMessage());
         }
     }
 }

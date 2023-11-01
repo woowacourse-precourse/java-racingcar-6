@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.exception.ErrorCode;
 import racingcar.model.intgenerator.CustomIntGenerator;
 
 public class CarTest {
@@ -15,7 +16,7 @@ public class CarTest {
     void 글자수_제한_넘긴_이름으로_자동차_생성시_예외_발생한다(String name) {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
+                .hasMessageContaining(ErrorCode.INVALID_NAME_LENGTH.getMessage());
     }
 
     @Test
