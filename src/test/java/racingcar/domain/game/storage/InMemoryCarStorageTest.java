@@ -26,8 +26,8 @@ class InMemoryCarStorageTest {
 		//then
 		assertAll(
 				() -> assertEquals(names.size(), savedCars.size()),
-				() -> assertEquals(cars.getCars().stream().map(Car::getCarName).toList(),
-						savedCars.stream().map(Car::getCarName).toList())
+				() -> assertEquals(cars.getCars().stream().toList(),
+						savedCars.stream().toList())
 		);
 	}
 
