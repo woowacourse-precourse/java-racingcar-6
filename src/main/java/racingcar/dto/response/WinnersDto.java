@@ -15,13 +15,7 @@ public class WinnersDto {
     }
 
     public String createMessage() {
-        StringBuilder builder = new StringBuilder();
-        int i = 0;
-        for(; i < names.size()-1; i++) {
-            builder.append(names.get(i)).append(WINNER_DELIMITER);
-        }
-        builder.append(names.get(i));
-        return builder.toString();
+        return String.join(WINNER_DELIMITER, names);
     }
 
     public List<String> getNames() {
