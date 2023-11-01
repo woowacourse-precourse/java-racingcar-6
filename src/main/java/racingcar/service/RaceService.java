@@ -9,7 +9,10 @@ import java.util.List;
 public class RaceService {
     static final int MAX_NAME_LENGTH = 5;
     static final int MIN_TRY_NUMBER = 1;
-    public void CarList(String carNames) {
+
+    private int tryCount;
+    private int round = 0;
+    public List<Car> getCarList(String carNames) {
         List<Car> carList = new ArrayList<>();
 
         List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
@@ -22,6 +25,7 @@ public class RaceService {
             carList.add(car);
             addedCarNameList.add(carName);
         }
+        return carList;
     }
 
     public void checkNameLength(String carName) {
@@ -43,9 +47,9 @@ public class RaceService {
     }
 
     public int getTryCount(String tryCountString) {
-        int count = tryCountStringToInt(tryCountString);
-        checkTryCount(count);
-        return count;
+        tryCount = tryCountStringToInt(tryCountString);
+        checkTryCount(tryCount);
+        return tryCount;
     }
 
     public int tryCountStringToInt(String tryCountString) {
@@ -60,5 +64,19 @@ public class RaceService {
         if (count < MIN_TRY_NUMBER) {
             throw new IllegalArgumentException("시도 횟수는 최소 1 이상의 수를 입력해야 합니다.");
         }
+    }
+
+    public void race(List<Car> carList) {
+        round ++;
+        for (Car car : carList) {
+            car.move();
+        }
+    }
+
+    public boolean isEnd() {
+        if (round == tryCount) {
+            return true;
+        }
+        return false;
     }
 }
