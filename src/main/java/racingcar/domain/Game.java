@@ -55,6 +55,7 @@ public class Game {
         view.printResultMessage();
         for (int attempt = 0; attempt < attempts; attempt++) {
             makeCarMove();
+            view.printCurrentStatus(cars);
         }
     }
 
