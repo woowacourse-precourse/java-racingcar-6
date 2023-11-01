@@ -19,7 +19,18 @@ public class GameManagement {
     }
 
     public List<CarInformation> getWinners(){
-        return null;
+        List<CarInformation> winners = new ArrayList<>();
+        int maxPosition = 0;
+        for (CarInformation car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                winners.clear();
+                winners.add(car);
+            } else if (car.getPosition() == maxPosition) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 
 }
