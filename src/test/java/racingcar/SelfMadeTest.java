@@ -2,10 +2,11 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.when;
 
-import java.io.ByteArrayInputStream;
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import racingcar.component.domain.Car;
 import racingcar.component.service.Inputter;
 import racingcar.component.service.Printer;
@@ -21,6 +23,7 @@ public class SelfMadeTest {
 
     private Inputter inputter;
     private Printer printer;
+    private static MockedStatic<Console> mConsole = mockStatic(Console.class);
 
     @BeforeEach
     void initAll() {
@@ -31,9 +34,7 @@ public class SelfMadeTest {
     @Test
     @DisplayName("시도할 횟수 입력에 대한 예외 테스트")
     void 시도할_회수_예외_처리() {
-        String input = "two";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        when(Console.readLine()).thenReturn("two");
         assertThatThrownBy(() -> inputter.getDuration())
                 .isInstanceOf(IllegalArgumentException.class);
     }
@@ -41,9 +42,7 @@ public class SelfMadeTest {
     @Test
     @DisplayName("입력된 자동차 이름이 올바르게 리스트로 변환되는지에 대한 테스트")
     void 자동차_이름_입력() {
-        String input = "wj,pobi,jun,nick";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        when(Console.readLine()).thenReturn("wj,pobi,jun,nick");
         List<String> returns = inputter.getNameInput();
         assertThat(returns)
                 .isNotNull()
