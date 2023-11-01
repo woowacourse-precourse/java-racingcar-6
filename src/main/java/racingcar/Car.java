@@ -6,7 +6,8 @@ public class Car {
 
 
     public Car(String name) {
-        validateNull(name);
+//        validateNull(name);
+        validateLengthZero(name);
         this.name = name;
     }
 
