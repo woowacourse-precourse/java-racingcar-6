@@ -1,7 +1,7 @@
 package racingcar.tryingcounts;
 
 import racingcar.input.InputController;
-import racingcar.validation.tryingcounts.TryingCountsNumberValidationChecker;
+import racingcar.validation.trycounts.TryingCountsNumberValidationChecker;
 
 public class TryingCounts {
 
