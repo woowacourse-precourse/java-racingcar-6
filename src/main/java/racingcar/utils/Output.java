@@ -11,7 +11,6 @@ public class Output {
     private static final String RACE_RESULT_INTRO = "실행 결과";
     private static final String ONE_COUNT = "-";
     private static final String FINAL_WINNER = "최종 우승자 : ";
-    private static final String WINNER_DELIMITER = ", ";
 
 
     public static void askCarName() {
