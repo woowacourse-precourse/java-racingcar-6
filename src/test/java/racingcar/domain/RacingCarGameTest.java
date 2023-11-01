@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
@@ -10,6 +11,9 @@ import org.junit.jupiter.api.Test;
 import racingcar.customCollection.CustomArrayList;
 
 class RacingCarGameTest extends NsTest {
+
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
 
     RacingCarGame rg = new RacingCarGame();
     CustomArrayList<Car> carList = new CustomArrayList<>();
@@ -32,6 +36,28 @@ class RacingCarGameTest extends NsTest {
 
         assertThat(carList.size()).isEqualTo(4);
         assertThat(carList.get(1).getName()).isEqualTo("red");
+    }
+
+    @Test
+    @DisplayName("반복되는_경주의_출력값_확인")
+    void test_repeatCarRace() {
+        String carName1 = "black";
+        String carName2 = "white";
+        carList.add(new Car(carName1));
+        carList.add(new Car(carName2));
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    rg.repeatCarRace(carList, 3);
+                    assertThat(output()).contains(
+                            "black : -\nwhite : ",
+                            "black : --\nwhite : ",
+                            "black : --\nwhite : -");
+                },
+                MOVING_FORWARD, STOP,
+                MOVING_FORWARD, STOP,
+                STOP, MOVING_FORWARD
+        );
     }
 
     @Test
