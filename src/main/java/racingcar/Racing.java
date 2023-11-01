@@ -26,7 +26,11 @@ public class Racing {
     private void setTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         String userInput = Console.readLine();
-
+        try {
+            this.tryNumber = Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void carSetting() {
