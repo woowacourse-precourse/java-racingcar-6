@@ -32,7 +32,6 @@ class WinnerTest {
     @Test
     public void 최대_이동거리_구하기() throws Exception {
         //given (주어진 값)
-
         Method method = winner.getClass().getDeclaredMethod("maxDistance", List.class);
         method.setAccessible(true);
 
