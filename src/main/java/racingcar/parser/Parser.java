@@ -1,16 +1,13 @@
 package racingcar.parser;
 
+import static racingcar.constant.SpecialSymbols.*;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.domain.CarName;
 
 public class Parser {
-    private static final String COMMA = ", ";
-    private static final String COLON = " : ";
-    private static final String HYPHEN = "-";
-    private static final String ENTER = "\n";
-
     public static String parseCarMapToString(Map<CarName, Integer> carMap) {
         String carStatus = carMap
                 .entrySet().stream()
