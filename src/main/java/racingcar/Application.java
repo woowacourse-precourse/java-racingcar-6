@@ -15,7 +15,7 @@ public class Application {
         TotalRoundsConverter totalRoundsConverter = new TotalRoundsConverter();
         int totalRounds = totalRoundsConverter.convert(Console.readLine());
 
-        System.out.println("\n실행 결과");
+        System.out.println("\n" + messageContainer.getExecutionResult());
         NumberGenerator numberGenerator = new NumberGenerator();
 
         for (int i = 0; i < totalRounds; i++) {

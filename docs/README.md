@@ -40,9 +40,9 @@
 
 
 ## 안내 메시지를 출력한다.
-- [X] 자동차 이름 입력 안내 문구를 리턴한다 - MessageContainer#getEnterCarNames()
-- [X] 시도 횟수 입력 안내 문구를 리턴한다 - MessageContainer#getEnterTotalRounds()
-- [ ] 실행 결과 문구를 리턴한다 - MessageContainer#executionResult()
+- [X] 자동차 이름 입력 안내 문구를 리턴한다. - MessageContainer#getEnterCarNames()
+- [X] 시도 횟수 입력 안내 문구를 리턴한다. - MessageContainer#getEnterTotalRounds()
+- [X] 실행 결과 문구를 리턴한다. - MessageContainer#executionResult()
 
 
 ## `IllegalArgumentException`이 발생하면 애플리케이션을 종료한다.
