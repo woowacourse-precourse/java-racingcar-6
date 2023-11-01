@@ -4,8 +4,10 @@ import Car.Car;
 
 public class CarImpl implements Car {
     private int movedDistance;
-    public CarImpl() {
-        movedDistance = 0;
+    private final String name;
+    public CarImpl(String name) {
+        this.name = name;
+        this.movedDistance = 0;
     }
 
     @Override
@@ -16,5 +18,10 @@ public class CarImpl implements Car {
     @Override
     public int getMovedDistance() {
         return this.movedDistance;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 }
