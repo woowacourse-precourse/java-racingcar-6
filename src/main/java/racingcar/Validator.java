@@ -39,9 +39,9 @@ public class Validator {
                 .count();
     }
 
-    public static int checkIsPositiveInteger(String inputTrialTimes) {
+    public static int checkIsPositiveInteger(String inputRepetitions) {
         try {
-            int trialTimes = Integer.parseInt(inputTrialTimes);
+            int trialTimes = Integer.parseInt(inputRepetitions);
             if (trialTimes <= 0) {
                 throw new IllegalArgumentException("시도 회수는 양의 정수여야 합니다.");
             }
