@@ -10,10 +10,10 @@ public class Cars {
 
     public Cars(String carNames) {
         this.carList = new ArrayList<>();
-        makeCars(carNames);
+        makeCarList(carNames);
     }
 
-    private void makeCars(String carNames) {
+    private void makeCarList(String carNames) {
         for (String carName : carNames.split(CAR_NAMES_DELIMITER)) {
             carList.add(new Car(carName));
         }
