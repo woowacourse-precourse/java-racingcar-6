@@ -19,6 +19,8 @@ public class RacingGame {
         try {
             Integer runningCount = parseInputToInt(runningNumber);
 
+            InputNumberValidator.validateInputNumber(runningCount);
+
             OutputView.noticeRunningResult();
 
             IntStream.range(0, runningCount).forEach(i -> progressOneRound(cars));
