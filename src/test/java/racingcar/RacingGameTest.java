@@ -16,5 +16,15 @@ class RacingGameTest {
 
         assertNotNull(racingGame);
     }
+    @Test
+    void playRound() {
+        List<Car> cars = Arrays.asList(new Car("car1"), new Car("car2"));
+        RacingGame racingGame = new RacingGame(cars, 5);
+        for (Car car : cars) {
+            car.move(5);
+        }
+
+        assertTrue(cars.stream().allMatch(car -> car.getPosition() >= 0));
+    }
 
 }
