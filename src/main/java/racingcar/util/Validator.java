@@ -14,4 +14,9 @@ public class Validator {
         }
     }
 
+    private static void validateNotBlank(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("유효하지 않은 이름 입력(공백)");
+        }
+    }
 }
