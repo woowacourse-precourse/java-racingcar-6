@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Judgment {
 
     public static boolean isOverFourDistance(int distance){
@@ -19,4 +21,9 @@ public class Judgment {
             throw new IllegalArgumentException("잘못된 값 입력 : " + strValue);
         }
     }
+
+    public static int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
 }

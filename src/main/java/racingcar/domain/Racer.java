@@ -11,21 +11,25 @@ public class Racer{
         this.distance = 0;
     }
 
+    public Racer(String name, int distance) {
+        this.name = name;
+        this.distance = distance;
+    }
+
     public String getName() { return name; }
 
     public int getDistance() {
         return distance;
     }
 
-    public void moveForward() {
-        int random = Randoms.pickNumberInRange(0, 9);
+    public void moveForward(int RandomNumber) {
 
-        if (Judgment.isOverFourDistance(random))
+        if (Judgment.isOverFourDistance(RandomNumber))
             this.distance += 1;
     }
 
-    public void printDistance() {
-        System.out.println(this.name +
+    public String printDistance() {
+              return (this.name +
                 " : " +
                 "-".repeat(this.distance));
     }
