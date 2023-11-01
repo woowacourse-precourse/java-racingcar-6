@@ -5,9 +5,9 @@ public class Validation {
     private boolean isValid = true;
 
     public boolean validateInput(int whichInput, String input) {
-        if (whichInput == Constant.CARSVALIDATE) {
+        if (whichInput == Constant.CARS_VALIDATE) {
             isValid = validateIsNotNull(input) & validateCanSplitAndNotLong(input);
-        } else if (whichInput == Constant.TIMEVALIDATE) {
+        } else if (whichInput == Constant.TIME_VALIDATE) {
             isValid = validateIsNotNull(input) & validateIsNumber(input);
         }
         return isValid;
@@ -15,18 +15,12 @@ public class Validation {
     }
 
     private boolean validateIsNotNull(String input) {
-        if (input == "") {
-            return false;
-        }
-        return true;
+        return input != "";
     }
 
     private boolean validateCanSplitAndNotLong(String input) {
         String[] carArray = input.split(",");
-        if (!validateCarName(carArray)) {
-            return false;
-        }
-        return true;
+        return validateCarName(carArray);
     }
 
     private boolean validateCarName(String[] carArray) {

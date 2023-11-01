@@ -6,11 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class Input {
     private String input;
 
-    private Validation validation = new Validation();
-
-    public void input() {
-        input = Console.readLine();
-    }
+    private final Validation validation = new Validation();
 
     public Input() {
 
@@ -21,9 +17,13 @@ public class Input {
         this.input = input;
     }
 
+    public void input() {
+        input = Console.readLine();
+    }
+
     //자동차 이름 입력
     public String[] inputCars() {
-        if (validation.validateInput(Constant.CARSVALIDATE, input)) {
+        if (validation.validateInput(Constant.CARS_VALIDATE, input)) {
             String[] carArray = input.split(",");
             return carArray;
         } else {
@@ -33,7 +33,7 @@ public class Input {
 
     // 몇번의 이동했는지 입력
     public String inputTime() {
-        if (validation.validateInput(Constant.TIMEVALIDATE, input)) {
+        if (validation.validateInput(Constant.TIME_VALIDATE, input)) {
             return input;
         } else {
             throw new IllegalArgumentException();
