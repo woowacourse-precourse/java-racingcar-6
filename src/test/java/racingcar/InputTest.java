@@ -30,4 +30,20 @@ class InputTest {
         assertEquals(expectedCarNames, carNames);
     }
 
+    @Test
+    void getTryCount() {
+        // 정상 입력
+        assertDoesNotThrow(() -> Input.getTryCount("123"));
+
+        // null 입력
+        assertThrows(IllegalArgumentException.class, () -> Input.getTryCount(null));
+
+        // input이 자연수가 아닐 때
+        assertThrows(IllegalArgumentException.class, () -> Input.getTryCount("ㅁㄴㅇㄹ"));
+
+        String input = "123"; // 유효한 입력 예시
+        Long tryCount = Input.getTryCount(input);
+        Long expectedTryCount = 123L;
+        assertEquals(expectedTryCount, tryCount);
+    }
 }
