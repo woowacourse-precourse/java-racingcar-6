@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import static racingcar.validator.InputValidator.validateCarNameLength;
+import static racingcar.validator.InputValidator.validateParticipantNum;
 import static racingcar.validator.InputValidator.validateTrialNumber;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -41,6 +42,7 @@ public class RacingGameController {
         String carNames = inputCarName();
         cars = racingGameModel.stringToList(carNames);
         validateCarNameLength(cars);
+        validateParticipantNum(cars);
 
         racingGameView.showTrialNumberInputMessage();
         int trialNumber = inputTrialNumber();

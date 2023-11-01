@@ -34,4 +34,10 @@ public class InputValidator {
         return !Character.isDigit(inputNum.charAt(index));
     }
 
+    public static void validateParticipantNum(List<Car> cars){
+        if(cars.size() == 1){
+            throw new IllegalArgumentException("게임에 참가하는 자동차는 2대 이상이어야 합니다.");
+        }
+    }
+
 }
