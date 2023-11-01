@@ -13,6 +13,7 @@ public class Application {
         InputView inputView = new InputView(carInputValidation, moveCountsValidation);
         Race race = new Race();
         MainController mainController = new MainController(outputView, inputView, race);
+
         mainController.startGame();
     }
 }
