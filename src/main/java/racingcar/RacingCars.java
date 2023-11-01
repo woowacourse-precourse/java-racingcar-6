@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,14 @@ public class RacingCars {
 
     public List<RacingCar> getRacingCars() {
         return racingCarList;
+    }
+
+    public void moveRacingCars() {
+        for (RacingCar car : racingCarList) {
+            if(Randoms.pickNumberInRange(0,9) >= 4){
+                car.incrementDistance();
+            }
+        }
     }
 
 }
