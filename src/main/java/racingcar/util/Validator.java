@@ -33,13 +33,13 @@ public class Validator {
 
     private void validateContainSymbol(String carsName) {
         if (!carsName.contains(SYMBOL)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차의 이름은 쉼표(,)를 포함해야 합니다.");
         }
     }
 
     private void validateSymbolPosition(String carsName) {
         if (carsName.startsWith(SYMBOL) || carsName.endsWith(SYMBOL)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("쉼표(,)는 처음과 끝 위치에 올 수 없습니다.");
         }
     }
 
@@ -48,7 +48,7 @@ public class Validator {
         Arrays.stream(names)
                 .forEach(name -> {
                     if (name.length() > MAXIMUM_NAME_LENGTH) {
-                        throw new IllegalArgumentException();
+                        throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
                     }
                 });
     }
@@ -59,7 +59,7 @@ public class Validator {
         Arrays.stream(names)
                 .forEach(name -> {
                     if (seen.contains(name)) {
-                        throw new IllegalArgumentException();
+                        throw new IllegalArgumentException("자동차의 이름은 중복을 허용하지 않습니다.");
                     }
                     seen.add(name);
                 });
