@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Race {
@@ -25,10 +27,8 @@ public class Race {
             // 각 car 별로 레이스를 진행
             for (String carName : carMap.keySet()) {
                 int randomNum = NumberGenerator.getRandomNumberInRange(0, 9);
-                if (randomNum < 4) {
-                    continue;
-                } else {
-                    carMap.put(carName, carMap.get(carName) + "-");
+                if (randomNum > 3) {
+                    carMap.put(carName, carMap.get(carName) + "-"); // 전진인 경우 "-" 추가해준다
                 }
             }
 
@@ -38,6 +38,27 @@ public class Race {
             }
 
             System.out.println();
+        }
+
+        // 레이스 종료 후 최종 우승자 검사 및 list에 저장
+        int maxMoveForwardCount = 0;
+        List<String> winnerCarNameList = new ArrayList<>();
+        for (String carName : carMap.keySet()) {
+            int moveForwardCount = carMap.get(carName).length();
+            if (moveForwardCount > maxMoveForwardCount) {
+                maxMoveForwardCount = moveForwardCount;
+                winnerCarNameList = new ArrayList<>();
+                winnerCarNameList.add(carName);
+            } else if (moveForwardCount == maxMoveForwardCount) {
+                winnerCarNameList.add(carName);
+            }
+
+            System.out.println(carName + " -- moveForwardCount = " + moveForwardCount);
+        }
+
+        // 최종 우승자 출력
+        for (String winnerCarName : winnerCarNameList) {
+            System.out.println("winnerCarName = " + winnerCarName);
         }
     }
 
