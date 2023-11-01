@@ -59,4 +59,15 @@ public class RacingCarGame {
         String trace = IntStream.range(0, car.getDistance()).mapToObj(i -> "-").collect(Collectors.joining());
         System.out.println(car.getName() + " : " + trace);
     }
+
+    // 기능 4) 사용자가 입력한 이동 횟수만큼 각 자동차의 이름과 이동 결과를 출력한다.
+    private void writeEachMove() {
+        System.out.println();
+        System.out.println("실행 결과");
+
+        IntStream.range(0, this.moveCount).forEach(i -> {
+            this.racingCars.forEach(this::moveOrStop);
+            System.out.println();
+        });
+    }
 }
