@@ -4,15 +4,10 @@ package racingcar.service;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.utils.RandomCalculator;
 
 import java.util.HashMap;
 
-import static org.assertj.core.api.AssertionsForClassTypes.entry;
-import static org.junit.jupiter.api.Assertions.*;
-
 class CarManagerTest {
-    RandomCalculator randomCalculator = new RandomCalculator();
 
     @Test
     public void 생성자_carList_테스트() {
