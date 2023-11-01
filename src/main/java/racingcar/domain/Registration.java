@@ -9,6 +9,10 @@ import java.util.List;
 public class Registration {
     private InputValidator inputValidator;
 
+    public Registration() {
+        this.inputValidator = new InputValidator();
+    }
+
     public List<Car> registerCars(){
         String input = Console.readLine();
         List<Car> cars = new ArrayList<>();
