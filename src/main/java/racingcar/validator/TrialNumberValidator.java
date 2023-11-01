@@ -1,7 +1,6 @@
 package racingcar.validator;
 
-import static racingcar.constant.MessageConstant.ERROR_MESSAGE_NUMBER_INPUT;
-import static racingcar.constant.MessageConstant.ERROR_MESSAGE_NUMBER_TYPE;
+import static racingcar.constant.ValidatorConstant.*;
 
 public class TrialNumberValidator {
 
@@ -12,7 +11,7 @@ public class TrialNumberValidator {
 
     private static void checkEmpty(String input) {
         if (input.isEmpty()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NUMBER_INPUT);
+            throw new IllegalArgumentException(ERROR_MESSAGE_NUMBER_INPUT.getMessage());
         }
     }
 
@@ -20,7 +19,7 @@ public class TrialNumberValidator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NUMBER_TYPE);
+            throw new IllegalArgumentException(ERROR_MESSAGE_NUMBER_TYPE.getMessage());
         }
     }
 }

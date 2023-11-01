@@ -4,8 +4,8 @@ import racingcar.util.ReturnElementUtil;
 
 import java.util.List;
 
-import static racingcar.constant.MessageConstant.*;
 import static racingcar.constant.SystemConstant.*;
+import static racingcar.constant.ValidatorConstant.*;
 
 public class CarNameValidator {
 
@@ -42,7 +42,7 @@ public class CarNameValidator {
 
     private static void checkDuplicate(String nameOne, String nameTwo) {
         if (nameOne.equals(nameTwo)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_DUPLICATE);
+            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_DUPLICATE.getMessage());
         }
     }
 
@@ -55,21 +55,21 @@ public class CarNameValidator {
 
     private static void checkLength(String name) {
         if (LENGTH_OF_CAR_NAME_MAX < name.length()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_MAX);
+            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_MAX.getMessage());
         }
         if (name.length() < LENGTH_OF_CAR_NAME_MIN) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_MIN);
+            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_MIN.getMessage());
         }
     }
 
     private static void checkBlank(String name) {
         if (name.contains(BLANK)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_BLANK);
+            throw new IllegalArgumentException(ERROR_MESSAGE_NAME_BLANK.getMessage());
         }
     }
 
-    private static void throwCarNameInputException() { // 자동차 이름 입력이 올바르지 않을 때
-        throw new IllegalArgumentException(ERROR_MESSAGE_NAME_INPUT);
+    private static void throwCarNameInputException() {
+        throw new IllegalArgumentException(ERROR_MESSAGE_NAME_INPUT.getMessage());
     }
 
 }
