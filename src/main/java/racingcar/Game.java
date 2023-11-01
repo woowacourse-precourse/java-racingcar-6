@@ -7,19 +7,16 @@ import java.util.ArrayList;
 
 
 public class Game {
-    String userNumber;
-    String nameLine;
-    String[] names;
-    int maxForwards = 0;
-    ArrayList<String> winnerName = new ArrayList<>();
-    ArrayList<Car> cars = new ArrayList<>();
-    final static int START_NUMBER = 0;
-    final static int END_NUMBER = 9;
+    private int maxForwards = 0;
+    private ArrayList<String> winnerName = new ArrayList<>();
+    private final ArrayList<Car> cars = new ArrayList<>();
+    private final static int START_NUMBER = 0;
+    private final static int END_NUMBER = 9;
 
     void getCarsNames() {
         int nameIndex = 0;
-
-        nameLine = Console.readLine();
+        String[] names;
+        String nameLine = Console.readLine();
         Error.isEmptyError(nameLine);
         nameLine = nameLine.trim();
         names = nameLine.split(",");
@@ -31,7 +28,7 @@ public class Game {
     }
 
     int getNumber() {
-        userNumber = Console.readLine();
+        String userNumber = Console.readLine();
         userNumber = userNumber.trim();
         Error.isDigitError(userNumber);
         return Integer.parseInt(userNumber);
