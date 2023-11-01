@@ -6,10 +6,12 @@ public enum ErrorMessages {
     INVALID_CAR_NAME_LENGTH_MESSAGE("자동차의 이름이 너무 깁니다.");
 
     String message;
-    ErrorMessages(String message){
+
+    ErrorMessages(String message) {
         this.message = message;
     }
-    public String get(){
+
+    public String get() {
         return message;
     }
 }

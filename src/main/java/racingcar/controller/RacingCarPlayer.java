@@ -47,18 +47,20 @@ public class RacingCarPlayer implements GamePlayer {
 
     public List<Car> race(List<Car> carList, Round round) {
         printer.printRoundStateMessage();
-        while (round.IsNotEnd()){
+        while (round.IsNotEnd()) {
             racing.playARound(carList);
             printer.printRoundState(carList);
             round.finishARound();
         }
         return judge.getWinningCars(carList);
     }
+
     private List<String> inputCarNames() {
         printer.printInputCarNamesMessage();
         List<String> carNames = scanner.inputCarNames();
         return carNames;
     }
+
     private void printResult(List<Car> winningCars) {
         printer.printResult(winningCars);
     }

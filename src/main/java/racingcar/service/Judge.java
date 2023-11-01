@@ -6,14 +6,17 @@ import racingcar.model.Car;
 
 public class Judge {
 
-    private static class SingletonJudge{
+    private static class SingletonJudge {
         private static final Judge JUDGE = new Judge();
     }
-    public static Judge getInstance(){
+
+    public static Judge getInstance() {
         return SingletonJudge.JUDGE;
     }
+
     private Judge() {
     }
+
     private void judge(List<Car> carList) {
         Integer winningDistance = 0;
         for (Car car : carList) {

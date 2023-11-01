@@ -7,7 +7,8 @@ public class InputConfigurations {
     public static int getMaximumNameLength() {
         return maximumNameLength;
     }
-    public static String getDelimiter(){
+
+    public static String getDelimiter() {
         return delimiter;
     }
 }

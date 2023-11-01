@@ -11,9 +11,10 @@ public class Car {
         isWinner = false;
     }
 
-    public void move(Integer distance){
+    public void move(Integer distance) {
         location += distance;
     }
+
     public Integer getLocation() {
         return location;
     }

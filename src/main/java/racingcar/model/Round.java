@@ -7,10 +7,11 @@ public class Round {
         this.numberOfRound = numberOfRound;
     }
 
-    public Boolean IsNotEnd(){
+    public Boolean IsNotEnd() {
         return (numberOfRound >= 0);
     }
-    public void finishARound(){
+
+    public void finishARound() {
         numberOfRound--;
     }
 }

@@ -12,12 +12,14 @@ public class Scanner {
     private String delimiter;
     private int maximumNameLength;
 
-    private static class SingletonScanner{
+    private static class SingletonScanner {
         private static final Scanner SCANNER = new Scanner();
     }
-    public static Scanner getInstance(){
+
+    public static Scanner getInstance() {
         return SingletonScanner.SCANNER;
     }
+
     private Scanner() {
         delimiter = getDelimiter();
         maximumNameLength = getMaximumNameLength();

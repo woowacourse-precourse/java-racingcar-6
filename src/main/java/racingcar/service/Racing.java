@@ -12,12 +12,15 @@ public class Racing {
     private Integer controlValue;
     private Integer minimumOfRange;
     private Integer maximumOfRange;
-    private static class SingletonRacing{
+
+    private static class SingletonRacing {
         private static final Racing RACING = new Racing();
     }
-    public static Racing getInstance(){
+
+    public static Racing getInstance() {
         return SingletonRacing.RACING;
     }
+
     private Racing() {
         minimumOfRange = MINIMUM_OF_RANGE.get();
         maximumOfRange = MAXIMUM_OF_RANGE.get();
@@ -33,8 +36,9 @@ public class Racing {
 
     void move(Car car) {
         Integer randomNumber = generateRandomNumber();
-        if (isMove(randomNumber))
+        if (isMove(randomNumber)) {
             car.move(movingDistance);
+        }
     }
 
     Boolean isMove(Integer randomNumber) {
