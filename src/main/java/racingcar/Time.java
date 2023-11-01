@@ -31,6 +31,7 @@ public class Time {
     public void moveCarsByTime(Cars cars) {
         for (int time = 1; time <= count; time++) {
             cars.moveCars();
+            cars.printResult();
         }
     }
 }

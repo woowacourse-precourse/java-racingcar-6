@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
@@ -44,10 +43,7 @@ public class Cars {
 
     private boolean isNotDuplicate(List<String> names) {
         Set<String> uniqueNames = new HashSet<>(names);
-        if (names.size() == uniqueNames.size()) {
-            return true;
-        }
-        return false;
+        return names.size() == uniqueNames.size();
     }
 
     private boolean isValidName(List<String> names) {
@@ -98,7 +94,7 @@ public class Cars {
     public String createWinner() {
         int position = findFrontPosition();
         List<String> winner = findWinnerName(position);
-        return String.join(" ,", winner);
+        return String.join(", ", winner);
     }
 
     private int findFrontPosition() {
