@@ -38,7 +38,7 @@ public class InputView {
 
     public void validateMoveCount(String input) {
         if (!validator.isPositiveInteger(input)) {
-            throw new IllegalArgumentException("error: 숫자가 아닌 값이 입력되었습니다.");
+            throw new IllegalArgumentException("error: 양의 정수가 아닌 값이 입력되었습니다.");
         }
     }
 
