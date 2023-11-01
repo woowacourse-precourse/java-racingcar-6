@@ -74,6 +74,7 @@ public class Game { // 게임 진행 클래스
     public void calculateMaxScore(int score, String name) {
         if (maxScore < score) {
             maxScore = score;
+            winnerList.clear();
             winnerList.add(name);
         } else if (maxScore == score) {
             winnerList.add(name);
