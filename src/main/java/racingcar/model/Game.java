@@ -27,7 +27,7 @@ public class Game {
      * cars 리스트에 car 를 추가하는 함수
      */
     public void addCars(String userInput) {
-        for (String name :  splitNameOfCars(userInput)) {
+        for (String name : splitNameOfCars(userInput)) {
             addCar(name);
         }
     }
@@ -60,7 +60,7 @@ public class Game {
     /**
      * 가장 많이 전진한 자동차의 전진 횟수를 리턴하는 함수
      */
-    private int findMaxForwardMovement() {
+    public int findMaxForwardMovement() {
         int max = 0;
         for (Car car : cars) {
             if (max < car.getForwardMovementStateOfLength()) {
@@ -107,6 +107,10 @@ public class Game {
 
     public int getNumberOfAttempts() {
         return this.numberOfAttempts;
+    }
+
+    public int getNumberOfCars() {
+        return this.cars.size();
     }
 
 }
