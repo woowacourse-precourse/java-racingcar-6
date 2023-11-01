@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import racingcar.domain.Car;
+import racingcar.domain.NumberGenerator;
 import racingcar.view.InputView;
 
 public class CarRaceGame {
@@ -28,7 +29,19 @@ public class CarRaceGame {
 
     private void play(int round) {
         for (int i = 0; i < round; i++) {
+            moveCars();
             
+        }
+    }
+
+    private void displayCars() {
+
+    }
+
+    private void moveCars() {
+        for (Car car : cars) {
+            int num = NumberGenerator.createRandomNumber();
+            car.move(num);
         }
     }
 
