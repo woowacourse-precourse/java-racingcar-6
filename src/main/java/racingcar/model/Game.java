@@ -15,6 +15,17 @@ public class Game {
         this.completedRounds = 0;
     }
 
+    public List<String> getWinnerNames() {
+        int maxLocation = cars.stream()
+                .mapToInt(Car::getLocation)
+                .max()
+                .orElse(0);
+        return cars.stream()
+                .filter(car -> car.getLocation() == maxLocation)
+                .map(Car::getName)
+                .toList();
+    }
+
     public boolean hasRemainingRounds() {
         return completedRounds < totalRounds;
     }
