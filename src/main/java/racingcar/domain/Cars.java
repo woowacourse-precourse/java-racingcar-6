@@ -23,19 +23,25 @@ public class Cars {
             car.goForward(randomNumber.createRandomNumber());
         }
     }
-    private static void makeHash(){
+    protected static void makeHash(){
         for(Car car : cars){
             findMax.put(car.getName(), car.getForward());
         }
     }
 
-    private static int findMaxForward(){
+    protected static int findMaxForward(){
         makeHash();
         int maxForward = findMax.values().stream()
                 .mapToInt(Integer::intValue)
                 .max()
                 .orElse(0);
         return maxForward;
+    }
+
+    protected void setFindMax(){
+        for (Car car : cars){
+            findMax.put(car.getName(), car.getForward());
+        }
     }
 
     public static List<String> getMVP(){
@@ -48,6 +54,7 @@ public class Cars {
 
         return mvpList;
     }
+
 
     public static LinkedHashMap<String, Integer> getForwardState(){
         LinkedHashMap<String, Integer> forwardState = new LinkedHashMap<>();
