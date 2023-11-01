@@ -1,19 +1,20 @@
 package controller;
 
+import static validator.CarNameValidator.validateCarNameDuplicate;
+import static validator.CarNameValidator.validateCarNameLength;
+import static validator.TryCountValidator.validateTryCountMin;
+import static validator.TryCountValidator.validateTryCountNumber;
+
 import java.util.ArrayList;
 import java.util.List;
 import message.OutputMessages;
 import model.Car;
-import validator.CarNameValidator;
-import validator.TryCountValidator;
 import view.InputView;
 import view.OutputView;
 
 public class RacingGameController {
 
     private final InputView inputView = new InputView();
-    private final CarNameValidator carNameValidator = new CarNameValidator();
-    private final TryCountValidator tryCountValidator = new TryCountValidator();
 
     public void play() {
         String[] carNames = inputView.getCarNames();
@@ -53,13 +54,13 @@ public class RacingGameController {
 
 
     public void validateCarNames(String[] carNameList) {
-        carNameValidator.validateCarNameLength(carNameList);
-        carNameValidator.validateCarNameDuplicate(carNameList);
+        validateCarNameLength(carNameList);
+        validateCarNameDuplicate(carNameList);
     }
 
     public void validateTryCount(String tryCount) {
-        tryCountValidator.validateTryCountNumber(tryCount);
-        tryCountValidator.validateTryCountMin(tryCount);
+        validateTryCountNumber(tryCount);
+        validateTryCountMin(tryCount);
     }
 
 }
