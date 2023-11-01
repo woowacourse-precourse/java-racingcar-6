@@ -23,17 +23,12 @@ class RacingControllerTest extends NsTest {
     @BeforeEach
     void setUp() {
         racingController = new RacingController();
-    }
-
-    @AfterEach
-    void end() {
         racingController.cleanUp();
     }
 
     @ParameterizedTest
     @ValueSource(strings = {" ", "\n", "\r", "\r\n"})
     void 초기_세팅_이름_공백_예외_테스트(String input) {
-
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(input))
                         .isInstanceOf(IllegalArgumentException.class)

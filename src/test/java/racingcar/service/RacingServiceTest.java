@@ -32,10 +32,6 @@ class RacingServiceTest extends NsTest{
         carRepository = CarRepository.getInstance();
         resultRepository = ResultRepository.getInstance();
         racingService = new RacingService(carRepository, resultRepository);
-    }
-
-    @AfterEach
-    void end() {
         racingService.removeAll();
     }
 

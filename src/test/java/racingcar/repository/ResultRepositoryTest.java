@@ -16,10 +16,6 @@ class ResultRepositoryTest {
         resultRepository.clean();
     }
 
-    @AfterEach
-    void end() {
-        resultRepository.clean();
-    }
     @Test
     public void 저장소_삽입_성공_테스트() {
         //given

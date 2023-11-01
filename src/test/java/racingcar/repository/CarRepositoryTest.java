@@ -16,10 +16,6 @@ class CarRepositoryTest {
         carRepository.clean();
     }
 
-    @AfterEach
-    void end() {
-        carRepository.clean();
-    }
     @Test
     public void 저장소_삽입_성공_테스트() {
         //given
