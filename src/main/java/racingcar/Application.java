@@ -39,8 +39,13 @@ public class Application {
 
     private static int getCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int count = Integer.parseInt(Console.readLine());
+        String userInput = Console.readLine();
 
+        if (!userInput.matches("\\d+")) {
+            throw new IllegalArgumentException("숫자로 입력하세요.");
+        }
+
+        int count = Integer.parseInt(userInput);
         return count;
     }
 
