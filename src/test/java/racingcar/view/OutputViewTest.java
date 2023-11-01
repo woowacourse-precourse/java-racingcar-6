@@ -117,6 +117,25 @@ public class OutputViewTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("공동 우승자인 경우, 구분자(,)로 구분해서 출력하는 기능을 테스트한다.")
+    void 공동_우승자인_경우_구분자_콤마로_구분해서_출력하는_기능_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    //when
+                    cars.moveAheadCars();
+                    cars.moveAheadCars();
+                    Winners winners = cars.generateWinners();
+                    OutputView.printWinner(winners);
+
+                    //then
+                    Assertions.assertThat(output()).contains("yoon, su");
+                },
+                MOVING_FORWARD, STOP,
+                STOP, MOVING_FORWARD
+        );
+    }
+
 
     @Override
     protected void runMain() {
