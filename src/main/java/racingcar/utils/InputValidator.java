@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 public class InputValidator {
     public static void validateCarNames(String carNames) {
-        validateCarNameIsNotDuplicated(carNames);
         Arrays.stream(carNames.split(",", -1))
                 .forEach(name -> {
                     validateCarNameIsNotBlank(name);
                     validateCarNameIsNotEmpty(name);
                     validateCarNameLength(name);
                 });
+        validateCarNameIsNotDuplicated(carNames);
     }
 
     private static void validateCarNameIsNotDuplicated(String carNames) {
