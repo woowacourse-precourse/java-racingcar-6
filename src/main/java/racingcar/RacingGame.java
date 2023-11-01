@@ -22,6 +22,8 @@ public class RacingGame implements Game{
             printResultOfRounds();
             System.out.println();
         }
+        printWinner();
+
     }
 
     public void playGame(){
@@ -38,8 +40,7 @@ public class RacingGame implements Game{
 
         if (check >= 4){
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -47,6 +48,17 @@ public class RacingGame implements Game{
     public void printResultOfRounds(){
         for (Car car : cars) {
             System.out.println(car.toString());
+        }
+    }
+
+    public void printWinner(){
+        Winner winner = new Winner();
+        List<String> winners = winner.findWinners(cars);
+
+        if (winners.size() == 1) {
+            System.out.println("최종 우승자 : " + winners.get(0));
+        } else {
+            System.out.println("최종 우승자 : " + String.join(", ", winners));
         }
     }
 }
