@@ -12,10 +12,10 @@ import racingcar.util.StringUtils;
 
 public class RacingGame {
     private static final String INIT_TRY_NUMBER = "0";
+    private static final int SINGLE_CAR = 1;
 
     private final List<Car> cars;
-
-    private GameTry gameTry;
+    private final GameTry gameTry;
 
     public RacingGame(String carNames) {
         this.cars = initCars(carNames);
@@ -36,17 +36,27 @@ public class RacingGame {
     }
 
     private static void checkDuplicates(String[] names) {
+        stripCarNames(names);
+
         if (hasDuplicates(names)) {
             throw new IllegalArgumentException(INVALID_UNIQUE_NICKNAME.getMessage());
         }
-        if (names.length == 1) {
+        if (hasOneCar(names)) {
             throw new IllegalArgumentException(INVALID_NUMBER_OF_CARS.getMessage());
         }
+    }
+
+    private static void stripCarNames(String[] names) {
+        Arrays.setAll(names, i -> names[i].trim());
     }
 
     private static boolean hasDuplicates(String[] names) {
         Set<String> uniqueNames = new HashSet<>(Arrays.asList(names));
         return uniqueNames.size() < names.length;
+    }
+
+    private static boolean hasOneCar(String[] names) {
+        return names.length == SINGLE_CAR;
     }
 
     private static List<Car> createCars(String[] names) {
@@ -55,13 +65,17 @@ public class RacingGame {
                 .toList();
     }
 
-    public void race() {
-        moveCars();
-        increaseGameTry();
+    public List<Car> getCars() {
+        return this.cars;
     }
 
     public boolean isContinue(int targetGameTry) {
         return gameTry.isNotGameEnd(targetGameTry);
+    }
+
+    public void race() {
+        moveCars();
+        increaseGameTry();
     }
 
     private void moveCars() {
@@ -70,9 +84,5 @@ public class RacingGame {
 
     private void increaseGameTry() {
         gameTry.increase();
-    }
-
-    public List<Car> getCars() {
-        return this.cars;
     }
 }
