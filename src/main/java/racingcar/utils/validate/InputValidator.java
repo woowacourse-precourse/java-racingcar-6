@@ -1,5 +1,6 @@
 package racingcar.utils.validate;
 
+import static racingcar.constant.ExceptionMessage.NAME_CONTAINS_BLANK;
 import static racingcar.constant.ExceptionMessage.NAME_LENGTH_NOT_IN_RANGE;
 import static racingcar.constant.ExceptionMessage.ROUND_CONTAIN_NOT_ONLY_NUM;
 import static racingcar.constant.ExceptionMessage.ROUND_MUST_BE_POSITIVE;
@@ -12,8 +13,12 @@ public class InputValidator {
 
     public static void validateName(String[] nameArr) {
         for (String name : nameArr) {
-            if (!checkNameLengthInRange(name) && !checkContainBlank(name)) {
+            if (!checkNameLengthInRange(name)) {
                 throw new IllegalArgumentException(NAME_LENGTH_NOT_IN_RANGE.getMessage());
+            }
+
+            if (checkContainBlank(name)) {
+                throw new IllegalArgumentException(NAME_CONTAINS_BLANK.getMessage());
             }
         }
     }
@@ -23,7 +28,7 @@ public class InputValidator {
             throw new IllegalArgumentException(ROUND_CONTAIN_NOT_ONLY_NUM.getMessage());
         }
 
-        if (!checkNumPositive(roundNum)) {
+        if (!checkNumIsZeroOrNegative(roundNum)) {
             throw new IllegalArgumentException(ROUND_MUST_BE_POSITIVE.getMessage());
         }
     }
@@ -41,8 +46,8 @@ public class InputValidator {
         return true;
     }
 
-    private static boolean checkNumPositive(String num) {
-        return Integer.parseInt(num) >= 0;
+    private static boolean checkNumIsZeroOrNegative(String num) {
+        return Integer.parseInt(num) < 0;
     }
 
     private static boolean checkContainBlank(String input) {
