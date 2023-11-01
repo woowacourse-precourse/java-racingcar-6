@@ -31,6 +31,7 @@ public class Output {
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
         outputBuilder.append(result);
+        if(carList.isEmpty()) outputBuilder.append("없습니다");
     }
 
     public static void addResultOutput(String input){

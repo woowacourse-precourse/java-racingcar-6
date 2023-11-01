@@ -30,6 +30,7 @@ public class CarRacingWinnerService {
     //정렬된 배열에서 우승자까지의 index 반환
     private int findLastIndex(ArrayList<Car> carList){
         int topMoveCountValue = carList.get(0).getMoveCount();
+        if(topMoveCountValue==0) return 0;
         return IntStream.range(1, carList.size())
                 .filter(index -> carList.get(index).getMoveCount() != topMoveCountValue)
                 .findFirst()
