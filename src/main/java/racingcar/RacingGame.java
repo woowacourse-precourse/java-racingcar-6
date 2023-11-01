@@ -9,14 +9,13 @@ import java.util.stream.Collectors;
 public class RacingGame {
 
     public static final int MOVE_FORWARD_COND = 4;
+    public static final int NAME_MAX_LEN = 5;
 
     public void start(){
         guideUserInsertRacingCarName();
         String[] nameAry = Utils.inputNameSplit(",", Utils.userInput());
         List<String> nameList = Utils.inputStrAryToNameList(nameAry);
-        nameList.stream()
-                .forEach(name -> Utils.nameIsValid(name));
-        Utils.nameIsDuplicate(nameList);
+        Utils.nameIsValid(nameList, NAME_MAX_LEN);
         List<Player> players = Utils.nameListToPlayerList(nameList);
 
         guideUserInsertRacingTryCount();
