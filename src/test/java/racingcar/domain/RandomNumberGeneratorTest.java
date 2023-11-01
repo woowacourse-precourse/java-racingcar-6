@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static racingcar.constant.RaceSetting.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -14,9 +14,8 @@ class RandomNumberGeneratorTest {
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         int number = numberGenerator.generate();
 
-        assertThat(number)
-                .isGreaterThan(MIN_RANDOM_NUMBER.getValue())
-                .isLessThan(MAX_RANDOM_NUMBER.getValue());
+        assertTrue(number >= MIN_RANDOM_NUMBER.getValue()
+                && number <= MAX_RANDOM_NUMBER.getValue());
     }
 
 }
