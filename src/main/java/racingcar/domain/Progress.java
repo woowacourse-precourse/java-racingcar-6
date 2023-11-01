@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Progress {
+    List<String> racingResultHyphen;
     public void onAir(List<String> cars, List<Integer> racingResult) {
-        List<String> racingResultHyphen = new ArrayList<>();
+        racingResultHyphen = new ArrayList<>();
         for (int goCount : racingResult) {
             String goCountHyphen = "";
             for (int j = 0; j < goCount; j++) {
