@@ -1,9 +1,10 @@
 package racingcar;
 import java.util.List;
+import static racingcar.Const.*;
 public class Output {
 
     public static void printResultmessage(){
-        System.out.println("실행결과");
+        System.out.println(GAME_RESULT_MESSAGE);
     }
 
     public static void printRacingState(List<CarState> cars){
@@ -19,7 +20,7 @@ public class Output {
     public static void printWinner(List<CarState> cars) {
         int winnerMoveDistance = RacingCar.findMostFartherDistance(cars);
         String winnerNames = RacingCar.getWinnerNames(cars, winnerMoveDistance);
-        System.out.println("최종 우승자 : " + winnerNames);
+        System.out.println(FINAL_WINNER_MESSAGE + winnerNames);
     }
 
 
