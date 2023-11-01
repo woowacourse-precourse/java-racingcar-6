@@ -22,6 +22,7 @@ public class InputView {
         String name = Console.readLine();
         List<String> carList = Arrays.asList(name.split(","));
         validation.checkNameListSize(carList);
+        validation.hasDuplication(carList);
         return carList;
     }
 }

@@ -2,7 +2,9 @@ package racingcar.utils;
 
 import racingcar.utils.constant.message.ErrorMessage;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static racingcar.utils.constant.Number.MAX_NAME_LENGTH;
 
@@ -34,6 +36,13 @@ public class Validation {
     public void checkPlayCount(int count) {
         if (count <= 0) {
             throw new IllegalArgumentException(ErrorMessage.MORE_THAN_ZERO.getMessage());
+        }
+    }
+
+    public void hasDuplication(List<String> nameList) {
+        Set<String> nameSet = new HashSet<>(nameList);
+        if (nameSet.size() != nameList.size()) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NAME.getMessage());
         }
     }
 }

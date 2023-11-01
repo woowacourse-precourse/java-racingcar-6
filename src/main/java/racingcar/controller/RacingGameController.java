@@ -18,27 +18,16 @@ public class RacingGameController {
     }
 
     private RacingGame gameInitialize() {
-        List<String> nameList = getCarNameListWithRetry();
-        List<Car> carList = null;
-        while (true) {
-            try {
-                carList = carService.createCars(nameList);
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                nameList = getCarNameListWithRetry();
-            }
-        }
-
+        List<Car> carList = getCarListWithRetry();
         int playCount = getPlayCountWithRetry();
-
         return racingGameService.raceSetting(carList, playCount);
     }
 
-    private List<String> getCarNameListWithRetry() {
+    private List<Car> getCarListWithRetry() {
         while (true) {
             try {
-                return racingGameService.getCarNameList();
+                List<String> nameList = racingGameService.getCarNameList();
+                return carService.createCars(nameList);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -54,4 +43,5 @@ public class RacingGameController {
             }
         }
     }
+
 }
