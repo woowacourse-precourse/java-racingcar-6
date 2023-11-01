@@ -36,7 +36,6 @@ public class CarField {
     }
 
     private List<String> whoIsWinner() {
-        List<String> winnerNames;
         int winnerScore = maxScore();
 
         List<String> winners = cars.stream()
