@@ -59,7 +59,11 @@
 
 ---
 ### 클래스 구조
-<img src="img/classarchitecture.png">
+#### 버전1
+<img src="img/classarchitecture-v1.png">
+
+#### 버전2
+<img src="img/classarchitecture-v2.png">
 
 ---
 ### 흐름도
