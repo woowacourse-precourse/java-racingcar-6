@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.RacingCar;
 import racingcar.service.RacingCarList;
+import racingcar.service.Referee;
 import racingcar.util.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -38,6 +39,11 @@ public class RacingCarGame {
             List<String> carsStatus = RacingCarList.generateAllRacingCarsStatusList(racingCars);
             outputView.printRacingCarStatus(carsStatus);
         }
+    }
+
+    private void printGameResults(List<RacingCar> racingCars) {
+        String winners = Referee.generateRaceWinnersList(racingCars);
+        outputView.printGameWinner(winners);
     }
 
 }
