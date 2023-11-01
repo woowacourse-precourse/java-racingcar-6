@@ -35,6 +35,7 @@ class GameTest {
     void testCreateCars() {
         System.setIn(createUserInput("pobi,woni,jun"));
         cars.createCars();
+        assertEquals(3, cars.getCars().size());
     }
 
     @DisplayName("전진할 이동 회수를 입력")
@@ -42,6 +43,7 @@ class GameTest {
     void testAskPlayTime() {
         System.setIn(createUserInput(3));
         resultByRace.askPlayTime();
+        assertEquals(3, resultByRace.getFinalRound());
     }
     @DisplayName("각 차수 별 실행결과 출력")
     @Test
