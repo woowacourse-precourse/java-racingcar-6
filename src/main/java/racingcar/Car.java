@@ -23,7 +23,7 @@ public class Car {
     public void printPostion(){
         System.out.print(name+" : ");
         for(int i =0; i< position; i++){
-            System.out.println("-");
+            System.out.print("-");
         }
         System.out.println();
     }
