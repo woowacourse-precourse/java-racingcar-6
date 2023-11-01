@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 /**
  * 입력 관리
+ *
  * @see camp.nextstep.edu.missionutils.Console
  */
 public class InputView {
