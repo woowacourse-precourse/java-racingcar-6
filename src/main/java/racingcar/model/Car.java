@@ -20,9 +20,12 @@ public class Car {
         this.position = 0;
     }
 
+    protected void setPosition(int position) {
+        this.position = position;
+    }
+
     public void move() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
+        if (pickRandomNumber() >= 4) {
             position++;
         }
     }
