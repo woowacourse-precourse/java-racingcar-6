@@ -22,8 +22,15 @@ class MoveCountTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"five", "오", " ", "", " 1", "1 "})
+    @ValueSource(strings = {"five", "오", "다섯"})
     void 이동횟수의_값이_숫자가_아닌_문자로_생성되면_예외_발생(String inputMoveCount) {
+        assertThatThrownBy(() -> MoveCount.valueOf(inputMoveCount))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", " 1", "1 ", "1 0"})
+    void 이동횟수의_값에_공백이_포함되면_예외_발생(String inputMoveCount) {
         assertThatThrownBy(() -> MoveCount.valueOf(inputMoveCount))
                 .isInstanceOf(IllegalArgumentException.class);
     }
