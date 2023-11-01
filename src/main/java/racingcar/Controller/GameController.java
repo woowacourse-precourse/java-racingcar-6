@@ -44,6 +44,7 @@ public class GameController {
     }
 
     private void play(List<Car> cars, int times) {
+        OutputUtil.println(BLANK);
         OutputUtil.println(RESULT);
         for (int i = 0; i < times; i++) {
             moveCars(cars);
