@@ -76,4 +76,12 @@ public class RacingCarGameTest {
         assertThatThrownBy(() -> game.setGameCount("-3"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+    @Test
+    void setGameCount_0이상_입력값을_gameCount로_설정한다() {
+        RacingCarGame game = new RacingCarGame();
+        game.setGameCount("2");
+        int gameCount = game.getGameCount();
+
+        assertThat(gameCount).isEqualTo(2);
+    }
 }
