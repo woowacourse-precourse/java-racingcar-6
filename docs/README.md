@@ -52,7 +52,7 @@ $ cd java-racingcar-vina
 
 <br>
 
-## :computer: 화면 구성 (추가예정)
+## :computer: 화면 구성
 
 
 
@@ -81,7 +81,7 @@ $ cd java-racingcar-vina
 
 <br>
 
-## :mag: 아키텍쳐 (추가예정)
+## :mag: 아키텍쳐
 ### 디렉토리 구조
 ![architecture1](./img/architecture1.png)
 
