@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.util.RandomNumberGenerator;
 
 public class Car {
+    private static final int MOVE_BOUNDARY = 4;
     private String name;
     private int position;
 
@@ -26,6 +27,6 @@ public class Car {
     }
 
     private boolean isMovable() {
-        return RandomNumberGenerator.generateRandomNumber() >= 4;
+        return RandomNumberGenerator.generateRandomNumber() >= MOVE_BOUNDARY;
     }
 }
