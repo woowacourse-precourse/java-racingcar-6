@@ -11,8 +11,8 @@ import racingcar.dto.request.CarName;
 
 class CarTest {
 
-    private static final String testName = "test";
-    private static final CarName testCarName = new CarName(testName);
+    private final String TEST_NAME = "test";
+    private final CarName TEST_CAR_NAME = new CarName(TEST_NAME);
 
     @Test
     @DisplayName("CarName과 NumberGenerator로 Car 클래스를 생성한다.")
@@ -21,10 +21,10 @@ class CarTest {
         NumberGenerator numberGenerator = mock(NumberGenerator.class);
 
         // When
-        Car car = new Car(testCarName, numberGenerator);
+        Car car = new Car(TEST_CAR_NAME, numberGenerator);
 
         // Then
-        assertEquals(testName, car.getName());
+        assertEquals(TEST_NAME, car.getName());
         assertEquals(0, car.getMoveCount());
     }
 
@@ -33,7 +33,7 @@ class CarTest {
     void ifGeneratedNumberIs4OrAboveCarMove() {
         // Given
         NumberGenerator mockNumberGenerator = mock(NumberGenerator.class);
-        Car car = new Car(testCarName, mockNumberGenerator);
+        Car car = new Car(TEST_CAR_NAME, mockNumberGenerator);
 
         // When
         when(mockNumberGenerator.generateInRange(anyInt(), anyInt())).thenReturn(4);
@@ -55,7 +55,7 @@ class CarTest {
     void ifGeneratedNumberIsLessThan4CarNotMove() {
         // Given
         NumberGenerator mockNumberGenerator = mock(NumberGenerator.class);
-        Car car = new Car(testCarName, mockNumberGenerator);
+        Car car = new Car(TEST_CAR_NAME, mockNumberGenerator);
 
         // When
         when(mockNumberGenerator.generateInRange(anyInt(), anyInt())).thenReturn(3);
