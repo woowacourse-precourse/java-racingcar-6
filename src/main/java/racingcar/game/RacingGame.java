@@ -16,13 +16,13 @@ public class RacingGame {
 
     private int remainingRounds;
 
-    protected RacingGame(String[] names, int rounds) {
+    public RacingGame(String[] names, int rounds) {
         this.cars = new ArrayList<>();
         List.of(names).forEach(n -> cars.add(new Car(n)));
         this.remainingRounds = rounds;
     }
 
-    protected void tryToProceedCars() {
+    public void tryToProceedCars() {
         cars.stream()
                 .filter(c -> isOverThreshold(generateRandomIntInRange()))
                 .forEach(c -> c.proceedSingleUnit());
@@ -34,15 +34,15 @@ public class RacingGame {
         return generatedInt >= THRESHOLD;
     }
 
-    protected List<Car> getGameProgress() {
+    public List<Car> getGameProgress() {
         return cars;
     }
 
-    protected boolean isFinished() {
+    public boolean isFinished() {
         return remainingRounds == 0;
     }
 
-    protected List<String> getWinners() {
+    public List<String> getWinners() {
         if (!isFinished()) {
             return null;
         }
