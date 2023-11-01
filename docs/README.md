@@ -70,13 +70,14 @@ View에서 출력을 하기 위해 Model의 정보를 넘겨주기 위함
 
 # Refactoring
 
-## CarView (View)
+## CarView (View) -> InputView와 OutputView로 분리
 - [ ] InputView 기능 추가하고 OutputView와 분리하기
 - [ ] printWinner에서 max값 찾는 부분 함수로 추출하기
 - [ ] printResult에서 for-each 구문 함수로 추출하기
 
-## Car (Model)
+## Car (Model) 
 - [ ] getter 대체하기
+- [ ] RandomNumber클래스에 static을 활용해서 랜덤 숫자 생성 로직 분리
 
 ## CarController (Controller)
 - [ ] InputView 사용해서 입력 받도록 변경하기
@@ -85,3 +86,8 @@ View에서 출력을 하기 위해 Model의 정보를 넘겨주기 위함
 
 ## CarDto
 - [ ] getter 대체하기
+
+## carList -> Cars 일급 컬렉션 분리
+- CarController에 종속적이던 carList를 Cars로 Wrap하여서 의존성을 낮춤
+
+## Random number
