@@ -4,8 +4,8 @@ import java.util.List;
 import racingcar.collaborator.race.Racer;
 import racingcar.io.Input;
 import racingcar.io.Output;
-import racingcar.io.enums.RaceViewMessage;
 import racingcar.io.racing.RaceRandoms;
+import racingcar.io.views.enums.RaceViewMessage;
 
 public class RaceView {
 

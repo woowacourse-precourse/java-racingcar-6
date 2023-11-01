@@ -1,17 +1,17 @@
 package racingcar.io.views;
 
 import static java.util.stream.Collectors.joining;
-import static racingcar.io.enums.RaceTotalProgressViewMessage.BLANK_AND_NEW_LINE;
-import static racingcar.io.enums.RaceTotalProgressViewMessage.DELIMITER_WINNERS;
-import static racingcar.io.enums.RaceTotalProgressViewMessage.MESSAGE_RACE_RESULT;
-import static racingcar.io.enums.RaceTotalProgressViewMessage.NEW_LINE;
-import static racingcar.io.enums.RaceTotalProgressViewMessage.makeWinnersMessage;
+import static racingcar.io.views.enums.RaceTotalProgressViewMessage.BLANK_AND_NEW_LINE;
+import static racingcar.io.views.enums.RaceTotalProgressViewMessage.DELIMITER_WINNERS;
+import static racingcar.io.views.enums.RaceTotalProgressViewMessage.MESSAGE_RACE_RESULT;
+import static racingcar.io.views.enums.RaceTotalProgressViewMessage.NEW_LINE;
+import static racingcar.io.views.enums.RaceTotalProgressViewMessage.makeWinnersMessage;
 
 import racingcar.generic.LapProgress;
 import racingcar.generic.RaceTotalProgress;
 import racingcar.generic.Winners;
 import racingcar.io.Output;
-import racingcar.io.enums.RaceTotalProgressViewMessage;
+import racingcar.io.views.enums.RaceTotalProgressViewMessage;
 
 public class RaceTotalProgressView {
 

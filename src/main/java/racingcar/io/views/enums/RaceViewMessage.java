@@ -1,4 +1,4 @@
-package racingcar.io.enums;
+package racingcar.io.views.enums;
 
 public enum RaceViewMessage {
 

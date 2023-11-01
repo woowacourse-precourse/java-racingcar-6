@@ -1,4 +1,4 @@
-package racingcar.io.enums;
+package racingcar.io.views.enums;
 
 import racingcar.generic.RacerProgress;
 
