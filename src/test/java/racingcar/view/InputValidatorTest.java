@@ -15,9 +15,9 @@ public class InputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"", " ", "한글", "-1", "0.1", "0"})
-    void 양의_정수로_변환할_수_없을_경우_예외를_발생시킨다(String input) {
-        assertThatThrownBy(() -> InputValidator.validatePositiveIntegerType(input))
+    @ValueSource(strings = {"", " ", "한글", "0.1",})
+    void 정수로_변환할_수_없을_경우_예외를_발생시킨다(String input) {
+        assertThatThrownBy(() -> InputValidator.validateIntegerType(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

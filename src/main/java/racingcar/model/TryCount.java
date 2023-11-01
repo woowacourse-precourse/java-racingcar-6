@@ -6,6 +6,7 @@ public class TryCount {
     private int count;
 
     public TryCount(int count) {
+        TryValidator.validate(count);
         this.count = count;
     }
 
