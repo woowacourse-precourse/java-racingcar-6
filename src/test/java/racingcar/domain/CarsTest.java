@@ -26,4 +26,19 @@ public class CarsTest {
         //then
         assertThat(result).contains("test1 : ", "test2 : ", "test3 : ");
     }
+
+    @Test
+    void findWinnerTest() {
+        //given
+        List<CarName> carNameList = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
+        CarNames carNames = new CarNames(carNameList);
+        Cars cars = new Cars(carNames);
+
+        //when
+        String winnerList = "test1, test2, test3";
+        Winners winners = cars.findWinner();
+
+        //then
+        assertThat(winners.makeWinnerList()).isEqualTo(winnerList);
+    }
 }
