@@ -17,14 +17,7 @@ public class RacingGame {
 
         int times = GameView.getRacingTimes();
 
-        System.out.println("\n실행 결과");
-        for (int i = 0; i < times; i++) {
-            for (Car participant : participants) {
-                participant.moveOrStay();
-                participant.printSticks();
-            }
-            System.out.println();
-        }
+        GameView.printGames(times, participants);
 
         checkWinner();
 

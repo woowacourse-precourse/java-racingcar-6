@@ -3,6 +3,7 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.List;
+import racingcar.domain.Car;
 
 public class GameView {
     public static String getParticipants() {
@@ -18,6 +19,17 @@ public class GameView {
             return Integer.parseInt(input);
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자를 입력해주세요. (입력 : " + input + ")");
+        }
+    }
+
+    public static void printGames(int times, List<Car> participants) {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < times; i++) {
+            for (Car participant : participants) {
+                participant.moveOrStay();
+                participant.printSticks();
+            }
+            System.out.println();
         }
     }
 
