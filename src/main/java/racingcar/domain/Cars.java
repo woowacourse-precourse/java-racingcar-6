@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import racingcar.common.util.OutputMessage;
+import racingcar.common.util.ErrorMessage;
 
 public class Cars {
 
@@ -32,7 +32,7 @@ public class Cars {
 
     private static void uniqueCarName(String carName, Set<String> uniqueCarsName) {
         if (!uniqueCarsName.add(carName)) {
-            throw new IllegalArgumentException(OutputMessage.VALIDATE_UNIQUE_CAR_NAME
+            throw new IllegalArgumentException(ErrorMessage.VALIDATE_UNIQUE_CAR_NAME
                     .getMessage() + carName);
         }
     }

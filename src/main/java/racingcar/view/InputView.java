@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.common.util.OutputMessage;
+import racingcar.common.util.ErrorMessage;
 
 public class InputView {
 
@@ -26,7 +26,7 @@ public class InputView {
                 .anyMatch(ch -> !Character.isDigit(ch));
 
         if (containsNonNumeric) {
-            throw new IllegalArgumentException(OutputMessage.VALIDATE_NOT_NUMBER
+            throw new IllegalArgumentException(ErrorMessage.VALIDATE_NOT_NUMBER
                     .getMessage());
 
         }
