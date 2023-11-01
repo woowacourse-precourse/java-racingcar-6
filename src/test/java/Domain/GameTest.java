@@ -21,18 +21,6 @@ public class GameTest {
             assertThat(car.getPosition()).isEqualTo(0);
         }
 
-        // 게임 실행
-        game.runGame();
-
-        for (Car car : cars) {
-            String carName = car.getCarName();
-            int position = car.getPosition();
-            StringBuilder positionString = new StringBuilder();
-            for (int i = 0; i < position; i++) {
-                positionString.append("-");
-            }
-            System.out.println(carName + " : " + positionString);
-        }
 
         // 우승자 확인
         String winners = game.getWinners();

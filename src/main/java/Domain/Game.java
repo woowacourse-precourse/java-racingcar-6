@@ -13,14 +13,6 @@ public class Game {
         return cars;
     }
 
-    public void runGame() {
-        for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                car.move();
-            }
-        }
-    }
-
     public String getWinners() {
         int maxPosition = getMaxPosition();
         return buildWinnersString(maxPosition);
@@ -50,5 +42,9 @@ public class Game {
         }
 
         return winners.toString();
+    }
+
+    public int getTryCount() {
+        return tryCount;
     }
 }
