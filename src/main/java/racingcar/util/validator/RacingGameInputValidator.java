@@ -6,10 +6,10 @@ import static racingcar.util.ConstantNumbers.MINIMUM_TRY_COUNT;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.util.exception.ErrorMessage;
-import racingcar.util.exception.RacingCarException;
+import racingcar.util.exception.RacingGameException;
 
-public class InputValidator implements Validator {
-    InputValidator() {
+public class RacingGameInputValidator implements Validator {
+    RacingGameInputValidator() {
     }
 
     /**
@@ -21,11 +21,11 @@ public class InputValidator implements Validator {
      */
     public void isValidList(final List<String> names) {
         if (!hasValidNames(names)) {
-            throw RacingCarException.of(ErrorMessage.INVALID_NAME);
+            throw RacingGameException.of(ErrorMessage.INVALID_NAME);
         }
 
         if (!hasDistinctName(names)) {
-            throw RacingCarException.of(ErrorMessage.DUPLICATE_NAME);
+            throw RacingGameException.of(ErrorMessage.DUPLICATE_NAME);
         }
     }
 
@@ -43,11 +43,11 @@ public class InputValidator implements Validator {
         try {
             number = Integer.parseInt(count);
         } catch (Exception e) {
-            throw RacingCarException.of(ErrorMessage.NOT_INTEGER);
+            throw RacingGameException.of(ErrorMessage.NOT_INTEGER);
         }
 
         if (isNegative(number)) {
-            throw RacingCarException.of(ErrorMessage.NOT_POSITIVE);
+            throw RacingGameException.of(ErrorMessage.NOT_POSITIVE);
         }
 
         return number;
