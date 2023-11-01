@@ -4,8 +4,10 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import domain.Car;
 import domain.Cars;
 import domain.RaceResult;
+import domain.Winners;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import view.OutputView;
@@ -84,6 +86,34 @@ public class OutputViewTest extends NsTest {
             },
             MOVING_FORWARD, STOP,
             MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 최종_우승자_문구를_출력하는_기능_테스트() {
+        assertSimpleTest(() -> {
+            //when
+            OutputView.printWinnerIntroduction();
+
+            //then
+            Assertions.assertThat(output()).contains("최종 우승자 :");
+        });
+    }
+
+    @Test
+    @DisplayName("단독 우승자인 경우, 해당 자동차의 이름을 출력하는 기능을 테스트한다.")
+    void 단독_우승자인_경우_해당_자동차의_이름을_출력하는_기능_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    //when
+                    cars.moveAheadCars();
+                    Winners winners = cars.generateWinners();
+                    OutputView.printWinner(winners);
+
+                    //then
+                    Assertions.assertThat(output()).contains("yoon");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
