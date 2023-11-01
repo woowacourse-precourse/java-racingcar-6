@@ -1,12 +1,16 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import domain.RacingCar;
 import domain.RacingGameStartManager;
 import java.util.Set;
 
 public class Application {
+    private static final int RANDOM_MIN_VALUE = 1;
+    private static final int RANDOM_MAX_VALUE = 9;
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         RacingGameStartManager racingGameStartManager = new RacingGameStartManager();
@@ -18,6 +22,10 @@ public class Application {
         // 경주 진행 시 이동 시도 횟수 세팅
         String inputRacingCarMoveNum = inputRacingCarMoveNum();
         int racingCarMoveNum = racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum);
+
+        // 경주 진행
+        int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
+
     }
 
     private static String[] inputRacingCarNames() {
