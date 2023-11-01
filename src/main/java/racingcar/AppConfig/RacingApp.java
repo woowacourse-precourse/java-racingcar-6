@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import racingcar.controller.GameController;
 import racingcar.domain.Car;
+import racingcar.dto.GameRecordDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -19,10 +20,10 @@ public class RacingApp {
         List<Car> carList = requestInputCarNames();
         int roundNumber = requestInputRoundNumber();
 
-        Map<Integer, List<String>> recordMap = requestStartRacingGame(carList, roundNumber);
-        List<String> winnerList = requestFindWinner(carList);
+        GameRecordDto gameRecord = requestStartRacingGame(carList, roundNumber);
+        List<String> winnerList = requestFindWinner(gameRecord.getCars());
 
-        printRecord(recordMap);
+        printRecord(gameRecord.getRecord());
         OutputView.printWinner(winnerList);
     }
 
@@ -36,7 +37,7 @@ public class RacingApp {
         return gameController.addRoundNumber(Console.readLine());
     }
 
-    private Map<Integer, List<String>> requestStartRacingGame(List<Car> car, int roundNumber) {
+    private GameRecordDto requestStartRacingGame(List<Car> car, int roundNumber) {
         return gameController.startRacingGame(car, roundNumber);
     }
 

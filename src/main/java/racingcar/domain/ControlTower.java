@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import racingcar.dto.GameRecordDto;
 
 public class ControlTower {
     private static final int RANDOM_MIN = 0;
@@ -12,7 +13,7 @@ public class ControlTower {
 
     private static final Map<Integer, List<String>> record = new HashMap<>();
 
-    public Map<Integer, List<String>> startRacing(List<Car> cars, int roundNumber) {
+    public GameRecordDto startRacing(List<Car> cars, int roundNumber) {
         for (int round = 1; round <= roundNumber; round++) {
             record.put(round, new ArrayList<>());
 
@@ -22,7 +23,7 @@ public class ControlTower {
             });
         }
 
-        return record;
+        return new GameRecordDto(record, cars);
     }
 
     private void addRecord(String carRecord) {

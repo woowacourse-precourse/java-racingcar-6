@@ -1,9 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
-import java.util.Map;
 import racingcar.domain.Car;
 import racingcar.dto.ControlTowerDto;
+import racingcar.dto.GameRecordDto;
 import racingcar.service.ControlTowerService;
 import racingcar.service.RefereeService;
 
@@ -25,7 +25,7 @@ public class GameController {
         return refereeService.saveRoundNumber(inputRoundNumber);
     }
 
-    public Map<Integer, List<String>> startRacingGame(List<Car> carList, int roundNumber) {
+    public GameRecordDto startRacingGame(List<Car> carList, int roundNumber) {
         return controlTowerService.startRacingGame(new ControlTowerDto(carList, roundNumber));
     }
 
