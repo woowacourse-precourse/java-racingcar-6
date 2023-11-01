@@ -14,5 +14,8 @@ public class Car {
     public void moveForward() {
         this.steps.add('-');
     }
+    public String name() {
+        return this.carName;
+    }
 
 }
