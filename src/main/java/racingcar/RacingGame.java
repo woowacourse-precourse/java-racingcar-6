@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    private int number;
     private List<Car> cars;
+    private int number;
 
-    public RacingGame(int number, List<Car> cars) {
+
+    public RacingGame(List<String> cars, int number) {
+        setCars(cars);
         this.number = number;
-        this.cars = cars;
     }
 
     public List<Car> getCars() {
@@ -31,7 +32,7 @@ public class RacingGame {
         System.out.println();
     }
 
-    private void playRacingGame(){
+    public void playRacingGame(){
         System.out.println(Message.racing);
         for (int i=0; i<number; i++){
             playRacingRound();
