@@ -15,6 +15,9 @@ public class CarRace {
         if (round < 1) {
             throw new IllegalArgumentException("CarRace : round < 1");
         }
+        if (carNames == null) {
+            throw new IllegalArgumentException("CarRace : null");
+        }
 
         this.round = round;
         this.carNames = Arrays.stream(carNames).toList();
