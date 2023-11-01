@@ -7,14 +7,14 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.util.validator.InputValidator;
+import racingcar.util.validator.RacingGameInputValidator;
 import racingcar.util.validator.Validator;
 
 public class InputView implements View {
-    private final InputValidator inputValidator;
+    private final RacingGameInputValidator racingGameInputValidator;
 
     InputView(final Validator inputValidator) {
-        this.inputValidator = (InputValidator) inputValidator;
+        this.racingGameInputValidator = (RacingGameInputValidator) inputValidator;
     }
 
     /**
@@ -28,7 +28,7 @@ public class InputView implements View {
 
         List<String> nameList = Arrays.stream(input.split(","))
                 .collect(Collectors.toList());
-        inputValidator.isValidList(nameList);
+        racingGameInputValidator.isValidList(nameList);
 
         return nameList;
     }
@@ -43,6 +43,6 @@ public class InputView implements View {
         String input = Console.readLine();
         Console.close();
 
-        return inputValidator.isNonNegativeInteger(input);
+        return racingGameInputValidator.isNonNegativeInteger(input);
     }
 }
