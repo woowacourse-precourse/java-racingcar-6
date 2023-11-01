@@ -3,29 +3,16 @@ package racingcar.io.views;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.ConsoleTestSuper;
 import racingcar.collaborator.race.Racer;
 import racingcar.io.racing.RaceRandoms;
 import racingcar.io.views.enums.RaceViewMessage;
 
-class RaceViewTest {
-
-    @AfterEach
-    void tearDown() throws NoSuchFieldException, IllegalAccessException {
-        Field field = Console.class.getDeclaredField("scanner");
-        field.setAccessible(true);
-        field.set(Scanner.class, null);
-    }
+class RaceViewTest extends ConsoleTestSuper {
 
     @Test
     void askRacersNames로_레이서리스트를_입력할수있음() {
@@ -36,7 +23,7 @@ class RaceViewTest {
                 .toList();
 
         String input = enterInput(testInput);
-        customSetIn(input);
+        setIn(input);
         List<Racer> actual = new RaceView().askRacersNames();
 
         assertThat(actual.size()).isEqualTo(expected.size());
@@ -54,7 +41,7 @@ class RaceViewTest {
         String testInput = "김홍삼,   김홍삼, 김홍삼";
 
         String input = enterInput(testInput);
-        customSetIn(input);
+        setIn(input);
 
         assertThatThrownBy(() -> new RaceView().askRacersNames())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -67,20 +54,10 @@ class RaceViewTest {
         int expected = Integer.parseInt(testInput);
 
         String input = enterInput(testInput);
-        customSetIn(input);
+        setIn(input);
         Integer actual = new RaceView().askRoundNumber();
 
         assertThat(actual).isEqualTo(expected);
-    }
-
-    private static String enterInput(String testString) {
-        return testString + "\n";
-    }
-
-    private static void customSetIn(String input) {
-        InputStream customInput =
-                new BufferedInputStream(new ByteArrayInputStream(input.getBytes()));
-        System.setIn(customInput);
     }
 
 }

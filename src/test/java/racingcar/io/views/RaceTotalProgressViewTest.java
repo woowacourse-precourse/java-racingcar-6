@@ -2,26 +2,14 @@ package racingcar.io.views;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Scanner;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.ConsoleTestSuper;
 import racingcar.generic.LapProgress;
 import racingcar.generic.RaceTotalProgress;
 import racingcar.generic.RacerProgress;
 
-class RaceTotalProgressViewTest {
-
-    @AfterEach
-    void tearDown() throws NoSuchFieldException, IllegalAccessException {
-        Field field = Console.class.getDeclaredField("scanner");
-        field.setAccessible(true);
-        field.set(Scanner.class, null);
-    }
+class RaceTotalProgressViewTest extends ConsoleTestSuper {
 
     @Test
     void announceRacingRecordOn으로_경기전체기록을볼수있음() {
@@ -54,9 +42,6 @@ class RaceTotalProgressViewTest {
                 금길동 : ------
                 고길동 : -------           
                 """;
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream customPrintStream = new PrintStream(outputStream);
-        System.setOut(customPrintStream);
         raceTotalProgressView.announceRacingRecordOn(raceTotalProgress);
 
         assertThat(outputStream.toString()).isEqualTo(expectOutput);
@@ -83,9 +68,6 @@ class RaceTotalProgressViewTest {
                                 
                 최종 우승자 : 금길동, 고길동       
                 """;
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream customPrintStream = new PrintStream(outputStream);
-        System.setOut(customPrintStream);
         raceTotalProgressView.announceWinnersOn(raceTotalProgress);
 
         assertThat(outputStream.toString()).isEqualTo(expectOutput);

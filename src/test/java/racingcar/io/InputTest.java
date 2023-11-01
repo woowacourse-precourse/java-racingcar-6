@@ -1,34 +1,22 @@
 package racingcar.io;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.lang.reflect.Field;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
-import java.util.Scanner;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import racingcar.ConsoleTestSuper;
 
-class InputTest {
-
-    @AfterEach
-    void tearDown() throws NoSuchFieldException, IllegalAccessException {
-        Field field = Console.class.getDeclaredField("scanner");
-        field.setAccessible(true);
-        field.set(Scanner.class, null);
-    }
+class InputTest extends ConsoleTestSuper {
 
     @Test
     void consoleLine() {
         String message = "테스트 문구입니다.";
 
         String input = enterInput(message);
-        customSetIn(input);
+        setIn(input);
         String userInput = Input.consoleLine();
 
-        Assertions.assertThat(userInput).isEqualTo(message);
+        assertThat(userInput).isEqualTo(message);
     }
 
     @Test
@@ -37,10 +25,10 @@ class InputTest {
         int testNumber = Integer.parseInt(testNumberString);
 
         String input = enterInput(testNumberString);
-        customSetIn(input);
+        setIn(input);
         int userInput = Input.consoleNumber();
 
-        Assertions.assertThat(userInput).isEqualTo(testNumber);
+        assertThat(userInput).isEqualTo(testNumber);
     }
 
     @Test
@@ -49,10 +37,10 @@ class InputTest {
         List<Integer> testNumbers = List.of(4, 2, 9);
 
         String input = enterInput(testNumberString);
-        customSetIn(input);
+        setIn(input);
         List<Integer> numbers = Input.consoleNumbers();
 
-        Assertions.assertThat(numbers).isEqualTo(testNumbers);
+        assertThat(numbers).isEqualTo(testNumbers);
     }
 
     @Test
@@ -61,10 +49,10 @@ class InputTest {
         List<Integer> testNumbers = List.of(4, 2, 9);
 
         String input = enterInput(testNumberString);
-        customSetIn(input);
+        setIn(input);
         List<Integer> numbers = Input.consoleNumbers(",");
 
-        Assertions.assertThat(numbers).isEqualTo(testNumbers);
+        assertThat(numbers).isEqualTo(testNumbers);
     }
 
     @Test
@@ -73,10 +61,10 @@ class InputTest {
         String[] expectedStrings = {"안", "녕", "하", "세", "요", " ", "세", "상", "아"};
 
         String input = enterInput(testString);
-        customSetIn(input);
+        setIn(input);
         List<String> actualStringList = Input.consoleStrings();
 
-        Assertions.assertThat(actualStringList).containsExactly(expectedStrings);
+        assertThat(actualStringList).containsExactly(expectedStrings);
 
     }
 
@@ -86,21 +74,12 @@ class InputTest {
         String[] expectedStrings = {"안녕하세요", "세상아"};
 
         String input = enterInput(testString);
-        customSetIn(input);
+        setIn(input);
         List<String> actualStringList = Input.consoleStrings(",");
 
-        Assertions.assertThat(actualStringList).containsExactly(expectedStrings);
+        assertThat(actualStringList).containsExactly(expectedStrings);
 
     }
 
-    private static String enterInput(String testString) {
-        return testString + "\n";
-    }
-
-    private static void customSetIn(String input) {
-        InputStream customInput =
-                new BufferedInputStream(new ByteArrayInputStream(input.getBytes()));
-        System.setIn(customInput);
-    }
 
 }
