@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Game;
+import racingcar.view.GameView;
 import racingcar.view.RepeatingGameView;
 
 public class RacingCarGameController implements GameController {
@@ -9,9 +10,9 @@ public class RacingCarGameController implements GameController {
     private final RepeatingGameView gameView;
     private boolean playGame = true;
 
-    public RacingCarGameController(Game game, RepeatingGameView gameView) {
+    public RacingCarGameController(Game game, GameView gameView) {
         this.game = game;
-        this.gameView = gameView;
+        this.gameView = (RepeatingGameView) gameView;
     }
 
     @Override
