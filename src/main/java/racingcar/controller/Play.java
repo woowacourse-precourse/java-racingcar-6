@@ -69,6 +69,15 @@ public class Play {
         System.out.println(creatResultMessage(tempMessage, carName));
     }
 
+    public String creatResultMessage(StringBuilder tempMessage, String carName) {
+        tempMessage.append(carName + " : ");
+        for (int i = 0; i < racerInformation.get(carName); i++) {
+            tempMessage.append(FOWARD_MESSAGE);
+        }
+        String resultMessage = tempMessage.toString();
+        return resultMessage;
+    }
+
 
 
     //예외처리
