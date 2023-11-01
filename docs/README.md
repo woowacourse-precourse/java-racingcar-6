@@ -13,39 +13,43 @@
     - 문제에 맞는 문구 출력과 사용자 입력을 받는다.
       - carNameString
       - inputroundLength(String)
+    - 입력받은 문자열로 car이름을 추출한 뒤 각 Car객체에 담아서 ArrayList로 생성 후 반환한다.
     - 잘못된 사용자 입력을 확인해서 예외처리를 한다.
+      - carName 입력시
+          - car이름이 중복될 경우
+          - 입력 형식이 맞지 않을 경우
+          - 이름이 5자 초과일 경우
+      - roundLength 입력시
+          - 숫자가 아닐 경우
+          - 0이하일 경우
 #### [controller]
   - RacingGame
-    - roundLength와 carName들을 받아온다.
+    - carNameString 입력을 ArrayList<Car>형태로 받아온다.
+    - 라운드 횟수 입력을 받아온다.
     - 라운드 횟수만큼 라운드를 진행한다.
     - 우승자를 선정한다.
   - Round
     - 각 carName마다 전진을 결정(desicionMove)한다.
     - OutputView를 실행한다.
-    - decisionMove
-      - 조건(isMoveForward)에 따라 각 carName마다 raceLength에 oneStep을 누적한다.
-    - isMoveForward
-      - randomNumber에 따라 forwardCriterion과 비교하여 전진을 결정한 후
-      - boolean으로 반환한다.
+    - 위 두 과정을 라운드 횟수만큼 반복한다.
+    - goForward
+      - 조건(decisionforward)에 따라 각 carName마다 raceLength에 step하나를 누적한다.
+    - decisionforward
+      - randomInt에 따라 forwardCriterion과 비교하여 조건에 맞으면 전진 실행(goForward)
+    - randomInt
+      - 0~9까지 수 중에 무작위로 추출 후 반환
   - InputException
     - 사용자 입력이 잘못되었을 경우 예외 호출한다.
-      - CarName 입력시
-        - car이름이 중복될 경우
-        - 입력 형식이 맞지 않을 경우
-        - 이름이 5자 초과일 경우
-      - RoundLength 입력시
-        - 숫자가 아닐 경우
-        - 0이하일 경우
+      - carName 입력시
+        - 예외처리
+      - roundLength 입력시
+        - 예외처리
 #### [model]
   - Car
     - carNameArray
-    - carIdArray
     - winner
     - raceLength
     - oneStep
-  - GameState
-    - forwardCriterion
-    - roundLength
   - GameViewMessage (enum)
     - writeCarNameMessage
     - writeRaceLengthMessage
@@ -53,8 +57,7 @@
     - outputWinnerMessage
     - colonString
   - ExceptionString (enum)
-    - inputZeroRoundErrorMessage
-    - inputMinusRoundErrorMessage
-    - inputStringRoundErrorMessage
-    - carNameTooLongErrorMessage
+    - inputIntegerRoundErrorMessage 
+    - inputStringRoundErrorMessage 
+    - carNameTooLongErrorMessage 
     - duplicateCarNameErrorMessage
