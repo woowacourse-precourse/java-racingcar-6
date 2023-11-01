@@ -12,6 +12,7 @@ public class Application {
     static ArrayList<Integer> carRacingCountList = new ArrayList<Integer>();
     static ArrayList<String> winnerNameList = new ArrayList<String>();
     static int maxCount;
+    static boolean advanceFlag;
 
     public static void WinnerCount(){
         maxCount = Collections.max(carRacingCountList);
@@ -54,9 +55,19 @@ public class Application {
         System.out.println();
     }
 
+    public static void AdvanceCheck(){
+        advanceFlag = false;
+        if (3 <Randoms.pickNumberInRange(0,9))
+            advanceFlag = true;     
+    }
+
     public static void RacingStart(){
-        for(int i=0; i<carNameList.length; i++)
-            carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));        
+        advanceFlag = false;
+        for(int i=0; i<carNameList.length; i++){
+            AdvanceCheck();
+            if (advanceFlag)
+                carRacingCountList.set(i, carRacingCountList.get(i) + 1);
+        }
     }
 
     public static void AddCarRacingCountList(){
