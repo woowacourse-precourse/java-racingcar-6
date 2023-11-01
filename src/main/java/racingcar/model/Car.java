@@ -4,6 +4,7 @@ import racingcar.Constants;
 import racingcar.Util;
 
 public class Car {
+
     private final String NAME;
     private int position;
 

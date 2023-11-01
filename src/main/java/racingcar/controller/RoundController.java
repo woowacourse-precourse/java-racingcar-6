@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.Constants;
-import racingcar.Util;
 import racingcar.model.Validator;
 
 public class RoundController {

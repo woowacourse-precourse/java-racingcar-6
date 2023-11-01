@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.view.RoundView;
-
 import java.util.List;
 
 public class Round {
