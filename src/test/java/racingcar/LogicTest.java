@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -18,20 +20,28 @@ public class LogicTest {
             .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {0, 1, 2, 3})
-    void 차가_잘_안움직이나(int movePoint) {
-        Car car = new Car("Tony");
-        car.go(movePoint);
-        assertThat(car.getDistance()).isEqualTo(0);
-    }
+    @Nested
+    class movePoint에_따른_차의_움직임 {
+        Car car;
+        @BeforeEach
+        void initCar() {
+            car = new Car("Tony");
+        }
 
-    @ParameterizedTest
-    @ValueSource(ints = {4, 5, 6, 7, 8})
-    void 차가_잘_움직이나(int movePoint) {
-        Car car = new Car("Tony");
-        car.go(movePoint);
-        assertThat(car.getDistance()).isEqualTo(1);
+        @ParameterizedTest
+        @ValueSource(ints = {0, 1, 2, 3})
+        void 차가_잘_안움직이나(int movePoint) {
+            Car car = new Car("Tony");
+            car.go(movePoint);
+            assertThat(car.getDistance()).isEqualTo(0);
+        }
+
+        @ParameterizedTest
+        @ValueSource(ints = {4, 5, 6, 7, 8})
+        void 차가_잘_움직이나(int movePoint) {
+            car.go(movePoint);
+            assertThat(car.getDistance()).isEqualTo(1);
+        }
     }
 
     @Test
