@@ -17,14 +17,9 @@ public class RaceService {
         this.randomNumberService = randomNumberService;
     }
 
-    public void executeRace(Race race) {
-        int totalRounds = race.getTotalRounds();
-
-        for (int i = 0; i < totalRounds; i++) {
-            int randomNumber = randomNumberService.generateRandomNumber();
-            moveCars(race.getCars(), randomNumber);
-            ResultView.printRoundResult(race.getCars());
-        }
+    public void executeRound(Race race) {
+        int randomNumber = randomNumberService.generateRandomNumber();
+        moveCars(race.getCars(), randomNumber);
     }
 
     private void moveCars(List<Car> cars, int randomNumber) {
