@@ -1,7 +1,6 @@
 package racingcar.model;
 
 public class Car {
-
     public static final int MOVE_FORWARD_THRESHOLD = 4;
     private final String name;
     private int status;

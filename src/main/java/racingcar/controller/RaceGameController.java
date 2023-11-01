@@ -8,7 +8,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceGameController {
-
     private final InputView inputView;
     private final OutputView outputView;
     private final Referee referee;
@@ -20,8 +19,7 @@ public class RaceGameController {
     }
 
     public void play() {
-        List<Car> carList = inputView.getCarNameList().stream()
-                .map(Car::new).toList();
+        List<Car> carList = inputView.getCarNameList().stream().map(Car::new).toList();
         int roundTime = inputView.getRoundTime();
 
         outputView.printResultMessage();

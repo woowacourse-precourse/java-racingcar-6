@@ -3,7 +3,6 @@ package racingcar.validator;
 import java.util.List;
 
 public class InputValidator {
-
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
     public static void verifyCarNames(List<String> nameList) {
@@ -14,7 +13,7 @@ public class InputValidator {
     }
 
     private static void validateCarNameLength(String name) {
-        if (name.length() < 1 ||name.length() > MAX_CAR_NAME_LENGTH) {
+        if (name.length() < 1 || name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
