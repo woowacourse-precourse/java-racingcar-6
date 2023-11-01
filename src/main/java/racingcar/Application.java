@@ -1,15 +1,18 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 import view.InputView;
 
 public class Application {
     public static void main(String[] args) {
 
         String[] names = InputView.inputCarNames();
-        for (int i = 0; i < names.length; i++) {
-            Car car = new Car(names[i]);
-            System.out.println(car.getName());
+        List<Car> cars = new ArrayList<>();
+
+        for (String name : names) {
+            Car car = new Car(name);
+            cars.add(car);
         }
 
         int testNumber = InputView.inputTestNumber();

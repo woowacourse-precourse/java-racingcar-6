@@ -1,5 +1,6 @@
 package racingcar;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -18,5 +19,23 @@ class CarTest {
     @Test
     public void createCar2() {
         new Car("12345");
+    }
+
+    @DisplayName("입력되는 숫자가 4 이상이라면 이동한다.")
+    @Test
+    void move1() {
+        Car car = new Car("12345");
+        assertThat(car.getPosition()).isEqualTo(0);
+        car.move(4);
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+    @DisplayName("입력되는 숫자가 3 이하라면 이동하지 않는다.")
+    @Test
+    void move2() {
+        Car car = new Car("12345");
+        assertThat(car.getPosition()).isEqualTo(0);
+        car.move(3);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 }
