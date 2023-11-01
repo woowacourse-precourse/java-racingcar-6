@@ -1,6 +1,9 @@
 package racingcar;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringJoiner;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
@@ -55,28 +58,35 @@ public class Application {
             System.out.println();
 
         }
-        HashSet<Integer> maxWin = new HashSet<>();
+
+        //Result println
+
+        ArrayList<Integer> countList = new ArrayList<>();
 
         for(int j=0;j<carList.size();j++){
-
-
+            countList.add(carStatus.get(j).winCount);
         }
 
-        HashMap<Integer,ArrayList<String>> winner = new HashMap<>();
+        int maxValue = Collections.max(countList);
+        ArrayList<String> winners = new ArrayList<>();
 
-        for(int j=0;j<carList.size();j++){
-            ArrayList<String> tmpCarName = new ArrayList<>();
-            winner.put(carStatus.get(j).winCount,tmpCarName.add(carStatus.get(j).carName) );
+//        System.out.println(maxValue);
+
+        for(int k=0;k<carList.size();k++){
+            if (carStatus.get(k).winCount == maxValue){
+                winners.add(carStatus.get(k).carName);
+            }
         }
-        ArrayList<Integer> winList = new ArrayList<Integer>(winner.keySet());
-        winList.sort(Collections.reverseOrder());
+        StringJoiner winnersPrt = new StringJoiner(", ");
 
-        int maxWin = winList.get(0);
+        for(int r=0;r<winners.size();r++){
+            winnersPrt.add(winners.get(r));
+        }
 
-        System.out.println(winner);
+        //Result
+        String Result = String.format("최종 우승자 : %s",winnersPrt);
 
-        System.out.println(winner.get(maxWin));
-
+        System.out.println(Result);
     }
 }
 
