@@ -19,6 +19,10 @@ public class Car {
         return carPosition.getPosition();
     }
 
+    public boolean isNotMoved() {
+        return carPosition.getPosition() == 0;
+    }
+
     public Car move(int number) {
         if (isGreaterThanOrEqualToLeastNumber(number)) {
             return new Car(this.carName, this.carPosition.goForward());

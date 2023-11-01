@@ -7,6 +7,7 @@ import racingcar.domain.Cars;
 public class OutputView {
     private static final String MSG_RESULT = "실행 결과";
     private static final String MSG_WINNERS = "최종 우승자 : ";
+    private static final String MSG_DRAW = "무승부 : 아무도 전진하지 못했습니다.";
     private static final String COLON = " : ";
     private static final String DASH = "-";
     private static final String DELIMITER = ", ";
@@ -20,10 +21,15 @@ public class OutputView {
         System.out.println(MSG_WINNERS + String.join(DELIMITER, winners));
     }
 
+    public static void printDraw() {
+        System.out.println(MSG_DRAW);
+    }
+
     public static void printCurrentCarLocation(Cars cars) {
         String carLocation = cars.getCars().stream()
                 .map(car -> car.getName() + COLON + DASH.repeat(car.getPosition()))
                 .collect(Collectors.joining(NEW_LINE));
         System.out.println(carLocation + NEW_LINE);
     }
+
 }

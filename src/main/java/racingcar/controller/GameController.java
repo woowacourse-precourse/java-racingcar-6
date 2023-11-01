@@ -43,6 +43,10 @@ public class GameController {
     }
 
     private void showResult() {
+        if (cars.isTie()) {
+            OutputView.printDraw();
+            return;
+        }
         OutputView.printWinners(cars.getWinners());
     }
 

@@ -68,9 +68,14 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    public boolean isTie() {
+        return cars.stream().allMatch(Car::isNotMoved);
+    }
+
     private Car getFarthestCar() {
         return cars.stream()
                 .max(Comparator.comparingInt(Car::getPosition))
                 .orElse(null);
     }
+
 }

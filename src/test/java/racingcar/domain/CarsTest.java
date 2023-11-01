@@ -93,7 +93,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("우승자가 한명일 경우 한명이 담긴 리스트를 반환한다.")
-    void should_GetList_When_WinnerIsSingle() {
+    void should_ReturnSingleWinnerList_When_WinnerIsSingle() {
         Cars cars = new Cars(List.of(
                 new Car(new CarName("피카츄"), new CarPosition(24)),
                 new Car(new CarName("꼬부기"), new CarPosition(41)),
@@ -106,7 +106,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("우승자가 여러명일 경우 여러명이 담긴 리스트를 반환한다.")
-    void should_GetList_When_WinnerIsNotSingle() {
+    void should_ReturnMultipleWinnerList_When_WinnersAreMultiple() {
         Cars cars = new Cars(List.of(
                 new Car(new CarName("피카츄"), new CarPosition(44)),
                 new Car(new CarName("꼬부기"), new CarPosition(32)),
@@ -129,4 +129,38 @@ public class CarsTest {
             ));
         });
     }
+
+    @Test
+    @DisplayName("아무도 전진하지 못한 경우 무승부로 판정한다.")
+    void should_JudgeTie_When_NoOneMoved() {
+        Cars cars = new Cars(List.of(
+                new Car(new CarName("베이가"), new CarPosition(0)),
+                new Car(new CarName("아트록스"), new CarPosition(0)),
+                new Car(new CarName("케넨"), new CarPosition(0))
+        ));
+        assertThat(cars.isTie()).isTrue();
+    }
+
+    @Test
+    @DisplayName("한명 혹은 여럿이 우승한 경우 무승부로 판정하지 않는다.")
+    void should_NotJudgeTie_When_WinnerExists() {
+        Cars cars = new Cars(List.of(
+                new Car(new CarName("베인"), new CarPosition(3)),
+                new Car(new CarName("루시안"), new CarPosition(0)),
+                new Car(new CarName("애쉬"), new CarPosition(3))
+        ));
+        assertThat(cars.isTie()).isFalse();
+    }
+
+    @Test
+    @DisplayName("전부 전진했으며 나아간 거리가 같은 경우 무승부로 판정하지 않는다.")
+    void should_NotJudgeTie_When_EveryoneMoved() {
+        Cars cars = new Cars(List.of(
+                new Car(new CarName("니달리"), new CarPosition(1)),
+                new Car(new CarName("가렌"), new CarPosition(1)),
+                new Car(new CarName("다리우스"), new CarPosition(1))
+        ));
+        assertThat(cars.isTie()).isFalse();
+    }
+
 }
