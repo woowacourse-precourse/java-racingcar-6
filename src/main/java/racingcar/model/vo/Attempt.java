@@ -1,5 +1,7 @@
 package racingcar.model.vo;
 
+import java.util.Objects;
+
 public class Attempt {
 
     private Integer count;
@@ -32,6 +34,23 @@ public class Attempt {
 
     public Integer getIterateCount() {
         return count;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Attempt attempt = (Attempt) o;
+        return Objects.equals(count, attempt.count);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(count);
     }
 }
 
