@@ -27,7 +27,7 @@ public class RacingGameView {
     }
 
     public void printWinners(List<Car> winners) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i).getName());
             if (i < winners.size() - 1) {
@@ -36,5 +36,4 @@ public class RacingGameView {
         }
         System.out.println();
     }
-
 }
