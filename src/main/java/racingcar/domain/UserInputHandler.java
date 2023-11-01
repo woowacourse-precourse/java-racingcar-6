@@ -18,6 +18,8 @@ public class UserInputHandler {
             InputValidator.validateBlank(carName);
             InputValidator.validateLength(carName, 5);
         }
+
+        InputValidator.validateDuplicate(carNames);
         return carNames;
     }
 

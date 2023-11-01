@@ -1,5 +1,7 @@
 package racingcar.validation;
 
+import java.util.List;
+
 public class InputValidator {
     public static void validateLength(String input, int limit){
         if(input.length() > limit){
@@ -24,6 +26,12 @@ public class InputValidator {
             Integer.parseInt(input);
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("입력값이 숫자가 아닙니다.");
+        }
+    }
+
+    public static void validateDuplicate(List<String> input){
+        if (input.stream().distinct().count() != input.size()){
+            throw new IllegalArgumentException("중복된 이름입니다.");
         }
     }
 }
