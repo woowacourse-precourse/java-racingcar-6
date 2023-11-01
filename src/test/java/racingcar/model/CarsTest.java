@@ -1,11 +1,12 @@
 package racingcar.model;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.*;
+
 
 public class CarsTest {
+
     @Test
     @DisplayName("Cars_객체_생성")
     void createCars() {
@@ -13,6 +14,7 @@ public class CarsTest {
 
         Cars testCars = new Cars(input);
 
-        assertEquals(3, testCars.getCars().size());
+        assertThat(testCars.getCars())
+                .hasSize(input.length);
     }
 }
