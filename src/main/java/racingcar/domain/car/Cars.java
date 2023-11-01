@@ -16,7 +16,7 @@ public class Cars {
         return cars;
     }
 
-    public void moveCars() {
+    public void performRound() {
         for (Car car : cars) {
             car.carMove();
         }

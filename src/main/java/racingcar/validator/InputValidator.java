@@ -5,7 +5,7 @@ import java.util.List;
 public class InputValidator {
     public static void validateTryNumberType(String stringNumber) {
         if(stringNumber.isEmpty()){
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+            throw new IllegalArgumentException("아무것도 입력하지 않았습니다. 숫자를 입력해주세요.");
         }
 
         try {

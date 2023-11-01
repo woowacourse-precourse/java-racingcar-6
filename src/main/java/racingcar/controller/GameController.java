@@ -11,15 +11,16 @@ import racingcar.view.OutputView;
 public class GameController {
 
     public void run() {
-        List<String> carNames = inputCarNames();
-        int tryNumber = getTryNumber();
+        Cars cars = createCars();
+        Game game = createGame();
 
-        Cars cars = new Cars(carNames);
-        Game game = new Game(tryNumber);
-
-        OutputView.informPlayResult();
-        performRound(cars, game);
+        play(cars, game);
         informFinalWinner(cars);
+    }
+
+    private Cars createCars() {
+        List<String> carNames = inputCarNames();
+        return new Cars(carNames);
     }
 
     private List<String> inputCarNames() {
@@ -29,26 +30,32 @@ public class GameController {
         return carName;
     }
 
+    private static List<String> splitCarNames(String carNames) {
+        return Arrays.stream(carNames.split(",")).toList();
+    }
+
+    private Game createGame() {
+        int tryNumber = getTryNumber();
+        return new Game(tryNumber);
+    }
+
     private int getTryNumber() {
         String stringNumber = InputView.askTryNumber();
         InputValidator.validateTryNumberType(stringNumber);
         return Integer.parseInt(stringNumber);
     }
 
-    private void informFinalWinner(Cars cars) {
-        List<String> winnerCarNames = cars.sortFinalWinner();
-        OutputView.informFinalWinner(winnerCarNames);
-    }
-
-    private void performRound(Cars cars, Game game) {
+    private void play(Cars cars, Game game) {
+        OutputView.informPlayResult();
         while(game.isPlay()) {
-            cars.moveCars();
+            cars.performRound();
             game.countPlayNumber();
             OutputView.informCarMoveDistance(cars.getCars());
         }
     }
 
-    private static List<String> splitCarNames(String carNames) {
-        return Arrays.stream(carNames.split(",")).toList();
+    private void informFinalWinner(Cars cars) {
+        List<String> winnerCarNames = cars.sortFinalWinner();
+        OutputView.informFinalWinner(winnerCarNames);
     }
 }
