@@ -9,7 +9,7 @@ import racingcar.view.RacingView;
 
 public class RacingService {
 
-    private static final String STRING_REGEX = "^([A-Za-z]+(,[A-Za-z]+)+)$";
+    private static final String STRING_REGEX = "^([A-Za-z]{1,5}+(,[A-Za-z]{1,5}+)+)$";
     private static final String INTEGER_REGEX = "^[0-9]+$";
 
     public static String racingGame(HashMap<String, String> cars, Integer round) {
