@@ -14,7 +14,7 @@ public class Position implements Comparable<Position> {
     }
 
     public Position(int value) {
-        if (value < 0) {
+        if (value < DEFAULT_POSITION) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
         this.value = value;
@@ -31,7 +31,7 @@ public class Position implements Comparable<Position> {
     }
 
     public boolean isGreaterThen(Position position) {
-        if(compareTo(position) <= 0) return false;
+        if(compareTo(position) <= DEFAULT_POSITION) return false;
         return true;
     }
 

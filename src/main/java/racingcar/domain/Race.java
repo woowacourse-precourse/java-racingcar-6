@@ -5,6 +5,7 @@ import java.util.List;
 public class Race {
 
     private static final int MOVE_PIVOT_NUMBER = 4;
+    private static final int END_GAME_ROUND = 0;
     private final Cars cars;
     private int gameCount;
 
@@ -14,7 +15,7 @@ public class Race {
     }
 
     public boolean hasNextRound() {
-        return this.gameCount > 0;
+        return this.gameCount > END_GAME_ROUND;
     }
 
     public void playOneRound() {
