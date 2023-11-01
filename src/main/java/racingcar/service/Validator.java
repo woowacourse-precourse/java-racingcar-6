@@ -9,9 +9,8 @@ public class Validator {
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름의 길이가 5보다 큽니다.";
     private static final String NAME_SPACE_ERROR_MESSAGE = "이름에 공백이 존재합니다.";
     private static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
-    private static final String TRIAL_NUMBER_RANGE_ERROR_MESSAGE = "입력값은 9이하의 범위만 허용됩니다.";
     private static final String TRIAL_NUMBER_ZERO_ERROR_MESSAGE = "입력값은 0보다 커야 합니다.";
-    private static final String TRIAL_NUMBER_NON_INT_ERROR_MESSAGE = "반복 횟수는 정수만 가능합니다.";
+    private static final String TRIAL_NUMBER_NON_INT_ERROR_MESSAGE = "반복 횟수는 정수 혹은 양수만 가능합니다.";
     public void validateCarNames(List<String> input){
         validateNameLength(input);
         validateNameSpace(input);
@@ -43,16 +42,9 @@ public class Validator {
     public void validateTrialNumber(String input){
         validateNonIntTrialNumber(input);
         validateZeroTrialNumber(input);
-        validateOverSizeTrialNumber(input);
-    }
-    public void validateOverSizeTrialNumber(String input){
-        int trialNum = typeConverter.StringToInt(input);
-        if(trialNum > 9){
-            throw new IllegalArgumentException(TRIAL_NUMBER_RANGE_ERROR_MESSAGE);
-        }
     }
     public void validateZeroTrialNumber(String input){
-        int trialNum = typeConverter.StringToInt(input);
+        int trialNum = typeConverter.stringToInt(input);
         if(trialNum == 0){
             throw new IllegalArgumentException(TRIAL_NUMBER_ZERO_ERROR_MESSAGE);
         }
