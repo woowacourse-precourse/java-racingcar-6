@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.constant.ErrorMessage;
 import racingcar.constant.OutputMessage;
 import racingcar.validator.RacingCarGameMachineValidator;
 import racingcar.validator.RacingCarValidator;
@@ -73,7 +74,7 @@ public class RacingCarGameMachine {
 
     private void playRound() {
         if (!canPlayRound()) {
-            throw new IllegalStateException();
+            throw new IllegalStateException(ErrorMessage.CAN_NOT_PLAY_ROUND.getMessage());
         }
         currentRound++;
         moveAllRacingCar();
@@ -91,7 +92,7 @@ public class RacingCarGameMachine {
 
     public String getGameResult() {
         if (!canGetResult()) {
-            throw new IllegalStateException();
+            throw new IllegalStateException(ErrorMessage.CAN_NOT_GET_RESULT.getMessage());
         }
         finishGame();
         return getGameResultMessage();
