@@ -1,5 +1,7 @@
 package racingcar.constant;
 
+import java.util.regex.Pattern;
+
 public final class GameMessage {
     private GameMessage() {
     }
@@ -11,6 +13,9 @@ public final class GameMessage {
     public static final String EACH_MOVE_RESULT_MESSAGE = "%s : %s\n";
     public static final String GAME_WINNER_MESSAGE = "최종 우승자 : %s";
     public static final String DASH = "-";
+
+    public static final String DELIMITER = ",";
+    public static final String CAR_NAME_STRING_PATTERN = "^[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\s]*$";
 
     public static final int CAR_NAME_LENGTH_MAX_SIZE = 5;
 

@@ -3,6 +3,8 @@ package racingcar.domain;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.GameMessage;
 
+import java.util.regex.Pattern;
+
 /**
  * 자동차 이름과 이동 거리를 가지고 있는 클래스
  */
@@ -40,6 +42,10 @@ public class Car {
         // 자동차 이름이 공백일 경우 예외 발생
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_BLANK);
+        }
+        // 자동차 이름에 영어/한글/숫자 외의 문자가 입력되면 예외 발생
+        if (!Pattern.matches(GameMessage.CAR_NAME_STRING_PATTERN, name)) {
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_SPECIAL_SYMBOL);
         }
     }
 }

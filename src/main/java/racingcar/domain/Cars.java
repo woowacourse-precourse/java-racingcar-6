@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.constant.ErrorMessage;
+import racingcar.constant.GameMessage;
 
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class Cars implements Iterable<Car> {
 
     // 사용자가 입력한 자동차 이름을 쉼표(,)로 구분하여 리스트에 저장
     private void splitUserInputCarName(String userInput) {
-        String[] names = userInput.split(",");
+        String[] names = userInput.split(GameMessage.DELIMITER);
 
         List<String> namesNoBlank = new ArrayList<>();
         Arrays.stream(names).forEach(name -> namesNoBlank.add(name.trim())); // 문자열 양 끝 공백 제거
