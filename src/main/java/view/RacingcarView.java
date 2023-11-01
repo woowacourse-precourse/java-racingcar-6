@@ -28,6 +28,13 @@ public class RacingcarView {
         System.out.println(EXECUTION_RESULT);
     }
 
+    /*
+     * 각 횟수 마다 자동차의 전진을 출력해주는 메서드
+     *
+     * @param List<String> car_forward, int[] car_forward_count
+     * @return void
+     */
+
     public void showForwardResult(List<String> car_forward, int[] car_forward_count){
         for(int i=0; i<car_forward.size(); i++){
             System.out.print(car_forward.get(i) + " : ");
@@ -38,6 +45,13 @@ public class RacingcarView {
         }
         System.out.println();
     }
+
+    /*
+     * 우승자를 출력하는 메서드
+     *
+     * @param String winner
+     * @return void
+     */
 
     public void showWinner(String winner){
         System.out.println(FINAL_WINNER + winner);
