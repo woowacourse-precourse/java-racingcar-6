@@ -5,9 +5,7 @@ public class Car {
     private int distance;
 
     public Car(String name) {
-        if(name.length() > 5 || name.length() == 0) {
-            throw new IllegalArgumentException();
-        }
+        validateName(name);
 
         this.name = name;
         this.distance = 0;
@@ -23,5 +21,11 @@ public class Car {
 
     public void move() {
         this.distance++;
+    }
+
+    private void validateName(String name) {
+        if(name.length() > 5 || name.length() == 0) {
+            throw new IllegalArgumentException();
+        }
     }
 }
