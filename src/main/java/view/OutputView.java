@@ -23,19 +23,21 @@ public class OutputView {
         System.out.println();
     }
 
-    public String printSymbol(Car car){
-        return  SYMBOL.repeat(car.getNowPlace());
+    public String printSymbol(Car car) {
+        return SYMBOL.repeat(car.getNowPlace());
     }
 
     public void printWinner(Winners winners) {
         if (winners.isMultiple()) {
-            System.out.print(FINAL_WINNER + addDelimiter(winners.getWinners()));
+            System.out.print(FINAL_WINNER +
+                    addDelimiter(winners.getCarNames()));
             return;
         }
         System.out.println(FINAL_WINNER + winners.getOne());
     }
-    public String addDelimiter(List<Car> car){
-        return car.stream().map(Car::getName)
+
+    public String addDelimiter(List<Car> cars) {
+        return cars.stream().map(Car::getName)
                 .collect(Collectors.joining(DELIMITER));
     }
 }

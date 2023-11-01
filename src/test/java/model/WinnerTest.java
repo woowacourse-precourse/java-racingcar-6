@@ -2,9 +2,6 @@ package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
 public class WinnerTest {
@@ -17,7 +14,7 @@ public class WinnerTest {
         cars.getCars().get(1).tryMove(1);
         cars.getCars().get(2).tryMove(9);
 
-        Winners winners = new Winners(cars.getCars());
+        Winners winners = cars.getWinners();
         assertThat(winners.getMaxPlace()).isEqualTo(1);
     }
 
@@ -29,8 +26,8 @@ public class WinnerTest {
         cars.getCars().get(1).tryMove(7);
         cars.getCars().get(2).tryMove(5);
 
-        Winners winners = new Winners(cars.getCars());
-        assertThat(winners.getMultipleWinners()).isTrue();
+        Winners winners = cars.getWinners();
+        assertThat(winners.isMultiple()).isTrue();
     }
 
     @Test
@@ -40,8 +37,8 @@ public class WinnerTest {
         cars.getCars().get(0).tryMove(4);
         cars.getCars().get(1).tryMove(1);
         cars.getCars().get(2).tryMove(2);
-        Winners winners = new Winners(cars.getCars());
-        assertThat(winners.getWinners().size()).isEqualTo(1);
+        Winners winners = cars.getWinners();
+        assertThat(winners.getCarNames()).isEqualTo(1);
     }
 
 }

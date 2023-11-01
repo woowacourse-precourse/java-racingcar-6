@@ -33,12 +33,10 @@ public class Cars {
     }
 
     public Winners getWinners() {
-        Winners winners = new Winners(cars);
-        return winners;
+        return new Winners(cars);
     }
 
     public void duplicateCarName(String input) {
-
         boolean duplicationName = Arrays.stream(input.split(DELIMITER))
                 .distinct().count() != input.split(DELIMITER).length;
 

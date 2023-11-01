@@ -12,10 +12,9 @@ public class Winners {
         search(cars);
     }
 
-    public List<Car> getWinners() {
+    public List<Car> getCarNames(){
         return winners;
     }
-
     public int getMaxPlace() {
         return maxPlace;
     }

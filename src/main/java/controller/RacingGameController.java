@@ -20,7 +20,7 @@ public class RacingGameController {
             outputView.printCarsPosition(cars.getCars());
         }
 
-        outputView.printWinner(new Winners(cars.getCars()));
+        outputView.printWinner(cars.getWinners());
 
     }
 }
