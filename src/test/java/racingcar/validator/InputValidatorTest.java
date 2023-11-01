@@ -23,4 +23,10 @@ public class InputValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> InputValidator.includeSpace("pobi, woni"));
         InputValidator.includeSpace("pobi,woni");
     }
+
+    @Test
+    public void 숫자가_아닌_경우() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.isNotDigit("입력값"));
+        InputValidator.isNotDigit("5");
+    }
 }
