@@ -41,6 +41,13 @@ public class RacingCarGame {
         }
     }
 
+    static boolean validateTrialNumberRange(int trialNumberInt) {
+        if (trialNumberInt <= 0) {
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }
+
     static void printExecutionResult() {
         System.out.println(Constants.EXECUTION_RESULT_MESSAGE);
     }
