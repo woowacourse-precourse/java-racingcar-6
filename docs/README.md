@@ -41,7 +41,7 @@
 - description
   - 현재 레이서의 성적을 반환한다.
 
-### Game 클래스
+### Application 클래스
 
 #### 멤버 변수
 
@@ -58,11 +58,11 @@
 ---
 
 ##### 생성자 메소드
-- signature : `public Game(int moveCount, String input)`
+- signature : `public Application(int moveCount, String input)`
 - parameters
   - moveCount : 게임의 차수
   - input : 사용자가 입력한 문자열
-- return : `Game`의 인스턴스
+- return : `Application`의 인스턴스
 - description
   - 새로운 게임을 생성하는 메소드
   - 전달받은 차수를 설정한다.
