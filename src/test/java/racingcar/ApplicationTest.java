@@ -39,6 +39,14 @@ class ApplicationTest extends NsTest {
                         .hasMessage("공백 또는 여백이 포함되어 있습니다."));
     }
 
+    @Test
+    void 시도할_회수_입력시_공백_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,hi"," "))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("공백 또는 여백이 포함되어 있습니다."));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
