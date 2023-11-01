@@ -33,14 +33,14 @@ public class GameImpl implements Game {
             tryMove();
         }
         this.cars = this.cars.stream()
-                .sorted(Comparator.comparingInt(Car::getMovedDistance))
+                .sorted((a, b) -> b.getMovedDistance() - a.getMovedDistance())
                 .collect(Collectors.toList());
         end();
     }
     private void end() {
         int criteria = this.cars.get(0).getMovedDistance();
         int length = this.cars.size();
-        System.out.print("최종우승자 : " + cars.get(0).getName());
+        System.out.print("최종 우승자 : " + cars.get(0).getName());
         for (int i = 1 ; i < length; i++) {
             Car car = cars.get(i);
             if (criteria == car.getMovedDistance()) {
