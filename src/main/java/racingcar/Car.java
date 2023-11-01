@@ -17,18 +17,10 @@ public class Car
 		return score;
 	}
 
-	/**
-	 * camp.nextstep.edu.missionutils.Randoms를 사용해 랜덤한 숫자를 뽑고 전진할 수 있는지 여부 판단
-	 * @return
-	 */
 	public boolean canMove(int number) {
 		return number >= 4;
 	}
 
-	/**
-	 * 전진 할 수 있다면 Score++
-	 * @param canMove
-	 */
 	public void move(boolean canMove) {
 		if (canMove) {
 			score++;
