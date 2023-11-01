@@ -6,9 +6,10 @@ public class RacingCarController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
     public void startGame(){
-        Cars racingCar = createRacingCar();
+        Cars racingCars = createRacingCars();
     }
-    private Cars createRacingCar() {
+
+    private Cars createRacingCars() {
         outputView.printRequestCarNames();
         String[] carNames = inputView.inputCarNames();
         return CarFactory.createCars(carNames);
