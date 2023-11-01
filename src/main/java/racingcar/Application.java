@@ -13,8 +13,11 @@ public class Application {
 
     public static void main(String[] args) {
         InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
+
         Racing racing = createRacing(inputView);
-        racing.race();
+        List<RacingRoundResult> racingResult = racing.race();
+        outputView.showRacingResult(racingResult);
     }
 
     private static Racing createRacing(InputView inputView) {
