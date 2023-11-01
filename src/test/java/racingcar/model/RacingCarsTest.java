@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -11,6 +12,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RacingCarsTest extends NsTest {
+
+    private static final int MOVING_FORWARD = 4;
+    private static final int STAY = 3;
 
     @Test
     @DisplayName("쉼표 기준으로 파싱하면 car1과 car2을 이름으로 가진 자동차가 각각 생성되므로 toString()을 호출했을 때 각각의 자동차에 대한 정보를 출력해야한다.")
@@ -42,6 +46,15 @@ class RacingCarsTest extends NsTest {
                 .hasMessageContaining(NUMBER_OF_CAR_NAME_IS_ONE_OR_LESS);
     }
 
+    @Test
+    void 랜덤값에_따라_자동차들의_경주를_진행할_수_있다() {
+        RacingCars racingCars = new RacingCars("car1,car2,car3");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    racingCars.race();
+                },MOVING_FORWARD,STAY,MOVING_FORWARD
+        );
+    }
 
     @Override
     protected void runMain() {
