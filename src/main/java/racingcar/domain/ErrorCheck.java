@@ -33,7 +33,7 @@ public class ErrorCheck {
 
     }
 
-    public boolean isNumeric(String str) {
+    private boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
             return true;
