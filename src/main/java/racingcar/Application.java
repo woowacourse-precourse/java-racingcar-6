@@ -16,7 +16,27 @@ public class Application {
         return carNames;
     }
 
+    public static List<RacingCar> registerRacingCars(List<String> carNames) {
+        List<RacingCar> racingCars = new ArrayList<>(Collections.emptyList());
+
+        for (String name : carNames) {
+            validateCarName(name);
+            racingCars.add(new RacingCar(name, 0));
+        }
+
+        return racingCars;
+    }
+
+    public static void validateCarName(String name) {
+        String pattern = "[a-zA-Z0-9]*";
+
+        if (name.length() > 5 || name.isEmpty() || !name.matches(pattern)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void main(String[] args) {
         List<String> carNames = readCarNameList();
+        List<RacingCar> racingCars = registerRacingCars(carNames);
     }
 }
