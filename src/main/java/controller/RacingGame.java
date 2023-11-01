@@ -5,7 +5,6 @@ import static view.GuideMessage.EXECUTION_RESULT;
 import java.util.List;
 import model.GameModel;
 import view.RaceResult;
-import view.RaceStatus;
 
 public class RacingGame {
     public void gameStart() {
