@@ -16,7 +16,11 @@ public class InputValidate {
     }
 
     public static void validateCarMoveNum(String moveNum){
-
+        try{
+            Integer.parseInt(moveNum);
+        } catch (Exception e){
+            incorrectFormat();
+        }
     }
 
     public static void incorrectFormat(){

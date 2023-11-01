@@ -5,8 +5,8 @@
 ## 기능 목록 📝
 
 ### 레이싱 시작 전 🔴 
-- [ ]  경주에 참여하는 자동차 이름을 사용자로부터 등록 - InputView#registCarName
-   - [ ]  등록하는 자동차 이름은 5자 이하, 쉼표를 기준으로 구분 - InputValidate#validateCarName
+- [x]  경주에 참여하는 자동차 이름을 사용자로부터 등록 - InputView#registCarName
+   - [x]  등록하는 자동차 이름은 5자 이하, 쉼표를 기준으로 구분 - InputValidate#validateCarName
 
 
 - [ ]  자동차의 이동 횟수 입력 - InputView#registCarMoveNum

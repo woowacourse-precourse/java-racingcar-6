@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Race {
+
     final Car[] carRepository;
     final int raceRound;
 

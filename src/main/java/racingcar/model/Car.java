@@ -8,4 +8,8 @@ public class Car {
         this.name = name;
         this.advanceNum = 0;
     }
+
+    public String getName() {
+        return name;
+    }
 }
