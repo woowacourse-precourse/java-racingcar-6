@@ -14,6 +14,16 @@
 
 ##
 
+#### 게임 관리자 역할 (GameController)
+
+- [x] 자동차 게임을 순서에 맞게 실행하는 기능 `public`
+- [x] 자동차들을 경주 준비하는 기능 `private`
+- [x] 레이싱 게임을 진행하는 기능 `private`
+- [x] 1회 레이싱 게임 결과를 OutputView에게 전달하는 기능 `private`
+- [x] 최종 우승자 결과를 OutputView에게 전달하는 기능 `private`
+
+##
+
 #### 자동차 역할 (Car)
 
 - [x] 전진 하는 기능 `public`
@@ -34,19 +44,20 @@
 
 ##
 
-#### 엔진 역할 (WootecoEngine) `Engine 인터페이스를 구현한 구현체`
+#### 엔진 역할 (WootecoCarEngine) `Engine 인터페이스를 구현한 구현체`
 
 - [x] 0 ~ 9 사이에서 무작위 값을 생성한다 `public`
 
 ##
 
-#### 게임 관리자 역할 (GameController)
+#### 자동차들을 리스트로 관리하는 역할 (RacingCars)
 
-- [x] 자동차 게임을 순서에 맞게 실행하는 기능 `public`
-- [x] 자동차들을 경주 준비하는 기능 `private`
-- [x] 레이싱 게임을 진행하는 기능 `private`
-- [x] 1회 레이싱 게임 결과를 OutputView에게 전달하는 기능 `private`
-- [x] 최종 우승자 결과를 OutputView에게 전달하는 기능 `private`
+- [x] 경주를 진행하는 기능 `public`
+- [x] 우승자를 찾는 기능 `public`
+- [x] 자동차 리스트로 변환하는 기능 `private`
+- [x] 최대 이동 횟수를 계산하는 기능 `private`
+- [x] 자동차 중복 검증 기능 `private`
+- [ ] 자동차 개수 검증 기능 `private`
 
 ##
 
@@ -54,7 +65,7 @@
 
 - [x] 경주 1회를 진행하는 기능 `public`
     - RacingCars에게 경주를 요청하여 결과 DTO를 반환한다
-- [x] 최종 우승자를 계산하는 기능 `public`
+- [x] 최종 우승자를 찾는 기능 `public`
     - RacingCars에게 우승자 찾기를 요청하여 우승자 이름 리스트를 반환한다
 
 ##
@@ -62,10 +73,9 @@
 #### 경주 1회 결과들을 담고 있는 역할 (OneGameResultsDto)
 
 - [x] 필드: List< ResultDto > results
-- [x] 리스트의 크기를 반환하는 기능 `public`
 - [x] ResultDto 리스트 getter `public`
 - [x] 움직임 횟수 리스트 getter `public`
-- [x] 자동차들을 ResultDto 리스트로 매핑하는 기능 `private`
+- [x] 자동차들을 ResultDto 리스트로 변환하는 기능 `private`
 
 ##
 
@@ -77,17 +87,6 @@
 
 ##
 
-#### 자동차들을 리스트로 관리하는 역할 (RacingCars)
-
-- [x] 경주를 진행하는 기능 `public`
-- [x] 우승자를 찾는 기능 `public`
-- [x] 자동차 리스트로 초기화하는 기능 `private`
-- [x] 최대 이동 횟수를 계산하는 기능 `private`
-- [x] 자동차 중복 검증 기능 `private`
-- [ ] 자동차 개수 검증 기능 `private`
-
-##
-
 #### 게임 유틸 역할 (GameUtil)
 
 - [x] 입력 받은 자동차의 이름을 쉼표로 구분하는 기능 `public`
@@ -95,8 +94,6 @@
 ##
 
 #### 출력 화면 역할 (OutputView)
-
-`TODO: 세분화할 필요가 있을듯함`
 
 - [x] 실행 결과 텍스트 출력 기능 `public`
     - 실행 결과
@@ -137,7 +134,7 @@
 - [x] 숫자가 아닌 문자 검증 기능 `private`
 - [x] 정수형 숫자 검증 기능 `private`
 - [x] 유효한 범위 1 ~ 10회 검증 기능 `private`
-- [x] 잘못된 값을 입할 경우 IllegalArgumentException을 발생시킨다
+- [x] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다
 
 ##
 
