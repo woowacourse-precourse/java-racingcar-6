@@ -25,7 +25,13 @@ public class Car {
         this.current = current;
     }
 
-    public void forward(int forward) {
-        this.current++;
+    public void forward(int rNum, int limit) {
+        if(isMoreThanDigit(limit, rNum)) {
+            this.current++;
+        }
     }
+    public boolean isMoreThanDigit(int digit, int num) {
+        return digit <= num;
+    }
+
 }

@@ -37,9 +37,7 @@ public class RacingService {
     public List<Car> attempt(List<Car> cars) {
         for (Car car : cars) {
             int rNum = generateRandomNum();
-            if (isMoreThanDigit(rNum, FORWARD_LIMIT)) {
-                car.forward(rNum);
-            }
+            car.forward(rNum, FORWARD_LIMIT);
         }
         printAttemptResult(cars);
         return cars;
@@ -75,7 +73,4 @@ public class RacingService {
         System.out.println(String.join(", ", winners));
     }
 
-    public boolean isMoreThanDigit(int digit, int num) {
-        return digit <= num;
-    }
 }
