@@ -45,7 +45,7 @@ class CarControllerTest {
     @DisplayName("입력값 테스트 3 - 시도하는 횟수가 0일때")
     void inputTest3() {
         //given
-        String userCars = "boot, jpa,, sql";
+        String userCars = "boot, jpa, sql";
         String userCount = "0";
 
         // when & then
@@ -58,7 +58,7 @@ class CarControllerTest {
     @DisplayName("입력값 테스트 4 - 시도하는 횟수가 0이 아닌 정수일 때")
     void inputTest4() {
         //given
-        String userCars = "boot, jpa,, sql";
+        String userCars = "boot, jpa, sql";
         String userCount = "-100";
 
         // when & then
@@ -71,7 +71,7 @@ class CarControllerTest {
     @DisplayName("입력값 테스트 5 - 시도하는 횟수가 실수일 때")
     void inputTest5() {
         //given
-        String userCars = "boot, jpa,, sql";
+        String userCars = "boot, jpa, sql";
         String userCount = "1.2";
 
         // when & then
@@ -79,4 +79,5 @@ class CarControllerTest {
             carController.createRacingGame(userCars, userCount);
         });
     }
+
 }
