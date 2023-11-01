@@ -14,6 +14,7 @@ import static racingcar.exception.ErrorMessage.CAR_NAME_NOT_EMPTY;
 import static racingcar.exception.ErrorMessage.NUMBER_OF_TIMES_NOT_NUMBER;
 
 public class RacingCarController {
+    private static final int END_VALUE = 0;
     private static final int FORWARD_RULE = 4;
     private static final char COMMA = ',';
     private static final String EMPTY_NAME = "";
@@ -32,11 +33,11 @@ public class RacingCarController {
         List<Car> cars = createCarList(carNames);
         int inputNumberOfTimes = inputNumberOfTimes(inputView.inputNumberOfTimes());
         outputView.printStartResult();
-        while (inputNumberOfTimes-- > 0) {
-            checkEachCarForward(cars);
+        while (inputNumberOfTimes-- > END_VALUE) {
+            updateEachCarForward(cars);
             outputView.printEachRaceResult(cars);
         }
-        outputView.printWinnerOrWinners(findWinner(cars));
+        outputView.printWinnerOrWinners(getWinner(cars));
     }
 
     public String inputCarNames(String input) {
@@ -51,21 +52,21 @@ public class RacingCarController {
         return Integer.parseInt(input);
     }
 
-    public String findWinner(List<Car> cars) {
+    public String getWinner(List<Car> cars) {
         return cars.stream()
-                .filter(car -> car.getDistance() == maxDistance(cars))
+                .filter(car -> car.getDistance() == getMaxDistance(cars))
                 .map(Car::getName)
                 .collect(Collectors.joining(JOINING_RULE));
     }
 
-    private int maxDistance(List<Car> cars) {
+    private int getMaxDistance(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getDistance)
                 .max()
                 .orElse(0);
     }
 
-    public void checkEachCarForward(List<Car> cars) {
+    public void updateEachCarForward(List<Car> cars) {
         cars.forEach(car -> checkAtLeastFour(car, randomNumber()));
     }
 

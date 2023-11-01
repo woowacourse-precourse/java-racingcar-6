@@ -180,7 +180,7 @@ public class RacingCarControllerTest {
         Cars testCars = new Cars(List.of("pobi", "woni", "jun"));
         List<Car> carList = testCars.getCars();
 
-        racingCarController.checkEachCarForward(carList);
+        racingCarController.updateEachCarForward(carList);
 
         assertThat(carList).hasSize(3);
 
@@ -194,7 +194,7 @@ public class RacingCarControllerTest {
     void findWinner_단독_우승자일_때_안내_문구() {
         List<Car> carList = List.of(new Car("pobi", 4), new Car("woni", 3), new Car("jun", 2));
 
-        String result = racingCarController.findWinner(carList);
+        String result = racingCarController.getWinner(carList);
 
         assertThat(result).isEqualTo("pobi");
     }
@@ -203,7 +203,7 @@ public class RacingCarControllerTest {
     void findWinner_공동_우승자일_때_안내_문구() {
         List<Car> carList = List.of(new Car("pobi", 4), new Car("woni", 4), new Car("jun", 2));
 
-        String result = racingCarController.findWinner(carList);
+        String result = racingCarController.getWinner(carList);
 
         assertThat(result).isEqualTo("pobi, woni");
     }
