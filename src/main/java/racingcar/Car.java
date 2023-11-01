@@ -15,10 +15,22 @@ public class Car {
 	}
 
 	public void move(){
-		int randomNumber = Randoms.pickNumberInRange(0,9);
+		int randomNumber = makeRandomNumber();
 		if(randomNumber >= 4){
 			++this.moveCount;
 		}
+	}
+
+	public boolean checkIsFaster(Car otherCar){
+		return this.moveCount > otherCar.getMoveCount();
+	}
+
+	public boolean checkIsSame(Car otherCar){
+		return this.moveCount == otherCar.getMoveCount();
+	}
+
+	protected int makeRandomNumber(){
+		return Randoms.pickNumberInRange(0,9);
 	}
 
 	public String getName(){
@@ -29,32 +41,4 @@ public class Car {
 		return this.moveCount;
 	}
 
-	public boolean checkIsFaster(Car otherCar){
-		int otherCarMoveCount = otherCar.getMoveCount();
-
-		if(this.moveCount > otherCarMoveCount){
-			return true;
-		}else{
-			return false;
-		}
-	}
-
-	public boolean checkIsSame(Car otherCar){
-		int otherCarMoveCount = otherCar.getMoveCount();
-
-		if(this.moveCount == otherCarMoveCount){
-			return true;
-		}else{
-			return false;
-		}
-	}
-
-
-	public List<String> getCarNames(List<Car> cars){
-		List<String> carNames = new ArrayList<>();
-		for(Car car : cars){
-			carNames.add(car.getName());
-		}
-		return carNames;
-	}
 }
