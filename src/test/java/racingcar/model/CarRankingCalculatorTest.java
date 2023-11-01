@@ -2,7 +2,6 @@ package racingcar.model;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class CarRankingCalculatorTest {
@@ -11,7 +10,7 @@ public class CarRankingCalculatorTest {
     void 우승자_1명_테스트() {
         CarRankingCalculator carRankingCalculator = new CarRankingCalculator();
 
-        HashMap<String, String> carAndDistance = new HashMap<>();
+        LinkedHashMap<String, String> carAndDistance = new LinkedHashMap<>();
         carAndDistance.put("dokgo","__");
         carAndDistance.put("may","_");
         carAndDistance.put("cat","___");
