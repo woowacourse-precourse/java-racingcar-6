@@ -31,6 +31,9 @@ public class InputView {
         if (Validator.validateInputNotNum(inputData)) {
             throw new IllegalArgumentException("입력값은 정수여야 합니다.");
         }
+        if (Validator.validateInputIsZero(inputData)) {
+            throw new IllegalArgumentException("입력값은 0이 아니어야 합니다.");
+        }
     }
 
 }
