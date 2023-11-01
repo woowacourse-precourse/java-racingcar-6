@@ -15,6 +15,10 @@ class RacingCarGameTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    String carName1 = "black";
+    String carName2 = "white";
+    String carName3 = "green";
+
     RacingCarGame rg = new RacingCarGame();
     CustomArrayList<Car> carList = new CustomArrayList<>();
     List<Car> winnerList = new ArrayList<>();
@@ -41,8 +45,6 @@ class RacingCarGameTest extends NsTest {
     @Test
     @DisplayName("반복되는_경주의_출력값_확인")
     void test_repeatCarRace() {
-        String carName1 = "black";
-        String carName2 = "white";
         carList.add(new Car(carName1));
         carList.add(new Car(carName2));
 
@@ -61,6 +63,27 @@ class RacingCarGameTest extends NsTest {
     }
 
     @Test
+    @DisplayName("우승자_수_판단")
+    void test_judgeWinner() {
+        carList.add(new Car(carName1));
+        carList.add(new Car(carName2));
+        carList.add(new Car(carName3));
+        assertRandomNumberInRangeTest(
+                () -> {
+                    rg.repeatCarRace(carList, 3);
+                    rg.initializeWinnerList(carList, winnerList);
+                },
+                MOVING_FORWARD, STOP, STOP,
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+
+        rg.judgeWinner(carList, winnerList);
+
+        assertThat(winnerList.size()).isEqualTo(2);
+    }
+
+    @Test
     @DisplayName("단독일등_승자이름_출력")
     void test_printOutWinner1() {
         String carName = "단독일등";
@@ -74,9 +97,6 @@ class RacingCarGameTest extends NsTest {
     @Test
     @DisplayName("복수일등_승자이름_출력")
     void test_printOutWinner2() {
-        String carName1 = "black";
-        String carName2 = "red";
-        String carName3 = "white";
         winnerList.add(new Car(carName1));
         winnerList.add(new Car(carName2));
         winnerList.add(new Car(carName3));
@@ -84,11 +104,10 @@ class RacingCarGameTest extends NsTest {
         rg.printOutWinner(winnerList);
 
         assertThat(output()).contains(carName1, carName2, carName3);
-        assertThat(output()).isEqualTo("black, red, white");
+        assertThat(output()).isEqualTo("black, white, green");
     }
 
     @Override
     protected void runMain() {
-
     }
 }
