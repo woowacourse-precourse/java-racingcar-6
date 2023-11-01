@@ -9,6 +9,7 @@ import constants.ErrorCodeConstant;
 import constants.GameConstant;
 import java.util.List;
 import model.Car;
+import model.Game;
 import service.CarGameService;
 import view.InputView;
 import view.OutputView;
@@ -27,7 +28,6 @@ public class CarController {
         }
 
         //경주할 자동차 목록
-        outputView.print(carNames);
         List<Car> carList = carGameService.getCarList(carNames);
 
         //시도할 회수 입력
@@ -36,11 +36,19 @@ public class CarController {
         if(!inputView.isBlank(tryCount) || !validateTryCount(tryCount)){
             throw new IllegalArgumentException();
         }
+        Game.tryCount = Integer.parseInt(tryCount);
 
         //실행 결과
         outputView.printGameMessage(PROGRESS_RESULT);
-        //자동차 게임 실행()
 
+        //자동차 게임 실행
+        while (Game.tryCount > 0){
+            List<String> getRacingGameResultList = carGameService.runRacingGame(carList);
+            for(String result : getRacingGameResultList){
+                outputView.print(result);
+            }
+            outputView.print("");
+        }
 
         //최종 우승자 선정
 
@@ -71,6 +79,7 @@ public class CarController {
      * 시도 횟수 유효성 검사
      * - 숫자 외의 문자가 있을 경우 예외 발생
      * - int 정수 최대 범위를 초과할 경우 예외 발생
+     * - 숫자 0 입력할 경우 예외 발생
      *
      * @param tryCount
      * @return 예외를 발생 시키지 않으면 true 리턴
