@@ -1,5 +1,6 @@
 package controller;
 
+import model.RacingGame;
 import view.CarNamesGuideOutputView;
 import view.CarNamesInputVIew;
 import view.TryCountInputView;
@@ -13,8 +14,12 @@ public class RacingcarController {
         TryCountInputView tryCountInputView = new TryCountInputView();
 
         carNamesGuideOutputView.printGameStart();
-        carNamesInputVIew.receiveCarNames();
+        String[] carNames = carNamesInputVIew.receiveCarNames();
+
         tryCountOutputView.printGameStart();
-        tryCountInputView.receiveTryNumber();
+        int tryCount = tryCountInputView.receiveTryNumber();
+
+        RacingGame racingGame = new RacingGame(carNames, tryCount);
+        racingGame.play();
     }
 }

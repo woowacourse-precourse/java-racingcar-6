@@ -17,7 +17,9 @@ public class RacingGame {
             for (RacingCar racingCar: racingCars) {
                 racingCar.move();
             }
+            printRaceStatus();
         }
+        announceWinners();
     }
 
     private void printRaceStatus() {
