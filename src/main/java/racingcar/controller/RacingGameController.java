@@ -14,8 +14,5 @@ public class RacingGameController {
         User user = new User();
         RacingGame racingGame = new RacingGame();
         racingGameService.initGame(user, racingGame);
-
-
-
     }
 }
