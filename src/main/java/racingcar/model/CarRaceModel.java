@@ -8,7 +8,25 @@ import java.util.List;
 
 public class CarRaceModel {
 
-    public List<String> findWinner(HashMap<String, String> carList) {
+    public List<String> generateCarName(String carNames) {
+
+        List<String> carNameList = Arrays.asList(carNames.split(","));
+        HashMap<String, String> carHashMap = new HashMap<>();
+
+        return carNameList;
+    }
+
+    public List<Car> generateCar(List<String> carNameList) {
+        List<Car> carList = new ArrayList<>();
+
+        for(int i = 0; i < carNameList.size(); i++) {
+            carList.add(new Car(carNameList.get(i)));
+        }
+
+        return carList;
+    }
+
+    public List<String> findWinner(List<Car> carList) {
         List<String> winner = new ArrayList<>();
         int topMovement = findTopMovement(carList);
         HashMap<String, Integer> parsedCarList = parsCarMovement(carList);
