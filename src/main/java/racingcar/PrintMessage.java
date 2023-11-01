@@ -9,5 +9,6 @@ public class PrintMessage {
 
     public static final String RESULT_OF_RACING_CAR_FORMAT = "%s : %s";
     public static final String LOCATION_SIGN = "-";
+    public static final String WINNER_NAME_FORMAT = "최종 우승자 : %s";
 
 }

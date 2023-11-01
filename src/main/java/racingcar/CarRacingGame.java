@@ -4,6 +4,7 @@ import static racingcar.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
 import static racingcar.PrintMessage.INPUT_NUMBER_OF_ATTEMPTS;
 import static racingcar.PrintMessage.INPUT_RACING_CAR_NAME;
 import static racingcar.PrintMessage.PRINT_GAME_RESULT;
+import static racingcar.PrintMessage.WINNER_NAME_FORMAT;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -34,6 +35,7 @@ public class CarRacingGame {
         List<String> winnerNames = racingCars.getWinnerNames();
         StringJoiner winnerNamesJoiner = new StringJoiner(WINNER_RACING_CAR_NAME_DELIMITER);
         winnerNames.stream().forEach(name -> winnerNamesJoiner.add(name));
+        System.out.println(String.format(WINNER_NAME_FORMAT, winnerNamesJoiner));
     }
 
 
