@@ -3,12 +3,15 @@ package racingcar;
 import org.junit.jupiter.api.Test;
 import pojo.RacingCar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 class RapsResultTest {
-    RapsResult rapsResult = new RapsResult(new RacingCar("테스터",0));
+    RacingCar racingCar = new RacingCar("테스터", 3);
+    RapsResult rapsResult = new RapsResult(racingCar);
     @Test
-    void testReader_숫자가_4이상_이면_True_출력() {
+    void testReader_숫자가_4이상이면_True_반환() {
 
         int num = 4;
         boolean result = rapsResult.reader(4);
@@ -18,15 +21,28 @@ class RapsResultTest {
 
 
     @Test
-    void changeCarStatus() {
+    void testChangeCarStatus_참일경우_자동차_전진() {
+
+        boolean flag = true;
+
+        rapsResult.changeCarStatus(flag);
+        int distanceNum = racingCar.getDistance();
+
+        assertThat(distanceNum).isEqualTo(4);
     }
 
     @Test
-    void resultText() {
+    void testResultText_1경기_끝난후_자동차_결과_출력() {
+
+        String result = rapsResult.resultText();
+
+        assertThat(result).isEqualTo("테스터 : ---");
     }
 
     @Test
     void distanceText() {
+
+
     }
 
     @Test
