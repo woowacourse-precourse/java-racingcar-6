@@ -23,10 +23,10 @@ public class OutputView {
         for (Car car : racingCars) {
             printMessage(getSingleCarMovementString(car));
         }
-        printMessage();
     }
 
     public static void displayWinners(List<Car> winners) {
+        printMessage();
         printMessage(getWinnersString(winners));
     }
 
