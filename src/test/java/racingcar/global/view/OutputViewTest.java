@@ -3,7 +3,7 @@ package racingcar.global.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.global.enums.OutputMessage.CAR_NAME_INPUT_MESSAGE;
-import static racingcar.global.enums.OutputMessage.TRY_COUNT_INPUT_MESSAGE;
+import static racingcar.global.enums.OutputMessage.TRIAL_INPUT_MESSAGE;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -24,7 +24,7 @@ class OutputViewTest {
     @Test
     void 자동차_이름_입력_요구_출력() {
         //given
-        String expectedOutput = CAR_NAME_INPUT_MESSAGE.getMessage();
+        String expectedOutput = CAR_NAME_INPUT_MESSAGE.getMessage() + "\n";
 
         //when
         OutputView.printCarNameInputMessage();
@@ -37,10 +37,10 @@ class OutputViewTest {
     @Test
     void 시도_횟수_입력_요구_출력() {
         //given
-        String expectedOutput = TRY_COUNT_INPUT_MESSAGE.getMessage();
+        String expectedOutput = TRIAL_INPUT_MESSAGE.getMessage() + "\n";
 
         //when
-        OutputView.printTryCountInputMessage();
+        OutputView.printTrialInputMessage();
         String actualOutput = outputStream.toString();
 
         //then

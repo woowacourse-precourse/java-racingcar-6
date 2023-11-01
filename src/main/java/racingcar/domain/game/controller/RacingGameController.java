@@ -27,7 +27,7 @@ public class RacingGameController {
                 InputValidator::validateNullOrEmptyInput);
         Cars cars = generateCars(carsUserInput);
 
-        String trialUserInput = getUserInputWithValidation(OutputView::printTryCountInputMessage,
+        String trialUserInput = getUserInputWithValidation(OutputView::printTrialInputMessage,
                 InputValidator::validateNullOrEmptyInput,
                 InputValidator::validateInputIsNumeric);
         Trial trial = new Trial(Utils.stringToInt(trialUserInput));
@@ -35,8 +35,8 @@ public class RacingGameController {
         startGame(cars, trial);
     }
 
-    private void startGame(final Cars cars, final Trial tryCount) {
-        GameResult gameResult = racingGameService.startGame(cars, tryCount);
+    private void startGame(final Cars cars, final Trial trial) {
+        GameResult gameResult = racingGameService.startGame(cars, trial);
         OutputView.printRoundResult(gameResult.getResult());
 
         Winner winner = racingGameService.findWinner(cars);
