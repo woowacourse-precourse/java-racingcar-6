@@ -47,5 +47,8 @@ public class Application {
 
         int attemptCount = setAttemptCountFromInput();
 
+        for(int i=0; i<attemptCount; i++){
+            attemptAllRacer(racers);
+        }
     }
 }
