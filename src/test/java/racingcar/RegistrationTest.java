@@ -44,7 +44,7 @@ public class RegistrationTest {
 
     @Test
     void getCarNames_메서드가_validateCompetitor_메서드를_호출해_주어진_문자열에_쉼표_구분자가_없으면_예외_발생() {
-        String input = "pobiwonijun";
+        String input = "pobi woni jun";
         Registration registration = new Registration();
 
         assertThatThrownBy(() -> registration.getCarNames(input)).isInstanceOf(IllegalArgumentException.class);
@@ -53,6 +53,14 @@ public class RegistrationTest {
     @Test
     void getCarNames_메서드가_validateNameLength_메서드를_호출해_자동차_이름이_5자를_넘으면_예외_발생() {
         String input = "pobi,woni,saerayook";
+        Registration registration = new Registration();
+
+        assertThatThrownBy(() -> registration.getCarNames(input)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void getCarNames_메서드가_checkDuplicateName_메서드를_호출해_자동차_이름에_중복이_있으면_예외_발생() {
+        String input = "pobi,woni,pobi,saera";
         Registration registration = new Registration();
 
         assertThatThrownBy(() -> registration.getCarNames(input)).isInstanceOf(IllegalArgumentException.class);

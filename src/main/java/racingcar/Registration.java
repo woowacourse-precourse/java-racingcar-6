@@ -2,7 +2,9 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Registration {
 
@@ -10,6 +12,7 @@ public class Registration {
         validateCompetitor(input);
         List<String> carNameList = Arrays.asList(input.split(","));
         validateNameLength(carNameList);
+        checkDuplicateName(carNameList);
         return carNameList;
     }
 
@@ -32,6 +35,13 @@ public class Registration {
             if (5 < name.length()) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    private void checkDuplicateName(List<String> carNameList) {
+        Set<String> carNameSet = new HashSet<>(carNameList);
+        if (carNameSet.size() != carNameList.size()) {
+            throw new IllegalArgumentException();
         }
     }
 
