@@ -1,4 +1,4 @@
-package racingcar.domain.race;
+package racingcar.domain.race.wrapper;
 
 import racingcar.constants.ErrorConsts;
 

@@ -1,4 +1,4 @@
-package racingcar.domain.car;
+package racingcar.domain.car.wrapper;
 
 public class Position implements Comparable<Position> {
     private static final int START_POSITION = 0;

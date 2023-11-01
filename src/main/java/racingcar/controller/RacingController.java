@@ -1,9 +1,9 @@
 package racingcar.controller;
 
-import racingcar.domain.car.Cars;
-import racingcar.domain.car.Name;
-import racingcar.domain.race.Count;
+import racingcar.domain.car.collection.Cars;
+import racingcar.domain.car.wrapper.Name;
 import racingcar.domain.race.Race;
+import racingcar.domain.race.wrapper.Count;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

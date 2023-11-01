@@ -1,6 +1,9 @@
 package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.car.dto.CarDto;
+import racingcar.domain.car.wrapper.Name;
+import racingcar.domain.car.wrapper.Position;
 
 public class Car implements Comparable<Car> {
     private static final int MINIMUM_RANDOM_NUMBER = 0;

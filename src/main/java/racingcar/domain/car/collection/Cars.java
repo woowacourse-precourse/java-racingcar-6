@@ -1,6 +1,9 @@
-package racingcar.domain.car;
+package racingcar.domain.car.collection;
 
 import racingcar.constants.ErrorConsts;
+import racingcar.domain.car.Car;
+import racingcar.domain.car.dto.CarDto;
+import racingcar.domain.car.wrapper.Name;
 
 import java.util.List;
 import java.util.stream.Collectors;

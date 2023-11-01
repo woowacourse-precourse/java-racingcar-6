@@ -1,6 +1,7 @@
 package racingcar.domain.race;
 
-import racingcar.domain.car.Cars;
+import racingcar.domain.car.collection.Cars;
+import racingcar.domain.race.wrapper.Count;
 
 public class Race {
     private static final String RACE_RESULT_DELIMITER = "\n";
