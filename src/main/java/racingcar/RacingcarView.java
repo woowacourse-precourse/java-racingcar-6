@@ -7,11 +7,13 @@ public class RacingcarView {
     public void GetMembersAndTurn() {
         System.out.println(RacingcarModel.INPUT_USERS);
         for ( String name : String.valueOf(Console.readLine()).split(",")) {
+            DealWithExceptionCase.IsVoidInName(name);
             DealWithExceptionCase.IsNameAccurate(name);
+            DealWithExceptionCase.IsNameDuplicate(name);
             RacingcarModel.members.put(name, 0);
         }
         System.out.println(RacingcarModel.INPUT_TURNS);
-        RacingcarModel.turn = Integer.parseInt(Console.readLine());
+        DealWithExceptionCase.IsTurnTypeInteger(Console.readLine());
     }
     public void StartRacing() {
         System.out.println(RacingcarModel.RUN_RESULT);
