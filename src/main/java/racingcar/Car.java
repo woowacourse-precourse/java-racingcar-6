@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     private String name;
@@ -12,7 +14,8 @@ public class Car {
         this.moveCnt = 0;
     }
 
-    // TODO : 전진합니다.
+
+    // 전진합니다.
     public void move() {
         this.moveCnt++;
     }
