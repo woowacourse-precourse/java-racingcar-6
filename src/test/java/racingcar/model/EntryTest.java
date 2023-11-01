@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class EntryTest {
@@ -48,5 +50,42 @@ class EntryTest {
         entry.join(c3);
 
         assertEquals(3, entry.size());
+    }
+
+    /**
+     * getWinners_테스트에서 활용하기 위한 메소드입니다.
+     * 주어진 car를 n번 전진시킵니다.
+     * @param car
+     * @param n
+     */
+    void proceedNTimes(Car car, int n) {
+        int cnt = 0;
+        while (cnt < n) {
+            if (car.drive()) {
+                cnt++;
+            }
+        }
+    }
+    @Test
+    void getWinners_테스트() {
+        Car c1 = new Car(new Name("a"));
+        proceedNTimes(c1, 1);
+
+        Car c2 = new Car(new Name("b"));
+        proceedNTimes(c2, 2);
+
+        Car c3 = new Car(new Name("c"));
+        proceedNTimes(c3, 2);
+
+        Entry entry = new Entry();
+        entry.join(c1);
+        entry.join(c2);
+        entry.join(c3);
+
+        List<Car> compare = new ArrayList<>();
+        compare.add(c2);
+        compare.add(c3);
+
+        assertEquals(compare, entry.getWinners());
     }
 }
