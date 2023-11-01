@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.attempt;
 
 public class AttemptIndex {
     private int index;

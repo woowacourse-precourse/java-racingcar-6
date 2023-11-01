@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.attempt;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;

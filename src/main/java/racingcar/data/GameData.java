@@ -1,5 +1,9 @@
 package racingcar.data;
 
+import racingcar.data.attempt.Attempt;
+import racingcar.data.attempt.AttemptData;
+import racingcar.data.attempt.AttemptNumber;
+
 public class GameData {
     private final AttemptData attemptData;
     private AttemptNumber attemptNumber;

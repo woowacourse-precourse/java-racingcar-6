@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.car;
 
 public class CarPosition {
     private int pos;

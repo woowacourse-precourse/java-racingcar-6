@@ -1,6 +1,6 @@
 package racingcar.execution;
 
-import racingcar.data.Attempt;
+import racingcar.data.attempt.Attempt;
 
 public class GameExecution {
     private final GameInput gameInput;

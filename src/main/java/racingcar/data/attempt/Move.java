@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.attempt;
 
 public enum Move {
     STOP(0),

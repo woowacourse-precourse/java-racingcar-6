@@ -1,6 +1,6 @@
 package racingcar.execution;
 
-import racingcar.data.Attempt;
+import racingcar.data.attempt.Attempt;
 
 public class ConsoleOutput implements GameOutput {
     @Override

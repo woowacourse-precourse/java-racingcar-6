@@ -1,6 +1,6 @@
 package racingcar.execution;
 
-import racingcar.data.Attempt;
+import racingcar.data.attempt.Attempt;
 
 public interface GameOutput {
     public abstract void print(String output);

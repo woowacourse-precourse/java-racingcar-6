@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.attempt;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar;
 
 import racingcar.data.GameData;
 import racingcar.execution.GameExecution;

@@ -1,6 +1,7 @@
-package racingcar.data;
+package racingcar.data.attempt;
 
 import java.util.List;
+import racingcar.data.car.RacingCars;
 
 public class Attempt {
     private final RacingCars racingCars;

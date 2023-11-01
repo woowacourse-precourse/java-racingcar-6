@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.car;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;

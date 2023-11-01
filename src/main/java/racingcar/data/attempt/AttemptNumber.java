@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.data.attempt;
 
 public class AttemptNumber {
     private final int number;
