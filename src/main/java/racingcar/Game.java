@@ -1,10 +1,16 @@
 package racingcar;
 
+import static java.util.Objects.isNull;
 import static racingcar.Constants.*;
+import static racingcar.Check.checkCarNameLengthOver;
+import static racingcar.Check.checkEmptyCarName;
+import static racingcar.Check.checkIntegerType;
+import static racingcar.Check.checkPositiveNumber;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,17 +43,11 @@ public class Game {
     private void saveCarName() {
         String names = Console.readLine();
         String[] nameArray = names.split(CAR_DIVISION);
-        if (nameArray.length == 0) {
-            throw new IllegalArgumentException();
-        }
-        for (String name : nameArray) {
-            if (name.length() > CAR_NAME_MAX) {
-                throw new IllegalArgumentException();
-            }
-        }
-        for (int i = 0; i < nameArray.length; i++) {
-            carList.add(new Car(nameArray[i]));
-        }
+
+        checkEmptyCarName(nameArray);
+        checkCarNameLengthOver(nameArray);
+
+        carList = addCarName(nameArray);
     }
 
     private void alertEnterMoveNumber() {
@@ -56,22 +56,17 @@ public class Game {
 
     private void saveMoveNumber() {
         String readLine = Console.readLine();
-        try {
-            moveNumber = Integer.parseInt(readLine);
-        }
-        catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
+        moveNumber = StringToInteger(readLine);
 
-        if (moveNumber <= 0) {
-            throw new IllegalArgumentException();
+        if (isNull(moveNumber)) {
+            checkIntegerType();
         }
+        checkPositiveNumber(moveNumber);
     }
 
     private void race() {
-        for (int i = 0; i < carList.size(); i++) {
-            Car car = carList.get(i);
-            if(isMoveForward()) {
+        for(Car car : carList) {
+            if (isMoveForward()) {
                 car.addForward();
             }
             System.out.print(car.getName() + CAR_IS);
@@ -82,6 +77,41 @@ public class Game {
 
     private void informWinner() {
         List<String> winnerNames = new ArrayList<>();
+        pickWinner(winnerNames);
+
+        System.out.print(ALERT_WINNER_IS);
+        String result = ListToString(winnerNames);
+        System.out.println(result);
+    }
+
+    private Boolean isMoveForward() {
+        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+        if (randomNumber >= MOVE_FORWARD_MIN) {
+            return true;
+        }
+        return false;
+    }
+
+    private List<Car> addCarName(String[] nameArray) {
+        return Arrays.stream(nameArray)
+                .map(Car::new)
+                .collect(Collectors.toList());
+    }
+
+    private Integer StringToInteger(String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    private String ListToString(List<String> winnerNames) {
+        return winnerNames.stream()
+                .collect(Collectors.joining(WINNER_DIVISION));
+    }
+
+    private void pickWinner(List<String> winnerNames) {
         int maxForward = 0;
         for (Car car : carList) {
             if (maxForward == car.getForwardNumber()) {
@@ -93,16 +123,5 @@ public class Game {
                 maxForward = car.getForwardNumber();
             }
         }
-        System.out.print(ALERT_WINNER_IS);
-        String result = winnerNames.stream().collect(Collectors.joining(WINNER_DIVISION));
-        System.out.println(result);
-    }
-
-    private Boolean isMoveForward() {
-        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
-        if (randomNumber >= MOVE_FORWARD_MIN) {
-            return true;
-        }
-        return false;
     }
 }
