@@ -11,6 +11,10 @@ public class Validation {
             throw new IllegalArgumentException("영문 외에 글자 존재");
         }
 
+        if (!isLengthNames(carNames)) {
+            throw new IllegalArgumentException("5글자 이하만 가능");
+        }
+
         return true;
     }
 
@@ -19,7 +23,19 @@ public class Validation {
     }
 
     private static boolean isEnglish(String carNames) {
-        return carNames.matches("^[a-zA-Z]*$");
+        return carNames.matches("^[a-zA-Z,]*$");
+    }
+
+    private static boolean isLengthNames(String input) {
+        String[] carNames = input.split(",");
+        for (String carName : carNames) {
+            int length = carName.length();
+            if (length < 1 || 5 < length) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static boolean validateRaceCount(String raceCount) {
@@ -27,8 +43,8 @@ public class Validation {
             throw new IllegalArgumentException("정수 아닌 다른 값 잘못 입력");
         }
 
-        if (!isNumberInRange(Integer.parseInt(raceCount))) {
-            throw new IllegalArgumentException("random 값 범위 초과, 범위 : 0 ~ 9");
+        if (!isPositiveNumber(Integer.parseInt(raceCount))) {
+            throw new IllegalArgumentException("음수 입력 불가");
         }
 
         return true;
@@ -38,8 +54,8 @@ public class Validation {
         return raceCount.matches("^[\\d]*$");
     }
 
-    public static boolean isNumberInRange(int random) {
-        if (random < 0 || 9 < random) {
+    public static boolean isPositiveNumber(int random) {
+        if (random < 0) {
             return false;
         }
         return true;
