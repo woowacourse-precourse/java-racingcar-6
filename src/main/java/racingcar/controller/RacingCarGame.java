@@ -25,12 +25,16 @@ public class RacingCarGame {
     OutputView.printRoundResultNotice();
 
     for (int i = 0; i < numberOfRounds; i++) {
-      cars.playRacingGame();
-      OutputView.printRoundResult(cars);
+      proceedRounds(cars);
     }
 
     OutputView.printRacingCarGameWinner(cars);
 
     Console.close();
+  }
+
+  private static void proceedRounds(Cars cars) {
+    cars.playRacingGame();
+    OutputView.printRoundResult(cars);
   }
 }
