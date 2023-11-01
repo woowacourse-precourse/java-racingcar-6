@@ -13,10 +13,6 @@ class UserInputValidatorTest {
 
     private final UserInputValidator userInputValidator = new UserInputValidator();
 
-    protected void systemIn(String input) {
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-    }
-
     private static List<String> convertToList(String input) {
         return asList(input.split(","));
     }
@@ -52,7 +48,6 @@ class UserInputValidatorTest {
     void tryCountShouldBeNumeric() {
         //given
         String input = "A";
-        systemIn(input);
 
         //then
         assertThatThrownBy(() -> userInputValidator.validateTryCount(input))
@@ -65,7 +60,6 @@ class UserInputValidatorTest {
     void tryCountShouldBeProvided() {
         //given
         String input = " ";
-        systemIn(input);
 
         //then
         assertThatThrownBy(() -> userInputValidator.validateTryCount(input))
