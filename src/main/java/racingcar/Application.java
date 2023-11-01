@@ -70,7 +70,7 @@ public class Application {
                 winners.add(carList.get(i));
             }
         }
-        String result = String.join(", ", winners);
+        String result = String.join(",", winners);
         System.out.println("최종 우승자 : " + result);
     }
 
