@@ -42,7 +42,7 @@ public class Car {
     }
 
     public void checkCarNameEmpty(String carName) {
-        if (carName == null || carName.trim().isEmpty()) {
+        if (carName == null || carName.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_EMPTY_MESSAGE);
         }
     }
