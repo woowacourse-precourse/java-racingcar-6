@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.enums.Constants;
 import racingcar.enums.Exceptions;
+import racingcar.exception.CarNameIsNumberException;
 import racingcar.exception.CarNameLengthException;
 
 import java.util.Objects;
@@ -11,7 +12,27 @@ public class Name {
 
     public Name(String name) {
         validateNameLength(name);
+        validateNameType(name);
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private static void validateNameType(String carName) {
+        if (isNumber(carName)) {
+            throw new CarNameIsNumberException(Exceptions.CAR_NAME_IS_NOT_NUMBER.getMessage());
+        }
+    }
+
+    private static boolean isNumber(String name) {
+        try {
+            Integer.parseInt(name);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     private void validateNameLength(String name) {
