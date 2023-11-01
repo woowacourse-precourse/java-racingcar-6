@@ -10,5 +10,6 @@ public class Application {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         CarController carController = new CarController(new GameService(), new InputValidator());
         carController.run();
+
     }
 }
