@@ -33,6 +33,7 @@ public class Race {
         System.out.println("\n실행 결과");
         for (int i = 0; i < inputMove; i++){
             racingCar();
+            printDist();
         }
     }
 
@@ -42,6 +43,13 @@ public class Race {
                 car.goCar(carName);
             }
         }
+    }
+
+    private void printDist(){
+        for (String carName : car.getCar()){
+            System.out.println(carName + " : " + "-".repeat(car.getCarDist().get(carName)));
+        }
+        System.out.println();
     }
 
     public void endRace() {
