@@ -12,7 +12,6 @@ public class MovementHistory {
     public void recordMovement(boolean couldMove) {
         if (couldMove) {
             movedDistance += 1;
-
         }
     }
 
