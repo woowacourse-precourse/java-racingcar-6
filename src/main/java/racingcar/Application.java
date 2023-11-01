@@ -45,6 +45,9 @@ class Cars {
         return carDistance;
     }
 
+    public Integer NumberOfCars() {
+        return carNames.size();
+    }
 }
 
 public class Application {
@@ -86,9 +89,8 @@ public class Application {
     }
 
     public static void MoveCars() {
-        List<String> MoveCar = cars.getCarNames();
         for (int i = 0; i < Total_Moves; i++) {
-            for (int j = 0; j < MoveCar.size(); j++) {
+            for (int j = 0; j < cars.NumberOfCars(); j++) {
                 GoOrStop(j);
                 PrintResult(j);
             }
@@ -124,8 +126,8 @@ public class Application {
     public static void CheckMax() {
         List<Integer> Check = cars.getCarDistance();
         for (int Distance : Check) {
-            if (Max_Distance < Check.get(Distance)) {
-                Max_Distance = Check.get(Distance);
+            if (Max_Distance < Distance) {
+                Max_Distance = Distance;
             }
         }
     }
@@ -135,7 +137,7 @@ public class Application {
         List<String> WinnerName = cars.getCarNames();
         List<Integer> WinnerDistance = cars.getCarDistance();
 
-        for (int i = 0; i < WinnerDistance.size(); i++) {
+        for (int i = 0; i < cars.NumberOfCars(); i++) {
             if (Max_Distance == WinnerDistance.get(i)) {
                 if (!SingleWinner) System.out.print(", ");
                 System.out.print(WinnerName.get(i));
@@ -145,8 +147,3 @@ public class Application {
     }
 
 }
-// 매직넘버, 변수명
-// 캡슐화를 할 때 List 를 빼오자
-// 인덴트 쪼개기(2 초과 x)
-// stream?
-// mvc
