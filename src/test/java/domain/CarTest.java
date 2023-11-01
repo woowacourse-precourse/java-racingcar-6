@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class CarTest {
 	@ParameterizedTest
 	@ValueSource(ints = {4, 5, 6, 7, 8, 9})
-	public void moveByNumber_메서드로_숫자가_4이상_9이하라면_전진한다(int randomNumber) {
+	void moveByNumber_메서드로_숫자가_4이상_9이하라면_전진한다(int randomNumber) {
 		//given
 		String name = "pobi";
 		Car car = new Car(name);
@@ -22,7 +22,7 @@ public class CarTest {
 
 	@ParameterizedTest
 	@ValueSource(ints = {1, 2, 3})
-	public void moveByNumber_메서드로_숫자가_0이상_3이하라면_멈춘다(int randomNumber) {
+	void moveByNumber_메서드로_숫자가_0이상_3이하라면_멈춘다(int randomNumber) {
 		//given
 		String name = "pobi";
 		Car car = new Car(name);
@@ -47,7 +47,7 @@ public class CarTest {
 	}
 
 	@Test
-	public void createHyphenByLocation_메서드로_자동차가_움직인_거리_없다면_빈값() {
+	void createHyphenByLocation_메서드로_자동차가_움직인_거리_없다면_빈값() {
 		//given
 		String name = "pobi";
 		Car car = new Car(name);
