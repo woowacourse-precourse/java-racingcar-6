@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_BLANK_OR_NULL;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
 import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
 
@@ -10,9 +11,16 @@ public class NumberOfAttempts {
     private final int numberOfAttempts;
 
     public NumberOfAttempts(final String numberOfAttemptsBeforeConverting) {
+        validateNumberOfAttemptsNull(numberOfAttemptsBeforeConverting);
         Integer numberOfAttempts = convertInputToInteger(numberOfAttemptsBeforeConverting);
         validateNumberOfAttemptsIsOneOrLess(numberOfAttempts);
         this.numberOfAttempts = numberOfAttempts;
+    }
+
+    private void validateNumberOfAttemptsNull(final String numberOfAttemptsBeforeConverting) {
+        if (numberOfAttemptsBeforeConverting == null || numberOfAttemptsBeforeConverting.isBlank()) {
+            throw new IllegalArgumentException(NUMBER_OF_ATTEMPTS_BLANK_OR_NULL);
+        }
     }
 
     private void validateNumberOfAttemptsIsOneOrLess(final Integer numberOfAttempts) {
