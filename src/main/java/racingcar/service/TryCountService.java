@@ -27,6 +27,7 @@ public class TryCountService {
 
     public TryCount inputTryCount(){
         String input_try_count = readLine();
-        return new TryCount(convert_StringToPositiveInt(input_try_count));
+        int count = convert_StringToPositiveInt(input_try_count);
+        return TryCount.createTryCount(count);
     }
 }
