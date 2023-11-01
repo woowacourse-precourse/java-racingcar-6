@@ -1,11 +1,10 @@
 package racingcar.IO.Input;
 
-import static java.lang.System.*;
-import static racingcar.IO.PunctuationMarks.*;
+import static java.lang.System.out;
+import static racingcar.IO.PunctuationMarks.COMMA;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import racingcar.IO.PunctuationMarks;
 
 public class InputContext {
 
