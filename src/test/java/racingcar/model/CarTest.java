@@ -2,6 +2,7 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.model.car.Car;
@@ -23,4 +24,16 @@ class CarTest {
 
         assertThat(car.getPosition() - currentPosition).isEqualTo(result);
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"5,5,true", "5,7,false"})
+    void 자동차끼리_같은_위치에_있는지_비교할_수_있다(int positon1, int positon2, boolean result) {
+        Car car1 = new Car("테스트1", positon1);
+        Car car2 = new Car("테스트2", positon2);
+
+        boolean isSamePosition = car1.isSamePosition(car2);
+
+        assertThat(isSamePosition).isEqualTo(result);
+    }
+
 }
