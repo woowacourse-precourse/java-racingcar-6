@@ -31,7 +31,6 @@ public class Race {
         System.out.println("시도할 회수는 몇회인가요?");
         String round = Console.readLine();
         checkRound(round);
-
         System.out.println("실행 결과");
         roundInt = Integer.parseInt(round);
         for (int i = 0; i < roundInt; i++) {

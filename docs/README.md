@@ -13,5 +13,5 @@
 ## Output
 - [x] printEachRound();
   - print current batch result 
-- [x] findWinnder()
+- [x] findWinner()
   - use comma to separate winners
