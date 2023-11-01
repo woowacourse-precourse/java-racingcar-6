@@ -2,18 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingTest extends NsTest{
-    
-    private static final Class<?> IllegalArgumentExceptionn = null;
 
     @Test
     void 중복된_이름에_대한_예외_처리() {
@@ -47,6 +42,15 @@ public class RacingTest extends NsTest{
         );
     }
 
+    @Test
+    void 주어진_횟수가_숫자인_것에_대한_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,jun", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    
 
     @Override
     public void runMain() {
