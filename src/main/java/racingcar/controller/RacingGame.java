@@ -13,18 +13,16 @@ public class RacingGame {
 
     private RacingGameManager gameManager;
     private GameResultMaker gameResultMaker;
-    private OutputView outputView;
 
-    public RacingGame(RacingGameManager gameManager, GameResultMaker gameResultMaker, OutputView outputView) {
+    public RacingGame(RacingGameManager gameManager, GameResultMaker gameResultMaker) {
         this.gameManager = gameManager;
         this.gameResultMaker = gameResultMaker;
-        this.outputView = outputView;
     }
 
     public void start() {
         List<Car> cars = getCarList();
         int remainingRace = getRaceCount();
-        outputView.printConsole();
+        OutputView.printConsole();
         do {
             printGameResult(cars);
         } while (remainingRace-- > 1);
@@ -43,12 +41,12 @@ public class RacingGame {
 
     private void printGameResult(List<Car> cars) {
         gameResultMaker.makeGameResult(cars);
-        outputView.printGameResult(cars);
+        OutputView.printGameResult(cars);
     }
 
     private void printGameWinner(List<Car> cars) {
         Winner winner = new Winner(cars);
         List<String> gameWinners = winner.getWinners();
-        outputView.printGameWinner(gameWinners);
+        OutputView.printGameWinner(gameWinners);
     }
 }
