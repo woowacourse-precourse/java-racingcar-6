@@ -12,7 +12,7 @@ public class RacingGame {
     private RacingGame(final RacingGameConfig config, final MoveStrategy moveStrategy) {
         cars = new Cars(config.carNames(), moveStrategy);
         totalRounds = config.totalRounds();
-        this.resultView = config.resultView();
+        resultView = config.resultView();
     }
 
     public static RacingGame createWithRandomMove(final RacingGameConfig config) {
