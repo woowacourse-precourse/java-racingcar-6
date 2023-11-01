@@ -14,7 +14,10 @@ public class Application {
         String cars = readLine();
         List<String> carList = List.of(cars.split(","));
         int maxLength = 5;
-        validateInputException(carList, maxLength);
+
+        if(isCarNameTooLong(carList, maxLength)){
+            throw new IllegalArgumentException();
+        }
 
         Map<String, Integer> carMap = carList.stream()
                 .collect(Collectors.toMap(key -> key, value -> 0));
@@ -26,20 +29,16 @@ public class Application {
             printRacingState(carMap);
         }
 
-        String winners = winnerDecision(carMap);
-        System.out.print("최종 우승자 : "+ winners);
+        System.out.print("최종 우승자 : "+ decideWinners(carMap));
 
     }
 
-    private static void validateInputException(List<String> list, int maxLength) {
-        for(String element : list){
-            if(element.length()>maxLength){
-                throw new IllegalArgumentException();
-            }
-        }
+    private static boolean isCarNameTooLong(List<String> carList, int maxLength){
+        return carList.stream()
+                .anyMatch(it -> it.length()>maxLength);
     }
 
-    static void printRacingState(Map<String, Integer> carMap){
+    private static void printRacingState(Map<String, Integer> carMap){
 
         for(String key : carMap.keySet()){
             System.out.print(key + " : ");
@@ -54,16 +53,19 @@ public class Application {
         System.out.println();
     }
 
-    private static String winnerDecision(Map<String, Integer> resultMap) {
-        Integer maxvalue = resultMap.get(Collections.max(resultMap.entrySet(), Comparator.comparingInt(Map.Entry :: getValue)).getKey());
+    private static String decideWinners(Map<String, Integer> resultMap) {
+        Integer maxValue = resultMap.get(
+            Collections.max(resultMap.entrySet(),
+                Comparator.comparingInt(Map.Entry :: getValue))
+                .getKey()
+        );
 
         List<String> winnerList = resultMap.entrySet()
                 .stream()
-                .filter(entry -> Objects.equals(entry.getValue(), maxvalue))
+                .filter(entry -> entry.getValue().equals(maxValue))
                 .map(Map.Entry::getKey)
                 .toList();
 
         return String.join(", ", winnerList);
     }
-
 }
