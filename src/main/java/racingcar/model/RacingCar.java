@@ -28,11 +28,7 @@ public class RacingCar {
     public List<String> determineWinner() {
         List<String> winnerList = new ArrayList<>();
 
-        Integer maxDistance = carList
-                .stream()
-                .max(Comparator.comparing(car -> car.measureDistance()))
-                .get()
-                .measureDistance();
+        Integer maxDistance = this.findMaxDistance();
 
         carList.forEach(car -> {
             if (car.measureDistance().equals(maxDistance)) {
@@ -41,6 +37,14 @@ public class RacingCar {
         });
 
         return winnerList;
+    }
+
+    public Integer findMaxDistance(){
+        return carList
+                .stream()
+                .max(Comparator.comparing(car -> car.measureDistance()))
+                .get()
+                .measureDistance();
     }
 
 
