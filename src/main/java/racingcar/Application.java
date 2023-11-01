@@ -2,6 +2,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -16,6 +18,8 @@ public class Application {
         //이용자로부터 시도 회수를 입력받음
         int tryNum = setTryNum();
 
+        System.out.println();//띄워쓰기
+
         System.out.println("실행 결과");
         //입력받은 값만큼 반복문 돌리며 자동차 이동 시키기
         for(int i =0 ; i<tryNum ; i++)
@@ -27,10 +31,48 @@ public class Application {
             System.out.println(); //엔터키처리
         }
 
+        //우승자 인덱스 체크
+        ArrayList<Integer> idxArrayList= checkWinner(carsMove);
 
 
 
 
+        //우승자 안내문구 출력
+        System.out.print("최종 우승자 : ");
+
+        for(int i =0 ; i<(idxArrayList.size()-1) ; i++)
+        {
+
+            System.out.printf("%s, ",cars[idxArrayList.get(i)]);
+
+        }
+        System.out.println(cars[idxArrayList.get(idxArrayList.size()-1)]);
+
+
+
+
+    }
+
+    //우승자 자동차의 인덱스 체크함수 (Max 값의 인덱스 값 저장)
+    public static ArrayList<Integer> checkWinner(int[] carsMove){
+        int maxValue = carsMove[0];
+        //최댓값 찾기
+        for(int i=0 ; i<carsMove.length ; i++)
+        {
+            if(maxValue < carsMove[i])
+                maxValue = carsMove[i];
+        }
+
+        // max 값과 같은값의 인덱스 찾기...
+        // ArrayList 객체를 생성합니다.
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for(int i=0 ; i<carsMove.length ; i++)
+        {   if (carsMove[i]== maxValue)
+                list.add(i);
+        }
+
+        return list;
     }
 
     //경주 중간현황 출력 함수
