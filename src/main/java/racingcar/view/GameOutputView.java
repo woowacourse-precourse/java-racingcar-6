@@ -20,6 +20,7 @@ public class GameOutputView {
     }
 
     public static void printWinnerNames(List<String> winnerNames) {
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 
     private static String getDashLines(int numOfDashLines) {
