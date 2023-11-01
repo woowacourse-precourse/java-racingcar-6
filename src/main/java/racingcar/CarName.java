@@ -3,7 +3,7 @@ package racingcar;
 public class CarName {
     private final String name;
 
-    public CarName(String name) {
+    public CarName(final String name) {
         validateLength(name);
         validateEmpty(name);
         this.name = name;
