@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class ValidatorCheck {
 
     public void inputOnlyNumber(int playRound) {
@@ -8,9 +10,12 @@ public class ValidatorCheck {
         }
     }
 
-    public void namingRacingCar_lengthCheck(String player) {
-        if (player.length() < 6 && player.length() > 0) {
-            throw new IllegalArgumentException("플레이어 이름은 5자 이하만 가능합니다.");
+    public void namingRacingCar_lengthCheck(List<String> players) {
+
+        for(int i=0; i<players.size(); i++) {
+            if (players.get(i).length() > 5) {
+                throw new IllegalArgumentException("플레이어 이름은 5자 이하만 가능합니다.");
+            }
         }
     }
 
