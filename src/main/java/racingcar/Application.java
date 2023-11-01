@@ -26,13 +26,14 @@ public class Application {
         int racingCarMoveNum = racingGameStartManager.convertInputRacingCarMoveNumToInt(inputRacingCarMoveNum);
 
         // 경주 진행
-        for (RacingCar racingCar : racingCarSet) {
-            int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
-            racingGamePlayManager.moveOrStayRacingCars(racingCar, pickNumberInRange);
-            String moveResult = racingGamePlayManager.getMoveResult(racingCar);
-            System.out.println(moveResult);
+        for (int i = 0; i < racingCarMoveNum; i++) {
+            for (RacingCar racingCar : racingCarSet) {
+                int pickNumberInRange = pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE);
+                racingGamePlayManager.moveOrStayRacingCars(racingCar, pickNumberInRange);
+                String moveResult = racingGamePlayManager.getMoveResult(racingCar);
+                System.out.println(moveResult);
+            }
         }
-
     }
 
     private static String[] inputRacingCarNames() {
