@@ -11,6 +11,9 @@ public class InputView {
 
     private static final String COMMA = ",";
 
+    private InputView() {
+    }
+
     public static List<String> inputNames() {
         System.out.println(INPUT_NAME_MESSAGE);
         try {

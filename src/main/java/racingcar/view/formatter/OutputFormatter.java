@@ -19,6 +19,9 @@ public class OutputFormatter {
 
     private static final int START_POSITION = 0;
 
+    private OutputFormatter() {
+    }
+
     public static String makeWinner(List<CarDto> winners) {
         return winners.stream()
                 .map(carDto -> carDto.name())
