@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NumberGeneratorTest {
     @Test
     void 생성한_랜덤값을_검증() {
+
         //given (주어진 값)
         int numOfCars = 5;
         NumberGenerator numberGenerator = new NumberGenerator(numOfCars);
