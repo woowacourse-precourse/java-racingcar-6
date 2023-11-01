@@ -48,7 +48,7 @@ public class View {
             result.append(winner);
             result.append(", ");
         });
-        result.substring(0, result.length() - 2);
+        result.setLength(result.length() - 2);
 
         System.out.println("최종 우승자 : " + result.toString());
     }
