@@ -1,22 +1,21 @@
 package model;
 
-import static model.number.MAX_NAME_LENGTH;
 import static model.number.MIN_NUMBER;
 import static model.number.MAX_NUMBER;
+import static model.number.MAX_NAME_LENGTH;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class utilityModel {
     public static String[] splitByComma(String input){
         return input.split(",");
     }
-    public static boolean isValidName(int maxLength, String name){
-        if(name.length() <= maxLength){
-            return true;
+    public static void isInValidName(String name){
+        if(name.length() > MAX_NAME_LENGTH){
+            throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
     }
 //    public static ArrayList<String> stringArrayToStringArrayList(String[] namesArray){
 //        ArrayList<String> newArrayList = new ArrayList<>();
@@ -33,5 +32,8 @@ public class utilityModel {
     }
     public static int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+    }
+    int findMaxNumber(ArrayList<Integer> arrayList){
+        return Collections.max(arrayList);
     }
 }

@@ -7,8 +7,10 @@ import static model.utilityModel.splitByComma;
 import static model.utilityModel.stringToInt;
 //import static model.utilityModel.stringArrayToStringArrayList;
 
+import java.util.List;
 import model.racingGameModel;
 import view.raceStatus;
+import view.raceResult;
 
 public class game {
     public void gameStart(){
@@ -26,6 +28,8 @@ public class game {
         racingGameModel racingGameModel = new racingGameModel(carNamesArray);
         //랜덤값에 따라 게임 현황 업데이트 및 출력
         startRacing(attemptCount, racingGameModel);
+        //게임 결과 판독 및 출력
+        endRacing(racingGameModel);
     }
     private void startRacing(int attemptCount, racingGameModel racingGameModel){
         raceStatus raceStatus = new raceStatus();
@@ -35,5 +39,12 @@ public class game {
             raceStatus.printRaceStatus(racingGameModel);
             System.out.println();
         }
+    }
+
+    private void endRacing(racingGameModel racingGameModel){
+        List<String> winnerNames = racingGameModel.findWinners();
+
+        raceResult raceResult = new raceResult();
+        raceResult.showWinners(winnerNames);
     }
 }
