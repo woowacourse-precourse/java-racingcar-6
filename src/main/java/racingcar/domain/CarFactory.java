@@ -26,7 +26,7 @@ public class CarFactory {
         return cars;
     }
 
-    public List<String> stringToListByComma(String name) {
+    private List<String> stringToListByComma(String name) {
         return Arrays.stream(name.split(","))
                 .collect(Collectors.toList());
     }

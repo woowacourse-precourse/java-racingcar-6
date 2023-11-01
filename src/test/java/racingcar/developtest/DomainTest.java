@@ -16,14 +16,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 public class DomainTest {
     private static final int MOVING_FORWARD_BOUND = 4;
     private static final int STOP_BOUND = 3;
-    @ParameterizedTest
-    @ValueSource(strings = {"pobi,crong"})
-    void stringToListByComma_콤마를_기준으로_문자열을_리스트로_변환(String string) {
-        CarFactory carFactory = new CarFactory();
-        List<String> result = carFactory.stringToListByComma(string);
-        assertThat(result.toString()).isEqualTo(Arrays.asList("pobi", "crong").toString());
-    }
-
 
     @Test
     void proceedOwnRound_4일때_전진_합니다(){
