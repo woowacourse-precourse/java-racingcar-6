@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Winners {
-    private List<Car> winners = new ArrayList<>();
+    private List<Car> winners;
 
     public Winners(Cars cars) {
         int maxPosition = cars.getMaxPosition();
