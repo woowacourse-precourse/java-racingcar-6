@@ -22,6 +22,7 @@ public class RacingCarTest {
         /* 항상 전진하는 규칙 적용 */
         CarMoveRule alwaysMove = () -> true;
         setCustomCarMoveRule(alwaysMove);
+
         Car car = Car.from("zeus");
 
         int expected = 5;
@@ -40,6 +41,7 @@ public class RacingCarTest {
         /* 항상 정지하는 규칙 적용 */
         CarMoveRule alwaysStop = () -> false;
         setCustomCarMoveRule(alwaysStop);
+
         Car car = Car.from("zeus");
 
         int expected = 0;

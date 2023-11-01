@@ -26,8 +26,9 @@ class WinnersTest extends NsTest {
     @Test
     void 우승자_결정() {
         // given
+        /* 항상 전진하는 규칙 적용 */
         CarMoveRule alwaysGo = () -> true;
-        setCustomCarMoveRule(alwaysGo);     // 100% 확률로 이동하도록 규칙 변경
+        setCustomCarMoveRule(alwaysGo);
 
         Car zeus = Car.from("zeus");
         Car blue = Car.from("blue");
@@ -54,8 +55,9 @@ class WinnersTest extends NsTest {
     @Test
     void 우승자_결과_출력() {
         // given
+        /* 항상 전진하는 규칙 적용 */
         CarMoveRule alwaysMove = () -> true;
-        setCustomCarMoveRule(alwaysMove);     // 100% 확률로 이동하도록 규칙 변경
+        setCustomCarMoveRule(alwaysMove);
 
         Car zeus = Car.from("zeus");
         Car blue = Car.from("blue");
