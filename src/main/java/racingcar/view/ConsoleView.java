@@ -20,9 +20,19 @@ public class ConsoleView {
 
     public int readValidNumberOfAttempts() {
         String input = readInput();
-        validateNumberOfAttempts(input);
+        validateAndPrintErrorMessageIfInvalid(input);
         printEmptyLine();
         return Integer.parseInt(input);
+    }
+
+    private void validateAndPrintErrorMessageIfInvalid(String input) {
+        if (!isValidNumberOfAttempts(input)) {
+            throw new IllegalArgumentException("올바른 회수가 아닙니다.");
+        }
+    }
+
+    private boolean isValidNumberOfAttempts(String input) {
+        return input.matches("\\d+") && Integer.parseInt(input) > 0;
     }
 
     private String readInput() {
@@ -33,6 +43,7 @@ public class ConsoleView {
     public void printMessage(String message) {
         System.out.println(message);
     }
+
     public void printEmptyLine() {
         System.out.println();
     }
@@ -52,9 +63,4 @@ public class ConsoleView {
         printMessage("최종 우승자 : " + result);
     }
 
-    private void validateNumberOfAttempts(String input) {
-        if (!input.matches("\\d+") || Integer.parseInt(input) <= 0) {
-            throw new IllegalArgumentException("올바른 회수가 아닙니다.");
-        }
-    }
 }
