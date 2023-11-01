@@ -9,6 +9,15 @@ public class RacingcarGame {
     private List<String> winners = new ArrayList<>();
     private int tryCount;
 
+    public void run() {
+        String[] carNames = getCarNames();
+        getTryCount();
+        makeCars(carNames);
+        runRounds(tryCount);
+        calculateWinners(racingcars);
+        InputOutput.printWinner(winners);
+    }
+
     private String[] getCarNames() {
         String carNamesWithComma = InputOutput.getCarNames();
         String[] carNames = carNamesWithComma.split(",");
