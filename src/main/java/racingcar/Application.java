@@ -8,29 +8,23 @@ public class Application {
     static int gameCount;
     public static void main(String[] args)  {
 
-        // 자동차와 시도 횟수를 입력받는 기능
         inputCars();
         inputGameCount();
-
-        System.out.println("실행 결과");
-        //난수 생성 및 자동차 경주 기능
-        // 실행결과
         racingGame();
-
-
-
-
-
-        // 게임종료, 우승자 발표
-
+        printGameResult();
     }
-    public void inputCars(){
+    static void inputCars(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         StringTokenizer st = new StringTokenizer(Console.readLine(), ",");
 
         while (st.hasMoreTokens()) {
-            cars.put(st.nextToken(),0);
+            String carName = st.nextToken();
+            checkName(carName);
+            cars.put(carName,0);
         }
+    }
+    static void checkName(String name){
+        if(name.length()>5) throw new IllegalArgumentException();
     }
     static void inputGameCount(){
         System.out.println("시도할 횟수는 몇회인가요?");
@@ -61,6 +55,8 @@ public class Application {
         return "-".repeat(count);
     }
     static void printRacingGame(){
+        System.out.println("실행 결과");
+
         for (String car : cars.keySet()) {
             String level = progressLevel(cars.get(car));
             System.out.println(car+" : "+level);
@@ -68,4 +64,27 @@ public class Application {
         System.out.println();
     }
 
+    // 결과를 위한 메서드
+    static int findMaxValue(Map<String, Integer> cars) {
+        int max = Integer.MIN_VALUE;
+        for (Integer value : cars.values()) {
+            if(value > max) max = value;
+        }
+        return max;
+    }
+    static List<String> findCarsWithMaxValue(Map<String,Integer> cars, int max) {
+        List<String> winners = new ArrayList<>();
+
+        for (String car : cars.keySet()) {
+            if (cars.get(car) == max) winners.add(car);
+        }
+        return winners;
+    }
+    static void printGameResult(){
+        int maxValue = findMaxValue(cars);
+        List<String> winners = findCarsWithMaxValue(cars, maxValue);
+
+        String result = String.join(",", winners);
+        System.out.print("최종 우승자 : "+result);
+    }
 }
