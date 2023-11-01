@@ -80,6 +80,17 @@ public class Application {
         return winnerCars;
     }
 
+    public static void printWinner(List<RacingCar> winnerCars) {
+        Iterator<RacingCar> it = winnerCars.iterator();
+
+        System.out.print("최종 우승자 : ");
+        System.out.print(it.next().getName());
+
+        while (it.hasNext()) {
+            System.out.print(", " + it.next().getName());
+        }
+    }
+
     public static void main(String[] args) {
         List<RacingCar> winnerCars;
         List<String> carNames = readCarNameList();
@@ -91,5 +102,6 @@ public class Application {
 
         playRacing(racingCars, tryCount);
         winnerCars = getWinner(racingCars);
+        printWinner(winnerCars);
     }
 }
