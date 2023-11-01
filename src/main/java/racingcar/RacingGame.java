@@ -6,6 +6,7 @@ import racingcar.Car.CarFactory;
 import racingcar.User.User;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,4 +45,17 @@ public class RacingGame {
         System.out.println();
     }
 
+    private static void printFinalResult(List<Car> cars) {
+        int maxDistance = cars.stream()
+                .map(Car::getMoveDistance)
+                .max(Comparator.naturalOrder())
+                .orElse(0);
+
+        String result = cars.stream()
+                .filter(car -> car.getMoveDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
+
+        System.out.println("최종 우승자 : " + result);
+    }
 }
