@@ -13,11 +13,12 @@ import static org.assertj.core.api.Assertions.*;
 class CarManagerTest {
 
     CarManager carManager;
+    ExpectedNumberMaker expectedNumberMaker;
 
     @BeforeEach
     public void create() {
-        NumberMaker numberMaker = new ExpectedNumberMaker();
-        carManager = new CarManager(numberMaker);
+        expectedNumberMaker = new ExpectedNumberMaker();
+        carManager = new CarManager(expectedNumberMaker);
     }
 
     @Test
