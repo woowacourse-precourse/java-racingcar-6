@@ -50,6 +50,7 @@ class InputTest extends NsTest {
 
         assertThat(integrityCheck.intIntegrityCheck("00000123456789")).isEqualTo(false);
         assertThat(integrityCheck.intIntegrityCheck("123!456A7890")).isEqualTo(true);
+        assertThat(integrityCheck.intIntegrityCheck("")).isEqualTo(true);
     }
 
     @Test
@@ -59,6 +60,7 @@ class InputTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
