@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class CarRepository {
     private List<Car> carList = new ArrayList<>();
+    private List<Car> winner = new ArrayList<>();
     private static CarRepository carRepository = new CarRepository();
     private CarRepository(){}
     public static CarRepository getInstance(){
@@ -26,6 +27,21 @@ public class CarRepository {
         if(move == Move.STOP)
             return;
         carList.get(carIndex).moveForward();
+        updateWinner(carList.get(carIndex));
+    }
+    public void updateWinner(Car car){
+        if(winner.isEmpty())
+            winner.add(car);
+        else if(winner.get(0).getForward() == car.getForward()){
+            winner.add(car);
+        }
+        else if(winner.get(0).getForward() < car.getForward()) {
+            winner.clear();
+            winner.add(car);
+        }
+    }
+    public List<Car> getWinner(){
+        return winner;
     }
     public List<Car> findAllCars(){
         return carList;
