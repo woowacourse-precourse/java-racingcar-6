@@ -7,7 +7,8 @@ import java.util.List;
 public class Car {
 
     public static final int MAX_NAME_LENGTH = 5;
-
+    private static final String POSITION_MARKER = "-";
+    private static final int MOVE_CONDITION_VALUE = 4;
     private final String name;
     private final List<String> position;
 
@@ -18,8 +19,8 @@ public class Car {
 
     public void moveForward() {
         int randomNumber = generateRandomNumber();
-        if (randomNumber > 3) {
-            position.add("-");
+        if (randomNumber >= MOVE_CONDITION_VALUE) {
+            position.add(POSITION_MARKER);
         }
     }
 
