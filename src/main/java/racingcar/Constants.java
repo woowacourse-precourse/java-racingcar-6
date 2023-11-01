@@ -16,6 +16,8 @@ public class Constants {
     public static final String CAR_FIELD_LINK = " : ";
     public static final String BAR = "-";
     public static final String COMMA = ",";
+    public static final String START_WITH_COMMA_EXPRESSION = "^,.*";
+    public static final String END_WITH_COMMA_EXPRESSION = ".*,$";
     public static final String BLANK = " ";
 
 
