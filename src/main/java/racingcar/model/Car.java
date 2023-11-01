@@ -22,8 +22,8 @@ public class Car {
         return name;
     }
 
-    public void setWinner() {
-        isWinner = true;
+    public void setWinner(Boolean isWinner) {
+        this.isWinner = isWinner;
     }
 
     public Boolean isWinner() {

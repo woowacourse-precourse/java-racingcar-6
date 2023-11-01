@@ -39,7 +39,7 @@ public class Racing {
         return (randomNumber >= controlValue);
     }
 
-    private Integer generateRandomNumber() {
+    Integer generateRandomNumber() {
         Integer randomNumber = Randoms.pickNumberInRange(minimumOfRange, maximumOfRange);
         return randomNumber;
     }
