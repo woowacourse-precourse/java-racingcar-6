@@ -16,26 +16,28 @@ public class CarGameController {
     }
 
 
-    public void runWholeGame(){
+    public void runWholeGame() {
         Game game = init();
         playGame(game);
         afterGame(game);
     }
-    private void playGame(Game game){
+
+    private void playGame(Game game) {
         outputView.displayExecutionResultsStartView();
-        while (game.isPlayable()){
+        while (game.isPlayable()) {
             game.oneRace();
             outputView.displayExecutionResultsView(game.getCurrentCarPositions());
         }
     }
-    private void afterGame(Game game){
+
+    private void afterGame(Game game) {
         outputView.displayWinnerView(game.getWinners());
     }
 
-    private Game init(){
+    private Game init() {
         List<String> inputCars = inputView.getInputCarsView();
         int inputCount = inputView.getInputTryView();
-        return new Game(inputCars,inputCount);
+        return new Game(inputCars, inputCount);
     }
 
 }

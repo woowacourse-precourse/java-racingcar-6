@@ -4,7 +4,10 @@ import static racingcar.model.GameRule.CAR_NAME_LENGTH_LOWER_LIMIT;
 import static racingcar.model.GameRule.CAR_NAME_LENGTH_UPPER_LIMIT;
 
 public class Name {
-    private static String NAME_LENGTH_ERROR = "차의 이름은 " + CAR_NAME_LENGTH_LOWER_LIMIT + " 이상" + CAR_NAME_LENGTH_UPPER_LIMIT + " 이하여야합니다.";
+
+    private static String NAME_LENGTH_ERROR =
+            "차의 이름은 " + CAR_NAME_LENGTH_LOWER_LIMIT + " 이상" + CAR_NAME_LENGTH_UPPER_LIMIT
+                    + " 이하여야합니다.";
 
     private final String carName;
 
