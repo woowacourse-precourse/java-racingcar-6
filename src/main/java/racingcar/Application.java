@@ -26,6 +26,7 @@ public class Application {
 
         // int 타입으로 변환하기
         int trialNumberInt = RacingCarGame.convertStringToInt(trialNumberString);
+        RacingCarGame.validateTrialNumberRange(trialNumberInt);
         System.out.println();
 
         // 실행 결과 문구 출력
@@ -33,7 +34,7 @@ public class Application {
 
         // 자동차별 진행 상황을 기록할 2차원 List 선언
         List<String>[] progressOfCarRacing = new ArrayList[carNamesList.size()];
-        for(int i=0; i< carNamesList.size(); i++){
+        for (int i = 0; i < carNamesList.size(); i++) {
             progressOfCarRacing[i] = new ArrayList<>();
         }
 
