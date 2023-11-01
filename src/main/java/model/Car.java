@@ -1,7 +1,6 @@
 package model;
 
-import constants.ErrorCodeConstant;
-import constants.GameConstant;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     String name;
@@ -13,25 +12,13 @@ public class Car {
     }
 
     /**
-     * 사용자가 입력한 자동차 이름 유효성 검사
-     * - 공백일 경우 예외 발생
-     * - 5자 이하일 경우 예외 발생
+     * 전진 가능한 Random 수 얻기
      *
-     * @param carName
-     * @return 예외를 발생 시키지 않으면 true 리턴
+     * @return 0에서 9 사이에서 무작위 정수 값 반환
      */
-    public static boolean validateCarName(String carName){
-        if(carName.isBlank()){
-            throw new IllegalArgumentException(ErrorCodeConstant.STRING_BLANK_ERROR);
-        } else if(GameConstant.MAX_NAME_LENGTH < carName.length()){
-            throw new IllegalArgumentException(ErrorCodeConstant.NAME_LENGTH_ERROR);
-        }
-        return true;
-
+    public int getRandomNumber(){
+        return Randoms.pickNumberInRange(0,9);
     }
 
-    //전진 가능한 랜덤 수 얻기()
-
-    //전진 랜덤 수 판단하기()
 
 }
