@@ -23,6 +23,8 @@ public class RacingController {
         outputView.inputAttempts();
         int racingNumber = inputView.inputRacingNumber();
         startRacing(carList, racingNumber);
+        List<Car> winners = carList.findWinner(carList.getCarList());
+        outputView.printWinner(winners);
     }
 
     private CarList makeCarList(List<String> names) {

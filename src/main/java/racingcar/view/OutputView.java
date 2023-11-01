@@ -33,5 +33,13 @@ public class OutputView {
         System.out.println();
     }
 
-
+    public void printWinner(List<Car> carList) {
+        System.out.print(WINNER_MESSAGE);
+        for (int i = 0; i < carList.size(); i++) {
+            System.out.print(carList.get(i).getName());
+            if (i != carList.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+    }
 }
