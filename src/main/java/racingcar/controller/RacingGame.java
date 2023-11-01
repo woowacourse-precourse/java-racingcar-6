@@ -1,10 +1,10 @@
 package racingcar.controller;
 
-import static racingcar.domain.RacingGameManager.end;
-import static racingcar.domain.RacingGameManager.proceedAwardStage;
-import static racingcar.domain.RacingGameManager.proceedCarNameInputStage;
-import static racingcar.domain.RacingGameManager.proceedPlayNumberInputStage;
-import static racingcar.domain.RacingGameManager.proceedPlayStage;
+import static racingcar.model.RacingGameService.end;
+import static racingcar.model.RacingGameService.proceedAwardStage;
+import static racingcar.model.RacingGameService.proceedCarNameInputStage;
+import static racingcar.model.RacingGameService.proceedPlayNumberInputStage;
+import static racingcar.model.RacingGameService.proceedPlayStage;
 
 
 public class RacingGame {

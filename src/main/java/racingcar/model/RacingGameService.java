@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.model;
 
 import static racingcar.domain.CarManager.getFinalWinner;
 import static racingcar.domain.CarManager.makeCarList;
@@ -13,10 +13,11 @@ import static racingcar.view.ConsoleOutput.printProgressState;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.domain.CarManager;
 import racingcar.domain.dto.FinalResult;
 import racingcar.domain.dto.ProgressState;
 
-public class RacingGameManager {
+public class RacingGameService {
     private static int playNumber = 0;
 
     public static void proceedCarNameInputStage() {
