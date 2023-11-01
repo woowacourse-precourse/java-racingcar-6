@@ -21,14 +21,20 @@
 
 ## 객체지향적 설계
 
-Car클래스
+### Car클래스
+변수
 - name
 - position
+- display
 
-- isMove()
-- getStringPosition()
+메서드
+- move()
+- getPosition()
+- getName()
+- getDisplay
 
-RaceGame클래스
+
+### RaceGame클래스
 - cars
 - round
 - result
