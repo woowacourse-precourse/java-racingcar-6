@@ -42,4 +42,31 @@ public class CarList {
         return carList.size();
     }
 
+
+    public int[] findMaxCarPositionIndex() {
+        int carPosition;
+        int maxCarPosition = -1;
+        List<Integer> maxCarPositionIndex = new ArrayList<>();
+
+        for (int index = 0; index < getSize(); index++) {
+            carPosition = getPosition(index);
+            if (maxCarPosition == carPosition) {
+                maxCarPositionIndex.add(index);
+            } else if (maxCarPosition < carPosition) {
+                maxCarPosition = carPosition;
+                maxCarPositionIndex.clear();
+                maxCarPositionIndex.add(index);
+            }
+        }
+        return ListToIntArray(maxCarPositionIndex);
+    }
+
+    private static int[] ListToIntArray(List<Integer> intList) {
+        int[] intArray = new int[intList.size()];
+        for (int index = 0; index < intArray.length; index++) {
+            intArray[index] = intList.get(index);
+        }
+        return intArray;
+    }
+
 }

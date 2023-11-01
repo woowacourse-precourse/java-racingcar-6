@@ -1,8 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GameOutput {
 
     public static void printRaceProgress(CarList racingCarList) {
@@ -18,7 +15,7 @@ public class GameOutput {
     }
 
     public static void printWinners(CarList carList) {
-        int[] maxCarPositionIndex = findMaxCarPositionIndex(carList);
+        int[] maxCarPositionIndex = carList.findMaxCarPositionIndex();
         String maxCarPositionName;
 
         System.out.printf("최종 우승자 : ");
@@ -32,30 +29,4 @@ public class GameOutput {
 
     }
 
-    private static int[] findMaxCarPositionIndex(CarList carList) {
-        int carPosition;
-        int maxCarPosition = -1;
-        List<Integer> maxCarPositionIndex = new ArrayList<>();
-
-        for (int index = 0; index < carList.getSize(); index++) {
-            carPosition = carList.getPosition(index);
-            if (maxCarPosition == carPosition) {
-                maxCarPositionIndex.add(index);
-            } else if (maxCarPosition < carPosition) {
-                maxCarPosition = carPosition;
-                maxCarPositionIndex.clear();
-                maxCarPositionIndex.add(index);
-            }
-        }
-        return ListToIntArray(maxCarPositionIndex);
-    }
-
-    public static int[] ListToIntArray(List<Integer> intList) {
-        int[] intArray = new int[intList.size()];
-        for (int index = 0; index < intArray.length; index++) {
-            intArray[index] = intList.get(index);
-        }
-        return intArray;
-    }
-    
 }
