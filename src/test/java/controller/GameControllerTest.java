@@ -18,7 +18,7 @@ public class GameControllerTest {
         List<String> carNames = List.of("abc", "def");
         GameController gameController = new GameController(inputView, outputView);
         List<Car> cars= gameController.InitializeCars(carNames);
-        Car compareCar = new Car("comp",0);
+        Car compareCar = new Car("comp");
 
         Assertions.assertThat(cars.get(0).toString()).isEqualTo("abc");
         Assertions.assertThat(cars.get(0).isSamePosition(compareCar)).isTrue();
