@@ -1,11 +1,21 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
+    public static void stopOrForword(int carNum, int randomNum) {
+        if (randomNum >= 4) {
+            carScore.set(carNum, carScore.get(carNum) + 1);
+        }
+    }
+
+    // 자동차별로 점수를 저장할 변수
+    static List<Integer> carScore = new ArrayList<>();
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         // 자동차 이름 쉼표로 구분하여 입력받기
@@ -37,7 +47,24 @@ public class Application {
         }
         int moveNum = Integer.parseInt(strNum);
 
+        // 자동차 점수 0으로 초기화
+        for(int i = 0; i < carName.size(); i++) {
+            carScore.add(0);
+        }
 
+        // 0 ~ 9 사이의 무작위 값 구하기
+        for (int i = 0; i < moveNum; i++) {
+            for (int j = 0; j < carName.size(); j++) {
+                int randomNum = Randoms.pickNumberInRange(0, 9);
+                // 4 이상일 경우 전진(자동차 점수 1 증가)
+                stopOrForword(j, randomNum);
+            }
+            // 실행결과 출력하기
+            for (int j = 0; j < carName.size(); j++) {
+                System.out.println(carName.get(j) + " : " + "-".repeat(carScore.get(j)));
+            }
+            System.out.println();
+        }
 
     }
 }
