@@ -8,15 +8,13 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ValidatorTest {
 
-    RacingService racingService = new RacingService();
-    RacingController racingController = new RacingController();
-
     @Test
     void 자동차_이름에_공백만_있는_경우() {
-        String input = "pobi,woni, ";
+        String[] input = {"pobi","woni"," "};
+        int DIGIT = 5;
 
         assertThatThrownBy(() ->
-                racingService.stringToList(input))
+                Validator.validateNameLength(input, DIGIT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
