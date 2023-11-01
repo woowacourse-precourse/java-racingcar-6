@@ -12,10 +12,16 @@ public class RacingCarController {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final Race race;
+    private final Camera camera;
+    private final Judgement judgement;
 
-    public RacingCarController(InputView inputView, OutputView outputView) {
+    public RacingCarController(InputView inputView, OutputView outputView, Race race, Camera camera, Judgement judgement) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.race = race;
+        this.camera = camera;
+        this.judgement = judgement;
     }
 
     public void run() {
@@ -52,8 +58,6 @@ public class RacingCarController {
     }
 
     private void runRacingWithRounds(Cars cars, RacingRoundCount racingRoundCount) {
-        Race race = new Race();
-        Camera camera = new Camera();
         for (int round = 0; round < racingRoundCount.value(); round++) {
             race.runOneRound(cars);
             String racingState = camera.captureRaceState(cars);
@@ -62,7 +66,6 @@ public class RacingCarController {
     }
 
     private void displayFinalWinners(Cars cars) {
-        Judgement judgement = new Judgement();
         String finalWinners = judgement.determineWinners(cars);
         outputView.displayFinalWinners(finalWinners);
     }
