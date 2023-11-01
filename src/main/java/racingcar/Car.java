@@ -18,12 +18,20 @@ public class Car {
         }
     }
 
+    public static int getMaxLength() {
+        return maxLength;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
     public void giveNameOfCar(String carName) {
         this.carName = carName;
     }
 
     public String printMovingCarWithCarName() {
-        return carName + " : " + result + "\n";
+        return carName + " : " + result;
     }
 
     public boolean isMoveAble() {
