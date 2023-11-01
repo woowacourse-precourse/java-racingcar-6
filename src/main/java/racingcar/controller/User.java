@@ -21,6 +21,7 @@ public class User {
     }
     public Integer inputTryCount() {
         Integer tryCount = Integer.parseInt(readLine());
+        InputException.checkAllTryCount(tryCount);
         return tryCount;
     }
     public Integer pickRandomInt() {

@@ -14,6 +14,10 @@ public class InputException {
         checkExistCar(newCarName);
         checkNameNonEmpty(newCarName);
     }
+    public static void checkAllTryCount(Integer tryCount) {
+        checkTryCountNonEmpty(tryCount);
+    }
+
     private static void checkNameNonEmpty(String newCarName) { // 이름이 공백인 경우 예외처리
         if (newCarName.equals("") == true) {
             throw new IllegalArgumentException();
@@ -36,6 +40,11 @@ public class InputException {
             if (newCarName.equals(carName)) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+    private static void checkTryCountNonEmpty(Integer tryCount) {
+        if (tryCount.equals("")) {
+            throw new IllegalArgumentException();
         }
     }
 }
