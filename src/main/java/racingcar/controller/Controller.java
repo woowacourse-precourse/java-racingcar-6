@@ -1,14 +1,18 @@
-package racingcar;
+package racingcar.controller;
+
+import racingcar.dto.Car;
+import racingcar.model.Functions;
+import racingcar.view.Display;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-import static racingcar.Exceptions.nameLengthException;
+import static racingcar.model.Exceptions.nameLengthException;
 
 public class Controller {
     private static String MILEAGE = "-";
-    private static final View view = new View();
+    private static final Display DISPLAY = new Display();
 
     private static List<Car> cars = new ArrayList<Car>(0);
     private static Integer loop;
@@ -16,16 +20,15 @@ public class Controller {
     public static void run() {
         startMessage();
         inGameMessage();
-        gameResult();
-        View.printResult(cars);
+        Display.printResult(cars);
     }
 
     public static void startMessage() throws IllegalArgumentException {
-        view.printStartInfo();
+        DISPLAY.printStartInfo();
         cars = splitCars();
-        view.printSelectLoop();
+        DISPLAY.printSelectLoop();
         loop = Functions.loopCount();
-        view.printRunning();
+        DISPLAY.printRunning();
     }
 
 
@@ -39,11 +42,6 @@ public class Controller {
         }
     }
 
-    public static void gameResult() {
-
-//        view.printResult();
-//        printWinners();
-    }
 
     public static void calculateMileage() {
         for (Car racing : cars) {

@@ -1,14 +1,15 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.dto.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static racingcar.Exceptions.nameListInputException;
-import static racingcar.Exceptions.notInputNaturalNumberException;
+import static racingcar.model.Exceptions.nameListInputException;
+import static racingcar.model.Exceptions.notInputNaturalNumberException;
 
 public class Functions {
 
@@ -39,7 +40,7 @@ public class Functions {
 
     public static List<String> getWinner(List<Car> cars){
         if(cars.size() < 1) {
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException();
         }
         List<String> winners = new ArrayList<String>();
         Integer winnerMileageSize = cars.get(0).getMileage().length();

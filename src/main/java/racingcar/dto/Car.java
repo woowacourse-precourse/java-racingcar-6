@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.dto;
 
 public class Car {
     private String name;
@@ -6,7 +6,7 @@ public class Car {
 
     private String mileage;
 
-    Car(String name){
+    public Car(String name){
         this.name = name;
         this.separate = " : ";
         this.mileage = "";
