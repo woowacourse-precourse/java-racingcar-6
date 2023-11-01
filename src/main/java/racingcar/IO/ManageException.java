@@ -9,13 +9,13 @@ public class ManageException {
         }
     }
 
-    public void checkType(String given) {
+//    public void checkType(String given) {
 //        try{
 //            int trials = Integer.parseInt(given);
 //        }catch (NumberFormatException e){
 //            throw new IllegalArgumentException();
 //        }
-    }
+//    }
 
     public void tryCount(int count) {
         if (count < 1) {
