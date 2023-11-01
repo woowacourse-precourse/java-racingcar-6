@@ -1,5 +1,6 @@
 package racingcar.racing;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
@@ -11,55 +12,52 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class RacingTest {
 
+    private final int roundNumber = 5;
+    private Car moveEveryTimeCar;
+    private Car stoppedCar;
+    private Racing racing;
+
+    @BeforeEach
+    void setUp() {
+        moveEveryTimeCar = new Car("move", () -> true);
+        stoppedCar = new Car("stop", () -> false);
+        racing = new Racing(List.of(moveEveryTimeCar, stoppedCar), roundNumber);
+    }
 
     @Test
     @DisplayName("레이싱은 주어진 라운드만큼 돈다")
     void racing_run_round_that_given() {
-        Car winner = new Car("win", () -> true);
-        Racing racing = new Racing(List.of(winner), 5);
         RacingResult racingResult = racing.race();
-        assertThat(racingResult.racingRoundResults()).hasSize(5);
+        assertThat(racingResult.racingRoundResults()).hasSize(roundNumber);
     }
 
     @Test
     @DisplayName("레이싱은 라운드마다 자동차들을 전진시킨다")
     void racing_move_car_every_round() {
-        Car winner = new Car("win", () -> true);
-        Racing racing = new Racing(List.of(winner), 5);
         racing.race();
-        assertThat(winner.getCurrentStatus().position()).isEqualTo(5);
+        assertThat(moveEveryTimeCar.getCurrentStatus().position()).isEqualTo(5);
     }
 
     @Test
     @DisplayName("레이싱은 라운드마다 자동차들의 이동 상태를 기록한다")
     void racing_record_car_move_every_round() {
-        String winnerName = "win";
-        String loserName = "lose";
-        Car winner = new Car(winnerName, () -> true);
-        Car loser = new Car(loserName, () -> false);
-        Racing racing = new Racing(List.of(winner, loser), 5);
         RacingResult racingResult = racing.race();
-
-        CarStatus loserStatus = new CarStatus(loserName, 0);
+        String moveCarName = moveEveryTimeCar.getName();
+        CarStatus stopCarStatus = new CarStatus(stoppedCar.getName(), 0);
         assertThat(racingResult.racingRoundResults()).isEqualTo(List.of(
-                new RacingRoundResult(List.of(new CarStatus(winnerName, 1), loserStatus)),
-                new RacingRoundResult(List.of(new CarStatus(winnerName, 2), loserStatus)),
-                new RacingRoundResult(List.of(new CarStatus(winnerName, 3), loserStatus)),
-                new RacingRoundResult(List.of(new CarStatus(winnerName, 4), loserStatus)),
-                new RacingRoundResult(List.of(new CarStatus(winnerName, 5), loserStatus))
+                new RacingRoundResult(List.of(new CarStatus(moveCarName, 1), stopCarStatus)),
+                new RacingRoundResult(List.of(new CarStatus(moveCarName, 2), stopCarStatus)),
+                new RacingRoundResult(List.of(new CarStatus(moveCarName, 3), stopCarStatus)),
+                new RacingRoundResult(List.of(new CarStatus(moveCarName, 4), stopCarStatus)),
+                new RacingRoundResult(List.of(new CarStatus(moveCarName, 5), stopCarStatus))
         ));
     }
 
     @Test
     @DisplayName("레이싱이 끝난 후 가장 앞선 사람이 우승자다")
     void racing_winner() {
-        String winnerName = "win";
-        Car winner = new Car(winnerName, () -> true);
-        Car loser = new Car("lose", () -> false);
-        Racing racing = new Racing(List.of(winner, loser), 5);
         RacingResult racingResult = racing.race();
-
-        assertThat(racingResult.winnerNames()).isEqualTo(List.of(winnerName));
+        assertThat(racingResult.winnerNames()).isEqualTo(List.of(moveEveryTimeCar.getName()));
     }
 
     @Test
