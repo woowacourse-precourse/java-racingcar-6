@@ -28,7 +28,6 @@ public class CarTest {
             // then
             assertThat(car).isNotNull();
             assertThat(car.getName()).isEqualTo(name);
-            assertThat(car.getPosition()).isEqualTo(position);
         }
 
         @Test
@@ -125,19 +124,6 @@ public class CarTest {
 
             // then
             assertThat(actual).isEqualTo(name);
-        }
-
-        @Test
-        @DisplayName("위치를 반환한다.")
-        void 위치를_반환한다() {
-            // given
-            var car = new Car(name, position);
-
-            // when
-            var actual = car.getPosition();
-
-            // then
-            assertThat(actual).isEqualTo(position);
         }
     }
 }

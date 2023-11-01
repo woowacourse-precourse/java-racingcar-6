@@ -41,14 +41,21 @@ public class RaceGame {
         }
     }
 
-    public List<String> currentHeadOfRace() {
-        int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(0);
+    private Car findHeadOfRace() {
         return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("자동차 목록이 비어있습니다."));
+    }
+
+    private List<String> findSamePositionCar(final Car headOfRace) {
+        return cars.stream()
+                .filter(headOfRace::isSamePosition)
                 .map(Car::getName)
                 .toList();
+    }
+
+    public List<String> currentHeadOfRace() {
+        final Car headOfRace = findHeadOfRace();
+        return findSamePositionCar(headOfRace);
     }
 }

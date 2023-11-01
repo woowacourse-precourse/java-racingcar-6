@@ -3,7 +3,7 @@ package racingcar.domain.car;
 import racingcar.domain.formula.Formula;
 import racingcar.domain.formula.MoveState;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private static final int MAXIMUM_NAME_LENGTH = 5;
     private static final int MINIMUM_POSITION = 0;
@@ -49,7 +49,12 @@ public class Car {
         return name;
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isSamePosition(final Car other) {
+        return this.position == other.position;
+    }
+
+    @Override
+    public int compareTo(final Car other) {
+        return this.position - other.position;
     }
 }

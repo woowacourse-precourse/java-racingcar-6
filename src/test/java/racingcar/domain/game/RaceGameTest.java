@@ -41,44 +41,6 @@ public class RaceGameTest {
         private final int round = 1;
 
         @Test
-        @DisplayName("MoveState가 MOVING_FORWARD일 때 전진한다.")
-        void MoveState가_MOVING_FORWARD일_때_전진한다() {
-            // given
-            var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
-
-            // when
-            var raceGame = new RaceGame(mockFormula, cars, round);
-            var headOfRaceCar = cars.stream()
-                    .findFirst()
-                    .orElseThrow();
-            var currentPosition = headOfRaceCar.getPosition();
-            raceGame.race(raceResults -> {
-            });
-
-            // then
-            assertThat(headOfRaceCar.getPosition()).isEqualTo(currentPosition + 1);
-        }
-
-        @Test
-        @DisplayName("MoveState가 STOP일 때 멈춘다.")
-        void MoveState가_STOP일_때_멈춘다() {
-            // given
-            var mockFormula = new MockFormula(MoveState.STOP);
-
-            // when
-            var raceGame = new RaceGame(mockFormula, cars, round);
-            var headOfRaceCar = cars.stream()
-                    .findFirst()
-                    .orElseThrow();
-            var currentPosition = headOfRaceCar.getPosition();
-            raceGame.race(raceResults -> {
-            });
-
-            // then
-            assertThat(headOfRaceCar.getPosition()).isEqualTo(currentPosition);
-        }
-
-        @Test
         @DisplayName("현재 가장 멀리 이동한 자동차의 이름을 반환한다.")
         void 현재_가장_멀리_이동한_자동차의_이름을_반환한다() {
             // given
