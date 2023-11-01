@@ -30,14 +30,7 @@ public class RacingCarGame {
 
     public List<RacingCar> chooseWinner(List<RacingCar> cars) {
         List<RacingCar> winners = new ArrayList<>();
-        cars.sort(new Comparator<RacingCar>() {
-            @Override
-            public int compare(RacingCar o1, RacingCar o2) {
-                return o1.distance - o2.distance;
-            }
-        });
-
-        int max = cars.get(cars.size() - 1).distance;
+        int max = getHighestDistance(cars);
 
         for (RacingCar car : cars) {
             if (car.distance == max) {
@@ -46,6 +39,17 @@ public class RacingCarGame {
         }
 
         return winners;
+    }
+
+    public int getHighestDistance(List<RacingCar> cars) {
+        cars.sort(new Comparator<RacingCar>() {
+            @Override
+            public int compare(RacingCar o1, RacingCar o2) {
+                return o1.distance - o2.distance;
+            }
+        });
+
+        return cars.get(cars.size() - 1).distance;
     }
 
     public void printWinnerName(List<RacingCar> winners) {
