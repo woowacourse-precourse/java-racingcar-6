@@ -36,17 +36,20 @@ public class GameController {
             System.out.println();
         }
 
-        List<Car> sortedCars = getSortedCars(carList);
-        List<Car> farthestCars = getFarthestCars(sortedCars);
-        List<String> winnerCarNames = getWinnerCarNames(farthestCars);
-
-        outputView.informFinalWinner(winnerCarNames);
+        sortFinalWinner(carList);
     }
 
     private void prepareSettingValue() {
         List<String> carNames = inputCarNames();
         int tryNumber = inputView.askTryNumber();
         game = new Game(tryNumber, carNames);
+    }
+
+    private List<String> inputCarNames() {
+        String carNames = inputView.askCarNames();
+        List<String> carName = splitCarNames(carNames);
+        validator.validateCarNameLength(carName);
+        return carName;
     }
 
     private void moveCars(List<Car> carList) {
@@ -57,6 +60,13 @@ public class GameController {
             }
             outputView.outputCarMoveDistance(car.getCarName(), randomDistance);
         });
+    }
+
+    private void sortFinalWinner(List<Car> carList) {
+        List<Car> sortedCars = getSortedCars(carList);
+        List<Car> farthestCars = getFarthestCars(sortedCars);
+        List<String> winnerCarNames = getWinnerCarNames(farthestCars);
+        outputView.informFinalWinner(winnerCarNames);
     }
 
     private List<String> getWinnerCarNames(List<Car> farthestCars) {
@@ -73,13 +83,6 @@ public class GameController {
     private List<Car> getSortedCars(List<Car> cars) {
         return cars.stream()
                 .sorted(Comparator.comparingInt(Car::getCarLocation).reversed()).toList();
-    }
-
-    private List<String> inputCarNames() {
-        String carNames = inputView.askCarNames();
-        List<String> carName = splitCarNames(carNames);
-        validator.validateCarNameLength(carName);
-        return carName;
     }
 
     private static List<String> splitCarNames(String carNames) {
