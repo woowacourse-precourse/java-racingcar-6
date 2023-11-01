@@ -29,6 +29,7 @@ public class InputValidationTest {
         //given
         String[] names = {"pobi", "pobi", "woni"};
         List<String> result = new ArrayList<>();
+        iv.initNameCount();
 
         //when
         for (String name : names) {
