@@ -37,4 +37,12 @@ public class Application {
         }
     }
 
+    private static void raceSingleRound(String[] name, int[] dis) {
+        for (int j = 0; j < name.length; j++) {
+            int randomNum = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
+            if (randomNum >= 4) dis[j]++;
+            printCarStatus(name[j], dis[j]);
+        }
+    }
+
 }
