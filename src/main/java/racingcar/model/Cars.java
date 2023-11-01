@@ -6,6 +6,7 @@ import static racingcar.util.RacingCarGameUtils.joinStringWithComma;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -78,12 +79,11 @@ public class Cars {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    for (Car car : cars) {
-      sb.append(car.getCarInfo());
-    }
-    return sb.toString();
+    return cars.stream()
+        .map(Car::getCarInfo)
+        .collect(Collectors.joining());
   }
+
 
 
 }
