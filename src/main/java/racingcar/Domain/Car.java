@@ -2,7 +2,7 @@ package racingcar.Domain;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int movingDistance;
 
     public Car(String name) {

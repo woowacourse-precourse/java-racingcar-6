@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Domain.CarList;
 import racingcar.Domain.Race;
+import racingcar.Domain.Winner;
 
 public class RacingManager {
 
@@ -14,6 +15,8 @@ public class RacingManager {
         attemptsNumberInput();
         Race race = new Race(carList.getCars());
         race.result(this.attemptsNumber);
+        Winner winner = new Winner(carList.getCars());
+        winner.printWinners();
     }
 
     public void attemptsNumberInput() {
