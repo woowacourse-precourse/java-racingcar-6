@@ -7,6 +7,7 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 
 import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingCarServiceTest {

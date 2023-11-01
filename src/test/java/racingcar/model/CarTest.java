@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.*;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.ExceptionMessage;
@@ -30,7 +31,7 @@ public class CarTest {
         String input = "test66";
 
         assertThatThrownBy(
-                        () -> new Car(input))
+                () -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.CAR_NAME_MAX_LENGTH_EXCEEDED
                         .getErrorMessage());
@@ -42,7 +43,7 @@ public class CarTest {
         String input = "";
 
         assertThatThrownBy(
-                        () -> new Car(input))
+                () -> new Car(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.EMPTY_NAME
                         .getErrorMessage());
