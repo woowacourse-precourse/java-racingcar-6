@@ -23,6 +23,7 @@ public class Gamer {
         List<String> carNameList = new ArrayList<>();
 
         String[] splitArr = inputCarName.split(",");
+        checkCarName(splitArr);
 
         for(String car: splitArr) {
             carNameList.add(car);
@@ -40,7 +41,16 @@ public class Gamer {
         return Integer.parseInt(tryNum);
     }
 
+    public void checkCarName(String[] carArr) {
 
+        for (String car : carArr) {
+            if (car.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            } else if (car.trim().isEmpty()) {
+                throw new IllegalArgumentException("공백인 자동차 이름은 입력이 불가능 합니다.");
+            }
+        }
+    }
 
 
 }

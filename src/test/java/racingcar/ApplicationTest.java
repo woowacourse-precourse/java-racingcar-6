@@ -60,9 +60,15 @@ class ApplicationTest extends NsTest {
                 },
                 MOVING_FORWARD, MOVING_FORWARD
         );
-
     }
 
+    @Test
+    @DisplayName("자동차의 이름은 공백이 될 수 없습니다")
+    void t004() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobicar,    "))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
 
     @Override
     public void runMain() {
