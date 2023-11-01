@@ -7,6 +7,9 @@ import java.util.*;
 
 public class Cars {
 
+    private static final String NAMING_BLANK_ERROR_MESSAGE = "공백은 자동차 이름이 될 수 없습니다.";
+    private static final String CAR_COUNT_ERROR_MESSAGE = "1개의 자동차는 경주를 할 수 없습니다.";
+    private static final String NAMING_DUPLICATES_ERROR_MESSAGE = "자동차 이름은 중복될 수 없습니다.";
     private List<Car> cars;
 
     public Cars(String inputNames) {
@@ -30,7 +33,7 @@ public class Cars {
         boolean hasBlank = names.stream()
                 .anyMatch(StringUtils::isBlank);
         if (hasBlank) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NAMING_BLANK_ERROR_MESSAGE);
         }
     }
 
@@ -42,13 +45,13 @@ public class Cars {
 
     private void validateCarCount(List<String> names) {
         if (names.size() <= 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(CAR_COUNT_ERROR_MESSAGE);
         }
     }
 
     private void validateDuplicates(List<String> names) {
         if (names.size() != names.stream().distinct().count()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NAMING_DUPLICATES_ERROR_MESSAGE);
         }
     }
 

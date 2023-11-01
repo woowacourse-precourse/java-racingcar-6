@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Winners {
 
+    private static final String NOT_FOUNT_CAR = "자동차를 찾을 수 없습니다.";
     private List<Car> winners;
 
     public Winners(List<Car> cars) {
@@ -18,7 +19,7 @@ public class Winners {
     private Car findMaxPositionCar(List<Car> cars) {
         return cars.stream()
                 .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException());
+                .orElseThrow(() -> new IllegalArgumentException(NOT_FOUNT_CAR));
     }
 
     private List<Car> findMaxPositionCarList(Car maxPositionCar, List<Car> cars) {
