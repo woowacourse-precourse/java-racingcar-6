@@ -1,5 +1,8 @@
 package racingcar;
 
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_ZERO_OR_LESS;
 
 import java.util.List;

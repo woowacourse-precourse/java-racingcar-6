@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static racingcar.constant.PrintMessage.PRINT_GAME_RESULT;
 import static racingcar.constant.PrintMessage.WINNER_NAME_FORMAT;

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import static racingcar.constant.ErrorMessage.NUMBER_OF_ATTEMPTS_IS_NOT_NUMBER;
 import static racingcar.constant.PrintMessage.INPUT_NUMBER_OF_ATTEMPTS;
