@@ -4,7 +4,6 @@ import racingcar.controller.util.PlayRule;
 import racingcar.model.Cars;
 import racingcar.view.RacingView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class GameController {
     }
 
 
-    public void gameStart() throws IOException {
+    public void gameStart() {
         List<String> resultList = racingView.gameStart();
         this.carsList = new ArrayList<>();
 

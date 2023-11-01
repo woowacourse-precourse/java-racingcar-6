@@ -12,11 +12,8 @@ public class Application {
         RacingView racingCar = new RacingView(); // view
         PlayRule rules = new PlayRule();
         GameController gameController = new GameController(racingCar, rules); // controller
-        try {
-            gameController.gameStart();
-            gameController.gameOn();
-        } catch (Exception e) {
-            throw new IllegalArgumentException("유효하지 않은 데이터입니다.");
-        }
+
+        gameController.gameStart();
+        gameController.gameOn();
     }
 }
