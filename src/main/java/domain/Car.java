@@ -10,6 +10,10 @@ public class Car {
         this.name = name;
         forward=0;
     }
+    public Car(String name,int forward){
+        this.name = name;
+        this.forward = forward;
+    }
     public void moveForward(){
         forward++;
     }
@@ -25,11 +29,11 @@ public class Car {
         if(this == obj) return true;
         if(obj == null || getClass() != obj.getClass()) return false;
         Car otherCar = (Car)obj;
-        return Objects.equals(this.name,otherCar.name);
+        return Objects.equals(this.name,otherCar.name) && Objects.equals(this.forward,otherCar.forward);
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return (name + forward).hashCode();
     }
 }
