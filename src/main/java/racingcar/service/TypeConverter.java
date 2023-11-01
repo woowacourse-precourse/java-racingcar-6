@@ -1,7 +1,7 @@
 package racingcar.service;
 
 public class TypeConverter {
-    public int StringToInt(String input){
+    public int stringToInt(String input){
         return Integer.parseInt(input);
     }
 }
