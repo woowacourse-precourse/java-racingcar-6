@@ -15,14 +15,14 @@ public class Race {
         this.outputView = outputView;
     }
 
-    void playGameAllRounds(int roundNumber) {
+    void playRaceAllRounds(int roundNumber) {
         System.out.println("실행 결과");
         for (int i=0; i<roundNumber; i++) {
-            playGameSingleRound(cars);
+            playRaceSingleRound(cars);
         }
     }
 
-    private void playGameSingleRound(Cars cars) {
+    private void playRaceSingleRound(Cars cars) {
         cars.carsMoving(cars);
         List<CarDto> carDtoList = CarDtoConverter.convertCarsToCarDtoList(cars);
         outputView.printSingleRound(carDtoList);

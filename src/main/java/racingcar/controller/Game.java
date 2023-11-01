@@ -27,7 +27,7 @@ public class Game {
         String roundNumberString = inputView.inputHowManyRound();
         int roundNumber = Validator.validateNumber(roundNumberString);
         Race race = new Race(cars, outputView);
-        race.playGameAllRounds(roundNumber);
+        race.playRaceAllRounds(roundNumber);
 
         List<CarDto> carDtoList = CarDtoConverter.convertCarsToCarDtoList(cars);
         outputView.printWinner(carDtoList);
