@@ -18,10 +18,14 @@ public class RacingService {
     private int racingTime;
     private final List<Car> cars = new ArrayList<>();
 
-    private List<String> winner;
     private int maxDistance = 0;
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String RACING_RESULT = "\n실행 결과";
+    private static final int MIN_RANGE = 0;
+    private static final int MAX_RANGE = 9;
+    private static final int CAN_MOVE_NUMBER = 4;
 
-    public void inputCarName() {
+    public final void inputCarName() {
         inputCarNameMessage();
         this.carName = divideCarName(Console.readLine());
     }
@@ -33,21 +37,21 @@ public class RacingService {
         return carName;
     }
 
-    public void inputRacingTime() {
+    public final void inputRacingTime() {
         inputRacingTimeMessage();
         String inputTime = Console.readLine();
         inputRacingTimeValidate(inputTime);
         this.racingTime = Integer.parseInt(inputTime);
     }
 
-    public void makeCar() {
-        for(String name: carName) {
+    public final void makeCar() {
+        for (String name : carName) {
             this.cars.add(new Car(name));
         }
     }
 
-    public void racing() {
-        System.out.println("\n실행 결과");
+    public final void racing() {
+        System.out.println(RACING_RESULT);
         for (int i = 0; i < racingTime; i++) {
             moveCar();
         }
@@ -55,7 +59,7 @@ public class RacingService {
     }
 
     private void moveCar() {
-        for (Car car: cars) {
+        for (Car car : cars) {
             if (canMove()) {
                 car.move();
             }
@@ -66,15 +70,15 @@ public class RacingService {
     }
 
     private boolean canMove() {
-        return Randoms.pickNumberInRange(0,9) >= 4;
+        return Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE) >= CAN_MOVE_NUMBER;
     }
 
-    public void winner() {
-       winner = cars.stream()
-               .filter(car -> car.compareMaxDistance(maxDistance))
-               .map(Car::getName)
-               .collect(Collectors.toList());
-        System.out.println("최종 우승자 : " + String.join(", ", winner));
+    public final void printWinner() {
+        List<String> winner = cars.stream()
+                .filter(car -> car.compareMaxDistance(maxDistance))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+        System.out.println(WINNER_MESSAGE + String.join(", ", winner));
     }
 
 }
