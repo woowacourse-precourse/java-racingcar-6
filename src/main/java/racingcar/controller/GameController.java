@@ -12,9 +12,7 @@ import racingcar.view.GameView;
 
 public class GameController {
     private static final String CAR_NAME_DELIMITER = ",";
-    private static final int MIN_MOVE_COUNT = 1;
-    private static final int MAX_MOVE_COUNT = 10;
-    private static final String MOVE_COUNT_RANGE_ERROR_MESSAGE = "이동 횟수는 10 이하의 자연수여야 함";
+
 
     private final GameView gameView;
     private final GameService gameService;
@@ -44,17 +42,9 @@ public class GameController {
     }
 
     private int getRoundCountFromUser() {
-        int userInput = Integer.valueOf(gameView.getUserInput());
-        if (!validateMoveCount(userInput)) {
-            throw new IllegalArgumentException(MOVE_COUNT_RANGE_ERROR_MESSAGE);
-        }
-        return userInput;
+        return Integer.valueOf(gameView.getUserInput());
     }
-
-    private boolean validateMoveCount(int count) {
-        return count >= MIN_MOVE_COUNT && count <= MAX_MOVE_COUNT;
-    }
-
+    
     private void printRoundResult(Cars cars, Game game) {
         gameView.printExecutionStart();
 
