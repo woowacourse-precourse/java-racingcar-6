@@ -21,10 +21,10 @@ public class Calculator {
         return (int) maxDashCount.orElse(0);
     }
 
-    public static String generateRandomDash() {
+    public static String generateRandomDash(RacingCarGame racingCarGame) {
         String dash = "";
 
-        if (RacingCarGame.makeMoveDecision()) {
+        if (racingCarGame.makeMoveDecision()) {
             dash = "-";
         }
 

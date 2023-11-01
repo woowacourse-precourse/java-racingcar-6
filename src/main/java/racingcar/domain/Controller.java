@@ -46,7 +46,7 @@ public class Controller {
     }
 
     private void showWinnerMessage() {
-        View.winnerMessage();
+        RacingCarGame.winnerMessage();
     }
 }
 

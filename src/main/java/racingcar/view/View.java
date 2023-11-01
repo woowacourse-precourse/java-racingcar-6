@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import static racingcar.domain.RacingCarGame.getGameWinner;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
@@ -23,14 +21,9 @@ public class View {
         System.out.println("실행 결과");
     }
 
-    public static void displayResult(List<StringBuilder> skeleton) { //
+    public static void displayResult(List<StringBuilder> skeleton) {
         for (StringBuilder sb : skeleton) {
             System.out.println(sb);
         }
-    }
-
-    public static void winnerMessage() {
-        System.out.print("최종 우승자 : ");
-        System.out.print(String.join(", ", getGameWinner()));
     }
 }

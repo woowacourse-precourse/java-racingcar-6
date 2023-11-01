@@ -42,14 +42,14 @@ public class RacingCarGame {
     }
 
     private static void goOrStop(List<StringBuilder> skeleton) {
+        RacingCarGame racingCarGame = new RacingCarGame();
         for (StringBuilder sb : skeleton) {
-            sb.append(generateRandomDash());
+            sb.append(generateRandomDash(racingCarGame));
         }
     }
 
-    public static boolean makeMoveDecision() {
+    public boolean makeMoveDecision() {
         int moveDecision = Randoms.pickNumberInRange(0, 9);
-
         return moveDecision >= FORWARD_THRESHOLD;
     }
 
@@ -61,5 +61,10 @@ public class RacingCarGame {
                 .filter(stringBuilder -> countChar(stringBuilder.toString(), '-') == winnerDashCount)
                 .map(carInfo -> carInfo.substring(0, carInfo.indexOf(" ")))
                 .collect(Collectors.toList());
+    }
+
+    public static void winnerMessage() {
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", RacingCarGame.getGameWinner()));
     }
 }
