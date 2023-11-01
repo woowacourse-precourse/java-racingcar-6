@@ -27,8 +27,8 @@ class CarTest {
     void 이름과_전진횟수만큼_하이픈_출력() {
         Car car = new Car("honi", 5);
         String movingWay = car.getResult();
-        String resultWay = "honi : -----";
-        assertThat(movingWay).isEqualTo(resultWay);
+        String expectedWay = "honi : -----";
+        assertThat(movingWay).isEqualTo(expectedWay);
     }
 
     @Test

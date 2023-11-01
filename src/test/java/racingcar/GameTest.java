@@ -18,10 +18,10 @@ class GameTest {
         Game game = new Game(carList, 0);
         List<String> winnerList = game.getWinnerList();
 
-        List<String> resultList = new ArrayList<>();
-        resultList.add("honi");
+        List<String> expectedList = new ArrayList<>();
+        expectedList.add("honi");
 
-        assertThat(winnerList).isEqualTo(resultList);
+        assertThat(winnerList).isEqualTo(expectedList);
     }
 
     @Test
@@ -35,11 +35,11 @@ class GameTest {
         Game game = new Game(carList, 0);
         List<String> winnerList = game.getWinnerList();
 
-        List<String> resultList = new ArrayList<>();
-        resultList.add("pobi");
-        resultList.add("jun");
-        resultList.add("honi");
+        List<String> expectedList = new ArrayList<>();
+        expectedList.add("pobi");
+        expectedList.add("jun");
+        expectedList.add("honi");
 
-        assertThat(winnerList).isEqualTo(resultList);
+        assertThat(winnerList).isEqualTo(expectedList);
     }
 }
