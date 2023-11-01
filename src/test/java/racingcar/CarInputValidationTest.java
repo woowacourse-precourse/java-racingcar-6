@@ -91,16 +91,6 @@ public class CarInputValidationTest {
         Assertions.assertEquals("마지막 자동차 이름 뒤에 쉼표(,)를 입력하지 마세요.", exception.getMessage());
     }
 
-    @DisplayName("다양한 언어의 이름이 통과하는지 검증")
-    @Test
-    public void testValidateCarInput_AllowsNamesInDifferentLanguages() {
-        String input = "Car,차,車,AUTO";
-        CarInputValidation carInputValidation = new CarInputValidation();
-
-        Assertions.assertDoesNotThrow(() -> carInputValidation.validateCarInput(input));
-    }
-
-
     @DisplayName("특수문자가 들어가면 동일한 에러 메시지를 출력하는지 검증")
     @Test
     public void testValidateCarInput_ReturnsSameErrorMessageForSpecialCharacters() {
@@ -112,5 +102,18 @@ public class CarInputValidationTest {
 
         Assertions.assertEquals(ErrorMessage.INVALID_CHARACTERS_ERROR_MESSAGE, exception.getMessage(),
                 "특수문자가 있을 경우 동일한 에러 메시지를 반환해야 합니다.");
+    }
+
+    @DisplayName("영어만 통과하는지 검증")
+    @Test
+    public void testValidateCarInput_AllowsOnlyEnglish() {
+        String input = "차,車";
+        CarInputValidation carInputValidation = new CarInputValidation();
+
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class,
+                () -> carInputValidation.validateCarInput(input));
+
+        Assertions.assertEquals(ErrorMessage.INVALID_CHARACTERS_ERROR_MESSAGE, exception.getMessage(),
+                "자동차 이름은 영어만 입력해야 합니다.");
     }
 }
