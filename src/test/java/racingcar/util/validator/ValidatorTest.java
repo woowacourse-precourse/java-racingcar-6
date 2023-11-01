@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.message.ErrorMessage;
 
 public class ValidatorTest {
-	
+
 	@DisplayName("숫자가 아닌 문자가 포함되어 있으면 예외처리한다.")
 	@ValueSource(strings = { "#12", "0s12", ",.!" })
 	@ParameterizedTest
@@ -25,9 +25,9 @@ public class ValidatorTest {
 	void checkNomalOperation1(String str) {
 		Validator.validateNumberFormat(str);
 	}
-	
+
 	@DisplayName("값이 비어있을 때 예외처리한다.")
-	@ValueSource(strings = { "" , " ", "     "})
+	@ValueSource(strings = { "", " ", "     " })
 	@ParameterizedTest
 	void checkisEmpty(String str) {
 		assertThatThrownBy(() -> Validator.validateIsEmpty(str))
@@ -41,4 +41,4 @@ public class ValidatorTest {
 	void checkNomalOperation2(String str) {
 		Validator.validateIsEmpty(str);
 	}
-}	
+}

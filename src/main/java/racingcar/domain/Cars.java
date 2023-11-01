@@ -18,12 +18,12 @@ public class Cars {
 		for (Car car : cars) {
 			strJoiner.add(car.printCarStatus());
 		}
-		
+
 		strJoiner.add(" ");
-		
+
 		return strJoiner.toString();
 	}
-	
+
 	public List<Car> getCars() {
 		return Collections.unmodifiableList(cars);
 	}

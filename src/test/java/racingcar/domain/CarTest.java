@@ -12,12 +12,12 @@ public class CarTest {
 	void checkPrintCarStatusMethodPrintMessage() {
 		Car car = new Car("pobi");
 		String carStatusMessage = "";
-		
+
 		car.move();
 		car.move();
-		
+
 		carStatusMessage = car.printCarStatus();
-		
+
 		assertThat(carStatusMessage).isEqualTo("pobi : --");
 	}
 }

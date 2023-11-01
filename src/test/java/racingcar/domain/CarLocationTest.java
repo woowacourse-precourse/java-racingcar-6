@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.util.message.ErrorMessage;
 
 public class CarLocationTest {
-	
+
 	@DisplayName("자동차 위치가 0보다 작을 때 예외를 발생시킨다.")
 	@ValueSource(ints = { -1, -2, -10000 })
 	@ParameterizedTest
@@ -18,7 +18,7 @@ public class CarLocationTest {
 				.isInstanceOf(IllegalArgumentException.class)
 				.hasMessageContaining(ErrorMessage.CAR_LOCATION_NEGATIVE_NUMBER_ERROR.getMessage());
 	}
-	
+
 	@DisplayName("자동차 위치가 0이상일 떄 정상적으로 작동한다.")
 	@ValueSource(ints = { 0, 2, 10000 })
 	@ParameterizedTest

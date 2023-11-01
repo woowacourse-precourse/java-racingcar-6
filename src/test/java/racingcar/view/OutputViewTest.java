@@ -18,21 +18,21 @@ public class OutputViewTest extends NsTest {
 		CreateCarsService createService = new CreateCarsService();
 
 		Cars cars = createService.createCars("one,two,three");
-		
+
 		outputView.printCurrentSituationOfCarLocation(cars.printCarsStatus());
 
 		assertThat(output()).contains("one :", "two :", "three :");
 	}
-	
+
 	@DisplayName("최종우승자 메세지 출력을 확인한다.")
 	@Test
 	void checkPrintWinner() {
 		OutputView outputView = new OutputView();
-		
+
 		outputView.printWinner("one, two, three");
-		
+
 		assertThat(output()).contains("최종 우승자 : one, two, three");
 	}
-	
+
 	@Override protected void runMain() {}
 }

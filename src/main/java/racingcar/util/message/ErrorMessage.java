@@ -9,7 +9,7 @@ public enum ErrorMessage {
 	INPUT_EMPTY_ERROR("값을 입력해주세요."),
 	PREFIX("[ERROR] ");
 
-	private final String message;	
+	private final String message;
 
 	ErrorMessage(String message) {
 		this.message = message;

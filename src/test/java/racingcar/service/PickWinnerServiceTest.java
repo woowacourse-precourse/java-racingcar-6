@@ -14,17 +14,17 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class PickWinnerServiceTest {
-	
+
 	@DisplayName("우승자를 확인한다.")
 	@MethodSource("createCheckWinnerTestValue")
 	@ParameterizedTest
 	void checkWinner(Cars cars, String winner) {
 		PickWinnerService service = new PickWinnerService();
 		String printWinner = service.printWinner(cars);
-		
+
 		assertEquals(printWinner, winner);
 	}
-	
+
 	static Stream<Arguments> createCheckWinnerTestValue(){
 		return Stream.of(
 						Arguments.of(

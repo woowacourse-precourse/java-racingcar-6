@@ -11,12 +11,12 @@ public class Car {
 		this.carName = new CarName(carName);
 		this.carLocation = new CarLocation();
 	}
-	
+
 	public Car(String carName, int carLocation) {
 		this.carName = new CarName(carName);
 		this.carLocation = new CarLocation(carLocation);
 	}
-	
+
 	public void move() {
 		carLocation.increaseLocation();
 	}
@@ -32,11 +32,11 @@ public class Car {
 
 		return strBuilder.toString();
 	}
-	
+
 	public String getCarName() {
 		return carName.getName();
 	}
-	
+
 	public int getCarLocation() {
 		return carLocation.getLocation();
 	}
