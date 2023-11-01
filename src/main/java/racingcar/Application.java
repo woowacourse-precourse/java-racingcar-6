@@ -30,12 +30,19 @@ public class Application {
         System.out.println("최종 우승자 : " + winners);
     }
 
+    /*
+     * 자동차의 이름이 5자 이하인지 확인하는 함수입니다. 
+     */
     public static void racingCarNameCheck(String[] cars) {
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].length() > 5) throw new IllegalArgumentException("자동차의 이름은 5자 이하로 입력해주세요");
         }
     }
 
+    /*
+     * 현재 자동차 중의 가장 높은 값을 파라미터를 받고 
+     * 가장 멀리 간 자동차의 데이터를 반환해줍니다. 
+     */
     public static String whoWinner(int max) {
         ArrayList<String> resRacing = new ArrayList<>();
         String winners = "";
@@ -48,7 +55,7 @@ public class Application {
         winners = String.join(",", resRacing);
         return winners;
     }
-
+    // 자동차들 중에서 가장 멀리간 자동차의 값을 리턴 해줍니다. 
     public static int racingCarsMaxValue() {
         int max = Integer.MIN_VALUE;
         for (Map.Entry<String, Integer> car : race.racingCars.entrySet()) {
