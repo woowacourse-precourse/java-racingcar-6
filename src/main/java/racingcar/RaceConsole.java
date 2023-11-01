@@ -23,6 +23,8 @@ public class RaceConsole {
         for (int i = 0; i < winners.size(); i++) {
             System.out.println(", " + winners.get(i));
         }
+        
+        Console.close();
     }
 
     public <String, R> R getInput(String message, Predicate<String> predicate, Function<String, R> function) {
