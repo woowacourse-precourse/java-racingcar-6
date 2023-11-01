@@ -1,9 +1,15 @@
 package racingcar.controller;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import racingcar.domain.RacingStatus;
 import racingcar.dto.request.CarNameReq;
 import racingcar.dto.request.TryNumberReq;
+import racingcar.service.RacingCarService;
+import racingcar.view.RacingCarView;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingCarController {
@@ -11,19 +17,42 @@ public class RacingCarController {
 	CarNameReq carNameReq = new CarNameReq();
 	TryNumberReq tryNumberReq = new TryNumberReq();
 
-	public void saveCarName() {
-		System.out.println("차 이름 입력 테스트");
-		carNameReq.setCarName(readLine());
-		validateCarName(carNameReq.getCarName());
-		System.out.println(carNameReq.getCarName()+"성공");
+	RacingCarView racingCarView = new RacingCarView();
+	RacingCarService racingCarService = new RacingCarService();
+
+	public void startGame() {
+		racingCarView.printIntro();
+		saveCarName();
+		racingCarView.printTryNumber();
+		saveTryNumber();
+		racingCarView.printStatusIntro();
+		RacingStatus racingStatus = racingCarService.saveRacingCarStatus(carNameReq.getCarName(),
+			tryNumberReq.getTryNumber());
+		for (int i = 0; i < racingStatus.getTryNumber(); i++) {
+			roofGame(racingStatus);
+		}
+		racingCarView.printResult(racingStatus.findMaxValueFromCarStatus());
+
 	}
 
-	public void saveTryNumber() {
-		System.out.println("시도 입력 테스트");
+	public void roofGame(RacingStatus racingStatus) {
+		runStatusView(racingCarService.updateCarStatus(racingStatus).getCarStatus());
+	}
+
+	public void runStatusView(Map<String, Integer> carStatus) {
+		racingCarView.printCarStatus(carStatus);
+	}
+
+	private void saveCarName() {
+		carNameReq.setCarName(readLine());
+		validateCarName(carNameReq.getCarName());
+	}
+
+	private void saveTryNumber() {
 		tryNumberReq.setTryNumber(readLine());
 		validateTryNumber(tryNumberReq.getTryNumber());
-		System.out.println(tryNumberReq.getTryNumber()+"성공");
 	}
+
 
 	private static void validateTryNumber(String tryNumber) {
 		if (tryNumber.isEmpty()) {
@@ -49,13 +78,25 @@ public class RacingCarController {
 	}
 
 	public static void validateCarName(String carName) {
+		validateEmpty(carName);
+
+		String[] names = carName.split(",");
+		Set<String> nameSet = new HashSet<>();
+		for (String name : names) {
+			checkLengthAndSpace(name);
+			duplicateName(nameSet, name);
+		}
+	}
+
+	private static void validateEmpty(String carName) {
 		if (carName == null || carName.isEmpty()) {
 			throw new IllegalArgumentException("입력이 비어 있습니다.");
 		}
+	}
 
-		String[] names = carName.split(",");
-		for (String name : names) {
-			checkLengthAndSpace(name);
+	private static void duplicateName(Set<String> nameSet, String name) {
+		if (!nameSet.add(name)) {
+			throw new IllegalArgumentException("중복된 이름이 포함되어 있습니다.");
 		}
 	}
 
