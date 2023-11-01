@@ -22,10 +22,8 @@ public class RacingGame {
     }
 
     private void proceedRound(List<Car> cars) {
-        for (Car car : cars) {
-            car.move();
-            OutputView.printRoundResult(car.makeMoveResult());
-        }
+        cars.forEach(Car::move);
+        cars.forEach(car -> OutputView.printRoundResult(car.makeMoveResult()));
     }
 
     private List<String> getWinnersName(List<Car> cars) {
