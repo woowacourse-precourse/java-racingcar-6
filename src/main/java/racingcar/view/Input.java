@@ -4,13 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
     public String enterCarName() {
-        String carNames = Console.readLine();
-        return carNames;
+        return Console.readLine();
     }
 
     public String enterAttemptNum() {
-        String attemptNum = Console.readLine();
-        return attemptNum;
+        return Console.readLine();
     }
 
     public void inputClose() {

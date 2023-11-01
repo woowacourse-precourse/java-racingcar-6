@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.assertj.core.api.Assertions;
