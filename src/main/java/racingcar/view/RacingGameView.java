@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.CarList;
+
 public class RacingGameView {
 
     public void printInputCarName(){
@@ -9,4 +11,9 @@ public class RacingGameView {
     public void printInputTryCount(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public void printGameResult(){
+        System.out.println("실행 결과");
+    }
+
 }
