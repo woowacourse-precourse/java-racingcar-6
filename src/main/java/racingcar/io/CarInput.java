@@ -8,7 +8,7 @@ import racingcar.validator.RoundInputValidator;
 public class CarInput {
     public static String[] getCarNames() {
         String[] carNames = Console.readLine().split(CarUtil.CAR_NAME_SPLIT);
-        CarInputValidator.checkCarNameDuplicate(carNames);
+        CarInputValidator.validateCars(carNames);
         return carNames;
     }
 

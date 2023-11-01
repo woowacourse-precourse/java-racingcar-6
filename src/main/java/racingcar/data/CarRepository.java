@@ -16,7 +16,7 @@ public class CarRepository {
 
     public void setCarList(String[] carNames) {
         for (String carName : carNames) {
-            CarInputValidator.checkCarNameLength(carName);
+            CarInputValidator.validateCar(carName);
             carList.add(new Car(carName, CarUtil.FIRST_SCORE));
         }
     }
