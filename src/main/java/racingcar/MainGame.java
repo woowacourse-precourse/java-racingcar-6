@@ -25,7 +25,7 @@ public class MainGame {
         CustomView customView = new CustomView();
         CustomException customException = new CustomException();
 
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         customView.printStart();
         String inputPlayer = Console.readLine();
         List<String> players = customView.strSplit(inputPlayer);
