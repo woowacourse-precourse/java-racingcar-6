@@ -34,7 +34,7 @@ public class OutputView {
         System.out.print("최종 우승자 : ");
         for (String winner : winners) {
             System.out.print(winner);
-            System.out.println(", ");
+            System.out.print(", ");
         }
     }
 
