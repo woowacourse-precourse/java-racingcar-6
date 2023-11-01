@@ -5,16 +5,23 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RacingTest {
 
+    private static Racing racing;
+
+    @BeforeEach
+    void init() {
+        racing = new Racing();
+    }
+
     @Test
     @DisplayName("initParticipants 이름 길이 초과 실패 테스트")
     void initParticipants_name_length_over_fail() {
 
-        Racing racing = new Racing();
         String[] carNames = {"디카프리오", "레옹", "인텔리제이짱짱맨"};
 
         assertSimpleTest(() ->
@@ -27,7 +34,6 @@ public class RacingTest {
     @DisplayName("initParticipants 이름 길이 부족 실패 테스트")
     void initParticipants_name_length_lack_fail() {
 
-        Racing racing = new Racing();
         String[] carNames = {"", "레옹", "인텔리제이"};
 
         assertSimpleTest(() ->
@@ -40,7 +46,6 @@ public class RacingTest {
     @DisplayName("initParticipants 이름 중복 실패 테스트")
     void initParticipants_name_duplication_fail() {
 
-        Racing racing = new Racing();
         String[] carNames = {"디카프리오", "디카프리오", "레옹"};
 
         assertSimpleTest(() ->
@@ -53,7 +58,6 @@ public class RacingTest {
     @DisplayName("initParticipants 참여자 초과 실패 테스트")
     void initParticipants_participants_over_fail() {
 
-        Racing racing = new Racing();
         String[] carNames = {"디카프리오", "레옹", "마틸다", "로즈", "고든", "레이첼"};
 
         assertSimpleTest(() ->
@@ -66,7 +70,6 @@ public class RacingTest {
     @DisplayName("initParticipants 성공 테스트")
     void initParticipants_success_fail() {
 
-        Racing racing = new Racing();
         String[] carNames = {"디", "레옹", "마틸다", "로즈", "고든"};
 
         racing.initParticipants(carNames);
