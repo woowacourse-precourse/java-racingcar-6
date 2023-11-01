@@ -1,8 +1,9 @@
 package racingcar.controller;
 
+import static racingcar.util.Utils.getLongestLength;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.MovementCondition;
 
@@ -18,8 +19,8 @@ public class Referee {
     }
 
     public void proceedRound() {
-        for (Car c : cars) {
-            decideMoveForward(c);
+        for (Car car : cars) {
+            decideMoveForward(car);
         }
     }
 
@@ -46,10 +47,7 @@ public class Referee {
         for (Car car : cars) {
             raceResult.add(car.convertPositionToString());
         }
-
-        return raceResult.stream()
-                .collect(Collectors.summarizingInt(String::length))
-                .getMax();
+        return getLongestLength(raceResult);
     }
 
     private void compareCarToWinnerPosition(List<Car> winners, Car car, int winnerPosition) {
