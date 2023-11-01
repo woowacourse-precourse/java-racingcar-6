@@ -64,4 +64,11 @@ class CarTest {
         int randomNumber = car.getRandomNumber();
         System.out.println(randomNumber);
     }
+    @Test
+    void 자동차_위치_문자열_반환() {
+        Car car = new Car("car");
+        car.move(4);
+        car.move(4);
+        assertThat(car.getPositionString()).isEqualTo("--");
+    }
 }
