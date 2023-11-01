@@ -29,7 +29,7 @@ public class InputView {
     }
 
     private List<String> convertToList(String carNames) {
-        return Arrays.stream(carNames.split(CarNameValidator.MULTIPLE_CAR_NAME_DELIMITER))
+        return Arrays.stream(carNames.split(CarNameValidator.MULTIPLE_CAR_NAME_DELIMITER, -1))
             .toList();
     }
 }
