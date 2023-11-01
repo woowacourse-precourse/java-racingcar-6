@@ -15,5 +15,4 @@ public class RandomMovementStrategy implements MovementStrategy {
     private int generateRandomNumber() {
         return pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
     }
-
 }
