@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.regex.Pattern;
 
 public class InputView {
     public String readCarNames() {
@@ -12,6 +13,13 @@ public class InputView {
     public int readCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
+        validateCount(input);
         return Integer.parseInt(input);
+    }
+
+    private void validateCount(String input) {
+        if (!Pattern.matches("^[0-9]*$", input)) {
+            throw new IllegalArgumentException("시도할 횟수는 숫자만 가능합니다.");
+        }
     }
 }
