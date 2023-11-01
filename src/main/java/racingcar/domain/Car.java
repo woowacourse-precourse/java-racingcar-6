@@ -2,6 +2,9 @@ package racingcar.domain;
 
 import static racingcar.common.Constants.MIN_NUMBER_FOR_MOVEMENT;
 import static racingcar.common.Constants.MOVEMENT_DISTANCE;
+import static racingcar.common.Validator.validateNameLength;
+
+import java.util.Map;
 
 public class Car {
 
@@ -9,6 +12,7 @@ public class Car {
     private int meter;
 
     public Car(String name) {
+        validateNameLength(name);
         this.name = name;
         this.meter = 0;
     }
@@ -27,4 +31,11 @@ public class Car {
         }
     }
 
+    public void saveInformationToMap(Map<String, Integer> result) {
+        result.put(name, meter);
+    }
+
+    public boolean hasMaxScore(int maxScore) {
+        return meter == maxScore;
+    }
 }
