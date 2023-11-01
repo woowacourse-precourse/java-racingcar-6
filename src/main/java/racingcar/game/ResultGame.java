@@ -7,7 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ResultGame {
-    public static List<String> checkWinner(List<CarInfo> carList) {
+    public static void printWinner(List<CarInfo> carList){
+        System.out.println(getResultGame(connectWinners(checkWinner(carList))));
+    }
+    private static List<String> checkWinner(List<CarInfo> carList) {
         int maxMoveCount = getMaxMoveCount(carList);
         return getWinners(carList, maxMoveCount);
     }
@@ -30,7 +33,7 @@ public class ResultGame {
         return String.join(", ", winners);
     }
 
-    public static void printWinner(String winner){
-        System.out.println(Constant.WINNER_MESSAGE + winner);
+    public static String getResultGame(String winner){
+        return Constant.WINNER_MESSAGE + winner;
     }
 }

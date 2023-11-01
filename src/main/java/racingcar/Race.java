@@ -13,6 +13,6 @@ public class Race {
         List<CarInfo> carList = UserInputCarName.getCarList();
         int gameRound = UserInputGameRound.getGameRound();
         ProcessGame.playGame(carList, gameRound);
-        ResultGame.printWinner(ResultGame.connectWinners(ResultGame.checkWinner(carList)));
+        ResultGame.printWinner(carList);
     }
 }
