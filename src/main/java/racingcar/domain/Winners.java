@@ -17,14 +17,17 @@ public class Winners {
 
     @Override
     public String toString() {
-        if (names.size() == 1) {
-            return names.get(0);
+        if (names.isEmpty()) {
+            return "";
         }
 
-        String result = "";
-        for (String name : names) {
-            result = result + ", " + name;
+        StringBuilder result = new StringBuilder(names.get(0));
+
+        for (int i = 1; i < names.size(); i++) {
+            result.append(",").append(names.get(i));
         }
-        return result;
+
+        return result.toString();
     }
+
 }

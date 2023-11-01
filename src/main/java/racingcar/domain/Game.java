@@ -3,6 +3,7 @@ package racingcar.domain;
 import static racingcar.view.Messages.REGISTER_CAR_MESSAGE;
 import static racingcar.view.Messages.RESULT_MESSAGE;
 import static racingcar.view.Messages.TRIAL_NUMBER_MESSAGE;
+import static racingcar.view.Messages.WINNER_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class Game {
     }
 
     private void showWinners(Winners winners) {
+        OutputView.print(WINNER_MESSAGE);
         OutputView.print(winners.toString());
     }
 
