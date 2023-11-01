@@ -5,7 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_END_INCLUSIVE;
 import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_START_INCLUSIVE;
 import static racingcar.constant.RacingGameConstant.START_POSITION;
-import static racingcar.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
+import static racingcar.exception.ErrorMessage.CAR_NAME_LENGTH_EXCEPTION;
+import static racingcar.exception.ErrorMessage.CAR_POSITION_EXCEPTION;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,7 +20,7 @@ public class RacingCarTest {
     @ParameterizedTest
     @DisplayName("레이싱 카 이름이 주어지면, 이름이 5자리 이하인지 확인하고 생성한다.")
     @ValueSource(strings = {"suz", "&(&(", "chan"})
-    void createRacingCarWithCarNameLessThanFive(String given) {
+    void createRacingCarWithCarNameLessThanOrEqualFive(String given) {
         // given
         MoveCondition moveCondition = new MoveCondition();
 
@@ -31,8 +32,8 @@ public class RacingCarTest {
     }
 
     @ParameterizedTest
-    @DisplayName("자동차 이름이 5자라 넘으면 예외가 발생한다.")
-    @ValueSource(strings = {"suzhan", "&(&(12", "chanlee"})
+    @DisplayName("자동차 이름이 5자라 넘거나 이름이 존재하지 않으면, 예외가 발생한다.")
+    @ValueSource(strings = {"suzhan", "&(&(12", "chanlee", "", "  ", " "})
     void createRacingCarError(String given) {
         // given
         MoveCondition moveCondition = new MoveCondition();
@@ -40,7 +41,34 @@ public class RacingCarTest {
         // when //then
         assertThatThrownBy(() -> new RacingCar(given, moveCondition))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION);
+                .hasMessage(CAR_NAME_LENGTH_EXCEPTION);
+    }
+
+    @ParameterizedTest
+    @DisplayName("레이싱 카 위치가 0 이하면 레이싱카를 생성한다.")
+    @ValueSource(ints = {0, 1, 23})
+    void createRacingCarWithPosition(int given) {
+        // given
+        MoveCondition moveCondition = new MoveCondition();
+
+        // when
+        RacingCar racingCar = new RacingCar("k3", given, moveCondition);
+
+        // then
+        assertThat(racingCar).isEqualTo(new RacingCar("k3", given, moveCondition));
+    }
+
+    @ParameterizedTest
+    @DisplayName("레이싱 카 위치가 0 미만 이면 레이싱카를 생성한다.")
+    @ValueSource(ints = {-1, -2, -34})
+    void createRacingCarWithPositionLessThanZero(int given) {
+        // given
+        MoveCondition moveCondition = new MoveCondition();
+
+        // when // then
+        assertThatThrownBy(() -> new RacingCar("k3", given, moveCondition))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_POSITION_EXCEPTION);
     }
 
     @ParameterizedTest
