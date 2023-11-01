@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.config.DependencyContainer;
-import racingcar.controller.MainController;
+import racingcar.global.config.DependencyContainer;
+import racingcar.domain.controller.MainController;
 
 public class Application {
     public static void main(String[] args) {
