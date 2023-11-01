@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarRepository {
     private final List<Car> cars;
@@ -18,16 +19,12 @@ public class CarRepository {
     }
 
     public List<String> getMaxCars() {
-        List<String> maxCars = new ArrayList<>();
         int max = getMaxForwardCounts();
 
-        for (Car car : cars) {
-            if (car.getForwardCount() == max) {
-                maxCars.add(car.getName());
-            }
-        }
-
-        return maxCars;
+        return cars.stream()
+                .filter(car -> car.getForwardCount() == max)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private int getMaxForwardCounts() {
@@ -37,10 +34,4 @@ public class CarRepository {
                 .orElse(0);
     }
 
-    @Override
-    public String toString() {
-        return "CarRepository{" +
-                "carRepository=" + cars +
-                '}';
-    }
 }

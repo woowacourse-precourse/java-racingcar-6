@@ -52,11 +52,16 @@ public class RacingGame {
     public void oneRoundMove() {
         List<Car> cars = carRepository.getCars();
         for (Car car : cars) {
-            if (isMove(numberGenerator.randomNumber())) {
-                car.moveForward();
-            }
+            moveForward(car);
         }
     }
+
+    public void moveForward(Car car) {
+        if (isMove(numberGenerator.randomNumber())) {
+            car.moveForward();
+        }
+    }
+
 
     public boolean isMove(int num) {
         return MOVE_RULE <= num;

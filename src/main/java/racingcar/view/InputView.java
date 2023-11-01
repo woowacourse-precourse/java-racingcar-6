@@ -6,7 +6,7 @@ import racingcar.validator.Validator;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.constant.Constants.*;
+import static racingcar.constant.Constants.ERROR_INVALID_REPEAT_COUNT;
 
 
 public class InputView {
@@ -44,13 +44,11 @@ public class InputView {
     public int extractAndValidateRepeatCount(String input) {
         try {
             int repeatCnt = Integer.parseInt(input);
-            if (repeatCnt <= MIN_REPEAT_CNT || MAX_REPEAT_CNT < repeatCnt)
-                throw new IllegalArgumentException(ERROR_INVALID_REPEAT_COUNT);
+            validator.validRepeatCnt(repeatCnt);
             return repeatCnt;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_INVALID_REPEAT_COUNT);
         }
     }
-
 
 }

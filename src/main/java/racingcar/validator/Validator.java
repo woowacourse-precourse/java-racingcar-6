@@ -2,8 +2,7 @@ package racingcar.validator;
 
 import org.junit.platform.commons.util.StringUtils;
 
-import static racingcar.constant.Constants.ERROR_INVALID_CAR_NAME;
-import static racingcar.constant.Constants.NAMES_MAX_LENGTH;
+import static racingcar.constant.Constants.*;
 
 public class Validator {
     public void validateCarName(String carName) {
@@ -20,5 +19,10 @@ public class Validator {
         if (StringUtils.isBlank(input)) {
             throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
         }
+    }
+
+    public void validRepeatCnt(int repeatCnt) {
+        if (repeatCnt <= MIN_REPEAT_CNT || MAX_REPEAT_CNT < repeatCnt)
+            throw new IllegalArgumentException(ERROR_INVALID_REPEAT_COUNT);
     }
 }
