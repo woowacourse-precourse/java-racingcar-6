@@ -1,6 +1,5 @@
 package racingcar.validator;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -99,7 +98,7 @@ public class CarNamesInputValidatorTest {
 
         // then
         for (String s : input) {
-            assertThatCode(() -> carNamesInputValidator.validate(s))
+            assertThatThrownBy(() -> carNamesInputValidator.validate(s))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining(CarNamesInputErrorMessage.INPUT_CAR_NAME_IS_DUPLICATED);
         }
