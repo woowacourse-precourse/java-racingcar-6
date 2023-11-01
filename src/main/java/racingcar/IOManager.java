@@ -27,7 +27,7 @@ public class IOManager {
                 .map(name -> name.replaceFirst("\\s+", "")) // 문자열 맨 앞의 공백을 모두 제거
                 .toList();
 
-        Optional<String> any = names.stream().filter(name -> name.length() > 5).findAny();
+        Optional<String> any = names.stream().filter(name -> name.length() > 5 || name.length() == 0).findAny();
         if (any.isPresent()) {
             throw new IllegalArgumentException();
         }
