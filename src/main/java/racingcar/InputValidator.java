@@ -37,7 +37,7 @@ public class InputValidator {
         }
     }
 
-    public void validateraceRound(int raceRound) {
+    public void validateRaceRound(int raceRound) {
         if (raceRound <= 0) {
             throw new IllegalArgumentException();
         }
