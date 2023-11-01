@@ -1,7 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class OutputView {
     private static final String RUNNING_RESULT = "\n실행 결과";
@@ -11,8 +11,10 @@ public class OutputView {
         System.out.println(RUNNING_RESULT);
     }
 
-    public static void printCarStatus(String carInfo) {
-        System.out.println(carInfo);
+    public static void printCarStatus(Map<CarName, Integer> carResult) {
+        String carStatus = Parser.parseCarMapToString(carResult);
+
+        System.out.println(carStatus);
     }
 
     public static void noticeFinalWinner() {

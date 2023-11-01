@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -49,12 +50,14 @@ public class Cars {
         return maximumDistance;
     }
 
-    public void printCarsGameResult(Integer runningCount) {
-        for (int i = 0; i < runningCount; i++) {
-            cars.forEach(Car::moveByGeneratedNumber);
-            cars.forEach(car ->
-                    OutputView.printCarStatus(car.toString()));
-            System.out.println();
-        }
+    public void moveAllCars() {
+        cars.forEach(Car::moveByGeneratedNumber);
+    }
+
+    public Map<CarName, Integer> convertCarToMap() {
+        Map<CarName, Integer> carResult = cars.stream()
+                .collect(Collectors.toMap(Car::getName, Car::getDistance));
+
+        return carResult;
     }
 }

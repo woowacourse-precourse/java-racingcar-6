@@ -37,11 +37,6 @@ public class Car {
         return distance == maximumDistance;
     }
 
-    @Override
-    public String toString() {
-        return name + " : " + "-".repeat(distance);
-    }
-
     public CarName getName() {
         return this.name;
     }

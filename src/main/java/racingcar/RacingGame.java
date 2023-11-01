@@ -19,7 +19,13 @@ public class RacingGame {
 
         OutputView.noticeRunningResult();
 
-        cars.printCarsGameResult(runningCount);
+        IntStream.range(0, runningCount).forEach(i -> progressOneRound(cars));
+    }
+
+    private void progressOneRound(Cars cars) {
+        cars.moveAllCars();
+
+        OutputView.printCarStatus(cars.convertCarToMap());
     }
 
     private void announceFinalResult(Cars cars) {
