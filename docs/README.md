@@ -18,8 +18,8 @@
     게임의 룰(business logic)을 구현하는 클래스
 - [x] List<Car> cars 멤버를 갖는다.
 - [x] 게임 횟수를 멤버로 갖는다.
-- [ ] RacingGameBridge를 통해 입출력을 처리한다.
-  - [ ] RacingGameBridge의 입력은 검증하지 않는다.
+- [x] RacingGameBridge를 통해 입출력을 처리한다.
+  - [x] RacingGameBridge의 입력은 검증하지 않는다.
 - [x] 0~9 사이의 정수를 랜덤하게 생성하여 진행 여부를 결정하고, cars의 상태를 수정한다.
 - [x] 게임 종료 여부를 알려주는 메소드를 갖는다.
 - [x] 게임 진행 과정을 cars를 통해 반환하는 메소드를 갖는다.
@@ -29,10 +29,10 @@
 
 ### RacingGameBridge
     입력을 Game 클래스에 전달하기 위해 사용하는 클래스
-- [ ] RacingGamePrompter, RacingGame, RacingGameResponder 클래스의 기능을 중계한다.
-- [ ] racingcar.game 패키지 외부에서 패키지의 Racing Car 게임을 수행하고, 결과를 반환하는 API를 제공하는 클래스다.
-  - [ ] 게임을 초기화하는 메소드를 갖는다. 이 메소드는 차의 목록과 시도 횟수 입력을 포함한다.
-  - [ ] 게임을 진행하는 메소드를 갖는다. 이 메소드는 실행 결과 및 우승자 출력을 포함한다.
+- [x] RacingGamePrompter, RacingGame, RacingGameResponder 클래스의 기능을 중계한다.
+- [x] racingcar.game 패키지 외부에서 패키지의 Racing Car 게임을 수행하고, 결과를 반환하는 API를 제공하는 클래스다.
+  - [x] 게임을 초기화하는 메소드를 갖는다. 이 메소드는 차의 목록과 시도 횟수 입력을 포함한다.
+  - [x] 게임을 진행하는 메소드를 갖는다. 이 메소드는 실행 결과 및 우승자 출력을 포함한다.
 
 
 ### RacingGamePrompter
