@@ -5,12 +5,12 @@ import racingcar.util.count.EqualityCheckerImpl;
 
 public class TryCount {
     public final int tryCount;
-
+    private final EqualityCheckerImpl equalityChecker;
 
     public TryCount(String countString) {
         this.tryCount = convertStringToInt(countString);
         validatePositive(tryCount);
-        EqualityCheckerImpl.createTryCount(tryCount);
+        this.equalityChecker = EqualityCheckerImpl.createTryCount(tryCount);
     }
 
     private int convertStringToInt(String string) {
