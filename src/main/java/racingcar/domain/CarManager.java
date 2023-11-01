@@ -5,11 +5,11 @@ import java.util.List;
 public class CarManager {
 
     private final List<Car> cars;
-    private int maxCount;
+    private int maxMoveForwardCount;
 
     private CarManager(List<Car> cars) {
         this.cars = cars;
-        this.maxCount = 0;
+        this.maxMoveForwardCount = 0;
     }
 
     public static CarManager createFromInputCarNames(String inputCarNames) {
@@ -21,17 +21,17 @@ public class CarManager {
     public void orderCarsMoveForward() {
         cars.forEach(car -> {
             car.moveForward();
-            updateMaxCount(car.getMoveForwardCount());
+            updateMaxMoveForwardCount(car.getMoveForwardCount());
         });
     }
 
-    private void updateMaxCount(int count) {
-        this.maxCount = Math.max(count, this.maxCount);
+    private void updateMaxMoveForwardCount(int count) {
+        this.maxMoveForwardCount = Math.max(count, this.maxMoveForwardCount);
     }
 
     public List<Car> getWinners() {
         return cars.stream()
-                .filter(car -> car.getMoveForwardCount() == maxCount)
+                .filter(car -> car.getMoveForwardCount() == maxMoveForwardCount)
                 .toList();
     }
 
