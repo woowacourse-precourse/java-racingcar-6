@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.RacingGroup;
 
-public class RaceSetting {
+public class Register {
     private final String ASK_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private String namesInput;
     private List<String> names;
     private RacingGroup racingGroup;
 
-    public RaceSetting() {
+    public Register() {
         this.racingGroup = new RacingGroup();
     }
 
@@ -39,13 +39,13 @@ public class RaceSetting {
     }
 
     private void getCarNames() {
-        getNamesInput();
+        namesInput = getUserInput();
         validateComma();
         names = List.of(namesInput.split(","));
     }
 
-    private void getNamesInput() {
-        namesInput = Console.readLine().trim();
+    private String getUserInput() {
+        return Console.readLine().trim();
     }
 
     private void validateComma() {
@@ -57,5 +57,6 @@ public class RaceSetting {
     private void printAskCarNamesMessage() {
         System.out.println(ASK_CAR_NAMES_MESSAGE);
     }
+
 
 }
