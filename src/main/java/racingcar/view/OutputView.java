@@ -28,7 +28,7 @@ public class OutputView {
 
     public static void showWinners(List<ScoreDto> winners) {
         StringJoiner winnerNamesJoiner = new StringJoiner(", ");
-        winners.forEach(carDto -> winnerNamesJoiner.add(carDto.getName()));
+        winners.forEach(scoreDto -> winnerNamesJoiner.add(scoreDto.getName()));
         System.out.println(
                 "최종 우승자 : " + winnerNamesJoiner);
     }
