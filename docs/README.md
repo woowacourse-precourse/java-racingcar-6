@@ -1,14 +1,13 @@
 ## 프로젝트 구조 설계
 
 ### Domain
+- [x] Car - 자동차 객체
+- [x] RandomNumberGenerator - 무작위 값을 생성하는 클래스
 
-- [ ] Car - 자동차 객체
-- [ ] RandomNumberGenerator - 무작위 값을 생성하는 클래스
 ### Service
-- [ ] GameService - 게임관련 로직을 처리하는 클래스
-  - [ ] moveCars() - 자동차 이동을 처리
-  - [ ] isRoundWinner() - 라운드 승자 판별
-
+- [x] GameService - 게임관련 로직을 처리하는 클래스
+  - moveCars() - 자동차 이동을 처리
+  - isRoundWinner() - 라운드 승자 판별
 
 ### Controller
 - [ ] GameController - 게임의 흐름을 제어하는 클래스
@@ -20,8 +19,8 @@
   - [ ] validateRoundCount() - 라운드 횟수의 유효성 겁사
 
 ### View
-- [ ] InputView - 사용자 입력을 처리하는 클래스
-- [ ] OutputView - 결과 출력을 담당하는 클래스
+- [x] InputView - 사용자 입력을 처리하는 클래스
+- [x] OutputView - 결과 출력을 담당하는 클래스
 
 
 
