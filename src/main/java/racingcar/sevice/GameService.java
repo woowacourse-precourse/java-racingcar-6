@@ -56,8 +56,8 @@ public class GameService {
 
     public void runRound(int gameRound, List<Car> carList) {
         for (int i = 0; i < gameRound; i++) {
-            for (Car tempCar : carList) {
-                tempCar.move();
+            for (Car car : carList) {
+                car.move();
             }
             OutputView.printGameStatus(new RoundResponseDto(carList));
         }
