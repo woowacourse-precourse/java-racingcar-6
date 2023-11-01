@@ -39,4 +39,16 @@ class RandomTest {
         assertThat(b).isFalse();
     }
 
+    @Test
+    void 숫자_랜덤_생성_후_검증_성공(){
+        //given
+        int r = Random.make(4, 9);
+
+        //when
+        boolean b = Random.check(r);
+
+        //then
+        assertThat(b).isTrue();
+    }
+
 }
