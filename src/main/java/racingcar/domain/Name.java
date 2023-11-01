@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 public class Name {
+    private static final int NAME_THRESHOLD = 5;
+
     private String name;
 
     public Name(String name) {
@@ -26,7 +28,7 @@ public class Name {
     }
 
     private boolean isNameTooLong(String carName) {
-        return carName.length() > 5;
+        return carName.length() > NAME_THRESHOLD;
     }
 
     private boolean isNullOrBlank(String carName) {
