@@ -2,6 +2,8 @@ package racingcar;
 
 import static racingcar.Constants.*;
 
+import java.security.SecureRandom;
+
 public class Car {
     private String name;
     private String forward;
@@ -9,6 +11,9 @@ public class Car {
     public Car(String name) {
         this.name = name;
         this.forward = EMPTY_STRING;
+        if (name.isBlank()) {
+            this.name = makeRandomName();
+        }
     }
 
     public String getName() {
@@ -27,4 +32,16 @@ public class Car {
         this.forward += FORWARD_SIGH;
     }
 
+    private static String makeRandomName() {
+        String characters = UPPER_CASE;
+        StringBuilder sb = new StringBuilder(RANDOM_NAME_LENGTH);
+        SecureRandom random = new SecureRandom();
+
+        for (int i = 0; i < RANDOM_NAME_LENGTH; i++) {
+            int randomIndex = random.nextInt(characters.length());
+            char randomChar = characters.charAt(randomIndex);
+            sb.append(randomChar);
+        }
+        return sb.toString();
+    }
 }
