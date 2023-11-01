@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 
 public class RacingGameInputView {
 
@@ -13,6 +14,8 @@ public class RacingGameInputView {
     }
 
     public static String[] nextStringArray() {
-        return next().split(",");
+        return Arrays.stream(next().split(","))
+                .filter((item) -> !item.isEmpty())
+                .toArray(String[]::new);
     }
 }
