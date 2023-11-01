@@ -19,5 +19,13 @@ public class Cars {
   public void addCar(String carName) {
     cars.add(new SimpleEntry<>(carName, GameConstant.STARTPOSITION));
   }
+
+  public List<Entry<String,Integer>> getCars() {
+    return cars;
+  }
+
+  public void moveCar(Entry<String,Integer> car) {
+    car.setValue(car.getValue() + GameConstant.MOVEINTERVAL);
+  }
   
 }

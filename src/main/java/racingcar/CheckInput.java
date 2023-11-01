@@ -2,9 +2,12 @@ package racingcar;
 
 public class CheckInput {
 
-
   public void trial(String trial) {
-
+    try {
+      Integer.parseInt(trial);
+    } catch (Exception e) {
+      throw new IllegalArgumentException(GameConstant.Output.CHECKTRIAL.print());
+    }
   }
 
   public void carNamelength(String[] carNames) {
