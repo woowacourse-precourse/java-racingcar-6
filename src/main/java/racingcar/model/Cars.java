@@ -35,4 +35,10 @@ public class Cars {
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
+
+    public void moveCars() {
+        for(Car car : cars) {
+            car.move();
+        }
+    }
 }
