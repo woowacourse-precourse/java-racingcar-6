@@ -7,15 +7,17 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분): ");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesInput = Console.readLine();
         List<String> carNames = List.of(carNamesInput.split(","));
 
-        System.out.println("시도할 회수를 입력하세요: ");
+        System.out.println("시도할 회수는 몇회인가요?");
         int attempts = Integer.parseInt(Console.readLine());
 
         List<Car> cars = createCars(carNames);
 
+        System.out.println();
+        System.out.println("실행 결과");
         startRacing(attempts, cars);
 
         List<String> winners = determineWinners(cars);
@@ -60,7 +62,7 @@ public class Application {
     }
 
     private static void printWinners(List<String> winners) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             if (i != 0) {
                 System.out.print(", ");
