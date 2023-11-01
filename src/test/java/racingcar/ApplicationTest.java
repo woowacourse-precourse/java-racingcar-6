@@ -6,9 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.domain.Game;
+import racingcar.domain.PlayerInput;
 import racingcar.domain.Validate;
 
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -19,7 +21,8 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private Game game;
-
+    private static final List<String> ANSWER = Arrays.asList("sam","smith");
+    private PlayerInput playerInput;
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -48,7 +51,17 @@ class ApplicationTest extends NsTest {
                 .hasMessageContaining(message);
 
     }
-
+    @Test
+    void 자동차_이름값_성공_확인(){
+        Map<String, Integer> racers = new HashMap<>();
+        racers.put("sam",0);
+        racers.put("smith",0);
+        List<String> ExpectedNames = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : racers.entrySet()) {
+            ExpectedNames.add(entry.getKey());
+        }
+        assertThat(ANSWER).isEqualTo(ExpectedNames);
+    }
 
     @Override
     public void runMain() {
