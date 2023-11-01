@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.CarPlayer;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,6 +15,23 @@ public class GameController {
 
     public void runGame(){
         String cars = inputView.inputCarNames();
-        List<String> carList;
+        List<String> carList = gameService.carNameStringToList(cars);
+
+        gameService.validateNames(carList);
+
+        List<CarPlayer> playerList = gameService.saveCarNames(carList);
+
+        String countInput = inputView.inputTryCount();
+
+        gameService.validateCount(countInput);
+
+        int count = gameService.countStringToInt(countInput);
+
+        System.out.println();
+        resultGame(playerList, count);
+    }
+
+    public void resultGame(List<CarPlayer> playerList, int count){
+
     }
 }
