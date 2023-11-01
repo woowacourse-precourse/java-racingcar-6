@@ -7,20 +7,20 @@ import racingcar.ui.OutputView;
 public class GamePlayer {
     private final List<Car> cars;
     private final int attempts;
-    private final RandomNumber randomNumber;
+    private final NumberGenerator numberGenerator;
 
-    public GamePlayer(List<Car> cars, int attempts, RandomNumber randomNumber) {
+    public GamePlayer(List<Car> cars, int attempts, NumberGenerator numberGenerator) {
         this.cars = cars;
         this.attempts = attempts;
-        this.randomNumber = randomNumber;
+        this.numberGenerator = numberGenerator;
     }
 
     public void play() {
         for (int i = 0; i < attempts; i++) {
             System.out.print(OutputView.ENTER);
             for (int j = 0; j < cars.size(); j++) {
-                int number = randomNumber.generate();
-                cars.get(j).move(randomNumber.judge(number));
+                int number = numberGenerator.generate();
+                cars.get(j).move(numberGenerator.judge(number));
 
                 OutputView.printGameResult(cars.get(j), cars.get(j).getDistance());
             }

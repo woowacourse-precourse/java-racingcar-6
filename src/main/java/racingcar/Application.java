@@ -12,9 +12,9 @@ public class Application {
             cars.add(new Car(delimitedCarNames.get(i)));
         }
         int attempts = Converter.convertAttempts(InputView.inputAttempts());
-        RandomNumber randomNumber = new RandomNumber();
+        NumberGenerator numberGenerator = new NumberGenerator();
 
-        GamePlayer gamePlayer = new GamePlayer(cars, attempts, randomNumber);
+        GamePlayer gamePlayer = new GamePlayer(cars, attempts, numberGenerator);
         gamePlayer.play();
     }
 }
