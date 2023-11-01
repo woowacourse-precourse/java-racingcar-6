@@ -51,4 +51,16 @@ class GameServiceTest {
                 () -> gameService.createCars(carNames));*/
     }
 
+    @Test
+    @DisplayName("입력한 시도 횟수가 숫자가 아닌 경우, IllegalArgumentException Exception 발생 및 프로그램 종료 테스트")
+    public void checkAttemptNumber() throws Exception {
+        // given
+        String attemptNumber = "a";
+
+        // when
+        assertThrows(IllegalArgumentException.class,
+                () -> gameService.validateAttemptNumber(attemptNumber));
+
+    }
+
 }
