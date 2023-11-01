@@ -85,5 +85,5 @@
 #### 실행 종료
 
 - [X] 우승 결과 출력 후
-- [ ] `IllegalArgumentException` 발생 후
+- [X] `IllegalArgumentException` 발생 후
 
