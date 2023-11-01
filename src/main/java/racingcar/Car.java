@@ -23,4 +23,12 @@ public class Car {
             this.score++;
         }
     }
+
+    public void print() {
+        System.out.print(this.name + " : ");
+        for (int i = 0; i < this.score; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }

@@ -34,6 +34,7 @@ public class Racing {
     private void carMove() {
         for (Car car : cars) {
             car.move();
+            car.print();
         }
     }
 
