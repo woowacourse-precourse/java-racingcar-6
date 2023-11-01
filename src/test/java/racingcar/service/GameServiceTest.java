@@ -38,4 +38,10 @@ class GameServiceTest {
         List<String> expectedCarList = Arrays.asList("pobi", "woni", "jun");
         assertEquals(expectedCarList, gameService.calcWinner(testCarList));
     }
+    @Test
+    @DisplayName("가장 높은 location 값을 return")
+    void test_Get_Max_Location() {
+        int expectedResult = 2;
+        assertEquals(expectedResult,gameService.getMaxLocation(testCarList));
+    }
 }
