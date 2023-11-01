@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +16,11 @@ public class Car {
         position = new ArrayList<>();
     }
 
-    public void moveForward() {
-        int randomNumber = generateRandomNumber();
+    public void moveForward(Integer randomNumber) {
         if (randomNumber >= MOVE_CONDITION_VALUE) {
             position.add(POSITION_MARKER);
         }
     }
-
-    private static Integer generateRandomNumber(){
-        return Randoms.pickNumberInRange(0,9);
-    }
-
     public String getRoundResult(){
         return name + " : " + getConcatenatedPosition();
     }
