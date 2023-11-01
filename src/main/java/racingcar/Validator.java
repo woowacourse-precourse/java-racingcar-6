@@ -40,6 +40,10 @@ public class Validator {
         if (string.strip().equals(","))
             throw new IllegalArgumentException();
 
+        // ,pobi,woni 혹은 pobi,woni,와 같이 입력될 경우
+        if (string.startsWith(",") || string.endsWith(","))
+            throw new IllegalArgumentException();
+
         // pobi,나 pobi와 같이 하나의 자동차 이름만 입력했을경우
         if (Arrays.asList(string.strip().split(",")).size() < 2)
             throw new IllegalArgumentException();
