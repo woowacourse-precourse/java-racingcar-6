@@ -5,17 +5,23 @@ import racingcar.carfactory.CarFactory;
 import racingcar.service.GameService;
 import racingcar.service.IoService;
 
+import java.awt.font.GlyphMetrics;
 import java.util.List;
 
 public class GamePlayer {
-    CarFactory carFactory;
-    GameService gameService;
-    IoService ioService;
+    private CarFactory carFactory;
+    private GameService gameService;
+    private IoService ioService;
+    public GamePlayer(){
+        this.carFactory = new CarFactory();
+        this.gameService = new GameService();
+        this.ioService = new IoService();
+    }
 
-    public GamePlayer() {
-        carFactory = new CarFactory();
-        gameService = new GameService();
-        ioService = new IoService();
+    public GamePlayer(CarFactory carFactory,GameService gameService,IoService ioService){
+        this.carFactory = carFactory;
+        this.gameService = gameService;
+        this.ioService = ioService;
     }
 
     public void randomAdvanceAll(List<Car> cars) {

@@ -15,16 +15,19 @@ class GameServiceTest {
 
     GameService gameService;
     CarFactory carFactory;
-    public GameServiceTest(){
+
+    public GameServiceTest() {
         carFactory = new CarFactory();
         gameService = new GameService();
     }
+
     @Test
-    void 입력된_문자열을_올바르게_리스트로_반환(){
+    void 입력된_문자열을_올바르게_리스트로_반환() {
         List<String> carNames = gameService.inputToCarNames("nuri, pobi, woodi");
 
-        Assertions.assertThat(carNames).contains("nuri","pobi","woodi");
+        Assertions.assertThat(carNames).contains("nuri", "pobi", "woodi");
     }
+
     @Test
     void 가장_멀리_간_승자들() {
         List<Car> cars = carFactory.
@@ -34,6 +37,6 @@ class GameServiceTest {
         cars.get(1).advanceOnce();
         List<Car> winner = gameService.selectWinner(cars);
 
-        Assertions.assertThat(winner.stream().map(Car::getName)).contains("nuri","pobi");
+        Assertions.assertThat(winner.stream().map(Car::getName)).contains("nuri", "pobi");
     }
 }

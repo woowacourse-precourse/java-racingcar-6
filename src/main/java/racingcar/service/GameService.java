@@ -12,19 +12,21 @@ import java.util.stream.Collectors;
 
 public class GameService {
 
-    public int randomNumber(){
-        return Randoms.pickNumberInRange(0,9);
+    public int randomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
-    public List<Car> selectWinner(List<Car> cars){
+    public List<Car> selectWinner(List<Car> cars) {
         int maxScore = cars.stream().mapToInt(Car::getLocation).max().getAsInt();
         List<Car> winners = cars.stream()
-                .filter((car)->{return car.getLocation()==maxScore;})
+                .filter((car) -> {
+                    return car.getLocation() == maxScore;
+                })
                 .collect(Collectors.toList());
         return winners;
     }
 
-    public List<String> inputToCarNames(String input){
+    public List<String> inputToCarNames(String input) {
         return Arrays.asList(input.split(", "));
     }
 }

@@ -16,6 +16,7 @@ public class CarTest {
 
         Assertions.assertThat(car.getLocation()).isEqualTo(0);
     }
+
     @Test
     void 추출된_숫자가_4일_경우_advanceOnceRandomly() {
         int testNum = 4;
@@ -25,6 +26,7 @@ public class CarTest {
 
         Assertions.assertThat(car.getLocation()).isEqualTo(1);
     }
+
     private GameService creatGameServiceForTest(int testNum){
         GameService gameServiceForTest = new GameService(){
             @Override

@@ -45,6 +45,9 @@ printWinners(List\<Car> winners) 승리자들 출력
 
 ### GamePlayer 클래스
 - 역할 : 게임의 진행을 총괄  
+- constructor  
+GamePlayer()  
+GamePlayer(CarFactory carFactory, GameService gameService, IoService ioService)
 - method  
 void oneTurn(List\<Car> cars) 한 차수 진행  
 void randomAdvanceAll(List\<Car> cars) 모든 차 랜덤하게 전진  

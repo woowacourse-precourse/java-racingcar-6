@@ -46,5 +46,4 @@ public class IoService {
                         .map(Car::getName)
                         .collect(Collectors.joining(", "))));
     }
-
 }
