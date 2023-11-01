@@ -54,11 +54,11 @@ class RacingGameTest {
         setPosition(car, 1);
 
         // when
-        List<CarName> winners = racingGame.getWinners();
+        List<String> winners = racingGame.getWinners();
 
         // then
         assertTrue(!winners.isEmpty());
-        assertEquals(winners.get(0).name(), "Car1");
+        assertEquals(winners.get(0), "Car1");
     }
 
     private void setPosition(Car car, Integer position) throws NoSuchFieldException, IllegalAccessException {

@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -54,10 +53,7 @@ class OutputViewTest {
     @DisplayName("최종 우승자 출력 테스트")
     @Test
     void printWinners_test() {
-        List<CarName> winnerNames = new ArrayList<>();
-        winnerNames.add(new CarName("Car1"));
-        winnerNames.add(new CarName("Car2"));
-
+        List<String> winnerNames = List.of("Car1", "Car2");
         outputView.printWinners(winnerNames);
         assertEquals("최종 우승자 : Car1, Car2", output.toString());
     }
