@@ -22,4 +22,15 @@ public class Distance {
 
         this.distance = nonNegativeInteger;
     }
+
+    /**
+     * @return 증가한 경우 true, 그렇지 않은 경우 false
+     */
+    public boolean increaseByOne() {
+        if (distance < Integer.MAX_VALUE) {
+            distance += 1;
+            return true;
+        }
+        return false;
+    }
 }
