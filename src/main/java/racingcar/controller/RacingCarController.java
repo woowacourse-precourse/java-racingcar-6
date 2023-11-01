@@ -38,7 +38,7 @@ public class RacingCarController {
     private void attemptCount() {
         for (int attempt = 0; attempt < playCount; attempt++) {
             showMovingCars();
-            System.out.println();
+            outputView.printLineChange();
         }
     }
 

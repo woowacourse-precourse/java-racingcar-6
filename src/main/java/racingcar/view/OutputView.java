@@ -17,6 +17,10 @@ public class OutputView {
         System.out.println(name + CAR_NAME_MESSAGE + CAR_POSITION_MESSAGE.repeat(number));
     }
 
+    public void printLineChange(){
+        System.out.println();
+    }
+
     public void printWinnerCarName(List<String> names) {
         System.out.print(WINNER_CAR_NAME_MESSAGE + CAR_NAME_MESSAGE);
         for (int i = 0; i < names.size() - 1; i++) {
