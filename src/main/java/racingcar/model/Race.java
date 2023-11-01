@@ -18,9 +18,13 @@ public class Race {
 
   public void startRace(int moveCount) {
     for (int move = 0; move < moveCount; move++) {
-      for (Car car : cars) {
-        int randomValue = getRandomValue();
-        car.move(randomValue);
+      int[] randomValues = new int[cars.size()];
+      for (int i = 0; i < cars.size(); i++) {
+        randomValues[i] = getRandomValue();
+      }
+      for(int i = 0; i<cars.size(); i++){
+        Car car = cars.get(i);
+        car.move(randomValues[i]);
       }
     }
   }
