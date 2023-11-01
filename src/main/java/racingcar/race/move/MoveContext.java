@@ -29,9 +29,9 @@ public class MoveContext {
   }
 
   private static List<Movement> generateMovements(int roundCount,
-      IntFunction<Movement> movementFunction) {
+      IntFunction<Movement> generateMovement) {
     return IntStream.range(0, roundCount)
-        .mapToObj(movementFunction)
+        .mapToObj(generateMovement)
         .toList();
   }
 
