@@ -21,10 +21,10 @@ public class Game {
     public List<Car> carList = new ArrayList<>();
 
 
-    public List<String> getCarNames(String input) {
+    public List<String> getCarNames(String nameInput) {
         List<String> nameList;
-        nameList = Arrays.asList(input.split(","));
-        if (input.charAt(input.length() - 1) == ',') {
+        nameList = Arrays.asList(nameInput.split(","));
+        if (nameInput.charAt(nameInput.length() - 1) == ',') {
             throw new IllegalArgumentException("이름 입력은 쉼표로 끝낼 수 없습니다.");
         }
         if (nameList.size() == MIN_NUMBERS_OF_NAME) {
@@ -41,8 +41,8 @@ public class Game {
         return nameList;
     }
 
-    public int getNumberOfMoves() {
-        int moves = Integer.parseInt(Console.readLine());
+    public int getNumberOfMoves(String movesInput) {
+        int moves = Integer.parseInt(movesInput);
         if (moves < MIN_NUMBERS_OF_MOVES) {
             throw new IllegalArgumentException("시도 회수는 " + MIN_NUMBERS_OF_MOVES + "회 이상이어야 합니다.");
         }
@@ -104,12 +104,14 @@ public class Game {
     }
 
     public void gameRun() {
-        String carNameInput;
+        String nameInput;
+        String movesInput;
         System.out.print(NAME_MESSAGE);
-        carNameInput = Console.readLine();
-        List<String> nameList = getCarNames(carNameInput);
+        nameInput = Console.readLine();
+        List<String> nameList = getCarNames(nameInput);
         System.out.print(MOVES_MESSAGE);
-        MOVES = getNumberOfMoves();
+        movesInput = Console.readLine();
+        MOVES = getNumberOfMoves(movesInput);
         createCars(nameList);
         System.out.print(OUTPUT_MESSAGE);
         for (int i = 0; i < MOVES; i++) {
