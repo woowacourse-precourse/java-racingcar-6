@@ -38,6 +38,12 @@ public class Racing {
         return map.get(Collections.max(map.keySet()));
     }
 
+    public void printWinners() {
+        List<String> winners = getWinners()
+                .stream().map(Car::getName).toList();
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
+    }
+
     public void printEachTurn() {
         System.out.println("\n실행결과: ");
         int carIndex = 0;

@@ -11,8 +11,6 @@ public class Application {
         Racing race1 = Racing.createRacingWithInput();
         race1.start();
         race1.printEachTurn();
-        List<String> winners = race1.getWinners()
-                .stream().map(Car::getName).toList();
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        race1.printWinners();
     }
 }
