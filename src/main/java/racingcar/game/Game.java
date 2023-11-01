@@ -17,7 +17,7 @@ public class Game {
         OutputView.printMessage(outputView.introduceGameMessage());
         String names = inputView.scan();
 
-        String[] namesList = create.checkCarsName(names);
+        String[] namesList = judgment.checkCarsName(names);
         Car[] cars = new Car[namesList.length];
 
         createInstanceCars(namesList, cars);
@@ -25,7 +25,7 @@ public class Game {
         OutputView.printMessage(outputView.howManyGamesMessage());
         String userInputHowManyTimes = inputView.scan();
 
-        int howManyMoves = create.howManyTimesGameStart(userInputHowManyTimes);
+        int howManyMoves = judgment.howManyTimesGameStart(userInputHowManyTimes);
         carsMove(howManyMoves, cars, outputView);
 
         String finalMessage = outputView.finalVictoryCarsMessage() + judgment.finalCarCheck(cars);
