@@ -13,6 +13,14 @@ public class Car {
         forwardCnt++;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int nowPosition(){
+        return this.forwardCnt;
+    }
+
     public String toString() {
         return name + " : " + createProgressString(forwardCnt);
     }
