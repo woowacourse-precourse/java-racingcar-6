@@ -15,6 +15,14 @@ public class ExceptionTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_이름_글자수_초과_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,junker", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
