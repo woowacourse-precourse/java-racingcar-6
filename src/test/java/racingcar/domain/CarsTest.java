@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class CarsTest {
 
     Cars cars;
+    private static final String[] VALID_NAMES = {"seori", "snow", "joy"};
 
     @BeforeEach
     public void setUpCars() {
@@ -24,12 +25,12 @@ class CarsTest {
     })
     void 이름들을_올바르게_입력하는_경우(String input) {
         cars.settingNames(input);
-        assertEquals(cars.getCarList().size(), 3);
-        assertEquals(cars.getCarList().get(0).getName(), "seori");
-        assertEquals(cars.getCarList().get(1).getName(), "snow");
-        assertEquals(cars.getCarList().get(2).getName(), "joy");
-    }
 
+        assertEquals(cars.getCarList().size(), VALID_NAMES.length);
+        for(int i=0; i<VALID_NAMES.length; i++) {
+            assertEquals(cars.getCarList().get(i).getName(), VALID_NAMES[i]);
+        }
+    }
 
     @ParameterizedTest
     @CsvSource(value = {
