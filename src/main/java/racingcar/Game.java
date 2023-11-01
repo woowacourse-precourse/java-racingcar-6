@@ -48,7 +48,16 @@ public class Game {
         }
         return moves;
     }
-
+    public void createCars(List<String> nameList) {
+        for (String name : nameList) {
+            carList.add(new Car(name));
+        }
+    }
+    public void carMove(List<Car> carList) {
+        for (Car car : carList) {
+            car.move();
+        }
+    }
     public void printOutput() {
         for (Car car : carList) {
             System.out.print(car.name + " : ");
@@ -98,19 +107,14 @@ public class Game {
         List<String> nameList = getCarNames(carNameInput);
         System.out.print(MOVES_MESSAGE);
         MOVES = getNumberOfMoves();
-        for (String name : nameList) {
-            carList.add(new Car(name));
-        }
+        createCars(nameList);
         System.out.print(OUTPUT_MESSAGE);
         for (int i = 0; i < MOVES; i++) {
-            for (Car car : carList) {
-                car.move();
-            }
+            carMove(carList);
             printOutput();
         }
         whoIsWinner(carList);
         System.out.print(WINNER_MESSAGE);
         printWinner(carList);
     }
-
 }
