@@ -8,6 +8,7 @@ public record CollectWinnerEvent(RacingCarRepository racingCarRepository) implem
 
     @Override
     public List<String> execute() {
-        return racingCarRepository.findParticipants().collectWinnerNames();
+        return racingCarRepository.findParticipants()
+                .collectWinnerNames();
     }
 }

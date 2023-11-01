@@ -2,7 +2,7 @@ package racingcar.view.core;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.view.part.RaceGameComponent.RaceGameResult.TrackPerResult;
+import racingcar.dto.RaceGameResult.TrackPerResult;
 
 public final class OutputView extends ConsoleWriter {
     public void printRaceStartMessage() {

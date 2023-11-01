@@ -6,15 +6,6 @@ import racingcar.data.RacingCarRepository;
 
 public record EventListener(RacingCarRepository racingCarRepository) {
 
-    /**
-     * 결과와 파라미터가 없는 이벤트
-     *
-     * @param eventConstructor
-     */
-    public void listen(Function<RacingCarRepository, Event> eventConstructor) {
-        eventConstructor.apply(racingCarRepository).execute();
-    }
-
 
     /**
      * 결과만 있는 이벤트
@@ -51,10 +42,6 @@ public record EventListener(RacingCarRepository racingCarRepository) {
         return (input) -> eventConstructor.apply(racingCarRepository).execute(input);
     }
 
-
-    public interface Event {
-        void execute();
-    }
 
     public interface ParameterEvent<T> {
         void execute(T input);
