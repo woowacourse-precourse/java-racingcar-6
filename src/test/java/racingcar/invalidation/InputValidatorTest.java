@@ -1,4 +1,4 @@
-package study.invalidation;
+package racingcar.invalidation;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
