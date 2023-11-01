@@ -9,6 +9,5 @@ public final class TestConstants {
     public static final int STOP = 3;
     public static final String NAME_UNDER_LENGTH_LIMIT = "car";
     public static final String NAME_EXCEEDS_LENGTH_LIMIT = "longCar";
-
     public static final String BLANK_NAME = "   ";
 }
