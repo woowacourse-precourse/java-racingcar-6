@@ -31,4 +31,10 @@ public class GameProgress {
 
         System.out.println();
     }
+
+    public static void printCarsPositionsProgress(int gameCount, List<String> cars, List<Integer> carsPositions) {
+        for (int i = 0; i < gameCount; i++) {
+            printCarsPositions(cars, carsPositions);
+        }
+    }
 }
