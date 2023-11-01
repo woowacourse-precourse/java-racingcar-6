@@ -28,5 +28,9 @@ public class RacingCar {
 
         List<Car> carList = Converter.nameListToCarList(nameList);
         cars = new Cars(carList.size(), carList);
+
+        racingCarView.printInputTryCountMessage();
+
+        String countString = readLine();
     }
 }

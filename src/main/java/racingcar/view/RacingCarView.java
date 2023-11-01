@@ -22,4 +22,8 @@ public class RacingCarView {
     public void printInputCarNameMessage() {
         System.out.println(CARS_NAME_PROMPT);
     }
+
+    public void printInputTryCountMessage() {
+        System.out.println(TRY_COUNT_PROMPT);
+    }
 }
