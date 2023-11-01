@@ -16,7 +16,7 @@ public class Car {
         this.carEngine = carEngine;
     }
 
-    public void moveCar() {
+    public void move() {
         int power = startEngine();
         if (canMove(power)) {
             position++;

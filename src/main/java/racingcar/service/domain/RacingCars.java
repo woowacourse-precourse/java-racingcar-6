@@ -58,7 +58,7 @@ public class RacingCars {
     }
 
     public List<Car> doRace() {
-        cars.forEach(Car::moveCar);
+        cars.forEach(Car::move);
         return Collections.unmodifiableList(cars);
     }
 }

@@ -26,7 +26,7 @@ class CarTest {
             Car car = new Car("junGi", new CustomCarEngine());
             // when
             for (int move = 0; move < totalMoveOrder; move++) {
-                car.moveCar();
+                car.move();
             }
             // then
             Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
@@ -39,7 +39,7 @@ class CarTest {
             Car car = new Car("junGi", () -> CAN_MOVE_EDGE_CONDITION);
             int expectedMoveCount = 1;
             // when
-            car.moveCar();
+            car.move();
             // then
             Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
@@ -51,7 +51,7 @@ class CarTest {
             Car car = new Car("p", () -> CANT_MOVE_EDGE_CONDITION);
             int expectedMoveCount = 0;
             // when
-            car.moveCar();
+            car.move();
             // then
             Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
@@ -68,7 +68,7 @@ class CarTest {
             Car car = new Car("준기", new CustomCarEngine());
             // when
             for (int move = 0; move < moveCount; move++) {
-                car.moveCar();
+                car.move();
             }
             // then
             Assertions.assertThat(car.isMaxPosition(expectedMaxPosition)).isTrue();
