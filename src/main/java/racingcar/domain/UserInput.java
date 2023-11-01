@@ -69,8 +69,7 @@ public class UserInput {
     }
 
     public int askNumberGame(String gameNum) throws IllegalArgumentException {
-        int numGame = Integer.parseInt(gameNum);
-        return numGame;
+        return Integer.parseInt(gameNum);
     }
 
 
