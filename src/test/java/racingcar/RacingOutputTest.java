@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import racingcarFP.Application;
+import racingcarFP.ApplicationFP;
 
 import java.util.ArrayList;
 import java.util.List;

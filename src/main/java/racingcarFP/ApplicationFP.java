@@ -7,15 +7,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Application {
+public class ApplicationFP {
 
-    public static void main(String[] args) {
-        try {
-            startRacing();
-        } catch (Exception e) {
-            System.err.println("잘못된 입력입니다");
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            startRacing();
+//        } catch (Exception e) {
+//            System.err.println("잘못된 입력입니다");
+//        }
+//    }
 
     private static void startRacing() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

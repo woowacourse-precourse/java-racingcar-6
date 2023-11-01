@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.io.IOException;
-
 public class Application {
     public static void main(String[] args) {
         Racing rc = new Racing();
