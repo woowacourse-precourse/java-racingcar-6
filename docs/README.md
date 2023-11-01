@@ -17,3 +17,33 @@
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
 - -> 자동차이름을 split한 후, split된 문자열이 5자리를 초과한 경우, round값을 숫자가 아닌 문자열로 받은 경우 예외 발생시키기
 
+
+
+## 객체지향적 설계
+
+Car클래스
+- name
+- position
+
+- isMove()
+- getStringPosition()
+
+RaceGame클래스
+- cars
+- round
+- result
+- winner
+
+- roundStart()
+- recordResult()
+- getWinner()
+
+RaceGameController클래스
+- start()
+- validCarNamesInput()
+- splitCarNamesInput()
+- validRoundInput()
+
+View클래스
+- getInputString()
+- showOutputString()
