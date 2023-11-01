@@ -6,6 +6,10 @@ public class NumberInputConverter {
     }
 
     public static int convert(String input) {
-        return Integer.parseInt(input);
+        try {
+            return Integer.parseInt(input.trim());
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException();
+        }
     }
 }
