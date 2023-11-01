@@ -8,6 +8,10 @@ public class Car{
     public int distance;
 
     public Car(String name){
+
+        if(name.length() > 5)
+            throw new IllegalArgumentException();
+
         this.name = name;
         this.distance = 0;
     }
