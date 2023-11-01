@@ -8,8 +8,8 @@ public class GameInfo {
     private final Round round;
 
     public GameInfo(String drivers, String roundNumber) {
-      this.racingCarDrivers = new RacingCarDrivers(drivers);
-      this.round = new Round(roundNumber);
+        this.racingCarDrivers = new RacingCarDrivers(drivers);
+        this.round = new Round(roundNumber);
     }
 
     public String[] getRacingCarDrivers() {

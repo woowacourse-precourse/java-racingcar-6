@@ -11,7 +11,6 @@ public class Racing {
     private GameInfo gameInfo;
 
 
-
     public void racingConfig() {
         String driverNames = view.driverInjectionView();
         String roundNumber = view.roundInjectionView();

@@ -16,7 +16,6 @@ class RacingCarDriversTest {
     String racingCarDriversName = "ha, kim, zin";
     String sizeOverName ="testName";
 
-
     @Test
     @DisplayName("RacingCarDrivers 배열 출력 TEST")
     void getRacingCarDriversArray() {

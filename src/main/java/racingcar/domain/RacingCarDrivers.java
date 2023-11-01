@@ -5,6 +5,7 @@ import racingcar.error.ErrorMessage;
 import racingcar.error.RacingCarDrivers.NameLengthExceededException;
 
 public class RacingCarDrivers {
+
     private static final String COMMAND = ",";
     private static final int LIMIT_SIZE = 5;
 
