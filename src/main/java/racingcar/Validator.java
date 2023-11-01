@@ -4,8 +4,8 @@ public class Validator {
     private static final int CAR_NAME_LENGTH_MAX_LIMIT = 5;
     private static final int ROUND_RANGE_MIN_LIMIT = 1;
 
-    public static void validateCarNames(String[] delimitedCarNames) {
-        if (isCarNamesOutOfLength(delimitedCarNames)) {
+    public static void validateCarNames(String[] separatedCarNames) {
+        if (isCarNamesOutOfLength(separatedCarNames)) {
             throw new IllegalArgumentException();
         }
     }
