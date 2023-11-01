@@ -16,8 +16,9 @@ public class GameController {
     }
 
     public void startGame() {
-        String carNames = view.readCarNames();
+        String carNames = view.readCarNamesInput();
         InputValidator.validateInputFormat(carNames);
+        InputValidator.validateCarNamesSeparator(carNames);
 
         List<String> carNameList = Arrays.asList(carNames.split(","));
         InputValidator.validateDuplicateCarNames(carNameList);
@@ -25,11 +26,12 @@ public class GameController {
         List<Car> cars = createCars(carNameList);
         Race race = new Race(cars);
 
-        int movement = view.readMovement();
-        InputValidator.validateMovement(movement);
-
+        String movementInputString = view.readMovementInput();
+        InputValidator.validateMovementString(movementInputString);
+        InputValidator.validateMovement(movementInputString);
         view.printGameStartMessage();
 
+        int movement = Integer.parseInt(movementInputString);
         for (int i = 0; i< movement ; i++){
             race.run(1);
             view.printRaceStatus(cars);

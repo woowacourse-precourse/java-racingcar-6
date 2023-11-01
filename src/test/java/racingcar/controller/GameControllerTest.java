@@ -9,8 +9,8 @@ public class GameControllerTest {
     @Test
     public void 정상적으로_시작_종료() {
         ConsoleView view = mock(ConsoleView.class);
-        when(view.readCarNames()).thenReturn("car1,car2");
-        when(view.readMovement()).thenReturn(5);
+        when(view.readCarNamesInput()).thenReturn("car1,car2");
+        when(view.readMovementInput()).thenReturn("5");
 
         GameController controller = new GameController(view);
         controller.startGame();

@@ -19,7 +19,7 @@ public class InputValidatorTest {
 
     @Test
     public void 이동횟수가_0이거나_음수일때() {
-        assertThatThrownBy(() -> InputValidator.validateMovement(-1))
+        assertThatThrownBy(() -> InputValidator.validateMovement("-1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이동횟수가 0 이하입니다.");
     }

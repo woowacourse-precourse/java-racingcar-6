@@ -19,7 +19,8 @@ public class InputValidator {
         }
     }
 
-    public static void validateMovement(int movement) {
+    public static void validateMovement(String movementInput) {
+        int movement = Integer.parseInt(movementInput);
         if (movement <= 0) {
             throw new IllegalArgumentException("시도횟수가 0 이하입니다.");
         }
@@ -35,6 +36,20 @@ public class InputValidator {
         Set<String> carNameSet = new HashSet<>(carNames);
         if (carNameSet.size() != carNames.size()){
             throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
+        }
+    }
+
+    public static void validateCarNamesSeparator(String input) {
+        if (input.contains(" ")) {
+            throw new IllegalArgumentException("자동차 이름은 쉼표(,)로만 구분해야 합니다.");
+        }
+    }
+
+    public static void validateMovementString(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자만 입력해야 합니다.", e);
         }
     }
 }
