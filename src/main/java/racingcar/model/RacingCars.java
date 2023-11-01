@@ -12,6 +12,10 @@ public class RacingCars {
 
     private final List<Car> racingCars;
 
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
+
     public RacingCars(List<Car> racingCars) {
         this.racingCars = racingCars;
     }
