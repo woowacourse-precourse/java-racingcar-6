@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -27,6 +28,125 @@ class ApplicationTest extends NsTest {
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[자동차 이름] 배열 구분")
+    @Test
+    void splitToArrayTest() {
+        String carNameString = "carA,carB,carC,carD,carE";
+        String[] result = InputHandler.splitToArray(carNameString);
+        String[] answer = {"carA", "carB", "carC", "carD", "carE"};
+
+        assertThat(result).isEqualTo(answer);
+    }
+
+    @DisplayName("[자동차 이름] 예외 발생 - 입력값 부재")
+    @Test
+    void carNameExceptionTest1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("\n", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[자동차 이름] 예외 발생 - 공백 포함")
+    @Test
+    void carNameExceptionTest2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,car C,carD,carE", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[자동차 이름] 예외 발생 - 쉼표(,) 2개이상 연속")
+    @Test
+    void carNameExceptionTest3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,,carB,carC,carD,carE", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[자동차 이름] 예외 발생 - 쉼표(,) 맨 앞/뒤 위치")
+    @Test
+    void carNameExceptionTest4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(",carA,carB,carC,carD,carE", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[자동차 이름] 예외 발생 - 길이 제한 초과")
+    @Test
+    void carNameExceptionTest5() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,mycarE", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[자동차 이름] 예외 발생 - 중복 입력")
+    @Test
+    void carNameExceptionTest6() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE,carB", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 숫자 변환")
+    @Test
+    void convertToNumberTest() {
+        String trialNumberString = "275";
+        int result = InputHandler.convertToNumber(trialNumberString);
+        int answer = 275;
+
+        assertThat(result).isEqualTo(answer);
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 입력값 부재")
+    @Test
+    void trialNumberExceptionTest1() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "\n"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 공백 포함")
+    @Test
+    void trialNumberExceptionTest2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", " 100"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 숫자가 아닌 문자 포함")
+    @Test
+    void trialNumberExceptionTest3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "150!"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 음수인 경우")
+    @Test
+    void trialNumberExceptionTest4() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "-150"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("[시도 횟수] 예외 발생 - 0으로 시작")
+    @Test
+    void trialNumberExceptionTest5() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("carA,carB,carC,carD,carE", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
