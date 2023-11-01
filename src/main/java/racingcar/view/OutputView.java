@@ -34,14 +34,16 @@ public class OutputView {
     }
 
     public void printRacingResultEachCount(List<RacingCar> racingCarList) {
+        // 자동차 이름과 위치를 담은 map 생성
         Map<String, Integer> namePositionMap = racingCarList.stream()
                 .collect(Collectors.toMap(RacingCar::getCarName, RacingCar::getCurrentPosition,
                         (oldPosition, newPosition) -> newPosition, LinkedHashMap::new));
-
+        // 각 자동차마다 자신의 위치만큼 출력
         for (String carName : namePositionMap.keySet()) {
             int currentPosition = namePositionMap.get(carName);
             printCarCurrentPosition(carName, currentPosition);
         }
+        System.out.print("\n");
     }
 
     private void printCarCurrentPosition(String carName, int currentPosition) {
