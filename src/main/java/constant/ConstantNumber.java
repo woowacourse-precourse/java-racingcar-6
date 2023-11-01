@@ -20,5 +20,4 @@ public enum ConstantNumber {
     public int getValue() {
         return this.value;
     }
-
 }

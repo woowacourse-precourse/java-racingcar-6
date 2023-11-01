@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import view.OutputView;
 
 public class OutputTest {
+    private static final int MOVING_FOWARD = 4;
+
     @Test
     @DisplayName("MoveCount 결과 일치 비교")
     void correct_move_count_check() {
@@ -20,7 +22,7 @@ public class OutputTest {
         List<Integer> moveCountLists = new ArrayList<>();
 
         cars.getCarsList().forEach(car -> {
-            car.moveOrStop(4);
+            car.moveOrStop(MOVING_FOWARD);
         });
 
         cars.getCarsList().forEach(car -> {
@@ -36,7 +38,7 @@ public class OutputTest {
         Cars cars = new Cars("a,b");
 
         cars.getCarsList().forEach(car -> {
-            car.moveOrStop(4);
+            car.moveOrStop(MOVING_FOWARD);
         });
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -66,7 +68,7 @@ public class OutputTest {
         Cars cars = new Cars("a,b");
 
         cars.getCarsList().forEach(car -> {
-            car.moveOrStop(4);
+            car.moveOrStop(MOVING_FOWARD);
         });
 
         List<String> winners = cars.getWinners();
