@@ -3,6 +3,8 @@ package racingcar.domain;
 public class Car {
     private final int MAXIMUM_NICKNAME_LENGTH = 5;
     private final int START_POSITION = 0;
+
+
     private final String nickname;
     private int position;
 
