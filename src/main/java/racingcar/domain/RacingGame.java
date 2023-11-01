@@ -14,10 +14,12 @@ public class RacingGame {
     private final List<Car> cars;
     private final Validator validator;
     private final MessagePrinter messagePrinter;
+    private final Referee referee;
 
     public RacingGame() {
         this.validator = Validator.getInstance();
         this.messagePrinter = MessagePrinter.getInstance();
+        this.referee = new Referee();
         this.cars = init();
     }
 
@@ -36,7 +38,7 @@ public class RacingGame {
         playRound(cars, playTimes);
         Console.close();
 
-        final List<Car> winners = judgeWinners(cars);
+        final List<Car> winners = referee.judgeWinners(cars);
         messagePrinter.winners(winners);
     }
 
@@ -62,19 +64,5 @@ public class RacingGame {
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_GENERATE_VALUE, MAX_GENERATE_VALUE);
-    }
-
-    private List<Car> judgeWinners(final List<Car> cars) {
-        final int maxPosition = getMaxPosition(cars);
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .toList();
-    }
-
-    private int getMaxPosition(final List<Car> cars) {
-        return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException("자동차의 위치는 정수이어야 합니다."));
     }
 }
