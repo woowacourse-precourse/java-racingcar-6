@@ -13,7 +13,7 @@ public class Validator {
                 throw new IllegalArgumentException("자동차 이름에는 공백을 포함할 수 없습니다.");
             }
             if(carName.length() < 1) {
-                throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+                throw new IllegalArgumentException("자동차 이름은 한글자 이상이어야 합니다");
             }
             if(carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
