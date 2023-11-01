@@ -23,4 +23,12 @@ public class PlayCountTest {
         assertThatThrownBy(() -> PlayCount.createDefault("-5")).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
     }
+
+    @Test
+    @DisplayName("일반 문자를 입력했을 시 예외가 발생한다.")
+    void notNumberInputExceptionTest() {
+        // when & then
+        assertThatThrownBy(() -> PlayCount.createDefault("abc")).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
+    }
 }
