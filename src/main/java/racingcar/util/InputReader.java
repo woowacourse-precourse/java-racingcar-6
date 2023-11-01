@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class inputReader {
+public class InputReader {
 
     public static List<Car> readCars() {
         String input = Console.readLine();

@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import racingcar.model.Car;
-import racingcar.util.inputReader;
+import racingcar.util.InputReader;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ public class Initializer {
 
     public static List<Car> initializeCars() {
         printReadCarName();
-        return inputReader.readCars();
+        return InputReader.readCars();
     }
 
     public static int initializeTryCount() {
         printReadTryCount();
-        return inputReader.readTryCount();
+        return InputReader.readTryCount();
     }
 }
