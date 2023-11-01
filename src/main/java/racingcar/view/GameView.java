@@ -3,15 +3,16 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.constants.Message;
 
 public class GameView {
     public String readCarNames(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Message.READ_CAR_NAME);
         return Console.readLine();
     }
 
     public String readNumberOfMoves() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Message.READ_NUMBER_OF_MOVES);
         return Console.readLine();
     }
 
@@ -25,14 +26,14 @@ public class GameView {
     }
 
     public void printResult(List<Car> cars, int numberOfMoves) {
-        System.out.println("실행 결과");
+        System.out.println(Message.PRINT_RESULT);
         for(int i=1;i<=numberOfMoves;i++){
             printPositions(cars, i);
         }
     }
 
     public void printWinners(List<Car> winners){
-        System.out.print("최종 우승자 : ");
+        System.out.print(Message.PRINT_WINNER);
         System.out.println(String.join(",", winners.stream()
                 .map(Car::getName)
                 .toList()));

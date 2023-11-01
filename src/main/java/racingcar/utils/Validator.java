@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import racingcar.constants.Message;
+
 public class Validator {
     private static boolean hasValidLength(String rawString){
         String[] strings = rawString.split(",");
@@ -22,19 +24,16 @@ public class Validator {
 
     public static void validateCarNames(String carNames){
         if(!hasValidLength(carNames)){
-            throw new IllegalArgumentException("Car name only can be 1 to 5 characters.");
+            throw new IllegalArgumentException(Message.ERROR_INVALID_CAR_NAME);
         }
     }
 
     public static void validateNumberOfMoves(String numberOfMoves){
-        if(numberOfMoves.trim().isEmpty()){
-            throw new IllegalArgumentException("Number of moves can't be empty.");
-        }
         if(!isInteger(numberOfMoves)){
-            throw new IllegalArgumentException("Number of moves only can be integer.");
+            throw new IllegalArgumentException(Message.ERROR_NOT_INTEGER);
         }
         if(Integer.parseInt(numberOfMoves) < 1){
-            throw new IllegalArgumentException("Number of moves can't be less than 1.");
+            throw new IllegalArgumentException(Message.ERROR_INVALID_INTEGER);
         }
     }
 }
