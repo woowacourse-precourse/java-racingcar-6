@@ -18,8 +18,7 @@ public class Input {
         inputException.inputSeparatorException(input);
 
         String[] cars = input.split(",");
-        if(cars.length == 1)
-            throw new IllegalArgumentException("자동차는 2대 이상이 경기에 참여해야 합니다");
+        inputException.inputCarsSizeException(cars);
         for(String carName : cars){
             if(carName.length()  > 5){
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
