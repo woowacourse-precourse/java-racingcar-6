@@ -1,7 +1,10 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class OutputView {
     private final static String RESULTMESSAGE = "실행 결과";
+    private final static String WINNERMESSAGE = "최종 우승자 : ";
 
     public static void showResultMessage() {
         System.out.println(RESULTMESSAGE);
@@ -21,5 +24,9 @@ public class OutputView {
             distanceString.append("-");
         }
         return distanceString.toString();
+    }
+
+    public static void winnerResult(List<String> winnerCars) {
+        System.out.println(WINNERMESSAGE + String.join(", ", winnerCars));
     }
 }
