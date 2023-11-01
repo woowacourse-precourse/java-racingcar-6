@@ -48,4 +48,45 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void length_메서드로_문자열의_길이를_확인() {
+        String input = "Hello, World!";
+        int length = input.length();
+
+        assertThat(length).isEqualTo(13);
+    }
+
+    @Test
+    void trim_메서드로_문자열_앞뒤의_공백을_제거() {
+        String input = "   Hello, World!   ";
+        String trimmed = input.trim();
+
+        assertThat(trimmed).isEqualTo("Hello, World!");
+    }
+
+    @Test
+    void equalsIgnoreCase_메서드로_대소문자_구분_없는_문자열_비교() {
+        String input = "Hello, World!";
+        boolean isEqual = input.equalsIgnoreCase("hello, world!");
+
+        assertThat(isEqual).isTrue();
+    }
+
+    @Test
+    void concat_메서드로_두_문자열을_연결() {
+        String firstPart = "Hello, ";
+        String secondPart = "World!";
+        String concatenated = firstPart.concat(secondPart);
+
+        assertThat(concatenated).isEqualTo("Hello, World!");
+    }
+
+    @Test
+    void startsWith_메서드로_문자열이_특정_문자열로_시작하는지_확인() {
+        String input = "Hello, World!";
+        boolean startsWithHello = input.startsWith("Hello");
+
+        assertThat(startsWithHello).isTrue();
+    }
+
 }
