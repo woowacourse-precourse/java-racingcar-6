@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.car.Cars;
-import racingcar.domain.car.GameRound;
+import racingcar.domain.round.GameRound;
 import racingcar.view.InputView;
 
 public class RacingGameController {

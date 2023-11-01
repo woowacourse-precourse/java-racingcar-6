@@ -1,4 +1,4 @@
-package racingcar.domain.car.validator;
+package racingcar.domain.round.validator;
 
 import racingcar.constant.errorMessage.ErrorMessages;
 import racingcar.constant.errorMessage.InvalidArgumentException;
