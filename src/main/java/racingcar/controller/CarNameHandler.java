@@ -38,25 +38,25 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
 
     private void isValidCarCount(int carCount){
         if (carCount < MIN_CAR_COUNT){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.MIN_CAR_COUNT_ERROR_MESSAGE);
         }
     }
 
     private void isCarNameEmpty(String carName) {
         if (carName.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.EMPTY_NAME_ERROR);
         }
     }
 
     private void isValidLength(String carName) {
         if (carName.length() > MAX_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_LENGTH_MESSAGE);
         }
     }
 
     private void isDuplicated(String carName) {
         if (carNameList.contains(carName)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATION_MESSAGE);
         }
     }
 

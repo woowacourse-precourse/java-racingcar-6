@@ -20,7 +20,7 @@ public class RacingCarController {
         int roundCount = getRoundCount();
 
         while (roundCount != 0) {
-            model.takeStep();
+            model.attemptMove();
             Iterator<String> roundResultIterator = model.getRoundResultIterator();
             view.displayRoundResults(roundResultIterator);
 

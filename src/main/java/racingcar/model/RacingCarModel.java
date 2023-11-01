@@ -41,7 +41,7 @@ public class RacingCarModel {
         return roundResults.iterator();
     }
 
-    public void takeStep() {
+    public void attemptMove() {
         for (Car car : carList) {
             car.attemptMove();
         }
