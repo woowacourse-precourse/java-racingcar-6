@@ -170,16 +170,33 @@ public class Application {
     }
 
     public static void output(Map<String, Integer> map) {
-        ArrayList<String> list = new ArrayList<>();
-        Comparator<Map.Entry<String, Integer>> comparator = new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o1.getValue().compareTo(o2.getValue());
-            }
-        };
-        Map.Entry<String, Integer> maxEntry = Collections.max(map.entrySet(), comparator);
-        list.add(maxEntry.getKey());
+        int max = getMax(map);
+        ArrayList<String> list = addList(max, map);
         out(list);
+    }
+
+    public static int getMax(Map<String, Integer> map) {
+        int max = 0;
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (max < entry.getValue()) {
+                max = entry.getValue();
+            }
+        }
+
+        return max;
+    }
+
+    public static ArrayList<String> addList(int max, Map<String, Integer> map) {
+        ArrayList<String> list = new ArrayList<>();
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (max == entry.getValue()) {
+                list.add(entry.getKey());
+            }
+        }
+
+        return list;
     }
 
     public static void out(ArrayList<String> list) {
