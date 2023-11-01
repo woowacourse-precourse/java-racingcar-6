@@ -1,6 +1,8 @@
 package racingcar.model;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
@@ -15,9 +17,21 @@ class NameTest {
 
         // when
         //then
-        Assertions.assertThatThrownBy(() -> {
+        assertThatThrownBy(() -> {
             Name.of(name);
         }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 이름이_다섯_글자가_이하면_Name_을_생성할_수_있다() throws Exception {
+        // given
+        String name = "55555";
+
+        // when
+        //then
+        assertThatCode(() -> {
+            Name.of(name);
+        }).doesNotThrowAnyException();
     }
 
 }
