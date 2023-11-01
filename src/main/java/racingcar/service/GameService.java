@@ -14,7 +14,6 @@ public class GameService {
     private static final int FORWARD_NUMBER = 4;
     private static final int INITIAL_MAX_VALUE = -1;
 
-    // 쉼표(,)를 기준으로 입력된 자동차 이름 분해 후 List에 저장
     public List<String> parseCarName(String input) {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
@@ -26,7 +25,6 @@ public class GameService {
 
     public List<String> getWinner(Game game) {
         List<Car> cars = game.getCars();
-        // maxPosition 뽑기
         int maxPosition = getMaxPosition(cars);
         return getMaxPositionCars(cars, maxPosition);
     }
@@ -37,19 +35,16 @@ public class GameService {
         }
     }
 
-    // 무작위 값이 4 이상일 때 전진
     private void moveForwardByRandomNumber(Car car) {
         if (pickRandomNumber() >= FORWARD_NUMBER) {
             car.moveForward(1);
         }
     }
 
-    // 자동차 별 무작위 값을 구함
     private Integer pickRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
-    // position이 가장 큰 자동차의 이름 배열에 저장
     private List<String> getMaxPositionCars(List<Car> cars, int maxPosition) {
         List<String> carNames = new ArrayList<>();
         for (Car car : cars) {
@@ -60,7 +55,6 @@ public class GameService {
         return carNames;
     }
 
-    // 가장 큰 position 값 구하기
     private int getMaxPosition(List<Car> cars) {
         int max = INITIAL_MAX_VALUE;
         for (Car car : cars) {
