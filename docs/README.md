@@ -25,8 +25,12 @@
 
 ## 자동차 경주 세상
 
-<img width="732" alt="image" src="https://github.com/ddoddii/ddoddii.github.io/assets/95014836/3f614c97-47ee-414a-a7fa-1da07219267a">
+### 객체
 
+<img width="800" alt="image" src="https://github.com/ddoddii/ddoddii.github.io/assets/95014836/3f614c97-47ee-414a-a7fa-1da07219267a">
+
+### Model-View-Controller
+<img width="847" alt="image" src="https://github.com/ddoddii/ddoddii.github.io/assets/95014836/1ea355b7-58dd-4b38-9cb8-9f30d3b7b99a">
 
 ## 🤖 객체의 행동
 - `Car`
