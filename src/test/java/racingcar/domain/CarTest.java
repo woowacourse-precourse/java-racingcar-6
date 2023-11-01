@@ -42,7 +42,7 @@ public class CarTest {
         car.move(4);
         expectedCarAfterMove.move(4);
 
-        assertThat(car.getProgressStatus()).isEqualTo(expectedCarAfterMove.getProgressStatus());
+        assertThat(car.getCarStatus()).isEqualTo(expectedCarAfterMove.getCarStatus());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class CarTest {
 
         car.move(3);
 
-        assertThat(car.getProgressStatus()).isEqualTo(expectedCarAfterNotMoving.getProgressStatus());
+        assertThat(car.getCarStatus()).isEqualTo(expectedCarAfterNotMoving.getCarStatus());
     }
 
 }
