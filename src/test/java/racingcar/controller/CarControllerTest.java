@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.CarManager;
 import racingcar.util.RandomNumberGenerator;
 
 class CarControllerTest {
@@ -16,14 +17,14 @@ class CarControllerTest {
             return 5;
         }
     };
-    CarController carController = new CarController(randomNumberGenerator);
+    CarManager carManager = new CarManager(randomNumberGenerator);
     @Test
     public void 초기_자동차_이름_위치_테스트() throws Exception {
         //given
         List<String> carNames = Arrays.asList("car1", "car2", "car3");
 
         //when
-        List<Car> cars = carController.initializeCars(carNames);
+        List<Car> cars = carManager.initializeCars(carNames);
 
         //then
         assertThat(cars).hasSize(3);
@@ -42,7 +43,7 @@ class CarControllerTest {
         List<Car> cars = Arrays.asList(new Car("car1", 0), new Car("car2", 0));
 
         //when
-        carController.moveCarForward(cars);
+        carManager.moveCarForward(cars);
 
         //then
         assertThat(cars.get(0).getPosition()).isEqualTo(1);
@@ -59,7 +60,7 @@ class CarControllerTest {
                 new Car("car4", 2)
         );
         //when
-        List<Car> winners = carController.findWinners(cars);
+        List<Car> winners = carManager.findWinners(cars);
 
         //then
         assertThat(winners).hasSize(1);

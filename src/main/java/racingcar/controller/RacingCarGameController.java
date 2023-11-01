@@ -3,26 +3,27 @@ package racingcar.controller;
 import java.util.List;
 
 import racingcar.domain.Car;
+import racingcar.domain.CarManager;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarGameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final CarController carController;
+    private final CarManager carManager;
 
 
-    public RacingCarGameController(InputView inputView, OutputView outputView, CarController carController) {
+    public RacingCarGameController(InputView inputView, OutputView outputView, CarManager carManager) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.carController = carController;
+        this.carManager = carManager;
     }
 
     public void play() {
 
         String names = inputView.getCarNames();
         List<String> carNames = inputView.getSplitCarNames(names);
-        List<Car> cars = carController.initializeCars(carNames);
+        List<Car> cars = carManager.initializeCars(carNames);
         int moveCount = inputView.getMoveCount();
 
         playGame(cars, moveCount);
@@ -31,7 +32,7 @@ public class RacingCarGameController {
     }
 
     private void gameResult(List<Car> cars) {
-        List<Car> winners = carController.findWinners(cars);
+        List<Car> winners = carManager.findWinners(cars);
         outputView.printWinners(winners);
     }
 
@@ -40,7 +41,7 @@ public class RacingCarGameController {
         System.out.println("실행 결과");
 
         for (int i = 0; i < moveCount; i++) {
-            carController.moveCarForward(cars);
+            carManager.moveCarForward(cars);
             outputView.printPositions(cars);
         }
     }

@@ -1,15 +1,14 @@
-package racingcar.controller;
+package racingcar.domain;
 
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
 import racingcar.util.RandomNumberGenerator;
 
-public class CarController {
+public class CarManager {
     private final RandomNumberGenerator randomNumberGenerator;
 
-    public CarController(RandomNumberGenerator randomNumberGenerator) {
+    public CarManager(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 

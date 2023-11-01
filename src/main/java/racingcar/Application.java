@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.controller.CarController;
+import racingcar.domain.CarManager;
 import racingcar.controller.RacingCarGameController;
 import racingcar.util.RandomNumber;
 import racingcar.util.RandomNumberGenerator;
@@ -14,9 +14,9 @@ public class Application {
         OutputView outputView = new OutputView();
 
         RandomNumberGenerator randomNumberGenerator = new RandomNumber();
-        CarController carController = new CarController(randomNumberGenerator);
+        CarManager carManager = new CarManager(randomNumberGenerator);
 
-        RacingCarGameController gameController = new RacingCarGameController(inputView, outputView, carController);
+        RacingCarGameController gameController = new RacingCarGameController(inputView, outputView, carManager);
         gameController.play();
     }
 }
