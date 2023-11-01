@@ -7,6 +7,7 @@ import racingcar.utils.StringGenerator;
 import racingcar.validation.InputValidator;
 
 public class UserInputHandler {
+    private final static int NAME_LIMIT_LENGTH = 5;
     public List<String> getCarNameInput(){
         System.out.println(GameMessage.CAR_NAME_INPUT_NOTICE.getMessage());
         String nameString = Console.readLine();
@@ -16,7 +17,7 @@ public class UserInputHandler {
         List<String> carNames = StringGenerator.generateCarName(trimmedString, ",");
         for (String carName: carNames) {
             InputValidator.validateBlank(carName);
-            InputValidator.validateLength(carName, 5);
+            InputValidator.validateLength(carName, NAME_LIMIT_LENGTH);
         }
 
         InputValidator.validateDuplicate(carNames);
