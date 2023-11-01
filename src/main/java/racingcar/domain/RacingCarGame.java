@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class RacingCarGame {
@@ -27,6 +28,37 @@ public class RacingCarGame {
         }
     }
 
+    public List<RacingCar> chooseWinner(List<RacingCar> cars) {
+        List<RacingCar> winners = new ArrayList<>();
+        cars.sort(new Comparator<RacingCar>() {
+            @Override
+            public int compare(RacingCar o1, RacingCar o2) {
+                return o1.distance - o2.distance;
+            }
+        });
+
+        int max = cars.get(cars.size() - 1).distance;
+
+        for (RacingCar car : cars) {
+            if (car.distance == max) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    public void printWinnerName(List<RacingCar> winners) {
+        System.out.print("최종 우승자 : ");
+
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i).getName());
+            if (i != winners.size() - 1) {
+                System.out.print(",");
+            }
+        }
+    }
+
     public void init() {
         Player player = new Player();
         List<RacingCar> cars = createRacingCars(player.inputNames());
@@ -38,5 +70,6 @@ public class RacingCarGame {
             printRoundScore(cars);
             System.out.println();
         }
+        printWinnerName(chooseWinner(cars));
     }
 }
