@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -76,8 +78,8 @@ class CarRaceGameTest {
         players[0] = new Player("Player");
 
         //when
-        printResult(players);
         players[0].setRandomNumber(9);
+        printResult(players);
 
         //then
         String consoleOutput  = outputStream.toString().trim();
@@ -87,7 +89,7 @@ class CarRaceGameTest {
 
     }
 
-    @DisplayName("printResult 메서드 동작 테스트 랜덤 값이 4 이하일때")
+    @DisplayName("printResult 메서드 동작 테스트 랜덤 값이 4 미만일때")
     @Test
     void printResultUnder4Test() {
         //given
@@ -95,14 +97,30 @@ class CarRaceGameTest {
         players[0] = new Player("Player");
 
         //when
+        players[0].setRandomNumber(3);
         printResult(players);
-        players[0].setRandomNumber(9);
 
         //then
         String consoleOutput  = outputStream.toString().trim();
 
-        String expectedOutput = "Player : -";
+        String expectedOutput = "Player :";
         assertEquals(consoleOutput,expectedOutput);
 
+    }
+
+    @DisplayName("getMaxDistance 메서드 동작 테스트")
+    @Test
+    void getMaxDistanceTest(){
+        //given
+        Player[] players = new Player[3];
+        for(int i = 0; i < players.length; i++) {
+            players[i] = new Player("Player " + i);
+            players[i].setDistance(i);
+        }
+        //when
+        int maxDistance = getMaxDistance(players);
+
+        //then
+        assertThat(players[2].getDistance()).isEqualTo(maxDistance);
     }
 }

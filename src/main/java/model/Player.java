@@ -33,13 +33,18 @@ public class Player {
     }
 
     public String getDistanceLine() {
-        if(this.randomNumber >= 4)
+        if(this.randomNumber >= 4) {
             distanceLine = distanceLine + "-";
             distance++;
+        }
         return distanceLine;
     }
 
     public int getDistance() {
         return distance;
+    }
+
+    public void setDistance(int distance){
+        this.distance = distance;
     }
 }

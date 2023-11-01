@@ -4,8 +4,12 @@ import model.Player;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class CarRaceGame {
 
     public static void run() {
@@ -18,15 +22,15 @@ public class CarRaceGame {
         int gameCount = Integer.parseInt(readLine());
         System.out.println("실행 결과");
         for(int i = 0; i < gameCount; i++){
+            generateRandomNumber(players);
             printResult(players);
             System.out.println();
         }
-        printWinner();
+        System.out.print("최종 우승자 :");
+
 
         // 입력한 값 숫자가 맞는지 에러처리기능(추후 메서드 화 시켜야함) - docs 변경 리펙토링
         // printResult(int n) - docs 변경 리펙토링
-        //printWinner()
-
     }
     public static String[] saveName(String userInputName) {
         String[] userNames = userInputName.split(",");
@@ -46,14 +50,16 @@ public class CarRaceGame {
         }
     }
     public static void printResult(Player[] players) {
-        generateRandomNumber(players);
         for(int i = 0; i < players.length; i++){
             System.out.println(players[i].getName() + " : " + players[i].getDistanceLine());
         }
     }
-    public static void printWinner() {
-
+    public static int getMaxDistance(Player[] players){
+        int maxDistance = 0;
+        for(Player player : players) {
+            if (maxDistance < player.getDistance())
+                maxDistance = player.getDistance();
+        }
+        return maxDistance;
     }
-
-
 }
