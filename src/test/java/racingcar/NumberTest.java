@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NumberTest{
+public class NumberTest {
     @DisplayName("랜덤값이 올바른 범위안에 존재하는지 테스트")
     @Test
     public void generateRandomNumberShouldReturnNumberInRange() {
