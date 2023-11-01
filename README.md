@@ -161,3 +161,30 @@ Randoms.pickNumberInRange(0,9);
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+  ---
+  ## 과제 진행 기능 목록 단위
+  1. 사용자가 자동차 이름 입력시 (",) 기준으로 자동차가 생성 되어야함
+  2. 사용자가 n 입력시 자동차가 움직임
+  3. 자동차는 random 수를 임의적으로 생성하여 4 이상일 시 움직임
+  4. 자동차가 n 번째 각 횟수차에 움직임을 view로 보여줌
+  5. 최종적으로 가장 많이 간 우승자를 보여줌
+
+  ### 요구 기능
+  1. 자동차 생성
+  2. 자동차 움직임
+  3. 우승 자동차 보여줌
+ 
+  ### 입력
+  1. 자동차 이름
+  2. 횟수를 입력할 n
+ 
+  ### 출력
+  1. n번동안 진행된 각각의 차량 움직임
+  2. 최종적으로 웃승자
+ 
+  ### 진행 흐름
+  view 에서 자동차 이름들을 입력을 받아 -> service에서 "," 기준으로 자동차 생성 후 -> repository 의 list에 저장
+  view 에서 n개의 횟수를 받아 n번 만큼 루프 -> 루프시 안에서 service에서 자동차 움직임 -> 각 자동차를 repository에서 꺼내오고 움직인 후 repository에 저장 
+  view 에서 최종 결과 우승자 출력 -> 우승자는 service 안에서 ->repository 에서 리스트를 가져와 비교 후 view로 전달
+     
