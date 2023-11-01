@@ -10,10 +10,10 @@ public class Constants {
     public static final String INSERT_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String RESULT_MESSAGE = "실행 결과";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
-    public static final String NAME_SIZE_MESSAGE = "이름은 다섯자 이하로 입력해야 합니다.";
-    public static final String RIGHT_NAME_MESSAGE = "이름은 이름, 이름형식의 패턴을 지켜주세요.";
-    public static final String SAME_NAME_MESSAGE = "이름은 모두 다르게 입력해주세요.";
+    public static final String NAME_SIZE_MESSAGE = "자동차 이름은 5자 이내로 입력해주세요.";
+    public static final String RIGHT_NAME_MESSAGE = "자동차 이름은 '이름,이름' 형식의 패턴을 지켜주세요.";
+    public static final String SAME_NAME_MESSAGE = "자동차 이름은 모두 다르게 입력해주세요.";
     public static final String Right_Number_MESSAGE = "숫자를 입력해주세요.";
     public static final Pattern ROUND_NUMBER_PATTERN = Pattern.compile("^[0-9]*$");
-    public static final Pattern NAME_STRING_PATTERN = Pattern.compile("^[가-힣\\w]+[가-힣\\w" + "," + "]*[가-힣\\w]$");
+    public static final Pattern NAME_STRING_PATTERN = Pattern.compile("^[가-힣\\w]+[가-힣,\\w]*[가-힣\\w]$");
 }
