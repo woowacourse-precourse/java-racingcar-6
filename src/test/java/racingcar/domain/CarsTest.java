@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -20,6 +21,13 @@ class CarsTest {
         assertThat(cars.dtos())
                 .extracting(CarDto::name)
                 .containsExactlyInAnyOrderElementsOf(carNames);
+    }
+
+    @Test
+    void 자동차_이름이_중복되면_예외가_발생한다() {
+        List<String> carNames = List.of("apple", "melon", "melon");
+        assertThatThrownBy(() -> Cars.from(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest

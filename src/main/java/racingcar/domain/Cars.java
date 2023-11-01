@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.HashSet;
 import java.util.List;
 import racingcar.domain.strategy.MovingStrategy;
 import racingcar.dto.CarDto;
@@ -12,8 +13,15 @@ public class Cars {
     }
 
     public static Cars from(List<String> carNames) {
+        validateDuplicated(carNames);
         List<Car> cars = mapToCars(carNames);
         return new Cars(cars);
+    }
+
+    private static void validateDuplicated(List<String> carNames) {
+        if (carNames.size() != new HashSet<>(carNames).size()) {
+            throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
+        }
     }
 
     private static List<Car> mapToCars(List<String> carNames) {
