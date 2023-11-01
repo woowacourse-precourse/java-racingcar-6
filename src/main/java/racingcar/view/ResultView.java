@@ -29,14 +29,22 @@ public class ResultView {
     }
 
     private void printRecord(CarRaceRecord record) {
-        System.out.printf(RESULT_FORMAT, record.carName(), TRACE.repeat(record.distance()));
+        System.out.printf(
+                RESULT_FORMAT,
+                record.carName(),
+                TRACE.repeat(record.distance())
+        );
     }
 
     public void printWinners(Winners winners) {
+        System.out.println(WINNERS + getWinnersAsString(winners));
+    }
+
+    private String getWinnersAsString(Winners winners) {
         StringJoiner winnerNamesWithCommas = new StringJoiner(DELIMITER_COMMA);
         winners.stream()
                 .map(CarName::toString)
                 .forEach(winnerNamesWithCommas::add);
-        System.out.println(WINNERS + winnerNamesWithCommas);
+        return winnerNamesWithCommas.toString();
     }
 }
