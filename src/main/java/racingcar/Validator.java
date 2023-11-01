@@ -5,6 +5,13 @@ import java.util.List;
 
 public class Validator {
 
+    static void carNamesString(String carNamesWithComma) throws IllegalArgumentException {
+        int numOfCars = carNamesWithComma.length();
+        if (carNamesWithComma.charAt(0) == ',' || carNamesWithComma.charAt(numOfCars - 1) == ',') {
+            throw new IllegalArgumentException();
+        }
+    }
+
     static void carNames(String[] carNames) throws IllegalArgumentException {
         List<String> uniqueCarNames = new ArrayList<>();
         for (String carName : carNames) {
@@ -20,9 +27,8 @@ public class Validator {
             }
             if (uniqueCarNames.contains(carName)) {
                 throw new IllegalArgumentException();
-            } else {
-                uniqueCarNames.add(carName);
             }
+            uniqueCarNames.add(carName);
         }
     }
 

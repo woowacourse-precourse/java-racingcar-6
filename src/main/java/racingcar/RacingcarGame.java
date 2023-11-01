@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingcarGame {
@@ -31,6 +30,7 @@ public class RacingcarGame {
     }
 
     public String[] getCarNames(String carNamesWithComma) throws IllegalArgumentException {
+        Validator.carNamesString(carNamesWithComma);
         String[] carNames = carNamesWithComma.split(",");
         Validator.carNames(carNames);
         return carNames;
