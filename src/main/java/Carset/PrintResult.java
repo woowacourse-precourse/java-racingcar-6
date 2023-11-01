@@ -32,6 +32,9 @@ public class PrintResult {
 			}
 		}
 		
+		List<String> winners = determineWinners();
+		printWinners(winners);
+		
 		
 	}
 	
@@ -60,6 +63,11 @@ public class PrintResult {
 			}
 		}
 		return winners;
+	}
+	
+	
+	private void printWinners(List<String> winners) {
+		System.out.println("\n최종 우승자 : " +String.join(",", winners));
 	}
 	
 }
