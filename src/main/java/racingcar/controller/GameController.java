@@ -6,8 +6,7 @@ import racingcar.model.User;
 import racingcar.view.GameView;
 
 import java.util.List;
-import java.util.Random;
-
+import camp.nextstep.edu.missionutils.Randoms;
 public class GameController {
     GameView gameView = new GameView();
     private final User user = new User();
@@ -23,11 +22,10 @@ public class GameController {
 
     // 0에서 9 사이의 무작위 값 생성. 4 이상이면 이동.
     public void moveCars() {
-        Random random = new Random();
         System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
             for (Car car : cars) {
-                int randomNumber = random.nextInt(10);
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
                 if (randomNumber >= 4) {
                     car.move();
                 }
