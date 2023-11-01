@@ -22,4 +22,20 @@ public class RaceView {
             throw new IllegalArgumentException(e.getMessage());
         }
     }
+
+    /**
+     * 사용자에게 라운드 수를 입력할 것을 요구합니다.
+     * @return 입력한 정수
+     * @throws IllegalArgumentException 사용자 입력을 정수로 바꿀 수 없는 경우
+     */
+    public static int getTotalRound() throws IllegalArgumentException {
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        try {
+            String input = Console.readLine();
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+    }
 }
