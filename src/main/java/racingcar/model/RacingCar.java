@@ -9,10 +9,8 @@ public class RacingCar {
         this.position = 0;
     }
 
-    public void move(int number) {
-        if (number >= 4) {
-            position++;
-        }
+    public void move(int distance) {
+        this.position += distance;
     }
 
     public String getName() {

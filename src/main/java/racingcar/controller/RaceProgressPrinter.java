@@ -14,9 +14,10 @@ public class RaceProgressPrinter {
         for (RacingCar car : cars) {
             StringBuilder result = new StringBuilder(car.getName() + " : ");
             for (int i = 0; i < car.getPosition(); i++) {
-                result.append("-");
+                    result.append("-");
             }
             view.printMessage(result.toString());
+            result.setLength(0);
         }
     }
 }
