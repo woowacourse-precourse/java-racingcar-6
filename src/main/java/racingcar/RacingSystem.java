@@ -1,14 +1,14 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.lang.reflect.Array;
-import java.rmi.server.RemoteRef;
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
 
 public class RacingSystem {
 //    public static ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();
+    ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();//this is for actual race record
+    ArrayList<ArrayList<String>> winnerCheckList = new ArrayList<>();//this is for chcking winner
     EvaluateSystem raceCount = new EvaluateSystem();
     public void nameInput() {
         System.out.printf("자동차 이름은 쉼표(,)를 기준으로 구분하여 작성 부탁 드리며, 이름은 5자 이하로 작성 요망 : ");
@@ -26,35 +26,32 @@ public class RacingSystem {
     }
     public int sequenceSystem(int count, String[] carList) {
         int tempCount = 0;
-        int raceStep = 0;
-        ArrayList<ArrayList<Integer>> carRecordSheet = new ArrayList<>();//this is for actual race record
-        ArrayList<ArrayList<String>> winnerCheckList = new ArrayList<>();//this is for chcking winner
+
         addRecord(winnerCheckList, carList);// bring name list to arraylist
         makeRecord(carRecordSheet,carList.length);//declaring column by name
-        while (tempCount < count) {
+        for (int i = 0; i < count; i++) {
             addRecord(carRecordSheet, carList.length);//recording race
-            //raceStep++;
             displaySystem(winnerCheckList, carRecordSheet, carList);
-            raceCount.winnerSearch(winnerCheckList, carList);
         }
+        raceCount.winnerSearch(winnerCheckList, carList);
+
         return 0;
     }
     public void makeRecord(ArrayList<ArrayList<Integer>> raceSheet, int nameGroupSize) {
-        ArrayList<Integer> tempList = new ArrayList<>();
         for (int i = 0; i < nameGroupSize; i++) {
-            tempList.add(i);
+            raceSheet.add(new ArrayList<>());
         }
-        raceSheet.add(tempList);
-    }
+   }
 
-    public void addRecord(ArrayList<ArrayList<Integer>> raceSheet, int carListSize) {
+    public void addRecord(ArrayList<ArrayList<Integer>> racingSheet, int carListSize) {
         for (int i = 0; i < carListSize; i++) {
-            raceSheet.get(i).add(raceCount.racingCondition());
+            racingSheet.get(i).add(raceCount.racingCondition());
         }
     }
     public void addRecord(ArrayList<ArrayList<String>> resultSheet, String[]ownerList) {
-        ArrayList<String> tempName = new ArrayList<>(Arrays.asList(ownerList));
-        resultSheet.add(tempName);
+        for (String owner : ownerList) {
+            resultSheet.add(new ArrayList<>(Arrays.asList(owner)));
+        }
     }
     public static void displaySystem(ArrayList<ArrayList<String>> resultRecord, ArrayList<ArrayList<Integer>> RecordSheet, String[] carName) {
         for (int j = 0; j < RecordSheet.size(); j++) {
@@ -62,8 +59,7 @@ public class RacingSystem {
             for (int k = 0; k < RecordSheet.get(j).size(); k++) {
                 displayCheck(j, RecordSheet.get(j).get(k), resultRecord);
             }
-
-            System.out.println("");
+            System.out.println("\n");
         }
 //        EvaluateSystem.winnerDisplay(recordWinner, carName);
     }
