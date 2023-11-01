@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class CarTest {
 
     private static final int SUCCESS_MOVE_NUMBER = 4;
+    private static final int FAIL_MOVE_NUMBER = 3;
 
     @ParameterizedTest
     @ValueSource(strings = {"Ahri", "Yasuo", "Jinx"})
@@ -34,6 +35,18 @@ class CarTest {
         //then
         assertThat(ahriCar.getPosition()).isEqualTo(3);
         assertThat(yasuoCar.getPosition()).isEqualTo(1);
+    }
+
+    @Test
+    void 자동차가_이동시_임계치_이하의_숫자일_경우_멈춘다() {
+        //given
+        Car car = new Car("Ahri");
+
+        //when
+        car.run(FAIL_MOVE_NUMBER);
+
+        //then
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
     @Test
