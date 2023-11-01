@@ -19,7 +19,7 @@ public class GameController {
         int trialNum = createTrialNum();
         Game game = new Game(carList, trialNum);
 
-        while (!finishedGame(trialNum, game.getTriedNum())) {
+        while (!finishGame(trialNum, game.getTriedNum())) {
             gameService.play(game);
             OutputView.printScore(game.getCars());
         }
@@ -32,16 +32,16 @@ public class GameController {
         String carName = InputView.getCarNames();
         List<String> carNames = gameService.parseCarName(carName);
         validator.checkCarName(carNames);
-        return saveCars(carNames);
+        return convertCarName(carNames);
     }
 
     private int createTrialNum() {
         String countTrial = InputView.getTrialNum();
         validator.checkVaildNum(countTrial);
-        return saveTrialNum(countTrial);
+        return convertTrialNumToInt(countTrial);
     }
 
-    private List<Car> saveCars(List<String> carNames) {
+    private List<Car> convertCarName(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName);
@@ -50,12 +50,12 @@ public class GameController {
         return cars;
     }
 
-    private int saveTrialNum(String input) {
+    private int convertTrialNumToInt(String input) {
         int trialNum = Integer.parseInt(input);
         return trialNum;
     }
 
-    private boolean finishedGame(int trialNum, int triedNum) {
+    private boolean finishGame(int trialNum, int triedNum) {
         if (trialNum == triedNum) {
             return true;
         }
