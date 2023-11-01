@@ -6,6 +6,7 @@ import racingcar.io.CarOutput;
 
 public class CarService {
     private final CarRepository carRepository;
+    private int round;
 
     public CarService() {
         carRepository = new CarRepository();
@@ -25,12 +26,15 @@ public class CarService {
 
     private void getRound() {
         CarOutput.printGetRound();
-        carRepository.setRound(CarInput.getRound());
+        round = CarInput.getRound();
     }
 
     private void playRound() {
         CarOutput.printResult();
-        carRepository.playRound();
+        for (int i = 0; i < round; i++) {
+            carRepository.playRound();
+            CarOutput.printNewLine();
+        }
     }
 
     private void findWinner() {

@@ -3,13 +3,11 @@ package racingcar.data;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.io.CarOutput;
 import racingcar.utils.CarUtil;
 import racingcar.validator.CarInputValidator;
 
 public class CarRepository {
     private final List<Car> carList = new ArrayList<>();
-    private int round;
 
     public CarRepository() {
     }
@@ -21,17 +19,10 @@ public class CarRepository {
         }
     }
 
-    public void setRound(int round) {
-        this.round = round;
-    }
-
     public void playRound() {
-        for (int i = 0; i < round; i++) {
-            carList.forEach(car -> {
-                car.move(isPossibleMove());
-            });
-            CarOutput.printNewLine();
-        }
+        carList.forEach(car -> {
+            car.move(isPossibleMove());
+        });
     }
 
     public void findWinners() {
