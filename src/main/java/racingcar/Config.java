@@ -11,7 +11,9 @@ public class Config {
 
 
         // ERROR MESSAGE CONFIG
+        public final static String Format_Of_Round_Exception = "라운드 수는 정수여야합니다.";
         public final static String Num_Of_Round_Exception = "라운드 수는 0이상의 정수여야합니다.";
+
 
 
 }

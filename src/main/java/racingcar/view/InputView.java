@@ -18,7 +18,7 @@ public class InputView {
 
     public int numOfRoundInput() {
         String input = Console.readLine();
-        int numOfRound = exceptionInstance.numOfRoundException(input);
+        int numOfRound = exceptionInstance.RoundException(input);
         return numOfRound;
     }
 }
