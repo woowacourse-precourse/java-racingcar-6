@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.MessageConstants;
+import racingcar.constants.MessageConstants;
 import racingcar.validators.InputCarNameValidator;
 import racingcar.validators.InputTryCountValidator;
 
