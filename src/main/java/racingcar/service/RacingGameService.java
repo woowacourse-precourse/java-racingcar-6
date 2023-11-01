@@ -1,24 +1,20 @@
 package racingcar.service;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RacingCar;
 import racingcar.validation.InputValidation;
-import racingcar.view.SystemMessage;
 
 public class RacingGameService {
 
     InputValidation inputValidation = new InputValidation();
 
-    public List<RacingCar> carNameInput() {
-        String input = readLine();
+    public List<RacingCar> carNameInput(String userInput) {
 
-        inputValidation.validateCarName(input);
+        inputValidation.validateCarName(userInput);
 
-        List<String> carNames = List.of(input.split(","));
+        List<String> carNames = List.of(userInput.split(","));
         List<RacingCar> racingCars = new ArrayList<>();
 
         for (String carName : carNames) {
@@ -31,12 +27,10 @@ public class RacingGameService {
         return racingCars;
     }
 
-    public int racingRoundInput() {
-        String input = readLine();
+    public int racingRoundInput(String userInput) {
+        inputValidation.validateRound(userInput);
 
-        inputValidation.validateRound(input);
-
-        return Integer.parseInt(input);
+        return Integer.parseInt(userInput);
     }
 
     public void race(List<RacingCar> racingCars) {

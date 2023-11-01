@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 import java.util.List;
 import racingcar.domain.RacingCar;
 import racingcar.service.RacingGameService;
@@ -13,10 +15,12 @@ public class RacingGameController {
 
     public void playRacingGame() {
         systemMessage.printRequestInputMessage();
-        List<RacingCar> racingCars = racingGameService.carNameInput();
+        String userCarNameInput = readLine();
+        List<RacingCar> racingCars = racingGameService.carNameInput(userCarNameInput);
 
         systemMessage.printRequestTryCountMessage();
-        int round = racingGameService.racingRoundInput();
+        String userTryCountInput = readLine();
+        int round = racingGameService.racingRoundInput(userTryCountInput);
 
         for (int i = 0; i < round; i++) {
             racingGameService.race(racingCars);

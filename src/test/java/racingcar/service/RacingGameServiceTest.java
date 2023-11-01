@@ -27,9 +27,8 @@ class RacingGameServiceTest {
         String input = "Car1,Car2,Car3";
 
         //when
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        List<RacingCar> racingCars = racingGameService.carNameInput();
+        List<RacingCar> racingCars = racingGameService.carNameInput(input);
 
 
         //then
@@ -45,11 +44,10 @@ class RacingGameServiceTest {
         String input = "3";
 
         //when
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         //then
         Assertions.assertDoesNotThrow(() -> {
-            racingGameService.racingRoundInput();
+            racingGameService.racingRoundInput(input);
         });
     }
 
