@@ -6,10 +6,12 @@ public class Racing {
     private List<Car> cars;
     private int turn;
     private List<Integer> distanceRecord;
+    private List<Car> winners;
     public Racing(List<Car> cars, int turn) {
         this.cars = cars;
         this.turn = turn;
         this.distanceRecord = new ArrayList<>();
+        this.winners = new ArrayList<>();
     }
 
     public void start() {
@@ -21,22 +23,19 @@ public class Racing {
         }
     }
 
-    public List<Car> getWinners() {
-        Map<Integer, List<Car>> map = new HashMap<>();
+    public List<Car> selectWinners() {
+        Collections.sort(cars);
+        int maxDist = cars.get(0).getMovedDist();
         for (Car car : cars) {
-            if (map.get(car.getMovedDist()) == null) {
-                List<Car> carList = new ArrayList<>();
-                carList.add(car);
-                map.put(car.getMovedDist(), carList);
-                continue;
-            }
-            map.get(car.getMovedDist()).add(car);
+            if (car.getMovedDist() == maxDist) {
+                winners.add(car);
+            } else break;
         }
-        return map.get(Collections.max(map.keySet()));
+        return winners;
     }
 
     public void printWinners() {
-        List<String> winners = getWinners()
+        List<String> winners = selectWinners()
                 .stream().map(Car::getName).toList();
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
