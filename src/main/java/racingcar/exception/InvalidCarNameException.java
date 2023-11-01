@@ -39,18 +39,18 @@ public class InvalidCarNameException extends IllegalArgumentException {
      * @throws InvalidCarNameException 이름의 길이나 중복 여부에 문제가 있을 경우 발생
      */
     public static void validate(List<Car> cars) {
-        validateNameLength(cars);
-        validateUniqueNames(cars);
+        List<String> names = cars.stream().map(Car::getName).toList();
+        validateNameLength(names);
+        validateUniqueNames(names);
     }
 
     /**
      * <p>제공된 자동차 목록의 이름 길이가 올바른지 검증합니다.</p>
      *
-     * @param cars 검증할 자동차 목록
+     * @param names 검증할 자동차 목록
      * @throws InvalidCarNameException 이름의 길이가 5자를 초과할 경우 발생
      */
-    private static void validateNameLength(List<Car> cars) {
-        List<String> names = cars.stream().map(Car::getName).toList();
+    private static void validateNameLength(List<String> names) {
         for (String name : names) {
             if (name.trim().length() > MAX_NAME_LENGTH) {
                 throw new InvalidCarNameException(LENGTH_EXCEED_MESSAGE);
@@ -61,11 +61,10 @@ public class InvalidCarNameException extends IllegalArgumentException {
     /**
      * <p>제공된 자동차 목록의 이름이 중복되지 않았는지 검증합니다.</p>
      *
-     * @param cars 검증할 자동차 목록
+     * @param names 검증할 자동차 목록
      * @throws InvalidCarNameException 이름에 중복이 있을 경우 발생
      */
-    private static void validateUniqueNames(List<Car> cars) {
-        List<String> names = cars.stream().map(Car::getName).toList();
+    private static void validateUniqueNames(List<String> names) {
         long distinctCount = names.stream().distinct().count();
         if (distinctCount != names.size()) {
             throw new InvalidCarNameException(DUPLICATE_NAME_MESSAGE);
