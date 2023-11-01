@@ -21,4 +21,11 @@ public class GameCountValidatorTest {
                 () -> GameCountValidator.validateGameCount(gameCount));
     }
 
+    @Test
+    void 횟수가_1이상의_자연수가_아니라면_예외발생() {
+        String gameCount = "-1";
+
+        assertThrows(IllegalArgumentException.class,
+                () -> GameCountValidator.validateGameCount(gameCount));
+    }
 }
