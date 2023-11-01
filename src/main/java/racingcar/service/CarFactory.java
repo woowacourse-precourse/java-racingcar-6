@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
-import racingcar.exception.Validator;
+import racingcar.validator.CarValidator;
 import racingcar.manager.InputManager;
 
 public class CarFactory {
@@ -15,12 +15,12 @@ public class CarFactory {
         List<String> carNames = splitCarNamesToComma(inputManager.inputCarNames());
         List<Car> cars = new ArrayList<>();
 
-        Validator.validateNumberOfCar(carNames);
-        Validator.validateDuplicatedCarName(carNames);
+        CarValidator.validateNumberOfCar(carNames);
+        CarValidator.validateDuplicatedCarName(carNames);
 
         for (String carName : carNames) {
 
-            Validator.validateCarName(carName);
+            CarValidator.validateCarName(carName);
             cars.add(new Car(carName));
         }
 
