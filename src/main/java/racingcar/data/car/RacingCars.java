@@ -8,6 +8,7 @@ public class RacingCars {
     private final List<Car> cars;
     private static final int INIT_POS = 0;
     private static final String RACING_CARS_DELIMITER = "\n";
+    private static final String EMPTY_RACING_CAR_NAME_MESSAGE = "CarName cannot be empty.";
     private static final String DUPLICATE_RACING_CAR_NAME_MESSAGE = "CarNames should be distinct.";
 
     public RacingCars() {
@@ -53,6 +54,9 @@ public class RacingCars {
     }
 
     public static void validateRacingCarsName(List<Car> cars, String name) {
+        if (name.length() < 1) {
+            throw new IllegalArgumentException(EMPTY_RACING_CAR_NAME_MESSAGE);
+        }
         boolean hasName = cars.stream()
                 .map(Car::getName)
                 .anyMatch(name::equals);
