@@ -20,7 +20,6 @@ public class CarRace {
             if (maxDistance <= movedDistances.get(i).length()) {
                 maxDistance = movedDistances.get(i).length();
             }
-
         }
 
         return maxDistance;
@@ -35,7 +34,6 @@ public class CarRace {
             if (maxDistance == car.movedDistances.get(i).length()) {
                 winner.add(car.names.get(i));
             }
-
         }
 
         return winner;

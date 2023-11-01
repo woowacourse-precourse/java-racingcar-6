@@ -15,5 +15,4 @@ public class Application {
         CarRace.printWinner(CarRace.findWinner(car, CarRace.findBest(car.movedDistances)));
 
     }
-
 }

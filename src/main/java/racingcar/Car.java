@@ -34,7 +34,6 @@ public class Car {
             moveRandomly();
             printDistances();
         }
-
     }
 
     private void moveRandomly() {
@@ -44,9 +43,7 @@ public class Car {
             if (Randoms.pickNumberInRange(MIN_RANDOM.get(), MAX_RANDOM.get()) >= MOVE_LIMIT.get()) {
                 movedDistances.set(j, movedDistances.get(j) + "-");
             }
-
         }
-
     }
 
     private void printDistances() {
