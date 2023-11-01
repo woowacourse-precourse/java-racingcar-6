@@ -1,15 +1,9 @@
 package racingcar.Model;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
     private Car car;
-    @BeforeEach
-    public void setUp() {
-        car = new Car("luda");
-    }
     @Test
     public void 자동차_이름_유효성_테스트() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -23,6 +17,7 @@ public class CarTest {
 
     @Test
     public void 자동차_이동_테스트() {
+        car = new Car("luda");
         car.move(3);
         assertEquals(0, car.getPosition());
 
@@ -32,11 +27,8 @@ public class CarTest {
 
     @Test
     public void 자동차_객체_테스트() {
+        car = new Car("luda");
         assertEquals("luda", car.getName());
     }
 
-    @AfterEach
-    public void restoreSystemInput() {
-        System.setIn(System.in);
-    }
 }
