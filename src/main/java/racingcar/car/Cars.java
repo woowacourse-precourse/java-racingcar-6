@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import racingcar.game.MoveResults;
+import racingcar.game.Winner;
 import racingcar.utils.generator.RaceMoveNumberGenerator;
 
 public class Cars {
@@ -27,12 +28,11 @@ public class Cars {
         return moveResults;
     }
 
-    public List<String> getWinnerNames() {
+    public Winner getWinner() {
         Position maxPosition = getMaxPosition();
-        return cars.stream()
+        return new Winner(cars.stream()
                 .filter(car -> car.getPosition().getPosition() == maxPosition.getPosition())
-                .map(Car::getCarName)
-                .toList();
+                .toList());
     }
 
     private Position getMaxPosition() {

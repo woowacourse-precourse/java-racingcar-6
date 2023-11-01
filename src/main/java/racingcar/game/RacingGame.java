@@ -1,13 +1,11 @@
 package racingcar.game;
 
-import java.util.List;
 import racingcar.car.Cars;
 import racingcar.utils.view.Input;
 import racingcar.utils.view.Messages;
 import racingcar.utils.view.Output;
 
 public class RacingGame {
-    public static final String WINNER_DELIMITER = ", ";
     private final Input input = new Input();
     private final Output output = new Output();
 
@@ -39,7 +37,7 @@ public class RacingGame {
     }
 
     private void showWinner(Cars cars) {
-        List<String> winnerNames = cars.getWinnerNames();
-        output.printMessageLine(Messages.WINNER.getMessage() + String.join(WINNER_DELIMITER, winnerNames));
+        Winner winner = cars.getWinner();
+        output.printMessageLine(Messages.WINNER.getMessage() + winner.getWinnerMessage());
     }
 }
