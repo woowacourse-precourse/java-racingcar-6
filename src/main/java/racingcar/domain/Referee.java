@@ -15,12 +15,12 @@ public class Referee {
     }
 
     public void startEngine(Car car) {
-        if (canStart()) {
+        if (canMove()) {
             car.accel();
         }
     }
 
-    private boolean canStart() {
+    private boolean canMove() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= OVER_CONDITION;
     }
 }

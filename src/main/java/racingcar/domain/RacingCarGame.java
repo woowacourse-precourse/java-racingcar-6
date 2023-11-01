@@ -16,10 +16,10 @@ public class RacingCarGame {
     }
 
     public List<Car> gameStart(String verifiedInput, Integer tryCount) {
-        List<Car> carNameList = getInstance().askCarName(verifiedInput);
+        List<Car> carNameList = getInstance().askCarNameToCarList(verifiedInput);
 
         for (int i = 0; i < tryCount; i++) {
-            controller.getWinner(carNameList, referee);
+            controller.getGameResult(carNameList, referee);
         }
 
         return carNameList;
