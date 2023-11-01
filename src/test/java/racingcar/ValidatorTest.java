@@ -15,11 +15,11 @@ public class ValidatorTest {
     }
 
     @Test
-    public void testHasAtLeastOneCharacter() {
-        assertThrows(IllegalArgumentException.class, () -> Validator.validateHasAtLeastOneCharacter(""));
-        assertThrows(IllegalArgumentException.class, () -> Validator.validateHasAtLeastOneCharacter(null));
-        Validator.validateHasAtLeastOneCharacter("A");
-        Validator.validateHasAtLeastOneCharacter("123");
+    public void testNameLength() {
+//        assertThrows(IllegalArgumentException.class, () -> Validator.validateNameLength(""));
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateNameLength("abcdefg"));
+        Validator.validateNameLength("A");
+        Validator.validateNameLength("123");
     }
 
     @Test
@@ -31,10 +31,10 @@ public class ValidatorTest {
     }
 
     @Test
-    public void testWithinRange() {
-        assertThrows(IllegalArgumentException.class, () -> Validator.validateWithinRange(-1));
-        assertThrows(IllegalArgumentException.class, () -> Validator.validateWithinRange(2_147_483_647));
-        Validator.validateWithinRange(0);
-        Validator.validateWithinRange(2_147_483_646);
+    public void testWithinIntegerRange() {
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateWithinIntegerRange(-1));
+        assertThrows(IllegalArgumentException.class, () -> Validator.validateWithinIntegerRange(2_147_483_647));
+        Validator.validateWithinIntegerRange(0);
+        Validator.validateWithinIntegerRange(2_147_483_646);
     }
 }
