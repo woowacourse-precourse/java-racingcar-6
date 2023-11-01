@@ -24,13 +24,12 @@ public class OutputView {
         StringBuilder gameResult = instance.getGameResult();
         sb.append(gameResult);
 
-        sb.append(winnerName(referee.selectWinnerList(list))).append('\n');
+        sb.append(getWinnerNames(referee.selectWinnerList(list))).append('\n');
 
         System.out.println(sb);
     }
 
-    // 우승자 이름을 반환한다.
-    public String winnerName(List<Car> sortedCarList) {
+    public String getWinnerNames(List<Car> sortedCarList) {
         String baseName = sortedCarList.get(0).getName();
         Integer baseScore = sortedCarList.get(0).getDistance();
 
@@ -43,16 +42,16 @@ public class OutputView {
         return FINAL_WINNER + DELIMITER + baseName;
     }
 
-    public static String countToMileage(Car car) {
+    public static String distanceToPosition(Car car) {
         int distance = car.getDistance();
 
         if (distance <= 0) {
             return "";
         }
 
-        String mileage = CAR_POSITION.repeat(distance);
+        String position = CAR_POSITION.repeat(distance);
 
-        return mileage;
+        return position;
     }
 
     public static String name(Car car) {
