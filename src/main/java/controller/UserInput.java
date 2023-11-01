@@ -1,5 +1,6 @@
 package controller;
 
+import static model.UtilityModel.isInValidNames;
 import static model.UtilityModel.splitByComma;
 import static model.UtilityModel.stringToInt;
 import static view.GuideMessage.PLEASE_INPUT_RACINGCAR_NAMES;
@@ -11,7 +12,9 @@ public class UserInput {
     public String[] getRaceCarNames() {
         System.out.println(PLEASE_INPUT_RACINGCAR_NAMES);
         String userInput = Console.readLine();
-        return splitByComma(userInput);
+        String[] carNamesArray = splitByComma(userInput);
+        isInValidNames(carNamesArray);
+        return carNamesArray;
     }
 
     public int getAttemptCount() {

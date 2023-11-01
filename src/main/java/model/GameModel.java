@@ -2,7 +2,6 @@ package model;
 
 import static model.Number.BASE_NUMBER;
 import static model.UtilityModel.getRandomNumber;
-import static model.UtilityModel.isInValidName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,6 @@ public class GameModel {
         racingCarInfos = new ArrayList<RacingCarInfo>();
         int idx = 0;
         for (String name : carNamesArray) {
-            isInValidName(name);
             RacingCarInfo carInfo = new RacingCarInfo(name, idx);
             racingCarInfos.add(carInfo);
             idx++;

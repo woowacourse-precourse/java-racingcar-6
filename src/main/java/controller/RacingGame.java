@@ -24,7 +24,7 @@ public class RacingGame {
 
     private void startRacing(int attemptCount, GameModel gameModel) {
         RaceStatus raceStatus = new RaceStatus();
-        System.out.println(EXECUTION_RESULT);
+        System.out.println("\n" + EXECUTION_RESULT);
         for (int i = 0; i < attemptCount; i++) {
             gameModel.updateRaceStatus();
             raceStatus.printRaceStatus(gameModel);
