@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GameServiceTest {
     private static GameService gameService = new GameService();
@@ -33,6 +34,21 @@ class GameServiceTest {
         for (int i=0; i<createdCars.size(); i++) {
             assertThat(createdCars.get(i).getName()).isEqualTo(cars.get(i).getName());
         }
+    }
+
+    @Test
+    @DisplayName("입력한 이름이 너무 긴 경우, IllegalArgumentException Exception 발생 및 프로그램 종료 테스트")
+    public void tooLongNameException() throws Exception {
+        // given
+        String carNames = "car,racing,longName";
+
+        // when / then
+        assertThatThrownBy(() -> gameService.createCars(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        /* same code using org.junit.jupiter.api.Assertions.assertThrows()
+        assertThrows(IllegalArgumentException.class,
+                () -> gameService.createCars(carNames));*/
     }
 
 }
