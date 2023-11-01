@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingGame;
 import racingcar.model.Car;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,11 +21,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -37,13 +38,21 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    public void 자동차_객체_생성_테스트() {
-        Car car=new Car("pobi");
+    void 숫자가_아닌_값에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    public void 자동차_객체_생성() {
+        Car car = new Car("pobi");
         assertEquals("pobi", car.getName());
     }
 
     @Test
-    public void 우승자_출력_테스트() {
+    public void 우승자_출력() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "2");
