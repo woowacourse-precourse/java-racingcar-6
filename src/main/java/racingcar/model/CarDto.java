@@ -1,28 +1,29 @@
 package racingcar.model;
 
-import java.util.Random;
+import racingcar.constant.ValidatorConstant;
+import racingcar.utils.CarNameValidator;
 
 public class CarDto {
-   private final String name;
-   private int position;
+    private final String name;
+    private int position = 0;
 
-   public CarDto(String name){
-       this.name=name;
-       this.position=0;
-   }
+    public CarDto(String name) {
+        CarNameValidator.validateCarName(name);
+        this.name = name;
+    }
 
-   public String getName(){
-       return name;
-   }
+    public void move(int randomNumber) {
+        if (randomNumber >= ValidatorConstant.RANDOM_NUMBER) {
+            position++;
+        }
+    }
+    public String getName() {
+        return name;
+    }
 
-   public int getPosition(){
-       return position;
-   }
+    public int getDistance() {
+        return position;
+    }
 
-   public void move(boolean isMove){
-       if(isMove){
-           position++;
-       }
-   }
 
 }
