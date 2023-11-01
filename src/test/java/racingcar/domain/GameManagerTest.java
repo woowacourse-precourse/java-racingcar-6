@@ -89,5 +89,50 @@ class GameManagerTest {
                 .hasMessageContaining("racingcar 이름이 5자를 초과합니다.");
     }
 
+    @Test
+    void validateUserInputForTryCount_메서드로_User_Input_검증() {
+        // given
+        String userInput = "5";
+        // when
+        // then
+        assertThat(GameManager.validateUserInputForTryCount(userInput)).isTrue();
+    }
+
+    @Test
+    void validateUserInputForTryCount_메서드_사용시_User_Input이_공백이거나_null이면_예외_발생() {
+        // given
+        // EMPTY_STRING_LIST
+        // when
+        // then
+        assertThatThrownBy(() -> {
+            for (String userInput : EMPTY_STRING_LIST) {
+                GameManager.validateUserInputForTryCount(userInput);
+            }
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("유저 입력값이 null이거나 비어있습니다.");
+    }
+
+    @Test
+    void validateUserInputForTryCount_메서드_사용시_User_Input이_정수가_아니면_예외_발생() {
+        // given
+        String userInput = "1.54";
+        // when
+        // then
+        assertThatThrownBy(() -> GameManager.validateUserInputForTryCount(userInput)).isInstanceOf(
+                        IllegalArgumentException.class)
+                .hasMessageContaining("유저 입력값이 정수가 아닙니다.");
+    }
+
+    @Test
+    void validateUserInputForTryCount_메서드_사용시_User_Input이_1보다_작으면_예외_발생() {
+        // given
+        String userInput = "0";
+        // when
+        // then
+        assertThatThrownBy(() -> GameManager.validateUserInputForTryCount(userInput)).isInstanceOf(
+                        IllegalArgumentException.class)
+                .hasMessageContaining("유저 입력값이 1보다 작습니다.");
+    }
+
 
 }
