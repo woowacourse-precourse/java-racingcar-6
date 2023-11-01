@@ -68,13 +68,13 @@ public class Application {
     }
 
     public static List<Integer> winnerIndex(List<Integer> go, int many){
-        ArrayList<Integer> whoIsWinner = new ArrayList<>();
-        whoIsWinner.add(0,0);
-        int firstNumWinner =whoIsWinner.get(0);
+        List<Integer> whoIsWinner = new ArrayList<>();
+        int firstNumWinner = 0;
         for(int i=0;i<many;i++){
-            if(go.get(i)> firstNumWinner){
+            if(go.get(i)> go.get(firstNumWinner)){
                 whoIsWinner.clear();
                 whoIsWinner.add(i);
+                firstNumWinner =i;
             }
             else if(Objects.equals(go.get(i), go.get(firstNumWinner)))
                 whoIsWinner.add(i);
