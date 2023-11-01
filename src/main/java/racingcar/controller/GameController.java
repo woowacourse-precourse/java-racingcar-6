@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.domain.dto.GameResult;
 import racingcar.resolver.InputResolver;
@@ -29,6 +30,7 @@ public class GameController {
         outputView.outputResultString();
         racingGame(game);
 
+        List<Car> winnerCarList = gameService.determineWinner(game);
 
     }
 

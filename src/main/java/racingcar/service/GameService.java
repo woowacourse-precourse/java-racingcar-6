@@ -6,7 +6,6 @@ import static racingcar.domain.dto.GameResult.createGameResult;
 
 import java.util.List;
 import racingcar.domain.dto.GameResult;
-import racingcar.resolver.InputResolver;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 
@@ -25,7 +24,7 @@ public class GameService {
 
 
     public List<GameResult> startGame(Game game) {
-        game.playGame();
+        game.updateCarsMove();
         return createGameResults(game.getCarList());
     }
 
@@ -34,4 +33,17 @@ public class GameService {
                 .map(car -> createGameResult(car.getName(), car.getDistances()))
                 .toList();
     }
+
+    public List<Car> determineWinner(Game game) {
+        game.determineTopDistance();
+        return determineTopCar(game);
+    }
+
+    private List<Car> determineTopCar(Game game) {
+        return game.getCarList().stream()
+                .filter(car ->
+                        car.getDistances() == game.getTopDistance()
+                ).toList();
+    }
+
 }

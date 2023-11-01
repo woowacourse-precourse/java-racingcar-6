@@ -1,14 +1,11 @@
 package racingcar.domain;
 
-import static racingcar.domain.dto.GameResult.createGameResult;
-
-import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.dto.GameResult;
 
 public class Game {
     private List<Car> carList;
     private int count;
+    private int topDistance;
 
     private Game(){}
 
@@ -16,18 +13,24 @@ public class Game {
         Game game = new Game();
         game.carList = carList;
         game.count = count;
+        game.topDistance = 0;
 
         return game;
     }
 
-    public void playGame() {
-        updateCarsMove();
-    }
 
-    private void updateCarsMove() {
+    public void updateCarsMove() {
         for (Car car : carList) {
             car.moveForward();
         }
+    }
+
+    public void determineTopDistance() {
+        this.topDistance = carList.stream()
+                .mapToInt(Car::getDistances)
+                .max()
+                .orElse(0);
+
     }
 
     public List<Car> getCarList() {
@@ -36,5 +39,9 @@ public class Game {
 
     public int getCount() {
         return count;
+    }
+
+    public int getTopDistance() {
+        return topDistance;
     }
 }

@@ -4,7 +4,6 @@ import static racingcar.domain.Car.createCarByCarName;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.resolver.InputResolver;
 import racingcar.domain.Car;
 
 public class CarService {
