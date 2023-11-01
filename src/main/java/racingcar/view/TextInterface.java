@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.util.Constants;
 
 public class TextInterface {
     public void askCarNames() {
@@ -16,9 +16,15 @@ public class TextInterface {
         System.out.println("실행 결과");
     }
 
-    public void printResult(List<String> winnerCars) {
-        String winnerResult = String.join(", ", winnerCars);
-        String result = String.format("최종 우승자 : %s", winnerResult);
+    public void carStatus(String name, int distance) {
+        String totalDistance = Constants.DISTANCE_STRING.repeat(distance);
+        String nowStatus = String.format("%s : %s", name, totalDistance);
+        System.out.println(nowStatus);
+    }
+
+    public void printResult(List<String> names) {
+        String winnersName = String.join(", ", names);
+        String result = String.format("최종 우승자 : %s", winnersName);
         System.out.println(result);
     }
 }
