@@ -24,17 +24,15 @@ public class RacingCarController {
         NumberOfAttemptsDto numberOfAttemptsDto = racingCarView.inputNumberOfAttempts();
         playRacing(racingCarsDto, numberOfAttemptsDto);
     }
-
     private void playRacing(RacingCarsDto racingCarsDto, NumberOfAttemptsDto numberOfAttemptsDto) {
         racingCarView.printResultMessage();
         RacingCars racingCars = racingCarsDto.toRacingCars();
         for (int i = 0; i < numberOfAttemptsDto.toInteger(); i++) {
             runRaceTurn(racingCars);
         }
-        ResultOfGameDto winners = determineWinners(racingCars);
+        ResultOfGameDto winners = getWinners(racingCars);
         showWinners(winners);
     }
-
     private void runRaceTurn(final RacingCars racingCars) {
         for (RacingCar racingCar : racingCars.getRacingCars()) {  // getter 안쓸수 있는 방향으로 리팩토
             if (racingCar.canAdvance()) {
@@ -53,9 +51,9 @@ public class RacingCarController {
     private void showWinners(ResultOfGameDto resultOfGameDto) {
         racingCarView.printWinners(resultOfGameDto);        // 최종 우승자 출력
     }
-    private ResultOfGameDto determineWinners(final RacingCars racingCars) {
+    ResultOfGameDto getWinners(final RacingCars racingCars) {
         List<RacingCar> cars = racingCars.getRacingWinners();
-        List<String> winners = racingCars.listRacingCarToListString(cars);
+        List<String> winners = racingCars.converListRacingCarToListString(cars);
         ResultOfGameDto resultOfGameDto = createWinnersOfGame(winners);
         return resultOfGameDto;
     }

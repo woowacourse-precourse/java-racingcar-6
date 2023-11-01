@@ -26,9 +26,9 @@ public class RacingCars {
         return cars.stream()
                 .mapToInt(car -> car.getAdvanceMarking().length())
                 .max()
-                .orElse(-1);        // 리팩토링 : 예외처리 클래스로
+                .orElse(-1);
     }
-    public List<String> listRacingCarToListString(List<RacingCar> racingCars) {
+    public List<String> converListRacingCarToListString(List<RacingCar> racingCars) {
         return racingCars
                 .stream()
                 .map(RacingCar::getRacingCarName)
