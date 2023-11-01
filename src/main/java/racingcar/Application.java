@@ -16,12 +16,18 @@ public class Application {
         start(cars, numberOfTries);
     }
     private static List<Car> initCars() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
+        if (carNames == null || carNames.trim().isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         String[] names = carNames.split(",");
         List<Car> cars = new ArrayList<>();
 
         for (String name : names) {
+            if (name.trim().isEmpty() || name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
             cars.add(new Car(name));
         }
         return cars;
@@ -29,7 +35,11 @@ public class Application {
     private static int initNumberOfTries()
     {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        int numberOfTries = Integer.parseInt(Console.readLine());
+        if (numberOfTries < 0) {
+            throw new IllegalArgumentException("");
+        }
+        return numberOfTries;
     }
     private static void start(List<Car> cars, int numberOfTries) {
         System.out.println("\n실행 결과");
@@ -52,7 +62,7 @@ public class Application {
     }
 
     private static int getMaxPosition(List<Car> cars) {
-
+        return 1;
     }
 }
 
