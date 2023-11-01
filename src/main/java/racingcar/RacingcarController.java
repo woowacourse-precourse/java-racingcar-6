@@ -22,6 +22,11 @@ public class RacingcarController {
     List<String> cars = inputView.carName();
     int trialNum = inputView.trialNum();
     List<Integer> locations = new ArrayList<>(Collections.nCopies(cars.size(), 0));
-
+    System.out.println("\n실행 결과");
+    while (trialNum > 0) {
+      locations = racingcarGame.evaluateTrial(locations, racingcarRandomNumber.generate(cars.size()));
+      outputView.printTrial(cars, locations);
+      trialNum--;
+    }
   }
 }
