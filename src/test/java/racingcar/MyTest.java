@@ -85,7 +85,7 @@ class MyTest extends NsTest {
     }
 
     @Test
-    void 올바른_횟수를_입력해주세요() {
+    void 숫자가_아닌_경우() {
         assertThatThrownBy(() -> {
             try (MockedStatic<Console> console = mockStatic(Console.class)) {
                 when(Console.readLine()).thenReturn("이름1,이름2,이름3", "숫자가아닙니다.");
@@ -97,7 +97,21 @@ class MyTest extends NsTest {
     }
 
     @Test
-    void 이름이_중복될_수_없습니다(){
+    void 숫잔데_0보다_작은_경우() {
+        assertThatThrownBy(() -> {
+            try (MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class)) {
+                when(Console.readLine()).thenReturn("운전자1,운전자2,운전자3", "-10");
+                Application game = new Application();
+                game.gameStart();
+            }
+        })
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 회수는 0보다 커야합니다.");
+    }
+
+
+    @Test
+    void 이름이_중복될_수_없습니다() {
         assertThatThrownBy(() -> {
             try (MockedStatic<Console> console = mockStatic(Console.class)) {
                 when(Console.readLine()).thenReturn("중복,중복,중복", "3");
