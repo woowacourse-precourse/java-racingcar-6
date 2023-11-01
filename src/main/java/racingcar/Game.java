@@ -12,6 +12,7 @@ public class Game {
         for(int i=0; i < trialNumber; i++){
             OutputView.showRacingResult(Racing.recordResult(record));
             System.out.println();
+
         }
 
         OutputView.showWinner(Racing.decideWinner(record));
