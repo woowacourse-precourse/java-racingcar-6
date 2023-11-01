@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarStatus;
 import racingcar.dto.RaceStatus;
+import racingcar.dto.RacingGameResult;
 import racingcar.dto.RacingGameStatus;
 import racingcar.dto.WinnerNames;
 
@@ -51,9 +52,12 @@ class ConsoleOutputViewTest {
         CarStatus secondCarStatus = new CarStatus("2번", 2);
         CarStatus thirdCarStatus = new CarStatus("3번", 3);
         RaceStatus raceStatus = new RaceStatus(List.of(firstCarStatus, secondCarStatus, thirdCarStatus));
-        RacingGameStatus racingGameStatus = new RacingGameStatus(List.of(raceStatus));
 
-        consoleOutputView.printRacingGameStatus(racingGameStatus);
+        RacingGameStatus racingGameStatus = new RacingGameStatus(List.of(raceStatus));
+        WinnerNames winnerNames = new WinnerNames(List.of("1번", "3번"));
+        RacingGameResult racingGameResult = new RacingGameResult(racingGameStatus, winnerNames);
+
+        consoleOutputView.printRacingGameResult(racingGameResult);
         assertThat(output.toString()).isEqualTo(
                 """
                         
@@ -62,15 +66,8 @@ class ConsoleOutputViewTest {
                         2번 : --
                         3번 : ---
                         
+                        최종 우승자 : 1번, 3번
                         """
         );
-    }
-
-    @Test
-    @DisplayName("우승자 이름 확인 메시지 테스트")
-    void printWinnerNamesTest() {
-        WinnerNames winnerNames = new WinnerNames(List.of("1번", "3번"));
-        consoleOutputView.printWinnerNames(winnerNames);
-        assertThat(output.toString()).isEqualTo("최종 우승자 : 1번, 3번\n");
     }
 }
