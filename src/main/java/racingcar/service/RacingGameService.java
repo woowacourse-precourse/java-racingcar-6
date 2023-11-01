@@ -33,4 +33,18 @@ public class RacingGameService {
         });
     }
 
+    public void acceptRound() {
+        try {
+            String inputStream = readLine(); // readLine() 메소드를 사용하여 입력값을 받아옴
+            int round = Integer.parseInt(inputStream);
+            if(round < MIN_PLAY_ROUND.getValue()){
+                throw new IllegalArgumentException(ERROR_MOVEMENT_COUNT.getMessage());
+            }
+            roundRepository.setRound(round);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ERROR_FORMAT_MOVEMENT_COUNT.getMessage());
+        }
+
+    }
+
 }
