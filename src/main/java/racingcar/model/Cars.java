@@ -13,15 +13,21 @@ public class Cars {
         cars = addCars(carListString);
     }
 
-    public List<Car> addCars(String carListString) {
+    private List<Car> addCars(String carListString) {
         List<Car> carList = new ArrayList<>();
 
         StringTokenizer st = new StringTokenizer(carListString,",");
         while (st.hasMoreTokens()) {
-            carList.add(new Car(st.nextToken()));
+            String carNameWithWhiteSpace = st.nextToken();
+            String carNameWithoutWhiteSpace = removeWhiteSpace(carNameWithWhiteSpace);
+            carList.add(new Car(carNameWithoutWhiteSpace));
         }
 
         return carList;
+    }
+
+    private String removeWhiteSpace(String carNameWithWhiteSpace) {
+        return carNameWithWhiteSpace.strip();
     }
 
     public int size() {
