@@ -1,20 +1,12 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
+import racingcar.dto.CarDto;
 
-public class CarView {
-    //이름 입력 받는 문장 출력
-    public void printInputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
-
-    //시도할 회수 받는 문장 출력
-    public void printInputHowManyRound() {
-        System.out.println("시도할 회수는 몇회인가요?");
-    }
+public class OutputView {
 
     //실행 결과 출력 (컨트롤러로부터 데이터 받음)
-    public void printResult(List<CarDto> carDistanceList) {
+    public void printSingleRound(List<CarDto> carDistanceList) {
         StringBuilder result = new StringBuilder();
 
         for (CarDto carDistance : carDistanceList) {
