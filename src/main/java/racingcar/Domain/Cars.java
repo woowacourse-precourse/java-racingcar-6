@@ -28,4 +28,10 @@ public class Cars {
                 .filter(car -> car.isWinnerPosition(fastestPosition))
                 .collect(Collectors.toList());
     }
+
+    public List<String> getRaceProgress(String positionStamp) {
+        return cars.stream()
+                .map(car -> car.makePositionString(positionStamp))
+                .collect(Collectors.toList());
+    }
 }

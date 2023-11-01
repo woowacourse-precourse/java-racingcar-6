@@ -25,4 +25,9 @@ public class Car {
     public boolean isWinnerPosition(int winnerPosition) {
         return this.position == winnerPosition;
     }
+
+    public String makePositionString (String positionStamp) {
+        return this.name + " : "
+                + positionStamp.repeat(this.position);
+    }
 }

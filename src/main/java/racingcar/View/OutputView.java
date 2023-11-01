@@ -1,5 +1,9 @@
 package racingcar.View;
 
+import java.util.List;
+import racingcar.Domain.Car;
+import racingcar.Domain.Cars;
+
 public class OutputView {
 
     private static final String GET_CAR_NAMES_MSG
@@ -10,6 +14,7 @@ public class OutputView {
             = "실행 결과";
     private static final String FINAL_WINNER_MSG
             = "최종 우승자 : ";
+    private static final String POSITION_STAMP = "-";
 
     public static void printGetCarNamesMsg() {
         System.out.println(GET_CAR_NAMES_MSG);
@@ -27,8 +32,13 @@ public class OutputView {
         System.out.println(FINAL_WINNER_MSG);
     }
 
-    public static void printRaceProgress() {
+    public static void printRaceProgress(Cars cars) {
+        List<String> raceProgress = cars.getRaceProgress(POSITION_STAMP);
 
+        for (String progress : raceProgress) {
+            System.out.println(progress);
+        }
+        System.out.println();
     }
 
     public static void printFinalWinner() {
