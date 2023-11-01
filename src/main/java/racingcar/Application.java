@@ -3,9 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Application {
     public static void main(String[] args) {
 
@@ -31,6 +28,43 @@ public class Application {
         for (int i = 0; i < carNames.length; i++) {
             cars[i] = new Car(carNames[i]);
         }
+
+        for (int i = 0; i < inputNumber; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+            printRace(cars);
+        }
+
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+
+        // 우승자 출력
+        System.out.print("최종 우승자 : ");
+        boolean isFirstWinner = true;
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                if (!isFirstWinner) {
+                    System.out.print(", ");
+                }
+                System.out.print(car.getName());
+                isFirstWinner = false;
+            }
+        }
+
+    }
+
+    private static void printRace(Car[] cars) {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     static class Car {
