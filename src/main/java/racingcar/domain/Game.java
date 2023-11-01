@@ -63,13 +63,13 @@ public class Game {
     }
 
     private List<Car> selectWinner() {
-        Long winnersCount = findMaxCount();
+        Long winnersCount = findMaxForwardCount();
         return carList.stream()
                 .filter(car -> car.getForwardCount().equals(winnersCount))
                 .collect(Collectors.toList());
     }
 
-    private Long findMaxCount() {
+    private Long findMaxForwardCount() {
         return carList.stream()
                 .map(Car::getForwardCount)
                 .max(Long::compareTo)
