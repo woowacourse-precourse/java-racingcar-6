@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car {
-    public static final int REFERENCE_NUMBER_VALUE = 4;
+    private static final int REFERENCE_NUMBER_VALUE = 4;
 
     private final String name;
     private int distance;

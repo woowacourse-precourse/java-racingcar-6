@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Converter {
-    public static final String DELIMITER = ",";
-    public static final String ONE_STEP = "-";
+    private static final String CAR_NAME_DELIMITER = ",";
+    private static final String ONE_STEP = "-";
 
     public static List<String> delimitCarNames(String carNames) {
-        String[] delimitedCarNames = carNames.split(DELIMITER);
+        String[] delimitedCarNames = carNames.split(CAR_NAME_DELIMITER);
         Validator.validateCarNames(delimitedCarNames);
         return new ArrayList<>(Arrays.asList(delimitedCarNames));
     }
@@ -33,6 +33,6 @@ public class Converter {
     }
 
     public static String matchWinnersConvention(List<String> convertedWinners) {
-        return String.join(DELIMITER, convertedWinners);
+        return String.join(CAR_NAME_DELIMITER, convertedWinners);
     }
 }
