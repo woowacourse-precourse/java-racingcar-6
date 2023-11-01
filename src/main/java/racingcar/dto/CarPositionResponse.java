@@ -13,7 +13,7 @@ public class CarPositionResponse {
     }
 
     public static CarPositionResponse create(Car car) {
-        return new CarPositionResponse(car.getName(), car.getMoveCounts());
+        return new CarPositionResponse(car.getName(), car.getPosition());
     }
 
     public String getName() {
