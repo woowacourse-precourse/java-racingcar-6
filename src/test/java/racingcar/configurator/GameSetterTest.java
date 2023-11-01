@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.CarList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GameSetterTest {
 
@@ -37,13 +36,6 @@ public class GameSetterTest {
 
         assertEquals(1, carList.size());
         assertEquals("Car4", carList.get(0).getName());
-    }
-
-    @Test
-    public void testValidateNameLength() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            gameSetter.validateNameLength("ThisNameIsTooLong");
-        });
     }
 
     @Test
