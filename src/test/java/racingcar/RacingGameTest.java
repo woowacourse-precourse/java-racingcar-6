@@ -40,6 +40,19 @@ class RacingGameTest {
         assertEquals(1, winners.size());
         assertTrue(winners.contains(car1));
     }
+    @Test
+    void 최대_위치_찾기(){
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        car1.move(5);
+        car2.move(3);
+        List<Car> cars = Arrays.asList(car1, car2);
+        RacingGame racingGame = new RacingGame(cars, 5);
+
+        int maxPosition = racingGame.getMaxPosition();
+
+        assertEquals(5, maxPosition);
+    }
 
 
 }
