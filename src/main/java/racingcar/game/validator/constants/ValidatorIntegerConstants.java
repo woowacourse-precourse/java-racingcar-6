@@ -1,11 +1,11 @@
 package racingcar.game.validator.constants;
 
-public enum ValidatorConstants {
+public enum ValidatorIntegerConstants {
     MAX_LENGTH_OF_CAR_NAME(5);
 
     final int value;
 
-    ValidatorConstants(int value) {
+    ValidatorIntegerConstants(int value) {
         this.value = value;
     }
 

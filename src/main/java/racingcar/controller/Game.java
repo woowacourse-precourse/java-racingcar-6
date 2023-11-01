@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.game.Cars;
+import racingcar.game.validator.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,7 +27,10 @@ public class Game {
 
     private void askGameRounds(){
         OutputView.askGameRounds();
-        round = Parser.parsingInteger(InputView.readLine());
+        String input = InputView.readLine();
+        InputValidator.inputMustHaveValue(input);
+        InputValidator.inputMustBeInteger(input);
+        round = Parser.parsingInteger(input);
         InputView.close();
     }
 
