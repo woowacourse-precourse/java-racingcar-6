@@ -120,19 +120,18 @@ class ApplicationTest extends NsTest {
 
     @Test
     void InputAttempts() {
-        String testData = "5";
-        input(testData);
 
-        String attempts = inputAttempts();
+        String attempts = inputAttempts("5");
         System.out.println("inputCarName = " + attempts);
 
         assertThat(attempts).isEqualTo("5");
     }
 
-    private String inputAttempts(){
+    private String inputAttempts(String num){
         System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
-        return input;
+        Scanner in = new Scanner(num);
+        String number = in.next();
+        return number;
     }
 
     @Test
