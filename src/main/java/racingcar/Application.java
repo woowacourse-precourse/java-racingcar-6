@@ -5,5 +5,6 @@ public class Application {
         // TODO: 프로그램 구현
         int n = new RandomNum().RandomNum();
         System.out.println(n);
+        SetName.setCarNames();
     }
 }

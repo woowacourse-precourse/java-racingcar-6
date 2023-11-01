@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class SetName {
-    public static void main(String[] args) {
+    public static void setCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
         String input = Console.readLine();
         String[] carNames = input.split(",");
