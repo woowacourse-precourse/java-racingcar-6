@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.NumberGeneratorImpl;
 import racingcar.model.Racing;
 import racingcar.view.RacingView;
 
@@ -12,7 +13,8 @@ public class RacingController {
     }
 
     public void run() {
-        final Racing racing = Racing.of(view.inputCarNames(), view.inputTryCount());
+        final Racing racing = Racing.of(view.inputCarNames(), view.inputTryCount(),
+            new NumberGeneratorImpl());
         view.startPrintTryResult();
         while (!racing.isFinished()) {
             racing.race();

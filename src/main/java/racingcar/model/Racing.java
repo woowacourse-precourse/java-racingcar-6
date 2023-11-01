@@ -20,9 +20,9 @@ public class Racing {
         this.currentTryCount = 0;
     }
 
-    public static Racing of(CarNames carNames, TryCount tryCount) {
+    public static Racing of(CarNames carNames, TryCount tryCount, NumberGenerator numberGenerator) {
         return new Racing(carNames.getNames().stream()
-            .map(name -> new Car(name, new NumberGeneratorImpl())).toList(),
+            .map(name -> new Car(name, numberGenerator)).toList(),
             tryCount.getCount());
     }
 
