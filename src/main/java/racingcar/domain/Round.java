@@ -10,7 +10,7 @@ public class Round {
     public void riseRound(){
         thisRound += 1;
     }
-    public boolean checkEndGame(){
-        return totalRound == thisRound;
+    public boolean checkGameEndState(){
+        return totalRound != thisRound;
     }
 }
