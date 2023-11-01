@@ -1,10 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 public class Input {
 

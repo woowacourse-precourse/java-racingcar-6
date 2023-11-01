@@ -1,12 +1,11 @@
 package racingcar;
 
 import racingcar.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Judge {
-    List<Car> winner = new ArrayList<>();
+    private List<Car> winner = new ArrayList<>();
 
     public List<Car> findWinner(List<Car> cars) {
         Car car = cars.get(0);

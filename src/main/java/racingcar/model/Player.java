@@ -7,6 +7,9 @@ import java.util.regex.Pattern;
 
 public class Player {
 
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final String REGEX = "^[a-zA-Z]*$";
+
     private final List<Car> cars;
     private final int times;
 
@@ -28,12 +31,11 @@ public class Player {
         return createCarList(splitNames(names));
     }
 
-    public List<String> splitNames(String names){
-
+    private List<String> splitNames(String names){
         return Arrays.asList(names.split(","));
     }
 
-    public List<Car> createCarList(List<String> cars){
+    private List<Car> createCarList(List<String> cars){
         List<Car> result = new ArrayList<>();
         for (String name : cars) {
             Car car = new Car(name);
@@ -45,10 +47,9 @@ public class Player {
         return result;
     }
 
-    public int stringToInteger(String str){
+    private int stringToInteger(String str){
         return Integer.parseInt(str);
     }
-
 
     private void validateTime(int times){
         if (times<=0) {
@@ -56,15 +57,14 @@ public class Player {
         }
     }
 
-    public void validateCarName(String name){
-        String regex = "^[a-zA-Z]*$";
-        if (name.length() > 5) {
+    private void validateCarName(String name){
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] The name must not be more than 5 characters.");
         }
         if (name.isEmpty()){
             throw new IllegalArgumentException("[ERROR] Car's name shouldn't be null.");
         }
-        if(!Pattern.matches(regex,name)){
+        if(!Pattern.matches(REGEX,name)){
             throw new IllegalArgumentException("[ERROR] Car's name should have only english character.");
         }
     }

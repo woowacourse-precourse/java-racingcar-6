@@ -9,8 +9,8 @@ import racingcar.view.Output;
 import java.util.List;
 
 public class Game {
-    Input input = new Input();
-    Output output = new Output();
+    private Input input = new Input();
+    private Output output = new Output();
 
     public void start(){
         Player player = new Player(input.askCars(), input.askTimes());
