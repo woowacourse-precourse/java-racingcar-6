@@ -42,8 +42,13 @@ public class Race {
 
         if (!winners.isEmpty()) {
             System.out.print("최종 우승자: ");
+            int i = 0;
             for (String winner : winners) {
-                System.out.print(winner + " ");
+                System.out.print(winner);
+                if (i < winners.size() - 1) {
+                    System.out.print(",");
+                }
+                i++;
             }
             System.out.println();
         }
