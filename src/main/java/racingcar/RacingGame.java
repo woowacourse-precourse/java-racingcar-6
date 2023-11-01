@@ -1,15 +1,16 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
-import java.util.Collections;
 import java.util.List;
+import java.util.Collections;
 import java.util.stream.Collectors;
+import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
 
-    public static final int MOVE_FORWARD_COND = 4;
     public static final int NAME_MAX_LEN = 5;
+    public static final int MOVE_FORWARD_COND = 4;
+    public static final int RANDOM_NUM_MIN_RANGE = 0;
+    public static final int RANDOM_NUM_MAX_RANGE = 9;
 
     public void start(){
         guideUserInsertRacingCarName();

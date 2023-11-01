@@ -1,8 +1,7 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.Objects;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Player implements Comparable<Player>{
 
@@ -18,7 +17,9 @@ public class Player implements Comparable<Player>{
     }
 
     public boolean movable(){
-        if (Randoms.pickNumberInRange(0,9)> RacingGame.MOVE_FORWARD_COND){
+        final int getRandomNumber
+                = Randoms.pickNumberInRange(RacingGame.RANDOM_NUM_MIN_RANGE, RacingGame.RANDOM_NUM_MAX_RANGE);
+        if (getRandomNumber>= RacingGame.MOVE_FORWARD_COND){
             return true;
         }
         return false;
@@ -47,7 +48,5 @@ public class Player implements Comparable<Player>{
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
+    public int hashCode() { return Objects.hash(name); }
 }
