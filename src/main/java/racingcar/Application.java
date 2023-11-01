@@ -8,8 +8,11 @@ import java.util.List;
 
 public class Application {
     static Racer[] createRacerFromInput() {
+        String input = Console.readLine();
 
-        String[] names = Console.readLine().split(",");
+        validateInputForRacerCreation(input);
+
+        String[] names = input.split(",");
 
         Racer[] racers = new Racer[names.length];
 
@@ -18,6 +21,15 @@ public class Application {
         }
 
         return racers;
+    }
+
+    static void validateInputForRacerCreation(String input){
+
+        String regex = "^[a-zA-Z가-힣,]+$";
+
+        if (!input.matches(regex)) {
+            throw new IllegalArgumentException("입력은 한글, 알파벳, 쉼표만 포함해야 합니다.");
+        }
     }
 
     static int setAttemptCountFromInput(){
