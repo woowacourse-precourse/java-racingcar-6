@@ -1,9 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 public class GameController {
 
@@ -15,46 +14,56 @@ public class GameController {
         this.gameModel = new GameModel();
     }
 
-    public void insertCarToCarArray(String[] carNamesArray) {
+    private void insertCarToCarArray(String[] carNamesArray) {
         gameModel.insertCarToCarArray(carNamesArray);
     }
 
-    public void askHowManyTimes() {
+    private void askHowManyTimes() {
         gameView.printMessage(GameModel.HOW_MANY_TIMES_MESSAGE);
     }
 
 
-    public int findMaxPosition() {
+    private int findMaxPosition() {
         return gameModel.findMaxPosition();
     }
 
-    public void carPrepare() {
-        printStartMessage();
+    private void carPrepare() {
+        gameView.printMessage(GameModel.START_MESSAGE);
         String[] carNamesArray = Console.readLine().split(",");
-        checkNameLength(carNamesArray);
+        checkNameValidity(carNamesArray);
         insertCarToCarArray(carNamesArray);
     }
 
-    private void checkNameLength(String[] carNamesArray) {
+    private void checkNameValidity(String[] carNamesArray) {
+        List<String> namesList = Arrays.asList(carNamesArray);
+
         for(String carName: carNamesArray) {
             if(carName.length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("[Error]: Name length should be 5 or less.");
             }
+            if(carName.contains("-")) {
+                throw new IllegalArgumentException("[Error]: Invalid characters in name.");
+            }
+        }
+
+        if(namesList.size() != new HashSet<>(namesList).size()) {
+            throw new IllegalArgumentException("[Error]: Duplicate names are not allowed.");
         }
     }
 
 
-    public void displayGameResult(String RESULT_MESSAGE, Map<String, Integer> carData) {
-        gameView.displayGameResult(RESULT_MESSAGE, carData);
+
+    private void displayGameResult(Map<String, Integer> carData) {
+        gameView.displayGameResult(GameModel.RESULT_MESSAGE, carData);
     }
 
-    public void playingGame() {
+    private void playingGame() {
         askHowManyTimes();
         int count = Integer.parseInt(Console.readLine());
         gameModel.saveResult(count);
     }
 
-    public void findWinner(Map<String, Integer> carData) {
+    private void findWinner(Map<String, Integer> carData) {
         int maxPosition = findMaxPosition();
         List<String> winners = new ArrayList<>();
         carData.forEach((name, position) -> {
@@ -68,11 +77,8 @@ public class GameController {
 
         carPrepare();
         playingGame();
-        displayGameResult(GameModel.RESULT_MESSAGE, gameModel.getCarData());
+        displayGameResult(gameModel.getCarData());
         findWinner(gameModel.getCarData());
     }
 
-    public void printStartMessage() {
-        gameView.printMessage(GameModel.START_MESSAGE);
-    }
 }
