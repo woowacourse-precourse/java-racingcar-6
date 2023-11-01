@@ -9,6 +9,7 @@ public class Cars {
     private List<Car> cars;
 
     private Cars(List<Car> cars) {
+        validateCars(cars);
         this.cars = cars;
     }
 
@@ -27,9 +28,7 @@ public class Cars {
     }
 
     private static List<String> extractNamesList(String userInput) {
-        String[] names = userInput.split(",");
-
-        return List.of(names);
+        return List.of(userInput.split(","));
     }
 
     public List<CarName> findWinnerCars() {
@@ -59,5 +58,15 @@ public class Cars {
                 .collect(Collectors.toMap(Car::getName, Car::getDistance));
 
         return carResult;
+    }
+
+    private void validateCars(List<Car> carList) {
+        if (isJustOneCar(carList)) {
+            throw new IllegalArgumentException("2개 이상의 이름을 입력해주세요.");
+        }
+    }
+
+    private boolean isJustOneCar(List<Car> carList) {
+        return carList.size() < 2;
     }
 }
