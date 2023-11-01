@@ -1,6 +1,14 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 public class Controller {
+
+    private void moveWhlie(int tryNumber, Cars car){  // 입력받은 숫자만큼 반복
+        for(int i = 0; i < tryNumber; i++){
+            System.out.println();   //개행
+
+            car.moveCar();
+        }
+    }
     public int tryNumber(){
         String tryNumber = Console.readLine();
         numbersizeError(tryNumber);
