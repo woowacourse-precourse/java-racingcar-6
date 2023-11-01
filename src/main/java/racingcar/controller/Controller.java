@@ -19,6 +19,16 @@ public class Controller {
     private final Exception exception = new Exception();
     private final CarRepository carRepository = new CarRepository();
 
+    private Game createGame() {
+        Game game = new Game(getCarList(),getNumberOfPlayCount());
+        gameService.save(game);
+        return game;
+    }
+
+    private int getNumberOfPlayCount() {
+        return parser.parseNumberOfPlaycount(getPlayCountByUserInput());
+    }
+
     private void play(Game game) {
         OutputView.printHead();
         while (!gameService.isEnd(game)) {
@@ -26,6 +36,11 @@ public class Controller {
             OutputView.printScore(game.getCars());
         }
         OutputView.printWinners(gameService.getWinners(game));
+    }
+
+
+    private List<Car> getCarList() {
+        return carRepository.findAll();
     }
 
     private void saveCars(List<String> carNames) {
