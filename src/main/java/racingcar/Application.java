@@ -14,9 +14,12 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String str = Console.readLine();
         String[] splited = str.split(",");
-        if (splited.length == 0 || splited.length > 5) {
-            throw new IllegalArgumentException();
+        for (String s : splited) {
+            if (s.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
+
         List<Racing> racings = new ArrayList();
         for (int i = 0; i < splited.length; i++) {
             racings.add(new Racing(splited[i]));
