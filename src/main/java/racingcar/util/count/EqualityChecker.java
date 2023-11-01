@@ -1,6 +1,6 @@
 package racingcar.util.count;
 
-public interface EqualityChecker {
+public sealed interface EqualityChecker permits EqualityCheckerImpl {
     boolean countEquals(Object o);
-    int  generateHashCode();
+    int generateHashCode();
 }
