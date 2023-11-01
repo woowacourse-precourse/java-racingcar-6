@@ -26,17 +26,15 @@ public class GameController {
 
     int moveCount = inputView.getMoveCount();
 
-    race = new Race(cars);
 
+    race = new Race(cars);
     for (int move = 0; move < moveCount; move++) {
       race.startRace(1);
-      for (Car car : cars) {
-        outputView.printCarStatus(car.getName(), car.getPosition());
-      }
+      outputView.printCarStatus(cars);
       System.out.println();
     }
 
-    List<String> winners = race.getWinners();
+    List<Car> winners = race.getWinners();
     outputView.printWinners(winners);
   }
 }
