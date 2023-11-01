@@ -17,6 +17,15 @@ public class RacingCar {
     public void stopOrMoveForward(){
         carList.forEach(racingCar -> racingCar.stopOrMoveForward());
     }
+
+    public List<String> distanceString(){
+        return carList
+                .stream()
+                .map(Car :: distanceConvertString)
+                .collect(Collectors.toList());
+    }
+
+
     
 
 
