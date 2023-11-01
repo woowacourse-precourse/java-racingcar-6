@@ -1,10 +1,14 @@
 package racingcar.domain;
 
+import static racingcar.domain.User.attempts;
+import static racingcar.domain.User.totalCars;
+
+import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Map;
 
 public class RacingGame {
     public static final String ATTEMPTS_RESULT_MESSAGE = "\n실행 결과";
@@ -15,38 +19,28 @@ public class RacingGame {
 
     User user = new User();
     GameResult gameResult = new GameResult();
-    private final List<Integer> carsPositionList = new ArrayList<>();
-    private int attempts;
-    public Integer totalCars;
-    private List<String> carsNameList;
+    public static List<Map.Entry<String, Integer>> scoreEntryList = new ArrayList<>();
 
     public void playGame() {
         user.setCarsName();
         user.setAttempts();
-        attempts = user.getAttempts();
-        carsArrayToList(user.getCarsNameArray());
-        setPositionList();
-        System.out.println(ATTEMPTS_RESULT_MESSAGE);
-        startRaceAttempts();
-        gameResult.printWinner(carsPositionList);
+        setScoreEntryList();
+
+        runRaceAttempts();
+        gameResult.printWinner();
     }
 
-    public void carsArrayToList(String[] array) {
-        carsNameList = Arrays.asList(array);
-        gameResult.setCarsNameList(carsNameList);
-    }
-
-    public void setPositionList() {
-        totalCars = carsNameList.size();
-        for (int i = 0; i < totalCars; i++) {
-            carsPositionList.add(0);
+    public void setScoreEntryList() {
+        for(String carName : user.getCarsNameArray()) {
+            scoreEntryList.add(new AbstractMap.SimpleEntry<>(carName, 0));
         }
     }
 
-    public void startRaceAttempts() {
+    public void runRaceAttempts() {
+        System.out.println(ATTEMPTS_RESULT_MESSAGE);
         for(int i = 0; i < attempts; i++) {
             singleRaceAttempt(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-            gameResult.singleAttemptResult(carsPositionList);
+            gameResult.singleAttemptResult();
         }
     }
 
@@ -54,17 +48,19 @@ public class RacingGame {
         for(int j = 0; j < totalCars; j++) {
             int randomDigit = Randoms.pickNumberInRange(min, max);
             if(randomDigit >= MIN_CAR_FORWARD_NUM && randomDigit <= MAX_CAR_FORWARD_NUM) {
-                int positionPlusOne = carsPositionList.get(j)+1;
-                carsPositionList.set(j, positionPlusOne);
+                carMoveOneStepForward(j);
             }
         }
     }
 
-    public List<String> getCarsList() {
-        return carsNameList;
+    public void carMoveOneStepForward(int j) {
+        String key = scoreEntryList.get(j).getKey();
+        int value = scoreEntryList.get(j).getValue();
+        Map.Entry<String, Integer> newEntry = new AbstractMap.SimpleEntry<>(key, value + 1);
+        scoreEntryList.set(j, newEntry);
     }
 
-    public List<Integer> getCarsPositionList() {
-        return carsPositionList;
+    public static List<Map.Entry<String, Integer>> getScoreEntryList() {
+        return scoreEntryList;
     }
 }

@@ -9,12 +9,14 @@ public class User {
     public static final String ATTEMPTS_INT_ERROR_MESSAGE = "입력한 횟수가 정수가 아닙니다.";
     public static final String ATTEMPTS_NEGATIVE_ERROR_MESSAGE = "음의 정수를 입력하실 수 없습니다.";
     private String[] carsNameArray;
-    private int attempts;
+    public static Integer totalCars;
+    public static Integer attempts;
 
     public void setCarsName() {
         String carsNameString = inputCarsName();
         splitCarsName(carsNameString);
         checkCarNameUnderFive();
+        totalCars = carsNameArray.length;
     }
 
     public String inputCarsName() {
@@ -57,9 +59,5 @@ public class User {
         if(Integer.parseInt(input) < 0) {
             throw new IllegalArgumentException(ATTEMPTS_NEGATIVE_ERROR_MESSAGE);
         }
-    }
-
-    public int getAttempts() {
-        return attempts;
     }
 }
