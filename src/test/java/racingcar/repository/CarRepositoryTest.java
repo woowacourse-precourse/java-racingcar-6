@@ -9,8 +9,6 @@ import racingcar.domain.Client;
 import racingcar.domain.ResultDto;
 import racingcar.util.TestConsts;
 
-import java.math.BigInteger;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarRepositoryTest {
@@ -44,7 +42,7 @@ class CarRepositoryTest {
     void returnFinalResultDto() {
         ResultDto resultDto = carRepository.finishFinalRound();
         assertThat(resultDto).isExactlyInstanceOf(ResultDto.class);
-        assertThat(resultDto.getFinalRound()).isEqualTo(TEMP_CLIENT_ROUND);
+        assertThat(resultDto.getFinalRound()).isEqualTo(TOTAL_ROUND);
     }
 
     @Test
@@ -52,7 +50,7 @@ class CarRepositoryTest {
     void checkIsFinalRound() {
         assertThat(carRepository.isFinalRound()).isFalse();
         for (int i = ONE_ROUND; i < TOTAL_ROUND + 1; i++) {
-            carRepository.race(BigInteger.valueOf(i));
+            carRepository.race(i);
         }
         assertThat(carRepository.isFinalRound()).isTrue();
     }
@@ -62,7 +60,7 @@ class CarRepositoryTest {
     void calculateWinners() {
         Assertions.assertRandomNumberInRangeTest(
                 () -> {
-                    carRepository.race(BigInteger.ONE);
+                    carRepository.race(ONE_ROUND);
                     ResultDto result = carRepository.finishFinalRound();
                     assertThat(result.getFinalWinners())
                             .containsExactly("pobi", "jun");

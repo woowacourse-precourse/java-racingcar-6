@@ -1,29 +1,27 @@
 package racingcar.util;
 
-import java.math.BigInteger;
-
 public class ClientValidator extends Validator {
 
     public static final int LEAST_NATURAL_NUMBER = 1;
 
-    public static BigInteger getValidatedBigIntegerValue(String inputtedStringTryNumber) {
-        BigInteger validatedValue = validateCastToBigInteger(inputtedStringTryNumber);
+    public static int getValidatedIntValue(String inputtedStringTryNumber) {
+        int validatedValue = validateCastToInt(inputtedStringTryNumber);
         validateNaturalNumber(validatedValue);
         return validatedValue;
     }
 
-    private static BigInteger validateCastToBigInteger(String inputtedString) {
-        BigInteger value = null;
+    private static int validateCastToInt(String inputtedString) {
+        int value = 0;
         try {
-            value = new BigInteger(inputtedString);
+            value = Integer.parseInt(inputtedString);
         } catch (NumberFormatException e) {
             throwIllegalArgumentException(Error.NOT_NUMBER_INPUTTED.getMessage());
         }
         return value;
     }
 
-    private static void validateNaturalNumber(BigInteger value) {
-        if (value.compareTo(BigInteger.valueOf(LEAST_NATURAL_NUMBER)) < 0) {
+    private static void validateNaturalNumber(int value) {
+        if (value < LEAST_NATURAL_NUMBER) {
             throwIllegalArgumentException(Error.NOT_NATURAL_NUMBER.getMessage());
         }
     }

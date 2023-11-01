@@ -2,16 +2,14 @@ package racingcar.domain;
 
 import racingcar.util.ClientValidator;
 
-import java.math.BigInteger;
-
 public class Client {
-    private final BigInteger tryNumber;
+    private final int tryNumber;
 
     public Client(String inputtedTryNumber) {
-        this.tryNumber = ClientValidator.getValidatedBigIntegerValue(inputtedTryNumber);
+        this.tryNumber = ClientValidator.getValidatedIntValue(inputtedTryNumber);
     }
 
-    public BigInteger getTotalRounds() {
+    public int getTotalRounds() {
         return tryNumber;
     }
 }

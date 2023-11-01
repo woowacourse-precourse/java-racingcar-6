@@ -1,29 +1,28 @@
 package racingcar.domain;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ResultDto {
-    private final Map<BigInteger, SingleRoundResultDto> resultDtoByRound = new HashMap<>();
-    private final BigInteger finalRound;
+    private final Map<Integer, SingleRoundResultDto> resultDtoByRound = new HashMap<>();
+    private final int finalRound;
     private final List<String> finalWinners = new ArrayList<>();
 
-    public ResultDto(BigInteger finalRound) {
+    public ResultDto(int finalRound) {
         this.finalRound = finalRound;
     }
 
-    public void addSingleRoundResult(BigInteger round, SingleRoundResultDto singleRoundResultDto) {
+    public void addSingleRoundResult(int round, SingleRoundResultDto singleRoundResultDto) {
         resultDtoByRound.put(round, singleRoundResultDto);
     }
 
-    public BigInteger getFinalRound() {
+    public int getFinalRound() {
         return finalRound;
     }
 
-    public SingleRoundResultDto getSingleRoundResultDto(BigInteger round) {
+    public SingleRoundResultDto getSingleRoundResultDto(int round) {
         return resultDtoByRound.get(round);
     }
 

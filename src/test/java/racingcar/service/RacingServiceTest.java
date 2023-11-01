@@ -10,13 +10,12 @@ import racingcar.domain.SingleRoundResultDto;
 import racingcar.domain.Car;
 import racingcar.util.TestConsts;
 
-import java.math.BigInteger;
-
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingServiceTest {
     private static final String TEMP_CLIENT_ROUND = "1";
+    private static final int TEMP_CLIENT_ROUND_VALUE = 1;
     RacingService racingService;
 
     @BeforeEach
@@ -33,14 +32,14 @@ class RacingServiceTest {
     @DisplayName("playCarRacing()은 ResultDto를 반환하고, 그 안에는 차들의 이름 정보가 들어가있다.")
     void inquiryCarNamesFromResultDto() {
         ResultDto result = racingService.playCarRacing();
-        SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(new BigInteger(TEMP_CLIENT_ROUND));
+        SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(TEMP_CLIENT_ROUND_VALUE);
 
         Car.CarResultDto pobiCar = singleRoundResult.getCarResultDto(0);
-        assertThat(pobiCar.getName()).isEqualTo("pobi");
+        assertThat(pobiCar.name()).isEqualTo("pobi");
         Car.CarResultDto woniCar = singleRoundResult.getCarResultDto(1);
-        assertThat(woniCar.getName()).isEqualTo("woni");
+        assertThat(woniCar.name()).isEqualTo("woni");
         Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
-        assertThat(junCar.getName()).isEqualTo("jun");
+        assertThat(junCar.name()).isEqualTo("jun");
     }
 
     @Test
@@ -49,14 +48,14 @@ class RacingServiceTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     ResultDto result = racingService.playCarRacing();
-                    SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(new BigInteger(TEMP_CLIENT_ROUND));
+                    SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(TEMP_CLIENT_ROUND_VALUE);
 
                     Car.CarResultDto pobiCar = singleRoundResult.getCarResultDto(0);
-                    assertThat(pobiCar.getDistance()).isEqualTo(1L);
+                    assertThat(pobiCar.distance()).isEqualTo(1L);
                     Car.CarResultDto woniCar = singleRoundResult.getCarResultDto(1);
-                    assertThat(woniCar.getDistance()).isEqualTo(1L);
+                    assertThat(woniCar.distance()).isEqualTo(1L);
                     Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
-                    assertThat(junCar.getDistance()).isEqualTo(1L);
+                    assertThat(junCar.distance()).isEqualTo(1L);
                 }, TestConsts.FORWARD, TestConsts.FORWARD, TestConsts.FORWARD
         );
     }
@@ -67,14 +66,14 @@ class RacingServiceTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     ResultDto result = racingService.playCarRacing();
-                    SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(new BigInteger(TEMP_CLIENT_ROUND));
+                    SingleRoundResultDto singleRoundResult = result.getSingleRoundResultDto(TEMP_CLIENT_ROUND_VALUE);
 
                     Car.CarResultDto pobiCar = singleRoundResult.getCarResultDto(0);
-                    assertThat(pobiCar.getDistance()).isEqualTo(0L);
+                    assertThat(pobiCar.distance()).isEqualTo(0L);
                     Car.CarResultDto woniCar = singleRoundResult.getCarResultDto(1);
-                    assertThat(woniCar.getDistance()).isEqualTo(0L);
+                    assertThat(woniCar.distance()).isEqualTo(0L);
                     Car.CarResultDto junCar = singleRoundResult.getCarResultDto(2);
-                    assertThat(junCar.getDistance()).isEqualTo(0L);
+                    assertThat(junCar.distance()).isEqualTo(0L);
                 }, TestConsts.STOP, TestConsts.STOP, TestConsts.STOP
         );
     }

@@ -34,8 +34,8 @@ class CarTest {
         long initDistance = 0L;
 
         // then
-        assertThat(carResultDto.getDistance()).isEqualTo(initDistance);
-        assertThat(carResultDto.getName()).isEqualTo("kyeo");
+        assertThat(carResultDto.distance()).isEqualTo(initDistance);
+        assertThat(carResultDto.name()).isEqualTo("kyeo");
     }
 
     @Test
@@ -46,7 +46,7 @@ class CarTest {
                 () -> {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
-                    assertThat(carResultDto.getDistance()).isEqualTo(1L);
+                    assertThat(carResultDto.distance()).isEqualTo(1L);
                 }, TestConsts.FORWARD
         );
 
@@ -54,7 +54,7 @@ class CarTest {
                 () -> {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
-                    assertThat(carResultDto.getDistance()).isEqualTo(2L);
+                    assertThat(carResultDto.distance()).isEqualTo(2L);
                 }, TestConsts.FORWARD
         );
     }
@@ -67,7 +67,7 @@ class CarTest {
                 () -> {
                     myCar.raceOneRound();
                     Car.CarResultDto carResultDto = myCar.createCarResultDto();
-                    assertThat(carResultDto.getDistance()).isEqualTo(0L);
+                    assertThat(carResultDto.distance()).isEqualTo(0L);
                 }, TestConsts.STOP
         );
     }
