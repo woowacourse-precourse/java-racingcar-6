@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class Car {
     private final String name;
-    private int advanceNum;
+    public int advanceNum;
 
     public Car(String name) {
         this.name = name;
@@ -12,4 +12,9 @@ public class Car {
     public String getName() {
         return name;
     }
+
+    public void increaseAdvanceNum(){
+        advanceNum++;
+    }
+
 }

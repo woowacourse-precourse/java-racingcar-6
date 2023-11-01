@@ -1,8 +1,11 @@
 package racingcar.utility;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class RandomUtils {
 
-    public int generateRandomValue(){
-        return 0;
+    public static int generateRandomValue(){
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        return randomNum;
     }
 }

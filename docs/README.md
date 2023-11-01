@@ -9,11 +9,11 @@
    - [x]  등록하는 자동차 이름은 5자 이하, 쉼표를 기준으로 구분 - InputValidate#validateCarName
 
 
-- [ ]  자동차의 이동 횟수 입력 - InputView#registCarMoveNum
-   - [ ] 이동 횟수의 입력값은 숫자이어야 할 것 - InputValidate#validateCarMoveNum
+- [x]  자동차의 이동 횟수 입력 - InputView#registCarMoveNum
+   - [x] 이동 횟수의 입력값은 숫자이어야 할 것 - InputValidate#validateCarMoveNum
 
 
-- [ ] ⚠️ 위 양식에 따르지 않으면 참여 자격 박탈! (`IllegalArgumentException`) - InputValidate#incorrectFormat
+- [x] ⚠️ 위 양식에 따르지 않으면 참여 자격 박탈! (`IllegalArgumentException`) - InputValidate#incorrectFormat
 
 ### 레이싱 시작! 🟢
 
