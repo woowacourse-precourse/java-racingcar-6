@@ -19,10 +19,6 @@ public class Car {
         }
     }
 
-    public boolean isPositionEqual(int position) {
-        return this.position == position;
-    }
-
     public boolean isPositionFurther(Car anotherCar) {
         return this.position >= anotherCar.position;
     }
