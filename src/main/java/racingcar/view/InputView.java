@@ -23,4 +23,8 @@ public class InputView {
         }
     }
 
+    public void close(){
+        Console.close();
+    }
+
 }

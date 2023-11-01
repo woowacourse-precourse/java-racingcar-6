@@ -16,6 +16,7 @@ public class RacingController {
 
         Cars cars = new Cars(createCarList());
         int numRound = readNumRound();
+        inputView.close();
 
         outputView.printResultMessage();
         for (int round = 0; round < numRound; round++) {

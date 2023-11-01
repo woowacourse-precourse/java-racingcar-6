@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,6 +20,11 @@ class InputViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 
+    @AfterEach
+    void tearDown() {
+        inputView.close();
+    }
+
     @DisplayName("이름 입력 테스트")
     @ParameterizedTest
     @CsvSource(value = {
@@ -30,10 +36,10 @@ class InputViewTest {
         setSystemIn(names);
 
         List<String> carNames = inputView.readCarNames();
+
         Assertions.assertThat(carNames.size()).isEqualTo(size);
         Assertions.assertThat(carNames.get(0)).isEqualTo(first);
 
-        Console.close();
     }
 
     @DisplayName("횟수 입력 테스트")
@@ -46,8 +52,6 @@ class InputViewTest {
         int numRound = inputView.readNumRound();
 
         Assertions.assertThat(numRound).isEqualTo(result);
-
-        Console.close();
 
     }
 
