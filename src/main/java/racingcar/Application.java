@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -20,6 +21,9 @@ public class Application {
         for(int i=0; i<number; i++){
             racing();
         }
+
+        ArrayList<String> winner = new ArrayList<>();
+        getWinner(winner);
     }
 
     public static void initializeRace(String inputCarNames){
@@ -61,4 +65,21 @@ public class Application {
         }
         System.out.println();
     }
+
+    public static void getWinner(ArrayList<String> winner){
+        int max = Integer.MIN_VALUE;
+        for(String carName: race.keySet()){
+            int forwardCount = race.get(carName);
+
+            if(forwardCount > max){
+                winner.clear();
+                winner.add(carName);
+                max = forwardCount;
+            }
+            else if(forwardCount == max){
+                winner.add(carName);
+            }
+        }
+    }
+
 }
