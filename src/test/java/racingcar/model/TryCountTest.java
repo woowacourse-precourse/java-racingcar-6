@@ -22,9 +22,10 @@ public class TryCountTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"0, false", "1, true"})
+    @CsvSource(value = {"1, false", "2, true"})
     void isAbleTry_메서드는_시도할_수_있는지를_판별한다(Integer value, boolean result) {
         TryCount count = new TryCount(value);
+        count.decrease();
         assertThat(count.isAbleTry()).isEqualTo(result);
     }
 }
