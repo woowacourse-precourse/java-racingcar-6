@@ -1,17 +1,20 @@
-package racingcar.domain;
+package racingcar.service;
 
+import racingcar.domain.Car;
+import racingcar.domain.CarName;
+import racingcar.domain.Winner;
 import racingcar.utils.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GameManager {
+public class GameService {
 
     private final List<Car> cars = new ArrayList<>();
     private int maxPosition;
 
-    public GameManager(List<String> carNames) {
+    public GameService(List<String> carNames) {
         carNames.forEach(carName -> cars.add(new Car(new CarName(carName))));
     }
 
