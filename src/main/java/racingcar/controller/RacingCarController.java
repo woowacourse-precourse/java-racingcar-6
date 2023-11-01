@@ -18,7 +18,6 @@ public class RacingCarController {
     }
 
     public void setRace() {
-        stadium.setStadium();
         raceStart();
         raceEnd();
     }

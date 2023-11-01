@@ -3,7 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Engine {
-    public final int power;
+    public int power;
 
     public Engine() {
         this.power = generatePower();
@@ -11,6 +11,14 @@ public class Engine {
 
     private int generatePower() {
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    private void runEngine() {
+        this.power = Randoms.pickNumberInRange(0,9);
+    }
+
+    public void setEngine(int power) {
+        this.power = power;
     }
 
     public int getPower() {
