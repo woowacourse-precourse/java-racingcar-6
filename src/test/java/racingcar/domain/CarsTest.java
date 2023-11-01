@@ -20,7 +20,7 @@ class CarsTest {
     void cars() {
         List<String> carNameInput = List.of("car1", "car2", "car3", "car4!");
         Cars cars = new Cars(carNameInput);
-        assertThat(cars.getCars())
+        assertThat(cars.getCarList())
                 .extracting(Car::getName)
                 .containsExactly("car1", "car2", "car3", "car4!");
     }
@@ -76,7 +76,7 @@ class CarsTest {
         Cars cars = new Cars(carNameInput);
         List<Integer> numbers = List.of(number1, number2, number3);
         cars.run(new TestNumberGenerator(numbers));
-        assertThat(cars.getCars())
+        assertThat(cars.getCarList())
                 .extracting(Car::getDistance)
                 .containsExactly(distance1, distance2, distance3);
     }

@@ -5,6 +5,7 @@ import static racingcar.constant.RaceMessage.*;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public class OutputView {
     public void carNamesOutput() {
@@ -15,8 +16,8 @@ public class OutputView {
         System.out.println(INIT_COUNT_MESSAGE.getMessage());
     }
 
-    public void carsDistanceOutput(List<Car> raceCars) {
-        for (Car car : raceCars) {
+    public void carsDistanceOutput(Cars cars) {
+        for (Car car : cars.getCarList()) {
             String name = car.getName();
             int distance = car.getDistance();
             String formattedDistance = CAR_DISTANCE_REPEAT_MESSAGE.getMessage().repeat(distance);

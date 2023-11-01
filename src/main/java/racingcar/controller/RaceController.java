@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Count;
 import racingcar.domain.NumberGenerator;
@@ -55,8 +54,8 @@ public class RaceController {
 
     private void runRace(Race race) {
         while (race.playable()) {
-            List<Car> raceCars = raceService.runRace(race);
-            outputView.carsDistanceOutput(raceCars);
+            Cars cars = raceService.runRace(race);
+            outputView.carsDistanceOutput(cars);
         }
     }
 }

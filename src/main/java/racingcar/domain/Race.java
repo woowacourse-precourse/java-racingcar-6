@@ -18,8 +18,8 @@ public class Race {
         count.decrease();
     }
 
-    public List<Car> getCars() {
-        return cars.getCars();
+    public Cars getCars() {
+        return cars;
     }
 
     public boolean playable() {
