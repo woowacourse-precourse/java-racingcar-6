@@ -12,7 +12,7 @@ public class ValidationTest {
         String input = "a,bb,ccc,dddd,eeeee,ffffff";
         List<String> carNames = List.of(input.split(","));
 
-        assertThatThrownBy(() -> Validation.isLessThenSixLetters(carNames));
+        assertThatThrownBy(() -> Validation.areLessThenSixLetters(carNames));
     }
 
 }
