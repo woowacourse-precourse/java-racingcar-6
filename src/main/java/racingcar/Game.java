@@ -8,6 +8,7 @@ import racingcar.utils.Validator;
 
 public class Game {
     private final Cars cars;
+
     public Game(List<String> carNames) {
         this.cars = initCars(carNames);
     }
