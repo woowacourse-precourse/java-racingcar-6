@@ -69,8 +69,8 @@ public class CarInputValidation {
     private void validateSpecialCharacters(String input) {
         String[] inputCars = input.split(Util.CAR_NAME_DELIMITER);
         for (String name : inputCars) {
-            if (!Pattern.matches("^[a-zA-Z0-9-_.]*$", name)) {
-                throw new IllegalArgumentException("자동차 이름에 허용되지 않는 특수 문자가 포함되어 있습니다.");
+            if (!Pattern.matches("^[\\p{L}\\p{N}-_.]*$", name)) {
+                throw new IllegalArgumentException(ErrorMessage.INVALID_CHARACTERS_ERROR_MESSAGE);
             }
         }
     }
