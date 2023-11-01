@@ -19,7 +19,7 @@ public class InputValidator {
     }
 
     private static void validateDuplicateCarName(List<String> nameList) {
-        if (nameList.size() < nameList.stream().distinct().count()) {
+        if (nameList.size() > nameList.stream().distinct().count()) {
             throw new IllegalArgumentException();
         }
     }
