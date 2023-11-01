@@ -1,8 +1,7 @@
 package racingcar.domain;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
@@ -12,11 +11,14 @@ class CarTest {
     @Test
     void getRandomNum() {
         int randomNum = car.getRandomNum();
-        Assertions.assertThat(randomNum).isGreaterThan(-1).isLessThan(10);
+        assertThat(randomNum).isGreaterThan(-1).isLessThan(10);
     }
 
     @Test
     void moveForward() {
+        int moveCnt = car.getCarStatus().moveCnt();
+        car.moveForward();
+        assertThat(moveCnt + 1).isEqualTo(car.getCarStatus().moveCnt());
     }
 
     @Test
