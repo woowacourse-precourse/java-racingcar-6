@@ -11,6 +11,12 @@ public class CarNameValidator {
         }
     }
 
+    public void checkBlankCarName(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
+        }
+    }
+
     public void checkDuplicatedCarName(List<String> list) {
         HashSet<String> nameSet = new HashSet<>(list);
         if (list.size() != nameSet.size()) {

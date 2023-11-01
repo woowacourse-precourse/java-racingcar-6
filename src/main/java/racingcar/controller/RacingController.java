@@ -45,6 +45,7 @@ public class RacingController {
 
         carNameValidator.checkDuplicatedCarName(nameList);
         for (String name : nameList) {
+            carNameValidator.checkBlankCarName(name);
             carNameValidator.checkCarNameLength(name);
             list.put(name, 0);
         }
