@@ -20,17 +20,18 @@ public class OutputManager {
     public void printGameResult(GameResult gameResult) {
         System.out.println();
         System.out.println(GAME_RESULT_INFO_MESSAGE);
-        gameResult.history().forEach(this::printGameSnapshot);
+        gameResult.history().forEach(this::printRaceSnapshot);
+        printWinners(gameResult.winners());
     }
 
-    private void printGameSnapshot(Game game) {
-        game.getCars().forEach(this::printCarPosition);
+    private void printRaceSnapshot(RaceSnapshot race) {
+        race.cars().forEach(this::printCarPosition);
         System.out.println();
     }
 
-    private void printCarPosition(Car car) {
-        System.out.print(car.getName() + " : ");
-        printPositionBar(car.getPosition());
+    private void printCarPosition(CarSnapshot car) {
+        System.out.print(car.name() + " : ");
+        printPositionBar(car.position());
         System.out.println();
     }
 
@@ -39,10 +40,10 @@ public class OutputManager {
         System.out.println();
     }
 
-    public void printWinners(List<Car> winners) {
+    public void printWinners(List<CarSnapshot> winners) {
         System.out.println(WINNERS_INFO_MESSAGE);
 
-        System.out.print(winners.get(0).getName());
+        System.out.print(winners.get(0).name());
         winners.stream()
                 .skip(1)
                 .forEach(this::printNextCarName);
@@ -50,7 +51,7 @@ public class OutputManager {
         System.out.println();
     }
 
-    private void printNextCarName(Car car) {
-        System.out.print(", " + car.getName());
+    private void printNextCarName(CarSnapshot car) {
+        System.out.print(", " + car.name());
     }
 }
