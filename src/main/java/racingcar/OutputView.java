@@ -21,6 +21,7 @@ public class OutputView {
 
             System.out.println(carName + " : " + carMovingCountString);
         }
+        System.out.println();
     }
 
     public String changeCarMovingCountToString(int carMovingCount) {
@@ -45,6 +46,6 @@ public class OutputView {
     }
 
     public void printWinnerMessage() {
-        System.out.println(WINNER_MESSAGE);
+        System.out.print(WINNER_MESSAGE);
     }
 }
