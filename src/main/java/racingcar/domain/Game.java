@@ -50,5 +50,17 @@ public class Game {
         return attempts;
     }
 
+    public void playGame() {
+        System.out.println();
+        view.printResultMessage();
+        for (int attempt = 0; attempt < attempts; attempt++) {
+            makeCarMove();
+        }
+    }
 
+    private void makeCarMove() {
+        for (Car car : cars) {
+            car.moveCar();
+        }
+    }
 }
