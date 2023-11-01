@@ -17,7 +17,7 @@ public class Application {
         List<String> players = Arrays.asList(carNames);
 
         for (String carName : carNames) {
-            if (carName.length() > 5) {
+            if (carName.length() > 5 || carName.length() == 0) {
                 throw new IllegalArgumentException();
             }
         }
