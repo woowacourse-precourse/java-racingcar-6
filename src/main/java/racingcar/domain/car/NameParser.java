@@ -29,7 +29,7 @@ public class NameParser {
 
     private void checkNameCount(List<String> data){
         if(data.size() < MIN_CAR_COUNT){
-            throw new IllegalArgumentException("참여자는 1명 이상이어야 합니다.");
+            throw new IllegalArgumentException("참여자는 2명 이상이어야 합니다.");
         }
     }
 
