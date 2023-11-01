@@ -8,6 +8,7 @@ public class OutputView {
         for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
+        System.out.print("\n");
     }
 
     public void oneWinner(List<String> name) {
