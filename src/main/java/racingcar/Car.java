@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     String name;
 	int advance = 0;
@@ -12,5 +14,9 @@ public class Car {
 	}
 	public int getAdvance() {
 		return advance;
+	}
+    public void addAdvance() {
+		if(Randoms.pickNumberInRange(0,9) >= 4)
+			advance++;
 	}
 }
