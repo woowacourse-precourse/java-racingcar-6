@@ -25,8 +25,8 @@ public class InputIntegrationTest {
             }
 
             @Override
-            protected String readTryNumFromConsole(){
-                return "5";
+            protected int readTryNumFromConsole(){
+                return 5;
             }
         };
 

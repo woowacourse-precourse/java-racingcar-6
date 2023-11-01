@@ -12,7 +12,7 @@ public class User {
     }
 
     public void readTryNumInput(){
-        tryNum = Integer.parseInt(readTryNumFromConsole());
+        tryNum = readTryNumFromConsole();
     }
 
     public String getCarNames() {
@@ -27,15 +27,16 @@ public class User {
         return Console.readLine();
     }
 
-    protected String readTryNumFromConsole(){
-        String tryNum = Console.readLine();
-        if (isIllegalArgTryNum(tryNum)) {
-            throw new IllegalArgumentException("시도횟수는 숫자여야 합니다.");
-        }
-        return tryNum;
+    protected int readTryNumFromConsole(){
+        return verify(Console.readLine());
     }
 
-    private boolean isIllegalArgTryNum(String tryNum){
-        return StringUtil.isDigit(tryNum);
+    protected int verify(String tryNumInput) {
+        try {
+            return Integer.parseInt(tryNumInput);
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("시도횟수는 숫자여야 합니다.");
+        }
     }
 }

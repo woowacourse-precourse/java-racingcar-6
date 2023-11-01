@@ -16,8 +16,8 @@ class UserTest {
             }
 
             @Override
-            protected String readTryNumFromConsole(){
-                return "5";
+            protected int readTryNumFromConsole(){
+                return 5;
             }
         };
 
@@ -37,8 +37,8 @@ class UserTest {
             }
 
             @Override
-            protected String readTryNumFromConsole(){
-                return "char";
+            protected int readTryNumFromConsole(){
+                return verify("char");
             }
         };
 
