@@ -1,13 +1,10 @@
 package racingcar.domain.CarList;
 
-import racingcar.util.generator.RandomNumberGenerator;
-
 public class Car {
 
     private static final int DEFAULT_POSITION = 0;
     private static final int MOVE_STANDARD_NUMBER = 4;
 
-    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private final String carName;
     private int position = DEFAULT_POSITION;
 
@@ -15,8 +12,7 @@ public class Car {
         this.carName = carName;
     }
 
-    public void checkMoveOrNot() {
-        int randomNumber = randomNumberGenerator.generate();
+    public void checkMoveOrNot(int randomNumber) {
         if (randomNumber >= MOVE_STANDARD_NUMBER) {
             movePosition();
         }

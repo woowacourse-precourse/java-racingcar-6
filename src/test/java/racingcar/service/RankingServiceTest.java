@@ -25,6 +25,5 @@ class RankingServiceTest {
         carDtoList.add(carDto2);
         List<String> winnerList = rankingService.checkWinner(carDtoList);
         assertThat(winner).isEqualTo(winnerList);
-
     }
 }
