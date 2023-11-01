@@ -3,7 +3,7 @@
 기능 구현 목록
 리팩터링 목록
 피드백 및 새로운 적용
-과제시 고려사항
+아쉬운 점
 
 ### 패키지 구조
 <table>
@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <tr>
-            <td rowspan="4">input</td>
+            <td rowspan="5">input</td>
             <td>Car</td>
             <td>자동차 이름과 운전 거리를 관리하는 클래스입니다.</td>
         </tr>
@@ -33,17 +33,17 @@
             <td>입력 클래스들의 유효성을 검증하는 클래스입니다.</td>
         </tr>
         <tr>
-            <td rowspan="3">output</td>
+            <td>Winner</td>
+            <td>최종 우승자들을 출력하는 기능을 담당하는 클래스입니다.</td>
+        </tr>
+        <tr>
+            <td rowspan="2">output</td>
             <td>MessageType</td>
             <td>출력과 관련된 메시지를 관리하는 ENUM 클래스입니다.</td>
         </tr>
         <tr>
             <td>OutputCarRace</td>
             <td>출력과 관련된 모든 기능을 담당하는 클래스입니다.</td>
-        </tr>
-        <tr>
-            <td>Winner</td>
-            <td>최종 우승자들을 출력하는 기능을 담당하는 클래스입니다.</td>
         </tr>
         <tr>
             <td rowspan="2">racingcar</td>
@@ -163,7 +163,7 @@
 ##### 1차 과제: 인상적인 기능
 @h-beeen님이 **ENUM으로 에러 메시지를 처리**하는 것을 보고 직관적으로 메시지가 정리되었음을 확인했습니다. 
 
-또한 @wooteco-daram님의 **출력 Output 기능** 또한 다양한 출력을 처리함에 있어 같은 구조로 가면 좋은 것 같다는 생각을 했습니다. 
+또한 @wooteco-daram님의 **출력 Output 기능** 또한 다양한 출력을 처리함에 있어 같은 구조로 가면 좋은 것 같다는 생각을 했습니다.
 
 ##### 2차 과제 적용
 제가 구현한 기능은 @h-beeen님과 @wooteco-daram님의 기능을 참고하여 Output 기능을 담당하는 클래스를 만들었습니다.
@@ -203,8 +203,29 @@ OutputCarRace는 출력(print), 형식 출력(printf)을 관리하는 메서드�
 
 당장은 적용을 못했지만 다음엔 다른 방식으로 적용하고 싶은 부분입니다.
 
+#### 3. 입력은 정적 팩터리 메서드(input~): @h-beeen님
+>프로그래머가 찾기 힘들다는 말도 동의하지만, 이 부분은 팀의 네이밍 컨벤션이나, 기타 명세화 방법을 통해 정리할 수 있을 것 같아요!
 
-#### 3. 정적 메서드 사용
+이펙티브 자바를 보면서 입력은 정적 팩터리 메서드는 네이밍 컨벤션을 지켜주는게 추후 헷갈리지 않을 것이란 배웠습니다.
+
+하지만 @h-beeen님에게 리뷰를 작성하면서 정적 팩터리 메서드도 팀의 네이밍 컨벤션이나, 기타 명세화 방법을 통해 잘 정리될 수 있다는 것을 배울 수 있었습니다.
+
+그래서 이번엔 네이밍 컨벤션을 따르진 않고 입력에 관한 모든 작업을 input~으로 처리하도록 만들었습니다.
+```java 
+public class Car {
+    public static Car inputCarname(String carName) {
+        return new Car(carName);
+    }
+
+    private Car(String carName) {
+        InputValidator.validateCarname(carName);
+        this.carName = carName;
+        this.driving = new StringBuilder();
+    }
+}
+```
+
+#### 4. 정적 메서드 사용
 ##### 1차 과제 피드백: @h-beeen 님
 > 멤버변수가 없는 NumberBaseball이라는 클래스는 리턴형이 없는 생성자 사용보다는, static method 사용이 좋아보여요!
 ```java
@@ -230,7 +251,52 @@ RacingCar를 생성자로 선언해 play 메서드를 호출하는 방식이 아
 
 이 과정을 **인스턴스 없이 호출**이 가능해졌고, **간결한 소스**를 얻을 수 있게 되었습니다.  
 
+#### 5. validate~/get~ 외 메서드명 적용
+##### 1차 과제 피드백: @jongmyeongbak
+> validate는 언제나 right한지 검증하는 것이므로 이름을 구체적으로 써주시면 좋습니다.
+```java
+private void validateRight(String command) {}
+```
+숫자 야구에서 명령의 사용이 올바른지 체크하는 메서드였습니다. 
 
+해당 메서드를 풀이하면 `validateRight: 올바른 검증인가요?` `command: 명령어`라는 의미를 가집니다.
 
-### 과제시 고려사항
-1. 
+이전 cleanCode를 보며 메서드명뿐 아니라 파라미터를 통해서도 메서드의 의미를 적용할 수 있다는 것을 배웠습니다.
+
+하지만 파라미터로 명령을 구분할 경우 추후 메서드가 어떻게 사용되는지 확인해야 하는 번거로움이 있다는 단점도 있었습니다.
+
+그래서 이번엔 메서드 명을 좀 더 명확히 만들도록 변경하였습니다.
+
+##### 2차 과제 적용
+```java
+public class InputValidator {
+    public static void validateRaceCount(String stringRaceCount) {
+        validateOnlyNumber(stringRaceCount);
+        validatePositiveNumber(stringRaceCount);
+    }
+    // ...
+}
+
+public class Car {
+    // ...
+    public String getCarName() {
+        return this.carName;
+    }
+}
+
+public class CheckMoveAndStop{
+    // ... 
+    private void UpdateMaxDistance(Car car) {
+        StringBuilder driving = car.getDriving();
+
+        if(this.maxDistance < driving.length()){
+            this.maxDistance = driving.length();
+        }
+    }
+}
+```
+InputValidator, Car 클래스에서 확인할 수 있듯이 어떤 상황에서 어떤 의미로 사용되는지 명확히 구분하였습니다. 
+
+또한 CheckMoveAndStop 클래스에서는 내부 로직 구현이 있음으로 setMaxDistance 대신 UpdateMaxDistance으로 수정하였습니다.
+
+### 아쉬운 점
