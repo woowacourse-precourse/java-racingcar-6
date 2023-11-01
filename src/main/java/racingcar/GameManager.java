@@ -28,5 +28,6 @@ public class GameManager {
             cars.tryOnce();
             IOManager.getInstance().printRacingResult(cars);
         }
+        IOManager.getInstance().printWinners(cars);
     }
 }

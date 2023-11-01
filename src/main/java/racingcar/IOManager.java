@@ -31,11 +31,17 @@ public class IOManager {
     }
 
     public void printRacingResult(Cars cars) {
-        cars.toResults().forEach(System.out::println);
+        cars.Results().forEach(System.out::println);
+        System.out.println();
     }
 
     public void notifyStartRacing() {
         System.out.println();
         System.out.println("실행 결과");
+    }
+
+    public void printWinners(Cars cars) {
+        List<String> winners = cars.winners();
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
