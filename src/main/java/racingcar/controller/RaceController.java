@@ -43,7 +43,7 @@ public class RaceController {
         int maxDistance = 0;
 
         for (Car car : racingCars) {
-            maxDistance = Math.max(maxDistance, car.getDistance());
+            maxDistance = Math.max(maxDistance, car.getRecord());
         }
 
         return maxDistance;
@@ -51,7 +51,7 @@ public class RaceController {
 
     private List<Car> findWinner(List<Car> racingCars) {
         int maxDistance = getWinnerRecord(racingCars);
-        return racingCars.stream().filter(car -> car.getDistance() == maxDistance).collect(Collectors.toList());
+        return racingCars.stream().filter(car -> car.getRecord() == maxDistance).collect(Collectors.toList());
     }
 
     private boolean isWinnerMultiple(List<Car> winner) {

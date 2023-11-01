@@ -22,7 +22,8 @@ class CarControllerTest {
     @Test
     void 자동차_이름_입력_유효성_검사_정상() {
         String playerInput = "dog,cat,bear";
-        List<Car> expectedCarNames = Arrays.asList(new Car("dog"), new Car("cat"), new Car("bear"));
+        List<Car> expectedCarNames = Arrays.asList(new Car("dog", 0),
+                new Car("cat", 0), new Car("bear", 0));
         assertThat(carController.getRacingCars(playerInput))
                 .usingRecursiveComparison()
                 .ignoringFields("record")

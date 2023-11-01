@@ -4,15 +4,15 @@ import racingcar.constant.GameSettingCharacter;
 
 public class Car {
     private final Name name;
-    private String record;
+    private int record;
 
-    public Car(String name) {
+    public Car(String name, int record) {
         this.name = new Name(name);
-        this.record = "";
+        this.record = record;
     }
 
     public void addRecord() {
-        record += GameSettingCharacter.MOVED_LETTER.get();
+        record++;
     }
 
     public String getName() {
@@ -20,8 +20,9 @@ public class Car {
     }
 
     public String getNameAndRecord() {
-        return getName() + GameSettingCharacter.COLON.get() + record + "\n";
+        return getName() + GameSettingCharacter.COLON.get() +
+                GameSettingCharacter.MOVED_LETTER.get().repeat(record) + "\n";
     }
 
-    public int getDistance() { return record.length(); }
+    public int getRecord() { return record; }
 }

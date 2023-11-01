@@ -26,7 +26,7 @@ public class CarController {
 
     public List<Car> getRacingCars(String playerInput) {
         for (String carName : inputToCarNameList(playerInput)) {
-            racingCars.add(new Car(carName.trim()));
+            racingCars.add(new Car(carName.trim(), 0));
         }
         return racingCars;
     }
