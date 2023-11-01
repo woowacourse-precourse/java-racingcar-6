@@ -19,9 +19,10 @@ public class CarTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("성공 : 자동차의 이름의 글자수가 1~5글자 이내인 경우")
     @ParameterizedTest
     @ValueSource(strings = {"한", "다섯글자임"})
-    void Car_객체의_이름은_1글자에서_5글자이다_성공(String name) {
+    void test2(String name) {
         assertThatCode(() -> new Car(name));
     }
 
