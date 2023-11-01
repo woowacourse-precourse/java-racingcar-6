@@ -3,12 +3,9 @@ package racingcar.service;
 import racingcar.domain.Cars;
 import racingcar.validate.RaceValidator;
 
-import java.util.Scanner;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingService {
-    private final Scanner sc = new Scanner(System.in);
     private int trial = 0;
     private Cars cars;
 
