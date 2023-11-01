@@ -19,6 +19,7 @@
     - 입력된 자동차 이름에 공백이 있을 경우 `IllegalArgumentException`을 발생
     - 입력된 내용이 없을 경우 `IllegalArgumentException`을 발생
     - 입력된 시도 횟수를 `Integer.parseInt()`를 사용했을 때 `NumberFormatException`이 발생할 경우 `IllegalArgumentException`을 발생
+    - 입력된 자동차 이름이 하나일 경우 `IllegalArgumentException`을 발생
 
 ## 기능 구현
 
@@ -60,6 +61,7 @@
     - 입력된 자동차 이름에 공백이 있을 경우 `IllegalArgumentException`을 발생
     - 입력된 내용이 없을 경우 `IllegalArgumentException`을 발생
     - 입력된 시도 횟수를 `Integer.parseInt()`를 사용했을 때 `NumberFormatException`이 발생할 경우 `IllegalArgumentException`을 발생
+    - 입력된 자동차 이름이 하나일 경우 `IllegalArgumentException`을 발생
 
 #### 4. service
 

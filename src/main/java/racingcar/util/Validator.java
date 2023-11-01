@@ -13,11 +13,18 @@ public class Validator {
         List<String> carNames = parser.parseCarNames(input);
         checkCarNameListDuplicationAndThrowException(carNames);
         checkCarNameLengthAndSpaceThrowException(carNames);
+        checkCarAloneAndThrowException(carNames);
     }
 
     public void checkNumberOfTrialInput(String input) throws IllegalArgumentException {
         checkEmptyAndThrowException(input);
         checkCharAndThrowException(input);
+    }
+
+    private void checkCarAloneAndThrowException(List<String> carNames) throws IllegalArgumentException {
+        if (carNames.size() == Constant.ALONE) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void checkCarNameLengthAndSpaceThrowException(List<String> carNames) throws IllegalArgumentException {
