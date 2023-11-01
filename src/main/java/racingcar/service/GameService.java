@@ -19,6 +19,8 @@ public class GameService {
             playRound();
             printRoundResult();
         }
+
+        WinnerService.announceWinners(cars);
     }
 
     private void inputNames(){
@@ -50,6 +52,6 @@ public class GameService {
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i).getName() + " : " + "-".repeat(cars.get(i).getPosition()));
         }
-        System.out.println("");
+        System.out.println();
     }
 }
