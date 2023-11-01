@@ -14,7 +14,6 @@
 - increaseCurrentAttemptCnt()를 통해 currentAttemptCnt++;
 - finalAttemptCnt과 currentAttemptCnt이 같은지 아닌지 판별하는 checkAttemptCountFinal();
 
-
 ## 🖨️ VIEW
 
 #### 1. 입력
@@ -22,6 +21,7 @@
 #### 1.1 입력 예시
 
 #### - 입력예시
+
 pobi,woni,jun  (경주 할 자동차 이름 이름은 쉼표, 기준으로 구분)  
 5 (시도할 회수)
 
@@ -33,8 +33,7 @@ pobi,woni,jun  (경주 할 자동차 이름 이름은 쉼표, 기준으로 구�
 - 자동차 이름이 중복되는 경우 구분이 안되므로 예외처리
 - 사용자가 입력한 이동값이 숫자가 아니라면 예외처리
 
-
-#### 2. 출력 
+#### 2. 출력
 
 #### 2.1 출력 예시
 
@@ -49,4 +48,20 @@ pobi,woni,jun  (경주 할 자동차 이름 이름은 쉼표, 기준으로 구�
 
 - 공동 우승자 안내 문구  
   최종 우승자 : pobi, jun
+
+
+- 실행 결과 출력, outputResultMessage()
+- 차 점수 결과 출력, printCarScore()
+    - 차 점수 출력 상세 printCarPosition()
+
+#### 3. 게임 서비스
+
+- 게임 생성, void createGame();
+- 게임 시작, void startGame();
+- 차마다 랜덤 숫자 확인해서 이동할지 확인, void moveByRandomNumber();
+- 게임 중간 결과 표시, void printCurrentGameResult();
+- 마지막 시도인지 확인, boolean isFinalAttepmt();
+
+#### 4. 자동차 경주 게임 컨트롤러
+
 
