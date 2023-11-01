@@ -20,10 +20,8 @@ public class GameService {
     public void calculateWinnerCar(Car car) {
         List<String> names = car.getNames();
         Map<String, Integer> distance = car.getDistance();
-        Integer maxDistance = Collections.max(distance.values());
-        List<String> winners = names.stream()
-                .filter(name -> distance.get(name) >= maxDistance)
-                .toList();
+        Integer maxDistance = calculateMaximumDistance(distance);
+        List<String> winners = calculateWinners(names, distance, maxDistance);
         car.setWinners(winners);
     }
 
@@ -35,5 +33,15 @@ public class GameService {
         if (number >= 4) {
             distance.put(name, distance.get(name) + 1);
         }
+    }
+
+    private Integer calculateMaximumDistance(Map<String, Integer> distance) {
+        return Collections.max(distance.values());
+    }
+
+    private List<String> calculateWinners(List<String> names, Map<String, Integer> distance, Integer maxDistance) {
+        return names.stream()
+                .filter(name -> distance.get(name) >= maxDistance)
+                .toList();
     }
 }
