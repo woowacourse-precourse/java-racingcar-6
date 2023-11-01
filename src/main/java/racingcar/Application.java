@@ -3,18 +3,14 @@ package racingcar;
 import racingcar.domain.Race;
 
 public class Application {
-    Application(Race race) {
-        this.race = race;
-    }
-    private final Race race;
     public static void main(String[] args) {
-        Race race = Race.create();
-        Application application = new Application(race);
+        Application application = new Application();
         application.run();
     }
 
     public void run() {
+        Race race = Race.create();
         race.start();
     }
-    
+
 }

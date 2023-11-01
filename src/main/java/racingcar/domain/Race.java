@@ -8,9 +8,11 @@ import java.util.Stack;
 public class Race {
     private static final String CAR_NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String NUMBER_OF_ROUND_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
-    private Cars cars;
-    private int numberOfRound;
+    private final Cars cars;
+    private final int numberOfRound;
     private Race() {
+        this.cars = Cars.create(getCarNameInput());
+        this.numberOfRound = getNumberOfRoundInput();
     }
 
     public static Race create() {
@@ -18,20 +20,17 @@ public class Race {
     }
 
     public void start() {
-        String carNameInput = getCarNameInput();
-        cars = Cars.create(carNameInput);
-        numberOfRound = getNumberOfRoundInput();
         roundsStart();
         Stack<Car> winners = pickWinners(cars.getCars());
         printWinners(winners);
     }
 
-    private String getCarNameInput() {
+    private static String getCarNameInput() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         return readLine();
     }
 
-    private int getNumberOfRoundInput() {
+    private static int getNumberOfRoundInput() {
         System.out.println(NUMBER_OF_ROUND_INPUT_MESSAGE);
         String numberOfRoundString = readLine();
         for (int i = 0; i < numberOfRoundString.length(); ++i) {
