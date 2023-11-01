@@ -27,5 +27,8 @@ public class CarRacingGame {
             gameService.playOneAttempt(cars);
             OutputView.printRacingGameStatus(cars);
         }
+
+        List<Car> winners = gameService.getWinners(cars);
+        OutputView.printWinner(winners);
     }
 }

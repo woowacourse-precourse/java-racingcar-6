@@ -41,4 +41,22 @@ public class GameService {
     private boolean moveForwardOrNot(int number) {
         return number >= 4;
     }
+
+    public List<Car> getWinners(List<Car> cars) {
+        int maxPosition = getMaxPosition(cars);
+        return getCowinner(cars, maxPosition);
+    }
+
+    private int getMaxPosition(List<Car> cars) {
+        return cars.stream()
+                .map(Car::getPosition)
+                .mapToInt(position -> position)
+                .max().orElse(0);
+    }
+
+    private List<Car> getCowinner(List<Car> cars, int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
 }
