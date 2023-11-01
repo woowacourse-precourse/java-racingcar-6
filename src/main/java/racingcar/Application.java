@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 
@@ -12,10 +13,16 @@ class Car {
         this.name = name;
         this.moveForwardCount = 0;
     }
+
+    void updateCount() {
+        this.moveForwardCount++;
+    }
+
 }
 
 public class Application {
     private static final int MAX_NAME_SIZE = 5;
+    private static final int MOVE_FORWARD_CONDITION_VALUE = 4;
 
     private static String[] inputNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -46,6 +53,23 @@ public class Application {
         }
     }
 
+    private static Car[] moveForwardAll(Car[] cars, int tryCount) {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+            moveForward(cars);
+        }
+        return cars;
+    }
+
+    private static void moveForward(Car[] cars) {
+        for (int j = 0; j < cars.length; j++) {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            if (randomValue >= MOVE_FORWARD_CONDITION_VALUE) {
+                cars[j].updateCount();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         String[] carNamesArray = inputNames();
         Car[] cars = new Car[carNamesArray.length];
@@ -54,5 +78,6 @@ public class Application {
         }
 
         int tryCount = inputCount();
+        cars = moveForwardAll(cars, tryCount);
     }
 }
