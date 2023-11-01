@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.CarConstant.CAR_CAN_GO_NUMBER;
 import static racingcar.exception.ErrorMessage.CANT_FIND_MAX_VALUE;
 
 import java.util.ArrayList;
@@ -28,8 +29,9 @@ class CarsTest {
     @Test
     void findMaxPosition() {
         // given
-        List<String> nameList = List.of("a", "b", "c", "d", "e");
-        Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
+        List<String> nameList = List.of("A", "B", "C", "D", "E");
+
+        Cars cars = Cars.of(nameList, new CarCanGoNumberGenerator());
         int n = 10;
 
         // when
@@ -54,7 +56,7 @@ class CarsTest {
     void findMaxPositionException() {
         // given
         List<String> nameList = List.of();
-        Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
+        Cars cars = Cars.of(nameList, new CarCanGoNumberGenerator());
         int n = 10;
 
         // when
@@ -72,7 +74,8 @@ class CarsTest {
     @Test
     void findWinnerCarList() {
         // given
-        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new MonotoneIncreasingNumberGenerator());
+        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"),
+                new OnlyFirstCanGoNumberGenerator());
         int n = 10;
 
         // when
@@ -84,14 +87,14 @@ class CarsTest {
         List<Car> winnerCarList = cars.findWinnerCarList();
 
         assertThat(winnerCarList.get(0).getNameString())
-                .contains("e");
+                .contains("a");
     }
 
     @DisplayName("공동 우승자도 찾을 수 있다.")
     @Test
     void findJoinWinnerCarList() {
         // given
-        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new ZeroNumberGenerator());
+        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new CarCanGoNumberGenerator());
         int n = 10;
 
         // when
@@ -153,20 +156,26 @@ class CarsTest {
         assertThat(beforeCars.getCars().get(0).getNameString()).isEqualTo("a");
     }
 
-    public static class MonotoneIncreasingNumberGenerator implements NumberGenerator {
-
-        private int number = 0;
-        @Override
-        public int generate() {
-            return number++;
-        }
-    }
-
-    public static class ZeroNumberGenerator implements NumberGenerator {
+    public static class CarCanGoNumberGenerator implements NumberGenerator {
 
         @Override
         public int generate() {
-            return 0;
+            return CAR_CAN_GO_NUMBER;
         }
     }
+
+    public static class OnlyFirstCanGoNumberGenerator implements NumberGenerator {
+
+        private static boolean isFirst = true;
+        @Override
+        public int generate() {
+            if (isFirst) {
+                isFirst = false;
+                return CAR_CAN_GO_NUMBER;
+            }
+
+            return CAR_CAN_GO_NUMBER - 1;
+        }
+    }
+
 }
