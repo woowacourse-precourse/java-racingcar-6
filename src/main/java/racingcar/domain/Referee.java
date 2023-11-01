@@ -2,9 +2,15 @@ package racingcar.domain;
 
 import racingcar.constant.Constant;
 
-public class Referee {
-    public boolean compare(int computerNumber, int BASE_NUMBER) {
+import java.util.List;
 
-        return false;
+public class Referee {
+    public static void compare(int BASE_NUMBER) {
+        List<Integer> computerRandomNumber = NumberGenerator.createRandomNumber();
+        for(int i = 0; i < computerRandomNumber.size(); i++) {
+            if(computerRandomNumber.get(i) > BASE_NUMBER) {
+                Judgment.moveForward(i);
+            }
+        }
     }
 }
