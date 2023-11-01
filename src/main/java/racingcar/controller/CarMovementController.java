@@ -23,7 +23,7 @@ public class CarMovementController {
 		return false;
 	}
 	
-	private int generatedRandomNumberZerotoNine(){
+	protected int generatedRandomNumberZerotoNine(){
 		return Randoms.pickNumberInRange(0,9);
 	}
 	
