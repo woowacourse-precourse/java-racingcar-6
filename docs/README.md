@@ -76,7 +76,7 @@
 ### 2. CarDto✅
 - 차량의 이름과 전진횟수를 설정하고 반환하는 dto
 
-### 3. WinnerDto
+### 3. WinnerDto✅
 - 우승자 정보를 문자열로 설정하고 반환하는 dto
 
 ## view
