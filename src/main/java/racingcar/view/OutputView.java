@@ -25,7 +25,6 @@ public class OutputView {
         return builder.toString();
     }
 
-
     private String formatCarOutput(Car car) {
         StringBuilder builder = new StringBuilder();
         builder.append(car.getName()).append(" : ");
