@@ -1,13 +1,15 @@
 package racingcar;
 
-import org.junit.jupiter.api.*;
-import racingcar.utils.Util;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Test;
+import racingcar.utils.Util;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class UtilTest {
@@ -42,20 +44,16 @@ class UtilTest {
 
     @Test
     void 최대값을_구한다() {
-        // Arrange
         ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
         ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50));
         ArrayList<Integer> emptyList = new ArrayList<>();
 
-        // Act
         int result1 = Util.getMaxValue(list1);
         int result2 = Util.getMaxValue(list2);
         int result3 = Util.getMaxValue(emptyList);
 
-        // Assert
-        assertEquals(5, result1);  // The maximum value in list1 is 5.
-        assertEquals(50, result2); // The maximum value in list2 is 50.
-        assertEquals(-1, result3); // The list is empty, so the default value (-1) should be returned.
+        assertEquals(5, result1);
+        assertEquals(50, result2);
+        assertEquals(-1, result3);
     }
-
 }

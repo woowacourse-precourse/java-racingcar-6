@@ -1,12 +1,14 @@
 package racingcar.domain;
 
-import racingcar.utils.Util;
+import static racingcar.utils.Constants.DUPLICATE_EXCEPTION;
+import static racingcar.utils.Constants.INVALID_INPUT_EXCEPTION;
+import static racingcar.utils.Constants.LENGTH_EXCEPTION;
+import static racingcar.utils.Constants.NAME_VALIDATION_REGEX;
 
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-
-import static racingcar.utils.Constants.*;
+import racingcar.utils.Util;
 
 public class NameValidation {
 
@@ -25,8 +27,6 @@ public class NameValidation {
     }
 
     public void isCorrectPattern() {
-        // 오직 하나의 문자만 입력되거나, 한 개 이상일 경우 이름과 이름 사이에 쉼표(,)로 구분되어야 한다.
-        // 쉼표는 오직 하나만 사용되며, 이름과 이름 사이 외의 다른 위치에는 허용되지 않는다.
         Pattern correctPattern = Pattern.compile(NAME_VALIDATION_REGEX.getValue());
         if (!correctPattern.matcher(NAMES).matches()) {
             throw new IllegalArgumentException(INVALID_INPUT_EXCEPTION.getValue());
