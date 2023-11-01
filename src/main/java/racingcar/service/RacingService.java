@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 import racingcar.exception.Exception;
@@ -14,6 +16,7 @@ public class RacingService {
 
     public static void racingGame(HashMap<String, String> cars, Integer round) {
         HashMap<String, String> game = forwardStopVehicle(cars, round);
+        winnerCheck(game);
     }
 
     private static HashMap<String, String> forwardStopVehicle(HashMap<String, String> cars, Integer endRound) {
@@ -33,6 +36,25 @@ public class RacingService {
             System.out.println();
         }
         return cars;
+    }
+
+    private static List<String> winnerCheck(HashMap<String, String> game) {
+        String maxKey = null;
+        List<String> winner = new ArrayList<>();
+
+        for (String key : game.keySet()) {
+            if (maxKey == null || game.get(key).length() >= game.get(maxKey).length()) {
+                maxKey = key;
+            }
+        }
+
+        for (String key : game.keySet()) {
+            if (game.get(maxKey).length() == game.get(key).length()) {
+                winner.add(key);
+            }
+        }
+
+        return winner;
     }
 
     public static HashMap<String, String> enterCarName(String args) {
