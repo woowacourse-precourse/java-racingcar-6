@@ -9,6 +9,7 @@ public class Parser {
 
     public int changeStringToInteger(String str) throws IllegalArgumentException{
         checkEmptyException(str);
+        checkNumberZeroException(str);
         checkNumberException(str);
         return Integer.parseInt(str);
     }
@@ -27,7 +28,12 @@ public class Parser {
     }
     private void checkEmptyException(String str) throws IllegalArgumentException{
         if (str.isEmpty()) {
-            throw new IllegalArgumentException("값을 입력하세요.");
+            throw new IllegalArgumentException("빈값은 라운드가 시작되지 않습니다.");
+        }
+    }
+    private void checkNumberZeroException(String str) throws IllegalArgumentException{
+        if (str.equals("0")) {
+            throw new IllegalArgumentException("0값은 라운드가 시작되지 않습니다.");
         }
     }
     private void checkNumberException(String str) throws IllegalArgumentException{
