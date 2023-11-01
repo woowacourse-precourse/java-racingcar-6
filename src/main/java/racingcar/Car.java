@@ -7,12 +7,10 @@ public class Car {
     private int position;
 
     Car(String name) {
-        setName(name);
+        this.name = name;
         position = 0;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+
     public void move() {
         this.position++;
     }
@@ -25,10 +23,7 @@ public class Car {
     public int compareCarPosition(Car nowMaxCar) {
         return Integer.compare(this.position, nowMaxCar.position);
     }
-    public void printCarName() {
-        System.out.print(name);
-    }
-    public String getName() { // getName을 안 쓰고 해결하는 방법을 찾고 싶다
+    public String getName() { // getName을 안 쓰고 해결하는 방법을 찾고 싶다..
         return name;
     }
 }
