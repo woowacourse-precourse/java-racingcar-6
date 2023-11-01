@@ -32,6 +32,6 @@ public class OutputView {
             }
             winnerNames.append(winner.getName());
         }
-        System.out.println("최종 우승자 : " + winnerNames);
+        System.out.print("최종 우승자 : " + winnerNames);
     }
 }

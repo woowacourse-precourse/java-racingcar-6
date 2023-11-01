@@ -1,10 +1,11 @@
 package racingcar.service;
 
+import static racingcar.utils.Constants.FORWARD_THRESHOLD;
+
 import racingcar.domain.Cars;
 import racingcar.utils.RandomNumberGenerator;
 
 public class RacingService {
-    private static final int FORWARD_THRESHOLD = 4;
     private final RandomNumberGenerator randomNumberGenerator;
 
     public RacingService() {

@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.utils.Constants.NAME_MAX_LENGTH;
+import static racingcar.utils.Constants.START_POSITION;
+
 public class Car {
-    private static final int START_POSITION = 0;
-    private static final int NAME_MAX_LENGTH = 5;
+
     private final String name;
     private int position;
 
