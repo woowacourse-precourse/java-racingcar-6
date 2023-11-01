@@ -103,6 +103,22 @@ public class GameManager {
         }
     }
 
+    public static List<String> judgeWinners() {
+        List<String> winners = new ArrayList<String>();
+        int maxPosition = 0;
+        for (RacingCar racingCar : racingCars) {
+            if (racingCar.position > maxPosition) {
+                maxPosition = racingCar.position;
+            }
+        }
+        for (RacingCar racingCar : racingCars) {
+            if (racingCar.position == maxPosition) {
+                winners.add(racingCar.name);
+            }
+        }
+        return winners;
+    }
+
     public static void runGame() {
 
         printGameStartMessage();
