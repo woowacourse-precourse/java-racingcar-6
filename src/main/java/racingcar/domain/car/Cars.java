@@ -2,6 +2,7 @@ package racingcar.domain.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.car.validator.CarNamesValidator;
 
 public class Cars {
 

@@ -1,4 +1,4 @@
-package racingcar.domain.car;
+package racingcar.domain.car.validator;
 
 import java.util.Collections;
 import java.util.List;
