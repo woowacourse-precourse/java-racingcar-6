@@ -81,7 +81,7 @@ public class InputHandler {
 
     public static boolean hasLengthExcess(String target) {
         return Arrays.stream(target.split(COMMA))
-                .allMatch(each -> each.length() <= MAX_LENGTH);
+                .anyMatch(each -> each.length() > MAX_LENGTH);
     }
 
     public static boolean hasDuplicates(String target) {
