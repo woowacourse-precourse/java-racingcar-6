@@ -29,6 +29,8 @@ public class GameController {
         }
         List<String> winners = game.getCurrentWinners();
         OutputView.printRaceWinner(winners);
+
+        InputView.closeScanner();
     }
 
     private List<Car> getCarListFromUser() {
