@@ -14,6 +14,13 @@ public class Game {
     private Player player;
     private Long gameCount;
 
+    public String getCarNames(){
+        return Converter.convertCarListToString(carList);
+    }
+
+    public Long getGameCount() {
+        return gameCount;
+    }
     public void raceSetting() {
         setPlayer();
         setCarList();
