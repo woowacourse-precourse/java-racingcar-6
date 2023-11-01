@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.Arrays;
 
 public final class InputValidator implements FrontValidator {
-
+    @Override
     public void validateSingleNumber(String givenInput) {
         try {
             Integer.parseInt(givenInput);
@@ -11,7 +11,7 @@ public final class InputValidator implements FrontValidator {
             throw new IllegalArgumentException(WRONG_NUMBER_ERROR_MESSAGE);
         }
     }
-
+    @Override
     public void validateNamesByDelimiter(String givenInput, String delimiter) {
         Arrays.asList(givenInput.split(delimiter))
                 .forEach(part -> {

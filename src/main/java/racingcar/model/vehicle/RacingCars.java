@@ -18,7 +18,7 @@ public non-sealed class RacingCars implements Cars {
     public RacingCars() {
         this.cars = new ArrayList<>();
     }
-
+    @Override
     public RacingCars applyNames(final List<String> names) {
         List<Car> newCars = new ArrayList<>(this.cars);
         names.stream()
@@ -27,7 +27,7 @@ public non-sealed class RacingCars implements Cars {
                 .forEach(newCars::add);
         return new RacingCars(newCars);
     }
-
+    @Override
     public List<Integer> moveCars() {
         return this.cars.stream()
                 .map(car -> car.changePosition(
@@ -35,25 +35,25 @@ public non-sealed class RacingCars implements Cars {
                                 RandomNumberGenerator.getRandomNUmber())))
                 .toList();
     }
-
+    @Override
     public List<List<Integer>> moveCarsRepeatedByRound(Integer round) {
         return IntStream.range(0, round)
                 .mapToObj(i -> moveCars())
                 .toList();
     }
-
+    @Override
     public List<String> getSingleRoundResult() {
         return cars.stream()
                 .map(car -> car.getRoundResult().toString())
                 .toList();
     }
-
+    @Override
     public List<String> getNamesForTest() {
         return this.cars.stream()
                 .map(Car::toString)
                 .toList();
     }
-
+    @Override
     public List<String> getWinnerName() {
         RaceResult raceResult = getRaceResult();
         return raceResult.getWinnerNames();
