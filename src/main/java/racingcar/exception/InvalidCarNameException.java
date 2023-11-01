@@ -8,10 +8,11 @@ import racingcar.domain.Car;
  */
 public class InvalidCarNameException extends IllegalArgumentException {
 
-
     private static final int MAX_NAME_LENGTH = 5;
     private static final String LENGTH_EXCEED_MESSAGE = "자동차 이름은 5자를 초과할 수 없습니다.";
     private static final String DUPLICATE_NAME_MESSAGE = "자동차 이름은 중복될 수 없습니다.";
+    private static final String NULL_OR_EMPTY_MESSAGE = "자동차 이름은 null이거나 빈 문자열일 수 없습니다.";
+
 
     /**
      * <p>기본 생성자로 예외 객체를 생성합니다.</p>
@@ -42,6 +43,7 @@ public class InvalidCarNameException extends IllegalArgumentException {
         List<String> names = cars.stream().map(Car::getName).toList();
         validateNameLength(names);
         validateUniqueNames(names);
+        validateNullOrEmpty(names);
     }
 
     /**
@@ -68,6 +70,22 @@ public class InvalidCarNameException extends IllegalArgumentException {
         long distinctCount = names.stream().distinct().count();
         if (distinctCount != names.size()) {
             throw new InvalidCarNameException(DUPLICATE_NAME_MESSAGE);
+        }
+    }
+
+    /**
+     * <p>제공된 자동차 이름 목록 중 null 이거나 빈 문자열인 이름이 있는지 검증합니다.</p>
+     *
+     * <p>자동차 이름이 null 이거나 빈 문자열일 경우 {@link InvalidCarNameException}을 발생시킵니다.</p>
+     *
+     * @param names 검증할 자동차 이름 목록
+     * @throws InvalidCarNameException 이름이 null이거나 빈 문자열일 경우 발생
+     */
+    private static void validateNullOrEmpty(List<String> names) {
+        for (String name : names) {
+            if (name == null || name.trim().isEmpty()) {
+                throw new InvalidCarNameException(NULL_OR_EMPTY_MESSAGE);
+            }
         }
     }
 }
