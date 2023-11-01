@@ -12,7 +12,9 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String mn = Console.readLine();
         int move_num = Integer.parseInt(mn);
-
+        if (move_num <= 0){
+            throw new IllegalArgumentException();
+        }
         Game.startGame(move_num, car_name);
     }
 }
@@ -68,7 +70,7 @@ class Game {
 
 class Winner {
     public static void WhoIsWinner(String[] mc, String[] cn){
-        int CntMax = 0;
+        int CntMax = 1;
         ArrayList<String> name = new ArrayList<>();
         for (int i = 0; i < mc.length; i++){
             if (CntMax < mc[i].length()){
@@ -85,6 +87,7 @@ class Winner {
 
     public static void PrintWinner(ArrayList<String> name){
         String result = String.join(",", name);
-        System.out.println("최종 우승자 : "+result);
+        System.out.print("최종 우승자 : "+result);
+
     }
 }
