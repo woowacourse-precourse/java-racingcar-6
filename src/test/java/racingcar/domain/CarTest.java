@@ -44,10 +44,23 @@ public class CarTest {
         Assertions.assertEquals(1, car.getCarPosition());
     }
 
+    @DisplayName("다른 자동차와 위치 비교를 한다")
+    @Test
+    void compareTo() {
+        Car car = new Car("pobi");
+        Car otherCar = new Car("jun");
+        BasicMovementRule basicMovementRule = new BasicMovementRule();
+
+        otherCar.move(basicMovementRule,6);
+        int value = car.compareTo(otherCar);
+
+        Assertions.assertEquals(-1, value);
+    }
+
     @DisplayName("자동차의 현재 위치를 반환한다")
     @Test
-    void getCarPosition(){
+    void getCarPosition() {
         Car car = new Car("pobi");
-        Assertions.assertEquals(0,car.getCarPosition());
+        Assertions.assertEquals(0, car.getCarPosition());
     }
 }
