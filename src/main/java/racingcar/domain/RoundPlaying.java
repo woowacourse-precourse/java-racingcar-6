@@ -1,11 +1,10 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class RoundPlaying {
-    Map<String, Integer> playRound(Map<String, Integer> cars) {
+    LinkedHashMap<String, Integer> playRound(LinkedHashMap<String, Integer> cars) {
         for (String name : cars.keySet()) {
             int number = createRandomNumber();
             int replaceNumber = cars.get(name);
@@ -16,13 +15,13 @@ public class RoundPlaying {
         return cars;
     }
 
-    private void findRoundResult(Map<String, Integer> cars) {
+    private void findRoundResult(LinkedHashMap<String, Integer> cars) {
         for (String key : cars.keySet()) {
             printScore(key, cars);
         }
     }
 
-    private void printScore(String key, Map<String, Integer> cars) {
+    private void printScore(String key, LinkedHashMap<String, Integer> cars) {
         int score = cars.get(key);
         System.out.print(key + " : ");
         for (int i = 0; i < score; i++) {

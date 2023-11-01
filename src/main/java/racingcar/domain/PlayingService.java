@@ -1,13 +1,12 @@
 package racingcar.domain;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import camp.nextstep.edu.missionutils.Console;
 
 public class PlayingService {
     private final Number number;
     private RoundPlaying master = new RoundPlaying();
-    Map<String, Integer> cars = new HashMap<>();
+    LinkedHashMap<String, Integer> cars = new LinkedHashMap<>();
 
     private final String START_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final String NUMBER_MSG = "시도할 회수는 몇회인가요?";
