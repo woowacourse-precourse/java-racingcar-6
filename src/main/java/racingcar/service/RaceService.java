@@ -24,7 +24,23 @@ public class RaceService {
             }
         }
     }
+    public static void printWinners(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
 
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        System.out.println("\n" + "최종 우승자 : " + String.join(", ", winners));
+    }
 
 
 }
