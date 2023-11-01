@@ -10,12 +10,5 @@ public class NumberGenerator {
     public int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
-
-    public boolean isFourOrAbove(int number) {
-        if (number >= 4) {
-            return true;
-        }
-        return false;
-    }
-
+    
 }

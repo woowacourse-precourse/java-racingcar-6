@@ -42,13 +42,16 @@ public class CarList {
     }
 
     private void moveCarWhenNumberFourOrAbove(NumberGenerator numberGenerator, Car car, int number) {
-        if (isNumberFourOrAbove(numberGenerator, number)) {
+        if (isNumberFourOrAbove(number)) {
             car.move();
         }
     }
 
-    private boolean isNumberFourOrAbove(NumberGenerator numberGenerator, int number) {
-        return numberGenerator.isFourOrAbove(number);
+    public boolean isNumberFourOrAbove(int number) {
+        if (number >= 4) {
+            return true;
+        }
+        return false;
     }
 
     public int findMaxPosition() {
