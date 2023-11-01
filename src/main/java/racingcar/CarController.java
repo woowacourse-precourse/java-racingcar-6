@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+/**
+ * 자동차 객체를 관리하고, 자동차의 움직임을 관리하는 클래스
+ * 자동차 객체 생성과 자동차를 특정 기준에 따라 움직이고, 가장 많이 움직인 자동차를 찾는 기능을 담당한다.
+ */
 public class CarController {
     private final List<Car> carList;
 
