@@ -11,7 +11,7 @@ public class ValidatorTest {
     private final Validator validator = new Validator();
 
     @Test
-    void String_이름에_대한_빈문자_처리(){
+    void String_이름에_대한_미입력_처리(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> validator.checkStringCarNames(""))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -57,7 +57,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void 시도횟수_빈문자_처리(){
+    void 시도횟수에_대한_미입력_처리(){
         assertSimpleTest(()->
                 assertThatThrownBy(()->validator.checkTrial(""))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -65,7 +65,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void 시도횟수_문자_처리(){
+    void 시도횟수에_대한_문자입력_처리(){
         assertSimpleTest(()->
                 assertThatThrownBy(()->validator.checkTrial("A"))
                         .isInstanceOf(IllegalArgumentException.class)
