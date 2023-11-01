@@ -5,6 +5,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Race;
 import racingcar.util.CarUtil;
 import racingcar.util.RaceUtil;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -21,6 +22,12 @@ public class CarTest {
         assertThat(result).containsExactly("pobi", "woni");
     }
 
-
+    @Test
+    void carRaceResultTest() {
+        String input = "pobi,woni";
+        List<Car> cars = CarUtil.createCar(input);
+        Race race = new Race(cars, 5);
+        OutputView.raceResult(race);
+    }
 
 }

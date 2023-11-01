@@ -18,10 +18,10 @@ public class RaceTest {
     }
 
     @Test
-    void raceTest() {
+    void raceOutViewTest() {
         String inputName = "pobi,woni";
         List<Car> cars = CarUtil.createCar(inputName);
-        RaceUtil.race(cars);
+        RaceUtil.movePosition(cars);
         for (Car c : cars) {
             System.out.println(c.getPosition());
         }
