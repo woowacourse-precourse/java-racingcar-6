@@ -6,23 +6,25 @@ import static racingcar.constant.ExceptionMessage.ROUND_MUST_BE_POSITIVE;
 import static racingcar.constant.InputNumConstant.MAX_NAME_LENGTH;
 import static racingcar.constant.InputNumConstant.MIN_NAME_LENGTH;
 
+import racingcar.constant.InputStringConstant;
+
 public class InputValidator {
 
     public static void validateName(String[] nameArr) {
         for (String name: nameArr) {
-            if (!checkNameLengthInRange(name)) {
-                throw new IllegalArgumentException(NAME_LENGTH_NOT_IN_RANGE.getValue());
+            if (!checkNameLengthInRange(name) && !checkContainBlank(name)) {
+                throw new IllegalArgumentException(NAME_LENGTH_NOT_IN_RANGE.getMessage());
             }
         }
     }
 
     public static void validateRoundNum(String roundNum) {
         if (!checkOnlyNumInString(roundNum)) {
-            throw new IllegalArgumentException(ROUND_CONTAIN_NOT_ONLY_NUM.getValue());
+            throw new IllegalArgumentException(ROUND_CONTAIN_NOT_ONLY_NUM.getMessage());
         }
 
         if (!checkNumPositive(roundNum)) {
-            throw new IllegalArgumentException(ROUND_MUST_BE_POSITIVE.getValue());
+            throw new IllegalArgumentException(ROUND_MUST_BE_POSITIVE.getMessage());
         }
      }
 
@@ -41,5 +43,9 @@ public class InputValidator {
 
     private static boolean checkNumPositive(String num) {
         return Integer.parseInt(num) >= 0;
+    }
+
+    private static boolean checkContainBlank(String input) {
+        return input.contains(InputStringConstant.BLANK.getValue());
     }
 }
