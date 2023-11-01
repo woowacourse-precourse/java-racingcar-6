@@ -11,7 +11,7 @@ public class InputView {
     public Cars readCarName() {
         System.out.println(INPUT_CAR_NAME_MESSAGE);
         String input = Console.readLine();
-        return Converter.parseCarNames(input);
+        return Converter.parseCars(input);
     }
 
     public int readCount() {

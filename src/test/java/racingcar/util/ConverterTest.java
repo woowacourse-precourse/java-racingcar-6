@@ -12,13 +12,13 @@ import racingcar.model.Cars;
 class ConverterTest {
     @Test
     void 자동차_이름_문자열을_Cars_객체로_변환한다() {
-        Cars cars = Converter.parseCarNames("pobi,woni,jun");
+        Cars cars = Converter.parseCars("pobi,woni,jun");
         assertThat(cars.getCars().size()).isEqualTo(3);
     }
 
     @Test
     void 자동차의_이름이_다섯_글자_초과인_경우_예외를_발생한다() {
-        assertThatThrownBy(() -> Converter.parseCarNames("pobiwoni"))
+        assertThatThrownBy(() -> Converter.parseCars("pobiwoni"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 5자 이하만 가능합니다");
     }

@@ -14,7 +14,7 @@ public class Converter {
     private static final String HYPHEN = "-";
     private static final String NEWLINE = "\n";
 
-    public static Cars parseCarNames(String carNames) {
+    public static Cars parseCars(String carNames) {
         List<Car> cars = Stream.of(carNames.split(DELIMITER))
                 .peek(Converter::validateLength)
                 .map(Car::new)
