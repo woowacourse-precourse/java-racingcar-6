@@ -14,9 +14,7 @@ public class Car {
         distance++;
     }
 
-    void stop() {
-
-    }
+    void stop() {}
 
     void decideMoveForwardOrStop() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
