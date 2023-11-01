@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Stadium;
 import racingcar.utils.input.GameCountInputManager;
 import racingcar.utils.input.UsernameInputManager;
@@ -15,6 +16,7 @@ public class Application {
         SystemOutputManager.GAME_COUNT_INPUT.output();
         Integer moveCount = GameCountInputManager.getInstance().input();
 
+        Console.close();
         Stadium stadium = Stadium.of(moveCount, userNames);
         stadium.startRace();
         stadium.concludeResult();
