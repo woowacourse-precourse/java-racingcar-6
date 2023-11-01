@@ -25,6 +25,7 @@ class DomainLogicTest {
     }
 
     @Test
+    @Name("제일 먼 거리를 가진 자동차의 위치를 가져오는 지 확인")
     void getMaxPosition() {
         // given
         CarGroup carGroup = CarGroup.from(

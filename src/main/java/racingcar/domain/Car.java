@@ -1,13 +1,8 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.global.Validation;
 
 public class Car {
-
-    private static final int MIN_VALUE = 4;
-    private static final int MIN_NUMBER_RANGE = 1;
-    private static final int MAX_NUMBER_RANGE = 9;
 
     private final String name;
     private int position;
