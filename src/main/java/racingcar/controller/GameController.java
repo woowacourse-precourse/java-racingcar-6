@@ -3,8 +3,8 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.dto.OneGameResultsDto;
 import racingcar.service.RacingGameService;
+import racingcar.service.domain.CarEngine;
 import racingcar.service.domain.RacingCars;
-import racingcar.service.domain.WootecoCarEngine;
 import racingcar.utils.GameUtil;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,11 +13,14 @@ public class GameController {
     private final OutputView outputView;
     private final InputView inputView;
     private final RacingGameService racingGameService;
+    private final CarEngine carEngine;
 
-    public GameController(OutputView outputView, InputView inputView, RacingGameService racingGameService) {
+    public GameController(OutputView outputView, InputView inputView, RacingGameService racingGameService,
+                          CarEngine carEngine) {
         this.outputView = outputView;
         this.inputView = inputView;
         this.racingGameService = racingGameService;
+        this.carEngine = carEngine;
     }
 
     public void run() {
@@ -28,7 +31,7 @@ public class GameController {
 
     private RacingCars readyToCarRace() {
         List<String> carNames = GameUtil.splitByCommas(inputView.readCarNames());
-        return new RacingCars(carNames, new WootecoCarEngine());
+        return new RacingCars(carNames, carEngine);
     }
 
     private void processCarRace(RacingCars cars) {
