@@ -22,7 +22,6 @@ public class Winner {
         int max = 0;
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
-            String name = car.getName();
             int move = car.getTotalMove();
             if (move > max) {
                 max = move;
