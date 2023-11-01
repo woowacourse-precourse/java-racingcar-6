@@ -8,6 +8,8 @@ public class Car {
     private final String name;
     private int position;
 
+    private final String PROGRESS_BAR = "-";
+
     private Car(String name, int position) {
         this.name = name;
         this.position = position;
@@ -54,14 +56,8 @@ public class Car {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        int position = this.getPosition();
-        result.append(String.format("%s : ", name));
-        while (position > 0) {
-            result.append("-");
-            position--;
-        }
-        return result.toString();
+        String position = PROGRESS_BAR.repeat(this.getPosition());
+        return String.format("%s : %s", name, position);
     }
 
     @Override
