@@ -34,5 +34,9 @@ public class GameReferee {
 
     }
 
+    public boolean continueGame() {
+        return Game.getInstance().getRound() < totalRound;
+    }
+
 
 }
