@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Objects;
 
 public class Car implements Comparable<Car> {
     private final String name;
@@ -53,5 +54,18 @@ public class Car implements Comparable<Car> {
     @Override
     public int compareTo(Car car) {
         return Integer.compare(movingCount, car.movingCount);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return movingCount == car.movingCount && Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, movingCount);
     }
 }
