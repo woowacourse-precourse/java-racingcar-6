@@ -20,7 +20,7 @@ public class OutputView {
         System.out.println(message.getMessage());
     }
 
-    public static void printStatus(CarStatus carStatus) {
+    public static void printCarStatus(CarStatus carStatus) {
         System.out.println(carStatus.name() + " : " + DRIVE.repeat(carStatus.movedCount()));
     }
 
