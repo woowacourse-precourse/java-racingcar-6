@@ -62,4 +62,17 @@ class CarTest {
             assertThat(car.movingDistance).isEqualTo(expectedMovingDistance);
         }
     }
+    
+    @DisplayName("해당 자동차를 우승자로 변경한다.")
+    @Test
+    void setWinner() {
+        // given
+        Car car = new Car("bang");
+        
+        // when
+        car.setWinner();
+        
+        // then
+        assertThat(car.isWinner).isTrue();
+    }
 }

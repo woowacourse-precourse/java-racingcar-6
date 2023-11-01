@@ -7,18 +7,21 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class GameSystem {
     private static final String INSERT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INSERT_TRY_COUNT = "시도할 회수는 몇회인가요?";
     private static final String POSSIBLE_TRY_COUNT_REGEX = "^[1-9][0-9]*$";
     private static final String EXECUTION_RESULT = "실행 결과";
+    private static final String FINAL_WINNER = "최종 우승자";
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUBER = 9;
     
     public List<Car> cars = new LinkedList<>();
     private String userInput;
     private StringBuilder resultMessage;
+    private StringBuilder winnerMessage;
     
     public void startGame() {
         System.out.println(INSERT_CAR_NAMES);
@@ -32,6 +35,9 @@ public class GameSystem {
         runRace(tryCount);
         System.out.println(EXECUTION_RESULT);
         System.out.print(resultMessage);
+        
+        executeWinner();
+        System.out.println(winnerMessage);
     }
     
     public void setUpCars(String userInput) {
@@ -96,5 +102,48 @@ public class GameSystem {
             result.append(car.name).append(" : ").append(car.movingDistance).append("\n");
         }
         result.append("\n");
+    }
+    
+    private void executeWinner() {
+        int maxDistance = calculateMaxDistance();
+        determineWinner(maxDistance);
+        
+        List<Car> winners = findWinners(maxDistance);
+        calculateWinnerMessage(winners);
+    }
+    
+    private int calculateMaxDistance() {
+        return cars.stream()
+                .mapToInt(car -> car.movingDistance.length())
+                .max()
+                .orElse(0);
+    }
+    
+    private void determineWinner(int maxDistance) {
+        cars.stream()
+                .filter(car -> car.movingDistance.length() == maxDistance)
+                .forEach(Car::setWinner);
+    }
+    
+    private List<Car> findWinners(int maxDistance) {
+        List<Car> winners = new LinkedList<>();
+        
+        for (Car car : cars) {
+            if (car.isWinner) {
+                winners.add(car);
+            }
+        }
+        
+        return winners;
+    }
+    
+    private void calculateWinnerMessage(List<Car> winners) {
+        winnerMessage = new StringBuilder();
+        
+        String winnerNames = winners.stream()
+                .map(car -> car.name)
+                .collect(Collectors.joining(", "));
+        
+        winnerMessage.append(FINAL_WINNER).append(" : ").append(winnerNames);
     }
 }

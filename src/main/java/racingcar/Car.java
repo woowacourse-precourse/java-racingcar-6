@@ -7,6 +7,7 @@ public class Car {
     
     public String name;
     public String movingDistance;
+    public boolean isWinner;
     
     public Car(String name) {
         if (!isValidName(name)) {
@@ -21,6 +22,10 @@ public class Car {
         if (randomNumber >= GO_STOP_STANDARD_NUMBER) {
             this.movingDistance += "-";
         }
+    }
+    
+    public void setWinner() {
+        isWinner = true;
     }
     
     private boolean isValidName(String name) {
