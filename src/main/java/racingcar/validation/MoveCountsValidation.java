@@ -1,13 +1,24 @@
 package racingcar.validation;
 
+import racingcar.utils.Constants;
+import racingcar.utils.ErrorMessage;
+
 public class MoveCountsValidation {
     public void validateMoveCountsInput(String input) {
+        validateIsInteger(input);
+        validateIsGreaterThanOne(input);
+    }
+
+    private void validateIsInteger(String input) {
         if (!isInteger(input)) {
-            throw new IllegalArgumentException("정수만 입력이 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.MOVE_COUNTS_NOT_INT_ERROR_MESSAGE);
         }
+    }
+
+    private void validateIsGreaterThanOne(String input) {
         int moveCounts = Integer.parseInt(input);
-        if (moveCounts < 1) {
-            throw new IllegalArgumentException("1 이상의 정수를 입력해야 합니다.");
+        if (moveCounts < Constants.MINIMUM_MOVE_COUNTS_FOR_INPUT) {
+            throw new IllegalArgumentException(ErrorMessage.MOVE_COUNTS_RANGE_ERROR_MESSAGE);
         }
     }
 
