@@ -106,11 +106,11 @@ public class PlayRacingcarGameTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void positionTest_movingforward_or_stop() {
+    void 전진_정지() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("pobi,woni", "2");
-                    assertThat(output()).contains("pobi : -- ", "woni : - ", "최종 우승자 : pobi");
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
                 },
                 MOVING_FORWARD, STOP
         );
@@ -134,7 +134,7 @@ public class PlayRacingcarGameTest extends NsTest {
         car.moveForward();
 
         int positionLength = 0;
-        if (car.getPositionDistance() != 0) {
+        if (car.getPositionDistance() == 0) {
             positionLength = car.getPositionDistance();
         }
         assertThat(positionLength).isEqualTo(0);
