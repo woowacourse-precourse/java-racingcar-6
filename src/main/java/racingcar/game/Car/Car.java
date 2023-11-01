@@ -1,4 +1,4 @@
-package racingcar.Car;
+package racingcar.game.Car;
 
 public class Car {
 

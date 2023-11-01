@@ -1,9 +1,10 @@
-package racingcar;
+package racingcar.game;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.Car.Car;
-import racingcar.Car.CarFactory;
+import racingcar.game.Car.Car;
+import racingcar.game.Car.CarFactory;
 import racingcar.User.User;
+import racingcar.view.View;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -27,6 +28,7 @@ public class RacingGame {
 
     private static int turnCountByInput() {
         int turnCount = User.turnCountByUserInput();
+        return turnCount;
     }
 
     private static List<Car> play(List<Car> cars) {
@@ -38,24 +40,30 @@ public class RacingGame {
                 .collect(Collectors.toList());
     }
 
-    private static void printTurnResult(List<Car> cars) {
+    private static View printTurnResult(List<Car> cars) {
+        StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getMoveDistance()));
+            stringBuilder.append(car.getName());
+            stringBuilder.append(" : ");
+            stringBuilder.append("-".repeat(car.getMoveDistance()));
+            stringBuilder.append("\n");
         }
-        System.out.println();
+        return new View(stringBuilder.toString());
     }
 
-    private static void printFinalResult(List<Car> cars) {
+    private static View printFinalResultView(List<Car> cars) {
         int maxDistance = cars.stream()
                 .map(Car::getMoveDistance)
                 .max(Comparator.naturalOrder())
                 .orElse(0);
 
-        String result = cars.stream()
-                .filter(car -> car.getMoveDistance() == maxDistance)
-                .map(Car::getName)
-                .collect(Collectors.joining(","));
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종우승자");
 
-        System.out.println("최종 우승자 : " + result);
+        cars.stream()
+                .filter(car -> car.getMoveDistance() == maxDistance)
+                        .forEach(car -> stringBuilder.append(car.getName()));
+
+        return new View(stringBuilder.toString());
     }
 }
