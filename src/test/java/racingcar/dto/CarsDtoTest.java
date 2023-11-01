@@ -11,10 +11,10 @@ class CarsDtoTest {
 
     @Test
     @DisplayName("라운드 결과 출력을 위한 실행 결과 DTO 생성")
-    void givenResults_whenCreateRoundResultDto_thenReturnCorrectValue() {
-        CarsDto carsDto =
-                new CarsDto(List.of(new CarDto("pobi", 3), new CarDto("woni", 4)));
+    void givenRoundResults_whenCreateCarsDto_thenReturnCorrectValue() {
+        List<CarDto> roundResults = List.of(new CarDto("pobi", 3), new CarDto("woni", 4));
 
+        CarsDto carsDto = new CarsDto(roundResults);
         List<CarDto> results = carsDto.roundResults();
 
         assertThat(results.get(0)).extracting("name").isEqualTo("pobi");
