@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.common.RandomUtil;
 
 public class CarManager {
 
@@ -20,7 +21,8 @@ public class CarManager {
 
     public void orderCarsMoveForward() {
         cars.forEach(car -> {
-            car.moveForward();
+            int randomNumber = RandomUtil.getRandomNumber();
+            car.moveForward(randomNumber);
             updateMaxMoveForwardCount(car.getMoveForwardCount());
         });
     }

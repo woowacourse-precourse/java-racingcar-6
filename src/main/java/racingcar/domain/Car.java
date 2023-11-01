@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.common.Constants;
-import racingcar.common.RandomUtil;
 
 public class Car {
 
@@ -24,10 +23,14 @@ public class Car {
         return moveForwardCount;
     }
 
-    public void moveForward() {
-        if (RandomUtil.isMoveForward()) {
+    public void moveForward(int randomNumber) {
+        if (isMoveForward(randomNumber)) {
             moveForwardCount++;
         }
+    }
+
+    private boolean isMoveForward(int randomNumber) {
+        return randomNumber >= Constants.MOVE_FORWARD;
     }
 
     public String getCurrentCondition() {
