@@ -26,4 +26,13 @@ public class Car {
     public CarStatusDto sendStatus() {
         return CarStatusDto.create(name, progressScore);
     }
+
+    //Code for test
+    public String getName() {
+        return this.name;
+    }
+
+    public Integer getProgressScore() {
+        return this.progressScore;
+    }
 }

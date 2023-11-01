@@ -3,11 +3,11 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Progress {
-    private static final Integer SUCCESS_THRESHOLD = 4;
-    private static final Integer MINIMUM_RANGE_NUMBER = 0;
-    private static final Integer MAXIMUM_RANGE_NUMBER = 9;
-    private static final Integer SUCCESS = 1;
-    private static final Integer FAIL = 0;
+    public static final Integer SUCCESS_THRESHOLD = 4;
+    public static final Integer MINIMUM_RANGE_NUMBER = 0;
+    public static final Integer MAXIMUM_RANGE_NUMBER = 9;
+    public static final Integer SUCCESS = 1;
+    public static final Integer FAIL = 0;
 
     private final boolean progressStatus;
 
