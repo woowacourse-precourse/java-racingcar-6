@@ -21,11 +21,15 @@ public class CarNameParser {
         }
     }
 
-    public List<Car> stringToCarName(List<String> carNameList) {
+    private void addCarToList(List<Car> carList, String carName) {
+        Car newCar = new Car(carName);
+        carList.add(newCar);
+    }
+
+    public List<Car>stringToCarName(List<String>carNameList) {
         List<Car> carList = new ArrayList<>();
         for (String carName : carNameList) {
-            Car car = new Car(carName);
-            carList.add(car);
+            addCarToList(carList, carName);
         }
         return carList;
     }
