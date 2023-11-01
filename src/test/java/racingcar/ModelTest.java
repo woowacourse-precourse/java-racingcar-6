@@ -1,9 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
+import Model.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,13 +26,13 @@ class ModelTest {
         Car car = new Car("pobi");
 
         car.changePosition(3);
-        int position1 = car.getPosition;
+        int position1 = car.getPosition();
 
         car.changePosition(4);
-        int position2 = car.getPosition;
+        int position2 = car.getPosition();
 
-        assertThat(position).isEqualTo(0);
-        assertThat(position).isEqualTo(1);
+        assertThat(position1).isEqualTo(0);
+        assertThat(position2).isEqualTo(1);
     }
 
     @Test
