@@ -8,7 +8,6 @@ import racingcar.utils.ErrorMessage;
 import racingcar.utils.Util;
 
 public class CarInputValidation {
-
     public void validateCarInput(String input) {
         validateDuplicateNames(input);
         validateNoSpaces(input);

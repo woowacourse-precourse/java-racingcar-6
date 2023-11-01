@@ -3,7 +3,6 @@ package racingcar.validation;
 import java.util.List;
 
 public class ParticipatingCarsValidation {
-
     public void validateParticipatingCars(List<String> ParticipatingCars) {
         validateNotEmpty(ParticipatingCars);
     }

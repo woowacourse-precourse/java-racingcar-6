@@ -7,7 +7,6 @@ import racingcar.utils.GameMessage;
 import racingcar.utils.Util;
 
 public class OutputView {
-
     public void printStartMessage() {
         System.out.println(GameMessage.RUN_RESULTS_MESSAGE);
     }
