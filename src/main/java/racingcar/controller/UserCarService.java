@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.Map;
-import racingcar.domain.UserCar;
 
 public class UserCarService {
     public boolean checkCorrectName(Map<String, Integer> car){
@@ -14,7 +13,7 @@ public class UserCarService {
         }
         return true;
     }
-    public int checkLength(String key){
+    private int checkLength(String key){
         if(key.length()>5){
             return 1;
         }
