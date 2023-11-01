@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.view.OutView;
+import racingcar.view.OutputView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OutViewTest {
+public class OutputViewTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
@@ -34,7 +34,7 @@ public class OutViewTest {
         List<Car> cars = Arrays.asList(new Car("car1", 3));
 
         //when
-        OutView.printMoveResult(cars);
+        OutputView.printMoveResult(cars);
 
         //then
         String expected = "car1 : ---\n";
@@ -47,7 +47,7 @@ public class OutViewTest {
         List<Car> cars = Arrays.asList(new Car("car1", 3), new Car("car2", 2));
 
         //when
-        OutView.printMoveResult(cars);
+        OutputView.printMoveResult(cars);
 
         //then
         String expected = "car1 : ---\n" + "car2 : --\n";
@@ -60,7 +60,7 @@ public class OutViewTest {
         List<Car> cars = Arrays.asList(new Car("car1", 3));
 
         //when
-        OutView.printWinners(cars);
+        OutputView.printWinners(cars);
 
         //then
         String expected = "최종 우승자 : car1";
@@ -73,7 +73,7 @@ public class OutViewTest {
         List<Car> cars = Arrays.asList(new Car("car1", 3), new Car("car2", 3));
 
         //when
-        OutView.printWinners(cars);
+        OutputView.printWinners(cars);
 
         //then
         String expected = "최종 우승자 : car1, car2";
