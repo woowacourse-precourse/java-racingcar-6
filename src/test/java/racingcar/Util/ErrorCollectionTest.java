@@ -38,6 +38,15 @@ class ErrorCollectionTest extends NsTest {
         });
     }
 
+    @Test
+    void 중복된_이름_에러_발생() {
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> runException("test, test"))
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage(ErrorMessage.DUPLICATION.label());
+        });
+    }
+
 
     @Override
     protected void runMain() {

@@ -13,4 +13,6 @@ public class ErrorCollection {
     public static void IllegalAttempts() {
         throw new IllegalArgumentException(ErrorMessage.ATTEMPT.label());
     }
+
+    public static void IllegalDuplicationInput() { throw new IllegalArgumentException(ErrorMessage.DUPLICATION.label());}
 }
