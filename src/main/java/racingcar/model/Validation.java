@@ -14,25 +14,25 @@ import java.util.Set;
 
 public class Validation {
 
-    public static void name(List<Cars> cars) {
+    public static void name(List<Car> cars) {
         nameLimitLength(cars);
         nameNoDuplicate(cars);
         nameMustSize(cars);
         nameNoWhiteSpace(cars);
     }
 
-    private static void nameLimitLength(List<Cars> cars) {
-        for (Cars car : cars) {
+    private static void nameLimitLength(List<Car> cars) {
+        for (Car car : cars) {
             if (car.getName().length() > NAME_LENGTH) {
                 throw new IllegalArgumentException(NAME_LIMIT_LENGTH);
             }
         }
     }
 
-    private static void nameNoDuplicate(List<Cars> cars) {
+    private static void nameNoDuplicate(List<Car> cars) {
         Set<String> set = new HashSet<>();
 
-        for (Cars car : cars) {
+        for (Car car : cars) {
             set.add(car.getName());
         }
 
@@ -41,13 +41,13 @@ public class Validation {
         }
     }
 
-    private static void nameMustSize(List<Cars> cars) {
+    private static void nameMustSize(List<Car> cars) {
         if (cars.size() < 1) {
             throw new IllegalArgumentException(NAME_MUST_SIZE);
         }
     }
 
-    private static void nameNoWhiteSpace(List<Cars> cars) {
+    private static void nameNoWhiteSpace(List<Car> cars) {
         cars.stream()
                 .filter(car -> car.getName().trim().isEmpty())
                 .findFirst()

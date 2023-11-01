@@ -2,12 +2,12 @@ package racingcar.model;
 
 import static racingcar.util.GameNumber.MOVING_CONDITION;
 
-public class Cars {
+public class Car {
 
     private final String name;
     private int distance;
 
-    public Cars(String name, int distance) {
+    public Car(String name, int distance) {
         this.name = name;
         this.distance = distance;
     }

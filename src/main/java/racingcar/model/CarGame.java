@@ -5,10 +5,10 @@ import java.util.StringTokenizer;
 import racingcar.util.RandomNum;
 
 public class CarGame {
-    private final List<Cars> cars;
+    private final List<Car> cars;
     private int playCount;
 
-    public CarGame(List<Cars> cars) {
+    public CarGame(List<Car> cars) {
         this.cars = cars;
     }
 
@@ -17,7 +17,7 @@ public class CarGame {
         Validation.name(cars);
     }
 
-    public List<Cars> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
 
@@ -35,12 +35,12 @@ public class CarGame {
 
         while (tokenizer.hasMoreTokens()) {
             String result = tokenizer.nextToken().trim();
-            cars.add(new Cars(result, 0));
+            cars.add(new Car(result, 0));
         }
     }
 
     public void moveOrStop() {
-        for (Cars car : cars) {
+        for (Car car : cars) {
             car.move(RandomNum.generate());
         }
     }
@@ -50,14 +50,14 @@ public class CarGame {
 
         List<String> result = cars.stream()
                 .filter(car -> maxDistance == car.getDistance())
-                .map(Cars::getName)
+                .map(Car::getName)
                 .toList();
         return result;
     }
 
     private int getMaxDistance() {
         int maxDistance = cars.stream()
-                .mapToInt(Cars::getDistance)
+                .mapToInt(Car::getDistance)
                 .max()
                 .orElse(0);
 

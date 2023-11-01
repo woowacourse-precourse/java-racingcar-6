@@ -10,7 +10,7 @@ class CarsTest {
     @CsvSource({"9,3,1", "4,2,1", "1,2,0", "2,3,0", "4,4,2", "0,9,1"})
     public void 전진_또는_스탑_테스트(int move1, int move2, int expected) {
         //given
-        Cars car = new Cars("JiHun", 0);
+        Car car = new Car("JiHun", 0);
 
         //when
         car.move(move1);

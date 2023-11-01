@@ -17,7 +17,7 @@ class ValidationTest {
 
     @Test
     public void 이름_길이_5자리_이하만_가능() {
-        List<Cars> input1 = Arrays.asList(new Cars("JiHun", 0), new Cars("MacBook", 0));
+        List<Car> input1 = Arrays.asList(new Car("JiHun", 0), new Car("MacBook", 0));
 
         assertThatThrownBy(() -> Validation.name(input1))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -26,7 +26,7 @@ class ValidationTest {
 
     @Test
     public void 이름_중복_금지() {
-        List<Cars> input = Arrays.asList(new Cars("JiHun", 0), new Cars("JiHun", 0));
+        List<Car> input = Arrays.asList(new Car("JiHun", 0), new Car("JiHun", 0));
 
         assertThatThrownBy(() -> Validation.name(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -35,7 +35,7 @@ class ValidationTest {
 
     @Test
     public void 이름_한개_이상_참여() {
-        List<Cars> input = new ArrayList<>();
+        List<Car> input = new ArrayList<>();
 
         assertThatThrownBy(() -> Validation.name(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -44,7 +44,7 @@ class ValidationTest {
 
     @Test
     public void 이름이_공백만_있는건_금지() {
-        List<Cars> input = Arrays.asList(new Cars(" ", 0));
+        List<Car> input = Arrays.asList(new Car(" ", 0));
 
         assertThatThrownBy(() -> Validation.name(input))
                 .isInstanceOf(IllegalArgumentException.class)

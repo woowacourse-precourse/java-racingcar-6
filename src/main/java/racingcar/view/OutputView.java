@@ -5,7 +5,7 @@ import static racingcar.util.Message.OUTPUT_PLAY_RESULT;
 import static racingcar.util.Message.OUTPUT_WINNER;
 
 import java.util.List;
-import racingcar.model.Cars;
+import racingcar.model.Car;
 
 public class OutputView {
 
@@ -13,7 +13,7 @@ public class OutputView {
         System.out.println(OUTPUT_PLAY_RESULT);
     }
 
-    public static void printPlayResult(List<Cars> cars) {
+    public static void printPlayResult(List<Car> cars) {
         cars.forEach(car -> {
             System.out.print(car.getName() + " : ");
             int distance = car.getDistance();
