@@ -11,13 +11,19 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import racingcar.controller.CarNameValidator;
+import racingcar.controller.CarRacingController;
 import racingcar.controller.GameController;
+import racingcar.controller.RandomUtility;
 import racingcar.model.RaceGame;
 
 public class RaceGameTest {
+    private static final int RACECAR_ADVENCE_NUMBER = 4;
+
     RaceGame raceGame = new RaceGame();
     GameController gameController = new GameController();
+    CarRacingController carRacingController = new CarRacingController();
     CarNameValidator carNameValidator = new CarNameValidator();
+    RandomUtility randomUtility = new RandomUtility();
 
     @Test
     void 공백_제거하여_자동차_입력_이름_저장하는지_확인() {
@@ -81,6 +87,13 @@ public class RaceGameTest {
         assertThatThrownBy(() -> carNameValidator.toValidateCarName(inputCarName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("서로 다른 자동차 이름을 입력해주세요.");
+    }
+
+    @Test
+    void 전진_멈춤인지_확인() {
+        int randomNubmer = randomUtility.generateRandomNumber();
+
+        assertThat(randomNubmer >= RACECAR_ADVENCE_NUMBER);
     }
 
 }
