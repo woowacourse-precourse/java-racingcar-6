@@ -13,40 +13,20 @@ public class RacingGameView {
     private static final String RESULT_MESSAGE = "실행 결과";
     public static final String FORMAT_PRINT_ROUND = "%s : %s\n";
     public static final String FORMAT_PRINT_WINNERS = "최종 우승자 : %s";
-    private static final String REQUIRED_POSITIVE_NUMBER = "입력 값은 1 이상의 숫자여야 합니다.";
-    private static final String ERROR_NAME_LENGTH = "이름은 5글자 이하만 가능합니다.";
-    private static final int MAX_NAME_LENGTH = 5;
 
     public List<String> inputCarNames() {
         System.out.println(NAME_INPUT_GUIDE);
         String carNames = Console.readLine();
-        return validateCarNames(carNames);
-    }
-
-    public List<String> validateCarNames(String input) {
-        String[] result = input.split(",");
-
-        for (String name : result) {
-            if (name.length() > MAX_NAME_LENGTH) {
-                throw new IllegalArgumentException(ERROR_NAME_LENGTH);
-            }
-        }
-
-        return Arrays.asList(result);
+        InputValidator.validateCarNames(carNames);
+        return Arrays.asList(carNames.split(","));
     }
 
     public int inputGameRounds() {
         System.out.println(ROUND_INPUT_GUIDE);
         String rounds = Console.readLine();
-        validatePositiveNumber(rounds);
+        InputValidator.validatePositiveNumber(rounds);
         System.out.println();
         return Integer.parseInt(rounds);
-    }
-
-    public void validatePositiveNumber(String input) {
-        if (!input.matches("^[1-9]\\d*$")) {
-            throw new IllegalArgumentException(REQUIRED_POSITIVE_NUMBER);
-        }
     }
 
     public void printResultMessage() {
