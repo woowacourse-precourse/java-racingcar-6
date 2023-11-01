@@ -28,7 +28,7 @@ public class OutputView {
         }
     }
 
-    public static void printFinalists(List<String> finalists){
+    public static void printFinalistsName(List<String> finalists){
         System.out.print(Constant.OUTPUT_FINALIST_MESSAGE);
         for(int i = 0; i<finalists.size()-1; i++){
             System.out.print(finalists.get(i)+", ");

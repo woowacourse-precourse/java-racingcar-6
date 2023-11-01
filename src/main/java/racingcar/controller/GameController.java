@@ -13,18 +13,18 @@ public class GameController {
         game.setUp(carNames);
     }
 
-    public void attempt(){
-        Integer numberOfAttempt = InputView.inputNumberOfAttempt();
+    public void move(){
+        Integer numberOfTrial = InputView.inputNumberOfTrial();
 
         OutputView.printOutputMessage();
-        for(int i = 0; i<numberOfAttempt; i++){
-            game.moveForwardAttemptCars();
+        for(int i = 0; i<numberOfTrial; i++){
+            game.moveCars();
             OutputView.printCars(game.getCars());
         }
     }
 
     public void end(){
-        OutputView.printFinalists(game.getFinalists());
+        OutputView.printFinalistsName(game.getFinalistsName());
     }
 
 }
