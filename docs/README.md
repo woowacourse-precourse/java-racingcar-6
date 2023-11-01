@@ -7,7 +7,7 @@
 - [x] 잘못된 값을 입력받을 경우, IllegalArgumentException을 발생시키고 애플리케이션을 종료기능.
 
 **_2. 자동차 기능_**
-- [ ] 각 시도당 0~9 사이값을 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange(0,9)를 사용하여 구하는 기능.
+- [X] 각 시도당 0~9 사이값을 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange(0,9)를 사용하여 구하는 기능.
 - [ ] 랜덤값이 4 이상이면 전진하고 4미만이면 멈추는 기능.
 
 **_3. 출력 기능_**
