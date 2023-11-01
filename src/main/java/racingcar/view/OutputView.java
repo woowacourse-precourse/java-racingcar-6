@@ -1,8 +1,6 @@
 package racingcar.view;
 
-import java.util.stream.IntStream;
 import racingcar.dto.Players;
-import racingcar.service.CarService;
 
 public class OutputView {
 
