@@ -56,6 +56,17 @@ class RacingCarsTest extends NsTest {
         );
     }
 
+    @Test
+    void 우승자의_이름을_가져올_수_있다() {
+        RacingCars racingCars = new RacingCars("car1,car2,car3");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    racingCars.race();
+                },MOVING_FORWARD,STAY,MOVING_FORWARD
+        );
+        assertThat(racingCars.getWinnerNames()).contains("car1", "car3");
+    }
+
     @Override
     protected void runMain() {
 
