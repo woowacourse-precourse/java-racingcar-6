@@ -27,7 +27,7 @@ class CarsTest {
         cars.settingNames(input);
 
         assertEquals(cars.getCarList().size(), VALID_NAMES.length);
-        for(int i=0; i<VALID_NAMES.length; i++) {
+        for (int i=0; i<VALID_NAMES.length; i++) {
             assertEquals(cars.getCarList().get(i).getName(), VALID_NAMES[i]);
         }
     }
@@ -45,6 +45,5 @@ class CarsTest {
             () -> cars.settingNames(input));
         assertEquals(e.getMessage(), exceptionMessage);
     }
-
 
 }

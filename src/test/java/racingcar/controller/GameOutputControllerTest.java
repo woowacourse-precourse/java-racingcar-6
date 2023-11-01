@@ -62,8 +62,8 @@ class GameOutputControllerTest extends IOTest {
     @Test
     void printWinner_메서드로_최종_우승자_출력() {
         //given
-        for(Car car : cars.getCarList()) {
-            if(car.getName().equals("seori")) {
+        for (Car car : cars.getCarList()) {
+            if (car.getName().equals("seori")) {
                 car.move(4);
             }
         }

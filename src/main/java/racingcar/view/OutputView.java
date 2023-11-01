@@ -17,7 +17,7 @@ public class OutputView {
     }
 
     public void showOneRound(Map<String, Integer> gameResult) {
-        for(String name : gameResult.keySet()) {
+        for (String name : gameResult.keySet()) {
             Integer result = gameResult.get(name);
             System.out.printf(RESULT_LOG, name, MOVING_MARK.repeat(result));
         }

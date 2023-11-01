@@ -20,7 +20,7 @@ public class Cars {
     public void settingNames(String names) {
         validateBeforeAddToList(names);
         ArrayList<String> nameList = validateAddingList(names);
-        for(String name : nameList) {
+        for (String name : nameList) {
             carList.add(new Car(name));
         }
     }
@@ -31,7 +31,7 @@ public class Cars {
 
     public Map<String, Integer> getResultOfRound() {
         HashMap<String, Integer> result = new HashMap<>();
-        for(Car car : carList) {
+        for (Car car : carList) {
             car.saveInformationToMap(result);
         }
         return result;

@@ -14,21 +14,21 @@ import java.util.Set;
 
 public class Validator {
 
-    public static void hasDuplicates(ArrayList<String> name) {
-        Set<String> nameSet = new HashSet<>(name);
-        if(nameSet.size() != name.size()) {
+    public static void hasDuplicates(ArrayList<String> input) {
+        Set<String> nameSet = new HashSet<>(input);
+        if(nameSet.size() != input.size()) {
             throw new IllegalArgumentException(DUPLICATE_CAR_EXCEPTION);
         }
     }
 
-    public static void hasDelimiter(String name) {
-        if(!name.contains(",")) {
+    public static void hasDelimiter(String input) {
+        if(!input.contains(",")) {
             throw new IllegalArgumentException(NO_COMMA_EXCEPTION);
         }
     }
 
-    public static void validateNameLength(String name) {
-        if (name.isEmpty() || name.length() > MAX_LENGTH_OF_NAME) {
+    public static void validateNameLength(String input) {
+        if (input.isEmpty() || input.length() > MAX_LENGTH_OF_NAME) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION);
         }
     }
@@ -48,8 +48,8 @@ public class Validator {
         }
     }
 
-    public static void validateNamesInput(String names) {
-        if(names.startsWith(",") || names.endsWith(",")) {
+    public static void validateNamesInput(String input) {
+        if(input.startsWith(",") || input.endsWith(",")) {
             throw new IllegalArgumentException(INVALID_FORMAT_INPUT_EXCEPTION);
         }
     }
