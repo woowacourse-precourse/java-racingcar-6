@@ -28,7 +28,7 @@ public class RoundCountHandlerTest {
             roundCountHandler.handle("0");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.ZERO_ERROR_MESSAGE, e.getMessage());
+            assertEquals(ErrorMessage.NO_ROUND_EXCEPTION_MESSAGE, e.getMessage());
         }
     }
 
@@ -38,7 +38,7 @@ public class RoundCountHandlerTest {
             roundCountHandler.handle("absy");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.NON_NUMERIC_MESSAGE, e.getMessage());
+            assertEquals(ErrorMessage.NON_NUMERIC_EXCEPTION_MESSAGE, e.getMessage());
         }
     }
 }

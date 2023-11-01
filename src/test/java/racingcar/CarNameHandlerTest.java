@@ -36,7 +36,7 @@ public class CarNameHandlerTest {
             carNameHandler.handle("Car1,,Car3");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.EMPTY_NAME_ERROR, e.getMessage());
+            assertEquals(ErrorMessage.EMPTY_NAME_EXCEPTION_MESSAGE, e.getMessage());
         }
     }
 
@@ -46,7 +46,7 @@ public class CarNameHandlerTest {
             carNameHandler.handle("Car1,Car2222,Car3");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.INVALID_LENGTH_MESSAGE, e.getMessage());
+            assertEquals(ErrorMessage.EXCEEDED_LENGTH_EXCEPTION_MESSAGE, e.getMessage());
         }
     }
 
@@ -56,7 +56,7 @@ public class CarNameHandlerTest {
             carNameHandler.handle("Car1,Car1,Car3");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.CAR_NAME_DUPLICATION_MESSAGE, e.getMessage());
+            assertEquals(ErrorMessage.NAME_DUPLICATION_EXCEPTION_MESSAGE, e.getMessage());
         }
     }
 
@@ -66,7 +66,7 @@ public class CarNameHandlerTest {
             carNameHandler.handle("Car1");
             fail("Expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(ErrorMessage.MIN_CAR_COUNT_ERROR_MESSAGE, e.getMessage());
+            assertEquals(ErrorMessage.MIN_CAR_COUNT_EXCEPTION_MESSAGE, e.getMessage());
         }
     }
 }
