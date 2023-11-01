@@ -17,13 +17,13 @@ public class GameController {
     }
 
     public void doGame() {
-        CarService carService = getCarController();
+        CarService carService = getCarService();
         outputView.printResult();
         moveCarsAndPrintResult(carService);
         outputView.printWinCars(carService.getWinner());
     }
 
-    private CarService getCarController() {
+    private CarService getCarService() {
         Cars cars = Cars.makeCars(inputView.inputCarNames());
         CarMoveReader carMoveReader = new CarMoveReader(inputView.inputTotalMoveNumber());
         return new CarService(cars, carMoveReader);
