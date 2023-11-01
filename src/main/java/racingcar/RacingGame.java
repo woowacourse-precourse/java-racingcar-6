@@ -11,15 +11,27 @@ import java.util.stream.IntStream;
 
 public class RacingGame {
 
+    private List<String> carNameList;
+    private List<Car> cars;
+    private int numberOfCars;
+    private List<Integer> moveCountList;
+    private int trialTimes;
+
+
     public void play() {
         String carNames = inputCarNames();
-        List<String> carNameList = parseCarNamesToList(carNames);
-        List<Integer> moveCountList = new ArrayList<>(Collections.nCopies(carNameList.size(), 0));
-        int trialTimes = inputTrialTimes();
+        carNameList = parseCarNamesToList(carNames);
+        numberOfCars = carNameList.size();
+        cars = new ArrayList<>();
+        for (String car : carNameList) {
+            cars.add(new Car(car));
+        }
+        moveCountList = new ArrayList<>(Collections.nCopies(carNameList.size(), 0));
+        trialTimes = inputTrialTimes();
 
         System.out.println("실행 결과");
         for (int i = 0; i < trialTimes; i++) {
-            moveForward(moveCountList);
+            moveForward();
             printCurrentPosition(carNameList, moveCountList);
         }
 
@@ -84,9 +96,9 @@ public class RacingGame {
         }
     }
 
-    private static void moveForward(List<Integer> moveCountList) {
-        for (int i = 0; i < moveCountList.size(); i++) {
-            moveOrNot(moveCountList, i);
+    private void moveForward() {
+        for (Car car : cars) {
+            car.moveOrNot();
         }
     }
 
