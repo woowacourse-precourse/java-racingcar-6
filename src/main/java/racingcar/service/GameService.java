@@ -16,7 +16,7 @@ public class GameService {
         return round;
     }
 
-    public static CarsDTO transferCarsDTO(){
+    public static CarsDTO transferCarsDTO() {
         CarsDTO carsDTO = new CarsDTO();
         carsDTO.toDTO(cars);
         return carsDTO;
@@ -39,7 +39,7 @@ public class GameService {
                 .collect(Collectors.joining(", "));
     }
 
-    public void setCars(Cars cars){
+    public void setCars(Cars cars) {
         this.cars = cars;
     }
 }

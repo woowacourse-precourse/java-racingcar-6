@@ -8,9 +8,10 @@ public class Movable {
         this.randomNumberGenerator = new RandomNumberGenerator();
     }
 
-    public Movable(RandomNumberGenerator randomNumberGenerator){
+    public Movable(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
+
     public boolean canMove() {
         return STOP_NUMBER <= randomNumberGenerator.generate();
     }
