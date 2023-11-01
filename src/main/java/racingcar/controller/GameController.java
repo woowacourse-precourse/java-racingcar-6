@@ -30,8 +30,21 @@ public class GameController {
     private void prepareSettingValue() {
         List<String> carNames = inputCarNames();
         String stringNumber = InputView.askTryNumber();
+        validateTryNumberType(stringNumber);
         int tryNumber = Integer.parseInt(stringNumber);
         game = new Game(tryNumber, carNames);
+    }
+
+    private static void validateTryNumberType(String stringNumber) {
+        if(stringNumber.isEmpty()){
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+
+        try {
+            Integer.parseInt(stringNumber);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("유효한 숫자 형식이 아닙니다." );
+        }
     }
 
     private List<String> inputCarNames() {
