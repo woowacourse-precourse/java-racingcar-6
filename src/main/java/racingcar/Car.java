@@ -1,10 +1,11 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.exception.InvalidCarNameException;
 
 public class Car {
     private final String name;
-    private final int position = 0;
+    private int position = 0;
 
     public Car(String name) {
         validateName(name);
@@ -26,7 +27,13 @@ public class Car {
     }
 
     public void move() {
-        // TODO: 자동차 이동 기능 구현
+        if (isMovable()) {
+            position++;
+        }
+    }
+
+    private boolean isMovable() {
+        return Randoms.pickNumberInRange(0, 9) >= 4; // TODO: 상수 분리 방법 고민해보기
     }
 
     public boolean isPosition(int position) {
