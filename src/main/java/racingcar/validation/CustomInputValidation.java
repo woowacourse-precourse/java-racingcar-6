@@ -1,12 +1,18 @@
 package racingcar.validation;
 
-public class customInputValidation {
+public class CustomInputValidation {
 
-    public static void inputLength(String[] names) {
+    public static void carNameLength(String[] names) {
         for (String name : names) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException("차의 이름은 5글자 이하입니다.");
             }
+        }
+    }
+
+    public static void numOfCars(int length) {
+        if (length < 2) {
+            throw new IllegalArgumentException("차는 두 대 이상 입력해야 합니다.");
         }
     }
 
