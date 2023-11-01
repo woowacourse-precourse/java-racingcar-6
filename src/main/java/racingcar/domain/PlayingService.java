@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.LinkedHashMap;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PlayingService {
     private final Number number;
@@ -26,6 +28,8 @@ public class PlayingService {
             cars = master.playRound(cars);
             System.out.println();
         }
+
+        findWinner();
     }
 
     void enterName(String names) {
@@ -41,5 +45,21 @@ public class PlayingService {
         if (s.length() > 5) {
             throw new IllegalArgumentException("이름은 5글자를 넘기면 안 됩니다!");
         }
+    }
+
+    void findWinner() {
+        int maxScore = 0;
+        String winners = "";
+        for (String name : cars.keySet()) {
+            maxScore = Math.max(maxScore, cars.get(name));
+        }
+        for (String name : cars.keySet()) {
+            if (cars.get(name) == maxScore) {
+                winners += name;
+                winners += ", ";
+            }
+        }
+        winners = winners.substring(0, winners.length() - 2);
+        System.out.print("최종 우승자 : " + winners);
     }
 }
