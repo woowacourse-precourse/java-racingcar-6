@@ -2,12 +2,16 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private final String name;
     private int totalForward;
 
     public String getName() {
         return name;
+    }
+
+    public int getTotalForward() {
+        return totalForward;
     }
 
     public Car(String name) {
@@ -33,5 +37,16 @@ public class Car {
     @Override
     public String toString() {
         return name + " : " + printMoving();
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        if (this.totalForward > other.getTotalForward()) {
+            return 1;
+        } else if (this.totalForward < other.getTotalForward()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

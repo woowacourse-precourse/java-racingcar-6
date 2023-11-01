@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -15,7 +16,7 @@ public class Application {
         carNames = List.of(Console.readLine().split(","));
 
         for (String carName : carNames) {
-            if(carName.length() > 5)
+            if (carName.length() > 5)
                 throw new IllegalArgumentException();
             cars.add(new Car(carName));
         }
@@ -26,12 +27,23 @@ public class Application {
 
         System.out.println("실행 결과");
 
-        while(forwardCount-- > 0) {
+        while (forwardCount-- > 0) {
             for (Car car : cars) {
                 car.tryMoving();
                 System.out.println(car);
             }
             System.out.println();
         }
+
+        int maxDistance = Collections.max(cars).getTotalForward();
+
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getTotalForward() == maxDistance) {
+                winners.add(car.getName());
+            }
+        }
+        String result = String.join(",", winners);
+        System.out.println("최종 우승자 : " + result);
     }
 }
