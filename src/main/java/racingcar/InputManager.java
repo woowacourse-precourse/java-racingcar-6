@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputManager {
+    private final InputValidator validator = new InputValidator();
+
     public void startGame() {
         getCarNames();
         getRaceRounds();
@@ -14,7 +16,11 @@ public class InputManager {
 
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
+        List<String> carNames = new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
+        if (validator.isSingleCarInput(carNames)) {
+            throw new IllegalArgumentException();
+        }
+        return carNames;
     }
 
     public int getRaceRounds() {
