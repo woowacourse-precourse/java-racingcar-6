@@ -2,6 +2,12 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+import racingcar.service.RaceService;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -34,5 +40,40 @@ class ApplicationTest extends NsTest {
     @Override
     public void runMain() {
         Application.main(new String[]{});
+    }
+
+
+    @Test
+    public void testCreateCars() {
+        // Given
+        String[] carNames = {"pobi", "woni"};
+
+        // When
+        RaceService raceService = new RaceService();
+        List<Car> cars = raceService.createCars(carNames);
+
+        // Then
+        assertThat(cars).hasSize(2);
+        assertThat(cars.get(0).getName()).isEqualTo("pobi");
+        assertThat(cars.get(1).getName()).isEqualTo("woni");
+    }
+
+    @Test
+    public void testPrintWinners() {
+        // Given
+        RaceService raceService = new RaceService();
+        List<Car> cars = raceService.createCars(new String[]{"pobi", "woni"});
+        cars.get(0).move();
+        cars.get(1).move();
+
+        // When
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        raceService.printWinners(cars);
+        String output = outputStream.toString();
+
+        // Then
+        assertThat(output).contains("최종 우승자 : pobi, woni");
     }
 }

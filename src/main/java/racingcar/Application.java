@@ -1,7 +1,20 @@
 package racingcar;
 
-public class Application {
+
+import racingcar.domain.Car;
+import racingcar.service.RaceService;
+import racingcar.view.Input;
+
+import java.util.List;
+
+public class  Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        String[] carNames = Input.inputCarName();
+        int tryCount = Input.inputTryNumber();
+        RaceService raceService = new RaceService();
+        List<Car> cars = raceService.createCars(carNames);
+        raceService.playGame(cars, tryCount);
+        raceService.printWinners(cars);
+
     }
 }
