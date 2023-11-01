@@ -15,8 +15,8 @@ public class Racing {
         for (int i = 0; i < this.numberOfRacing; i++) {
             race();
         }
-        String result = getWinner();
-        System.out.println(result);
+        List<Car> result = getWinner();
+        printWinner(result);
     }
 
     private void init() {
@@ -52,7 +52,8 @@ public class Racing {
             + car.movementHistory().substring(1,stepLength - 1)); //지금까지의 step 출력
         }
     }
-    private String getWinner() {
+
+    private List<Car> getWinner() {
         int maxLength = 0;
         List<Car> winners = new ArrayList<>();
         // 제일 긴 step 찾기
@@ -67,7 +68,9 @@ public class Racing {
                 winners.add(car);
             }
         }
-
+        return winners;
+    }
+    private void printWinner(List<Car> winners) {
         StringBuilder result = new StringBuilder("최종 우승자 : ");
 
         for (int i = 0; i < winners.size(); i++) {
@@ -76,6 +79,6 @@ public class Racing {
                 result.append(", ");
             } 
         }
-        return result.toString();
+        System.out.println(result.toString());
     }
 }
