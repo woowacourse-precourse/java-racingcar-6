@@ -24,13 +24,14 @@ public class Application {
         if (!input.contains(",")) {
             throw new IllegalArgumentException("자동차 이름은 쉼표로 구분해 주세요");
         }
+
         String[] carNames = input.split(",");
 
-        for (int i = 0; i < carNames.length; i++) {
-            if (carNames[i].length() >= 5) {
+        for (String carName : carNames) {
+            if (carName.length() >= 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하로 입력해 주세요");
             }
-            if (!isOnlyAlphabet(carNames[i])) {
+            if (!isOnlyAlphabet(carName)) {
                 throw new IllegalArgumentException("자동차 이름은 영어로만 이루어져야 합니다");
             }
         }
@@ -54,19 +55,15 @@ public class Application {
 
     public static boolean isGo() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
-            return true;
-        } else {
-            return false;
-        }
+        return randomNum >= 4;
     }
 
     public static void isMove(String[] carName) {
-        for (int i = 0; i < carName.length; i++) {
+        for (String s : carName) {
             if (isGo()) {
-                System.out.print(carName[i] + " : -");
+                System.out.print(s + " : -");
             } else {
-                System.out.print(carName[i] + " : ");
+                System.out.print(s + " : ");
             }
         }
         System.out.println();
@@ -74,9 +71,9 @@ public class Application {
 
     public static int getWinner(String[] carName) {
         int biggestAdvance = 0;
-        for (int i = 0; i < carName.length; i++) {
-            if (biggestAdvance < carName[i].length()) {
-                biggestAdvance = carName[i].length();
+        for (String s : carName) {
+            if (biggestAdvance < s.length()) {
+                biggestAdvance = s.length();
             }
         }
         return biggestAdvance;
@@ -86,13 +83,11 @@ public class Application {
         int biggestAdvance = getWinner(carName);
         StringBuilder winners = new StringBuilder();
 
-        for (int i = 0; i < carName.length; i++) {
-            if (biggestAdvance == carName[i].length()) {
-                if (winners.length() > 0) {
-                    winners.append(", ");
-                }
-                winners.append(carName[i]);
+        for (String s : carName) {
+            if (biggestAdvance == s.length() && winners.length() > 0) {
+                winners.append(", ");
             }
+            winners.append(s);
         }
         System.out.println("최종 우승자 : " + winners);
     }
