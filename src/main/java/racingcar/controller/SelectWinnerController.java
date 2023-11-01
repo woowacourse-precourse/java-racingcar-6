@@ -8,25 +8,24 @@ import racingcar.model.Car;
 public class SelectWinnerController {
 
 	public List<Car> resultCars(Car[] cars) {
-		int max = 0;
-		List<Car> winnerCars = new ArrayList<Car>();
-		for (int i = 0; i < cars.length; i++) {
-			if (moreThanMax(max, cars[i])) {
-				winnerCarSet(winnerCars, cars[i]);
-			}
-		}
-		return winnerCars;
+	    int max = findMaxForwardCount(cars);
+	    List<Car> winnerCars = new ArrayList<Car>();
+	    for (Car car : cars) {
+	        if (car.getForwardCount() == max) {
+	            winnerCars.add(car);
+	        }
+	    }
+	    return winnerCars;
 	}
 
-	private boolean moreThanMax(int max, Car car) {
-
-		if (car.getForwardCount() > max)
-			return true;
-		return false;
+	private int findMaxForwardCount(Car[] cars) {
+	    int max = 0;
+	    for (Car car : cars) {
+	        if (car.getForwardCount() > max) {
+	            max = car.getForwardCount();
+	        }
+	    }
+	    return max;
 	}
-
-	private void winnerCarSet(List<Car> cars, Car car) {
-		cars.clear();
-		cars.add(car);
-	}
+	
 }
