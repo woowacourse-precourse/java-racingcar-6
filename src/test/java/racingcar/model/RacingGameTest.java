@@ -63,7 +63,7 @@ public class RacingGameTest {
     void 자동차가_전진하는_경우() {
         int target = 4;
         int index = 0;
-        int count = movingCount.addCount(index);
+        int count = movingCount.getEachMovingCount(index);
 
         assertThat(count + 1).isEqualTo(racingGame.evaluateMoving(target, count, index));
     }
@@ -72,7 +72,7 @@ public class RacingGameTest {
     void 자동차가_전진하지_않는_경우() {
         int target = 2;
         int index = 0;
-        int count = movingCount.addCount(index);
+        int count = movingCount.getEachMovingCount(index);
 
         assertThat(count).isEqualTo(racingGame.evaluateMoving(target, count, index));
     }
