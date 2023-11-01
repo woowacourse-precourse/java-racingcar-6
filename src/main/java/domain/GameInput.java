@@ -10,18 +10,20 @@ public class GameInput {
     public static int userGameTries(){
         String Tries = Console.readLine();
         //정규식 0-9로만 이루어져있는지
-        if(Tries.matches("[0-9]+")){
+        if(Tries.matches("[0-9]+") == false){
             ExceptionalTry.exception();
         }
-        Console.close();
         return Integer.parseInt(Tries);
     }
 
     public static List<String> userCarNameInput(){
         String strCarName = Console.readLine();
         List<String> CarNames = NameSplit(strCarName);
-        Console.close();
         return ValidateNameInRange.NameInRange(CarNames);
+    }
+
+    public static void inputStop(){
+        Console.close();
     }
     private static List<String> NameSplit(String strCarName){
         List<String> CarNames = Arrays.stream(strCarName.split(",")).toList();

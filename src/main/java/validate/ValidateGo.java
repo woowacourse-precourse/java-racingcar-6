@@ -6,11 +6,15 @@ import static constant.MagicNumbers.*;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class ValidateGo {
+    private ValidateGo(){
 
-    private int GoStopNumber = Randoms.pickNumberInRange(RANDOM_MIN.getNumbers(), RANDOM_MAX.getNumbers());
+    }
+
+    private static int GoStopNumber;
 
 
-    public boolean ValidateGo() {
+    public static boolean validateGoStop() {
+        GoStopNumber = Randoms.pickNumberInRange(RANDOM_MIN.getNumbers(), RANDOM_MAX.getNumbers());
         if ( NUM_CHECK_GO.getNumbers() <= GoStopNumber ){
             return true;
         }
