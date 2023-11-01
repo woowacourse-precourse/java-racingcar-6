@@ -45,22 +45,9 @@ public class Application {
     private static void getResult(List<String> cars, int tryCount, List<Integer> position) {
         System.out.println("실행결과");
         for (int i = 0; i < tryCount; i++) {
-            for (int j = 0; j < cars.size(); j++) {
-                updatePosition(position, j);
-            }
+            moveCars(cars, position);
             printResult(cars, position);
         }
-    }
-
-    private static void printResult(List<String> cars, List<Integer> position) {
-        for (int j = 0; j < cars.size(); j++) {
-            System.out.print(cars.get(j) + " : ");
-            for (int k = 0; k < position.get(j); k++) {
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-        System.out.println();
     }
 
     private static List<String> getWinners(List<String> cars, List<Integer> position) {
@@ -86,10 +73,27 @@ public class Application {
         return forwardRandomValue >= 4;
     }
 
+    private static void moveCars(List<String> cars, List<Integer> position) {
+        for (int j = 0; j < cars.size(); j++) {
+            updatePosition(position, j);
+        }
+    }
+
     private static void updatePosition(List<Integer> position, int index) {
         if (canMoveForward()) {
             position.set(index, position.get(index) + 1);
         }
+    }
+
+    private static void printResult(List<String> cars, List<Integer> position) {
+        for (int j = 0; j < cars.size(); j++) {
+            System.out.print(cars.get(j) + " : ");
+            for (int k = 0; k < position.get(j); k++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     private static int getMaxPosition(List<Integer> position) {
