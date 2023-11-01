@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Execution {
-    private static Integer count;
+    public static int count;
 
     public Execution(String input) {
         validateFormat(input);
