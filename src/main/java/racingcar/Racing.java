@@ -30,8 +30,8 @@ public class Racing {
 
         System.out.println("시도할 횟수는 몇회인가요?");
         String inputNum = Console.readLine(); //횟수 input
-        ValidateInput.validateNumberOfRaces(numberOfRacing); //유효성 검사
         numberOfRacing = Integer.parseInt(inputNum); //int로 변환
+        ValidateInput.validateNumberOfRaces(numberOfRacing); //유효성 검사
     }
 
     private void race() {
