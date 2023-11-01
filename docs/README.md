@@ -27,6 +27,7 @@ _RacingCarPlayer가 다음을 반복_
 _환경설정_
 - GameConfigurations
 - InputConfigurations
+- ErrorMessages
 ### 🎮 controller : 
 _게임기_
 - GamePlayer(interface)
@@ -44,5 +45,5 @@ _입,출력_
 _핵심 로직_
 - CarsGenerator : 자동차 생성기 (자동차 이름 이용)
 - Racing : 자동차 경주
-- JudgeMachine : 결과 판정
+- Judge : 결과 판정
 
