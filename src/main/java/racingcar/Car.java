@@ -24,4 +24,8 @@ public class Car {
     public Integer getGameProgress() {
         return gameProgress;
     }
+
+    public String getName() {
+        return carName;
+    }
 }

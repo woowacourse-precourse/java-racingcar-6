@@ -10,20 +10,37 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        String[] playerArr = input.split(",");
-        for (int i = 0; i < playerArr.length; i++) {
-            if (playerArr[i].length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
+        String input = getInput();
+        String[] playerArr = nameSplit(input);
+        isStrLenOutOfRange(playerArr);
         System.out.println("시도할 회수는 몇회인가요?");
-        int repeatNum = Integer.parseInt(Console.readLine());
+        int repeatNum = Integer.parseInt(getInput());
 
         Car[] cars = new Car[playerArr.length];
+        carToCarsArr(playerArr, cars);
+
+        printGameResult(repeatNum, playerArr, cars);
+
+        int[] total = new int[playerArr.length];
+        totalGameProgress(playerArr, total, cars);
+
+        int[] winners = getIndicesOfMaxValues(total);
+        printWinners(playerArr, winners);
+    }
+
+    static void carToCarsArr(String[] playerArr, Car[] cars) {
         for (int i = 0; i < playerArr.length; i++) {
             cars[i] = new Car(playerArr[i]);
         }
+    }
+
+    static void totalGameProgress(String[] playerArr, int[] total, Car[] cars) {
+        for (int i = 0; i < playerArr.length; i++) {
+            total[i] = cars[i].getGameProgress();
+        }
+    }
+
+    static void printGameResult(int repeatNum, String[] playerArr, Car[] cars) {
         System.out.println("실행 결과");
         for (int i = 0; i < repeatNum; i++) {
             for (int j = 0; j < playerArr.length; j++) {
@@ -32,11 +49,9 @@ public class Application {
             }
             System.out.println();
         }
-        int[] total = new int[playerArr.length];
-        for (int i = 0; i < playerArr.length; i++) {
-            total[i] = cars[i].getGameProgress();
-        }
-        int[] winners = getIndicesOfMaxValues(total);
+    }
+
+    static void printWinners(String[] playerArr, int[] winners) {
         System.out.print("최종 우승자 : ");
         System.out.print(playerArr[winners[0]]);
         if (winners.length != 1) {
@@ -46,7 +61,25 @@ public class Application {
             }
         }
     }
-    public static int[] getIndicesOfMaxValues(int[] array) {
+
+    static String[] nameSplit(String input) {
+        String[] playerArr = input.split(",");
+        return playerArr;
+    }
+
+    static String getInput() {
+        return Console.readLine();
+    }
+
+    static void isStrLenOutOfRange(String[] playerArr) {
+        for (int i = 0; i < playerArr.length; i++) {
+            if (playerArr[i].length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    static int[] getIndicesOfMaxValues(int[] array) {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("배열이 비어 있거나 null입니다.");
         }
