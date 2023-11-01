@@ -1,8 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
@@ -10,10 +10,16 @@ public class RacingGame {
     public void start() {
         HashMap<String, String> racingProgress = inputCarNames();
         for (String name : racingProgress.keySet()) {
+            // need change variable name - name > carName
             System.out.println(name + racingProgress.get(name));
         }
+
         Integer gameTimes = inputGameTimes();
         System.out.println(gameTimes);
+
+        for (int i = 0; i < gameTimes; i++) {
+            racingProgress = eachRace(racingProgress);
+        }
 
     }
 
@@ -47,4 +53,18 @@ public class RacingGame {
         }
         return gameTimes;
     }
+
+    private HashMap<String, String> eachRace(HashMap<String, String> racingProgress) {
+        for (String carName : racingProgress.keySet()) {
+            if (Randoms.pickNumberInRange(1, 9) >= 4) {
+                racingProgress.put(carName, racingProgress.get(carName) + "-");
+            }
+            System.out.println(carName + racingProgress.get(carName));
+
+            ;
+
+        }
+        return racingProgress;
+    }
+
 }
