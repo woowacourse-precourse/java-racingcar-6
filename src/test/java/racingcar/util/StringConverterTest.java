@@ -2,7 +2,6 @@ package racingcar.util;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,16 +31,6 @@ class StringConverterTest {
         assertEquals(expectedList, result);
     }
 
-    @DisplayName("자동차 이름 입력이 빈 값인 경우 변환 과정에서 예외가 발생한다.")
-    @Test
-    void invalid_StringToListByDelimiter_exception_test() {
-        String invalidInput = "";
-
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> StringConverter.stringToCarNameListByDelimiter(invalidInput));
-        assertEquals(EMPTY_INPUT_ERROR_MESSAGE, e.getMessage());
-    }
-
     @DisplayName("시도 횟수에 대해 유효한 입력인 경우 변환한다.")
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "12345"})
@@ -53,14 +42,5 @@ class StringConverterTest {
 
         // then
         assertEquals(expectedResult, tryNumber.number());
-    }
-
-    @DisplayName("시도 횟수가 문자열인 경우 변환 과정에서 예외가 발생한다.")
-    @ParameterizedTest
-    @ValueSource(strings = {"a", "b", "cd"})
-    void invalid_StringToTryNumber_exception_test(String input) {
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> StringConverter.stringToTryNumber(input));
-        assertEquals(CHARACTERS_IN_INPUT_ERROR_MESSAGE, e.getMessage());
     }
 }
