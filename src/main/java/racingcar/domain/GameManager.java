@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.IoManager;
 import racingcar.firstClassCollection.RoundTryCount;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public class GameManager {
 
    }
     public void receiveRoundTryCount(){
+        IoManager.printEnterRoundTryCount();
         int roundTryCount = Integer.parseInt(Console.readLine());
         this.roundTryCount=new RoundTryCount(roundTryCount);
     }
