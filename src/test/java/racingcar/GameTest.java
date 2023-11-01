@@ -31,6 +31,18 @@ public class GameTest extends NsTest {
     }
 
     @Test
+    void winnerMany() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,dong,ride", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "dong : -"
+                            , "ride : -", "최종 우승자 : pobi, woni, dong, ride");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void nameNoInput() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("", "1"))
