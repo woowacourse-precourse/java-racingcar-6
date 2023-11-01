@@ -12,13 +12,14 @@ import racingcar.util.BlankValidator;
 public class CarNameManagerTest {
     BlankValidator blankValidator = new BlankValidator();
     CarNameManager carNameManager = new CarNameManager(blankValidator);
+
     @DisplayName("자동차이동름입력 - 정상입력(예외발생X, 정상반환)")
     @Test
     void checkNormalCarNmaeInput() {
         String carName = "hong,kim,jun";
         List<String> name = carNameManager.processCarNames(carName);
         assertDoesNotThrow(() -> carNameManager.validateCarNames(name));
-        Assertions.assertThat(name).contains("hong","kim","jun");
+        Assertions.assertThat(name).contains("hong", "kim", "jun");
     }
 
     @DisplayName("자동차이동름입력 - 공백포함 5자입력시 정상입력처리")
