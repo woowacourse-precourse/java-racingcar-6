@@ -24,7 +24,7 @@ public class CarFactory {
                 throw new IllegalArgumentException("이름은 알파벳으로 이루어져야 한다.");
             }
             // TODO: 똑같은 이름이 주어진 경우
-            if (carName.contains(carName)) {
+            if (carNameAlreadyExists(cars, carName)) {
                 throw new IllegalArgumentException("똑같은 이름이 입력되면 안된다.");
             }
 
@@ -34,6 +34,16 @@ public class CarFactory {
 
         return cars;
     }
+
+    private boolean carNameAlreadyExists(List<Car> cars, String carName) {
+        for (Car car : cars) {
+            if (car.getName().equals(carName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     boolean isAlpha(String carName) {
         return Pattern.matches("^[a-zA-Z]*$", carName);
