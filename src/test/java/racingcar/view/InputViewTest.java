@@ -6,14 +6,10 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.validation.MoveCountInputValidation;
-import racingcar.validation.NameInputValidation;
 
 public class InputViewTest {
     private final InputStream systemInBackUp = System.in; // 원래 System.in 백업
-    private final NameInputValidation nameInputValidation = new NameInputValidation();
-    private final MoveCountInputValidation moveCountInputValidation = new MoveCountInputValidation();
-    private final InputView inputView = new InputView(nameInputValidation, moveCountInputValidation);
+    private final InputView inputView = InputView.getInstance();
 
     @Test
     @DisplayName("자동차 이름 입력받기 테스트")

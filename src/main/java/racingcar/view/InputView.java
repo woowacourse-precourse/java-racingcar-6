@@ -7,12 +7,18 @@ import racingcar.validation.NameInputValidation;
 
 public class InputView {
 
-    private final NameInputValidation nameInputValidation;
-    private final MoveCountInputValidation moveCountInputValidation;
+    private static InputView inputView;
+    private final NameInputValidation nameInputValidation = new NameInputValidation();
+    private final MoveCountInputValidation moveCountInputValidation = new MoveCountInputValidation();
 
-    public InputView(NameInputValidation nameInputValidation, MoveCountInputValidation moveCountInputValidation) {
-        this.nameInputValidation = nameInputValidation;
-        this.moveCountInputValidation = moveCountInputValidation;
+    private InputView() {
+    }
+
+    public static InputView getInstance() {
+        if (inputView == null) {
+            inputView = new InputView();
+        }
+        return inputView;
     }
 
     public String[] askCarNames() {
