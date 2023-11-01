@@ -1,8 +1,5 @@
 package racingcar.Util;
 
-import racingcar.Util.Rule;
-
-
 public class RoundNumberValidator {
     public final String ROUND_NUM_STRING;
 
