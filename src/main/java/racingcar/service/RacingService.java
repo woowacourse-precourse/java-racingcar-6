@@ -15,6 +15,7 @@ public class RacingService {
         this.splitter = splitter;
         this.raceResultGenerator = raceResultGenerator;
     }
+
     public List<String> carValidate(String carNamesInput) {
         String validatedCarNameInput = ValidatorFactory.forInputCarName().validate(carNamesInput);
         List<String> carNames = splitter.splitInputCarNames(validatedCarNameInput);

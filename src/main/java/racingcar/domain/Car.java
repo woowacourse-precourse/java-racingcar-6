@@ -41,6 +41,7 @@ public class Car implements Subject {
         observers.add(o);
     }
 
+    // 이후 확장성을 위해 옵저버 리스트에서 옵저버 제거 메서드 구현
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);

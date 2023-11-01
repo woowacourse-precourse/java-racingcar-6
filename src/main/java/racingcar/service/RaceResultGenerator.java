@@ -15,8 +15,8 @@ public class RaceResultGenerator {
         LinkedHashMap<String, Integer> raceStatus = generateRaceStatus(carDtos);
         int max = Collections.max(raceStatus.values());
 
-        for(Map.Entry<String, Integer> entry : raceStatus.entrySet()) {
-            if(entry.getValue() == max) {
+        for (Map.Entry<String, Integer> entry : raceStatus.entrySet()) {
+            if (entry.getValue() == max) {
                 winners.add(entry.getKey());
             }
         }
