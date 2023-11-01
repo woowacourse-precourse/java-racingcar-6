@@ -21,6 +21,7 @@ public class InputManager {
             throw new IllegalArgumentException();
         }
         validator.checkForWhitespace(carNames);
+        validator.checkNameLength(carNames);
         return carNames;
     }
 
