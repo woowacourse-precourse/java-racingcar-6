@@ -11,9 +11,8 @@ public class Application {
         CountInput.checkCountInput(input);
         // 전체 게임 진행
         MoveForward.totalGame(carArr, CountInput.getCount());
-
-
-
-
+        // 우승자 선정
+        SelectWinner.selectWinner(carArr);
+        SelectWinner.printWinner();
     }
 }
