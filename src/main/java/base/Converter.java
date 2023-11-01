@@ -15,9 +15,9 @@ public class Converter {
 
     public int wordToInt(String word) {
         try {
-            int wordToIntResult = Integer.parseInt(word);
-            userInputValidator.validatePositiveNumber(wordToIntResult);
-            return wordToIntResult;
+            int parsed = Integer.parseInt(word);
+            userInputValidator.validatePositiveNumber(parsed);
+            return parsed;
         } catch (NumberFormatException error) {
             throw new IllegalArgumentException(NOT_POSITIVE_NUMBER_INPUT_CASE_MESSAGE);
         }
