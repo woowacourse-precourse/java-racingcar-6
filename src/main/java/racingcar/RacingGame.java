@@ -35,7 +35,11 @@ public class RacingGame {
     private static int getAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-        return Integer.parseInt(input);
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        }
     }
 
     public void startGame() {
