@@ -23,8 +23,8 @@ public class Validator {
         }
     }
 
-    private void throwErrorIfCarNameHasBlank(String carName){
-        if (isCarNameContainsBlank(carName)){
+    private void throwErrorIfCarNameHasBlank(String carName) {
+        if (isCarNameContainsBlank(carName)) {
             throw new IllegalArgumentException("자동차 이름에 공백이 존재합니다.");
         }
     }
@@ -35,7 +35,7 @@ public class Validator {
 
     public void validateCarNamesDuplicated(String[] cars) {
         Set<String> uniqueCars = new HashSet<>();
-        for (String car: cars){
+        for (String car : cars) {
             if (isCarNameExist(car, uniqueCars)) {
                 throw new IllegalArgumentException("중복된 자동차 이름이 존재합니다: " + car);
             }

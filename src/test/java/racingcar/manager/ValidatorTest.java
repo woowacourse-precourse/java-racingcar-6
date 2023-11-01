@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.manager.Validator;
 
 class ValidatorTest {
 
@@ -47,9 +46,9 @@ class ValidatorTest {
 
     @Test
     @DisplayName("차의 이름이 중복되는 경우")
-    void carNamesDuplicated(){
+    void carNamesDuplicated() {
         String[] cars = {"test", "hello", "test"};
-        assertThrows(IllegalArgumentException.class, ()->
+        assertThrows(IllegalArgumentException.class, () ->
                 validator.validateCarNamesDuplicated(cars));
     }
 }

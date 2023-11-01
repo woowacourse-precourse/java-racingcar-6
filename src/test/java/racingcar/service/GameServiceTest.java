@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +12,13 @@ import racingcar.manager.Validator;
 import racingcar.sevice.GameService;
 
 class GameServiceTest {
+
     List<Car> carList;
     Validator validator = new Validator();
     GameService gameService = new GameService(validator);
+
     @BeforeEach
-    void setup(){
+    void setup() {
         carList = new ArrayList<>();
         Car car1 = new Car("test");
         Car car2 = new Car("hello");

@@ -11,11 +11,11 @@ public class GameResultDto {
         this.carList = carList;
     }
 
-    public String convertOutput(){
+    public String convertOutput() {
         StringBuilder sb = new StringBuilder();
 
         for (Car car : carList) {
-            if (!sb.isEmpty()){
+            if (!sb.isEmpty()) {
                 sb.append(", ");
             }
             sb.append(car.getName());

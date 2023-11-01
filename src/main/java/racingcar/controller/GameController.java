@@ -14,7 +14,7 @@ public class GameController {
 
     private List<Car> carList;
     private int gameRound;
-    
+
     public void run() {
         OutputView.printStartGame();
         getUserInput();

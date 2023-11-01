@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class RoundResponseDto {
+
     List<Car> carList;
     public static final String DISTANCE_MARKER = "-";
 
