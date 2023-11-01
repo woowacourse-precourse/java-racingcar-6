@@ -24,11 +24,44 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 이름에_대한_글자수_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 자동차_이름_중복_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름에_대한_구분자_없는_경우_그대로_반환() {
+        String input = "1";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("1");
+    }
+
+    @Test
+    void 자동차_이름_split_메서드로_주어진_값을_구분() {
+        String input = "1,2";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("2", "1");
+        assertThat(result).containsExactly("1", "2");
+    }
+
+    @Test
+    void 자동차_이름에_대해서_알파벳과_구분자와_숫자_제외_삭제_처리() {
+        String input = "(1, 2)";
+        String result = input.replaceAll("[^a-zA-Z0-9,]", "");
+
+        assertThat(result).isEqualTo("1,2");
     }
 
     @Override
