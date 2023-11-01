@@ -36,10 +36,9 @@ public class GameManager {
     private List<Car> getWinner(List<Car> cars){
         cars.sort((car1, car2) -> car2.getLastPosition() - car1.getLastPosition());
         int maxPosition = cars.get(0).getLastPosition();
-        List<Car> winners = cars.stream()
+        return cars.stream()
                 .filter(car -> car.getLastPosition() == maxPosition)
                 .toList();
-        return winners;
     }
 
     public void start(){

@@ -9,8 +9,7 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        this.positions = new ArrayList<>();
-        positions.add(0);
+        this.positions = new ArrayList<>(List.of(0));
     }
 
     public static List<Car> createCars(String carNames){
