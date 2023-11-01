@@ -12,6 +12,7 @@ public class Application {
         int tryCount = startCondition.inputAttemptNumber();
 
         int carCount = carNames.length;
+        int[] positions = new int[carCount];
 
     }
 }

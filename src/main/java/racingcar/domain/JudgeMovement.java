@@ -10,11 +10,12 @@ public class JudgeMovement {
         return randomNumbers;
     }
 
-    public void assignNumber() {
-
+    public void moveForward(int[] positions, int[] randomNumbers) {
+        for (int i = 0; i < positions.length; i++) {
+            if (randomNumbers[i] >= 4) {
+                positions[i]++;
+            }
+        }
     }
 
-    public void moveForward() {
-
-    }
 }
