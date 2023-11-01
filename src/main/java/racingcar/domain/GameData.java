@@ -30,5 +30,11 @@ public class GameData {
 	public List<Integer> getPositionList() {
 		return positionList;
 	}
+	
+	public void setInitPositionList(List<String> list) {
+		for (int i = 0; i < list.size(); i++) {
+			positionList.add(i, 0);
+		}
+	}
 
 }
