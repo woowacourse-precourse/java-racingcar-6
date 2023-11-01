@@ -26,4 +26,12 @@ public class CarTest {
         assertThat(car.getCarState()).isEqualTo(MOVED_ONE_STEP_STATE);
         assertThat(car.getCarMovedResult()).isEqualTo(MOVED_ONE_STEP_RESULT);
     }
+
+    @Test
+    void 자동차의_이름이_잘_저장되는지_확인(){
+        String carName = "me";
+        Car car = new Car(carName);
+
+        assertThat(car.getName()).isEqualTo(carName);
+    }
 }
