@@ -33,6 +33,10 @@ public class Car {
         return winners;
     }
 
+    public void setWinners(List<String> winners) {
+        this.winners.addAll(winners);
+    }
+
     private List<String> initNames(String names) {
         String[] processedNames = names.split(",");
         return Arrays.stream(processedNames)
