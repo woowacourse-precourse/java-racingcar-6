@@ -8,12 +8,17 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printMovementIndicator(String name, int movement) {
+    public static void printMovementCount(String name, int movement) {
+        String movementIndicator = createMovementIndicator(movement);
+        System.out.println(name + " : " + movementIndicator);
+    }
+
+    private static String createMovementIndicator(int movement) {
         StringBuilder indicator = new StringBuilder();
         for (int i = 0; i < movement; i++) {
             indicator.append("-");
         }
-        System.out.println(name + " : " + indicator.toString());
+        return indicator.toString();
     }
 
     public static void printSelectWinner(List<String> winners) {
