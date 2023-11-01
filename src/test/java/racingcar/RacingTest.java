@@ -33,4 +33,17 @@ public class RacingTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    @DisplayName("initParticipants 이름 중복 실패 테스트")
+    void initParticipants_name_duplication_fail() {
+
+        Racing racing = new Racing();
+        String[] carNames = {"디카프리오", "디카프리오", "레옹"};
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> racing.initParticipants(carNames))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
