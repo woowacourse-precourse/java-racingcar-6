@@ -6,18 +6,13 @@ import racingcar.vo.RacingInfo;
 
 import java.util.List;
 
-class RacingCarHandler implements Handler<RacingInfo>{
+public class RacingCarHandler implements Handler<RacingInfo, RacingInfo>{
 
-    private static final String RACING_PERIOD_MESSAGE = "실행 결과";
-
-    RacingCarHandler() {
-    }
-
-    public void execute(final RacingInfo racingInfo) {
-        System.out.println(RACING_PERIOD_MESSAGE);
+    public RacingInfo execute(final RacingInfo racingInfo) {
         for(int i = 0; i< racingInfo.getRepeatCount(); i++){
             moveCar(racingInfo.getCarList());
         }
+        return racingInfo;
     }
 
     private void moveCar(final List<CarInfo> carInfoList) {
@@ -27,7 +22,7 @@ class RacingCarHandler implements Handler<RacingInfo>{
         System.out.println();
     }
 
-    private static void moveCarAndPrint(CarInfo carInfo) {
+    private void moveCarAndPrint(CarInfo carInfo) {
         if(Randoms.pickNumberInRange(0,9)>=4)
             carInfo.increaseMoveCnt();
         System.out.println(carInfo);

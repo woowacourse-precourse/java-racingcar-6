@@ -6,24 +6,19 @@ import racingcar.vo.CarInfo;
 import java.util.List;
 import java.util.Map;
 
-class RacingResultHandler implements Handler<CarCollection> {
+public class RacingResultHandler implements Handler<CarCollection, CarCollection> {
 
-    private static final String RACING_RESULT_MESSAGE = "최종 우승자 : %s";
-
-    RacingResultHandler() {
+    public CarCollection execute(final CarCollection carCollection) {
+        return extractWinCars(carCollection);
     }
 
-    public void execute(final CarCollection carCollection) {
-        final CarCollection winCarCollection = extractWinNames(carCollection);
-        System.out.print(String.format(RACING_RESULT_MESSAGE, winCarCollection.getCarName()));
-    }
-
-    private static CarCollection extractWinNames(CarCollection carCollection) {
+    private static CarCollection extractWinCars(CarCollection carCollection) {
         final Map<Integer, List<CarInfo>> group = carCollection.groupByMoveCnt();
         return getValueFromMaxValue(group);
     }
 
     private static CarCollection getValueFromMaxValue(Map<Integer, List<CarInfo>> collect) {
-        return new CarCollection(collect.values().iterator().next());
+        final Integer maxMoveCnt = collect.keySet().stream().max(Integer::compareTo).orElse(0);
+        return new CarCollection(collect.get(maxMoveCnt));
     }
 }

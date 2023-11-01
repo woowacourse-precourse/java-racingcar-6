@@ -12,11 +12,11 @@ public class RacingInfo {
     }
 
     public CarCollection getCarCollection() {
-        return carCollection;
+        return this.carCollection;
     }
 
     public List<CarInfo> getCarList() {
-        return carCollection.getCarList();
+        return this.carCollection.getCarList();
     }
 
     public Integer getRepeatCount() {
