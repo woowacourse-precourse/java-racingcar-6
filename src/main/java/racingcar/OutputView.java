@@ -11,9 +11,10 @@ public class OutputView {
     private static final int DEFAULT_VALUE = 0;
     private static final String FINAL_WINNER = "최종 우승자";
     private static final String DELIMITER_COMMA = ", ";
+    private static final String NEW_LINE = "\n";
 
     public void printResultMessage() {
-        System.out.println("\n" + EXECUTE_RESULT);
+        System.out.println(NEW_LINE + EXECUTE_RESULT);
     }
 
     public void printRoundResult(RoundResult roundResult) {

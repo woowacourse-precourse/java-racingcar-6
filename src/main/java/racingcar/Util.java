@@ -1,15 +1,17 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Util {
 
     private static final String SPACE = " ";
     private static final String NO_SPACE = "";
     private static final String COMMA = ",";
+    private static final int START_INCLUSIVE = 0;
+    private static final int END_INCLUSIVE = 9;
 
     public static String removeSpace(String input) {
         return input.replaceAll(SPACE, NO_SPACE);
@@ -24,7 +26,7 @@ public class Util {
     }
 
     public static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 
     public static CarDto carToCarDto(Car car) {
