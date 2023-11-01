@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CarRepository {
-    private Map<Car,Integer> carMap = new HashMap<>();
+    private List<Car> carList = new ArrayList<>();
     private static CarRepository carRepository = new CarRepository();
     private CarRepository(){}
     public static CarRepository getInstance(){
@@ -19,17 +19,17 @@ public class CarRepository {
     }
 
     public void save(Car car){
-        if(!carMap.containsKey(car))
-            carMap.put(car,0);
+        if(!carList.contains(car))
+            carList.add(car);
     }
     public void moveForward(Car car, Move move){
         if(move == Move.STOP)
             return;
-        if(carMap.containsKey(car))
-            carMap.put(car,carMap.get(car) + 1);
+        if(carList.contains(car))
+            car.moveForward();
     }
     public List<Car> findAllCars(){
-        return new ArrayList<>(carMap.keySet());
+        return carList;
     }
 
 }

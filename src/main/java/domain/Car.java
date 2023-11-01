@@ -4,9 +4,14 @@ import java.util.Objects;
 
 public class Car {
     String name;
+    int forward;
 
     public Car(String name){
         this.name = name;
+        forward=0;
+    }
+    public void moveForward(){
+        forward++;
     }
     public String getName(){
         return name;
