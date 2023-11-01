@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public record GameRound(int roundNumber) {
 

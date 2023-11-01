@@ -1,8 +1,9 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringJoiner;
+import racingcar.domain.car.RacingCarWinners;
+import racingcar.domain.car.RacingCars;
 
 public class GameRankings {
 

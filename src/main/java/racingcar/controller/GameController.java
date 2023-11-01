@@ -1,4 +1,12 @@
-package racingcar;
+package racingcar.controller;
+
+import racingcar.domain.GameResult;
+import racingcar.domain.GameRound;
+import racingcar.domain.car.RacingCars;
+import racingcar.domain.forwardMethod.RandomForwardMethod;
+import racingcar.service.GameService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController implements Runnable {
 

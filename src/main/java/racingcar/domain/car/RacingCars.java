@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.car;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import racingcar.domain.forwardMethod.ForwardMethod;
 
 public class RacingCars implements Iterable<RacingCar> {
 

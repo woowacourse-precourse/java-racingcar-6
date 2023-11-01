@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.car;
 
 import org.junit.platform.commons.util.StringUtils;
 

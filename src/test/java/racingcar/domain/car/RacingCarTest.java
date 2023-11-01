@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.car;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

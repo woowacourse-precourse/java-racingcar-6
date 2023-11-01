@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.car;
 
 public record Position(int currentPosition) {
 

@@ -1,7 +1,12 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.Map;
 import java.util.StringJoiner;
+import racingcar.domain.GameRankings;
+import racingcar.domain.GameResult;
+import racingcar.domain.GameRound;
+import racingcar.domain.car.Name;
+import racingcar.domain.car.RacingCars;
 
 public class ConsoleOutputView implements OutputView {
 

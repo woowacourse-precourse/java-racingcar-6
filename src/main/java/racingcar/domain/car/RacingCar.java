@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.domain.car;
+
+import racingcar.domain.forwardMethod.ForwardMethod;
 
 public record RacingCar(Name name, Position position) implements Comparable<RacingCar> {
 

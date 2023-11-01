@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.car.Name;
+import racingcar.domain.car.RacingCar;
+import racingcar.domain.car.RacingCarWinners;
+import racingcar.domain.car.RacingCars;
 
 class GameRankingsTest {
 

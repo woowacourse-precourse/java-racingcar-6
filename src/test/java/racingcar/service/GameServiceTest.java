@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -6,6 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.GameResult;
+import racingcar.domain.GameRound;
+import racingcar.domain.car.RacingCar;
+import racingcar.domain.car.RacingCars;
+import racingcar.domain.forwardMethod.RandomForwardMethod;
 
 class GameServiceTest {
 
