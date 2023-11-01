@@ -27,21 +27,21 @@ public class InputHandler {
         return convertToNumber(userInput());
     }
 
-    public static String userInput() {
+    private static String userInput() {
         return Console.readLine();
     }
 
-    public static String[] splitToArray(String input) {
+    private static String[] splitToArray(String input) {
         validateCarNames(input);
         return input.split(COMMA);
     }
 
-    public static int convertToNumber(String input) {
+    private static int convertToNumber(String input) {
         validateTrialCount(input);
         return Integer.parseInt(input);
     }
 
-    public static void validateCarNames(String target) {
+    private static void validateCarNames(String target) {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
@@ -62,7 +62,7 @@ public class InputHandler {
         }
     }
 
-    public static void validateTrialCount(String target) {
+    private static void validateTrialCount(String target) {
         if (target.isEmpty()) { // 입력값 부재
             throw new IllegalArgumentException();
         }
@@ -74,17 +74,17 @@ public class InputHandler {
         }
     }
 
-    public static boolean isBothEndPattern(String target) {
+    private static boolean isBothEndPattern(String target) {
         return (Pattern.matches(COMMA+"[^COMMA]+", target)
                 || Pattern.matches("[^COMMA]+"+COMMA, target));
     }
 
-    public static boolean hasLengthExcess(String target) {
+    private static boolean hasLengthExcess(String target) {
         return Arrays.stream(target.split(COMMA))
                 .anyMatch(each -> each.length() > MAX_LENGTH);
     }
 
-    public static boolean hasDuplicates(String target) {
+    private static boolean hasDuplicates(String target) {
         List<String> list = Arrays.stream(target.split(COMMA)).collect(Collectors.toList());
         Set<String> set = Arrays.stream(target.split(COMMA)).collect(Collectors.toSet());
         return (list.size() != set.size());
