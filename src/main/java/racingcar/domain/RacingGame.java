@@ -32,20 +32,19 @@ public class RacingGame {
         int randNum;
         for (int i = 0; i < cars.size(); i++) {
             randNum = Randoms.pickNumberInRange(RAND_NUM_MIN, RAND_NUM_MAX);
-            decideMoveByRandValue(randNum,i);
+            decideMoveByRandValue(randNum,i, resultList);
         }
         return resultList;
     }
 
-    public void decideMoveByRandValue(int randNum, int index) {
+    public void decideMoveByRandValue(int randNum, int index, List<String> resultList) {
         if (randNum >= RAND_NUM_THRESHOLD) {
             resultList.set(index, resultList.get(index) + "-");
         }
     }
 
-    public List<String> chooseWinners(List<String> winner, List<String> resultList) {
+    public List<String> chooseWinners(List<String> winner, List<String> resultList, List<String> cars) {
 
-        List<String> cars = inputDesk.getCars();
         int maxLen = 0;
         for (int i = 0; i < resultList.size(); i++) {
             if (resultList.get(i).length() > maxLen) {
@@ -79,7 +78,7 @@ public class RacingGame {
             inputDesk.inputCounts();
             resultList = initResultList(inputDesk.getCars().size());
             repeatOneSetGameUntilCount(inputDesk.getCount());
-            chooseWinners(winner,resultList);
+            chooseWinners(winner,resultList,inputDesk.getCars());
             announcer.winner(winner);
         } catch (IllegalArgumentException e) {
             throw e;
