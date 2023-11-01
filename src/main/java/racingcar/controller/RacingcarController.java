@@ -32,6 +32,7 @@ public class RacingcarController {
     }
     public void startGame() {
         runRace();
+        printWinners();
     }
 
     private void runRace() {
@@ -40,5 +41,10 @@ public class RacingcarController {
             String raceStatus = racingcarService.getRaceStatus();
             outputView.printGameStatus(raceStatus);
         }
+    }
+
+    private void printWinners() {
+        List<String> winners = racingcarService.getWinner();
+        outputView.printWinners(winners);
     }
 }
