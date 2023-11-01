@@ -68,7 +68,7 @@ public class RacingTest {
 
     @Test
     @DisplayName("initParticipants 성공 테스트")
-    void initParticipants_success_fail() {
+    void initParticipants_success() {
 
         String[] carNames = {"디", "레옹", "마틸다", "로즈", "고든"};
 
@@ -88,7 +88,7 @@ public class RacingTest {
     
     @Test
     @DisplayName("initPlayCount 부족 실패 테스트")
-    void initParticipants_lack_fail() {
+    void initPlayCount_lack_fail() {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> racing.initPlayCount(0))
@@ -98,7 +98,7 @@ public class RacingTest {
 
     @Test
     @DisplayName("initPlayCount 초과 실패 테스트")
-    void initParticipants_over_fail() {
+    void initPlayCount_over_fail() {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> racing.initPlayCount(11))
