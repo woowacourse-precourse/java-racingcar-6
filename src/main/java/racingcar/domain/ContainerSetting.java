@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MoveContainer {
-//    UserInput userInput = new UserInput();
+public class ContainerSetting {
+
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public Map<String, Integer> initMap(List<String> userInput){
