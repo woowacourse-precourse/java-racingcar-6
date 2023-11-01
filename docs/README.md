@@ -2,19 +2,19 @@
 
 ## 0. 프로그래밍 요구 사항
 
--[ ] JDK 17 버전에서 실행 가능해야 한다.
--[ ] 프로그램 실행의 시작점은 `Application`의 `main()`으로 한다.
--[ ] `build.gradle` 파일을 변경하지 않고 외부 라이브러리를 사용하지 않는다.
--[ ] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/main/styleguide/java) 가이드를
+-[x] JDK 17 버전에서 실행 가능해야 한다.
+-[x] 프로그램 실행의 시작점은 `Application`의 `main()`으로 한다.
+-[x] `build.gradle` 파일을 변경하지 않고 외부 라이브러리를 사용하지 않는다.
+-[x] [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/main/styleguide/java) 가이드를
  준수하며 프로그래밍한다.
--[ ] 프로그램 종료 시 `System.exit()`를 호출하지 않는다.
--[ ] `ApplicationTest`의 모든 테스트가 성공해야 한다.
--[ ] 파일, 패키지 이름을 수정하거나 이동하지 않는다.
--[ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다.
--[ ] 3항 연산자를 쓰지 않는다.
--[ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
--[ ] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
--[ ] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+-[x] 프로그램 종료 시 `System.exit()`를 호출하지 않는다.
+-[x] `ApplicationTest`의 모든 테스트가 성공해야 한다.
+-[x] 파일, 패키지 이름을 수정하거나 이동하지 않는다.
+-[x] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다.
+-[x] 3항 연산자를 쓰지 않는다.
+-[x] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
+-[x] JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
+-[x] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 
 ## 1. 게임 시작
 

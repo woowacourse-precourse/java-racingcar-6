@@ -11,16 +11,17 @@ public class Game {
 
     public Game() {
         Validator validator = new Validator();
+        NumberGenerator numberGenerator = new RandomNumberGenerator();
         reader = new Reader(validator);
         printer = new Printer();
-        player = new Player();
+        player = new Player(numberGenerator);
         referee = new Referee();
     }
 
     public void start() {
         printer.printStartMessage();
         List<String> names = reader.readNames();
-        player.createCars(names);
+        player.addCars(names);
         printer.printCountMessage();
         readRaceCount();
         printer.printBlankLine();

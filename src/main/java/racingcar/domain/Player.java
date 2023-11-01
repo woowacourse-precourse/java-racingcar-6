@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,12 +7,14 @@ class Player {
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 9;
     public static final int CAN_MOVE_NUMBER = 4;
+    private final NumberGenerator numberGenerator;
     private List<Car> cars;
 
-    Player() {
+    Player(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
 
-    void createCars(List<String> names) {
+    void addCars(List<String> names) {
         cars = names.stream()
             .map(name -> new Car(name, 0))
             .toList();
@@ -26,7 +27,7 @@ class Player {
     }
 
     private Car moveCarIfGreater(Car car) {
-        int number = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        int number = numberGenerator.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if (number >= CAN_MOVE_NUMBER) {
             return car.movedCar();
         }
