@@ -1,20 +1,18 @@
 package racingcar;
 
 import java.util.List;
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Console;
 
 public class CarRacingGameRunner {
     public static void runCarRacingGame() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("자동차 경주 게임을 시작합니다.");
 
         System.out.print("경주할 자동차 이름을 입력하세요 (이름은 쉼표(,)로 구분): ");
-        String carNamesInput = scanner.nextLine();
-        List<Car> cars = CarInitialization.initializeCars(carNamesInput); // 사용자 입력을 전달
+        String carNamesInput = Console.readLine(); // Console 클래스 사용
+        List<Car> cars = CarInitialization.initializeCars(carNamesInput);
 
         System.out.print("이동할 횟수를 입력하세요 (양수): ");
-        int numberOfMoves = scanner.nextInt();
+        int numberOfMoves = Integer.parseInt(Console.readLine()); // Console 클래스 사용
 
         CarRacingGame game = new CarRacingGame(cars);
 
