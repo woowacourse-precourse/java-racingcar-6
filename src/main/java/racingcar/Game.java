@@ -16,4 +16,9 @@ public class Game {
         run(carGroup.getCarList(), trialNumber);
         OutputHandler.printFinalResult(carGroup.getWinnerList());
     }
+
+    public CarGroup initCarGroup() {
+        System.out.println(INIT_CARGROUP_TEXT);
+        return new CarGroup(InputHandler.getCarListFromInput());
+    }
 }
