@@ -2,7 +2,7 @@ package controller;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class UserInputController{
+public class userInputController {
     public String inputCarNames(){
         String carNames = Console.readLine();
         return carNames;

@@ -1,10 +1,10 @@
 package model;
 
 public class utilityModel {
-    public String[] splitByComma(String input){
+    public static String[] splitByComma(String input){
         return input.split(",");
     }
-    boolean isValidName(int maxLength, String name){
+    public static boolean isValidName(int maxLength, String name){
         if(name.length() <= maxLength){
             return true;
         }
