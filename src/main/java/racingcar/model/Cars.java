@@ -1,10 +1,11 @@
 package racingcar.model;
 
+import racingcar.constant.SeparatorConstant;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private static final String WINNER_SEPARATOR = ", ";
     private List<Car> carList;
     private static Cars instance;
 
@@ -50,7 +51,7 @@ public class Cars {
         return carList.stream()
                 .filter(car -> car.getDashNum() == maxDash())
                 .map(Car::getWinnerName)
-                .collect(Collectors.joining(WINNER_SEPARATOR));
+                .collect(Collectors.joining(SeparatorConstant.WINNER_SEPARATOR.getValue()));
     }
 
     private int winnerCount() {

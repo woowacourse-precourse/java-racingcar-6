@@ -1,4 +1,9 @@
-package racingcar.util;
+package racingcar.validator;
+
+import racingcar.constant.ErrorMessage;
+import racingcar.constant.RacingConstant;
+import racingcar.constant.SeparatorConstant;
+import racingcar.constant.ValidatorConstant;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -8,8 +13,6 @@ import java.util.stream.Collectors;
 
 public class CarNameValidator extends Validator {
     private static final Pattern VALID_CAR_NAME_REGEXP = Pattern.compile("[a-zA-Z가-힣0-9]+");
-    private static final String NAME_SEPARATOR = ",";
-    private static final int MAX_NAME_LENGTH = 5;
 
     @Override
     public void validate(String inputCarNames) {
@@ -27,11 +30,11 @@ public class CarNameValidator extends Validator {
         if (!isValidCarNameSeparator(inputCarNames)) {
             throw new IllegalArgumentException(ErrorMessage.NOT_COMMA_ERROR.getErrorMessage());
         }
-        return inputCarNames.split(NAME_SEPARATOR);
+        return inputCarNames.split(SeparatorConstant.NAME_SEPARATOR.getValue());
     }
 
     private boolean isValidCarNameSeparator(String inputCarNames) {
-        return Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
+        return Arrays.stream(inputCarNames.split(SeparatorConstant.NAME_SEPARATOR.getValue()))
                 .allMatch(this::isValidCarName);
     }
 
@@ -56,7 +59,7 @@ public class CarNameValidator extends Validator {
     }
 
     private boolean isNameOverLength(String[] carNames) {
-        return Arrays.stream(carNames).allMatch(name -> name.length() <= MAX_NAME_LENGTH);
+        return Arrays.stream(carNames).allMatch(name -> name.length() <= RacingConstant.MAX_NAME_LENGTH.getValue());
     }
 
     /***

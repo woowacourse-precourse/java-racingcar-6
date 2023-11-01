@@ -1,8 +1,8 @@
 package racingcar.view;
 
+import racingcar.constant.RacingMessage;
+
 public class OutputView {
-    private static final String GAME_RESULT_MESSAGE = "실행 결과";
-    private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static OutputView instance;
 
     private OutputView() {}
@@ -15,7 +15,7 @@ public class OutputView {
     }
 
     public void printRacingResult() {
-        System.out.println(GAME_RESULT_MESSAGE);
+        System.out.println(RacingMessage.GAME_RESULT_MESSAGE.getMessage());
     }
 
     public void printCarRacingStatus(String racingResult) {
@@ -23,7 +23,7 @@ public class OutputView {
     }
 
     public void printWinner(String racingWinner) {
-        System.out.println(WINNER_MESSAGE + racingWinner);
+        System.out.println(RacingMessage.WINNER_MESSAGE.getMessage() + racingWinner);
     }
 
 }

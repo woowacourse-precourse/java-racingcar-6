@@ -1,7 +1,8 @@
 package racingcar.model;
 
+import racingcar.constant.CarInformConstant;
+
 public class CarInform {
-    private static final String DASH_STRING = "-";
     private String carName;
     private String dash;
 
@@ -15,7 +16,7 @@ public class CarInform {
     }
 
     public void plusDash() {
-        dash += DASH_STRING;
+        dash += CarInformConstant.DASH_STRING.getValue();
     }
 
     public String makeRacingResult() {

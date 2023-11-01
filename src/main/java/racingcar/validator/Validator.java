@@ -1,4 +1,6 @@
-package racingcar.util;
+package racingcar.validator;
+
+import racingcar.constant.ErrorMessage;
 
 public abstract class Validator {
     public abstract void validate(String inputString);
