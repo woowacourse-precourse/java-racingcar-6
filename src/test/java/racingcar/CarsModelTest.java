@@ -1,22 +1,21 @@
 package racingcar;
 
-        import static org.assertj.core.api.Assertions.assertThat;
-        import static org.mockito.Mockito.mock;
-        import static org.mockito.Mockito.mockStatic;
-        import static org.mockito.Mockito.when;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.when;
 
-        import camp.nextstep.edu.missionutils.Randoms;
-        import java.util.ArrayList;
-        import java.util.List;
-        import org.junit.jupiter.api.BeforeEach;
-        import org.junit.jupiter.api.Test;
-        import org.mockito.MockedStatic;
-        import racingcar.model.Car;
-        import racingcar.model.Cars;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import racingcar.model.Car;
+import racingcar.model.Cars;
 
 public class CarsModelTest {
     List<Car> carList;
-
 
     @BeforeEach
     void init() {
