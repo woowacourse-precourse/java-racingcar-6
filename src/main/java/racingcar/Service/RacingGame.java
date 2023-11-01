@@ -14,6 +14,11 @@ public class RacingGame {
     public RacingGame(String inputCarsString){
         this.cars = this.createCars(inputCarsString);
     }
+
+    public List<Car> getCars(){
+        return cars;
+    }
+
     private List<Car> createCars(String inputCarsString){
 
         List<String> carNames = new ArrayList<String>();

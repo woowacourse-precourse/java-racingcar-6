@@ -1,6 +1,7 @@
 package racingcar.View;
 
 import camp.nextstep.edu.missionutils.Console;
+import org.assertj.core.api.ThrowableAssert;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +31,7 @@ public class InputView {
 
         return tryCount;
     }
-    private void checkCarsNameValidation(String carsName){
+    public void checkCarsNameValidation(String carsName){
         checkInputIsBlank(carsName);
         checkCarsNameLength(carsName);
     }
@@ -49,14 +50,14 @@ public class InputView {
             if(carName.length() >= 6){
                 throw new IllegalArgumentException();
             }
-            else if(carName.isEmpty()){
+            else if(carName.isBlank()){
                 throw new IllegalArgumentException();
             }
         }
     }
 
 
-    private void checkTryCountValidation(String tryCount){
+    public void checkTryCountValidation(String tryCount){
         checkInputIsBlank(tryCount);
         checkInputIsInteger(tryCount);
         checkTryCountRange(tryCount);

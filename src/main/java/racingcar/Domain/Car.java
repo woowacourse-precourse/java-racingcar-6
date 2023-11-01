@@ -34,25 +34,29 @@ public class Car {
         boolean randomValueValidation = checkRandomValueValidation(randomValue);
 
         if(randomValueValidation){
-            this.point += randomValue;
+            moveCar(randomValue);
         }
 
     }
 
-    private Integer createRandomValue(){
+    public Integer createRandomValue(){
 
         Integer randomValue = Randoms.pickNumberInRange(0, 9);
 
         return randomValue;
     }
 
-    private boolean checkRandomValueValidation(Integer randomValue){
+    public boolean checkRandomValueValidation(Integer randomValue){
 
         if (randomValue >= 4){
             return true;
         }
 
         return false;
+    }
+
+    public void moveCar(Integer randomValue){
+        this.point += randomValue;
     }
 
 }
