@@ -15,20 +15,23 @@ public class Name {
     }
 
     public static Name from(final String name) {
-        validate(name);
+        validateNameLengthIsCorrect(name);
+        validateNameNotContainsBlank(name);
         return new Name(name);
     }
 
-    private static void validate(final String name) {
+    private static void validateNameLengthIsCorrect(final String name) {
         if (name.length() < MINIMUM_LENGTH || name.length() > MAXIMUM_LENGTH) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION.getMessage());
         }
+    }
 
+    private static void validateNameNotContainsBlank(final String name) {
         if (name.contains(" ")) {
             throw new IllegalArgumentException(NAME_VALUE_BLANK_EXCEPTION.getMessage());
         }
     }
-
+    
     public String getName() {
         return name;
     }
