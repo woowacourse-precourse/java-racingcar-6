@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.Objects;
-
 public class Car {
     GameManager gameManager = new GameManager();
     private final String carName;

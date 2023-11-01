@@ -18,7 +18,7 @@ public class InputTest {
     Input input = new Input();
 
     @AfterEach
-    private void consoleClose(){
+    private void consoleClose() {
         Console.close();
     }
 
@@ -26,10 +26,8 @@ public class InputTest {
     @ValueSource(strings = "pobi,woni,jun")
     @DisplayName("경주 게임에 참여할 자동차 이름 입력 테스트")
     void getCarNameList_test(String carNames) {
-        List<String> carNameListForTest;
-
         command(carNames);
-        carNameListForTest = input.getCarNameList();
+        List<String> carNameListForTest = input.getCarNameList();
 
         assertEquals(3, carNameListForTest.size());
         assertThat(carNameListForTest).containsExactly("pobi", "woni", "jun");
@@ -47,7 +45,7 @@ public class InputTest {
 
     @Test
     @DisplayName("시도할 횟수 입력 시 0 입력 예외 발생 테스트")
-    void validateTryCountIfZero_test(){
+    void validateTryCountIfZero_test() {
         assertThatThrownBy(() -> getTryCount_test(0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("입력이 잘못되었습니다.");
