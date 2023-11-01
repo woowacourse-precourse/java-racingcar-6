@@ -36,7 +36,7 @@ public class Application {
         return Integer.parseInt(numString);
     }
 
-    static List<Integer> createDistance(List<Car> carArr) {
+    static List<Integer> createDistanceArr(List<Car> carArr) {
         List<Integer> distanceArr = new ArrayList<>();
         for (Car car: carArr){
             distanceArr.add(car.distance);
@@ -46,6 +46,16 @@ public class Application {
 
     static int findMaxValue(List<Integer> distanceArr){
         return Collections.max(distanceArr);
+    }
+
+    static List<Integer> findAllMaxIndex(List<Integer> distanceArr, int max) {
+        List<Integer> maxIndex = new ArrayList<>();
+        for (int value: distanceArr) {
+            if(value == max){
+                maxIndex.add(distanceArr.indexOf(value));
+            }
+        }
+        return maxIndex;
     }
 
     public static void main(String[] args) {
