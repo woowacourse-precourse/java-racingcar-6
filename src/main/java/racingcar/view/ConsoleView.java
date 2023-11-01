@@ -21,6 +21,7 @@ public class ConsoleView {
     public int readValidNumberOfAttempts() {
         String input = readInput();
         validateNumberOfAttempts(input);
+        printEmptyLine();
         return Integer.parseInt(input);
     }
 
@@ -31,6 +32,9 @@ public class ConsoleView {
 
     public void printMessage(String message) {
         System.out.println(message);
+    }
+    public void printEmptyLine() {
+        System.out.println();
     }
 
     public void printCurrentPositions(List<Car> cars) {
